@@ -107,7 +107,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			try_savefile_type_migration()
 		unlock_content = !!parent.IsByondMember()
 		if(unlock_content)
-			max_save_slots = 8
+			max_save_slots = 10 //DOPPLER EDIT - was 8
 	else
 		CRASH("attempted to create a preferences datum without a client or mock!")
 	load_savefile()
