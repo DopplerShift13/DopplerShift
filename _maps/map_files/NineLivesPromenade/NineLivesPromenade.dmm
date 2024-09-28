@@ -4458,12 +4458,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/cargo)
-"Lt" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice/catwalk,
-/obj/structure/cable,
-/turf/open/space/basic,
-/area/space/nearstation)
 "Lz" = (
 /obj/structure/railing,
 /turf/open/floor/plating,
@@ -152765,7 +152759,7 @@ EE
 EE
 EE
 EE
-Lt
+EE
 EE
 oj
 YM
