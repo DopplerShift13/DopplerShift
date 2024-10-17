@@ -11,9 +11,9 @@ SUBSYSTEM_DEF(events)
 	///The next world.time that a naturally occurring random event can be selected.
 	var/scheduled = 0
 	///The lower bound for how soon another random event can be scheduled.
-	var/frequency_lower = 2.5 MINUTES
+	var/frequency_lower = 30 MINUTES // DOPPLER EDIT, old code: 2.5 MINUTES
 	///The upper bound for how soon another random event can be scheduled.
-	var/frequency_upper = 7 MINUTES
+	var/frequency_upper = 1.5 HOURS // DOPPLER EDIT, old code: 7 MINUTES
 	///Will wizard events be included in the event pool?
 	var/wizardmode = FALSE
 
@@ -26,7 +26,10 @@ SUBSYSTEM_DEF(events)
 
 	frequency_lower = CONFIG_GET(number/events_frequency_lower)
 	frequency_upper = CONFIG_GET(number/events_frequency_upper)
-
+	// DOPPLER ADDITION START
+	if(CONFIG_GET(flag/low_chaos_event_system))
+		reschedule_low_chaos()
+	// DOPPLER ADDITION END
 	reschedule()
 	// Instantiate our holidays list if it hasn't been already
 	if(isnull(GLOB.holidays))
@@ -53,11 +56,21 @@ SUBSYSTEM_DEF(events)
 
 //checks if we should select a random event yet, and reschedules if necessary
 /datum/controller/subsystem/events/proc/checkEvent()
+	// DOPPLER ADDITION START
+	if(scheduled_low_chaos <= world.time && CONFIG_GET(flag/low_chaos_event_system))
+		trigger_low_chaos_event()
+	// DOPPLER ADDITION END
 	if(scheduled <= world.time)
 #ifdef MAP_TEST
 		message_admins("Random event skipped (Game is compiled in MAP_TEST mode)")
 #else
-		spawnEvent()
+		//spawnEvent() // DOPPLER EDIT REMOVAL
+		// DOPPLER ADDITION START
+		if(CONFIG_GET(flag/events_use_random))
+			spawnEvent()
+		else
+			start_player_vote_chaos(FALSE)
+		// DOPPLER ADDITION END
 #endif
 		reschedule()
 
