@@ -199,12 +199,14 @@
 		thing.acid_act(75, 10)
 
 /obj/item/organ/internal/stomach/alien/proc/consume_thing(atom/movable/thing)
-	RegisterSignal(thing, COMSIG_MOVABLE_MOVED, PROC_REF(content_moved))
+	/// DOPPLER SHIFT REMOVAL BEGIN - we take no chances.
+	/*RegisterSignal(thing, COMSIG_MOVABLE_MOVED, PROC_REF(content_moved))
 	RegisterSignal(thing, COMSIG_QDELETING, PROC_REF(content_deleted))
 	if(isliving(thing))
 		RegisterSignal(thing, COMSIG_LIVING_DEATH, PROC_REF(content_died))
 	stomach_contents += thing
-	thing.forceMove(owner || src) // We assert that if we have no owner, we will not be nullspaced
+	thing.forceMove(owner || src)*/ // We assert that if we have no owner, we will not be nullspaced
+	/// DOPPLER SHIFT REMOVAL BEGIN
 
 /obj/item/organ/internal/stomach/alien/proc/content_died(atom/movable/source)
 	SIGNAL_HANDLER
