@@ -112,7 +112,8 @@ GLOBAL_LIST_INIT(strippable_alien_humanoid_items, create_strippable_list(list(
 /// The mob needs to be consumable, as decided by [/mob/living/carbon/alien/adult/proc/can_consume]
 /// Returns FALSE if the attempt never even started, TRUE otherwise
 /mob/living/carbon/alien/adult/proc/devour_lad(atom/movable/candidate, devour_time = 13.5 SECONDS)
-	setDir(get_dir(src, candidate))
+	/// DOPPLER SHIFT REMOVAL BEGIN
+	/*setDir(get_dir(src, candidate))
 	if(!can_consume(candidate))
 		return FALSE
 	var/mob/living/lucky_winner = candidate
@@ -138,7 +139,9 @@ GLOBAL_LIST_INIT(strippable_alien_humanoid_items, create_strippable_list(list(
 			span_userdanger("[lucky_winner] devours you!"))
 	log_combat(src, lucky_winner, "devoured")
 	melting_pot.consume_thing(lucky_winner)
-	return TRUE
+	return TRUE*/
+	/// DOPPLER SHIFT REMOVAL END
+	return FALSE
 
 /mob/living/carbon/alien/adult/get_butt_sprite()
 	return icon('icons/mob/butts.dmi', BUTT_SPRITE_XENOMORPH)
