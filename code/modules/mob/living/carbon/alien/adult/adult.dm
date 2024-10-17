@@ -94,26 +94,29 @@ GLOBAL_LIST_INIT(strippable_alien_humanoid_items, create_strippable_list(list(
 				ADD_TRAIT(pulling, TRAIT_FLOORED, CHOKEHOLD_TRAIT)
 
 /mob/living/carbon/alien/adult/mouse_drop_receive(atom/dropping, mob/user, params)
-	if(devour_lad(dropping))
-		return
+	/// DOPPLER SHIFT REMOVAL BEGN
+	/*if(devour_lad(dropping))
+		return*/
+	/// DOPPLER SHIFT REMOVAL END
 	return ..()
 
 /// Returns FALSE if we're not allowed to eat it, true otherwise
 /mob/living/carbon/alien/adult/proc/can_consume(atom/movable/poor_soul)
-	if(!isliving(poor_soul) || pulling != poor_soul)
+	/// DOPPLER SHIFT REMOVAL BEGIN
+	/*if(!isliving(poor_soul) || pulling != poor_soul)
 		return FALSE
 	if(incapacitated || grab_state < GRAB_AGGRESSIVE || stat != CONSCIOUS)
 		return FALSE
 	if(get_dir(src, poor_soul) != dir) // Gotta face em 4head
-		return FALSE
-	return TRUE
+		return FALSE*/
+	/// DOPPLER SHIFT REMOVAL END
+	return FALSE /// DOPPLER SHIFT EDIT: NEVER ALLOW THIS, NOT EVEN WITH ADMINBUS.
 
 /// Attempts to devour the passed in thing in devour_time seconds
 /// The mob needs to be consumable, as decided by [/mob/living/carbon/alien/adult/proc/can_consume]
 /// Returns FALSE if the attempt never even started, TRUE otherwise
 /mob/living/carbon/alien/adult/proc/devour_lad(atom/movable/candidate, devour_time = 13.5 SECONDS)
-	/// DOPPLER SHIFT REMOVAL BEGIN
-	/*setDir(get_dir(src, candidate))
+	setDir(get_dir(src, candidate))
 	if(!can_consume(candidate))
 		return FALSE
 	var/mob/living/lucky_winner = candidate
@@ -139,9 +142,7 @@ GLOBAL_LIST_INIT(strippable_alien_humanoid_items, create_strippable_list(list(
 			span_userdanger("[lucky_winner] devours you!"))
 	log_combat(src, lucky_winner, "devoured")
 	melting_pot.consume_thing(lucky_winner)
-	return TRUE*/
-	/// DOPPLER SHIFT REMOVAL END
-	return FALSE
+	return TRUE
 
 /mob/living/carbon/alien/adult/get_butt_sprite()
 	return icon('icons/mob/butts.dmi', BUTT_SPRITE_XENOMORPH)
