@@ -6703,6 +6703,7 @@
 #include "modular_doppler\modular_cosmetics\code\suits\misc.dm"
 #include "modular_doppler\modular_cosmetics\code\suits\modsuit.dm"
 #include "modular_doppler\modular_cosmetics\code\suits\shirts.dm"
+#include "modular_doppler\modular_cosmetics\code\under\base_overrides.dm"
 #include "modular_doppler\modular_cosmetics\code\under\doppler_uniforms.dm"
 #include "modular_doppler\modular_cosmetics\code\under\dresses.dm"
 #include "modular_doppler\modular_cosmetics\code\under\medical_extra.dm"
