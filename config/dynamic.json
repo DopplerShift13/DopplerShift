@@ -4,7 +4,7 @@
 		"Traitors": {
 			"cost": 8,
 			"scaling_cost": 9,
-			"weight": 0,
+			"weight": 5,
 			"required_candidates": 1,
 			"minimum_required_age": 0,
 			"requirements": [
@@ -36,119 +36,119 @@
 		},
 
 		"Blood Brothers": {
-			"weight": 0
+			"weight": 5
 		},
 
 		"Changelings": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Heretics": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Wizard": {
-			"weight": 0
+			"weight": 2
 		},
 
 		"Blood Cult": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Nuclear Emergency": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Revolution": {
-			"weight": 0
+			"weight": 3
 		}
 	},
 
 	"Midround": {
 		"Syndicate Sleeper Agent": {
-			"weight": 0
+			"weight": 35
 		},
 
 		"Malfunctioning AI": {
-			"weight": 0
+			"weight": 2
 		},
 
 		"Wizard": {
-			"weight": 0
+			"weight": 1
 		},
 
 		"Nuclear Assault": {
-			"weight": 0
+			"weight": 5
 		},
 
 		"Blob": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Blob Infection": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Alien Infestation": {
-			"weight": 0
+			"weight": 5
 		},
 
 		"Nightmare": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Space Dragon": {
-			"weight": 0
+			"weight": 4
 		},
 
 		"Abductors": {
-			"weight": 0
+			"weight": 4
 		},
 
 		"Space Ninja": {
-			"weight": 0
+			"weight": 4
 		},
 
 		"Spiders": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Revenant": {
-			"weight": 0
+			"weight": 4
 		},
 
 		"Space Pirates": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Obsessed": {
-			"weight": 0
+			"weight": 4
 		},
 
 		"Space Changeling": {
-			"weight": 0
+			"weight": 3
 		},
 
 		"Paradox Clone": {
-			"weight": 0
+			"weight": 4
 		}
 	},
 
 	"Latejoin": {
 		"Syndicate Infiltrator": {
-			"weight": 0
+			"weight": 11
 		},
 
 		"Provocateur": {
-			"weight": 0
+			"weight": 1
 		},
 
 		"Heretic Smuggler": {
-			"weight": 0
+			"weight": 8
 		},
 
 		"Stowaway Changeling": {
-			"weight": 0
+			"weight": 2
 		}
 	},
 
