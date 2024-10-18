@@ -2,11 +2,18 @@ import { exhaustiveCheck } from 'common/exhaustive';
 import { useState } from 'react';
 
 import { useBackend } from '../../backend';
-import { Button, Stack } from '../../components';
+import {
+  Dropdown,
+  Flex,
+  Stack,
+} from '../../components'; /* DOPPLER EDIT: Adds in Dropdown and Flex */
 import { Window } from '../../layouts';
 import { AntagsPage } from './AntagsPage';
 import { PreferencesMenuData } from './data';
 import { JobsPage } from './JobsPage';
+// DOPPLER EDIT
+import { LanguagesPage } from './LanguagesMenu';
+// DOPPLER EDIT
 import { LoadoutPage } from './loadout/index';
 import { LorePage } from './LorePage'; /* DOPPLER EDIT ADDITION */
 import { MainPage } from './MainPage';
@@ -18,6 +25,9 @@ enum Page {
   Antags,
   Main,
   Jobs,
+  // DOPPLER EDIT
+  Languages,
+  // DOPPLER EDIT END
   Species,
   Quirks,
   Loadout,
@@ -29,24 +39,29 @@ const CharacterProfiles = (props: {
   onClick: (index: number) => void;
   profiles: (string | null)[];
 }) => {
-  const { profiles } = props;
+  const { profiles, activeSlot, onClick } =
+    props; /* DOPPLER EDIT: activeSlot and onClick */
 
   return (
-    <Stack justify="center" wrap>
-      {profiles.map((profile, slot) => (
-        <Stack.Item key={slot}>
-          <Button
-            selected={slot === props.activeSlot}
-            onClick={() => {
-              props.onClick(slot);
-            }}
-            fluid
-          >
-            {profile ?? 'New Character'}
-          </Button>
-        </Stack.Item>
-      ))}
-    </Stack>
+    <Flex /* DOPPLER EDIT START: Dropdown instead of using buttons */
+      align="center"
+      justify="center"
+    >
+      <Flex.Item width="25%">
+        <Dropdown
+          width="100%"
+          selected={activeSlot as unknown as string}
+          displayText={profiles[activeSlot]}
+          options={profiles.map((profile, slot) => ({
+            value: slot,
+            displayText: profile ?? 'New Character',
+          }))}
+          onSelected={(slot) => {
+            onClick(slot);
+          }}
+        />
+      </Flex.Item>
+    </Flex> /* DOPPLER EDIT END */
   );
 };
 
@@ -64,6 +79,11 @@ export const CharacterPreferenceWindow = (props) => {
     case Page.Jobs:
       pageContents = <JobsPage />;
       break;
+    // DOPPLER EDIT
+    case Page.Languages:
+      pageContents = <LanguagesPage />;
+      break;
+    // DOPPLER EDIT END
     case Page.Main:
       pageContents = (
         <MainPage openSpecies={() => setCurrentPage(Page.Species)} />
@@ -108,11 +128,15 @@ export const CharacterPreferenceWindow = (props) => {
               profiles={data.character_profiles}
             />
           </Stack.Item>
+          {/* // DOPPLER EDIT: Hide Byond premium banner
+
           {!data.content_unlocked && (
             <Stack.Item align="center">
               Buy BYOND premium for more slots!
             </Stack.Item>
           )}
+
+           */}
           <Stack.Divider />
           <Stack.Item>
             <Stack fill>
@@ -164,7 +188,21 @@ export const CharacterPreferenceWindow = (props) => {
                   Occupations
                 </PageButton>
               </Stack.Item>
-
+              {
+                // DOPPLER EDIT
+              }
+              <Stack.Item grow>
+                <PageButton
+                  currentPage={currentPage}
+                  page={Page.Languages}
+                  setPage={setCurrentPage}
+                >
+                  Languages
+                </PageButton>
+              </Stack.Item>
+              {
+                // DOPPLER EDIT END
+              }
               <Stack.Item grow>
                 <PageButton
                   currentPage={currentPage}

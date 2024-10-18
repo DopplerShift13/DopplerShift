@@ -18,7 +18,13 @@
 /datum/loadout_item/undersuit/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE, override_items = LOADOUT_OVERRIDE_BACKPACK)
 	if(override_items == LOADOUT_OVERRIDE_BACKPACK && !visuals_only)
 		if(outfit.uniform)
-			LAZYADD(outfit.backpack_contents, outfit.uniform)
+			if(equipper.jumpsuit_style == PREF_SKIRT)
+				outfit.uniform = "[outfit.uniform]/skirt"
+				if(!text2path(outfit.uniform))
+					outfit.uniform = initial(outfit.uniform)
+				LAZYADD(outfit.backpack_contents, outfit.uniform)
+			else
+				LAZYADD(outfit.backpack_contents, outfit.uniform)
 		outfit.uniform = item_path
 	else
 		outfit.uniform = item_path
@@ -87,6 +93,10 @@
 	name = "Camo Pants"
 	item_path = /obj/item/clothing/under/pants/camo
 
+/datum/loadout_item/undersuit/pants/big_pants
+	name = "JUNCO megacargo pants"
+	item_path = /obj/item/clothing/under/pants/big_pants
+
 /*
 *	BUTTONDOWNS
 */
@@ -147,3 +157,27 @@
 /datum/loadout_item/undersuit/dress/sailor
 	name = "Heretical Dress"
 	item_path = /obj/item/clothing/under/dress/sailor
+
+/datum/loadout_item/undersuit/dress/tutu
+	name = "Pink Tutu"
+	item_path = /obj/item/clothing/under/dress/doppler/pinktutu
+
+/datum/loadout_item/undersuit/dress/flower
+	name = "Flower Dress"
+	item_path = /obj/item/clothing/under/dress/doppler/flower
+
+/datum/loadout_item/undersuit/dress/penta
+	name = "Pentagram Dress"
+	item_path = /obj/item/clothing/under/dress/doppler/pentagram
+
+/datum/loadout_item/undersuit/dress/strapless
+	name = "Strapless Dress"
+	item_path = /obj/item/clothing/under/dress/doppler/strapless
+
+/*
+*	MISCELLANEOUS
+*/
+
+/datum/loadout_item/undersuit/gear_harness
+	name = "Gear Harness"
+	item_path = /obj/item/clothing/under/misc/gear_harness

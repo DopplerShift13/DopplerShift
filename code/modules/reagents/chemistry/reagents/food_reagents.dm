@@ -53,6 +53,10 @@
 			var/obj/item/the_real_food = holder.my_atom
 			if(isitem(the_real_food) && !is_reagent_container(the_real_food))
 				exposed_mob.add_mob_memory(/datum/memory/good_food, food = the_real_food)
+		// DOPPLER EDIT ADDITION BEGIN - Race Quality Drinks
+		if (RACE_DRINK)
+			exposed_mob.add_mood_event("quality_drink", /datum/mood_event/race_drink)
+		// DOPPLER EDIT ADDITION END
 
 /// Gets just how much nutrition this reagent is worth for the passed mob
 /datum/reagent/consumable/proc/get_nutriment_factor(mob/living/carbon/eater)
@@ -1018,12 +1022,14 @@
 	taste_description = "smoke"
 	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
-
+/// DOPPLER SHIFT REMOVAL BEGIN
+/*
 /datum/reagent/consumable/char/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(SPT_PROB(13, seconds_per_tick))
 		affected_mob.say(pick_list_replacements(BOOMER_FILE, "boomer"), forced = /datum/reagent/consumable/char)
-
+*/
+/// DOPPLER SHIFT REMOVAL END
 /datum/reagent/consumable/bbqsauce
 	name = "BBQ Sauce"
 	description = "Sweet, smoky, savory, and gets everywhere. Perfect for grilling."

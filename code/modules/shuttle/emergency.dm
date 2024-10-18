@@ -136,7 +136,7 @@
 			minor_announce("Early launch authorization revoked, [remaining] authorizations needed")
 
 	acted_recently += user
-	ui_interact(user)
+	SStgui.update_user_uis(user, src)
 
 /obj/machinery/computer/emergency_shuttle/proc/authorize(mob/living/user, source)
 	var/obj/item/card/id/ID = user.get_idcard(TRUE)
@@ -159,7 +159,7 @@
 /obj/machinery/computer/emergency_shuttle/proc/clear_recent_action(mob/user)
 	acted_recently -= user
 	if (!QDELETED(user))
-		ui_interact(user)
+		SStgui.update_user_uis(user, src)
 
 /obj/machinery/computer/emergency_shuttle/process()
 	// Launch check is in process in case auth_need changes for some reason
@@ -347,7 +347,8 @@
 
 	. = ..()
 
-/obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signal_origin, reason, red_alert, set_coefficient=null)
+/// DOPPLER EDIT ADDITION: add silent mode support
+/obj/docking_port/mobile/emergency/request(obj/docking_port/stationary/S, area/signal_origin, reason, red_alert, set_coefficient=null, silent=FALSE)
 	if(!isnum(set_coefficient))
 		set_coefficient = SSsecurity_level.current_security_level.shuttle_call_time_mod
 	alert_coeff = set_coefficient
@@ -368,13 +369,15 @@
 	else
 		SSshuttle.emergency_last_call_loc = null
 
-	priority_announce(
-		text = "The emergency shuttle has been called. [red_alert ? "Red Alert state confirmed: Dispatching priority shuttle. " : "" ]It will arrive in [(timeLeft(60 SECONDS))] minutes.[reason][SSshuttle.emergency_last_call_loc ? "\n\nCall signal traced. Results can be viewed on any communications console." : "" ][SSshuttle.admin_emergency_no_recall ? "\n\nWarning: Shuttle recall subroutines disabled; Recall not possible." : ""]",
-		title = "Emergency Shuttle Dispatched",
-		sound = ANNOUNCER_SHUTTLECALLED,
-		sender_override = "Emergency Shuttle Uplink Alert",
-		color_override = "orange",
-		)
+	if(!silent) /// DOPPLER ADDITION BEGIN
+		priority_announce(
+			text = "The emergency shuttle has been called. [red_alert ? "Red Alert state confirmed: Dispatching priority shuttle. " : "" ]It will arrive in [(timeLeft(60 SECONDS))] minutes.[reason][SSshuttle.emergency_last_call_loc ? "\n\nCall signal traced. Results can be viewed on any communications console." : "" ][SSshuttle.admin_emergency_no_recall ? "\n\nWarning: Shuttle recall subroutines disabled; Recall not possible." : ""]",
+			title = "Emergency Shuttle Dispatched",
+			sound = ANNOUNCER_SHUTTLECALLED,
+			sender_override = "Emergency Shuttle Uplink Alert",
+			color_override = "orange",
+			)
+	/// DOPPLER EDIT END
 
 /obj/docking_port/mobile/emergency/cancel(area/signalOrigin)
 	if(mode != SHUTTLE_CALL)
@@ -599,7 +602,7 @@
 					destination_dock = "emergency_syndicate"
 					minor_announce("Corruption detected in \
 						shuttle navigation protocols. Please contact your \
-						supervisor.", "SYSTEM ERROR:", sound_override = 'sound/misc/announce_syndi.ogg')
+						supervisor.", "SYSTEM ERROR:", sound_override = 'sound/announcer/announcement/announce_syndi.ogg')
 
 				dock_id(destination_dock)
 				mode = SHUTTLE_ENDGAME

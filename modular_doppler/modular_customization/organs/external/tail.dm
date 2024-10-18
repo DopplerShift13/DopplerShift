@@ -91,12 +91,6 @@
 	var/mob/living/carbon/human/empath = entered
 	empath.add_mood_event("dog_wag", /datum/mood_event/dog_wag)
 
-// The mood buff itself
-/datum/mood_event/dog_wag
-	description = "That wagging tail's excitement is infectious!"
-	mood_change = 1
-	timeout = 30 SECONDS
-
 /// Fox tail
 //
 /obj/item/organ/external/tail/fox
@@ -179,18 +173,18 @@
 /datum/bodypart_overlay/mutant/tail/fish/get_global_feature_list()
 	return SSaccessories.tails_list_fish
 
-/// Synth tail
+/// Cybernetic tail
 //
-/obj/item/organ/external/tail/synthetic
+/obj/item/organ/external/tail/cybernetic
 	preference = "feature_synth_tail"
 	dna_block = null
 	organ_flags = ORGAN_ROBOTIC
-	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/synthetic
+	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/cybernetic
 
-/datum/bodypart_overlay/mutant/tail/synthetic
+/datum/bodypart_overlay/mutant/tail/cybernetic
 	feature_key = "tail_other"
 
-/datum/bodypart_overlay/mutant/tail/synthetic/get_global_feature_list()
+/datum/bodypart_overlay/mutant/tail/cybernetic/get_global_feature_list()
 	return SSaccessories.tails_list_synth
 
 
@@ -199,6 +193,7 @@
 /obj/item/organ/external/tail/humanoid
 	preference = "feature_humanoid_tail"
 	dna_block = null
+	wag_flags = WAG_ABLE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/humanoid
 
 /datum/bodypart_overlay/mutant/tail/humanoid
@@ -206,3 +201,18 @@
 
 /datum/bodypart_overlay/mutant/tail/humanoid/get_global_feature_list()
 	return SSaccessories.tails_list_humanoid
+
+
+/// Alien tail
+//
+/obj/item/organ/external/tail/alien
+	preference = "feature_alien_tail"
+	dna_block = null
+	wag_flags = WAG_ABLE
+	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/alien
+
+/datum/bodypart_overlay/mutant/tail/alien
+	feature_key = "tail_other"
+
+/datum/bodypart_overlay/mutant/tail/alien/get_global_feature_list()
+	return SSaccessories.tails_list_alien

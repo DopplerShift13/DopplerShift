@@ -3,6 +3,10 @@
 /atom/proc/on_loadout_custom_described()
 	return
 
+/// Called after a loadout item gets custom named
+/atom/proc/on_loadout_custom_named()
+	return
+
 /*
  * Generate a list of singleton loadout_item datums from all subtypes of [type_to_generate]
  *
@@ -28,9 +32,6 @@
 		GLOB.all_loadout_datums[spawned_type.item_path] = spawned_type
 		. |= spawned_type
 
-/datum/loadout_category
-	var/erp_category = FALSE
-
 /datum/loadout_item
 	/// If set, is a list of job names of which can get the loadout item
 	var/list/restricted_roles
@@ -40,10 +41,6 @@
 	var/list/restricted_species
 	/// Whether the item requires a specific season in order to be available
 	var/required_season = null
-	/// If the item won't appear when the ERP config is disabled
-	var/erp_item = FALSE
-	/// If the item goes into the special erp box
-	var/erp_box = FALSE
 
 /*
  * Place our [var/item_path] into [outfit].

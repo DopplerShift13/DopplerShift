@@ -226,8 +226,8 @@
 	unarmed_attack_verbs = list("slash", "lash")
 	grappled_attack_verb = "lacerate"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
-	unarmed_attack_sound = 'sound/weapons/slice.ogg'
-	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	unarmed_attack_sound = 'sound/items/weapons/slice.ogg'
+	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
 	burn_modifier = 1.25
 
 /obj/item/bodypart/arm/right/pod
@@ -235,8 +235,8 @@
 	unarmed_attack_verbs = list("slash", "lash")
 	grappled_attack_verb = "lacerate"
 	unarmed_attack_effect = ATTACK_EFFECT_CLAW
-	unarmed_attack_sound = 'sound/weapons/slice.ogg'
-	unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	unarmed_attack_sound = 'sound/items/weapons/slice.ogg'
+	unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
 	burn_modifier = 1.25
 
 /obj/item/bodypart/leg/left/pod
@@ -498,6 +498,7 @@
 	icon_static = 'icons/mob/human/species/golems.dmi'
 	icon_state = "golem_l_arm"
 	biological_state = (BIO_BONE|BIO_JOINTED)
+	unarmed_attack_verbs = list("pummel") /// DOPPLER EDIT ADDITION - Making sure this works.
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
 	limb_id = SPECIES_GOLEM
 	should_draw_greyscale = FALSE
@@ -531,6 +532,7 @@
 	icon_static = 'icons/mob/human/species/golems.dmi'
 	icon_state = "golem_r_arm"
 	biological_state = (BIO_BONE|BIO_JOINTED)
+	unarmed_attack_verbs = list("pummel") /// DOPPLER EDIT ADDITION - Making sure this works.
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
 	limb_id = SPECIES_GOLEM
 	should_draw_greyscale = FALSE
@@ -565,6 +567,7 @@
 	icon_state = "golem_l_leg"
 	biological_state = (BIO_BONE|BIO_JOINTED)
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
+	unarmed_attack_verbs = list("crush") /// DOPPLER EDIT ADDITION - Making sure this works.
 	limb_id = SPECIES_GOLEM
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null
@@ -578,6 +581,7 @@
 	icon_state = "golem_r_leg"
 	biological_state = (BIO_BONE|BIO_JOINTED)
 	bodytype = BODYTYPE_GOLEM | BODYTYPE_ORGANIC
+	unarmed_attack_verbs = list("crush") /// DOPPLER EDIT ADDITION - Making sure this works.
 	limb_id = SPECIES_GOLEM
 	should_draw_greyscale = FALSE
 	dmg_overlay_type = null

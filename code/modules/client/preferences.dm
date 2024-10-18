@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 3
+	var/max_save_slots = 15 // DOPPLER EDIT: moar slots
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -107,7 +107,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			try_savefile_type_migration()
 		unlock_content = !!parent.IsByondMember()
 		if(unlock_content)
-			max_save_slots = 8
+			max_save_slots = 30 // DOPPLER EDIT: moar slots
 	else
 		CRASH("attempted to create a preferences datum without a client or mock!")
 	load_savefile()
@@ -166,6 +166,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		data["character_profiles"] = create_character_profiles()
 		tainted_character_profiles = FALSE
 
+	data["preview_selection"] = preview_pref // DOPPLER EDIT ADDITION
+
 	data["character_preferences"] = compile_character_preferences(user)
 
 	data["active_slot"] = default_slot
@@ -177,6 +179,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 /datum/preferences/ui_static_data(mob/user)
 	var/list/data = list()
+
+	data["preview_options"] = list(PREVIEW_PREF_JOB, PREVIEW_PREF_LOADOUT, PREVIEW_PREF_UNDERWEAR, PREVIEW_PREF_NAKED)
 
 	data["character_profiles"] = create_character_profiles()
 
@@ -268,6 +272,11 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 
 			return TRUE
 		/// DOPPLER SHIFT ADDITION BEGIN
+		if("update_preview")
+			preview_pref = params["updated_preview"]
+			character_preview_view.update_body()
+			return TRUE
+
 		if ("set_tricolor_preference")
 			var/requested_preference_key = params["preference"]
 			var/index_key = params["value"]

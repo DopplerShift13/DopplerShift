@@ -586,8 +586,8 @@
 	. = ..()
 	if(exposed_mob?.mind?.get_skill_level(/datum/skill/gaming) >= SKILL_LEVEL_LEGENDARY && (methods & INGEST) && !HAS_TRAIT(exposed_mob, TRAIT_GAMERGOD))
 		ADD_TRAIT(exposed_mob, TRAIT_GAMERGOD, "pwr_game")
-		to_chat(exposed_mob, "<span class='nicegreen'>As you imbibe the Pwr Game, your gamer third eye opens... \
-		You feel as though a great secret of the universe has been made known to you...</span>")
+		to_chat(exposed_mob, span_nicegreen("As you imbibe the Pwr Game, your gamer third eye opens... \
+		You feel as though a great secret of the universe has been made known to you..."))
 
 /datum/reagent/consumable/pwr_game/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
@@ -685,12 +685,14 @@
 /datum/reagent/consumable/monkey_energy/on_mob_end_metabolize(mob/living/affected_mob)
 	. = ..()
 	affected_mob.remove_movespeed_modifier(/datum/movespeed_modifier/reagent/monkey_energy)
-
+/// DOPPLER SHIFT REMOVAL BEGIN
+/*
 /datum/reagent/consumable/monkey_energy/overdose_process(mob/living/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	if(SPT_PROB(7.5, seconds_per_tick))
 		affected_mob.say(pick_list_replacements(BOOMER_FILE, "boomer"), forced = /datum/reagent/consumable/monkey_energy)
-
+*/
+/// DOPPLER SHIFT REMOVAL END
 /datum/reagent/consumable/ice
 	name = "Ice"
 	description = "Frozen water, your dentist wouldn't like you chewing this."

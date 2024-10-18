@@ -13,7 +13,7 @@
 			user.visible_message(span_warning("[user] crushes the can of [src] on [user.p_their()] forehead!"), span_notice("You crush the can of [src] on your forehead."))
 		else
 			user.visible_message(span_warning("[user] crushes the can of [src] on [M]'s forehead!"), span_notice("You crush the can of [src] on [M]'s forehead."))
-		playsound(M,'sound/weapons/pierce.ogg', rand(10,50), TRUE)
+		playsound(M,'sound/items/weapons/pierce.ogg', rand(10,50), TRUE)
 		var/obj/item/trash/can/doppler/crushed_can = new /obj/item/trash/can/doppler(M.loc)
 		crushed_can.icon_state = icon_state
 		qdel(src)
@@ -76,12 +76,12 @@
 	list_reagents = list(/datum/reagent/fuel = 25, /datum/reagent/carbondioxide = 5)
 	custom_price = PAYCHECK_LOWER * 1.2
 
-/*/obj/item/reagent_containers/cup/soda_cans/doppler/synthanolcan
+/obj/item/reagent_containers/cup/soda_cans/doppler/synthanolcan
 	name = "Silly Cone's Synthanol"
 	desc = "A recompiling can of synthanol."
 	icon_state = "synthanolcan"
 	list_reagents = list(/datum/reagent/consumable/ethanol/synthanol = 30)
-	custom_price = PAYCHECK_CREW*/
+	custom_price = PAYCHECK_CREW
 
 #undef SODA_FIZZINESS_THROWN
 #undef SODA_FIZZINESS_SHAKE
