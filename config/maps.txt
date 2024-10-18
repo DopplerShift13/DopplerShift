@@ -62,3 +62,10 @@ endmap
 
 map runtimestation
 endmap
+
+# Doppler exclusive maps.
+
+map deltoldstation
+	minplayers 50
+	votable
+endmap
