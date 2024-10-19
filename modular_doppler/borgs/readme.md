@@ -1,0 +1,2 @@
+uh i think youre supposed to make these for modular things. i dont know. hi im PowerfulAtom111.
+this is supposed to be a starting point for modular borg stuff and all this (including the readme) should be edited in the future for relevant credit and code and whatnot
