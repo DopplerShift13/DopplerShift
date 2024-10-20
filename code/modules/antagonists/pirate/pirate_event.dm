@@ -28,6 +28,13 @@
 
 /proc/send_pirate_threat(list/pirate_selection)
 	var/datum/pirate_gang/chosen_gang = pick_n_take(pirate_selection)
+	// DOPPLER ADDITION START - Pirate fix
+	if(!chosen_gang)
+		if(prob(2))
+			chosen_gang = pick(GLOB.light_pirate_gangs)
+		else
+			chosen_gang = pick(GLOB.heavy_pirate_gangs)
+	// DOPPLER ADDITION END
 	///If there was nothing to pull from our requested list, stop here.
 	if(!chosen_gang)
 		message_admins("Error attempting to run the space pirate event, as the given pirate gangs list was empty.")

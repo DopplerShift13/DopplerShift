@@ -203,6 +203,7 @@ GLOBAL_VAR(tracy_log)
 		var/realtime = world.realtime
 		var/texttime = time2text(realtime, "YYYY/MM/DD")
 		GLOB.log_directory = "data/logs/[texttime]/round-"
+		GLOB.event_vote_log = "[GLOB.log_directory]/event_vote.log" // DOPPLER ADDITION
 		GLOB.picture_logging_prefix = "L_[time2text(realtime, "YYYYMMDD")]_"
 		GLOB.picture_log_directory = "data/picture_logs/[texttime]/round-"
 		if(GLOB.round_id)

@@ -9,3 +9,7 @@
 
 // Game categories
 #define LOG_CATEGORY_GAME_SUBTLE "game-subtle"
+
+// Event poll
+GLOBAL_VAR(event_vote_log)
+GLOBAL_PROTECT(event_vote_log)
