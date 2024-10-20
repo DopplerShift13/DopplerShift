@@ -51,6 +51,9 @@
 	else if(istype(weapon, /obj/item/holochip))
 		var/obj/item/holochip/inserted_holochip = weapon
 		value = inserted_holochip.credits
+	else if(istype(weapon, /obj/item/libre/bundle)) // DOPPLER EDIT: you can turn holochips into normal money, if you somehow get a hold of that sort of thing after I'm through
+		var/obj/item/libre/bundle/inserted_libre = weapon
+		value = inserted_libre.value
 	if(value)
 		if(synced_bank_account)
 			synced_bank_account.adjust_money(value)
@@ -125,8 +128,8 @@
 /obj/machinery/computer/bank_machine/proc/end_siphon()
 	siphoning = FALSE
 	unauthorized = FALSE
-	if(syphoning_credits > 0)
-		new /obj/item/holochip(drop_location(), syphoning_credits) //get the loot
+	if(syphoning_credits > 0) // DOPPLER EDIT: from holocredits to normalcash
+		new /obj/item/libre/bundle(drop_location(), syphoning_credits) //get the loot
 	syphoning_credits = 0
 
 /obj/machinery/computer/bank_machine/proc/start_siphon(mob/living/carbon/user)

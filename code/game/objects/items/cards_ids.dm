@@ -583,23 +583,26 @@
 				if(ispath(trim))
 					SSid_access.apply_trim_to_card(src, trim)
 
-/obj/item/card/id/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	if(istype(tool, /obj/item/rupee))
-		to_chat(user, span_warning("Your ID smartly rejects the strange shard of glass. Who knew, apparently it's not ACTUALLY valuable!"))
+/obj/item/card/id/item_interaction(mob/living/user, obj/item/tool, list/modifiers) // DOPPLER EDIT - REMOVING INSERT_MONEY AND HOLOCHIPS. I also had to remove the rupee interaction, but that doesn't seem a great loss.
+//	if(istype(tool, /obj/item/rupee))
+//		to_chat(user, span_warning("Your ID smartly rejects the strange shard of glass. Who knew, apparently it's not ACTUALLY valuable!"))
+//		return ITEM_INTERACT_BLOCKING
+	if(iscash(tool))
+		to_chat(user, span_notice("You'll need to visit an ATM to get your money into your account."))
 		return ITEM_INTERACT_BLOCKING
-	else if(iscash(tool))
-		return insert_money(tool, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
-	else if(istype(tool, /obj/item/storage/bag/money))
+//		return insert_money(tool, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+
+/** else if(istype(tool, /obj/item/storage/bag/money))
 		var/obj/item/storage/bag/money/money_bag = tool
 		var/list/money_contained = money_bag.contents
 		var/money_added = mass_insert_money(money_contained, user)
 		if(!money_added)
 			return ITEM_INTERACT_BLOCKING
 		to_chat(user, span_notice("You stuff the contents into the card! They disappear in a puff of bluespace smoke, adding [money_added] worth of credits to the linked account."))
-		return ITEM_INTERACT_SUCCESS
+		return ITEM_INTERACT_SUCCESS [END DOPPLER EDIT SEGMENT] **/
 	return NONE
 
-/**
+/** DOPPLER EDIT - REMOVING INSERT_MONEY AND HOLOCHIPS
  * Insert credits or coins into the ID card and add their value to the associated bank account.
  *
  * Returns TRUE if the money was successfully inserted, FALSE otherwise.
@@ -607,7 +610,7 @@
  * money - The item to attempt to convert to credits and insert into the card.
  * user - The user inserting the item.
  * physical_currency - Boolean, whether this is a physical currency such as a coin and not a holochip.
- */
+
 /obj/item/card/id/proc/insert_money(obj/item/money, mob/user)
 	var/physical_currency
 	if(istype(money, /obj/item/stack/spacecash) || istype(money, /obj/item/coin))
@@ -639,7 +642,7 @@
  * money - List of items to attempt to convert to credits and insert into the card.
  * user - The user inserting the items.
  */
-/obj/item/card/id/proc/mass_insert_money(list/money, mob/user)
+ /obj/item/card/id/proc/mass_insert_money(list/money, mob/user)
 	if(!registered_account)
 		to_chat(user, span_warning("[src] doesn't have a linked account to deposit into!"))
 		return FALSE
@@ -658,7 +661,7 @@
 	log_econ("[total] credits were inserted into [src] owned by [src.registered_name]")
 	QDEL_LIST(money)
 
-	return total
+	return total END DOPPLER EDIT SEGMENT **/
 
 /// Helper proc. Can the user alt-click the ID?
 /obj/item/card/id/proc/alt_click_can_use_id(mob/living/user)
@@ -698,7 +701,7 @@
 	if(!alt_click_can_use_id(user))
 		return NONE
 	if(registered_account.account_debt)
-		var/choice = tgui_alert(user, "Choose An Action", "Bank Account", list("Withdraw", "Pay Debt"))
+		var/choice = tgui_alert(user, "Choose An Action", "Bank Account", list("Pay Debt"))
 		if(!choice || QDELETED(user) || QDELETED(src) || !alt_click_can_use_id(user) || loc != user)
 			return CLICK_ACTION_BLOCKING
 		if(choice == "Pay Debt")
@@ -717,7 +720,7 @@
 		if(choice == "Link Account")
 			set_new_account(user)
 			return CLICK_ACTION_SUCCESS
-	var/amount_to_remove = tgui_input_number(user, "How much do you want to withdraw? (Max: [registered_account.account_balance] cr)", "Withdraw Funds", max_value = registered_account.account_balance)
+/** 	var/amount_to_remove = tgui_input_number(user, "How much do you want to withdraw? (Max: [registered_account.account_balance] cr)", "Withdraw Funds", max_value = registered_account.account_balance)
 	if(!amount_to_remove || QDELETED(user) || QDELETED(src) || issilicon(user) || loc != user)
 		return CLICK_ACTION_BLOCKING
 	if(!alt_click_can_use_id(user))
@@ -731,7 +734,8 @@
 		return CLICK_ACTION_SUCCESS
 	else
 		var/difference = amount_to_remove - registered_account.account_balance
-		registered_account.bank_card_talk(span_warning("ERROR: The linked account requires [difference] more credit\s to perform that withdrawal."), TRUE)
+		registered_account.bank_card_talk(span_warning("ERROR: The linked account requires [difference] more credit\s to perform that withdrawal."), TRUE) **/
+	else
 		return CLICK_ACTION_BLOCKING
 
 /obj/item/card/id/click_alt_secondary(mob/user)
@@ -766,7 +770,7 @@
 		. += span_notice("Alt-Right-Click the ID to set the linked bank account.")
 
 	if(HAS_TRAIT(user, TRAIT_ID_APPRAISER))
-		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("Hmm... yes, this ID was issued from Central Command!") : span_boldnotice("This ID was created in this sector, not by Central Command.")
+		. += HAS_TRAIT(src, TRAIT_JOB_FIRST_ID_CARD) ? span_boldnotice("Hmm... yes, this ID was issued by the Port Authority!") : span_boldnotice("This ID was created in this sector, not by the Port Authority.") // DOPPLER EDIT - while I'm here...
 		if(HAS_TRAIT(src, TRAIT_TASTEFULLY_THICK_ID_CARD) && (user.is_holding(src) || (user.CanReach(src) && user.put_in_hands(src, ignore_animation = FALSE))))
 			ADD_TRAIT(src, TRAIT_NODROP, "psycho")
 			. += span_hypnophrase("Look at that subtle coloring... The tasteful thickness of it. Oh my God, it even has a watermark...")
@@ -867,8 +871,8 @@
 	return trim?.sechud_icon_state || SECHUD_UNKNOWN
 
 /obj/item/card/id/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(iscash(interacting_with))
-		return insert_money(interacting_with, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	//if(iscash(interacting_with)) DOPPLER EDIT - REMOVING INSERT_MONEY AND HOLOCHIPS
+	//	return insert_money(interacting_with, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
 	return NONE
 
 /obj/item/card/id/away
