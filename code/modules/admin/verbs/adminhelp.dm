@@ -103,7 +103,8 @@ GLOBAL_DATUM_INIT(ahelp_tickets, /datum/admin_help_tickets, new)
 		var/datum/admin_help/AH = I
 		if(AH.initiator)
 			var/obj/effect/statclick/updated = AH.statclick.update()
-			L[++L.len] = list("#[AH.id]. [AH.initiator_key_name]:", "[updated.name]", REF(AH))
+			//L[++L.len] = list("#[AH.id]. [AH.initiator_key_name]:", "[updated.name]", REF(AH)) // ORIGINAL
+			L[++L.len] = list("[AH.handler ? "H-[AH.handler]" : ""]#[AH.id]. [AH.initiator_key_name]:", "[updated.name]", REF(AH)) // DOPPLER EDIT - Admin handler name
 		else
 			++num_disconnected
 	if(num_disconnected)
