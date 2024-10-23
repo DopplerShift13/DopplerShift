@@ -7076,6 +7076,7 @@
 #include "modular_doppler\stone\code\ore_veins.dm"
 #include "modular_doppler\stone\code\stone.dm"
 #include "modular_doppler\tableflip\tableflip.dm"
+#include "modular_doppler\ticket_handler\admin.dm"
 #include "modular_doppler\time_clock\code\console.dm"
 #include "modular_doppler\time_clock\code\console_tgui.dm"
 #include "modular_doppler\time_clock\code\mind.dm"

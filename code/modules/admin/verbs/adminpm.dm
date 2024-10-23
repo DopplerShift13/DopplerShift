@@ -378,7 +378,7 @@ ADMIN_VERB(cmd_admin_pm_panel, R_NONE, "Admin PM", "Show a list of clients to PM
 		var/already_logged = FALSE
 		// Full boinks will always be done to players, so we are not guarenteed that they won't have a ticket
 		if(!recipient_ticket)
-			new /datum/admin_help(send_message, recipient, TRUE)
+			new /datum/admin_help(send_message, recipient, TRUE, src) // DOPPLER EDIT - Add src
 			already_logged = TRUE
 			// This action mutates our existing cached ticket information, so we recache
 			ticket = current_ticket
@@ -417,6 +417,12 @@ ADMIN_VERB(cmd_admin_pm_panel, R_NONE, "Admin PM", "Show a list of clients to PM
 		//always play non-admin recipients the adminhelp sound
 		SEND_SOUND(recipient, sound('sound/effects/adminhelp.ogg'))
 		return TRUE
+
+	// DOPPLER EDIT ADDITION BEGIN - Ticket handling
+	// Basically, if we realized that we shouldn't've been handling the ticket, let's bail. Otherwise, we just change who's handling it.
+	if(ticket && our_holder && !ticket.handle_issue())
+		return
+	// DOPPLER EDIT END
 
 	// Ok if we're here, either this message is for an admin, or someone somehow figured out how to send a new message as a player
 	// First case well, first
