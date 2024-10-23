@@ -134,15 +134,18 @@
 		new_xeno.remove_traits(list(TRAIT_HANDS_BLOCKED, TRAIT_IMMOBILIZED, TRAIT_NO_TRANSFORM), type)
 		new_xeno.RemoveInvisibility(type)
 
-	if(gib_on_success)
+	/// DOPPLER SHIFT REMOVAL BEGIN
+	/*if(gib_on_success)
 		new_xeno.visible_message(span_danger("[new_xeno] bursts out of [owner] in a shower of gore!"), span_userdanger("You exit [owner], your previous host."), span_hear("You hear organic matter ripping and tearing!"))
 		owner.investigate_log("has been gibbed by an alien larva.", INVESTIGATE_DEATHS)
 		owner.gib(DROP_ORGANS|DROP_BODYPARTS)
-	else
-		new_xeno.visible_message(span_danger("[new_xeno] wriggles out of [owner]!"), span_userdanger("You exit [owner], your previous host."))
-		owner.log_message("had an alien larva within them escape (without being gibbed).", LOG_ATTACK, log_globally = FALSE)
-		owner.adjustBruteLoss(40)
-		owner.cut_overlay(overlay)
+	else*/
+	/// DOPPLER SHIFT REMOVAL END, EDIT BEGIN (REMOVING INDENTS)
+	new_xeno.visible_message(span_danger("[new_xeno] wriggles out of [owner]!"), span_userdanger("You exit [owner], your previous host."))
+	owner.log_message("had an alien larva within them escape (without being gibbed).", LOG_ATTACK, log_globally = FALSE)
+	owner.adjustBruteLoss(40)
+	owner.cut_overlay(overlay)
+	/// DOPPLER SHIFT EDIT END
 	qdel(src)
 
 
