@@ -6771,6 +6771,7 @@
 #include "modular_doppler\modular_cosmetics\code\hands\gloves.dm"
 #include "modular_doppler\modular_cosmetics\code\hands\rings.dm"
 #include "modular_doppler\modular_cosmetics\code\hats\doppler_command_hats.dm"
+#include "modular_doppler\modular_cosmetics\code\head\basehead_edits.dm"
 #include "modular_doppler\modular_cosmetics\code\head\bows.dm"
 #include "modular_doppler\modular_cosmetics\code\head\hair_tie.dm"
 #include "modular_doppler\modular_cosmetics\code\head\hats.dm"

@@ -103,6 +103,10 @@
 	name = "Green Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/mad
 
+/datum/loadout_item/suit/labcoat/custom
+	name = "Custom Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/custom
+
 /*
 *	PONCHOS
 */
