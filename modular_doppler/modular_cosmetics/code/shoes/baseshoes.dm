@@ -12,6 +12,22 @@
 	greyscale_config_worn_bodyshapes = list(BODYSHAPE_HUMANOID_T = /datum/greyscale_config/sneakers/worn,
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/sneakers/worn/digi)
 
+/obj/item/clothing/shoes/sneakers/doppler
+	name = "doppler sneakers"
+	greyscale_colors = "#2b2b2b#ffffff"
+
+/obj/item/clothing/shoes/sneakers/doppler/med_green
+	name = "apple-green sneakers"
+	greyscale_colors = "#B7DE5B#ffffff"
+
+/obj/item/clothing/shoes/sneakers/doppler/eng_orange
+	name = "orange sneakers"
+	greyscale_colors = "#FBB954#ffffff"
+
+/obj/item/clothing/shoes/sneakers/doppler/cmd_electric
+	name = "electric-green sneakers"
+	greyscale_colors = "#D5E04B#ffffff"
+
 /obj/item/clothing/shoes/sneakers/orange
 	greyscale_config_worn_bodyshapes = list(BODYSHAPE_HUMANOID_T = /datum/greyscale_config/sneakers_orange/worn,
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/sneakers_orange/worn/digi)
