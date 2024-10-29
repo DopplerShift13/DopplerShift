@@ -1,10 +1,24 @@
+/// DOPPLER ADDITION START, Adds a newline to the examine list if the above entry is not empty and it is not the first element in the list
+#define ADD_NEWLINE_IF_NECESSARY(list) if(length(list) > 0 && list[length(list)]) { list += "" }
+// DOPPLER ADDITION END
+
 /mob/living/silicon/robot/examine(mob/user)
-	. = list("<span class='info'>This is [icon2html(src, user)] <EM>[src]</EM>!")
+	. = list()
 	if(desc)
 		. += "[desc]"
 
+	// DOPPLER EDIT BEGIN: flavor text
+	var/short_desc = READ_PREFS(src, text/silicon_short_desc)
+	if (short_desc)
+		. += "[short_desc] [get_extended_description_href("\[👁️\]")]"
+	ADD_NEWLINE_IF_NECESSARY(.)
+	var/custom_model_name = READ_PREFS(src, text/silicon_model_name)
+	if (custom_model_name)
+		. += "It is [prefix_a_or_an(custom_model_name)] <em>[get_species_description_href(custom_model_name)]</em> model construct."
+	// DOPPLER EDIT END
+
 	var/model_name = model ? "\improper [model.name]" : "\improper Default"
-	. += "\nIt is currently \a \"[span_bold("[model_name]")]\"-type cyborg.\n"
+	. += "It is currently <b>\a [model_name]-type</b> cyborg."
 
 	var/obj/act_module = get_active_held_item()
 	if(act_module)
@@ -14,13 +28,13 @@
 		if (getBruteLoss() < maxHealth*0.5)
 			. += span_warning("It looks slightly dented.")
 		else
-			. += span_warning("<B>It looks severely dented!</B>")
+			. += span_boldwarning("It looks severely dented!")
 	if (getFireLoss() || getToxLoss())
 		var/overall_fireloss = getFireLoss() + getToxLoss()
 		if (overall_fireloss < maxHealth * 0.5)
 			. += span_warning("It looks slightly charred.")
 		else
-			. += span_warning("<B>It looks severely burnt and heat-warped!</B>")
+			. += span_boldwarning("It looks severely burnt and heat-warped!")
 	if (health < -maxHealth*0.5)
 		. += span_warning("It looks barely operational.")
 	if (fire_stacks < 0)
@@ -46,9 +60,7 @@
 			. += span_warning("It doesn't seem to be responding.")
 		if(DEAD)
 			. += span_deadsay("It looks like its system is corrupted and requires a reset.")
-	. += "</span>"
 
 	. += ..()
 
-/mob/living/silicon/robot/get_examine_string(mob/user, thats = FALSE)
-	return null
+#undef ADD_NEWLINE_IF_NECESSARY

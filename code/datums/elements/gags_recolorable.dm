@@ -10,7 +10,7 @@
 
 /datum/element/gags_recolorable/proc/on_examine(atom/source, mob/user, list/examine_text)
 	SIGNAL_HANDLER
-	examine_text += span_notice("Now utilising PPP recolouring technology, capable of absorbing paint and pigments for changing it's colours!")
+	examine_text += span_notice("Now utilising PPP recolouring technology, capable of absorbing paint and pigments for changing its colours!")
 
 /datum/element/gags_recolorable/proc/on_attackby(datum/source, obj/item/attacking_item, mob/user)
 	SIGNAL_HANDLER
@@ -33,7 +33,11 @@
 	allowed_configs += "[config]"
 	if(isitem(target))
 		var/obj/item/item = target
-		if(initial(item.greyscale_config_worn))
+		/// DOPPLER SHIFT ADDITION BEGIN
+		if(initial(item.greyscale_config_worn_bodyshapes))
+			for(var/bconfig in item.greyscale_config_worn_bodyshapes)
+				allowed_configs += "[initial(item.greyscale_config_worn_bodyshapes[bconfig])]"
+		else if(initial(item.greyscale_config_worn)) /// DOPPLER SHIFT EDIT END
 			allowed_configs += "[initial(item.greyscale_config_worn)]"
 		if(initial(item.greyscale_config_inhand_left))
 			allowed_configs += "[initial(item.greyscale_config_inhand_left)]"

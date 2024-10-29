@@ -168,7 +168,7 @@ Possible to do for anyone motivated enough:
 /obj/machinery/holopad/tutorial/attack_hand(mob/user, list/modifiers)
 	if(!istype(user))
 		return
-	if(user.incapacitated() || !is_operational)
+	if(user.incapacitated || !is_operational)
 		return
 	if(replay_mode)
 		replay_stop()
@@ -308,7 +308,7 @@ Possible to do for anyone motivated enough:
 		data["holo_calls"] += list(call_data)
 	return data
 
-/obj/machinery/holopad/ui_act(action, list/params)
+/obj/machinery/holopad/ui_act(action, list/params, datum/tgui/ui, datum/ui_state/state)
 	. = ..()
 	if(.)
 		return
@@ -522,7 +522,7 @@ Possible to do for anyone motivated enough:
 		if(outgoing_call)
 			holocall.Disconnect(src)//can't answer calls while calling
 		else
-			playsound(src, 'sound/machines/twobeep.ogg', 100) //bring, bring!
+			playsound(src, 'sound/machines/beep/twobeep.ogg', 100) //bring, bring!
 			are_ringing = TRUE
 
 	if(ringing != are_ringing)
@@ -550,13 +550,15 @@ Possible to do for anyone motivated enough:
 
 		if(AI)
 			AI.eyeobj.setLoc(get_turf(src)) //ensure the AI camera moves to the holopad
+			hologram.Impersonation = AI //DOPPLER EDIT ADDITION -- Customization; puts the AI core as the impersonated mob so that the examine proc can be redirected
 		else //make it like real life
 			hologram.Impersonation = user
-		hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it.
+		//hologram.mouse_opacity = MOUSE_OPACITY_TRANSPARENT//So you can't click on it. // DOPPLER EDIT -- Customization; Making holograms clickable/examinable
 		hologram.layer = FLY_LAYER //Above all the other objects/mobs. Or the vast majority of them.
 		SET_PLANE_EXPLICIT(hologram, ABOVE_GAME_PLANE, src)
 		hologram.set_anchored(TRUE)//So space wind cannot drag it.
-		hologram.name = "[user.name] (Hologram)"//If someone decides to right click.
+		//hologram.name = "[user.name] (Hologram)"//If someone decides to right click. // DOPPLER EDIT
+		hologram.name = user.name //DOPPLER EDIT -- Make the name exact, so that the double-emotes are less jarring in the chat
 		set_holo(user, hologram)
 
 		set_holo(user, hologram)
@@ -675,7 +677,7 @@ For the other part of the code, check silicon say.dm. Particularly robot talk.*/
 	if(!isliving(owner))
 		return TRUE
 	var/mob/living/user = owner
-	if(user.incapacitated() || !user.client)
+	if(user.incapacitated || !user.client)
 		return FALSE
 	return TRUE
 

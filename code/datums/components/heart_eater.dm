@@ -13,9 +13,9 @@
 		/datum/mutation/human/adaptation/thermal,
 		/datum/mutation/human/chameleon,
 		/datum/mutation/human/cryokinesis,
-		/datum/mutation/human/cryokinesis/pyrokinesis,
+		/datum/mutation/human/pyrokinesis,
 		/datum/mutation/human/dwarfism,
-		/datum/mutation/human/geladikinesis/ash,
+		/datum/mutation/human/cindikinesis,
 		/datum/mutation/human/insulated,
 		/datum/mutation/human/telekinesis,
 		/datum/mutation/human/telepathy,
@@ -67,6 +67,9 @@
 	var/obj/item/organ/internal/heart/we_ate_heart = what_we_ate
 	var/obj/item/organ/internal/heart/previous_heart = last_heart_we_ate?.resolve()
 	if(we_ate_heart == previous_heart)
+		return
+	if (!HAS_TRAIT(we_ate_heart, TRAIT_USED_ORGAN))
+		to_chat(eater, span_warning("This heart is utterly lifeless, you won't receive any boons from consuming it!"))
 		return
 	bites_taken = 0
 

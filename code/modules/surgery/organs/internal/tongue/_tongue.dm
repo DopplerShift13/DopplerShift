@@ -2,7 +2,7 @@
 	name = "tongue"
 	desc = "A fleshy muscle mostly used for lying."
 	icon_state = "tongue"
-	visual = FALSE
+
 	zone = BODY_ZONE_PRECISE_MOUTH
 	slot = ORGAN_SLOT_TONGUE
 	attack_verb_continuous = list("licks", "slobbers", "slaps", "frenches", "tongues")
@@ -124,30 +124,30 @@
 		food_taste_reaction = FOOD_LIKED
 	return food_taste_reaction
 
-/obj/item/organ/internal/tongue/Insert(mob/living/carbon/tongue_owner, special = FALSE, movement_flags)
+/obj/item/organ/internal/tongue/mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
-	if(!.)
-		return
+
 	if(modifies_speech)
-		RegisterSignal(tongue_owner, COMSIG_MOB_SAY, PROC_REF(handle_speech))
-	tongue_owner.voice_filter = voice_filter
+		RegisterSignal(receiver, COMSIG_MOB_SAY, PROC_REF(handle_speech))
+	receiver.voice_filter = voice_filter
 	/* This could be slightly simpler, by making the removal of the
 	* NO_TONGUE_TRAIT conditional on the tongue's `sense_of_taste`, but
 	* then you can distinguish between ageusia from no tongue, and
 	* ageusia from having a non-tasting tongue.
 	*/
-	REMOVE_TRAIT(tongue_owner, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
+	REMOVE_TRAIT(receiver, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
 	apply_tongue_effects()
 
-/obj/item/organ/internal/tongue/Remove(mob/living/carbon/tongue_owner, special, movement_flags)
+/obj/item/organ/internal/tongue/mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
+
 	temp_say_mod = ""
-	UnregisterSignal(tongue_owner, COMSIG_MOB_SAY)
-	REMOVE_TRAIT(tongue_owner, TRAIT_SPEAKS_CLEARLY, SPEAKING_FROM_TONGUE)
-	REMOVE_TRAIT(tongue_owner, TRAIT_AGEUSIA, ORGAN_TRAIT)
+	UnregisterSignal(organ_owner, COMSIG_MOB_SAY)
+	REMOVE_TRAIT(organ_owner, TRAIT_SPEAKS_CLEARLY, SPEAKING_FROM_TONGUE)
+	REMOVE_TRAIT(organ_owner, TRAIT_AGEUSIA, ORGAN_TRAIT)
 	// Carbons by default start with NO_TONGUE_TRAIT caused TRAIT_AGEUSIA
-	ADD_TRAIT(tongue_owner, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
-	tongue_owner.voice_filter = initial(tongue_owner.voice_filter)
+	ADD_TRAIT(organ_owner, TRAIT_AGEUSIA, NO_TONGUE_TRAIT)
+	organ_owner.voice_filter = initial(organ_owner.voice_filter)
 
 /obj/item/organ/internal/tongue/apply_organ_damage(damage_amount, maximum = maxHealth, required_organ_flag)
 	. = ..()
@@ -546,6 +546,7 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 	attack_verb_simple = list("beep", "boop")
 	modifies_speech = TRUE
 	taste_sensitivity = 25 // not as good as an organic tongue
+	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
 	voice_filter = "alimiter=0.9,acompressor=threshold=0.2:ratio=20:attack=10:release=50:makeup=2,highpass=f=1000"
 
 /obj/item/organ/internal/tongue/robot/could_speak_language(datum/language/language_path)
@@ -560,7 +561,10 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 	color = "#96DB00" // TODO proper sprite, rather than recoloured pink tongue
 	modifies_speech = TRUE
 	voice_filter = "atempo=0.5" // makes them talk really slow
+	liked_foodtypes = VEGETABLES | FRUIT | GROSS | RAW //DOPPLER EDIT - Roundstart Snails - Food Prefs
+	disliked_foodtypes = DAIRY | ORANGES | SUGAR //DOPPLER EDIT: Roundstart Snails - As it turns out, you can't give a snail processed sugar or citrus.
 
+/* DOPPLER EDIT START - Roundstart Snails: Less annoying speech.
 /obj/item/organ/internal/tongue/snail/modify_speech(datum/source, list/speech_args)
 	var/new_message
 	var/message = speech_args[SPEECH_MESSAGE]
@@ -570,6 +574,7 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 		else
 			new_message += message[i]
 	speech_args[SPEECH_MESSAGE] = new_message
+*/ // DOPPLER EDIT END
 
 /obj/item/organ/internal/tongue/ethereal
 	name = "electric discharger"
@@ -594,7 +599,7 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 	say_mod = "meows"
 	liked_foodtypes = SEAFOOD | ORANGES | BUGS | GORE
 	disliked_foodtypes = GROSS | CLOTH | RAW
-	organ_traits = list(TRAIT_WOUND_LICKER)
+	organ_traits = list(TRAIT_WOUND_LICKER, TRAIT_FISH_EATER)
 
 /obj/item/organ/internal/tongue/jelly
 	name = "jelly tongue"

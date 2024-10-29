@@ -38,6 +38,9 @@
 #define ROLE_SPIDER "Spider"
 #define ROLE_WIZARD_MIDROUND "Wizard (Midround)"
 #define ROLE_VOIDWALKER "Voidwalker"
+// DOPPLER EDIT ADDITION START
+#define ROLE_SPACE_SAPPER "Space Sapper"
+// DOPPLER EDIT ADDITION END
 
 // Latejoin roles
 #define ROLE_HERETIC_SMUGGLER "Heretic Smuggler"
@@ -136,6 +139,9 @@ GLOBAL_LIST_INIT(special_roles, list(
 	ROLE_SPY = 0,
 
 	// Midround
+	/* DOPPLER STATION ADDITIONS START */
+	ROLE_SPACE_SAPPER = 0,
+	/* DOPPLER STATION ADDITIONS END */
 	ROLE_ABDUCTOR = 0,
 	ROLE_ALIEN = 0,
 	ROLE_BLOB = 0,

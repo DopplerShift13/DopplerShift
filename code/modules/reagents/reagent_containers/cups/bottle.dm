@@ -129,6 +129,11 @@
 	desc = "A small bottle. Contains cold sauce."
 	list_reagents = list(/datum/reagent/consumable/frostoil = 30)
 
+/obj/item/reagent_containers/cup/bottle/strange_reagent
+	name = "Strange Reagent Bottle"
+	desc = "A small bottle. May be used to revive people."
+	list_reagents = list(/datum/reagent/medicine/strange_reagent = 30)
+
 /obj/item/reagent_containers/cup/bottle/traitor
 	name = "syndicate bottle"
 	desc = "A small bottle. Contains a random nasty chemical."
@@ -480,7 +485,7 @@
 	amount_per_transfer_from_this = 5
 	spillable = FALSE
 	///variable to tell if the bottle can be refilled
-	var/cap_on = TRUE
+	//var/cap_on = TRUE /// DOPPLER SHIFT REMOVAL
 
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/examine(mob/user)
 	. = ..()
@@ -518,7 +523,8 @@
 
 	return TRUE
 
-/obj/item/reagent_containers/cup/bottle/syrup_bottle/click_alt(mob/user)
+/// DOPPLER SHIFT REMOVAL BEGIN
+/*/obj/item/reagent_containers/cup/bottle/syrup_bottle/click_alt(mob/user)
 	cap_on = !cap_on
 	if(!cap_on)
 		icon_state = "syrup_open"
@@ -527,7 +533,8 @@
 		icon_state = "syrup"
 		balloon_alert(user, "put pump cap on")
 	update_icon_state()
-	return CLICK_ACTION_SUCCESS
+	return CLICK_ACTION_SUCCESS*/
+/// DOPPLER SHIFT REMOVAL END
 
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/proc/rename(mob/user, obj/item/writing_instrument)
 	if(!user.can_write(writing_instrument))

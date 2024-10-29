@@ -12,6 +12,7 @@
 		"mod_gauntlets",
 		"mod_boots",
 		"mod_plating_standard",
+		"mod_plating_civilian",
 		"mod_paint_kit",
 		"mod_storage",
 		"mod_plasma",
@@ -35,6 +36,7 @@
 		"mod_sign_radio",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/mod_entertainment
 	id = TECHWEB_NODE_MOD_ENTERTAINMENT
@@ -48,6 +50,7 @@
 		"mod_waddle",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SERVICE)
 
 /datum/techweb_node/mod_medical
 	id = TECHWEB_NODE_MOD_MEDICAL
@@ -62,6 +65,7 @@
 		"mod_patienttransport",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
 
 /datum/techweb_node/mod_engi
 	id = TECHWEB_NODE_MOD_ENGI
@@ -76,6 +80,7 @@
 		"mod_mister_atmos",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_ENGINEERING)
 
 /datum/techweb_node/mod_security
 	id = TECHWEB_NODE_MOD_SECURITY
@@ -94,6 +99,7 @@
 		"mod_criminalcapture",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_SECURITY)
 
 /datum/techweb_node/mod_medical_adv
 	id = TECHWEB_NODE_MOD_MEDICAL_ADV
@@ -107,6 +113,7 @@
 		"mod_statusreadout",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
 
 /datum/techweb_node/mod_engi_adv
 	id = TECHWEB_NODE_MOD_ENGI_ADV
@@ -121,6 +128,7 @@
 		"mod_storage_expanded",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_ENGINEERING)
 
 /datum/techweb_node/mod_engi_adv/New()
 	if(HAS_TRAIT(SSstation, STATION_TRAIT_RADIOACTIVE_NEBULA)) //we'll really need the rad protection modsuit module
@@ -138,3 +146,4 @@
 		"mod_kinesis",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
+	announce_channels = list(RADIO_CHANNEL_SCIENCE)

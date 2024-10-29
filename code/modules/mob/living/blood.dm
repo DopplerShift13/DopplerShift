@@ -122,7 +122,7 @@
 
 //Makes a blood drop, leaking amt units of blood from the mob
 /mob/living/carbon/proc/bleed(amt)
-	if(!blood_volume || (status_flags & GODMODE))
+	if(!blood_volume || HAS_TRAIT(src, TRAIT_GODMODE))
 		return
 	blood_volume = max(blood_volume - amt, 0)
 
@@ -361,7 +361,7 @@
 
 //to add a splatter of blood or other mob liquid.
 /mob/living/proc/add_splatter_floor(turf/T, small_drip)
-	if(get_blood_id() != /datum/reagent/blood)
+	if(get_blood_id() != /datum/reagent/blood && !hasgreenblood(src) && !hasblueblood(src)) // DOPPLER EDIT CHANGE START - ORIGINAL: if(get_blood_id() != /datum/reagent/blood)
 		return
 	if(!T)
 		T = get_turf(src)
@@ -382,14 +382,28 @@
 				temp_blood_DNA = GET_ATOM_BLOOD_DNA(drop) //we transfer the dna from the drip to the splatter
 				qdel(drop)//the drip is replaced by a bigger splatter
 		else
-			drop = new(T, get_static_viruses())
+			// DOPPLER EDIT CHANGE START - ORIGINAL: drop = new(T, get_static_viruses())
+			if(hasgreenblood(src))
+				drop = new /obj/effect/decal/cleanable/blood/drip/green(T, get_static_viruses())
+			if(hasblueblood(src))
+				drop = new /obj/effect/decal/cleanable/blood/drip/blue(T, get_static_viruses())
+			if(!hasblueblood(src) && !hasgreenblood(src))
+				drop = new(T, get_static_viruses())
+			// DOPPLER EDIT END
 			drop.transfer_mob_blood_dna(src)
 			return
 
 	// Find a blood decal or create a new one.
 	var/obj/effect/decal/cleanable/blood/B = locate() in T
 	if(!B)
-		B = new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
+		// DOPPLER EDIT CHANGE START - ORIGINAL: B = new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
+		if(hasgreenblood(src))
+			B = new /obj/effect/decal/cleanable/blood/green/splatter(T, get_static_viruses())
+		if(hasblueblood(src))
+			B = new /obj/effect/decal/cleanable/blood/blue/splatter(T, get_static_viruses())
+		if(!hasblueblood(src) && !hasgreenblood(src))
+			B = new /obj/effect/decal/cleanable/blood/splatter(T, get_static_viruses())
+		// DOPPLER EDIT END
 	if(QDELETED(B)) //Give it up
 		return
 	B.bloodiness = min((B.bloodiness + BLOOD_AMOUNT_PER_DECAL), BLOOD_POOL_MAX)

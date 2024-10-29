@@ -9,6 +9,7 @@
 
 	dna_block = DNA_TAIL_BLOCK
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
+	organ_traits = list(TRAIT_TACKLING_TAILED_DEFENDER) // DOPPLER EDIT ADDITION
 
 	// defaults to cat, but the parent type shouldn't be created regardless
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/cat
@@ -20,7 +21,7 @@
 	///The overlay for tail spines, if any
 	var/datum/bodypart_overlay/mutant/tail_spines/tail_spines_overlay
 
-/obj/item/organ/external/tail/Insert(mob/living/carbon/receiver, special, movement_flags)
+/obj/item/organ/external/tail/mob_insert(mob/living/carbon/receiver, special, movement_flags)
 	. = ..()
 	if(.)
 		receiver.clear_mood_event("tail_lost")
@@ -34,12 +35,19 @@
 		// If it's not your tail AND of different species, we are horrified
 		if(IS_WEAKREF_OF(receiver, original_owner))
 			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_right)
-		else if(type in receiver.dna.species.external_organs)
+		else if(type in receiver.dna.species.mutant_organs)
 			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_species)
 		else
 			receiver.add_mood_event("tail_regained", /datum/mood_event/tail_regained_wrong)
 
 /obj/item/organ/external/tail/on_bodypart_insert(obj/item/bodypart/bodypart)
+	/// DOPPLER SHIFT ADDITION BEGIN
+	// damnit TG your own code fails CI for reasons unclear - TODO, stack trace this to eventually figure out how it's ending up with null owners
+	if(bodypart == null)
+		return ..()
+	if(bodypart.owner == null)
+		return ..()
+	/// DOPPLER SHIFT ADDITION END
 	var/obj/item/organ/external/spines/our_spines = bodypart.owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_SPINES)
 	if(our_spines)
 		try_insert_tail_spines(bodypart)
@@ -83,7 +91,7 @@
 
 	organ_owner.clear_mood_event("tail_regained")
 
-	if(type in organ_owner.dna.species.external_organs)
+	if(type in organ_owner.dna.species.mutant_organs)
 		organ_owner.add_mood_event("tail_lost", /datum/mood_event/tail_lost)
 		organ_owner.add_mood_event("tail_balance_lost", /datum/mood_event/tail_balance_lost)
 
@@ -146,7 +154,7 @@
 	return "[wagging ? "wagging_" : ""][sprite_datum.icon_state]" //add the wagging tag if we be wagging
 
 /datum/bodypart_overlay/mutant/tail/can_draw_on_bodypart(mob/living/carbon/human/human)
-	if(human.wear_suit && (human.wear_suit.flags_inv & HIDEJUMPSUIT))
+	if(human.wear_suit && (human.wear_suit.flags_inv & HIDETAIL)) // DOPPLER EDIT, old code: if(human.wear_suit && (human.wear_suit.flags_inv & HIDEJUMPSUIT))
 		return FALSE
 	return TRUE
 
@@ -158,9 +166,6 @@
 
 	wag_flags = WAG_ABLE
 
-/datum/bodypart_overlay/mutant/tail/get_global_feature_list()
-	return SSaccessories.tails_list_human
-
 /obj/item/organ/external/tail/cat/get_butt_sprite()
 	return icon('icons/mob/butts.dmi', BUTT_SPRITE_CAT)
 
@@ -169,13 +174,16 @@
 	feature_key = "tail_cat"
 	color_source = ORGAN_COLOR_HAIR
 
+/datum/bodypart_overlay/mutant/tail/cat/get_global_feature_list()
+	return SSaccessories.tails_list_felinid
+
 /obj/item/organ/external/tail/monkey
 	name = "monkey tail"
 	preference = "feature_monkey_tail"
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/monkey
 
-	dna_block = DNA_MONKEY_TAIL_BLOCK
+	dna_block = null
 
 ///Monkey tail bodypart overlay
 /datum/bodypart_overlay/mutant/tail/monkey

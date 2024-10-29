@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	/// Ensures that we always load the last used save, QOL
 	var/default_slot = 1
 	/// The maximum number of slots we're allowed to contain
-	var/max_save_slots = 3
+	var/max_save_slots = 15 // DOPPLER EDIT: moar slots
 
 	/// Bitflags for communications that are muted
 	var/muted = NONE
@@ -33,7 +33,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/list/key_bindings_by_key = list()
 
 	var/toggles = TOGGLES_DEFAULT
-	var/db_flags
+	var/db_flags = NONE
 	var/chat_toggles = TOGGLES_DEFAULT_CHAT
 	var/ghost_form = "ghost"
 
@@ -105,9 +105,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		load_path(parent.ckey)
 		if(load_and_save && !fexists(path))
 			try_savefile_type_migration()
-		unlock_content = !!parent.IsByondMember()
-		if(unlock_content)
-			max_save_slots = 8
+
+		refresh_membership()
 	else
 		CRASH("attempted to create a preferences datum without a client or mock!")
 	load_savefile()
@@ -166,6 +165,8 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		data["character_profiles"] = create_character_profiles()
 		tainted_character_profiles = FALSE
 
+	data["preview_selection"] = preview_pref // DOPPLER EDIT ADDITION
+
 	data["character_preferences"] = compile_character_preferences(user)
 
 	data["active_slot"] = default_slot
@@ -178,10 +179,12 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 /datum/preferences/ui_static_data(mob/user)
 	var/list/data = list()
 
+	data["preview_options"] = list(PREVIEW_PREF_JOB, PREVIEW_PREF_LOADOUT, PREVIEW_PREF_UNDERWEAR, PREVIEW_PREF_NAKED)
+
 	data["character_profiles"] = create_character_profiles()
 
 	data["character_preview_view"] = character_preview_view.assigned_map
-	data["overflow_role"] = SSjob.GetJobType(SSjob.overflow_role).title
+	data["overflow_role"] = SSjob.get_job_type(SSjob.overflow_role).title
 	data["window"] = current_window
 
 	data["content_unlocked"] = unlock_content
@@ -267,6 +270,46 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 				return FALSE
 
 			return TRUE
+		/// DOPPLER SHIFT ADDITION BEGIN
+		if("update_preview")
+			preview_pref = params["updated_preview"]
+			character_preview_view.update_body()
+			return TRUE
+
+		if ("set_tricolor_preference")
+			var/requested_preference_key = params["preference"]
+			var/index_key = params["value"]
+
+			var/datum/preference/requested_preference = GLOB.preference_entries_by_key[requested_preference_key]
+			if (isnull(requested_preference))
+				return FALSE
+
+			if (!istype(requested_preference, /datum/preference/tri_color))
+				return FALSE
+
+			var/default_value_list = read_preference(requested_preference.type)
+			if (!islist(default_value_list))
+				return FALSE
+			var/default_value = default_value_list[index_key]
+
+			// Yielding
+			var/new_color = input(
+				usr,
+				"Select new color",
+				null,
+				default_value || COLOR_WHITE,
+			) as color | null
+
+			if (!new_color)
+				return FALSE
+
+			default_value_list[index_key] = new_color
+
+			if (!update_preference(requested_preference, default_value_list))
+				return FALSE
+
+			return TRUE
+		/// DOPPLER SHIFT ADDITION END
 
 	for (var/datum/preference_middleware/preference_middleware as anything in middleware)
 		var/delegation = preference_middleware.action_delegations[action]
@@ -536,3 +579,23 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			default_randomization[preference_key] = RANDOM_ENABLED
 
 	return default_randomization
+
+/datum/preferences/proc/refresh_membership()
+	var/byond_member = parent.IsByondMember()
+	if(isnull(byond_member)) // Connection failure, retry once
+		byond_member = parent.IsByondMember()
+		var/static/admins_warned = FALSE
+		if(!admins_warned)
+			admins_warned = TRUE
+			message_admins("BYOND membership lookup had a connection failure for a user. This is most likely an issue on the BYOND side but if this consistently happens you should bother your server operator to look into it.")
+		if(isnull(byond_member)) // Retrying didn't work, warn the user
+			log_game("BYOND membership lookup for [parent.ckey] failed due to a connection error.")
+		else
+			log_game("BYOND membership lookup for [parent.ckey] failed due to a connection error but succeeded after retry.")
+
+	if(isnull(byond_member))
+		to_chat(parent, span_warning("There's been a connection failure while trying to check the status of your BYOND membership. Reconnecting may fix the issue, or BYOND could be experiencing downtime."))
+
+	unlock_content = !!byond_member
+	if(unlock_content)
+		max_save_slots = 30 // DOPPLER EDIT: moar slots

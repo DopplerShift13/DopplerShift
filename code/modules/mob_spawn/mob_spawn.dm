@@ -32,11 +32,21 @@
 	var/skin_tone
 	/// Weakref to the mob this spawner created - just if you needed to do something with it.
 	var/datum/weakref/spawned_mob_ref
+	/// DOPPLER SHIFT ADDITION: allowing players to have their current character loaded
+	var/allow_prefs = TRUE
+	/// DOPPLER SHIFT ADDITION: allowing players to have their current loadout and clothes loaded
+	var/allow_loadout = TRUE
 
 /obj/effect/mob_spawn/Initialize(mapload)
 	. = ..()
 	if(faction)
 		faction = string_list(faction)
+
+/obj/effect/mob_spawn/Destroy()
+	spawned_mob_ref = null
+	if(istype(outfit))
+		QDEL_NULL(outfit)
+	return ..()
 
 /// Creates whatever mob the spawner makes. Return FALSE if we want to exit from here without doing that, returning NULL will be logged to admins.
 /obj/effect/mob_spawn/proc/create(mob/mob_possessor, newname)
@@ -93,7 +103,24 @@
 				if(!ispath(outfit_override[outfit_var]) && !isnull(outfit_override[outfit_var]))
 					CRASH("outfit_override var on [mob_name] spawner has incorrect values! it must be an assoc list with outfit \"var\" = path | null")
 				outfit.vars[outfit_var] = outfit_override[outfit_var]
-		spawned_human.equipOutfit(outfit)
+		//spawned_human.equipOutfit(outfit) /// DOPPLER SHIFT REMOVAL
+		/// DOPPLER SHIFT ADDITION BEGIN
+		if(allow_prefs && spawned_human.client)
+			spawned_human.client?.prefs.safe_transfer_prefs_to(spawned_human)
+			SSquirks.AssignQuirks(spawned_human, spawned_human.client)
+			if(allow_loadout)
+				spawned_human.equip_outfit_and_loadout(outfit, spawned_human.client?.prefs)
+			else
+				spawned_human.equipOutfit(outfit)
+		else
+			spawned_human.equipOutfit(outfit)
+	else if(allow_prefs && spawned_mob.client)
+		var/mob/living/carbon/human/spawned_human = spawned_mob
+		spawned_human.client?.prefs.safe_transfer_prefs_to(spawned_human)
+		SSquirks.AssignQuirks(spawned_human, spawned_human.client)
+		if(allow_loadout)
+			spawned_human.equip_outfit_and_loadout(new /datum/outfit(), spawned_human.client?.prefs)
+		/// DOPPLER SHIFT ADDITION END
 
 ///these mob spawn subtypes do not trigger until attacked by a ghost.
 /obj/effect/mob_spawn/ghost_role
@@ -137,7 +164,7 @@
 	SSpoints_of_interest.make_point_of_interest(src)
 	LAZYADD(GLOB.mob_spawners[name], src)
 
-/obj/effect/mob_spawn/Destroy()
+/obj/effect/mob_spawn/ghost_role/Destroy()
 	var/list/spawners = GLOB.mob_spawners[name]
 	LAZYREMOVE(spawners, src)
 	if(!LAZYLEN(spawners))
@@ -157,9 +184,17 @@
 	LAZYADD(ckeys_trying_to_spawn, user_ckey)
 
 	if(prompt_ghost)
-		var/prompt = "Become [prompt_name]?"
+		var/realname = user.client?.prefs?.read_preference(/datum/preference/name/real_name) || "yourself" /// DOPPLER SHIFT ADDITION
+		var/prompt = "Become [prompt_name] as [realname]?" /// DOPPLER SHIFT EDIT: adding your name to it
 		if(!temp_body && user.can_reenter_corpse && user.mind)
 			prompt += " (Warning, You can no longer be revived!)"
+		/// DOPPLER SHIFT ADDITION BEGIN
+		if(allow_prefs)
+			prompt += "\nYou will be loaded in with your current character, [realname] -"
+			if(allow_loadout)
+				prompt += " loadout &"
+			prompt += " quirks included!  Make sure they fit the role!"
+		/// DOPPLER SHIFT ADDITION END
 		var/ghost_role = tgui_alert(usr, prompt, buttons = list("Yes", "No"), timeout = 10 SECONDS)
 		if(ghost_role != "Yes" || !loc || QDELETED(user))
 			LAZYREMOVE(ckeys_trying_to_spawn, user_ckey)
@@ -239,11 +274,11 @@
 			spawned_mob.key = mob_possessor.key
 	var/datum/mind/spawned_mind = spawned_mob.mind
 	if(spawned_mind)
-		spawned_mob.mind.set_assigned_role_with_greeting(SSjob.GetJobType(spawner_job_path))
+		spawned_mob.mind.set_assigned_role_with_greeting(SSjob.get_job_type(spawner_job_path))
 		spawned_mind.name = spawned_mob.real_name
 
 	if(show_flavor)
-		var/output_message = "<span class='infoplain'><span class='big bold'>[you_are_text]</span></span>"
+		var/output_message = span_infoplain("<span class='big bold'>[you_are_text]</span>")
 		if(flavour_text != "")
 			output_message += "\n<span class='infoplain'><b>[flavour_text]</b></span>"
 		if(important_text != "")
@@ -261,6 +296,7 @@
 
 ///these mob spawn subtypes trigger immediately (New or Initialize) and are not player controlled... since they're dead, you know?
 /obj/effect/mob_spawn/corpse
+	density = FALSE //these are pretty much abstract objects that leave a corpse in their place.
 	///when this mob spawn should auto trigger.
 	var/spawn_when = CORPSE_INSTANT
 

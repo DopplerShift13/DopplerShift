@@ -26,6 +26,7 @@ export enum Food {
   Sugar = 'SUGAR',
   Toxic = 'TOXIC',
   Vegetables = 'VEGETABLES',
+  Bloody = 'BLOODY', // DOPPLER EDIT ADDITION - Hemophage Food
 }
 
 export enum JobPriority {
@@ -88,6 +89,14 @@ export type Quirk = {
   customization_options?: string[];
 };
 
+// DOPPLER EDIT START
+export type Language = {
+  description: string;
+  name: string;
+  icon: string;
+};
+// DOPPLER EDIT END
+
 export type QuirkInfo = {
   max_positive_quirks: number;
   quirk_info: Record<string, Quirk>;
@@ -130,6 +139,9 @@ export type PreferencesMenuData = {
   character_preview_view: string;
   character_profiles: (string | null)[];
 
+  preview_options: string[]; // DOPPLER EDIT ADDITION
+  preview_selection: string; // DOPPLER EDIT ADDITION
+
   character_preferences: {
     clothing: Record<string, string>;
     features: Record<string, string>;
@@ -138,6 +150,7 @@ export type PreferencesMenuData = {
       random_body: RandomSetting;
       [otherKey: string]: unknown;
     };
+    doppler_lore: Record<string, unknown> /* DOPPLER EDIT ADDITION */;
     secondary_features: Record<string, unknown>;
     supplemental_features: Record<string, unknown>;
     manually_rendered_features: Record<string, string>;
@@ -168,6 +181,11 @@ export type PreferencesMenuData = {
   >;
   job_preferences: Record<string, JobPriority>;
 
+  // DOPPLER EDIT
+  selected_languages: Language[];
+  unselected_languages: Language[];
+  total_language_points: number;
+  // DOPPLER EDIT END
   keybindings: Record<string, string[]>;
   overflow_role: string;
   selected_quirks: string[];

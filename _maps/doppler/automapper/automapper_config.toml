@@ -1,0 +1,106 @@
+# Automapper configuration
+# [templates.example_template] - example_template should be replaced with the name of your map template.
+# directory - The direct path to our map files.
+# map_files - These are the names of the map files, including the extension, that will be loaded. Supports multiple for randomness.
+# required_map - This is the name of the required map that needs to be loaded in order for this template to load.
+# coordinates - The coordinates of the map template placement. (X, Y, Z). PLEASE NOTE: The Z coordinate is the same as would be shown in SDMM. NOT IN GAME.
+# leave it at 1 if it is not a multi-z map. It is relative to the map file Z, not the one loaded in game.
+# trait_name - The name of the Z level trait that will be used to determine what Z level we use.
+# Traits - Station (for station relatied edits), CentCom (for edits on the CC map), Mining (for edits on Lavaland)
+# More can be found in code\__DEFINES\maps.dm
+
+# METASTATION MAP TEMPLATES
+# Metastation Cryo
+[templates.metastation_cryo]
+map_files = ["metastation_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [133, 182, 1]
+trait_name = "Station"
+
+# DELTASTATION MAP EDITS
+# Deltastation Cryo
+[templates.deltastation_cryo]
+map_files = ["deltastation_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [216, 93, 1]
+trait_name = "Station"
+
+# ICEBOX MAP EDITS
+# Icebox Cryo
+[templates.icebox_cryo]
+map_files = ["icebox_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [117, 142, 3]
+trait_name = "Station"
+
+# Icecats Camp Lower Level
+[templates.icebox_icecats_lower]
+map_files = ["icemoon_underground_icewalker_lower.dmm"]
+directory = "_maps/RandomRuins/IceRuins/doppler/"
+required_map = "IceBoxStation.dmm"
+coordinates = [170, 16, 1]
+trait_name = "Station"
+
+# Icecats Camp Upper Level
+[templates.icebox_icecats_upper]
+map_files = ["icemoon_underground_icewalker_upper.dmm"]
+directory = "_maps/RandomRuins/IceRuins/doppler/"
+required_map = "IceBoxStation.dmm"
+coordinates = [170, 16, 2]
+trait_name = "Station"
+
+# ICELAND ADDITIONS
+# Icecats Camp Lower Level: ICELAND ADDITION
+[templates.icebox_icecats_lower_iceland]
+map_files = ["icemoon_underground_icewalker_lower.dmm"]
+directory = "_maps/RandomRuins/IceRuins/doppler/"
+required_map = "Iceland.dmm"
+coordinates = [121, 203, 1]
+trait_name = "Mining"
+
+# Icecats Camp Upper Level: ICELAND ADDITION
+[templates.icebox_icecats_upper_iceland]
+map_files = ["icemoon_underground_icewalker_upper.dmm"]
+directory = "_maps/RandomRuins/IceRuins/doppler/"
+required_map = "Iceland.dmm"
+coordinates = [121, 203, 2]
+trait_name = "Mining"
+
+# TRAMSTATION MAP EDITS
+# Tramstation Cryo
+[templates.tramstation_cryo]
+map_files = ["tramstation_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [68, 102, 2]
+trait_name = "Station"
+
+# BIRDSHOT MAP EDITS
+# Birdshot Cryo
+[templates.birdshot_cryo]
+map_files = ["birdshot_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/birdshot/"
+required_map = "birdshot.dmm"
+coordinates = [142, 84, 1]
+trait_name = "Station"
+
+# NORTHSTAR MAP EDITS
+# Northstar Cryo
+[templates.northstar_cryo]
+map_files = ["northstar_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/northstar/"
+required_map = "north_star.dmm"
+coordinates = [130, 114, 3]
+trait_name = "Station"
+
+# WAWASTATION MAP EDITS
+# Wawastation Cryo
+[templates.wawastation_cryo]
+map_files = ["wawastation_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [83, 92, 1]
+trait_name = "Station"

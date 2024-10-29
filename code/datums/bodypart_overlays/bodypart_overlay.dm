@@ -4,18 +4,34 @@
 	///Sometimes we need multiple layers, for like the back, middle and front of the person (EXTERNAL_FRONT, EXTERNAL_ADJACENT, EXTERNAL_BEHIND)
 	var/layers
 	///List of all possible layers. Used for looping through in drawing
-	var/static/list/all_layers = list(EXTERNAL_FRONT, EXTERNAL_ADJACENT, EXTERNAL_BEHIND)
+	//var/static/list/all_layers = list(EXTERNAL_FRONT, EXTERNAL_ADJACENT, EXTERNAL_BEHIND) /// DOPPLER SHIFT REMOVAL
+	/// DOPPLER SHIFT ADDITION BEGIN
+	var/static/list/all_layers = list(EXTERNAL_FRONT,EXTERNAL_FRONT_2,EXTERNAL_FRONT_3,
+	EXTERNAL_ADJACENT,EXTERNAL_ADJACENT_2,EXTERNAL_ADJACENT_3,
+	EXTERNAL_BEHIND,EXTERNAL_BEHIND_2,EXTERNAL_BEHIND_3)
+	/// DOPPLER SHIFT ADDITION END
 
 	///Key of the icon states of all the sprite_datums for easy caching
 	var/cache_key = ""
 
+	/// Whether the overlay blocks emissive light
+	var/blocks_emissive = EMISSIVE_BLOCK_UNIQUE
+
 ///Wrapper for getting the proper image, colored and everything
 /datum/bodypart_overlay/proc/get_overlay(layer, obj/item/bodypart/limb)
 	layer = bitflag_to_layer(layer)
-	. = get_image(layer, limb)
-	color_image(., layer, limb)
+	var/image/main_image = get_image(layer, limb)
+	color_image(main_image, layer, limb)
+	if(blocks_emissive == EMISSIVE_BLOCK_NONE || !limb)
+		return main_image
 
-///Generate the image. Needs to be overriden
+	var/list/all_images = list(
+		main_image,
+		emissive_blocker(main_image.icon, main_image.icon_state, limb, layer = main_image.layer, alpha = main_image.alpha)
+	)
+	return all_images
+
+///Generate the image. Needs to be overridden
 /datum/bodypart_overlay/proc/get_image(layer, obj/item/bodypart/limb)
 	CRASH("Get image needs to be overridden")
 
@@ -31,7 +47,7 @@
 /datum/bodypart_overlay/proc/removed_from_limb(obj/item/bodypart/limb)
 	return
 
-///Use this to change the appearance (and yes you must overwrite hahahahahah) (or dont use this, I just dont want people directly changing the image)
+///Use this to change the appearance (and yes you must overwrite hahahahahah) (or don't use this, I just don't want people directly changing the image)
 /datum/bodypart_overlay/proc/set_appearance()
 	CRASH("Update appearance needs to be overridden")
 
@@ -46,6 +62,20 @@
 			return "ADJ"
 		if(-BODY_FRONT_LAYER)
 			return "FRONT"
+		/// DOPPLER SHIFT ADDITION BEGIN
+		if(-BODY_BEHIND_LAYER_2)
+			return "BEHIND_2"
+		if(-BODY_BEHIND_LAYER_3)
+			return "BEHIND_3"
+		if(-BODY_ADJ_LAYER_2)
+			return "ADJ_2"
+		if(-BODY_ADJ_LAYER_3)
+			return "ADJ_3"
+		if(-BODY_FRONT_LAYER_2)
+			return "FRONT_2"
+		if(-BODY_FRONT_LAYER_3)
+			return "FRONT_3"
+		/// DOPPLER SHIFT ADDITION END
 
 ///Converts a bitflag to the right layer. I'd love to make this a static index list, but byond made an attempt on my life when i did
 /datum/bodypart_overlay/proc/bitflag_to_layer(layer)
@@ -56,6 +86,20 @@
 			return -BODY_ADJ_LAYER
 		if(EXTERNAL_FRONT)
 			return -BODY_FRONT_LAYER
+		/// DOPPLER SHIFT ADDITION BEGIN
+		if(EXTERNAL_BEHIND_2)
+			return -BODY_BEHIND_LAYER_2
+		if(EXTERNAL_BEHIND_3)
+			return -BODY_BEHIND_LAYER_3
+		if(EXTERNAL_ADJACENT_2)
+			return -BODY_ADJ_LAYER_2
+		if(EXTERNAL_ADJACENT_3)
+			return -BODY_ADJ_LAYER_3
+		if(EXTERNAL_FRONT_2)
+			return -BODY_FRONT_LAYER_2
+		if(EXTERNAL_FRONT_3)
+			return -BODY_FRONT_LAYER_3
+		/// DOPPLER SHIFT ADDITION END
 
 ///Check whether we can draw the overlays. You generally don't want lizard snouts to draw over an EVA suit
 /datum/bodypart_overlay/proc/can_draw_on_bodypart(mob/living/carbon/human/human)

@@ -135,6 +135,16 @@
 		item_target.lefthand_file = initial(picked_item.lefthand_file)
 		item_target.righthand_file = initial(picked_item.righthand_file)
 
+		/// DOPPLER SHIFT ADDITION BEGIN
+		item_target.supported_bodyshapes = picked_item.supported_bodyshapes
+		item_target.bodyshape_icon_files = picked_item.bodyshape_icon_files
+		if(ishuman(owner))
+			var/mob/living/carbon/human/humie = owner
+			for(var/shape in picked_item.supported_bodyshapes)
+				if(humie.bodyshape & shape)
+					item_target.worn_icon = picked_item.bodyshape_icon_files["[shape]"]
+		/// DOPPLER SHIFT ADDITION END
+
 		item_target.worn_icon_state = initial(picked_item.worn_icon_state)
 		item_target.inhand_icon_state = initial(picked_item.inhand_icon_state)
 
@@ -154,6 +164,18 @@
 					initial(picked_item.greyscale_config_inhand_right),
 					initial(picked_item.greyscale_colors),
 				)
+			/// DOPPLER SHIFT ADDITION BEGIN - the necessary sacrifice to chameleon clothing
+			if(initial(picked_item.greyscale_config_worn_bodyshapes) && initial(picked_item.greyscale_colors))
+				item_target.greyscale_config_worn_bodyshapes = picked_item.greyscale_config_worn_bodyshapes
+				if(ishuman(owner))
+					var/mob/living/carbon/human/humie = owner
+					var/altbody
+					for(var/shape in picked_item.supported_bodyshapes)
+						if(humie.bodyshape & shape)
+							altbody = picked_item.greyscale_config_worn_bodyshapes["[shape]"]
+							item_target.bodyshape_icon_files["[shape]"] = SSgreyscale.GetColoredIconByType(altbody, initial(picked_item.greyscale_colors))
+							item_target.worn_icon = item_target.bodyshape_icon_files["[shape]"]
+			/// DOPPLER SHIFT ADDITION END
 
 		item_target.flags_inv = initial(picked_item.flags_inv)
 		item_target.transparent_protection = initial(picked_item.transparent_protection)
@@ -208,7 +230,7 @@
 
 	if(istype(applying_from, /datum/outfit/job))
 		var/datum/outfit/job/job_outfit = applying_from
-		var/datum/job/job_datum = SSjob.GetJobType(job_outfit.jobtype)
+		var/datum/job/job_datum = SSjob.get_job_type(job_outfit.jobtype)
 		apply_job_data(job_datum)
 
 	update_look(using_item_type)

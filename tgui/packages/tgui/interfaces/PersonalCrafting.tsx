@@ -23,6 +23,7 @@ import { Food } from './PreferencesMenu/data';
 const TYPE_ICONS = {
   'Can Make': 'utensils',
   [Food.Alcohol]: 'wine-glass',
+  [Food.Bloody]: 'tint', // DOPPLER EDIT ADDITION - Hemophage Food
   [Food.Breakfast]: 'sun',
   [Food.Bugs]: 'bug',
   [Food.Cloth]: 'tshirt',
@@ -76,6 +77,7 @@ const CATEGORY_ICONS_COOKING = {
   Cakes: 'cake-candles',
   'Egg-Based Food': 'egg',
   Frozen: 'ice-cream',
+  'Hemophage Food': 'tint', // DOPPLER EDIT ADDITION - Hemophage Food
   'Lizard Food': 'dragon',
   Meats: 'bacon',
   'Mexican Food': 'pepper-hot',
@@ -137,6 +139,7 @@ type Recipe = {
   structures: string[];
   steps: string[];
   foodtypes: string[];
+  has_food_effect: BooleanLike;
 };
 
 type Diet = {
@@ -792,10 +795,16 @@ const RecipeContent = ({ item, craftable, busy, mode, diet }) => {
         <Stack.Item grow>
           <Stack>
             <Stack.Item grow={5}>
-              <Box mb={0.5} bold style={{ textTransform: 'capitalize' }}>
+              <Box mb={1} bold style={{ textTransform: 'capitalize' }}>
                 {item.name}
               </Box>
               {item.desc && <Box color={'gray'}>{item.desc}</Box>}
+              {!!item.has_food_effect && (
+                <Box my={2} color={'pink'}>
+                  <Icon name="wand-magic-sparkles" mr={1} />
+                  Special effect on consumption.
+                </Box>
+              )}
               <Box style={{ textTransform: 'capitalize' }}>
                 {item.reqs && (
                   <Box>

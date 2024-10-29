@@ -57,7 +57,7 @@
 	if(!json_config)
 		stack_trace("Greyscale config object [DebugName()] is missing a json configuration, make sure `json_config` has been assigned a value.")
 	string_json_config = "[json_config]"
-	if(findtext(string_json_config, "code/datums/greyscale/json_configs/") != 1)
+	if(!(findtext(string_json_config, "code/datums/greyscale/json_configs/") != 1 || findtext(string_json_config, "modular_doppler/modular_cosmetics/GAGS/json_configs") != 1)) //DOPPLER EDIT originally if(findtext(string_json_config, "code/datums/greyscale/json_configs/") != 1)
 		stack_trace("All greyscale json configuration files should be located within 'code/datums/greyscale/json_configs/'")
 	if(!icon_file)
 		stack_trace("Greyscale config object [DebugName()] is missing an icon file, make sure `icon_file` has been assigned a value.")
@@ -249,7 +249,7 @@
 /datum/greyscale_config/proc/GenerateBundle(list/colors, list/render_steps, icon/last_external_icon)
 	if(!istype(colors))
 		colors = SSgreyscale.ParseColorString(colors)
-	if(length(colors) != expected_colors)
+	if(length(colors) < expected_colors)
 		CRASH("[DebugName()] expected [expected_colors] color arguments but only received [length(colors)]")
 
 	var/list/generated_icons = list()

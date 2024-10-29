@@ -89,7 +89,7 @@
 					to_chat(user, span_warning("Your hand slips, setting off the trigger!"))
 					pulse()
 		update_appearance()
-		playsound(loc, 'sound/weapons/handcuffs.ogg', 30, TRUE, -3)
+		playsound(loc, 'sound/items/weapons/handcuffs.ogg', 30, TRUE, -3)
 
 /obj/item/assembly/mousetrap/update_icon_state()
 	icon_state = "mousetrap[armed ? "armed" : ""]"
@@ -121,7 +121,11 @@
 			return FALSE
 		switch(type)
 			if("feet")
-				if(!victim.shoes)
+				// DOPPLER ADDITION START - Hardened soles
+				if(HAS_TRAIT(victim, TRAIT_HARD_SOLES))
+					to_chat(victim, span_notice("[src] snaps onto your foot, then falls off uselessly."))
+				// DOPPLER ADDITION END
+				else if(!victim.shoes) // DOPPLER EDIT, old code: if(!victim.shoes)
 					affecting = victim.get_bodypart(pick(BODY_ZONE_L_LEG, BODY_ZONE_R_LEG))
 					victim.Paralyze(60)
 				else
@@ -174,7 +178,7 @@
 		to_chat(user, span_notice("You disarm [src]."))
 	armed = !armed
 	update_appearance()
-	playsound(src, 'sound/weapons/handcuffs.ogg', 30, TRUE, -3)
+	playsound(src, 'sound/items/weapons/handcuffs.ogg', 30, TRUE, -3)
 
 
 // Clumsy check only

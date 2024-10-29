@@ -108,17 +108,13 @@
 /datum/bodypart_overlay/simple/golem_overlay/proc/add_to_bodypart(prefix, obj/item/bodypart/part)
 	icon_state = "[prefix]_[part.body_zone]"
 	attached_bodypart = WEAKREF(part)
-	part.add_bodypart_overlay(src)
+	part.add_bodypart_overlay(src, update = FALSE)
 
 /datum/bodypart_overlay/simple/golem_overlay/Destroy(force)
 	var/obj/item/bodypart/referenced_bodypart = attached_bodypart.resolve()
 	if(!referenced_bodypart)
 		return ..()
 	referenced_bodypart.remove_bodypart_overlay(src)
-	if(referenced_bodypart.owner) //Keep in mind that the bodypart could have been severed from the owner by now
-		referenced_bodypart.owner.update_body_parts()
-	else
-		referenced_bodypart.update_icon_dropped()
 	return ..()
 
 /// Freezes hunger for the duration
@@ -215,25 +211,40 @@
 /// Shoot a beam at the target atom
 /datum/status_effect/golem/plasma/proc/zap_effect(atom/target)
 	owner.Beam(target, icon_state = "lightning[rand(1,12)]", time = 0.5 SECONDS)
-	playsound(owner, 'sound/magic/lightningshock.ogg', vol = 50, vary = TRUE)
+	playsound(owner, 'sound/effects/magic/lightningshock.ogg', vol = 50, vary = TRUE)
 
 /// Makes you spaceproof
 /datum/status_effect/golem/plasteel
 	overlay_state_prefix = "iron"
 	mineral_name = "plasteel"
-	applied_fluff = "Plasteel plates seal you tight. You feel insulated!"
+	applied_fluff = "Plasteel plates seal you tight. You feel tough!" // Doppler Edit, old code:	applied_fluff = "Plasteel plates seal you tight. You feel insulated!"
 	alert_icon_state = "sheet-plasteel"
-	alert_desc = "You are sealed against the cold, and against low pressure environments."
+	alert_desc = "You are sealed against the cold, low pressure environments, and are armored!" // Doppler Edit, old code:	alert_desc = "You are sealed against the cold, and against low pressure environments."
+
+//	 DOPPLER ADDITION START
+/datum/movespeed_modifier/status_effect/golem_plasteel
+	multiplicative_slowdown = 0.7 // Tank build?
+// 	DOPPLER ADDITION END
 
 /datum/status_effect/golem/plasteel/on_apply()
 	. = ..()
 	if (!.)
 		return FALSE
 	owner.add_traits(list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD), TRAIT_STATUS_EFFECT(id))
+	// DOPPLER ADDITION START
+	owner.add_movespeed_modifier(/datum/movespeed_modifier/status_effect/golem_plasteel, update=TRUE)
+	var/mob/living/carbon/human/golem_owner = owner
+	golem_owner.physiology.damage_resistance += 15 // Gives them 15 extra damage resist. This totals out to 25. If you shot a golem with a 50 damage round, they'd eat 12.5 damage.
+	// DOPPLER ADDITION END
 	return TRUE
 
 /datum/status_effect/golem/plasteel/on_remove()
 	owner.remove_traits(list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD), TRAIT_STATUS_EFFECT(id))
+	// DOPPLER ADDITION START
+	owner.remove_movespeed_modifier(/datum/movespeed_modifier/status_effect/golem_plasteel, update=TRUE)
+	var/mob/living/carbon/human/golem_owner = owner
+	golem_owner.physiology.damage_resistance -= 15 // And God taketh away.
+	// DOPPLER ADDITION END
 	return ..()
 
 /// Makes you reflect energy projectiles
@@ -298,8 +309,8 @@
 	arm.unarmed_attack_verbs = list("slash")
 	arm.grappled_attack_verb = "lacerate"
 	arm.unarmed_attack_effect = ATTACK_EFFECT_CLAW
-	arm.unarmed_attack_sound = 'sound/weapons/slash.ogg'
-	arm.unarmed_miss_sound = 'sound/weapons/slashmiss.ogg'
+	arm.unarmed_attack_sound = 'sound/items/weapons/slash.ogg'
+	arm.unarmed_miss_sound = 'sound/items/weapons/slashmiss.ogg'
 	RegisterSignal(arm, COMSIG_QDELETING, PROC_REF(on_arm_destroyed))
 	LAZYADD(modified_arms, arm)
 

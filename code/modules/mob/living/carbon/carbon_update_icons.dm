@@ -1,7 +1,6 @@
 /mob/living/carbon/update_obscured_slots(obscured_flags)
 	..()
-	if(obscured_flags & (HIDEEARS|HIDEEYES|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT|HIDEMUTWINGS))
-		update_body()
+	update_body()
 
 /// Updates features and clothing attached to a specific limb with limb-specific offsets
 /mob/living/carbon/proc/update_features(feature_key)
@@ -53,13 +52,8 @@
 		overlays_standing[cache_index] = null
 	SEND_SIGNAL(src, COMSIG_CARBON_REMOVE_OVERLAY, cache_index, I)
 
-//used when putting/removing clothes that hide certain mutant body parts to just update those and not update the whole body.
-/mob/living/carbon/human/proc/update_mutant_bodyparts()
-	dna?.species.handle_mutant_bodyparts(src)
-	update_body_parts()
-
 /mob/living/carbon/update_body(is_creating = FALSE)
-	dna?.species.handle_body(src) //This calls `handle_mutant_bodyparts` which calls `update_mutant_bodyparts()`. Don't double call!
+	dna?.species.handle_body(src)
 	update_body_parts(is_creating)
 
 /mob/living/carbon/on_changed_z_level(turf/old_turf, turf/new_turf, same_z_layer, notify_contents)
@@ -324,7 +318,12 @@
 	var/mutable_appearance/wound_overlay
 	for(var/obj/item/bodypart/iter_part as anything in bodyparts)
 		if(iter_part.bleed_overlay_icon)
-			wound_overlay ||= mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			// DOPPLER EDIT ADDITION BEGIN - Green blood color
+			if(hasgreenblood(iter_part.owner))
+				wound_overlay ||= mutable_appearance('modular_doppler/modular_species/icons/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			else
+				wound_overlay ||= mutable_appearance('icons/mob/effects/bleed_overlays.dmi', "blank", -WOUND_LAYER, appearance_flags = KEEP_TOGETHER)
+			// DOPPLER EDIT ADDITION END
 			wound_overlay.add_overlay(iter_part.bleed_overlay_icon)
 
 	if(isnull(wound_overlay))
@@ -465,11 +464,12 @@
 	SEND_SIGNAL(src, COMSIG_ITEM_GET_WORN_OVERLAYS, ., standing, isinhands, icon_file)
 
 ///Checks to see if any bodyparts need to be redrawn, then does so. update_limb_data = TRUE redraws the limbs to conform to the owner.
+///Returns an integer representing the number of limbs that were updated.
 /mob/living/carbon/proc/update_body_parts(update_limb_data)
 	update_damage_overlays()
 	update_wound_overlays()
 	var/list/needs_update = list()
-	var/limb_count_update = FALSE
+	var/limb_count_update = 0
 	for(var/obj/item/bodypart/limb as anything in bodyparts)
 		limb.update_limb(is_creating = update_limb_data) //Update limb actually doesn't do much, get_limb_icon is the cpu eater.
 
@@ -479,13 +479,15 @@
 		if(icon_render_keys[limb.body_zone] != old_key) //If the keys match, that means the limb doesn't need to be redrawn
 			needs_update += limb
 
+	limb_count_update += length(needs_update)
 	var/list/missing_bodyparts = get_missing_limbs()
 	if(((dna ? dna.species.max_bodypart_count : BODYPARTS_DEFAULT_MAXIMUM) - icon_render_keys.len) != missing_bodyparts.len) //Checks to see if the target gained or lost any limbs.
-		limb_count_update = TRUE
+		limb_count_update += 1
 		for(var/missing_limb in missing_bodyparts)
 			icon_render_keys -= missing_limb //Removes dismembered limbs from the key list
 
-	if(!needs_update.len && !limb_count_update)
+	. = limb_count_update
+	if(!.)
 		return
 
 	//GENERATE NEW LIMBS

@@ -1,0 +1,20 @@
+## Combat indicator, comment out to disable it
+COMBAT_INDICATOR
+
+## How long until someone can be put in cryo if they are SSD, default is 9000 (15 minutes)
+CRYO_MIN_SSD_TIME 9000
+
+## If uncommented, suicide will be disabled.
+DISABLE_SUICIDE
+
+## Enables autotransfer
+AUTOTRANSFER
+
+# First autotransfer vote time (2 hrs)
+VOTE_AUTOTRANSFER_INITIAL 72000
+
+# Interval between autotransfer votes after the first (0.5 hrs)
+VOTE_AUTOTRANSFER_INTERVAL 18000
+
+# Maximum number of votes before the system forces roundend (2, meaning first vote at 2.0 hrs, second at 2.5hrs, and forced at 3.0hrs)
+VOTE_AUTOTRANSFER_MAXIMUM 2

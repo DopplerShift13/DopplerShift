@@ -44,6 +44,10 @@
 #define VENTCRAWLER_NUDE 1
 #define VENTCRAWLER_ALWAYS 2
 
+// Flags for the mob_flags var on /mob
+/// May override the names used in screentips of OTHER OBJECTS hovered over.
+#define MOB_HAS_SCREENTIPS_NAME_OVERRIDE (1 << 0)
+
 //Mob bio-types flags
 ///The mob is organic, can heal from medical sutures.
 #define MOB_ORGANIC (1 << 0)
@@ -100,6 +104,15 @@
 ///The limb is snouted.
 #define BODYSHAPE_SNOUTED (1<<3)
 
+/// DOPPLER SHIFT ADDITION BEGIN
+// This is where our custom bodyshapes are going to go.  Keeping these in one place is critical for readability.
+/// BREAKER: Numeric -> text for use in defines
+#define BODYSHAPE_HUMANOID_T "1"
+#define BODYSHAPE_MONKEY_T "2"
+#define BODYSHAPE_DIGITIGRADE_T "4"
+#define BODYSHAPE_SNOUTED_T "8"
+/// DOPPLER SHIFT ADDITIO NEND
+
 #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
 #define BODYTYPE_CAN_BE_BIOSCRAMBLED(bodytype) (!(bodytype & BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE))
 
@@ -152,7 +165,10 @@
 ///The species is forced to have digitigrade legs in generation.
 #define DIGITIGRADE_FORCED 2
 
-///Digitigrade's prefs, used in features for legs if you're meant to be a Digitigrade.
+// Preferences for leg types
+/// Legs that are normal
+#define NORMAL_LEGS "Normal Legs"
+/// Digitgrade legs that are like bended and uhhh no shoes
 #define DIGITIGRADE_LEGS "Digitigrade Legs"
 
 // Health/damage defines
@@ -305,7 +321,7 @@
 
 #define BRUTE_DAMAGE_REQUIRED_TO_STOP_CRYSTALIZATION 30
 
-#define CRYSTALIZE_STAGE_ENGULFING 100 //Cant use second defines
+#define CRYSTALIZE_STAGE_ENGULFING 100 //Can't use second defines
 #define CRYSTALIZE_STAGE_ENCROACHING 300 //In switches
 #define CRYSTALIZE_STAGE_SMALL 600 //Because they're not static
 
@@ -369,6 +385,8 @@
 #define SLIP_WHEN_CRAWLING (1<<4)
 /// the mob won't slip if the turf has the TRAIT_TURF_IGNORE_SLIPPERY trait.
 #define SLIPPERY_TURF (1<<5)
+/// For mobs who are slippery, this requires the mob holding it to be lying down.
+#define SLIPPERY_WHEN_LYING_DOWN (1<<6)
 
 #define MAX_CHICKENS 50
 
@@ -429,9 +447,9 @@
 #define OFFSET_HELD "held"
 
 //MINOR TWEAKS/MISC
-#define AGE_MIN 17 //youngest a character can be
-#define AGE_MAX 85 //oldest a character can be
-#define AGE_MINOR 20 //legal age of space drinking and smoking
+#define AGE_MIN 18 //youngest a character can be //DOPPLER EDIT was 17
+#define AGE_MAX 250 //oldest a character can be //DOPPLER EDIT was 85
+#define AGE_MINOR 21 //legal age of space drinking and smoking //DOPPLER EDIT was 20
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
 #define APPRENTICE_AGE_MIN 29 //youngest an apprentice can be
 #define SHOES_SLOWDOWN 0 //How much shoes slow you down by default. Negative values speed you up
@@ -508,7 +526,7 @@
 #define WABBAJACK_HUMAN "humanoid"
 #define WABBAJACK_ANIMAL "animal"
 
-// Reasons a defibrilation might fail
+// Reasons a defibrillation might fail
 #define DEFIB_POSSIBLE (1<<0)
 #define DEFIB_FAIL_SUICIDE (1<<1)
 #define DEFIB_FAIL_HUSK (1<<2)
@@ -678,20 +696,39 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define MUTATIONS_LAYER 35
 /// Mutantrace features (tail when looking south) that must appear behind the body parts
 #define BODY_BEHIND_LAYER 34
+/// DOPPLER SHIFT ADDITION BEGIN
+#define BODY_BEHIND_LAYER_2 33.99
+#define BODY_BEHIND_LAYER_3 33.98
+/// DOPPLER SHIFT ADDITION END
 /// Layer for bodyparts that should appear behind every other bodypart - Mostly, legs when facing WEST or EAST
 #define BODYPARTS_LOW_LAYER 33
 /// Layer for most bodyparts, appears above BODYPARTS_LOW_LAYER and below BODYPARTS_HIGH_LAYER
 #define BODYPARTS_LAYER 32
 /// Mutantrace features (snout, body markings) that must appear above the body parts
 #define BODY_ADJ_LAYER 31
+/// DOPPLER SHIFT ADDITION BEGIN
+#define BODY_ADJ_LAYER_2 30.99
+#define BODY_ADJ_LAYER_3 30.98
+/// DOPPLER SHIFT ADDITION END
 /// Underwear, undershirts, socks, eyes, lips(makeup)
 #define BODY_LAYER 30
 /// Mutations that should appear above body, body_adj and bodyparts layer (e.g. laser eyes)
 #define FRONT_MUTATIONS_LAYER 29
 /// Damage indicators (cuts and burns)
 #define DAMAGE_LAYER 28
+/// DOPPLER SHIFT ADDITION BEGIN
+/// Just below clothing layer
+#define UNDER_UNIFORM_LAYER 27.5
+/// Bra and socks
+#define BRA_SOCKS_LAYER 27.02
+/// Underwear and undershirt
+#define UNDERWEAR_UNDERSHIRT 27.01
+/// DOPPLER SHIFT ADDITION END
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 27
+/// DOPPLER SHIFT ADDITION BEGIN
+#define BANDAGE_LAYER 26.5
+/// DOPPLER SHIFT ADDITION END
 /// ID card layer
 #define ID_LAYER 26
 /// ID card layer (might be deprecated)
@@ -713,7 +750,7 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Glasses layer
 #define GLASSES_LAYER 17
 /// Belt layer
-#define BELT_LAYER 16 //Possible make this an overlay of somethign required to wear a belt?
+#define BELT_LAYER 16 //Possible make this an overlay of something required to wear a belt?
 /// Suit storage layer (tucking a gun or baton underneath your armor)
 #define SUIT_STORE_LAYER 15
 /// Neck layer (for wearing capes and bedsheets)
@@ -734,6 +771,10 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define HANDS_LAYER 7
 /// Body front layer. Usually used for mutant bodyparts that need to be in front of stuff (e.g. cat ears)
 #define BODY_FRONT_LAYER 6
+/// DOPPLER SHIFT ADDITION BEGIN
+#define BODY_FRONT_LAYER_2 5.99
+#define BODY_FRONT_LAYER_3 5.98
+/// DOPPLER SHIFT ADDITION END
 /// Special body layer that actually require to be above the hair (e.g. lifted welding goggles)
 #define ABOVE_BODY_FRONT_GLASSES_LAYER 5
 /// Special body layer for the rare cases where something on the head needs to be above everything else (e.g. flowers)
@@ -795,10 +836,25 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 //Bitflags for the layers a bodypart overlay can draw on (can be drawn on multiple layers)
 /// Draws overlay on the BODY_FRONT_LAYER
 #define EXTERNAL_FRONT (1 << 0)
-/// Draws overlay on the BODY_ADJ_LAYER
+/// DOPPLER SHIFT REMOVAL BEGIN
+/*/// Draws overlay on the BODY_ADJ_LAYER
 #define EXTERNAL_ADJACENT (1 << 1)
 /// Draws overlay on the BODY_BEHIND_LAYER
-#define EXTERNAL_BEHIND (1 << 2)
+#define EXTERNAL_BEHIND (1 << 2) */
+/// DOPPLER SHIFT REMOVAL END
+/// DOPPLER SHIFT ADDITION BEGIN
+//Front extra-color layers.
+#define EXTERNAL_FRONT_2 (1 << 1)
+#define EXTERNAL_FRONT_3 (1 << 2)
+//Updated adjacent & extra-color layers.
+#define EXTERNAL_ADJACENT (1 << 3)
+#define EXTERNAL_ADJACENT_2 (1 << 4)
+#define EXTERNAL_ADJACENT_3 (1 << 5)
+//Updated behind & extra-color layers.
+#define EXTERNAL_BEHIND (1 << 6)
+#define EXTERNAL_BEHIND_2 (1 << 7)
+#define EXTERNAL_BEHIND_3 (1 << 8)
+/// DOPPLER SHIFT ADDITION END
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
@@ -844,7 +900,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define NEED_VENTCRAWL (1<<8)
 /// Skips adjacency checks
 #define BYPASS_ADJACENCY (1<<9)
-/// Skips reccursive loc checks
+/// Skips recursive loc checks
 #define NOT_INSIDE_TARGET (1<<10)
 /// Checks for base adjacency, but silences the error
 #define SILENT_ADJACENCY (1<<11)
@@ -878,6 +934,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 
 /// Possible value of [/atom/movable/buckle_lying]. If set to a different (positive-or-zero) value than this, the buckling thing will force a lying angle on the buckled.
 #define NO_BUCKLE_LYING -1
+/// Possible value of [/atom/movable/buckle_dir]. If set to a different (positive-or-zero) value than this, the buckling thing will force a dir on the buckled.
+#define BUCKLE_MATCH_DIR -1
 
 // Flags for fully_heal().
 
@@ -974,6 +1032,8 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 
 /// The duration of the flip emote animation
 #define FLIP_EMOTE_DURATION 0.7 SECONDS
+///The duration of a taunt emote, so how long they can deflect projectiles
+#define TAUNT_EMOTE_DURATION 0.9 SECONDS
 
 // Sprites for photocopying butts
 #define BUTT_SPRITE_HUMAN_MALE "human_male"
@@ -988,3 +1048,7 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define BUTT_SPRITE_PLASMA "plasma"
 #define BUTT_SPRITE_FUZZY "fuzzy"
 #define BUTT_SPRITE_SLIME "slime"
+
+/// Distance which you can see someone's ID card
+/// Short enough that you can inspect over tables (bartender checking age)
+#define ID_EXAMINE_DISTANCE 3

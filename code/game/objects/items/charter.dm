@@ -69,8 +69,8 @@
 	if(!response_timer_id)
 		return
 	var/turf/T = get_turf(src)
-	T.visible_message("<span class='warning'>The proposed changes disappear \
-		from [src]; it looks like they've been rejected.</span>")
+	T.visible_message(span_warning("The proposed changes disappear \
+		from [src]; it looks like they've been rejected."))
 	var/m = "[key_name(user)] has rejected the proposed station name."
 
 	message_admins(m)
@@ -113,7 +113,8 @@
 	minor_announce("[ureal_name] has designated the [name_type] as [html_decode(station_name())]", "Captain's Banner") //decode station_name to avoid minor_announce double encode
 	log_game("[ukey] has renamed the [name_type] as [station_name()].")
 	name = "banner of [station_name()]"
-	desc = "The banner bears the official coat of arms of Nanotrasen, signifying that [station_name()] has been claimed by Captain [uname] in the name of the company."
+	//desc = "The banner bears the official coat of arms of Nanotrasen, signifying that [station_name()] has been claimed by Captain [uname] in the name of the company." // ORIGINAL
+	desc = "The banner bears the official coat of arms of the Port Authority, signifying that [station_name()] has been claimed by Captain [uname] in the name of the company." // DOPPLER EDIT - NT -> PA
 	SSblackbox.record_feedback("text", "station_renames", 1, "[station_name()]")
 	if(!unlimited_uses)
 		used = TRUE

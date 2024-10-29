@@ -210,7 +210,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	if(LAZYLEN(our_mind.failed_special_equipment))
 		podspawn(list(
 			"target" = get_turf(owner),
-			"style" = STYLE_SYNDICATE,
+			"style" = /datum/pod_style/syndicate,
 			"spawn" = our_mind.failed_special_equipment,
 		))
 		our_mind.failed_special_equipment = null
@@ -353,7 +353,7 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		return FALSE
 	if(human_check)
 		brain_target = target.current?.get_organ_slot(ORGAN_SLOT_BRAIN)
-	//Protect will always suceed when someone suicides
+	//Protect will always succeed when someone suicides
 	return !target || (target.current && HAS_TRAIT(target.current, TRAIT_SUICIDED)) || considered_alive(target, enforce_human = human_check) || (brain_target && HAS_TRAIT(brain_target, TRAIT_SUICIDED))
 
 /datum/objective/protect/update_explanation_text()
@@ -400,7 +400,8 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 /datum/objective/jailbreak/detain/update_explanation_text()
 	..()
 	if(target?.current)
-		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role] is delivered to Nanotrasen alive and in custody."
+		//explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role] is delivered to Nanotrasen alive and in custody." // ORIGINAL
+		explanation_text = "Ensure that [target.name], the [!target_role_type ? target.assigned_role.title : target.special_role] is delivered to the Port Authority alive and in custody." // DOPPLER EDIT - NT -> PA
 	else
 		explanation_text = "Free objective."
 

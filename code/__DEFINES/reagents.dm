@@ -52,6 +52,7 @@
 #define CAT_TUBES "tubes"
 #define CAT_PILLS "pills"
 #define CAT_PATCHES "patches"
+#define CAT_HYPOS "hypos" /// DOPPLER SHIFT ADDITION
 #define DEFAULT_PATCH_STYLE "bandaid_blank"
 //used by chem master
 #define CONDIMASTER_STYLE_AUTO "auto"
@@ -127,7 +128,7 @@
 #define REACTION_COMPETITIVE (1<<5)
 ///Used to force pH changes to be constant regardless of volume
 #define REACTION_PH_VOL_CONSTANT (1<<6)
-///If a reaction will generate it's impure/inverse reagents in the middle of a reaction, as apposed to being determined on ingestion/on reaction completion
+///If a reaction will generate its impure/inverse reagents in the middle of a reaction, as apposed to being determined on ingestion/on reaction completion
 #define REACTION_REAL_TIME_SPLIT (1<<7)
 
 ///Used for overheat_temp - This sets the overheat so high it effectively has no overheat temperature.
@@ -161,7 +162,7 @@
 #define REACTION_TAG_HEALING (1<<4)
 /// This reagent primarily damages
 #define REACTION_TAG_DAMAGING (1<<5)
-/// This reagent explodes as a part of it's intended effect (i.e. not overheated/impure)
+/// This reagent explodes as a part of its intended effect (i.e. not overheated/impure)
 #define REACTION_TAG_EXPLOSIVE (1<<6)
 /// This reagent does things that are unique and special
 #define REACTION_TAG_OTHER (1<<7)

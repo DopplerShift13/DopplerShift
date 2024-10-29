@@ -11,6 +11,8 @@
 		"scrubber",
 		"generic_tank",
 		"oxygen_tank",
+		"nitrogen_tank", //DOPPLER EDIT ADDITION
+		"nitrogen_tank_belt", //DOPPLER EDIT ADDITION
 		"plasma_tank",
 		"plasmaman_tank_belt",
 		"plasmarefiller",
@@ -42,6 +44,13 @@
 		"pneumatic_seal",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
+	experiments_to_unlock = list(
+		/datum/experiment/ordnance/gaseous/plasma,
+		/datum/experiment/ordnance/gaseous/nitrous_oxide,
+		/datum/experiment/ordnance/gaseous/bz,
+		/datum/experiment/ordnance/gaseous/noblium,
+	)
+	announce_channels = list(RADIO_CHANNEL_ENGINEERING)
 
 /datum/techweb_node/plasma_control
 	id = TECHWEB_NODE_PLASMA_CONTROL
@@ -57,6 +66,7 @@
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	required_experiments = list(/datum/experiment/ordnance/gaseous/plasma)
+	announce_channels = list(RADIO_CHANNEL_ENGINEERING)
 
 /datum/techweb_node/fusion
 	id = TECHWEB_NODE_FUSION
@@ -77,8 +87,8 @@
 		"crystallizer",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_3_POINTS)
-	required_experiments = list(/datum/experiment/ordnance/gaseous/bz)
 	discount_experiments = list(/datum/experiment/ordnance/gaseous/nitrous_oxide = TECHWEB_TIER_3_POINTS)
+	announce_channels = list(RADIO_CHANNEL_ENGINEERING)
 
 /datum/techweb_node/exp_tools
 	id = TECHWEB_NODE_EXP_TOOLS
@@ -99,7 +109,8 @@
 		"magboots",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_4_POINTS)
-	discount_experiments = list(/datum/experiment/ordnance/gaseous/noblium = TECHWEB_TIER_4_POINTS)
+	discount_experiments = list(/datum/experiment/ordnance/gaseous/bz = TECHWEB_TIER_4_POINTS)
+	announce_channels = list(RADIO_CHANNEL_ENGINEERING)
 
 /datum/techweb_node/rcd_upgrade
 	id = TECHWEB_NODE_RCD_UPGRADE
@@ -116,3 +127,5 @@
 		"rpd_upgrade_unwrench",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_5_POINTS)
+	discount_experiments = list(/datum/experiment/ordnance/gaseous/noblium = TECHWEB_TIER_5_POINTS)
+	announce_channels = list(RADIO_CHANNEL_ENGINEERING)
