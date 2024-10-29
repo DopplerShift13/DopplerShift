@@ -19,7 +19,7 @@
 	embed_type = /datum/embed_data/spear
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
 	attack_verb_simple = list("attack", "poke", "jab", "tear", "lacerate", "gore")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	sharpness = SHARP_EDGED
 	wound_bonus = -15
 	bare_wound_bonus = 10
@@ -85,7 +85,7 @@
 	embed_type = /datum/embed_data/hatchet
 	attack_verb_continuous = list("chops", "tears", "lacerates", "cuts")
 	attack_verb_simple = list("chop", "tear", "lacerate", "cut")
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 
 /obj/item/fantasy_axe/Initialize(mapload)
@@ -131,7 +131,7 @@
 	sharpness = SHARP_EDGED
 	tool_behaviour = TOOL_KNIFE
 	toolspeed = 1.75
-	hitsound = 'sound/weapons/bladeslice.ogg'
+	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	attack_verb_continuous = list("slashes", "stabs", "slices", "tears", "lacerates", "rips", "dices", "cuts")
 	attack_verb_simple = list("slash", "stab", "slice", "tear", "lacerate", "rip", "dice", "cut")
 	slot_flags = ITEM_SLOT_BELT

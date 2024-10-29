@@ -29,7 +29,7 @@
 	if(object.tool_behaviour == TOOL_KNIFE)
 		if(!do_after(user, 3 SECONDS, src))
 			return
-		playsound(src, 'sound/items/poster_ripped.ogg', 50, TRUE)
+		playsound(src, 'sound/items/weapons/bladeslice.ogg', 50, TRUE)
 		new torn_up_result(src)
 		src.ScrapeAway(flags = CHANGETURF_INHERIT_AIR)
 	else

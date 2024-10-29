@@ -31,7 +31,7 @@
 	name = "Underground"
 	icon_state = "explored"
 	ambience_index = AMBIENCE_MINING
-	ambient_buzz = 'sound/ambience/magma.ogg'
+	ambient_buzz = 'sound/ambience/lavaland/magma.ogg'
 	min_ambience_cooldown = 70 SECONDS
 	max_ambience_cooldown = 220 SECONDS
 
