@@ -6504,7 +6504,6 @@
 #include "interface\fonts\spess_font.dm"
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
-#include "modular_doppler\on_click.dm"
 #include "modular_doppler\_HELPERS\preferences.dm"
 #include "modular_doppler\accessable_storage\accessable_storage.dm"
 #include "modular_doppler\accessable_storage\item.dm"
