@@ -13,6 +13,11 @@
 
 /datum/loadout_item/belts/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(outfit.belt)
+		if(istype(outfit, /datum/outfit/job))
+			var/datum/outfit/job/job_outfit
+			if(job_outfit.pda_slot == ITEM_SLOT_BELT)
+				LAZYADD(job_outfit.backpack_contents, item_path)
+				return
 		LAZYADD(outfit.backpack_contents, outfit.belt)
 	outfit.belt = item_path
 
