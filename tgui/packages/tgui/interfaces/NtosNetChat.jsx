@@ -177,6 +177,7 @@ export const NtosNetChat = (props) => {
                     'Message ' + title
                   }
                   fluid
+                  disabled={this_client && this_client.muted}
                   selfClear
                   mt={1}
                   onEnter={(e, value) =>
