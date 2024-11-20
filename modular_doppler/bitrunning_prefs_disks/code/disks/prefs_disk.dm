@@ -97,7 +97,7 @@
  */
 /datum/orderable_item/bitrunning_tech/prefs_disk
 	cost_per_order = 1000
-	item_path = /obj/item/bitrunning_disk/preferences
+	purchase_path = /obj/item/bitrunning_disk/preferences
 	desc = "This disk contains a program that lets you load in custom bit avatars."
 
 /**
