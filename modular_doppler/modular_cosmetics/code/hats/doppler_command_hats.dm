@@ -21,6 +21,11 @@
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 	light_range = 4
 
+/obj/item/clothing/head/utility/hardhat/welding/doppler_command/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands)
+		. += emissive_appearance(icon_file, "hardhat_emissive", src, alpha = src.alpha)
+
 /obj/item/clothing/head/utility/hardhat/welding/doppler_command/medical
 	name = "medical command hardhat"
 	icon_state = "hardhat0_med"
