@@ -17,13 +17,13 @@
 	max_heat_protection_temperature = FIRE_HELM_MAX_TEMP_PROTECT
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
-	light_range = 5
-	light_color = "#af2747"
+	light_range = 4
+	light_color = "#ee243d"
 
 /obj/item/clothing/head/utility/hardhat/welding/doppler_dc/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
 	. = ..()
 	if(!isinhands)
-		. += emissive_appearance(icon_file, "[icon_state]-emissive", src, alpha = src.alpha)
+		. += emissive_appearance(icon_file, "hardhat_dc_emissive", src, alpha = src.alpha)
 
 // Reflective fire jacket, like the shiny type super serious firefighters have to use
 
@@ -48,6 +48,7 @@
 	icon_state = "skinsuit"
 	worn_icon = 'modular_doppler/damage_control/icons/mob/gear.dmi'
 	equip_sound = 'sound/items/equip/glove_equip.ogg'
+	can_adjust = FALSE
 	resistance_flags = FIRE_PROOF
 	clothing_flags = STOPSPRESSUREDAMAGE
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -71,7 +72,7 @@
 	worn_icon_state = "mask"
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/damage_control/icons/mob/gear.dmi',
 	)
 	armor_type = /datum/armor/gas_atmos
 	resistance_flags = FIRE_PROOF
