@@ -45,6 +45,7 @@
 	desc = "A special jumpsuit that, when properly worn and adjusted, fits extremely tightly around the wearer's body. \
 		This is uncomfortable and slow to move in, but protects the wearer from exposure to vacuum."
 	icon = 'modular_doppler/damage_control/icons/gear.dmi'
+	icon_state = "skinsuit"
 	worn_icon = 'modular_doppler/damage_control/icons/mob/gear.dmi'
 	equip_sound = 'sound/items/equip/glove_equip.ogg'
 	resistance_flags = FIRE_PROOF
@@ -67,6 +68,7 @@
 	icon = 'modular_doppler/damage_control/icons/gear.dmi'
 	icon_state = "mask"
 	worn_icon = 'modular_doppler/damage_control/icons/mob/gear.dmi'
+	worn_icon_state = "mask"
 	armor_type = /datum/armor/gas_atmos
 	resistance_flags = FIRE_PROOF
 
@@ -77,8 +79,8 @@
 	desc = "A fire and chemical proofed bag for storing breach gear when not in use. \
 		A small label states that the bags should be inspected for contents every six months, \
 		though the last inspection signature looks much older than that."
-	icon = 'icons/obj/storage/storage.dmi'
-	icon_state = "garment_bag"
+	icon = 'modular_doppler/damage_control/icons/gear.dmi'
+	icon_state = "breach_bag"
 	slot_flags = NONE
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 
@@ -140,9 +142,9 @@
 /obj/structure/closet/emcloset/PopulateContents()
 	var/list/possible_spawn_pools = list(
 		"air_only" = 3,
-		"stretcher" = 3,
-		"mixture" = 2,
-		"get_out_while_you_still_can" = 1,
+		"stretcher" = 2,
+		"mixture" = 3,
+		"get_out_while_you_still_can" = 2,
 	)
 
 	new /obj/item/storage/toolbox/emergency(src)
