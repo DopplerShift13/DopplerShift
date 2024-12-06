@@ -35,7 +35,7 @@
 	worn_icon = 'modular_doppler/damage_control/icons/mob/gear.dmi'
 	inhand_icon_state = "taperobe"
 	w_class = WEIGHT_CLASS_BULKY
-	slowdown = 0.5
+	slowdown = 0.75
 	flags_inv = NONE
 
 // Skinsuit, tight fitting jumpsuit that keeps you from exploding thanks to pressure damage
