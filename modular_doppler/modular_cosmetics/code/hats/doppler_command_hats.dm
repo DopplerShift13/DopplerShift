@@ -19,7 +19,7 @@
 	max_heat_protection_temperature = FIRE_HELM_MAX_TEMP_PROTECT
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
-	light_range = 5
+	light_range = 4
 
 /obj/item/clothing/head/utility/hardhat/welding/doppler_command/medical
 	name = "medical command hardhat"
