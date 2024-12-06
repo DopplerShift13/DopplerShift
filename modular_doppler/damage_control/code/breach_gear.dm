@@ -69,6 +69,10 @@
 	icon_state = "mask"
 	worn_icon = 'modular_doppler/damage_control/icons/mob/gear.dmi'
 	worn_icon_state = "mask"
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
+	)
 	armor_type = /datum/armor/gas_atmos
 	resistance_flags = FIRE_PROOF
 
