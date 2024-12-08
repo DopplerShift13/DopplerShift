@@ -76,7 +76,7 @@
 	icon_state = "damage_lathe_packed"
 	w_class = WEIGHT_CLASS_BULKY
 	type_to_deploy = /obj/machinery/rnd/production/damage_control_fab
-	deploy_time = 4 SECOND
+	deploy_time = 4 SECONDS
 
 /obj/item/flatpacked_machine/damage_lathe/give_manufacturer_examine()
 	return

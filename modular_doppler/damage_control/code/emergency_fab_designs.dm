@@ -10,7 +10,12 @@
 		"damage_fab_plastic_wall_panel",
 		"damage_fab_medbed",
 		"damage_fab_crowbar",
+		"damage_fab_welder",
 		"damage_fab_flare",
+		"damage_fab_foam",
+		"damage_fab_oxcandle",
+		"damage_fab_radio",
+		"damage_fab_battery",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 50000000000000) // God save you
 	hidden = TRUE
@@ -37,7 +42,7 @@
 	name = "Damage Control Ensemble Bag"
 	id = "breach_bag_doppla"
 	build_type = DAMAGE_FAB
-	build_path = /obj/item/storage/bag/breach_bag
+	build_path = /obj/item/clothing/head/utility/hardhat/welding/doppler_dc
 	construction_time = 7 MINUTES
 	materials = list()
 	category = list(
@@ -48,10 +53,10 @@
 // Entire filled breach bag
 
 /datum/design/empty_yellow_tank_doppla
-	name = "Empty Internals Tank"
+	name = "Emergency Internals Tank"
 	id = "empty_yellow_tank_doppla"
 	build_type = DAMAGE_FAB
-	build_path = /obj/item/tank/internals/oxygen/yellow/empty
+	build_path = /obj/item/tank/internals/emergency_oxygen/engi
 	construction_time = 1 MINUTES
 	materials = list()
 	category = list(
@@ -115,6 +120,20 @@
 	)
 	construction_time = 1 MINUTES
 
+// Bar with crows in it
+
+/datum/design/damage_fab_emergency_welder
+	name = "Emergency Welding Tool"
+	id = "damage_fab_welder"
+	build_type = DAMAGE_FAB
+	materials = list()
+	build_path = /obj/item/weldingtool/mini
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
+	)
+	construction_time = 1 MINUTES
+
 // Flare
 
 /datum/design/damage_fab_flare
@@ -128,3 +147,59 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
 	)
 	construction_time = 30 SECONDS
+
+// Budget metal foam grenade
+
+/datum/design/damage_fab_foam
+	name = "Foam Grenade"
+	id = "damage_fab_foam"
+	build_type = DAMAGE_FAB
+	materials = list()
+	build_path = /obj/item/grenade/chem_grenade/budget_smart_metal
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
+	)
+	construction_time = 2 MINUTES
+
+// Oxygen candle
+
+/datum/design/damage_fab_oxygencandle
+	name = "Oxygen Candle"
+	id = "damage_fab_oxcandle"
+	build_type = DAMAGE_FAB
+	materials = list()
+	build_path = /obj/item/oxygen_candle
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ATMOSPHERICS,
+	)
+	construction_time = 2 MINUTES
+
+// Handheld radio
+
+/datum/design/damage_fab_radio
+	name = "Handheld Radio"
+	id = "damage_fab_radio"
+	build_type = DAMAGE_FAB
+	materials = list()
+	build_path = /obj/item/radio/off
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_TELECOMMS,
+	)
+	construction_time = 1 MINUTES
+
+// AA Battery
+
+/datum/design/damage_fab_battery
+	name = "AA Battery"
+	id = "damage_fab_battery"
+	build_type = DAMAGE_FAB
+	materials = list()
+	build_path = /obj/item/stock_parts/power_store/cell/crap
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
+	)
+	construction_time = 1 MINUTES

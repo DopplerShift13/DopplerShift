@@ -136,6 +136,9 @@
 	new /obj/item/crowbar/large/emergency(src)
 	new /obj/item/emergency_bed(src)
 
+	if(prob(30))
+		new /obj/item/flatpacked_machine/damage_lathe(src)
+
 /obj/structure/closet/firecloset/full/PopulateContents()
 	new /obj/item/storage/bag/breach_bag(src)
 	new /obj/item/storage/bag/breach_bag(src)
@@ -148,6 +151,9 @@
 	new /obj/item/door_seal(src)
 	new /obj/item/door_seal(src)
 	new /obj/item/stack/sheet/iron/ten(src)
+
+	if(prob(50))
+		new /obj/item/flatpacked_machine/damage_lathe(src)
 
 // Emergency closets get a little lovin too
 
