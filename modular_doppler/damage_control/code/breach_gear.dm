@@ -1,3 +1,10 @@
+// Yellow tank but empty, for the printer
+
+/obj/item/tank/internals/oxygen/yellow/empty
+
+/obj/item/tank/internals/oxygen/yellow/empty/populate_gas()
+	return
+
 // Breach helmet, its a hardhat but cooler
 
 /obj/item/clothing/head/utility/hardhat/welding/doppler_dc
