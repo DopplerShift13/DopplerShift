@@ -11,7 +11,7 @@
 #define SPIN_TIME 65 //As always, deciseconds.
 #define REEL_DEACTIVATE_DELAY 7
 #define JACKPOT_SEVENS FA_ICON_7
-#define HOLOCHIP 1
+#define CASH 1 // DOPPLER EDIT: previously HOLOCHIP. replaced with cash in the great fuckup; far from modular.
 #define COIN 2
 
 /obj/machinery/computer/slot_machine
@@ -30,7 +30,7 @@
 	var/working = FALSE
 	var/balance = 0 //How much money is in the machine, ready to be CONSUMED.
 	var/jackpots = 0
-	var/paymode = HOLOCHIP //toggles between HOLOCHIP/COIN, defined above
+	var/paymode = CASH // DOPPLER EDIT: toggles between CASH/COIN, defined above
 	var/cointype = /obj/item/coin/iron //default cointype
 	/// Icons that can be displayed by the slot machine.
 	var/static/list/icons = list(
@@ -114,17 +114,17 @@
 				qdel(inserted_coin)
 				return ITEM_INTERACT_SUCCESS
 		else
-			balloon_alert(user, "holochips only!")
+			balloon_alert(user, "cash only!") // DOPPLER EDIT
 		return ITEM_INTERACT_BLOCKING
 
-	if(istype(inserted, /obj/item/holochip))
-		if(paymode == HOLOCHIP)
-			var/obj/item/holochip/inserted_chip = inserted
-			if(!user.temporarilyRemoveItemFromInventory(inserted_chip))
+	if(istype(inserted, /obj/item/libre/bundle))
+		if(paymode == CASH)
+			var/obj/item/libre/bundle/inserted_cash = inserted
+			if(!user.temporarilyRemoveItemFromInventory(inserted_cash))
 				return ITEM_INTERACT_BLOCKING
-			balloon_alert(user, "[inserted_chip.credits] credit[inserted_chip.credits == 1 ? "" : "s"] inserted")
-			balance += inserted_chip.credits
-			qdel(inserted_chip)
+			balloon_alert(user, "[inserted_cash.value] credit[inserted_cash.value == 1 ? "" : "s"] inserted")
+			balance += inserted_cash.value
+			qdel(inserted_cash) // DOPPLER EDIT ENDS HERE (for a moment)
 			return ITEM_INTERACT_SUCCESS
 		else
 			balloon_alert(user, "coins only!")
@@ -137,12 +137,12 @@
 		visible_message("<b>[src]</b> says, 'ERROR! Please empty the machine balance before altering paymode'") //Prevents converting coins into holocredits and vice versa
 		return ITEM_INTERACT_BLOCKING
 
-	if(paymode == HOLOCHIP)
+	if(paymode == CASH) // DOPPLER EDIT: yeah, I thought this was weird too
 		paymode = COIN
-		balloon_alert(user, "now using coins")
+		balloon_alert(user, "now using material coins")
 	else
-		paymode = HOLOCHIP
-		balloon_alert(user, "now using holochips")
+		paymode = CASH
+		balloon_alert(user, "now using Libres") // END DOPPLER EDIT (for now)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/computer/slot_machine/emag_act(mob/user, obj/item/card/emag/emag_card)
@@ -306,12 +306,12 @@
 
 	else if(check_jackpot(JACKPOT_SEVENS))
 		var/prize = money + JACKPOT
-		visible_message("<b>[src]</b> says, 'JACKPOT! You win [prize] credits!'")
+		visible_message("<b>[src]</b> says, 'JACKPOT! You win [prize] Libres!'")
 		priority_announce("Congratulations to [user ? user.real_name : usrname] for winning the jackpot at the slot machine in [get_area(src)]!")
 		jackpots += 1
 		money = 0
-		if(paymode == HOLOCHIP)
-			new /obj/item/holochip(loc, prize)
+		if(paymode == CASH) // DOPPLER EDIT
+			new /obj/item/libre/bundle(loc, prize)
 		else
 			for(var/i in 1 to 5)
 				cointype = pick(subtypesof(/obj/item/coin))
@@ -321,11 +321,11 @@
 				sleep(REEL_DEACTIVATE_DELAY)
 
 	else if(linelength == 5)
-		visible_message("<b>[src]</b> says, 'Big Winner! You win a thousand credits!'")
+		visible_message("<b>[src]</b> says, 'Big Winner! You win a thousand Libres!'")
 		give_money(BIG_PRIZE)
 
 	else if(linelength == 4)
-		visible_message("<b>[src]</b> says, 'Winner! You win four hundred credits!'")
+		visible_message("<b>[src]</b> says, 'Winner! You win four hundred Libres!'")
 		give_money(SMALL_PRIZE)
 
 	else if(linelength == 3)
@@ -375,10 +375,10 @@
 	money -= amount_to_give
 	balance += surplus
 
-/// Pay out the specified amount in either coins or holochips
+/// Pay out the specified amount in either coins or (DOPPLER EDIT) cash!
 /obj/machinery/computer/slot_machine/proc/give_payout(amount)
-	if(paymode == HOLOCHIP)
-		cointype = /obj/item/holochip
+	if(paymode == CASH)
+		cointype = /obj/item/libre/bundle
 	else
 		cointype = obj_flags & EMAGGED ? /obj/item/coin/iron : /obj/item/coin/silver
 
@@ -395,11 +395,11 @@
 /// Dispense the given amount. If machine is set to use coins, will use the specified coin type.
 /// If throwit and target are set, will launch the payment at the target
 /obj/machinery/computer/slot_machine/proc/dispense(amount = 0, cointype = /obj/item/coin/silver, throwit = FALSE, mob/living/target)
-	if(paymode == HOLOCHIP)
-		var/obj/item/holochip/chip = new /obj/item/holochip(loc,amount)
+	if(paymode == CASH)
+		var/obj/item/libre/bundle/payload = new /obj/item/libre/bundle(loc,amount)
 
 		if(throwit && target)
-			chip.throw_at(target, 3, 10)
+			payload.throw_at(target, 3, 10)
 	else
 		var/value = coinvalues["[cointype]"]
 		if(value <= 0)
@@ -417,7 +417,7 @@
 
 #undef BIG_PRIZE
 #undef COIN
-#undef HOLOCHIP
+#undef CASH // DOPPLER EDIT: previously HOLOCHIP
 #undef JACKPOT
 #undef REEL_DEACTIVATE_DELAY
 #undef JACKPOT_SEVENS
