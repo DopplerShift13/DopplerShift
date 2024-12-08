@@ -30,7 +30,9 @@
 	build_type = DAMAGE_FAB
 	build_path = /obj/item/storage/bag/breach_bag
 	construction_time = 2 MINUTES
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ATMOSPHERICS,
@@ -44,7 +46,9 @@
 	build_type = DAMAGE_FAB
 	build_path = /obj/item/clothing/head/utility/hardhat/welding/doppler_dc
 	construction_time = 7 MINUTES
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ATMOSPHERICS,
@@ -58,7 +62,9 @@
 	build_type = DAMAGE_FAB
 	build_path = /obj/item/tank/internals/emergency_oxygen/engi
 	construction_time = 1 MINUTES
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ATMOSPHERICS,
@@ -72,7 +78,9 @@
 	build_type = DAMAGE_FAB
 	build_path = /obj/item/door_seal
 	construction_time = 2 MINUTES
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
@@ -84,7 +92,9 @@
 	name = "Plastic Paneling"
 	id = "damage_fab_plastic_wall_panel"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/stack/sheet/plastic_wall_panel
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -98,7 +108,9 @@
 	name = "Emergency Medical Bed"
 	id = "damage_fab_medbed"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/emergency_bed
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -112,7 +124,9 @@
 	name = "Emergency Crowbar"
 	id = "damage_fab_crowbar"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/crowbar/red
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -126,7 +140,9 @@
 	name = "Emergency Welding Tool"
 	id = "damage_fab_welder"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/weldingtool/mini
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -140,7 +156,9 @@
 	name = "Flare"
 	id = "damage_fab_flare"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/flashlight/flare
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -154,7 +172,9 @@
 	name = "Foam Grenade"
 	id = "damage_fab_foam"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/grenade/chem_grenade/budget_smart_metal
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -168,7 +188,9 @@
 	name = "Oxygen Candle"
 	id = "damage_fab_oxcandle"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/oxygen_candle
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -182,7 +204,9 @@
 	name = "Handheld Radio"
 	id = "damage_fab_radio"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/radio/off
 	category = list(
 		RND_CATEGORY_INITIAL,
@@ -196,7 +220,9 @@
 	name = "AA Battery"
 	id = "damage_fab_battery"
 	build_type = DAMAGE_FAB
-	materials = list()
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/stock_parts/power_store/cell/crap
 	category = list(
 		RND_CATEGORY_INITIAL,
