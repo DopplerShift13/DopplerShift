@@ -11,6 +11,7 @@
 	light_color = LIGHT_COLOR_INTENSE_RED
 	light_power = 5
 	allowed_buildtypes = DAMAGE_FAB
+	use_power = FALSE
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/flatpacked_machine/damage_lathe
 
