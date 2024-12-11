@@ -120,7 +120,7 @@
 
 // Bar with crows in it
 
-/datum/design/damage_fab_rollerbed
+/datum/design/damage_fab_crowbar
 	name = "Emergency Crowbar"
 	id = "damage_fab_crowbar"
 	build_type = DAMAGE_FAB
