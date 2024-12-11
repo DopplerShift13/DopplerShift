@@ -57,6 +57,10 @@
 	new /obj/item/crowbar/red(src)
 	new /obj/item/weldingtool/mini(src)
 	new /obj/item/extinguisher/mini(src)
+	//Doppler Edit//
+	new /obj/item/oxygen_candle(src)
+	new /obj/item/grenade/chem_grenade/budget_smart_metal(src)
+	//Doppler Edit//
 	switch(rand(1,3))
 		if(1)
 			new /obj/item/flashlight(src)
