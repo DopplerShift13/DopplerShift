@@ -245,6 +245,8 @@
 	cyborg.diag_hud_set_aishell()
 	log_silicon("CYBORG: [key_name(cyborg)] has transformed into the [new_model] model.")
 
+	new_model.update_tallborg() // DOPPLER EDIT ADDITION - TALLBORGS
+
 	if(transform)
 		INVOKE_ASYNC(new_model, PROC_REF(do_transform_animation))
 	qdel(src)
