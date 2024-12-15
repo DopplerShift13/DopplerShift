@@ -26,7 +26,7 @@
 				add_overlay(head_overlay)
 	else
 		icon_state = "[model.cyborg_base_icon]"
-	if((TRAIT_R_UNIQUETIP in model.model_features) && (TRAIT_IMMOBILIZED in _status_traits))
+	if((TRAIT_R_UNIQUETIP in model.model_features) && (is_tipped || (TRAIT_IMMOBILIZED in _status_traits)))
 		icon_state = "[model.cyborg_base_icon]-tipped"
 		if(particles)
 			dissipate()
