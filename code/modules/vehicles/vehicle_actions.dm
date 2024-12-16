@@ -360,6 +360,7 @@
 	animate(rider, pixel_y = -6, time = 4)
 	animate(vehicle, pixel_y = -6, time = 3)
 	playsound(vehicle, 'sound/vehicles/skateboard_ollie.ogg', 50, TRUE)
+	playsound(vehicle, pick('modular_doppler/skate_three/sounds/taunt1.wav', 'modular_doppler/skate_three/sounds/taunt2.wav', 'modular_doppler/skate_three/sounds/taunt3.wav', 'modular_doppler/skate_three/sounds/taunt4.wav', 'modular_doppler/skate_three/sounds/taunt5.wav', 'modular_doppler/skate_three/sounds/taunt6.wav'), 100, TRUE) // DOPPLER EDIT ADDITION - PAXILMANIAC MAKES LONGEST LINE OF CODE EVER KNOWN TO MAN
 	passtable_on(rider, VEHICLE_TRAIT)
 	passtable_on(vehicle, VEHICLE_TRAIT)
 	rider.Move(landing_turf, vehicle_target.dir)
@@ -400,6 +401,7 @@
 		span_notice("You do a sick kickflip, catching the board in midair! Stylish."),
 	)
 	playsound(board, 'sound/vehicles/skateboard_ollie.ogg', 50, vary = TRUE)
+	playsound(board, 'modular_doppler/skate_three/sounds/taunt_super.wav', 100, vary = TRUE) // DOPPLER EDIT ADDITION
 	rider.spin(spintime = 4, speed = 1)
 	animate(rider, pixel_y = -6, time = 0.4 SECONDS)
 	animate(board, pixel_y = -6, time = 0.3 SECONDS)
