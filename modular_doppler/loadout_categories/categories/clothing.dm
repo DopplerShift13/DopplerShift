@@ -111,6 +111,10 @@
 	name = "Sleeveless Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/lalunevest
 
+/datum/loadout_item/suit/labocat_medical
+	name = "Medical Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/medical
+
 /*
 *	PONCHOS
 */
