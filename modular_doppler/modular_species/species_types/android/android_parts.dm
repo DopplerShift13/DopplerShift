@@ -912,7 +912,7 @@
 ///
 // zhenkov-dark
 ///
-/obj/item/bodypart/leg/right/robot/android/zhenkov
+/obj/item/bodypart/leg/right/robot/android/zhenkovdark
 	should_draw_greyscale = FALSE
 	icon_static = ANDROID_BODYPARTS_DMI
 	icon = ANDROID_BODYPARTS_DMI
@@ -920,7 +920,7 @@
 	icon_state = "zhenkovdark_r_leg"
 	limb_id = "zhenkovdark"
 
-/obj/item/bodypart/leg/left/robot/android/zhenkov
+/obj/item/bodypart/leg/left/robot/android/zhenkovdark
 	should_draw_greyscale = FALSE
 	icon_static = ANDROID_BODYPARTS_DMI
 	icon = ANDROID_BODYPARTS_DMI

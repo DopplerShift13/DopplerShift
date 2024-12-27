@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(frame_types, list(
 	"xmg_one",
 	"xmg_two",
 	"zhp",
-	"zhenkov"
+	"zhenkov",
 	"zhenkovdark"
 	))
 
@@ -41,7 +41,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 	"xmg_two" = "Xion Manufacturing Group 2.0",
 	"zhp" = "Zeng-Hu Pharmaceuticals",
 	"zhenkov" = "Zhenkov & Co. Foundries",
-	"zhenkov" = "Zhenkov & Co. Foundries - At Night"
+	"zhenkovdark" = "Zhenkov & Co. Foundries - At Night"
 	))
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
