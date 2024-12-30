@@ -285,7 +285,7 @@
 		This piece of technology allows the user to generate precise anti-gravity fields, \
 		letting them move objects as small as a titanium rod to as large as industrial machinery from a longer range! \
 		Oddly enough, conscious beings are able to resist out of its fields."
-	can_launch = FALSE
+	can_launch = TRUE
 	dummy_cored = TRUE
 	prebuilt = TRUE
 	stat_required = UNCONSCIOUS
