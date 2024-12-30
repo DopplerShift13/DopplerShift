@@ -159,7 +159,7 @@
 /obj/item/mod/module/anomaly_locked/kinesis/proc/grab_atom(atom/movable/target)
 	grabbed_atom = target
 	if(isliving(grabbed_atom))
-		grabbed_atom.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), REF(src))
+		grabbed_atom.add_traits(list(TRAIT_IMMOBILIZED), REF(src)) //DOPPLER EDIT CHANGE - For The Kinesis Rework - Original: grabbed_atom.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), REF(src))
 		RegisterSignal(grabbed_atom, COMSIG_MOB_STATCHANGE, PROC_REF(on_statchange))
 	ADD_TRAIT(grabbed_atom, TRAIT_NO_FLOATING_ANIM, REF(src))
 	RegisterSignal(grabbed_atom, COMSIG_MOVABLE_SET_ANCHORED, PROC_REF(on_setanchored))
@@ -292,13 +292,13 @@
 
 // DOPPLER EDIT END - requires an anomaly core, but can grab live people
 /obj/item/mod/module/anomaly_locked/kinesis/plus
-	name = "MOD kinesis module" //DOPPLER EDIT CHANGE - For The Kinesis Rework - Original: "MOD kinesis+ module"
+	name = "MOD kinesis plus module" // DOPLPER EDIT CHANGE - For The Kinesis Rework - Original: "MOD kinesis+ module"
 	desc = "A modular plug-in to the forearm, this module was developed with the technology of an anomaly core. \
 		The bane of all ne'er-do-wells, the kinesis+ module is a powerful tool that allows the user \
 		to manipulate the world around them. Like its older counterpart, it's capable of manipulating \
 		structures, machinery, vehicles, and, thanks to the fruitful efforts of its creators - living beings."
 	complexity = 0
-	prebuilt = TRUE
+	prebuilt = FALSE
 	stat_required = CONSCIOUS
 
 // DOPPLER EDIT START - For The Kinesis Rework

@@ -2778,9 +2778,9 @@
 		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
 		/datum/material/bluespace =SHEET_MATERIAL_AMOUNT,
 	)
-	name = "Kinesis Module"
+	name = "Kinesis Plus Module"
 	id = "mod_kinesis"
-	build_path = /obj/item/mod/module/anomaly_locked/kinesis/upgraded
+	build_path = /obj/item/mod/module/anomaly_locked/kinesis/plus
 
 /datum/design/module/mod_kinesis/weak
 	materials = list(
