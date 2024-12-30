@@ -2758,7 +2758,7 @@
 
 /datum/design/module/mod_kinesis
 	name = "Experimental Kinesis Module" //DOPPLER EDIT CHANGE - For The Kinesis Rework - Original: "Kinesis Module"
-	id = "mod_kinesis_experimental" //DOPPLER EDIT CHANGE - For The Kinesis Rework - Original: "mod_kinesis"
+	id = "mod_kinesis"
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT *1.25,
 		/datum/material/glass =SHEET_MATERIAL_AMOUNT,
@@ -2771,17 +2771,6 @@
 	)
 
 //DOPPLER EDIT ADDITION START - For The Kinesis Rework
-/datum/design/module/mod_kinesis/anomaly_cored
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT *2,
-		/datum/material/glass =SHEET_MATERIAL_AMOUNT *3,
-		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
-		/datum/material/bluespace =SHEET_MATERIAL_AMOUNT,
-	)
-	name = "Kinesis Plus Module"
-	id = "mod_kinesis"
-	build_path = /obj/item/mod/module/anomaly_locked/kinesis/plus
-
 /datum/design/module/mod_kinesis/weak
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT *1.25,
