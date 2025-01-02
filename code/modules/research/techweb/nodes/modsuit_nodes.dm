@@ -79,6 +79,7 @@
 		"mod_magboot",
 		"mod_constructor",
 		"mod_mister_atmos",
+		"mod_kinesis_weak", //DOPPLR EDIT ADDITION - For The Kinesis Rework
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_ENGINEERING)

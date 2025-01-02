@@ -2757,7 +2757,7 @@
 	)
 
 /datum/design/module/mod_kinesis
-	name = "Kinesis Module"
+	name = "Experimental Kinesis Module" //DOPPLER EDIT CHANGE - For The Kinesis Rework - Original: "Kinesis Module"
 	id = "mod_kinesis"
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT *1.25,
@@ -2765,10 +2765,22 @@
 		/datum/material/uranium =HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/bluespace =HALF_SHEET_MATERIAL_AMOUNT,
 	)
-	build_path = /obj/item/mod/module/anomaly_locked/kinesis
+	build_path = /obj/item/mod/module/anomaly_locked/kinesis/upgraded //DOPPLER EDIT CHANGE - For The Kinesis Rework - Original: /obj/item/mod/module/anomaly_locked/kinesis
 	category = list(
 		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_ENGINEERING
 	)
+
+//DOPPLER EDIT ADDITION START - For The Kinesis Rework
+/datum/design/module/mod_kinesis/weak
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT *1.25,
+		/datum/material/glass =SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
+	)
+	name = "Magnalock Module"
+	id = "mod_kinesis_weak"
+	build_path = /obj/item/mod/module/anomaly_locked/kinesis/weak
+//DOPPLER EDIT END
 
 /datum/design/module/fishing_glove
 	name = "MOD Fishing Glove Module"
