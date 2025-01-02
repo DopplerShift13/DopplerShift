@@ -35,6 +35,11 @@
 	signer.verb_exclaim = "wans"
 	signer.verb_whisper = "whimpers"
 	signer.verb_yell = "barks"
+	signer.dna.add_mutation(/datum/mutation/human/olfaction, MUT_NORMAL)
+	signer.dna.activate_mutation(/datum/mutation/human/olfaction)
+	if (ishuman(signer))
+		for(var/datum/mutation/human/olfaction/sneef in signer.dna.mutations)
+			sneef.mutadone_proof = TRUE
 
 /obj/item/organ/tongue/dog/Remove(mob/living/carbon/speaker, special = FALSE, movement_flags)
 	. = ..()
@@ -42,6 +47,8 @@
 	speaker.verb_exclaim = initial(verb_exclaim)
 	speaker.verb_whisper = initial(verb_whisper)
 	speaker.verb_yell = initial(verb_yell)
+	if (ishuman(speaker))
+		speaker.dna.remove_mutation(/datum/mutation/human/olfaction)
 
 /// Bird tongue
 //
