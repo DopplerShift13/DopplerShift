@@ -62,11 +62,7 @@
 	return ..()
 
 /obj/item/storage/belt/secsword/attack_hand_secondary(mob/user, list/modifiers)
-	if(!(user.get_slot_by_item(src) & ITEM_SLOT_BELT))
-		return ..()
-	if(!(user.get_slot_by_item(src) & ITEM_SLOT_BACK))
-		return ..()
-	if(!(user.get_slot_by_item(src) & ITEM_SLOT_SUITSTORE))
+	if(!(user.get_slot_by_item(src) & ITEM_SLOT_BELT) && !(user.get_slot_by_item(src) & ITEM_SLOT_BACK) && !(user.get_slot_by_item(src) & ITEM_SLOT_SUITSTORE))
 		return ..()
 	for(var/obj/item/melee/baton/doppler_security/simply_shocking in contents)
 		user.visible_message(span_notice("[user] draws [simply_shocking] from [src]."), span_notice("You draw [simply_shocking] from [src]."))
