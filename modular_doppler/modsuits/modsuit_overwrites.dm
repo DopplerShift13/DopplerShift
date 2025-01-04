@@ -97,4 +97,5 @@
 		/obj/item/mod/module/injector,
 		/obj/item/mod/module/anomaly_locked/kinesis/upgraded,
 		/obj/item/mod/module/defibrillator,
+		/obj/item/mod/module/thread_ripper,
 	)
