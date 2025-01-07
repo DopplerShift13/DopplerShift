@@ -244,6 +244,7 @@
 	loot = list(
 		/obj/item/storage/medkit/civil_defense/stocked = 2,
 		/obj/item/storage/medkit/civil_defense/comfort/stocked = 2,
+		/obj/item/storage/medkit/civil_defense/the_big_cheese = 1,
 		/obj/item/storage/medkit/frontier/stocked = 2,
 		/obj/item/storage/medkit/combat_surgeon/stocked = 2,
 		/obj/item/storage/medkit/robotic_repair/stocked = 2,
@@ -473,7 +474,6 @@
 		/obj/item/flatpacked_machine/wind_turbine = 2,
 		/obj/item/folded_navigation_gigabeacon = 1,
 		/obj/item/wallframe/cell_charger_multi = 2,
-		/obj/item/wallframe/frontier_medstation = 1,
 		/obj/item/wallframe/wall_heater = 2,
 		/obj/item/wallframe/digital_clock = 1,
 		// Other things
