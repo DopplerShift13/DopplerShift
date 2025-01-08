@@ -144,7 +144,7 @@
 	manifest_text += "<ul>"
 	var/container_contents = list()
 	for(var/atom/movable/AM in container.contents - manifest_paper)
-		var/cover_story_item = pick(cover_story_items_list)
+		var/item/cover_story_item = pick(cover_story_items_list)
 		container_contents[cover_story_item.name]++
 	for(var/item in container_contents)
 		manifest_text += "<li> [container_contents[item]] [item][container_contents[item] == 1 ? "" : "s"]</li>"
