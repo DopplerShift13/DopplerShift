@@ -1,11 +1,11 @@
 /datum/crafting_recipe/stationery_supplies_board
 	result = /obj/item/circuitboard/computer/order_console/stationery_supplies
-    reqs = list(
+	reqs = list(
         /obj/item/epic_loot/civilian_circuit = 1,
     )
 	tool_behaviors = list(TOOL_SCREWDRIVER)
-    time = 5 SECONDS
-    category = CAT_EQUIPMENT
+	time = 5 SECONDS
+	category = CAT_EQUIPMENT
 
 /obj/item/circuitboard/computer/order_console/stationery_supplies
 	name = "Sikth & Kurabi Stationery Supplies ™ Uplink"
