@@ -97,7 +97,7 @@
 
 /datum/supply_pack/custom_grey/generate(atom/generate_atom, datum/bank_account/paying_account)
 	var/obj/structure/closet/crate/new_crate
-	else if(!crate_type)
+	if(!crate_type)
 		CRASH("tried to generate a supply pack without a valid crate type")
 	else
 		new_crate = new crate_type(generate_atom)
