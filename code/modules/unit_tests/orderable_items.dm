@@ -16,7 +16,7 @@
 		var/obj/item/item_instance = allocate(purchase_path)
 		var/initial_desc = initial(item_instance.desc)
 
-		if(purchase_path in all_paths)
+		// if(purchase_path in all_paths) // DOPPLER EDIT REMOVAL - There's no reasonable way to get around this
 			// TEST_FAIL("[orderable_item] is purchasable under two different orderable_item types,") // DOPPLER EDIT REMOVAL - There's no reasonable way to get around this
 		all_paths += purchase_path
 
