@@ -384,6 +384,7 @@
 /datum/species/jelly/roundstartslime
 	name = "Xenobiological Slime Hybrid"
 	id = SPECIES_SLIMESTART
+	preview_outfit = /datum/outfit/slime_preview
 	examine_limb_id = SPECIES_SLIMEPERSON
 	coldmod = 3
 	heatmod = 1
@@ -399,6 +400,23 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/jelly/slime/roundstart,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly/slime/roundstart,
 	)
+
+/datum/outfit/slime_preview
+	name = "Slimeperson (Species Preview)"
+	uniform = /obj/item/clothing/under/costume/bunnysuit
+	head = /obj/item/clothing/head/maid_headband
+
+/datum/species/jelly/roundstartslime/prepare_human_for_preview(mob/living/carbon/human/human)
+	human.dna.features["mcolor"] = "#EF313F"
+	human.dna.ear_type = BUNNY
+	human.dna.features["ears"] = "Lop (Sexy)"
+	human.dna.features["ears_color_1"] = "#EF313F"
+	human.dna.features["ears_color_2"] = "#EF313F"
+	human.dna.features["ears_color_3"] = "#EF313F"
+	human.hair_color = "#EF313F"
+	human.hairstyle = "Slime Droplet"
+	regenerate_organs(human, src, visual_only = TRUE)
+	human.update_body(TRUE)
 
 /datum/species/jelly/roundstartslime/create_pref_unique_perks()
 	var/list/to_add = list()
