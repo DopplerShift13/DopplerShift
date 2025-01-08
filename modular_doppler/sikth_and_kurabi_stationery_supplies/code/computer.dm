@@ -1,5 +1,19 @@
+/datum/crafting_recipe/stationery_supplies_board
+	result = /obj/item/circuitboard/computer/order_console/stationery_supplies
+    reqs = list(
+        /obj/item/epic_loot/civilian_circuit = 1,
+    )
+	tool_behaviors = list(TOOL_SCREWDRIVER)
+    time = 5 SECONDS
+    category = CAT_EQUIPMENT
+
+/obj/item/circuitboard/computer/order_console/stationery_supplies
+	name = "Sikth & Kurabi Stationery Supplies ™ Uplink"
+	greyscale_colors = CIRCUIT_COLOR_SUPPLY
+	build_path = /obj/machinery/computer/order_console/stationery_supplies
+
 /obj/machinery/computer/order_console/stationery_supplies
-	name = "Sikth & Kurabi Stationery Supplies ™ uplink"
+	name = "Sikth & Kurabi Stationery Supplies ™ Uplink"
 	desc = "An uplink computer to the finest human-facing business run from outside of human space. \
 		For sale are a wide variety of items, very little of which can actually be described as 'stationery'. \
 		This is thanks to an error in translation, though the business remains popular regardless of this for unknown reasons. \
@@ -13,6 +27,8 @@
 		"Industrial Chemical Supply Sample Kits",
 	)
 	blackbox_key = "greymarket"
+	icon_keyboard = "id_key"
+	icon_screen = "tcboss"
 	cargo_cost_multiplier = 1
 	express_cost_multiplier = 5 // Drop pod service is a premium
 
