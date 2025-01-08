@@ -95,6 +95,21 @@
 	src.contains = contains
 	crate_type = pick(random_crate_types)
 
+/datum/supply_pack/custom_grey/generate(atom/generate_atom, datum/bank_account/paying_account)
+	var/obj/structure/closet/crate/new_crate
+	else if(!crate_type)
+		CRASH("tried to generate a supply pack without a valid crate type")
+	else
+		new_crate = new crate_type(generate_atom)
+		new_crate.name = crate_name
+	if(access)
+		new_crate.req_access = list(access)
+	if(access_any)
+		new_crate.req_one_access = access_any
+
+	fill(new_crate)
+	return new_crate
+
 // Special supply_order datum for fludging the manifest
 
 /datum/supply_order/disposable/grey_market
