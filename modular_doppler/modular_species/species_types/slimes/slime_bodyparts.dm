@@ -66,27 +66,37 @@
         return ELEMENT_INCOMPATIBLE
 
     RegisterSignal(target, COMSIG_BODYPART_REMOVED, PROC_REF(on_bodypart_removed))
-    RegisterSignal(target, COMSIG_BODYPART_ATTACHED, PROC_REF(on_attached))
-
-/datum/element/splattering_limb/proc/on_attached(obj/item/bodypart/source, mob/living/carbon/human/new_owner)
-    SIGNAL_HANDLER
-    RegisterSignal(new_owner, COMSIG_CARBON_POST_REMOVE_LIMB, PROC_REF(post_bodypart_removed))
 
 /datum/element/splattering_limb/proc/on_bodypart_removed(obj/item/bodypart/source, mob/living/carbon/human/owner, special, dismembered)
     SIGNAL_HANDLER
 
-    if(special || isnull(owner))
+    if(special || isnull(owner) || QDELETED(source))
         return
 
-    to_chat(owner, span_warning("Your [source.name] splatters with an unnerving squelch!"))
-    playsound(owner, 'sound/effects/blob/blobattack.ogg', 60, TRUE)
+    var/obj/goo_splat
+    goo_splat = new /obj/effect/decal/cleanable/goo(get_turf(owner))
+    if(HAS_TRAIT(owner, TRAIT_MUTANT_COLORS))
+        goo_splat.color = owner.dna.features["mcolor"]
+
     owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 
-/datum/element/splattering_limb/proc/post_bodypart_removed(mob/living/carbon/human/source, obj/item/bodypart/lost_bodypart, special, dismembered)
-    SIGNAL_HANDLER
+    post_bodypart_removed(source, owner)
 
-    lost_bodypart.drop_organs(null, TRUE)
-    UnregisterSignal(source, COMSIG_CARBON_POST_REMOVE_LIMB)
-    qdel(lost_bodypart)
+/datum/element/splattering_limb/proc/post_bodypart_removed(obj/item/bodypart/source, mob/living/carbon/human/owner)
+    to_chat(owner, span_warning("Your [source.name] splatters with an unnerving squelch!"))
+    source.drop_organs(null, TRUE)
+    qdel(source)
+
+/obj/effect/decal/cleanable/goo
+	name = "small puddle of goo"
+	desc = "Its colorful! Who knows what else it could be..."
+	icon = 'modular_doppler/modular_species/icons/blood.dmi'
+	icon_state = "slimepuddle1"
+	random_icon_states = list("slimepuddle1", "slimepuddle2", "slimepuddle3")
+	beauty = -50
+
+/obj/effect/decal/cleanable/goo/Initialize(mapload, list/datum/disease/diseases)
+	. = ..()
+	color = rgb(rand(0, 255), rand(0, 255), rand(0, 255))
 
 #undef SLIME_LIMB_BLOOD_LOSS
