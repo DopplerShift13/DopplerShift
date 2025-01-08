@@ -4,7 +4,7 @@
 /datum/orderable_item/grey_market_software/arcade
 	name = "Hardcore Arcade"
 	purchase_path = /obj/item/computer_disk/all_of_them/eazy
-	cost_per_order = = 50
+	cost_per_order = 50
 
 /datum/orderable_item/grey_market_software/lifeline
 	name = "Lifeline"
