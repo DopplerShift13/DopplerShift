@@ -7248,8 +7248,6 @@
 #include "modular_doppler\sikth_and_kurabi_stationery_supplies\code\categories\order_hardware.dm"
 #include "modular_doppler\sikth_and_kurabi_stationery_supplies\code\categories\order_software.dm"
 #include "modular_doppler\sikth_and_kurabi_stationery_supplies\code\categories\order_tooling.dm"
-#include "modular_doppler\sikth_and_kurabi_stationery_supplies\code\order_items\order_chemical_samples.dm"
-#include "modular_doppler\sikth_and_kurabi_stationery_supplies\code\order_items\order_tooling.dm"
 #include "modular_doppler\sprite_swaps\code\bigclosets.dm"
 #include "modular_doppler\starter_resources\ore_vent.dm"
 #include "modular_doppler\stone\code\ore_veins.dm"
