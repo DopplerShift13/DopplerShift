@@ -28,6 +28,7 @@
 
 /datum/orderable_item/grey_market_hardware/lead_battery
 	name = "Lead-Acid Battery"
+	desc = "A vehicle grade power cell. Do not dispose of in bodies of water."
 	purchase_path = /obj/item/stock_parts/power_store/cell/lead
 	cost_per_order = 30
 
