@@ -1,6 +1,6 @@
 /datum/quirk/item_quirk/underworld_connections
 	name = "Underworld Connections"
-	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink, and access to information brokers with exploitable information about the crew. Security has suspicions about you, and you may struggle to obtain a weapons permit."
+	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink. Security has suspicions about your dirty work, though.
 	icon = FA_ICON_SUITCASE
 	value = 0
 	gain_text = span_notice("Your contacts to the underworld are close at hand.")
@@ -41,9 +41,9 @@
 /datum/quirk/item_quirk/underworld_connections/post_add()
 	. = ..()
 
-	// Make sure we've got a client/mind first (hence, post_add), then give us exploitables access
-	quirk_holder.mind.has_exploitables_override = TRUE
-	quirk_holder.mind.handle_exploitables()
+	// Make sure we've got a client/mind first (hence, post_add), then give us exploitables access - DONT DO THIS FOR NOW BECAUSE WE DON'T HAVE EXPLOITABLES YET
+	//quirk_holder.mind.has_exploitables_override = TRUE
+	//quirk_holder.mind.handle_exploitables()
 
 	// Set us as 'suspected' on HUDs at roundstart and leave a note about our dark and mysterious past. No permits for us! If we're human.
 	if (ishuman(quirk_holder))
@@ -64,8 +64,8 @@
 		if (isnull(our_record.security_note) && our_record.wanted_status == WANTED_SUSPECT) // only clear this if the security notes contain nothing but the quirk-generated note, just to be certain we are not accidentally resetting the wanted status for an unrelated crime
 			our_record.wanted_status = WANTED_NONE
 
-	quirk_holder.mind.has_exploitables_override = FALSE
-	quirk_holder.mind.handle_exploitables()
+	//quirk_holder.mind.has_exploitables_override = FALSE -- readd this when we have exploitables
+	//quirk_holder.mind.handle_exploitables()
 
 /datum/quirk_constant_data/underworld_connections
 	associated_typepath = /datum/quirk/item_quirk/underworld_connections
