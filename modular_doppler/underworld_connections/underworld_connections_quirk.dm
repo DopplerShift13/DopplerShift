@@ -1,6 +1,6 @@
 /datum/quirk/item_quirk/underworld_connections
 	name = "Underworld Connections"
-	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink. Security has suspicions about your dirty work, though.
+	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink. Security has suspicions about your dirty work, though."
 	icon = FA_ICON_SUITCASE
 	value = 0
 	gain_text = span_notice("Your contacts to the underworld are close at hand.")
