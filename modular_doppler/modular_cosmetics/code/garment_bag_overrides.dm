@@ -40,6 +40,13 @@
 	new /obj/item/clothing/head/utility/surgerycap/cmo(src)
 	new /obj/item/clothing/neck/cloak/cmo(src)
 	new /obj/item/clothing/shoes/medical(src)
+	new /obj/item/clothing/under/rank/medical/chief_medical_officer(src)
+	new /obj/item/clothing/under/rank/medical/chief_medical_officer/skirt(src)
+	new /obj/item/clothing/under/rank/medical/chief_medical_officer/scrubs(src)
+	new /obj/item/clothing/under/rank/medical/chief_medical_officer/turtleneck(src)
+	new /obj/item/clothing/under/rank/medical/chief_medical_officer/turtleneck/skirt(src)
+	new /obj/item/clothing/under/rank/medical/chief_medical_officer/skirt/scrubs(src)
+
 
 /obj/item/storage/bag/garment/engineering_chief/PopulateContents()
 	. = ..()

@@ -33,3 +33,10 @@
 	name = "wine-red scrub-skirt"
 	desc = "It's made of a special fiber that provides minor protection against biohazards. This one is a wine red, and is a sort of skirt. Or robe. Or scrobe."
 	icon_state = "scrubswine_skirt"
+
+/obj/item/clothing/under/rank/medical/chief_medical_officer/skirt/scrubs
+	name = "chief medical officer scrub-skirt"
+	desc = "It's a sort of skirt, robe, or scrobe, worn by those with the experience to be \"Chief Medical Officer\"."
+	icon_state = "cmo_scrubskirt"
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	supported_bodyshapes = null
