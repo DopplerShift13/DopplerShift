@@ -129,8 +129,10 @@
 /datum/market_item/misc/giant_wrench_parts
 	name = "Comically-Large Wrench Parts"
 	desc = "They're searching every broadband transmission for the name of this wrench, alright? You're mad if you assemble this thing. Mad, we tell you."
+	item = /obj/item/weaponcrafting/giant_wrench
 	price_min = PAYCHECK_CREW * 4
 	price_max = PAYCHECK_CREW * 8
+	stock_max = 1
 
 // TOOLS
 /datum/market_item/tool/caravan_wrench

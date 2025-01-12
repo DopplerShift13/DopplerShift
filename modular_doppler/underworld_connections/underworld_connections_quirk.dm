@@ -1,8 +1,8 @@
 /datum/quirk/item_quirk/underworld_connections
-	name = "Underworld Connections"
-	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink. Security has suspicions about your dirty work, though."
+	name = "Black Market Smuggler"
+	desc = "You're in with the seedier elements of the galactic underworld, and can start with a customizable black market uplink; this customized version isn't easy to come by, and isn't the kind of thing just anyone would have. Security has suspicions about your dirty work, and it's been marked on your record."
 	icon = FA_ICON_SUITCASE
-	value = 0
+	value = 8
 	gain_text = span_notice("Your contacts to the underworld are close at hand.")
 	lose_text = span_notice("Your contacts to the underworld have gone quiet.")
 	medical_record_text = "Patient records may have been tampered with in the past."
@@ -51,14 +51,14 @@
 		var/datum/record/crew/our_record = find_record(human_holder.name)
 		if (our_record)
 			our_record.wanted_status = WANTED_SUSPECT
-			our_record.security_note += "DO NOT ISSUE WEAPON PERMITS. Subject has suspected links to covert criminal elements."
+			our_record.security_note += "DO NOT ISSUE WEAPON PERMITS. Subject has suspected links to covert criminal elements, and has been indicated as a priority smuggling suspect."
 
 /datum/quirk/item_quirk/underworld_connections/remove()
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
 		var/datum/record/crew/our_record = find_record(human_holder.name)
 		if (our_record.security_note)
-			our_record.security_note = replacetext(our_record.security_note, "DO NOT ISSUE WEAPON PERMITS. Subject has suspected links to covert criminal elements.", "")
+			our_record.security_note = replacetext(our_record.security_note, "DO NOT ISSUE WEAPON PERMITS. Subject has suspected links to covert criminal elements, and has been indicated as a priority smuggling suspect.", "")
 		if (!length(our_record.security_note)) // that was the only thing in the notes
 			our_record.security_note = null
 		if (isnull(our_record.security_note) && our_record.wanted_status == WANTED_SUSPECT) // only clear this if the security notes contain nothing but the quirk-generated note, just to be certain we are not accidentally resetting the wanted status for an unrelated crime
