@@ -41,8 +41,9 @@
 /obj/item/organ/brain/cybernetic/on_life(seconds_per_tick, times_fired)
 	if(damage >= BRAIN_DAMAGE_DEATH)
 		achieve_death()
-	if(owner.stat == HARD_CRIT)
-		apply_organ_damage(0.1 * seconds_per_tick)
+	if(owner.stat == SOFT_CRIT || owner.stat == HARD_CRIT)
+		var/rounded_brain_damage = round((-0.02 * owner.health), 0.25) * seconds_per_tick
+		apply_organ_damage(rounded_brain_damage)
 
 /// Kills the owner of the brain when called, logging the reason given to it
 /obj/item/organ/brain/proc/achieve_death(reason)

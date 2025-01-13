@@ -81,8 +81,8 @@
 	handle_hud(target)
 
 	if(target.stat == SOFT_CRIT || target.stat == HARD_CRIT)
-		target.adjustFireLoss(1) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
-		target.adjust_bodytemperature(13) //We're overheating!!
+		target.adjustFireLoss(1 * seconds_per_tick) //Still deal some damage in case a cold environment would be preventing us from the sweet release to robot heaven
+		target.adjust_bodytemperature(13 * seconds_per_tick) //We're overheating!!
 		if(prob(10))
 			to_chat(target, span_warning("Alert: Critical damage taken! Cooling systems failing!"))
 			do_sparks(3, FALSE, target)
