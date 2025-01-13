@@ -26,11 +26,16 @@
 		achieve_death()
 	// If you don't have enough blood, your brain starts to go
 	if((owner.blood_volume < BLOOD_VOLUME_SURVIVE) && !HAS_TRAIT(owner, TRAIT_NOBLOOD))
-		var/rounded_brain_damage = round(0.1 * (BLOOD_VOLUME_NORMAL / owner.blood_volume), 0.25) * seconds_per_tick
+		var/rounded_brain_damage = round(0.01 * (BLOOD_VOLUME_NORMAL - owner.blood_volume), 0.25) * seconds_per_tick
 		apply_organ_damage(rounded_brain_damage)
 	// If you are past the point of passing out and not breathing, then you start to go as well
 	if((owner.oxyloss >= OXYLOSS_PASSOUT_THRESHOLD) && owner.failed_last_breath && !HAS_TRAIT(owner, TRAIT_NOBREATH))
-		apply_organ_damage(0.25 * seconds_per_tick)
+		var/rounded_suffocation_damage = round(0.01 * (150 / (100 / owner.oxyloss)), 0.25) * seconds_per_tick
+		apply_organ_damage(rounded_suffocation_damage)
+	// If you are super poisoned then thy end is now as well
+	if(owner.toxloss >= 150)
+		var/rounded_toxin_damage = round(0.01 * (150 / (100 / owner.toxloss)), 0.25) * seconds_per_tick
+		apply_organ_damage(rounded_toxin_damage)
 
 /// Synths need to do something different, as they don't breathe
 /obj/item/organ/brain/cybernetic/on_life(seconds_per_tick, times_fired)
