@@ -556,9 +556,10 @@
 				if(internal_organ.organ_flags & ORGAN_EXTERNAL)
 					continue
 				organs_to_damage += internal_organ
-			var/obj/item/organ/victim_organ = pick(organs_to_damage)
-			if(victim_organ)
-				victim_organ.apply_organ_damage(wounding_dmg * 0.75)
+			if(length(organs_to_damage))
+				var/obj/item/organ/victim_organ = pick(organs_to_damage)
+				if(victim_organ)
+					victim_organ.apply_organ_damage(wounding_dmg * 0.75)
 		// DOPPLER EDIT END
 
 	for(var/datum/wound/iter_wound as anything in wounds)
