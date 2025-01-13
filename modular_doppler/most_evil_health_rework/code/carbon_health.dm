@@ -45,6 +45,14 @@
 		var/rounded_brain_damage = round((-0.02 * owner.health), 0.25) * seconds_per_tick
 		apply_organ_damage(rounded_brain_damage)
 
+/// Golems need to do something different, as they don't anything
+/obj/item/organ/brain/golem/on_life(seconds_per_tick, times_fired)
+	if(damage >= BRAIN_DAMAGE_DEATH)
+		achieve_death()
+	if(owner.stat == SOFT_CRIT || owner.stat == HARD_CRIT)
+		var/rounded_brain_damage = round((-0.02 * owner.health), 0.25) * seconds_per_tick
+		apply_organ_damage(rounded_brain_damage)
+
 /// Kills the owner of the brain when called, logging the reason given to it
 /obj/item/organ/brain/proc/achieve_death(reason)
 	if(!reason)
