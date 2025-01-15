@@ -1169,10 +1169,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mining_hub)
 "Qf" = (
-/obj/machinery/atmospherics/components/tank/air{
-	piping_layer = 4
-	},
 /obj/effect/turf_decal/bot_white,
+/obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mining_hub)
 "QB" = (

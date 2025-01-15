@@ -1026,10 +1026,8 @@
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "zT" = (
-/obj/machinery/atmospherics/components/tank/air{
-	piping_layer = 4
-	},
 /obj/machinery/camera/autoname/directional/north,
+/obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "Ad" = (
@@ -1180,11 +1178,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "DV" = (
-/obj/machinery/atmospherics/components/tank/air{
-	piping_layer = 4
-	},
 /obj/machinery/airalarm/directional/east,
 /obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "DX" = (
@@ -1320,9 +1316,7 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/mothership)
 "Hm" = (
-/obj/machinery/atmospherics/components/tank/air{
-	piping_layer = 4
-	},
+/obj/machinery/atmospherics/components/tank/air/layer4,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "Hp" = (
