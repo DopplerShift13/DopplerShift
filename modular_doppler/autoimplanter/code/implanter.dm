@@ -1,3 +1,28 @@
+/datum/crafting_recipe/auto_implanter_board
+	result = /obj/item/circuitboard/machine/automatic_implanter
+	reqs = list(
+        /obj/item/epic_loot/military_circuit = 1,
+		/obj/item/epic_loot/processor = 1,
+    )
+	tool_behaviors = list(
+		TOOL_SCREWDRIVER,
+		TOOL_MULTITOOL,
+	)
+	time = 5 SECONDS
+	category = CAT_EQUIPMENT
+
+/datum/supply_pack/science/auto_ripper
+	name = "Augment Auto-Ripper Board"
+	desc = "A circuit board for the implant auto-ripper. See health and safety manual at HYPERLINK NOT FOUND."
+	cost = CARGO_CRATE_VALUE * 8
+	contains = list(
+		/obj/item/circuitboard/machine/automatic_implanter,
+		/obj/item/circuitboard/machine/smartfridge,
+		/obj/item/screwdriver,
+	)
+	crate_type = /obj/structure/closet/crate/deforest
+	crate_name = "robotics machinery crate"
+
 /obj/machinery/automatic_implanter
 	name = "augment auto-ripper"
 	desc = "An advanced automatic ripper for augmentation and implantation alike. \
@@ -8,7 +33,7 @@
 	verb_say = "states"
 	density = TRUE
 	state_open = FALSE
-	circuit = /obj/item/circuitboard/machine/harvester
+	circuit = /obj/item/circuitboard/machine/automatic_implanter
 	light_color = LIGHT_COLOR_BLUE
 	/// How long each step of the process takes
 	var/step_interval = 12 SECONDS
