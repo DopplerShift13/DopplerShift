@@ -11,7 +11,7 @@
 	circuit = /obj/item/circuitboard/machine/harvester
 	light_color = LIGHT_COLOR_BLUE
 	/// How long each step of the process takes
-	var/step_interval = 6 SECONDS // Its actually 5 seconds
+	var/step_interval = 12 SECONDS
 	/// Is the machine currently working
 	var/working = FALSE
 
@@ -146,7 +146,7 @@
 		if(!(implant_organ in holding_fridge.contents))
 			organ_to_fridge_input -= implant_organ
 			continue // It isn't in the fridge anymore, abort
-		var/organ_body_zone = implant_organ.zone
+		var/organ_body_zone = deprecise_zone(implant_organ.zone)
 		implant_organ.Insert(carbon_occupant)
 		var/obj/item/bodypart/damaged_bodypart = carbon_occupant.get_bodypart(organ_body_zone)
 		playsound(src, 'sound/items/handling/surgery/saw.ogg', 50, TRUE)
