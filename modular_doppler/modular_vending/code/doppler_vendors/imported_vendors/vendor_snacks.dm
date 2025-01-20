@@ -311,7 +311,7 @@
 	commercials for Marsian holonet broadcasts were posted to the wider 'net."
 	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
 	icon_state = "thin_can"
-	list_reagents = list(/datum/reagent/consumable/ethanol/null_strength_lemon_grapefruit)
+	list_reagents = list(/datum/reagent/consumable/ethanol/null_strength_lemon_grapefruit = 40)
 	drink_type = ALCOHOL | FRUIT
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/yogurt_beverage
@@ -320,7 +320,7 @@
 	on where you are. Supposedly good for your gut, but it's most commonly seen served alongside spicy food."
 	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
 	icon_state = "yogurt_can"
-	list_reagents = list(/datum/reagent/consumable/yogurt_soda)
+	list_reagents = list(/datum/reagent/consumable/yogurt_soda = 40)
 	drink_type = DAIRY
 
 /obj/item/reagent_containers/condiment/pack/chili
@@ -328,4 +328,7 @@
 	desc = "A spicy chili sauce, seasoning oil with shallots, and sweetened shoyu all in one convenient pack."
 	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
 	icon_state = "sauce_pack"
-	list_reagents = list(/datum/reagent/consumable/chili_fish_sauce)
+	list_reagents = list(/datum/reagent/consumable/chili_fish_sauce = 10)
+	possible_states = list(
+		/datum/reagent/consumable/chili_fish_sauce = list("sauce_pack", "spicy chili sauce", "A spicy chili sauce, seasoning oil with shallots, and sweetened shoyu all in one convenient pack.")
+	)

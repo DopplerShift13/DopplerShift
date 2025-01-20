@@ -82,4 +82,4 @@
 	name = "Yogurt Soda"
 	description = "A refreshing beverage of carbonated yogurt drink"
 	color = "#dddada"
-	taste_description = "Bubbly sweet yogurt."
+	taste_description = "bubbly sweet yogurt."

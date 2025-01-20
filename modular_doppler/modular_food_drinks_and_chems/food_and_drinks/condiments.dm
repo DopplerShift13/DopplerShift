@@ -3,4 +3,4 @@
 	description = "A combination of chili oil, hot sauce, and fish sauce."
 	nutriment_factor = 2
 	color = "#884328"
-	taste_description = "indescribable"
+	taste_description = "umami"
