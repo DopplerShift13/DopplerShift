@@ -311,7 +311,7 @@
 	commercials for Marsian holonet broadcasts were posted to the wider 'net."
 	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
 	icon_state = "thin_can"
-	list_reagents = list(/datum/reagent/consumable/ethanol/null_strength_lemon_grapefruit = 40)
+	list_reagents = list(/datum/reagent/consumable/ethanol/null_strength_lemon_grapefruit = 30)
 	drink_type = ALCOHOL | FRUIT
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/yogurt_beverage
@@ -320,7 +320,7 @@
 	on where you are. Supposedly good for your gut, but it's most commonly seen served alongside spicy food."
 	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
 	icon_state = "yogurt_can"
-	list_reagents = list(/datum/reagent/consumable/yogurt_soda = 40)
+	list_reagents = list(/datum/reagent/consumable/yogurt_soda = 30)
 	drink_type = DAIRY
 
 /obj/item/reagent_containers/condiment/pack/chili
