@@ -87,3 +87,22 @@
 /obj/item/storage/box/foodpack/tizira/stir_fry
 	name = "\improper Tizira Imports Pack - Mushroom Stirfry"
 	main_course = /obj/item/food/vendor_tray_meal/mushroom_fry
+
+/obj/item/storage/box/foodpack/marsian
+	name = "\improper Marsian MEGA-Meal: Mi Goreng Shanjing"
+	desc = "Orange metallicized plastic is emblazoned with the blue heraldry of the Marsian flag."
+	icon_state = "foodpack_marsian_big"
+	main_course = /obj/item/food/vendor_tray_meal/mi_goreng
+	side_item = /obj/effect/spawner/random/vendor_meal_sides/marsian
+	condiment_pack = /obj/item/reagent_containers/condiment/pack/chili
+
+/obj/item/storage/box/foodpack/marsian/burger_blind_bag
+	name = "\improper Marsian MEGA-Meal: Big Blue Burger Blind Bag"
+	desc = "The top selling burger chain on Mars, now in ready-to-eat format. One mystery burger inside, certified mothroach-free after a costly lawsuit!"
+	main_course = /obj/effect/spawner/random/vendor_tray_meal/burger_blind_bag
+	condiment_pack = /obj/item/reagent_containers/condiment/pack/bbqsauce
+
+/obj/item/storage/box/foodpack/marsian/duck_crepe
+	name = "\improper Marsian MEGA-Meal: Peking duck crepes a l'orange"
+	main_course = /obj/item/food/vendor_tray_meal/duck_crepe
+	condiment_pack = /obj/item/reagent_containers/condiment/pack/soysauce

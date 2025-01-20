@@ -32,6 +32,9 @@
 /obj/item/trash/empty_side_pack/tizira
 	icon_state = "foodpack_tizira_trash"
 
+/obj/item/trash/empty_side_pack/marsian
+	icon_state = "foodpack_marsian_trash"
+
 /* MEALS */
 
 /*
@@ -154,6 +157,50 @@
 	icon_state = "foodtray_shroom_fry"
 	tastes = list("mushroom" = 4, "becoming rich" = 1, "laziness" = 1)
 	foodtypes = VEGETABLES
+
+/*
+*	Marsian Meals
+*/
+
+/obj/effect/spawner/random/vendor_tray_meal/burger_blind_bag
+	name = "random marsian burger spawner"
+
+/obj/effect/spawner/random/vendor_tray_meal/burger_blind_bag/Initialize(mapload)
+	loot = list(
+		/obj/item/food/vendor_tray_meal/chappy_patty,
+		/obj/item/food/vendor_tray_meal/big_blue_burger,
+	)
+	. = ..()
+
+/obj/item/food/vendor_tray_meal/chappy_patty
+	name = "\improper Marsian MEGA-Main Course: Chappy Patty"
+	desc = "Two slices of grilled Chap with cheese, topped with a fried egg between two buns."
+	icon_state = "foodtray_chappy_patty"
+	tastes = list("bun" = 1, "fried pork" = 2, "egg" = 1, "cheese" = 1, "ketchup" = 1)
+	foodtypes = MEAT | GRAIN | DAIRY | VEGETABLES
+
+/obj/item/food/vendor_tray_meal/big_blue_burger
+	name = "\improper Marsian MEGA-Main Course: Big Blue Burger"
+	desc = "The signature burger. Two patties, cheese, onions, bacon, and pineapple between two buns."
+	icon_state = "foodtray_big_blue_burger"
+	tastes = list("bun" = 1, "beef" = 2, "pineapple" = 1, "cheese" = 1, "bacon" = 1)
+	foodtypes = MEAT | GRAIN | DAIRY | VEGETABLES | FRUIT
+
+/obj/item/food/vendor_tray_meal/duck_crepe
+	name = "\improper Marsian MEGA-Main Course: Peking duck crepes a l'orange"
+	desc = "Crispy roasted duck served with thin, savory pancakes and garnished with spring onions. Any self-respecting restaurant in \
+	the Grey will have it on the menu - and its popularity has led to this lesser, pre-packaged version."
+	icon_state = "foodtray_duck_crepe"
+	tastes = list("meat" = 1, "crepes" = 1, "orange" = 1)
+	foodtypes = MEAT | DAIRY | VEGETABLES | FRUIT
+
+/obj/item/food/vendor_tray_meal/mi_goreng
+	name = "\improper Marsian MEGA-Main Course: Mi Goreng Shanjing"
+	desc = "The Red Planet's take on the popular fried noodle dish. Shallots, garlic and shredded Tian mutton - all topped off with a fried egg."
+	icon_state = "foodtray_mi_goreng"
+	tastes = list("noodles" = 2, "fried pork" = 2, "egg" = 1, "garlic" = 1)
+	foodtypes = MEAT | GRAIN | VEGETABLES
+
 
 /* SIDES */
 
@@ -316,3 +363,56 @@
 	trash_type = /obj/item/trash/empty_side_pack/tizira
 	tastes = list("cheese" = 1, "oil" = 1)
 	foodtypes = MEAT | VEGETABLES | NUTS | GORE
+
+/*
+* Marsian Sides
+*/
+
+/obj/effect/spawner/random/vendor_meal_sides/marsian
+	name = "random marsian side spawner"
+
+/obj/effect/spawner/random/vendor_meal_sides/marsian/Initialize(mapload)
+	loot = list(
+		/obj/item/food/vendor_tray_meal/side/chap_potama,
+		/obj/item/food/vendor_tray_meal/side/haupia,
+		/obj/item/food/sticko/random,
+		/obj/item/food/vendor_tray_meal/side/roast_nori,
+	)
+	. = ..()
+
+/obj/item/food/vendor_tray_meal/side/chap_potama
+	name = "\improper chap potama"
+	desc = "A sheet of seaweed with rice, all folded over a slice of premium Chap and a sheet of egg. Ubiquitous \
+	in the lunchboxes of Red Marsians working at rural air exchange towers."
+	icon_state = "chap_potama"
+	trash_type = /obj/item/trash/empty_side_pack/chap_potama
+	tastes = list("fried pork" = 2, "rice" = 2, "egg" = 1)
+	foodtypes = GRAIN | MEAT | VEGETABLES
+
+/obj/item/food/vendor_tray_meal/side/haupia
+	name = "\improper haupia"
+	desc = "A staple Marsian dessert. Sweetened coconut milk thickened into a pudding and sliced into portable squares. \
+	This pre-packaged version doesn't compare to the homemade stuff, but it's guaranteed to comfort a homesick Marsian."
+	icon_state = "haupia"
+	trash_type = /obj/item/trash/empty_side_pack/haupia
+	tastes = list("condensed coconut milk" = 2, "artificial sweetener" = 2)
+	foodtypes = SUGAR
+
+/obj/item/food/vendor_tray_meal/side/roast_nori
+	name = "\improper roasted nori"
+	desc = "Red algae was slurried into a fibre soup and poured into sheet molds. Once dried and seasoned it makes a \
+	shelf stable snack that happens to scale well with hydroponic growth facilities, making it a cheap fixture across \
+	Marsian arcologies."
+	icon_state = "foodpack_marsian"
+	trash_type = /obj/item/trash/empty_side_pack/roast_nori
+	tastes = list("salt" = 1, "roasted seaweed" = 2)
+	foodtypes = VEGETABLES
+
+/obj/item/trash/empty_side_pack/chap_potama
+	icon_state = "chap_potama-trash"
+
+/obj/item/trash/empty_side_pack/haupia
+	icon_state = "haupia-trash"
+
+/obj/item/trash/empty_side_pack/roast_nori
+	icon_state = "foodpack_marsian_trash"

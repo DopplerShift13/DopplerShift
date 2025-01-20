@@ -4,6 +4,7 @@
 		/obj/machinery/vending/imported/yangyu,
 		/obj/machinery/vending/imported/mothic,
 		/obj/machinery/vending/imported/tiziran,
+		/obj/machinery/vending/imported/marsian,
 		/obj/machinery/vending/deforest_medvend,
 	)
 
@@ -13,6 +14,7 @@
 		/obj/machinery/vending/imported/yangyu,
 		/obj/machinery/vending/imported/mothic,
 		/obj/machinery/vending/imported/tiziran,
+		/obj/machinery/vending/imported/marsian,
 		/obj/machinery/vending/deforest_medvend,
 	)
 
@@ -227,3 +229,71 @@
 
 /obj/item/vending_refill/snack/imported/tiziran
 	machine_name = "Tiziran Imported Delicacies"
+
+
+/obj/machinery/vending/imported/marsian
+	name = "Marsian MEGA-vend"
+	desc = "An allegedly authentic vendor claiming to offer all the hallmarks of Marsian cuisine, in a convenient ready-to-eat format."
+	icon_state = "marsian_vendor"
+	light_mask = "marsian_vendor-light-mask"
+	light_color = LIGHT_COLOR_FLARE
+	product_slogans = "MEGA savings! MEGA selection! It's the Marsian MEGA-vend!;Exclusive Marsian Imports!"
+	product_categories = list(
+		list(
+			"name" = "Snacks",
+			"icon" = "cookie",
+			"products" = list(
+				/obj/item/food/sticko = 6,
+				/obj/item/food/sticko/matcha = 6,
+				/obj/item/food/sticko/nutty = 6,
+				/obj/item/food/sticko/pineapple = 6,
+				/obj/item/food/sticko/yuyake = 6,
+				/obj/item/food/takoyaki/taco = 6,
+				/obj/item/food/okonomiyaki = 6,
+				/obj/item/reagent_containers/cup/soda_cans/doppler/red_beverage = 6,
+				/obj/item/reagent_containers/cup/soda_cans/doppler/yogurt_beverage = 6,
+			),
+		),
+		list(
+			"name" = "Meals",
+			"icon" = "pizza-slice",
+			"products" = list(
+				/obj/item/storage/box/foodpack/marsian = 6,
+				/obj/item/storage/box/foodpack/marsian/burger_blind_bag = 6,
+				/obj/item/storage/box/foodpack/marsian/duck_crepe = 6,
+				/obj/item/food/vendor_tray_meal/side/chap_potama = 6,
+				/obj/item/food/vendor_tray_meal/side/haupia = 6,
+				/obj/item/food/vendor_tray_meal/side/roast_nori = 6,
+			),
+		),
+		list(
+			"name" = "Smokes",
+			"icon" = "smoking",
+			"products" = list(
+				/obj/item/storage/fancy/cigarettes/tangerine = 6,
+				/obj/item/storage/fancy/cigarettes/cigpack_midori = 6,
+				/obj/item/storage/fancy/cigarettes/cigpack_cannabis = 3,
+				/obj/item/lighter = 3,
+				/obj/item/lighter/greyscale = 5,
+			),
+		)
+	)
+
+	refill_canister = /obj/item/vending_refill/snack/imported/marsian
+	initial_language_holder = /datum/language_holder/marsian_vendor
+
+/datum/language_holder/marsian_vendor
+	understood_languages = list(
+		/datum/language/konjin = list(LANGUAGE_ATOM),
+		)
+	spoken_languages = list(
+		/datum/language/konjin = list(LANGUAGE_ATOM),
+		)
+
+/obj/machinery/vending/imported/marsian/examine_more(mob/user)
+	. = ..()
+	. += span_notice("The scent of injection molded polymer is genuinely staggering.")
+	return .
+
+/obj/item/vending_refill/snack/imported/marsian
+	machine_name = "Marsian MEGA-vend"

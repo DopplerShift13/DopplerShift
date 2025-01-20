@@ -300,3 +300,32 @@
 	icon_state = "kortara"
 	list_reagents = list(/datum/reagent/consumable/ethanol/kortara = 30)
 	drink_type = ALCOHOL
+
+/*
+*	Marsian Snacks
+*/
+
+/obj/item/reagent_containers/cup/soda_cans/doppler/red_beverage
+	name = "NULL STRENGTH Lemon-Grapefruit Fruit Cooler"
+	desc = "The red and blue cans of the NULL STRENGTH line of shochu coolers became a minor memetic icon when the silly \
+	commercials for Marsian holonet broadcasts were posted to the wider 'net."
+	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
+	icon_state = "thin_can"
+	list_reagents = list(/datum/reagent/consumable/ethanol/null_strength_lemon_grapefruit)
+	drink_type = ALCOHOL | FRUIT
+
+/obj/item/reagent_containers/cup/soda_cans/doppler/yogurt_beverage
+	name = "Suannai yogurt soda"
+	desc = "A refreshing, lightly carbonated yogurt drink that goes by nealy a dozen different names depending \
+	on where you are. Supposedly good for your gut, but it's most commonly seen served alongside spicy food."
+	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
+	icon_state = "yogurt_can"
+	list_reagents = list(/datum/reagent/consumable/yogurt_soda)
+	drink_type = DAIRY
+
+/obj/item/reagent_containers/condiment/pack/chili
+	name = "seasoning multi-pack"
+	desc = "A spicy chili sauce, seasoning oil with shallots, and sweetened shoyu all in one convenient pack."
+	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
+	icon_state = "sauce_pack"
+	list_reagents = list(/datum/reagent/consumable/chili_fish_sauce)
