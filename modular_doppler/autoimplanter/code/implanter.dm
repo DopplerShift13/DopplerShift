@@ -153,10 +153,14 @@
 			continue // It isn't in the fridge anymore, abort
 		var/bodypart_body_zone = implant_bodypart.body_zone
 		var/obj/item/bodypart/old_bodypart = carbon_occupant.get_bodypart(bodypart_body_zone)
-		if((bodypart_body_zone != BODY_ZONE_CHEST) && (bodypart_body_zone != BODY_ZONE_HEAD))
+		if((bodypart_body_zone != BODY_ZONE_CHEST) && (bodypart_body_zone != BODY_ZONE_HEAD) && old_bodypart)
 			old_bodypart.dismember(silent = FALSE)
 			implant_bodypart.try_attach_limb(carbon_occupant)
+		else if(!old_bodypart)
+			playsound(src, 'sound/items/handling/surgery/saw.ogg', 50, TRUE)
+			implant_bodypart.try_attach_limb(carbon_occupant)
 		else
+			playsound(src, 'sound/items/handling/surgery/saw.ogg', 50, TRUE)
 			implant_bodypart.replace_limb(carbon_occupant)
 		organ_to_fridge_input -= implant_bodypart
 		use_energy(active_power_usage)
