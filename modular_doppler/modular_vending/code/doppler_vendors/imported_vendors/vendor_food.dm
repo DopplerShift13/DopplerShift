@@ -23,9 +23,6 @@
 /obj/item/trash/empty_side_pack/nt
 	icon_state = "foodpack_nt_trash"
 
-/obj/item/trash/empty_side_pack/yangyu
-	icon_state = "foodpack_yangyu_trash"
-
 /obj/item/trash/empty_side_pack/moth
 	icon_state = "foodpack_moth_trash"
 
@@ -82,31 +79,6 @@
 	food_reagents = list(/datum/reagent/consumable/nutriment = 5, /datum/reagent/consumable/capsaicin = 10)
 	tastes = list("bread" = 2, "chicken?" = 2, "overwhelming spice" = 2, "laziness" = 1)
 	foodtypes = MEAT | GRAIN | DAIRY
-
-/*
-*	Yangyu Meals
-*/
-
-/obj/item/food/vendor_tray_meal/ramen
-	name = "\improper Meinkosu: Homestyle Noodles"
-	desc = "A brick of the finest factory made ramen, with a small amount of rehydrated vegetables and herbs floating around."
-	icon_state = "foodtray_noodle"
-	tastes = list("cheap noodles" = 2, "laziness" = 1)
-	foodtypes = GRAIN | VEGETABLES
-
-/obj/item/food/vendor_tray_meal/sushi
-	name = "\improper Meinkosu: Fresh Carp Rolls"
-	desc = "A pair of sushi rolls, the appearance of which would suggest that the label is lying to you."
-	icon_state = "foodtray_gas_station_sushi"
-	tastes = list("imitation space carp" = 2, "stale rice" = 2, "laziness" = 1)
-	foodtypes = GRAIN | SEAFOOD
-
-/obj/item/food/vendor_tray_meal/beef_rice
-	name = "\improper Meinkosu: Beef and Fried Rice"
-	desc = "A few slices of seemingly grilled beef, paired with a disproportionately large amount of rice."
-	icon_state = "foodtray_beef_n_rice"
-	tastes = list("cheap beef" = 1, "rice" = 3, "laziness" = 1)
-	foodtypes = GRAIN | MEAT
 
 /*
 *	Mothic Meals
@@ -201,6 +173,19 @@
 	tastes = list("noodles" = 2, "fried pork" = 2, "egg" = 1, "garlic" = 1)
 	foodtypes = MEAT | GRAIN | VEGETABLES
 
+/obj/item/food/vendor_tray_meal/sushi
+	name = "\improper Marsian MEGA-Main Course: Fresh Carp Rolls"
+	desc = "A pair of sushi rolls, the appearance of which would suggest that the label is lying to you."
+	icon_state = "foodtray_gas_station_sushi"
+	tastes = list("imitation space carp" = 2, "stale rice" = 2, "laziness" = 1)
+	foodtypes = GRAIN | SEAFOOD
+
+/obj/item/food/vendor_tray_meal/beef_rice
+	name = "\improper Marsian MEGA-Main Course: Beef and Fried Rice"
+	desc = "A few slices of seemingly grilled beef, paired with a disproportionately large amount of rice."
+	icon_state = "foodtray_beef_n_rice"
+	tastes = list("cheap beef" = 1, "rice" = 3, "laziness" = 1)
+	foodtypes = GRAIN | MEAT
 
 /* SIDES */
 
@@ -246,45 +231,6 @@
 	desc = "A small stack of tough flatbread, and a small spread of cheese for each."
 	tastes = list("tough bread" = 2, "cheese" = 2)
 	foodtypes = GRAIN | DAIRY
-
-/*
-*	Yangyu Sides
-*/
-
-/obj/effect/spawner/random/vendor_meal_sides/yangyu
-	name = "random yangyu side spawner"
-
-/obj/effect/spawner/random/vendor_meal_sides/yangyu/Initialize(mapload)
-	loot = list(
-		/obj/item/food/vendor_tray_meal/side/miso,
-		/obj/item/food/vendor_tray_meal/side/rice,
-		/obj/item/food/vendor_tray_meal/side/pickled_vegetables,
-	)
-	. = ..()
-
-/obj/item/food/vendor_tray_meal/side/miso
-	name = "\improper Fukusai: Miso Soup"
-	desc = "This is quite literally just a plastic bag full of miso soup, opening it on any side other than the one indicated may result in spilled soup."
-	icon_state = "foodpack_yangyu"
-	trash_type = /obj/item/trash/empty_side_pack/yangyu
-	tastes = list("miso" = 2)
-	foodtypes = VEGETABLES
-
-/obj/item/food/vendor_tray_meal/side/rice
-	name = "\improper Fukusai: White Rice"
-	desc = "A bag stuffed full of white rice, in case your meal didn't come with enough to sate your needs."
-	icon_state = "foodpack_yangyu"
-	trash_type = /obj/item/trash/empty_side_pack/yangyu
-	tastes = list("old rice" = 2)
-	foodtypes = GRAIN
-
-/obj/item/food/vendor_tray_meal/side/pickled_vegetables
-	name = "\improper Fukusai: Pickled Vegetables"
-	desc = "Contains a small assortment of vegetables pickled in a vinegar-like solution."
-	icon_state = "foodpack_yangyu"
-	trash_type = /obj/item/trash/empty_side_pack/yangyu
-	tastes = list("vinegar" = 4)
-	foodtypes = VEGETABLES
 
 /*
 *	Mothic Sides

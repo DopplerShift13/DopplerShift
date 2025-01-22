@@ -34,22 +34,6 @@
 	name = "\improper NT-Combo Meal - Spicy Chicken Sandwich"
 	main_course = /obj/item/food/vendor_tray_meal/chicken_sandwich
 
-/obj/item/storage/box/foodpack/yangyu
-	name = "\improper Atatakai shokuji - Homestyle Noodles"
-	desc = "A well decorated red and white plastic package, covered in nearly incomprehensible konjin text."
-	icon_state = "foodpack_yangyu_big"
-	main_course = /obj/item/food/vendor_tray_meal/ramen
-	side_item = /obj/effect/spawner/random/vendor_meal_sides/yangyu
-	condiment_pack = /obj/item/reagent_containers/condiment/pack/hotsauce
-
-/obj/item/storage/box/foodpack/yangyu/sushi
-	name = "\improper Atatakai shokuji - Carp Sushi Rolls"
-	main_course = /obj/item/food/vendor_tray_meal/sushi
-
-/obj/item/storage/box/foodpack/yangyu/beef_rice
-	name = "\improper Atatakai shokuji - Beef and Rice"
-	main_course = /obj/item/food/vendor_tray_meal/beef_rice
-
 /obj/item/storage/box/foodpack/moth
 	name = "\improper Ration Type M - Pesto Pizza"
 	desc = "A cardboard-colored paper package with the symbol of the nomad fleet stamped upon it."
@@ -106,3 +90,13 @@
 	name = "\improper Marsian MEGA-Meal: Peking duck crepes a l'orange"
 	main_course = /obj/item/food/vendor_tray_meal/duck_crepe
 	condiment_pack = /obj/item/reagent_containers/condiment/pack/soysauce
+
+/obj/item/storage/box/foodpack/marsian/sushi
+	name = "\improper Marsian MEGA-Meal: Carp Sushi Rolls"
+	main_course = /obj/item/food/vendor_tray_meal/sushi
+	condiment_pack = /obj/item/reagent_containers/condiment/pack/soysauce
+
+/obj/item/storage/box/foodpack/marsian/beef_rice
+	name = "\improper Marsian MEGA-Meal: Beef and Rice"
+	main_course = /obj/item/food/vendor_tray_meal/beef_rice
+	condiment_pack = /obj/item/reagent_containers/condiment/pack/hotsauce
