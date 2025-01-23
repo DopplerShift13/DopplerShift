@@ -124,7 +124,7 @@ GLOBAL_LIST_EMPTY(autounlock_techwebs)
 /datum/techweb/autounlocking/autolathe
 	allowed_buildtypes = AUTOLATHE
 //Begin Doppler Change//
-/datum/techweb.autounlocking/protolathe
+/datum/techweb/autounlocking/protolathe
 	allowed_buildtypes = PROTOLATHE
 //End Doppler Change//
 /datum/techweb/autounlocking/limbgrower
