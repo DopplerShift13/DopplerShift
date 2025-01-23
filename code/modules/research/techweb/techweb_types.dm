@@ -66,7 +66,54 @@ GLOBAL_LIST_EMPTY(autounlock_techwebs)
 			add_design_by_id(id)
 		if(RND_CATEGORY_HACKED in design.category)
 			add_design_by_id(id, add_to = hacked_designs)
-
+//Begin Doppler Change//
+		if(RND_CATEGORY_AI in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_CIRCUITRY in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_TOOLS in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_COMPUTER in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MACHINE in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_EQUIPMENT in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MODULAR_COMPUTERS in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_STOCK_PARTS in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_EXOSUIT_BOARDS in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_PADDY in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_ODYSSEUS in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_GYGAX in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_DURAND in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_PHAZON in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_CLARK in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_SAVANNAH_IVANOV in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_EQUIPMENT in design.catgeory)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MECHFAB_CYBORG_MODULES in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MODSUITS in design_category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_MODSUIT_MODULES in design.category)
+			add_design_by_id(id)
+		if(RND_CATEGORY_CYBERNETICS in design.category)
+			add_design_by_id(id)
+		if(RND_SUBCATEGORY_TOOLS_ENGINEERING_ALIEN or RND_SUBCATEGORY_TOOLS_MEDICAL_ALIEN in design.category)
+			remove_design_by_id(id)
+		if(RND_CATEGORY_SYNDICATE in design.category)
+			remove_design_by_id(id)
+//End Doppler Change//
 /datum/techweb/autounlocking/add_design(datum/design/design, custom = FALSE, list/add_to)
 	if(!(design.build_type & allowed_buildtypes))
 		return FALSE
@@ -74,7 +121,10 @@ GLOBAL_LIST_EMPTY(autounlock_techwebs)
 
 /datum/techweb/autounlocking/autolathe
 	allowed_buildtypes = AUTOLATHE
-
+//Begin Doppler Change//
+/datum/techweb.autounlocking/protolathe
+	allowed_buildtypes = PROTOLATHE
+//End Doppler Change//
 /datum/techweb/autounlocking/limbgrower
 	allowed_buildtypes = LIMBGROWER
 
