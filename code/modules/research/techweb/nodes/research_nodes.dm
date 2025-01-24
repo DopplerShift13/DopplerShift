@@ -75,7 +75,7 @@
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/anomaly_research
-starting_node = TRUE //DOPPLER EDIT ADDITION
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	id = TECHWEB_NODE_ANOMALY_RESEARCH
 	display_name = "Anomaly Research"
 	description = "Delving into the study of mysterious anomalies to investigate methods to refine and harness their unpredictable energies."
