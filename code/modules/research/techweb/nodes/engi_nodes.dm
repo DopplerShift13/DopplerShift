@@ -28,6 +28,7 @@
 
 /datum/techweb_node/parts_upg
 	id = TECHWEB_NODE_PARTS_UPG
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Upgraded Parts"
 	description = "Offering enhanced capabilities beyond their basic counterparts."
 	prereq_ids = list(TECHWEB_NODE_PARTS, TECHWEB_NODE_ENERGY_MANIPULATION)
@@ -46,6 +47,7 @@
 
 /datum/techweb_node/parts_adv
 	id = TECHWEB_NODE_PARTS_ADV
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Parts"
 	description = "The most finely tuned and accurate stock parts."
 	prereq_ids = list(TECHWEB_NODE_PARTS_UPG)
@@ -65,6 +67,7 @@
 
 /datum/techweb_node/parts_bluespace
 	id = TECHWEB_NODE_PARTS_BLUESPACE
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Bluespace Parts"
 	description = "Integrating the latest in bluespace technology, these advanced components not only enhance functionality but also open up new possibilities for the station's technological capabilities."
 	prereq_ids = list(TECHWEB_NODE_PARTS_ADV, TECHWEB_NODE_BLUESPACE_TRAVEL)
@@ -84,6 +87,7 @@
 
 /datum/techweb_node/telecomms
 	id = TECHWEB_NODE_TELECOMS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Telecommunications Technology"
 	description = "A comprehensive suite of machinery for station-wide communication setups, ensuring seamless connectivity and operational coordination."
 	prereq_ids = list(TECHWEB_NODE_PARTS_BLUESPACE)
@@ -160,6 +164,7 @@
 
 /datum/techweb_node/energy_manipulation
 	id = TECHWEB_NODE_ENERGY_MANIPULATION
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Energy Manipulation"
 	description = "Harnessing the raw power of lightning arcs through sophisticated energy control methods."
 	prereq_ids = list(TECHWEB_NODE_CONSTRUCTION)
@@ -184,6 +189,7 @@
 
 /datum/techweb_node/holographics
 	id = TECHWEB_NODE_HOLOGRAPHICS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Holographics"
 	description = "Use of holographic technology for signage and barriers."
 	prereq_ids = list(TECHWEB_NODE_ENERGY_MANIPULATION)
@@ -210,6 +216,7 @@
 
 /datum/techweb_node/hud
 	id = TECHWEB_NODE_HUD
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Integrated HUDs"
 	description = "Initially developed for assistants to learn the nuances of different professions through augmented reality."
 	prereq_ids = list(TECHWEB_NODE_HOLOGRAPHICS, TECHWEB_NODE_CYBER_IMPLANTS)
@@ -229,6 +236,7 @@
 
 /datum/techweb_node/night_vision
 	id = TECHWEB_NODE_NIGHT_VISION
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Night Vision Technology"
 	description = "There are whispers that Nanotrasen pushed for this technology to extend shift durations, ensuring productivity around the clock."
 	prereq_ids = list(TECHWEB_NODE_HUD)

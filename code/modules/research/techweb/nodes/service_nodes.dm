@@ -37,6 +37,7 @@
 
 /datum/techweb_node/sanitation
 	id = TECHWEB_NODE_SANITATION
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Sanitation Technology"
 	description = "Nanotrasen's latest in janitorial tech, making sure the station stays spotless and bear-free."
 	prereq_ids = list(TECHWEB_NODE_OFFICE_EQUIP)
@@ -55,6 +56,7 @@
 
 /datum/techweb_node/consoles
 	id = TECHWEB_NODE_CONSOLES
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Civilian Consoles"
 	description = "User-friendly consoles for non-technical crew members, enhancing communication and access to essential station information."
 	prereq_ids = list(TECHWEB_NODE_OFFICE_EQUIP)
@@ -83,6 +85,7 @@
 
 /datum/techweb_node/gaming
 	id = TECHWEB_NODE_GAMING
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Gaming"
 	description = "For the slackers on the station."
 	prereq_ids = list(TECHWEB_NODE_CONSOLES)
@@ -125,6 +128,7 @@
 
 /datum/techweb_node/food_proc
 	id = TECHWEB_NODE_FOOD_PROC
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Food Processing"
 	description = "Top-tier kitchen appliances from Nanotrasen, designed to keep the crew well-fed and happy."
 	prereq_ids = list(TECHWEB_NODE_CAFETERIA_EQUIP)
@@ -164,6 +168,7 @@
 
 /datum/techweb_node/fishing_equip_adv
 	id = TECHWEB_NODE_FISHING_EQUIP_ADV
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Fishing Tools"
 	description = "Continuing advancements in fishing technology, incorporating cutting-edge features in space fishing operations. Just don't try this on space carps..."
 	prereq_ids = list(TECHWEB_NODE_FISHING_EQUIP)
@@ -182,6 +187,7 @@
 
 /datum/techweb_node/marine_util
 	id = TECHWEB_NODE_MARINE_UTIL
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Marine Utility"
 	description = "Fish are nice to look at and all, but they can be put to use."
 	prereq_ids = list(TECHWEB_NODE_FISHING_EQUIP_ADV)

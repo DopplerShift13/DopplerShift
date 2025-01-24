@@ -40,6 +40,7 @@
 
 /datum/techweb_node/chem_synthesis
 	id = TECHWEB_NODE_CHEM_SYNTHESIS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Chemical Synthesis"
 	description = "Synthesizing complex chemicals from electricity and thin air... Don't ask how..."
 	prereq_ids = list(TECHWEB_NODE_MEDBAY_EQUIP)
@@ -65,6 +66,7 @@
 
 /datum/techweb_node/medbay_equip_adv
 	id = TECHWEB_NODE_MEDBAY_EQUIP_ADV
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Medbay Equipment"
 	description = "State-of-the-art medical gear for keeping the crew in one piece — mostly."
 	prereq_ids = list(TECHWEB_NODE_CHEM_SYNTHESIS)
@@ -85,6 +87,7 @@
 
 /datum/techweb_node/cryostasis
 	id = TECHWEB_NODE_CRYOSTASIS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Cryostasis"
 	description = "The result of clown accidentally drinking a chemical, now repurposed for safely preserving crew members in suspended animation."
 	prereq_ids = list(TECHWEB_NODE_MEDBAY_EQUIP_ADV, TECHWEB_NODE_FUSION)

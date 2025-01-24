@@ -1,5 +1,6 @@
 /datum/techweb_node/oldstation_surgery
 	id = TECHWEB_NODE_OLDSTATION_SURGERY
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Experimental Dissection"
 	description = "Grants access to experimental dissections, which allows generation of research points."
 	prereq_ids = list(TECHWEB_NODE_MEDBAY_EQUIP)
@@ -12,6 +13,7 @@
 
 /datum/techweb_node/surgery
 	id = TECHWEB_NODE_SURGERY
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Improved Wound-Tending"
 	description = "Who would have known being more gentle with a hemostat decreases patient pain?"
 	prereq_ids = list(TECHWEB_NODE_MEDBAY_EQUIP)
@@ -24,6 +26,7 @@
 
 /datum/techweb_node/surgery_adv
 	id = TECHWEB_NODE_SURGERY_ADV
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Surgery"
 	description = "When simple medicine doesn't cut it."
 	prereq_ids = list(TECHWEB_NODE_SURGERY)
@@ -42,6 +45,7 @@
 
 /datum/techweb_node/surgery_exp
 	id = TECHWEB_NODE_SURGERY_EXP
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Experimental Surgery"
 	description = "When evolution isn't fast enough."
 	prereq_ids = list(TECHWEB_NODE_SURGERY_ADV)
@@ -73,6 +77,7 @@
 
 /datum/techweb_node/surgery_tools
 	id = TECHWEB_NODE_SURGERY_TOOLS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Surgery Tools"
 	description = "Surgical instruments of dual purpose for quick operations."
 	prereq_ids = list(TECHWEB_NODE_SURGERY_EXP)

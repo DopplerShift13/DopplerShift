@@ -34,6 +34,7 @@
 
 /datum/techweb_node/cybernetics
 	id = TECHWEB_NODE_CYBERNETICS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Cybernetics"
 	description = "Sapient robots with preloaded tool modules and programmable laws."
 	prereq_ids = list(TECHWEB_NODE_AUGMENTATION)
@@ -56,6 +57,7 @@
 
 /datum/techweb_node/borg_service
 	id = TECHWEB_NODE_BORG_SERVICES
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Service Cyborg Upgrades"
 	description = "Let them do the cookin' by the book."
 	prereq_ids = list(TECHWEB_NODE_CYBERNETICS)
@@ -73,6 +75,7 @@
 
 /datum/techweb_node/borg_mining
 	id = TECHWEB_NODE_BORG_MINING
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Mining Cyborg Upgrades"
 	description = "To mine places too dangerous for humans."
 	prereq_ids = list(TECHWEB_NODE_CYBERNETICS)
@@ -86,6 +89,7 @@
 
 /datum/techweb_node/borg_medical
 	id = TECHWEB_NODE_BORG_MEDICAL
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Medical Cyborg Upgrades"
 	description = "Let them follow Asimov's First Law."
 	prereq_ids = list(TECHWEB_NODE_BORG_SERVICES, TECHWEB_NODE_SURGERY_ADV)
@@ -103,6 +107,7 @@
 
 /datum/techweb_node/borg_utility
 	id = TECHWEB_NODE_BORG_UTILITY
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Utility Cyborg Upgrades"
 	description = "Let them wipe our floors for us."
 	prereq_ids = list(TECHWEB_NODE_BORG_SERVICES, TECHWEB_NODE_SANITATION)
@@ -127,6 +132,7 @@
 
 /datum/techweb_node/borg_engi
 	id = TECHWEB_NODE_BORG_ENGI
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Engineering Cyborg Upgrades"
 	description = "To slack even more."
 	prereq_ids = list(TECHWEB_NODE_BORG_MINING, TECHWEB_NODE_PARTS_UPG)
@@ -142,6 +148,7 @@
 // Implants root node
 /datum/techweb_node/passive_implants
 	id = TECHWEB_NODE_PASSIVE_IMPLANTS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Passive Implants"
 	description = "Implants designed to operate seamlessly without active user input, enhancing various physiological functions or providing continuous benefits."
 	prereq_ids = list(TECHWEB_NODE_AUGMENTATION)
@@ -162,6 +169,7 @@
 
 /datum/techweb_node/cyber/cyber_implants
 	id = TECHWEB_NODE_CYBER_IMPLANTS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Cybernetic Implants"
 	description = "Advanced technological enhancements integrated into the body, offering improved physical capabilities."
 	prereq_ids = list(TECHWEB_NODE_PASSIVE_IMPLANTS, TECHWEB_NODE_CYBERNETICS)
@@ -182,6 +190,7 @@
 
 /datum/techweb_node/cyber/combat_implants
 	id = TECHWEB_NODE_COMBAT_IMPLANTS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Combat Implants"
 	description = "To make sure that you can wake the f*** up, samurai."
 	prereq_ids = list(TECHWEB_NODE_CYBER_IMPLANTS)
@@ -195,6 +204,7 @@
 
 /datum/techweb_node/cyber/integrated_toolsets
 	id = TECHWEB_NODE_INTERGRATED_TOOLSETS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Integrated Toolsets"
 	description = "Decades of contraband smuggling by assistants have led to the development of a full toolbox that fits seamlessly into your arm."
 	prereq_ids = list(TECHWEB_NODE_COMBAT_IMPLANTS, TECHWEB_NODE_EXP_TOOLS)
@@ -214,6 +224,7 @@
 
 /datum/techweb_node/cyber/cyber_organs
 	id = TECHWEB_NODE_CYBER_ORGANS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Cybernetic Organs"
 	description = "We have the technology to rebuild him."
 	prereq_ids = list(TECHWEB_NODE_CYBERNETICS)
@@ -231,6 +242,7 @@
 
 /datum/techweb_node/cyber/cyber_organs_upgraded
 	id = TECHWEB_NODE_CYBER_ORGANS_UPGRADED
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Upgraded Cybernetic Organs"
 	description = "We have the technology to upgrade him."
 	prereq_ids = list(TECHWEB_NODE_CYBER_ORGANS)

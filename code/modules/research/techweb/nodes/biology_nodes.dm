@@ -1,5 +1,6 @@
 /datum/techweb_node/bio_scan
 	id = TECHWEB_NODE_BIO_SCAN
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Biological Scan"
 	description = "Advanced technology for analyzing patient health and reagent compositions, ensuring precise diagnostics and treatment in the medical bay."
 	prereq_ids = list(TECHWEB_NODE_MEDBAY_EQUIP)
@@ -18,6 +19,7 @@
 
 /datum/techweb_node/cytology
 	id = TECHWEB_NODE_CYTOLOGY
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Cytology"
 	description = "Cellular biology research focused on cultivation of limbs and diverse organisms from cells."
 	prereq_ids = list(TECHWEB_NODE_BIO_SCAN)
@@ -33,6 +35,7 @@
 
 /datum/techweb_node/xenobiology
 	id = TECHWEB_NODE_XENOBIOLOGY
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Xenobiology"
 	description = "Exploration of non-human biology, unlocking the secrets of extraterrestrial lifeforms and their unique biological processes."
 	prereq_ids = list(TECHWEB_NODE_CYTOLOGY)
@@ -49,6 +52,7 @@
 
 /datum/techweb_node/gene_engineering
 	id = TECHWEB_NODE_GENE_ENGINEERING
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Gene Engineering"
 	description = "Research into sophisticated DNA manipulation techniques, enabling the modification of human genetic traits to unlock specific abilities and enhancements."
 	prereq_ids = list(TECHWEB_NODE_SELECTION, TECHWEB_NODE_XENOBIOLOGY)
@@ -81,6 +85,7 @@
 
 /datum/techweb_node/hydroponics
 	id = TECHWEB_NODE_HYDROPONICS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Hydroponics"
 	description = "Research into advanced hydroponic systems for efficient and sustainable plant cultivation."
 	prereq_ids = list(TECHWEB_NODE_BOTANY_EQUIP, TECHWEB_NODE_CHEM_SYNTHESIS)
@@ -94,6 +99,7 @@
 
 /datum/techweb_node/selection
 	id = TECHWEB_NODE_SELECTION
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Artificial Selection"
 	description = "Advancement in plant cultivation techniques through artificial selection, enabling precise manipulation of plant DNA."
 	prereq_ids = list(TECHWEB_NODE_HYDROPONICS)

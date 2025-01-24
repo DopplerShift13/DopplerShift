@@ -20,6 +20,7 @@
 
 /datum/techweb_node/sec_equip
 	id = TECHWEB_NODE_SEC_EQUIP
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Security Equipment"
 	description = "All the essentials to subdue a mime."
 	prereq_ids = list(TECHWEB_NODE_BASIC_ARMS)
@@ -46,6 +47,7 @@
 
 /datum/techweb_node/riot_supression
 	id = TECHWEB_NODE_RIOT_SUPRESSION
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Riot Supression"
 	description = "When you are on the opposing side of a revolutionary movement."
 	prereq_ids = list(TECHWEB_NODE_SEC_EQUIP)
@@ -63,6 +65,7 @@
 
 /datum/techweb_node/explosives
 	id = TECHWEB_NODE_EXPLOSIVES
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Explosives"
 	description = "For once, intentional explosions."
 	prereq_ids = list(TECHWEB_NODE_RIOT_SUPRESSION)
@@ -77,6 +80,7 @@
 
 /datum/techweb_node/exotic_ammo
 	id = TECHWEB_NODE_EXOTIC_AMMO
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Exotic Ammunition"
 	description = "Specialized bullets designed to ignite, freeze, and inflict various other effects on targets, expanding combat capabilities."
 	prereq_ids = list(TECHWEB_NODE_EXPLOSIVES)
@@ -97,6 +101,7 @@
 
 /datum/techweb_node/electric_weapons
 	id = TECHWEB_NODE_ELECTRIC_WEAPONS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Electric Weaponry"
 	description = "Energy-based weaponry designed for both lethal and non-lethal applications."
 	prereq_ids = list(TECHWEB_NODE_RIOT_SUPRESSION)
@@ -111,6 +116,7 @@
 
 /datum/techweb_node/beam_weapons
 	id = TECHWEB_NODE_BEAM_WEAPONS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Beam Weaponry"
 	description = "So advanced, even engineers are baffled by its operational principles."
 	prereq_ids = list(TECHWEB_NODE_ELECTRIC_WEAPONS)

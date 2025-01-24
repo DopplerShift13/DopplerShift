@@ -11,6 +11,7 @@
 
 /datum/techweb_node/exodrone
 	id = TECHWEB_NODE_EXODRONE
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Exploration Drones"
 	description = "Adapted arcade machines to covertly harness gamers' skills in controlling real drones for practical purposes."
 	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
@@ -25,6 +26,7 @@
 // AI root node
 /datum/techweb_node/ai
 	id = TECHWEB_NODE_AI
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Artificial Intelligence"
 	description = "Exploration of AI systems, more intelligent than the entire crew put together."
 	prereq_ids = list(TECHWEB_NODE_ROBOTICS)
@@ -69,6 +71,7 @@
 
 /datum/techweb_node/ai_laws
 	id = TECHWEB_NODE_AI_LAWS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced AI Upgrades"
 	description = "Delving into sophisticated AI directives, with hopes that they won't lead to humanity's extinction."
 	prereq_ids = list(TECHWEB_NODE_AI)

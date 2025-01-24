@@ -93,6 +93,7 @@
 
 /datum/techweb_node/circuit_shells
 	id = TECHWEB_NODE_CIRCUIT_SHELLS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Circuit Shells"
 	description = "Adding brains to more things."
 	prereq_ids = list(TECHWEB_NODE_PROGRAMMING)
@@ -114,6 +115,7 @@
 
 /datum/techweb_node/bci
 	id = TECHWEB_NODE_BCI
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Brain-Computer Interface"
 	description = "Embedded brain circuits. May occasionally stream Nanotrasen ads in dreams."
 	prereq_ids = list(TECHWEB_NODE_CIRCUIT_SHELLS, TECHWEB_NODE_PASSIVE_IMPLANTS)
@@ -135,6 +137,7 @@
 
 /datum/techweb_node/programmed_robot
 	id = TECHWEB_NODE_PROGRAMMED_ROBOT
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Programmed Robot"
 	description = "Grants access to movable shells, allowing for remote operations and pranks."
 	prereq_ids = list(TECHWEB_NODE_CIRCUIT_SHELLS)
@@ -147,6 +150,7 @@
 
 /datum/techweb_node/programmed_server
 	id = TECHWEB_NODE_PROGRAMMED_SERVER
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Programmed Server"
 	description = "Grants access to a server shell that has a very high capacity for components."
 	prereq_ids = list(TECHWEB_NODE_BCI)

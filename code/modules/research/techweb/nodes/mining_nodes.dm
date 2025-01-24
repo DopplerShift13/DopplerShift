@@ -24,6 +24,7 @@
 
 /datum/techweb_node/mining
 	id = TECHWEB_NODE_MINING
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Mining Technology"
 	description = "Development of tools meant to optimize mining operations and resource extraction."
 	prereq_ids = list(TECHWEB_NODE_MATERIAL_PROC)
@@ -52,6 +53,7 @@
 
 /datum/techweb_node/low_pressure_excavation
 	id = TECHWEB_NODE_LOW_PRESSURE_EXCAVATION
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Low-Pressure Excavation"
 	description = "Research of Proto-Kinetic Accelerators (PKAs), pneumatic guns renowned for their exceptional performance in low-pressure environments."
 	prereq_ids = list(TECHWEB_NODE_MINING, TECHWEB_NODE_GAS_COMPRESSION)
@@ -71,6 +73,7 @@
 
 /datum/techweb_node/plasma_mining
 	id = TECHWEB_NODE_PLASMA_MINING
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Plasma Beam Mining"
 	description = "Engineers' plasma welders have proven highly effective in mining operations. This led to the development of a mech-mounted variant and an enhanced handheld cutter for miners."
 	prereq_ids = list(TECHWEB_NODE_LOW_PRESSURE_EXCAVATION, TECHWEB_NODE_PLASMA_CONTROL)
@@ -83,6 +86,7 @@
 
 /datum/techweb_node/bitrunning
 	id = TECHWEB_NODE_BITRUNNING
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Bitrunning Technology"
 	description = "Bluespace technology has led to the development of quantum-scale computing, which unlocks the means to materialize atomic structures while executing advanced programs."
 	prereq_ids = list(TECHWEB_NODE_GAMING, TECHWEB_NODE_APPLIED_BLUESPACE)
@@ -96,6 +100,7 @@
 
 /datum/techweb_node/mining_adv
 	id = TECHWEB_NODE_MINING_ADV
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Mining Technology"
 	description = "High-level mining equipment, pushing the boundaries of efficiency and effectiveness in resource extraction."
 	prereq_ids = list(TECHWEB_NODE_PLASMA_MINING)

@@ -21,6 +21,7 @@
 
 /datum/techweb_node/bluespace_theory
 	id = TECHWEB_NODE_BLUESPACE_THEORY
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Bluespace Theory"
 	description = "Basic studies into the mysterious alternate dimension known as bluespace."
 	prereq_ids = list(TECHWEB_NODE_FUNDIMENTAL_SCI)
@@ -32,6 +33,7 @@
 
 /datum/techweb_node/applied_bluespace
 	id = TECHWEB_NODE_APPLIED_BLUESPACE
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Applied Bluespace Research"
 	description = "With a heightened grasp of bluespace dynamics, sophisticated applications and technologies can be devised using data from bluespace crystal analyses."
 	prereq_ids = list(TECHWEB_NODE_BLUESPACE_THEORY)
@@ -54,6 +56,7 @@
 
 /datum/techweb_node/bluespace_travel
 	id = TECHWEB_NODE_BLUESPACE_TRAVEL
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Bluespace Travel"
 	description = "Facilitate teleportation methods based on bluespace principles to revolutionize logistical efficiency."
 	prereq_ids = list(TECHWEB_NODE_APPLIED_BLUESPACE)
@@ -72,6 +75,7 @@
 	announce_channels = list(RADIO_CHANNEL_SCIENCE)
 
 /datum/techweb_node/anomaly_research
+starting_node = TRUE //DOPPLER EDIT ADDITION
 	id = TECHWEB_NODE_ANOMALY_RESEARCH
 	display_name = "Anomaly Research"
 	description = "Delving into the study of mysterious anomalies to investigate methods to refine and harness their unpredictable energies."
@@ -86,6 +90,7 @@
 
 /datum/techweb_node/anomaly_shells
 	id = TECHWEB_NODE_ANOMALY_SHELLS
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Anomaly Shells"
 	description = "New shells designed to utilize anomaly cores, maximizing their potential in innovative ways."
 	prereq_ids = list(TECHWEB_NODE_ANOMALY_RESEARCH)

@@ -21,6 +21,7 @@
 
 /datum/techweb_node/mod_equip
 	id = TECHWEB_NODE_MOD_EQUIP
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Modular Suit Equipment"
 	description = "More advanced modules, to improve modular suits."
 	prereq_ids = list(TECHWEB_NODE_MOD_SUIT)
@@ -55,6 +56,7 @@
 
 /datum/techweb_node/mod_medical
 	id = TECHWEB_NODE_MOD_MEDICAL
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Medical Modular Suit"
 	description = "Medical MODsuits for quick rescue purposes."
 	prereq_ids = list(TECHWEB_NODE_MOD_SUIT, TECHWEB_NODE_CHEM_SYNTHESIS)
@@ -70,6 +72,7 @@
 
 /datum/techweb_node/mod_engi
 	id = TECHWEB_NODE_MOD_ENGI
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Engineering Modular Suits"
 	description = "Engineering suits, for powered engineers."
 	prereq_ids = list(TECHWEB_NODE_MOD_EQUIP)
@@ -85,6 +88,7 @@
 
 /datum/techweb_node/mod_security
 	id = TECHWEB_NODE_MOD_SECURITY
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Security Modular Suits"
 	description = "Security suits for space crime handling."
 	prereq_ids = list(TECHWEB_NODE_MOD_EQUIP)
@@ -104,6 +108,7 @@
 
 /datum/techweb_node/mod_medical_adv
 	id = TECHWEB_NODE_MOD_MEDICAL_ADV
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Field Surgery Modules"
 	description = "Medical MODsuit equipment designed for conducting surgical operations in field conditions."
 	prereq_ids = list(TECHWEB_NODE_MOD_MEDICAL, TECHWEB_NODE_SURGERY_ADV)
@@ -118,6 +123,7 @@
 
 /datum/techweb_node/mod_engi_adv
 	id = TECHWEB_NODE_MOD_ENGI_ADV
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Advanced Engineering Modular Suit"
 	description = "Advanced Engineering suits, for advanced powered engineers."
 	prereq_ids = list(TECHWEB_NODE_MOD_ENGI)
@@ -138,6 +144,7 @@
 
 /datum/techweb_node/mod_anomaly
 	id = TECHWEB_NODE_MOD_ANOMALY
+	starting_node = TRUE //DOPPLER EDIT ADDITION
 	display_name = "Anomalock Modular Suit"
 	description = "Modules for MODsuits that require anomaly cores to function."
 	prereq_ids = list(TECHWEB_NODE_MOD_ENGI_ADV, TECHWEB_NODE_ANOMALY_RESEARCH)
