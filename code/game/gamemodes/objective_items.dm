@@ -418,7 +418,6 @@
 	steal_hint = "The Research Director's physical backup of the techweb between shifts. Usually found on their person, or otherwise in their locker."
 
 /obj/item/disk/tech_disk/license_authenticator_disk/add_stealing_item_objective()
-	. = ..()
 	return add_item_to_steal(src, /obj/item/disk/tech_disk/license_authenticator_disk)
 ///DOPPLER SHIFT ADDITION END
 /datum/objective_item/steal/nukedisc
