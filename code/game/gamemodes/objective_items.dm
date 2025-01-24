@@ -407,19 +407,7 @@
 /obj/item/hypospray/mkii/deluxe/cmo/add_stealing_item_objective()
 	return add_item_to_steal(src, /obj/item/hypospray/mkii/deluxe/cmo)
 /// DOPPLER SHIFT EDIT END
-/// DOPPLER SHIFT ADDITION BEGIN
-/datum/objective_item/steal/license_authenticator_disk
-	name = "the license authenticator disk"
-	targetitem = "/obj/item/disk/tech_disk/license_authenticator_disk"
-	excludefromjob = list(JOB_RESEARCH_DIRECTOR)
-	item_owner = list(JOB_RESEARCH_DIRECTOR)
-	exists_on_map = TRUE
-	difficulty = 3
-	steal_hint = "The Research Director's physical backup of the techweb between shifts. Usually found on their person, or otherwise in their locker."
 
-/obj/item/disk/tech_disk/license_authenticator_disk/add_stealing_item_objective()
-	return add_item_to_steal(src, /obj/item/disk/tech_disk/license_authenticator_disk)
-///DOPPLER SHIFT ADDITION END
 /datum/objective_item/steal/nukedisc
 	name = "the nuclear authentication disk"
 	targetitem = /obj/item/disk/nuclear
