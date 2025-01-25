@@ -43,7 +43,6 @@
 	human_holder.maptext_height = 64
 
 	human_holder.AddComponent(/datum/component/seethrough_mob)
-	human_holder.AddComponent(/datum/component/strong_pull)
 
 	var/datum/action/cooldown/spell/adjust_sprite_size/action = new(src)
 	action.Grant(human_holder)
@@ -100,10 +99,6 @@
 
 	var/datum/component/seethrough_mob/component = human_holder.GetComponent(/datum/component/seethrough_mob)
 	qdel(component)
-
-
-	var/datum/component/strong_pull/pullcomponent = human_holder.GetComponent(/datum/component/strong_pull)
-	qdel(pullcomponent)
 
 /datum/quirk/oversized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
 	SIGNAL_HANDLER
