@@ -458,7 +458,7 @@
 
 //Generic
 /obj/item/circuitboard/machine/component_printer
-	name = "\improper Component Printer (Machine Board)"
+	name = "\improper Component Printer"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/component_printer
 	req_components = list(
@@ -467,7 +467,7 @@
 	)
 
 /obj/item/circuitboard/machine/module_duplicator
-	name = "\improper Module Duplicator (Machine Board)"
+	name = "\improper Module Duplicator"
 	greyscale_colors = CIRCUIT_COLOR_SCIENCE
 	build_path = /obj/machinery/module_duplicator
 	req_components = list(
@@ -690,10 +690,10 @@
 		/obj/machinery/vending/wardrobe/sec_wardrobe = "SecDrobe",
 		/obj/machinery/vending/wardrobe/viro_wardrobe = "ViroDrobe",
 		/obj/machinery/vending/imported/nt = "NT Sustenance Supplier", //DOPPLER ADDITION
-		/obj/machinery/vending/imported/yangyu = "Fudobenda", //DOPPLER ADDITION
 		/obj/machinery/vending/imported/mothic = "Nomad Fleet Ration Chit Exchange", //DOPPLER ADDITION
 		/obj/machinery/vending/imported/tiziran = "Tiziran Imported Delicacies", //DOPPLER ADDITION
 		/obj/machinery/vending/deforest_medvend = "DeForest Med-Vend", //DOPPLER ADDITION
+		/obj/machinery/vending/imported/marsian = "Marsian MEGA-Vend" //DOPPLER ADDITION
 	)
 
 /obj/item/circuitboard/machine/vendor/screwdriver_act(mob/living/user, obj/item/tool)
@@ -840,7 +840,7 @@
 		/obj/item/stack/sheet/glass = 1)
 
 /obj/item/circuitboard/machine/chem_mass_spec
-	name = "High-Performance Liquid Chromatography"
+	name = "High-Performance Liquid Chromatography Machine"
 	greyscale_colors = CIRCUIT_COLOR_MEDICAL
 	build_path = /obj/machinery/chem_mass_spec
 	req_components = list(
@@ -1619,7 +1619,7 @@
 		)
 
 /obj/item/circuitboard/machine/coffeemaker
-	name = "Coffeemaker (Machine Board)"
+	name = "Coffeemaker"
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/coffeemaker
 	req_components = list(

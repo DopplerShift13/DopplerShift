@@ -27,6 +27,16 @@
 	)
 	crate_name = "frontier kitchen crate"
 
+/datum/supply_pack/service/kitchenmage
+	name = "'KitchenMage' Culinary Acquisition Helper"
+	desc = "'KitchenMage', even YOUR kitchen deserves the magic of our patented dispensing system!"
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(
+		/obj/machinery/chem_dispenser/kitchenaid_stand,
+	)
+	crate_name = "heavy kitchen machinery crate"
+	crate_type = /obj/structure/closet/crate/radiation
+
 // Engineering
 
 /datum/supply_pack/engineering/colony_starter
@@ -47,3 +57,20 @@
 		/obj/item/stock_parts/power_store/battery/high,
 	)
 	crate_name = "colonization kit crate"
+
+/datum/supply_pack/engineering/wind_power
+	name = "'Go-Green' Wind Turbine Pack"
+	desc = "A promotion for colonies powered by greener energy, 'Go-Green' (tm) with nine wind turbines."
+	cost = CARGO_CRATE_VALUE * 6
+	contains = list(
+		/obj/item/flatpacked_machine/wind_turbine,
+		/obj/item/flatpacked_machine/wind_turbine,
+		/obj/item/flatpacked_machine/wind_turbine,
+		/obj/item/flatpacked_machine/wind_turbine,
+		/obj/item/flatpacked_machine/wind_turbine,
+		/obj/item/flatpacked_machine/wind_turbine,
+		/obj/item/flatpacked_machine/wind_turbine,
+		/obj/item/flatpacked_machine/wind_turbine,
+		/obj/item/flatpacked_machine/wind_turbine,
+	)
+	crate_name = "wind turbine pack"
