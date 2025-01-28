@@ -45,26 +45,6 @@
 	if(istype(bridgie))
 		bridgie.gain_trauma(/datum/brain_trauma/special/axedoration)
 
-/datum/job/bridge_assistant/get_roundstart_spawn_point()
-	var/list/chair_turfs = list()
-	var/list/possible_turfs = list()
-	var/area/bridge = GLOB.areas_by_type[/area/station/command/bridge]
-	if(isnull(bridge))
-		return ..() //if no bridge, spawn on the arrivals shuttle (but also what the fuck)
-	for (var/list/zlevel_turfs as anything in bridge.get_zlevel_turf_lists())
-		for (var/turf/possible_turf as anything in zlevel_turfs)
-			if(possible_turf.is_blocked_turf())
-				continue
-			if(locate(/obj/structure/chair) in possible_turf)
-				chair_turfs += possible_turf
-				continue
-			possible_turfs += possible_turf
-	if(length(chair_turfs))
-		return pick(chair_turfs) //prioritize turfs with a chair
-	if(length(possible_turfs))
-		return pick(possible_turfs) //if none, just pick a random turf in the bridge
-	return ..() //if the bridge has no turfs, spawn on the arrivals shuttle
-
 /datum/outfit/job/bridge_assistant
 	name = "Bridge Assistant"
 	jobtype = /datum/job/bridge_assistant
