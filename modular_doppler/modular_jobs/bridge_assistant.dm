@@ -70,6 +70,7 @@
 	id_trim = /datum/id_trim/job/bridge_assistant
 	backpack_contents = list(
 		/obj/item/modular_computer/pda/bridge_assistant = 1,
+		/obj/item/choice_beacon/coffee = 1,
 	)
 
 	uniform = /obj/item/clothing/under/trek/command/next
