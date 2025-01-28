@@ -33,7 +33,7 @@
 	)
 	rpg_title = "Royal Page"
 	allow_bureaucratic_error = FALSE
-	job_flags = STATION_JOB_FLAGS | STATION_TRAIT_JOB_FLAGS
+	job_flags = STATION_JOB_FLAGS | HEAD_OF_STAFF_JOB_FLAGS
 	human_authority = JOB_AUTHORITY_NON_HUMANS_ALLOWED
 
 /datum/job/bridge_assistant/after_spawn(mob/living/spawned, client/player_client)
@@ -66,6 +66,7 @@
 	name = "Bridge Assistant"
 	jobtype = /datum/job/bridge_assistant
 
+	id = /obj/item/card/id/advanced/silver
 	id_trim = /datum/id_trim/job/bridge_assistant
 	backpack_contents = list(
 		/obj/item/modular_computer/pda/bridge_assistant = 1,

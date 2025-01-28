@@ -70,6 +70,17 @@
 		"Junior Runner",
 	)
 
+/datum/job/bridge_assistant
+	alt_titles = list(
+		"Bridge Assistant",
+		"Bridge Officer",
+		"Command Aide",
+		"Command Cadet",
+		"Bridge Attendant",
+		"Bridge Runner",
+		"Command Secretary",
+	)
+
 /datum/job/blueshield
 	alt_titles = list(
 		"Blueshield",
