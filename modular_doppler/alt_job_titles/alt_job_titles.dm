@@ -79,6 +79,8 @@
 		"Bridge Attendant",
 		"Bridge Runner",
 		"Command Secretary",
+		"Bridge Intern",
+		"Command Intern",
 	)
 
 /datum/job/blueshield
