@@ -22,7 +22,10 @@
 	liver_traits = list(TRAIT_PRETENDER_ROYAL_METABOLISM)
 
 	display_order = JOB_DISPLAY_ORDER_BRIDGE_ASSISTANT
-	departments_list = list(/datum/job_department/command)
+	departments_list = list(
+		/datum/job_department/command,
+		/datum/job_department/service,
+	)
 	department_for_prefs = /datum/job_department/captain
 
 	family_heirlooms = list(/obj/item/banner/command/mundane)
