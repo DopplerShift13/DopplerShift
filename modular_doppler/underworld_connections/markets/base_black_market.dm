@@ -94,7 +94,6 @@
 	item = /obj/item/organ/brain/cybernetic/ai
 	price_min = PAYCHECK_CREW * 2
 	price_max = PAYCHECK_CREW * 4
-	availability_prob = 100
 	stock_min = 1
 	stock_max = 1
 
