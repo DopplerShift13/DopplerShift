@@ -95,8 +95,8 @@
 	price_min = PAYCHECK_CREW * 2
 	price_max = PAYCHECK_CREW * 4
 	availability_prob = 100
-	stock_min = 3
-	stock_max = 8
+	stock_min = 1
+	stock_max = 1
 
 /datum/market_item/misc/shove_blocker
 	// ok this is a seriously fucking good module so we'll make it cost a bit
