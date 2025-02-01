@@ -82,6 +82,8 @@
 	icon_state = "psychomalice"
 	w_class = WEIGHT_CLASS_SMALL
 	tint = 0
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 	flags_inv = HIDEEARS|HIDEEYES|HIDESNOUT|HIDEFACIALHAIR
 	flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
 	visor_flags_cover = MASKCOVERSMOUTH | MASKCOVERSEYES | PEPPERPROOF
@@ -144,6 +146,8 @@
 	visor_flags_inv = HIDEFACE | HIDESNOUT
 	w_class = WEIGHT_CLASS_SMALL
 	tint = 0
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 	interaction_flags_click = NEED_DEXTERITY
 
 /obj/item/clothing/mask/gas/nightlight/attack_self(mob/user)
