@@ -19,5 +19,5 @@
 		)
 	)
 	premium_doppler = list(
-		/obj/item/clothing/shoes/rollerblades =3,
+		/obj/item/clothing/shoes/rollerblades = 3,
 	)
