@@ -51,7 +51,8 @@
 
 /obj/item/gun/ballistic/revolver/toy
 	name = "Donk Co. Foam Revolver"
-	desc = ""
+	desc = "A surprisingly good facisimile of a real revolver, except that the weight of the plastic \
+	makes it harder to spin."
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/toy
 	force = 0
 	throwforce = 0
@@ -67,7 +68,8 @@
 
 /obj/item/gun/ballistic/rifle/boltaction/donkrifle/toy
 	name = "Donk Co. Foam Jezail"
-	desc = ""
+	desc = "An impractically long plastic rifle popular, but it's received a second life as an armature for \
+	making cosplay weapons."
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/boltaction/toy
 	force = 0
 	throwforce = 0
