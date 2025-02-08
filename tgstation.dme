@@ -6824,6 +6824,7 @@
 #include "modular_doppler\indicators\code\emote_popup.dm"
 #include "modular_doppler\indicators\code\sealed.dm"
 #include "modular_doppler\indicators\code\ssd_indicator.dm"
+#include "modular_doppler\its_donk_or_dont\fun_and_games.dm"
 #include "modular_doppler\its_donk_or_dont\code\grenades.dm"
 #include "modular_doppler\its_donk_or_dont\code\hitsounds.dm"
 #include "modular_doppler\its_donk_or_dont\code\magazines.dm"

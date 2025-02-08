@@ -35,7 +35,7 @@
 // Magazines for the 8mm Marsian snipers
 
 /obj/item/ammo_box/magazine/c8marsian
-	name = "\improper Ransu sniper magazine"
+	name = "\improper Ransu super blaster magazine"
 	desc = "A standard magazine for holding seven darts, usually for the Ransu blaster."
 	icon = 'modular_doppler/its_donk_or_dont/icons/magazines_and_boxes.dmi'
 	icon_state = "ransu_mag"

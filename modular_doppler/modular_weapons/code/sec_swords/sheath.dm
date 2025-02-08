@@ -108,3 +108,13 @@
 	new /obj/item/melee/secblade/training(src)
 	new /obj/item/melee/baton/doppler_security/loaded(src)
 	update_appearance()
+
+/obj/item/storage/belt/secsword/donk
+	name = "foam force swords sheath"
+
+/obj/item/storage/belt/secsword/donk/PopulateContents()
+	new /obj/item/melee/secblade/training(src) // No way attack on titan
+	new /obj/item/melee/secblade/training(src) // No way attack on titan x 2
+	new /obj/item/melee/secblade/training(src) // No way attack on titan x 3
+	new /obj/item/melee/secblade/training(src) // No way attack on titan x 4
+	update_appearance()
