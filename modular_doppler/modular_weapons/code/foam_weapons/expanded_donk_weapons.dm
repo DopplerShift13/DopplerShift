@@ -29,6 +29,7 @@
 	sharpness = NONE
 
 /obj/item/ammo_box/foambox/riot/match
+	name = "ammo box (match grade foam darts)"
 	ammo_type = /obj/item/ammo_casing/foam_dart/riot/match
 
 
