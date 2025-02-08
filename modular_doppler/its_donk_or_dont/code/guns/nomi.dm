@@ -23,6 +23,8 @@
 	burst_size = 2
 	fire_delay = 0.5 SECONDS
 	projectile_damage_multiplier = 1.5
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/automatic/nomi_shotgun/add_bayonet_point()
 	return

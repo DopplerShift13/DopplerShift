@@ -23,6 +23,8 @@
 	burst_size = 3
 	fire_delay = 0.18 SECONDS
 	spread = 7.5
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 	/// Is the stock extended or nah
 	var/stock_extended = TRUE
 

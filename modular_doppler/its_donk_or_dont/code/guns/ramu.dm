@@ -25,6 +25,8 @@
 	slot_flags = ITEM_SLOT_BACK
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/s6gauge
 	projectile_damage_multiplier = 2.5
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/shotgun/ramu/add_bayonet_point()
 	return

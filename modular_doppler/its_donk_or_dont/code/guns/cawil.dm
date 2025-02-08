@@ -26,6 +26,8 @@
 	spread = 7.5
 	pickup_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_heavygun.wav'
 	drop_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_heavygun.wav'
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/automatic/sol_rifle/Initialize(mapload)
 	. = ..()

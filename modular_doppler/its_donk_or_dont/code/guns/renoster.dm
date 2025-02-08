@@ -22,9 +22,11 @@
 	w_class = WEIGHT_CLASS_BULKY
 	slot_flags = ITEM_SLOT_BACK
 	can_be_sawn_off = FALSE
+	gun_flags = NOT_A_REAL_GUN
+	projectile_damage_multiplier = 2
+	clumsy_check = FALSE
 	/// Is the stock extended or nah
 	var/stock_extended = TRUE
-	projectile_damage_multiplier = 2
 
 /obj/item/gun/ballistic/shotgun/riot/sol/Initialize(mapload)
 	. = ..()

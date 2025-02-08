@@ -15,6 +15,7 @@
 		/obj/item/grenade/frag/impact = INFINITY,
 		/obj/item/grenade/frag/impact/smaller = INFINITY,
 		/obj/item/motiondetector = INFINITY,
+		/obj/item/restraints/handcuffs/donk = INFINITY,
 		/obj/item/suppressor = INFINITY,
 		/obj/item/ammo_box/magazine/karim = INFINITY,
 		/obj/item/ammo_box/magazine/c8marsian = INFINITY,

@@ -11,6 +11,8 @@
 	drop_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_lightgun.wav'
 	fire_sound = 'modular_doppler/its_donk_or_dont/sound/sound_nailgun_shot0.wav'
 	suppressed_sound = 'modular_doppler/its_donk_or_dont/sound/sound_nailgun_shot2.wav'
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/revolver/sol/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_DONK)

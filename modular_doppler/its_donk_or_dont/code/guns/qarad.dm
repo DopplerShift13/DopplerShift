@@ -10,6 +10,8 @@
 	spread = 10
 	projectile_wound_bonus = -10
 	suppressor_x_offset = 9
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/automatic/sol_rifle/machinegun/give_autofire()
 	AddComponent(/datum/component/automatic_fire, fire_delay)

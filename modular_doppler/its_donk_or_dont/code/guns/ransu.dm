@@ -16,6 +16,8 @@
 	fire_delay = 1.5 SECONDS
 	spread = 0
 	projectile_damage_multiplier = 1.5
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/automatic/suppressed_rifle/marksman/Initialize(mapload)
 	. = ..()

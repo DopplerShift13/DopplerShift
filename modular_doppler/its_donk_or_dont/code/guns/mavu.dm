@@ -13,6 +13,8 @@
 	fire_delay = 0.3 SECONDS
 	pickup_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_lightgun.wav'
 	drop_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_lightgun.wav'
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/automatic/pistol/sol/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_DONK)

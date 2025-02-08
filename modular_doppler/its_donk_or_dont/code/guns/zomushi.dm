@@ -13,6 +13,8 @@
 	suppressor_x_offset = 7
 	suppressor_y_offset = 0
 	fire_delay = 0.25 SECONDS
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/automatic/pistol/weevil/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_DONK)

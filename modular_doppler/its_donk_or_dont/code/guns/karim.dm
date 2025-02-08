@@ -21,6 +21,8 @@
 	spread = 5
 	pickup_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_mediumgun.wav'
 	drop_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_mediumgun.wav'
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 	/// List of the possible firing sounds
 	var/list/firing_sound_list = list(
 		'sound/items/weapons/gun/smartgun/smartgun_shoot_1.ogg',

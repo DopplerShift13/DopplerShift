@@ -23,6 +23,8 @@
 	can_unsuppress = FALSE
 	projectile_damage_multiplier = 2
 	projectile_speed_multiplier = 2
+	gun_flags = NOT_A_REAL_GUN
+	clumsy_check = FALSE
 
 /obj/item/gun/ballistic/rifle/osako/add_bayonet_point()
 	return
