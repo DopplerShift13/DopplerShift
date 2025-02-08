@@ -789,4 +789,17 @@
 				'sound/machines/buckle/unbuckle2.ogg',
 				'sound/machines/buckle/unbuckle3.ogg',
 			)
+		// ITS DONK OR DIE
+		if(SFX_SUPER_RICOCHET)
+			soundin = pick(
+				'modular_doppler/its_donk_or_dont/sound/impacts/super/super_impact_1.ogg',
+				'modular_doppler/its_donk_or_dont/sound/impacts/super/super_impact_2.ogg',
+				'modular_doppler/its_donk_or_dont/sound/impacts/super/super_impact_3.ogg',
+				'modular_doppler/its_donk_or_dont/sound/impacts/super/super_impact_5.ogg',
+				'modular_doppler/its_donk_or_dont/sound/impacts/super/super_impact_6.ogg',
+			)
+		if(SFX_REGULAR_IMPACT)
+			soundin = pick(
+				'modular_doppler/its_donk_or_dont/sound/impacts/regular/impact_1.wav',
+			)
 	return soundin

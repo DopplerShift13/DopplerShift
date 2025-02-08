@@ -43,3 +43,7 @@ GLOBAL_LIST_INIT(colonist_suit_allowed, list(
 	/obj/item/forging/reagent_weapon,
 	/obj/item/storage/belt/secsword,
 ))
+
+/// Sound effect groups for... darts?
+#define SFX_SUPER_RICOCHET "super_ricochet"
+#define SFX_REGULAR_IMPACT "regular_impact"
