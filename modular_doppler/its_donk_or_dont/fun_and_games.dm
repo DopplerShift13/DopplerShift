@@ -52,6 +52,7 @@
 	refill_canister = /obj/item/vending_refill/donksoft
 	payment_department = NO_FREEBIES
 	all_products_free = TRUE
+	onstation_override = TRUE
 
 /obj/machinery/vending/donksofttoyvendor/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
 	return

@@ -2,7 +2,6 @@
 	name = "\improper Bóbr Revolving Blaster"
 	desc = "A small revolver style Donk(tm) blaster that can fit four darts in it."
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev12ga
-	recoil = SAWN_OFF_RECOIL
 	weapon_weight = WEAPON_MEDIUM
 	icon = 'modular_doppler/its_donk_or_dont/icons/pistol_32.dmi'
 	icon_state = "bobr"
