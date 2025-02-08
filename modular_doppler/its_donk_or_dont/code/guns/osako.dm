@@ -21,6 +21,8 @@
 	slot_flags = ITEM_SLOT_BACK
 	can_suppress = FALSE
 	can_unsuppress = FALSE
+	projectile_damage_multiplier = 2
+	projectile_speed_multiplier = 2
 
 /obj/item/gun/ballistic/rifle/osako/add_bayonet_point()
 	return

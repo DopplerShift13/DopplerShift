@@ -17,7 +17,7 @@
 	can_unsuppress = FALSE
 	fire_delay = 1.5 SECONDS
 	spread = 0
-	projectile_damage_multiplier = 1
+	projectile_damage_multiplier = 1.5
 
 /obj/item/gun/ballistic/automatic/suppressed_rifle/marksman/Initialize(mapload)
 	. = ..()

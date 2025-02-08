@@ -26,6 +26,7 @@
 	can_be_sawn_off = FALSE
 	/// Is the stock extended or nah
 	var/stock_extended = TRUE
+	projectile_damage_multiplier = 2
 
 /obj/item/gun/ballistic/shotgun/riot/sol/Initialize(mapload)
 	. = ..()

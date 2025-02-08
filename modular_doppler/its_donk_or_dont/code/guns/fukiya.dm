@@ -28,6 +28,8 @@
 	cartridge_wording = "shell"
 	tac_reloads = FALSE
 	weapon_weight = WEAPON_HEAVY
+	projectile_damage_multiplier = 2
+	projectile_speed_multiplier = 2
 
 /obj/item/gun/ballistic/marsian_super_rifle/add_bayonet_point()
 	return

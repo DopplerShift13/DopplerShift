@@ -29,6 +29,7 @@
 	projectile_wound_bonus = -20
 	pickup_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_mediumgun.wav'
 	drop_sound = 'modular_doppler/its_donk_or_dont/sound/pickup_sounds/drop_mediumgun.wav'
+	projectile_damage_multiplier = 1.25
 
 /obj/item/gun/ballistic/automatic/lanca/Initialize(mapload)
 	. = ..()

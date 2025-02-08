@@ -24,8 +24,7 @@
 	can_suppress = FALSE
 	burst_size = 2
 	fire_delay = 0.5 SECONDS
-	projectile_wound_bonus = -20
-	projectile_damage_multiplier = 0.75
+	projectile_damage_multiplier = 1.5
 
 /obj/item/gun/ballistic/automatic/nomi_shotgun/add_bayonet_point()
 	return

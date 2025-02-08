@@ -1,50 +1,19 @@
-// Impact grenades for offense, has no shrapnel and a pretty small kaboom
-
-/obj/item/grenade/syndieminibomb/concussion/impact
-	name = "Offensive Impact Grenade"
-	desc = "An impact-fuzed grenade with no shrapnel and a relatively small explosive mass for offensive action. \
-		The impact explosive will not be ready until <b>1/3 of the 5 second arming time has passed</b> and it will \
-		behave like a <b>regular grenade</b> if thrown <b>before that time</b>."
-	icon = 'modular_doppler/its_donk_or_dont/icons/grenades.dmi'
-	icon_state = "impact_offense"
-	ex_dev = 0
-	ex_heavy = 0
-	ex_light = 4
-	ex_flame = 0
-	/// Can this grenade explode on impact yet?
-	var/impact_explosion_ready = FALSE
-
-/obj/item/grenade/syndieminibomb/concussion/impact/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	. = ..()
-	if(!impact_explosion_ready)
-		return
-	detonate()
-
-/obj/item/grenade/syndieminibomb/concussion/impact/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
-	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(ready_impact)), det_time / 3)
-
-/// Allows the grenade to explode on throw impact
-/obj/item/grenade/syndieminibomb/concussion/impact/proc/ready_impact()
-	impact_explosion_ready = TRUE
-
-// Impact grenades for defense, has shrapnel and a bigger boom
-
 /obj/item/grenade/frag/impact
-	name = "Defensive Impact Grenade"
-	desc = "An impact-fuzed grenade with large amounts of shrapnel and high explosive mass for defensive action. \
-		The impact explosive will not be ready until <b>1/2 of the 5 second arming time has passed</b> and it will \
-		behave like a <b>regular grenade</b> if thrown <b>before that time</b>."
+	name = "Defensive Dart Impact Grenade"
+	desc = "A strange device made to throw darts EVERYWHERE on impact with the ground, or after five seconds pass from \
+		arming. Due to how the mechanism needs to wind up, it won't spring on impact for at least two seconds after arming."
 	icon = 'modular_doppler/its_donk_or_dont/icons/grenades.dmi'
 	icon_state = "impact_defense"
-	shrapnel_type = /obj/projectile/bullet/shrapnel
+	shrapnel_type = /obj/projectile/bullet/foam_dart/riot
 	shrapnel_radius = 3
 	ex_dev = 0
-	ex_heavy = 1
-	ex_light = 3
+	ex_heavy = 0
+	ex_light = 0
 	ex_flame = 0
 	/// Can this grenade explode on impact yet?
 	var/impact_explosion_ready = FALSE
+	/// Det time divider, larger means less time before it explodes on impact
+	var/det_divider = 2
 
 /obj/item/grenade/frag/impact/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
@@ -54,8 +23,15 @@
 
 /obj/item/grenade/frag/impact/arm_grenade(mob/user, delayoverride, msg = TRUE, volume = 60)
 	. = ..()
-	addtimer(CALLBACK(src, PROC_REF(ready_impact)), det_time / 2)
+	addtimer(CALLBACK(src, PROC_REF(ready_impact)), det_time / det_divider)
 
 /// Allows the grenade to explode on throw impact
 /obj/item/grenade/frag/impact/proc/ready_impact()
 	impact_explosion_ready = TRUE
+
+/obj/item/grenade/frag/impact/smaller
+	name = "Offensive Dart Impact Grenade"
+	icon = 'modular_doppler/its_donk_or_dont/icons/grenades.dmi'
+	icon_state = "impact_offense"
+	shrapnel_radius = 1
+	det_divider = 3
