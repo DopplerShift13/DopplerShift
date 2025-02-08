@@ -1,5 +1,3 @@
-// Variant of the suppressed rifle with a scope and perfect accuracy, also no automatic
-
 /obj/item/gun/ballistic/automatic/suppressed_rifle/marksman
 	name = "\improper Ransu Sneak Super Blaster"
 	desc = "A special Donk(tm) blaster specially designed to launch Donk(tm) darts quietely and as hard as possible."

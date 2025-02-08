@@ -1,5 +1,3 @@
-// SolFed shotgun (this was gonna be in a proprietary shotgun shell type outside of 12ga at some point, wild right?)
-
 /obj/item/gun/ballistic/shotgun/riot/sol
 	name = "\improper Renoster Burst Blaster"
 	desc = "A common Donk(tm) blaster firing Donk(tm) darts."

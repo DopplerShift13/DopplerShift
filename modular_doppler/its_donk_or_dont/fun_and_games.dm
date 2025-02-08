@@ -1,4 +1,4 @@
-/obj/machinery/vending/donksofttoyvendor
+/obj/machinery/vending/donksofttoyvendor_super
 	name = "\improper Playtime Expert Fun & Games Vendor"
 	desc = "The ultra rare Fun & Games machine, filled with the rarest and most powerful Donk(tm) armaments."
 	icon_state = "snackdonk"

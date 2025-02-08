@@ -1,5 +1,3 @@
-// Drum fed semi-automatic shotgun firing 12ga
-
 /obj/item/gun/ballistic/automatic/nomi_shotgun
 	name = "\improper Nomi Burst Blaster"
 	desc = "A drum-fed Donk(tm) blaster that fires darts."

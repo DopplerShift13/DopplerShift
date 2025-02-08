@@ -1,5 +1,3 @@
-// Trappiste high caliber pistol in .585
-
 /obj/item/gun/ballistic/automatic/pistol/trappiste
 	name = "\improper Skild Heavy Blaster"
 	desc = "A Donk(tm) blaster made to launch Donk(tm) darts extra hard."

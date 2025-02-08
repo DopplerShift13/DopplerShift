@@ -1,5 +1,3 @@
-// Karim Electrics pulse rifle, YIPPIE ALIENS YIPPIE!!
-
 /obj/item/gun/ballistic/automatic/karim
 	name = "\improper Karim Pulse Blaster"
 	desc = "A special Donk(tm) that uses advanced feeding technology to fire darts at rates no other blaster could hope for."

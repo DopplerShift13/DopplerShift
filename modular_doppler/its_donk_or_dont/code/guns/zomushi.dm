@@ -1,5 +1,3 @@
-// Pistol but its evil and uses miecz magazines
-
 /obj/item/gun/ballistic/automatic/pistol/weevil
 	name = "\improper Zomushi Blaster"
 	desc = "A stealthy looking Donk(tm) blaster."

@@ -1,5 +1,3 @@
-// Suppressed rifles firing 12mm sub-sonics, funny
-
 /obj/item/gun/ballistic/automatic/suppressed_rifle
 	name = "\improper Yari Quiet Blaster"
 	desc = "A special Donk(tm) blaster made to fire as quietely as possible."

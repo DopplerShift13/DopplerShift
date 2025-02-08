@@ -1,5 +1,3 @@
-// Giant evil 6 gauge shotgun for blowing people to the nearest planet with
-
 /obj/item/gun/ballistic/shotgun/ramu
 	name = "\improper Ramu Super Burst Blaster"
 	desc = "A rare Donk(tm) blaster that throws darts extra hard."

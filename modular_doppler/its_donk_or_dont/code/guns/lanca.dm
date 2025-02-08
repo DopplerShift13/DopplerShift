@@ -1,5 +1,3 @@
-// Semi-automatic rifle firing .310 with reduced damage compared to a Sakhno
-
 /obj/item/gun/ballistic/automatic/lanca
 	name = "\improper Lanca Blaster"
 	desc = "A long barreled bullpup Donk(tm) blaster meant for long range Donk(tm)ing."

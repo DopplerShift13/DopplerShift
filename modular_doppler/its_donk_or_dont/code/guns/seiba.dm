@@ -1,5 +1,3 @@
-// What if the sindano fired CIN ammo?
-
 /obj/item/gun/ballistic/automatic/seiba_smg
 	name = "\improper Seiba Rapid Blaster"
 	desc = "A rapid firing Donk(tm) blaster."

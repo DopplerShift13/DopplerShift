@@ -1,5 +1,3 @@
-// Base Sol SMG
-
 /obj/item/gun/ballistic/automatic/sol_smg
 	name = "\improper Sindano Rapid Blaster"
 	desc = "A small rapid firing Donk(tm) blaster."

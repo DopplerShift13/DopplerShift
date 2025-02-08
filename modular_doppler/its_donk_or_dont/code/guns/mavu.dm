@@ -1,5 +1,3 @@
-// .35 Sol pistol
-
 /obj/item/gun/ballistic/automatic/pistol/sol
 	name = "\improper Mavu Compact Blaster"
 	desc = "The gold standard in Donk(tm) blasters, even comes with a light to look cool to your friends with!"

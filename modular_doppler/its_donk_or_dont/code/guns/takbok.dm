@@ -1,5 +1,3 @@
-// .585 super revolver
-
 /obj/item/gun/ballistic/revolver/takbok
 	name = "\improper Takbok Revolving Heavy Blaster"
 	desc = "A revolving Donk(tm) blaster made to launch Donk(tm) darts extra hard."

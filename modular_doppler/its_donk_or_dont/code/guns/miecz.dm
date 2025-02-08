@@ -1,5 +1,3 @@
-// Rapid firing submachinegun firing .27-54 Cesarzowa
-
 /obj/item/gun/ballistic/automatic/miecz
 	name = "\improper Miecz Rapid Blaster"
 	desc = "A bullpup rapid fire Donk(tm) blaster for close range Donk(tm)ing."
