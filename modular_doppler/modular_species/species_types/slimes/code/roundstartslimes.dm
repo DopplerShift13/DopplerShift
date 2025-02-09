@@ -17,6 +17,7 @@
 		TRAIT_NOBLOOD,
 		TRAIT_TOXINLOVER,
 		TRAIT_EASYDISMEMBER,
+		TRAIT_WET_FOR_LONGER,
 	)
 	/// Ability to allow them to shapeshift their body around.
 	var/datum/action/innate/alter_form/alter_form
