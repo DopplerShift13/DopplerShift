@@ -51,7 +51,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
-/datum/design/gear_strap/engineering
+/datum/design/gear_strap/supply
 	name = "Supply Equipment Strap"
 	id = "supply_equipment_strap"
 	build_type = PROTOLATHE
