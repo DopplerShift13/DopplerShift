@@ -189,7 +189,7 @@
 // Security
 /obj/item/job_equipment_strap/security
 	name = "security equipment strap"
-	icon_state = "strap_sup"
+	icon_state = "strap_sec"
 	things_to_allow = list(
 		// Default
 		/obj/item/flashlight,
