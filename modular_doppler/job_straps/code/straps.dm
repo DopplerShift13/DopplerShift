@@ -38,7 +38,7 @@
 /obj/item/job_equipment_strap/service
 	name = "service equipment strap"
 	icon_state = "strap_serv"
-	var/list/things_to_allow = list(
+	things_to_allow = list(
 		// Default
 		/obj/item/flashlight,
 		/obj/item/modular_computer,
@@ -77,7 +77,7 @@
 /obj/item/job_equipment_strap/medical
 	name = "medical equipment strap"
 	icon_state = "strap_med"
-	var/list/things_to_allow = list(
+	things_to_allow = list(
 		// Default
 		/obj/item/flashlight,
 		/obj/item/modular_computer,
@@ -114,7 +114,7 @@
 /obj/item/job_equipment_strap/science
 	name = "science equipment strap"
 	icon_state = "strap_sci"
-	var/list/things_to_allow = list(
+	things_to_allow = list(
 		// Default
 		/obj/item/flashlight,
 		/obj/item/modular_computer,
@@ -141,7 +141,7 @@
 /obj/item/job_equipment_strap/engineering
 	name = "engineering equipment strap"
 	icon_state = "strap_eng"
-	var/list/things_to_allow = list(
+	things_to_allow = list(
 		// Default
 		/obj/item/flashlight,
 		/obj/item/modular_computer,
@@ -164,7 +164,7 @@
 /obj/item/job_equipment_strap/supply
 	name = "supply equipment strap"
 	icon_state = "strap_sup"
-	var/list/things_to_allow = list(
+	things_to_allow = list(
 		// Default
 		/obj/item/flashlight,
 		/obj/item/modular_computer,
@@ -190,7 +190,7 @@
 /obj/item/job_equipment_strap/security
 	name = "security equipment strap"
 	icon_state = "strap_sup"
-	var/list/things_to_allow = list(
+	things_to_allow = list(
 		// Default
 		/obj/item/flashlight,
 		/obj/item/modular_computer,
