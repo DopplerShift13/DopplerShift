@@ -23,6 +23,11 @@
 		/obj/item/tank/internals/plasmaman,
 	)
 
+/obj/item/job_equipment_strap/examine(mob/user)
+	. = ..()
+	. += span_notice("Using this on a <b>suit slot</b> item will add this strap's job items to the things you can wear in it's suit storage.")
+	return .
+
 /obj/item/job_equipment_strap/pre_attack(atom/attacking, mob/living/user, params)
 	if(!istype(attacking, /obj/item/clothing/suit))
 		return ..()
