@@ -217,4 +217,5 @@
 		/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
 		/obj/item/pen/red/security,
 		/obj/item/storage/belt/secsword,
+		/obj/item/storage/toolbox/guncase/modular,
 	)
