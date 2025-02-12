@@ -52,7 +52,6 @@
 	wound_bonus = 10
 	bare_wound_bonus = 20
 	weak_against_armour = TRUE
-	reach = 2
 	hitsound = 'sound/items/weapons/whip.ogg'
 	attack_verb_continuous = list("slashes", "whips", "lashes", "lacerates")
 	attack_verb_simple = list("slash", "whip", "lash", "lacerate")

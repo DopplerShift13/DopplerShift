@@ -223,7 +223,7 @@
 
 /obj/item/autosurgeon/syndicate/trickshot
 	name = "\improper RICOCHOT 9000 combat computer autosurgeon"
-	starting_organ = /obj/item/organ/cyberimp/interaction_speeder
+	starting_organ = /obj/item/organ/cyberimp/trickshotter
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
