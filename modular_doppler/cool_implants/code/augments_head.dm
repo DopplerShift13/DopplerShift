@@ -132,7 +132,7 @@
 	var/datum/bodypart_overlay/simple/hackerman/da_bodypart_overlay
 
 /datum/actionspeed_modifier/micromanipulator
-	multiplicative_slowdown = -0.3
+	multiplicative_slowdown = -0.5
 
 /obj/item/organ/cyberimp/interaction_speeder/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	da_bodypart_overlay = new()
