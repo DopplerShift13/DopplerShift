@@ -6695,6 +6695,7 @@
 #include "modular_doppler\cool_implants\code\augments_arms.dm"
 #include "modular_doppler\cool_implants\code\augments_head.dm"
 #include "modular_doppler\cool_implants\code\ecm_status_effect.dm"
+#include "modular_doppler\cool_implants\code\rnd.dm"
 #include "modular_doppler\cool_implants\code\tydhouer_980.dm"
 #include "modular_doppler\cryosleep\code\admin.dm"
 #include "modular_doppler\cryosleep\code\ai.dm"

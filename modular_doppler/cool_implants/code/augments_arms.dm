@@ -1,3 +1,38 @@
+// Old arm computer for mobile surgical operation
+
+/obj/item/surgical_processor/doppler_implant
+	name = "wrist surgical processor"
+	desc = "A complex wrist computer that allows you to process advanced surgeries without assistance of a bulkier computer."
+	loaded_surgeries = list(
+		/datum/surgery/healing/brute/upgraded/femto,
+		/datum/surgery/healing/burn/upgraded/femto,
+		/datum/surgery/healing/combo/upgraded/femto,
+		/datum/surgery/advanced/wing_reconstruction,
+		/datum/surgery/advanced/experimental_dissection,
+		/datum/surgery/advanced/lobotomy,
+		/datum/surgery/advanced/lobotomy/mechanic,
+	)
+
+/obj/item/organ/cyberimp/arm/arm_surgery_computer
+	name = "implanted wrist surgical processor"
+	desc = "An integrated surgical processor implanted within the user's wrist. \
+		Allows mobile operation of more advanced medical surgery."
+	items_to_create = list(/obj/item/surgical_processor/doppler_implant)
+	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
+	icon_state = "hackerman"
+
+/obj/item/organ/cyberimp/arm/arm_surgery_computer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	ADD_TRAIT(owner, TRAIT_FASTMED, IMPLANT_TRAIT)
+	return ..()
+
+/obj/item/organ/cyberimp/arm/arm_surgery_computer/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+	REMOVE_TRAIT(owner, TRAIT_FASTMED, IMPLANT_TRAIT)
+	return ..()
+
+/obj/item/autosurgeon/syndicate/arm_surgery_computer
+	name = "surgical processor autosurgeon"
+	starting_organ = /obj/item/organ/cyberimp/arm/arm_surgery_computer
+
 // Razorwire implant, long reach whip made of extremely thin wire, ouch!
 
 /obj/item/melee/razorwire

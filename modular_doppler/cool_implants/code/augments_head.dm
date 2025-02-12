@@ -116,166 +116,114 @@
 	human_owner.blood_volume -= 90
 	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
 
-// Hackerman deck, lets you emag or doorjack things (NO CYBORGS) within a short range of yourself
+// Makes you interact with things really quick. Incompatible with sandevistan
 
-/* FUCK YOU FUCK YOU SOOO MUCH
-/obj/item/organ/cyberimp/hackerman_deck
-	name = "\improper Binyat wireless hacking system"
-	desc = "A powerful neural computer interface that allows ranged interaction with powered machinery as \
-		if the user was an artificial intelligence. Due to the limitations of the computer, and the organic brain, \
-		there is a strict limit of thirty seconds of uplink before the enhanced access to the system is shut down."
+/obj/item/organ/cyberimp/interaction_speeder
+	name = "\improper Hogelun micromanipulator computer"
+	desc = "A powerful neural computer interface that allows significantly faster processing of actions, and \
+		sending nervous instructions to the fingers to do those actions at a similar speed. Finally, you can \
+		work your hands as fast you think of things to do with them."
 	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
-	icon_state = "hackerman"
+	icon_state = "hackerman_two"
 	slot = ORGAN_SLOT_BRAIN_CNS
 	zone = BODY_ZONE_HEAD
-	actions_types = list(
-		/datum/action/cooldown/spell/pointed/hackerman_deck,
-		/datum/action/cooldown/spell/hackerman_access,
-	)
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/hackerman/da_bodypart_overlay
-	/// Internal machine remote for interacting with things
-	var/obj/item/machine_remote/binyat/internal_remote
 
-/obj/item/organ/cyberimp/hackerman_deck/Initialize(mapload)
-	. = ..()
-	internal_remote = new()
+/datum/actionspeed_modifier/micromanipulator
+	multiplicative_slowdown = -0.3
 
-/obj/item/organ/cyberimp/hackerman_deck/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+/obj/item/organ/cyberimp/interaction_speeder/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	da_bodypart_overlay = new()
 	limb.add_bodypart_overlay(da_bodypart_overlay)
 	owner.update_body_parts()
-	ADD_TRAIT(owner, TRAIT_AI_ACCESS, IMPLANT_TRAIT)
-	ADD_TRAIT(owner, TRAIT_SILICON_ACCESS, IMPLANT_TRAIT)
-	internal_remote.implant_owner = owner
+	ADD_TRAIT(owner, TRAIT_STIMULATED, IMPLANT_TRAIT)
+	ADD_TRAIT(owner, TRAIT_STIMMED, IMPLANT_TRAIT)
+	ADD_TRAIT(owner, TRAIT_CATLIKE_GRACE, IMPLANT_TRAIT)
+	owner.add_actionspeed_modifier(/datum/actionspeed_modifier/micromanipulator)
 	return ..()
 
-/obj/item/organ/cyberimp/hackerman_deck/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+/obj/item/organ/cyberimp/interaction_speeder/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
 	limb.remove_bodypart_overlay(da_bodypart_overlay)
 	QDEL_NULL(da_bodypart_overlay)
 	owner?.update_body_parts()
-	REMOVE_TRAIT(owner, TRAIT_AI_ACCESS, ADMIN_TRAIT)
-	REMOVE_TRAIT(owner, TRAIT_SILICON_ACCESS, IMPLANT_TRAIT)
-	internal_remote.implant_owner = null
+	REMOVE_TRAIT(owner, TRAIT_STIMULATED, IMPLANT_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_STIMMED, IMPLANT_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_CATLIKE_GRACE, IMPLANT_TRAIT)
+	owner.add_actionspeed_modifier(/datum/actionspeed_modifier/micromanipulator)
 	return ..()
+
+/obj/item/organ/cyberimp/interaction_speeder/emp_act(severity)
+	. = ..()
+	if(!owner || . & EMP_PROTECT_SELF)
+		return
+	var/mob/living/carbon/human/human_owner = owner
+
+	to_chat(owner, span_warning("You feel an awful buzzing in the back of your head as your Hogelun implant goes into overdrive! You can't keep up!"))
+
+	human_owner.Knockdown(6 SECONDS)
+	human_owner.Stun(4 SECONDS)
+	human_owner.do_jitter_animation(18 SECONDS)
+	affected_carbon.apply_status_effect(/datum/status_effect/seizure)
 
 /datum/bodypart_overlay/simple/hackerman
 	icon = 'modular_doppler/cool_implants/icons/implants_onmob.dmi'
 	icon_state = "hackerman"
 	layers = EXTERNAL_ADJACENT
 
-/datum/action/cooldown/spell/hackerman_access
-	name = "Interact With Connected Machine"
-	desc = "Use to interact with a recently connected to machine. Requires you to link to a machine before it works."
-	button_icon = 'modular_doppler/cool_implants/icons/implants.dmi'
-	button_icon_state = "hackerman_two"
-	spell_requirements = SPELL_REQUIRES_MIND
-	spell_max_level = 1 // God I hate actions
-	cooldown_time = 10 SECONDS
+/obj/item/autosurgeon/syndicate/hackerman
+	name = "\improper Hogelun micromanipulator computer autosurgeon"
+	starting_organ = /obj/item/organ/cyberimp/interaction_speeder
 
-/datum/action/cooldown/spell/hackerman_access/cast(atom/cast_on)
-	. = ..()
-	var/obj/item/organ/cyberimp/hackerman_deck/spell_owner = target
-	spell_owner.internal_remote.ui_interact(owner)
+// Finally, aimbot
 
-/datum/action/cooldown/spell/pointed/hackerman_deck
-	name = "Connect To Machine"
-	desc = "Use on any machine or simple bot to link your implant to them."
-	active_msg = "You warm up your Binyat deck, there's an idle buzzing at the back of your mind as it awaits a target."
-	deactive_msg = "Your hacking deck makes an almost disappointed sounding buzz at the back of your mind as it powers down."
-	button_icon = 'modular_doppler/cool_implants/icons/implants.dmi'
-	button_icon_state = "hackerman"
-	spell_requirements = SPELL_REQUIRES_MIND
-	cast_range = INFINITY // The range code doesn't work here, so we use our own, don't worry about it
-	aim_assist = FALSE
-	spell_max_level = 1 // God I hate actions
-	cooldown_time = 1 MINUTES
-	sparks_amt = 2
-	ranged_mousepointer = 'icons/effects/mouse_pointers/override_machine_target.dmi'
-	/// How far away we can hack things
-	var/hack_range = 24
+/obj/item/organ/cyberimp/trickshotter
+	name = "\improper RICOCHOT 9000 combat computer"
+	desc = "A neural computer with terrible branding, allowing the user to perform precise ballistic calculations \
+		in real time. Doesn't do too much to improve hand-eye coordination of course, but it can make you a pretty nice shot."
+	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
+	icon_state = "hackerman_three"
+	slot = ORGAN_SLOT_BRAIN_CNS
+	zone = BODY_ZONE_HEAD
+	w_class = WEIGHT_CLASS_SMALL
+	/// The bodypart overlay datum we should apply to whatever mob we are put into
+	var/datum/bodypart_overlay/simple/hackerman/da_bodypart_overlay
 
-/datum/action/cooldown/spell/pointed/hackerman_deck/is_valid_target(atom/cast_on)
-	. = ..()
+/obj/item/organ/cyberimp/trickshotter/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	da_bodypart_overlay = new()
+	limb.add_bodypart_overlay(da_bodypart_overlay)
+	owner.update_body_parts()
+	ADD_TRAIT(owner, TRAIT_NICE_SHOT, IMPLANT_TRAIT)
+	ADD_TRAIT(owner, TRAIT_GUNFLIP, IMPLANT_TRAIT)
+	ADD_TRAIT(owner, TRAIT_GUN_NATURAL, IMPLANT_TRAIT)
+	return ..()
 
-	if(get_dist(owner, cast_on) > hack_range)
-		owner.balloon_alert(owner, "too far away")
-		return FALSE
+/obj/item/organ/cyberimp/trickshotter/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+	limb.remove_bodypart_overlay(da_bodypart_overlay)
+	QDEL_NULL(da_bodypart_overlay)
+	owner?.update_body_parts()
+	REMOVE_TRAIT(owner, TRAIT_NICE_SHOT, IMPLANT_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_GUNFLIP, IMPLANT_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_GUN_NATURAL, IMPLANT_TRAIT)
+	return ..()
 
-	return TRUE
-
-/datum/action/cooldown/spell/pointed/hackerman_deck/cast(atom/cast_on)
-	. = ..()
-
-	unset_click_ability(owner)
-
-	if(!ismachinery(cast_on) && !isbot(cast_on))
-		owner.balloon_alert(owner, "cannot hack this")
-		StartCooldown(1 SECONDS) // Resets the spell to working after a second, just so its not spammed
-		return
-
-	playsound(owner, 'sound/effects/light_flicker.ogg', 50, TRUE)
-	var/beam = owner.Beam(cast_on, icon_state = "light_beam", time = 5 SECONDS)
-
-	owner.visible_message(span_bolddanger("[owner.name] makes an unusual buzzing sound as the air between [owner.p_them()] and [cast_on] crackles."), \
-			span_bolddanger("The air between you and [cast_on] begins to crackle audibly as the Binyat gets to work."))
-
-	if(!do_after(owner, 5 SECONDS, cast_on, IGNORE_SLOWDOWNS))
-		qdel(beam)
-		StartCooldown(1 SECONDS) // Resets the spell to working after a second, just so its not spammed
-		return
-
-	var/obj/item/organ/cyberimp/hackerman_deck/spell_owner = target
-	spell_owner.internal_remote.ranged_interact_with_atom(cast_on, owner)
-
-	owner.log_message("hacked [key_name(cast_on)] from [get_dist(owner, cast_on)] tiles away using a wireless hacking implant", LOG_ATTACK)
-	cast_on.forensics?.add_hacking_implant_trace()
-	cast_on.add_hiddenprint(owner)
-
-	playsound(cast_on, 'sound/machines/terminal/terminal_processing.ogg', 15, TRUE)
-
-	var/mob/living/carbon/human/human_owner = owner
-
-	human_owner.adjust_bodytemperature(HACKERMAN_DECK_TEMPERATURE_INCREASE)
-
-/obj/item/organ/cyberimp/hackerman_deck/emp_act(severity)
+/obj/item/organ/cyberimp/trickshotter/emp_act(severity)
 	. = ..()
 	if(!owner || . & EMP_PROTECT_SELF)
 		return
 	var/mob/living/carbon/human/human_owner = owner
 
-	human_owner.adjust_bodytemperature(HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE)
-	human_owner.adjust_fire_stacks(2)
-	human_owner.ignite_mob()
-	to_chat(owner, span_warning("You can feel the implant in your head malfunction and begin to severely overheat!"))
+	to_chat(owner, span_warning("You feel an awful buzzing in the back of your head as your trickshot implant overloads! You should never have trusted that cheap Marsian webpage!"))
 
-/// Adds an item to the list of fibers for this forensics datum that tells on the fact someone used a hacking implant here
-/datum/forensics/proc/add_hacking_implant_trace()
-	LAZYSET(fibers, HACKING_FORENSICS_SUCCESS_MESSAGE, HACKING_FORENSICS_SUCCESS_MESSAGE)
+	human_owner.Knockdown(6 SECONDS)
+	human_owner.Stun(4 SECONDS)
+	human_owner.do_jitter_animation(18 SECONDS)
+	affected_carbon.apply_status_effect(/datum/status_effect/seizure)
 
-/obj/item/machine_remote/binyat
-	/// What implant owns us, used for placing the bugs
-	var/obj/implant_owner
-
-/obj/item/machine_remote/binyat/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!COOLDOWN_FINISHED(src, timeout_time))
-		playsound(src, 'sound/machines/synth/synth_no.ogg', 30 , TRUE)
-		say("Remote control disabled temporarily. Please try again soon.")
-		return ITEM_INTERACT_BLOCKING
-	if(!ismachinery(interacting_with) && !isbot(interacting_with))
-		return NONE
-	if(moving_bug) //we have a bug in transit already, so let's kill it.
-		QDEL_NULL(moving_bug)
-	var/turf/spawning_turf = get_turf(implant_owner)
-	moving_bug = new(spawning_turf, src, interacting_with)
-	remove_old_machine()
-	return ITEM_INTERACT_SUCCESS
-
-/obj/item/autosurgeon/syndicate/hackerman
-	name = "\improper Binyat wireless hacking system autosurgeon"
-	starting_organ = /obj/item/organ/cyberimp/hackerman_deck
-*/
+/obj/item/autosurgeon/syndicate/trickshot
+	name = "\improper RICOCHOT 9000 combat computer autosurgeon"
+	starting_organ = /obj/item/organ/cyberimp/interaction_speeder
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
