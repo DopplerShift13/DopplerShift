@@ -165,7 +165,7 @@
 	human_owner.Knockdown(6 SECONDS)
 	human_owner.Stun(4 SECONDS)
 	human_owner.do_jitter_animation(18 SECONDS)
-	affected_carbon.apply_status_effect(/datum/status_effect/seizure)
+	human_owner.apply_status_effect(/datum/status_effect/seizure)
 
 /datum/bodypart_overlay/simple/hackerman
 	icon = 'modular_doppler/cool_implants/icons/implants_onmob.dmi'
@@ -219,7 +219,7 @@
 	human_owner.Knockdown(6 SECONDS)
 	human_owner.Stun(4 SECONDS)
 	human_owner.do_jitter_animation(18 SECONDS)
-	affected_carbon.apply_status_effect(/datum/status_effect/seizure)
+	human_owner.apply_status_effect(/datum/status_effect/seizure)
 
 /obj/item/autosurgeon/syndicate/trickshot
 	name = "\improper RICOCHOT 9000 combat computer autosurgeon"
