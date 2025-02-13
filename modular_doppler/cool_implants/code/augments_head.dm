@@ -148,10 +148,13 @@
 	limb.remove_bodypart_overlay(da_bodypart_overlay)
 	QDEL_NULL(da_bodypart_overlay)
 	owner?.update_body_parts()
+	return ..()
+
+/obj/item/organ/cyberimp/interaction_speeder/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	REMOVE_TRAIT(owner, TRAIT_STIMULATED, IMPLANT_TRAIT)
 	REMOVE_TRAIT(owner, TRAIT_STIMMED, IMPLANT_TRAIT)
 	REMOVE_TRAIT(owner, TRAIT_CATLIKE_GRACE, IMPLANT_TRAIT)
-	owner.add_actionspeed_modifier(/datum/actionspeed_modifier/micromanipulator)
+	owner.remove_actionspeed_modifier(/datum/actionspeed_modifier/micromanipulator)
 	return ..()
 
 /obj/item/organ/cyberimp/interaction_speeder/emp_act(severity)
@@ -203,6 +206,9 @@
 	limb.remove_bodypart_overlay(da_bodypart_overlay)
 	QDEL_NULL(da_bodypart_overlay)
 	owner?.update_body_parts()
+	return ..()
+
+/obj/item/organ/cyberimp/trickshotter/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	REMOVE_TRAIT(owner, TRAIT_NICE_SHOT, IMPLANT_TRAIT)
 	REMOVE_TRAIT(owner, TRAIT_GUNFLIP, IMPLANT_TRAIT)
 	REMOVE_TRAIT(owner, TRAIT_GUN_NATURAL, IMPLANT_TRAIT)

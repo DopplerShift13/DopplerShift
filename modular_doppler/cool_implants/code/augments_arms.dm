@@ -25,7 +25,7 @@
 	ADD_TRAIT(owner, TRAIT_FASTMED, IMPLANT_TRAIT)
 	return ..()
 
-/obj/item/organ/cyberimp/arm/arm_surgery_computer/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+/obj/item/organ/cyberimp/arm/arm_surgery_computer/on_mob_remove(mob/living/carbon/arm_owner)
 	REMOVE_TRAIT(owner, TRAIT_FASTMED, IMPLANT_TRAIT)
 	return ..()
 
