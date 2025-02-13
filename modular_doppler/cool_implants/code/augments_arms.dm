@@ -26,8 +26,8 @@
 	return ..()
 
 /obj/item/organ/cyberimp/arm/arm_surgery_computer/on_mob_remove(mob/living/carbon/arm_owner)
+	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_FASTMED, IMPLANT_TRAIT)
-	return ..()
 
 /obj/item/autosurgeon/syndicate/arm_surgery_computer
 	name = "surgical processor autosurgeon"
