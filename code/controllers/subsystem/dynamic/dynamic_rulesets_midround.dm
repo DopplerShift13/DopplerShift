@@ -261,7 +261,7 @@
 			candidates -= player
 		else if(is_centcom_level(player.z))
 			candidates -= player // We don't autotator people in CentCom
-		else if(player.mind && (player.mind.special_role || !player.mind.can_roll_midround()))
+		else if(player.mind && (player.mind.special_role || !player.mind.can_roll_midround(antag_datum)))
 			candidates -= player // We don't autotator people with roles already
 		// DOPPLER ADDITION START
 		else if(player in rejected_traitor)
@@ -316,7 +316,7 @@
 			continue
 		if(isnull(player.mind))
 			continue
-		if(player.mind.special_role || !player.mind.can_roll_midround())
+		if(player.mind.special_role || !player.mind.can_roll_midround(antag_datum))
 			continue
 		candidates += player
 
@@ -485,7 +485,7 @@
 			candidates -= player
 			continue
 
-		if(player.mind && (player.mind.special_role || !player.mind.can_roll_midround()))
+		if(player.mind && (player.mind.special_role || !player.mind.can_roll_midround(antag_datum)))
 			candidates -= player
 
 /datum/dynamic_ruleset/midround/from_living/blob_infection/execute()
@@ -983,7 +983,7 @@
 	cost = 5
 	minimum_players = 5
 	repeatable = TRUE
-	signup_item_path = /obj/item/cosmic_skull
+	signup_item_path = /obj/item/clothing/head/helmet/skull/cosmic
 	ruleset_lazy_templates = list(LAZY_TEMPLATE_KEY_VOIDWALKER_VOID)
 	/// The space turf we find in acceptable(), cached for ease
 	var/space_turf

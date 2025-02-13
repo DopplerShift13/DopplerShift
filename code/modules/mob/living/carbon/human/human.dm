@@ -126,6 +126,10 @@
 			id_species ||= dna.species.name
 			id_blood_type ||= dna.blood_type
 
+		if(istype(id, /obj/item/card/id/advanced))
+			var/obj/item/card/id/advanced/advancedID = id
+			id_job = advancedID.trim_assignment_override || id_job
+
 		var/id_examine = span_slightly_larger(separator_hr("This is <em>[src]'s ID card</em>."))
 		id_examine += "<div class='img_by_text_container'>"
 		id_examine += "[id_icon]"
@@ -930,12 +934,6 @@
 		carrydelay *= potential_spine.athletics_boost_multiplier
 		experience_reward += experience_reward * potential_spine.athletics_boost_multiplier
 
-	// DOPPLER EDIT ADDITION BEGIN - Oversized
-	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
-		visible_message(span_warning("[src] tries to carry [target], but they are too heavy!"))
-		return
-	// DOPPLER EDIT ADDITION END
-
 	if(carrydelay <= 3 SECONDS)
 		skills_space = " very quickly"
 	else if(carrydelay <= 4 SECONDS)
@@ -971,7 +969,7 @@
 		return
 
 	// DOPPLER EDIT ADDITION BEGIN - Oversized
-	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
+	if(HAS_TRAIT(target, TRAIT_OVERSIZED) && !HAS_TRAIT(src, TRAIT_STURDY_FRAME) && !HAS_TRAIT(src, TRAIT_OVERSIZED))
 		target.visible_message(span_warning("[target] is too heavy for [src] to carry!"))
 		var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
 		var/obj/item/bodypart/affecting = get_bodypart(ran_zone(dam_zone))

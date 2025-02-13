@@ -1,4 +1,4 @@
-#define DEFAULT_DOOMSDAY_TIMER 4500
+#define DEFAULT_DOOMSDAY_TIMER 9000 // DOPPLER EDIT, old code: 4500
 #define DOOMSDAY_ANNOUNCE_INTERVAL 600
 
 #define VENDOR_TIPPING_USES 8
@@ -479,7 +479,7 @@ GLOBAL_LIST_INIT(malf_modules, subtypesof(/datum/ai_module/malf))
 	if(QDELETED(to_animate))
 		return
 
-	new /mob/living/simple_animal/hostile/mimic/copy/machine(get_turf(to_animate), to_animate, clicker, TRUE)
+	new /mob/living/basic/mimic/copy/machine(get_turf(to_animate), to_animate, clicker, TRUE)
 
 /// Destroy RCDs: Detonates all non-cyborg RCDs on the station.
 /datum/ai_module/malf/destructive/destroy_rcd

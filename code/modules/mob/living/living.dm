@@ -2324,7 +2324,7 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 	var/turf/ceiling = get_step_multiz(src, UP)
 	if(!ceiling) //We are at the highest z-level.
 		if (prob(0.1))
-			to_chat(src, span_warning("You gaze out into the infinite vastness of deep space, for a moment, you have the impulse to continue travelling, out there, out into the deep beyond, before your conciousness reasserts itself and you decide to stay within travelling distance of the station."))
+			to_chat(src, span_warning("You gaze out into the infinite vastness of deep space, for a moment, you have the impulse to continue travelling, out there, out into the deep beyond, before your consciousness reasserts itself and you decide to stay within travelling distance of the station."))
 			return
 		to_chat(src, span_warning("There's nothing interesting up there."))
 		return
@@ -2621,6 +2621,8 @@ GLOBAL_LIST_EMPTY(fire_appearances)
 
 //Used specifically for the clown box suicide act
 /mob/living/carbon/human/will_escape_storage()
+	if(HAS_TRAIT(src, TRAIT_UNDERSIZED)) //DOPPLER EDIT
+		return FALSE
 	return TRUE
 
 /// Changes the value of the [living/body_position] variable. Call this before set_lying_angle()

@@ -325,6 +325,11 @@
 	var/hidden_icon = "edagger"
 	var/list/alt_continuous = list("stabs", "pierces", "shanks")
 	var/list/alt_simple = list("stab", "pierce", "shank")
+	// DOPPLER ADDITION START
+	/// The inhands were hardcoded, so this non-modular code fixes that
+	var/lefthand_icon = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+	var/righthand_icon = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+	// DOPPLER ADDITION END
 
 /obj/item/pen/edagger/Initialize(mapload)
 	. = ..()
@@ -398,8 +403,8 @@
 	playsound(source, 'sound/items/weapons/saberoff.ogg', 5, TRUE)
 	UnregisterSignal(source, list(COMSIG_ITEM_UNEMBEDDED, COMSIG_ITEM_FAILED_EMBED))
 	victim.visible_message(
-		message = span_warning("The blade of the [hidden_name] retracts as the [source.name] is removed from [victim]!"),
-		self_message = span_warning("The blade of the [hidden_name] retracts as the [source.name] is removed from you!"),
+		message = span_warning("The blade of the [hidden_name] retracts as \the [source] is removed from [victim]!"),
+		self_message = span_warning("The blade of the [hidden_name] retracts as \the [source] is removed from you!"),
 		blind_message = span_warning("You hear an energy blade retract!"),
 		vision_distance = 1
 	)
@@ -424,8 +429,8 @@
 		desc = hidden_desc
 		icon_state = hidden_icon
 		inhand_icon_state = hidden_icon
-		lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
-		righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
+		lefthand_file = lefthand_icon // DOPPLER EDIT, old code: lefthand_file = 'icons/mob/inhands/weapons/swords_lefthand.dmi'
+		righthand_file = righthand_icon // DOPPLER EDIT, old code: righthand_file = 'icons/mob/inhands/weapons/swords_righthand.dmi'
 		set_embed(/datum/embedding/edagger_active)
 	else
 		name = initial(name)
@@ -488,7 +493,7 @@
 
 /obj/item/pen/destroyer
 	name = "Fine Tipped Pen"
-	desc = "A pen with an infinitly sharpened tip. Capable of striking the weakest point of a strucutre or robot and annihilating it instantly. Good at putting holes in people too."
+	desc = "A pen with an infinitely-sharpened tip. Capable of striking the weakest point of a strucutre or robot and annihilating it instantly. Good at putting holes in people too."
 	force = 5
 	wound_bonus = 100
 	demolition_mod = 9000
