@@ -151,10 +151,11 @@
 	return ..()
 
 /obj/item/organ/cyberimp/interaction_speeder/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
-	REMOVE_TRAIT(owner, TRAIT_STIMULATED, IMPLANT_TRAIT)
-	REMOVE_TRAIT(owner, TRAIT_STIMMED, IMPLANT_TRAIT)
-	REMOVE_TRAIT(owner, TRAIT_CATLIKE_GRACE, IMPLANT_TRAIT)
-	owner.remove_actionspeed_modifier(/datum/actionspeed_modifier/micromanipulator)
+	if(organ_owner)
+		REMOVE_TRAIT(organ_owner, TRAIT_STIMULATED, IMPLANT_TRAIT)
+		REMOVE_TRAIT(organ_owner, TRAIT_STIMMED, IMPLANT_TRAIT)
+		REMOVE_TRAIT(organ_owner, TRAIT_CATLIKE_GRACE, IMPLANT_TRAIT)
+		organ_owner.remove_actionspeed_modifier(/datum/actionspeed_modifier/micromanipulator)
 	return ..()
 
 /obj/item/organ/cyberimp/interaction_speeder/emp_act(severity)
@@ -209,9 +210,10 @@
 	return ..()
 
 /obj/item/organ/cyberimp/trickshotter/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
-	REMOVE_TRAIT(owner, TRAIT_NICE_SHOT, IMPLANT_TRAIT)
-	REMOVE_TRAIT(owner, TRAIT_GUNFLIP, IMPLANT_TRAIT)
-	REMOVE_TRAIT(owner, TRAIT_GUN_NATURAL, IMPLANT_TRAIT)
+	if(organ_owner)
+		REMOVE_TRAIT(organ_owner, TRAIT_NICE_SHOT, IMPLANT_TRAIT)
+		REMOVE_TRAIT(organ_owner, TRAIT_GUNFLIP, IMPLANT_TRAIT)
+		REMOVE_TRAIT(organ_owner, TRAIT_GUN_NATURAL, IMPLANT_TRAIT)
 	return ..()
 
 /obj/item/organ/cyberimp/trickshotter/emp_act(severity)
