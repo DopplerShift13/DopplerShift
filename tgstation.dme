@@ -7112,6 +7112,7 @@
 #include "modular_doppler\modular_hydroponics\code\tea_coffee.dm"
 #include "modular_doppler\modular_items\aac_device.dm"
 #include "modular_doppler\modular_items\bettermed_overrides.dm"
+#include "modular_doppler\modular_items\coffeeholder.dm"
 #include "modular_doppler\modular_items\conversion_kits.dm"
 #include "modular_doppler\modular_items\drinks.dm"
 #include "modular_doppler\modular_items\emergency_breach_equipment.dm"
