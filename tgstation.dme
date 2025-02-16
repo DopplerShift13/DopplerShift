@@ -7335,6 +7335,7 @@
 #include "modular_doppler\ships_r_us\code\shuttle_templates\mining.dm"
 #include "modular_doppler\spacer_swimming\spacer_swim.dm"
 #include "modular_doppler\sprite_swaps\code\bigclosets.dm"
+#include "modular_doppler\sprite_swaps\code\coffee.dm"
 #include "modular_doppler\starter_resources\ore_vent.dm"
 #include "modular_doppler\stone\code\ore_veins.dm"
 #include "modular_doppler\stone\code\stone.dm"
