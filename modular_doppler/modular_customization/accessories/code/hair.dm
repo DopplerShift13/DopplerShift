@@ -699,6 +699,11 @@
     name = "Glamour"
     icon_state = "hair_glamour"
 
+/datum/sprite_accessory/hair/modular/hugeafro_eyescovered
+	name = "Huge Afro (Eyes Covered)"
+	y_offset = 6
+	icon_state = "hair_hugeafro_eyescovered"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/modular
