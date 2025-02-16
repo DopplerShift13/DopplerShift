@@ -660,7 +660,7 @@
 	icon_state = "hair_punktails"
 
 /datum/sprite_accessory/hair/modular/firestarter
-	name = "Firestarter
+	name = "Firestarter"
 	icon_state = "hair_firestarter"
 
 /datum/sprite_accessory/hair/modular/impish
