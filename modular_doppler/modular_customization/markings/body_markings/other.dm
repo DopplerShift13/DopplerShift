@@ -236,3 +236,14 @@
 	name = "Shard Alpha Claws"
 	icon_state = "shard_claw"
 	body_zones = LEG_RIGHT | LEG_LEFT
+
+/datum/sprite_accessory/body_marking/other/polytronic
+	name = "Polytronic Modular Doll limbs"
+	icon_state = "polytronic"
+	body_zones = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | HAND_LEFT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+	gender_specific = FALSE
+
+/datum/sprite_accessory/body_marking/other/polytronic_hair
+	name = "Polytronic Hair Helmet"
+	icon_state = "polytronic_hair"
+	body_zones = HEAD
