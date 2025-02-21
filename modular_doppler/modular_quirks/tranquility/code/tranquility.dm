@@ -40,6 +40,40 @@
 
 /obj/item/skillchip/pacification/unremovable
 	name = "TRNQ lockchip"
-	desc = "Meditative Assistance chip. These are used by modern societies to punish violent individuals, or occasionally used illegally. These do not have a standard interface for chip connectors or Skillsoft stations."
+	desc = "Tranquility lockchip. These are used by modern societies to punish violent individuals, or occasionally used illegally. These do not have a standard interface for chip connectors or Skillsoft stations."
 	can_be_removed = FALSE
 	can_be_deactivated = FALSE
+
+/datum/design/pacification_chip
+	name = "MED-AS skillchip"
+	desc = "Meditative Assistance chip. These are used by modern societies to assist violent individuals, or by those who wish to avoid violent lifestyles."
+	id = "pacification_chip"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/skillchip/pacification
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/pacification_chip
+	name = "TNRQ lockchip"
+	desc = "Tranquility lockchip. These are used by modern societies to punish violent individuals, or occasionally used illegally. These do not have a standard interface for chip connectors or Skillsoft stations."
+	id = "pacification_lockchip"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 7,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT * 8,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 4,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT * 2,
+	)
+	build_path = /obj/item/skillchip/pacification
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_MEDICAL
