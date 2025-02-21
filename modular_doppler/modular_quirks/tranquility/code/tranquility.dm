@@ -1,0 +1,45 @@
+/datum/quirk/tranquil
+	name = "Tranquil"
+	desc = "Whether by choice, or as capital punishment from even the 4CA, you had a chip installed to prevent any direct acts of violence. It cannot be removed, asides from intensive surgeries."
+	gain_text = span_warning("You couldn't fathom hurting people so freely and easily.")
+	lose_text = span_notice("At last, violence has arrived.")
+	medical_record_text = "Patient has had a Tranquility chip installed, preventing direct acts of violence. Do not attempt removal."
+	value = -10
+	icon = FA_ICON_BRAIN
+	quirk_flags = QUIRK_HUMAN_ONLY
+	/// Variable that holds the chip, used on removal.
+	var/obj/item/skillchip/installed_chip
+
+/datum/quirk/tranquil/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source)
+	installed_chip = /obj/item/skillchip/pacification/unremovable
+	return ..()
+
+/datum/quirk/tranquil/add_unique(client/client_source)
+	if(!iscarbon(quirk_holder))
+		return
+
+	var/mob/living/carbon/quirk_holder_carbon = quirk_holder
+	installed_chip = new installed_chip()
+
+	quirk_holder_carbon.implant_skillchip(installed_chip, force = TRUE)
+	installed_chip.try_activate_skillchip(silent = FALSE, force = TRUE)
+
+/datum/quirk/tranquil/remove()
+	QDEL_NULL(installed_chip)
+	return ..()
+
+/obj/item/skillchip/pacification
+	name = "MED-AS skillchip"
+	desc = "Meditative Assistance chip. These are used by modern societies to assist violent individuals, or by those who wish to avoid violent lifestyles."
+	auto_traits = list(TRAIT_PACIFISM)
+	skill_name = "Tranquility"
+	skill_description = "Live a quiet life unmarred by blood. Avoid ending the life of even the smallest creatures."
+	skill_icon = "fa-peace"
+	activate_message = span_notice("You have no enemies.")
+	deactivate_message = span_notice("You hope you are forgiven for the violence you may inflict.")
+
+/obj/item/skillchip/pacification/unremovable
+	name = "TRNQ lockchip"
+	desc = "Meditative Assistance chip. These are used by modern societies to punish violent individuals, or occasionally used illegally. These do not have a standard interface for chip connectors or Skillsoft stations."
+	can_be_removed = FALSE
+	can_be_deactivated = FALSE

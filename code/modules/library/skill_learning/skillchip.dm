@@ -100,9 +100,13 @@
  * * brain_owner - the owner var of the brain is set to null on organ/on_mob_remove(), so we need this if owner is null.
  */
 /obj/item/skillchip/proc/try_deactivate_skillchip(silent = FALSE, force = FALSE, mob/living/brain_owner)
+	//DOPPLER EDIT START
+	if(!can_be_deactivated)
+		return "The lockchip refuses to deactivate."
+	//DOPPLER EDIT END
+
 	if(!active)
 		return "Skillchip is not active."
-
 	// Should not happen. Holding brain is destroyed and the chip hasn't had its state set appropriately.
 	if(!holding_brain)
 		stack_trace("Skillchip doesn't have a holding brain.")
