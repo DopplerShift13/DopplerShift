@@ -124,5 +124,4 @@ GLOBAL_LIST_INIT(quirk_chipped_choice, list(
 	"old F058UR7" = /obj/item/skillchip/acrobatics, //DOPPLER EDIT ADDITION
 	"pacification chip" = /obj/item/skillchip/pacification, //DOPPLER EDIT ADDITION
 	"Matrix Taunt" = /obj/item/skillchip/matrix_taunt, //DOPPLER EDIT ADDITION
-	"Big Pointer" = /obj/item/skillchip/big_pointer, //DOPPLER EDIT ADDITION
 ))
