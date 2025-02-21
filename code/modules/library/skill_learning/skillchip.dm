@@ -107,6 +107,7 @@
 
 	if(!active)
 		return "Skillchip is not active."
+
 	// Should not happen. Holding brain is destroyed and the chip hasn't had its state set appropriately.
 	if(!holding_brain)
 		stack_trace("Skillchip doesn't have a holding brain.")
