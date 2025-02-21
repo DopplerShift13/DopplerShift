@@ -61,7 +61,7 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY | DEPARTMENT_BITFLAG_MEDICAL
 
-/datum/design/pacification_chip
+/datum/design/pacification_lockchip
 	name = "TNRQ lockchip"
 	desc = "Tranquility lockchip. These are used by modern societies to punish violent individuals, or occasionally used illegally. These do not have a standard interface for chip connectors or Skillsoft stations."
 	id = "pacification_lockchip"
