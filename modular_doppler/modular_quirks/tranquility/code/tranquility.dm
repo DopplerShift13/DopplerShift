@@ -1,6 +1,6 @@
 /datum/quirk/tranquil
 	name = "Tranquil"
-	desc = "Whether by choice, or as capital punishment from even the 4CA, you had a chip installed to prevent any direct acts of violence. It cannot be removed, asides from intensive surgeries."
+	desc = "Whether by choice, or as modern punishment from even the 4CA, you had a chip installed to prevent any direct acts of violence. It cannot be removed, asides from intensive surgeries."
 	gain_text = span_warning("You couldn't fathom hurting people so freely and easily.")
 	lose_text = span_notice("At last, violence has arrived.")
 	medical_record_text = "Patient has had a Tranquility chip installed, preventing direct acts of violence. Do not attempt removal."
