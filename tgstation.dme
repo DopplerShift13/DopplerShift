@@ -7310,6 +7310,7 @@
 #include "modular_doppler\ships_r_us\code\shuttle_templates\ferries.dm"
 #include "modular_doppler\ships_r_us\code\shuttle_templates\incomplete.dm"
 #include "modular_doppler\ships_r_us\code\shuttle_templates\mining.dm"
+#include "modular_doppler\shuttle_gear\code\ore_scoop.dm"
 #include "modular_doppler\spacer_swimming\spacer_swim.dm"
 #include "modular_doppler\sprite_swaps\code\bigclosets.dm"
 #include "modular_doppler\starter_resources\ore_vent.dm"

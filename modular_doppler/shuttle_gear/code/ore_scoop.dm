@@ -30,10 +30,7 @@
 		/datum/material/bluespace = 1,
 		/datum/material/plastic = 1,
 	)
-	var/list/boulder_sizes = list(
-		BOULDER_SIZE_MEDIUM,
-		BOULDER_SIZE_SMALL,
-	)
+	var/current_boulder_size = BOULDER_SIZE_SMALL
 	var/list/boulder_icon_states = list(
 		"boulder",
 		"rock",
@@ -74,19 +71,19 @@
 	. = ..()
 	boulder_delay = initial(boulder_delay)
 	maximum_boulder_stockpile = initial(maximum_boulder_stockpile)
-	boulder_sizes = initial(boulder_sizes)
+	current_boulder_size = initial(current_boulder_size)
 	var/servo_tier_combined = 0
 	for(var/datum/stock_part/servo/servo_part in component_parts)
 		servo_tier_combined += servo_part.tier
 	if(servo_tier_combined > 2)
-		boulder_delay -= (2.5 * (servo_tier_combined - 2)) // 15 sec reduction at max level just trust
+		boulder_delay -= ((2.5 SECONDS) * (servo_tier_combined - 2)) // 15 sec reduction at max level just trust
 	for(var/datum/stock_part/matter_bin/bin_part in component_parts)
 		maximum_boulder_stockpile += (bin_part.tier - 1)
 	for(var/datum/stock_part/scanning_module/scanner_part in component_parts)
-		if(scanner_part.tier >= 3)
-			boulder_sizes += BOULDER_SIZE_LARGE
+		if(scanner_part.tier >= 2)
+			current_boulder_size = BOULDER_SIZE_MEDIUM
 		if(scanner_part.tier >= 4)
-			boulder_sizes -= BOULDER_SIZE_SMALL
+			current_boulder_size = BOULDER_SIZE_LARGE
 
 /obj/machinery/shuttle_ore_scoop/examine(mob/user)
 	. = ..()
@@ -118,7 +115,7 @@
 		mats_list[material] += ore_quantity_function(iteration)
 	new_rock.set_custom_materials(mats_list)
 	// Size and durability
-	new_rock.boulder_size = pick(boulder_sizes)
+	new_rock.boulder_size = current_boulder_size
 	new_rock.durability = rand(2, new_rock.boulder_size)
 	new_rock.boulder_string = pick(boulder_icon_states)
 	new_rock.update_appearance(UPDATE_ICON_STATE)
@@ -136,17 +133,19 @@
  * @params ore_floor The number of minerals already rolled. Used to scale the logarithmic function.
  */
 /obj/machinery/shuttle_ore_scoop/proc/ore_quantity_function(ore_floor)
-	return SHEET_MATERIAL_AMOUNT * round(boulder_size * (log(rand(1 + ore_floor, 4 + ore_floor)) ** -1))
+	return SHEET_MATERIAL_AMOUNT * round(current_boulder_size * (log(rand(1 + ore_floor, 4 + ore_floor)) ** -1))
 
-/obj/machinery/shuttle_ore_scoop/beforeShuttleMove(turf/newT, rotation, move_mode, obj/docking_port/mobile/moving_dock)
+/obj/machinery/shuttle_ore_scoop/onShuttleMove(turf/newT, turf/oldT, list/movement_force, move_dir, obj/docking_port/stationary/old_dock, obj/docking_port/mobile/moving_dock)
 	. = ..()
-	if(callback_tracker)
-		deltimer(callback_tracker)
-	callback_tracker = addtimer(CALLBACK(src, PROC_REF(produce_boulder)), boulder_delay, TIMER_DELETE_ME | TIMER_STOPPABLE,)
-
-/obj/machinery/shuttle_ore_scoop/afterShuttleMove(turf/oldT, list/movement_force, shuttle_dir, shuttle_preferred_direction, move_dir, rotation)
-	. = ..()
-	if(callback_tracker)
-		deltimer(callback_tracker)
+	if(moving_dock.mode == SHUTTLE_CALL)
+		if(callback_tracker)
+			return
+		flying = TRUE
+		callback_tracker = addtimer(CALLBACK(src, PROC_REF(produce_boulder)), boulder_delay, TIMER_DELETE_ME | TIMER_STOPPABLE,)
+		return
+	else
+		flying = FALSE
+		if(callback_tracker)
+			deltimer(callback_tracker)
 
 #undef MINERALS_PER_BOULDER
