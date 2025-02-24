@@ -10,9 +10,8 @@
 	pixel_x = -7
 	},
 /obj/item/gps/computer/beacon{
-	pixel_y = 19;
+	pixel_y = 22;
 	pixel_x = 7;
-	layer = 2.9;
 	gpstag = "ANCHOR-BUOY"
 	},
 /obj/structure/fluff{
