@@ -84,7 +84,7 @@
 	. = ..()
 	AddComponent(/datum/component/gps, shuttle_gps_tag)
 
-/obj/machinery/computer/shuttle/personally_bought/proc/get_valid_destinations()
+/obj/machinery/computer/shuttle/personally_bought/get_valid_destinations()
 	var/list/destination_list = params2list(possible_destinations)
 	var/obj/docking_port/mobile/mobile_docking_port = SSshuttle.getShuttle(shuttleId)
 	var/obj/docking_port/stationary/current_destination = mobile_docking_port.destination
