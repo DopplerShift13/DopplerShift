@@ -4,7 +4,6 @@
 	icon = 'modular_doppler/modular_items/icons/coffeeholder.dmi'
 	icon_state = "holder"
 	inhand_icon_state = "cawfeeinhand"
-	w_class = WEIGHT_CLASS_BULKY
 	lefthand_file = 'modular_doppler/modular_items/icons/coffeeholder_lefthand.dmi'
 	righthand_file = 'modular_doppler/modular_items/icons/coffeeholder_righthand.dmi'
 	drop_sound = 'sound/items/handling/cardboard_box/cardboardbox_drop.ogg'
