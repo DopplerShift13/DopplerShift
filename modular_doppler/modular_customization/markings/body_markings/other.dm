@@ -248,6 +248,11 @@
 	icon_state = "polytronic_hair"
 	body_zones = HEAD
 
+/datum/sprite_accessory/body_marking/other/polytronic_headwear
+	name = "Polytronic Headwear"
+	icon_state = "polytronic_headwear"
+	body_zones = HEAD
+
 /datum/sprite_accessory/body_marking/other/chelsea_smile
 	name = "Chelsea Smile"
 	icon_state = "chelsea_smile"
