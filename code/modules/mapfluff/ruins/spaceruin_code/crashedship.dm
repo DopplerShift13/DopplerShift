@@ -35,7 +35,7 @@
 	gloves = /obj/item/clothing/gloves/color/fyellow
 	head = /obj/item/clothing/head/utility/hardhat
 	r_pocket = /obj/item/paper/fluff/ruins/crashedship/old_diary
-	l_pocket = /obj/item/stack/spacecash/c200
+	l_pocket = /obj/item/libre/bundle/c200 // DOPPLER EDIT: replaces money spawntype
 	mask = /obj/item/clothing/mask/breath
 	belt = /obj/item/tank/internals/emergency_oxygen/engi
 

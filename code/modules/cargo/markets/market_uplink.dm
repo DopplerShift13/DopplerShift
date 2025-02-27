@@ -56,7 +56,7 @@
 		current_user = null
 	data["categories"] = market ? market.categories : null
 	data["delivery_methods"] = list()
-	data["money"] = "N/A cr"
+	data["money"] = "N/A ♎︎" // DOPPLER EDIT: cr > ♎︎
 	if(current_user)
 		data["money"] = current_user.account_balance
 	data["buying"] = buying
