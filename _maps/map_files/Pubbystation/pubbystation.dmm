@@ -5906,7 +5906,7 @@
 	},
 /obj/machinery/door/airlock/public{
 	name = "Dorm 3";
-	id = "Dorm3"
+	id_tag = "Dorm3"
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/dorms)
@@ -6668,7 +6668,7 @@
 	},
 /obj/machinery/door/airlock/public{
 	name = "Dorm 2";
-	id = "Dorm2"
+	id_tag = "Dorm2"
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/dorms)
@@ -7501,7 +7501,7 @@
 	},
 /obj/machinery/door/airlock/public{
 	name = "Dorm 1";
-	id = "Dorm1"
+	id_tag = "Dorm1"
 	},
 /turf/open/floor/iron/dark,
 /area/station/commons/dorms)
@@ -8073,6 +8073,7 @@
 /obj/item/storage/box/silver_ids,
 /obj/item/storage/box/ids,
 /obj/machinery/power/apc/auto_name/directional/south,
+/obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "aEO" = (
@@ -20035,7 +20036,7 @@
 /turf/open/floor/iron/white/smooth_edge{
 	dir = 1
 	},
-/area/station/science/ordnance/burnchamber)
+/area/station/science/ordnance)
 "bIN" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -20222,7 +20223,9 @@
 "bJQ" = (
 /obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
 /obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/door/airlock/research/glass/incinerator/ordmix_exterior,
+/obj/machinery/door/airlock/research/glass/incinerator/ordmix_interior{
+	name = "Burn Chamber Interior Airlock"
+	},
 /turf/open/floor/engine,
 /area/station/science/ordnance/burnchamber)
 "bJR" = (
@@ -20714,7 +20717,9 @@
 "bMl" = (
 /obj/effect/mapping_helpers/airlock/access/all/science/ordnance,
 /obj/effect/mapping_helpers/airlock/locked,
-/obj/machinery/door/airlock/research/glass/incinerator/ordmix_interior,
+/obj/machinery/door/airlock/research/glass/incinerator/ordmix_exterior{
+	name = "Burn Chamber Exterior Airlock"
+	},
 /turf/open/floor/engine,
 /area/station/science/ordnance/burnchamber)
 "bMm" = (
@@ -23327,14 +23332,13 @@
 /area/station/engineering/engine_smes)
 "bWz" = (
 /obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/stack/sheet/iron/fifty,
 /obj/item/stack/rods/fifty,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
 /obj/machinery/light/directional/east,
 /obj/structure/cable,
 /obj/structure/rack,
+/obj/item/stack/sheet/plasteel/twenty,
 /turf/open/floor/plating,
 /area/station/engineering/engine_smes)
 "bWA" = (
@@ -24189,6 +24193,12 @@
 "caw" = (
 /obj/effect/turf_decal/tile/electric_yellow/fourcorners,
 /obj/structure/table/glass/plasmaglass,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -4
+	},
+/obj/item/stack/sheet/glass/fifty{
+	pixel_x = 7
+	},
 /turf/open/floor/iron/dark/textured,
 /area/station/engineering/main)
 "cay" = (
@@ -29010,6 +29020,7 @@
 /obj/structure/chair{
 	dir = 8
 	},
+/obj/structure/sign/poster/abductor/ayy_over_tizira/directional/north,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
 "dmT" = (
@@ -37771,7 +37782,7 @@
 	},
 /obj/effect/mapping_helpers/airalarm/mixingchamber_access,
 /turf/open/floor/iron/white,
-/area/station/science/ordnance)
+/area/station/science/ordnance/burnchamber)
 "kqc" = (
 /obj/machinery/light/directional/west,
 /obj/machinery/camera/directional/west{
@@ -39483,20 +39494,6 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/security/prison)
-"lKm" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/obj/structure/cable,
-/obj/structure/sign/poster/abductor/ayy_over_tizira/directional/north,
-/turf/open/floor/iron/white/smooth_large,
-/area/station/science/xenobiology)
 "lKn" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -40423,10 +40420,8 @@
 /turf/open/floor/iron/dark,
 /area/station/commons/storage/primary)
 "mxy" = (
-/obj/machinery/power/smes{
-	charge = 5e+006
-	},
 /obj/structure/cable,
+/obj/machinery/power/smes/full,
 /turf/open/floor/plating,
 /area/station/tcommsat/computer)
 "mxV" = (
@@ -42179,7 +42174,7 @@
 	dir = 4
 	},
 /turf/closed/wall/r_wall,
-/area/station/science/ordnance)
+/area/station/science/ordnance/burnchamber)
 "nXy" = (
 /obj/structure/disposalpipe/segment{
 	dir = 6
@@ -98360,7 +98355,7 @@ psV
 bGr
 lqg
 kdM
-bHy
+iUX
 dcQ
 iUX
 iUX
@@ -99388,9 +99383,9 @@ kmn
 bGv
 hNB
 kpM
-bHy
+iUX
 nWX
-bHy
+iUX
 iUX
 iUX
 iUX
@@ -103487,7 +103482,7 @@ blX
 bqK
 bsd
 jWi
-lKm
+uel
 pRW
 bxQ
 xxO
