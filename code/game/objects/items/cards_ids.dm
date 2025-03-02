@@ -1041,6 +1041,10 @@
 /obj/item/card/id/away/deep_storage //deepstorage.dmm space ruin
 	name = "bunker access ID"
 
+/obj/item/card/id/away/filmstudio
+	name = "Film Studio ID"
+	desc = "An ID card that allows access to the variety of airlocks present in the film studio"
+
 /obj/item/card/id/departmental_budget
 	name = "departmental card (ERROR)"
 	desc = "Provides access to the departmental budget."
@@ -1610,6 +1614,7 @@
 	trim = /datum/id_trim/chameleon
 	wildcard_slots = WILDCARD_LIMIT_CHAMELEON
 	actions_types = list(/datum/action/item_action/chameleon/change/id, /datum/action/item_action/chameleon/change/id_trim)
+	action_slots = ALL
 
 	/// Have we set a custom name and job assignment, or will we use what we're given when we chameleon change?
 	var/forged = FALSE
