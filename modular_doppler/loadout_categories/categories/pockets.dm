@@ -125,8 +125,8 @@
 	item_path = /obj/item/knife/combat/survival
 
 /datum/loadout_item/pocket_items/etool
-name = "Entrenching Tool"
-item_path = /obj/item/trench_tool
+ name = "Entrenching Tool"
+ item_path = /obj/item/trench_tool
 
 /datum/loadout_item/pocket_items/injector_case
 	name = "Autoinjector Case"
