@@ -129,8 +129,8 @@
  item_path = /obj/item/trench_tool
 
 /datum/loadout_item/pocket_items/swisstool
- name = "Spess Knife"
- /obj/item/spess_knife
+name = "Spess Knife"
+/obj/item/spess_knife
 
 /datum/loadout_item/pocket_items/injector_case
 	name = "Autoinjector Case"
