@@ -97,7 +97,7 @@
 
 		if(armless)
 			if(!user.pulling || !iscash(user.pulling) && !istype(user.pulling, /obj/item/card/id))
-				to_chat(user, span_notice("Try pulling a valid ID, space cash, holochip or coin while using \the [parent]!"))
+				to_chat(user, span_notice("Try pulling a valid ID, or some sort of physical currency, while using \the [parent]!")) // DOPPLER EDIT: libre only, punk
 				return FALSE
 		return FALSE
 
@@ -109,19 +109,19 @@
 	physical_cash_total -= total_cost
 
 	if(physical_cash_total > 0)
-		var/obj/item/holochip/holochange = new /obj/item/holochip(user.loc, physical_cash_total) //Change is made in holocredits exclusively.
-		holochange.name = "[holochange.credits] credit holochip"
+		var/obj/item/libre/bundle/librechange = new /obj/item/libre/bundle(user.loc, physical_cash_total) //DOPPLER EDIT: change is now in libre
+		// librechange.name = "[holochange.credits] credit holochip" // DOPPLER EDIT: holochip > libre
 		if(ishuman(user))
 			var/mob/living/carbon/human/paying_customer = user
 			var/successfully_put_in_hands
 			ASYNC //Put_in_hands can sleep, we don't want that to block this proc.
-				successfully_put_in_hands = paying_customer.put_in_hands(holochange)
+				successfully_put_in_hands = paying_customer.put_in_hands(librechange) // DOPPLER EDIT: holochip > libre
 			if(!successfully_put_in_hands)
-				user.pulling = holochange
+				user.pulling = librechange // DOPPLER EDIT: holochip > libre
 		else
-			user.pulling = holochange
-	log_econ("[total_cost] credits were spent on [parent] by [user].")
-	to_chat(user, span_notice("Purchase completed with held credits."))
+			user.pulling = librechange // DOPPLER EDIT: holochip > libre
+	log_econ("[total_cost] libre were spent on [parent] by [user].") // DOPPLER EDIT: credits > libre
+	to_chat(user, span_notice("Purchase completed with held libre.")) // DOPPLER EDIT: credits > libre
 	playsound(user, 'sound/effects/cashregister.ogg', 20, TRUE)
 	return TRUE
 
@@ -162,12 +162,12 @@
 				to_chat(user, span_warning("ID Card lacks funds. Aborting."))
 			if(PAYMENT_VENDING)
 				to_chat(user, span_warning("You do not possess the funds to purchase that."))
-		atom_parent.balloon_alert(user, "needs [total_cost] credit\s!")
+		atom_parent.balloon_alert(user, "needs [total_cost] libre!") // DOPPLER EDIT: credits > libre
 		return FALSE
 	//target_acc.transfer_money(idcard.registered_account, total_cost, "Nanotrasen: Usage of Corporate Machinery") // ORIGINAL
 	target_acc.transfer_money(idcard.registered_account, total_cost, "The Port Authority: Usage of Corporate Machinery") // DOPPLER EDIT - NT -> PA
-	log_econ("[total_cost] credits were spent on [parent] by [user] via [idcard.registered_account.account_holder]'s card.")
-	idcard.registered_account.bank_card_talk("[total_cost] credits deducted from your account.")
+	log_econ("[total_cost] libre were spent on [parent] by [user] via [idcard.registered_account.account_holder]'s card.") // DOPPLER EDIT: credits > libre
+	idcard.registered_account.bank_card_talk("[total_cost] libre deducted from your account.") // DOPPLER EDIT: credits > libre
 	playsound(src, 'sound/effects/cashregister.ogg', 20, TRUE)
 	SSeconomy.track_purchase(idcard.registered_account, total_cost, parent)
 	return TRUE

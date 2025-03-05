@@ -213,7 +213,7 @@ Then the player gets the profit from selling his own wasted time.
 	var/total_value = ex.total_value[src]
 	var/total_amount = ex.total_amount[src]
 
-	var/msg = "[total_value] credits: Received [total_amount] "
+	var/msg = "[total_value] Libre: Received [total_amount] " // DOPPLER EDIT: credits > libre
 	if(total_value > 0)
 		msg = "+" + msg
 

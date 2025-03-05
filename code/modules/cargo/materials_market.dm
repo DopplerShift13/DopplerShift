@@ -76,7 +76,7 @@
 		new_block.export_value = amount * value * MARKET_PROFIT_MODIFIER
 		new_block.export_mat = material_to_export
 		new_block.quantity = amount
-		to_chat(user, span_notice("You have created a stock block worth [new_block.export_value] cr! Sell it before it becomes liquid!"))
+		to_chat(user, span_notice("You have created a stock block worth [new_block.export_value] ♎︎! Sell it before it becomes liquid!")) // DOPPLER EDIT: cr > ♎︎
 		playsound(src, 'sound/machines/synth/synth_yes.ogg', 50, FALSE)
 		return TRUE
 	return ..()
@@ -309,7 +309,7 @@
 				orderer_rank = GALATIC_MATERIAL_ORDER,
 				orderer_ckey = living_user.ckey,
 				paying_account = is_ordering_private ? account_payable : null,
-				cost_type = "cr",
+				cost_type = "♎︎", // DOPPLER EDIT: cr > ♎︎
 				can_be_cancelled = FALSE
 			)
 			//first time order compute the correct cost and compare
@@ -356,7 +356,7 @@
 
 /obj/item/stock_block/examine(mob/user)
 	. = ..()
-	. += span_notice("\The [src] is worth [export_value] cr, from selling [quantity] sheets of [initial(export_mat?.name)].")
+	. += span_notice("\The [src] is worth [export_value] ♎︎, from selling [quantity] sheets of [initial(export_mat?.name)].") // DOPPLER EDIT: cr > ♎︎
 	if(fluid)
 		. += span_warning("\The [src] is currently liquid! Its value is based on the market price.")
 	else
