@@ -5,7 +5,7 @@
 	lose_text = span_notice("At last, violence has arrived.")
 	medical_record_text = "Patient has had a Tranquility chip installed, preventing direct acts of violence. Do not attempt removal."
 	value = -10
-	icon = FA_ICON_BRAIN
+	icon = FA_ICON_FACE_SMILE
 	quirk_flags = QUIRK_HUMAN_ONLY
 	/// Variable that holds the chip, used on removal.
 	var/obj/item/skillchip/installed_chip
