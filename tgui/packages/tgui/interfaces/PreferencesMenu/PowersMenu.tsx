@@ -24,6 +24,7 @@ export const Powers = (props) => {
         icon={props.power.powertype}
         color={props.power.state}
         tooltip={props.power.rootpower}
+        tooltipPosition="right"
         onClick={() => {
           if (props.power.state === 'bad') {
             act('remove_power', { power_name: props.power.name });
