@@ -60,6 +60,7 @@
 	hitsound = 'sound/items/weapons/sonic_jackhammer.ogg'
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	actions_types = list(/datum/action/item_action/vortex_recall)
+	action_slots = ALL
 	/// Linked teleport beacon for the group teleport functionality.
 	var/obj/effect/hierophant/beacon
 	/// TRUE if currently doing a teleport to the beacon, FALSE otherwise.
@@ -249,6 +250,10 @@
 	icon_state = "vial"
 
 /obj/item/mayhem/attack_self(mob/user)
+	if(tgui_alert(user, "Breaking the bottle will cause nearby crewmembers to go into a murderous frenzy. Be sure you know what you are doing...","Break the bottle?",list("Break it!","DON'T")) != "Break it!")
+		return
+	if(QDELETED(src) || !user.is_holding(src) || user.incapacitated)
+		return
 	for(var/mob/living/carbon/human/target in range(7,user))
 		target.apply_status_effect(/datum/status_effect/mayhem)
 	to_chat(user, span_notice("You shatter the bottle!"))
@@ -452,7 +457,7 @@
 		using = FALSE
 		return
 
-	soul.ckey = ghost.ckey
+	soul.PossessByPlayer(ghost.ckey)
 	soul.copy_languages(master, LANGUAGE_MASTER) //Make sure the sword can understand and communicate with the master.
 	soul.faction = list("[REF(master)]")
 	balloon_alert(master, "the scythe glows")
@@ -1152,7 +1157,7 @@
 
 /obj/item/organ/brain/cybernetic/ai/on_mob_insert(mob/living/carbon/brain_owner, special, movement_flags)
 	. = ..()
-	brain_owner.add_traits(list(HUMAN_SENSORS_VISIBLE_WITHOUT_SUIT, TRAIT_NO_MINDSWAP), ORGAN_TRAIT)
+	brain_owner.add_traits(list(HUMAN_SENSORS_VISIBLE_WITHOUT_SUIT, TRAIT_NO_MINDSWAP, TRAIT_CORPSELOCKED), REF(src))
 	update_med_hud_status(brain_owner)
 	RegisterSignal(brain_owner, COMSIG_LIVING_HEALTH_UPDATE, PROC_REF(update_med_hud_status))
 	RegisterSignal(brain_owner, COMSIG_CLICK, PROC_REF(owner_clicked))
@@ -1164,7 +1169,7 @@
 /obj/item/organ/brain/cybernetic/ai/on_mob_remove(mob/living/carbon/organ_owner, special, movement_flags)
 	undeploy()
 	. = ..()
-	organ_owner.remove_traits(list(HUMAN_SENSORS_VISIBLE_WITHOUT_SUIT, TRAIT_NO_MINDSWAP), ORGAN_TRAIT)
+	organ_owner.remove_traits(list(HUMAN_SENSORS_VISIBLE_WITHOUT_SUIT, TRAIT_NO_MINDSWAP, TRAIT_CORPSELOCKED), REF(src))
 	UnregisterSignal(organ_owner, list(COMSIG_LIVING_HEALTH_UPDATE, COMSIG_CLICK, COMSIG_MOB_GET_STATUS_TAB_ITEMS, COMSIG_MOB_MIND_BEFORE_MIDROUND_ROLL, COMSIG_QDELETING, COMSIG_LIVING_PRE_WABBAJACKED))
 
 /obj/item/organ/brain/cybernetic/ai/proc/cancel_rolls(mob/living/source, datum/mind/mind, datum/antagonist/antagonist)
@@ -1205,16 +1210,18 @@
 	lines += span_bold("[owner]")
 	lines += "Target is currently [!HAS_TRAIT(owner, TRAIT_INCAPACITATED) ? "functional" : "incapacitated"]"
 	lines += "Estimated organic/inorganic integrity: [owner.health]"
-	if(is_sufficiently_augmented())
-		lines += "<a href='byond://?src=[REF(src)];ai_take_control=[REF(user)]'>[span_boldnotice("Take control?")]</a><br>"
-	else
+	if(mainframe)
+		lines += span_warning("Already occupied by another digital entity.")
+	else if(!is_sufficiently_augmented())
 		lines += span_warning("Organic organs detected. Robotic organs only, cannot take over.")
+	else
+		lines += "<a href='byond://?src=[REF(src)];ai_take_control=[REF(user)]'>[span_boldnotice("Take control?")]</a><br>"
 
 	to_chat(user, boxed_message(jointext(lines, "\n")), type = MESSAGE_TYPE_INFO)
 
 /obj/item/organ/brain/cybernetic/ai/Topic(href, href_list)
 	..()
-	if(!href_list["ai_take_control"] || !is_sufficiently_augmented())
+	if(!href_list["ai_take_control"] || !is_sufficiently_augmented() || mainframe)
 		return
 	var/mob/living/silicon/ai/AI = locate(href_list["ai_take_control"]) in GLOB.silicon_mobs
 	if(isnull(AI))
@@ -1232,7 +1239,8 @@
 	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(undeploy))
 	AI.deployed_shell = owner
 	deploy_init(AI)
-	ADD_TRAIT(AI.mind, TRAIT_UNCONVERTABLE, ORGAN_TRAIT)
+	ADD_TRAIT(AI.mind, TRAIT_UNCONVERTABLE, REF(src))
+	ADD_TRAIT(AI, TRAIT_MIND_TEMPORARILY_GONE, REF(src))
 	AI.mind.transfer_to(owner)
 
 /obj/item/organ/brain/cybernetic/ai/proc/deploy_init(mob/living/silicon/ai/AI)
@@ -1247,7 +1255,8 @@
 	SIGNAL_HANDLER
 	if(!owner?.mind || !mainframe)
 		return
-	UnregisterSignal(src, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING))
+	UnregisterSignal(owner, list(COMSIG_LIVING_DEATH, COMSIG_QDELETING))
+	UnregisterSignal(mainframe, COMSIG_QDELETING)
 	mainframe.redeploy_action.Remove(mainframe)
 	mainframe.redeploy_action.last_used_shell = null
 	owner.mind.transfer_to(mainframe)
@@ -1257,7 +1266,8 @@
 		mainframe.laws.show_laws(mainframe)
 	if(mainframe.eyeobj)
 		mainframe.eyeobj.setLoc(loc)
-	REMOVE_TRAIT(mainframe.mind, TRAIT_UNCONVERTABLE, ORGAN_TRAIT)
+	REMOVE_TRAIT(mainframe.mind, TRAIT_UNCONVERTABLE, REF(src))
+	REMOVE_TRAIT(mainframe, TRAIT_MIND_TEMPORARILY_GONE, REF(src))
 	mainframe = null
 	update_med_hud_status(owner)
 
