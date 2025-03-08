@@ -199,7 +199,7 @@
 		adjust_money(money_to_transfer, "Nanotrasen: Shift Payment")
 		SSblackbox.record_feedback("amount", "free_income", money_to_transfer)
 		SSeconomy.station_target += money_to_transfer
-		log_econ("[money_to_transfer] credits were given to [src.account_holder]'s account from income.")
+		log_econ("[money_to_transfer] libre were given to [src.account_holder]'s account from income.") // DOPPLER EDIT - cr to ♎︎
 		return TRUE
 	else
 		var/datum/bank_account/department_account = SSeconomy.get_dep_account(account_job.paycheck_department)
@@ -208,7 +208,7 @@
 				bank_card_talk("ERROR: Payday aborted, departmental funds insufficient.")
 				return FALSE
 			else
-				bank_card_talk("Payday processed, account now holds [account_balance] cr.")
+				bank_card_talk("Payday processed, account now holds [account_balance]♎︎.") // DOPPLER EDIT - cr to ♎︎
 				return TRUE
 	bank_card_talk("ERROR: Payday aborted, unable to contact departmental account.")
 	return FALSE

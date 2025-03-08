@@ -36,7 +36,7 @@ export function CargoRequests(props) {
                 <i>{decodeHtmlEntities(request.reason)}</i>
               </Table.Cell>
               <Table.Cell collapsing color="gold">
-                {formatMoney(request.cost)} cr
+                {formatMoney(request.cost)} ♎︎
               </Table.Cell>
               {(!requestonly || !!can_send) && !!can_approve_requests && (
                 <Table.Cell collapsing>

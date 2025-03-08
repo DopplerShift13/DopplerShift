@@ -17,6 +17,7 @@
 	atom_storage.max_slots = 4
 	atom_storage.set_holdable(list(
 		/obj/item/stack/spacecash,
+		/obj/item/libre, // DOPPLER EDIT: cashtype
 		/obj/item/holochip,
 		/obj/item/card,
 		/obj/item/cigarette,
