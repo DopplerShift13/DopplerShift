@@ -136,7 +136,7 @@
 
 		var/datum/power/power_datum = new power()
 
-		if(power_datum.blacklist.len && blacklist_check(power_datum))
+		if(power_datum.blacklist.len && blacklist_check(power_datum, user))
 			return TRUE
 
 		if(power_datum.required_powers.len && required_check(power_datum))
@@ -241,9 +241,10 @@
  * Checks if any of the user's learned powers are in a specific power's blacklist.
  */
 
-/datum/preference_middleware/powers/proc/blacklist_check(datum/power/power_check)
+/datum/preference_middleware/powers/proc/blacklist_check(datum/power/power_check, mob/user)
 	for(var/power_name in preferences.powers)
 		if(preferences.powers[power_name] in power_check.blacklist)
+			to_chat(user, span_boldwarning("[power_name] is in [power_check]'s blacklist!"))
 			return TRUE
 
 	return FALSE

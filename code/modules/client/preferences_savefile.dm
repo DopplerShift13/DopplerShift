@@ -309,7 +309,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	all_quirks = save_data?["all_quirks"]
-	/// DOPPLER SHIFT ADDITION BEGIN
+	// DOPPLER SHIFT ADDITION BEGIN
 	var/list/save_languages = SANITIZE_LIST(save_data?["languages"])
 	for(var/language in save_languages)
 		var/value = save_languages[language]
@@ -333,7 +333,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 		save_powers[power] = value
 
 	powers = save_powers
-	/// DOPPLER SHIFT ADDITION END
+	// DOPPLER SHIFT ADDITION END
 
 	//try to fix any outdated data if necessary
 	//preference updating will handle saving the updated data for us.
@@ -400,8 +400,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	save_data["all_quirks"] = all_quirks
-	save_data["languages"] = languages /// DOPPLER SHIFT ADDITION - we might want to migrate this
-	save_data["alt_job_titles"] = alt_job_titles /// DOPPLER SHIFT ADDITION: alt job titles
+	save_data["languages"] = languages // DOPPLER SHIFT ADDITION - we might want to migrate this
+	save_data["alt_job_titles"] = alt_job_titles // DOPPLER SHIFT ADDITION: alt job titles
 	save_data["powers"] = powers // dopplor powerz :3c
 
 	return TRUE

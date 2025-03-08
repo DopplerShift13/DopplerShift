@@ -7,6 +7,7 @@
 	cost = 5
 	root_power = /datum/power/paracausal
 	power_type = TRAIT_PATH_SUBTYPE_PSYKER
+	blacklist = list(/datum/power/astral_dantian, /datum/power/umbral_dantian)
 
 /obj/item/organ/resonant/paracausal
 	name = "paracausal gland"
