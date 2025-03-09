@@ -1,4 +1,4 @@
-// THIS IS A NOVA SECTOR UI FILE
+// THIS IS A DOPPLER SHIFT UI FILE
 import { FeatureChoiced } from '../../base';
 import { FeatureDropdownInput } from '../../dropdowns';
 
