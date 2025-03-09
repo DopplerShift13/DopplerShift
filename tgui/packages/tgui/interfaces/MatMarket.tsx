@@ -93,10 +93,10 @@ export const MatMarket = (props) => {
           <Section>
             <Stack>
               <Stack.Item width="15%">
-                Balance: <b>{formatMoney(creditBalance)}</b> cr.
+                Balance: <b>{formatMoney(creditBalance)}</b> ♎︎.
               </Stack.Item>
               <Stack.Item width="15%">
-                Order: <b>{formatMoney(orderBalance)}</b> cr.
+                Order: <b>{formatMoney(orderBalance)}</b> ♎︎.
               </Stack.Item>
               <Stack.Item
                 width="20%"
@@ -134,7 +134,7 @@ export const MatMarket = (props) => {
                     </Stack.Item>
 
                     <Stack.Item width="15%" pr="2%">
-                      Trading at <b>{formatMoney(material.price)}</b> cr.
+                      Trading at <b>{formatMoney(material.price)}</b> ♎︎.
                     </Stack.Item>
                     {material.price < material.threshold ? (
                       <Stack.Item width="33%" ml={2} textColor="grey">

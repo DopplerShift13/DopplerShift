@@ -93,20 +93,14 @@ export const SlotMachine = (props) => {
       >
         <Section style={{ textAlign: 'left' }}>
           <p>
-            Only <b>{cost}</b> credit{pluralS(cost)} for a chance to win big!
+            Only <b>{cost}</b> ♎︎ for a chance to win big!
           </p>
           <p>
-            Available prize money:{' '}
-            <b>
-              {money} credit{pluralS(money)}
-            </b>{' '}
+            Available prize money: <b>{money} ♎︎</b>{' '}
           </p>
           {paymode === 1 && (
             <p>
-              Current jackpot:{' '}
-              <b>
-                {money + jackpot} credit{pluralS(money + jackpot)}!
-              </b>
+              Current jackpot: <b>{money + jackpot}♎︎ !</b>
             </p>
           )}
           <p>
