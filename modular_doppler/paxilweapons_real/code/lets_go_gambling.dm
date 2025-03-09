@@ -11,6 +11,9 @@
 /obj/structure/mystery_box/gun_gambling/generate_valid_types()
 	valid_types = subtypesof(/obj/effect/spawner/gambling_guns)
 
+/obj/structure/mystery_box/gun_gambling/handle_deconstruct(disassembled)
+	return
+
 // Cargo stuff
 
 /datum/supply_pack/goody/thermal_single

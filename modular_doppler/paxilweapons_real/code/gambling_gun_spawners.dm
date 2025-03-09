@@ -1,4 +1,6 @@
 /obj/effect/spawner/gambling_guns
+	icon = 'modular_doppler/epic_loot/icons/loot_structures.dmi'
+	icon_state = "ammo_box_random"
 	var/list/items_to_spawn = list()
 	var/random_suppressor = FALSE
 
