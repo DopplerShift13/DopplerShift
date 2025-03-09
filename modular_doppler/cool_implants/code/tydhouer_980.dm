@@ -15,7 +15,7 @@
 
 /obj/item/ammo_casing/c980grenade/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
 	var/obj/item/gun/ballistic/shotgun/shell_launcher/firing_launcher = fired_from
-	if(istype(firing_launcher))
+	if(istype(firing_launcher) || istype(firing_launcher, /obj/item/gun/ballistic/automatic/sol_grenade_launcher))
 		loaded_projectile.range = firing_launcher.target_range
 	else
 		loaded_projectile.range = 7
