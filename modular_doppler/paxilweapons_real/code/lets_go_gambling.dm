@@ -19,6 +19,9 @@
 /datum/supply_pack/goody/thermal_single
 	special = TRUE
 
+/datum/supply_pack/security/armory/thermal
+	special = TRUE
+
 /datum/supply_pack/security/armory/gambling
 	name = "Sealed Arms Crate Crate"
 	desc = "We ship you a crate inside of a crate, and we don't tell you what's inside either of them! \
