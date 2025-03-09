@@ -1,7 +1,8 @@
 /obj/structure/mystery_box/gun_gambling
 	name = "sealed arms crate"
 	desc = "A mysterious crate wrapped in dull gold, rumored to be sealed for 10000 years. Who knows what you'll find within?"
-	icon_state = "treasure"
+	icon = 'modular_doppler/paxilweapons_real/icons/gambling.dmi'
+	icon_state = "gambling"
 	uses_left = 1
 	pixel_y = 0
 	grant_extra_mag = FALSE
