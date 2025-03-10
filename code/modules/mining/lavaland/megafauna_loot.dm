@@ -1269,8 +1269,9 @@
 	for(var/obj/item/organ/organ as anything in carb_owner.organs)
 		if(organ.organ_flags & ORGAN_EXTERNAL)
 			continue
-		if(!IS_ROBOTIC_ORGAN(organ) && !istype(organ, /obj/item/organ/tongue)) //tongues are not in the exosuit fab and nobody is going to bother to find them so
-			return FALSE
+//		if(!IS_ROBOTIC_ORGAN(organ) && !istype(organ, /obj/item/organ/tongue)) //tongues are not in the exosuit fab and nobody is going to bother to find them so
+//			return FALSE
+// doppler edit, commented out
 
 /obj/item/organ/brain/cybernetic/ai/proc/on_organ_gain(datum/source, obj/item/organ/new_organ, special)
 	SIGNAL_HANDLER
