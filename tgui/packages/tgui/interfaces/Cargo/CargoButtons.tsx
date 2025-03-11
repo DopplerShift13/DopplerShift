@@ -24,7 +24,7 @@ export function CargoCartButtons(props) {
         {amount === 0 && 'Cart is empty'}
         {amount === 1 && '1 item'}
         {amount >= 2 && amount + ' items'}{' '}
-        {total > 0 && `(${formatMoney(total)} cr)`}
+        {total > 0 && `(${formatMoney(total)} ♎︎)`}
       </Box>
 
       <Button

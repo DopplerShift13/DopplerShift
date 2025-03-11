@@ -216,6 +216,7 @@ GLOBAL_LIST_INIT(WALLITEMS_EXTERIOR, typecacheof(list(
 GLOBAL_LIST_INIT(allowed_money, typecacheof(list(
 	/obj/item/coin,
 	/obj/item/holochip,
+	/obj/item/libre/bundle, //DOPPLER EDIT: adds libre to the list
 	/obj/item/stack/spacecash,
 )))
 

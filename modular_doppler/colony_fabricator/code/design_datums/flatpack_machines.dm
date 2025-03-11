@@ -25,6 +25,7 @@
 		"flatpack_ore_silo",
 		"flatpack_turbine_team_fortress_two",
 		"flatpack_bootleg_teg",
+		"flatpack_wall_atm",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = 50000000000000) // God save you
 	hidden = TRUE
@@ -264,6 +265,24 @@
 		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
 	)
 	construction_time = 2 MINUTES
+
+// more atms. more money, more problems
+
+/datum/design/flatpack_wall_atm
+	name = "Flat-Packed AutoBank Terminal"
+	desc = "A deployable ATM, for local currency transfers."
+	id = "flatpack_wall_atm"
+	build_type = COLONY_FABRICATOR
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+	)
+	build_path = /obj/item/wallframe/atm_wallmount
+	category = list(
+		RND_CATEGORY_INITIAL,
+		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_MATERIALS,
+	)
+	construction_time = 20 SECONDS
 
 #undef FABRICATOR_CATEGORY_FLATPACK_MACHINES
 #undef FABRICATOR_SUBCATEGORY_MANUFACTURING
