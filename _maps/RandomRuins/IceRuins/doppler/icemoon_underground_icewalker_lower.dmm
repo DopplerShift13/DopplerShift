@@ -42,6 +42,10 @@
 /mob/living/basic/cow/yak,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"bK" = (
+/obj/structure/flora/ash/seraka,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "bW" = (
 /obj/structure/railing/wooden_fencing/gate,
 /turf/open/misc/sandy_dirt/icemoon,
@@ -342,10 +346,6 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
-"iH" = (
-/obj/structure/flora/rock/style_random,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
 "ja" = (
 /obj/structure/spacevine{
 	name = "thick vines";
@@ -377,6 +377,11 @@
 	},
 /obj/item/food/rootdough,
 /turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"kq" = (
+/obj/structure/railing/wooden_fencing,
+/obj/item/flashlight/lantern/on,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "kO" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -636,11 +641,6 @@
 /obj/item/pillow,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
-"qg" = (
-/obj/structure/railing/wooden_fencing,
-/obj/item/flashlight/lantern/on,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
 "qs" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -706,7 +706,7 @@
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "sc" = (
-/obj/structure/flora/ash/seraka,
+/obj/structure/flora/rock/style_random,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "sh" = (
@@ -864,7 +864,6 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "xi" = (
-/obj/structure/table/wood,
 /obj/structure/table/wood,
 /obj/item/reagent_containers/cup/glass/trophy{
 	pixel_y = 7
@@ -1146,16 +1145,6 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
 	},
-/turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"DH" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 1
-	},
-/obj/structure/water_source/puddle,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "DR" = (
@@ -1625,10 +1614,16 @@
 /obj/structure/flora/bush/flowers_br/style_random,
 /turf/open/floor/grass/fairy/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"Oa" = (
+/obj/structure/flora/bush/flowers_br/style_random,
+/turf/open/floor/grass/fairy/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "Oc" = (
-/obj/structure/table/wood,
-/obj/structure/table/wood,
-/turf/open/floor/stone/icemoon,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/structure/fluff/minepost,
+/turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "OB" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -1877,10 +1872,6 @@
 /obj/structure/wall_torch/spawns_lit/directional/east,
 /turf/open/floor/wood/parquet,
 /area/ruin/unpowered/primitive_genemod_den)
-"TF" = (
-/obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/floor/grass/fairy/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
 "TU" = (
 /obj/structure/railing/wooden_fencing{
 	dir = 8
@@ -1906,6 +1897,16 @@
 	pixel_x = 4
 	},
 /turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"UD" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 1
+	},
+/obj/structure/water_source/puddle,
+/turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "UN" = (
 /obj/structure/flora/bush/snow/style_random,
@@ -2035,13 +2036,6 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 8
 	},
-/turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"Yp" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 5
-	},
-/obj/structure/fluff/minepost,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "YH" = (
@@ -2202,7 +2196,7 @@ KQ
 KQ
 yr
 yr
-iH
+sc
 Gb
 Gb
 Gb
@@ -2723,7 +2717,7 @@ Gb
 pj
 fK
 Qp
-Oc
+MR
 MR
 Qn
 kV
@@ -3062,7 +3056,7 @@ Gb
 Gb
 Gb
 Gb
-iH
+sc
 Gb
 Gb
 BT
@@ -3691,7 +3685,7 @@ Gb
 Gb
 Gb
 Gb
-qg
+kq
 uB
 uB
 uB
@@ -3832,7 +3826,7 @@ xs
 Bf
 PU
 Gb
-DH
+UD
 Gb
 EB
 eN
@@ -4162,7 +4156,7 @@ Gb
 Li
 KQ
 ds
-sc
+bK
 KQ
 KQ
 KQ
@@ -4319,10 +4313,10 @@ ll
 Gb
 DG
 su
-TF
+Oa
 su
 ym
-sc
+bK
 KQ
 KQ
 KQ
@@ -4373,7 +4367,7 @@ gz
 lK
 su
 ox
-TF
+Oa
 yP
 KQ
 yr
@@ -4422,7 +4416,7 @@ lW
 Li
 ES
 Gb
-Yp
+Oc
 Ep
 NW
 PU
