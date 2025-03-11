@@ -117,12 +117,20 @@
 	item_path = /obj/item/computer_disk/all_of_them
 
 /datum/loadout_item/pocket_items/london
-	name = "Switchblade"
-	item_path = /obj/item/switchblade
+	name = "Hunting Knife"
+	item_path = /obj/item/knife/hunting
 
 /datum/loadout_item/pocket_items/london_two
 	name = "Survival Knife"
 	item_path = /obj/item/knife/combat/survival
+
+/datum/loadout_item/pocket_items/etool
+	name = "Entrenching Tool"
+	item_path = /obj/item/trench_tool
+
+/datum/loadout_item/pocket_items/swisstool
+	name = "Spess Knife"
+	item_path = /obj/item/spess_knife
 
 /datum/loadout_item/pocket_items/injector_case
 	name = "Autoinjector Case"
@@ -196,6 +204,10 @@
 	name = "Gromit mug"
 	item_path = /obj/item/reagent_containers/cup/glass/mug/gromitmug
 
+/datum/loadout_item/pocket_items/pacification_chip
+	name = "Meditative Assistance pacification skillchip"
+	item_path = /obj/item/skillchip/pacification
+
 /*
 *	UTILITY
 */
@@ -267,3 +279,33 @@
 /datum/loadout_item/pocket_items/pocket_medpens_evil
 	name = "Colonial Medipen Pouch"
 	item_path = /obj/item/storage/pouch/cin_medipens
+
+// Job equipment straps
+
+/datum/loadout_item/pocket_items/generic_suit_strap
+	name = "Generic Equipment Strap"
+	item_path = /obj/item/job_equipment_strap
+
+/datum/loadout_item/pocket_items/service_suit_strap
+	name = "Service Equipment Strap"
+	item_path = /obj/item/job_equipment_strap/service
+
+/datum/loadout_item/pocket_items/medical_suit_strap
+	name = "Medical Equipment Strap"
+	item_path = /obj/item/job_equipment_strap/medical
+
+/datum/loadout_item/pocket_items/engineering_suit_strap
+	name = "Engineering Equipment Strap"
+	item_path = /obj/item/job_equipment_strap/engineering
+
+/datum/loadout_item/pocket_items/science_suit_strap
+	name = "Science Equipment Strap"
+	item_path = /obj/item/job_equipment_strap/science
+
+/datum/loadout_item/pocket_items/supply_suit_strap
+	name = "Supply Equipment Strap"
+	item_path = /obj/item/job_equipment_strap/supply
+
+/datum/loadout_item/pocket_items/security_suit_strap
+	name = "Security Equipment Strap"
+	item_path = /obj/item/job_equipment_strap/security

@@ -1,0 +1,10 @@
+{
+	"thick_collar": [
+		{
+			"type": "icon_state",
+			"icon_state": "thick_collar_mob",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

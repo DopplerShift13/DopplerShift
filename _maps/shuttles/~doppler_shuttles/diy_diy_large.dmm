@@ -169,7 +169,9 @@
 /area/shuttle/personally_bought/do_it_yourself_large)
 "kA" = (
 /obj/structure/railing/eva_handhold/directional/north,
-/obj/item/tether_anchor,
+/obj/item/tether_anchor{
+	anchored = 1
+	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "lf" = (
@@ -206,7 +208,11 @@
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "nD" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought,
+/obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought{
+	x_offset = -5;
+	y_offset = -5;
+	view_range = 4
+	},
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
@@ -249,6 +255,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/machinery/light/warm/directional/south,
+/obj/machinery/space_heater/wall_mounted/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "rq" = (
@@ -290,6 +297,7 @@
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/machinery/recharge_station,
+/obj/machinery/space_heater/wall_mounted/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "uw" = (
@@ -321,6 +329,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
+/obj/machinery/space_heater/wall_mounted/directional/north,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "xh" = (
@@ -429,7 +438,12 @@
 	dir = 1
 	},
 /obj/structure/closet/firecloset/full,
+/obj/machinery/space_heater/wall_mounted/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_large)
+"CL" = (
+/obj/machinery/space_heater/wall_mounted/directional/east,
+/turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "DD" = (
 /obj/machinery/power/shuttle_engine/propulsion{
@@ -447,7 +461,9 @@
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "DJ" = (
-/obj/item/tether_anchor,
+/obj/item/tether_anchor{
+	anchored = 1
+	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "DU" = (
@@ -532,12 +548,16 @@
 "HS" = (
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/suit_storage_unit/industrial/personal_shuttle,
+/obj/machinery/space_heater/wall_mounted/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Ir" = (
 /obj/structure/railing,
 /obj/effect/turf_decal/tile/dark/half/contrasted,
 /obj/machinery/light/cold/directional/west,
+/obj/structure/closet/crate/science/robo,
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp,
+/obj/item/mecha_parts/mecha_equipment/weapon/energy/mecha_kineticgun,
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Iu" = (
@@ -576,6 +596,7 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/structure/rack,
 /obj/effect/turf_decal/bot_white,
+/obj/item/mecha_parts/mecha_equipment/thrusters/ion,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "KV" = (
@@ -642,6 +663,10 @@
 /obj/effect/mapping_helpers/airalarm/all_access,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
+"OZ" = (
+/obj/machinery/space_heater/wall_mounted/directional/west,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_large)
 "Pk" = (
 /obj/machinery/porta_turret/centcom_shuttle/weak{
 	dir = 4
@@ -678,6 +703,7 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/space_heater/wall_mounted/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "QN" = (
@@ -798,6 +824,13 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
+"ZM" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/effect/landmark/ship_captain_spawner,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_large)
 
 (1,1,1) = {"
 xW
@@ -908,7 +941,7 @@ MV
 ZL
 bN
 zC
-Mo
+CL
 ju
 Yd
 ew
@@ -1039,7 +1072,7 @@ sI
 Yd
 Mo
 Kh
-Mo
+OZ
 Yd
 ew
 xh
@@ -1051,7 +1084,7 @@ bX
 pq
 Fu
 Eg
-Eg
+ZM
 Eg
 Eg
 Eg

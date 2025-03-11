@@ -415,8 +415,8 @@
 		|| !ishuman(burn_living) \
 		|| HAS_TRAIT(burn_living, TRAIT_NODISMEMBER) \
 		|| HAS_TRAIT(burn_living, TRAIT_NO_PLASMA_TRANSFORM) \
-		|| SPT_PROB(65, seconds_per_tick) \
-	)
+		|| SPT_PROB(99, seconds_per_tick) \
+	) // DOPPLER EDIT: decrease the chance of plasmoid infection massively (original: SPT_PROB(65)
 		return
 
 	var/mob/living/carbon/human/burn_human = burn_living
@@ -434,7 +434,7 @@
 
 	if(length(transform_parts))
 		var/obj/item/bodypart/burn_limb = pick_n_take(transform_parts)
-		burn_human.emote("scream")
+		burn_human.painful_scream() // DOPPLER EDIT: check for painkilling before screaming
 		var/obj/item/bodypart/plasmalimb
 		switch(burn_limb.body_zone) //get plasmaman limb to swap in
 			if(BODY_ZONE_L_ARM)
@@ -452,7 +452,7 @@
 
 		burn_human.del_and_replace_bodypart(plasmalimb, special = TRUE)
 		burn_human.update_body_parts()
-		burn_human.emote("scream")
+		burn_human.painful_scream() // DOPPLER EDIT: check for painkilling before screaming
 		burn_human.visible_message(span_warning("[burn_human]'s [burn_limb.plaintext_zone] melts down to the bone!"), \
 			span_userdanger("You scream out in pain as your [burn_limb.plaintext_zone] melts down to the bone, held together only by strands of purple fungus!"))
 

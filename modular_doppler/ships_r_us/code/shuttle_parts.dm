@@ -30,6 +30,9 @@
 	)
 
 /obj/docking_port/mobile/personally_bought/canDock(obj/docking_port/stationary/stationary_dock)
+	if(!stationary_dock)
+		return SHUTTLE_CAN_DOCK
+
 	if(!istype(stationary_dock))
 		return SHUTTLE_NOT_A_DOCKING_PORT
 
@@ -73,13 +76,37 @@
 	desc = "Used to control the ship its currently in, ideally."
 	circuit = /obj/item/circuitboard/computer/personally_bought
 	shuttleId = "shuttle_personal"
-	possible_destinations = "whiteship_away;whiteship_home;whiteship_z4;whiteship_waystation;whiteship_lavaland;personal_ship_custom"
+	possible_destinations = "whiteship_away;whiteship_home;whiteship_z4;whiteship_waystation;whiteship_lavaland;personal_ship_custom;monestary_dock"
 	/// What our GPS tag name is
 	var/shuttle_gps_tag = "Shuttle Homing Beacon"
 
 /obj/machinery/computer/shuttle/personally_bought/Initialize(mapload, obj/item/circuitboard/C)
 	. = ..()
 	AddComponent(/datum/component/gps, shuttle_gps_tag)
+
+/obj/machinery/computer/shuttle/personally_bought/get_valid_destinations()
+	var/list/destination_list = params2list(possible_destinations)
+	var/obj/docking_port/mobile/mobile_docking_port = SSshuttle.getShuttle(shuttleId)
+	var/obj/docking_port/stationary/current_destination = mobile_docking_port.destination
+	var/list/valid_destinations = list()
+	for(var/obj/docking_port/stationary/stationary_docking_port in SSshuttle.stationary_docking_ports)
+		if(!destination_list.Find(stationary_docking_port.port_destinations))
+			continue
+		if(!mobile_docking_port.check_dock(stationary_docking_port, silent = TRUE))
+			continue
+		if(stationary_docking_port == current_destination)
+			continue
+		var/list/location_data = list(
+			id = stationary_docking_port.shuttle_id,
+			name = stationary_docking_port.name
+		)
+		valid_destinations += list(location_data)
+	var/list/null_location_data = list( // DOPPLER ADDITION START
+		id = "infinite_transit_super_hell",
+		name = "Infinite Transit",
+	)
+	valid_destinations += list(null_location_data) // DOPPLER ADDITION END
+	return valid_destinations
 
 /obj/machinery/computer/shuttle/personally_bought/mothership
 	name = "Mothership Control Console"
@@ -95,7 +122,7 @@
 	shuttleId = "shuttle_personal"
 	lock_override = NONE
 	shuttlePortId = "personal_ship_custom"
-	jump_to_ports = list("whiteship_away" = 1, "whiteship_home" = 1, "whiteship_z4" = 1, "whiteship_waystation" = 1)
+	jump_to_ports = list("whiteship_away" = 1, "whiteship_home" = 1, "whiteship_z4" = 1, "whiteship_waystation" = 1, "monestary_dock" = 1)
 	designate_time = 5 SECONDS
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought/mothership
