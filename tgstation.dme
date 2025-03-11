@@ -6812,6 +6812,7 @@
 #include "modular_doppler\hearthkin\primitive_structures\code\wall_torch.dm"
 #include "modular_doppler\hearthkin\primitive_structures\code\windows.dm"
 #include "modular_doppler\hearthkin\primitive_structures\code\wooden_ladder.dm"
+#include "modular_doppler\hearthkin\primmie_agriculture\yak.dm"
 #include "modular_doppler\hearthkin\tribal_extended\code\crafting.dm"
 #include "modular_doppler\hearthkin\tribal_extended\code\recipes.dm"
 #include "modular_doppler\hearthkin\tribal_extended\code\ammo\caseless\arrow.dm"
