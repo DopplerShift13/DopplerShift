@@ -534,6 +534,13 @@
 	pixel_y = -5;
 	pixel_x = 5
 	},
+/obj/item/climbing_hook,
+/obj/item/climbing_hook{
+	pixel_x = -5
+	},
+/obj/item/climbing_hook{
+	pixel_x = 5
+	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "oR" = (
@@ -689,8 +696,9 @@
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "sc" = (
+/obj/structure/railing/wooden_fencing,
 /obj/item/flashlight/lantern/on,
-/turf/open/floor/wood/icemoon,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "sh" = (
 /obj/structure/chair/wood,
@@ -1081,11 +1089,11 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
 	},
+/obj/item/flashlight/lantern/on,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "CN" = (
 /obj/structure/table/wood,
-/obj/item/plate/ceramic,
 /obj/item/food/honey_roll{
 	pixel_y = 5
 	},
@@ -1111,6 +1119,7 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 4
 	},
+/obj/structure/wall_torch/spawns_lit/directional/north,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "Dc" = (
@@ -2380,7 +2389,7 @@ pj
 pj
 Gb
 Gb
-Gb
+ZI
 Gb
 Gb
 rQ
@@ -2583,7 +2592,7 @@ tq
 OL
 Qn
 kV
-CO
+kV
 Nf
 Qn
 VZ
@@ -2742,7 +2751,7 @@ kV
 kV
 pj
 CU
-sc
+kV
 kV
 ee
 mM
@@ -3058,7 +3067,7 @@ Gb
 Gb
 Gb
 Gb
-Gb
+ZI
 Qz
 le
 EN
@@ -3230,7 +3239,7 @@ ym
 Gb
 rQ
 ML
-ds
+Gb
 Gb
 SN
 BT
@@ -3505,7 +3514,7 @@ yr
 RK
 RK
 KQ
-Gb
+KQ
 "}
 (29,1,1) = {"
 Gb
@@ -3557,7 +3566,7 @@ yr
 RK
 RK
 KQ
-Gb
+KQ
 "}
 (30,1,1) = {"
 Gb
@@ -3609,7 +3618,7 @@ yr
 yr
 yr
 KQ
-Gb
+KQ
 "}
 (31,1,1) = {"
 Gb
@@ -3651,7 +3660,7 @@ Gb
 Gb
 Gb
 Gb
-QS
+sc
 uB
 uB
 uB
@@ -3660,8 +3669,8 @@ KQ
 yr
 RK
 KQ
-Gb
-Gb
+KQ
+KQ
 "}
 (32,1,1) = {"
 yr
@@ -3711,9 +3720,9 @@ uB
 KQ
 RK
 RK
-Gb
-Gb
-Gb
+KQ
+KQ
+KQ
 "}
 (33,1,1) = {"
 KQ
@@ -3763,9 +3772,9 @@ uB
 KQ
 RK
 RK
-Gb
-Gb
-Gb
+KQ
+KQ
+KQ
 "}
 (34,1,1) = {"
 KQ
@@ -3815,9 +3824,9 @@ uB
 KQ
 RK
 RK
-Gb
-Gb
-Gb
+KQ
+KQ
+KQ
 "}
 (35,1,1) = {"
 KQ
@@ -3867,9 +3876,9 @@ be
 KQ
 RK
 RK
-Gb
-Gb
-Gb
+KQ
+KQ
+KQ
 "}
 (36,1,1) = {"
 KQ
@@ -3919,9 +3928,9 @@ KQ
 KQ
 RK
 yr
-yr
-Gb
-Gb
+KQ
+KQ
+KQ
 "}
 (37,1,1) = {"
 KQ
@@ -3971,9 +3980,9 @@ KQ
 yr
 yr
 yr
-yr
-yr
-Gb
+KQ
+KQ
+KQ
 "}
 (38,1,1) = {"
 KQ
@@ -4023,9 +4032,9 @@ KQ
 yr
 yr
 yr
-yr
-yr
-Gb
+KQ
+KQ
+KQ
 "}
 (39,1,1) = {"
 yr
@@ -4076,8 +4085,8 @@ yr
 yr
 yr
 yr
-yr
-Gb
+KQ
+KQ
 "}
 (40,1,1) = {"
 KQ
@@ -4128,8 +4137,8 @@ KQ
 KQ
 KQ
 yr
-yr
-Gb
+KQ
+KQ
 "}
 (41,1,1) = {"
 KQ
@@ -4181,7 +4190,7 @@ ds
 KQ
 yr
 yr
-Gb
+KQ
 "}
 (42,1,1) = {"
 KQ
@@ -4233,7 +4242,7 @@ Ke
 KQ
 KQ
 yr
-Gb
+KQ
 "}
 (43,1,1) = {"
 KQ
@@ -4284,8 +4293,8 @@ su
 ym
 Gb
 KQ
-Gb
-yr
+KQ
+KQ
 "}
 (44,1,1) = {"
 KQ
@@ -4337,7 +4346,7 @@ su
 yP
 KQ
 yr
-yr
+KQ
 "}
 (45,1,1) = {"
 yr
@@ -4423,11 +4432,11 @@ Gb
 Gb
 yr
 yr
-yr
-yr
-yr
-yr
-yr
+KQ
+KQ
+KQ
+KQ
+KQ
 yr
 KQ
 KQ
@@ -4536,7 +4545,7 @@ KQ
 KQ
 Gb
 Gb
-Gb
+KQ
 yr
 yr
 yr
@@ -4588,11 +4597,11 @@ KQ
 Gb
 Gb
 Gb
-Gb
-Gb
-Gb
-Gb
-Gb
+KQ
+KQ
+KQ
+KQ
+KQ
 Gb
 Gb
 Gb

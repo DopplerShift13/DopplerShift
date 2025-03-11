@@ -36,6 +36,16 @@
 /obj/structure/flora/tree/pine/style_random,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"dj" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "dF" = (
 /obj/structure/table/wood,
 /turf/open/floor/stone/icemoon,
@@ -87,6 +97,16 @@
 /obj/structure/wall_torch/spawns_lit/directional/south,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"fB" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "fF" = (
 /obj/structure/rugs/pelt/black,
 /obj/structure/chair/wood{
@@ -113,6 +133,9 @@
 "hq" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"io" = (
+/turf/closed/mineral/snowmountain/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "iM" = (
 /obj/effect/turf_decal/weather/snow/corner,
@@ -142,6 +165,13 @@
 /obj/item/surgicaldrill/primitive,
 /obj/item/smelling_salts,
 /turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"lY" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "nX" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -274,6 +304,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
 	},
+/obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "EN" = (
@@ -329,6 +360,10 @@
 	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"JP" = (
+/obj/structure/flora/bush/snow/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "Ku" = (
 /obj/structure/table/wood,
 /obj/structure/large_mortar,
@@ -368,6 +403,14 @@
 	dir = 6
 	},
 /turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"LW" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"Mq" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "MZ" = (
 /obj/structure/railing/wooden_fencing{
@@ -411,6 +454,16 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"Sp" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "Sy" = (
 /obj/structure/railing/wooden_fencing{
 	dir = 1
@@ -435,6 +488,7 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
 	},
+/obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "UW" = (
@@ -473,33 +527,35 @@
 /area/ruin/unpowered/primitive_genemod_den)
 
 (1,1,1) = {"
-Xj
+io
+io
+io
+io
+io
+io
+Gd
+io
+io
+io
+Gd
+io
+io
+io
+Gd
+io
+io
+io
+io
+io
+io
+io
 Gd
 Gd
-Xj
-Xj
-Xj
 Gd
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+zj
+zj
 zj
 zj
 zj
@@ -511,30 +567,28 @@ zj
 zj
 zj
 zj
-zj
-zj
 Gd
 Gd
+io
+io
+io
+io
 Gd
-Gd
-zj
-zj
-Gd
-Gd
-zj
-zj
+io
+io
+io
 "}
 (2,1,1) = {"
+io
+io
+io
+io
 Gd
 Gd
 Gd
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Xj
+io
 Gd
 Xj
 TB
@@ -542,44 +596,44 @@ zj
 zj
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-zj
-zj
-Gd
+io
+io
+io
+io
+io
+io
+io
 Gd
 zj
 zj
-zj
+Gd
+Gd
 zj
 zj
 zj
 zj
 zj
 zj
+JP
+zj
+LW
 zj
 Gd
+io
+io
+io
+io
+io
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-zj
+io
+io
+io
+io
 "}
 (3,1,1) = {"
-Gd
-Gd
-Gd
+io
+io
+io
 Gd
 Gd
 Gd
@@ -596,10 +650,10 @@ CR
 zj
 zj
 Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
 Gd
 Gd
 zj
@@ -617,20 +671,20 @@ TO
 zj
 Gd
 Gd
+io
+io
+io
+io
+io
+io
 Gd
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-zj
+io
 "}
 (4,1,1) = {"
-Gd
-Gd
+io
+io
 Xj
 Xj
 Xj
@@ -664,25 +718,25 @@ zj
 zj
 zj
 zj
-tb
+dj
 dG
 zj
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
+io
+io
+io
 Gd
 "}
 (5,1,1) = {"
-Gd
-Gd
+io
+io
 Xj
 Xj
 Lk
@@ -721,19 +775,19 @@ zj
 pP
 zj
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
 "}
 (6,1,1) = {"
-Gd
+io
 Gd
 Xj
 Xj
@@ -761,7 +815,7 @@ Gd
 Gd
 Gd
 Gd
-pP
+Sp
 zj
 zj
 zj
@@ -775,17 +829,17 @@ zj
 zj
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
+io
 Gd
 "}
 (7,1,1) = {"
-Xj
+io
 Gd
 Xj
 Lk
@@ -828,13 +882,13 @@ zj
 zj
 zj
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
+io
 "}
 (8,1,1) = {"
 Xj
@@ -881,11 +935,11 @@ zj
 zj
 zj
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
 Gd
 "}
 (9,1,1) = {"
@@ -933,11 +987,11 @@ zj
 UJ
 Xc
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
 Gd
 "}
 (10,1,1) = {"
@@ -985,12 +1039,12 @@ zj
 zj
 Xc
 Gd
+io
+io
+io
+io
 Gd
-Gd
-Gd
-Gd
-Gd
-zj
+io
 "}
 (11,1,1) = {"
 Xj
@@ -1037,12 +1091,12 @@ zj
 zj
 zj
 Gd
+io
+io
+io
+io
 Gd
-Gd
-Gd
-Gd
-Gd
-zj
+io
 "}
 (12,1,1) = {"
 Xj
@@ -1090,9 +1144,9 @@ zj
 zj
 zj
 Gd
-Gd
-Gd
-Gd
+io
+io
+io
 Gd
 Gd
 "}
@@ -1139,12 +1193,12 @@ py
 zj
 zj
 zj
-zj
+JP
 Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
 Gd
 Gd
 "}
@@ -1193,11 +1247,11 @@ zj
 zj
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
 Gd
 "}
 (15,1,1) = {"
@@ -1245,11 +1299,11 @@ zj
 Gd
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
 Gd
 "}
 (16,1,1) = {"
@@ -1297,11 +1351,11 @@ Gd
 Gd
 Gd
 Gd
+io
+io
+io
 Gd
-Gd
-Gd
-Gd
-Gd
+io
 Gd
 "}
 (17,1,1) = {"
@@ -1352,8 +1406,8 @@ Gd
 Gd
 Gd
 Gd
-Gd
-Gd
+io
+io
 Gd
 "}
 (18,1,1) = {"
@@ -1404,8 +1458,8 @@ Xj
 Xj
 Gd
 Gd
-Gd
-Gd
+io
+io
 Gd
 "}
 (19,1,1) = {"
@@ -1458,7 +1512,7 @@ Gd
 Gd
 Gd
 Gd
-zj
+io
 "}
 (20,1,1) = {"
 Xj
@@ -1510,7 +1564,7 @@ Xj
 Gd
 Gd
 Gd
-zj
+io
 "}
 (21,1,1) = {"
 Xj
@@ -1561,7 +1615,7 @@ Xj
 Xj
 Gd
 Gd
-zj
+io
 Gd
 "}
 (22,1,1) = {"
@@ -1614,7 +1668,7 @@ Xj
 Gd
 Gd
 Gd
-Gd
+io
 "}
 (23,1,1) = {"
 Xj
@@ -1666,7 +1720,7 @@ Xj
 Gd
 Gd
 Gd
-Gd
+io
 "}
 (24,1,1) = {"
 Xj
@@ -1716,9 +1770,9 @@ Xj
 Xj
 Xj
 Gd
+io
 Gd
-Gd
-Gd
+io
 "}
 (25,1,1) = {"
 Xj
@@ -1770,7 +1824,7 @@ Gd
 Gd
 Gd
 Gd
-Gd
+io
 "}
 (26,1,1) = {"
 Xj
@@ -1821,7 +1875,7 @@ Xj
 Gd
 Gd
 Gd
-Gd
+io
 Gd
 "}
 (27,1,1) = {"
@@ -1872,9 +1926,9 @@ Gd
 Gd
 Gd
 Gd
-Gd
-Gd
-zj
+io
+io
+io
 "}
 (28,1,1) = {"
 Xj
@@ -1924,9 +1978,9 @@ Gd
 Gd
 Gd
 Gd
-Gd
-zj
-zj
+io
+io
+io
 "}
 (29,1,1) = {"
 Xj
@@ -1968,20 +2022,20 @@ Xj
 Xj
 El
 zj
+Mq
+Mq
 zj
-zj
-zj
-zj
+Mq
+io
 Gd
 Gd
-Gd
-Gd
-Gd
-zj
-zj
+io
+io
+io
+io
 "}
 (30,1,1) = {"
-Xj
+io
 Xj
 Xj
 Xj
@@ -2020,21 +2074,21 @@ Xj
 Xj
 TB
 zj
+Mq
 zj
 zj
 zj
-zj
+io
+io
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-zj
+io
+io
+io
+io
 "}
 (31,1,1) = {"
-Xj
-Xj
+io
+io
 Xj
 Xj
 Xj
@@ -2076,18 +2130,18 @@ zj
 zj
 zj
 zj
-zj
-Gd
-Gd
-Gd
-Gd
-zj
-zj
+LW
+io
+io
+io
+io
+io
+io
 "}
 (32,1,1) = {"
-Xj
-Xj
-Xj
+io
+io
+io
 Xj
 Xj
 Xj
@@ -2129,18 +2183,18 @@ zj
 CR
 zj
 zj
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
 "}
 (33,1,1) = {"
-Xj
-Xj
-Xj
-Xj
+io
+io
+io
+io
 Xj
 Xj
 Xj
@@ -2181,18 +2235,18 @@ zj
 zj
 zj
 zj
-Gd
-Gd
-Gd
-Gd
-Gd
-zj
+io
+io
+io
+io
+io
+io
 "}
 (34,1,1) = {"
-Xj
-Xj
-Xj
-Xj
+io
+io
+io
+io
 Xj
 Xj
 Xj
@@ -2232,19 +2286,19 @@ zj
 zj
 zj
 zj
-zj
+JP
 Gd
-Gd
-Gd
-Gd
-Gd
-zj
+io
+io
+io
+io
+io
 "}
 (35,1,1) = {"
-Xj
-Xj
-Xj
-Xj
+io
+io
+io
+io
 Xj
 Xj
 Xj
@@ -2283,19 +2337,19 @@ py
 zj
 zj
 zj
-zj
+Mq
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
 "}
 (36,1,1) = {"
-Xj
-Xj
-Xj
+io
+io
+io
 Xj
 Xj
 Xj
@@ -2337,17 +2391,17 @@ zj
 zj
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
 "}
 (37,1,1) = {"
-Xj
-Xj
-Xj
+io
+io
+io
 Xj
 Xj
 Lk
@@ -2390,16 +2444,16 @@ Gd
 Gd
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
 "}
 (38,1,1) = {"
-Xj
-Xj
-Xj
+io
+io
+io
 Xj
 Xj
 Lk
@@ -2445,13 +2499,13 @@ Gd
 Gd
 Gd
 Gd
-Gd
-zj
+io
+io
 "}
 (39,1,1) = {"
-Xj
-Xj
-Xj
+io
+io
+io
 Xj
 Xj
 Lk
@@ -2497,13 +2551,13 @@ aC
 Gd
 Gd
 Gd
-Gd
-zj
+io
+io
 "}
 (40,1,1) = {"
-Xj
-Xj
-Xj
+io
+io
+io
 Xj
 Xj
 Lk
@@ -2549,13 +2603,13 @@ LS
 zj
 Gd
 Gd
-Gd
-zj
+io
+io
 "}
 (41,1,1) = {"
-Xj
-Xj
-Xj
+io
+io
+io
 Xj
 Xj
 Lk
@@ -2602,11 +2656,11 @@ zj
 zj
 Gd
 Gd
-zj
+io
 "}
 (42,1,1) = {"
-Xj
-Xj
+io
+io
 Xj
 Xj
 Xj
@@ -2649,16 +2703,16 @@ zj
 zj
 Fx
 zu
-lq
+fB
 zj
 zj
-Gd
-Gd
-zj
+io
+io
+io
 "}
 (43,1,1) = {"
-Xj
-Xj
+io
+io
 Xj
 Xj
 Xj
@@ -2699,18 +2753,18 @@ zj
 zj
 nX
 EN
-LS
+lY
 zj
 zj
 zj
 zj
-Gd
-Gd
-zj
+io
+io
+io
 "}
 (44,1,1) = {"
-Xj
-Xj
+io
+io
 Xj
 Xj
 Xj
@@ -2754,15 +2808,15 @@ zj
 zj
 zj
 zj
+LW
 zj
-zj
-Gd
-Gd
-Gd
+io
+io
+io
 "}
 (45,1,1) = {"
-Xj
-Xj
+io
+io
 Xj
 Xj
 Xj
@@ -2808,13 +2862,13 @@ zj
 zj
 zj
 zj
-Gd
-Gd
-Gd
+io
+io
+io
 "}
 (46,1,1) = {"
-Xj
-Xj
+io
+io
 Xj
 Xj
 Xj
@@ -2860,11 +2914,14 @@ zj
 zj
 zj
 Gd
-Gd
-Gd
-Gd
+io
+io
+io
 "}
 (47,1,1) = {"
+io
+io
+io
 Xj
 Xj
 Xj
@@ -2890,11 +2947,8 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+io
+io
 iM
 Gd
 Gd
@@ -2912,11 +2966,15 @@ Gd
 Gd
 Gd
 Gd
-Gd
-Gd
+io
+io
 Gd
 "}
 (48,1,1) = {"
+io
+io
+io
+io
 Xj
 Xj
 Xj
@@ -2937,68 +2995,64 @@ Xj
 Xj
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Gd
-Gd
-Gd
-zj
-zj
-zj
-zj
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
 Gd
 Gd
 zj
+zj
+zj
+zj
+Gd
+Gd
+Gd
+Gd
+Gd
+Gd
+Gd
+Gd
+io
+io
+io
+io
+io
+io
 "}
 (49,1,1) = {"
+io
+io
+io
+io
+io
+io
 Xj
 Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
 Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
 zj
 zj
 zj
@@ -3011,38 +3065,38 @@ Gd
 Gd
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-Gd
+io
+io
+io
+io
+io
+io
+io
+io
 "}
 (50,1,1) = {"
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
-Xj
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
+io
 Gd
 Gd
 Gd
@@ -3062,13 +3116,13 @@ zj
 zj
 Gd
 Gd
-Gd
-Gd
-Gd
-Gd
-Gd
-zj
-zj
-zj
-zj
+io
+io
+io
+io
+io
+io
+io
+io
+io
 "}
