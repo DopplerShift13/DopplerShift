@@ -10,14 +10,25 @@
 /obj/structure/curtain/bounty,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"aV" = (
+/obj/structure/table/wood,
+/obj/item/paper/natural{
+	pixel_y = 3;
+	pixel_x = -2
+	},
+/obj/item/pen/charcoal,
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"bl" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"bK" = (
+/obj/structure/lamppost,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "bX" = (
-/obj/effect/turf_decal/siding/wood/corner{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 1
-	},
-/turf/open/floor/wood/icemoon,
+/turf/closed/mineral/snowmountain/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "cy" = (
 /obj/structure/rugs/pelt/black{
@@ -34,16 +45,6 @@
 	dir = 9
 	},
 /obj/structure/flora/tree/pine/style_random,
-/turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"dj" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 9
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 4
-	},
-/obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "dF" = (
@@ -97,16 +98,6 @@
 /obj/structure/wall_torch/spawns_lit/directional/south,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
-"fB" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 5
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 10
-	},
-/obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
 "fF" = (
 /obj/structure/rugs/pelt/black,
 /obj/structure/chair/wood{
@@ -130,12 +121,18 @@
 "fX" = (
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"gq" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/mortar,
+/obj/item/pestle{
+	pixel_y = -1;
+	pixel_x = -6
+	},
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "hq" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /turf/open/floor/wood/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"io" = (
-/turf/closed/mineral/snowmountain/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "iM" = (
 /obj/effect/turf_decal/weather/snow/corner,
@@ -144,6 +141,30 @@
 "iT" = (
 /obj/structure/wall_torch/spawns_lit/directional/west,
 /turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"iV" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"jD" = (
+/obj/structure/flora/bush/snow/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"kz" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 9
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "lq" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -166,13 +187,6 @@
 /obj/item/smelling_salts,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
-"lY" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
-/obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
 "nX" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 10
@@ -184,6 +198,27 @@
 	dir = 4
 	},
 /turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"pg" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_y = 15;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_y = 15;
+	pixel_x = 6
+	},
+/obj/item/ceramic/cup{
+	pixel_x = -6
+	},
+/obj/item/ceramic/cup{
+	pixel_x = 4
+	},
+/turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "py" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -199,6 +234,18 @@
 	dir = 9
 	},
 /turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"sh" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 5
+	},
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"so" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 9
+	},
+/turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "sq" = (
 /obj/structure/railing/wooden_fencing,
@@ -290,8 +337,29 @@
 	},
 /turf/open/openspace/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"CA" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/bottle{
+	pixel_y = 10
+	},
+/obj/item/reagent_containers/cup/glass/bottle{
+	pixel_y = 6;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/cup/glass/bottle{
+	pixel_y = 6;
+	pixel_x = -6
+	},
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "CR" = (
 /obj/structure/flora/tree/pine/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"DZ" = (
+/obj/structure/lamppost{
+	dir = 8
+	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "El" = (
@@ -334,6 +402,22 @@
 "Gd" = (
 /turf/closed/mineral/snowmountain/cavern/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"Gf" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"GH" = (
+/obj/structure/chair/wood{
+	dir = 4
+	},
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"GI" = (
+/obj/effect/turf_decal/siding/wood/corner{
+	dir = 1
+	},
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "GR" = (
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/effect/turf_decal/siding/wood{
@@ -343,6 +427,15 @@
 /area/ruin/unpowered/primitive_genemod_den)
 "HM" = (
 /obj/item/pillow,
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"HN" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 1
+	},
+/obj/structure/chair/wood{
+	dir = 1
+	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "HP" = (
@@ -359,10 +452,6 @@
 	dir = 4
 	},
 /turf/open/floor/wood/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"JP" = (
-/obj/structure/flora/bush/snow/style_random,
-/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "Ku" = (
 /obj/structure/table/wood,
@@ -403,14 +492,6 @@
 	dir = 6
 	},
 /turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"LW" = (
-/obj/structure/flora/rock/pile/icy/style_random,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"Mq" = (
-/obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "MZ" = (
 /obj/structure/railing/wooden_fencing{
@@ -454,16 +535,6 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
-"Sp" = (
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 6
-	},
-/obj/effect/turf_decal/weather/snow/corner{
-	dir = 9
-	},
-/obj/structure/flora/bush/sparsegrass/style_random,
-/turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
 "Sy" = (
 /obj/structure/railing/wooden_fencing{
 	dir = 1
@@ -497,6 +568,13 @@
 	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"VY" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 6
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "Xc" = (
 /obj/structure/stairs/stone,
 /turf/open/misc/asteroid/snow/icemoon,
@@ -525,35 +603,45 @@
 	},
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"ZB" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 
 (1,1,1) = {"
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
-io
-io
-io
+bX
+bX
+bX
 Gd
-io
-io
-io
+bX
+bX
+bX
 Gd
-io
-io
-io
-io
-io
-io
-io
-Gd
-Gd
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
 Gd
 Gd
+Gd
+Gd
 zj
 zj
 zj
@@ -569,26 +657,26 @@ zj
 zj
 Gd
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Gd
-io
-io
-io
+bX
+bX
+bX
 "}
 (2,1,1) = {"
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Gd
 Gd
 Gd
 Gd
 Gd
-io
+bX
 Gd
 Xj
 TB
@@ -596,13 +684,13 @@ zj
 zj
 Gd
 Gd
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
 zj
 zj
@@ -614,26 +702,26 @@ zj
 zj
 zj
 zj
-JP
+jD
 zj
-LW
+Gf
 zj
 Gd
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 "}
 (3,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Gd
 Gd
 Gd
@@ -650,10 +738,10 @@ CR
 zj
 zj
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Gd
 Gd
 zj
@@ -671,21 +759,21 @@ TO
 zj
 Gd
 Gd
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
 Gd
 Gd
-io
+bX
 "}
 (4,1,1) = {"
-io
-io
-Xj
+bX
+bX
+bX
 Xj
 Xj
 Lk
@@ -718,25 +806,25 @@ zj
 zj
 zj
 zj
-dj
+kz
 dG
 zj
 Gd
 Gd
-io
-io
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
 "}
 (5,1,1) = {"
-io
-io
+bX
+bX
 Xj
 Xj
 Lk
@@ -775,19 +863,19 @@ zj
 pP
 zj
 Gd
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (6,1,1) = {"
-io
+bX
 Gd
 Xj
 Xj
@@ -815,7 +903,7 @@ Gd
 Gd
 Gd
 Gd
-Sp
+iV
 zj
 zj
 zj
@@ -829,17 +917,17 @@ zj
 zj
 Gd
 Gd
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
 "}
 (7,1,1) = {"
-io
+bX
 Gd
 Xj
 Lk
@@ -882,16 +970,16 @@ zj
 zj
 zj
 Gd
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (8,1,1) = {"
-Xj
+bX
 Xj
 Xj
 Lk
@@ -933,13 +1021,13 @@ El
 zj
 zj
 zj
-zj
+bK
 Gd
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
 Gd
 "}
 (9,1,1) = {"
@@ -987,11 +1075,11 @@ zj
 UJ
 Xc
 Gd
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
 Gd
 "}
 (10,1,1) = {"
@@ -1039,12 +1127,12 @@ zj
 zj
 Xc
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Gd
-io
+bX
 "}
 (11,1,1) = {"
 Xj
@@ -1091,12 +1179,12 @@ zj
 zj
 zj
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Gd
-io
+bX
 "}
 (12,1,1) = {"
 Xj
@@ -1107,8 +1195,8 @@ Lk
 Ih
 lB
 OC
-UW
-fX
+sh
+od
 fX
 fX
 Ih
@@ -1144,9 +1232,9 @@ zj
 zj
 zj
 Gd
-io
-io
-io
+bX
+bX
+bX
 Gd
 Gd
 "}
@@ -1159,8 +1247,8 @@ Lk
 Ih
 aG
 OC
+pg
 UW
-fX
 fX
 fX
 Nz
@@ -1193,12 +1281,12 @@ py
 zj
 zj
 zj
-JP
+jD
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Gd
 Gd
 "}
@@ -1211,8 +1299,8 @@ Lk
 Ih
 fW
 OC
+gq
 UW
-fX
 fX
 fX
 Nz
@@ -1247,11 +1335,11 @@ zj
 zj
 Gd
 Gd
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
 Gd
 "}
 (15,1,1) = {"
@@ -1263,8 +1351,8 @@ Lk
 Ih
 aG
 OC
+CA
 UW
-fX
 fX
 fX
 Ih
@@ -1299,11 +1387,11 @@ zj
 Gd
 Gd
 Gd
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
 Gd
 "}
 (16,1,1) = {"
@@ -1315,8 +1403,8 @@ Lk
 Ih
 dM
 OC
+OC
 UW
-fX
 cy
 Pr
 Ih
@@ -1351,11 +1439,11 @@ Gd
 Gd
 Gd
 Gd
-io
-io
-io
+bX
+bX
+bX
 Gd
-io
+bX
 Gd
 "}
 (17,1,1) = {"
@@ -1367,8 +1455,8 @@ Lk
 Ih
 Ku
 OC
-bX
-fX
+OC
+UW
 HM
 fX
 Ih
@@ -1406,8 +1494,8 @@ Gd
 Gd
 Gd
 Gd
-io
-io
+bX
+bX
 Gd
 "}
 (18,1,1) = {"
@@ -1419,8 +1507,8 @@ Lk
 Ih
 LP
 OC
+GH
 UW
-fX
 fX
 fX
 Ih
@@ -1458,8 +1546,8 @@ Xj
 Xj
 Gd
 Gd
-io
-io
+bX
+bX
 Gd
 "}
 (19,1,1) = {"
@@ -1471,8 +1559,8 @@ Lk
 Ih
 uG
 OC
-UW
-fX
+aV
+HN
 fX
 fX
 Nz
@@ -1512,7 +1600,7 @@ Gd
 Gd
 Gd
 Gd
-io
+bX
 "}
 (20,1,1) = {"
 Xj
@@ -1523,8 +1611,8 @@ Lk
 Ih
 dF
 OC
-UW
-fX
+so
+GI
 fX
 fX
 Nz
@@ -1564,7 +1652,7 @@ Xj
 Gd
 Gd
 Gd
-io
+bX
 "}
 (21,1,1) = {"
 Xj
@@ -1615,7 +1703,7 @@ Xj
 Xj
 Gd
 Gd
-io
+bX
 Gd
 "}
 (22,1,1) = {"
@@ -1668,7 +1756,7 @@ Xj
 Gd
 Gd
 Gd
-io
+bX
 "}
 (23,1,1) = {"
 Xj
@@ -1720,7 +1808,7 @@ Xj
 Gd
 Gd
 Gd
-io
+bX
 "}
 (24,1,1) = {"
 Xj
@@ -1770,9 +1858,9 @@ Xj
 Xj
 Xj
 Gd
-io
+bX
 Gd
-io
+bX
 "}
 (25,1,1) = {"
 Xj
@@ -1824,7 +1912,7 @@ Gd
 Gd
 Gd
 Gd
-io
+bX
 "}
 (26,1,1) = {"
 Xj
@@ -1875,7 +1963,7 @@ Xj
 Gd
 Gd
 Gd
-io
+bX
 Gd
 "}
 (27,1,1) = {"
@@ -1926,9 +2014,9 @@ Gd
 Gd
 Gd
 Gd
-io
-io
-io
+bX
+bX
+bX
 "}
 (28,1,1) = {"
 Xj
@@ -1978,9 +2066,9 @@ Gd
 Gd
 Gd
 Gd
-io
-io
-io
+bX
+bX
+bX
 "}
 (29,1,1) = {"
 Xj
@@ -2022,20 +2110,20 @@ Xj
 Xj
 El
 zj
-Mq
-Mq
+bl
+bl
 zj
-Mq
-io
+bl
+bX
 Gd
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 "}
 (30,1,1) = {"
-io
+bX
 Xj
 Xj
 Xj
@@ -2074,21 +2162,21 @@ Xj
 Xj
 TB
 zj
-Mq
+bl
 zj
 zj
 zj
-io
-io
+bX
+bX
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 "}
 (31,1,1) = {"
-io
-io
+bX
+bX
 Xj
 Xj
 Xj
@@ -2130,18 +2218,18 @@ zj
 zj
 zj
 zj
-LW
-io
-io
-io
-io
-io
-io
+Gf
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (32,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Xj
 Xj
 Xj
@@ -2183,18 +2271,18 @@ zj
 CR
 zj
 zj
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (33,1,1) = {"
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Xj
 Xj
 Xj
@@ -2235,18 +2323,18 @@ zj
 zj
 zj
 zj
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (34,1,1) = {"
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Xj
 Xj
 Xj
@@ -2286,19 +2374,19 @@ zj
 zj
 zj
 zj
-JP
+jD
 Gd
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
 "}
 (35,1,1) = {"
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Xj
 Xj
 Xj
@@ -2337,19 +2425,19 @@ py
 zj
 zj
 zj
-Mq
+bl
 Gd
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (36,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Xj
 Xj
 Xj
@@ -2391,17 +2479,17 @@ zj
 zj
 Gd
 Gd
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (37,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Xj
 Xj
 Lk
@@ -2444,16 +2532,16 @@ Gd
 Gd
 Gd
 Gd
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
 "}
 (38,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Xj
 Xj
 Lk
@@ -2499,13 +2587,13 @@ Gd
 Gd
 Gd
 Gd
-io
-io
+bX
+bX
 "}
 (39,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Xj
 Xj
 Lk
@@ -2551,13 +2639,13 @@ aC
 Gd
 Gd
 Gd
-io
-io
+bX
+bX
 "}
 (40,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Xj
 Xj
 Lk
@@ -2600,16 +2688,16 @@ Gd
 zu
 EL
 LS
-zj
+bK
 Gd
 Gd
-io
-io
+bX
+bX
 "}
 (41,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Xj
 Xj
 Lk
@@ -2656,11 +2744,11 @@ zj
 zj
 Gd
 Gd
-io
+bX
 "}
 (42,1,1) = {"
-io
-io
+bX
+bX
 Xj
 Xj
 Xj
@@ -2703,16 +2791,16 @@ zj
 zj
 Fx
 zu
-fB
+ZB
 zj
 zj
-io
-io
-io
+bX
+bX
+bX
 "}
 (43,1,1) = {"
-io
-io
+bX
+bX
 Xj
 Xj
 Xj
@@ -2753,18 +2841,18 @@ zj
 zj
 nX
 EN
-lY
+VY
 zj
 zj
 zj
 zj
-io
-io
-io
+bX
+bX
+bX
 "}
 (44,1,1) = {"
-io
-io
+bX
+bX
 Xj
 Xj
 Xj
@@ -2808,15 +2896,15 @@ zj
 zj
 zj
 zj
-LW
+Gf
 zj
-io
-io
-io
+bX
+bX
+bX
 "}
 (45,1,1) = {"
-io
-io
+bX
+bX
 Xj
 Xj
 Xj
@@ -2862,13 +2950,13 @@ zj
 zj
 zj
 zj
-io
-io
-io
+bX
+bX
+bX
 "}
 (46,1,1) = {"
-io
-io
+bX
+bX
 Xj
 Xj
 Xj
@@ -2914,14 +3002,14 @@ zj
 zj
 zj
 Gd
-io
-io
-io
+bX
+bX
+bX
 "}
 (47,1,1) = {"
-io
-io
-io
+bX
+bX
+bX
 Xj
 Xj
 Xj
@@ -2947,15 +3035,15 @@ Xj
 Xj
 Xj
 Xj
-io
-io
+bX
+bX
 iM
 Gd
 Gd
 zj
 zj
 zj
-zj
+DZ
 zj
 zj
 zj
@@ -2966,15 +3054,15 @@ Gd
 Gd
 Gd
 Gd
-io
-io
+bX
+bX
 Gd
 "}
 (48,1,1) = {"
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 Xj
 Xj
 Xj
@@ -2995,12 +3083,12 @@ Xj
 Xj
 Xj
 Xj
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
 Gd
 zj
@@ -3015,44 +3103,44 @@ Gd
 Gd
 Gd
 Gd
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (49,1,1) = {"
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
 Xj
 Xj
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
-io
-io
-io
-io
+bX
+bX
+bX
+bX
 zj
 zj
 zj
@@ -3065,38 +3153,38 @@ Gd
 Gd
 Gd
 Gd
-io
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 "}
 (50,1,1) = {"
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 Gd
 Gd
 Gd
@@ -3116,13 +3204,13 @@ zj
 zj
 Gd
 Gd
-io
-io
-io
-io
-io
-io
-io
-io
-io
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
+bX
 "}

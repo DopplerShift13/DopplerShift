@@ -12,6 +12,10 @@
 "d" = (
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
+"e" = (
+/obj/structure/lamppost,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "f" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 5
@@ -153,6 +157,12 @@
 	dir = 4
 	},
 /turf/open/misc/sandy_dirt/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
+"H" = (
+/obj/structure/lamppost{
+	dir = 8
+	},
+/turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "I" = (
 /turf/open/misc/grass/roofing,
@@ -750,7 +760,7 @@ d
 d
 i
 i
-d
+e
 "}
 (11,1,1) = {"
 d
@@ -901,7 +911,7 @@ a
 a
 s
 d
-d
+H
 c
 p
 p
@@ -1010,7 +1020,7 @@ d
 d
 i
 i
-d
+H
 "}
 (16,1,1) = {"
 d
