@@ -672,6 +672,9 @@
 /obj/effect/turf_decal/siding/wood/corner{
 	dir = 1
 	},
+/obj/structure/sign/evil_eye{
+	pixel_y = 32
+	},
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "qu" = (
@@ -706,18 +709,23 @@
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"qD" = (
+/obj/item/reagent_containers/condiment/enzyme,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "qG" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 6
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
-"qV" = (
+"ri" = (
+/obj/structure/flora/rock/pile/icy/style_random,
 /obj/item/flashlight/lantern{
 	pixel_x = -10;
 	pixel_y = -3
 	},
-/turf/open/misc/sandy_dirt/icemoon,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "rK" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -896,6 +904,25 @@
 /obj/machinery/vending/primitive_genemod_clothing_vendor,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"ws" = (
+/obj/structure/table/wood,
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_y = 15;
+	pixel_x = -6
+	},
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_y = 15
+	},
+/obj/item/reagent_containers/cup/glass/bottle/small{
+	pixel_y = 15;
+	pixel_x = 6
+	},
+/obj/item/reagent_containers/cup/glass/bottle{
+	pixel_y = 6;
+	pixel_x = -3
+	},
+/turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "wO" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 9
@@ -990,10 +1017,6 @@
 	},
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
-"yO" = (
-/obj/item/reagent_containers/condiment/enzyme,
-/turf/open/misc/asteroid/snow/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
 "yP" = (
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 6
@@ -1057,6 +1080,9 @@
 /obj/item/cutting_board,
 /obj/item/knife/hunting{
 	pixel_y = 5
+	},
+/obj/machinery/chem_dispenser/spice_rack{
+	pixel_y = 32
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
@@ -1963,6 +1989,13 @@
 /obj/structure/bed/double/pelt,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"UX" = (
+/obj/item/flashlight/lantern{
+	pixel_x = -10;
+	pixel_y = -3
+	},
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "Vc" = (
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/stone/icemoon,
@@ -2050,14 +2083,6 @@
 	dir = 10
 	},
 /turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"Xj" = (
-/obj/structure/flora/rock/pile/icy/style_random,
-/obj/item/flashlight/lantern{
-	pixel_x = -10;
-	pixel_y = -3
-	},
-/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "Xz" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -2698,7 +2723,7 @@ Gb
 Gb
 DG
 OI
-qV
+UX
 BT
 nZ
 nZ
@@ -2770,7 +2795,7 @@ pj
 fK
 Qp
 MR
-MR
+ws
 Qn
 kV
 kV
@@ -2901,7 +2926,7 @@ Gb
 Gb
 Gb
 lw
-Xj
+ri
 Qz
 lK
 ym
@@ -3820,7 +3845,7 @@ lK
 ym
 UN
 Gb
-yO
+qD
 Gb
 Cj
 Jz

@@ -6,3 +6,9 @@
 	icon = 'modular_doppler/hearthkin/primitive_structures/icons/48x_hearth_structures.dmi'
 	icon_state = "tapestry_yggdrasil"
 	SET_BASE_PIXEL(-8, 0)
+
+obj/structure/sign/evil_eye
+	name = "icon of the evil eye"
+	desc = "A stylized depiction of an eye made from woven plant fibres. It's thought to ward off evil."
+	icon = 'modular_doppler/hearthkin/primitive_structures/icons/decorations.dmi'
+	icon_state = "eyecon"

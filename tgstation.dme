@@ -6777,6 +6777,7 @@
 #include "modular_doppler\hearthkin\primitive_cooking_additions\code\cutting_board.dm"
 #include "modular_doppler\hearthkin\primitive_cooking_additions\code\millstone.dm"
 #include "modular_doppler\hearthkin\primitive_cooking_additions\code\plant_bag.dm"
+#include "modular_doppler\hearthkin\primitive_cooking_additions\code\spice_rack.dm"
 #include "modular_doppler\hearthkin\primitive_cooking_additions\code\stone_griddle.dm"
 #include "modular_doppler\hearthkin\primitive_cooking_additions\code\stone_oven.dm"
 #include "modular_doppler\hearthkin\primitive_cooking_additions\code\stone_stove.dm"

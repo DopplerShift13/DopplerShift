@@ -487,6 +487,9 @@
 	pixel_x = 3
 	},
 /obj/item/pen/charcoal,
+/obj/structure/sign/evil_eye{
+	pixel_y = 32
+	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "LS" = (
