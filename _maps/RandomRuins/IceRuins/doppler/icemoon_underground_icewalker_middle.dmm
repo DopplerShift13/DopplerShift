@@ -69,6 +69,7 @@
 /obj/item/surgicaldrill/primitive,
 /obj/structure/wall_torch/spawns_lit/directional/north,
 /obj/item/smelling_salts,
+/obj/item/bedsheet/black,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "ev" = (
@@ -185,6 +186,7 @@
 /obj/item/retractor/primitive,
 /obj/item/surgicaldrill/primitive,
 /obj/item/smelling_salts,
+/obj/item/bedsheet/black,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "nX" = (
