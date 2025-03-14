@@ -18,6 +18,7 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/weather/snow/corner,
+/obj/item/reagent_containers/condiment/enzyme,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "aL" = (
@@ -110,6 +111,7 @@
 /obj/item/seeds/corn,
 /obj/item/seeds/wheat,
 /obj/item/seeds/wheat/rice,
+/obj/item/seeds/tomato,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "dE" = (
@@ -237,6 +239,7 @@
 	pixel_x = 6;
 	pixel_y = 14
 	},
+/obj/item/reagent_containers/condiment/enzyme,
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "fS" = (
@@ -385,6 +388,7 @@
 	pixel_x = 4
 	},
 /obj/item/food/rootdough,
+/obj/item/food/grown/garlic,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "kO" = (
@@ -708,13 +712,12 @@
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
-"rb" = (
-/obj/structure/flora/rock/pile/icy/style_random,
+"qV" = (
 /obj/item/flashlight/lantern{
 	pixel_x = -10;
 	pixel_y = -3
 	},
-/turf/open/misc/asteroid/snow/icemoon,
+/turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "rK" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
@@ -880,6 +883,7 @@
 /obj/item/reagent_containers/cup/bucket/wooden,
 /obj/item/shovel,
 /obj/item/cultivator/rake,
+/obj/item/storage/bag/plants/primitive,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "vN" = (
@@ -967,10 +971,10 @@
 /area/ruin/unpowered/primitive_genemod_den)
 "yl" = (
 /obj/item/flashlight/lantern{
-	pixel_x = -10;
-	pixel_y = -3
+	pixel_y = -12;
+	pixel_x = -13
 	},
-/turf/open/misc/sandy_dirt/icemoon,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "ym" = (
 /obj/effect/turf_decal/weather/snow/corner,
@@ -985,6 +989,10 @@
 	dir = 9
 	},
 /turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"yO" = (
+/obj/item/reagent_containers/condiment/enzyme,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "yP" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -1064,13 +1072,6 @@
 	dir = 4
 	},
 /turf/open/misc/sandy_dirt/icemoon,
-/area/ruin/unpowered/primitive_genemod_den)
-"AN" = (
-/obj/item/flashlight/lantern{
-	pixel_y = -12;
-	pixel_x = -13
-	},
-/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "Bf" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -1287,6 +1288,8 @@
 /obj/item/seeds/garlic,
 /obj/item/seeds/berry,
 /obj/item/seeds/watermelon,
+/obj/item/seeds/korta_nut,
+/obj/item/seeds/garlic,
 /turf/open/floor/wood/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "ES" = (
@@ -1415,6 +1418,14 @@
 /obj/item/flashlight/flare/torch{
 	pixel_y = 12;
 	pixel_x = 7
+	},
+/obj/item/storage/backpack/satchel/crusader,
+/obj/item/storage/backpack/satchel/crusader{
+	pixel_x = 6
+	},
+/obj/item/storage/belt/crusader,
+/obj/item/storage/belt/crusader{
+	pixel_x = 6
 	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
@@ -2039,6 +2050,14 @@
 	dir = 10
 	},
 /turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"Xj" = (
+/obj/structure/flora/rock/pile/icy/style_random,
+/obj/item/flashlight/lantern{
+	pixel_x = -10;
+	pixel_y = -3
+	},
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "Xz" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -2679,7 +2698,7 @@ Gb
 Gb
 DG
 OI
-yl
+qV
 BT
 nZ
 nZ
@@ -2882,7 +2901,7 @@ Gb
 Gb
 Gb
 lw
-rb
+Xj
 Qz
 lK
 ym
@@ -3453,7 +3472,7 @@ QP
 mM
 Gb
 Gb
-AN
+yl
 SN
 ag
 BT
@@ -3801,7 +3820,7 @@ lK
 ym
 UN
 Gb
-Gb
+yO
 Gb
 Cj
 Jz
