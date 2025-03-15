@@ -6,6 +6,7 @@
 	icon_state = "lamppost"
 	SET_BASE_PIXEL(-8, 0)
 	density = TRUE
+	anchored = TRUE
 	light_range = 5
 	light_power = 1.5
 	light_color = "#ffcc66"
