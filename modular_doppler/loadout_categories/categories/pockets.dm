@@ -117,12 +117,20 @@
 	item_path = /obj/item/computer_disk/all_of_them
 
 /datum/loadout_item/pocket_items/london
-	name = "Switchblade"
-	item_path = /obj/item/switchblade
+	name = "Hunting Knife"
+	item_path = /obj/item/knife/hunting
 
 /datum/loadout_item/pocket_items/london_two
 	name = "Survival Knife"
 	item_path = /obj/item/knife/combat/survival
+
+/datum/loadout_item/pocket_items/etool
+	name = "Entrenching Tool"
+	item_path = /obj/item/trench_tool
+
+/datum/loadout_item/pocket_items/swisstool
+	name = "Spess Knife"
+	item_path = /obj/item/spess_knife
 
 /datum/loadout_item/pocket_items/injector_case
 	name = "Autoinjector Case"
@@ -195,6 +203,10 @@
 /datum/loadout_item/pocket_items/gromitmug
 	name = "Gromit mug"
 	item_path = /obj/item/reagent_containers/cup/glass/mug/gromitmug
+
+/datum/loadout_item/pocket_items/pacification_chip
+	name = "Meditative Assistance pacification skillchip"
+	item_path = /obj/item/skillchip/pacification
 
 /*
 *	UTILITY

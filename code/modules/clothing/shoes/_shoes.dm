@@ -203,7 +203,7 @@
 		else // if one of us moved
 			user.visible_message(span_danger("[our_guy] stamps on [user]'s hand, mid-[tied ? "knotting" : "un[fastening_verb()]"]!"), span_userdanger("Ow! [our_guy] stamps on your hand!"), list(our_guy))
 			to_chat(our_guy, span_userdanger("You stamp on [user]'s hand! What the- [user.p_they()] [user.p_were()] [tied ? "knotting" : "un[fastening_verb()]"] your [fastening_type]!"))
-			user.emote("scream")
+			user.painful_scream() // DOPPLER EDIT: check for painkilling before screaming
 			user.apply_damage(10, BRUTE, user.get_active_hand(), wound_bonus = CANT_WOUND)
 			user.apply_damage(40, STAMINA)
 			user.Paralyze(1 SECONDS)
