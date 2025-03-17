@@ -18,7 +18,6 @@
 	dir = 9
 	},
 /obj/effect/turf_decal/weather/snow/corner,
-/obj/item/reagent_containers/condiment/enzyme,
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "aL" = (
@@ -710,7 +709,7 @@
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "qD" = (
-/obj/item/reagent_containers/condiment/enzyme,
+/obj/structure/barricade/wooden,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "qG" = (
@@ -727,11 +726,26 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"rB" = (
+/obj/structure/rugs/pelt{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "rK" = (
 /obj/structure/closet/crate/wooden/storage_barrel,
 /obj/item/stack/sheet/mineral/coal/ten,
 /obj/item/stack/sheet/mineral/wood/fifty,
 /turf/open/floor/stone/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"rO" = (
+/obj/item/forging/hammer/primitive{
+	pixel_x = 12
+	},
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "rQ" = (
 /obj/effect/turf_decal/weather/snow/corner{
@@ -900,6 +914,12 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
+"wa" = (
+/obj/effect/turf_decal/siding/wood{
+	dir = 10
+	},
+/turf/open/floor/wood/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
 "wq" = (
 /obj/machinery/vending/primitive_genemod_clothing_vendor,
 /turf/open/floor/stone/icemoon,
@@ -932,6 +952,10 @@
 	},
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"wV" = (
+/obj/item/grown/log/tree,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "wZ" = (
 /obj/structure/wall_torch/spawns_lit/directional/south,
@@ -1447,7 +1471,10 @@
 	},
 /obj/item/storage/backpack/satchel/crusader,
 /obj/item/storage/backpack/satchel/crusader{
-	pixel_x = 6
+	pixel_x = 7
+	},
+/obj/item/storage/backpack/satchel/crusader{
+	pixel_x = 3
 	},
 /obj/item/storage/belt/crusader,
 /obj/item/storage/belt/crusader{
@@ -3845,7 +3872,7 @@ lK
 ym
 UN
 Gb
-qD
+Gb
 Gb
 Cj
 Jz
@@ -4158,7 +4185,7 @@ Qp
 BR
 EG
 kV
-kV
+EN
 hY
 wq
 Ia
@@ -4210,9 +4237,9 @@ Qp
 Qp
 BR
 aZ
-kV
-kV
-kV
+Vu
+LC
+wa
 Qp
 pm
 pj
@@ -4264,9 +4291,9 @@ Qp
 BR
 aZ
 kV
-kV
-kV
-CO
+Vu
+LC
+rB
 Nf
 zO
 Yg
@@ -4316,9 +4343,9 @@ Qp
 Qp
 Qn
 kV
-kV
-kV
-kV
+sr
+Yd
+Yd
 Ue
 QG
 Jd
@@ -4367,8 +4394,8 @@ Qp
 Qp
 Qp
 Qn
-kV
-kV
+sr
+Cs
 Qp
 go
 pj
@@ -4419,7 +4446,7 @@ oR
 LC
 ms
 Zv
-kV
+EN
 wq
 kR
 pj
@@ -4640,7 +4667,7 @@ Li
 Gb
 KQ
 ds
-Gb
+rO
 KQ
 KQ
 KQ
@@ -4692,7 +4719,7 @@ Gb
 Gb
 Gb
 Gb
-Gb
+wV
 ds
 Gb
 KQ
@@ -4737,16 +4764,16 @@ yr
 KQ
 KQ
 KQ
+Jn
+pj
+pj
+pj
+pj
+pj
+pj
+qD
 Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
-Gb
+qD
 Gb
 Gb
 Gb

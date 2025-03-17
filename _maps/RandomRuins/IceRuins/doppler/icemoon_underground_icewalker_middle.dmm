@@ -117,6 +117,9 @@
 /obj/item/reagent_containers/cup/glass/bottle/moonshine{
 	pixel_x = -6
 	},
+/obj/structure/sign/evil_eye{
+	pixel_y = 32
+	},
 /turf/open/floor/stone/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "fX" = (
@@ -236,6 +239,10 @@
 	dir = 9
 	},
 /turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"qj" = (
+/obj/structure/hearthkin_rune_stone,
+/turf/open/misc/asteroid/snow/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "sh" = (
 /obj/effect/turf_decal/siding/wood{
@@ -754,7 +761,7 @@ zj
 eW
 eW
 Gd
-zj
+qj
 zj
 zj
 zj
@@ -3096,7 +3103,7 @@ bX
 bX
 Gd
 Gd
-zj
+qj
 zj
 zj
 zj
