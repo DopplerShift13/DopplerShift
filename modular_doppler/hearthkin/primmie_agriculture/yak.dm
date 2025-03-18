@@ -6,7 +6,7 @@
 	icon = 'modular_doppler/hearthkin/primmie_agriculture/livestock.dmi'
 	icon_state = "yak"
 	icon_living = "yak"
-	icon_dead = null //"yak_dead"
+	icon_dead = "yak_dead"
 	icon_gib = null
 	SET_BASE_PIXEL(-8, 0)
 	health = 100
