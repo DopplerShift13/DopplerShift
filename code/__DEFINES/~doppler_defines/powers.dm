@@ -12,3 +12,9 @@ GLOBAL_LIST_INIT(path_core_powers, list(
 	"path_resonant" = /datum/power/meditate,
 	"path_mortal" = /datum/power/tenacious
 ))
+/**
+ * Abberant defines
+ * I guess put abbertant definitions here?
+ */
+
+#define MARTIALART_MONSTERSTRIKE "Monsterous strike"
