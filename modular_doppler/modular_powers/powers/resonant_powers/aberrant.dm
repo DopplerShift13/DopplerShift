@@ -37,11 +37,11 @@
 
 /datum/power/monsterstrength
 	name = "Monstrous Strength"
-	desc = "Gain the ability to hit much harder with your unarmed attacks as well as block foes back with your blows"
+	desc = "Gain the ability to hit much harder with your unarmed attacks as well as block foes back with your blows. At the cost of being able to use batons or guns"
 	cost = 5
 	root_power = /datum/power/muscly
 	power_type = TRAIT_PATH_SUBTYPE_ABERRANT
-	power_traits = list(TRAIT_POWER_MONSTERSTRENGTH)
+	power_traits = list(TRAIT_POWER_MONSTERSTRENGTH, TRAIT_CHUNKYFINGERS)
 
 /datum/power/monsterstrength/add(mob/living/carbon/human/target)
 	var/datum/action/new_action = new /datum/action/cooldown/spell/monstrous_stance(target.mind || target)
