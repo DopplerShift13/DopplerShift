@@ -1,0 +1,139 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/port/fore)
+"c" = (
+/obj/machinery/door/airlock/maintenance,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"d" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/port/fore)
+"f" = (
+/obj/machinery/autobank/wallmount/directional/north,
+/obj/effect/turf_decal/loading_area/white{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/window/right/directional/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/maintenance/port/fore)
+"g" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/port/fore)
+"j" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/cable,
+/obj/machinery/door/airlock/mining/glass{
+	name = "Banking Terminals"
+	},
+/turf/open/floor/plating,
+/area/station/maintenance/port/fore)
+"l" = (
+/turf/closed/wall,
+/area/station/maintenance/port/fore)
+"t" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/port/fore)
+"u" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/mapping_helpers/airlock/access/all/supply/general,
+/obj/machinery/door/airlock/maintenance{
+	name = "Quartermaster Maintenance"
+	},
+/turf/open/floor/plating,
+/area/station/cargo/storage)
+"C" = (
+/turf/closed/wall,
+/area/station/command/heads_quarters/qm)
+"J" = (
+/obj/structure/noticeboard/qm,
+/obj/structure/disposalpipe/segment,
+/turf/closed/wall,
+/area/station/command/heads_quarters/qm)
+"K" = (
+/turf/closed/wall,
+/area/station/cargo/storage)
+"P" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/port/fore)
+"W" = (
+/obj/machinery/autobank/wallmount/directional/north,
+/obj/effect/turf_decal/loading_area/white{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/window/left/directional/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/maintenance/port/fore)
+
+(1,1,1) = {"
+l
+l
+l
+K
+"}
+(2,1,1) = {"
+c
+t
+d
+K
+"}
+(3,1,1) = {"
+l
+W
+P
+u
+"}
+(4,1,1) = {"
+l
+a
+P
+C
+"}
+(5,1,1) = {"
+l
+f
+g
+J
+"}
+(6,1,1) = {"
+l
+l
+j
+C
+"}

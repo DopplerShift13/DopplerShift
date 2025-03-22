@@ -249,11 +249,11 @@ function CatalogList(props: CatalogListProps) {
                     opacity={privateBuy && 0.75}
                     style={{ textDecoration: privateBuy && 'red line-through' }}
                   >
-                    {formatMoney(pack.cost)} cr
+                    {formatMoney(pack.cost)} ♎︎
                   </Stack.Item>
                   {!!privateBuy && (
                     <Stack.Item>
-                      {formatMoney(Math.round(pack.cost * 1.1))} cr
+                      {formatMoney(Math.round(pack.cost * 1.1))} ♎︎
                     </Stack.Item>
                   )}
                 </Stack>

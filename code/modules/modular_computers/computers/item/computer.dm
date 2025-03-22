@@ -836,8 +836,8 @@
 	if(isidcard(tool))
 		return InsertID(tool, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
 
-	if(iscash(tool))
-		return money_act(user, tool)
+	//if(iscash(tool)) DOPPLER EDIT - removing ID money insertion.
+	//	return money_act(user, tool)
 
 	if(istype(tool, /obj/item/pai_card))
 		return pai_act(user, tool)
@@ -863,12 +863,12 @@
 	if(istype(tool, /obj/item/computer_disk))
 		return computer_disk_act(user, tool)
 
-/obj/item/modular_computer/proc/money_act(mob/user, obj/item/money)
+/** /obj/item/modular_computer/proc/money_act(mob/user, obj/item/money) DOPPLER EDIT - removing insert_money. Sneaky one, this.
 	var/obj/item/card/id/inserted_id = computer_id_slot?.GetID()
 	if(!inserted_id)
 		balloon_alert(user, "no ID!")
 		return ITEM_INTERACT_BLOCKING
-	return inserted_id.insert_money(money, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING
+	return inserted_id.insert_money(money, user) ? ITEM_INTERACT_SUCCESS : ITEM_INTERACT_BLOCKING **/
 
 /obj/item/modular_computer/proc/pai_act(mob/user, obj/item/pai_card/card)
 	if(inserted_pai)
