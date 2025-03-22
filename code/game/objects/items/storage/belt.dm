@@ -252,7 +252,7 @@
 		/obj/item/reagent_containers/cup/hypovial,
 		/// DOPPLER SHIFT ADDITION END
 		/obj/item/reagent_containers/medigel,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator,
 		/obj/item/reagent_containers/spray,
 		/obj/item/reagent_containers/syringe,
 		/obj/item/retractor,
@@ -358,7 +358,7 @@
 	))
 	atom_storage.open_sound = 'sound/items/handling/holster_open.ogg'
 	atom_storage.open_sound_vary = TRUE
-	atom_storage.rustle_sound = FALSE
+	atom_storage.rustle_sound = null
 
 /obj/item/storage/belt/security/full/PopulateContents()
 	new /obj/item/reagent_containers/spray/pepper(src)
@@ -413,7 +413,7 @@
 		/obj/item/reagent_containers/cup/glass,
 		/obj/item/reagent_containers/cup/glass/bottle,
 		/obj/item/reagent_containers/hypospray,
-		/obj/item/reagent_containers/pill,
+		/obj/item/reagent_containers/applicator/pill,
 		/obj/item/resonator,
 		/obj/item/screwdriver,
 		/obj/item/shovel,
