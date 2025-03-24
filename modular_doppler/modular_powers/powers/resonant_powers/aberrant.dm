@@ -80,8 +80,8 @@
 	target.cybernetics_sickness_process()
 
 /datum/power/monsterstrength
-	name = "Monstrous Strength"
-	desc = "Gain the ability to hit much harder with your unarmed attacks as well as block foes back with your blows. At the cost of being able to use batons or guns. This conflicts with cybernetic organs, causing sickness"
+	name = "Musculoskeletal Redistribution"
+	desc = "A Deviancy characterized by an abnormally muscular upper body, providing advantages in hand-to-hand combat at the cost of the dexterity required for fine manipulation, e.g. pulling a firearm's trigger"
 	cost = 5
 	root_power = /datum/power/muscly
 	power_type = TRAIT_PATH_SUBTYPE_ABERRANT
