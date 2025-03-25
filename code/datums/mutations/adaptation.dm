@@ -9,7 +9,7 @@
 	conflicts = list(/datum/mutation/human/adaptation)
 	mutation_traits = list(TRAIT_WADDLING)
 	/// Icon used for the adaptation overlay
-//	var/adapt_icon = "meow"
+	var/adapt_icon = "meow"
 
 /datum/mutation/human/adaptation/New(class_ = MUT_OTHER, timer, datum/mutation/human/copymut)
 	..()
@@ -26,7 +26,7 @@
 	text_gain_indication = span_notice("Your body feels refreshingly cold.")
 	instability = POSITIVE_INSTABILITY_MODERATE
 	mutation_traits = list(TRAIT_RESISTCOLD, TRAIT_NO_SLIP_ICE)
-//	adapt_icon = "cold"
+	adapt_icon = "cold"
 	locked = FALSE
 
 /datum/mutation/human/adaptation/heat
@@ -35,7 +35,7 @@
 	text_gain_indication = span_notice("Your body feels invigoratingly warm.")
 	instability = POSITIVE_INSTABILITY_MODERATE
 	mutation_traits = list(TRAIT_RESISTHEAT, TRAIT_ASHSTORM_IMMUNE)
-//	adapt_icon = "fire"
+	adapt_icon = "fire"
 	locked = FALSE
 
 /datum/mutation/human/adaptation/thermal
@@ -45,7 +45,7 @@
 	text_gain_indication = span_notice("Your body feels pleasantly room temperature.")
 	instability = POSITIVE_INSTABILITY_MAJOR
 	mutation_traits = list(TRAIT_RESISTHEAT, TRAIT_RESISTCOLD)
-//	adapt_icon = "thermal"
+	adapt_icon = "thermal"
 	locked = TRUE // recipe
 
 /datum/mutation/human/adaptation/pressure
@@ -53,6 +53,6 @@
 	desc = "A strange mutation that renders the host immune to damage from both low and high pressure environments. Does not protect from temperature, including the cold of space."
 	text_gain_indication = span_notice("Your body feels impressively pressurized.")
 	instability = POSITIVE_INSTABILITY_MODERATE
-//	adapt_icon = "pressure"
+	adapt_icon = "pressure"
 	mutation_traits = list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTHIGHPRESSURE)
 	locked = FALSE
