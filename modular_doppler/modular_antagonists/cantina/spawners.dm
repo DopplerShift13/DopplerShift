@@ -7,8 +7,8 @@
 	prompt_name = "cantina regular"
 	icon_state = "sleeper_s"
 	outfit = /datum/outfit/syndicate/cantina_regular
-	you_are_text = "You are a regular at the Syndicate Cantina" // please for the love of god give the cantina a name this is dumb
-	flavour_text = ""
+	you_are_text = "You are a regular at the Syndicate Cantina." // this is a placeholder only, it sucks
+	flavour_text = "You are a regular at the Syndicate Cantina." // this too
 	spawner_job_path = /datum/job/cantina_regular
 
 /obj/effect/mob_spawn/ghost_role/human/cantina/special(mob/living/new_spawn)
@@ -21,7 +21,7 @@
 	burn time and burn oxygen when your clientele aren't in sector."
 	prompt_name = "cantina bartender"
 	outfit = /datum/outfit/syndicate/cantina_bartender
-	you_are_text = "You are a bartender at the Syndicate Cantina"
-	flavour_text = ""
+	you_are_text = "You are a bartender at the Syndicate Cantina."
+	flavour_text = "You are a bartender at the Syndicate Cantina."
 	spawner_job_path = /datum/job/cantina_bartender
 
