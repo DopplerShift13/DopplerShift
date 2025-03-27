@@ -589,13 +589,6 @@
 	baseturfs = /turf/open/indestructible/binary
 	},
 /area/deathmatch)
-"wR" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark{
-	dir = 1
-	},
-/obj/effect/spawner/random/structure/steam_vent,
-/turf/open/indestructible/stone,
-/area/deathmatch)
 "wY" = (
 /obj/effect/turf_decal/siding/thinplating_new{
 	dir = 1
@@ -606,10 +599,6 @@
 /turf/open/misc/ironsand{
 	baseturfs = /turf/open/indestructible/binary
 	},
-/area/deathmatch)
-"xi" = (
-/obj/effect/spawner/random/structure/steam_vent,
-/turf/open/indestructible/stone,
 /area/deathmatch)
 "xp" = (
 /obj/effect/turf_decal/siding/thinplating_new/dark,
@@ -712,7 +701,6 @@
 /area/deathmatch)
 "Ce" = (
 /obj/machinery/door/airlock/colony_prefab,
-/obj/effect/spawner/random/structure/steam_vent,
 /turf/open/indestructible/dark/smooth_large,
 /area/deathmatch)
 "Ch" = (
@@ -762,7 +750,6 @@
 /area/deathmatch)
 "DE" = (
 /obj/machinery/door/airlock/colony_prefab,
-/obj/effect/spawner/random/structure/steam_vent,
 /turf/open/indestructible/dark,
 /area/deathmatch)
 "DJ" = (
@@ -770,11 +757,6 @@
 	pixel_x = 9
 	},
 /turf/open/indestructible/stone,
-/area/deathmatch)
-"Ea" = (
-/obj/structure/curtain/bounty/start_closed,
-/obj/effect/spawner/random/structure/steam_vent,
-/turf/open/indestructible/dark/smooth_large,
 /area/deathmatch)
 "Eb" = (
 /obj/structure/fluff/tram_rail/floor{
@@ -1018,7 +1000,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/tile/dark/full,
-/obj/effect/spawner/random/structure/steam_vent,
 /turf/open/indestructible/tram/plate,
 /area/deathmatch)
 "NZ" = (
@@ -1097,11 +1078,6 @@
 /area/deathmatch)
 "Qa" = (
 /turf/closed/indestructible/riveted,
-/area/deathmatch)
-"Qb" = (
-/obj/effect/turf_decal/siding/thinplating_new/dark,
-/obj/effect/spawner/random/structure/steam_vent,
-/turf/open/indestructible/stone,
 /area/deathmatch)
 "QY" = (
 /obj/structure/railing{
@@ -1218,7 +1194,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/dark/full,
-/obj/effect/spawner/random/structure/steam_vent,
 /turf/open/indestructible/tram/plate,
 /area/deathmatch)
 "UB" = (
@@ -1305,7 +1280,6 @@
 /area/deathmatch)
 "YV" = (
 /obj/structure/curtain/bounty/start_closed,
-/obj/effect/spawner/random/structure/steam_vent,
 /turf/open/indestructible/hotelwood,
 /area/deathmatch)
 "Zd" = (
@@ -1465,23 +1439,23 @@ Qa
 "}
 (6,1,1) = {"
 Qa
-xi
+hN
 hN
 hN
 DJ
 DJ
 DJ
 hN
-Qb
+xp
 vV
 ku
 CP
 CJ
 bR
-wR
+fE
 hN
 hN
-xi
+hN
 Qa
 jy
 SG
@@ -1517,9 +1491,9 @@ Qa
 "}
 (8,1,1) = {"
 Qa
-xi
+hN
 lr
-xi
+hN
 hN
 hN
 TE
@@ -1548,7 +1522,7 @@ ms
 bw
 hN
 hN
-xi
+hN
 RD
 xp
 Ps
@@ -1596,13 +1570,13 @@ Qa
 (11,1,1) = {"
 Qa
 aV
-xi
+hN
 FF
 TS
 GB
 hN
 hN
-Qb
+xp
 Ps
 Pi
 bc
@@ -1634,14 +1608,14 @@ oU
 CP
 nD
 iQ
-wR
-hN
-hN
-xi
+fE
 hN
 hN
 hN
-xi
+hN
+hN
+hN
+hN
 hN
 Qa
 "}
@@ -1701,7 +1675,7 @@ Qa
 Qa
 vf
 jH
-Ea
+OJ
 jH
 jH
 jH
@@ -1859,7 +1833,7 @@ Qa
 Ce
 Qa
 Qa
-Ea
+OJ
 Qa
 Qa
 xp
