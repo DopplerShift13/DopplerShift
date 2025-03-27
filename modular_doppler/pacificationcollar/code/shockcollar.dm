@@ -58,7 +58,6 @@
 
 		affected_mob.Paralyze(30)
 		affected_mob.adjust_stutter(30 SECONDS)
-		affected_mob.force_say()
 
 	if(master)
 		if(isassembly(master))
