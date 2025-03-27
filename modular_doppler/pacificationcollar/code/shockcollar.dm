@@ -1,8 +1,8 @@
 /obj/item/electropack/shockcollar
 	name = "shock collar"
 	desc = "A reinforced metal collar. It has some sort of wiring near the front."
-	icon = 'modular_nova/modules/modular_items/lewd_items/icons/obj/lewd_clothing/lewd_neck.dmi'
-	worn_icon = 'modular_nova/modules/modular_items/lewd_items/icons/mob/lewd_clothing/lewd_neck.dmi'
+	icon = 'modular_doppler/pacificationcollar/icons/obj/shock.dmi'
+	worn_icon = 'modular_doppler/pacificationcollar/icons/mob/shock.dmi'
 	icon_state = "shockcollar"
 	inhand_icon_state = null
 	body_parts_covered = NECK
@@ -16,7 +16,7 @@
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
 	)
 	var/random = TRUE
-	var/freq_in_name = TRUE
+	var/freq_in_name = FALSE
 
 /datum/design/electropack/shockcollar
 	name = "Shockcollar"
@@ -50,7 +50,6 @@
 			return
 		shock_cooldown = TRUE
 		addtimer(VARSET_CALLBACK(src, shock_cooldown, FALSE), 100)
-		step(affected_mob, pick(GLOB.cardinals))
 
 		to_chat(affected_mob, span_danger("You feel a sharp shock from the collar!"))
 		var/datum/effect_system/spark_spread/created_sparks = new /datum/effect_system/spark_spread
@@ -58,8 +57,8 @@
 		created_sparks.start()
 
 		affected_mob.Paralyze(30)
-		affected_mob.adjust_pain(10)
 		affected_mob.adjust_stutter(30 SECONDS)
+		affected_mob.force_say()
 
 	if(master)
 		if(isassembly(master))
