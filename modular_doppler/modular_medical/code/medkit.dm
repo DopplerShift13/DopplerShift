@@ -93,8 +93,6 @@
 	var/static/list/can_hold_cache = typecacheof(can_hold_list)
 	can_hold = can_hold_cache
 
-	//...So we can run this without it generating a line for every subtype.
-	can_hold_description = generate_hold_desc(can_hold_list)
 
 /obj/item/storage/backpack/duffelbag/science/synth_treatment_kit/trauma/PopulateContents() // yes, this is all within the storage capacity
 	// Slash/Pierce wound tools - can reduce intensity of electrical damage (wires can fix generic burn damage)
@@ -183,26 +181,4 @@
 	inhand_icon_state = "medkit_mechanical"
 	lefthand_file = 'modular_doppler/modular_medical/code/medical_lefthand.dmi'
 	righthand_file = 'modular_doppler/modular_medical/code/medical_righthand.dmi'
-
-/obj/item/storage/medkit/mechanical/Initialize(mapload)
-	. = ..()
-
-	var/static/list/list_of_everything_mechanical_medkits_can_hold = list_of_everything_medkits_can_hold + list(
-		/obj/item/stack/cable_coil,
-		/obj/item/crowbar,
-		/obj/item/screwdriver,
-		/obj/item/wrench,
-		/obj/item/weldingtool,
-		/obj/item/wirecutters,
-		/obj/item/multitool,
-		/obj/item/plunger,
-		/obj/item/clothing/head/utility/welding,
-		/obj/item/clothing/glasses/welding,
-	)
-	var/static/list/exception_cache = typecacheof(
-		/obj/item/clothing/head/utility/welding
-	)
-
-	atom_storage.set_holdable(list_of_everything_mechanical_medkits_can_hold)
-	LAZYINITLIST(atom_storage.exception_hold)
-	atom_storage.exception_hold = atom_storage.exception_hold + exception_cache
+	storage_type = /datum/storage/medical_belt/advanced
