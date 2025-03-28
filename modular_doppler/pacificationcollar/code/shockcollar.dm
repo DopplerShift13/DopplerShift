@@ -18,19 +18,18 @@
 	var/random = TRUE
 	var/freq_in_name = FALSE
 
-/datum/design/electropack/shockcollar
-	name = "Shockcollar"
-	id = "shockcollar"
-	build_type = AUTOLATHE
-	build_path = /obj/item/electropack/shockcollar
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+/datum/crafting_recipe/shockcollar
+	name = "Shock Collar"
+	result = /obj/item/electropack/shockcollar
+	reqs = list(
+		/obj/item/stack/sheet/iron = 5,
+		/obj/item/stack/rods = 2,
+		/obj/item/stack/cable_coil = 15,
+		/obj/item/stock_parts/power_store/cell = 1
 	)
-	category = list(
-		RND_CATEGORY_HACKED,
-		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_MISC,
-	)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WRENCH)
+	time = 5 SECONDS
+	category = CAT_EQUIPMENT
 
 /obj/item/electropack/shockcollar/allow_attack_hand_drop(mob/user)
 	if(user.get_item_by_slot(ITEM_SLOT_NECK) == src)
