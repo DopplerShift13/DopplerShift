@@ -26,6 +26,6 @@
 	you_are_text = "You are a bartender at the The Undisclosed Location."
 	flavour_text = "Known by The Curfew and Sundown to squares, The Undisclosed Location is a front for criminal activity in the sector. \
 	The breadth of their corporate affiliations is on a need to know basis, but the sheer volume of gear in the back is at least a little \
-	illuminating. You're an employee here, and you have clientele to please.
+	illuminating. You're an employee here, and you have clientele to please."
 	spawner_job_path = /datum/job/cantina_bartender
 
