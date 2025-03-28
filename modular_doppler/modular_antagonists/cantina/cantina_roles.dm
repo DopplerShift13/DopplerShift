@@ -1,17 +1,16 @@
 //datums
 
 /datum/job/cantina_regular
-	title = "Syndicate Cantina regular"
+	title = "Undisclosed Location regular"
 
 /datum/job/cantina_bartender
-	title = "Syndicate Cantina bartender"
+	title = "Undisclosed Location bartender"
 
 /datum/antagonist/traitor/cantina_regular
 	name = "\improper Cantina Regular"
 	count_against_dynamic_roll_chance = FALSE
 	show_in_roundend = FALSE
-	default_custom_objective = "Thwart the encroachment on your turf... by any means \
-	necessary!"
+	default_custom_objective = "Thwart the encroachment on your turf... by any means necessary!"
 
 /datum/antagonist/traitor/cantina_bartender
 	name = "\improper Cantina Bartender"
