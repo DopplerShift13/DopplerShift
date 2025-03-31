@@ -272,7 +272,9 @@
 
 /obj/effect/temp_visual/telekinesis
 	name = "telekinetic force"
-	icon_state = "empdisable"
+	//icon_state = "empdisable" // DOPPLER SHIFT ADDITION
+	icon_state = "telekinesis_throw" // DOPPLER SHIFT ADDITION
+	icon = 'modular_doppler/psychicshit/icons/effects/tele_effects.dmi' // DOPPLER SHIFT ADDITION
 	duration = 5
 
 /obj/effect/temp_visual/emp
