@@ -3,7 +3,7 @@
 	desc = "A terrible trauma has been inflicted on you from your past or birth."
 	value = 0
 	medical_record_text = "Patient's brain waves show signs of permanent neurological trauma"
-	icon = FA_ICON_BRAIN
+	icon = FA_ICON_DIZZY
 
 /datum/quirk/traumatized/post_add()
 	. = ..()
