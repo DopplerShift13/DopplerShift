@@ -9,7 +9,7 @@
 	name = "Shrimp (Insect)"
 	icon_state = "segmentedtail"
 
-/datum/sprite_accessory/tails/bug/abdomen/fuzz_warm
+/datum/sprite_accessory/tails/bug/abdomen
 	name = "Fuzzy Abdomen (Warm)"
 	icon_state = "fuzz_warm"
 
