@@ -22,7 +22,7 @@
 
 ///Bodypart overlay of default wings. Does not have any wing functionality
 /datum/bodypart_overlay/mutant/wings
-	layers = ALL_EXTERNAL_OVERLAYS
+	layers = ALL_EXTERNAL_OVERLAYS | EXTERNAL_BACK // DOPPLER EDIT: adds EXTERNAL_BACK
 	feature_key = "wings"
 
 /datum/bodypart_overlay/mutant/wings/can_draw_on_bodypart(mob/living/carbon/human/human)
