@@ -162,7 +162,7 @@
 
 /// Bodypart overlay for the horrible cat ears
 /datum/bodypart_overlay/mutant/cat_ears
-	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND | EXTERNAL_BACK
+	layers = EXTERNAL_FRONT | EXTERNAL_BEHIND
 	color_source = ORGAN_COLOR_HAIR
 	feature_key = "ears"
 	dyable = TRUE

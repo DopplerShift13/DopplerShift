@@ -876,8 +876,6 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_BEHIND_3 (1 << 8)
 //Hand markings
 #define EXTERNAL_HAND (1 << 9)
-//back sprite
-#define EXTERNAL_BACK (1 << 10)
 /// DOPPLER SHIFT ADDITION END
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
