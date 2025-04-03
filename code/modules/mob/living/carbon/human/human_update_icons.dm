@@ -616,7 +616,7 @@ There are several things that need to be remembered:
 		my_chest?.worn_back_offset?.apply_offset(back_overlay)
 		overlays_standing[BACK_LAYER] = back_overlay
 	apply_overlay(BACK_LAYER)
-// BUBBER EDIT START
+// DOPPLER EDIT START
 /obj/effect/abstract/held_tk_effect
 	name = "held_tk_effect"
 	icon = 'modular_doppler/psychicshit/icons/effects/tele_effects.dmi'
@@ -671,17 +671,17 @@ There are several things that need to be remembered:
 
 /obj/effect/abstract/held_tk_effect/left
 	is_right = FALSE
-// BUBBER EDIT END
+// DOPPLER EDIT END
 /mob/living/carbon/human/get_held_overlays()
 	var/list/hands = list()
-	// BUBBER EDIT START
+	// DOPPLER EDIT START
 	if(held_left)
 		held_left.overlays.Cut()
 		held_left.underlays.Cut()
 	if(held_right)
 		held_right.overlays.Cut()
 		held_right.underlays.Cut()
-	// BUBBER EDIT END
+	// DOPPLER EDIT END
 	for(var/obj/item/worn_item in held_items)
 		var/held_index = get_held_index_of_item(worn_item)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
@@ -766,7 +766,7 @@ There are several things that need to be remembered:
 		else
 			held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
 			hands += hand_overlay
-		// BUBBER EDIT END
+		// DOPPLER EDIT END
 	return hands
 
 /// Modifies a sprite slightly to conform to female body shapes
