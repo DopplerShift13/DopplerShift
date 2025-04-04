@@ -30,7 +30,6 @@
 	if(holder.has_reagent(/datum/reagent/medicine/epinephrine))
 		metabolization_rate = 0.125 * REAGENTS_METABOLISM
 
-//prepare for fun facts about lidocaine that I put some mild research into.
 /datum/chemical_reaction/lidocaine
 	results = list(/datum/reagent/medicine/lidocaine = 3)
 	required_reagents = list(/datum/reagent/nitrous_oxide = 2, /datum/reagent/diethylamine = 3, /datum/reagent/medicine/salglu_solution = 1 )
@@ -39,7 +38,7 @@
 	mix_sound = 'sound/effects/bubbles/bubbles2.ogg'
 	optimal_temp = 530
 	optimal_ph_min = 4.0
-	optimal_ph_max = 6.9 //Lidocaine is mildly acidic compound
+	optimal_ph_max = 6.9
 	ph_exponent_factor = 0.25
 	determin_ph_range = 5
 	H_ion_release = -0.05 //All this is pretty helpful to make ph-balancing easier, the difficulty is meant to be the compound steps and that you'll probably blow up Nitrous
