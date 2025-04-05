@@ -157,7 +157,7 @@ const BountyPickButton = (props) => {
       >
         {props.bounty_info}
       </Box>
-      <Box>Payout: {props.bounty_value} cr</Box>
+      <Box>Payout: {props.bounty_value} ♎︎</Box>
     </Button>
   );
 };

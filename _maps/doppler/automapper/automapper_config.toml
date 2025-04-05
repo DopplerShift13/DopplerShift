@@ -18,6 +18,14 @@ required_map = "MetaStation.dmm"
 coordinates = [133, 182, 1]
 trait_name = "Station"
 
+# Metastation ATM
+[templates.metastation_atm]
+map_files = ["metastation_atm.dmm"]
+directory = "_maps/doppler/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [76, 156, 1]
+trait_name = "Station"
+
 # DELTASTATION MAP EDITS
 # Deltastation Cryo
 [templates.deltastation_cryo]
@@ -25,6 +33,14 @@ map_files = ["deltastation_cryo.dmm"]
 directory = "_maps/doppler/automapper/templates/deltastation/"
 required_map = "DeltaStation2.dmm"
 coordinates = [216, 93, 1]
+trait_name = "Station"
+
+# Deltastation ATM
+[templates.deltastation_atm]
+map_files = ["deltastation_atm.dmm"]
+directory = "_maps/doppler/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [150, 153, 1]
 trait_name = "Station"
 
 # ICEBOX MAP EDITS
@@ -50,6 +66,14 @@ map_files = ["icemoon_underground_icewalker_upper.dmm"]
 directory = "_maps/RandomRuins/IceRuins/doppler/"
 required_map = "IceBoxStation.dmm"
 coordinates = [170, 16, 2]
+trait_name = "Station"
+
+# Icebox ATM
+[templates.icebox_atm]
+map_files = ["icebox_atm.dmm"]
+directory = "_maps/doppler/automapper/templates/icebox/"
+required_map = "IceBoxStation.dmm"
+coordinates = [106, 143, 3]
 trait_name = "Station"
 
 # ICELAND ADDITIONS
@@ -78,6 +102,14 @@ required_map = "tramstation.dmm"
 coordinates = [68, 102, 2]
 trait_name = "Station"
 
+# Tramstation ATM
+[templates.tramstation_atm]
+map_files = ["tramstation_atm.dmm"]
+directory = "_maps/doppler/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [198, 109, 2]
+trait_name = "Station"
+
 # BIRDSHOT MAP EDITS
 # Birdshot Cryo
 [templates.birdshot_cryo]
@@ -85,6 +117,14 @@ map_files = ["birdshot_cryo.dmm"]
 directory = "_maps/doppler/automapper/templates/birdshot/"
 required_map = "birdshot.dmm"
 coordinates = [142, 84, 1]
+trait_name = "Station"
+
+# Birdshot ATM
+[templates.birdshot_atm]
+map_files = ["birdshot_atm.dmm"]
+directory = "_maps/doppler/automapper/templates/birdshot/"
+required_map = "birdshot.dmm"
+coordinates = [70, 157, 1]
 trait_name = "Station"
 
 # NORTHSTAR MAP EDITS
@@ -105,6 +145,14 @@ required_map = "wawastation.dmm"
 coordinates = [83, 92, 1]
 trait_name = "Station"
 
+# Wawastation ATM
+[templates.wawastation_atm]
+map_files = ["wawastation_atm.dmm"]
+directory = "_maps/doppler/automapper/templates/wawastation/"
+required_map = "wawastation.dmm"
+coordinates = [73, 106, 1]
+trait_name = "Station"
+
 # NEBULASTATION MAP EDITS
 # Nebulastation Cryo
 [templates.nebulastation_cryo]
@@ -112,4 +160,12 @@ map_files = ["nebulastation_cryo.dmm"]
 directory = "_maps/doppler/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [117, 137, 2]
+trait_name = "Station"
+
+# Nebulastation ATM
+[templates.nebulastation_atm]
+map_files = ["nebulastation_atm.dmm"]
+directory = "_maps/doppler/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [78, 127, 1]
 trait_name = "Station"

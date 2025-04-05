@@ -1,0 +1,47 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 10
+	},
+/obj/machinery/autobank/wallmount/directional/west,
+/obj/effect/turf_decal/loading_area/white{
+	dir = 8
+	},
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/machinery/door/window/right/directional/east,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/commons/dorms)
+"d" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/commons/dorms)
+"s" = (
+/obj/effect/turf_decal/siding/thinplating_new/dark{
+	dir = 9
+	},
+/obj/machinery/autobank/wallmount/directional/west,
+/obj/effect/turf_decal/loading_area/white{
+	dir = 8
+	},
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/window/reinforced/spawner/directional/south,
+/obj/machinery/door/window/left/directional/east,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/commons/dorms)
+"M" = (
+/turf/open/floor/iron/dark/herringbone,
+/area/station/commons/dorms)
+
+(1,1,1) = {"
+s
+d
+a
+"}
+(2,1,1) = {"
+M
+M
+M
+"}
