@@ -76,7 +76,9 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 /datum/job/security_officer/proc/setup_department(mob/living/carbon/human/spawning, client/player_client)
 	var/department = player_client?.prefs?.read_preference(/datum/preference/choiced/security_department)
 	if (!isnull(department))
+		/* DOPPLER EDIT REMOVAL START - Security officers select their own department
 		department = get_my_department(spawning, department)
+		DOPPLER EDIT REMOVAL END */
 
 		// This should theoretically still run if a player isn't in the distributions, but isn't a late join.
 		GLOB.security_officer_distribution[REF(spawning)] = department
@@ -128,6 +130,7 @@ GLOBAL_LIST_EMPTY(security_officer_distribution)
 		var/assignment = worn_id.get_trim_assignment()
 		if(istype(pda) && !isnull(assignment))
 			pda.imprint_id(spawning.real_name, assignment)
+		SSjob.setup_alt_job_title(spawning, src, player_client) // DOPPLER ADDITION: alternative job titles
 
 	var/spawn_point = pick(LAZYACCESS(GLOB.department_security_spawns, department))
 
