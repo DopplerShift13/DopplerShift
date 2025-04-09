@@ -73,6 +73,7 @@
 
 /obj/item/organ/cyberimp/arm/strongarm/leftie
 	zone = BODY_ZONE_L_ARM
+	slot = ORGAN_SLOT_LEFT_ARM_MUSCLE
 
 /datum/outfit/deathmatch_loadout/cyberpunk/sandevistan
 	name = "DM: The Special One"
