@@ -66,10 +66,13 @@
 	l_pocket = /obj/item/reagent_containers/hypospray/medipen/deforest/demoneye
 	implants_to_add = list(
 		/obj/item/organ/cyberimp/arm/strongarm,
-		/obj/item/organ/cyberimp/arm/strongarm/l,
+		/obj/item/organ/cyberimp/arm/strongarm/leftie, // ??
 		/obj/item/organ/cyberimp/chest/spine/atlas,
 	)
 	bodyparts_to_replace = list()
+
+/obj/item/organ/cyberimp/arm/strongarm/leftie
+	zone = BODY_ZONE_L_ARM
 
 /datum/outfit/deathmatch_loadout/cyberpunk/sandevistan
 	name = "DM: The Special One"
