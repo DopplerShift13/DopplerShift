@@ -11,16 +11,24 @@
 	interaction_flags_click = parent_type::interaction_flags_click | NEED_DEXTERITY | NEED_HANDS
 	obj_flags = UNIQUE_RENAME
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
+	storage_type = /datum/storage/security_swords
 
 /obj/item/storage/belt/secsword/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/update_icon_updates_onmob)
 
-	atom_storage.max_slots = 5
-	atom_storage.do_rustle = FALSE
-	atom_storage.max_specific_storage = WEIGHT_CLASS_BULKY
-	atom_storage.max_total_storage = (WEIGHT_CLASS_BULKY + (WEIGHT_CLASS_NORMAL * 4)) // One sword four other things
-	atom_storage.set_holdable(list(
+/datum/storage/security_swords
+	max_slots = 5
+	open_sound = 'sound/items/handling/holster_open.ogg'
+	open_sound_vary = TRUE
+	rustle_sound = null
+	max_specific_storage = WEIGHT_CLASS_BULKY
+	max_total_storage = (WEIGHT_CLASS_BULKY + (WEIGHT_CLASS_NORMAL * 4))
+
+/datum/storage/security_swords/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
+	. = ..()
+
+	set_holdable(list(
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing/shotgun,
 		/obj/item/assembly/flash/handheld,
@@ -38,8 +46,6 @@
 		/obj/item/restraints/legcuffs/bola,
 		/obj/item/melee/secblade,
 	))
-	atom_storage.open_sound = 'sound/items/handling/holster_open.ogg'
-	atom_storage.open_sound_vary = TRUE
 
 /obj/item/storage/belt/secsword/examine(mob/user)
 	. = ..()
