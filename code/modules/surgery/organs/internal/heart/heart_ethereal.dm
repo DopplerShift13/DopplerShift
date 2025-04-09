@@ -228,7 +228,7 @@
 
 	playsound(get_turf(regenerating), 'sound/mobs/humanoids/ethereal/ethereal_revive.ogg', 100)
 	to_chat(regenerating, span_notice("You burst out of the crystal with vigour... </span><span class='userdanger'>But at a cost."))
-	regenerating.revive(HEAL_ALL & ~HEAL_REFRESH_ORGANS)
+	regenerating.revive(HEAL_ALL & ~HEAL_REFRESH_ORGANS & ~HEAL_TRAUMAS) //Doppler Edit: (Adds ~HEAL_TRAUMAS) Ethereal regeneration no longer cures traumas.
 
 	regenerating.apply_status_effect(/datum/status_effect/vulnerable_to_damage) //DOPPLER EDIT ADDITION
 

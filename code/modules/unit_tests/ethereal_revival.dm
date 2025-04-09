@@ -38,7 +38,8 @@
 	TEST_ASSERT_NOTNULL(victim.get_bodypart(BODY_ZONE_L_LEG), "Ethereal failed to regrow limb when reviving.")
 	TEST_ASSERT(!length(right_leg.wounds), "Ethereal failed to fix wound when reviving.")
 	var/list/current_traumas = victim.get_traumas()
-	TEST_ASSERT(!(locate(/datum/brain_trauma/special/ptsd) in current_traumas), "Ethereal failed to heal curable brain trauma when reviving.")
+	//Doppler Removal Ethereals no longer heal any brain damage on regeneration.
+	//TEST_ASSERT(!(locate(/datum/brain_trauma/special/ptsd) in current_traumas), "Ethereal failed to heal curable brain trauma when reviving.")
 	TEST_ASSERT(length(current_traumas) == 1, "Ethereal failed to gain trauma when reviving.")
 
 	kill_and_revive(victim, respawn_heart)
