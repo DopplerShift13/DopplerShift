@@ -1,4 +1,4 @@
-//modularly adds a glaive reskin to the crusher. code credit due to hatterhat via https://github.com/Skyrat-SS13/Skyrat-tg/pull/22626
+//modularly adds a glaive reskin to the crusher. code credit due to hatterhat via https://github.com/Skyrat-SS13/Skyrat-tg/pull/22626 for lines 3 - 33 and ephe for 35 - 40
 
 /obj/item/kinetic_crusher
 	uses_advanced_reskins = TRUE
@@ -31,3 +31,10 @@
 		inhand_x_dimension = 64
 		inhand_y_dimension = 64
 		our_mob.update_held_items()
+
+/obj/item/kinetic_crusher/setup_reskinning()
+    if(!check_setup_reskinning())
+        return
+
+    // We already register context regardless in Initialize.
+    RegisterSignal(src, COMSIG_CLICK_ALT, PROC_REF(on_click_alt_reskin))
