@@ -332,9 +332,9 @@
 /obj/item/bounty_cube/examine()
 	. = ..()
 	if(speed_bonus)
-		. += span_notice("<b>[time2text(next_nag_time - world.time,"mm:ss")]</b> remains until <b>[bounty_value * speed_bonus]</b> credit speedy delivery bonus lost.")
+		. += span_notice("<b>[time2text(next_nag_time - world.time,"mm:ss")]</b> remains until <b>[bounty_value * speed_bonus]</b> Libre speedy delivery bonus lost.") // DOPPLER EDIT: credits > Libre
 	if(handler_tip && !bounty_handler_account)
-		. += span_notice("Scan this in the cargo shuttle with an export scanner to register your bank account for the <b>[bounty_value * handler_tip]</b> credit handling tip.")
+		. += span_notice("Scan this in the cargo shuttle with an export scanner to register your bank account for the <b>[bounty_value * handler_tip]</b> Libre handling tip.") // DOPPLER EDIT: credits > Libre
 
 /*
  * Signal proc for [COMSIG_ITEM_EXPORTED], registered on the internal radio.
@@ -357,7 +357,7 @@
 		var/nag_message = "[src] is unsent in [get_area(src)]."
 
 		//nag on Supply channel and reduce the speed bonus multiplier to nothing
-		var/speed_bonus_lost = "[speed_bonus ? " Speedy delivery bonus of [bounty_value * speed_bonus] credit\s lost." : ""]"
+		var/speed_bonus_lost = "[speed_bonus ? " Speedy delivery bonus of [bounty_value * speed_bonus] Libre lost." : ""]" // DOPPLER EDIT: credits > Libre
 		radio.talk_into(src, "[nag_message][speed_bonus_lost]", RADIO_CHANNEL_SUPPLY)
 		speed_bonus = 0
 
@@ -377,7 +377,7 @@
 	bounty_holder = holder_id.registered_name
 	bounty_holder_job = holder_id.assignment
 	bounty_holder_account = holder_id.registered_account
-	name = "\improper [bounty_value] cr [name]"
+	name = "\improper [bounty_value] libre [name]" // DOPPLER EDIT: cr > libre
 	desc += " The sales tag indicates it was <i>[bounty_holder] ([bounty_holder_job])</i>'s reward for completing the <i>[bounty_name]</i> bounty."
 	AddComponent(/datum/component/pricetag, holder_id.registered_account, holder_cut, FALSE)
 	AddComponent(/datum/component/gps, "[src]")

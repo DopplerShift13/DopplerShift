@@ -1,0 +1,123 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/closed/wall,
+/area/station/maintenance/department/crew_quarters/bar)
+"c" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Maintenance Hatch"
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 8
+	},
+/obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/turf/open/floor/iron,
+/area/station/maintenance/department/crew_quarters/bar)
+"i" = (
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/department/crew_quarters/bar)
+"q" = (
+/obj/machinery/autobank/wallmount/directional/north,
+/obj/effect/turf_decal/loading_area/white{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/machinery/door/window/left/directional/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/maintenance/department/crew_quarters/bar)
+"w" = (
+/obj/structure/disposalpipe/segment,
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/department/crew_quarters/bar)
+"A" = (
+/obj/structure/disposalpipe/segment,
+/obj/machinery/door/airlock/maintenance_hatch{
+	name = "Maintenance Hatch"
+	},
+/obj/effect/mapping_helpers/airlock/abandoned,
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/mapping_helpers/airlock/unres{
+	dir = 1
+	},
+/obj/effect/mapping_helpers/airlock/access/any/service/maintenance,
+/obj/effect/mapping_helpers/airlock/access/any/supply/maintenance,
+/turf/open/floor/iron,
+/area/station/maintenance/department/crew_quarters/bar)
+"B" = (
+/obj/machinery/autobank/wallmount/directional/north,
+/obj/effect/turf_decal/loading_area/white{
+	dir = 1
+	},
+/obj/structure/window/reinforced/spawner/directional/east,
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/machinery/door/window/right/directional/south,
+/turf/open/floor/iron/dark/smooth_large,
+/area/station/maintenance/department/crew_quarters/bar)
+"F" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/department/crew_quarters/bar)
+"J" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/mining/glass{
+	name = "Banking Terminals"
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/department/crew_quarters/bar)
+"O" = (
+/obj/structure/disposalpipe/junction/yjunction{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/department/crew_quarters/bar)
+"Y" = (
+/obj/structure/disposalpipe/segment{
+	dir = 6
+	},
+/turf/open/floor/iron/dark/small,
+/area/station/maintenance/department/crew_quarters/bar)
+
+(1,1,1) = {"
+a
+q
+Y
+A
+"}
+(2,1,1) = {"
+a
+i
+F
+a
+"}
+(3,1,1) = {"
+a
+B
+F
+a
+"}
+(4,1,1) = {"
+c
+w
+O
+a
+"}
+(5,1,1) = {"
+a
+a
+J
+a
+"}
