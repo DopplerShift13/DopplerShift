@@ -26,7 +26,8 @@
 	instant_crystallise(victim, respawn_heart)
 	TEST_ASSERT_NULL(respawn_heart.current_crystal, "Ethereal crystallised while heart was on cooldown.")
 
-	victim.gain_trauma(/datum/brain_trauma/special/ptsd, resilience = TRAUMA_RESILIENCE_BASIC) // One you can't gain via revival
+	//Doppler Removal. We're not testing for this anymore and it fucks with counting.
+	//victim.gain_trauma(/datum/brain_trauma/special/ptsd, resilience = TRAUMA_RESILIENCE_BASIC) // One you can't gain via revival
 	var/obj/item/bodypart/leg/left_leg = victim.get_bodypart(BODY_ZONE_L_LEG)
 	left_leg.dismember()
 	var/obj/item/bodypart/leg/right_leg = victim.get_bodypart(BODY_ZONE_R_LEG)
