@@ -535,6 +535,15 @@ GLOBAL_LIST_INIT(english_to_zombie, list())
 	liked_foodtypes = VEGETABLES
 	disliked_foodtypes = FRUIT | CLOTH
 
+/obj/item/organ/tongue/android
+	name = "android voicebox"
+	desc = "A voice synthesizer unique to androids. It allows them to speak."
+	icon = 'icons/obj/medical/organs/organs.dmi'
+	icon_state = "tonguerobot"
+	organ_flags = ORGAN_ROBOTIC
+	failing_desc = "seems to be broken."
+	organ_traits = list(TRAIT_SILICON_EMOTES_ALLOWED)
+
 /obj/item/organ/tongue/robot
 	name = "robotic voicebox"
 	desc = "A voice synthesizer that can interface with organic lifeforms."

@@ -208,6 +208,14 @@
 	to_chat(ear_owner, span_notice("Your sense of balance comes back to you."))
 	REMOVE_TRAIT(ear_owner, TRAIT_WADDLING, ORGAN_TRAIT)
 
+/obj/item/organ/ears/android
+	name = "audio receiver"
+	desc = "A listening device commonly found within androids. It allows them to hear."
+	icon = 'icons/obj/devices/artefacts.dmi'
+	icon_state = "prototype3"
+	organ_flags = ORGAN_ROBOTIC
+	failing_desc = "seems to be broken."
+
 /obj/item/organ/ears/cybernetic
 	name = "basic cybernetic ears"
 	icon_state = "ears-c"
