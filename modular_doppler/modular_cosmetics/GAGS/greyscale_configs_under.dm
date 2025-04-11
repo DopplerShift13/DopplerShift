@@ -228,6 +228,12 @@
 	name = "Jeans Shorts (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
 
+/datum/greyscale_config/jeans
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/pants.dmi'
+
+/datum/greyscale_config/jeans/worn
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi'
+
 /datum/greyscale_config/ripped_jeans
 	name = "Ripped Jeans"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/pants.dmi'
