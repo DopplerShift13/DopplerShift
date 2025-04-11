@@ -221,8 +221,8 @@
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
 
 
-//these two jeans configs are loadbearing. they are overrides of existing tg configs, and if you remove them absolutely nothing will change in the game \
-itself, but the antag screenshot unit test will fail consistently.
+//these two jeans configs are loadbearing. they are overrides of existing tg configs, and if you remove them absolutely nothing will change in the game
+// itself, but the antag screenshot unit test will fail consistently.
 
 /datum/greyscale_config/jeans
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/pants.dmi'
