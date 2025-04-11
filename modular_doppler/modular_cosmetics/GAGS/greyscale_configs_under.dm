@@ -220,6 +220,16 @@
 	name = "Shorts (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
 
+
+//these two jeans configs are loadbearing. they are overrides of existing tg configs, and if you remove them absolutely nothing will change in the game \
+itself, but the antag screenshot unit test will fail consistently.
+
+/datum/greyscale_config/jeans
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/pants.dmi'
+
+/datum/greyscale_config/jeans/worn
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi'
+
 /datum/greyscale_config/jeans/worn/digi
 	name = "Jeans (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
@@ -227,12 +237,6 @@
 /datum/greyscale_config/jeanshorts/worn/digi
 	name = "Jeans Shorts (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
-
-/datum/greyscale_config/jeans
-	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/pants.dmi'
-
-/datum/greyscale_config/jeans/worn
-	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi'
 
 /datum/greyscale_config/ripped_jeans
 	name = "Ripped Jeans"
