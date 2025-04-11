@@ -219,7 +219,8 @@
 #define TRAUMA_RESILIENCE_LOBOTOMY 3 //Curable with lobotomy
 #define TRAUMA_RESILIENCE_WOUND 4 //Curable by healing the head wound
 #define TRAUMA_RESILIENCE_MAGIC 5 //Curable only with magic
-#define TRAUMA_RESILIENCE_ABSOLUTE 6 //This is here to stay
+#define TRAUMA_RESILIENCE_ETHEREAL 6 //DOPPLER ADDITION FOR ETHEREAL REWORK
+#define TRAUMA_RESILIENCE_ABSOLUTE 7 //DOPPLER EDIT: 6 -> 7
 
 //Limit of traumas for each resilience tier
 #define TRAUMA_LIMIT_BASIC 3
