@@ -925,6 +925,10 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	if(attacking_bodypart.unarmed_damage_low)
 		if((target.body_position == LYING_DOWN) || HAS_TRAIT(user, TRAIT_PERFECT_ATTACKER) || staggered || user_drunkenness && HAS_TRAIT(user, TRAIT_DRUNKEN_BRAWLER)) //kicks and attacks against staggered targets never miss (provided your species deals more than 0 damage). Drunken brawlers while drunk also don't miss
 			miss_chance = 0
+		// DOPPLER EDIT ADDITION START
+		if(HAS_TRAIT(user, TRAIT_POWER_MONSTERSTRENGTH))
+			miss_chance = 0
+		// DOPPLER EDIT ADDITION END
 		else
 			miss_chance = clamp(UNARMED_MISS_CHANCE_BASE - limb_accuracy + (user.getFireLoss()*0.5 + user.getBruteLoss()*0.5), 0, UNARMED_MISS_CHANCE_MAX) //Limb miss chance + various damage. capped at 80 so there is at least a chance to land a hit.
 
