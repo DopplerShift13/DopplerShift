@@ -215,9 +215,6 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 	///Name of lighting mask for the vending machine
 	var/light_mask
 
-	/// used for narcing on underages
-	var/obj/item/radio/sec_radio
-
 	//the path of the fish_source datum to use for the fishing_spot component
 	var/fish_source_path = /datum/fish_source/vending
 
@@ -286,7 +283,6 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 /obj/machinery/vending/Destroy()
 	QDEL_NULL(coin)
 	QDEL_NULL(bill)
-	QDEL_NULL(sec_radio)
 	GLOB.vending_machines_to_restock -= src
 	return ..()
 
@@ -1078,9 +1074,14 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 			var/mob/living/carbon/carbon_target = atom_target
 			for(var/i in 1 to num_shards)
 				var/obj/item/shard/shard = new /obj/item/shard(get_turf(carbon_target))
-				shard.set_embed(/datum/embedding/glass_candy)
+				var/datum/embedding/embed = shard.get_embed()
+				embed.embed_chance = 100
+				embed.ignore_throwspeed_threshold = TRUE
+				embed.impact_pain_mult = 1
 				carbon_target.hitby(shard, skipcatch = TRUE, hitpush = FALSE)
-				shard.set_embed(initial(shard.embed_type))
+				embed.embed_chance = initial(embed.embed_chance)
+				embed.ignore_throwspeed_threshold = initial(embed.ignore_throwspeed_threshold)
+				embed.impact_pain_mult = initial(embed.impact_pain_mult)
 			return TRUE
 		if (VENDOR_CRUSH_CRIT_PIN) // pin them beneath the machine until someone untilts it
 			if (!isliving(atom_target))
@@ -1211,7 +1212,7 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 
 /obj/machinery/vending/ui_assets(mob/user)
 	return list(
-		get_asset_datum(/datum/asset/spritesheet/vending),
+		get_asset_datum(/datum/asset/spritesheet_batched/vending),
 	)
 
 /obj/machinery/vending/ui_interact(mob/user, datum/tgui/ui)
@@ -1437,11 +1438,12 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 		if(age_restrictions && item_record.age_restricted && (!card_used.registered_age || card_used.registered_age < AGE_MINOR))
 			speak("You are not of legal age to purchase [item_record.name].")
 			if(!(usr in GLOB.narcd_underages))
-				if (isnull(sec_radio))
-					sec_radio = new (src)
-					sec_radio.set_listening(FALSE)
-				sec_radio.set_frequency(FREQ_SECURITY)
-				sec_radio.talk_into(src, "SECURITY ALERT: Underaged crewmember [usr] recorded attempting to purchase [item_record.name] in [get_area(src)]. Please watch for substance abuse.", FREQ_SECURITY)
+				aas_config_announce(/datum/aas_config_entry/vendomat_age_control, list(
+					"PERSON" = usr.name,
+					"LOCATION" = get_area_name(src),
+					"VENDOR" = name,
+					"PRODUCT" = item_record.name
+				), src, list(RADIO_CHANNEL_SECURITY))
 				GLOB.narcd_underages += usr
 			flick(icon_deny,src)
 			vend_ready = TRUE
@@ -1913,5 +1915,17 @@ GLOBAL_LIST_EMPTY(vending_machines_to_restock)
 	slogan_list = list("[GLOB.deity] says: It's your divine right to buy!")
 	add_filter("vending_outline", 9, list("type" = "outline", "color" = COLOR_VERY_SOFT_YELLOW))
 	add_filter("vending_rays", 10, list("type" = "rays", "size" = 35, "color" = COLOR_VIVID_YELLOW))
+
+/datum/aas_config_entry/vendomat_age_control
+	name = "Security Alert: Underaged Substance Abuse"
+	announcement_lines_map = list(
+		"Message" = "SECURITY ALERT: Underaged crewmember %PERSON recorded attempting to purchase %PRODUCT in %LOCATION by %VENDOR. Please watch for substance abuse."
+	)
+	vars_and_tooltips_map = list(
+		"PERSON" = "will be replaced with the name of the crewmember",
+		"PRODUCT" = "with the product, he attempted to purchase",
+		"LOCATION" = "with place of purchase",
+		"VENDOR" = "with the vending machine"
+	)
 
 #undef MAX_VENDING_INPUT_AMOUNT

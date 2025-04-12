@@ -607,7 +607,6 @@
 	taste_description = "ancient icicles"
 	overdose_threshold = 25
 	var/obj/structure/ice_stasis/cube
-	var/atom/movable/screen/alert/status_effect/freon/cryostylane_alert
 
 /datum/glass_style/drinking_glass/blizzard_brew
 	required_drink_type = /datum/reagent/consumable/ethanol/blizzard_brew
@@ -629,8 +628,6 @@
 	cube.color = COLOR_CYAN
 	cube.set_anchored(TRUE)
 	drinker.forceMove(cube)
-	cryostylane_alert = drinker.throw_alert("cryostylane_alert", /atom/movable/screen/alert/status_effect/freon/cryostylane)
-	cryostylane_alert.attached_effect = src //so the alert can reference us, if it needs to
 
 /datum/reagent/consumable/ethanol/blizzard_brew/on_mob_delete(mob/living/carbon/drinker, amount)
 	QDEL_NULL(cube)
