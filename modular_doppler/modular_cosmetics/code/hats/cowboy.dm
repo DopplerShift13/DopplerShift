@@ -1,14 +1,10 @@
-/obj/item/clothing/head/cowboy
-	supports_variations_flags = CLOTHING_SNOUTED_VARIATION_NO_NEW_ICON
-
 /obj/item/clothing/head/cowboy/doppler
 	name = "COWBOY HAT DEBUG"
 	desc = "REPORT THIS IF FOUND"
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/cowboy.dmi'
-	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/cowboy.dmi'
+	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/cowboy.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/cowboy.dmi'
 	icon_state = null //Keeps this from showing up under the chameleon hat
 	worn_icon_state = null //TG defaults this to "hunter" and breaks our items
-	flags_inv = SHOWSPRITEEARS
 	armor_type = /datum/armor/cosmetic_sec //slighlty weaker than a helmet because it inherits the ability to be shot off in place of your head
 	//there used to be a change to resistance flags here, it's gone now
 
@@ -47,7 +43,7 @@
 	greyscale_config_worn = /datum/greyscale_config/cowboy_flat_cowl/worn
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
-	flags_inv = HIDEHAIR | SHOWSPRITEEARS
+	flags_inv = HIDEHAIR
 
 /obj/item/clothing/head/cowboy/doppler/cattleman
 	name = "cattleman hat"
