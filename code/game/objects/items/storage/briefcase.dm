@@ -97,7 +97,7 @@
 /obj/item/storage/briefcase/secure/syndie/PopulateContents()
 	. = ..()
 	for(var/iterator in 1 to 5)
-		new /obj/item/stack/spacecash/c1000(src)
+		new /obj/item/libre/bundle/c1000(src) // DOPPLER EDIT: cashtype
 
 /// A briefcase that contains various sought-after spoils
 /obj/item/storage/briefcase/secure/riches

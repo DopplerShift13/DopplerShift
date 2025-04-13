@@ -558,3 +558,15 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_CARGO
 
+/datum/design/wall_dwelling_atm //DOPPLER EDIT: adds this stupid thing
+	name = "Wall-Mounted ATM"
+	desc = "A small, easy-to-assemble ATM uplink. Automatically locks in on the nearest locus of financial information."
+	id = "wall_atm_crew"
+	build_type = AUTOLATHE | PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5, /datum/material/glass = SHEET_MATERIAL_AMOUNT)
+	build_path = /obj/item/wallframe/atm_wallmount
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_CONSTRUCTION + RND_SUBCATEGORY_CONSTRUCTION_MACHINERY, RND_SUBCATEGORY_MACHINE_CARGO,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_CARGO

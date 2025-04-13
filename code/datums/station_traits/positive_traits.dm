@@ -392,9 +392,9 @@
 
 	var/obj/item/storage/wallet/new_wallet = new(locker_to_fill)
 
-	new /obj/item/stack/spacecash/c500(new_wallet)
+	new /obj/item/libre/bundle/c500(new_wallet) // DOPPLER EDIT: CASHTYPE
 	if(prob(25)) //Jackpot!
-		new /obj/item/stack/spacecash/c1000(new_wallet)
+		new /obj/item/libre/bundle/c1000(new_wallet) // DOPPLER EDIT: CASHTYPE
 
 	new /obj/item/card/id/advanced/technician_id(new_wallet)
 	new_wallet.refreshID()

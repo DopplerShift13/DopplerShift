@@ -64,15 +64,15 @@
 		/obj/item/coin/antagtoken = 1,
 	)
 
-/obj/effect/spawner/random/entertainment/money_small
+/obj/effect/spawner/random/entertainment/money_small // DOPPLER EDIT BEGINS: HOW MUCH CASH CAN I MAKE?
 	name = "small money spawner"
 	icon_state = "cash"
 	spawn_loot_count = 3
 	spawn_loot_split = TRUE
 	loot = list(
-		/obj/item/stack/spacecash/c1 = 5,
-		/obj/item/stack/spacecash/c10 = 3,
-		/obj/item/stack/spacecash/c20 = 2,
+		/obj/item/libre/bundle/c1 = 5,
+		/obj/item/libre/bundle/c10 = 3,
+		/obj/item/libre/bundle/c20 = 2,
 	)
 
 /obj/effect/spawner/random/entertainment/money
@@ -81,22 +81,22 @@
 	spawn_loot_count = 3
 	spawn_loot_split = TRUE
 	loot = list(
-		/obj/item/stack/spacecash/c1 = 10,
-		/obj/item/stack/spacecash/c10 = 5,
-		/obj/item/stack/spacecash/c20 = 3,
-		/obj/item/stack/spacecash/c50 = 2,
-		/obj/item/stack/spacecash/c100 = 1,
+		/obj/item/libre/bundle/c1 = 10,
+		/obj/item/libre/bundle/c10 = 5,
+		/obj/item/libre/bundle/c20 = 3,
+		/obj/item/libre/bundle/c50 = 2,
+		/obj/item/libre/bundle/c100 = 1,
 	)
 
 /obj/effect/spawner/random/entertainment/money_medium
 	name = "money spawner"
 	icon_state = "cash"
 	loot = list(
-		/obj/item/stack/spacecash/c100 = 25,
-		/obj/item/stack/spacecash/c200 = 15,
-		/obj/item/stack/spacecash/c50 = 10,
-		/obj/item/stack/spacecash/c500 = 5,
-		/obj/item/stack/spacecash/c1000 = 1,
+		/obj/item/libre/bundle/c100 = 25,
+		/obj/item/libre/bundle/c200 = 15,
+		/obj/item/libre/bundle/c50 = 10,
+		/obj/item/libre/bundle/c500 = 5,
+		/obj/item/libre/bundle/c1000 = 1,
 	)
 
 /obj/effect/spawner/random/entertainment/money_large
@@ -105,16 +105,16 @@
 	spawn_loot_count = 5
 	spawn_loot_split = TRUE
 	loot = list(
-		/obj/item/stack/spacecash/c1 = 100,
-		/obj/item/stack/spacecash/c10 = 80,
-		/obj/item/stack/spacecash/c20 = 60,
-		/obj/item/stack/spacecash/c50 = 40,
-		/obj/item/stack/spacecash/c100 = 30,
-		/obj/item/stack/spacecash/c200 = 20,
-		/obj/item/stack/spacecash/c500 = 10,
-		/obj/item/stack/spacecash/c1000 = 5,
-		/obj/item/stack/spacecash/c10000 = 1,
-	)
+		/obj/item/libre/bundle/c1 = 100,
+		/obj/item/libre/bundle/c10 = 80,
+		/obj/item/libre/bundle/c20 = 60,
+		/obj/item/libre/bundle/c50 = 40,
+		/obj/item/libre/bundle/c100 = 30,
+		/obj/item/libre/bundle/c200 = 20,
+		/obj/item/libre/bundle/c500 = 10,
+		/obj/item/libre/bundle/c1000 = 5,
+	//	/obj/item/stack/spacecash/c10000 = 1,
+	) // DOPPLER EDIT ENDS
 
 /obj/effect/spawner/random/entertainment/drugs
 	name = "recreational drugs spawner"
