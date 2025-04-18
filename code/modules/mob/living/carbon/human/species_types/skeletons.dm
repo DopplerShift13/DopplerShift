@@ -45,9 +45,7 @@
 	)
 
 /datum/species/skeleton/check_roundstart_eligible()
-	if(check_holidays(HALLOWEEN))
-		return TRUE
-	return ..()
+	return TRUE //doppler edit, the skeleton appears
 
 /datum/species/skeleton/get_physical_attributes()
 	return "These humerus folk lack any fleshy biology, which allows them to resist pressure, temperature, radiation, asphyxiation and even toxins. \
