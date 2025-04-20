@@ -1,107 +1,103 @@
 /datum/uplink_category/special_kits
 	name = "Special Kits"
-	weight = 12
+	weight = 11
 
 /datum/uplink_item/speckit
 	category = /datum/uplink_category/special_kits
 
-/datum/uplink_item/speckit/recon
-	name = "Recon Equipment"
-	desc = "Featuring x-ray goggles, a briefcase launchpad, binoculars, grenades, a MODsuit, a portable EMP device, \
-		and an encryption key, this set of equipment is specialized for rapid infiltration and reconnaissance efforts."
-	item = /obj/item/storage/box/syndicate/bundle/recon
+/datum/uplink_item/speckit/bond
+	name = "Secret Agent Gear"
+	desc = "A handgun & ammo, agent ID card, chameleon suit, stimulant pen, freedom implant, EMP flashlight, brick of \
+		X4, a dishrag, a cyanide pill, and a deck of cards with which to sleuth your foes in poker - a customary set \
+		of gear that harkens back to secret agents employed by governments like that of the Fourth Celestial Alignment."
+	item = /obj/item/storage/box/syndicate/bundle/bond
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/spytf2
-	name = "Spy Equipment"
-	desc = "A panalopy of gear featuring lightweight chameleon clothing, a portable app for accessing all cameras, an \
-		AI detector multitool, an encryption key, a mulligan syringe, a chameleon device, a storage implant, and \
-		both a knife and portable EMP device, superbly suitable for the silent close-quarters operative. Also \
-		happens to come with free omnizine cigarettes."
-	item = /obj/item/storage/box/syndicate/bundle/spytf2
+/datum/uplink_item/speckit/ninja
+	name = "Ninja Tools"
+	desc = "A katana, throwing stars, stimulant pen, chameleon belt, doorjack card, agent ID, jump boots, chameleon device, \
+		and a mighty book that teaches the user how to throw an efficient smokebomb, a staple of ancient ninja groups as \
+		well as the modern Spider Clan."
+	item = /obj/item/storage/box/syndicate/bundle/ninja
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/stealth
-	name = "Stealth Operative Equipment"
-	desc = "A standard suite of equipment sporting a potent miniature ebow, a sleepy pen, a radiation laser, chameleon \
-		device, thermal goggles, radio jammer, EMP flashlight, and specialized soap for cleaning up messes, tailored \
-		towards the efficient worker that's never seen at all."
-	item = /obj/item/storage/box/syndicate/bundle/stealthy
+/datum/uplink_item/speckit/sith
+	name = "Dark Lord's Panoply"
+	desc = "An evil-looking double-bladed energy sword, alongside a set of telekinetic abilities that allow an individual to \
+		manipulate objects from a distance, recall their weapon to their hand, or cast deadly bolts of lightning. Also comes \
+		with an agent ID card, no-slip shoes, and an incredibly sinister hooded robe."
+	item = /obj/item/storage/box/syndicate/bundle/sith
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/fucked
-	name = "Terrorist Equipment"
-	desc = "A bomb, a power sink, a minibomb, an encryption key, and a spacesuit. Nothing stops the mail."
-	item = /obj/item/storage/box/syndicate/bundle/fucked
+/datum/uplink_item/speckit/ahab
+	name = "Whale Hunter's Armory"
+	desc = "A harpoon gun, alongside a quiver of harpoons with which to fire, a carp-skin spacesuit, a carp grenade, and a dehydrated \
+		space carp for you to re-hydrate and utilize as your own spacefaring battle mount. Legends say this outfit is similar to \
+		gear once used by hunters looking for a mythical space whale."
+	item = /obj/item/storage/box/syndicate/bundle/ahab
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/sabotage
-	name = "Saboteur Equipment"
-	desc = "A combo bag of C4 and X4 charges, alongside a camera app disk, power sink, detomatix app, pizza bomb, EMP \
-		kit, and a Syndicate-issue toolbox, made for operatives that really need shit blown up."
-	item = /obj/item/storage/box/syndicate/bundle/sabotage
+/datum/uplink_item/speckit/scientist
+	name = "Mad Scientist's Tools"
+	desc = "An evil-ass green labcoat, dark boots, a megaphone, and a pair of random cluster explosives, alongside a bioterror grenade, \
+		energy dagger, Syndicate toolbox, wormhole gun, and a set of signallers for your dastardly armament. You could have anything \
+		from a cluster of soap spewers to incendiary plasmafire grenades, so caution is certainly advised."
+	item = /obj/item/storage/box/syndicate/bundle/scientist
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/garbageday
-	name = "Magnum Specialist Equipment"
-	desc = "A revolver and two speedloaders, as well as a holster, doorjack card, a brick of C4, and a classical outfit \
-		that harkens back to bank robbers of old. Sometimes, you just really need to shoot your way out."
-	item = /obj/item/storage/box/syndicate/bundle/payday
+/datum/uplink_item/speckit/bee
+	name = "Bee Warrior's Weaponry"
+	desc = "Comes with a bee costume, beesease bottle, deadly bee stinger blade, and a pair of ultra-powerful bee grenades that contain \
+		chemically-infused bees conditioned to sting aggressively. The hive shall never perish so long as the warrior remains stalwart!"
+	item = /obj/item/storage/box/syndicate/bundle/bees
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/killer
-	name = "Assassin Equipment"
-	desc = "An energy sword, doorjack card, thermal goggles, no-slip shoes, a minibomb, and an encryption key - though \
-		remarkably simple, it's everything a would-be assassin needs to get their target in the ground."
-	item = /obj/item/storage/box/syndicate/bundle/killer
+/datum/uplink_item/speckit/freeze
+	name = "Sub-Zero Specialist Gear"
+	desc = "Cold-insulated clothing, a chameleon mask, a set of freezing gluon grenades, a freezing temperature gun, a cryo laser gun, a \
+		blue energy sword, and a deadly pair of cryo & gelda-kinetic abilities, certain to help any field operative ensure those around \
+		them can properly chill out."
+	item = /obj/item/storage/box/syndicate/bundle/freeze
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/implants
-	name = "Cybernetic Equipment"
-	desc = "A freedom implant, EMP implant, storage implant, explosive implant, and uplink implant, for the tech-inclined \
-		operative that needs a myriad of solutions for every problem."
-	item = /obj/item/storage/box/syndicate/bundle/implants
+/datum/uplink_item/speckit/deadmoney
+	name = "Criminal Mastermind Toolset"
+	desc = "A specialist MODsuit, agent ID, chameleon mask, radio jammer, contractor baton, crew pinpointer, a signaller kit, and a deadly set \
+		of explosive collars, perfect for subduing others and having them do your bidding for you. Does not come with willing operatives by \
+		default; these must be 'acquired' in the field with the use of provided tools."
+	item = /obj/item/storage/box/syndicate/bundle/deadmoney
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/hacker
-	name = "Hacker Equipment"
-	desc = "A custom AI law module, cryptographic sequencer, doorjack card, binary encryption key, AI detector multitool, \
-		camera app card, thermal goggles, agent ID card, and a sleek Syndicate toolbox, plus an AI toy for coming up \
-		with all sorts of fantastical new laws, purpose-tailored towards subversion of silicon units."
-	item = /obj/item/storage/box/syndicate/bundle/hacker
+/datum/uplink_item/speckit/samfisher
+	name = "Covert Operative Armory"
+	desc = "A set of combat fatigues and armor, alongside night vision goggles, krav-maga combat gloves, and a belt of covert operative equipment \
+		that includes a supressed pistol with a light-breaker attachment, two spare magazines, a doorjack card, and a combat knife. Rumor has it \
+		that this equipment is inspired by an ancient government operative that remained peerless in his field of infiltration."
+	item = /obj/item/storage/box/syndicate/bundle/samfisher
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/sniper
-	name = "Sniper Specialist Equipment"
-	desc = "A .50 caliber sniper rifle, penetrator magazine, thermal goggles, and a lightweight outfit perfect for a careful, \
-		cautious, accurate operative. Spare ammunition may be impossible to find, so make every shot count."
-	item = /obj/item/storage/box/syndicate/bundle/sniper
+/datum/uplink_item/speckit/prophunt
+	name = "Household Object Saboteur"
+	desc = "Containing a chameleon device, doorjack card, stealth implant, handgun, and thermal goggles, this kit is designed for operatives that specialize \
+		in hiding as mundane or otherwise unremarkable objects and props."
+	item = /obj/item/storage/box/syndicate/bundle/prophunt
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/ops
-	name = "Nuclear Operative Equipment"
-	desc = "A Gorlex Marauder MODsuit, bulldog shotgun, two spare drum mags, a microbomb implant, two bricks of C4, and a \
-		cryptographic sequencer alongside a doorjack card, ideal for faking a nuclear operative infiltration, or engaging \
-		in an overt engagement of your own."
-	item = /obj/item/storage/box/syndicate/bundle/ops
-	cost = 20
-	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
-
-/datum/uplink_item/speckit/rev
-	name = "Revolutionary Leader Equipment"
-	desc = "A hypnosis-inducing flashbulb, nagant revolver, radiation laser scanner, sleepy pen, bottle of LSD pills, and a \
-		box of seditious posters alongside a fantastical outfit made to instill anti-government and anti-corporate ideas \
-		into onlookers."
-	item = /obj/item/storage/box/syndicate/bundle/rev
+/datum/uplink_item/speckit/2006
+	name = "Ancient Kit"
+	desc = "An old-looking toolbox that contains the 'original' set of tools afforded to operatives in the field many many years ago. This includes a cryptographic \
+		sequencer, a doorjack card (the original card used to do both!), a sleepy pen, a cyanide pill, a chameleon device, a freedom implant, and a .357 magnum \
+		revolver. Also includes a single spare telecrystal with which to self-destruct your uplink."
+	item = /obj/item/storage/toolbox/emergency/old/ancientbundle
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
