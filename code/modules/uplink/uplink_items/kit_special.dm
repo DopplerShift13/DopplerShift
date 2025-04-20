@@ -93,7 +93,7 @@
 	cost = 20
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
 
-/datum/uplink_item/speckit/2006
+/datum/uplink_item/speckit/original
 	name = "Ancient Kit"
 	desc = "An old-looking toolbox that contains the 'original' set of tools afforded to operatives in the field many many years ago. This includes a cryptographic \
 		sequencer, a doorjack card (the original card used to do both!), a sleepy pen, a cyanide pill, a chameleon device, a freedom implant, and a .357 magnum \
