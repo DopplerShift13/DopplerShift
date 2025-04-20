@@ -6329,6 +6329,8 @@
 #include "code\modules\uplink\uplink_items\explosive.dm"
 #include "code\modules\uplink\uplink_items\implant.dm"
 #include "code\modules\uplink\uplink_items\job.dm"
+#include "code\modules\uplink\uplink_items\kit_special.dm"
+#include "code\modules\uplink\uplink_items\kit_tactical.dm"
 #include "code\modules\uplink\uplink_items\nukeops.dm"
 #include "code\modules\uplink\uplink_items\special.dm"
 #include "code\modules\uplink\uplink_items\species.dm"
