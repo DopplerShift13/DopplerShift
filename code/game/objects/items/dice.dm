@@ -447,7 +447,7 @@
 		if(17)
 			//Tator Kit
 			selected_turf.visible_message(span_userdanger("A suspicious box appears!"))
-			new /obj/item/storage/toolbox/emergency/old/ancientbundle(drop_location()) // 2006 traitor kit is like, ideal tator gear
+			new /obj/item/storage/box/syndicate/bundle_a(drop_location())
 			do_smoke(0, holder = src, location = drop_location())
 		if(18)
 			//Captain ID
