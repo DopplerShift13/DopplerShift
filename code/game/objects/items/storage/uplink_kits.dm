@@ -1,8 +1,6 @@
 // defines are for pussies
 /obj/item/storage/box/syndicate
 
-/obj/item/storage/box/syndicate/bundle/recon // i believe defining subtypes like this is required
-
 /obj/item/storage/box/syndicate/bundle/recon/PopulateContents()
 	new /obj/item/clothing/glasses/thermal/xray(src) // ~8 tc?
 	new /obj/item/storage/briefcase/launchpad(src) //6 tc
@@ -12,8 +10,6 @@
 	new /obj/item/grenade/frag(src) // ~2 tc each?
 	new /obj/item/grenade/frag(src)
 	new /obj/item/flashlight/emp(src) // 4 tc
-
-/obj/item/storage/box/syndicate/bundle/spytf2
 
 /obj/item/storage/box/syndicate/bundle/spytf2/PopulateContents()
 	new /obj/item/card/id/advanced/chameleon(src) // 2 tc
@@ -30,8 +26,6 @@
 	new /obj/item/chameleon(src) // 7 tc
 	new /obj/item/implanter/storage(src) // 6 tc
 
-/obj/item/storage/box/syndicate/bundle/stealthy
-
 /obj/item/storage/box/syndicate/bundle/stealthy/PopulateContents()
 	new /obj/item/gun/energy/recharge/ebow(src) // 10 tc
 	new /obj/item/pen/sleepy(src) // 4 tc
@@ -41,8 +35,6 @@
 	new /obj/item/clothing/glasses/thermal/syndi(src) // 4 tc
 	new /obj/item/flashlight/emp(src) // 2 tc
 	new /obj/item/jammer(src) // 5 tc
-
-/obj/item/storage/box/syndicate/bundle/fucked
 
 /obj/item/storage/box/syndicate/bundle/fucked/PopulateContents()
 	new /obj/item/sbeacondrop/bomb(src) // 11 tc
@@ -54,8 +46,6 @@
 	new spess_helmet(src) // 4 TC for the space gear
 	new /obj/item/encryptionkey/syndicate(src) // 2 tc
 
-/obj/item/storage/box/syndicate/bundle/sabotage
-
 /obj/item/storage/box/syndicate/bundle/sabotage/PopulateContents()
 	new /obj/item/storage/backpack/duffelbag/syndie/sabotage(src) // 5 tc for 3 c4 and 2 x4
 	new /obj/item/computer_disk/syndicate/camera_app(src) // 1 tc
@@ -64,8 +54,6 @@
 	new /obj/item/storage/toolbox/syndicate(src) // 1 tc
 	new /obj/item/pizzabox/bomb(src) // 6 tc
 	new /obj/item/storage/box/syndie_kit/emp(src) // 2 tc
-
-/obj/item/storage/box/syndicate/bundle/payday
 
 /obj/item/storage/box/syndicate/bundle/payday/PopulateContents()
 	new /obj/item/gun/ballistic/revolver(src) // 13 tc
@@ -79,8 +67,6 @@
 	new /obj/item/clothing/under/suit/black_really(src)
 	new /obj/item/clothing/neck/tie/red/hitman(src)
 
-/obj/item/storage/box/syndicate/bundle/killer
-
 /obj/item/storage/box/syndicate/bundle/killer/PopulateContents()
 	new /obj/item/melee/energy/sword/saber(src) // 8 tc
 	new /obj/item/clothing/glasses/thermal/syndi(src) // 4 tc
@@ -89,16 +75,12 @@
 	new /obj/item/encryptionkey/syndicate(src) // 2 tc
 	new /obj/item/grenade/syndieminibomb(src) // 6 tc
 
-/obj/item/storage/box/syndicate/bundle/implants
-
 /obj/item/storage/box/syndicate/bundle/implants/PopulateContents()
 	new /obj/item/implanter/freedom(src) // 5 tc
 	new /obj/item/implanter/uplink/precharged(src) // 10 tc is inside this thing
 	new /obj/item/implanter/emp(src) // 1 tc
 	new /obj/item/implanter/explosive(src) // 2 tc
 	new /obj/item/implanter/storage(src) // 8 tc
-
-/obj/item/storage/box/syndicate/bundle/hacker
 
 /obj/item/storage/box/syndicate/bundle/hacker/PopulateContents()
 	new /obj/item/ai_module/syndicate(src) // 4 tc
@@ -112,8 +94,6 @@
 	new /obj/item/clothing/glasses/thermal/syndi(src) // 4 tc
 	new /obj/item/card/id/advanced/chameleon(src) // 2 tc
 
-/obj/item/storage/box/syndicate/bundle/sniper
-
 /obj/item/storage/box/syndicate/bundle/sniper/PopulateContents()
 	new /obj/item/gun/ballistic/rifle/sniper_rifle(src) // 12 tc
 	new /obj/item/ammo_box/magazine/sniper_rounds/penetrator(src) // 5 tc
@@ -122,8 +102,6 @@
 	new /obj/item/clothing/mask/gas/clown_hat(src)
 	new /obj/item/clothing/under/suit/black_really(src)
 	new /obj/item/clothing/neck/tie/red/hitman(src)
-
-/obj/item/storage/box/syndicate/bundle/ops
 
 /obj/item/storage/box/syndicate/bundle/ops/PopulateContents()
 	new /obj/item/mod/control/pre_equipped/nuclear/unrestricted(src) // 8 tc
@@ -136,8 +114,6 @@
 	new /obj/item/card/emag(src) // 4 tc
 	new /obj/item/card/emag/doorjack(src) // 3 tc
 
-/obj/item/storage/box/syndicate/bundle/rev
-
 /obj/item/storage/box/syndicate/bundle/rev/PopulateContents()
 	new /obj/item/healthanalyzer/rad_laser(src) // 3 TC
 	new /obj/item/assembly/flash/hypnotic(src) // 7 TC
@@ -149,8 +125,6 @@
 	new /obj/item/clothing/suit/armor/vest/russian_coat(src)
 	new /obj/item/clothing/head/helmet/rus_ushanka(src)
 	new /obj/item/storage/box/syndie_kit/poster_box(src)
-
-/obj/item/storage/box/syndicate/bundle/bond
 
 /obj/item/storage/box/syndicate/bundle/bond/PopulateContents()
 	new /obj/item/gun/ballistic/automatic/pistol(src) // 7 tc
@@ -167,8 +141,6 @@
 	new /obj/item/reagent_containers/pill/cyanide(src)
 	new /obj/item/toy/cards/deck/syndicate(src) // 1 tc, for poker
 
-/obj/item/storage/box/syndicate/bundle/ninja
-
 /obj/item/storage/box/syndicate/bundle/ninja/PopulateContents()
 	new /obj/item/katana(src) // Unique , hard to tell how much tc this is worth. 8 tc?
 	new /obj/item/reagent_containers/hypospray/medipen/stimulants(src) // 5 tc
@@ -181,8 +153,6 @@
 	new /obj/item/book/granter/action/spell/smoke(src) // ninja smoke bomb. 1 tc
 	new /obj/item/clothing/shoes/bhop(src) // mining item, lets you jump at people, at least 2 tc
 
-/obj/item/storage/box/syndicate/bundle/sith
-
 /obj/item/storage/box/syndicate/bundle/sith/PopulateContents()
 	new /obj/item/dualsaber/red(src) // 16 tc
 	new /obj/item/dnainjector/telemut/darkbundle(src) // ~ 4 tc for tk
@@ -192,8 +162,6 @@
 	new /obj/item/book/granter/action/spell/summonitem(src) // ~2 tc
 	new /obj/item/book/granter/action/spell/lightningbolt(src) // 4 tc
 
-/obj/item/storage/box/syndicate/bundle/ahab
-
 /obj/item/storage/box/syndicate/bundle/ahab/PopulateContents()
 	new /obj/item/gun/ballistic/rifle/boltaction/harpoon(src)
 	new /obj/item/storage/bag/harpoon_quiver(src)
@@ -201,8 +169,6 @@
 	new /obj/item/clothing/mask/gas/carp(src)
 	new /obj/item/grenade/spawnergrenade/spesscarp(src)
 	new /obj/item/toy/plush/carpplushie/dehy_carp(src) // 1 tc, for use as a personal mount
-
-/obj/item/storage/box/syndicate/bundle/scientist
 
 /obj/item/storage/box/syndicate/bundle/scientist/PopulateContents()
 	new /obj/item/clothing/suit/toggle/labcoat/mad(src) // 0 tc
@@ -217,8 +183,6 @@
 	new /obj/item/pen/edagger(src) // 2 tc
 	new /obj/item/gun/energy/wormhole_projector/core_inserted(src) // 5 tc easily
 
-/obj/item/storage/box/syndicate/bundle/bees
-
 /obj/item/storage/box/syndicate/bundle/bees/PopulateContents()
 	new /obj/item/paper/fluff/bee_objectives(src) // 0 tc (motivation)
 	new /obj/item/clothing/suit/hooded/bee_costume(src) // 0 tc
@@ -228,8 +192,6 @@
 	new /obj/item/grenade/spawnergrenade/buzzkill(src) // 10 tc per grenade
 	new /obj/item/reagent_containers/cup/bottle/beesease(src) // 10 tc?
 	new /obj/item/melee/beesword(src) //priceless
-
-/obj/item/storage/box/syndicate/bundle/freeze
 
 /obj/item/storage/box/syndicate/bundle/freeze/PopulateContents()
 	new /obj/item/clothing/glasses/cold(src)
@@ -245,8 +207,6 @@
 	new /obj/item/gun/energy/laser/thermal/cryo(src) // ~6 tc
 	new /obj/item/melee/energy/sword/saber/blue(src) //see see it fits the theme bc its blue and ice is blue, 8 tc
 
-/obj/item/storage/box/syndicate/bundle/deadmoney
-
 /obj/item/storage/box/syndicate/bundle/deadmoney/PopulateContents()
 	for(var/i in 1 to 4)
 		new /obj/item/clothing/neck/collar_bomb(src) // These let you remotely kill people with a signaler, though you have to get them first.
@@ -258,8 +218,6 @@
 	new /obj/item/jammer(src) // 5 tc
 	new /obj/item/pinpointer/crew(src) //priceless
 
-/obj/item/storage/box/syndicate/bundle/samfisher
-
 /obj/item/storage/box/syndicate/bundle/samfisher/PopulateContents()
 	new /obj/item/clothing/under/syndicate/combat(src)
 	new /obj/item/clothing/suit/armor/vest/marine/pmc(src) //The armor kit is comparable to the infiltrator, 6 TC
@@ -270,8 +228,6 @@
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/storage/belt/military/assault/fisher(src) //items in this belt easily costs 18 TC
 
-/obj/item/storage/box/syndicate/bundle/prophunt
-
 /obj/item/storage/box/syndicate/bundle/prophunt/PopulateContents()
 	new /obj/item/chameleon(src) // 7 TC
 	new /obj/item/card/emag/doorjack(src) // 3 TC
@@ -279,7 +235,7 @@
 	new /obj/item/gun/ballistic/automatic/pistol(src) // 7 TC
 	new /obj/item/clothing/glasses/thermal(src) // 4 TC
 
-/obj/item/storage/toolbox/emergency/old/ancientbundle //So the subtype works
+/obj/item/storage/toolbox/emergency/old/ancientbundle/ //So the subtype works
 
 /obj/item/storage/toolbox/emergency/old/ancientbundle/PopulateContents()
 	new /obj/item/card/emag(src) // 4 tc
