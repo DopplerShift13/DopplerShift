@@ -4,7 +4,7 @@
 
 /datum/uplink_item/ammo
 	category = /datum/uplink_category/ammo
-	surplus = 0
+	surplus = 40
 
 /datum/uplink_item/ammo/toydarts
 	name = "Donksoft Riot Pistol Ammunition Case"
