@@ -6,7 +6,7 @@
 
 /datum/uplink_item/suits
 	category = /datum/uplink_category/suits
-	surplus = 0
+	surplus = 40
 
 /datum/uplink_item/suits/infiltrator_bundle
 	name = "Infiltrator MODsuit"
@@ -18,7 +18,6 @@
 	item = /obj/item/mod/control/pre_equipped/infiltrator
 	cost = 6
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
-	surplus = 40
 
 /datum/uplink_item/suits/space_suit
 	name = "Syndicate Space Suit"
@@ -27,7 +26,6 @@
 			sightings, however."
 	item = /obj/item/storage/box/syndie_kit/space
 	cost = 4
-	surplus = 40
 
 /datum/uplink_item/suits/modsuit
 	name = "Syndicate MODsuit"
@@ -35,7 +33,6 @@
 	item = /obj/item/mod/control/pre_equipped/traitor
 	cost = 8
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS //you can't buy it in nuke, because the elite modsuit costs the same while being better
-	surplus = 40
 
 /datum/uplink_item/suits/thermal
 	name = "MODsuit Thermal Visor Module"
@@ -83,7 +80,6 @@
 	progression_minimum = 90 MINUTES
 	cost = 16
 	cant_discount = TRUE
-	surplus = 40
 
 /datum/uplink_item/suits/modsuit/wraith
 	name = "MODsuit wraith cloaking module"
