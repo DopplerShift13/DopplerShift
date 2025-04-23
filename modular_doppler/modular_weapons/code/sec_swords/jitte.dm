@@ -1,8 +1,8 @@
 /obj/item/melee/sec_jitte
 	name = "security jitte"
-	desc = "A blunt weapon, designed for incapacitating threats and breaking bones. \
-		This is a less-than-lethal, but not nonlethal, weapon. \
-		It's guard is a very useful mechanism for blocking strikes."
+	desc = "A blunt weapon designed for incapacitating threats and breaking bones. \
+		This is a less-than-lethal, but not non-lethal, weapon. \
+		Its guard is a useful mechanism for blocking strikes."
 
 	icon = 'modular_doppler/modular_weapons/icons/obj/sec_swords.dmi'
 	icon_state = "sec_jitte"
