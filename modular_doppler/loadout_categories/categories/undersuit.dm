@@ -88,10 +88,6 @@
 	name = "Jeans"
 	item_path = /obj/item/clothing/under/pants/jeans
 
-/datum/loadout_item/undersuit/pants/ripped_jeans
-	name = "Ripped Jeans"
-	item_path = /obj/item/clothing/under/pants/jeans/ripped
-
 /datum/loadout_item/undersuit/pants/moto
 	name = "Moto Pants"
 	item_path = /obj/item/clothing/under/pants/moto_leggings
@@ -288,6 +284,10 @@
 /*
 *	MISCELLANEOUS
 */
+
+/datum/loadout_item/undersuit/bodysuit
+	name = "Bodysuit"
+	item_path = /obj/item/clothing/under/bodysuit
 
 /datum/loadout_item/undersuit/gear_harness
 	name = "Gear Harness"
