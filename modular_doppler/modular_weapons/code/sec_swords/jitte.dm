@@ -19,7 +19,7 @@
 
 	force = 18
 	throwforce = 12
-	block_chance = 20
+	block_chance = 5
 	wound_bonus = 5
 	bare_wound_bonus = 5
 
