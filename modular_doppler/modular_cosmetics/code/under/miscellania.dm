@@ -83,3 +83,12 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|GROIN|ARMS
 	can_adjust = FALSE
+
+/obj/item/clothing/under/bodysuit
+	name = "bodysuit"
+	desc = "Tightly fitting underclothes made of lycra. Toggle to switch between masc and fem variants."
+	icon_state = "bodysuit"
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+	can_adjust = TRUE
+	alt_covers_chest = TRUE
