@@ -11304,6 +11304,7 @@
 /obj/machinery/computer/cargo,
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/machinery/door/firedoor,
+/obj/structure/window/reinforced/spawner/directional/east,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "aWw" = (
