@@ -29633,6 +29633,12 @@
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/floor/carpet,
 /area/station/service/library/artgallery)
+"eiu" = (
+/obj/structure/fluff/commsbuoy_receiver{
+	desc = "A dish-shaped component of the Comms Sat used to detect and retransmitd signals."
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "eiS" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wood,
@@ -34214,6 +34220,14 @@
 /obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain/private)
+"hVX" = (
+/obj/structure/fluff/sat_dish{
+	pixel_x = 24;
+	pixel_y = 10;
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/space/nearstation)
 "hWo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -34913,6 +34927,7 @@
 	start_active = 1
 	},
 /obj/structure/lattice,
+/obj/structure/cable,
 /turf/open/space/basic,
 /area/space/nearstation)
 "iBY" = (
@@ -38101,6 +38116,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
+"ljK" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/anchor,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "ljT" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -38906,6 +38928,9 @@
 /obj/effect/turf_decal/tile/red/anticorner/contrasted,
 /turf/open/floor/iron,
 /area/station/security/brig)
+"lTa" = (
+/turf/closed/wall/mineral/titanium,
+/area/space/nearstation)
 "lTn" = (
 /obj/machinery/space_heater,
 /turf/open/floor/plating,
@@ -39718,6 +39743,12 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood/large,
 /area/station/science/breakroom)
+"mBp" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "mBu" = (
 /obj/item/book/bible,
 /obj/structure/altar_of_gods,
@@ -39957,6 +39988,12 @@
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
+"mMC" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "mNv" = (
 /obj/machinery/light/directional/east,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -40104,6 +40141,13 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
+"mRP" = (
+/obj/structure/fluff/sat_dish{
+	pixel_x = -11;
+	pixel_y = 21
+	},
+/turf/closed/wall/mineral/titanium,
+/area/space/nearstation)
 "mRQ" = (
 /obj/effect/turf_decal/tile/office_blue{
 	dir = 8
@@ -40159,6 +40203,10 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/central)
+"mUy" = (
+/obj/structure/cable,
+/turf/closed/wall/mineral/titanium,
+/area/space/nearstation)
 "mUJ" = (
 /obj/structure/cable,
 /turf/open/floor/engine,
@@ -44107,6 +44155,11 @@
 /obj/machinery/newscaster/directional/south,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
+"pTO" = (
+/obj/structure/cable,
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "pVr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -51780,6 +51833,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/engineering/atmos/office)
+"vvL" = (
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "vvP" = (
 /obj/effect/turf_decal/tile/pine_green{
 	dir = 4
@@ -52230,6 +52287,13 @@
 /obj/effect/mapping_helpers/airlock/access/any/supply/general,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
+"vQM" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail,
+/turf/open/space/basic,
+/area/space/nearstation)
 "vRi" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -55188,6 +55252,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
+"xMJ" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/end,
+/turf/open/space/basic,
+/area/space/nearstation)
 "xMN" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -84527,8 +84598,8 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
+mRP
+lTa
 aaa
 iBJ
 clw
@@ -84785,9 +84856,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aht
+lTa
+lTa
+vvL
 clw
 nTk
 nTk
@@ -85042,9 +85113,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aht
+eiu
+mUy
+pTO
 clw
 lou
 ckM
@@ -85299,9 +85370,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-abI
+lTa
+lTa
+mVM
 clw
 ckM
 uFT
@@ -85555,9 +85626,9 @@ aaa
 aaa
 aaa
 aaa
-aaa
-aaa
-aaa
+hVX
+lTa
+ljK
 abI
 clw
 clw
@@ -85814,7 +85885,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+vQM
 aaa
 aaa
 aaa
@@ -86071,7 +86142,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+vQM
 aaa
 aaa
 aaa
@@ -86328,7 +86399,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+xMJ
 aaa
 aaa
 aaa
@@ -86585,7 +86656,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+mMC
 aaa
 aaa
 aaa
@@ -86842,7 +86913,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+mMC
 aaa
 aaa
 aaa
@@ -87099,7 +87170,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+mBp
 aaa
 aaa
 aaa
