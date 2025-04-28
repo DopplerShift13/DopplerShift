@@ -29633,12 +29633,6 @@
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
 /turf/open/floor/carpet,
 /area/station/service/library/artgallery)
-"eiu" = (
-/obj/structure/fluff/commsbuoy_receiver{
-	desc = "A dish-shaped component of the Comms Sat used to detect and retransmitd signals."
-	},
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "eiS" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/wood,
@@ -31911,6 +31905,12 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
+"fZY" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "gam" = (
 /obj/machinery/door/poddoor/shutters/preopen{
 	id = "kitchenwindowshutters";
@@ -32009,6 +32009,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
+"gfn" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/end,
+/turf/open/space/basic,
+/area/space/nearstation)
 "gfC" = (
 /obj/machinery/computer/cargo{
 	dir = 1
@@ -34086,6 +34093,13 @@
 	dir = 4
 	},
 /area/station/medical/medbay)
+"hQy" = (
+/obj/structure/fluff/sat_dish{
+	pixel_x = -11;
+	pixel_y = 21
+	},
+/turf/closed/wall/mineral/titanium,
+/area/space/nearstation)
 "hQz" = (
 /obj/structure/closet/emcloset/anchored,
 /turf/open/floor/plating,
@@ -34220,14 +34234,6 @@
 /obj/structure/cable,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/captain/private)
-"hVX" = (
-/obj/structure/fluff/sat_dish{
-	pixel_x = 24;
-	pixel_y = 10;
-	dir = 4
-	},
-/turf/closed/wall/mineral/titanium,
-/area/space/nearstation)
 "hWo" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 5
@@ -34270,6 +34276,13 @@
 /obj/item/epic_loot/plasma_explosive,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/security/armory)
+"hXa" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/anchor,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "hXk" = (
 /obj/effect/spawner/random/engineering/tank,
 /turf/open/floor/plating,
@@ -35114,6 +35127,9 @@
 /obj/effect/turf_decal/trimline/electric_yellow/line,
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/engineering/atmos)
+"iJp" = (
+/turf/closed/wall/mineral/titanium,
+/area/space/nearstation)
 "iJH" = (
 /obj/structure/table,
 /obj/item/stack/sheet/plasteel{
@@ -36208,6 +36224,12 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/storage)
+"jJk" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space/nearstation)
 "jJm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding{
@@ -36485,6 +36507,10 @@
 /obj/structure/sign/gym,
 /turf/closed/wall,
 /area/station/maintenance/department/crew_quarters/dorms)
+"jTK" = (
+/obj/structure/cable,
+/turf/closed/wall/mineral/titanium,
+/area/space/nearstation)
 "jUF" = (
 /obj/structure/grille/broken,
 /obj/structure/cable,
@@ -38116,13 +38142,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/engine)
-"ljK" = (
-/obj/structure/fluff/tram_rail/anchor{
-	dir = 1
-	},
-/obj/structure/fluff/tram_rail/anchor,
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "ljT" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -38928,9 +38947,6 @@
 /obj/effect/turf_decal/tile/red/anticorner/contrasted,
 /turf/open/floor/iron,
 /area/station/security/brig)
-"lTa" = (
-/turf/closed/wall/mineral/titanium,
-/area/space/nearstation)
 "lTn" = (
 /obj/machinery/space_heater,
 /turf/open/floor/plating,
@@ -39743,12 +39759,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood/large,
 /area/station/science/breakroom)
-"mBp" = (
-/obj/structure/fluff/tram_rail/end{
-	dir = 1
-	},
-/turf/open/space/basic,
-/area/space/nearstation)
 "mBu" = (
 /obj/item/book/bible,
 /obj/structure/altar_of_gods,
@@ -39988,12 +39998,6 @@
 /obj/effect/spawner/structure/window/reinforced/tinted,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
-"mMC" = (
-/obj/structure/fluff/tram_rail{
-	dir = 1
-	},
-/turf/open/space/basic,
-/area/space/nearstation)
 "mNv" = (
 /obj/machinery/light/directional/east,
 /obj/machinery/power/apc/auto_name/directional/east,
@@ -40141,13 +40145,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/xenobiology)
-"mRP" = (
-/obj/structure/fluff/sat_dish{
-	pixel_x = -11;
-	pixel_y = 21
-	},
-/turf/closed/wall/mineral/titanium,
-/area/space/nearstation)
 "mRQ" = (
 /obj/effect/turf_decal/tile/office_blue{
 	dir = 8
@@ -40203,10 +40200,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/maintenance/central)
-"mUy" = (
-/obj/structure/cable,
-/turf/closed/wall/mineral/titanium,
-/area/space/nearstation)
 "mUJ" = (
 /obj/structure/cable,
 /turf/open/floor/engine,
@@ -44155,11 +44148,6 @@
 /obj/machinery/newscaster/directional/south,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
-"pTO" = (
-/obj/structure/cable,
-/obj/structure/cable,
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "pVr" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -44854,6 +44842,10 @@
 	},
 /turf/open/floor/engine,
 /area/station/science/ordnance/storage)
+"qra" = (
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "qrw" = (
 /obj/structure/disposalpipe/trunk,
 /obj/machinery/disposal/delivery_chute{
@@ -47302,6 +47294,13 @@
 /obj/machinery/atmospherics/pipe/layer_manifold/cyan/visible,
 /turf/closed/wall,
 /area/station/maintenance/department/security/brig)
+"skE" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail,
+/turf/open/space/basic,
+/area/space/nearstation)
 "skS" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -49713,6 +49712,14 @@
 	},
 /turf/open/floor/wood,
 /area/station/commons/lounge)
+"tVX" = (
+/obj/structure/fluff/sat_dish{
+	pixel_x = 24;
+	pixel_y = 10;
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/space/nearstation)
 "tWc" = (
 /obj/structure/sign/directions/science{
 	dir = 4;
@@ -51833,10 +51840,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/station/engineering/atmos/office)
-"vvL" = (
-/obj/structure/cable,
-/turf/open/floor/plating/airless,
-/area/space/nearstation)
 "vvP" = (
 /obj/effect/turf_decal/tile/pine_green{
 	dir = 4
@@ -52287,13 +52290,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/supply/general,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
-"vQM" = (
-/obj/structure/fluff/tram_rail{
-	dir = 1
-	},
-/obj/structure/fluff/tram_rail,
-/turf/open/space/basic,
-/area/space/nearstation)
 "vRi" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -55211,6 +55207,12 @@
 	},
 /turf/open/floor/iron/large,
 /area/station/engineering/lobby)
+"xLQ" = (
+/obj/structure/fluff/commsbuoy_receiver{
+	desc = "A dish-shaped component of the Comms Sat used to detect and retransmitd signals."
+	},
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "xLS" = (
 /obj/machinery/requests_console/directional/west{
 	department = "Research Director's Desk";
@@ -55252,13 +55254,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
-"xMJ" = (
-/obj/structure/fluff/tram_rail{
-	dir = 1
-	},
-/obj/structure/fluff/tram_rail/end,
-/turf/open/space/basic,
-/area/space/nearstation)
 "xMN" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -84598,8 +84593,8 @@ aaa
 aaa
 aaa
 aaa
-mRP
-lTa
+hQy
+iJp
 aaa
 iBJ
 clw
@@ -84856,9 +84851,9 @@ aaa
 aaa
 aaa
 aaa
-lTa
-lTa
-vvL
+iJp
+iJp
+qra
 clw
 nTk
 nTk
@@ -85113,9 +85108,9 @@ aaa
 aaa
 aaa
 aaa
-eiu
-mUy
-pTO
+xLQ
+jTK
+qra
 clw
 lou
 ckM
@@ -85370,8 +85365,8 @@ aaa
 aaa
 aaa
 aaa
-lTa
-lTa
+iJp
+iJp
 mVM
 clw
 ckM
@@ -85626,9 +85621,9 @@ aaa
 aaa
 aaa
 aaa
-hVX
-lTa
-ljK
+tVX
+iJp
+hXa
 abI
 clw
 clw
@@ -85885,7 +85880,7 @@ aaa
 aaa
 aaa
 aaa
-vQM
+skE
 aaa
 aaa
 aaa
@@ -86142,7 +86137,7 @@ aaa
 aaa
 aaa
 aaa
-vQM
+skE
 aaa
 aaa
 aaa
@@ -86399,7 +86394,7 @@ aaa
 aaa
 aaa
 aaa
-xMJ
+gfn
 aaa
 aaa
 aaa
@@ -86656,7 +86651,7 @@ aaa
 aaa
 aaa
 aaa
-mMC
+jJk
 aaa
 aaa
 aaa
@@ -86913,7 +86908,7 @@ aaa
 aaa
 aaa
 aaa
-mMC
+jJk
 aaa
 aaa
 aaa
@@ -87170,7 +87165,7 @@ aaa
 aaa
 aaa
 aaa
-mBp
+fZY
 aaa
 aaa
 aaa
