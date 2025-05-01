@@ -7177,6 +7177,7 @@
 /obj/effect/landmark/event_spawn,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/holopad,
 /turf/open/floor/iron/white,
 /area/station/medical/paramedic)
 "cEG" = (
@@ -26535,6 +26536,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 6
 	},
+/obj/machinery/holopad,
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 1
 	},
@@ -27107,6 +27109,7 @@
 /area/station/hallway/secondary/command)
 "jEc" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/holopad,
 /turf/open/floor/iron,
 /area/station/engineering/lobby)
 "jEd" = (
@@ -36262,6 +36265,13 @@
 /obj/effect/spawner/random/trash/food_packaging,
 /turf/open/floor/iron,
 /area/station/hallway/primary/central)
+"mLQ" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/holopad,
+/turf/open/floor/iron,
+/area/station/security/office)
 "mMe" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/siding/purple/corner{
@@ -36849,6 +36859,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/holopad,
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/ce)
 "mYd" = (
@@ -37263,6 +37274,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
 	},
+/obj/machinery/holopad,
 /turf/open/floor/iron/white/textured_half{
 	dir = 1
 	},
@@ -42267,6 +42279,7 @@
 /obj/effect/landmark/event_spawn,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/light_switch/directional/west,
+/obj/machinery/holopad,
 /turf/open/floor/iron,
 /area/station/security/brig)
 "oYu" = (
@@ -48773,6 +48786,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/holopad,
 /turf/open/floor/iron/grimy,
 /area/station/security/detectives_office)
 "rkz" = (
@@ -50999,6 +51013,7 @@
 /obj/effect/landmark/start/lawyer,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/holopad,
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "rXd" = (
@@ -51288,6 +51303,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 8
 	},
+/obj/machinery/holopad,
 /turf/open/floor/carpet/black,
 /area/station/command/heads_quarters/hos)
 "sas" = (
@@ -62687,6 +62703,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/holopad,
 /turf/open/floor/iron/white,
 /area/station/medical/treatment_center)
 "wan" = (
@@ -88599,7 +88616,7 @@ lHC
 lar
 bPY
 jMU
-cpO
+mLQ
 exF
 rQK
 iyG

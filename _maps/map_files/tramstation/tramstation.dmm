@@ -5614,6 +5614,12 @@
 	dir = 9
 	},
 /obj/structure/extinguisher_cabinet/directional/north,
+/obj/machinery/camera/directional/north{
+	c_tag = "Medbay - Central Hallway";
+	dir = 9;
+	name = "medbay camera";
+	network = list("ss13","medbay")
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
 "aQk" = (
@@ -7238,6 +7244,7 @@
 /area/station/maintenance/tram/mid)
 "bzo" = (
 /obj/structure/cable,
+/obj/machinery/holopad,
 /turf/open/floor/iron,
 /area/station/tcommsat/computer)
 "bzs" = (
@@ -32385,6 +32392,7 @@
 "kyq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/holopad,
 /turf/open/floor/iron/grimy,
 /area/station/security/detectives_office)
 "kyF" = (
@@ -37607,6 +37615,11 @@
 /obj/machinery/computer/security/telescreen/vault/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
+	},
+/obj/machinery/camera{
+	dir = 9;
+	network = list("ss13","cargo");
+	c_tag = "Cargo - Main Office"
 	},
 /turf/open/floor/iron,
 /area/station/command/heads_quarters/qm)
@@ -58153,6 +58166,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/landmark/event_spawn,
+/obj/machinery/holopad,
 /turf/open/floor/iron/white,
 /area/station/medical/pharmacy)
 "tzL" = (
@@ -60517,6 +60531,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment,
+/obj/machinery/holopad,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
 "uov" = (
@@ -67687,6 +67702,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 5
 	},
+/obj/machinery/holopad,
 /turf/open/floor/iron/grimy,
 /area/station/service/lawoffice)
 "wLR" = (
