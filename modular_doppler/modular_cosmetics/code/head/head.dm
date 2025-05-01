@@ -62,7 +62,7 @@
 
 /obj/item/clothing/head/flowing_headband
 	name = "flowing headband"
-	desc = "A headband from across the galaxy. The spirit of heroes causes it to flutter in the wind no matter where you are."
+	desc = "A headband from across the galaxy. Said to make the impossible possible."
 	icon_state = "headband_snake"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/sec_hats.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/sec_hats.dmi'
