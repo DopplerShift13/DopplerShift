@@ -108,7 +108,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 		//left leg
 		if(target.dna.features["frame_list"][BODY_ZONE_L_LEG])
 			var/obj/item/bodypart/leg/left/old_limb = target.get_bodypart(BODY_ZONE_L_LEG)
-			if(old_limb != NULL)
+			if(old_limb)
 				old_limb.drop_limb(TRUE, FALSE, FALSE)
 				old_limb.moveToNullspace()
 			if(target.dna.features["frame_list"][BODY_ZONE_L_LEG] != /obj/item/bodypart/leg/left/robot/android/empty)
@@ -155,7 +155,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /datum/preference/choiced/chest_type/compile_constant_data()
 	var/list/data = ..()
-	data[CHOICED_PREFERENCE_DISPLAY_NAMES] = (GLOB.frame_type_names - "nothing")
+	data[CHOICED_PREFERENCE_DISPLAY_NAMES] = (GLOB.frame_type_names - "empty")
 	return data
 
 /datum/preference/choiced/chest_type/init_possible_values()
