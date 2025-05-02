@@ -27,6 +27,8 @@
 ////
 // Quirks
 ////
+/// Trait to indicate you volunteer to help sec on code red
+#define TRAIT_SEC_VOLUNTEER "sec_volunteer"
 /// Trait for extra language point.
 #define TRAIT_LINGUIST "linguist"
 /// Trait for the excitable quirk, woof!
