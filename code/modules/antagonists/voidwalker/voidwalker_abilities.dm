@@ -65,3 +65,4 @@
 	button_icon = 'icons/mob/actions/actions_voidwalker.dmi'
 	button_icon_state = "voidwalker_telepathy"
 	panel = null
+	check_flags = AB_CHECK_CONSCIOUS

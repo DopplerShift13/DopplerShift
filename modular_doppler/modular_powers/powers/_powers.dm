@@ -167,3 +167,20 @@ GLOBAL_DATUM_INIT(power_handler, /datum/power_handler, new)
 		to_chat(target, chat_string)
 
 	where_items_spawned = null
+
+// Component for checking resonance suppression
+
+/datum/component/resonance_suppression
+	//What status effect to apply when the signal is received the resonance is actively being suppressed
+	var/effect
+
+/datum/component/resonance_suppression/Initialize(effect = effect)
+	src.effect = effect
+	RegisterSignal(parent, COSMIG_RESONANCE_SUPRESSED, PROC_REF(apply_effect), TRUE)
+	RegisterSignal(parent, COSMIG_RESONANCE_UNSUPRESSED, PROC_REF(remove_effect), TRUE)
+
+/datum/component/resonance_suppression/proc/apply_effect(mob/living/carbon/human/owner)
+	owner.apply_status_effect(effect)
+
+/datum/component/resonance_suppression/proc/remove_effect(mob/living/carbon/human/owner)
+	owner.remove_status_effect(effect)

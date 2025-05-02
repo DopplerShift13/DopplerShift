@@ -3,30 +3,34 @@
  */
 
 // A proc to be ran when a root power that conflicts with cybernetics is applied
-/mob/living/carbon/human/proc/cybernetics_sickness_process()
-	if(src.check_cybernetics() == TRUE)
-		src.apply_status_effect(/datum/status_effect/cybernetics_conflict)
-	RegisterSignal(src, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_organ_gain), TRUE)
-	RegisterSignal(src, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_lose), TRUE)
 
-/mob/living/carbon/human/proc/check_cybernetics()
+/datum/component/cybernetic_rejection
+
+
+/datum/component/cybernetic_rejection/Initialize(mapload)
+	var/mob/living/carbon/human/owner = parent
+	if(check_cybernetics() == TRUE)
+		owner.apply_status_effect(/datum/status_effect/cybernetics_conflict)
+	RegisterSignal(parent, COMSIG_CARBON_GAIN_ORGAN, PROC_REF(on_organ_gain), TRUE)
+	RegisterSignal(parent, COMSIG_CARBON_LOSE_ORGAN, PROC_REF(on_organ_lose), TRUE)
+
+/datum/component/cybernetic_rejection/proc/check_cybernetics(mob/living/carbon/human/owner)
 	var/cybernetic_found = FALSE
-	for(var/obj/item/organ/organ as anything in src.organs)
-		// allows razor claws for now, so beasties can still have claws and not die. Eventually make an organic version hopefully
-		if(IS_ROBOTIC_ORGAN(organ) && !(organ.organ_flags & ORGAN_HIDDEN))
+	for(var/obj/item/organ/organ as anything in owner.organs)
+		if(IS_ROBOTIC_ORGAN(organ) && !(organ.organ_flags & ORGAN_HIDDEN) && !(istype(organ, /obj/item/organ/cyberimp/arm/razor_claws)))
 			cybernetic_found = TRUE
 			break
 	return cybernetic_found
 
-/mob/living/carbon/human/proc/on_organ_gain(datum/source, obj/item/organ/new_organ, special)
+/datum/component/cybernetic_rejection/proc/on_organ_gain(datum/source, obj/item/organ/new_organ, mob/living/carbon/human/owner, special)
 	SIGNAL_HANDLER
-	if(IS_ROBOTIC_ORGAN(new_organ) && !(new_organ.organ_flags & ORGAN_HIDDEN))
-		src.apply_status_effect(/datum/status_effect/cybernetics_conflict)
+	if(IS_ROBOTIC_ORGAN(new_organ) && !(new_organ.organ_flags & ORGAN_HIDDEN) && !(istype(new_organ, /obj/item/organ/cyberimp/arm/razor_claws)))
+		owner.apply_status_effect(/datum/status_effect/cybernetics_conflict)
 
-/mob/living/carbon/human/proc/on_organ_lose(datum/source, special)
+/datum/component/cybernetic_rejection/proc/on_organ_lose(datum/source, mob/living/carbon/human/owner, special)
 	SIGNAL_HANDLER
-	if(!src.check_cybernetics())
-		src.remove_status_effect(/datum/status_effect/cybernetics_conflict)
+	if(check_cybernetics() == FALSE)
+		owner.remove_status_effect(/datum/status_effect/cybernetics_conflict)
 
 /datum/status_effect/cybernetics_conflict
 	id = "cybernetics_abberant_conflict"
@@ -45,6 +49,7 @@
 	desc = "Your resonant deviancies are conflicting with the cybernetics within you, making you increasingly ill"
 	maptext_y = 2
 	attached_effect = /datum/status_effect/cybernetics_conflict
+
 /datum/power/cuprous_heart
 	name = "Cuprous Heart"
 	desc = "Your heart and blood are Living Copper. Your wounds and injuries naturally seal themselves, and you're resistant \
@@ -77,7 +82,100 @@
 
 /datum/power/muscly/add(mob/living/carbon/human/target)
 	target.mind.set_level(/datum/skill/athletics, 4, silent = TRUE)
-	target.cybernetics_sickness_process()
+
+
+/datum/power/unnatural_cavity
+	name = "Unnatural Cavity"
+	desc = "You can store up to one normal-sized item inside your body. Resonance-disrupting abilities may eject the cavity's contents."
+	cost = 3
+	root_power = /datum/power/muscly
+	power_type = TRAIT_PATH_SUBTYPE_ABERRANT
+	power_traits = list(TRAIT_POWER_CAVITY)
+
+/obj/item/organ/unnatural_cavity
+	name = "Resonant pocket"
+	desc = "An unatural and non-euclidean biological pocket"
+	w_class = WEIGHT_CLASS_SMALL
+	slot = "unnatural_cavity"
+	actions_types = list(/datum/action/item_action/organ_action/toggle/unnatural_cavity)
+	var/obj/item/held_item
+
+/obj/item/organ/unnatural_cavity/Destroy()
+	empty_contents()
+	return ..()
+
+/datum/action/item_action/organ_action/toggle/unnatural_cavity
+	button_icon_state = "storage_pouch_icon"
+	button_icon = 'modular_doppler/modular_cosmetics/icons/obj/belt/crusaderbelt.dmi'
+
+/obj/item/organ/unnatural_cavity/ui_action_click()
+	if(held_item)
+		owner.visible_message("<span class='notice'>[owner] removes [held_item] from [owner.p_their()] [name].</span>", "<span class='notice'>You remove [held_item] from your [name].</span>")
+		owner.put_in_hands(held_item)
+		held_item = null
+	else
+		var/obj/item/I = owner.get_active_hand()
+		if(!I)
+			to_chat(owner, "<span class='notice'>You're not holding anything in your main hand to put in your [name].</span>")
+			return
+		if(istype(I, /obj/item/disk/nuclear))
+			to_chat(owner, "<span class='warning'>[I] is held back from entering your [name] by some unknown force!</span>")
+			return
+		// Prevents undersized people from being put in, I will NOT add vore mechanics
+		if(istype(I, /obj/item/clothing/head/mob_holder))
+			to_chat(owner, "<span class='warning'>[I] is held back from entering your [name] by some unknown force!</span>")
+			return
+		if(I.w_class > WEIGHT_CLASS_NORMAL)
+			to_chat(owner, "<span class='notice'>[I] is too large to fit in your [name].</span>")
+			return
+		else
+			owner.visible_message("<span class='notice'>[owner] places [I] into [owner.p_their()] [name].</span>", "<span class='notice'>You place [I] into your [name].</span>")
+			I.forceMove(src)
+			held_item = I
+
+/obj/item/organ/unnatural_cavity/proc/empty_contents()
+	if(held_item)
+		held_item.forceMove(get_turf(owner))
+		held_item = null
+
+/obj/item/organ/unnatural_cavity/on_life()
+	..()
+	if(HAS_TRAIT(owner, TRAIT_RESONANCE_SUPRESSED))
+		empty_contents()
+		owner.visible_message(
+			span_danger("[held_item] abruptly ejects itself from [owner]'s body!"),
+			span_danger("[held_item] abruptly ejects itself from your body!")
+		)
+
+/datum/power/unnatural_cavity/add(mob/living/carbon/human/target)
+	var/obj/item/organ/unnatural_cavity/new_cavity = new /obj/item/organ/unnatural_cavity
+	new_cavity.Insert(target, special = TRUE)
+
+/datum/power/bio_tackle
+	name = "Biological Launch Mechanism"
+	desc = "Requires Condensed Musculature. You are able to tackle inherently. This counts as a Resonant ability, and can be disabled by Resonance-disrupting effects, but Resonant shielding does not affect the actual tackle. Resonance-disrupting abilities may knock you down if this ability is purchased"
+	cost = 2
+	root_power = /datum/power/muscly
+	power_type = TRAIT_PATH_SUBTYPE_ABERRANT
+	power_traits = list(TRAIT_POWER_BIOTACKLER)
+/datum/status_effect/bio_tackle_supressed
+	id = "bio_tacke_supressed"
+	alert_type = /atom/movable/screen/alert/status_effect/bio_tackle_sickness
+
+/datum/status_effect/bio_tackle_supressed/tick(seconds_between_ticks)
+	if(SPT_PROB(3, seconds_between_ticks))
+		owner.Paralyze(3)
+		owner.visible_message(span_danger("[owner] suddenly loses their balance and falls over!"), span_userdanger("You suddenly lose your balance and fall over!"))
+
+/atom/movable/screen/alert/status_effect/bio_tackle_sickness
+	name = "Biological Launch Mechanism Supression sickness"
+	desc = "Resonance supression is interfering with your biological launch system and causing you to lose your balance"
+	maptext_y = 2
+	attached_effect = /datum/status_effect/bio_tackle_supressed
+
+/datum/power/bio_tackle/add(mob/living/carbon/human/target)
+	target.AddComponent(/datum/component/tackler, stamina_cost = 40, skill_mod = 1)
+	target.AddComponent(/datum/component/resonance_suppression, effect = /datum/status_effect/bio_tackle_supressed)
 
 /datum/power/monsterstrength
 	name = "Musculoskeletal Redistribution"
@@ -96,6 +194,7 @@
 	var/obj/item/bodypart/arm/left/left_arm = target.get_bodypart(BODY_ZONE_L_ARM)
 	left_arm.unarmed_damage_high = initial(left_arm.unarmed_damage_high) + 5
 	left_arm.unarmed_damage_low = left_arm.unarmed_damage_high
+	target.AddComponent(/datum/component/cybernetic_rejection)
 
 
 /datum/action/cooldown/spell/touch/monstrous_stance
@@ -133,7 +232,7 @@
 	var/throwtarget = get_edge_target_turf(caster, get_dir(caster, get_step_away(victim, caster)))
 	victim.throw_at(throwtarget, 2, 2, caster)
 	return TRUE
-
+/*
 /datum/power/blood_spike
 	name = "Blood spike"
 	desc = "Manipulate your own blood into a jagged spike able to be thrown for low damage but high embed chance. Each use reduces your own blood level by 5%. This conflicts with cybernetic organs, causing sickness"
@@ -145,7 +244,8 @@
 /datum/power/blood_spike/add(mob/living/carbon/human/target)
 	var/datum/action/new_action = new /datum/action/cooldown/spell/blood_spike(target.mind || target)
 	new_action.Grant(target)
-	target.cybernetics_sickness_process()
+
+
 
 /datum/action/cooldown/spell/blood_spike
 	name = "Form Blood Spike"
@@ -191,6 +291,8 @@
 	remove_pain_mult = 2
 	rip_time = 2 SECONDS
 
+*/
+
 /datum/power/bone_shield
 	name = "Bone Shield"
 	desc = "Twist and sculp the bone in your arm to form a fragile but protective bone shield. It will have a very high chance of blocking an attack for you but will shatter in the process. Forming one is harmless to you but exhausting. This conflicts with cybernetic organs, causing sickness"
@@ -202,7 +304,7 @@
 /datum/power/bone_shield/add(mob/living/carbon/human/target)
 	var/datum/action/new_action = new /datum/action/cooldown/spell/bone_shield(target.mind || target)
 	new_action.Grant(target)
-	target.cybernetics_sickness_process()
+
 
 /datum/action/cooldown/spell/bone_shield
 	name = "Form Bone Shield"

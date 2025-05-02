@@ -13,3 +13,6 @@ GLOBAL_LIST_INIT(path_core_powers, list(
 	"path_mortal" = /datum/power/tenacious
 ))
 
+// Signal define to be used to trigger resonance suppressing abilities
+#define COSMIG_RESONANCE_SUPRESSED "resonance_suppresion_signal"
+#define COSMIG_RESONANCE_UNSUPRESSED "resonance_unsuppresion_signal"
