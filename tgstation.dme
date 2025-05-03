@@ -7213,6 +7213,7 @@
 #include "modular_doppler\modular_quirks\paycheck_rations\code\tickets.dm"
 #include "modular_doppler\modular_quirks\permitted_cybernetic\permitted_cybernetic.dm"
 #include "modular_doppler\modular_quirks\permitted_cybernetic\code\preferences.dm"
+#include "modular_doppler\modular_quirks\sec_volunteer\volunteer.dm"
 #include "modular_doppler\modular_quirks\system_shock\system_shock.dm"
 #include "modular_doppler\modular_quirks\tranquility\code\tranquility.dm"
 #include "modular_doppler\modular_quirks\undersized\gun.dm"
