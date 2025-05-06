@@ -13,6 +13,7 @@
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
 	supported_bodyshapes = null
+	hair_mask = HAIR_MASK_HIDE_ABOVE_45_DEG_MEDIUM
 
 /obj/item/clothing/head/lizard_hat/white
 	name = "white peak-cover"
