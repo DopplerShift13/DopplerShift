@@ -117,3 +117,12 @@
 #define TRAIT_POWER_MEDICAL "power_medical"
 #define TRAIT_POWER_ENGINEERING "power_engineering"
 #define TRAIT_POWER_SERVICE "power_service"
+#define TRAIT_POWER_MONSTERSTRENGTH "power_monsterstrength"
+#define TRAIT_POWER_BLOODSPIKE "power_bloodspike"
+#define TRAIT_POWER_BONESHIELD "power_boneshield"
+#define TRAIT_POWER_CAVITY "power_cavity"
+#define TRAIT_POWER_BIOTACKLER "power_biotackler"
+
+// Resonance supression
+
+#define TRAIT_RESONANCE_SUPRESSED "resonance_supressed"
