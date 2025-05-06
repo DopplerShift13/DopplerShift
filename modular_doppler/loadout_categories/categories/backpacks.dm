@@ -38,6 +38,26 @@
 	name = "Custom Duffelbag"
 	item_path = /obj/item/storage/backpack/duffelbag/custom
 
+/datum/loadout_item/backpack/low_bag
+	name = "Low Kitbag"
+	item_path = /obj/item/storage/backpack/coalition
+
+/datum/loadout_item/backpack/lizard_tan
+	name = "Tizirian Tan Kitbag"
+	item_path = /obj/item/storage/backpack/lizard
+
+/datum/loadout_item/backpack/lizard_white
+	name = "Tizirian White Kitbag"
+	item_path = /obj/item/storage/backpack/lizard/white
+
+/datum/loadout_item/backpack/tailbag_tan
+	name = "Tan Tailbag"
+	item_path = /obj/item/storage/backpack/lizard_tailbag
+
+/datum/loadout_item/backpack/tailbag_white
+	name = "White Tailbag"
+	item_path = /obj/item/storage/backpack/lizard_tailbag/white
+
 /datum/loadout_item/backpack/adventurer
 	name = "Adventurer's Bandolier"
 	item_path = /obj/item/storage/backpack/satchel/crusader
