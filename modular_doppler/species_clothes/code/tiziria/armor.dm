@@ -73,7 +73,7 @@
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/species_clothes/icons/tiziria/gear_worn_dig.dmi',
 	)
-	fastening_type = SHOES_STRAPS
+	can_be_tied = FALSE
 	armor_type = /datum/armor/colonist_armor
 
 // gloves

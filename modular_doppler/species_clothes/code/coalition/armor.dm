@@ -82,7 +82,7 @@
 	lefthand_file = 'modular_doppler/species_clothes/icons/generic/lefthand.dmi'
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
-	fastening_type = SHOES_STRAPS
+	can_be_tied = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
@@ -102,7 +102,7 @@
 	lefthand_file = 'modular_doppler/species_clothes/icons/generic/lefthand.dmi'
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
-	fastening_type = SHOES_STRAPS
+	can_be_tied = FALSE
 	item_flags = IGNORE_DIGITIGRADE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
