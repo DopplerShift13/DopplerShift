@@ -13,6 +13,8 @@
 	inhand_icon_state = null
 	supported_bodyshapes = null
 	flags_cover = EARS_COVERED
+	flags_inv = null
+	hair_mask = HAIR_MASK_HIDE_ABOVE_45_DEG_MEDIUM
 
 /obj/item/clothing/head/helmet/tajaran/contract
 	name = "\improper Tajaran high flophelmet"
