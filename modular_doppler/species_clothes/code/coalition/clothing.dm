@@ -96,8 +96,8 @@
 	name = "medic's cape"
 	desc = "A brilliant shoulder cloak that extends far down the back, dyed red like the blood of their wearers. \
 		Worn almost always by those Vulpkanin who make it their life's work to fix those who cannot figure how."
-	icon_state = "cape_med"
-	worn_icon_state = "cape_med"
+	icon_state = "cape_medic"
+	worn_icon_state = "cape_medic"
 
 // suit items
 
