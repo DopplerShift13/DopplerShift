@@ -616,62 +616,7 @@ There are several things that need to be remembered:
 		my_chest?.worn_back_offset?.apply_offset(back_overlay)
 		overlays_standing[BACK_LAYER] = back_overlay
 	apply_overlay(BACK_LAYER)
-// DOPPLER EDIT START
-/obj/effect/abstract/held_tk_effect
-	name = "held_tk_effect"
-	icon = 'modular_doppler/psychicshit/icons/effects/tele_effects.dmi'
-	icon_state = "holder"
-	layer = HANDS_LAYER
-	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_PLANE | VIS_INHERIT_ID
-	var/is_right = TRUE
-	var/list/base_x
-	var/list/base_y
 
-/obj/effect/abstract/held_tk_effect/proc/on_parent_dir_change(datum/source, _old_dir, new_dir)
-	SIGNAL_HANDLER
-	set_direction_facing(new_dir)
-
-/obj/effect/abstract/held_tk_effect/proc/set_direction_facing(new_dir)
-	if(base_x && base_y)
-		var/current_dir = dir2text(new_dir)
-		pixel_x = length(base_x) ? ((current_dir in base_x) ? base_x[current_dir] : base_x["south"]) : 0
-		pixel_y = length(base_y) ? ((current_dir in base_y) ? base_y[current_dir] : base_y["south"]) : 0
-		switch(new_dir)
-			if(NORTH)
-				if(is_right)
-					pixel_x += 5
-					pixel_y += 10
-				else
-					pixel_x += -5
-					pixel_y += 10
-			if(SOUTH)
-				if(is_right)
-					pixel_x += -5
-					pixel_y += 10
-				else
-					pixel_x += 5
-					pixel_y += 10
-			if(EAST)
-				if(is_right)
-					pixel_x += 0
-					pixel_y += 10
-				else
-					pixel_x += 0
-					pixel_y += 10
-			if(WEST)
-				if(is_right)
-					pixel_x += 0
-					pixel_y += 10
-				else
-					pixel_x += 0
-					pixel_y += 10
-
-/obj/effect/abstract/held_tk_effect/right
-	is_right = TRUE
-
-/obj/effect/abstract/held_tk_effect/left
-	is_right = FALSE
-// DOPPLER EDIT END
 /mob/living/carbon/human/get_held_overlays()
 	var/list/hands = list()
 	// DOPPLER EDIT START
@@ -706,7 +651,10 @@ There are several things that need to be remembered:
 		var/icon_file = IS_RIGHT_INDEX(held_index) ? worn_item.righthand_file : worn_item.lefthand_file
 		hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 		var/obj/item/bodypart/arm/held_in_hand = hand_bodyparts[held_index]
-		if(HAS_TRAIT(src, TRAIT_FLOATING_HELD))
+		//held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
+		//
+		//hands += hand_overlay
+		if(HAS_TRAIT(src, TRAIT_FLOATING_HELD))// DOPPLER EDIT START
 			if(!held_left)
 				held_left = new(src)
 				held_left.render_target = "*[REF(src)]_hover_left"
