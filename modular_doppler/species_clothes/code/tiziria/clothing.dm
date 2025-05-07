@@ -118,6 +118,14 @@
 	icon_state = "halftop_reg"
 	worn_icon_state = "halftop_reg"
 
+/obj/item/clothing/suit/lizard_halftop/black
+	name = "black halftop"
+	desc = "The most popular clothing for the upper half of the Tizirians, enough to keep your scales from dulling \
+		in the harsh summer sun, but open enough to not overheat in the same situation. This one is black, typically \
+		a taboo color for anything other than your armor and your legwear, due to black's capacity for absorbing the sun."
+	icon_state = "halftop_black"
+	worn_icon_state = "halftop_black"
+
 // kilts
 
 /obj/item/clothing/under/lizard_kilt

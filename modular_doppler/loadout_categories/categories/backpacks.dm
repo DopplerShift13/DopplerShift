@@ -50,6 +50,10 @@
 	name = "Tizirian White Kitbag"
 	item_path = /obj/item/storage/backpack/lizard/white
 
+/datum/loadout_item/backpack/lizard_black
+	name = "Tizirian Black Kitbag"
+	item_path = /obj/item/storage/backpack/lizard/black
+
 /datum/loadout_item/backpack/tailbag_tan
 	name = "Tan Tailbag"
 	item_path = /obj/item/storage/backpack/lizard_tailbag
@@ -57,6 +61,8 @@
 /datum/loadout_item/backpack/tailbag_white
 	name = "White Tailbag"
 	item_path = /obj/item/storage/backpack/lizard_tailbag/white
+
+/datum/loadout_item/backpack/tailbag_black
 
 /datum/loadout_item/backpack/adventurer
 	name = "Adventurer's Bandolier"

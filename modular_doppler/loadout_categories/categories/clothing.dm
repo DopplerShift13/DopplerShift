@@ -77,6 +77,10 @@
 	name = "White Halftop"
 	item_path = /obj/item/clothing/suit/lizard_halftop/white
 
+/datum/loadout_item/suit/lizard_halftop_black
+	name = "Black Halftop"
+	item_path = /obj/item/clothing/suit/lizard_halftop/black
+
 /datum/loadout_item/suit/tizirian_breast
 	name = "Tizirian Breastplate"
 	item_path = /obj/item/clothing/suit/armor/lizard

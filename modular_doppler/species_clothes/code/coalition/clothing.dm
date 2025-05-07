@@ -172,4 +172,3 @@
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/species_clothes/icons/vulp/gear_worn.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/species_clothes/icons/vulp/gear_worn_dig.dmi',
 	)
-
