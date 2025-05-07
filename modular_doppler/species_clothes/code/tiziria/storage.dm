@@ -47,6 +47,7 @@
 
 /obj/item/storage/backpack/lizard_tailbag/mob_can_equip(mob/living/M, slot, disable_warning, bypass_equip_delay_self, ignore_equipped, indirect_action)
 	if(!HAS_TRAIT(M, TRAIT_TACKLING_TAILED_DEFENDER))
+		to_chat(M, span_warning("You need a tail to wear this!"))
 		return FALSE // Non tail-oids get out
 	return ..()
 
