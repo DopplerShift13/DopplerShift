@@ -143,6 +143,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = FALSE
 	female_sprite_flags = NO_FEMALE_UNIFORM
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/species_clothes/icons/tajara/gear_worn.dmi',
@@ -165,6 +166,7 @@
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
 	female_sprite_flags = NO_FEMALE_UNIFORM
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/species_clothes/icons/vulp/gear_worn.dmi',
