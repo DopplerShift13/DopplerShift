@@ -63,6 +63,8 @@
 	item_path = /obj/item/storage/backpack/lizard_tailbag/white
 
 /datum/loadout_item/backpack/tailbag_black
+	name = "Black Tailbag"
+	item_path = /obj/item/storage/backpack/lizard_tailbag/black
 
 /datum/loadout_item/backpack/adventurer
 	name = "Adventurer's Bandolier"
