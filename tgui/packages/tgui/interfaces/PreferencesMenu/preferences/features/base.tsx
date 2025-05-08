@@ -324,6 +324,7 @@ export const FeatureTextInput = (
     <TextArea
       height="100px"
       width="100%"
+      expensive
       value={props.value}
       maxLength={props.serverData.maximum_length}
       onChange={(value) => props.handleSetValue(value)}
