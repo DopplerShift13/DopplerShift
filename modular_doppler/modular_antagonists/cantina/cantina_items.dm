@@ -49,6 +49,7 @@
 	new /obj/item/reagent_containers/cup/bottle/cyanide(src)
 	new /obj/item/reagent_containers/cup/bottle/cantina_tetrodotoxin(src)
 	new /obj/item/reagent_containers/cup/bottle/cantina_zombiepowder(src)
+	new /obj/item/storage/pill_bottle/painkiller(src)
 
 
 /*

@@ -1683,6 +1683,7 @@
 "MK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/emcloset,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "MO" = (
@@ -1959,6 +1960,7 @@
 	dir = 8
 	},
 /obj/structure/closet/emcloset,
+/obj/item/storage/medkit/regular,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "Sy" = (
