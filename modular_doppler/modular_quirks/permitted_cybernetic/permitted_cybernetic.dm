@@ -71,5 +71,9 @@ GLOBAL_LIST_INIT(possible_quirk_implants, list(
 		set_hud_image_active(SEC_IMPLANT_HUD)
 		quirk_holder.icon = 'modular_doppler/overwrites/huds/hud.dmi'
 		quirk_holder.icon_state = "hud_imp_quirk"
+	if(HAS_TRAIT(src, TRAIT_SEC_VOLUNTEER))
+		set_hud_image_active(SEC_IMPLANT_HUD)
+		quirk_holder.icon = 'modular_doppler/overwrites/huds/hud.dmi'
+		quirk_holder.icon_state = "hud_volunteer_quirk"
 	else
 		set_hud_image_inactive(SEC_IMPLANT_HUD)
