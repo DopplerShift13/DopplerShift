@@ -104,6 +104,7 @@
 	name = "Unregistered Fax Machine"
 	desc = "Bluespace technologies on the application of evil bureaucracy. \
 	This one has been customized to block its network-visibility as needed."
+	obj_flags = parent_type::obj_flags | EMAGGED
 	visible_to_network = FALSE
 
 /obj/machinery/fax/cantina/add_context(atom/source, list/context, obj/item/held_item, mob/user)
