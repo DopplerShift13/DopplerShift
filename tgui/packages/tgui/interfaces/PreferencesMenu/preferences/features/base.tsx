@@ -304,6 +304,7 @@ export function FeatureShortTextInput(
     <Input
       disabled={!serverData}
       fluid
+      expensive// DOPPLER EDIT ADDITION: Preferences text inputs don't explode the server
       value={value}
       maxLength={serverData?.maximum_length}
       onChange={handleSetValue}
