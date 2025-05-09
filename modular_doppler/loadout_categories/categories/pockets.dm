@@ -9,7 +9,6 @@
 /datum/loadout_item/pocket_items/wallet
 	name = "Wallet"
 	item_path = /obj/item/storage/wallet
-	additional_displayed_text = list("Auto-Filled")
 
 // We add our wallet manually, later, so no need to put it in any outfits.
 /datum/loadout_item/pocket_items/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only)
@@ -75,10 +74,6 @@
 /datum/loadout_item/pocket_items/lipstick_purple
 	name = "Purple Lipstick"
 	item_path = /obj/item/lipstick/purple
-
-/datum/loadout_item/pocket_items/lipstick_red
-	name = "Red Lipstick"
-	item_path = /obj/item/lipstick
 
 /*
 *	GUM
@@ -148,10 +143,6 @@
 	name = "Cheap Lighter"
 	item_path = /obj/item/lighter/greyscale
 
-/datum/loadout_item/pocket_items/zippolighter
-	name = "Zippo Lighter"
-	item_path = /obj/item/lighter
-
 /datum/loadout_item/pocket_items/paicard
 	name = "Personal AI Device"
 	item_path = /obj/item/pai_card
@@ -211,7 +202,6 @@
 /datum/loadout_item/pocket_items/shock_collar
 	name = "Shock collar"
 	item_path = /obj/item/electropack/shockcollar
-	additional_displayed_text = list("Zap.")
 
 /*
 *	UTILITY
@@ -314,3 +304,31 @@
 /datum/loadout_item/pocket_items/security_suit_strap
 	name = "Security Equipment Strap"
 	item_path = /obj/item/job_equipment_strap/security
+
+//PDAs
+
+/datum/loadout_item/pocket_items/pda_neko
+	name = "Neko PDA"
+	item_path = /obj/item/modular_computer/pda/cat
+
+/datum/loadout_item/pocket_items/pda_g3
+	name = "G3 PDA"
+	item_path = /obj/item/modular_computer/pda/g3
+
+/datum/loadout_item/pocket_items/pda_rugged
+	name = "Rugged PDA"
+	item_path = /obj/item/modular_computer/pda/rugged
+
+/datum/loadout_item/pocket_items/pda_slimline
+	name = "Slimline PDA"
+	item_path = /obj/item/modular_computer/pda/slimline
+
+/datum/loadout_item/pocket_items/pda_ultraslim
+	name = "Ultraslim PDA"
+	item_path = /obj/item/modular_computer/pda/ultraslim
+
+// Where?? Did the accessories tab go ??
+
+/datum/loadout_item/pocket_items/ear_tag
+	name = "Ear Tag"
+	item_path = /obj/item/clothing/accessory/ear_tag

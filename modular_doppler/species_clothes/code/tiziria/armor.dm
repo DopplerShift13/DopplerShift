@@ -15,7 +15,7 @@
 	supported_bodyshapes = null
 	flags_cover = EARS_COVERED
 	flags_inv = null
-	hair_mask = HAIR_MASK_HIDE_ABOVE_45_DEG_MEDIUM
+	hair_mask = /datum/hair_mask/standard_hat_middle
 
 /obj/item/clothing/head/helmet/lizard/glass
 	desc = "A distinctly Tizirian designed helmet, special made to fit and long enough to the front to protect \
@@ -76,7 +76,7 @@
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/species_clothes/icons/tiziria/gear_worn_dig.dmi',
 	)
-	can_be_tied = FALSE
+	fastening_type = SHOES_STRAPS
 	armor_type = /datum/armor/colonist_armor
 
 // gloves

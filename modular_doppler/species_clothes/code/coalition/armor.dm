@@ -14,7 +14,7 @@
 	supported_bodyshapes = null
 	flags_cover = EARS_COVERED
 	flags_inv = null
-	hair_mask = HAIR_MASK_HIDE_ABOVE_45_DEG_MEDIUM
+	hair_mask = /datum/hair_mask/standard_hat_middle
 
 /obj/item/clothing/head/helmet/tajaran/contract
 	name = "\improper Tajaran high flophelmet"
@@ -38,7 +38,7 @@
 	supported_bodyshapes = null
 	flags_cover = EARS_COVERED
 	flags_inv = null
-	hair_mask = HAIR_MASK_HIDE_ABOVE_45_DEG_MEDIUM
+	hair_mask = /datum/hair_mask/standard_hat_middle
 
 // armor vest
 
@@ -87,7 +87,7 @@
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
 	body_parts_covered = FEET|LEGS
-	can_be_tied = FALSE
+	fastening_type = SHOES_STRAPS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
@@ -108,7 +108,7 @@
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
 	body_parts_covered = FEET|LEGS
-	can_be_tied = FALSE
+	fastening_type = SHOES_STRAPS
 	item_flags = IGNORE_DIGITIGRADE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
