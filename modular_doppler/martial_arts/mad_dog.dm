@@ -38,7 +38,7 @@
 /datum/martial_art/mad_dog/deactivate_style(mob/living/remove_from)
 	remove_from.remove_traits(mad_dog_traits, MAD_DOG_TRAIT)
 	remove_from.RemoveComponentSource(REF(src), /datum/component/unbreakable)
-	owner.remove_stun_absorption(name)
+	owner.remove_status_effect(/datum/status_effect/stun_absorption, name)
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
 	return ..()
 
