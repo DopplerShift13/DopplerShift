@@ -7412,6 +7412,7 @@
 #include "modular_doppler\modular_uplink\code\ammunition.dm"
 #include "modular_doppler\modular_uplink\code\kit_special.dm"
 #include "modular_doppler\modular_uplink\code\kit_tactical.dm"
+#include "modular_doppler\modular_uplink\code\stealthy.dm"
 #include "modular_doppler\modular_uplink\code\suits.dm"
 #include "modular_doppler\modular_uplink\code\uplink_kits.dm"
 #include "modular_doppler\modular_vending\code\_vending.dm"
