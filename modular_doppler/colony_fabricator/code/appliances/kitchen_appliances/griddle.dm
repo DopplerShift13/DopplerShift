@@ -16,7 +16,6 @@
 
 /obj/machinery/griddle/frontier_tabletop/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/repackable, repacked_type, 2 SECONDS)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
 /obj/machinery/griddle/frontier_tabletop/unanchored
