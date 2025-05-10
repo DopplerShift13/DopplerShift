@@ -201,8 +201,8 @@
 	ADD_TRAIT(owner, TRAIT_NICE_SHOT, IMPLANT_TRAIT)
 	ADD_TRAIT(owner, TRAIT_GUNFLIP, IMPLANT_TRAIT)
 	ADD_TRAIT(owner, TRAIT_GUN_NATURAL, IMPLANT_TRAIT)
-	RegisterSignal(mod.wearer, COMSIG_MOB_FIRED_GUN, PROC_REF(sharpshooter_fired_gun))
-	RegisterSignal(mod.wearer, COMSIG_PROJECTILE_FIRER_BEFORE_FIRE, PROC_REF(apply_ricochet))
+	RegisterSignal(owner, COMSIG_MOB_FIRED_GUN, PROC_REF(sharpshooter_fired_gun))
+	RegisterSignal(owner, COMSIG_PROJECTILE_FIRER_BEFORE_FIRE, PROC_REF(apply_ricochet))
 	return ..()
 
 /obj/item/organ/cyberimp/trickshotter/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
