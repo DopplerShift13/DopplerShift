@@ -16,7 +16,7 @@
 	/// Probability of successfully blocking attacks
 	var/block_chance = 80
 	/// List of traits applied/taken away on gain/loss; similar to sleeping carp but with a focus on survival instead of supernatural bullet deflection
-	var/list/mad_dog_traits = list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD, TRAIT_HARDLY_WOUNDED, TRAIT_NODISMEMBER, TRAIT_PUSHIMMUNE, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT)
+	var/list/mad_dog_traits = list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD, TRAIT_HARDLY_WOUNDED, TRAIT_NODISMEMBER, TRAIT_PUSHIMMUNE, TRAIT_NOSOFTCRIT)
 
 /datum/martial_art/mad_dog/activate_style(mob/living/new_holder)
 	. = ..()
@@ -399,7 +399,7 @@
 	[span_notice("Combo Strike")]: Shove Shove Punch. Mainly offensive move, huge damage and decent stamina damage.\n\
 	[span_notice("Deflective Palm")]: While on throw mode, you possess an 80% chance to block and counter attacks done to you, so long as you are able to fight.")
 
-	to_chat(usr, "<b><i>Furthermore, you will not fall when in critical condition, will occasionally heal when extremely close to death, and can absorb stuns up to a limit, after which you must wait 20 seconds before absorbing more.</i></b>")
+	to_chat(usr, "<b><i>Furthermore, you will only fall when entering hardcrit, will occasionally heal when extremely close to death, and can absorb stuns up to a limit, after which you must wait 20 seconds before absorbing more.</i></b>")
 
 #undef SLAM_COMBO
 #undef KICK_COMBO
