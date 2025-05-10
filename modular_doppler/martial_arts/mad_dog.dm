@@ -23,14 +23,14 @@
 	new_holder.add_traits(mad_dog_traits, MAD_DOG_TRAIT)
 	new_holder.AddComponent(/datum/component/unbreakable)
 	new_holder.add_stun_absorption(
-		source = name
-		priority = 3 // arbitrary
-		max_seconds_of_stuns_blocked = 30 SECONDS
-		delete_after_passing_max = FALSE
-		recharge_time = 20 SECONDS
+		source = name,
+		priority = 3, // arbitrary
+		max_seconds_of_stuns_blocked = 30 SECONDS,
+		delete_after_passing_max = FALSE,
+		recharge_time = 20 SECONDS,
 		message = span_warning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!"),
-		examine_message = span_warning("%EFFECT_OWNER_THEYRE bristling with raw determination!"),
+		examine_message = span_warning("%EFFECT_OWNER_THEYRE bristling with raw determination!")
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
 
