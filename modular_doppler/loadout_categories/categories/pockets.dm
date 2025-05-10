@@ -326,9 +326,3 @@
 /datum/loadout_item/pocket_items/pda_ultraslim
 	name = "Ultraslim PDA"
 	item_path = /obj/item/modular_computer/pda/ultraslim
-
-// Where?? Did the accessories tab go ??
-
-/datum/loadout_item/pocket_items/ear_tag
-	name = "Ear Tag"
-	item_path = /obj/item/clothing/accessory/ear_tag

@@ -6974,6 +6974,7 @@
 #include "modular_doppler\languages\code\language menu\language_holder.dm"
 #include "modular_doppler\languages\code\language menu\language_preferences.dm"
 #include "modular_doppler\loadout_categories\loadout_checkers.dm"
+#include "modular_doppler\loadout_categories\categories\accessories.dm"
 #include "modular_doppler\loadout_categories\categories\backpacks.dm"
 #include "modular_doppler\loadout_categories\categories\belts.dm"
 #include "modular_doppler\loadout_categories\categories\clothing.dm"
