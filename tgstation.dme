@@ -6806,7 +6806,6 @@
 #include "modular_doppler\colony_fabricator\code\machines\ore_silo.dm"
 #include "modular_doppler\colony_fabricator\code\machines\power_storage_unit.dm"
 #include "modular_doppler\colony_fabricator\code\machines\rtg.dm"
-#include "modular_doppler\colony_fabricator\code\machines\solar_panels.dm"
 #include "modular_doppler\colony_fabricator\code\machines\solid_fuel_generator.dm"
 #include "modular_doppler\colony_fabricator\code\machines\stirling_generator.dm"
 #include "modular_doppler\colony_fabricator\code\machines\thermomachine.dm"
