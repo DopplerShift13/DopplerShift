@@ -48,6 +48,9 @@
 	if (active_skin.retool_lefthand_file)
 		pkc.lefthand_file = active_skin.retool_lefthand_file
 		pkc.righthand_file = active_skin.retool_righthand_file
+	if(active_skin.retool_worn_file) // DOPPLER EDIT ADDITION
+		pkc.worn_icon = active_skin.retool_worn_file // DOPPLER EDIT ADDITION
+		pkc.worn_icon_state = active_skin::retool_icon_state // DOPPLER EDIT ADDITION
 	if (active_skin.retool_inhand_x)
 		pkc.inhand_x_dimension = active_skin.retool_inhand_x
 	if (active_skin.retool_inhand_y)
@@ -65,6 +68,8 @@
 	pkc.projectile_icon = initial(pkc.projectile_icon)
 	pkc.lefthand_file = initial(pkc.lefthand_file)
 	pkc.righthand_file = initial(pkc.righthand_file)
+	pkc.worn_icon = initial(pkc.worn_icon) // DOPPLER EDIT ADDITION
+	pkc.worn_icon_state = initial(pkc.worn_icon_state) // DOPPLER EDIT ADDITION
 	pkc.inhand_x_dimension = initial(pkc.inhand_x_dimension)
 	pkc.inhand_y_dimension = initial(pkc.inhand_y_dimension)
 	pkc.update_appearance()
@@ -87,6 +92,8 @@
 	var/retool_lefthand_file = null
 	/// Specifies the right hand inhand icon file. Don't forget to set the left hand file as well.
 	var/retool_righthand_file = null
+	/// Specifies the worn icon file. // DOPPLER EDIT ADDITION
+	var/retool_worn_file = null // DOPPLER EDIT ADDITION
 	/// Specifies the X dimensions of the new inhand, only relevant with different inhand files.
 	var/retool_inhand_x = null
 	/// Specifies the Y dimensions of the new inhand, only relevant with different inhand files.
@@ -95,6 +102,14 @@
 	var/normal_skin = TRUE
 	/// Crusher this skin is attached to
 	var/obj/item/kinetic_crusher/crusher
+
+/obj/item/crusher_trophy/retool_kit
+	/// icon file where this retool kit's projectile is stored // DOPPLER EDIT ADDITION
+	var/retool_projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi' // DOPPLER EDIT ADDITION
+
+/obj/item/crusher_trophy/retool_kit/add_to(obj/item/kinetic_crusher/pkc, mob/user)
+	. = ..()
+	pkc.projectile_icon_file = retool_projectile_icon_file
 
 /datum/crusher_skin/New(obj/item/kinetic_crusher/new_crusher)
 	. = ..()
