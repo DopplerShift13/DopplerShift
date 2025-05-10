@@ -52,6 +52,8 @@
 	var/current_inhand_icon_state = "crusher"
 	/// Used by retool kits when changing the crusher's projectile sprite
 	var/projectile_icon = "pulse1"
+	///Doppler Edit: used by retool kits when changing the crusher's projectile sprite
+	var/projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
 	/// Wielded damage we deal, aka our "real" damage
 	var/force_wielded = 20
 
@@ -219,6 +221,7 @@
 	if(!isturf(proj_turf))
 		return
 	var/obj/projectile/destabilizer/destabilizer = new(proj_turf)
+	destabilizer.icon = projectile_icon_file // DOPPLER EDIT ADDITION - for extended crusher retool support
 	SEND_SIGNAL(src, COMSIG_CRUSHER_FIRED_BLAST, target, user, destabilizer)
 	destabilizer.icon_state = projectile_icon
 	for(var/obj/item/crusher_trophy/attached_trophy as anything in trophies)
