@@ -20,3 +20,7 @@
 	if(uses <= 0)
 		to_chat(user, span_warning("[src] catches fire, pages fluttering into wisps of flame!"))
 	AddComponent(/datum/component/burning, custom_fire_overlay() || GLOB.fire_overlay, burning_particles)
+
+/obj/item/book/granter/martial/mad_dog/recoil(mob/living/user) // because you can put out the initial fire that happens once you stop reading it
+	to_chat(user, span_warning("[src] catches fire the moment you open the cover!"))
+	AddComponent(/datum/component/burning, custom_fire_overlay() || GLOB.fire_overlay, burning_particles)
