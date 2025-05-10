@@ -28,7 +28,7 @@
 		max_seconds_of_stuns_blocked = 15 SECONDS, // nigh-immune to disablers & telebatons, but only takes 3 security stunprod hits to bring your immunity down
 		delete_after_passing_max = FALSE,
 		recharge_time = 20 SECONDS,
-		message = span_warning("%EFFECT_OWNER pushes through the stun!"),
+		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!"),
 		examine_message = span_boldwarning("[new_holder.p_Theyre()] bristling with raw determination! It'd take real damage or a stun baton to slow [new_holder.p_them()] down!")
 	)
