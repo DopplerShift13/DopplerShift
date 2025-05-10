@@ -30,7 +30,7 @@
 		recharge_time = 20 SECONDS,
 		message = span_warning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!"),
-		examine_message = span_warning("%EFFECT_OWNER_THEYRE bristling with raw determination!")
+		examine_message = span_boldwarning("%EFFECT_OWNER_THEYRE bristling with raw determination! It'd take real damage or a stun baton to slow them down!")
 	)
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
