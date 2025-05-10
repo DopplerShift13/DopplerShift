@@ -304,9 +304,10 @@ export function FeatureShortTextInput(
     <Input
       disabled={!serverData}
       fluid
+      expensive
       value={value}
       maxLength={serverData?.maximum_length}
-      onChange={handleSetValue}
+      onBlur={handleSetValue} // DOPPLER EDIT CHANGE: Preferences text inputs don't explode the server. Original: onChange={handleSetValue}
     />
   );
 }
@@ -326,7 +327,7 @@ export const FeatureTextInput = (
       width="100%"
       value={props.value}
       maxLength={props.serverData.maximum_length}
-      onChange={(value) => props.handleSetValue(value)}
+      onBlur={(value) => props.handleSetValue(value)}
     />
   );
 };
