@@ -359,11 +359,9 @@
 		/obj/item/wrench/combat = 1,
 		// Screwdriver
 		/obj/item/screwdriver = 3,
-		/obj/item/screwdriver/omni_drill = 2,
 		/obj/item/screwdriver/caravan = 1,
 		// Crowbar
 		/obj/item/crowbar = 3,
-		/obj/item/crowbar/large/doorforcer = 2,
 		/obj/item/crowbar/red/caravan = 1,
 		/obj/item/fireaxe/metal_h2_axe = 1,
 		// Wirecutters
@@ -372,7 +370,6 @@
 		// Welder
 		/obj/item/weldingtool = 3,
 		/obj/item/weldingtool/largetank = 3,
-		/obj/item/weldingtool/arc_welder = 2,
 		/obj/item/weldingtool/experimental = 1,
 		// Multitool
 		/obj/item/multitool = 2,
@@ -457,7 +454,6 @@
 		/obj/item/flatpacked_machine/recycler = 2,
 		/obj/item/flatpacked_machine/rtg = 2,
 		/obj/item/flatpacked_machine/shutter_kit = 1,
-		/obj/item/flatpacked_machine/solar_tracker = 1,
 		/obj/item/flatpacked_machine/station_battery = 1,
 		/obj/item/flatpacked_machine/stirling_generator = 1,
 		/obj/item/flatpacked_machine/sustenance_machine = 2,

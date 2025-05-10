@@ -11,8 +11,6 @@
 	circuit = null
 	// Lines up perfectly with tables when anchored on them
 	anchored_tabletop_offset = 3
-	/// What type this repacks into
-	var/repacked_type = /obj/item/flatpacked_machine/frontier_griddle
 
 /obj/machinery/griddle/frontier_tabletop/Initialize(mapload)
 	. = ..()
