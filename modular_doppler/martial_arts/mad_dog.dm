@@ -388,7 +388,7 @@
 	[span_notice("Combo Strike")]: Shove Shove Punch. Mainly offensive move, huge damage and decent stamina damage.\n\
 	[span_notice("Deflective Palm")]: While on throw mode, you possess an 80% chance to block and counter attacks done to you, so long as you are able to fight.")
 
-	to_chat(usr, "<b><i>Furthermore, you will not fall when in critical condition, are immune to all stuns, and you will naturally heal out of critical condition every so often, gaining a small boost when you do.</i></b>")
+	to_chat(usr, "<b><i>Furthermore, you will not fall when in critical condition, are immune to all stuns, and you will occasionally heal when extremely close to death.</i></b>")
 
 #undef SLAM_COMBO
 #undef KICK_COMBO
