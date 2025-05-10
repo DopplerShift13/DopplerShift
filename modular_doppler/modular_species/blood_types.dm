@@ -1,6 +1,7 @@
 /datum/blood_type/insectoid
 	name = BLOOD_TYPE_INSECTOID
 	color = BLOOD_COLOR_INSECTOID
+	restoration_chem = /datum/reagent/iron
 	compatible_types = list(
 		/datum/blood_type/insectoid,
 	)
