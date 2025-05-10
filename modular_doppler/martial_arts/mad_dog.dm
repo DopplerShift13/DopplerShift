@@ -321,11 +321,11 @@
 	if(check_streak(attacker, defender))
 		return MARTIAL_ATTACK_SUCCESS
 	attacker.do_attack_animation(defender)
-	var/picked_hit_type = pick("precision-punch", "pressure-kick")
+	var/picked_hit_type = pick("deftly punch", "precisely kick")
 	var/bonus_damage = 13
 	if(defender.body_position == LYING_DOWN)
 		bonus_damage += 5
-		picked_hit_type = pick("kick", "stomp")
+		picked_hit_type = pick("crazedly kick", "brutally stomp")
 	defender.apply_damage(bonus_damage, BRUTE)
 
 	playsound(defender, (picked_hit_type == "kick" || picked_hit_type == "stomp") ? 'sound/items/weapons/cqchit2.ogg' : 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
