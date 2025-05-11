@@ -90,7 +90,7 @@
 	health = 50
 	maxHealth = 50
 	gender = NEUTER
-	damage_coeff = list(BRUTE = 3, BURN = 3, TOX = 1, STAMINA = 0, OXY = 1)
+	damage_coeff = list(BRUTE = 3, BURN = 3, TOX = 1, STAMINA = 1, OXY = 1)
 	butcher_results = list(/obj/item/organ/brain = 1, /obj/item/organ/heart = 1, /obj/item/food/breadslice/plain = 3,  \
 	/obj/item/food/meat/slab = 2)
 	response_harm_continuous = "takes a bite out of"
@@ -117,7 +117,9 @@
 
 /mob/living/basic/pet/dog/breaddog/Life(seconds_per_tick = SSMOBS_DT, times_fired)
 	. = ..()
-	if(stat)
+	if(!.) //dead or deleted
+		return
+	if(stat) // consciousness check
 		return
 
 	if(health < maxHealth)
