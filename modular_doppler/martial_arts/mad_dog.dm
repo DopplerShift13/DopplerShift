@@ -25,7 +25,7 @@
 	new_holder.add_stun_absorption(
 		source = name,
 		priority = 3, // arbitrary
-		max_seconds_of_stuns_blocked = 15 SECONDS, // nigh-immune to disablers & telebatons, but only takes 3 security stunprod hits to bring your immunity down
+		max_seconds_of_stuns_blocked = 14.9 SECONDS, // nigh-immune to disablers & telebatons, but only takes 3 security stunprod hits to bring your immunity down
 		delete_after_passing_max = FALSE,
 		recharge_time = 20 SECONDS,
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
