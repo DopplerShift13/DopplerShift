@@ -91,7 +91,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(uniform.flags_inv)
 
-		if(HAS_TRAIT(uniform, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_ICLOTHING))
+		if(HAS_TRAIT(uniform, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_ICLOTHING))
 			return
 
 		var/target_overlay = uniform.icon_state
@@ -214,7 +214,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_GLOVES))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_GLOVES))
 			return
 
 		var/icon_file = 'icons/mob/clothing/hands.dmi'
@@ -271,7 +271,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EYES))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_EYES))
 			return
 
 		var/icon_file = 'icons/mob/clothing/eyes.dmi'
@@ -306,7 +306,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_EARS))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_EARS))
 			return
 
 		var/icon_file = 'icons/mob/clothing/ears.dmi'
@@ -336,7 +336,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_NECK))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_NECK))
 			return
 
 		var/icon_file = 'icons/mob/clothing/neck.dmi'
@@ -371,12 +371,15 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_FEET))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_FEET))
 			return
 
 		var/icon_file = DEFAULT_SHOES_FILE
 
 		/// DOPPLER SHIFT ADDITION BEGIN
+		if(bodyshape & BODYSHAPE_HIDE_SHOES)
+			return // We just don't want shoes that float if we're not displaying legs (useful for taurs, for now)
+
 		for(var/shape in shoes.supported_bodyshapes)
 			if(bodyshape & shape)
 				icon_file = shoes.bodyshape_icon_files["[shape]"]
@@ -415,7 +418,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_SUITSTORE))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_SUITSTORE))
 			return
 
 		/// DOPPLER SHIFT ADDITION BEGIN
@@ -445,7 +448,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_HEAD))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_HEAD))
 			return
 
 		var/icon_file = 'icons/mob/clothing/head/default.dmi'
@@ -478,7 +481,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_BELT))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_BELT))
 			return
 
 		var/icon_file = 'icons/mob/clothing/belt.dmi'
@@ -568,7 +571,7 @@ There are several things that need to be remembered:
 		if(update_obscured)
 			update_obscured_slots(worn_item.flags_inv)
 
-		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots(transparent_protection = TRUE) & ITEM_SLOT_MASK))
+		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON) || (check_obscured_slots() & ITEM_SLOT_MASK))
 			return
 
 		var/icon_file = 'icons/mob/clothing/mask.dmi'
@@ -623,6 +626,14 @@ There are several things that need to be remembered:
 
 /mob/living/carbon/human/get_held_overlays()
 	var/list/hands = list()
+	// DOPPLER EDIT START
+	if(held_left)
+		held_left.overlays.Cut()
+		held_left.underlays.Cut()
+	if(held_right)
+		held_right.overlays.Cut()
+		held_right.underlays.Cut()
+	// DOPPLER EDIT END
 	for(var/obj/item/worn_item in held_items)
 		var/held_index = get_held_index_of_item(worn_item)
 		if(client && hud_used && hud_used.hud_version != HUD_STYLE_NOHUD)
@@ -647,9 +658,70 @@ There are several things that need to be remembered:
 		var/icon_file = IS_RIGHT_INDEX(held_index) ? worn_item.righthand_file : worn_item.lefthand_file
 		hand_overlay = worn_item.build_worn_icon(default_layer = HANDS_LAYER, default_icon_file = icon_file, isinhands = TRUE)
 		var/obj/item/bodypart/arm/held_in_hand = hand_bodyparts[held_index]
-		held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
-
-		hands += hand_overlay
+		//held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
+		//
+		//hands += hand_overlay
+		if(HAS_TRAIT(src, TRAIT_FLOATING_HELD))// DOPPLER EDIT START
+			if(!held_left)
+				held_left = new(src)
+				held_left.render_target = "*[REF(src)]_hover_left"
+				held_left.RegisterSignal(src, COMSIG_ATOM_DIR_CHANGE, TYPE_PROC_REF(/obj/effect/abstract/held_tk_effect, on_parent_dir_change))
+				src.vis_contents += held_left
+			if(!held_right)
+				held_right = new(src)
+				held_right.render_target = "*[REF(src)]_hover_right"
+				held_right.RegisterSignal(src, COMSIG_ATOM_DIR_CHANGE, TYPE_PROC_REF(/obj/effect/abstract/held_tk_effect, on_parent_dir_change))
+				src.vis_contents += held_right
+			if(held_index % 2 == 0)
+				held_right.overlays.Cut()
+				held_right.underlays.Cut()
+				held_right.pixel_y = 0
+				held_right.pixel_x = 0
+				held_right.overlays += hand_overlay
+				var/mutable_appearance/hover_effect = mutable_appearance(held_left.icon, "hover_right", HANDS_LAYER)
+				if(held_hover_color)
+					hover_effect.color = held_hover_color
+				held_right.underlays += hover_effect
+				var/list/offset = held_in_hand?.held_hand_offset?.get_offset()
+				if(offset)
+					held_right.base_x = held_in_hand?.held_hand_offset?.offset_x
+					held_right.base_y = held_in_hand?.held_hand_offset?.offset_y
+				else
+					held_right.base_x = list("south" = 0)
+					held_right.base_y = list("south" = 0)
+				held_right.set_direction_facing(src.dir)
+			else
+				held_left.overlays.Cut()
+				held_left.underlays.Cut()
+				held_left.pixel_y = 0
+				held_left.pixel_x = 0
+				held_left.overlays += hand_overlay
+				var/mutable_appearance/hover_effect = mutable_appearance(held_left.icon, "hover_left", HANDS_LAYER)
+				if(held_hover_color)
+					hover_effect.color = held_hover_color
+				held_left.underlays += hover_effect
+				var/list/offset = held_in_hand?.held_hand_offset?.get_offset()
+				if(offset)
+					held_left.base_x = held_in_hand?.held_hand_offset?.offset_x
+					held_left.base_y = held_in_hand?.held_hand_offset?.offset_y
+				else
+					held_left.base_x = list("south" = 0)
+					held_left.base_y = list("south" = 0)
+				held_left.set_direction_facing(src.dir)
+			var/mutable_appearance/hand_overlay_real = mutable_appearance(layer = HANDS_LAYER, offset_spokesman = src)
+			if(held_index % 2 == 0)
+				hand_overlay_real.render_source = "*[REF(src)]_hover_right"
+				animate(held_right, pixel_y = 2, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
+				animate(pixel_y = -2, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
+			else
+				hand_overlay_real.render_source = "*[REF(src)]_hover_left"
+				animate(held_left, pixel_y = 2, time = 1 SECONDS, loop = -1, flags = ANIMATION_RELATIVE)
+				animate(pixel_y = -2, time = 1 SECONDS, flags = ANIMATION_RELATIVE)
+			hands += hand_overlay_real
+		else
+			held_in_hand?.held_hand_offset?.apply_offset(hand_overlay)
+			hands += hand_overlay
+		// DOPPLER EDIT END
 	return hands
 
 /// Modifies a sprite slightly to conform to female body shapes
@@ -891,9 +963,11 @@ generate/load female uniform sprites matching all previously decided variables
 	/// DOPPLER SHIFT ADDITION BEGIN
 	/// IMPORTANT NOTE: Keep the humie var!
 	var/chosen_worn_icon = worn_icon
+	var/using_taur_variant = FALSE
 	if(ishuman(humie))
 		for(var/shape in supported_bodyshapes)
 			if(humie.bodyshape & shape)
+				using_taur_variant = (shape & BODYSHAPE_TAUR_ALL)
 				chosen_worn_icon = bodyshape_icon_files["[shape]"]
 	//Find a valid icon file from variables+arguments
 	var/file2use = override_file || (isinhands ? null : chosen_worn_icon) || default_icon_file /// DOPPLER SHIFT EDIT END
@@ -930,6 +1004,19 @@ generate/load female uniform sprites matching all previously decided variables
 			greyscale_colors = greyscale_colors,
 		)
 	/// DOPPLER SHIFT ADDITION END
+	/// DOPPLER SHIFT ADDITION START - Taur-friendly uniforms and suits
+	var/shift_pixel_x = 0
+	if (istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)
+		if (!using_taur_variant)
+			if (gets_cropped_on_taurs)
+				var/cropping_state = DEFAULT_TAUR_CLIPPING_MASK
+				if (ishuman(humie))
+					var/obj/item/organ/taur_body/taur = humie.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+					cropping_state = (taur ? taur.clothing_cropping_state : DEFAULT_TAUR_CLIPPING_MASK)
+				building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors, cropping_state)
+		else
+			shift_pixel_x = -16 // it doesnt look right otherwise
+	/// DOPPLER SHIFT ADDITION END
 	if(building_icon)
 		draw_target = mutable_appearance(building_icon, layer = -layer2use)
 	else
@@ -951,6 +1038,7 @@ generate/load female uniform sprites matching all previously decided variables
 		standing.overlays += separate_overlays
 
 	standing = center_image(standing, isinhands ? inhand_x_dimension : worn_x_dimension, isinhands ? inhand_y_dimension : worn_y_dimension)
+	standing.pixel_x += shift_pixel_x // DOPPLER SHIFT EDIT ADDITION - Taur-friendly uniforms and suits
 
 	//Worn offsets
 	var/list/offsets = get_worn_offsets(isinhands)
