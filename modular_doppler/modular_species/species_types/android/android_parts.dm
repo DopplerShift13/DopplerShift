@@ -36,6 +36,8 @@
 ///
 // head
 /obj/item/bodypart/head/robot/android
+	burn_modifier = 0.8
+	brute_modifier = 0.8
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 	// var for monitor heads and their emissive states
 	var/monitor_state
@@ -44,7 +46,7 @@
 	. = ..()
 	name = "[GLOB.frame_type_names[limb_id]] [parse_zone(body_zone)]"
 
-/obj/item/bodypart/head/robot/android/get_limb_icon(dropped)
+/obj/item/bodypart/head/robot/android/get_limb_icon(dropped, mob/living/carbon/update_on)
 	. = ..()
 	// emissive handling
 	if(!monitor_state || monitor_state == "none")
@@ -67,6 +69,8 @@
 
 // chest
 /obj/item/bodypart/chest/robot/android
+	burn_modifier = 0.8
+	brute_modifier = 0.8
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/chest/robot/android/Initialize(mapload)
@@ -86,6 +90,8 @@
 
 // right arm
 /obj/item/bodypart/arm/right/robot/android
+	burn_modifier = 0.8
+	brute_modifier = 0.8
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/arm/right/robot/android/Initialize(mapload)
@@ -102,6 +108,8 @@
 
 // left arm
 /obj/item/bodypart/arm/left/robot/android
+	burn_modifier = 0.8
+	brute_modifier = 0.8
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/arm/left/robot/android/Initialize(mapload)
@@ -118,6 +126,8 @@
 
 // right leg
 /obj/item/bodypart/leg/right/robot/android
+	burn_modifier = 0.8
+	brute_modifier = 0.8
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/leg/right/robot/android/Initialize(mapload)
@@ -134,6 +144,8 @@
 
 // left leg
 /obj/item/bodypart/leg/left/robot/android
+	burn_modifier = 0.8
+	brute_modifier = 0.8
 	biological_state = (BIO_ROBOTIC|BIO_BLOODED)
 
 /obj/item/bodypart/leg/left/robot/android/Initialize(mapload)

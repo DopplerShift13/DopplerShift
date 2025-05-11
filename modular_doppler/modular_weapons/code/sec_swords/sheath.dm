@@ -1,6 +1,6 @@
 /obj/item/storage/belt/secsword
 	name = "security weapons sheath"
-	desc = "A large block of metal made for safely holding on to a shortblade and matching electro baton, \
+	desc = "A large block of metal made for safely holding on to either a jitte or a shortblade and matching electro baton, \
 		along with the rest of an officer's security equipment."
 	icon = 'modular_doppler/modular_weapons/icons/obj/sec_swords.dmi'
 	icon_state = "swordcase"
@@ -11,6 +11,10 @@
 	interaction_flags_click = parent_type::interaction_flags_click | NEED_DEXTERITY | NEED_HANDS
 	obj_flags = UNIQUE_RENAME
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
+	var/static/list/sword_typecache = typecacheof(list(
+		/obj/item/melee/secblade,
+		/obj/item/melee/sec_jitte,
+	))
 
 /obj/item/storage/belt/secsword/Initialize(mapload)
 	. = ..()
@@ -37,6 +41,7 @@
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
 		/obj/item/melee/secblade,
+		/obj/item/melee/sec_jitte,
 	))
 	atom_storage.open_sound = 'sound/items/handling/holster_open.ogg'
 	atom_storage.open_sound_vary = TRUE
@@ -46,18 +51,20 @@
 	if(length(contents))
 		. += span_notice("<b>Left Click</b> to draw a stored blade, <b>Right Click</b> to draw a stored baton while wearing.")
 
-/obj/item/storage/belt/secsword/attack_hand(mob/user, list/modifiers)
+/obj/item/storage/belt/secsword/attack_hand_secondary(mob/user, list/modifiers)
 	if(!(user.get_slot_by_item(src) & ITEM_SLOT_BELT) && !(user.get_slot_by_item(src) & ITEM_SLOT_BACK) && !(user.get_slot_by_item(src) & ITEM_SLOT_SUITSTORE))
 		return ..()
-	for(var/obj/item/melee/secblade/blade_runner in contents)
+	for(var/obj/item/blade_runner in contents)
+		if(!is_type_in_typecache(blade_runner, sword_typecache))
+			continue
 		user.visible_message(span_notice("[user] draws [blade_runner] from [src]."), span_notice("You draw [blade_runner] from [src]."))
 		user.put_in_hands(blade_runner)
 		playsound(user, 'sound/items/sheath.ogg', 50, TRUE)
 		update_appearance()
-		return
+		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 	return ..()
 
-/obj/item/storage/belt/secsword/attack_hand_secondary(mob/user, list/modifiers)
+/obj/item/storage/belt/secsword/attack_hand(mob/user, list/modifiers)
 	if(!(user.get_slot_by_item(src) & ITEM_SLOT_BELT) && !(user.get_slot_by_item(src) & ITEM_SLOT_BACK) && !(user.get_slot_by_item(src) & ITEM_SLOT_SUITSTORE))
 		return ..()
 	for(var/obj/item/melee/baton/doppler_security/simply_shocking in contents)
@@ -65,7 +72,7 @@
 		user.put_in_hands(simply_shocking)
 		playsound(user, 'sound/items/sheath.ogg', 50, TRUE)
 		update_appearance()
-		return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
+		return
 	return ..()
 
 /obj/item/storage/belt/secsword/update_icon_state()
@@ -77,6 +84,8 @@
 		if(istype(thing, /obj/item/melee/baton/doppler_security))
 			has_baton = TRUE
 		if(istype(thing, /obj/item/melee/secblade))
+			has_sword = TRUE
+		if(istype(thing, /obj/item/melee/sec_jitte))
 			has_sword = TRUE
 
 	icon_state = initial(icon_state)
@@ -96,7 +105,7 @@
 	return ..()
 
 /obj/item/storage/belt/secsword/full/PopulateContents()
-	new /obj/item/melee/secblade(src)
+	new /obj/item/melee/sec_jitte(src)
 	new /obj/item/melee/baton/doppler_security/loaded(src)
 	new /obj/item/restraints/handcuffs(src)
 	new /obj/item/reagent_containers/spray/pepper(src)

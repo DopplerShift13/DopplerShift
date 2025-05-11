@@ -55,10 +55,6 @@
 *	SUITS / SUIT JACKETS
 */
 
-/datum/loadout_item/suit/detective_black
-	name = "Noir Trenchcoat"
-	item_path = /obj/item/clothing/suit/jacket/det_suit/dark
-
 /datum/loadout_item/suit/detective_black_short
 	name = "Noir Suit Jacket"
 	item_path = /obj/item/clothing/suit/jacket/det_suit/noir
@@ -66,10 +62,6 @@
 /datum/loadout_item/suit/detective_brown
 	name = "Trenchcoat"
 	item_path = /obj/item/clothing/suit/jacket/det_suit
-
-/datum/loadout_item/suit/detective_brown_short
-	name = "Brown Suit Jacket"
-	item_path = /obj/item/clothing/suit/jacket/det_suit/brown
 
 /datum/loadout_item/suit/its_pronounced_stow_ic_not_stoike
 	name = "Disco Blazer"
@@ -130,6 +122,10 @@
 /datum/loadout_item/suit/labocat_medical
 	name = "Medical Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/medical
+
+/datum/loadout_item/suit/high_vis_labcoat
+	name = "High-Vis Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/high_vis
 
 /*
 *	JACKETS
@@ -194,6 +190,10 @@
 /datum/loadout_item/suit/leather_hoodie
 	name = "Leather Jacket with Hoodie"
 	item_path = /obj/item/clothing/suit/hooded/doppler/leather_hoodie
+
+/datum/loadout_item/suit/da_gacket
+	name = "Crop-top Jacket"
+	item_path = /obj/item/clothing/suit/jacket/doppler/gacket
 
 /*
 *	COLONIST
@@ -324,6 +324,10 @@
 	name = "Paramedic Winter Coat"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/medical/paramedic
 
+/datum/loadout_item/suit/coat_security
+	name = "Security Winter Coat"
+	item_path = /obj/item/clothing/suit/hooded/wintercoat/security
+
 /datum/loadout_item/suit/coat_robotics
 	name = "Robotics Winter Coat"
 	item_path = /obj/item/clothing/suit/hooded/wintercoat/science/robotics
@@ -378,3 +382,11 @@
 /datum/loadout_item/suit/sec_dep_jacket_red
 	name = "Security Department Jacket"
 	item_path = /obj/item/clothing/suit/jacket/doppler/departmental_jacket/sec/red
+
+/datum/loadout_item/suit/peacekeeper_jacket
+	name = "Peacekeeper Jacket"
+	item_path = /obj/item/clothing/suit/jacket/doppler/peacekeeper_jacket
+
+/datum/loadout_item/suit/peacekeeper_jacket_badged
+	name = "Badged Peacekeeper Jacket"
+	item_path = /obj/item/clothing/suit/jacket/doppler/peacekeeper_jacket/badged

@@ -142,7 +142,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
 	heat_protection = CHEST|GROIN|ARMS
-	armor_type = /datum/armor/jacket_armor
+	armor_type = /datum/armor/cosmetic_sec
 
 /obj/item/clothing/suit/jacket/doppler/peacekeeper_jacket/Initialize(mapload)
 	. = ..()
@@ -165,7 +165,7 @@
 	desc = "A weighty coat of thick synthshearling still bears the patternmaking concessions to the limited size \
 	of pre-printed sheepskin. What was once a style of necessity has become a matter of authenticity."
 	icon_state = "runner_coat"
-	armor_type = /datum/armor/jacket_armor
+	armor_type = /datum/armor/cosmetic_sec
 
 /obj/item/clothing/suit/jacket/doppler/runner_coat/Initialize(mapload)
 	. = ..()
@@ -245,6 +245,12 @@
 	cold_protection = CHEST|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 
+/obj/item/clothing/suit/jacket/doppler/gacket
+	name = "crop-top jacket"
+	desc = "A remarkably fancy-looking two-tone cropped jacket with a nice gold trim, and a golden middle finger on the back."
+	icon_state = "gacket"
+	worn_icon_state = "gacket"
+
 /////////
 //COATS//
 /////////
@@ -315,7 +321,7 @@
 	cold_protection = HEAD
 	flags_inv = HIDEEARS|HIDEHAIR
 	flags_1 = IS_PLAYER_COLORABLE_1
-	hair_mask = HAIR_MASK_HIDE_WINTERHOOD
+	hair_mask = /datum/hair_mask/winterhood
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/crop_cold_hoodie_hood
 	greyscale_config_worn = /datum/greyscale_config/crop_cold_hoodie_hood/worn
@@ -359,7 +365,7 @@
 	cold_protection = HEAD
 	flags_inv = HIDEEARS|HIDEHAIR
 	flags_1 = IS_PLAYER_COLORABLE_1
-	hair_mask = HAIR_MASK_HIDE_WINTERHOOD
+	hair_mask = /datum/hair_mask/winterhood
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/big_hoodie_hood
 	greyscale_config_worn = /datum/greyscale_config/big_hoodie_hood/worn
@@ -405,7 +411,7 @@
 	cold_protection = HEAD
 	flags_inv = HIDEEARS|HIDEHAIR
 	flags_1 = IS_PLAYER_COLORABLE_1
-	hair_mask = HAIR_MASK_HIDE_WINTERHOOD
+	hair_mask = /datum/hair_mask/winterhood
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/twee_hoodie_hood
 	greyscale_config_worn = /datum/greyscale_config/twee_hoodie_hood/worn
