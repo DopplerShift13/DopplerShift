@@ -103,14 +103,6 @@
 	/// Crusher this skin is attached to
 	var/obj/item/kinetic_crusher/crusher
 
-/obj/item/crusher_trophy/retool_kit
-	/// icon file where this retool kit's projectile is stored // DOPPLER EDIT ADDITION
-	var/retool_projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi' // DOPPLER EDIT ADDITION
-
-/obj/item/crusher_trophy/retool_kit/add_to(obj/item/kinetic_crusher/pkc, mob/user)
-	. = ..()
-	pkc.projectile_icon_file = retool_projectile_icon_file
-
 /datum/crusher_skin/New(obj/item/kinetic_crusher/new_crusher)
 	. = ..()
 	crusher = new_crusher

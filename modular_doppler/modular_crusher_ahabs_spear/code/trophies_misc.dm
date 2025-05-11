@@ -20,3 +20,11 @@
 
 /obj/item/crusher_trophy/retool_kit/ahab/effect_desc()
 	return "the crusher to have the appearance of the weapon of legends, Ahab's Harpoon"
+
+/obj/item/crusher_trophy/retool_kit
+	/// icon file where this retool kit's projectile is stored
+	var/retool_projectile_icon_file = 'icons/obj/weapons/guns/projectiles.dmi'
+
+/obj/item/crusher_trophy/retool_kit/add_to(obj/item/kinetic_crusher/pkc, mob/user)
+	. = ..()
+	pkc.projectile_icon_file = retool_projectile_icon_file
