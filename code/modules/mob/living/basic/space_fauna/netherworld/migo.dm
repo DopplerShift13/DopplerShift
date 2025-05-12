@@ -29,6 +29,7 @@
 	lighting_cutoff_blue = 50
 
 	ai_controller = /datum/ai_controller/basic_controller/simple/simple_hostile_obstacles
+	damage_coeff = list(BRUTE = 1, BURN = 1, TOX = 1, STAMINA = 0, OXY = 1)
 	var/static/list/migo_sounds
 	/// Odds migo will dodge
 	var/dodge_prob = 10
@@ -58,7 +59,9 @@
 	make_migo_sound()
 
 /mob/living/basic/migo/Life(seconds_per_tick = SSMOBS_DT, times_fired)
-	..()
+	. = ..()
+	if(!.) //dead or deleted
+		return
 	if(stat)
 		return
 	if(SPT_PROB(5, seconds_per_tick))

@@ -24,6 +24,9 @@
 /datum/movespeed_modifier/resonance
 	multiplicative_slowdown = 0.75
 
+/datum/movespeed_modifier/basic_stamina_slowdown
+	variable = TRUE
+
 /datum/movespeed_modifier/damage_slowdown
 	blacklisted_movetypes = FLOATING|FLYING
 	variable = TRUE
@@ -180,3 +183,6 @@
 /datum/movespeed_modifier/fish_on_water
 	blacklisted_movetypes = MOVETYPES_NOT_TOUCHING_GROUND
 	multiplicative_slowdown = - /turf/open/water::slowdown
+
+/datum/movespeed_modifier/tail_dragger
+	multiplicative_slowdown = 4
