@@ -3,7 +3,7 @@
 #define FLYING_KICK_COMBO "HDH"
 #define RESTRAIN_COMBO "GG"
 #define PRESSURE_COMBO "DG"
-#define CONSECUTIVE_COMBO "DDH"
+#define CONSECUTIVE_COMBO "DHD"
 
 /datum/martial_art/mad_dog
 	name = "The Mad Dog's Style"
@@ -165,7 +165,7 @@
 		playsound(attacker, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
 		var/atom/throw_target = get_edge_target_turf(defender, attacker.dir)
 		defender.throw_at(throw_target, 1, 14, attacker)
-		defender.apply_damage(10, attacker.get_attack_type())
+		defender.apply_damage(20, attacker.get_attack_type()) // vs CQC's base harm/harm combo damage of 10, comparable to scarp's harm/harm damage of 20
 		if(defender.body_position == LYING_DOWN && !defender.IsUnconscious())
 			defender.adjustStaminaLoss(45)
 		log_combat(attacker, defender, "center kicked (Mad Dog)")
@@ -391,12 +391,12 @@
 
 	to_chat(usr, "<b><i>You remember the core tenets of The Mad Dog's Style...</i></b>\n\
 	[span_notice("Slam")]: Grab Punch. Slam opponent into the ground, knocking them down.\n\
-	[span_notice("Center Kick")]: Punch Punch. Knocks opponent away. Knocks out stunned opponents and does stamina damage.\n\
+	[span_notice("Center Kick")]: Shove Sove. Knocks opponent away. Knocks out stunned opponents and does stamina damage.\n\
 	[span_notice("Flying Kick")]: Punch Shove Punch. Sends opponents flying away into walls or other objects, like tables and people.\n\
 	[span_notice("Restrain")]: Grab Grab. Locks opponents into a restraining position, allowing for deadly table slams or throwing them.\n\
 	[span_notice("Neck Snap")]: Once you're choking someone, you can target their head and attack to snap their neck in one easy motion.\n\
 	[span_notice("Pressure")]: Shove Grab. Decent stamina damage.\n\
-	[span_notice("Combo Strike")]: Shove Shove Punch. Mainly offensive move, huge damage and decent stamina damage.\n\
+	[span_notice("Combo Strike")]: Shove Punch Shove. Mainly offensive move, huge damage and decent stamina damage.\n\
 	[span_notice("Deflective Palm")]: While on throw mode, you possess an 80% chance to block and counter attacks done to you, so long as you are able to fight.")
 
 	to_chat(usr, "<b><i>Furthermore, you will only fall when entering hardcrit, will occasionally heal when extremely close to death, and can absorb stuns up to a limit, after which you must wait 20 seconds before absorbing more.</i></b>")
