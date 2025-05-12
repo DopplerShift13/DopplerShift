@@ -28,7 +28,7 @@
 		return FALSE
 	override_client = override_client == "Yes"
 
-	idle_chance = tgui_input_number(user, "How likely should this mob be to move to another tile when it's not doing anything else?", "Walk Chance", max_value = 100, min_value = 0)
+	idle_chance = tgui_input_number(user, "How likely (% chance per second) should this mob be to move to another tile when it's not doing anything else?", "Walk Chance", max_value = 100, min_value = 0)
 	if (isnull(idle_chance))
 		return FALSE
 
@@ -417,18 +417,15 @@
 		/datum/pet_command/idle,
 		/datum/pet_command/move,
 		/datum/pet_command/attack,
-		/datum/pet_command/follow,
+		/datum/pet_command/follow/start_active,
 		/datum/pet_command/protect_owner,
 	)
-	var/datum/component/obeys_commands/command_component = target.AddComponent(/datum/component/obeys_commands, pet_commands)
+	target.AddComponent(/datum/component/obeys_commands, pet_commands)
 
 	if (isnull(da_boss))
 		return
 
 	target.befriend(da_boss)
-	// Fuck it we're in admin territory we can do code crimes here
-	var/datum/pet_command/follow/follow_command = command_component.available_commands["Follow"]
-	follow_command?.set_command_active(target, da_boss)
 
 /// Whatever it was doing before we fucked with it (mostly, can't do this with total confidence)
 /datum/admin_ai_template/reset

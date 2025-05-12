@@ -106,8 +106,7 @@
 
 /obj/item/clothing/head/utility/bomb_hood/Initialize(mapload)
 	. = ..()
-	if(flags_inv & HIDEFACE)
-		AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
+	AddComponent(/datum/component/clothing_dirt, "bomb_dirt")
 	AddComponent(/datum/component/adjust_fishing_difficulty, 8)
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = TRUE)
 
@@ -130,7 +129,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	slowdown = 2
 	armor_type = /datum/armor/utility_bomb_suit
-	flags_inv = HIDEJUMPSUIT
+	flags_inv = HIDEJUMPSUIT|HIDETAURIFCOMPATIBLE // DOPPLER EDIT ADDITION - HIDETAURIFCOMPATIBLE
 	heat_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
@@ -187,19 +186,15 @@
 
 /obj/item/clothing/head/utility/radiation/Initialize(mapload)
 	. = ..()
-	if(flags_inv & HIDEFACE)
-		AddComponent(/datum/component/clothing_fov_visor, FOV_90_DEGREES)
 	AddComponent(/datum/component/adjust_fishing_difficulty, 7)
 	AddComponent(/datum/component/hat_stabilizer, loose_hat = TRUE)
+	AddElement(/datum/element/radiation_protected_clothing)
+	AddComponent(/datum/component/clothing_dirt, "rad_dirt")
 
 /datum/armor/utility_radiation
 	bio = 60
 	fire = 30
 	acid = 30
-
-/obj/item/clothing/head/utility/radiation/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/radiation_protected_clothing)
 
 /obj/item/clothing/suit/utility/radiation
 	name = "radiation suit"

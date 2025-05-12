@@ -1,3 +1,11 @@
+/datum/loadout_item/glasses/holo_infohud
+	name = "Holographic Infohud"
+	item_path = /obj/item/clothing/glasses/tajaran_hud
+
+/datum/loadout_item/glasses/solid_infohud
+	name = "Solid Infohud"
+	item_path = /obj/item/clothing/glasses/lizard_hud
+
 /datum/loadout_item/glasses/welding
 	name = "Welding Goggles"
 	item_path = /obj/item/clothing/glasses/welding
@@ -9,10 +17,6 @@
 /datum/loadout_item/glasses/eyewrap
 	name = "Eyepatch Wrap"
 	item_path = /obj/item/clothing/glasses/eyepatch/wrap
-
-/datum/loadout_item/glasses/binoclard
-	name = "Binoclard Lenses"
-	item_path = /obj/item/clothing/glasses/regular/kim
 
 /datum/loadout_item/glasses/fake_blindfold
 	name = "Fake Blindfold"

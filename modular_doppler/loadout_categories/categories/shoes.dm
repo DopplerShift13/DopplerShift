@@ -1,15 +1,3 @@
-/datum/loadout_category/feet
-	category_name = "Feet"
-	category_ui_icon = FA_ICON_SHOE_PRINTS
-	type_to_generate = /datum/loadout_item/shoes
-	tab_order = /datum/loadout_category/head::tab_order + 1
-
-/*
-*	LOADOUT ITEM DATUMS FOR THE SHOE SLOT
-*/
-/datum/loadout_item/shoes
-	abstract_type = /datum/loadout_item/shoes
-
 /datum/loadout_item/shoes/pre_equip_item(datum/outfit/outfit, datum/outfit/outfit_important_for_life, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	if(initial(outfit_important_for_life.shoes))
 		.. ()
@@ -34,6 +22,18 @@
 /datum/loadout_item/shoes/sneakers_rainbow
 	name = "Rainbow Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/rainbow
+
+/datum/loadout_item/shoes/lizard_shin_guards
+	name = "Tizirian Shin Guards"
+	item_path = /obj/item/clothing/shoes/lizard_shins
+
+/datum/loadout_item/shoes/tajaran_greaves
+	name = "Gold-Plate Greaves"
+	item_path = /obj/item/clothing/shoes/tajaran_shins
+
+/datum/loadout_item/shoes/vulp_greaves
+	name = "Alloy Greaves"
+	item_path = /obj/item/clothing/shoes/vulp_shins
 
 /datum/loadout_item/shoes/jackboots
 	name = "Jackboots"
@@ -126,10 +126,6 @@
 /datum/loadout_item/shoes/wraps/disco
 	name = "Green Lizardskin Shoes"
 	item_path = /obj/item/clothing/shoes/discoshoes
-
-/datum/loadout_item/shoes/wraps/glow_shoes
-	name = "Glow Shoes"
-	item_path = /obj/item/clothing/shoes/glow
 
 /datum/loadout_item/shoes/wraps/swag
 	name = "Drip Shoes"
