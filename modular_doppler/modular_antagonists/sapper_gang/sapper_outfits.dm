@@ -98,7 +98,7 @@
 	desc = "A sleek black jacket with <b>laser-reflective</b> 'heatsilk' lining and a high-visibility skirt, comfortable, safe, efficient."
 	icon_state = "suit_skirt"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
-//	gets_cropped_on_taurs = FALSE
+	gets_cropped_on_taurs = FALSE
 
 /obj/item/clothing/shoes/workboots/sapper
 	name = "black work boots"
@@ -128,7 +128,7 @@
 	preload = FALSE
 
 /obj/item/storage/belt/utility/sapper/PopulateContents() //its just a complete mishmash
-	new /obj/item/screwdriver/omni_drill(src)
+	new /obj/item/wirecutters/caravan(src)
 	new /obj/item/multitool(src)
 	new /obj/item/wrench/combat(src)
 	new /obj/item/construction/rcd/loaded(src)
