@@ -34,6 +34,7 @@ GLOBAL_LIST_INIT(possible_quirk_implants, list(
 	if(carbon_holder.mind?.assigned_role.title == JOB_PRISONER)
 		to_chat(carbon_holder, span_warning("Due to your job, the [name] quirk has been disabled."))
 		return
+	medical_record_text = "Patient has a company approved [desired_implant.name] installed within their body."
 
 /datum/quirk/permitted_cybernetic/post_add()
 	var/obj/item/organ/implant = new desired_implant()
@@ -44,7 +45,6 @@ GLOBAL_LIST_INIT(possible_quirk_implants, list(
 			implant.slot = ORGAN_SLOT_LEFT_ARM_AUG
 
 	implant.Insert(carbon_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-	medical_record_text = "Patient has a company approved [implant.name] installed within their body."
 
 /datum/quirk/permitted_cybernetic/add(client/client_source)
 	. = ..()
