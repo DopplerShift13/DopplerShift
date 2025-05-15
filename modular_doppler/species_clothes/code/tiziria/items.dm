@@ -18,6 +18,7 @@
 	sharpness = SHARP_EDGED
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = UNIQUE_RENAME
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	force = 16
 	throwforce = 10
 	armour_penetration = 50
