@@ -7,8 +7,8 @@
 	icon_state = "choppa"
 	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'
 	worn_icon_state = "choppa"
-	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/melee_lefthand.dmi'
-	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/melee_righthand.dmi'
+	lefthand_file = 'modular_doppler/species_clothes/icons/tiziria/lefthand.dmi'
+	righthand_file = 'modular_doppler/species_clothes/icons/tiziria/righthand.dmi'
 	inhand_icon_state = "choppa"
 	inhand_x_dimension = 64
 	icon_angle = -45
@@ -52,7 +52,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = UNIQUE_RENAME
 	interaction_flags_click = parent_type::interaction_flags_click | NEED_DEXTERITY | NEED_HANDS
-	storage_type = /datum/storage/sabre_belt
+	storage_type = /datum/storage/lizard_belt
 
 /obj/item/storage/belt/lizard_sabre/Initialize(mapload)
 	. = ..()
