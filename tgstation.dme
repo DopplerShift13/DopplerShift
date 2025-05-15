@@ -7529,6 +7529,7 @@
 #include "modular_doppler\species_clothes\code\coalition\storage.dm"
 #include "modular_doppler\species_clothes\code\tiziria\armor.dm"
 #include "modular_doppler\species_clothes\code\tiziria\clothing.dm"
+#include "modular_doppler\species_clothes\code\tiziria\items.dm"
 #include "modular_doppler\species_clothes\code\tiziria\storage.dm"
 #include "modular_doppler\sprite_swaps\code\bigclosets.dm"
 #include "modular_doppler\sprite_swaps\code\coffee.dm"

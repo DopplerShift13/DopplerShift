@@ -107,3 +107,7 @@
 /datum/loadout_item/belts/pouch_rig
 	name = "Chest Rig (Alt)"
 	item_path = /obj/item/storage/belt/military/pouches
+
+/datum/loadout_item/belts/lizard_sword
+	name = "Tizirian Chopping Sword Sheath"
+	item_path = /obj/item/storage/belt/lizard_sabre
