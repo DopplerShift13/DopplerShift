@@ -1,5 +1,5 @@
 /obj/item/melee/tizirian_sword
-	name = "\improper Tizirian chopper"
+	name = "\improper Tizirian chopping sword"
 	desc = "'Chopper' is, at best, a poor translation of the true name in draconic. It speaks well to the \
 		purpose of this blade however, being a strong blade made to defeat the armor and scales that historical \
 		Tizirans would have had to defeat. The design persists to this day through tradition."
