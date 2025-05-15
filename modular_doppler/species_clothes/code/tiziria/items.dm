@@ -35,7 +35,7 @@
 	AddComponent(/datum/component/butchering, speed = 4 SECONDS, effectiveness = 100)
 	alt_continuous = string_list(alt_continuous)
 	alt_simple = string_list(alt_simple)
-	AddComponent(/datum/component/alternative_sharpness, NONE, alt_continuous, alt_simple, -5)
+	AddComponent(/datum/component/alternative_sharpness, NONE, alt_continuous, alt_simple, 0)
 
 // Sheath
 
@@ -68,13 +68,14 @@
 		var/obj/item/sword = contents[1]
 		user.visible_message(span_notice("[user] takes [sword] out of [src]."), span_notice("You take [sword] out of [src]."))
 		user.put_in_hands(sword)
+		playsound(user, 'sound/items/sheath.ogg', 50, TRUE)
 		update_appearance()
 	else
 		balloon_alert(user, "it's empty!")
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/storage/belt/lizard_sabre/update_icon_state()
-	icon_state = initial(inhand_icon_state)
+	icon_state = initial(icon_state)
 	worn_icon_state = initial(worn_icon_state)
 	if(contents.len)
 		icon_state += "_choppa"
