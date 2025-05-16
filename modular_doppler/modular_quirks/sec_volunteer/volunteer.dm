@@ -17,7 +17,7 @@
 			our_record.security_note += "Subject is enlisted in the security volunteer program and will report to brig during code red to assist if needed."
 
 /datum/quirk/item_quirk/sec_volunteer/add_unique(client/client_source)
-	give_item_to_holder(/obj/item/clothing/accessory/armband/deputy, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
+	give_item_to_holder(/obj/item/clothing/accessory/armband/deputy, list(LOCATION_BACKPACK, LOCATION_HANDS))
 
 /datum/quirk/item_quirk/sec_volunteer/add(client/client_source)
 	. = ..()
