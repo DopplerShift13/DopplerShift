@@ -20,3 +20,11 @@
 /datum/sprite_accessory/tails/bird/peacock
 	name = "Peacock"
 	icon_state = "peacock"
+
+/datum/sprite_accessory/tails/bird/bat_long
+	name = "Bat (Long)"
+	icon_state = "batl"
+
+/datum/sprite_accessory/tails/bird/bat_short
+	name = "Bat (Short)"
+	icon_state = "bats"

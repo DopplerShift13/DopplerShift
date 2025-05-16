@@ -59,3 +59,15 @@
 /datum/sprite_accessory/wings_more/pinioned
 	name = "Pinioned Wings"
 	icon_state = "pinioned"
+
+/datum/sprite_accessory/wings_more/harpybat_top
+	name = "Harpy (Top - Bat)"
+	icon_state = "harpybat_fluffless_top"
+
+/datum/sprite_accessory/wings_more/harpybat
+	name = "Harpy (Bat)"
+	icon_state = "harpybat"
+
+/datum/sprite_accessory/wings_more/bat
+	name = "Bat"
+	icon_state = "bat"

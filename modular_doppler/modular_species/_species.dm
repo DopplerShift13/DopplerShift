@@ -145,6 +145,10 @@
 			ADD_TRAIT(target, TRAIT_WATER_ADAPTATION, SPECIES_TRAIT)
 		if(ROACH)
 			inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_BUG
+		if(BAT)
+			ADD_TRAIT(target, TRAIT_GOOD_HEARING, SPECIES_TRAIT)
+			var/datum/action/new_action = new /datum/action/cooldown/spell/bat_perch(target.mind || target)
+			new_action.Grant(target)
 
 /// spec_revival logic
 /datum/species/proc/spec_revival(mob/living/carbon/human/target)
