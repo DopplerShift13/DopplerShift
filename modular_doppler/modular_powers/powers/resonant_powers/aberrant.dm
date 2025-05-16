@@ -356,6 +356,61 @@
 	src.atom_destruction()
 
 
+/datum/power/prying_claws
+	name = "Prying claws"
+	desc = "Grants sharp claws ending in a hook. Formed by a resonant deviancy they are remarkably dense and function as not only "
+	cost = 2
+	root_power = /datum/power/muscly
+	power_type = TRAIT_PATH_SUBTYPE_ABERRANT
+	power_traits = list(TRAIT_POWER_CLAWS)
+
+/datum/power/prying_claws/add(mob/living/carbon/human/target)
+
+/datum/action/innate/extend_prying_claws
+	name = "Extend claws"
+	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS
+	button_icon_state = "wolverine"
+	button_icon = 'modular_doppler/modular_medical/icons/implants.dmi'
+	background_icon_state = "bg_default"
+	// What will be given in-hand
+	var/obj/item/knife/prying_claws/prying_claws
+
+/datum/action/innate/extend_prying_claws/Activate()
+	. = ..()
+	for(var/obj/item/hand_item/item in owner.held_items)
+		if(item)
+			owner.balloon_alert(owner, "hand occupied!")
+			return
+	prying_claws = new
+	owner.put_in_active_hand(prying_claws)
+/obj/item/knife/prying_claws
+	name = "Prying claws"
+	desc = "A set of sharp claws with a hook at the end and unnatturally dense. The hook combined with the density allows for it to deliver horrific wounds and even pry things open"
+	icon = 'modular_doppler/modular_medical/icons/implants.dmi'
+	righthand_file = 'modular_doppler/modular_medical/icons/implants_righthand.dmi'
+	lefthand_file = 'modular_doppler/modular_medical/icons/implants_lefthand.dmi'
+	icon_state = "wolverine"
+	inhand_icon_state = "wolverine"
+	force = 10
+	w_class = WEIGHT_CLASS_BULKY
+	wound_bonus = 5
+	tool_behaviour = TOOL_CROWBAR
+	toolspeed = 1
+
+/obj/item/knife/prying_claws/initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, HAND_REPLACEMENT_TRAIT)
+
+/datum/action/innate/osseus_toolset/Activate()
+	. = ..()
+	wrench = new
+	pick = new
+	screwdriver = new
+	var/list/tools = list(
+		"Osseus Wrench" = image(icon = 'modular_doppler/hearthkin/primitive_production/icons/primitive_tools.dmi', icon_state = "wrench"),
+		"Osseus cutters" = image(icon = 'modular_doppler/hearthkin/primitive_production/icons/primitive_tools.dmi', icon_state = "cutters"),
+		"Osseus screwdriver" = image(icon = 'modular_doppler/hearthkin/primitive_production/icons/primitive_tools.dmi', icon_state = "cutters"),
+	)
 
 /datum/power/bestial
 	name = "Latent Bestial Traits"
