@@ -41,6 +41,8 @@
 			return uni_icon('icons/mob/simple/animal.dmi', "mouse_white", WEST)
 		if(ROACH)
 			return uni_icon('icons/mob/simple/animal.dmi', "cockroach_sewer", SOUTH)
+		if(BAT)
+			return uni_icon('icons/mob/simple/animal.dmi', "bat", SOUTH)
 		else
 			return uni_icon('icons/effects/crayondecal.dmi', "x")
 
