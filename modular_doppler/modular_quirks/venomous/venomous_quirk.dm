@@ -16,7 +16,7 @@
 
 /datum/quirk/venomous_bite/remove()
 	var/datum/action/cooldown/mob_cooldown/venomous_bite/action = locate(/datum/action/cooldown/mob_cooldown/venomous_bite) in quirk_holder.actions
-	action.Remove()
+	action?.Remove()
 	return ..()
 
 /datum/quirk/venomous_bite/is_species_appropriate(datum/species/mob_species)
