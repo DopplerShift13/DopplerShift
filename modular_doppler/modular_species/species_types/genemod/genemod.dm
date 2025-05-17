@@ -50,3 +50,39 @@
 	human_for_preview.eye_color_right = "#442B12"
 	regenerate_organs(human_for_preview)
 	human_for_preview.update_body(is_creating = TRUE)
+
+/datum/action/cooldown/spell/bat_perch
+	name = "Bat Perch"
+	desc = "Hang out upside down!"
+	button_icon_state = "negative"
+	button_icon = 'icons/hud/screen_alert.dmi'
+	cooldown_time = 1 SECONDS
+	spell_requirements = NONE
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_LYING|AB_CHECK_INCAPACITATED
+	var/hangin = FALSE
+
+/datum/action/cooldown/spell/bat_perch/cast(mob/living/cast_on)
+	. = ..()
+	if(hangin)
+		unflip(cast_on)
+		return
+	else if(check_above(cast_on))
+		RegisterSignal(cast_on, COMSIG_MOVABLE_MOVED, PROC_REF(unflip))
+		passtable_on(cast_on, REF(cast_on))
+		cast_on.AddElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY)
+		hangin = TRUE
+
+
+/datum/action/cooldown/spell/bat_perch/proc/unflip(mob/living/flipper)
+	passtable_off(flipper, REF(flipper))
+	qdel(flipper.RemoveElement(/datum/element/forced_gravity, NEGATIVE_GRAVITY))
+	UnregisterSignal(flipper, COMSIG_MOVABLE_MOVED)
+	hangin = FALSE
+
+/datum/action/cooldown/spell/bat_perch/proc/check_above(mob/living/target)
+	var/turf/open/current_turf = get_turf(target)
+	var/turf/open/openspace/turf_above = get_step_multiz(target, UP)
+	if(current_turf && istype(turf_above))
+		to_chat(target, span_warning("There's only open air above you, nothing to hang from!"))
+		return FALSE
+	return TRUE
