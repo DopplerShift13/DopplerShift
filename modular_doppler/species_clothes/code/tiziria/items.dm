@@ -19,6 +19,8 @@
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = UNIQUE_RENAME
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
+	tool_behaviour = TOOL_KNIFE
+	toolspeed = 0.8
 	force = 16
 	throwforce = 10
 	armour_penetration = 25
