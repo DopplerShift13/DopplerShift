@@ -21,7 +21,7 @@
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	force = 16
 	throwforce = 10
-	armour_penetration = 50
+	armour_penetration = 25
 	block_chance = 1 // Nah, I'd win
 	wound_bonus = 0
 	bare_wound_bonus = 20
