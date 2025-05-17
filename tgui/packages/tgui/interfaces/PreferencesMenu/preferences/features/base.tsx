@@ -307,7 +307,7 @@ export function FeatureShortTextInput(
       expensive
       value={value}
       maxLength={serverData?.maximum_length}
-      onBlur={handleSetValue} // DOPPLER EDIT CHANGE: Preferences text inputs don't explode the server. Original: onChange={handleSetValue}
+      onChange={handleSetValue}
     />
   );
 }
