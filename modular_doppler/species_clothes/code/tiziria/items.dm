@@ -37,6 +37,13 @@
 	alt_simple = string_list(alt_simple)
 	AddComponent(/datum/component/alternative_sharpness, NONE, alt_continuous, alt_simple, 0)
 
+/obj/item/melee/tizirian_sword/attack(mob/living/target_mob, mob/living/user, list/modifiers)
+	if(sharpness == SHARP_EDGED)
+		hitsound = 'sound/items/weapons/rapierhit.ogg'
+	else
+		hitsound = 'modular_doppler/modular_sounds/sound/items/sec_jitte.ogg'
+	return ..()
+
 // Sheath
 
 /obj/item/storage/belt/lizard_sabre
