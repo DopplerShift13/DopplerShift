@@ -40,7 +40,7 @@
 	owner.visible_message("[owner] bares [owner.p_their()] fangs...", span_warning("You bare your fangs..."))
 
 /datum/action/cooldown/mob_cooldown/venomous_bite/Activate(atom/target_atom)
-	if(!isliving(target_atom) || !is_reagent_container(target_atom))
+	if(!isliving(target_atom) && !is_reagent_container(target_atom))
 		return FALSE
 	if(iscarbon(owner))
 		var/mob/living/carbon/carbon_holder = owner
