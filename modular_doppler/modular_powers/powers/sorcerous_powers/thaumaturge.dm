@@ -14,4 +14,10 @@
 /datum/power/item/spellprep/add(mob/living/carbon/human/target)
 	var/obj/item/book/random/spellbook = new(get_turf(target))
 	spellbook.name = "[target.real_name]'s spellbook"
-	give_item_to_holder(target, spellbook, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
+	give_item_to_holder(target, spellbook, list(
+		LOCATION_LPOCKET,
+		LOCATION_RPOCKET,
+		LOCATION_BACKPACK,
+		LOCATION_HANDS,
+		),
+	)

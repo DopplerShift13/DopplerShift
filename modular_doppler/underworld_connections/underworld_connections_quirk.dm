@@ -32,11 +32,11 @@
 		give_item_to_holder(
 			roundstart_uplink,
 			list(
-				LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
-				LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
-				LOCATION_BACKPACK = ITEM_SLOT_BACKPACK,
-				LOCATION_HANDS = ITEM_SLOT_HANDS,
-			)
+				LOCATION_LPOCKET,
+				LOCATION_RPOCKET,
+				LOCATION_BACKPACK,
+				LOCATION_HANDS,
+			),
 		)
 
 /datum/quirk/item_quirk/underworld_connections/post_add()

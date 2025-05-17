@@ -32,7 +32,7 @@
 	human_holder.mob_size = MOB_SIZE_TINY
 	human_holder.held_w_class = WEIGHT_CLASS_TINY
 	human_holder.can_be_held = TRUE //makes u scoopable
-	human_holder.worn_slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_BACKPACK
+	human_holder.worn_slot_flags = ITEM_SLOT_HEAD|ITEM_SLOT_BACK
 
 	passtable_on(human_holder, QUIRK_TRAIT)
 
