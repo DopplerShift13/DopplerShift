@@ -181,7 +181,6 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/biogenerator/medstation/directional/north,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/lounge)
 "by" = (
@@ -13936,7 +13935,7 @@ pU
 pU
 pU
 pU
-Dv
+Ct
 Dv
 Dv
 Dv

@@ -67,7 +67,7 @@ GLOBAL_LIST_EMPTY(raptor_population)
 
 /mob/living/basic/raptor/Initialize(mapload)
 	. = ..()
-	if(SSmapping.current_map.minetype == "iceland" || SSmapping.is_planetary()) // DOPPLER STATION EDIT, old code: if(SSmapping.is_planetary())
+	if(SSmapping.current_map.minetype == MINETYPE_ICELAND || SSmapping.is_planetary()) // DOPPLER STATION EDIT, old code: if(SSmapping.is_planetary())
 		change_offsets = FALSE
 		icon = 'icons/mob/simple/lavaland/raptor_icebox.dmi'
 

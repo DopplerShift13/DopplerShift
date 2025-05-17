@@ -101,7 +101,7 @@
 
 /datum/loadout_item/pocket_items/rag
 	name = "Rag"
-	item_path = /obj/item/reagent_containers/cup/rag
+	item_path = /obj/item/rag
 
 /datum/loadout_item/pocket_items/mod_painter
 	name = "MOD Paint Kit"
