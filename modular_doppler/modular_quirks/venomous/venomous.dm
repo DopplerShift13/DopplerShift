@@ -4,7 +4,7 @@
 
 /datum/action/cooldown/mob_cooldown/venomous_bite
 	name = "Inject Venom"
-	desc = "Sink your fangs into another and inject them with your venom. Ineffective against those wearing armor."
+	desc = "Sink your fangs into another and inject them with your venom. Ineffective against any in protective gear."
 	button_icon = 'icons/hud/guardian.dmi'
 	button_icon_state = "assassin"
 	ranged_mousepointer = 'icons/effects/mouse_pointers/supplypod_pickturf.dmi'

@@ -2,8 +2,8 @@
 	name = "Venomous Bite"
 	desc = "You have a venom gland, and can bite people to inject them with a toxin of your choosing. \
 		Limited to Lizardfolk."
-	icon = FA_ICON_TEETH_OPEN
-	value = 0
+	icon = FA_ICON_SYRINGE
+	value = 1
 	gain_text = span_notice("You feel a venom gland in the back of your throat.")
 	lose_text = span_warning("Your venom gland vanishes.")
 	medical_record_text = "Patient possesses venomous glands."
@@ -20,7 +20,7 @@
 	return ..()
 
 /datum/quirk/venomous_bite/is_species_appropriate(datum/species/mob_species)
-	if(!istype(mob_species, /datum/species/lizard))
+	if(mob_species != /datum/species/lizard)
 		return FALSE
 	return ..()
 
@@ -34,10 +34,9 @@
 	savefile_identifier = PREFERENCE_CHARACTER
 	/// Format: (reagent typepath -> list(amount to inject per bite, cooldown))
 	var/static/list/venomous_bite_choice_specs = list(
-		/datum/reagent/toxin = list(5, 80 SECONDS),
-		/datum/reagent/toxin/venom = list(5, 180 SECONDS),
-		/datum/reagent/toxin/carpotoxin = list(5, 60 SECONDS), // less powerful than toxin
 		// Enterprise resource planning? What are you talking about?
+		/datum/reagent/toxin/tizirian = list(7, 180 SECONDS)
+		/datum/reagent/toxin/tizirian/less = list(7, 180 SECONDS)
 	)
 
 /datum/preference/choiced/venomous_bite_venom/init_possible_values()
@@ -57,7 +56,7 @@
 		var/inject = specs[1]
 		var/cooldown = specs[2]
 		var/name = entry::name
-		titles["[entry]"] = "[name] ([inject]u, [cooldown / 10] second cooldown)"
+		titles["[entry]"] = "[name] ([inject]u, [cooldown / 10]s cooldown)"
 	data[CHOICED_PREFERENCE_DISPLAY_NAMES] = titles
 	return data
 

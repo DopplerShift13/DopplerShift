@@ -7366,6 +7366,7 @@
 #include "modular_doppler\modular_quirks\undersized\inhand_holder.dm"
 #include "modular_doppler\modular_quirks\undersized\squashable.dm"
 #include "modular_doppler\modular_quirks\undersized\undersized.dm"
+#include "modular_doppler\modular_quirks\venomous\venom_reagents.dm"
 #include "modular_doppler\modular_quirks\venomous\venomous.dm"
 #include "modular_doppler\modular_quirks\venomous\venomous_quirk.dm"
 #include "modular_doppler\modular_silicons\silicon_edits\on_click.dm"
