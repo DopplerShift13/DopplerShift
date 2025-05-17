@@ -141,7 +141,7 @@
 	if(ishuman(owner))
 		var/mob/living/carbon/human/human_holder = owner
 		temp = human_holder.coretemperature
-	target.reagents.add_reagent(reagent_typepath, to_inject, reagtemp = temp)
+	target_container.reagents.add_reagent(reagent_typepath, to_inject, reagtemp = temp)
 	return TRUE
 
 #undef VENOMOUS_BITE_DAMAGE
