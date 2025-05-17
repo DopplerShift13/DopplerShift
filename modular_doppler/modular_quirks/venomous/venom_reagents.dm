@@ -5,6 +5,7 @@
 		Used historically to bring prey to toxic shock for hunting purposes."
 	color = "#fff588" // rgb: 207, 54, 0
 	taste_description = "coppery bitterness"
+	metabolization_rate = REAGENTS_METABOLISM / 4 // Yeah this is a good plan
 	taste_mult = 1.2
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	toxpwr = 1.5
