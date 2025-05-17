@@ -121,6 +121,15 @@ required_map = "wawastation.dmm"
 coordinates = [83, 92, 1]
 trait_name = "Station"
 
+# CATWALKSTATION MAP EDITS
+# Catwalkstation Cryo
+[templates.catwalkstation_cryo]
+map_files = ["catwalkstation_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/catwalkstation/"
+required_map = "CatwalkStation_2023.dmm"
+coordinates = [128, 169, 1]
+trait_name = "Station"
+
 # NEBULASTATION MAP EDITS
 # Nebulastation Cryo
 [templates.nebulastation_cryo]
