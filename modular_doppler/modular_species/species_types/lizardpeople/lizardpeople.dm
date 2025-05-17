@@ -23,10 +23,9 @@
 
 /datum/outfit/lizard_preview
 	name = "Lizardperson (Species Preview)"
+	head = /obj/item/clothing/head/lizard_hat
 	glasses = /obj/item/clothing/glasses/lizard_hud
-	uniform = /obj/item/clothing/under/lizard_kilt
 	suit = /obj/item/clothing/suit/armor/lizard
-	accessory = /obj/item/clothing/accessory/ear_tag
 
 /datum/species/lizard/prepare_human_for_preview(mob/living/carbon/human/lizard_for_preview)
 	lizard_for_preview.dna.features["mcolor"] = "#4A81A1"

@@ -46,7 +46,7 @@
 	return choices
 
 /datum/preference/choiced/venomous_bite_venom/create_default_value()
-	return "/datum/reagent/toxin"
+	return "/datum/reagent/toxin/tizirian/less"
 
 /datum/preference/choiced/venomous_bite_venom/compile_constant_data()
 	var/list/data = ..()
