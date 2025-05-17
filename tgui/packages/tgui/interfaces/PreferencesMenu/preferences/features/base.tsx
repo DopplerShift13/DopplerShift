@@ -304,7 +304,6 @@ export function FeatureShortTextInput(
     <Input
       disabled={!serverData}
       fluid
-      expensive
       value={value}
       maxLength={serverData?.maximum_length}
       onChange={handleSetValue}
