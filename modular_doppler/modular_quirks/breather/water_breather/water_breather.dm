@@ -17,14 +17,14 @@
 	var/obj/item/clothing/accessory/breathing/target_tag = new(get_turf(quirk_holder))
 	target_tag.breath_type = breath_type
 
-	give_item_to_holder(target_tag, list(LOCATION_BACKPACK = ITEM_SLOT_BACKPACK, LOCATION_HANDS = ITEM_SLOT_HANDS))
+	give_item_to_holder(target_tag, list(LOCATION_LPOCKET, LOCATION_RPOCKET, LOCATION_BACKPACK,	LOCATION_HANDS))
 	give_item_to_holder(
 		/obj/item/clothing/accessory/vaporizer,
 		list(
-			LOCATION_HANDS = ITEM_SLOT_HANDS,
-			LOCATION_LPOCKET = ITEM_SLOT_LPOCKET,
-			LOCATION_RPOCKET = ITEM_SLOT_RPOCKET,
-			LOCATION_BACKPACK = ITEM_SLOT_BACKPACK
+			LOCATION_LPOCKET,
+			LOCATION_RPOCKET,
+			LOCATION_BACKPACK,
+			LOCATION_HANDS,
 		), "Be sure to equip your vaporizer, or you may end up choking to death!"
 	)
 	// if your lungs already have this trait, no need to update
