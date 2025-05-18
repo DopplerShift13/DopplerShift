@@ -124,6 +124,7 @@
 /obj/item/organ/tail/bird
 	preference = "feature_bird_tail"
 	dna_block = null
+	wag_flags = WAG_ABLE
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/bird
 
 /datum/bodypart_overlay/mutant/tail/bird
