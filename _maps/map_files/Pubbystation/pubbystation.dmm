@@ -19557,10 +19557,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
-"bIU" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/closed/wall,
-/area/station/service/chapel/dock)
 "bIV" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/sign/warning/vacuum/external,
@@ -26307,10 +26303,6 @@
 /obj/effect/landmark/start/chief_engineer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/command/heads_quarters/ce)
-"cqW" = (
-/obj/effect/spawner/structure/window/reinforced,
-/turf/closed/mineral,
-/area/station/service/chapel/asteroid/monastery)
 "cqX" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/lattice,
@@ -67018,8 +67010,8 @@ aaa
 bGI
 bNs
 cfN
-cqW
-cqW
+cfN
+cfN
 cfN
 cfN
 bZY
@@ -67531,7 +67523,7 @@ aaa
 aaa
 bGI
 bNs
-cqW
+cfN
 bOw
 cfN
 bOw
@@ -69829,7 +69821,7 @@ aaa
 aaa
 bHL
 bHL
-bIU
+bHL
 bHM
 bHM
 bHM
