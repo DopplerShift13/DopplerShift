@@ -127,6 +127,8 @@
 	*/
 	var/last_portal_location
 
+	var/is_calibrating = FALSE // DOPPLER EDIT - variable to prevent making multiple portals at once
+
 /datum/armor/item_hand_tele
 	bomb = 30
 	fire = 100
@@ -135,6 +137,18 @@
 ///Checks if the targeted portal was created by us, then causes it to expire, removing it
 /obj/item/hand_tele/proc/try_dispel_portal(atom/target, mob/user)
 	if(is_parent_of_portal(target))
+		// DOPPLER EDIT START - delay to the hand-tele
+		if (is_calibrating == TRUE)
+			return
+		is_calibrating = TRUE
+		src.balloon_alert_to_viewers("closing portal")
+		playsound(src, 'sound/machines/gateway/gateway_calibrated.ogg', 10)
+		if (!do_after(user, 2 SECONDS))
+			is_calibrating = FALSE
+			return
+		playsound(src, 'sound/machines/gateway/gateway_close.ogg', 10)
+		is_calibrating = FALSE
+		// DOPPLER EDIT END
 		to_chat(user, span_notice("You dispel [target] with [src]!"))
 		var/obj/effect/portal/portal = target
 		portal.expire()
@@ -224,6 +238,19 @@
 	if (length(active_portal_pairs) >= max_portal_pairs)
 		user.show_message(span_notice("[src] is recharging!"))
 		return
+
+	// DOPPLER EDIT START - delay to the hand-tele
+	if (is_calibrating == TRUE)
+		return
+	src.balloon_alert_to_viewers("opening portal")
+	is_calibrating = TRUE
+	playsound(src, 'sound/machines/gateway/gateway_calibrating.ogg', 10)
+	if (!do_after(user, 2 SECONDS))
+		is_calibrating = FALSE
+		return
+	playsound(src, 'sound/machines/gateway/gateway_open.ogg', 10)
+	is_calibrating = FALSE
+	// DOPPLER EDIT END
 
 	var/atom/teleport_target
 
