@@ -141,7 +141,7 @@
 			return
 		balloon_alert_to_viewers("closing portal")
 		playsound(src, 'sound/machines/gateway/gateway_calibrated.ogg', 10)
-		if(!do_after(user, 2 SECONDS, interaction_key = src))
+		if(!do_after(user, 2 SECONDS, target, interaction_key = src))
 			return
 		if(QDELETED(target))
 			return FALSE
