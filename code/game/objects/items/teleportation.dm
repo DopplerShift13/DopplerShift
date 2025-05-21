@@ -136,12 +136,12 @@
 /obj/item/hand_tele/proc/try_dispel_portal(atom/target, mob/user)
 	if(is_parent_of_portal(target))
 		// DOPPLER EDIT START - delay to the hand-tele
-		if(DOING_INTERACTION_WITH_TARGET(user, src))
+		if(DOING_INTERACTION_WITH_TARGET(user, target))
 			balloon_alert(user, "busy!")
 			return
 		balloon_alert_to_viewers("closing portal")
 		playsound(src, 'sound/machines/gateway/gateway_calibrated.ogg', 10)
-		if (!do_after(user, 2 SECONDS, src))
+		if(!do_after(user, 2 SECONDS, target))
 			return
 		if(QDELETED(target))
 			return FALSE
@@ -243,7 +243,7 @@
 		return
 	balloon_alert_to_viewers("opening portal")
 	playsound(src, 'sound/machines/gateway/gateway_calibrating.ogg', 10)
-	if (!do_after(user, 2 SECONDS, src))
+	if(!do_after(user, 2 SECONDS, interaction_key = src))
 		return
 	playsound(src, 'sound/machines/gateway/gateway_open.ogg', 10)
 	// DOPPLER EDIT END
