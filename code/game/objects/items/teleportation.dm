@@ -127,8 +127,6 @@
 	*/
 	var/last_portal_location
 
-	var/is_calibrating = FALSE // DOPPLER EDIT - variable to prevent making multiple portals at once
-
 /datum/armor/item_hand_tele
 	bomb = 30
 	fire = 100
@@ -138,16 +136,16 @@
 /obj/item/hand_tele/proc/try_dispel_portal(atom/target, mob/user)
 	if(is_parent_of_portal(target))
 		// DOPPLER EDIT START - delay to the hand-tele
-		if (is_calibrating == TRUE)
+		if(DOING_INTERACTION_WITH_TARGET(user, src))
+			balloon_alert(user, "busy!")
 			return
-		is_calibrating = TRUE
-		src.balloon_alert_to_viewers("closing portal")
+		balloon_alert_to_viewers("closing portal")
 		playsound(src, 'sound/machines/gateway/gateway_calibrated.ogg', 10)
-		if (!do_after(user, 2 SECONDS))
-			is_calibrating = FALSE
+		if (!do_after(user, 2 SECONDS, src))
 			return
+		if(QDELETED(target))
+			return FALSE
 		playsound(src, 'sound/machines/gateway/gateway_close.ogg', 10)
-		is_calibrating = FALSE
 		// DOPPLER EDIT END
 		to_chat(user, span_notice("You dispel [target] with [src]!"))
 		var/obj/effect/portal/portal = target
@@ -240,16 +238,14 @@
 		return
 
 	// DOPPLER EDIT START - delay to the hand-tele
-	if (is_calibrating == TRUE)
+	if(DOING_INTERACTION_WITH_TARGET(user, src))
+		balloon_alert(user, "busy!")
 		return
-	src.balloon_alert_to_viewers("opening portal")
-	is_calibrating = TRUE
+	balloon_alert_to_viewers("opening portal")
 	playsound(src, 'sound/machines/gateway/gateway_calibrating.ogg', 10)
-	if (!do_after(user, 2 SECONDS))
-		is_calibrating = FALSE
+	if (!do_after(user, 2 SECONDS, src))
 		return
 	playsound(src, 'sound/machines/gateway/gateway_open.ogg', 10)
-	is_calibrating = FALSE
 	// DOPPLER EDIT END
 
 	var/atom/teleport_target
