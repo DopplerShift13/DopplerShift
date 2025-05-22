@@ -757,7 +757,7 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Layer for bodyparts that should appear above every other bodypart - Currently only used for hands
 #define BODYPARTS_HIGH_LAYER 25
 /// DOPPLER SHIFT ADDITION BEGIN - For hand markings :3c
-#define BODY_HAND_LAYER 23.99
+#define BODY_HAND_LAYER 24.99
 /// DOPPLER SHIFT ADDITION END
 /// Gloves layer
 #define GLOVES_LAYER 24
