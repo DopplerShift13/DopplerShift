@@ -554,7 +554,7 @@ Possible to do for anyone motivated enough:
 		hologram.icon_state = work_off.icon_state
 		hologram.copy_overlays(work_off, TRUE)
 
-		if (AI.temporary_flavor_text)	//DOPPLER EDIT ADDITION BEGIN -- Check this shit out Hacker
+		if (user.temporary_flavor_text)	//DOPPLER EDIT ADDITION BEGIN -- Check this shit out Hacker
 			hologram.overlays += GLOB.temporary_flavor_text_indicator //DOPPLER EDIT ADDITION END
 
 		hologram.makeHologram()
