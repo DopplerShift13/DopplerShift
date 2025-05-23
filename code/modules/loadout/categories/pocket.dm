@@ -275,6 +275,10 @@
 	name = "Poster (Pinup)"
 	item_path = /obj/item/poster/random_contraband/pinup
 
+/datum/loadout_item/pocket_items/lollipop
+	name = "Lollipop"
+	item_path = /obj/item/food/lollipop
+
 /datum/loadout_item/pocket_items/holodisk
 	name = "Holodisk"
 	item_path = /obj/item/disk/holodisk
