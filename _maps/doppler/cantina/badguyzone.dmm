@@ -368,7 +368,7 @@
 	pixel_x = 5
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "hO" = (
 /obj/item/storage/toolbox/guncase/smartgun{
@@ -401,7 +401,7 @@
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/vending/cola/red,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "ig" = (
 /obj/machinery/chem_master/condimaster{
@@ -971,7 +971,7 @@
 /turf/open/misc/asteroid/airless,
 /area/space)
 "vF" = (
-/obj/machinery/holopad,
+/obj/machinery/holopad/secure,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
@@ -1222,7 +1222,7 @@
 	},
 /obj/structure/window/reinforced/spawner/directional/east,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "Bd" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1722,7 +1722,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 4
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "MP" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,

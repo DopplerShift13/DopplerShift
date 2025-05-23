@@ -23,8 +23,8 @@
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/industrial/frontier_colonist
-	ears = /obj/item/radio/headset/syndicate/alt
-	l_pocket = /obj/item/modular_computer/pda
+	ears = /obj/item/radio/headset/chameleon
+	l_pocket = /obj/item/modular_computer/pda/chameleon
 	r_pocket = /obj/item/pen/edagger
 	id = /obj/item/card/id/advanced/chameleon
 	belt = /obj/item/storage/belt/utility/frontier_colonist
@@ -41,7 +41,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/industrial/frontier_colonist
 	ears = /obj/item/radio/headset/syndicate/alt
-	l_pocket = /obj/item/modular_computer/pda
+	l_pocket = /obj/item/modular_computer/pda/chameleon
 	r_pocket = /obj/item/pen/edagger
 	id = /obj/item/card/id/advanced/chameleon
 	belt = /obj/item/storage/belt/utility/frontier_colonist
