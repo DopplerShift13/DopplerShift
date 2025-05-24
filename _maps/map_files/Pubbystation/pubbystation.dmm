@@ -1545,6 +1545,11 @@
 	name = "Brig EVA Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/brig)
 "aid" = (
@@ -1944,6 +1949,11 @@
 /area/station/maintenance/department/security/brig)
 "ajH" = (
 /obj/effect/spawner/random/structure/steam_vent,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/brig)
 "ajI" = (
@@ -2454,6 +2464,11 @@
 /area/station/maintenance/department/security/brig)
 "alo" = (
 /obj/effect/spawner/random/trash/hobo_squat,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/brig)
 "alp" = (
@@ -27742,7 +27757,6 @@
 /obj/effect/turf_decal/tile/red/half/contrasted,
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
-/obj/machinery/power/terminal,
 /turf/open/floor/iron,
 /area/station/security/eva)
 "cCd" = (
@@ -35530,6 +35544,15 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/station/cargo/miningdock)
+"jbs" = (
+/obj/effect/spawner/random/structure/barricade,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/plating,
+/area/station/maintenance/department/security/brig)
 "jbQ" = (
 /obj/machinery/door/firedoor/heavy,
 /obj/machinery/door/airlock/command/glass{
@@ -36552,6 +36575,15 @@
 /obj/structure/sign/gym,
 /turf/closed/wall,
 /area/station/maintenance/department/crew_quarters/dorms)
+"jUE" = (
+/obj/effect/spawner/random/trash/grille_or_waste,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
+/turf/open/floor/plating,
+/area/station/maintenance/department/security/brig)
 "jUF" = (
 /obj/structure/grille/broken,
 /obj/structure/cable,
@@ -45725,6 +45757,11 @@
 /area/station/cargo/miningfoundry)
 "raF" = (
 /obj/effect/spawner/random/trash/moisture,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/brig)
 "raI" = (
@@ -75044,15 +75081,15 @@ fon
 aht
 ait
 ajD
-ajD
-aja
-aja
+ueU
+jbs
+jbs
 ajH
-ajD
+ueU
 alo
 raF
-amI
-amI
+jUE
+jUE
 ueU
 aiu
 aaa
