@@ -9486,7 +9486,6 @@
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)
 "aOE" = (
-/obj/item/hand_tele,
 /obj/machinery/light/directional/west,
 /obj/machinery/camera/directional/west{
 	c_tag = "Teleporter"
@@ -9496,7 +9495,8 @@
 /obj/structure/displaycase{
 	req_access = list("teleporter");
 	name = "Hand Teleporter Case";
-	desc = "A display case for prized possessions. Introduced after a wave of thefts targetting the item stored within. / If you're supposed to have access to it, swipe your ID card to open."
+	desc = "A display case for prized possessions. Introduced after a wave of thefts targetting the item stored within. / If you're supposed to have access to it, swipe your ID card to open.";
+	start_showpiece_type = /obj/item/hand_tele
 	},
 /turf/open/floor/iron/dark,
 /area/station/command/teleporter)
