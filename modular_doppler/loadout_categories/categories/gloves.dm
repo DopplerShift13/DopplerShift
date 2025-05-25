@@ -10,6 +10,10 @@
 	/// How many maximum of these can be chosen
 	var/max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
 
+/datum/loadout_category/hands/New()
+	. = ..()
+	category_info = "([max_allowed] allowed)"
+
 /datum/loadout_category/hands/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
 	datum/loadout_item/conflicting_item,
