@@ -216,7 +216,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/photocopier/prebuilt,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "aaX" = (
@@ -24547,6 +24546,9 @@
 /obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"cgb" = (
+/turf/open/floor/iron,
+/area/station/service/chapel/storage)
 "cgj" = (
 /obj/structure/flora/bush/flowers_yw/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
@@ -24787,13 +24789,9 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "chB" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/iron/white/smooth_large,
-/area/station/medical/medbay/central)
+/obj/machinery/vending/hydronutrients,
+/turf/open/floor/iron/dark,
+/area/station/service/chapel/storage)
 "chC" = (
 /obj/structure/table,
 /obj/machinery/microwave,
@@ -24922,8 +24920,13 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "ciy" = (
-/turf/open/floor/iron,
-/area/station/service/chapel/storage)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/medbay/central)
 "ciz" = (
 /obj/structure/closet/crate/coffin,
 /turf/open/floor/iron/dark,
@@ -26915,10 +26918,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/monastery)
-"cuZ" = (
-/obj/machinery/vending/hydronutrients,
-/turf/open/floor/iron/dark,
-/area/station/service/chapel/storage)
 "cvb" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/wheat,
@@ -66574,9 +66573,9 @@ ctr
 cdo
 lzJ
 ikq
-ciy
-ciy
-ciy
+cgb
+cgb
+cgb
 chb
 nxJ
 cuI
@@ -66832,7 +66831,7 @@ ctJ
 bZY
 ikq
 cul
-ciy
+cgb
 chW
 chc
 qZa
@@ -67349,7 +67348,7 @@ cfC
 cuu
 chU
 vpr
-ciy
+cgb
 chZ
 slf
 ciz
@@ -68635,7 +68634,7 @@ cve
 cuK
 jIU
 ftM
-cuZ
+chB
 slf
 oQn
 fdl
@@ -80921,7 +80920,7 @@ mEo
 qRO
 xLa
 koW
-chB
+ciy
 fhj
 iIw
 iIw
