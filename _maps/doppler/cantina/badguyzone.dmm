@@ -1894,6 +1894,7 @@
 /obj/machinery/light/dim/directional/south,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/radio/intercom/cantina/directional/south,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "Rw" = (

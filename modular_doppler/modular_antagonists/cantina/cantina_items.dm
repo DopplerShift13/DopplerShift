@@ -155,6 +155,7 @@
 	icon_off = "intercom_command-p"
 	freerange = TRUE
 	subspace_transmission = TRUE
+	canhear_range = 13
 	keyslot = /obj/item/encryptionkey/syndicate/cantina_intercom
 
 /obj/item/radio/intercom/cantina/Initialize(mapload, ndir, building)
