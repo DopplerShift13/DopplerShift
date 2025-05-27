@@ -17380,14 +17380,6 @@
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/entry)
 "byd" = (
-/obj/structure/table,
-/obj/item/storage/box/rxglasses{
-	pixel_x = 4;
-	pixel_y = 3
-	},
-/obj/item/storage/box/syringes,
-/obj/item/gun/syringe,
-/obj/item/gun/syringe,
 /obj/machinery/firealarm/directional/west,
 /obj/structure/cable,
 /obj/effect/turf_decal/tile/pine_green/half/contrasted{
@@ -24479,6 +24471,7 @@
 /area/station/engineering/supermatter/room)
 "cfC" = (
 /obj/machinery/biogenerator,
+/obj/item/storage/bag/plants,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
 "cfH" = (
@@ -24555,8 +24548,8 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "cgb" = (
-/obj/item/storage/medkit/regular,
-/turf/open/floor/iron,
+/obj/machinery/vending/hydronutrients,
+/turf/open/floor/iron/dark,
 /area/station/service/chapel/storage)
 "cgj" = (
 /obj/structure/flora/bush/flowers_yw/style_random,
@@ -24720,16 +24713,6 @@
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
-"chd" = (
-/obj/item/clothing/suit/apron/chef,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
-	dir = 8
-	},
-/turf/open/floor/iron,
-/area/station/service/chapel/storage)
 "chi" = (
 /obj/structure/flora/bush/pointy/style_random,
 /obj/structure/flora/bush/sparsegrass/style_random,
@@ -24808,9 +24791,9 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "chB" = (
-/obj/item/seeds/banana,
-/obj/item/seeds/grass,
-/obj/item/seeds/grape,
+/obj/structure/table,
+/obj/item/hatchet,
+/obj/item/shovel/spade,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
 "chC" = (
@@ -24878,6 +24861,8 @@
 /area/station/service/chapel/storage)
 "chZ" = (
 /obj/structure/reagent_dispensers/watertank/high,
+/obj/item/reagent_containers/cup/bucket,
+/obj/item/reagent_containers/cup/bucket,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
 "cib" = (
@@ -24939,8 +24924,6 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter)
 "ciy" = (
-/obj/item/reagent_containers/cup/bucket,
-/obj/item/reagent_containers/cup/bucket,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
 "ciz" = (
@@ -24989,7 +24972,9 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/storage)
 "ciO" = (
-/obj/structure/table/wood,
+/obj/machinery/vending/hydroseeds{
+	slogan_delay = 700
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/storage)
 "ciP" = (
@@ -26754,6 +26739,7 @@
 /area/station/service/chapel/storage)
 "cum" = (
 /obj/machinery/seed_extractor,
+/obj/item/storage/bag/plants/portaseeder,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
 "cun" = (
@@ -26790,14 +26776,7 @@
 /obj/item/honey_frame,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
-"cut" = (
-/obj/item/reagent_containers/cup/bucket,
-/turf/open/floor/iron,
-/area/station/service/chapel/storage)
 "cuu" = (
-/obj/item/storage/bag/plants,
-/obj/item/storage/bag/plants/portaseeder,
-/obj/item/storage/bag/plants/portaseeder,
 /obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
@@ -26849,16 +26828,7 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
-"cuH" = (
-/obj/item/hatchet,
-/turf/open/floor/iron,
-/area/station/service/chapel/storage)
-"cuI" = (
-/obj/machinery/vending/hydronutrients,
-/turf/open/floor/iron,
-/area/station/service/chapel/storage)
 "cuJ" = (
-/obj/item/shovel/spade,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
 	},
@@ -26942,12 +26912,13 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/monastery)
 "cuZ" = (
-/obj/item/wrench,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/iron,
-/area/station/service/chapel/storage)
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/medbay/central)
 "cvb" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/wheat,
@@ -26955,9 +26926,6 @@
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden/monastery)
 "cvd" = (
-/obj/structure/chair/wood{
-	dir = 4
-	},
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/south,
 /turf/open/floor/iron/dark,
@@ -30078,6 +30046,7 @@
 	pixel_x = -17;
 	pixel_y = 3
 	},
+/obj/structure/window/reinforced/spawner/directional/south,
 /turf/open/floor/grass,
 /area/station/medical/storage)
 "ezB" = (
@@ -44919,7 +44888,14 @@
 /obj/effect/turf_decal/tile/pine_green/half/contrasted{
 	dir = 8
 	},
-/obj/machinery/smartfridge/chemistry/preloaded,
+/obj/structure/table,
+/obj/item/storage/box/rxglasses{
+	pixel_x = 4;
+	pixel_y = 3
+	},
+/obj/item/storage/box/syringes,
+/obj/item/gun/syringe,
+/obj/item/gun/syringe,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "qoW" = (
@@ -50609,10 +50585,8 @@
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/engineering/atmos)
 "urO" = (
-/obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/floor/grass,
+/obj/machinery/smartfridge/chemistry/preloaded,
+/turf/open/floor/iron/white,
 /area/station/medical/storage)
 "urP" = (
 /obj/machinery/light/directional/south,
@@ -66603,12 +66577,12 @@ ctr
 cdo
 lzJ
 ikq
-cgb
-cut
-cuH
+ciy
+ciy
+ciy
 chb
 nxJ
-chW
+chB
 slf
 slf
 slf
@@ -66861,10 +66835,10 @@ ctJ
 bZY
 ikq
 cul
-chB
-cuI
+ciy
+chW
 chc
-cuZ
+qZa
 chX
 slf
 ciz
@@ -67120,7 +67094,7 @@ ikq
 cum
 cuR
 cuJ
-chd
+vpr
 qZa
 chY
 slf
@@ -68406,7 +68380,7 @@ cvB
 cux
 cbK
 jIU
-cvB
+fMp
 ciO
 slf
 slf
@@ -68664,7 +68638,7 @@ cve
 cuK
 jIU
 ftM
-cve
+cgb
 slf
 oQn
 fdl
@@ -80950,7 +80924,7 @@ mEo
 qRO
 xLa
 koW
-koW
+cuZ
 fhj
 iIw
 iIw
