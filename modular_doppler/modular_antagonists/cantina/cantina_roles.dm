@@ -32,7 +32,7 @@
 	implants = /obj/item/implant/weapons_auth
 	backpack_contents = list(
 		/obj/item/stack/spacecash/c1000 = 2,
-		/obj/item/encryptionkey/syndicate,
+		/obj/item/encryptionkey/syndicate/cantina_headset,
 		)
 
 /datum/outfit/cantina_bartender

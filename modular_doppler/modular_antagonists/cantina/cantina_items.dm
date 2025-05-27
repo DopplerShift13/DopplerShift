@@ -116,3 +116,64 @@
 	visible_to_network = !visible_to_network
 	balloon_alert(user, (visible_to_network ? "fax unhidden" : "fax hidden"))
 	return CLICK_ACTION_SUCCESS
+
+
+/*
+ * Cantina Encryption Key. edit key: CANTINA_COMMS
+ * Traitor comms only, doesn't block radio, doesn't show station comms.
+ */
+
+/obj/item/encryptionkey/syndicate/cantina_headset
+	name = "undisclosed encryption key"
+	desc = "An encryption key for a radio headset, allowing use of the Curfew and Sundown's network."
+	channels = list(RADIO_CHANNEL_SYNDICATE = 1)
+	special_channels = RADIO_SPECIAL_CANTINA_HEADSET
+
+/obj/item/radio/headset/can_receive(input_frequency, list/levels)
+	. = ..()
+	if(input_frequency != FREQ_SYNDICATE)
+		return
+	if(special_channels & RADIO_SPECIAL_CANTINA_HEADSET)
+		return TRUE
+
+
+/*
+ * Cantina Intercom
+ * Allows for listening in on station comms from the cantina.
+ */
+
+/obj/item/encryptionkey/syndicate/cantina_intercom
+	channels = list(RADIO_CHANNEL_SYNDICATE = 0, RADIO_CHANNEL_COMMAND = 0, RADIO_CHANNEL_SECURITY = 0, RADIO_CHANNEL_ENGINEERING = 0, RADIO_CHANNEL_SCIENCE = 0, RADIO_CHANNEL_MEDICAL = 0, RADIO_CHANNEL_SUPPLY = 0, RADIO_CHANNEL_SERVICE = 0)
+
+/obj/item/radio/intercom/cantina
+	name = "listening ear intercom"
+	desc = "The Curfew and Sundown's special free-frequency intercom. It's a versatile tool that can be tuned to any frequency, granting you access to channels you're not supposed to be on. Plus, it comes equipped with a built-in voice amplifier for crystal-clear communication."
+	icon_state = "intercom_command"
+	icon_off = "intercom_command-p"
+	freerange = TRUE
+	subspace_transmission = TRUE
+	keyslot = /obj/item/encryptionkey/syndicate/cantina_intercom
+
+/obj/item/radio/intercom/cantina/Initialize(mapload, ndir, building)
+	. = ..()
+	recalculateChannels()
+	set_broadcasting(FALSE)
+	set_listening(FALSE)
+
+/obj/item/radio/intercom/cantina/talk_into_impl(atom/movable/talking_movable, message, channel, list/spans, datum/language/language, list/message_mods)
+	return // Can't talked through. Use the holopad, or go to the station!
+
+#define FREQ_LISTENING (1<<0) // Local define in the nonmodular radio file, so, we redo it here.
+
+/obj/item/radio/intercom/cantina/can_receive(input_frequency, list/levels)
+	if (input_frequency == frequency)
+		return TRUE
+	for(var/ch_name in channels)
+		if(channels[ch_name] & FREQ_LISTENING)
+			if(GLOB.radiochannels[ch_name] == text2num(input_frequency))
+				return TRUE
+	return FALSE
+
+#undef FREQ_LISTENING
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/item/radio/intercom/cantina, 27)

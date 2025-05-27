@@ -232,23 +232,36 @@
 /obj/structure/sign/poster/contraband/donk_co/directional/north,
 /obj/structure/table,
 /obj/item/reagent_containers/cup/beaker{
-	pixel_x = 5;
+	pixel_x = 0;
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/condiment/soysauce{
-	pixel_x = -7;
-	pixel_y = 9
+	pixel_x = -8;
+	pixel_y = 15
 	},
 /obj/item/reagent_containers/condiment/enzyme{
-	pixel_y = 3;
-	pixel_x = -7
+	pixel_y = 10;
+	pixel_x = -9
 	},
 /obj/item/reagent_containers/cup/beaker{
-	pixel_x = 5;
+	pixel_x = 0;
 	pixel_y = 12
 	},
 /obj/item/reagent_containers/cup/glass/mug{
-	pixel_x = 8
+	pixel_x = 1;
+	pixel_y = 5
+	},
+/obj/item/reagent_containers/cup/glass/mug{
+	pixel_y = -1;
+	pixel_x = 1
+	},
+/obj/item/storage/box/coffeepack/robusta{
+	pixel_x = 11;
+	pixel_y = 6
+	},
+/obj/item/storage/box/coffeepack{
+	pixel_y = 13;
+	pixel_x = 11
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
@@ -641,17 +654,6 @@
 "nf" = (
 /obj/structure/table,
 /obj/machinery/coffeemaker/impressa,
-/obj/item/storage/box/coffeepack{
-	pixel_y = 4;
-	pixel_x = 10
-	},
-/obj/item/storage/box/coffeepack/robusta{
-	pixel_x = 6
-	},
-/obj/item/reagent_containers/cup/glass/mug{
-	pixel_y = 2;
-	pixel_x = -5
-	},
 /obj/machinery/light/dim/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
@@ -689,6 +691,7 @@
 /area/ruin/space/has_grav/powered)
 "nT" = (
 /obj/machinery/griddle,
+/obj/item/radio/intercom/cantina/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "oo" = (
@@ -737,7 +740,14 @@
 "oY" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/cup/glass/shaker,
+/obj/item/reagent_containers/cup/glass/shaker{
+	pixel_x = 6;
+	pixel_y = 7
+	},
+/obj/item/reagent_containers/dropper{
+	pixel_x = -2;
+	pixel_y = 8
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "pi" = (
@@ -1097,6 +1107,8 @@
 /obj/item/storage/box/cantina_sweeteners,
 /obj/item/storage/box/rxglasses/spyglasskit,
 /obj/item/clothing/glasses/sunglasses/reagent,
+/obj/item/storage/medkit/surgery_syndie,
+/obj/item/defibrillator/compact/combat/loaded,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "yE" = (
