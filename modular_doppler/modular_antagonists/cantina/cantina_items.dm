@@ -125,7 +125,8 @@
 
 /obj/item/encryptionkey/syndicate/cantina_headset
 	name = "undisclosed encryption key"
-	desc = "An encryption key for a radio headset, allowing use of the Curfew and Sundown's network."
+	desc = "An encryption key for a radio headset, allowing use of the Curfew and Sundown's network. \
+	To avoid any long-term interference, the actual key changes on the regular."
 	channels = list(RADIO_CHANNEL_SYNDICATE = 1)
 	special_channels = RADIO_SPECIAL_CANTINA_HEADSET
 
@@ -147,7 +148,9 @@
 
 /obj/item/radio/intercom/cantina
 	name = "listening ear intercom"
-	desc = "The Curfew and Sundown's special free-frequency intercom. It's a versatile tool that can be tuned to any frequency, granting you access to channels you're not supposed to be on. Plus, it comes equipped with a built-in voice amplifier for crystal-clear communication."
+	desc = "The Curfew and Sundown's special free-frequency intercom, \
+	allowing you to snoop in on practically any local frequency. \
+	To maintain customer privacy, however, it is functionally incapable of sending anything."
 	icon_state = "intercom_command"
 	icon_off = "intercom_command-p"
 	freerange = TRUE
