@@ -24547,10 +24547,6 @@
 /obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
-"cgb" = (
-/obj/machinery/vending/hydronutrients,
-/turf/open/floor/iron/dark,
-/area/station/service/chapel/storage)
 "cgj" = (
 /obj/structure/flora/bush/flowers_yw/style_random,
 /obj/structure/flora/bush/flowers_pp/style_random,
@@ -24791,11 +24787,13 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "chB" = (
-/obj/structure/table,
-/obj/item/hatchet,
-/obj/item/shovel/spade,
-/turf/open/floor/iron,
-/area/station/service/chapel/storage)
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/turf/open/floor/iron/white/smooth_large,
+/area/station/medical/medbay/central)
 "chC" = (
 /obj/structure/table,
 /obj/machinery/microwave,
@@ -26828,6 +26826,12 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/iron,
 /area/station/service/chapel/storage)
+"cuI" = (
+/obj/structure/table,
+/obj/item/hatchet,
+/obj/item/shovel/spade,
+/turf/open/floor/iron,
+/area/station/service/chapel/storage)
 "cuJ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -26912,13 +26916,9 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/monastery)
 "cuZ" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
-/turf/open/floor/iron/white/smooth_large,
-/area/station/medical/medbay/central)
+/obj/machinery/vending/hydronutrients,
+/turf/open/floor/iron/dark,
+/area/station/service/chapel/storage)
 "cvb" = (
 /obj/machinery/hydroponics/soil,
 /obj/item/seeds/wheat,
@@ -37972,9 +37972,6 @@
 /area/station/maintenance/department/science/xenobiology)
 "kZq" = (
 /obj/effect/spawner/random/food_or_drink/donkpockets,
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_y = 32
-	},
 /obj/structure/table,
 /turf/open/floor/iron/kitchen/small,
 /area/station/medical/medbay/central)
@@ -66582,7 +66579,7 @@ ciy
 ciy
 chb
 nxJ
-chB
+cuI
 slf
 slf
 slf
@@ -68638,7 +68635,7 @@ cve
 cuK
 jIU
 ftM
-cgb
+cuZ
 slf
 oQn
 fdl
@@ -80924,7 +80921,7 @@ mEo
 qRO
 xLa
 koW
-cuZ
+chB
 fhj
 iIw
 iIw
