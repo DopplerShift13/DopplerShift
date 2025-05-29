@@ -1535,6 +1535,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/detectiveboard/directional/east,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "HM" = (
