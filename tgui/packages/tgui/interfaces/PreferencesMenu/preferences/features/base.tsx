@@ -306,7 +306,7 @@ export function FeatureShortTextInput(
       fluid
       value={value}
       maxLength={serverData?.maximum_length}
-      onChange={handleSetValue}
+      onBlur={handleSetValue}
     />
   );
 }
@@ -326,7 +326,7 @@ export const FeatureTextInput = (
       width="100%"
       value={props.value}
       maxLength={props.serverData.maximum_length}
-      onChange={(value) => props.handleSetValue(value)}
+      onBlur={(value) => props.handleSetValue(value)}
     />
   );
 };

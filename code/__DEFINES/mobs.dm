@@ -459,7 +459,7 @@
 #define OFFSET_HELD "held"
 
 //MINOR TWEAKS/MISC
-#define AGE_MIN 18 //youngest a character can be //DOPPLER EDIT was 17
+#define AGE_MIN 18 //youngest a character can be
 #define AGE_MAX 250 //oldest a character can be //DOPPLER EDIT was 85
 #define AGE_MINOR 21 //legal age of space drinking and smoking //DOPPLER EDIT was 20
 #define WIZARD_AGE_MIN 30 //youngest a wizard can be
@@ -757,7 +757,7 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 /// Layer for bodyparts that should appear above every other bodypart - Currently only used for hands
 #define BODYPARTS_HIGH_LAYER 25
 /// DOPPLER SHIFT ADDITION BEGIN - For hand markings :3c
-#define BODY_HAND_LAYER 23.99
+#define BODY_HAND_LAYER 24.99
 /// DOPPLER SHIFT ADDITION END
 /// Gloves layer
 #define GLOVES_LAYER 24

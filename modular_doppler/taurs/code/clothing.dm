@@ -10,6 +10,9 @@ GLOBAL_LIST_EMPTY(taur_clothing_icons)
 /obj/item/clothing/under
 	gets_cropped_on_taurs = TRUE
 
+/obj/item/clothing/under/shorts
+	gets_cropped_on_taurs = FALSE
+
 /obj/item/clothing/under/color/jumpskirt
 	gets_cropped_on_taurs = FALSE // its a skirt
 

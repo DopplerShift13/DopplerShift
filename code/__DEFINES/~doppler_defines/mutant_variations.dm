@@ -18,6 +18,7 @@
 #define MONKEY "monkey"
 #define MOUSE "mouse"
 #define ROACH "roach"
+#define BAT "bat"
 
 ///	This list gets read by the dropdown pref when a player chooses what type of sprite accessory to access
 GLOBAL_LIST_INIT(mutant_variations, list(
@@ -53,5 +54,6 @@ GLOBAL_LIST_INIT(genemod_variations, list(
 	MONKEY,
 	MOUSE,
 	ROACH,
+	BAT,
 	NO_VARIATION,
 ))

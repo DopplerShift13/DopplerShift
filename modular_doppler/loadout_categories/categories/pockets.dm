@@ -44,7 +44,7 @@
 				if(thing.w_class <= WEIGHT_CLASS_SMALL)
 					wallet.atom_storage.attempt_insert(src, thing, equipper, TRUE, FALSE)
 	else
-		if(!equipper.equip_to_slot_if_possible(wallet, slot = ITEM_SLOT_BACKPACK, initial = TRUE))
+		if(!equipper.equip_to_storage(wallet, ITEM_SLOT_BACK, indirect_action = TRUE))
 			wallet.forceMove(equipper.drop_location())
 
 /*
@@ -101,7 +101,7 @@
 
 /datum/loadout_item/pocket_items/rag
 	name = "Rag"
-	item_path = /obj/item/reagent_containers/cup/rag
+	item_path = /obj/item/rag
 
 /datum/loadout_item/pocket_items/mod_painter
 	name = "MOD Paint Kit"

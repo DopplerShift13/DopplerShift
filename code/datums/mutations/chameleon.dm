@@ -10,7 +10,8 @@
 	power_coeff = 2.5
 
 /datum/mutation/human/chameleon/on_acquiring(mob/living/carbon/human/owner)
-	if(..())
+	. = ..()
+	if(!.)
 		return
 	/// DOPPLER EDIT BEGIN
 	if(HAS_TRAIT(owner, TRAIT_CHAMELEON_SKIN))

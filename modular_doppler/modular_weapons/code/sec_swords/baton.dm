@@ -4,6 +4,7 @@
 		that may cause bodily harm, but will -- without a doubt -- entice cooperation."
 
 	desc_controls = "<b>Left Click</b> to stun, <b>Right Click</b> to harm."
+	wait_desc = "The baton is still charging!"
 	context_living_rmb_active = "Harmful Stun"
 	attack_verb_continuous = list("beats")
 	attack_verb_simple = list("beat")
@@ -75,49 +76,8 @@
 	. = cell.use(deducted_charge)
 
 /obj/item/melee/baton/doppler_security/clumsy_check(mob/living/carbon/human/user)
-	if(!active || !HAS_TRAIT(user, TRAIT_CLUMSY) || prob(50))
-		return FALSE
-	user.visible_message(span_danger("[user] accidentally touches the prongs of [src]! Fool they are!"), span_userdanger("You accidentally touch the prongs of [src]!"))
-
-	if(iscyborg(user))
-		if(affect_cyborg)
-			user.flash_act(affect_silicon = TRUE)
-			user.Paralyze(clumsy_knockdown_time)
-			additional_effects_cyborg(user, user) // user is the target here
-			if(on_stun_sound)
-				playsound(get_turf(src), on_stun_sound, on_stun_volume, TRUE, -1)
-		else
-			playsound(get_turf(src), 'sound/items/weapons/taserhit.ogg', 10, TRUE)
-	else
-		if(ishuman(user))
-			var/mob/living/carbon/human/human_user = user
-			human_user.force_say()
-		user.Knockdown(clumsy_knockdown_time)
-		user.apply_damage(stamina_damage, STAMINA)
-		additional_effects_non_cyborg(user, user)
-		if(on_stun_sound)
-			playsound(get_turf(src), on_stun_sound, on_stun_volume, TRUE, -1)
-
-	user.apply_damage(2 * force, BURN, BODY_ZONE_CHEST, attacking_item = src)
-
-	log_combat(user, user, "accidentally stun attacked [user.p_them()]self due to their clumsiness", src)
-	if(stun_animation)
-		user.do_attack_animation(user)
-	SEND_SIGNAL(user, COMSIG_LIVING_MINOR_SHOCK)
-	deductcharge(cell_hit_cost)
-
-/// Handles prodding targets with turned off stunbatons and right clicking stun'n'bash
-/obj/item/melee/baton/doppler_security/baton_attack(mob/living/target, mob/living/user, modifiers)
 	. = ..()
-	if(. != BATON_DO_NORMAL_ATTACK)
-		return
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		if(active && cooldown_check <= world.time && !check_parried(target, user))
-			finalize_baton_attack(target, user, modifiers, in_attack_chain = FALSE)
-	else if(!user.combat_mode)
-		target.visible_message(span_warning("[user] prods [target] with [src]. Luckily it was off."), \
-			span_warning("[user] prods you with [src]. Luckily it was off."))
-		return BATON_ATTACK_DONE
+	deductcharge(cell_hit_cost)
 
 /obj/item/melee/baton/doppler_security/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
 	if(iscyborg(loc))
@@ -148,21 +108,6 @@
 
 	if(!trait_check)
 		target.Knockdown(knockdown_time)
-
-/obj/item/melee/baton/doppler_security/get_wait_description()
-	return span_danger("The baton is still charging!")
-
-/obj/item/melee/baton/doppler_security/get_stun_description(mob/living/target, mob/living/user)
-	. = list()
-
-	.["visible"] = span_danger("[user] shocks [target] with [src]!")
-	.["local"] = span_userdanger("[user] shocks you with [src]!")
-
-/obj/item/melee/baton/doppler_security/get_unga_dunga_cyborg_stun_description(mob/living/target, mob/living/user)
-	. = list()
-
-	.["visible"] = span_danger("[user] tries to shock [target] with [src], and predictably fails!")
-	.["local"] = span_userdanger("[user] tries to... shock you with [src]?")
 
 /obj/item/melee/baton/doppler_security/emp_act(severity)
 	. = ..()

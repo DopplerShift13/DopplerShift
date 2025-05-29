@@ -31,7 +31,7 @@
 	var/planetary = FALSE
 
 	///The type of mining Z-level that should be loaded.
-	var/minetype = "iceland" /// DOPPLER EDIT: iceland, from lavaland
+	var/minetype = MINETYPE_ICELAND // DOPPLER EDIT, default minetype is iceland
 	///If no minetype is set, this will be the blacklist file used
 	var/blacklist_file
 

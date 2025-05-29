@@ -459,7 +459,7 @@
 "kq" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
-/obj/item/reagent_containers/cup/rag{
+/obj/item/rag{
 	pixel_x = 8;
 	pixel_y = 3
 	},

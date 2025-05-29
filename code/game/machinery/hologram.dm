@@ -258,7 +258,7 @@ Possible to do for anyone motivated enough:
 	if(record_mode)
 		record_stop()
 
-/obj/machinery/holopad/attackby(obj/item/item, mob/user, list/modifiers)
+/obj/machinery/holopad/attackby(obj/item/item, mob/user, list/modifiers, list/attack_modifiers)
 	if(default_deconstruction_screwdriver(user, "holopad_open", "holopad0", item))
 		return
 
@@ -553,6 +553,10 @@ Possible to do for anyone motivated enough:
 		hologram.icon = work_off.icon
 		hologram.icon_state = work_off.icon_state
 		hologram.copy_overlays(work_off, TRUE)
+
+		if (user.temporary_flavor_text)	//DOPPLER EDIT ADDITION BEGIN -- Check this shit out Hacker
+			hologram.overlays += GLOB.temporary_flavor_text_indicator //DOPPLER EDIT ADDITION END
+
 		hologram.makeHologram()
 
 		if(AI)
