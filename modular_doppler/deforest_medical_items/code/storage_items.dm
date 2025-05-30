@@ -19,6 +19,16 @@
 	)
 
 // Narcolepsy quirk medicines
+/obj/item/reagent_containers/applicator/pill/prescription_stimulant
+	name = "alifil pill"
+	desc = "Used to treat symptoms of drowsiness and sudden loss of consciousness. Contains a mix of sugar, synaptizine and modafinil. A warning label reads: <b>Take in moderation</b>."
+	icon_state = "pill15"
+	list_reagents = list(
+		/datum/reagent/consumable/sugar = 5,
+		/datum/reagent/medicine/synaptizine = 5,
+		/datum/reagent/medicine/modafinil = 3
+	)
+
 /obj/item/storage/pill_bottle/prescription_stimulant
 	name = "alifil pill bottle"
 	desc = "A special miniaturized pill bottle with an insert resembling a revolver cylinder, fitted for the inside of a 'civil defense'-class shell medkit. Holds five alifil pills, and is designed only to accept their proprietary DeForest(tm) shape. A big, bold yellow warning label on the side reads: 'FOLLOW DOSAGE DIRECTIONS'."
@@ -35,16 +45,6 @@
 	atom_storage.set_holdable(list(
 		/obj/item/reagent_containers/applicator/pill/prescription_stimulant,
 	))
-
-/obj/item/reagent_containers/applicator/pill/prescription_stimulant
-	name = "alifil pill"
-	desc = "Used to treat symptoms of drowsiness and sudden loss of consciousness. Contains a mix of sugar, synaptizine and modafinil. A warning label reads: <b>Take in moderation</b>."
-	icon_state = "pill15"
-	list_reagents = list(
-		/datum/reagent/consumable/sugar = 5,
-		/datum/reagent/medicine/synaptizine = 5,
-		/datum/reagent/medicine/modafinil = 3
-	)
 
 // Pre-packed civil defense medkit, with items to heal low damages inside
 /obj/item/storage/medkit/civil_defense
