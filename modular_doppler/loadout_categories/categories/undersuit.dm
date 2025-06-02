@@ -351,6 +351,10 @@
 	name = "ATHLETAS bodysuit"
 	item_path = /obj/item/clothing/under/athletas_bodysuit
 
+/datum/loadout_item/undersuit/jumpskirt/rainbow
+	name = "Raindow Jumpskirt"
+	item_path = /obj/item/clothing/under/color/jumpskirt/rainbow
+
 // Man in suit gif
 
 /datum/loadout_item/undersuit/detective_suit
