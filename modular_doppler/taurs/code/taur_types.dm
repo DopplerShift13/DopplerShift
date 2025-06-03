@@ -30,6 +30,11 @@
 	name = "Naga, Rattle"
 	icon_state = "nagarattle"
 
+/datum/sprite_accessory/taur/centipede
+	name = "Centipede"
+	icon_state = "centipede"
+	organ_type = /obj/item/organ/taur_body/centipede
+
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"
 	icon_state = "tentaclealt"

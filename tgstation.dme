@@ -7562,6 +7562,7 @@
 #include "modular_doppler\taurs\code\taur_body.dm"
 #include "modular_doppler\taurs\code\taur_bodyparts.dm"
 #include "modular_doppler\taurs\code\taur_types.dm"
+#include "modular_doppler\taurs\code\taur_mechanics\centipede_taur.dm"
 #include "modular_doppler\taurs\code\taur_mechanics\constrict.dm"
 #include "modular_doppler\taurs\code\taur_mechanics\human.dm"
 #include "modular_doppler\taurs\code\taur_mechanics\item.dm"
