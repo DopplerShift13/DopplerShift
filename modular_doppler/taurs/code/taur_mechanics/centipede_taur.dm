@@ -5,7 +5,7 @@
 	clothing_cropping_state = NAGA_CLIPPING_MASK
 	external_bodyshapes = parent_type::external_bodyshapes | BODYSHAPE_TAUR_SNAKE
 
-	/// The constrict ability we have given our owner. Nullable, if we have no owner.
+	/// The skittering-along-the-ceiling ability we have given our owner. Nullable, if we have no owner.
 	var/datum/action/cooldown/spell/centipede_perch/perch_ability
 
 	/// Did our owner have their feet blocked before we ran on_mob_insert? Used for determining if we should unblock their feet slots on removal.
@@ -14,6 +14,9 @@
 /obj/item/organ/taur_body/centipede/Destroy()
 	QDEL_NULL(perch_ability) // handled in remove, but lets be safe
 	return ..()
+
+/obj/item/organ/taur_body/centipede/synth
+	organ_flags = parent_type::organ_flags | ORGAN_ROBOTIC
 
 /obj/item/organ/taur_body/centipede/on_mob_insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()

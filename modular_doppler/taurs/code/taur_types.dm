@@ -66,6 +66,11 @@
 	icon_state = "synthnaga"
 	organ_type = /obj/item/organ/taur_body/serpentine/synth
 
+/datum/sprite_accessory/taur/synthcentipede
+	name = "Cybernetic Centipede"
+	icon_state = "centipede"
+	organ_type = /obj/item/organ/taur_body/centipede/synth
+
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
 	icon_state = "biglegs"
