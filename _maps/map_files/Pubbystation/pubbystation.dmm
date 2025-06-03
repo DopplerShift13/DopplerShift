@@ -692,6 +692,9 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/ai_sat_ext_ap)
 "adu" = (
@@ -769,6 +772,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
+	},
+/obj/machinery/ai_slipper{
+	uses = 8
 	},
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/ai_sat_ext_as)
@@ -872,6 +878,9 @@
 "aeh" = (
 /obj/machinery/light/small/directional/west,
 /obj/structure/cable,
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/ai_sat_ext_ap)
 "aej" = (
@@ -1004,6 +1013,9 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/ai_sat_ext_ap)
 "afb" = (
@@ -1117,6 +1129,9 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/ai_sat_ext_as)
 "afl" = (
@@ -1169,6 +1184,9 @@
 "afy" = (
 /obj/effect/landmark/start/cyborg,
 /obj/item/beacon,
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/turret_protected/aisat_interior)
 "afA" = (
@@ -21218,10 +21236,6 @@
 /obj/machinery/light/small/directional/east,
 /turf/open/floor/engine/n2o,
 /area/station/engineering/atmos)
-"bQI" = (
-/obj/structure/chair/comfy/black,
-/turf/open/floor/carpet/green,
-/area/station/command/heads_quarters/captain)
 "bQJ" = (
 /obj/structure/closet/secure_closet/atmospherics,
 /obj/machinery/light/small/directional/east,
@@ -25755,6 +25769,9 @@
 	},
 /obj/structure/cable,
 /obj/machinery/light/small/directional/east,
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
 /turf/open/floor/plating,
 /area/station/ai_monitored/turret_protected/ai_sat_ext_as)
 "cnE" = (
@@ -31023,6 +31040,16 @@
 	},
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/mechbay)
+"fki" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
+/turf/open/floor/iron/dark,
+/area/station/ai_monitored/turret_protected/aisat_interior)
 "fkH" = (
 /obj/machinery/light/directional/south,
 /obj/machinery/camera/directional/south{
@@ -31201,6 +31228,15 @@
 /obj/effect/turf_decal/trimline/pine_green/line,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay/lobby)
+"frZ" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/ai_monitored/turret_protected/ai)
 "fsA" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -35354,6 +35390,15 @@
 /obj/item/stack/package_wrap,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
+"iNT" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/ai_monitored/turret_protected/ai)
 "iOf" = (
 /obj/effect/landmark/start/hangover,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -37474,6 +37519,17 @@
 	},
 /turf/open/floor/iron/white/small,
 /area/station/engineering/lobby)
+"kAv" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
+	dir = 8
+	},
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
+/turf/open/floor/iron/grimy,
+/area/station/ai_monitored/turret_protected/aisat_interior)
 "kAD" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -39347,6 +39403,13 @@
 /obj/structure/table,
 /turf/open/floor/iron/white/small,
 /area/station/science/research)
+"mej" = (
+/obj/effect/turf_decal/stripes/corner,
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/ai_monitored/turret_protected/ai)
 "meu" = (
 /obj/effect/turf_decal/tile/red{
 	dir = 4
@@ -43059,6 +43122,15 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron,
 /area/station/hallway/primary/fore)
+"pam" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
+/turf/open/floor/iron/white,
+/area/station/ai_monitored/turret_protected/ai)
 "paB" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -47516,6 +47588,10 @@
 	},
 /turf/open/floor/iron/dark/textured_large,
 /area/station/engineering/main)
+"sly" = (
+/obj/structure/chair/comfy/black,
+/turf/open/floor/carpet/green,
+/area/station/command/heads_quarters/captain)
 "slC" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
@@ -53938,6 +54014,9 @@
 /area/station/service/chapel/monastery)
 "wPo" = (
 /obj/structure/cable,
+/obj/machinery/ai_slipper{
+	uses = 8
+	},
 /turf/open/floor/iron/white,
 /area/station/ai_monitored/turret_protected/ai)
 "wPw" = (
@@ -84212,7 +84291,7 @@ sQx
 avO
 awR
 axU
-bQI
+sly
 aAw
 aBn
 aBm
@@ -87752,14 +87831,14 @@ abI
 abO
 abV
 acc
-ach
+pam
 abY
 abY
 abW
 acn
 acw
 abY
-abV
+mej
 acc
 ach
 acP
@@ -89049,12 +89128,12 @@ acD
 acL
 sYY
 adb
-ieU
+kAv
 sFL
 adM
 kUt
 hQd
-hQd
+fki
 hQd
 hQd
 adM
@@ -90322,14 +90401,14 @@ abI
 abO
 ipE
 acg
-nLM
+frZ
 abY
 abY
 abW
 acu
 acw
 abY
-ipE
+iNT
 acg
 nLM
 acU
