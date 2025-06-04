@@ -23,8 +23,8 @@
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/industrial/frontier_colonist
-	ears = /obj/item/radio/headset/syndicate/alt
-	l_pocket = /obj/item/modular_computer/pda
+	ears = /obj/item/radio/headset/chameleon
+	l_pocket = /obj/item/modular_computer/pda/chameleon
 	r_pocket = /obj/item/pen/edagger
 	id = /obj/item/card/id/advanced/chameleon
 	belt = /obj/item/storage/belt/utility/frontier_colonist
@@ -32,6 +32,7 @@
 	implants = /obj/item/implant/weapons_auth
 	backpack_contents = list(
 		/obj/item/stack/spacecash/c1000 = 2,
+		/obj/item/encryptionkey/syndicate/cantina_headset,
 		)
 
 /datum/outfit/cantina_bartender
@@ -41,7 +42,7 @@
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/industrial/frontier_colonist
 	ears = /obj/item/radio/headset/syndicate/alt
-	l_pocket = /obj/item/modular_computer/pda
+	l_pocket = /obj/item/modular_computer/pda/chameleon
 	r_pocket = /obj/item/pen/edagger
 	id = /obj/item/card/id/advanced/chameleon
 	belt = /obj/item/storage/belt/utility/frontier_colonist
