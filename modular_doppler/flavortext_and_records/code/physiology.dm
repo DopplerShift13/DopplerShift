@@ -4,7 +4,7 @@
 // Lore people will probably want to change some of these.
 
 /datum/species/human
-	name = "Anthropoid" // i have a feeling people won't like this
+	name = "Hominin" // i have a feeling people still won't like this
 
 /datum/species/monkey
 	name = "Primate"
@@ -30,4 +30,5 @@
 /datum/species/pod
 	name = "Viridian"
 
-
+/datum/species/human/genemod
+	name = "Splicer"
