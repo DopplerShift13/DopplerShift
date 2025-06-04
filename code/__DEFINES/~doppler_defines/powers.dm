@@ -17,6 +17,8 @@ GLOBAL_LIST_INIT(path_core_powers, list(
 /**MORTAL DEFINES
 * I'm literally just using this to define Breacher Knuckle right now
 * These things, they take time.
+* edit: im also using this to def the mad dog style because it will not allow me to make a new file for melee defines
 */
 
 #define MARTIALART_BREACHERKNUCKLE "breacher knuckle"
+#define MARTIALART_MAD_DOG "the mag dog style"
