@@ -36,7 +36,7 @@ SUBSYSTEM_DEF(autotransfer)
 		targettime = targettime + voteinterval
 		curvotes++
 	else
-		SSshuttle.autoEnd()
+		SSshuttle.call_end_of_shift_shuttle()
 
 /**
  * At shift start, pulls the autotransfer interval from config and applies
