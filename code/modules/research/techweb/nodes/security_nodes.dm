@@ -81,14 +81,14 @@
 	description = "Specialized bullets designed to ignite, freeze, and inflict various other effects on targets, expanding combat capabilities."
 	prereq_ids = list(TECHWEB_NODE_EXPLOSIVES)
 	design_ids = list(
-		"c38_hotshot",
-		"c38_hotshot_mag",
+		// "c38_hotshot", // DOPPLER REMOVAL
+		// "c38_hotshot_mag", // DOPPLER REMOVAL
 		"c38_iceblox",
 		"c38_iceblox_mag",
-		"c38_trac",
-		"c38_trac_mag",
-		"c38_true_strike",
-		"c38_true_strike_mag",
+		// "c38_trac", // DOPPLER REMOVAL
+		// "c38_trac_mag", // DOPPLER REMOVAL
+		// "c38_true_strike", // DOPPLER REMOVAL
+		// "c38_true_strike_mag", // DOPPLER REMOVAL
 		"techshotshell",
 		"flechetteshell",
 	)
