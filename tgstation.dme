@@ -7178,6 +7178,7 @@
 #include "modular_doppler\modular_customization\accessories\code\non_species_specific\murid_accessories\murid_tail.dm"
 #include "modular_doppler\modular_customization\accessories\code\non_species_specific\pig_accessories\pig_ears.dm"
 #include "modular_doppler\modular_customization\accessories\code\non_species_specific\pig_accessories\pig_snouts.dm"
+#include "modular_doppler\modular_customization\accessories\code\plant_accessories\plant_hair.dm"
 #include "modular_doppler\modular_customization\accessories\code\ramatan_accessories\ramatan_body_markings.dm"
 #include "modular_doppler\modular_customization\accessories\code\ramatan_accessories\ramatan_ears.dm"
 #include "modular_doppler\modular_customization\accessories\code\ramatan_accessories\ramatan_frills.dm"
