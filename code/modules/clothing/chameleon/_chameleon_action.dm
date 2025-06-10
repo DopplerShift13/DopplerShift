@@ -145,8 +145,8 @@
 					item_target.worn_icon = picked_item.bodyshape_icon_files["[shape]"]
 		/// DOPPLER SHIFT ADDITION END
 
-		item_target.worn_icon_state = initial(picked_item.worn_icon_state)
-		item_target.inhand_icon_state = initial(picked_item.inhand_icon_state)
+		item_target.worn_icon_state = picked_item::worn_icon_state
+		item_target.inhand_icon_state = picked_item::inhand_icon_state
 
 		if(initial(picked_item.greyscale_colors))
 			if(initial(picked_item.greyscale_config_worn))
