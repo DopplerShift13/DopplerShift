@@ -59,6 +59,7 @@
 			footstep_sounds = 'sound/effects/footstep/crawl1.ogg'
 		if(FOOTSTEP_MOB_CENTIPEDE)
 			footstep_sounds = 'modular_doppler/modular_sounds/sound/mobs/taurs/centipede.ogg'
+			sound_vary = TRUE
 		// DOPPLER SHIFT END
 	RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(play_simplestep))
 	steps_for_living[target] = 0
