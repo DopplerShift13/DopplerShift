@@ -242,6 +242,13 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	/// Which people ate cigarettes and how many
 	var/static/list/cigarette_eaters = list()
 
+	//DOPPLER ADDITION makes cigs emit a little light
+	light_range = 1
+	light_color = LIGHT_COLOR_FIRE
+	light_system = OVERLAY_LIGHT
+	light_on = FALSE
+	//END DOPPLER ADDITION
+
 /obj/item/cigarette/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/knockoff, 90, list(BODY_ZONE_PRECISE_MOUTH), slot_flags) //90% to knock off when wearing a mask
@@ -411,6 +418,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 		update_appearance(UPDATE_ICON)
 		return
 
+	set_light_on(TRUE) //DOPPLER ADDITION - makes cigs emit light
 	attack_verb_continuous = string_list(list("burns", "singes"))
 	attack_verb_simple = string_list(list("burn", "singe"))
 	hitsound = 'sound/items/tools/welder.ogg'
@@ -451,6 +459,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 	hitsound = null
 	damtype = BRUTE
 	force = 0
+	set_light_on(FALSE) //DOPPLER ADDITION makes cigarettes emit light
 	STOP_PROCESSING(SSobj, src)
 	reagents.flags |= NO_REACT
 	lit = FALSE
@@ -894,6 +903,7 @@ CIGARETTE PACKETS ARE IN FANCY.DM
 			to_chat(user, span_notice("Your [name] goes out."))
 		packeditem = null
 	update_appearance(UPDATE_ICON)
+	set_light_on(FALSE) //DOPPLER ADDITION makes cigarettes emit light
 	STOP_PROCESSING(SSobj, src)
 	QDEL_NULL(cig_smoke)
 
