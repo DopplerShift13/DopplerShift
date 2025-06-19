@@ -22,7 +22,7 @@
 
 /obj/effect/mob_spawn/ghost_role/human/cantina/special(mob/living/new_spawn)
 	. = ..()
-	var/datum/bank_account/remote/bank_account = new(new_spawn.real_name)
+	var/datum/bank_account/remote/bank_account = new(new_spawn.real_name, SSjob.get_job_type(/datum/job/unassigned))
 	bank_account.replaceable = FALSE
 	new_spawn.add_mob_memory(/datum/memory/key/account, remembered_id = bank_account.account_id)
 
@@ -48,6 +48,6 @@
 
 /obj/effect/mob_spawn/ghost_role/human/cantina_bartender/special(mob/living/new_spawn)
 	. = ..()
-	var/datum/bank_account/remote/bank_account = new(new_spawn.real_name)
+	var/datum/bank_account/remote/bank_account = new(new_spawn.real_name, SSjob.get_job_type(/datum/job/unassigned))
 	bank_account.replaceable = FALSE
 	new_spawn.add_mob_memory(/datum/memory/key/account, remembered_id = bank_account.account_id)

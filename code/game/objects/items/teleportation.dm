@@ -135,6 +135,18 @@
 ///Checks if the targeted portal was created by us, then causes it to expire, removing it
 /obj/item/hand_tele/proc/try_dispel_portal(atom/target, mob/user)
 	if(is_parent_of_portal(target))
+		// DOPPLER EDIT START - delay to the hand-tele
+		if(DOING_INTERACTION_WITH_TARGET(user, src))
+			balloon_alert(user, "busy!")
+			return
+		balloon_alert_to_viewers("closing portal")
+		playsound(src, 'sound/machines/gateway/gateway_calibrated.ogg', 10)
+		if(!do_after(user, 2 SECONDS, target, interaction_key = src))
+			return
+		if(QDELETED(target))
+			return FALSE
+		playsound(src, 'sound/machines/gateway/gateway_close.ogg', 10)
+		// DOPPLER EDIT END
 		to_chat(user, span_notice("You dispel [target] with [src]!"))
 		var/obj/effect/portal/portal = target
 		portal.expire()
@@ -224,6 +236,17 @@
 	if (length(active_portal_pairs) >= max_portal_pairs)
 		user.show_message(span_notice("[src] is recharging!"))
 		return
+
+	// DOPPLER EDIT START - delay to the hand-tele
+	if(DOING_INTERACTION_WITH_TARGET(user, src))
+		balloon_alert(user, "busy!")
+		return
+	balloon_alert_to_viewers("opening portal")
+	playsound(src, 'sound/machines/gateway/gateway_calibrating.ogg', 10)
+	if(!do_after(user, 2 SECONDS, interaction_key = src))
+		return
+	playsound(src, 'sound/machines/gateway/gateway_open.ogg', 10)
+	// DOPPLER EDIT END
 
 	var/atom/teleport_target
 

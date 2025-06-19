@@ -142,3 +142,7 @@
 #define RADIO_SPECIAL_CENTCOM (1<<1)
 ///Bitflag for if a headset can use the binary radio channel
 #define RADIO_SPECIAL_BINARY (1<<2)
+// DOPPLER EDIT ADDITION START - CANTINA_COMMS
+///Bitflag for if a radio can use the syndicate radio channel, without the side-effects
+#define RADIO_SPECIAL_CANTINA_HEADSET (1<<3)
+// DOPPLER EDIT ADDITION END - CANTINA_COMMS

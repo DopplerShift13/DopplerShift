@@ -3,20 +3,20 @@
 	name = "frills"
 
 /datum/bodypart_overlay/mutant/frills
-	layers = EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3
+	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3
 
 /datum/bodypart_overlay/mutant/frills/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
 		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
+	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
 		overlay.color = limb.owner.dna.features["frills_color_1"]
 		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
 		overlay.color = limb.owner.dna.features["frills_color_2"]
 		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
+	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
 		overlay.color = limb.owner.dna.features["frills_color_3"]
 		return overlay
 	return ..()
