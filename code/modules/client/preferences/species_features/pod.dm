@@ -13,8 +13,8 @@
 	var/datum/sprite_accessory/pod_hair = SSaccessories.pod_hair_list[value]
 
 	var/datum/universal_icon/icon_with_hair = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "pod_head_m")
-//DOPPLER EDIT START
-	if (value != "None")
+
+	if (value != "None") //DOPPLER EDIT ADDITION
 		var/datum/universal_icon/icon_adj = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_ADJ")
 		var/datum/universal_icon/icon_front = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT")
 		icon_adj.blend_icon(icon_front, ICON_OVERLAY)
@@ -24,7 +24,7 @@
 		icon_with_hair.blend_color(COLOR_GREEN, ICON_MULTIPLY)
 
 	return icon_with_hair
-//DOPPLER EDIT END
+
 /datum/preference/choiced/pod_hair/create_default_value()
 	return pick(assoc_to_keys_features(SSaccessories.pod_hair_list))
 
