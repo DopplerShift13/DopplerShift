@@ -123,3 +123,7 @@
 /datum/loadout_item/neck/vatcloak
 	name = "Vatcloak"
 	item_path = /obj/item/clothing/neck/vulp_cloak
+
+/datum/loadout_item/neck/mantle
+	name = "Mantle"
+	item_path = /obj/item/clothing/neck/mantle/recolorable
