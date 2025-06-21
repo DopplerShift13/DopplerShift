@@ -55,6 +55,7 @@
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = NONE
 	allowed = null
+	pocket_storage_type = /datum/storage/pockets/jacket/jumbo
 
 /obj/item/clothing/suit/jacket/frontier_colonist/Initialize(mapload)
 	. = ..()
@@ -68,6 +69,7 @@
 		though don't expect miracles."
 	icon_state = "jacket_short"
 	worn_icon_state = "jacket_short"
+	pocket_storage_type = /datum/storage/pockets/jacket
 
 /obj/item/clothing/suit/jacket/frontier_colonist/medical
 	name = "frontier medical jacket"
@@ -77,6 +79,7 @@
 		stripes to denote that someone wearing it might be able to provide medical assistance."
 	icon_state = "jacket_med"
 	worn_icon_state = "jacket_med"
+	pocket_storage_type = /datum/storage/pockets/jacket
 
 // Flak Jacket
 
