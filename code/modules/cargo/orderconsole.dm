@@ -251,7 +251,7 @@
 			say("Invalid bank account.")
 			return
 		var/list/access = id_card.GetAccess()
-		if(pack.access_view && !(pack.access_view in access))
+		if(pack.access_view && !(pack.access_view in access) && !contraband) // DOPPLER EDIT - OG - if(pack.access_view && !(pack.access_view in access))
 			say("[id_card] lacks the requisite access for this purchase.")
 			return
 
