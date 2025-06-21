@@ -205,6 +205,12 @@
 	center = FALSE
 	icon_state = "none"
 
+// Pod hair
+/datum/sprite_accessory/pod_hair/none
+	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
+	name = "None"
+	icon_state = "none"
+
 /// Linter sacrifice.  We only need this in the one file I suppose.
 #undef DOPPLER_SPRITE_ACCESSORY_NOTAIL
 #undef DOPPLER_SPRITE_ACCESSORY_NOEARS
