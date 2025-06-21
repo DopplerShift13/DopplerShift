@@ -30,6 +30,11 @@
 	name = "Naga, Rattle"
 	icon_state = "nagarattle"
 
+/datum/sprite_accessory/taur/centipede
+	name = "Centipede"
+	icon_state = "centipede"
+	organ_type = /obj/item/organ/taur_body/centipede
+
 /datum/sprite_accessory/taur/tentacle
 	name = "Tentacle"
 	icon_state = "tentaclealt"
@@ -60,6 +65,11 @@
 	name = "Cybernetic Naga"
 	icon_state = "synthnaga"
 	organ_type = /obj/item/organ/taur_body/serpentine/synth
+
+/datum/sprite_accessory/taur/synthcentipede
+	name = "Cybernetic Centipede"
+	icon_state = "centipede"
+	organ_type = /obj/item/organ/taur_body/centipede/synth
 
 /datum/sprite_accessory/taur/biglegs
 	name = "Big Legs"
