@@ -109,7 +109,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	moth_wings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_wings)[DEFAULT_SPRITE_LIST]
 	moth_antennae_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_antennae)[DEFAULT_SPRITE_LIST]
 	moth_markings_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/moth_markings, add_blank = TRUE)[DEFAULT_SPRITE_LIST]
-	pod_hair_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair, add_blank = TRUE)[DEFAULT_SPRITE_LIST] //DOPPLER EDIT, we ADD! the blank - old code: pod_hair_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair)[DEFAULT_SPRITE_LIST]
+	pod_hair_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/pod_hair)[DEFAULT_SPRITE_LIST]
 
 /// This proc just initializes all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name
 /datum/controller/subsystem/accessories/proc/init_hair_gradients()
