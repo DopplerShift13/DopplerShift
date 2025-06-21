@@ -321,7 +321,10 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	for(var/language in save_languages)
 		var/value = save_languages[language]
 		if (isnum(value) || (islist(value) && isnull(value[LANGUAGE_KNOWLEDGE])))
-			value = list(LANGUAGE_KNOWLEDGE = 100, LANGUAGE_FLAGS = value) // REMOVE LATER - removing invalid values, as its now a list
+			// Versions of our language code before the partial language PR formatted languages as a key value pair between
+			// language typepath and the language flags - now we format it as lang -> (knowledge_percent, flags),
+			// this is updating previous versions as well as sanitizing invalid values
+			value = list(LANGUAGE_KNOWLEDGE = 100, LANGUAGE_FLAGS = value)
 		save_languages -= language
 
 		if(istext(language))
