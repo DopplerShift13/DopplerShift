@@ -22,7 +22,7 @@
 	throwforce = 10
 	block_chance = 1 // Nah, I'd win
 	wound_bonus = 0
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 
 	attack_verb_continuous = list("attacks", "slashes", "slices", "tears", "lacerates", "rips", "dices", "rends")
 	attack_verb_simple = list("attack", "slash", "slice", "tear", "lacerate", "rip", "dice", "rend")
@@ -46,4 +46,4 @@
 
 	damtype = STAMINA
 	wound_bonus = -50
-	bare_wound_bonus = -50
+	exposed_wound_bonus = -50

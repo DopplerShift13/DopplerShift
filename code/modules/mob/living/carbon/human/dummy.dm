@@ -119,6 +119,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features["tail_cat"] = get_consistent_feature_entry(SSaccessories.tails_list_felinid) // it's a lie
 	target.dna.features["tail_lizard"] = get_consistent_feature_entry(SSaccessories.tails_list_lizard)
 	target.dna.features["tail_monkey"] = get_consistent_feature_entry(SSaccessories.tails_list_monkey)
+	target.dna.features["fish_tail"] = get_consistent_feature_entry(SSaccessories.tails_list_fish)
 	target.dna.features["tail_other"] = "No Tail" // DOPPLER EDIT ADDITION - CI Fails W/Out this
 	target.dna.features["wings"] = "No Wings" // DOPPLER EDIT ADDITON - CI Fails W/Out this
 	target.dna.features["breasts"] = "Bare" // DOPPLER EDIT ADDITION - LOOK OUT GORDON, HOTTED BOOBS AHEAD, TITS BIG ONES!
@@ -183,7 +184,7 @@ GLOBAL_LIST_EMPTY(dummy_mob_list)
 
 	if(iscarbon(target))
 		var/mob/living/carbon/carbon_target = target
-		carbon_target.dna.transfer_identity(copycat, transfer_SE = TRUE)
+		carbon_target.dna.copy_dna(copycat.dna, COPY_DNA_SE|COPY_DNA_SPECIES)
 
 		if(ishuman(target))
 			var/mob/living/carbon/human/human_target = target

@@ -4,7 +4,7 @@
 /area/icemoon/surface)
 "c" = (
 /obj/effect/mob_spawn/corpse/watcher,
-/obj/effect/decal/cleanable/blood/trails,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/surface)
 "d" = (
@@ -26,7 +26,7 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/surface)
 "u" = (
-/obj/effect/decal/cleanable/blood/trails,
+/obj/effect/decal/cleanable/blood/trail_holder,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface)
 "z" = (
@@ -46,7 +46,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface)
 "H" = (
-/obj/effect/decal/cleanable/blood/trails{
+/obj/effect/decal/cleanable/blood/trail_holder{
 	dir = 8
 	},
 /turf/open/misc/asteroid/snow/icemoon,

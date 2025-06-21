@@ -122,7 +122,7 @@
 	attack_verb_continuous = list("attacks", "pokes", "jabs", "tears", "lacerates", "gores")
 	attack_verb_simple = list("attack", "poke", "jab", "tear", "lacerate", "gore")
 	wound_bonus = -15
-	bare_wound_bonus = 15
+	exposed_wound_bonus = 15
 	block_chance = 10
 	sharpness = SHARP_EDGED
 

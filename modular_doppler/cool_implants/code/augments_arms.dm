@@ -13,7 +13,7 @@
 		/datum/surgery/advanced/lobotomy/mechanic,
 	)
 
-/obj/item/organ/cyberimp/arm/arm_surgery_computer
+/obj/item/organ/cyberimp/arm/toolkit/arm_surgery_computer
 	name = "implanted wrist surgical processor"
 	desc = "An integrated surgical processor implanted within the user's wrist. \
 		Allows mobile operation of more advanced medical surgery."
@@ -21,18 +21,18 @@
 	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
 	icon_state = "hackerman"
 
-/obj/item/organ/cyberimp/arm/arm_surgery_computer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+/obj/item/organ/cyberimp/arm/toolkit/arm_surgery_computer/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	ADD_TRAIT(owner, TRAIT_FASTMED, IMPLANT_TRAIT)
 	return ..()
 
-/obj/item/organ/cyberimp/arm/arm_surgery_computer/on_mob_remove(mob/living/carbon/arm_owner)
+/obj/item/organ/cyberimp/arm/toolkit/arm_surgery_computer/on_mob_remove(mob/living/carbon/arm_owner)
 	. = ..()
 	if(arm_owner)
 		REMOVE_TRAIT(arm_owner, TRAIT_FASTMED, IMPLANT_TRAIT)
 
 /obj/item/autosurgeon/syndicate/arm_surgery_computer
 	name = "surgical processor autosurgeon"
-	starting_organ = /obj/item/organ/cyberimp/arm/arm_surgery_computer
+	starting_organ = /obj/item/organ/cyberimp/arm/toolkit/arm_surgery_computer
 
 // Razorwire implant, long reach whip made of extremely thin wire, ouch!
 
@@ -51,7 +51,7 @@
 	force = 20
 	demolition_mod = 0.25 // This thing sucks at destroying stuff
 	wound_bonus = 10
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 	weak_against_armour = TRUE
 	hitsound = 'sound/items/weapons/whip.ogg'
 	attack_verb_continuous = list("slashes", "whips", "lashes", "lacerates")
@@ -81,7 +81,7 @@
 		),
 	)
 
-/obj/item/organ/cyberimp/arm/razorwire
+/obj/item/organ/cyberimp/arm/toolkit/razorwire
 	name = "razorwire spool implant"
 	desc = "An integrated spool of razorwire, capable of being used as a weapon when whipped at your foes. \
 		Built into the back of your hand, try your best to not get it tangled."
@@ -91,7 +91,7 @@
 
 /obj/item/autosurgeon/syndicate/razorwire
 	name = "razorwire autosurgeon"
-	starting_organ = /obj/item/organ/cyberimp/arm/razorwire
+	starting_organ = /obj/item/organ/cyberimp/arm/toolkit/razorwire
 
 // Shell launch system, an arm mounted single-shot shotgun/.980 grenade launcher that comes out of your arm
 
@@ -187,7 +187,7 @@
 	max_ammo = 1
 	multiload = FALSE
 
-/obj/item/organ/cyberimp/arm/shell_launcher
+/obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 	name = "shell launch system implant"
 	desc = "A mounted, single-shot housing for a shell launch cannon; capable of firing .980 Tydhouer grenades."
 	items_to_create = list(/obj/item/gun/ballistic/shotgun/shell_launcher)
@@ -196,4 +196,4 @@
 
 /obj/item/autosurgeon/syndicate/shell_launcher
 	name = "shell launcher autosurgeon"
-	starting_organ = /obj/item/organ/cyberimp/arm/shell_launcher
+	starting_organ = /obj/item/organ/cyberimp/arm/toolkit/shell_launcher

@@ -19,7 +19,7 @@
 /obj/item/autosurgeon/imp_energy_blades
 	name = "proprietary autosurgeon"
 	desc = "Contains classified research implants. Property of Cybersun Industries, return to local liaison if found."
-	starting_organ = /obj/item/organ/cyberimp/arm/esword
+	starting_organ = /obj/item/organ/cyberimp/arm/toolkit/esword
 
 /datum/antag_faction_item/cybersun/implanted_energy_blades
 	name = "Implanted Energy Blades"
