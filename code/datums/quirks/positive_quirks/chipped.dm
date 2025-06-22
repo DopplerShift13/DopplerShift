@@ -66,8 +66,8 @@
 
 /datum/status_effect/itchy_skillchip_quirk
 	id = "itchy skillchip"
-	tick_interval_lowerbound = 20 MINUTES
-	tick_interval_upperbound = 40 MINUTES
+	tick_interval_lowerbound = 20 MINUTES //DOPPLER EDIT - ORIGINAL: tick_interval_lowerbound = 5 SECONDS
+	tick_interval_upperbound = 40 MINUTES //DOPPLER EDIT - ORIGINAL: tick_interval_upperbound = 10 MINUTES
 	alert_type = null
 	///lower damage we apply to our itchy owner //DOPPLER EDIT KILL: Chipped no longer does brain damage.
 	var/minimum_damage = 0
