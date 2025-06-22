@@ -7532,6 +7532,7 @@
 #include "modular_doppler\ships_r_us\code\shuttle_templates\mining.dm"
 #include "modular_doppler\shuttle_gear\code\ore_scoop.dm"
 #include "modular_doppler\shuttle_gear\code\wirefix.dm"
+#include "modular_doppler\skillchips\generic_skillchips\misc.dm"
 #include "modular_doppler\soulcatcher\code\attachable_soulcatcher.dm"
 #include "modular_doppler\soulcatcher\code\handheld_soulcatcher.dm"
 #include "modular_doppler\soulcatcher\code\preferences.dm"
