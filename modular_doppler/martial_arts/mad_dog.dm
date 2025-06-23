@@ -25,12 +25,12 @@
 	new_holder.add_stun_absorption(
 		source = name,
 		priority = 3, // arbitrary
-		max_seconds_of_stuns_blocked = 14.9 SECONDS, // nigh-immune to disablers & telebatons, but only takes 3 security stunprod hits to bring your immunity down
+		max_seconds_of_stuns_blocked = 2 SECONDS, // lock the fuck in
 		delete_after_passing_max = FALSE,
 		recharge_time = 20 SECONDS,
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!"),
-		examine_message = span_boldwarning("[new_holder.p_Theyre()] bristling with raw determination! It'd take real damage or a stun baton to slow [new_holder.p_them()] down!")
+		examine_message = span_boldwarning("[new_holder.p_Theyre()] bristling with raw determination! It'd take something painful to slow [new_holder.p_them()] down!")
 	)
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
@@ -64,7 +64,7 @@
 /datum/martial_art/mad_dog/proc/check_block(mob/living/mad_dog_user, atom/movable/hitby, damage, attack_text, attack_type, ...)
 	SIGNAL_HANDLER
 
-	if(!can_use(mad_dog_user) || !mad_dog_user.throw_mode || INCAPACITATED_IGNORING(mad_dog_user, INCAPABLE_GRAB))
+	if(!can_use(mad_dog_user) || !mad_dog_user.throw_mode || INCAPACITATED_IGNORING(mad_dog_user, INCAPABLE_GRAB) || !block_cooldown <= 0)
 		return NONE
 	if(attack_type == PROJECTILE_ATTACK)
 		return NONE
@@ -74,10 +74,13 @@
 	var/mob/living/attacker = GET_ASSAILANT(hitby)
 	if(istype(attacker) && mad_dog_user.Adjacent(attacker))
 		mad_dog_user.visible_message(
-			span_danger("[mad_dog_user] blocks [attack_text] and twists [attacker]'s arm behind [attacker.p_their()] back!"),
-			span_userdanger("You block [attack_text]!"),
+			span_danger("[mad_dog_user] deflects [attack_text] and twists [attacker]'s arm behind [attacker.p_their()] back!"),
+			span_userdanger("You deflect [attack_text]!"),
 		)
-		attacker.Stun(4 SECONDS)
+		attacker.Stun(3 SECONDS)
+		attacker.painful_scream()
+		playsound(attacker.loc, 'sound/effects/wounds/crack2.ogg', 70, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		INVOKE_ASYNC(attacker, TYPE_PROC_REF(/atom, Shake), 1, 0, 0.25 SECONDS)
 	else
 		mad_dog_user.visible_message(
 			span_danger("[mad_dog_user] blocks [attack_text]!"),
@@ -127,7 +130,7 @@
 	to_chat(attacker, span_danger("You slam [defender] into the ground!"))
 	playsound(attacker, 'sound/items/weapons/slam.ogg', 50, TRUE, -1)
 	defender.apply_damage(10, BRUTE)
-	defender.Paralyze(12 SECONDS)
+	defender.Paralyze(10 SECONDS)
 	log_combat(attacker, defender, "slammed (Mad Dog)")
 	return TRUE
 
@@ -165,7 +168,7 @@
 		playsound(attacker, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
 		var/atom/throw_target = get_edge_target_turf(defender, attacker.dir)
 		defender.throw_at(throw_target, 1, 14, attacker)
-		defender.apply_damage(20, attacker.get_attack_type()) // vs CQC's base harm/harm combo damage of 10, comparable to scarp's harm/harm damage of 20
+		defender.apply_damage(15, attacker.get_attack_type())
 		if(defender.body_position == LYING_DOWN && !defender.IsUnconscious())
 			defender.adjustStaminaLoss(45)
 		log_combat(attacker, defender, "center kicked (Mad Dog)")
