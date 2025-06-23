@@ -64,7 +64,7 @@
 /datum/martial_art/mad_dog/proc/check_block(mob/living/mad_dog_user, atom/movable/hitby, damage, attack_text, attack_type, ...)
 	SIGNAL_HANDLER
 
-	if(!can_use(mad_dog_user) || !mad_dog_user.throw_mode || INCAPACITATED_IGNORING(mad_dog_user, INCAPABLE_GRAB) || !block_cooldown <= 0)
+	if(!can_use(mad_dog_user) || !mad_dog_user.throw_mode || INCAPACITATED_IGNORING(mad_dog_user, INCAPABLE_GRAB))
 		return NONE
 	if(attack_type == PROJECTILE_ATTACK)
 		return NONE
