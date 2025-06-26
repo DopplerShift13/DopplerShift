@@ -372,7 +372,6 @@ ROUNDSTART_RACES primitive_genemod
 ROUNDSTART_RACES hemophage
 ROUNDSTART_RACES slimehybrid
 
-
 ## Races that are better than humans in some ways, but worse in others
 ROUNDSTART_RACES ethereal
 #ROUNDSTART_RACES jelly
@@ -382,7 +381,7 @@ ROUNDSTART_RACES snail
 ## Races that are straight upgrades. If these are on expect powergamers to always pick them
 #ROUNDSTART_RACES skeleton
 #ROUNDSTART_RACES zombie
-#ROUNDSTART_RACES pod
+ROUNDSTART_RACES pod
 
 ## Races that are radical departures to what a species is, so while they technically can be roundstart - it's probably not wise
 ROUNDSTART_RACES android
