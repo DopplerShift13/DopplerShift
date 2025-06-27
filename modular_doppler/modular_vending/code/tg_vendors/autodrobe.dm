@@ -29,10 +29,12 @@
 				/obj/item/clothing/suit/apron/overalls = 1,
 				/obj/item/clothing/head/costume/maidheadband = 1,
 				/obj/item/clothing/under/costume/maid = 1,
+				/obj/item/clothing/under/maid_costume = 1,
 				/obj/item/clothing/gloves/maid = 1,
 				/obj/item/clothing/neck/maid = 1,
 				/obj/item/clothing/accessory/maidapron = 1,
 				/obj/item/clothing/neck/maid_neck_cover = 1,
+				/obj/item/clothing/under/costume/bunnysuit = 1,
 			),
 		),
 		list(

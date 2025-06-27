@@ -40,6 +40,14 @@
 			"icon" = "shirt",
 			"products" = list(
 				/obj/item/clothing/under/pants/jeans/ripped = 5,
+				/obj/item/clothing/under/pants/moto_leggings = 5,
+				/obj/item/clothing/under/pants/big_pants = 5,
+				/obj/item/clothing/under/shorts/shorter = 5,
+				/obj/item/clothing/under/shorts/shorter/jeans = 5,
+				/obj/item/clothing/under/shorts/shorter/shortest = 5,
+				/obj/item/clothing/under/shorts/shorter/jeans/shortest = 5,
+				/obj/item/clothing/under/cowl_neck_shirt = 5,
+				/obj/item/clothing/under/collared_shirt = 5,
 			),
 		),
 
@@ -51,6 +59,18 @@
 				/obj/item/clothing/under/dress/doppler/flower = 5,
 				/obj/item/clothing/under/dress/doppler/strapless = 5,
 				/obj/item/clothing/under/dress/doppler/pentagram = 5,
+				/obj/item/clothing/under/dress/doppler/giant_scarf = 5,
+				/obj/item/clothing/under/shorts/shorter/skirt = 5,
+				/obj/item/clothing/under/dress/skirt/medium = 5,
+				/obj/item/clothing/under/dress/skirt/long = 5,
+				/obj/item/clothing/under/suit/pencil = 5,
+				/obj/item/clothing/under/suit/pencil/noshirt = 5,
+				/obj/item/clothing/under/suit/pencil/black_really = 5,
+				/obj/item/clothing/under/suit/pencil/charcoal = 5,
+				/obj/item/clothing/under/suit/pencil/checkered = 5,
+				/obj/item/clothing/under/suit/pencil/checkered/noshirt = 5,
+				/obj/item/clothing/under/suit/pencil/tan = 5,
+				/obj/item/clothing/under/suit/pencil/green = 5,
 				/obj/item/clothing/suit/jacket/doppler/departmental_jacket = 5,
 				/obj/item/clothing/suit/jacket/doppler/field_jacket = 5,
 				/obj/item/clothing/suit/jacket/doppler/field_jacket/tan = 5,
@@ -77,13 +97,24 @@
 			),
 		),
 
-/*		//Only put clothing in Special thats either Families or exteremly out-of-place
+		//Only put clothing in Special thats either Families or exteremly out-of-place
 		list(
 			"name" = "Special",
 			"icon" = "star",
 			"products" = list(
+				/obj/item/clothing/under/dress/skirt/loincloth = 5,
+				/obj/item/clothing/under/dress/skirt/loincloth/loincloth_alt = 5,
+				/obj/item/clothing/under/dress/doppler/qipao = 5,
+				/obj/item/clothing/under/dress/doppler/qipao/customtrim = 5,
+				/obj/item/clothing/under/dress/doppler/cheongsam = 5,
+				/obj/item/clothing/under/dress/doppler/cheongsam/customtrim = 5,
+				/obj/item/clothing/under/costume/yukata/greyscale = 5,
+				/obj/item/clothing/under/costume/kimono/greyscale = 5,
+				/obj/item/clothing/under/misc/gear_harness = 5,
+				/obj/item/clothing/under/bodysuit = 5,
+				/obj/item/clothing/under/athletas_bodysuit = 5,
 			)
-		)	*/
+		)
 	)
 
 /*	premium_doppler = list( //being here means you're artificially rare, congratulations
