@@ -12,6 +12,7 @@
 		// Skip to table placing code instead.
 		attack_hand(user, modifiers)
 		return
+
 	// For things that can pass tables,
 	// we need our own implementation for pixel placement.
 	user.Move_Pulled(src)
