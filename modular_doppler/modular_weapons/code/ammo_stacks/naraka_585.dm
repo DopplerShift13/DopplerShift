@@ -6,14 +6,8 @@
 	ammo_type = /obj/item/ammo_casing/c585naraka
 	casing_phrasing = "casing"
 	max_ammo = 6
-	casing_x_positions = list(
-		-6,
-		-3,
-		0,
-		3,
-		6,
-	)
-	casing_y_padding = 9
+	casing_w_spacing = 3
+	casing_z_padding = 9
 
 /obj/item/ammo_box/magazine/ammo_stack/c585naraka/full
 	start_empty = FALSE

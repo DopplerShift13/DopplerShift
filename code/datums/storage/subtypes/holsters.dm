@@ -66,6 +66,10 @@
 		/obj/item/gun/energy/laser/captain,
 		/obj/item/gun/energy/e_gun/hos,
 		/obj/item/gun/ballistic/rifle/boltaction, //fits if you make it an obrez
+		// DOPPLER ADDITION START - New ammo types for the detective revolver
+		/obj/item/ammo_box/magazine/ammo_stack/c6ng,
+		/obj/item/ammo_casing/c6ng,
+		// DOPPLER ADDITION END
 	)
 
 	return ..()

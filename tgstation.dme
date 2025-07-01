@@ -7478,6 +7478,7 @@
 #include "modular_doppler\modular_weapons\code\melee.dm"
 #include "modular_doppler\modular_weapons\code\weapon_overrides.dm"
 #include "modular_doppler\modular_weapons\code\ammo\bandolier.dm"
+#include "modular_doppler\modular_weapons\code\ammo\detective_holster.dm"
 #include "modular_doppler\modular_weapons\code\ammo\europa_25.dm"
 #include "modular_doppler\modular_weapons\code\ammo\gibraltar.dm"
 #include "modular_doppler\modular_weapons\code\ammo\naraka_585.dm"

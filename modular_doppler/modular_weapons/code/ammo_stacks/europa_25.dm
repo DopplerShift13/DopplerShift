@@ -4,14 +4,8 @@
 	caliber = CALIBER_25EUROPA
 	ammo_type = /obj/item/ammo_casing/c25euro
 	max_ammo = 5
-	casing_x_positions = list(
-		-4,
-		-2,
-		0,
-		2,
-		4,
-	)
-	casing_y_padding = 6
+	casing_w_spacing = 2
+	casing_z_padding = 6
 
 /obj/item/ammo_box/magazine/ammo_stack/c25euro/full
 	start_empty = FALSE
