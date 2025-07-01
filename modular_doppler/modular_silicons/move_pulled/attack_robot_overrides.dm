@@ -26,13 +26,16 @@
 
 	if(get_dist(user, src) > 1)
 		return
-
-	user.Move_Pulled(src)
-	if(user.pulling.loc != loc)
+	if(!isitem(user.pulling))
 		return
-	if(isitem(user.pulling))
-		var/obj/item/pulled_item = user.pulling
-		pulled_item.undo_messy()
+
+	var/obj/item/pulled_item = user.pulling
+	user.Move_Pulled(src)
+	if(pulled_item.loc != loc)
+		return
+	pulled_item.undo_messy()
+	pulled_item.pixel_x = base_pixel_x
+	pulled_item.pixel_y = base_pixel_y
 	user.visible_message(span_notice("[user] places [user.pulling] onto [src]."),
 		span_notice("You place [user.pulling] onto [src]."))
 	user.stop_pulling()
