@@ -8,7 +8,7 @@
 
 	if(is_flipped)
 		return
-	if(!(user.pulling.pass_flags & PASSTABLE))
+	if(isliving(user.pulling))
 		// Skip to table placing code instead.
 		attack_hand(user, modifiers)
 		return
