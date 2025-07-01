@@ -17,7 +17,7 @@
 				/obj/item/clothing/head/hair_tie/plastic_beads = 3,
 			),
 		),
-	list(
+		list(
 			"name" = "Skillchips",
 			"icon" = "fa-microchip",
 			"products" = list(
