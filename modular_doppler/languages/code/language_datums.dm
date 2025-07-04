@@ -6,6 +6,7 @@
 	langs += /datum/language/carptongue
 	langs += /datum/language/slime
 	langs += /datum/language/primitive_genemod
+	langs += /datum/language/nambuni
 	return langs
 
 /// ACTUAL LANGUAGES BEGIN HERE
@@ -90,3 +91,28 @@
 	)
 	icon_state = "solcommon"
 	icon = 'modular_doppler/languages/icons/language.dmi'
+
+/datum/language/nambuni
+	name = "Nambūni"
+	desc = "Nambūni is the language spoken by most Nambūlites and by extension Deep Spacers. It has no known origin, though it superficially resembles some Austronesian and Khoisan languages in grammatical and phonetic structure despite predating human spaceflight. There are countless dialects, pidgins, and creoles spread throughout the thousands of micronations that compose the greater Nambūni Assembly, making the language a difficult one to master. As it is the official language of the Assembly, it is mandated that all prayer, diplomacy, and trade must be conducted in Nambūni, thus learning the language is one of the greatest hurdles outsider merchants face."
+	key = "N"
+	flags = TONGUELESS_SPEECH
+	space_chance = 30
+	syllables = list (
+		"se", "tiap", "ora", "nga", "nge", "ngi", "ngo", "ngū", "ang", "eng", "ing", "ong", "ung", "ach",
+		"ech", "ich", "och", "uch", "ych", "basei", "gehi", "nam", "nem", "nim", "nom", "nūm", "da", "de", "di",
+		"do", "du", "harū", "heru", "horo", "lua", "lūi", "luo", "ikan", "iken", "ikun", "lah", "luh", "leh",
+		"lih", "loh", "pan", "pen", "pon", "pun", "panam", "penam", "pinam", "ponam", "pūnam", "bang", "beng",
+		"yang", "yeng", "yong", "yung", "apat", "apet", "apot", "pat", "pet", "pot", "gaan", "geen", "giin", "goon",
+		"guun", "yai", "yei", "yūi", "hara", "hera", "hira", "hora", "hura", "hak", "hek", "hik", "hok", "huk",
+		"sai", "sei", "sui", "basei", "gehinnam", "mbūn", "mben", "mbon", "mbin", "mbem", "pakan", "pekan", "pak",
+		"pek", "puk"
+	)
+	special_characters = list("'", "-")
+	icon_state = "nambu"
+	icon = 'modular_doppler/languages/icons/language.dmi'
+	additional_syllable_low = 1
+	additional_syllable_high = 3
+	default_priority = 67
+	default_name_syllable_min = 2
+	default_name_syllable_max = 3
