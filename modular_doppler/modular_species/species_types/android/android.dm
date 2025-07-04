@@ -38,6 +38,9 @@
 	body_markings = list(/datum/bodypart_overlay/simple/body_marking/lizard = "None")
 	mutantheart = /obj/item/organ/heart/cybernetic/tier2
 	mutantstomach = /obj/item/organ/stomach/cybernetic/tier2
+	mutantbrain = /obj/item/organ/brain/cybernetic
+	mutantears = /obj/item/organ/ears/android
+	mutanttongue = /obj/item/organ/tongue/robot/android
 	mutantliver = /obj/item/organ/liver/cybernetic/tier2
 	exotic_bloodtype = BLOOD_TYPE_SYNTHETIC
 
@@ -49,6 +52,29 @@
 	var/atom/movable/screen/android/energy/energy_tracker
 	/// How much energy we start with
 	var/core_energy = ENERGY_START_AMT
+
+/obj/item/organ/brain/cybernetic
+	name = "cybernetic brain"
+	desc = "A mechanical brain found inside of androids. Not to be confused with a positronic brain."
+	icon = 'icons/obj/devices/assemblies.dmi'
+	icon_state = "posibrain"
+	organ_flags = ORGAN_ROBOTIC | ORGAN_VITAL
+	zone = BODY_ZONE_CHEST
+	failing_desc = "seems to be broken, and will not work without repairs."
+
+/obj/item/organ/ears/android
+	name = "audio receiver"
+	desc = "A listening device commonly found within androids. It is designed to be put in the torso."
+	icon = 'icons/obj/devices/artefacts.dmi'
+	icon_state = "prototype3"
+	organ_flags = ORGAN_ROBOTIC
+	zone = BODY_ZONE_CHEST
+	failing_desc = "seems to be broken."
+
+/obj/item/organ/tongue/robot/android
+	name = "android voicebox"
+	desc = "A voice synthesizer unique to androids. It is designed to be put in the torso."
+	zone = BODY_ZONE_CHEST
 
 /datum/outfit/android_preview
 	name = "Android (Species Preview)"
