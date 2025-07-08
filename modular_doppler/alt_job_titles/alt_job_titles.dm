@@ -20,8 +20,7 @@
 	alt_titles = list(
 		"Assistant",
 		"Artist",
-		"Businessman",
-		"Businesswoman",
+		"Businessperson",
 		"Civilian",
 		"Entertainer",
 		"Freelancer",
