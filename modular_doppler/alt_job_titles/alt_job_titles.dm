@@ -31,6 +31,8 @@
 		"Off-Duty Staff",
 		"Colonist",
 		"Contractor",
+		"Visitor",
+		"Guest",
 	)
 
 /datum/job/atmospheric_technician
@@ -81,12 +83,15 @@
 		"Command Secretary",
 		"Bridge Intern",
 		"Command Intern",
+		"Command Advisor",
 	)
 
 /datum/job/command_bodyguard
 	alt_titles = list(
 		"Command Bodyguard",
 		"Secreterial Officer",
+		"Command Guardian",
+		"Command Protector",
 	)
 
 /datum/job/botanist
@@ -121,6 +126,8 @@
 		"Commanding Officer",
 		"Site Manager",
 		"Station Commander",
+		"Shipmaster",
+		"Shipmistress",
 	)
 
 /datum/job/cargo_technician
@@ -130,7 +137,9 @@
 		"Commodities Trader",
 		"Deck Worker",
 		"Inventory Associate",
-		"Mailman",
+		"Mailperson",
+		"Postperson",
+		"Courier",
 		"Mail Carrier",
 		"Receiving Clerk",
 		"Union Associate",
@@ -167,7 +176,7 @@
 /datum/job/chief_engineer
 	alt_titles = list(
 		"Chief Engineer",
-		"Engineering Foreman",
+		"Engineering Foreperson",
 		"Head of Engineering",
 	)
 
@@ -227,6 +236,8 @@
 		"Cyborg",
 		"Android",
 		"Robot",
+		"Telepuppet",
+		"Bioroid",
 	)
 
 /datum/job/detective
@@ -235,6 +246,7 @@
 		"Forensic Scientist",
 		"Forensic Technician",
 		"Private Investigator",
+		"Private Eye",
 	)
 
 /datum/job/doctor
@@ -246,6 +258,7 @@
 		"Physician",
 		"Surgeon",
 		"Medical Student",
+		"Veterinarian",
 	)
 
 /datum/job/engineering_guard //see orderly
@@ -390,6 +403,7 @@
 		"Xenoarchaeologist",
 		"Xenobiologist",
 		"Research Assistant",
+		"Geologist",
 	)
 
 /datum/job/security_officer
@@ -446,4 +460,5 @@
 		"Brig Governor",
 		"Dispatch Officer",
 		"Jailer",
+		"Lieutenant",
 	)
