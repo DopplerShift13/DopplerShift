@@ -237,7 +237,7 @@
 		"Android",
 		"Robot",
 		"Telepuppet",
-		"Bioroid",
+		"Homunculi",
 	)
 
 /datum/job/detective
@@ -245,8 +245,6 @@
 		"Detective",
 		"Forensic Scientist",
 		"Forensic Technician",
-		"Private Investigator",
-		"Private Eye",
 	)
 
 /datum/job/doctor
@@ -258,7 +256,6 @@
 		"Physician",
 		"Surgeon",
 		"Medical Student",
-		"Veterinarian",
 	)
 
 /datum/job/engineering_guard //see orderly
