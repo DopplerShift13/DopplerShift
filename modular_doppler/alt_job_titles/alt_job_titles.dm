@@ -43,16 +43,6 @@
 		"Life Support Technician",
 	)
 
-/datum/job/barber
-	alt_titles = list(
-		"Barber",
-		"Aethestician",
-		"Colorist",
-		"Salon Manager",
-		"Salon Technician",
-		"Stylist",
-	)
-
 /datum/job/bartender
 	alt_titles = list(
 		"Bartender",
@@ -104,20 +94,6 @@
 		"Hydroponicist",
 		"Mycologist",
 		"Junior Botanist",
-	)
-
-/datum/job/bouncer
-	alt_titles = list(
-		"Bouncer",
-		"Service Guard",
-		"Doorman",
-	)
-
-/datum/job/corrections_officer
-	alt_titles = list(
-		"Corrections Officer",
-		"Brig Officer",
-		"Prison Guard",
 	)
 
 /datum/job/captain
@@ -257,8 +233,6 @@
 		"Medical Student",
 	)
 
-/datum/job/engineering_guard //see orderly
-
 /datum/job/geneticist
 	alt_titles = list(
 		"Geneticist",
@@ -312,19 +286,6 @@
 		"Mummer",
 		"Pantomimist",
 	)
-
-/datum/job/nanotrasen_consultant
-	alt_titles = list(
-		"Nanotrasen Consultant",
-		"Nanotrasen Advisor",
-		"Nanotrasen Diplomat",
-	)
-
-/datum/job/orderly
-	alt_titles = list(
-		"Orderly",
-		"Medical Guard",
-	) //other dept guards' alt-titles should be kept to [department] guard to avoid confusion, unless the department gets a re-do.
 
 /datum/job/paramedic
 	alt_titles = list(
@@ -382,8 +343,6 @@
 		"Apprentice Roboticist",
 	)
 
-/datum/job/science_guard //See orderly
-
 /datum/job/scientist
 	alt_titles = list(
 		"Scientist",
@@ -439,14 +398,6 @@
 		"Network Engineer",
 		"Sysadmin",
 		"Tram Technician",
-	)
-
-/datum/job/virologist
-	alt_titles = list(
-		"Virologist",
-		"Epidemiologist",
-		"Pathologist",
-		"Junior Pathologist",
 	)
 
 /datum/job/warden
