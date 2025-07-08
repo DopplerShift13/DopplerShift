@@ -237,7 +237,6 @@
 		"Android",
 		"Robot",
 		"Telepuppet",
-		"Homunculi",
 	)
 
 /datum/job/detective
