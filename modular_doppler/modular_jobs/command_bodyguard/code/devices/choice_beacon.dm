@@ -18,7 +18,7 @@
 // The box options for Bodyguard
 /obj/item/storage/box/bodyguard/indiscreet
 	name = "The Indiscreet"
-	desc = "Wear your armour loud and proud, Standard issue security armour vest and helmet, for use in sticky situations."
+	desc = "Wear your armour loud and proud. Standard issue security armour vest and helmet, for use in sticky situations."
 
 /obj/item/storage/box/bodyguard/indiscreet/PopulateContents()
 	new /obj/item/clothing/suit/armor/vest/alt(src)
