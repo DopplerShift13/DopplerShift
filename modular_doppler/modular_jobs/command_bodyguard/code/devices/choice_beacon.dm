@@ -10,17 +10,17 @@
 	var/static/list/bodyguard_item_list
 	if(!bodyguard_item_list)
 		bodyguard_item_list = list()
-		for(var/obj/item/storage/box/bodyguard/box as anything in typesof(/obj/item/storage/box/bodyguard))
+		for(var/obj/item/storage/box/bodyguard/box as anything in subtypesof(/obj/item/storage/box/bodyguard))
 			bodyguard_item_list[initial(box.name)] = box
 	return bodyguard_item_list
 
 
 // The box options for Bodyguard
-/obj/item/storage/box/bodyguard
+/obj/item/storage/box/bodyguard/indiscreet
 	name = "The Indiscreet"
 	desc = "Wear your armour loud and proud, standard issue security armour vest and helmet, for use in sticky situations."
 
-/obj/item/storage/box/bodyguard/PopulateContents()
+/obj/item/storage/box/bodyguard/indiscreet/PopulateContents()
 	new /obj/item/clothing/suit/armor/vest/alt(src)
 	new /obj/item/clothing/head/helmet(src)
 	new /obj/item/clothing/glasses/hud/security/sunglasses(src)
