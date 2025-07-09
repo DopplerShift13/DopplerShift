@@ -7302,6 +7302,7 @@
 #include "modular_doppler\modular_jobs\bridge_assistant\code\landmarks.dm"
 #include "modular_doppler\modular_jobs\command_bodyguard\code\command_bodyguard.dm"
 #include "modular_doppler\modular_jobs\command_bodyguard\code\landmarks.dm"
+#include "modular_doppler\modular_jobs\command_bodyguard\code\devices\choice_beacon.dm"
 #include "modular_doppler\modular_jobs\command_bodyguard\code\devices\crew.dm"
 #include "modular_doppler\modular_jobs\command_bodyguard\code\devices\sensor_device.dm"
 #include "modular_doppler\modular_jobs\command_bodyguard\code\job_skillchips\command_bodyguard.dm"
