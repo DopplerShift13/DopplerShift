@@ -4,7 +4,7 @@
 	icon_state = "sb_delivery"
 	inhand_icon_state = "sb_delivery"
 	company_source = "P.CAT Asset Protection Team"
-	company_message = span_bold("Please enjoy your P.CAT APT's 'command bodyguard' equipment Set, protect your peers well.")
+	company_message = span_bold("Please enjoy your P.CAT APT's 'command bodyguard' equipment set, protect your peers well.")
 
 /obj/item/choice_beacon/bodyguard/generate_display_names()
 	var/static/list/bodyguard_item_list
@@ -18,7 +18,7 @@
 // The box options for Bodyguard
 /obj/item/storage/box/bodyguard/indiscreet
 	name = "The Indiscreet"
-	desc = "Wear your armour loud and proud, standard issue security armour vest and helmet, for use in sticky situations."
+	desc = "Wear your armour loud and proud, Standard issue security armour vest and helmet, for use in sticky situations."
 
 /obj/item/storage/box/bodyguard/indiscreet/PopulateContents()
 	new /obj/item/clothing/suit/armor/vest/alt(src)
@@ -36,7 +36,7 @@
 
 /obj/item/storage/box/bodyguard/formal
 	name = "The Formal"
-	desc = "A formal blue and red toned shirt and beret, comes with a plain black vest just incase."
+	desc = "A formal blue and red toned shirt and beret, comes with a plain black vest just in case."
 
 /obj/item/storage/box/bodyguard/formal/PopulateContents()
 	new /obj/item/clothing/under/rank/security/officer/formal(src)
