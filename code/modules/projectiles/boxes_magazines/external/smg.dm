@@ -11,7 +11,7 @@
 
 /obj/item/ammo_box/magazine/wt550m9/update_icon_state()
 	. = ..()
-	icon_state = "[base_icon_state]-[round(ammo_count(), 4)]"
+	// icon_state = "[base_icon_state]-[round(ammo_count(), 4)]" // DOPPLER REMOVAL - Modular icon replacement
 
 /obj/item/ammo_box/magazine/wt550m9/wtap
 	name = "\improper WT-550 magazine (4.6x30mm AP)"

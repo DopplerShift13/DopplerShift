@@ -1,4 +1,4 @@
-/obj/item/organ/cyberimp/arm/botany
+/obj/item/organ/cyberimp/arm/toolkit/botany
 	name = "hydroponics toolset implant"
 	desc = "A rather simple arm implant containing tools used in gardening and botanical research."
 	icon_state = "toolkit_generic"
@@ -30,7 +30,7 @@
 	tool_behaviour = TOOL_SAW
 	toolspeed = 1
 
-/obj/item/organ/cyberimp/arm/botany/emag_act()
+/obj/item/organ/cyberimp/arm/toolkit/botany/emag_act()
 	if(obj_flags & EMAGGED)
 		return FALSE
 	for(var/datum/weakref/created_item in items_list)
@@ -39,7 +39,7 @@
 	obj_flags |= EMAGGED
 	return TRUE
 
-/obj/item/organ/cyberimp/arm/janitor
+/obj/item/organ/cyberimp/arm/toolkit/janitor
 	name = "sanitation toolset implant"
 	desc = "A set of janitorial tools on the user's arm."
 	actions_types = list(/datum/action/item_action/organ_action/toggle/toolkit)
@@ -51,7 +51,7 @@
 		/obj/item/wirebrush,
 		)
 
-/obj/item/organ/cyberimp/arm/janitor/emag_act()
+/obj/item/organ/cyberimp/arm/toolkit/janitor/emag_act()
 	if(obj_flags & EMAGGED)
 		return FALSE
 	for(var/datum/weakref/created_item in items_list)
@@ -61,7 +61,7 @@
 	obj_flags |= EMAGGED
 	return TRUE
 
-/obj/item/organ/cyberimp/arm/razor_claws
+/obj/item/organ/cyberimp/arm/toolkit/razor_claws
 	name = "razor claws implant"
 	desc = "A set of hidden, retractable blades built into the fingertips; cyborg mercenary approved."
 	items_to_create = list(/obj/item/knife/razor_claws)
@@ -103,7 +103,7 @@
 		inhand_icon_state = "precision_wolverine"
 		force = cutter_force
 		wound_bonus = cutter_wound_bonus
-		bare_wound_bonus = cutter_bare_wound_bonus
+		exposed_wound_bonus = cutter_bare_wound_bonus
 		sharpness = NONE
 		hitsound = 'sound/items/tools/wirecutter.ogg'
 		usesound = 'sound/items/tools/wirecutter.ogg'
@@ -117,7 +117,7 @@
 		force = knife_force
 		sharpness = SHARP_EDGED
 		wound_bonus = knife_wound_bonus
-		bare_wound_bonus = 15
+		exposed_wound_bonus = 15
 		hitsound = 'sound/items/weapons/bladeslice.ogg'
 		usesound = 'sound/items/weapons/bladeslice.ogg'
 		attack_verb_continuous = list("slashes", "tears", "slices", "tears", "lacerates", "rips", "dices", "cuts", "rends")
@@ -158,7 +158,7 @@
 	contains = list(/obj/item/scratching_stone)
 	contraband = TRUE
 
-/obj/item/organ/cyberimp/arm/mining_drill
+/obj/item/organ/cyberimp/arm/toolkit/mining_drill
 	name = "\improper Dalba Masterworks 'Burrower' Integrated Drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a steel mining drill to extend over the user's hand. Little by little, we advance a bit further with each turn. That's how a drill works!"
 	icon = 'modular_doppler/modular_medical/icons/implants.dmi'
@@ -177,7 +177,7 @@
 /datum/bodypart_overlay/simple/steel_drill/right
 	icon_state = "steel_right"
 
-/obj/item/organ/cyberimp/arm/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+/obj/item/organ/cyberimp/arm/toolkit/mining_drill/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	. = ..()
 	if(zone == BODY_ZONE_L_ARM)
 		drill_overlay = new /datum/bodypart_overlay/simple/steel_drill/left
@@ -186,7 +186,7 @@
 	limb.add_bodypart_overlay(drill_overlay)
 	owner?.update_body_parts()
 
-/obj/item/organ/cyberimp/arm/mining_drill/on_mob_remove(mob/living/carbon/arm_owner)
+/obj/item/organ/cyberimp/arm/toolkit/mining_drill/on_mob_remove(mob/living/carbon/arm_owner)
 	. = ..()
 	bodypart_owner?.remove_bodypart_overlay(drill_overlay)
 	arm_owner.update_body_parts()
@@ -230,7 +230,7 @@
 	playsound(user, 'modular_doppler/modular_sounds/sound/machines/whirr.ogg', 50, FALSE)
 	user.visible_message(span_warning("[user] spins [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"), span_notice("You spin [src]'s bit, accelerating for a moment to <span class='bolddanger'>thousands of RPM.</span>"))
 
-/obj/item/organ/cyberimp/arm/mining_drill/diamond
+/obj/item/organ/cyberimp/arm/toolkit/mining_drill/diamond
 	name = "\improper Dalba Masterworks 'Tunneler' Diamond Integrated Drill"
 	desc = "Extending from a stabilization bracer built into the upper forearm, this implant allows for a masterwork diamond mining drill to extend over the user's hand. This drill will open a hole in the universe, and that hole will be a path for those behind us!"
 	icon_state = "diamond"

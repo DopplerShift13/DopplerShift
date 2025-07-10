@@ -26,7 +26,7 @@
 	armour_penetration = 25
 	block_chance = 1 // Nah, I'd win
 	wound_bonus = 0
-	bare_wound_bonus = 20
+	exposed_wound_bonus = 20
 	attack_verb_continuous = list("attacks", "slashes", "slices", "tears", "lacerates", "rips", "dices", "rends")
 	attack_verb_simple = list("attack", "slash", "slice", "tear", "lacerate", "rip", "dice", "rend")
 	var/list/alt_continuous = list("bashes", "clobbers", "crushes")

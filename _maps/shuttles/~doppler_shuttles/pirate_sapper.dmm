@@ -57,7 +57,7 @@
 /area/shuttle/pirate/sapper)
 "lZ" = (
 /obj/machinery/light/floor,
-/obj/effect/decal/cleanable/robot_debris/limb,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/limb,
 /obj/item/trash/empty_side_pack/marsian{
 	pixel_x = -6;
 	pixel_y = -6
@@ -138,7 +138,7 @@
 	pixel_x = -9;
 	pixel_y = 9
 	},
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/pirate/sapper)
 "qq" = (
@@ -174,7 +174,7 @@
 /area/shuttle/pirate/sapper)
 "rL" = (
 /obj/machinery/light/floor,
-/obj/effect/decal/cleanable/oil,
+/obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/pirate/sapper)
 "sr" = (
@@ -502,7 +502,7 @@
 /turf/open/floor/plating,
 /area/shuttle/pirate/sapper)
 "TF" = (
-/obj/effect/decal/cleanable/robot_debris/up,
+/obj/effect/decal/cleanable/blood/gibs/robot_debris/up,
 /obj/item/toy/crayon/spraycan,
 /turf/open/floor/mineral/titanium/white,
 /area/shuttle/pirate/sapper)

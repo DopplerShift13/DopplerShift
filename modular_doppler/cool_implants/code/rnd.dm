@@ -13,7 +13,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/razorwire
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/razorwire
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)
@@ -33,7 +33,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/arm_surgery_computer
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/arm_surgery_computer
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_HEALTH
 	)
@@ -53,7 +53,7 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	construction_time = 30 SECONDS
-	build_path = /obj/item/organ/cyberimp/arm/shell_launcher
+	build_path = /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 	category = list(
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_COMBAT
 	)

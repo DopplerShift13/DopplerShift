@@ -14,13 +14,14 @@
 
 	var/datum/universal_icon/icon_with_hair = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "pod_head_m")
 
-	var/datum/universal_icon/icon_adj = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_ADJ")
-	var/datum/universal_icon/icon_front = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT")
-	icon_adj.blend_icon(icon_front, ICON_OVERLAY)
-	icon_with_hair.blend_icon(icon_adj, ICON_OVERLAY)
-	icon_with_hair.scale(64, 64)
-	icon_with_hair.crop(15, 64 - 31, 15 + 31, 64)
-	icon_with_hair.blend_color(COLOR_GREEN, ICON_MULTIPLY)
+	if (value != "None") //DOPPLER EDIT ADDITION
+		var/datum/universal_icon/icon_adj = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_ADJ")
+		var/datum/universal_icon/icon_front = uni_icon(pod_hair.icon, "m_pod_hair_[pod_hair.icon_state]_FRONT")
+		icon_adj.blend_icon(icon_front, ICON_OVERLAY)
+		icon_with_hair.blend_icon(icon_adj, ICON_OVERLAY)
+		icon_with_hair.scale(64, 64)
+		icon_with_hair.crop(15, 64 - 31, 15 + 31, 64)
+		icon_with_hair.blend_color(COLOR_GREEN, ICON_MULTIPLY)
 
 	return icon_with_hair
 

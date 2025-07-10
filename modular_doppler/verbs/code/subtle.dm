@@ -21,7 +21,7 @@
 	var/subtle_range = SUBTLE_DEFAULT_DISTANCE
 
 	var/datum/dna/dna = user.has_dna()
-	if(dna && dna?.check_mutation(/datum/mutation/human/telekinesis))
+	if(dna && dna?.check_mutation(/datum/mutation/telekinesis))
 		subtle_range = SUBTLE_TELEKINESIS_DISTANCE
 
 	if(SSdbcore.IsConnected() && is_banned_from(user, "emote"))

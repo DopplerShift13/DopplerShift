@@ -3,8 +3,9 @@
 	name = "AAC device"
 	desc = "An Augmented and Alternative Communication device designed to facilitate oral communication \
 	for people with communicative disabilities."
-	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/devices.dmi'
-	icon_state = "aac_device"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/aac_device"
+	post_init_icon_state = "aac_device"
 	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = UNIQUE_RENAME
 	flags_1 = IS_PLAYER_COLORABLE_1

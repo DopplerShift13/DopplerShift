@@ -13,13 +13,11 @@
 /obj/item/crusher_trophy/skill_check/add_to(obj/item/kinetic_crusher/pkc, mob/living/user)
 	. = ..()
 
-	pkc.detonation_damage *=0.8
 	pkc.backstab_bonus *= 2
 
 /obj/item/crusher_trophy/skill_check/remove_from(obj/item/kinetic_crusher/pkc, mob/living/user)
 	. = ..()
 
-	pkc.detonation_damage /=0.8
 	pkc.backstab_bonus /= 2
 
 

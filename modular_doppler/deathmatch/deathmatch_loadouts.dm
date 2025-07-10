@@ -81,7 +81,7 @@
 	gloves = /obj/item/clothing/gloves/fingerless
 	implants_to_add = list(
 		/obj/item/organ/cyberimp/sensory_enhancer,
-		/obj/item/organ/cyberimp/arm/shell_launcher,
+		/obj/item/organ/cyberimp/arm/toolkit/shell_launcher,
 	)
 	bodyparts_to_replace = list()
 
@@ -98,7 +98,7 @@
 	mask = /obj/item/clothing/mask/neck_gaiter/cybersun
 	l_pocket = /obj/item/ammo_box/magazine/smartgun
 	implants_to_add = list(
-		/obj/item/organ/cyberimp/arm/razorwire,
+		/obj/item/organ/cyberimp/arm/toolkit/razorwire,
 		/obj/item/organ/heart/cybernetic/anomalock/prebuilt,
 	)
 	bodyparts_to_replace = list()

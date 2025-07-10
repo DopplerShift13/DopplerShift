@@ -3,7 +3,7 @@
 	/// Preference of how the preview should show the character.
 	var/preview_pref = PREVIEW_PREF_JOB
 
-	/// Associative list, keyed by language typepath, pointing to LANGUAGE_UNDERSTOOD, or LANGUAGE_SPOKEN, for whether we understand or speak the language
+	/// Associative list, keyed by language typepath, pointing to list(percent_understood, (LANGUAGE_UNDERSTOOD, or LANGUAGE_SPOKEN, for whether we understand or speak the language))
 	var/list/languages = list()
 
 	/// Associative list containing all powers, pointing to their respective cost

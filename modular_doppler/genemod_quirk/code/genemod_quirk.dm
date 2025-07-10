@@ -6,7 +6,7 @@
 	medical_record_text = "Subject has innately modified genetic information."
 	value = 10
 	icon = FA_ICON_FLASK
-	var/datum/mutation/human/added_mutation = NONE
+	var/datum/mutation/added_mutation = NONE
 
 /datum/quirk/genemodded/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -14,13 +14,12 @@
 
 	if (desired_mutation)
 		added_mutation = GLOB.possible_genemods_for_quirk[desired_mutation]
-		if (!human_holder.dna.activate_mutation(added_mutation))
-			human_holder.dna.add_mutation(added_mutation, MUT_EXTRA)
+		human_holder.dna.add_mutation(added_mutation, MUTATION_SOURCE_QUIRK)
 
 /datum/quirk/genemodded/remove()
 	if (added_mutation)
 		var/mob/living/carbon/human/human_holder = quirk_holder
-		human_holder.dna.remove_mutation(added_mutation)
+		human_holder.dna.remove_mutation(added_mutation, MUTATION_SOURCE_QUIRK)
 		added_mutation = null
 
 /datum/quirk_constant_data/genemodded
@@ -34,10 +33,10 @@
 	can_randomize = FALSE
 
 /proc/generate_genemod_quirk_list()
-	var/list/stuff_we_dont_want = list(/datum/mutation/human/self_amputation, /datum/mutation/human/hulk, /datum/mutation/human/clever, /datum/mutation/human/blind, /datum/mutation/human/thermal, /datum/mutation/human/telepathy, /datum/mutation/human/void, /datum/mutation/human/badblink, /datum/mutation/human/acidflesh)
+	var/list/stuff_we_dont_want = list(/datum/mutation/self_amputation, /datum/mutation/hulk, /datum/mutation/clever, /datum/mutation/blind, /datum/mutation/thermal, /datum/mutation/telepathy, /datum/mutation/void, /datum/mutation/badblink, /datum/mutation/acidflesh)
 
 	var/list/genemods = list()
-	for (var/datum/mutation/human/mut as anything in subtypesof(/datum/mutation/human))
+	for (var/datum/mutation/mut as anything in subtypesof(/datum/mutation))
 		if (!mut.locked && !(mut in stuff_we_dont_want))
 			genemods[mut.name] = mut
 
@@ -59,4 +58,3 @@ GLOBAL_LIST_INIT(possible_genemods_for_quirk, generate_genemod_quirk_list())
 
 /datum/preference/choiced/genemodded_dna/apply_to_human(mob/living/carbon/human/target, value)
 	return
-

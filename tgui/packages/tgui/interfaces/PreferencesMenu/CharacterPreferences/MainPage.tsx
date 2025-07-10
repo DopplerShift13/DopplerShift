@@ -147,7 +147,6 @@ function ChoicedSelection(props: ChoicedSelectionProps) {
               fluid
               placeholder="Search..."
               onChange={setSearchText}
-              expensive
             />
           </Section>
         </Stack.Item>

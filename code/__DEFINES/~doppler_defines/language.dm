@@ -3,3 +3,6 @@
 // LANGUAGE SOURCE DEFINES
 /// Use this when granting languages in special() for spawner roles, to prevent prefs from removing them
 #define LANGUAGE_SPAWNER "spawner"
+
+#define LANGUAGE_FLAGS "flags"
+#define LANGUAGE_KNOWLEDGE "lang_knowledge"

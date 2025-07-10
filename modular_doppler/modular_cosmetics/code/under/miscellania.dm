@@ -35,7 +35,9 @@
 	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 		now and then. This pair has generous onboard storage."
-	icon_state = "big_pants"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/big_pants"
+	post_init_icon_state = "big_pants"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	greyscale_config = /datum/greyscale_config/big_pants
@@ -76,7 +78,9 @@
 	name = "ATHLETAS bodysuit"
 	desc = "Hairfine threads of extruded silver-protein slurry ride from spindle to needle on a single production chain. \
 	The fine jersey wicks and breathes while resisting microbial colonization."
-	icon_state = "athletas_bodysuit"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/athletas_bodysuit"
+	post_init_icon_state = "athletas_bodysuit"
 	greyscale_config = /datum/greyscale_config/athletas_bodysuit
 	greyscale_config_worn = /datum/greyscale_config/athletas_bodysuit/worn
 	greyscale_colors = "#1c1c1c#c0c0c0"

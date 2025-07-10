@@ -7,7 +7,7 @@
 	base_icon_state = "toggle"
 	mouse_over_pointer = MOUSE_HAND_POINTER
 
-/atom/movable/screen/human/toggle/Click()
+/atom/movable/screen/human/toggle/Click(location, control, params) // DOPPLER EDIT ADDITION - Original: /atom/movable/screen/human/toggle/Click()
 
 	var/mob/targetmob = usr
 
@@ -15,6 +15,13 @@
 		if(ishuman(usr.client.eye) && (usr.client.eye != usr))
 			var/mob/M = usr.client.eye
 			targetmob = M
+
+	// DOPPLER EDIT ADDITION START - Right click functionality for mutant part toggling
+	if(LAZYACCESS(params2list(params), RIGHT_CLICK))
+		var/mob/living/carbon/human/H = targetmob
+		H.mutant_part_visibility(re_do = TRUE)
+		return
+	// DOPPLER EDIT ADDITION END
 
 	if(usr.hud_used.inventory_shown && targetmob.hud_used)
 		usr.hud_used.inventory_shown = FALSE
@@ -255,6 +262,10 @@
 	rest_icon.screen_loc = ui_rest
 	rest_icon.update_appearance()
 	static_inventory += rest_icon
+
+	sleep_icon = new /atom/movable/screen/sleep(null, src)
+	sleep_icon.icon = ui_style
+	sleep_icon.screen_loc = ui_above_throw
 
 	spacesuit = new /atom/movable/screen/spacesuit(null, src)
 	infodisplay += spacesuit

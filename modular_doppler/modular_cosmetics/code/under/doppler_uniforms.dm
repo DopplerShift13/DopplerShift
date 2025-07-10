@@ -63,7 +63,9 @@
 /obj/item/clothing/under/misc/doppler_uniform/standard
 	name = "doppler uniform"
 	desc = "A cozy standard uniform from Doppler Shift-series stations."
-	icon_state = "doppler_uniform"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/misc/doppler_uniform/standard"
+	post_init_icon_state = "doppler_uniform"
 	worn_icon_state = "doppler_uniform"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/worn
@@ -80,7 +82,8 @@
 /obj/item/clothing/under/misc/doppler_uniform/standard/cozy
 	name = "doppler cozy uniform"
 	desc = "A cozier standard uniform from Doppler Shift-series stations."
-	icon_state = "doppler_cozy"
+	icon_state = "/obj/item/clothing/under/misc/doppler_uniform/standard/cozy"
+	post_init_icon_state = "doppler_cozy"
 	worn_icon_state = "doppler_cozy"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/cozy
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/cozy/worn
@@ -95,7 +98,8 @@
 /obj/item/clothing/under/misc/doppler_uniform/standard/suit
 	name = "doppler fancy uniform"
 	desc = "A fancy standard uniform from Doppler Shift-series stations."
-	icon_state = "doppler_suit"
+	icon_state = "/obj/item/clothing/under/misc/doppler_uniform/standard/suit"
+	post_init_icon_state = "doppler_suit"
 	worn_icon_state = "doppler_suit"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/fancysuit
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/fancysuit/worn
@@ -111,7 +115,8 @@
 /obj/item/clothing/under/misc/doppler_uniform/standard/overalls
 	name = "doppler uniform w/ overalls"
 	desc = "A cozy standard uniform from Doppler Shift-series stations.  This one has fancy overalls attached."
-	icon_state = "doppler_uniform_overalls"
+	icon_state = "/obj/item/clothing/under/misc/doppler_uniform/standard/overalls"
+	post_init_icon_state = "doppler_uniform_overalls"
 	worn_icon_state = "doppler_uniform_overalls"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/overalls
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/overalls/worn
@@ -125,7 +130,8 @@
 /obj/item/clothing/under/misc/doppler_uniform/standard/cozy/overalls
 	name = "doppler cozy uniform w/ overalls"
 	desc = "A cozier standard uniform from Doppler Shift-series stations.  This one has fancy overalls attached."
-	icon_state = "doppler_cozy_overalls"
+	icon_state = "/obj/item/clothing/under/misc/doppler_uniform/standard/cozy/overalls"
+	post_init_icon_state = "doppler_cozy_overalls"
 	worn_icon_state = "doppler_cozy_overalls"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/cozy/overalls
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/cozy/overalls/worn
@@ -139,7 +145,8 @@
 /obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls
 	name = "doppler fancy uniform w/ overalls"
 	desc = "A fancy standard uniform from Doppler Shift-series stations.  This one has fancy overalls attached."
-	icon_state = "doppler_suit_overalls"
+	icon_state = "/obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls"
+	post_init_icon_state = "doppler_suit_overalls"
 	worn_icon_state = "doppler_suit_overalls"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls/worn
@@ -149,6 +156,9 @@
 	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls/worn
 	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls/worn/digi
 	set_greyscale(colors = greyscale_colors)
+
+/obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls/colored
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1 // This entire subtype is a randomized broken mess
 
 /obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls/colored
 	var/list/suit_colors = list(
@@ -192,6 +202,7 @@
 /obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls/random
 	name = "greytide suit spawner"
 	desc = "If you see this, yell at Naaka."
+	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1 // This entire subtype is a randomized broken mess
 
 /obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls/random/Initialize(mapload)
 	..()

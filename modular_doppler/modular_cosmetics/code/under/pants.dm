@@ -22,6 +22,9 @@
 	set_greyscale(colors = greyscale_colors)
 
 /obj/item/clothing/under/pants/track
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/track"
+	post_init_icon_state = "trackpants"
 	greyscale_colors = "#2b2b2b#FFFFFF"
 	greyscale_config = /datum/greyscale_config/track_pants
 	greyscale_config_worn = /datum/greyscale_config/track_pants/worn
@@ -35,6 +38,9 @@
 	set_greyscale(colors = greyscale_colors)
 
 /obj/item/clothing/under/pants/camo
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/camo"
+	post_init_icon_state = "camopants"
 	greyscale_colors = "#69704C#6E5B4C#343741"
 	greyscale_config = /datum/greyscale_config/camo_pants
 	greyscale_config_worn = /datum/greyscale_config/camo_pants/worn
@@ -50,8 +56,9 @@
 /obj/item/clothing/under/pants/jeans/ripped
 	name = "ripped jeans"
 	desc = "A pair of jeans pocked in rips."
-	icon = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi'
-	icon_state = "ripped_jeans"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/jeans/ripped"
+	post_init_icon_state = "ripped_jeans"
 	greyscale_config = /datum/greyscale_config/ripped_jeans
 	greyscale_config_worn = /datum/greyscale_config/ripped_jeans/worn
 
@@ -65,7 +72,6 @@
 /// SHORTS UPDATES
 
 /obj/item/clothing/under/shorts
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/pants.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi'
 	digitigrade_greyscale_config_worn = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
@@ -90,7 +96,8 @@
 /obj/item/clothing/under/shorts/shorter
 	name = "short shorts"
 	desc = "A pair of comfy shorts, cut down slim."
-	icon_state = "shortshorts"
+	icon_state = "/obj/item/clothing/under/shorts/shorter"
+	post_init_icon_state = "shortshorts"
 	greyscale_config = /datum/greyscale_config/skimpypants
 	greyscale_config_worn = /datum/greyscale_config/skimpypants/worn
 
@@ -104,28 +111,33 @@
 /obj/item/clothing/under/shorts/shorter/shortest
 	name = "shortest shorts"
 	desc = "A pair of comfy shorts, cut down to near nonexistence by some barbarian."
-	icon_state = "shortestshorts"
+	icon_state = "/obj/item/clothing/under/shorts/shorter/shortest"
+	post_init_icon_state = "shortestshorts"
 
 /obj/item/clothing/under/shorts/shorter/jeans
 	name = "short jean shorts"
 	desc = "A nondescript pair of tough jean shorts, cut down slim."
-	icon_state = "jeanshortshorts"
+	icon_state = "/obj/item/clothing/under/shorts/shorter/jeans"
+	post_init_icon_state = "jeanshortshorts"
 	greyscale_colors = "#787878#723E0E#4D7EAC"
 
 /obj/item/clothing/under/shorts/shorter/jeans/shortest
 	name = "shortest jean shorts"
 	desc = "A nondescript pair of tough jean shorts, cut down to near nonexistence by some barbarian."
-	icon_state = "jeanshortestshorts"
+	icon_state = "/obj/item/clothing/under/shorts/shorter/jeans/shortest"
+	post_init_icon_state = "jeanshortestshorts"
 
 /obj/item/clothing/under/shorts/shorter/skirt
 	name = "simple skirt"
 	desc = "A lone skirt, suitable to combo with your favorite getup."
-	icon_state = "skirt"
+	icon_state = "/obj/item/clothing/under/shorts/shorter/skirt"
+	post_init_icon_state = "skirt"
 
 /obj/item/clothing/under/dress/skirt/medium
 	name = "medium skirt"
 	desc = "An appealing medium-length skirt. Top not included."
-	icon_state = "medium_skirt"
+	icon_state = "/obj/item/clothing/under/dress/skirt/medium"
+	post_init_icon_state = "medium_skirt"
 	body_parts_covered = GROIN
 	greyscale_config = /datum/greyscale_config/medium_skirt
 	greyscale_config_worn = /datum/greyscale_config/medium_skirt/worn
@@ -136,7 +148,8 @@
 /obj/item/clothing/under/dress/skirt/long
 	name = "long skirt"
 	desc = "An appealing long skirt. At this point does it qualify as a dress?"
-	icon_state = "long_skirt"
+	icon_state = "/obj/item/clothing/under/dress/skirt/long"
+	post_init_icon_state = "long_skirt"
 	body_parts_covered = GROIN|LEGS
 	greyscale_config = /datum/greyscale_config/long_skirt
 	greyscale_config_worn = /datum/greyscale_config/long_skirt/worn

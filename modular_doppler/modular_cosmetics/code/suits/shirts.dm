@@ -4,7 +4,9 @@
 		'seem to spring into existence without human intervention.' Made from a single piece of fabric with a seam \
 		and closure in the back, this mantle is almost austere enough to disguise its origin in a Marsian garment \
 		factory."
-	icon_state = "dagger_mantle"
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/dagger_mantle"
+	post_init_icon_state = "dagger_mantle"
 	greyscale_config = /datum/greyscale_config/dagger_mantle
 	greyscale_config_worn = /datum/greyscale_config/dagger_mantle/worn
 	greyscale_colors = "#d6f7ff"

@@ -1,7 +1,9 @@
 /obj/item/clothing/under/suit/pencil
 	name = "pencilskirt and shirt"
 	desc = "A clean shirt with a tight-fitting pencilskirt."
-	icon_state = "pencilskirt_shirt"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/suit/pencil"
+	post_init_icon_state = "pencilskirt_shirt"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	greyscale_colors = "#37373e#ffffff"
 	greyscale_config = /datum/greyscale_config/pencilskirt_withshirt
@@ -11,7 +13,8 @@
 /obj/item/clothing/under/suit/pencil/noshirt
 	name = "pencilskirt"
 	desc = "A tight-fitting pencilskirt, perfect to augment an undershirt."
-	icon_state = "pencilskirt"
+	icon_state = "/obj/item/clothing/under/suit/pencil/noshirt"
+	post_init_icon_state = "pencilskirt"
 	greyscale_colors = "#37373e"
 	greyscale_config = /datum/greyscale_config/pencilskirt
 	greyscale_config_worn = /datum/greyscale_config/pencilskirt/worn
@@ -20,32 +23,38 @@
 /obj/item/clothing/under/suit/pencil/charcoal
 	name = "charcoal pencilskirt"
 	desc = "A clean white shirt with a tight-fitting charcoal pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/pencil/charcoal"
 	greyscale_colors = "#303030#ffffff"
 
 /obj/item/clothing/under/suit/pencil/navy
 	name = "navy pencilskirt"
 	desc = "A clean white shirt with a tight-fitting navy-blue pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/pencil/navy"
 	greyscale_colors = "#112334#ffffff"
 
 /obj/item/clothing/under/suit/pencil/burgandy
 	name = "burgandy pencilskirt"
 	desc = "A clean white shirt with a tight-fitting burgandy-red pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/pencil/burgandy"
 	greyscale_colors = "#3e1111#ffffff"
 
 /obj/item/clothing/under/suit/pencil/tan
 	name = "tan pencilskirt"
 	desc = "A clean white shirt with a tight-fitting tan pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/pencil/tan"
 	greyscale_colors = "#8b7458#ffffff"
 
 /obj/item/clothing/under/suit/pencil/green
 	name = "green pencilskirt"
 	desc = "A clean white shirt with a tight-fitting green pencilskirt."
+	icon_state = "/obj/item/clothing/under/suit/pencil/green"
 	greyscale_colors = "#113e20#ffffff"
 
 /obj/item/clothing/under/suit/pencil/black_really
 	name = "executive pencilskirt"
 	desc = "A sleek suit with a tight-fitting pencilskirt."
-	icon_state = "pencilskirt_suit"
+	icon_state = "/obj/item/clothing/under/suit/pencil/black_really"
+	post_init_icon_state = "pencilskirt_suit"
 	greyscale_colors = "#37373e#37373e#ffffff#ac3232"
 	greyscale_config = /datum/greyscale_config/pencilskirt_withsuit
 	greyscale_config_worn = /datum/greyscale_config/pencilskirt_withsuit/worn
@@ -53,7 +62,8 @@
 /obj/item/clothing/under/suit/pencil/checkered
 	name = "checkered pencilskirt and shirt"
 	desc = "A clean shirt with a tight-fitting checkered pencilskirt."
-	icon_state = "pencilskirt_checkers_shirt"
+	icon_state = "/obj/item/clothing/under/suit/pencil/checkered"
+	post_init_icon_state = "pencilskirt_checkers_shirt"
 	greyscale_colors = "#37373e#232323#ffffff"
 	greyscale_config = /datum/greyscale_config/pencilskirt_checkers_withshirt
 	greyscale_config_worn = /datum/greyscale_config/pencilskirt_checkers_withshirt/worn
@@ -61,7 +71,8 @@
 /obj/item/clothing/under/suit/pencil/checkered/noshirt
 	name = "checkered pencilskirt"
 	desc = "A tight-fitting checkered pencilskirt."
-	icon_state = "pencilskirt_checkers"
+	icon_state = "/obj/item/clothing/under/suit/pencil/checkered/noshirt"
+	post_init_icon_state = "pencilskirt_checkers"
 	greyscale_colors = "#37373e#232323"
 	greyscale_config = /datum/greyscale_config/pencilskirt_checkers
 	greyscale_config_worn = /datum/greyscale_config/pencilskirt_checkers/worn

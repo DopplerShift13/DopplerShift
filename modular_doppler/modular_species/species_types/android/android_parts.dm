@@ -29,6 +29,8 @@
 		new_bodypart.name = name
 		new_bodypart.desc = desc
 		qdel(src)
+		if(new_bodypart.loc == user)
+			user.put_in_hands(new_bodypart)
 		return ITEM_INTERACT_SUCCESS
 
 ///

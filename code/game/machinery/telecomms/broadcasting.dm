@@ -143,6 +143,11 @@
 			// Syndicate radios can hear all well-known radio channels
 			if (num2text(frequency) in GLOB.reverseradiochannels)
 				for(var/obj/item/radio/syndicate_radios in GLOB.all_radios["[FREQ_SYNDICATE]"])
+					// DOPPLER EDIT ADDITION START - CANTINA_COMMS
+					// Cantina encryption key ONLY works for syndicate comms.
+					if((syndicate_radios.special_channels & RADIO_SPECIAL_CANTINA_HEADSET) && (frequency != FREQ_SYNDICATE))
+						continue
+					// DOPPLER EDIT ADDITION END - CANTINA_COMMS
 					if(syndicate_radios.can_receive(FREQ_SYNDICATE, RADIO_NO_Z_LEVEL_RESTRICTION))
 						radios |= syndicate_radios
 

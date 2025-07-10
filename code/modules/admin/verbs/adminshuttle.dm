@@ -53,6 +53,10 @@ ADMIN_VERB(cancel_shuttle, R_ADMIN, "Cancel Shuttle", "Recall the shuttle, regar
 
 	if(tgui_alert(user, "You sure?", "Confirm", list("Yes", "No")) != "Yes")
 		return
+	// DOPPLER EDIT START - Revert auto-transfer shuttle
+	if(SSshuttle.endvote_passed)
+		SSshuttle.revert_end_of_shift()
+	// DOPPLER EDIT END
 	SSshuttle.admin_emergency_no_recall = FALSE
 	SSshuttle.emergency.cancel()
 	BLACKBOX_LOG_ADMIN_VERB("Cancel Shuttle")

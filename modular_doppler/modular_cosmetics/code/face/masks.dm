@@ -3,9 +3,10 @@
 	desc = "A cloth for covering your neck, and usually part of your face too, but that part's optional. Has a small respirator to be used with internals."
 	actions_types = list(/datum/action/item_action/adjust)
 	alternate_worn_layer = UNDER_UNIFORM_LAYER
-	icon_state = "gaiter"
-	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/face.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
+	icon_state = "/obj/item/clothing/mask/neck_gaiter"
+	post_init_icon_state = "gaiter"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	inhand_icon_state = "balaclava"
@@ -43,6 +44,7 @@
 	name = "advanced neck gaiter"
 	desc = "A glistening neck accessory, colored in a black pinstripe texture. The material is an attempt to imitate 'heatsilk' technology, but it is barely any <b>laser-reflective</b>. Has a small respirator to be used with internals."
 	unique_death = 'modular_doppler/modular_sounds/sound/machines/hacked.ogg'
+	icon_state = "/obj/item/clothing/mask/neck_gaiter/cybersun"
 	greyscale_colors = "#333333"
 	var/hit_reflect_chance = 5 // don't count on it, operative
 
@@ -55,9 +57,10 @@
 /obj/item/clothing/mask/gas/respirator
 	name = "half mask respirator"
 	desc = "A half mask respirator that's really just a standard gas mask with the glass taken off."
-	icon_state = "respirator"
-	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/face.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
+	icon_state = "/obj/item/clothing/mask/gas/respirator"
+	post_init_icon_state = "respirator"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	inhand_icon_state = "sechailer"

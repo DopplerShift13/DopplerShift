@@ -10,7 +10,7 @@
 	force = 10
 	demolition_mod = 1.5
 	wound_bonus = 0
-	bare_wound_bonus = 10
+	exposed_wound_bonus = 10
 	attack_verb_continuous = list("flogs", "whips", "lashes", "disciplines")
 	attack_verb_simple = list("flog", "whip", "lash", "discipline")
 	hitsound = 'sound/items/weapons/whipgrab.ogg'

@@ -24,7 +24,9 @@
 	name = "XTREME inline skates"
 	desc = "Boots of polyurethane and plastic with strategic steel inserts for strength, affixed with casters and optimized \
 	for speed at the expense of ease of riding. This pair didn't come with a skidplate."
-	icon_state = "rollerblades"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/rollerblades"
+	post_init_icon_state = "rollerblades"
 	worn_x_dimension = 64
 	worn_y_dimension = 64
 	greyscale_config = /datum/greyscale_config/rollerblades

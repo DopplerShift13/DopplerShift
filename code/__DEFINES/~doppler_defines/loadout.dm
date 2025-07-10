@@ -3,6 +3,8 @@
 
 /// Max amonut of misc / backpack items that are allowed.
 #define MAX_ALLOWED_MISC_ITEMS 3
+/// Max amount of pickable clothes for any category that lets you choose more than one
+#define MAX_ALLOWED_EXTRA_CLOTHES 2
 
 /// Defines for extra info blurbs, for loadout items.
 #define TOOLTIP_NO_ARMOR "Armorless"

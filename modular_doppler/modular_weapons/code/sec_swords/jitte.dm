@@ -21,7 +21,7 @@
 	throwforce = 12
 	block_chance = 5
 	wound_bonus = 5
-	bare_wound_bonus = 5
+	exposed_wound_bonus = 5
 
 	attack_verb_continuous = list("smacks", "strikes", "cracks", "beats")
 	attack_verb_simple = list("smack", "strike", "crack", "beat")

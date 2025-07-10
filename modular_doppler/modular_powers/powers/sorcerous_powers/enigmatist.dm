@@ -20,7 +20,7 @@
 	result = /obj/item/toy/crayon/purple/resonant_chalk
 	reqs = list(
 		/obj/item/stack/sheet/mineral/plasma = 1,
-		/obj/item/toy/crayon,
+		/obj/item/toy/crayon = 1,
 	)
 	time = 5 SECONDS
 	category = CAT_ENIGMATIST
