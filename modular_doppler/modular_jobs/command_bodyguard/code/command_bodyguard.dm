@@ -45,9 +45,7 @@
 	shoes = /obj/item/clothing/shoes/laceup
 	ears = /obj/item/radio/headset/heads/hos/alt
 	implants = list(/obj/item/implant/mindshield)
-	backpack_contents = list(
-		/obj/item/sensor_device/command_bodyguard = 1,
-	)
+
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
 	duffelbag = /obj/item/storage/backpack/duffelbag/sec
@@ -68,7 +66,7 @@
 	trim_icon = 'modular_doppler/modular_jobs/command_bodyguard/icons/card.dmi'
 	trim_state = "trim_bodyguard"
 	subdepartment_color = COLOR_COMMAND_BLUE
-	sechud_icon_state = SECHUD_BODYGUARD
+	sechud_icon_state = "hudbodyguard"
 	minimal_access = list(
 		ACCESS_BRIG,
 		ACCESS_BRIG_ENTRANCE,

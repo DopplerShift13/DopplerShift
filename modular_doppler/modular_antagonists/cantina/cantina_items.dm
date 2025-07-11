@@ -174,7 +174,7 @@
 		return TRUE
 	for(var/ch_name in channels)
 		if(channels[ch_name] & FREQ_LISTENING)
-			if(GLOB.radiochannels[ch_name] == text2num(input_frequency))
+			if(GLOB.default_radio_channels[ch_name] == input_frequency)
 				return TRUE
 	return FALSE
 

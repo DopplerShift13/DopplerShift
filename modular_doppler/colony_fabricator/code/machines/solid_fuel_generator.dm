@@ -23,7 +23,7 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
 // We don't need to worry about the board, this machine doesn't have one!
-/obj/machinery/power/port_gen/pacman/solid_fuel/on_construction(mob/user)
+/obj/machinery/power/port_gen/pacman/solid_fuel/on_construction(mob/user, from_flatpack)
 	return
 
 /obj/machinery/power/port_gen/pacman/solid_fuel/process()

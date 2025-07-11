@@ -56,10 +56,6 @@
 	name = "Face Scarf"
 	item_path = /obj/item/clothing/neck/face_scarf
 
-/datum/loadout_item/neck/maid_neck_cover
-	name = "Maid Neck Cover"
-	item_path = /obj/item/clothing/neck/maid_neck_cover
-
 /datum/loadout_item/neck/collar
 	name = "Thin Collar"
 	item_path = /obj/item/clothing/neck/fashion_collar

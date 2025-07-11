@@ -370,7 +370,7 @@
 /datum/outfit/slime_preview
 	name = "Slimeperson (Species Preview)"
 	uniform = /obj/item/clothing/under/costume/bunnysuit
-	head = /obj/item/clothing/head/maid_headband
+	head = /obj/item/clothing/head/costume/maid_headband
 
 /datum/species/jelly/roundstartslime/prepare_human_for_preview(mob/living/carbon/human/human)
 	human.dna.features["mcolor"] = "#EF313F"

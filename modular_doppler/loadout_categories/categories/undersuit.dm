@@ -295,10 +295,6 @@
 	name = "Strapless Dress"
 	item_path = /obj/item/clothing/under/dress/doppler/strapless
 
-/datum/loadout_item/undersuit/dress/maid
-	name = "Maid Outfit"
-	item_path = /obj/item/clothing/under/maid_costume
-
 /// JAPANESE/LUNAR BREAKER
 
 /datum/loadout_item/undersuit/dress/qipao

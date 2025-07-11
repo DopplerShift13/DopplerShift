@@ -16,7 +16,7 @@
 	breasts_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/breasts)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
 
 
-/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
+/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features["breasts"])
 		if(target.dna.features["breasts"] != "Bare")

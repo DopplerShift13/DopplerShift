@@ -59,7 +59,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 
 /obj/item/bodypart/leg/left/robot/android/empty
 
-/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
+/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features["frame_list"] && !(type in GLOB.species_blacklist_no_humanoid))
 		//head
