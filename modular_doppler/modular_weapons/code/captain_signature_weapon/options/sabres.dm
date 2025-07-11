@@ -79,7 +79,7 @@
 	if(!istype(parent, /obj/item/melee/sabre/modular))
 		return
 	var/obj/item/storage/belt/sabre/modular/modular_belt_parent = parent
-	if(isnull(spawned_sword_type))
+	if(isnull(modular_belt_parent.spawned_sword_type))
 		return
 	set_holdable(modular_belt_parent.spawned_sword_type)
 
