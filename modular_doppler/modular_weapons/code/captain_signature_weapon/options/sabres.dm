@@ -65,6 +65,8 @@
 	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/captain_sheaths_lefthand.dmi'
 	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/captain_sheaths_righthand.dmi'
 	icon_state = "sheath_alternate"
+	inhand_icon_state = "sheath_alternate"
+	worn_icon_state = "sheath_alternate"
 	storage_type = /datum/storage/sabre_belt/modular
 	/// The type of the sword we spawn with and can hold.
 	var/spawned_sword_type
