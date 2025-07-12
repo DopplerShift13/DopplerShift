@@ -58,6 +58,8 @@
 	icon = 'modular_doppler/modular_weapons/icons/obj/captain_sabres.dmi'
 	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/captain_sabres_lefthand.dmi'
 	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/captain_sabres_righthand.dmi'
+	icon_state = "sabre_alternate"
+	inhand_icon_state = "sabre_alternate"
 
 /obj/item/storage/belt/sabre/modular
 	icon = 'modular_doppler/modular_weapons/icons/obj/captain_sheaths.dmi'
