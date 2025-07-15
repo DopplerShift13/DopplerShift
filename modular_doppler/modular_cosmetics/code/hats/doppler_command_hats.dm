@@ -71,6 +71,7 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/doppler_command_hats.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/doppler_command_hats.dmi'
 	icon_state = "dark"
+	post_init_icon_state = null
 	icon_preview = null
 	dog_fashion = null
 	greyscale_config = null
