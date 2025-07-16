@@ -28,6 +28,7 @@
 	action_delegations = list(
 		"give_language" = PROC_REF(give_language),
 		"remove_language" = PROC_REF(remove_language),
+		"adjust_partial_language" = PROC_REF(adjust_partial_language)
 	)
 
 /datum/preference_middleware/languages/apply_to_human(mob/living/carbon/human/target, datum/preferences/preferences, visuals_only = FALSE)
@@ -47,12 +48,13 @@
 	var/datum/species/species = new species_type()
 	var/datum/language_holder/lang_holder = new species.species_language_holder()
 	for(var/language in preferences.get_adjusted_language_holder())
-		preferences.languages[language] = LANGUAGE_SPOKEN
+		LAZYSET(preferences.languages[language], LANGUAGE_FLAGS, LANGUAGE_SPOKEN)
+
 	qdel(lang_holder)
 	qdel(species)
 
 	for(var/language in lang_holder.spoken_languages)
-		preferences.languages[language] = LANGUAGE_SPOKEN
+		LAZYSET(preferences.languages[language], LANGUAGE_FLAGS, LANGUAGE_SPOKEN)
 
 	qdel(lang_holder)
 	qdel(species)
@@ -72,7 +74,7 @@
 	if(!preferences.languages || !preferences.languages.len || (preferences.languages && preferences.languages.len > max_languages)) // Too many languages, or no languages.
 		preferences.languages = list()
 		for(var/language in lang_holder.spoken_languages)
-			preferences.languages[language] = LANGUAGE_SPOKEN
+			LAZYSET(preferences.languages[language], LANGUAGE_FLAGS, LANGUAGE_SPOKEN)
 
 	var/list/selected_languages = list()
 	var/list/unselected_languages = list()
@@ -86,10 +88,14 @@
 		if(species.always_customizable && !(language.type in lang_holder.spoken_languages)) // For the ghostrole species. We don't want ashwalkers speaking beachtongue now.
 			continue
 		if(preferences.languages[language.type])
+			var/partial_knowledge = 100
+			if (islist(preferences.languages[language.type]) && !isnull(preferences.languages[language.type][LANGUAGE_KNOWLEDGE]))
+				partial_knowledge = preferences.languages[language.type][LANGUAGE_KNOWLEDGE]
 			selected_languages += list(list(
 				"description" = language.desc,
 				"name" = language.name,
-				"icon" = sanitize_css_class_name(language.name)
+				"icon" = sanitize_css_class_name(language.name),
+				"partial_knowledge" = partial_knowledge
 			))
 		else
 			unselected_languages += list(list(
@@ -130,7 +136,9 @@
 	if(preferences.languages && preferences.languages.len == max_languages) // too many languages
 		return TRUE
 
-	preferences.languages[name_to_language[language_name]] = LANGUAGE_SPOKEN
+	preferences.languages[name_to_language[language_name]] = list()
+	preferences.languages[name_to_language[language_name]][LANGUAGE_FLAGS] = LANGUAGE_SPOKEN
+	preferences.languages[name_to_language[language_name]][LANGUAGE_KNOWLEDGE] = 100
 	return TRUE
 
 /**
@@ -145,6 +153,16 @@
 /datum/preference_middleware/languages/proc/remove_language(list/params)
 	var/language_name = params["language_name"]
 	preferences.languages -= name_to_language[language_name]
+	return TRUE
+
+/datum/preference_middleware/languages/proc/adjust_partial_language(list/params)
+	var/language_name = params["language_name"]
+	var/partial_amount = clamp(params["partial_amount"], 0, 100)
+
+	if (isnull(partial_amount) || isnan(partial_amount))
+		partial_amount = 100
+
+	LAZYSET(preferences.languages[name_to_language[language_name]], LANGUAGE_KNOWLEDGE, partial_amount)
 	return TRUE
 
 /// Cleans up any invalid languages. Typically happens on language renames and codedels.

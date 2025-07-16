@@ -21,7 +21,7 @@
 	associated_typepath = /datum/quirk/chipped
 	customization_options = list(/datum/preference/choiced/chipped)
 
-/datum/quirk/chipped/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source, unique = TRUE)
+/datum/quirk/chipped/add_to_holder(mob/living/new_holder, quirk_transfer, client/client_source, unique = TRUE, announce = FALSE)
 	var/chip_pref = client_source?.prefs?.read_preference(/datum/preference/choiced/chipped)
 
 	if(isnull(chip_pref))
@@ -66,8 +66,8 @@
 
 /datum/status_effect/itchy_skillchip_quirk
 	id = "itchy skillchip"
-	tick_interval_lowerbound = 5 SECONDS
-	tick_interval_upperbound = 10 MINUTES
+	tick_interval_lowerbound = 20 MINUTES //DOPPLER EDIT - ORIGINAL: tick_interval_lowerbound = 5 SECONDS
+	tick_interval_upperbound = 40 MINUTES //DOPPLER EDIT - ORIGINAL: tick_interval_upperbound = 10 MINUTES
 	alert_type = null
 	///lower damage we apply to our itchy owner //DOPPLER EDIT KILL: Chipped no longer does brain damage.
 	var/minimum_damage = 0

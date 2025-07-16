@@ -37,6 +37,12 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 
 	for(var/lang_path in preferences.languages)
 		grant_language(lang_path)
+		var/partial_understanding_level = preferences.languages[lang_path][LANGUAGE_KNOWLEDGE]
+		if (isnull(partial_understanding_level) || isnan(partial_understanding_level))
+			partial_understanding_level = 100
+		else if (partial_understanding_level < 100)
+			remove_language(lang_path, UNDERSTOOD_LANGUAGE, LANGUAGE_MIND) // UPDATE NOTES - if the source default arg of granted_lang ever changes, change LANGUAGE_MIND
+			grant_partial_language(lang_path, partial_understanding_level)
 
 	get_selected_language()
 
@@ -85,6 +91,7 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 		/datum/language/buzzwords = list(LANGUAGE_ATOM),
 		/datum/language/terrum = list(LANGUAGE_ATOM),
 		/datum/language/sylvan = list(LANGUAGE_ATOM),
+		/datum/language/nambuni = list(LANGUAGE_ATOM),
 	)
 	spoken_languages = list(
 		/datum/language/common = list(LANGUAGE_ATOM),
@@ -106,4 +113,5 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 		/datum/language/buzzwords = list(LANGUAGE_ATOM),
 		/datum/language/terrum = list(LANGUAGE_ATOM),
 		/datum/language/sylvan = list(LANGUAGE_ATOM),
+		/datum/language/nambuni = list(LANGUAGE_ATOM),
 	)

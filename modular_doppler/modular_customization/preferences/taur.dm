@@ -8,7 +8,7 @@
 	return features
 
 // dna is a string
-/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
+/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features["taur"] && !(type in GLOB.species_blacklist_no_mutant))
 		if(target.dna.features["taur"] != /datum/sprite_accessory/taur/none::name && target.dna.features["taur"] != /datum/sprite_accessory/blank::name)
