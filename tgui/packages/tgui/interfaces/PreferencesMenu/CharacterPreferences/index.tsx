@@ -10,10 +10,10 @@ import { exhaustiveCheck } from 'tgui-core/exhaustive';
 import { PageButton } from '../components/PageButton';
 import { LanguagesPage } from '../LanguagesMenu'; /* DOPPLER EDIT ADDITION */
 import { LorePage } from '../LorePage'; /* DOPPLER EDIT ADDITION */
-import { MortalPage } from '../Mortal';
+import { MortalPage } from '../Mortal'; /* DOPPLER EDIT ADDITION */
 import { PowersPage } from '../PowersMenu'; /* DOPPLER EDIT ADDITION */
-import { ResonantPage } from '../Resonant';
-import { SorcerousPage } from '../Sorcerous';
+import { ResonantPage } from '../Resonant'; /* DOPPLER EDIT ADDITION */
+import { SorcerousPage } from '../Sorcerous'; /* DOPPLER EDIT ADDITION */
 import { PreferencesMenuData } from '../types';
 import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
@@ -80,33 +80,26 @@ export function CharacterPreferenceWindow(props) {
     case Page.Antags:
       pageContents = <AntagsPage />;
       break;
-
     case Page.Jobs:
       pageContents = <JobsPage />;
       break;
-
     // DOPPLER EDIT START
-
     case Page.Lore:
       pageContents = <LorePage />;
       break;
-
     case Page.Languages:
       pageContents = <LanguagesPage />;
       break;
-
     case Page.Mortal:
       pageContents = (
         <MortalPage handleCloseMortal={() => setCurrentPage(Page.Powers)} />
       );
       break;
-
     case Page.Resonant:
       pageContents = (
         <ResonantPage handleCloseResonant={() => setCurrentPage(Page.Powers)} />
       );
       break;
-
     case Page.Sorcerous:
       pageContents = (
         <SorcerousPage
@@ -114,7 +107,6 @@ export function CharacterPreferenceWindow(props) {
         />
       );
       break;
-
     case Page.Powers:
       pageContents = (
         <PowersPage
@@ -124,21 +116,19 @@ export function CharacterPreferenceWindow(props) {
         />
       );
       break;
-
     // DOPPLER EDIT END
     case Page.Main:
       pageContents = (
         <MainPage openSpecies={() => setCurrentPage(Page.Species)} />
       );
-      break;
 
+      break;
     case Page.Species:
       pageContents = (
         <SpeciesPage closeSpecies={() => setCurrentPage(Page.Main)} />
       );
 
       break;
-
     case Page.Quirks:
       pageContents = <QuirksPage />;
       break;
@@ -187,6 +177,7 @@ export function CharacterPreferenceWindow(props) {
             </PageButton>
           </Stack.Item>
 
+          {/* // DOPPLER EDIT ADDITION*/}
           <Stack.Item grow>
             <PageButton
               currentPage={currentPage}
@@ -196,6 +187,7 @@ export function CharacterPreferenceWindow(props) {
               Lore
             </PageButton>
           </Stack.Item>
+          {/* // DOPPLER EDIT ADDITION END*/}
 
           <Stack.Item grow>
             <PageButton
@@ -221,6 +213,7 @@ export function CharacterPreferenceWindow(props) {
             </PageButton>
           </Stack.Item>
 
+          {/* // DOPPLER EDIT ADDITION*/}
           <Stack.Item grow>
             <PageButton
               currentPage={currentPage}
@@ -241,6 +234,7 @@ export function CharacterPreferenceWindow(props) {
               Powers
             </PageButton>
           </Stack.Item>
+          {/* // DOPPLER EDIT ADDITION END*/}
 
           <Stack.Item grow>
             <PageButton

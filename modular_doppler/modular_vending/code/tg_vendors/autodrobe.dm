@@ -17,25 +17,6 @@
 			),
 		),
 		list(
-			"name" = "Service",
-			"icon" = "kitchen-set",
-			"products" = list(
-				/obj/item/clothing/under/costume/buttondown/slacks/service = 1,
-				/obj/item/clothing/under/costume/buttondown/skirt/service = 1,
-				/obj/item/clothing/neck/bowtie = 2,
-				/obj/item/clothing/accessory/waistcoat = 1,
-				/obj/item/clothing/under/suit/waiter = 1,
-				/obj/item/clothing/suit/apron = 1,
-				/obj/item/clothing/suit/apron/overalls = 1,
-				/obj/item/clothing/head/costume/maidheadband = 1,
-				/obj/item/clothing/under/costume/maid = 1,
-				/obj/item/clothing/gloves/maid = 1,
-				/obj/item/clothing/neck/maid = 1,
-				/obj/item/clothing/accessory/maidapron = 1,
-				/obj/item/clothing/neck/maid_neck_cover = 1,
-			),
-		),
-		list(
 			"name" = "Undersuit",
 			"icon" = "shirt",
 			"products" = list(

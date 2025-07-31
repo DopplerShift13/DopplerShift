@@ -52,6 +52,15 @@
 	else
 		return 'sound/mobs/non-humanoids/insect/chitter.ogg'
 
+/datum/emote/living/moth_chitter
+	key = "mchitter"
+	key_third_person = "chitters"
+	message = "chitters!"
+	emote_type = EMOTE_AUDIBLE
+	mob_type_allowed_typecache = list(/mob/living/carbon, /mob/living/silicon/pai)
+	vary = TRUE
+	sound = 'modular_doppler/emotes/sound/mothchitter.ogg'
+
 /datum/emote/living/flutter
 	key = "flutter"
 	key_third_person = "rapidly flutters their wings!"

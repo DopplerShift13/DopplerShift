@@ -28,11 +28,14 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/photophobia, /datum/quirk/nyctophobia),
 	list(/datum/quirk/item_quirk/settler, /datum/quirk/freerunning),
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
-	list(/datum/quirk/empath, /datum/quirk/bad_vibes), //DOPPLER EDIT ADDITION - Bad Vibes & Unholy Aura
+	// DOPPLER EDIT ADDITION START
+	list(/datum/quirk/empath, /datum/quirk/bad_vibes),
 	list(/datum/quirk/item_quirk/spiritual, /datum/quirk/unholy),
 	list(/datum/quirk/undersized, /datum/quirk/frail),
 	list(/datum/quirk/undersized, /datum/quirk/oversized),
-	list(/datum/quirk/genemodded, /datum/quirk/oversized),// DOPPLER EDIT ADDITION END - patch fix for genemodded
+	list(/datum/quirk/genemodded, /datum/quirk/oversized),
+	list(/datum/quirk/visitor, /datum/quirk/item_quirk/underworld_connections),
+	// DOPPLER EDIT ADDITION END
 ))
 
 GLOBAL_LIST_INIT(quirk_string_blacklist, generate_quirk_string_blacklist())
@@ -98,7 +101,7 @@ PROCESSING_SUBSYSTEM_DEF(quirks)
 	for(var/quirk_name in applied_client.prefs.all_quirks)
 		var/datum/quirk/quirk_type = quirks[quirk_name]
 		if(ispath(quirk_type))
-			if(user.add_quirk(quirk_type, override_client = applied_client))
+			if(user.add_quirk(quirk_type, override_client = applied_client, announce = FALSE))
 				SSblackbox.record_feedback("tally", "quirks_taken", 1, "[quirk_name]")
 		else
 			stack_trace("Invalid quirk \"[quirk_name]\" in client [applied_client.ckey] preferences")
