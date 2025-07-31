@@ -228,7 +228,7 @@
 		new_android.dna.features["ears_color_1"] = stored_antenna_color
 
 		// remove random markings because in general they're going to look bad or at least unintentional
-		new_android.dna.features["lizard_markings"] = "No Markings"
+		new_android.dna.features[FEATURE_LIZARD_MARKINGS] = "No Markings"
 
 		new_android.update_body(TRUE)
 

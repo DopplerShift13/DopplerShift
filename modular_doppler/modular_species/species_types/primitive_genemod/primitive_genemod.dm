@@ -54,13 +54,13 @@
 
 /datum/species/human/genemod/primitive/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.ear_type = CAT
-	human_for_preview.dna.features["ears"] = "Coeurl"
+	human_for_preview.dna.features[FEATURE_EARS] = "Coeurl"
 	human_for_preview.dna.features["ears_color_1"] = "#e9eff5"
 	human_for_preview.dna.features["ears_color_2"] = "#f5afaf"
 	human_for_preview.dna.features["ears_color_3"] = "#222222"
 	human_for_preview.set_haircolor("#E9EFF5", update = FALSE)
 	human_for_preview.set_hairstyle("Fluffy long", update = TRUE)
-	human_for_preview.dna.features["mcolor"] = skintone2hex("albino")
+	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex("albino")
 	human_for_preview.eye_color_left = "#96dbe7"
 	human_for_preview.eye_color_right = "#96dbe7"
 	regenerate_organs(human_for_preview)

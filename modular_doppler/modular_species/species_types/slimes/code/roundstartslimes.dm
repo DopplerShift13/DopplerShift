@@ -148,7 +148,7 @@
 */
 /obj/item/organ/brain/slime/proc/colorize()
 	if(owner && isjellyperson(owner))
-		core_color = owner.dna.features["mcolor"]
+		core_color = owner.dna.features[FEATURE_MUTANT_COLOR]
 		add_atom_colour(core_color, FIXED_COLOUR_PRIORITY)
 
 /**
@@ -250,8 +250,8 @@
 	new_body.undershirt = "Nude" //Which undershirt the player wants
 	new_body.socks = "Nude" //Which socks the player wants
 	brainmob.stored_dna.copy_dna(new_body.dna, transfer_flags = COPY_DNA_SE|COPY_DNA_SPECIES)
-	new_body.dna.features["mcolor"] = new_body.dna.features["mcolor"]
-	new_body.dna.update_uf_block(DNA_MUTANT_COLOR_BLOCK)
+	new_body.dna.features[FEATURE_MUTANT_COLOR] = new_body.dna.features[FEATURE_MUTANT_COLOR]
+	new_body.dna.update_uf_block(/datum/dna_block/feature/mutant_color)
 	new_body.real_name = new_body.dna.real_name
 	new_body.name = new_body.dna.real_name
 	new_body.updateappearance(mutcolor_update=1)
@@ -373,9 +373,9 @@
 	head = /obj/item/clothing/head/costume/maid_headband
 
 /datum/species/jelly/roundstartslime/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = "#EF313F"
+	human.dna.features[FEATURE_MUTANT_COLOR] = "#EF313F"
 	human.dna.ear_type = BUNNY
-	human.dna.features["ears"] = "Lop (Sexy)"
+	human.dna.features[FEATURE_EARS] = "Lop (Sexy)"
 	human.dna.features["ears_color_1"] = "#EF313F"
 	human.dna.features["ears_color_2"] = "#EF313F"
 	human.dna.features["ears_color_3"] = "#EF313F"

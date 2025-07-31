@@ -59,6 +59,7 @@
 	)
 
 	refill_canister = /obj/item/vending_refill/medical_deforest
+	allow_custom = TRUE
 	default_price = PAYCHECK_CREW
 	extra_price = PAYCHECK_COMMAND * 4
 	payment_department = NO_FREEBIES

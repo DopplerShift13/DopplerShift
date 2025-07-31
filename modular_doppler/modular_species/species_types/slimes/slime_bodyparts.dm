@@ -76,7 +76,7 @@
     var/obj/goo_splat
     goo_splat = new /obj/effect/decal/cleanable/goo(get_turf(owner))
     if(HAS_TRAIT(owner, TRAIT_MUTANT_COLORS))
-        goo_splat.color = owner.dna.features["mcolor"]
+        goo_splat.color = owner.dna.features[FEATURE_MUTANT_COLOR]
 
     owner.blood_volume -= SLIME_LIMB_BLOOD_LOSS
 

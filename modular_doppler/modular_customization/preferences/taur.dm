@@ -10,10 +10,10 @@
 // dna is a string
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["taur"] && !(type in GLOB.species_blacklist_no_mutant))
-		if(target.dna.features["taur"] != /datum/sprite_accessory/taur/none::name && target.dna.features["taur"] != /datum/sprite_accessory/blank::name)
+	if(target.dna.features[FEATURE_TAUR] && !(type in GLOB.species_blacklist_no_mutant))
+		if(target.dna.features[FEATURE_TAUR] != /datum/sprite_accessory/taur/none::name && target.dna.features[FEATURE_TAUR] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/taur_body/body_to_use = /obj/item/organ/taur_body
-			var/datum/sprite_accessory/taur/accessory = SSaccessories.taur_list[target.dna.features["taur"]]
+			var/datum/sprite_accessory/taur/accessory = SSaccessories.taur_list[target.dna.features[FEATURE_TAUR]]
 			if (accessory)
 				body_to_use = accessory.organ_type
 			var/obj/item/organ/replacement  = SSwardrobe.provide_type(body_to_use)
@@ -33,7 +33,7 @@
 
 /datum/preference/toggle/taur/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features["taur"] = /datum/sprite_accessory/taur/none::name
+		target.dna.features[FEATURE_TAUR] = /datum/sprite_accessory/taur/none::name
 
 /datum/preference/toggle/taur/create_default_value()
 	return FALSE
@@ -75,13 +75,13 @@
 		final_icon.blend_icon(accessory_icon_3, ICON_OVERLAY)
 
 	final_icon.scale(64, 32)
-	final_icon.shift(EAST, 0, ICON_SIZE_X, ICON_SIZE_Y)
+	final_icon.shift(EAST, 0)
 
 
 	return final_icon
 
 /datum/preference/choiced/taur_type/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["taur"] = value
+	target.dna.features[FEATURE_TAUR] = value
 
 /datum/preference/choiced/taur_type/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -113,8 +113,8 @@
 /datum/bodypart_overlay/mutant/taur_body
 	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3 | EXTERNAL_BODY_FRONT_UNDER_CLOTHES | EXTERNAL_BODY_FRONT_UNDER_CLOTHES_2 | EXTERNAL_BODY_FRONT_UNDER_CLOTHES_3
 
-	feature_key = "taur"
-	feature_key_sprite = "taur"
+	feature_key = FEATURE_TAUR
+	feature_key_sprite = FEATURE_TAUR
 
 /datum/bodypart_overlay/mutant/taur_body/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	. = ..()

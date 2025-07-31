@@ -5,7 +5,6 @@
 		<b>higher maximum output</b> than some larger units. Most commonly seen being used not for their ability to store \
 		power, but rather for use in regulating power input and output."
 	icon = 'modular_doppler/colony_fabricator/icons/power_storage_unit/small_battery.dmi'
-	capacity = 5 * STANDARD_BATTERY_CHARGE
 	input_level_max = 200 KILO WATTS
 	output_level_max = 200 KILO WATTS
 	circuit = null
@@ -37,12 +36,8 @@
 	return
 
 // Automatically set themselves to be completely charged on init
-
 /obj/machinery/power/smes/battery_pack/precharged
-
-/obj/machinery/power/smes/battery_pack/precharged/Initialize(mapload)
-	. = ..()
-	charge = capacity
+	charge = 50 * STANDARD_BATTERY_CHARGE
 
 // Item for creating the small battery and carrying it around
 
@@ -66,17 +61,14 @@
 		<b>low maximum output</b> compared to smaller units. Most commonly seen as large backup batteries, or simply \
 		for large power storage where throughput is not a concern."
 	icon = 'modular_doppler/colony_fabricator/icons/power_storage_unit/large_battery.dmi'
-	capacity = 100 * STANDARD_BATTERY_CHARGE
 	input_level_max = 50 KILO WATTS
 	output_level_max = 50 KILO WATTS
 
 // Automatically set themselves to be completely charged on init
 
 /obj/machinery/power/smes/battery_pack/large/precharged
+	charge = 50 * STANDARD_BATTERY_CHARGE
 
-/obj/machinery/power/smes/battery_pack/large/precharged/Initialize(mapload)
-	. = ..()
-	charge = capacity
 
 /obj/item/flatpacked_machine/large_station_battery
 	name = "flat-packed large stationary battery"

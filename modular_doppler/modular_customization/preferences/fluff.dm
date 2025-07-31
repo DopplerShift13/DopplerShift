@@ -7,8 +7,8 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["fluff"] && !(type in GLOB.species_blacklist_no_mutant))
-		if(target.dna.features["fluff"] != /datum/sprite_accessory/fluff/none::name && target.dna.features["fluff"] != /datum/sprite_accessory/blank::name)
+	if(target.dna.features[FEATURE_FLUFF] && !(type in GLOB.species_blacklist_no_mutant))
+		if(target.dna.features[FEATURE_FLUFF] != /datum/sprite_accessory/fluff/none::name && target.dna.features[FEATURE_FLUFF] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/fluff)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -26,7 +26,7 @@
 
 /datum/preference/toggle/fluff/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features["fluff"] = /datum/sprite_accessory/fluff/none::name
+		target.dna.features[FEATURE_FLUFF] = /datum/sprite_accessory/fluff/none::name
 
 /datum/preference/toggle/fluff/create_default_value()
 	return FALSE
@@ -63,7 +63,7 @@
 	return /datum/sprite_accessory/fluff/none::name
 
 /datum/preference/choiced/fluff/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["fluff"] = value
+	target.dna.features[FEATURE_FLUFF] = value
 
 /datum/preference/choiced/fluff/icon_for(value)
 	var/static/datum/universal_icon/body
@@ -92,7 +92,7 @@
 //	This is for the triple color channel
 /datum/bodypart_overlay/mutant/fluff
 	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3
-	feature_key_sprite = "fluff"
+	feature_key_sprite = FEATURE_FLUFF
 
 /datum/bodypart_overlay/mutant/fluff/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)

@@ -85,51 +85,6 @@ required_map = "Iceland.dmm"
 coordinates = [121, 203, 3]
 trait_name = "Mining"
 
-# TRAMSTATION MAP EDITS
-# Tramstation Cryo
-[templates.tramstation_cryo]
-map_files = ["tramstation_cryo.dmm"]
-directory = "_maps/doppler/automapper/templates/tramstation/"
-required_map = "tramstation.dmm"
-coordinates = [68, 102, 2]
-trait_name = "Station"
-
-# BIRDSHOT MAP EDITS
-# Birdshot Cryo
-[templates.birdshot_cryo]
-map_files = ["birdshot_cryo.dmm"]
-directory = "_maps/doppler/automapper/templates/birdshot/"
-required_map = "birdshot.dmm"
-coordinates = [142, 84, 1]
-trait_name = "Station"
-
-# NORTHSTAR MAP EDITS
-# Northstar Cryo
-[templates.northstar_cryo]
-map_files = ["northstar_cryo.dmm"]
-directory = "_maps/doppler/automapper/templates/northstar/"
-required_map = "north_star.dmm"
-coordinates = [130, 114, 3]
-trait_name = "Station"
-
-# WAWASTATION MAP EDITS
-# Wawastation Cryo
-[templates.wawastation_cryo]
-map_files = ["wawastation_cryo.dmm"]
-directory = "_maps/doppler/automapper/templates/wawastation/"
-required_map = "wawastation.dmm"
-coordinates = [83, 92, 1]
-trait_name = "Station"
-
-# CATWALKSTATION MAP EDITS
-# Catwalkstation Cryo
-[templates.catwalkstation_cryo]
-map_files = ["catwalkstation_cryo.dmm"]
-directory = "_maps/doppler/automapper/templates/catwalkstation/"
-required_map = "CatwalkStation_2023.dmm"
-coordinates = [128, 169, 1]
-trait_name = "Station"
-
 # NEBULASTATION MAP EDITS
 # Nebulastation Cryo
 [templates.nebulastation_cryo]

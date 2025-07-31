@@ -109,7 +109,7 @@
 
 /datum/preference/toggle/markings/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features["lizard_markings"] = /datum/sprite_accessory/lizard_markings/none::name
+		target.dna.features[FEATURE_LIZARD_MARKINGS] = /datum/sprite_accessory/lizard_markings/none::name
 
 /datum/preference/toggle/markings/create_default_value()
 	return FALSE
@@ -128,7 +128,7 @@
 //manually adding them now
 /datum/species/add_body_markings(mob/living/carbon/human/hooman)
 	. = ..()
-	if((hooman.dna.features["lizard_markings"] && hooman.dna.features["lizard_markings"] != /datum/sprite_accessory/lizard_markings/none::name) && (hooman.client?.prefs.read_preference(/datum/preference/toggle/markings)))
+	if((hooman.dna.features[FEATURE_LIZARD_MARKINGS] && hooman.dna.features[FEATURE_LIZARD_MARKINGS] != /datum/sprite_accessory/lizard_markings/none::name) && (hooman.client?.prefs.read_preference(/datum/preference/toggle/markings)))
 		var/datum/bodypart_overlay/simple/body_marking/markings = new /datum/bodypart_overlay/simple/body_marking/lizard() // made to die... mostly because we cant use initial on lists but its convenient and organized
 		var/accessory_name = hooman.dna.features[markings.dna_feature_key] //get the accessory name from dna
 		var/datum/sprite_accessory/moth_markings/accessory = markings.get_accessory(accessory_name) //get the actual datum
@@ -148,6 +148,6 @@
 			overlay.icon = accessory.icon
 			overlay.icon_state = accessory.icon_state
 			overlay.use_gender = accessory.gender_specific
-			overlay.draw_color = accessory.color_src ? hooman.dna.features["mcolor"] : null
+			overlay.draw_color = accessory.color_src ? hooman.dna.features[FEATURE_MUTANT_COLOR] : null
 
 			people_part.add_bodypart_overlay(overlay)

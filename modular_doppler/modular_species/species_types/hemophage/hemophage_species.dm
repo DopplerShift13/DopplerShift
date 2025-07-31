@@ -99,11 +99,11 @@
 	uniform = /obj/item/clothing/under/suit/black_really/skirt
 
 /datum/species/human/genemod/hemophage/prepare_human_for_preview(mob/living/carbon/human/human)
-	human.dna.features["mcolor"] = skintone2hex("albino")
-	human.dna.features["horns"] = "Lifted"
+	human.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex("albino")
+	human.dna.features[FEATURE_HORNS] = "Lifted"
 	human.dna.features["horns_color_1"] = "#52435e"
 	human.dna.ear_type = HUMANOID
-	human.dna.features["ears"] = "Elf (wide)"
+	human.dna.features[FEATURE_EARS] = "Elf (wide)"
 	human.dna.features["ears_color_1"] = "#F7D1C3"
 	human.hair_color = "#f1cc9c"
 	human.lip_style = "lipstick"

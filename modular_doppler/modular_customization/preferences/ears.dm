@@ -36,10 +36,10 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["ears"] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features[FEATURE_EARS] && !(type in GLOB.species_blacklist_no_mutant))
 		if(target.dna.ear_type == NO_VARIATION)
 			return .
-		else if(target.dna.features["ears"] != /datum/sprite_accessory/ears/none::name && target.dna.features["ears"] != /datum/sprite_accessory/blank::name)
+		else if(target.dna.features[FEATURE_EARS] != /datum/sprite_accessory/ears/none::name && target.dna.features[FEATURE_EARS] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/organ_path = text2path("/obj/item/organ/ears/[target.dna.ear_type]")
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -61,7 +61,7 @@
 /datum/preference/choiced/ear_variation/apply_to_human(mob/living/carbon/human/target, chosen_variation)
 	target.dna.ear_type = chosen_variation
 	if(chosen_variation == NO_VARIATION)
-		target.dna.features["ears"] = /datum/sprite_accessory/ears/none::name
+		target.dna.features[FEATURE_EARS] = /datum/sprite_accessory/ears/none::name
 
 /datum/preference/choiced/ear_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -94,7 +94,7 @@
 /datum/preference/choiced/felinid_ears/apply_to_human(mob/living/carbon/human/target, value)
 	..()
 	if(target.dna.ear_type == CAT)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/felinid_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list[value]
@@ -127,7 +127,7 @@
 
 /datum/preference/choiced/lizard_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == LIZARD)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/lizard_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_lizard[value]
@@ -160,7 +160,7 @@
 
 /datum/preference/choiced/fox_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == FOX)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/fox_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_fox[value]
@@ -193,7 +193,7 @@
 
 /datum/preference/choiced/dog_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == DOG)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/dog_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_dog[value]
@@ -226,7 +226,7 @@
 
 /datum/preference/choiced/bunny_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == BUNNY)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/bunny_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_bunny[value]
@@ -259,7 +259,7 @@
 
 /datum/preference/choiced/bird_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == BIRD)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/bird_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_bird[value]
@@ -292,7 +292,7 @@
 
 /datum/preference/choiced/mouse_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == MOUSE)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/mouse_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_mouse[value]
@@ -325,7 +325,7 @@
 
 /datum/preference/choiced/monkey_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == MONKEY)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/monkey_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_monkey[value]
@@ -358,7 +358,7 @@
 
 /datum/preference/choiced/deer_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == DEER)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/deer_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_deer[value]
@@ -391,7 +391,7 @@
 
 /datum/preference/choiced/fish_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == FISH)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/fish_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_fish[value]
@@ -424,7 +424,7 @@
 
 /datum/preference/choiced/bug_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == BUG)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/bug_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_bug[value]
@@ -457,7 +457,7 @@
 
 /datum/preference/choiced/humanoid_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == HUMANOID)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/humanoid_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_humanoid[value]
@@ -490,7 +490,7 @@
 
 /datum/preference/choiced/synthetic_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == CYBERNETIC)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/synthetic_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_synthetic[value]
@@ -523,7 +523,7 @@
 
 /datum/preference/choiced/alien_ears/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.ear_type == ALIEN)
-		target.dna.features["ears"] = value
+		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/alien_ears/icon_for(value)
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_alien[value]
@@ -541,33 +541,33 @@
 	if(sprite_accessory.icon_state != "none")
 		if(icon_exists(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ"))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ")
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_RED, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ_2"))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ_2")
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ_3"))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_ADJ_3")
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		// front breaker
 		if(icon_exists(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT"))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT")
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_RED, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT_2"))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT_2")
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT_3"))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_ears_[sprite_accessory.icon_state]_FRONT_3")
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 
@@ -580,8 +580,8 @@
 //	This is for the triple color channel
 /datum/bodypart_overlay/mutant/ears
 	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
-	feature_key = "ears"
-	feature_key_sprite = "ears"
+	feature_key = FEATURE_EARS
+	feature_key_sprite = FEATURE_EARS
 
 /datum/bodypart_overlay/mutant/ears/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
