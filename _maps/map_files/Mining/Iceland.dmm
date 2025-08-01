@@ -1023,7 +1023,7 @@
 "gq" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/structure/cable,
-/obj/machinery/power/smes/battery_pack/large/precharged,
+/obj/machinery/power/smes/full,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "gs" = (
@@ -2066,7 +2066,6 @@
 "ni" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/mineral/plasma/five,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "nk" = (
@@ -2194,11 +2193,6 @@
 	},
 /turf/open/floor/iron/colony,
 /area/mine/cafeteria)
-"oc" = (
-/obj/item/flatpacked_machine/fuel_generator,
-/obj/structure/cable,
-/turf/open/floor/plating,
-/area/mine/maintenance/service)
 "od" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/colony/white/bolts,
@@ -2765,7 +2759,7 @@
 /area/mine/lounge)
 "rZ" = (
 /obj/structure/cable,
-/obj/machinery/power/smes/battery_pack/large/precharged,
+/obj/item/flatpacked_machine/fuel_generator,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "se" = (
@@ -7394,7 +7388,6 @@
 /area/mine/storage)
 "Wg" = (
 /obj/machinery/airalarm/directional/south,
-/obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "Wl" = (
@@ -168612,8 +168605,8 @@ aK
 aK
 Qz
 og
-eW
 rZ
+sO
 ni
 ON
 TV
@@ -168869,7 +168862,7 @@ aK
 aK
 Qz
 og
-oc
+fi
 sO
 Wg
 ON
