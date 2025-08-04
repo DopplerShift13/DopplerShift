@@ -7560,6 +7560,7 @@
 #include "modular_doppler\ruins_but_epic\code\space_junk.dm"
 #include "modular_doppler\scream_b_gone\code\human.dm"
 #include "modular_doppler\sec_armor_normalization\sec_armor_normalization.dm"
+#include "modular_doppler\shift_layer\mob_movement.dm"
 #include "modular_doppler\ship_captain\code\announcer.dm"
 #include "modular_doppler\ship_captain\code\globals.dm"
 #include "modular_doppler\ship_captain\code\preferences.dm"
