@@ -91,6 +91,7 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 		/datum/language/buzzwords = list(LANGUAGE_ATOM),
 		/datum/language/terrum = list(LANGUAGE_ATOM),
 		/datum/language/sylvan = list(LANGUAGE_ATOM),
+		/datum/language/nambuni = list(LANGUAGE_ATOM),
 	)
 	spoken_languages = list(
 		/datum/language/common = list(LANGUAGE_ATOM),
@@ -112,4 +113,5 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 		/datum/language/buzzwords = list(LANGUAGE_ATOM),
 		/datum/language/terrum = list(LANGUAGE_ATOM),
 		/datum/language/sylvan = list(LANGUAGE_ATOM),
+		/datum/language/nambuni = list(LANGUAGE_ATOM),
 	)

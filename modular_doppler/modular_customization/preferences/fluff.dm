@@ -5,7 +5,7 @@
 	. = ..()
 	fluff_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/fluff)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
 
-/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE)
+/datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features["fluff"] && !(type in GLOB.species_blacklist_no_mutant))
 		if(target.dna.features["fluff"] != /datum/sprite_accessory/fluff/none::name && target.dna.features["fluff"] != /datum/sprite_accessory/blank::name)

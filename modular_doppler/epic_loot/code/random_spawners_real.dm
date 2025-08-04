@@ -86,7 +86,6 @@
 		/obj/item/stack/medical/bruise_pack = 3,
 		/obj/item/stack/medical/gauze = 3,
 		/obj/item/stack/medical/gauze/sterilized = 2,
-		/obj/item/stack/medical/suture/emergency = 3,
 		/obj/item/stack/medical/suture/coagulant = 2,
 		/obj/item/stack/medical/suture/bloody = 1,
 		/obj/item/stack/medical/ointment = 3,

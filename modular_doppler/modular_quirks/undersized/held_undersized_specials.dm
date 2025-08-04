@@ -1,5 +1,5 @@
 
-/obj/item/clothing/head/mob_holder/Initialize(mapload, mob/living/M, worn_state, head_icon, lh_icon, rh_icon, worn_slot_flags = NONE)
+/obj/item/mob_holder/Initialize(mapload, mob/living/M, worn_state, head_icon, lh_icon, rh_icon, worn_slot_flags = NONE)
 	. = ..()
 	SEND_SIGNAL(M, COMSIG_ADDING_MOB_HOLDER_SPECIALS, M, src)
 
@@ -17,8 +17,8 @@
 	if(!ishuman(tongue_owner))
 		return
 	UnregisterSignal(tongue_owner, COMSIG_ADDING_MOB_HOLDER_SPECIALS)
-	
-/obj/item/organ/tongue/carp/proc/on_adding_mob_holder_specials(datum/source, mob/living/held_creature, obj/item/clothing/head/mob_holder/our_holder)
+
+/obj/item/organ/tongue/carp/proc/on_adding_mob_holder_specials(datum/source, mob/living/held_creature, obj/item/mob_holder/our_holder)
 	SIGNAL_HANDLER
 	if(!held_creature.has_quirk(/datum/quirk/undersized))
 		return
