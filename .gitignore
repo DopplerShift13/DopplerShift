@@ -7,6 +7,7 @@
 /data/**/*
 /tmp/**/*
 /cache/**/*
+/tgui/**/*
 
 #Ignore byond config folder.
 /cfg/**/*
