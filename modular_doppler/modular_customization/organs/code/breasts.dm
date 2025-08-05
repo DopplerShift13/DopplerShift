@@ -39,7 +39,7 @@
 
 	var/organ_slot = ORGAN_SLOT_EXTERNAL_BREASTS
 
-	var/baselayer = HEAD_LAYER
+	var/baselayer = BODY_FRONT_LAYER
 	var/offset1 = 0.09
 	var/offset2 = 0.08
 	var/offset3 = 0.07
