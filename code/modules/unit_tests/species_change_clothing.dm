@@ -7,7 +7,7 @@
 	var/mob/living/carbon/human/morphing_human = allocate(/mob/living/carbon/human/dummy/consistent)
 
 	morphing_human.equipOutfit(/datum/outfit/job/assistant/consistent)
-	morphing_human.dna.features["legs"] = DIGITIGRADE_LEGS //you WILL have digitigrade legs
+	morphing_human.dna.features[FEATURE_LEGS] = DIGITIGRADE_LEGS //you WILL have digitigrade legs
 
 	/// DOPPLER SHIFT REMOVAL BEGIN - fuck tg and their stupid lizard racism gimmicks, genuinely
 	/*var/obj/item/human_shoes = morphing_human.get_item_by_slot(ITEM_SLOT_FEET)

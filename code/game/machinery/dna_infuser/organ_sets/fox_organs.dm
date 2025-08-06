@@ -5,7 +5,7 @@
 	icon_state = "kitty"
 	visual = TRUE
 	damage_multiplier = 2
-
-	// dna_block = DNA_EARS_BLOCK - it's bleak
-//	DOPPLER EDIT, removal - old code: bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears
-//	DOPPLER EDIT, removal - old code: sprite_accessory_override = /datum/sprite_accessory/ears/fox
+	/* DOPPLER REMOVAL
+	dna_block = /datum/dna_block/feature/ears
+	bodypart_overlay = /datum/bodypart_overlay/mutant/cat_ears
+	sprite_accessory_override = /datum/sprite_accessory/ears/fox */

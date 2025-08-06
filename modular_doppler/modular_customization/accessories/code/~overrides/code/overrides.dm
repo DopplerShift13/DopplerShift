@@ -21,14 +21,14 @@
 	if(randomize_features)
 		if(istype(species, /datum/species/human/genemod))
 			var/skin_tone = pick(GLOB.skin_tones)
-			features["mcolor"] = skintone2hex(skin_tone) //spoof
+			features[FEATURE_MUTANT_COLOR] = skintone2hex(skin_tone) //spoof
 		if(species.id != /datum/species/human/felinid::id)
-			features["tail_cat"] = /datum/sprite_accessory/tails/human/none::name
-			features["ears"] = /datum/sprite_accessory/ears/none::name
+			features[FEATURE_TAIL] = /datum/sprite_accessory/tails/human/none::name
+			features[FEATURE_EARS] = /datum/sprite_accessory/ears/none::name
 		if(species.id != /datum/species/monkey::id)
-			features["tail_monkey"] = /datum/sprite_accessory/tails/monkey/none::name
+			features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
 		if(species.id != /datum/species/human/felinid::id)
-			features["tail_cat"] = /datum/sprite_accessory/tails/human/none::name
+			features[FEATURE_TAIL] = /datum/sprite_accessory/tails/human/none::name
 	update_dna_identity()
 
 /mob/living/carbon/human
