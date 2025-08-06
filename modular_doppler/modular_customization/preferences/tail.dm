@@ -35,23 +35,23 @@
 	if(!ishuman(target))
 		return
 
-	if(target.dna.features["tail_lizard"] != /datum/sprite_accessory/tails/lizard/none::name  && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features["tail_lizard"] != /datum/sprite_accessory/blank::name)
+	if(target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/tails/lizard/none::name  && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features["tail_cat"] != /datum/sprite_accessory/tails/human/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features["tail_cat"] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL] != /datum/sprite_accessory/tails/human/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/cat)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features["tail_monkey"] != /datum/sprite_accessory/tails/monkey/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features["tail_monkey"] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/tails/monkey/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/monkey)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features["fish_tail"] != /datum/sprite_accessory/tails/fish/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features["fish_tail"] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/tails/fish/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/fish)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if((target.dna.features["tail_other"] != /datum/sprite_accessory/tails/lizard/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features["tail_other"] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
+	else if((target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/tails/lizard/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
 		var/obj/item/organ/organ_path = text2path("/obj/item/organ/tail/[target.dna.tail_type]")
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -91,36 +91,36 @@
 //	Luckily for all of us, this list wont get any bigger
 	switch(chosen_variation)
 		if(NO_VARIATION)
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/tails/fish/none::name
-			target.dna.features["tail_other"] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
+			target.dna.features[FEATURE_TAIL] = /datum/sprite_accessory/tails/human/none::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
 		if(LIZARD)
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/tails/fish/none::name
-			target.dna.features["tail_other"] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL] = /datum/sprite_accessory/tails/human/none::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
 		if(CAT)
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/tails/fish/none::name
-			target.dna.features["tail_other"] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
 		if(MONKEY)
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/tails/fish/none::name
-			target.dna.features["tail_other"] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL] = /datum/sprite_accessory/tails/human/none::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
 		if(FISH)
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features["tail_other"] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL] = /datum/sprite_accessory/tails/human/none::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
 		else
-			target.dna.features["tail_lizard"] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features["tail_cat"] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features["tail_monkey"] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features["fish_tail"] = /datum/sprite_accessory/tails/fish/none::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
+			target.dna.features[FEATURE_TAIL] = /datum/sprite_accessory/tails/human/none::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
 
 ///	All current tail types to choose from
 //	Lizard
@@ -144,7 +144,7 @@
 	return /datum/sprite_accessory/tails/lizard/none::name
 
 /datum/preference/choiced/lizard_tail/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tail_lizard"] = value
+	target.dna.features[FEATURE_TAIL_LIZARD] = value
 
 /datum/preference/choiced/lizard_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_lizard[value]
@@ -171,7 +171,7 @@
 	return /datum/sprite_accessory/tails/human/none::name
 
 /datum/preference/choiced/tail_felinid/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tail_cat"] = value
+	target.dna.features[FEATURE_TAIL] = value
 
 /datum/preference/choiced/tail_felinid/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_felinid[value]
@@ -204,7 +204,7 @@
 
 /datum/preference/choiced/dog_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == DOG)	// we will be sharing the 'tail_other' slot with multiple tail types
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/dog_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_dog[value]
@@ -237,7 +237,7 @@
 
 /datum/preference/choiced/fox_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FOX)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/fox_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_fox[value]
@@ -270,7 +270,7 @@
 
 /datum/preference/choiced/bunny_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == BUNNY)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/bunny_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_bunny[value]
@@ -303,7 +303,7 @@
 
 /datum/preference/choiced/mouse_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == MOUSE)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/mouse_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_mouse[value]
@@ -336,7 +336,7 @@
 
 /datum/preference/choiced/bird_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == BIRD)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/bird_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_bird[value]
@@ -363,7 +363,7 @@
 	return /datum/sprite_accessory/tails/monkey/none::name
 
 /datum/preference/choiced/monkey_tail/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["tail_monkey"] = value
+	target.dna.features[FEATURE_TAIL_MONKEY] = value
 
 /datum/preference/choiced/monkey_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_monkey[value]
@@ -396,7 +396,7 @@
 
 /datum/preference/choiced/deer_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == DEER)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/deer_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_deer[value]
@@ -429,7 +429,7 @@
 
 /datum/preference/choiced/fish_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FISH)
-		target.dna.features["fish_tail"] = value
+		target.dna.features[FEATURE_TAIL_FISH] = value
 
 /datum/preference/choiced/fish_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_fish[value]
@@ -462,7 +462,7 @@
 
 /datum/preference/choiced/bug_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == BUG)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/bug_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_bug[value]
@@ -495,7 +495,7 @@
 
 /datum/preference/choiced/synth_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == CYBERNETIC)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/synth_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_synth[value]
@@ -528,7 +528,7 @@
 
 /datum/preference/choiced/humanoid_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == HUMANOID)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/humanoid_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_humanoid[value]
@@ -561,7 +561,7 @@
 
 /datum/preference/choiced/alien_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == ALIEN)
-		target.dna.features["tail_other"] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/alien_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_alien[value]
@@ -578,49 +578,49 @@
 	if(sprite_accessory.icon_state != "none")
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_RED, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND_2", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND_2", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND_3", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_BEHIND_3", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		// adjacent breaker
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_RED, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ_2", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ_2", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ_3", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_ADJ_3", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		// front breaker
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_RED, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT_2", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT_2", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_VIBRANT_LIME, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT_3", NORTH))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_[key]_[sprite_accessory.icon_state]_FRONT_3", NORTH)
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 

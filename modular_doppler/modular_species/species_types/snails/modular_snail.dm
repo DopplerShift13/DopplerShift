@@ -145,7 +145,7 @@
 		wearer.update_worn_back()
 
 /datum/species/snail/prepare_human_for_preview(mob/living/carbon/human/snail)
-	snail.dna.features["mcolor"] = "#797289"
+	snail.dna.features[FEATURE_MUTANT_COLOR] = "#797289"
 	snail.hairstyle = "Phoenix Half-Shaven"
 	snail.hair_color = "#4C3C7E"
 	snail.eye_color_left = "#615188"
