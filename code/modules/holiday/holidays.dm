@@ -365,15 +365,15 @@ GLOBAL_LIST_INIT(holiday_mail, list())
 
 //Draconic Day is celebrated on May 3rd, the date on which the Draconic language was merged (#26780)
 /datum/holiday/draconic_day
-	name = "Draconic Language Day"
+	name = "Khaishhs Language Day"
 	begin_month = MAY
 	begin_day = 3
 
 /datum/holiday/draconic_day/greet()
-	return "On this day, Lizardkind celebrates their language with literature and other cultural works."
+	return "On this day, Tizirans celebrates their language with literature and other cultural works."
 
 /datum/holiday/draconic_day/getStationPrefix()
-	return pick("Draconic", "Literature", "Reading")
+	return pick("Tiziran", "Literature", "Reading")
 
 /datum/holiday/firefighter
 	name = "Firefighter's Day"

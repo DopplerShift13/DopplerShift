@@ -132,7 +132,7 @@
 	name = "\improper Tizirian tan war kilt"
 	desc = "The third best maintained item a Tizirian owns, next to their blades and armor. A relatively simple \
 		looking kilt with a red banner hanging from it's front. Each banner holds a different long string of \
-		draconic written on to it, often with little meaning and just to \"look cool\" for the cameras. \
+		Khaishhs written on to it, often with little meaning and just to \"look cool\" for the cameras. \
 		This one is tan for the empire's obligate service members."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
 	icon_state = "kilt_levy"
@@ -151,7 +151,7 @@
 	name = "\improper Tizirian white war kilt"
 	desc = "The third best maintained item a Tizirian owns, next to their blades and armor. A relatively simple \
 		looking kilt with a red banner hanging from it's front. Each banner holds a different long string of \
-		draconic written on to it, often with little meaning and just to \" look cool \" for the cameras. \
+		Khaishhs written on to it, often with little meaning and just to \" look cool \" for the cameras. \
 		This one is white for the empire's career service members."
 	icon_state = "kilt_reg"
 	worn_icon_state = "kilt_reg"

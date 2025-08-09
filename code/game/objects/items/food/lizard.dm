@@ -223,7 +223,7 @@
 //Why does like, every language on the planet besides English call them pommes? Who knows, who cares- the lizards call them it too, because funny.
 /obj/item/food/lizard_fries
 	name = "loaded poms-franzisks"
-	desc = "One of the many human foods to make its way to the lizards was french fries, which are called poms-franzisks in Draconic. When topped with barbecued meat and sauce, they make a hearty meal."
+	desc = "One of the many human foods to make its way to the lizards was french fries, which are called poms-franzisks in Khaishhs. When topped with barbecued meat and sauce, they make a hearty meal."
 	icon = 'icons/obj/food/lizard.dmi'
 	icon_state = "lizard_fries"
 	trash_type = /obj/item/plate
