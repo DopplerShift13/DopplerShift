@@ -7003,6 +7003,7 @@
 #include "modular_doppler\languages\code\language menu\client_languages.dm"
 #include "modular_doppler\languages\code\language menu\language_holder.dm"
 #include "modular_doppler\languages\code\language menu\language_preferences.dm"
+#include "modular_doppler\layer_shift\code\mob_movement.dm"
 #include "modular_doppler\loadout_categories\loadout_checkers.dm"
 #include "modular_doppler\loadout_categories\categories\accessories.dm"
 #include "modular_doppler\loadout_categories\categories\backpacks.dm"
