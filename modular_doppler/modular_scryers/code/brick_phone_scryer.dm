@@ -66,9 +66,9 @@
 		context[SCREENTIP_CONTEXT_RMB] = "Deny call"
 	else if(isnull(held_item))
 		context[SCREENTIP_CONTEXT_RMB] = "Remove cell"
-	else if(istype(tool, /obj/item/stock_parts/power_store/cell))
+	else if(istype(held_item, /obj/item/stock_parts/power_store/cell))
 		context[SCREENTIP_CONTEXT_LMB] = "[cell ? "Swap" : "Add"] cell"
-	else if(istype(tool, obj/item/multitool))
+	else if(istype(held_item, /obj/item/multitool))
 		context[SCREENTIP_CONTEXT_LMB] = "Set frequency"
 		context[SCREENTIP_CONTEXT_RMB] = "Copy frequency"
 
