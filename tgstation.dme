@@ -6999,6 +6999,7 @@
 #include "modular_doppler\kahraman_equipment\code\organic_printer_designs\equipment.dm"
 #include "modular_doppler\kahraman_equipment\code\organic_printer_designs\resources.dm"
 #include "modular_doppler\languages\code\language_datums.dm"
+#include "modular_doppler\languages\code\tiziran_overrides.dm"
 #include "modular_doppler\languages\code\language menu\_language.dm"
 #include "modular_doppler\languages\code\language menu\client_languages.dm"
 #include "modular_doppler\languages\code\language menu\language_holder.dm"

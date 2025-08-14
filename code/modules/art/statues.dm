@@ -75,7 +75,7 @@
 
 /obj/structure/statue/dragonman
 	name = "dragonman statue"
-	desc = "Statue of a Tiziran humanoid warrior. Its glittering eyes seem to follow you around the room."
+	desc = "Statue of a draconic humanoid warrior. Its glittering eyes seem to follow you around the room."
 	icon_state = "dragonman"
 	anchored = TRUE
 

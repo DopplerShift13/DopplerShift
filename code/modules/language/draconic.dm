@@ -1,6 +1,6 @@
 /datum/language/draconic
-	name = "Khaishhs"
-	desc = "Often mispronounced as \"Heesh\" by offworlders and non-lizardfolk, The language can date its origins to Tiziran Pre-History where its abundant use of hisses, rattles, glottal sounds and other harsh consonants made it easily understood at greater distances and the extensive cave systems below the surface of Tizira. Though there are as many dialects as there are Clans, the more common \"Imperial Khaishhs\" was created by Clan Talunan as an effort to unite the people under their rule, and is what used in any and all official dealings with their government. The language itself has gained a bit of infamy in how uncomfortable it is to speak after any extended period for those whom do not use it on a daily basis, or whose biology is non-conducive to the vocals required to properly speak it. "
+	name = "Draconic"
+	desc = "The common language of lizard-people, composed of sibilant hisses and rattles."
 	key = "o"
 	flags = TONGUELESS_SPEECH
 	space_chance = 12
