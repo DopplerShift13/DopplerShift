@@ -63,7 +63,7 @@
 	context[SCREENTIP_CONTEXT_CTRL_LMB] = "[label ? "Reset" : "Set"] name"
 	if(held_item == src)
 		context[SCREENTIP_CONTEXT_LMB] = "Answer call"
-		context[SCREENTIP_CONTEXT_RMB] = "Deny call"
+		context[SCREENTIP_CONTEXT_RMB] = "[mod_link.link_call ? "End" : "Deny"] call"
 	else if(isnull(held_item))
 		context[SCREENTIP_CONTEXT_RMB] = "Remove cell"
 	else if(istype(held_item, /obj/item/stock_parts/power_store/cell))
@@ -107,10 +107,10 @@
 		mod_link.end_call()
 		return
 	if(QDELETED(cell))
-		user.balloon_alert(user, "no cell installed!")
+		balloon_alert(user, "no cell installed!")
 		return
 	if(!cell.charge)
-		user.balloon_alert(user, "no charge!")
+		balloon_alert(user, "no charge!")
 		return
 	call_link(user, mod_link)
 
@@ -118,9 +118,13 @@
 	// We're a brick phone. Always go clicky.
 	playsound(src, 'sound/machines/click.ogg', 50, vary = TRUE)
 
+	if(mod_link.link_call)
+		mod_link.end_call()
+		return
+
 	var/datum/mod_link/calling_mod_link = calling_mod_link_ref?.resolve()
 	if(isnull(calling_mod_link))
-		user.balloon_alert(user, "nobody calling!")
+		balloon_alert(user, "nobody calling!")
 		return
 
 	deny_call()
