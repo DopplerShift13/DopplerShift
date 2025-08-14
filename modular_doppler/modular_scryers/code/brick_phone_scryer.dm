@@ -36,6 +36,9 @@
 	/// ID for the timer used to end incoming calls.
 	var/calling_timer_id
 
+	/// Whether this phone has had its ringer silenced.
+	var/ringing_silenced = FALSE
+
 /obj/item/brick_phone_scryer/Initialize(mapload)
 	. = ..()
 	old_name = name
@@ -196,7 +199,7 @@
 		balloon_alert(user, "no frequency!")
 		return ITEM_INTERACT_BLOCKING
 
-	tool.set_buffer(mod_link.frequency)
+	tool.set_buffer(mod_link)
 	balloon_alert(user, "copied frequency")
 	return ITEM_INTERACT_SUCCESS
 
@@ -240,7 +243,8 @@
 		return
 
 	calling_user.playsound_local(get_turf(calling_mod_link.holder), 'sound/machines/beep/twobeep.ogg', 15, vary = TRUE)
-	playsound(src, 'sound/items/weapons/ring.ogg', 15, vary = TRUE)
+	if(!ringing_silenced)
+		playsound(src, 'sound/items/weapons/ring.ogg', 15, vary = TRUE)
 	Shake(pixelshiftx = 1, pixelshifty = 1, duration = 0.75 SECONDS, shake_interval = 0.02 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(incoming_call_loop)), BRICK_SCRYERPHONE_RINGING_INTERVAL)
 
@@ -265,9 +269,9 @@
 		cell = null
 
 /obj/item/brick_phone_scryer/proc/get_user()
-	if(!iscarbon(loc))
+	if(!isliving(loc))
 		return null
-	var/mob/living/carbon/user = loc
+	var/mob/living/user = loc
 	if(!user.is_holding(src))
 		return null
 	return user
