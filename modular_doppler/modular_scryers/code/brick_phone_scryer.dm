@@ -253,11 +253,6 @@
 	if(gone == cell)
 		cell = null
 
-/obj/item/brick_phone_scryer/worn_overlays(mutable_appearance/standing, isinhands) // TODO: look into whether this is still needed
-	. = ..()
-	//if(!QDELETED(mod_link.link_call))
-	//	. += mutable_appearance('icons/mob/clothing/neck.dmi', "modlink_active")
-
 /obj/item/brick_phone_scryer/proc/get_user()
 	if(!iscarbon(loc))
 		return null
