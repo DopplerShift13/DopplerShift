@@ -65,7 +65,7 @@
 /obj/item/brick_phone_scryer/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	context[SCREENTIP_CONTEXT_CTRL_LMB] = "[label ? "Reset" : "Set"] name"
 	if(held_item == src)
-		context[SCREENTIP_CONTEXT_LMB] = "Answer call"
+		context[SCREENTIP_CONTEXT_LMB] = (calling_mod_link_ref?.resolve() ? "Answer call" : "Call")
 		context[SCREENTIP_CONTEXT_RMB] = "[mod_link.link_call ? "End" : "Deny"] call"
 	else if(isnull(held_item))
 		context[SCREENTIP_CONTEXT_RMB] = "Remove cell"
@@ -109,11 +109,15 @@
 	if(mod_link.link_call)
 		mod_link.end_call()
 		return
+
 	if(QDELETED(cell))
 		balloon_alert(user, "no cell installed!")
 		return
 	if(!cell.charge)
 		balloon_alert(user, "no charge!")
+		return
+	if(isnull(mod_link.frequency))
+		balloon_alert(user, "set frequency first!")
 		return
 	call_link(user, mod_link)
 
