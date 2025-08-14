@@ -8,6 +8,9 @@
 	icon_state = "phone_off"
 	w_class = WEIGHT_CLASS_SMALL
 
+	// Center sprite.
+	SET_BASE_PIXEL(3, 3)
+
 	// Thing hits like an actual brick.
 	force = 10
 	throwforce = 10
@@ -127,6 +130,7 @@
 		balloon_alert(user, "nobody calling!")
 		return
 
+	balloon_alert(user, "call denied")
 	deny_call()
 
 /obj/item/brick_phone_scryer/attack_hand_secondary(mob/user, list/modifiers)
