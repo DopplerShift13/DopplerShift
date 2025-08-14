@@ -203,6 +203,10 @@
 	name = "Shock collar"
 	item_path = /obj/item/electropack/shockcollar
 
+/datum/loadout_item/pocket_items/brick_scryerphone
+	name = "Brick Scryerphone"
+	item_path = /obj/item/brick_phone_scryer
+
 /*
 *	UTILITY
 */
