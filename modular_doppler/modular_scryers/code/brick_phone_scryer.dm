@@ -35,6 +35,8 @@
 	var/datum/weakref/calling_mod_link_ref
 	/// ID for the timer used to end incoming calls.
 	var/calling_timer_id
+	/// ID for the timer used for our ringing loop.
+	var/calling_loop_timer_id
 
 	/// Whether this phone has had its ringer silenced.
 	var/ringing_silenced = FALSE
@@ -63,6 +65,9 @@
 	if(calling_timer_id)
 		deltimer(calling_timer_id)
 		calling_timer_id = null
+	if(calling_loop_timer_id)
+		deltimer(calling_loop_timer_id)
+		calling_loop_timer_id = null
 	return ..()
 
 /obj/item/brick_phone_scryer/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
@@ -233,26 +238,41 @@
 	var/datum/mod_link/calling_mod_link = calling_mod_link_ref?.resolve()
 	if(isnull(calling_mod_link) || calling_mod_link.link_call)
 		incoming_call_end()
-		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 15, vary = TRUE)
 		return
 
 	var/mob/living/calling_user = calling_mod_link.get_user()
 	if(isnull(calling_user))
 		incoming_call_end()
-		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 15, vary = TRUE)
 		return
 
 	calling_user.playsound_local(get_turf(calling_mod_link.holder), 'sound/machines/beep/twobeep.ogg', 15, vary = TRUE)
 	if(!ringing_silenced)
 		playsound(src, 'sound/items/weapons/ring.ogg', 15, vary = TRUE)
-	Shake(pixelshiftx = 1, pixelshifty = 1, duration = 0.75 SECONDS, shake_interval = 0.02 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(incoming_call_loop)), BRICK_SCRYERPHONE_RINGING_INTERVAL)
+	perform_shake()
+	calling_loop_timer_id = addtimer(CALLBACK(src, PROC_REF(incoming_call_loop)), BRICK_SCRYERPHONE_RINGING_INTERVAL, TIMER_STOPPABLE)
 
-/obj/item/brick_phone_scryer/proc/incoming_call_end()
+/obj/item/brick_phone_scryer/proc/incoming_call_end(buzz_us = TRUE, buzz_caller = TRUE)
 	if(calling_timer_id)
 		deltimer(calling_timer_id)
 		calling_timer_id = null
+	if(calling_loop_timer_id)
+		deltimer(calling_loop_timer_id)
+		calling_loop_timer_id = null
+
+	if(buzz_us)
+		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 15, vary = TRUE)
+		balloon_alert_to_viewers("call ended!")
+	if(buzz_caller)
+		var/datum/mod_link/calling_mod_link = calling_mod_link_ref?.resolve()
+		var/mob/living/calling_user = calling_mod_link.get_user()
+		if(calling_user)
+			calling_user.playsound_local(get_turf(calling_mod_link.holder), 'sound/machines/buzz/buzz-sigh.ogg', 15, vary = TRUE)
+	
 	calling_mod_link_ref = null
+
+/obj/item/brick_phone_scryer/proc/perform_shake()
+	var/atom/topmost_atom = get_atom_on_turf(src)
+	topmost_atom.Shake(pixelshiftx = 1, pixelshifty = 1, duration = 0.75 SECONDS, shake_interval = 0.02 SECONDS)
 
 /obj/item/brick_phone_scryer/update_name(updates)
 	. = ..()
@@ -316,7 +336,7 @@
 		balloon_alert(user, "no calls!")
 		return
 
-	incoming_call_end()
+	incoming_call_end(buzz_us = FALSE, buzz_caller = FALSE)
 	var/mob/living/calling_user = calling_mod_link.get_user()
 	if(isnull(calling_user))
 		balloon_alert(user, "no response!")
@@ -333,7 +353,7 @@
 	if(isnull(calling_mod_link))
 		return
 
-	incoming_call_end()
+	incoming_call_end(buzz_us = FALSE)
 	var/mob/living/calling_user = calling_mod_link.get_user()
 	if(isnull(calling_user))
 		return
