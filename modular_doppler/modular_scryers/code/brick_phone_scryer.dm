@@ -141,7 +141,10 @@
 	playsound(src, 'sound/machines/click.ogg', 50, vary = TRUE)
 	return SECONDARY_ATTACK_CANCEL_ATTACK_CHAIN
 
-/obj/item/brick_phone_scryer/click_ctrl(mob/user)
+/obj/item/brick_phone_scryer/item_ctrl_click(mob/user)
+	if(!user.is_holding(src))
+		return NONE
+
 	// We're a brick phone. Always go clicky.
 	playsound(src, 'sound/machines/click.ogg', 50, vary = TRUE)
 
