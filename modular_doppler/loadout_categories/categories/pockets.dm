@@ -205,7 +205,7 @@
 
 /datum/loadout_item/pocket_items/brick_scryerphone
 	name = "Brick Scryerphone"
-	item_path = /obj/item/brick_phone_scryer
+	item_path = /obj/item/brick_phone_scryer/loaded/crew
 
 /*
 *	UTILITY
