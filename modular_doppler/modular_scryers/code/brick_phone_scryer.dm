@@ -180,7 +180,7 @@
 	if(isnull(tool.buffer))
 		balloon_alert(user, "buffer empty!")
 		return ITEM_INTERACT_BLOCKING
-	if(istype(tool.buffer, /datum/mod_link))
+	if(!istype(tool.buffer, /datum/mod_link))
 		balloon_alert(user, "wrong buffer!")
 		return ITEM_INTERACT_BLOCKING
 	var/datum/mod_link/buffer_link = tool.buffer
