@@ -507,7 +507,7 @@
 			continue
 		// DOPPLER EDIT ADDITION - Allow MODlinks to override their displayname.
 		if(link.visual_name)
-			callers["[visual_name] ([id])"] = id
+			callers["[link.visual_name] ([id])"] = id
 			continue
 		// DOPPLER EDIT ADDITION
 		callers["[link.holder] ([id])"] = id
