@@ -162,7 +162,7 @@
 
 	if(label)
 		balloon_alert(user, "reset name")
-		label = null
+		set_label(null)
 		update_name()
 		return CLICK_ACTION_SUCCESS
 
@@ -173,7 +173,7 @@
 		balloon_alert(user, "invalid name!")
 		return CLICK_ACTION_BLOCKING
 
-	label = new_label
+	set_label(new_label)
 	balloon_alert(user, "set name")
 	playsound(src, 'sound/machines/click.ogg', 50, vary = TRUE)
 	update_name()
@@ -287,6 +287,10 @@
 	. = ..()
 	if(gone == cell)
 		cell = null
+
+/obj/item/brick_phone_scryer/proc/set_label(new_label)
+	label = new_label
+	mod_link.visual_name = new_label
 
 /obj/item/brick_phone_scryer/proc/get_user()
 	if(!isliving(loc))

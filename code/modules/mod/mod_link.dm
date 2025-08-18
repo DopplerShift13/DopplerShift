@@ -505,6 +505,11 @@
 			continue
 		if(!link.can_call_callback.Invoke())
 			continue
+		// DOPPLER EDIT ADDITION - Allow MODlinks to override their displayname.
+		if(link.visual_name)
+			callers["[visual_name] ([id])"] = id
+			continue
+		// DOPPLER EDIT ADDITION
 		callers["[link.holder] ([id])"] = id
 	if(!length(callers))
 		calling_link.holder.balloon_alert(user, "no targets on freq [calling_link.frequency]!")

@@ -10,6 +10,8 @@
 	/// Takes the calling MODlink datum and the calling user as arguments.
 	/// Return TRUE if we need to override.
 	var/datum/callback/override_called_logic_callback
+	/// Optional visual name to display in the call list.
+	var/visual_name
 
 /datum/mod_link/Destroy()
 	override_called_logic_callback = null
