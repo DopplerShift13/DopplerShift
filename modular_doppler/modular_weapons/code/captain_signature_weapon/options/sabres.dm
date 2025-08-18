@@ -5,23 +5,23 @@
 /datum/signature_equipment/captain_weapon/standard_sabre
 	name = "Standard Sabre"
 	icon_item_type = /obj/item/melee/sabre
-	spawned_item_type = /obj/item/storage/belt/sabre
+	spawned_item_type = /obj/item/storage/belt/sheath/sabre
 
 /datum/signature_equipment/captain_weapon/alternate_sabre
 	name = "Alternate Sabre"
 	icon_item_type = /obj/item/melee/sabre/modular/alternate
-	spawned_item_type = /obj/item/storage/belt/sabre/modular/alternate
+	spawned_item_type = /obj/item/storage/belt/sheath/modular/alternate
 
 /datum/signature_equipment/captain_weapon/golden_sabre
 	name = "Golden Sabre"
 	icon_item_type = /obj/item/melee/sabre/modular/golden
-	spawned_item_type = /obj/item/storage/belt/sabre/modular/golden
+	spawned_item_type = /obj/item/storage/belt/sheath/modular/golden
 
 /datum/signature_equipment/captain_weapon/cane_sabre
 	name = "Cane Sabre"
 	desc = "The sheath for this sabre is a cane, and doesn't fit on belts."
 	icon_item_type = /obj/item/melee/sabre/modular/cane
-	spawned_item_type = /obj/item/storage/belt/sabre/modular/cane
+	spawned_item_type = /obj/item/storage/belt/sheath/modular/cane
 
 /datum/signature_equipment/captain_weapon/telescopic_sabre
 	name = "Telescopic Sabre (Sheathless)"
@@ -35,7 +35,7 @@
  * Item Overrides
  */
 
-/obj/item/storage/belt/sabre
+/obj/item/storage/belt/sheath/sabre
 	storage_type = /datum/storage/sabre_belt/no_modulars
 
 /datum/storage/sabre_belt/no_modulars/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
@@ -61,7 +61,9 @@
 	icon_state = "sabre_alternate"
 	inhand_icon_state = "sabre_alternate"
 
-/obj/item/storage/belt/sabre/modular
+/obj/item/storage/belt/sheath/modular
+	name = "sabre sheath"
+	desc = "An ornate sheath designed to hold an officer's blade."
 	icon = 'modular_doppler/modular_weapons/icons/obj/captain_sheaths.dmi'
 	worn_icon = 'modular_doppler/modular_weapons/icons/mob/worn/captain_sheaths.dmi'
 	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/captain_sheaths_lefthand.dmi'
@@ -73,7 +75,7 @@
 	/// The type of the sword we spawn with and can hold.
 	var/spawned_sword_type
 
-/obj/item/storage/belt/sabre/modular/PopulateContents()
+/obj/item/storage/belt/sheath/modular/PopulateContents()
 	if(isnull(spawned_sword_type))
 		return
 	new spawned_sword_type(src)
@@ -81,9 +83,9 @@
 
 /datum/storage/sabre_belt/modular/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	if(!istype(parent, /obj/item/melee/sabre/modular))
+	if(!istype(parent, /obj/item/storage/belt/sheath/modular))
 		return
-	var/obj/item/storage/belt/sabre/modular/modular_belt_parent = parent
+	var/obj/item/storage/belt/sheath/modular/modular_belt_parent = parent
 	if(isnull(modular_belt_parent.spawned_sword_type))
 		return
 	set_holdable(modular_belt_parent.spawned_sword_type)
@@ -93,7 +95,7 @@
 	icon_state = "sabre_alternate"
 	inhand_icon_state = "sabre_alternate"
 
-/obj/item/storage/belt/sabre/modular/alternate
+/obj/item/storage/belt/sheath/modular/alternate
 	icon_state = "sheath_alternate"
 	inhand_icon_state = "sheath_alternate"
 	worn_icon_state = "sheath_alternate"
@@ -107,7 +109,7 @@
 	icon_state = "sabre_golden"
 	inhand_icon_state = "sabre_golden"
 
-/obj/item/storage/belt/sabre/modular/golden
+/obj/item/storage/belt/sheath/modular/golden
 	icon_state = "sheath_golden"
 	inhand_icon_state = "sheath_golden"
 	worn_icon_state = "sheath_golden"
@@ -120,7 +122,7 @@
 	icon_state = "sabre_cane"
 	inhand_icon_state = "sabre_cane"
 
-/obj/item/storage/belt/sabre/modular/cane
+/obj/item/storage/belt/sheath/modular/cane
 	name = "cane sheath"
 	desc = "A walking cane modified to hold a thin stick sabre. Notably, it does not fit on belts."
 	icon_state = "sheath_cane"
