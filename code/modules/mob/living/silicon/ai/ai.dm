@@ -629,6 +629,7 @@
 				if(character_icon)
 					character_icon.setDir(SOUTH)
 					hologram_appearance = character_icon
+					update_link_visual() // DOPPLER EDIT ADDITION - Update MODlink scryer visuals.
 
 			if(CHARACTER_TYPE_SELF)
 				var/confirmation = tgui_alert(usr,
@@ -643,6 +644,7 @@
 					qdel(ai_dummy)
 					if(dummy_appearance)
 						hologram_appearance = dummy_appearance
+						update_link_visual() // DOPPLER EDIT ADDITION - Update MODlink scryer visuals.
 					return TRUE
 				else
 					return FALSE
@@ -661,6 +663,7 @@
 			CRASH("hologram icon_state for [option] does not exist in global icon_state list")
 
 		hologram_appearance = mutable_appearance(icon, icon_state)
+		update_link_visual() // DOPPLER EDIT ADDITION - Update MODlink scryer visuals.
 	return
 
 /datum/action/innate/core_return
