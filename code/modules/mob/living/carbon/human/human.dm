@@ -1124,6 +1124,9 @@
 /mob/living/carbon/human/species/ethereal
 	race = /datum/species/ethereal
 
+/mob/living/carbon/human/species/mermaid
+	race = /datum/species/human/mermaid
+
 /mob/living/carbon/human/species/moth
 	race = /datum/species/moth
 

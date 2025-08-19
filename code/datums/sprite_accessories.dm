@@ -1933,6 +1933,14 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	center = TRUE
 	dimension_x = 36
 
+//Mermaid tails for the species
+/datum/sprite_accessory/tails/fish/mermaid
+	name = "Mermaid"
+	icon_state = "mermaid"
+	color_src = NONE
+	gender_specific = TRUE
+	locked = TRUE
+
 /datum/sprite_accessory/tails/lizard
 	icon = 'icons/mob/human/species/lizard/lizard_tails.dmi'
 	spine_key = SPINE_KEY_LIZARD

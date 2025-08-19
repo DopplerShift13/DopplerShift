@@ -123,3 +123,8 @@ export const heterochromatic: Feature<string> = {
   name: 'Heterochromatic (Right Eye) color',
   component: FeatureColorInput,
 };
+
+export const feature_mermaid_tail: Feature<string> = {
+  name: 'Mermaid tail color',
+  component: FeatureColorInput,
+};

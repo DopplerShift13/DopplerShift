@@ -149,3 +149,13 @@
 
 /datum/dna_block/feature/pod_hair/apply_to_mob(mob/living/carbon/human/target, dna_hash)
 	target.dna.features[feature_key] = SSaccessories.pod_hair_list[deconstruct_block(get_block(dna_hash), length(SSaccessories.pod_hair_list))]
+
+/datum/dna_block/feature/mermaid_color
+	block_length = DNA_BLOCK_SIZE_COLOR
+	feature_key = FEATURE_MERMAID_COLOR
+
+/datum/dna_block/feature/mermaid_color/create_unique_block(mob/living/carbon/human/target)
+	return sanitize_hexcolor(target.dna.features[FEATURE_MERMAID_COLOR], include_crunch = FALSE)
+
+/datum/dna_block/feature/mermaid_color/apply_to_mob(mob/living/carbon/human/target, dna_hash)
+	target.dna.features[feature_key] = sanitize_hexcolor(get_block(dna_hash))
