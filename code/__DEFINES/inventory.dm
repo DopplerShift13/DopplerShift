@@ -170,6 +170,8 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON (1<<2)
 /// Auto-generates the leg portion of the sprite with GAGS
 #define CLOTHING_DIGITIGRADE_MASK (1<<3)
+/// The clothing flag to declare an item has mermaid sprites
+#define CLOTHING_MERMAID_VARIATION (1<<4)
 
 /// All variation flags which render "correctly" on a digitigrade leg setup
 #define DIGITIGRADE_VARIATIONS (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON|CLOTHING_DIGITIGRADE_MASK)

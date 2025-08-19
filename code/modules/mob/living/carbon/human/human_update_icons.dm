@@ -447,10 +447,22 @@ There are several things that need to be remembered:
 
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON))
 			return
+		var/handled_by_bodyshape = TRUE
+		var/icon_file
 
-		var/icon_file = DEFAULT_SUIT_FILE
+		if((bodyshape & BODYSHAPE_MERMAID) && (worn_item.supports_variations_flags & CLOTHING_MERMAID_VARIATION))
+			icon_file = MERMAID_SUIT_FILE
 
-		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file)
+		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
+			icon_file = DEFAULT_SUIT_FILE
+			handled_by_bodyshape = FALSE
+
+		var/mutable_appearance/suit_overlay
+		suit_overlay = wear_suit.build_worn_icon(
+			default_layer = SUIT_LAYER,
+			default_icon_file = icon_file,
+			override_file = handled_by_bodyshape ? icon_file : null,
+		)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
 		my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
 		overlays_standing[SUIT_LAYER] = suit_overlay

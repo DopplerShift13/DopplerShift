@@ -141,6 +141,10 @@
 	ADD_TRAIT(src, TRAIT_NODROP, ORGAN_INSIDE_BODY_TRAIT)
 	interaction_flags_item &= ~INTERACT_ITEM_ATTACK_HAND_PICKUP
 
+	if(external_bodytypes)
+		bodypart_owner.owner.synchronize_bodytypes()
+	if(external_bodyshapes)
+		bodypart_owner.owner.synchronize_bodyshapes()
 	if(bodypart_overlay)
 		limb.add_bodypart_overlay(bodypart_overlay)
 
