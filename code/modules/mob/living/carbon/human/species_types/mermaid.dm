@@ -54,8 +54,10 @@
 
 /// The organ
 /obj/item/organ/tail/fish/mermaid
+	name = "mermaid tail"
 	fillet_amount = 10 //big tail
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/mermaid
+	external_bodyshapes = BODYSHAPE_MERMAID
 	restyle_flags = NONE
 
 /obj/item/organ/tail/fish/mermaid/Initialize(mapload)
@@ -64,8 +66,7 @@
 
 /obj/item/organ/tail/fish/mermaid/on_mob_insert(mob/living/carbon/owner, special, movement_flags)
 	. = ..()
-	make_way(owner)
-	get_greyscale_color_from_draw_color()
+	get_your_sealegs(owner)
 	owner.gain_trauma(/datum/brain_trauma/severe/paralysis/paraplegic, TRAUMA_RESILIENCE_ABSOLUTE)
 
 /obj/item/organ/tail/fish/mermaid/on_mob_remove(mob/living/carbon/owner)
@@ -79,9 +80,11 @@
 		owner.spray_blood(REVERSE_DIR(owner.dir))
 		visible_message(span_warning("[src] detaches, spilling out liters of [LOWER_TEXT(owner.get_bloodtype()?.name)]!"))
 		playsound(src, 'sound/effects/cartoon_sfx/cartoon_splat.ogg', 50, TRUE)
+	get_greyscale_color_from_draw_color()
+	owner.bodyshape &= ~BODYSHAPE_MERMAID
 
 /// Remove legs on insertion, if we had any
-/obj/item/organ/tail/fish/mermaid/proc/make_way(mob/living/carbon/owner)
+/obj/item/organ/tail/fish/mermaid/proc/get_your_sealegs(mob/living/carbon/owner)
 	var/obj/item/bodypart/right_leg = owner.get_bodypart(BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/left_leg = owner.get_bodypart(BODY_ZONE_L_LEG)
 	if(right_leg)
@@ -104,15 +107,21 @@
 	receiver.dna.update_uf_block(/datum/dna_block/feature/tail_fish)
 
 /datum/bodypart_overlay/mutant/tail/mermaid/color_image(image/overlay, layer, obj/item/bodypart/limb)
+	var/color
 	//dye has priority
 	if(dye_color)
-		overlay.color = dye_color
+		color = dye_color
 	//do we have dna set through preferences?
-	else if(limb?.owner.dna.features[FEATURE_MERMAID_COLOR])
-		overlay.color = limb.owner.dna.features[FEATURE_MERMAID_COLOR]
+	else if(limb?.owner?.dna.features[FEATURE_MERMAID_COLOR])
+		color = limb.owner.dna.features[FEATURE_MERMAID_COLOR]
 	//no prefs set, inherit the color of the organ and set the dna
 	else if(locate(/obj/item/organ/tail/fish/mermaid) in limb?.contents)
 		var/obj/item/organ/tail/fish/mermaid/tail = limb.owner.get_organ_by_type(/obj/item/organ/tail/fish/mermaid)
 		limb.owner.dna.features[FEATURE_MERMAID_COLOR] = tail.greyscale_colors
 		limb.owner.dna.update_uf_block(/datum/dna_block/feature/mermaid_color)
-		overlay.color = tail.greyscale_colors
+		color = tail.greyscale_colors
+	draw_color = color
+	overlay.color = color
+
+/datum/bodypart_overlay/mutant/tail/mermaid/can_draw_on_bodypart(obj/item/bodypart/limb)
+	return TRUE //always draw
