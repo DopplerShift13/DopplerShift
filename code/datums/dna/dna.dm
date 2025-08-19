@@ -351,6 +351,7 @@ GLOBAL_LIST_INIT(total_uf_len_by_block, populate_total_uf_len_by_block())
 				features[feature] = new_features[feature]
 
 		features[FEATURE_MUTANT_COLOR] = "#[random_color()]"
+		species.randomize_main_appearance_element(holder)
 
 	update_dna_identity()
 
