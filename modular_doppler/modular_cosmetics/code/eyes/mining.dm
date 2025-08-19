@@ -9,7 +9,7 @@
 	actions_types = list(/datum/action/item_action/toggle)
 	flags_cover = GLASSESCOVERSEYES
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.5)
-	visor_vars_to_toggle = SEE_TURFS
+	vision_flags = SEE_TURFS
 	color_cutoffs = list(15, 15, 5)
 	glass_colour_type = /datum/client_colour/glass_colour/yellow
 
@@ -21,7 +21,7 @@
 	if(up)
 		color_cutoffs = null
 	else
-		color_cutoffs = initial(color_cutoffs)
+		color_cutoffs = list(15, 15, 5)
 
 /obj/item/clothing/glasses/mining_meson/update_icon_state()
 	. = ..()
@@ -34,3 +34,4 @@
 /obj/item/clothing/glasses/meson/night
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/eyes/mining.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/eyes/mining.dmi'
+	glass_colour_type = /datum/client_colour/glass_colour/blue
