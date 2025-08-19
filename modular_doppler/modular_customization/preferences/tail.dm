@@ -34,6 +34,8 @@
 		return
 	if(!ishuman(target))
 		return
+	if(ismermaid(target))
+		return .
 
 	if(target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/tails/lizard/none::name  && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
@@ -639,6 +641,8 @@
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
+		return ..()
+	if(color_source == ORGAN_COLOR_OVERRIDE)
 		return ..()
 	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
 		overlay.color = limb.owner.dna.features["tail_color_1"]

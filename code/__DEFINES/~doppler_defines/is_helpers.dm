@@ -5,3 +5,4 @@
 #define issnail(A) (is_species(A, /datum/species/snail))
 #define ishemophage(A) (is_species(A, /datum/species/human/genemod/hemophage))
 #define isramatan(A) (is_species(A, /datum/species/ramatan))
+#define ismermaid(A) (is_species(A, /datum/species/human/mermaid))

@@ -78,6 +78,7 @@
 #define FEATURE_BREASTS "breasts"
 #define FEATURE_TAUR "taur"
 #define FEATURE_FLUFF "fluff"
+#define FEATURE_MERMAID_COLOR "mermaid_color"
 // DOPPLER FEATURES END
 
 // Other

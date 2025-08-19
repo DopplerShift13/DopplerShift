@@ -41,3 +41,10 @@
 	icon_state = "seaslug"
 	dimension_x = 64
 	center = TRUE
+
+/datum/sprite_accessory/tails/fish/mermaid
+	name = "Mermaid"
+	icon_state = "mermaid"
+	icon = 'modular_doppler/modular_customization/accessories/icons/aquatic/mermaid_tail.dmi'
+	gender_specific = TRUE
+	locked = TRUE

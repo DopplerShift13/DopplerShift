@@ -3,6 +3,7 @@ import {
   Feature,
   FeatureChoiced,
   FeatureToggle,
+  FeatureColorInput,
   FeatureTriColorInput,
 } from '../base';
 import { FeatureDropdownInput } from '../dropdowns';
@@ -200,4 +201,9 @@ export const has_taur: FeatureToggle = {
 export const taur_color: Feature<string[]> = {
   name: 'Taur Color',
   component: FeatureTriColorInput,
+};
+
+export const feature_mermaid_tail: Feature<string> = {
+  name: 'Mermaid tail color',
+  component: FeatureColorInput,
 };
