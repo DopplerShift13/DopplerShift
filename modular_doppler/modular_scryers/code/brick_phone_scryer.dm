@@ -23,13 +23,8 @@
 	var/datum/mod_link/mod_link
 	/// Initial frequency of the MODlink.
 	var/starting_frequency
-	/// An additional name tag for the scryer, seen as "MODlink scryer - [label]"
+	/// A name tag for the scryer, seen in the list of MODlinks.
 	var/label
-
-	/// Initial name. Recorded to recognize loadout name changes.
-	var/old_name
-	/// Override for the base name used when setting labels.
-	var/base_name
 	
 	/// Reference to the MODlink currently calling us.
 	var/datum/weakref/calling_mod_link_ref
@@ -43,7 +38,6 @@
 
 /obj/item/brick_phone_scryer/Initialize(mapload)
 	. = ..()
-	old_name = name
 	mod_link = new(
 		src,
 		starting_frequency,
@@ -55,6 +49,7 @@
 	)
 	mod_link.override_called_logic_callback = CALLBACK(src, PROC_REF(override_called_logic))
 	START_PROCESSING(SSobj, src)
+	set_label(label)
 	register_context()
 
 /obj/item/brick_phone_scryer/Destroy()
@@ -71,7 +66,7 @@
 	return ..()
 
 /obj/item/brick_phone_scryer/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
-	context[SCREENTIP_CONTEXT_CTRL_LMB] = "[label ? "Reset" : "Set"] name"
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "[label ? "Reset" : "Set"] label"
 	if(held_item == src)
 		context[SCREENTIP_CONTEXT_LMB] = (calling_mod_link_ref?.resolve() ? "Answer call" : "Call")
 		context[SCREENTIP_CONTEXT_RMB] = "[mod_link.link_call ? "End" : "Deny"] call"
@@ -93,8 +88,9 @@
 	else
 		. += span_notice("It is missing a battery. One can be installed by clicking on it with a power cell .")
 	. += span_notice("The MODlink ID is [mod_link.id], frequency is [mod_link.frequency || "unset"].")
+	. += span_notice("The MODlink label is '[label || "unset"]'.")
 	. += span_notice("Using a multitool, <b>left-click</b> to imprint or <b>right-click</b> to copy frequency.")
-	. += span_notice("<b>Ctrl-click</b> to set or reset its name.")
+	. += span_notice("<b>Ctrl-click</b> to [label ? "reset" : "set"] its label.")
 
 /obj/item/brick_phone_scryer/equipped(mob/living/user, slot)
 	. = ..()
@@ -161,22 +157,20 @@
 	playsound(src, 'sound/machines/click.ogg', 50, vary = TRUE)
 
 	if(label)
-		balloon_alert(user, "reset name")
+		balloon_alert(user, "reset label")
 		set_label(null)
-		update_name()
 		return CLICK_ACTION_SUCCESS
 
-	var/new_label = reject_bad_text(tgui_input_text(user, "Change the visible name", "Set Name", label, MAX_NAME_LEN))
+	var/new_label = reject_bad_text(tgui_input_text(user, "Change the visible label", "Set Label", label, MAX_NAME_LEN))
 	if(QDELETED(user) || !user.is_holding(src))
 		return CLICK_ACTION_BLOCKING
 	if(!new_label)
-		balloon_alert(user, "invalid name!")
+		balloon_alert(user, "invalid label!")
 		return CLICK_ACTION_BLOCKING
 
 	set_label(new_label)
-	balloon_alert(user, "set name")
+	balloon_alert(user, "set label")
 	playsound(src, 'sound/machines/click.ogg', 50, vary = TRUE)
-	update_name()
 	return CLICK_ACTION_SUCCESS
 
 /obj/item/brick_phone_scryer/multitool_act(mob/living/user, obj/item/multitool/tool)
@@ -274,15 +268,6 @@
 	var/atom/topmost_atom = get_atom_on_turf(src)
 	topmost_atom.Shake(pixelshiftx = 1, pixelshifty = 1, duration = 0.75 SECONDS, shake_interval = 0.02 SECONDS)
 
-/obj/item/brick_phone_scryer/update_name(updates)
-	. = ..()
-	if(isnull(base_name) && (old_name != name)) // If other customization has set our name.
-		base_name = name // Then we use that as the base name from now on.
-
-	var/namepart = base_name ? base_name : initial(name)
-	var/labelpart = label ? " - [label]" : ""
-	name = "[namepart][labelpart]"
-
 /obj/item/brick_phone_scryer/Exited(atom/movable/gone, direction)
 	. = ..()
 	if(gone == cell)
@@ -290,7 +275,7 @@
 
 /obj/item/brick_phone_scryer/proc/set_label(new_label)
 	label = new_label
-	mod_link.visual_name = new_label
+	mod_link.visual_name = new_label ? "[new_label] (Phone)" : "Unlabeled Phone"
 
 /obj/item/brick_phone_scryer/proc/get_user()
 	if(!isliving(loc))

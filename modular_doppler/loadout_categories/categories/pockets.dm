@@ -48,6 +48,31 @@
 			wallet.forceMove(equipper.drop_location())
 
 /*
+*	BRICK SCRYERPHONE
+*/
+
+/datum/loadout_item/pocket_items/brick_scryerphone
+	name = "Brick Scryerphone"
+	item_path = /obj/item/brick_phone_scryer/loaded/crew
+	has_modlink_label = TRUE
+
+/datum/loadout_item/pocket_items/brick_scryerphone/on_equip_item(
+	obj/item/equipped_item,
+	datum/preferences/preference_source,
+	list/preference_list,
+	mob/living/carbon/human/equipper,
+	visuals_only = FALSE,
+)
+	. = ..()
+	if(visuals_only)
+		return
+
+	var/obj/item/brick_phone_scryer/our_phone = equipped_item
+	var/list/item_details = preference_list[item_path]
+	var/prefs_label = item_details?[INFO_MODLINK_LABEL]
+	our_phone.set_label(prefs_label ? prefs_label : equipper.real_name)
+
+/*
 *	LIPSTICK
 */
 
@@ -202,10 +227,6 @@
 /datum/loadout_item/pocket_items/shock_collar
 	name = "Shock collar"
 	item_path = /obj/item/electropack/shockcollar
-
-/datum/loadout_item/pocket_items/brick_scryerphone
-	name = "Brick Scryerphone"
-	item_path = /obj/item/brick_phone_scryer/loaded/crew
 
 /*
 *	UTILITY
