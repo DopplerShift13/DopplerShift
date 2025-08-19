@@ -9,6 +9,7 @@
 	heat_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
+	resistance_flags = FIRE_PROOF
 	armor_type = /datum/armor/hooded_explorer
 	dog_fashion = /datum/dog_fashion/head/ushanka
 	hair_mask = /datum/hair_mask/standard_hat_middle

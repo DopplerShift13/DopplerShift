@@ -11,6 +11,7 @@
 	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 2.5)
 	vision_flags = SEE_TURFS
 	color_cutoffs = list(15, 15, 5)
+	resistance_flags = FIRE_PROOF
 	glass_colour_type = /datum/client_colour/glass_colour/yellow
 
 /obj/item/clothing/glasses/mining_meson/attack_self(mob/living/user)
