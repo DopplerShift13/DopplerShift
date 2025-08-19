@@ -24,3 +24,19 @@
 	greyscale_config_worn = /datum/greyscale_config/armwraps/worn
 	greyscale_colors = "#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/gloves/doppler_mining
+	name = "mining gloves"
+	desc = "A heavily insulated pair of gloves for braving the freezing lands of Truth with all \
+		8-10 of your fingers intact."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/hands/gloves.dmi'
+	icon_state = "explorer"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/hands/gloves.dmi'
+	worn_icon_state = "explorer"
+	greyscale_colors = "#554943"
+	cold_protection = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_TEMP_PROTECT
+	heat_protection = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
+	resistance_flags = FIRE_PROOF
+	clothing_traits = list(TRAIT_QUICK_CARRY)
