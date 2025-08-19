@@ -5,12 +5,12 @@
 	icon_state = "explorercap_down"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/hats.dmi'
 	inhand_icon_state = null
-	flags_inv = HIDEEARS|HIDEHAIR
 	cold_protection = HEAD
 	heat_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	dog_fashion = /datum/dog_fashion/head/ushanka
+	hair_mask = /datum/hair_mask/standard_hat_middle
 	/// Tracks the status of the ear flaps
 	var/earflaps = TRUE
 	/// Sprite visible when the ushanka flaps are folded up.
