@@ -67,7 +67,7 @@
 	if(autofire_stat == AUTOFIRE_STAT_FIRING)
 		stop_autofiring() //Let's stop shooting to avoid issues.
 		return
-	if(user.is_holding(parent))
+	if(user.is_holding(parent) || istype(parent.loc, /obj/vehicle/ridden/mounted_turret)) // DOPPLER EDIT - TURRET AUTOFIRE - if(user.is_holding(parent))
 		autofire_on(user.client)
 
 // There is a gun and there is a user wielding it. The component now waits for the mouse click.
