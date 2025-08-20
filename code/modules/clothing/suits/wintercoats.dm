@@ -12,6 +12,7 @@
 	allowed = list()
 	armor_type = /datum/armor/hooded_wintercoat
 	hood_down_overlay_suffix = "_hood"
+	supports_variations_flags = CLOTHING_NO_VARIATION
 	/// How snug are we?
 	var/zipped = FALSE
 
