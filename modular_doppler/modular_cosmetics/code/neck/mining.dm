@@ -24,3 +24,7 @@
 	. = ..()
 	var/random_camera_network = "mining_liveleak_[rand(0,9999)]"
 	camera_networks = list(random_camera_network)
+
+/datum/orderable_item/mining/liveleak
+	purchase_path = /obj/item/broadcast_camera/mining
+	cost_per_order = 250
