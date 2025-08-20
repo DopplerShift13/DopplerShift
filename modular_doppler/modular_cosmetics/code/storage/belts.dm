@@ -21,13 +21,6 @@
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
 	worn_icon_state = "explorer1"
 
-/obj/item/storage/belt/mining/Initialize(mapload)
-	. = ..()
-	atom_storage.can_hold |= list(
-		/obj/item/ammo_box,
-		/obj/item/ammo_casing,
-	)
-
 /obj/item/storage/belt/mining/alt
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
 	icon_state = "explorer2"
