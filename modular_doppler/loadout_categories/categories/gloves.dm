@@ -44,6 +44,10 @@
 	else
 		outfit.gloves = item_path
 
+/datum/loadout_item/gloves/mining
+	name = "Explorer Gloves"
+	item_path = /obj/item/clothing/gloves/doppler_mining
+
 /datum/loadout_item/gloves/fingerless
 	name = "Fingerless Gloves"
 	item_path = /obj/item/clothing/gloves/fingerless
