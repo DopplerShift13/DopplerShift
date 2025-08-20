@@ -449,7 +449,7 @@ There are several things that need to be remembered:
 			return
 		var/handled_by_bodyshape = TRUE
 		var/use_female_suitsprite = FALSE
-		var/icon_file
+		var/icon_file = DEFAULT_SUIT_FILE
 
 		if((bodyshape & BODYSHAPE_MERMAID) && (worn_item.supports_variations_flags & CLOTHING_MERMAID_VARIATION))
 			icon_file = MERMAID_SUIT_FILE

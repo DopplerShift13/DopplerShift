@@ -17,9 +17,9 @@
 
 	species_cookie = /obj/item/food/chips/shrimp
 	payday_modifier = 0.9
-	family_heirlooms = list(
-		,
-	)
+//	family_heirlooms = list(
+//		,
+//	)
 
 /datum/species/human/mermaid/randomize_main_appearance_element(mob/living/carbon/human/human_being)
 	human_being.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex(pick(GLOB.skin_tones))
@@ -32,16 +32,7 @@
 	human_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
 
 /datum/species/human/mermaid/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
-	var/turf/turf = get_turf(equipping)
-	var/obj/structure/chair/spawn_chair = locate() in turf
-	var/obj/vehicle/ridden/wheelchair/wheelchair
-	wheelchair = new(turf)
-	if(spawn_chair)
-		wheelchair.setDir(spawn_chair.dir)
-	if(length(spawn_chair.buckled_mobs) && spawn_chair != wheelchair)
-		if(locate(equipping) in spawn_chair.buckled_mobs)
-			spawn_chair.unbuckle_mob(equipping)
-	wheelchair.buckle_mob(equipping)
+	put_in_wheelchair(equipping, equipping.client)
 
 /datum/species/human/mermaid/prepare_human_for_preview(mob/living/carbon/human/preview_human)
 	preview_human.set_haircolor("#a54ea1", update = FALSE)
@@ -66,7 +57,7 @@
 
 /// The organ
 /obj/item/organ/tail/fish/mermaid
-	name = "mermaid tail"
+	name = "large fish tail"
 //	desc = ""
 	fillet_amount = 12
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/mermaid
