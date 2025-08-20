@@ -17,10 +17,14 @@
 		var/new_gun = new mapload_gun(src)
 		register_gun(new_gun)
 
+/obj/vehicle/ridden/mounted_turret/Destroy(force)
+	UnregisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE)
+	return ..()
+
 /// Registers the gun to turn the turret on firing
 /obj/vehicle/ridden/mounted_turret/proc/register_gun(obj/item/gun/new_gun)
 	stored_gun = new_gun
-	RegisterSignal(stored_gun, COMSIG_MOB_TRYING_TO_FIRE_GUN, PROF_REF(turn_turret_on_fire))
+	RegisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE, PROC_REF(turn_turret_on_fire))
 
 /// Turns the turret when the gun tries or succeeds in firing
 /obj/vehicle/ridden/mounted_turret/proc/turn_turret_on_fire(mob/living/user, obj/item/gun/the_gun_in_question, atom/target, flag, params)

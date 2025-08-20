@@ -67,7 +67,8 @@
 	if(autofire_stat == AUTOFIRE_STAT_FIRING)
 		stop_autofiring() //Let's stop shooting to avoid issues.
 		return
-	if(user.is_holding(parent) || istype(parent.loc, /obj/vehicle/ridden/mounted_turret)) // DOPPLER EDIT - TURRET AUTOFIRE - if(user.is_holding(parent))
+	var/atom/atom_parent = parent // DOPPLER EDIT - TURRET AUTOFIRE
+	if(user.is_holding(parent) || istype(atom_parent.loc, /obj/vehicle/ridden/mounted_turret)) // DOPPLER EDIT - TURRET AUTOFIRE - if(user.is_holding(parent))
 		autofire_on(user.client)
 
 // There is a gun and there is a user wielding it. The component now waits for the mouse click.
@@ -289,7 +290,7 @@
 
 /obj/item/gun/proc/autofire_bypass_check(datum/source, client/clicker, atom/target, turf/location, control, params)
 	SIGNAL_HANDLER
-	if(clicker.mob.get_active_held_item() != src)
+	if((clicker.mob.get_active_held_item() != src) || istype(atom_parent.loc, /obj/vehicle/ridden/mounted_turret))// DOPLLER EDIT - TURRET AUTOFIRE - if(clicker.mob.get_active_held_item() != src)
 		return COMPONENT_AUTOFIRE_ONMOUSEDOWN_BYPASS
 
 
