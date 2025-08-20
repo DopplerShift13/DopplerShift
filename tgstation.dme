@@ -7513,6 +7513,7 @@
 #include "modular_doppler\most_evil_health_rework\code\yo_doc_im_bleedin_here.dm"
 #include "modular_doppler\mounted_guns\code\mounted.dm"
 #include "modular_doppler\mounted_guns\code\turret_component.dm"
+#include "modular_doppler\mounted_guns\code\turret_offhand.dm"
 #include "modular_doppler\mounted_guns\code\turret_ridable.dm"
 #include "modular_doppler\ntnrc_for_all\code\ai_chat.dm"
 #include "modular_doppler\ntnrc_for_all\code\common_chat.dm"

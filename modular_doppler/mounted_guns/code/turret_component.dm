@@ -1,7 +1,7 @@
 /// Riding component for turrets
 /datum/component/riding/vehicle/mounted_turret
 	keytype = null
-	ride_check_flags = RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
+	ride_check_flags = RIDER_NEEDS_ARM | UNBUCKLE_DISABLED_RIDER
 
 /datum/component/riding/vehicle/mounted_turret/get_rider_offsets_and_layers(pass_index, mob/offsetter)
 	return list(
@@ -15,10 +15,8 @@
 	var/atom/movable/movable_parent = parent
 	if(!isturf(movable_parent.loc))
 		return
-
 	movable_parent.setDir(direction)
 	COOLDOWN_START(src, vehicle_move_cooldown, vehicle_move_delay)
-
 	if(QDELETED(src))
 		return
 	update_parent_layer_and_offsets(movable_parent.dir)

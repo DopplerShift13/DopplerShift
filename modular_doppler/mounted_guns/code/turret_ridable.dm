@@ -25,13 +25,7 @@
 /datum/element/ridable_turret/proc/check_mounting(atom/movable/target_movable, mob/living/potential_rider, force = FALSE, ride_check_flags = NONE)
 	SIGNAL_HANDLER
 
-	var/arms_needed = 0
-	if(ride_check_flags & RIDER_NEEDS_ARMS)
-		arms_needed = 2
-	else if(ride_check_flags & RIDER_NEEDS_ARM)
-		arms_needed = 1
-		ride_check_flags &= ~RIDER_NEEDS_ARM
-		ride_check_flags |= RIDER_NEEDS_ARMS
+	var/arms_needed = 1 // fucj you ??
 	if(arms_needed && !equip_buckle_inhands(potential_rider, arms_needed, target_movable))
 		potential_rider.visible_message(span_warning("[potential_rider] can't get a grip on [target_movable] because [potential_rider.p_their()] hands are full!"),
 			span_warning("You can't get a grip on [target_movable] because your hands are full!"))
@@ -93,31 +87,3 @@
 		else
 			qdel(O)
 	return TRUE
-
-/obj/item/doppler_turret_offhand
-	name = "gun controls"
-	icon = 'modular_doppler/mounted_guns/icons/drive.dmi'
-	icon_state = "drive"
-	w_class = WEIGHT_CLASS_HUGE
-	item_flags = ABSTRACT | DROPDEL | NOBLUDGEON
-	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	var/mob/living/carbon/rider
-	var/mob/living/parent
-	var/selfdeleting = FALSE
-
-/obj/item/doppler_turret_offhand/dropped()
-	selfdeleting = TRUE
-	. = ..()
-
-/obj/item/doppler_turret_offhand/equipped()
-	if(loc != rider && loc != parent)
-		selfdeleting = TRUE
-		qdel(src)
-	. = ..()
-
-/obj/item/doppler_turret_offhand/Destroy()
-	var/atom/movable/AM = parent
-	if(selfdeleting)
-		if(rider in AM.buckled_mobs)
-			AM.unbuckle_mob(rider)
-	. = ..()
