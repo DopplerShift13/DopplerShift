@@ -22,6 +22,5 @@
 
 /obj/item/broadcast_camera/mining/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/empprotection, EMP_PROTECT_ALL)
 	var/random_camera_network = "mining_liveleak_[rand(0,9999)]"
 	camera_networks = list(random_camera_network)
