@@ -53,7 +53,7 @@
 			inhand.rider = user
 		else
 			inhand.rider = riding_target_override
-		inhand.parent = AM
+		inhand.turret = AM
 		for(var/obj/item/I in user.held_items) // delete any hand items like slappers that could still totally be used to grab on
 			if((I.item_flags & HAND_ITEM))
 				qdel(I)
@@ -80,7 +80,7 @@
 /datum/element/ridable_turret/proc/unequip_buckle_inhands(mob/living/carbon/user, atom/movable/target_movable)
 	var/atom/movable/AM = target_movable
 	for(var/obj/item/doppler_turret_offhand/O in user.contents)
-		if(O.parent != AM)
+		if(O.turret != AM)
 			CRASH("RIDING OFFHAND ON WRONG MOB")
 		if(O.selfdeleting)
 			continue
