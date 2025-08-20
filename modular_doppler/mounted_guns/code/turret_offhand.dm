@@ -51,20 +51,20 @@
 	turret.stored_gun?.ranged_interact_with_atom_secondary(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/attack_hand(mob/user, list/modifiers)
-	urret.stored_gun?.attack_hand(user, modifiers)
+	turret.stored_gun?.attack_hand(user, modifiers)
 
 /obj/item/doppler_turret_offhand/attack_hand_secondary(mob/user, list/modifiers)
-	urret.stored_gun?.attack_hand_secondary(user, modifiers)
+	turret.stored_gun?.attack_hand_secondary(user, modifiers)
 
 /obj/item/doppler_turret_offhand/click_alt(mob/user)
-	urret.stored_gun?.click_alt(user)
+	turret.stored_gun?.click_alt(user)
 
 /obj/item/doppler_turret_offhand/click_alt_secondary(mob/user)
-	urret.stored_gun?.click_alt_secondary(user)
+	turret.stored_gun?.click_alt_secondary(user)
 
-/obj/item/doppler_turret_offhand/click_ctrl(mob/user)
-	urret.stored_gun?.click_ctrl(user)
+/obj/item/doppler_turret_offhand/item_ctrl_click(mob/user)
+	turret.stored_gun?.item_ctrl_click(user)
 
 /obj/item/doppler_turret_offhand/click_ctrl_shift(mob/user)
-	urret.stored_gun?.click_ctrl_shift(user)
+	turret.stored_gun?.click_ctrl_shift(user)
 
