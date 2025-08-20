@@ -4,6 +4,7 @@
 	icon = 'modular_doppler/mounted_guns/icons/drive.dmi'
 	icon_state = "turret_oops"
 	anchored = TRUE
+	canmove = FALSE
 	/// The gun stored inside of the turret
 	var/obj/item/gun/stored_gun
 	/// Does this spawn with a gun, for mapload
