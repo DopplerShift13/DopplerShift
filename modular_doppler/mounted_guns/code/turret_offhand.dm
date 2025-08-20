@@ -39,19 +39,19 @@
 	turret.stored_gun?.item_interaction_secondary(user, tool, modifiers)
 
 /obj/item/doppler_turret_offhand/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	turret.setDir(get_dir(src, interacting_with))
+	turret.setDir(get_cardinal_dir(src, interacting_with))
 	turret.stored_gun?.interact_with_atom(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	turret.setDir(get_dir(src, interacting_with))
+	turret.setDir(get_cardinal_dir(src, interacting_with))
 	turret.stored_gun?.interact_with_atom_secondary(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	turret.setDir(get_dir(src, interacting_with))
+	turret.setDir(get_cardinal_dir(src, interacting_with))
 	turret.stored_gun?.ranged_interact_with_atom(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	turret.setDir(get_dir(src, interacting_with))
+	turret.setDir(get_cardinal_dir(src, interacting_with))
 	turret.stored_gun?.ranged_interact_with_atom_secondary(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/attack_hand(mob/user, list/modifiers)
@@ -72,3 +72,6 @@
 /obj/item/doppler_turret_offhand/click_ctrl_shift(mob/user)
 	turret.stored_gun?.click_ctrl_shift(user)
 
+/obj/item/doppler_turret_offhand/base_ranged_item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	turret.stored_gun?.base_ranged_item_interaction(user, tool, modifiers)
+	return ..()

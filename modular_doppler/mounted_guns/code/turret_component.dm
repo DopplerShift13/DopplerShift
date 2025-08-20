@@ -9,6 +9,10 @@
 		TEXT_SOUTH = list(0, 12),
 		TEXT_EAST =  list(-12, 0),
 		TEXT_WEST =  list(12, 0),
+		"5" = list(-12, 0),
+		"6" = list(-12, 0),
+		"9" = list(12, 0),
+		"10" = list(12, 0),
 	)
 
 /datum/component/riding/vehicle/mounted_turret/handle_ride(mob/user, direction)
@@ -20,4 +24,15 @@
 	if(QDELETED(src))
 		return
 	update_parent_layer_and_offsets(movable_parent.dir)
+	return TRUE
+
+/datum/component/riding/vehicle/mounted_turret/unequip_buckle_inhands(mob/living/carbon/user)
+	var/atom/movable/AM = parent
+	for(var/obj/item/doppler_turret_offhand/O in user.contents)
+		if(O.turret != AM)
+			CRASH("RIDING OFFHAND ON WRONG MOB")
+		if(O.selfdeleting)
+			continue
+		else
+			qdel(O)
 	return TRUE
