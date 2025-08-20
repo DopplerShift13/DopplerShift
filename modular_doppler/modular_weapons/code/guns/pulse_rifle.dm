@@ -24,7 +24,6 @@
 	actions_types = list()
 	spread = 5
 	recoil = 0.1
-	muzzleflash_iconstate = "muzzle_flash_pulse"
 	pin = /obj/item/firing_pin/explorer
 	/// List of the possible firing sounds
 	var/list/firing_sound_list = list(
