@@ -3,7 +3,7 @@
 	desc = "If you see this then bad things are happening."
 	icon = 'modular_doppler/mounted_guns/icons/drive.dmi'
 	icon_state = "turret_oops"
-	canmove = FALSE
+	anchored = TRUE
 
 /obj/vehicle/ridden/mounted_turret/Initialize(mapload)
 	. = ..()
