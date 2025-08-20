@@ -26,8 +26,7 @@
 	. = ..()
 	if(isdummy(carbon_being))
 		return
-	carbon_being.set_lying_down()
-	carbon_being.on_fall()
+	carbon_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
 
 /datum/species/human/mermaid/prepare_human_for_preview(mob/living/carbon/human/preview_human)
 	preview_human.set_haircolor("#a54ea1", update = FALSE)
@@ -45,17 +44,11 @@
 		"Nothing yet.",
 	)
 
-/obj/item/bodypart/leg/can_attach_limb(mob/living/carbon/owner, special)
-	if(owner.get_organ_by_type(/obj/item/organ/tail/fish/mermaid))
-		return FALSE
-	else
-		return ..()
-
 
 /// The organ
 /obj/item/organ/tail/fish/mermaid
 	name = "mermaid tail"
-	fillet_amount = 10 //big tail
+	fillet_amount = 12
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/mermaid
 	external_bodyshapes = BODYSHAPE_MERMAID
 	restyle_flags = NONE
@@ -97,6 +90,7 @@
 /datum/bodypart_overlay/mutant/tail/mermaid
 	feature_key = FEATURE_TAIL_FISH
 	color_source = NONE
+	layers = EXTERNAL_FRONT|EXTERNAL_ADJACENT|EXTERNAL_BEHIND
 
 /datum/bodypart_overlay/mutant/tail/mermaid/get_global_feature_list()
 	return SSaccessories.tails_list_fish
