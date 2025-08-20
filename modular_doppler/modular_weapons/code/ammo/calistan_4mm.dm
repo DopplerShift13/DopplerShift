@@ -15,7 +15,7 @@
 	name = "4mm bullet"
 	icon_state = "shortbullet"
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
-	damage = 18
+	damage = 12
 	speed = 1.5
 
 /obj/item/ammo_box/magazine/ammo_stack/europan4mm
@@ -41,7 +41,7 @@
 	ammo_type = /obj/item/ammo_casing/europan4mm
 	caliber = CALIBER_4MMEUROPAN
 	max_ammo = 50
-	w_class = WEIGHT_CLASS_NORMAL
+	w_class = WEIGHT_CLASS_SMALL
 
 /obj/item/ammo_box/magazine/karim/spawns_empty
 	start_empty = TRUE

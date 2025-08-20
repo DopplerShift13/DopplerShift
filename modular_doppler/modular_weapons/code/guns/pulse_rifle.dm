@@ -20,7 +20,7 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/karim
 	can_suppress = FALSE
 	burst_size = 1
-	fire_delay = 0.15 SECONDS
+	fire_delay = 0.175 SECONDS
 	actions_types = list()
 	spread = 5
 	recoil = 0.1

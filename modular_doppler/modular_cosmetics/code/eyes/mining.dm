@@ -1,6 +1,6 @@
 /obj/item/clothing/glasses/mining_meson
 	name = "explorer goggles"
-	desc = "Protects the eyes from blowing snow and dust, has built-in meson scanners."
+	desc = "Protects the eyes from blowing snow and dust. Has built-in meson scanners."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/eyes/mining.dmi'
 	icon_state = "snowgogs"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/eyes/mining.dmi'

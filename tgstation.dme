@@ -7336,6 +7336,7 @@
 #include "modular_doppler\modular_medical\wounds\synth\blunt\robotic_blunt_T2.dm"
 #include "modular_doppler\modular_medical\wounds\synth\blunt\robotic_blunt_T3.dm"
 #include "modular_doppler\modular_medical\wounds\synth\blunt\secures_internals.dm"
+#include "modular_doppler\modular_mining\code\wardrobe.dm"
 #include "modular_doppler\modular_mob_spawn\code\mob_spawn.dm"
 #include "modular_doppler\modular_mobs\simple_animal\cockroach.dm"
 #include "modular_doppler\modular_mobs\simple_animal\bot\secbot_permit_overwrite.dm"
