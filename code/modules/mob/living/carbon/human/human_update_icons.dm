@@ -615,6 +615,28 @@ There are several things that need to be remembered:
 
 	return icon(resulting_icon)
 
+/// Modifies the sprite of clothing to have no legs! most specifically for pants, which mermaids can't wear
+/proc/wear_mermaid_version(icon/base_icon, obj/item/item, key, greyscale_colors)
+	var/index = "[key]-[item.type]-[greyscale_colors]"
+	var/static/list/mermaid_clothing_icons = list()
+	var/icon/mermaid_clothing_icon = mermaid_clothing_icons[index]
+	if(!mermaid_clothing_icon)
+		mermaid_clothing_icon = cut_icon_legs(base_icon)
+		if(!mermaid_clothing_icon)
+			return base_icon
+		mermaid_clothing_icons[index] = fcopy_rsc(mermaid_clothing_icon)
+
+	return icon(mermaid_clothing_icon)
+
+/// cutting of the icon, similar to replace_icon_legs, but without the replacement
+/proc/cut_icon_legs(icon/base_icon)
+	var/static/icon/leg_mask
+	if(!leg_mask)
+		leg_mask = icon('icons/mob/clothing/under/masking_helpers.dmi', "mermaid_leg_mask")
+
+	base_icon.Blend(leg_mask, ICON_SUBTRACT)
+	return base_icon
+
 /// Modifies a sprite to replace the legs with a new version
 /proc/replace_icon_legs(icon/base_icon, icon/new_legs)
 	var/static/icon/leg_mask
@@ -823,6 +845,7 @@ generate/load female uniform sprites matching all previously decided variables
 
 	var/mob/living/carbon/wearer = loc
 	var/is_digi = istype(wearer) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE) && !wearer.is_digitigrade_squished()
+	var/is_mermaid = istype(wearer) && (wearer.bodyshape & BODYSHAPE_MERMAID)
 
 	var/mutable_appearance/draw_target // MA of the item itself, not the final result
 	var/icon/building_icon // used to construct an icon across multiple procs before converting it to MA
@@ -835,6 +858,13 @@ generate/load female uniform sprites matching all previously decided variables
 		)
 	if(!isinhands && is_digi && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
 		building_icon = wear_digi_version(
+			base_icon = building_icon || icon(file2use, t_state),
+			item = src,
+			key = "[t_state]-[file2use]-[female_uniform]",
+			greyscale_colors = greyscale_colors,
+		)
+	if(!isinhands && is_mermaid && (supports_variations_flags & CLOTHING_MERMAID_MASK))
+		building_icon = wear_mermaid_version(
 			base_icon = building_icon || icon(file2use, t_state),
 			item = src,
 			key = "[t_state]-[file2use]-[female_uniform]",
