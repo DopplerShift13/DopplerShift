@@ -290,8 +290,7 @@
 
 /obj/item/gun/proc/autofire_bypass_check(datum/source, client/clicker, atom/target, turf/location, control, params)
 	SIGNAL_HANDLER
-	var/atom/atom_parent = parent // DOPPLER EDIT - TURRET AUTOFIRE
-	if((clicker.mob.get_active_held_item() != src) || istype(atom_parent.loc, /obj/vehicle/ridden/mounted_turret))// DOPLLER EDIT - TURRET AUTOFIRE - if(clicker.mob.get_active_held_item() != src)
+	if((clicker.mob.get_active_held_item() != src) || istype(src.loc, /obj/vehicle/ridden/mounted_turret))// DOPLLER EDIT - TURRET AUTOFIRE - if(clicker.mob.get_active_held_item() != src)
 		return COMPONENT_AUTOFIRE_ONMOUSEDOWN_BYPASS
 
 
