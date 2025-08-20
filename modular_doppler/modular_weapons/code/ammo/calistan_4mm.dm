@@ -14,7 +14,7 @@
 /obj/projectile/bullet/europan4mm
 	name = "4mm bullet"
 	icon_state = "shortbullet"
-	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi
+	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	damage = 18
 	speed = 1.5
 
