@@ -54,7 +54,7 @@
 	var/atom/movable/AM = target_movable
 	var/amount_equipped = 0
 	for(var/amount_needed = amount_required, amount_needed > 0, amount_needed--)
-		var/obj/item/riding_offhand/inhand = new /obj/item/riding_offhand(user)
+		var/obj/item/doppler_turret_offhand/inhand = new /obj/item/doppler_turret_offhand(user)
 		if(!riding_target_override)
 			inhand.rider = user
 		else
@@ -85,7 +85,7 @@
 /// Remove all of the relevant [riding offhand items][/obj/item/riding_offhand] from the target
 /datum/element/ridable_turret/proc/unequip_buckle_inhands(mob/living/carbon/user, atom/movable/target_movable)
 	var/atom/movable/AM = target_movable
-	for(var/obj/item/riding_offhand/O in user.contents)
+	for(var/obj/item/doppler_turret_offhand/O in user.contents)
 		if(O.parent != AM)
 			CRASH("RIDING OFFHAND ON WRONG MOB")
 		if(O.selfdeleting)
