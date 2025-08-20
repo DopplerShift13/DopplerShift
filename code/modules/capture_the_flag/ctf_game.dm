@@ -149,6 +149,8 @@
 	var/turf/spawn_point = pick(get_adjacent_open_turfs(get_turf(src)))
 	var/mob/living/carbon/human/player_mob = new(spawn_point)
 	new_team_member.prefs.safe_transfer_prefs_to(player_mob, is_antag = TRUE)
+	if(ismermaid(player_mob))
+		put_in_wheelchair(player_mob, player_mob.client)
 	if(player_mob.dna.species.outfit_important_for_life)
 		player_mob.set_species(/datum/species/human)
 

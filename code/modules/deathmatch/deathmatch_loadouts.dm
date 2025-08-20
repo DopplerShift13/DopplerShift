@@ -19,7 +19,8 @@
 
 	if(!isnull(species_override))
 		user.set_species(species_override)
-
+	else if(ismermaid(user))
+		put_in_wheelchair(user, user.client)
 	else if (!isnull(user.dna.species.outfit_important_for_life)) //plasmamen get lit on fire and die
 		user.set_species(/datum/species/human)
 
