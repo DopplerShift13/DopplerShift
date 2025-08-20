@@ -448,20 +448,25 @@ There are several things that need to be remembered:
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON))
 			return
 		var/handled_by_bodyshape = TRUE
+		var/use_female_suitsprite = FALSE
 		var/icon_file
 
 		if((bodyshape & BODYSHAPE_MERMAID) && (worn_item.supports_variations_flags & CLOTHING_MERMAID_VARIATION))
 			icon_file = MERMAID_SUIT_FILE
+			if(physique == FEMALE)
+				use_female_suitsprite = TRUE
 
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
 			icon_file = DEFAULT_SUIT_FILE
 			handled_by_bodyshape = FALSE
+			use_female_suitsprite = FALSE
 
 		var/mutable_appearance/suit_overlay
 		suit_overlay = wear_suit.build_worn_icon(
 			default_layer = SUIT_LAYER,
 			default_icon_file = icon_file,
 			override_file = handled_by_bodyshape ? icon_file : null,
+			override_state = use_female_suitsprite ? "f-[RESOLVE_ICON_STATE(worn_item)]" : null,
 		)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
 		my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
@@ -621,14 +626,26 @@ There are several things that need to be remembered:
 	var/static/list/mermaid_clothing_icons = list()
 	var/icon/mermaid_clothing_icon = mermaid_clothing_icons[index]
 	if(!mermaid_clothing_icon)
-		mermaid_clothing_icon = cut_icon_legs(base_icon)
+		if(item.slot_flags & ITEM_SLOT_OCLOTHING)
+			mermaid_clothing_icon = cut_coat(base_icon)
+		else
+			mermaid_clothing_icon = cut_icon_legs(base_icon)
 		if(!mermaid_clothing_icon)
 			return base_icon
 		mermaid_clothing_icons[index] = fcopy_rsc(mermaid_clothing_icon)
 
 	return icon(mermaid_clothing_icon)
 
-/// cutting of the icon, similar to replace_icon_legs, but without the replacement
+/// Removes pixels that often appear between the legs on suits, for mermaids who dont have legs
+/proc/cut_coat(icon/base_icon)
+	var/static/icon/coat_mask
+	if(!coat_mask)
+		coat_mask = icon('icons/mob/clothing/under/masking_helpers.dmi', "mermaid_coat_mask")
+
+	base_icon.Blend(coat_mask, ICON_SUBTRACT)
+	return base_icon
+
+/// Removes the bottom half of a sprite, similar to replace_icon_legs, but without the replacement
 /proc/cut_icon_legs(icon/base_icon)
 	var/static/icon/leg_mask
 	if(!leg_mask)

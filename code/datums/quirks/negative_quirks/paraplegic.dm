@@ -46,6 +46,11 @@
 	qdel(human_holder.get_bodypart(BODY_ZONE_L_LEG))
 	qdel(human_holder.get_bodypart(BODY_ZONE_R_LEG))
 
+/datum/quirk/paraplegic/is_species_appropriate(datum/species/mob_species)
+	if(istype(mob_species, /datum/species/human/mermaid)) //already the case/prevents weird interactions
+		return FALSE
+	return ..()
+
 /datum/quirk/paraplegic/add(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	human_holder.gain_trauma(/datum/brain_trauma/severe/paralysis/paraplegic, TRAUMA_RESILIENCE_ABSOLUTE)

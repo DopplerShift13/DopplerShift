@@ -3,6 +3,7 @@
 	plural_form = "Mermaids"
 	id = SPECIES_MERMAID
 	mutant_organs = list(/obj/item/organ/tail/fish/mermaid)
+	mutantlungs = /obj/item/organ/lungs/fish/amphibious/mermaid
 	bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right,
@@ -10,23 +11,37 @@
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest,
 	)
 	inherent_traits = list(
-		TRAIT_WATER_ADAPTATION,
 		TRAIT_MUTANT_COLORS,
 	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_AQUATIC
 
 	species_cookie = /obj/item/food/chips/shrimp
-	payday_modifier = 1.0
+	payday_modifier = 0.9
+	family_heirlooms = list(
+		,
+	)
 
 /datum/species/human/mermaid/randomize_main_appearance_element(mob/living/carbon/human/human_being)
 	human_being.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex(pick(GLOB.skin_tones))
 	human_being.dna.update_uf_block(/datum/dna_block/feature/mermaid_color)
 
-/datum/species/human/mermaid/on_species_gain(mob/living/carbon/carbon_being, datum/species/old_species, pref_load, regenerate_icons)
+/datum/species/human/mermaid/on_species_gain(mob/living/carbon/human/human_being, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
-	if(isdummy(carbon_being))
+	if(isdummy(human_being))
 		return
-	carbon_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
+	human_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
+
+/datum/species/human/mermaid/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
+	var/turf/turf = get_turf(equipping)
+	var/obj/structure/chair/spawn_chair = locate() in turf
+	var/obj/vehicle/ridden/wheelchair/wheelchair
+	wheelchair = new(turf)
+	if(spawn_chair)
+		wheelchair.setDir(spawn_chair.dir)
+	if(length(spawn_chair.buckled_mobs) && spawn_chair != wheelchair)
+		if(locate(equipping) in spawn_chair.buckled_mobs)
+			spawn_chair.unbuckle_mob(equipping)
+	wheelchair.buckle_mob(equipping)
 
 /datum/species/human/mermaid/prepare_human_for_preview(mob/living/carbon/human/preview_human)
 	preview_human.set_haircolor("#a54ea1", update = FALSE)
@@ -44,14 +59,27 @@
 		"Nothing yet.",
 	)
 
+/obj/item/organ/lungs/fish/amphibious/mermaid
+//	name = ""
+//	desc = ""
+	has_gills = TRUE
 
 /// The organ
 /obj/item/organ/tail/fish/mermaid
 	name = "mermaid tail"
+//	desc = ""
 	fillet_amount = 12
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/mermaid
 	external_bodyshapes = BODYSHAPE_MERMAID
 	restyle_flags = NONE
+	organ_traits = list(
+		TRAIT_FREE_FLOAT_MOVEMENT,
+		TRAIT_FLOPPING,
+		TRAIT_SWIMMER,
+		TRAIT_SLIPPERY_WHEN_WET,
+		TRAIT_WET_FOR_LONGER,
+		TRAIT_WATER_ADAPTATION,
+	)
 
 /obj/item/organ/tail/fish/mermaid/Initialize(mapload)
 	. = ..()
@@ -60,18 +88,16 @@
 /obj/item/organ/tail/fish/mermaid/on_mob_insert(mob/living/carbon/owner, special, movement_flags)
 	. = ..()
 	get_your_sealegs(owner)
-	owner.gain_trauma(/datum/brain_trauma/severe/paralysis/paraplegic, TRAUMA_RESILIENCE_ABSOLUTE)
 
 /obj/item/organ/tail/fish/mermaid/on_mob_remove(mob/living/carbon/owner)
 	. = ..()
 	if(QDELING(owner))
 		return
-	owner.cure_trauma_type(/datum/brain_trauma/severe/paralysis/paraplegic, TRAUMA_RESILIENCE_ABSOLUTE)
 	owner.adjustBruteLoss(rand(-35, -45))
 	if(owner.blood_volume)
 		owner.blood_volume -= (BLOOD_VOLUME_MAXIMUM / 3)
 		owner.spray_blood(REVERSE_DIR(owner.dir))
-		visible_message(span_warning("[src] detaches, spilling out liters of [LOWER_TEXT(owner.get_bloodtype()?.name)]!"))
+		owner.visible_message(span_warning("[src] detaches, spilling out liters of [LOWER_TEXT(owner.get_bloodtype()?.name)]!"))
 		playsound(src, 'sound/effects/cartoon_sfx/cartoon_splat.ogg', 50, TRUE)
 	get_greyscale_color_from_draw_color()
 	owner.bodyshape &= ~BODYSHAPE_MERMAID
@@ -90,7 +116,7 @@
 /datum/bodypart_overlay/mutant/tail/mermaid
 	feature_key = FEATURE_TAIL_FISH
 	color_source = NONE
-	layers = EXTERNAL_FRONT|EXTERNAL_ADJACENT|EXTERNAL_BEHIND
+	layers = EXTERNAL_BEHIND|EXTERNAL_ADJACENT
 
 /datum/bodypart_overlay/mutant/tail/mermaid/get_global_feature_list()
 	return SSaccessories.tails_list_fish

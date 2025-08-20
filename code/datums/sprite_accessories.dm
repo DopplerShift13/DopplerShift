@@ -1936,6 +1936,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 //Mermaid tails for the species
 /datum/sprite_accessory/tails/fish/mermaid
 	name = "Mermaid"
+	icon = 'icons/mob/human/species/mermaid_tail.dmi'
 	icon_state = "mermaid"
 	color_src = NONE
 	gender_specific = TRUE
