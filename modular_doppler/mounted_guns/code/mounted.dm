@@ -12,7 +12,7 @@
 
 /obj/vehicle/ridden/mounted_turret/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/complicated_rotation, ROTATION_IGNORE_ANCHORED)
+	AddComponent(/datum/component/complicated_rotation, ROTATION_IGNORE_ANCHORED, 1 SECONDS, 'sound/items/tools/ratchet.ogg')
 	AddElement(/datum/element/ridable_turret, /datum/component/riding/vehicle/mounted_turret)
 	if(mapload_gun)
 		var/new_gun = new mapload_gun(src)
@@ -31,7 +31,7 @@
 /// Checks if the current target is in the firing arc of the turret
 /obj/vehicle/ridden/mounted_turret/proc/check_if_in_arc(mob/living/user, obj/item/gun/the_gun_in_question, atom/target, flag, params)
 	SIGNAL_HANDLER
-	if(dir != (get_cardinal_dir(src, target)))
+	if(dir != (get_dir(src, target)))
 		return COMPONENT_CANCEL_GUN_FIRE
 
 /obj/vehicle/ridden/mounted_turret/debug_marcielle
