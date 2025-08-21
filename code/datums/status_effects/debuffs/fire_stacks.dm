@@ -309,6 +309,11 @@
 
 	overlays |= created_overlay
 
+#define WETSTACKS_MINIMUM_VFX 3
+#define WETSTACKS_DAMP 1
+#define WETSTACKS_DRIPPING 7.5
+#define WETSTACKS_SOAKED 15
+
 /datum/status_effect/fire_handler/wet_stacks
 	id = "wet_stacks"
 
@@ -326,14 +331,12 @@
 	if(HAS_TRAIT(owner, TRAIT_SLIPPERY_WHEN_WET))
 		become_slippery()
 	ADD_TRAIT(owner, TRAIT_IS_WET,  TRAIT_STATUS_EFFECT(id))
-	owner.add_shared_particles(/particles/droplets)
 
 /datum/status_effect/fire_handler/wet_stacks/on_remove()
 	. = ..()
 	REMOVE_TRAIT(owner, TRAIT_IS_WET, TRAIT_STATUS_EFFECT(id))
 	if(HAS_TRAIT(owner, TRAIT_SLIPPERY_WHEN_WET))
 		no_longer_slippery()
-	owner.remove_shared_particles(/particles/droplets)
 
 /datum/status_effect/fire_handler/wet_stacks/proc/update_wet_stack_modifier()
 	SIGNAL_HANDLER
@@ -350,13 +353,27 @@
 	REMOVE_TRAIT(owner, TRAIT_NO_SLIP_WATER, TRAIT_STATUS_EFFECT(id))
 
 /datum/status_effect/fire_handler/wet_stacks/get_examine_text()
-	return "[owner.p_They()] look[owner.p_s()] a little soaked."
+	if(stacks <= WETSTACKS_DAMP)
+		return "[owner.p_Their()] skin seem[owner.p_s()] lightly damp."
+	if(stacks <= WETSTACKS_DRIPPING)
+		return "[owner.p_They()] appear[owner.p_s()] to be dripping wet."
+	if(stacks >= WETSTACKS_SOAKED)
+		return "[owner.p_They()] is completely soaked."
 
 /datum/status_effect/fire_handler/wet_stacks/tick(seconds_between_ticks)
 	var/decay = HAS_TRAIT(owner, TRAIT_WET_FOR_LONGER) ? -0.035 : -0.5
 	adjust_stacks(decay * seconds_between_ticks)
 	if(stacks <= 0)
 		qdel(src)
+	if(stacks >= WETSTACKS_MINIMUM_VFX)
+		owner.add_shared_particles(/particles/droplets)
+	else if(stacks <= WETSTACKS_MINIMUM_VFX)
+		owner.remove_shared_particles(/particles/droplets)
 
 /datum/status_effect/fire_handler/wet_stacks/check_basic_mob_immunity(mob/living/basic/basic_owner)
 	return !(basic_owner.basic_mob_flags & IMMUNE_TO_GETTING_WET)
+
+#undef WETSTACKS_MINIMUM_VFX
+#undef WETSTACKS_DAMP
+#undef WETSTACKS_DRIPPING
+#undef WETSTACKS_SOAKED

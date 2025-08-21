@@ -17,6 +17,7 @@ GLOBAL_LIST_INIT(lung_choices, list(
 /datum/preference/choiced/fish_lungs_choice/apply_to_human(mob/living/carbon/human/target, value)
 	if(isnull(value))
 		return
+	target.dna.species.mutantlungs = GLOB.lung_choices[value]
 	var/obj/item/organ/lungs/new_organ = SSwardrobe.provide_type(GLOB.lung_choices[value])
 	new_organ.Insert(target, TRUE, DELETE_IF_REPLACED)
 

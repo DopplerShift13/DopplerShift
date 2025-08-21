@@ -1,5 +1,5 @@
 /// How many wetstacks does the status effect apply to its wearer
-#define STATUS_EFFECT_STACKS 5
+#define STATUS_EFFECT_STACKS 1
 
 /datum/component/wetting
 	dupe_mode = COMPONENT_DUPE_UNIQUE
