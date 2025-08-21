@@ -20,10 +20,14 @@
 	AddElement(/datum/element/ridable_turret, /datum/component/riding/vehicle/mounted_turret)
 	if(mapload_gun)
 		var/new_gun = new mapload_gun(src)
-		register_gun(new_gun)
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
 	stored_gun.forceMove(drop_location())
+	return ..()
+
+/obj/vehicle/ridden/mounted_turret/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
+	if(isgun(arrived))
+		register_gun(arrived)
 	return ..()
 
 /obj/vehicle/ridden/mounted_turret/Exited(atom/movable/gone, direction)
