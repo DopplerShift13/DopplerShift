@@ -11,12 +11,25 @@
 	. = ..()
 	AddElement(/datum/element/caseless)
 
+/obj/item/ammo_casing/europan4mm/minebot
+	name = "4mm Callistan passthrough casing"
+	desc = "A small caseless round for use in the Karim Electrics pulse rifle. These bullets dodge around minebots."
+	projectile_type = /obj/projectile/bullet/europan4mm/minebot
+
 /obj/projectile/bullet/europan4mm
 	name = "4mm bullet"
 	icon_state = "shortbullet"
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	damage = 15
+	speed = 2
+
+/obj/projectile/bullet/europan4mm/minebot
 	speed = 1.5
+
+/obj/projectile/bullet/europan4mm/minebot/prehit_pierce(atom/target)
+	if(istype(target, /mob/living/basic/mining_drone))
+		return PROJECTILE_PIERCE_PHASE
+	return ..()
 
 /obj/item/ammo_box/magazine/ammo_stack/europan4mm
 	name = "4mm Callistan casings"
@@ -29,6 +42,9 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/europan4mm/prefilled
 	start_empty = FALSE
+
+/obj/item/ammo_box/magazine/ammo_stack/europan4mm/prefilled/minebot
+	ammo_type = /obj/item/ammo_casing/europan4mm/minebot
 
 // Magazine for the Karim rifle
 
@@ -45,3 +61,10 @@
 
 /obj/item/ammo_box/magazine/karim/spawns_empty
 	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/karim/minebot
+	name = "\improper Karim pulse rifle passthrough magazine"
+	desc = "A standard size magazine for Karim pulse rifles, holds fifty rounds. These bullets dodge around minebots for less \
+		friendly fire."
+	icon_state = "karim_mag_minebot"
+	ammo_type = /obj/item/ammo_casing/europan4mm/minebot

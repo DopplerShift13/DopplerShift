@@ -63,3 +63,7 @@
 /datum/orderable_item/accelerator/pulse_ammo
 	purchase_path = /obj/item/ammo_box/magazine/karim
 	cost_per_order = 25
+
+/datum/orderable_item/accelerator/pulse_ammo_minebot
+	purchase_path = /obj/item/ammo_box/magazine/karim/minebot
+	cost_per_order = 40
