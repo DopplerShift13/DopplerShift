@@ -3,7 +3,6 @@
 	plural_form = "Mermaids"
 	id = SPECIES_MERMAID
 	mutant_organs = list(/obj/item/organ/tail/fish/mermaid)
-	mutantlungs = /obj/item/organ/lungs/fish/amphibious/mermaid
 	mutantstomach = /obj/item/organ/stomach/fish/mermaid
 	mutantliver = /obj/item/organ/liver/fish/mermaid
 	bodypart_overrides = list(
@@ -12,24 +11,24 @@
 		BODY_ZONE_HEAD = /obj/item/bodypart/head,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest,
 	)
-	inherent_traits = list(
-		TRAIT_MUTANT_COLORS,
-	)
 	inherent_biotypes = MOB_ORGANIC|MOB_HUMANOID|MOB_AQUATIC
 
 	species_cookie = /obj/item/food/chips/shrimp
+//	inert_mutation =
 	payday_modifier = 0.9
 //	family_heirlooms = list(
 //		,
 //	)
 
-/datum/species/human/mermaid/randomize_features()
+/datum/species/human/mermaid/get_features()
 	var/list/features = ..()
-	features[FEATURE_TAIL_FISH_COLOR] = pick(GLOB.carp_colors)
+	LAZYOR(features, "feature_fish_lungs_choice")
 	return features
 
-/datum/species/human/mermaid/randomize_main_appearance_element(mob/living/carbon/human/human_being)
-	human_being.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex(pick(GLOB.skin_tones))
+/datum/species/human/mermaid/randomize_features()
+	var/list/features = ..()
+	LAZYSET(features, FEATURE_TAIL_FISH_COLOR, pick(GLOB.carp_colors - COLOR_CARP_SILVER))
+	return features
 
 /datum/species/human/mermaid/on_species_gain(mob/living/carbon/human/human_being, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
@@ -43,7 +42,7 @@
 /datum/species/human/mermaid/prepare_human_for_preview(mob/living/carbon/human/preview_human)
 	preview_human.set_haircolor("#a54ea1", update = FALSE)
 	preview_human.set_hairstyle("Ponytail (Country)", update = TRUE)
-	preview_human.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex("asian1")
+	preview_human.dna.features[TRAIT_USES_SKINTONES] = "asian1"
 	preview_human.dna.features[FEATURE_TAIL_FISH_COLOR] = COLOR_CARP_TEAL
 	regenerate_organs(preview_human)
 	preview_human.update_body(is_creating = TRUE)
@@ -77,7 +76,7 @@
 
 /obj/item/organ/tail/fish/mermaid/Initialize(mapload)
 	. = ..()
-	set_greyscale(pick(GLOB.carp_colors))
+	set_greyscale(pick(GLOB.carp_colors - COLOR_CARP_SILVER))
 
 /obj/item/organ/tail/fish/mermaid/on_mob_insert(mob/living/carbon/owner, special, movement_flags)
 	. = ..()
@@ -120,10 +119,9 @@
 /datum/bodypart_overlay/mutant/tail/fish/mermaid/can_draw_on_bodypart(obj/item/bodypart/limb)
 	return TRUE //always draw
 
-/obj/item/organ/lungs/fish/amphibious/mermaid
+/obj/item/organ/lungs/fish/mermaid
 //	name = ""
 //	desc = ""
-	has_gills = TRUE
 
 /obj/item/organ/stomach/fish/mermaid
 //	name = ""

@@ -298,6 +298,10 @@
 /datum/bodypart_overlay/mutant/tail/fish/added_to_limb(obj/item/bodypart/limb)
 	return // used to apply color, but we already this elsewhere
 
+/datum/bodypart_overlay/mutant/tail/fish/get_overlay(layer, obj/item/bodypart/limb)
+	inherit_color(limb, TRUE)
+	return ..()
+
 /datum/bodypart_overlay/mutant/tail/fish/override_color(obj/item/bodypart/bodypart_owner)
 	//If the owner uses mutant colors, inherit the color of the bodypart
 	if(!bodypart_owner.owner || HAS_TRAIT(bodypart_owner.owner, TRAIT_MUTANT_COLORS))

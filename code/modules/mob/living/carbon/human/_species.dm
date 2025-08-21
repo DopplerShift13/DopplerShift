@@ -574,9 +574,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 		if(BODY_FRONT_LAYER)
 			return "FRONT"
 
-///Proc that can be used to change an important appearance element, called by dna after all other randomization is done
+///Proc that will randomise the hair, or primary appearance element (i.e. for moths wings) of a species' associated mob
 /datum/species/proc/randomize_main_appearance_element(mob/living/carbon/human/human_mob)
-	return
+	human_mob.set_hairstyle(random_hairstyle(human_mob.gender), update = FALSE)
 
 ///Proc that will randomise the underwear (i.e. top, pants and socks) of a species' associated mob,
 /// but will not update the body right away.
