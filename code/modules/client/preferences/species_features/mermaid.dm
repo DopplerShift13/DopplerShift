@@ -1,13 +1,13 @@
-GLOBAL_LIST_INIT(mermaid_lung_choices, list(
-	/obj/item/organ/lungs = "Oxygen",
-	/obj/item/organ/lungs/fish/mermaid = "Water vapor",
+GLOBAL_LIST_INIT(lung_choices, list(
+	"Oxygen" = /obj/item/organ/lungs,
+	"Water vapor" = /obj/item/organ/lungs/fish/mermaid,
 	))
 
 /datum/preference/choiced/fish_lungs_choice
 	savefile_key = "feature_fish_lungs_choice"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SECONDARY_FEATURES
-	priority = PREFERENCE_PRIORITY_SPECIES
+	priority = PREFERENCE_PRIORITY_BODYPARTS
 	can_randomize = FALSE
 	randomize_by_default = FALSE
 
@@ -15,21 +15,16 @@ GLOBAL_LIST_INIT(mermaid_lung_choices, list(
 	return current_species_has_savekey(preferences)
 
 /datum/preference/choiced/fish_lungs_choice/apply_to_human(mob/living/carbon/human/target, value)
-	if(!isnull(value))
-		var/obj/item/organ/lungs/lungs = new value
-		lungs.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
-		target.dna.species.mutantlungs = lungs.type
+	if(isnull(value))
+		return
+	var/obj/item/organ/lungs/new_organ = SSwardrobe.provide_type(GLOB.lung_choices[value])
+	new_organ.Insert(target, TRUE, DELETE_IF_REPLACED)
 
 /datum/preference/choiced/fish_lungs_choice/init_possible_values()
-	return GLOB.mermaid_lung_choices
+	return GLOB.lung_choices
 
 /datum/preference/choiced/fish_lungs_choice/create_default_value()
-	return /obj/item/organ/lungs
-
-/datum/preference/choiced/fish_lungs_choice/compile_constant_data()
-	var/list/data = ..()
-	data[CHOICED_PREFERENCE_DISPLAY_NAMES] = GLOB.mermaid_lung_choices
-	return data
+	return "Oxygen"
 
 /datum/preference/color/fish_tail_color
 	savefile_key = "feature_fish_tail_color"

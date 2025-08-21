@@ -37,7 +37,16 @@
 	human_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
 
 /datum/species/human/mermaid/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
-	put_in_wheelchair(equipping, equipping.client)
+	put_in_wheelchair(equipping)
+	give_important_for_life(equipping)
+
+/datum/species/human/mermaid/give_important_for_life(mob/living/carbon/human/human_to_equip)
+	human_to_equip.equip_in_one_of_slots(
+		equipping = SSwardrobe.provide_type(/obj/item/clothing/accessory/vaporizer, human_to_equip),
+		slots = list(LOCATION_LPOCKET, LOCATION_RPOCKET, LOCATION_HANDS, LOCATION_BACKPACK),
+		qdel_on_fail = FALSE,
+		indirect_action = TRUE,
+	)
 
 /datum/species/human/mermaid/prepare_human_for_preview(mob/living/carbon/human/preview_human)
 	preview_human.set_haircolor("#a54ea1", update = FALSE)
@@ -86,7 +95,7 @@
 	. = ..()
 	if(QDELING(owner))
 		return
-	owner.bodyshape &= ~BODYSHAPE_MERMAID
+	owner.bodyshape &= ~BODYSHAPE_MERMAID //just2bsure
 	owner.adjustBruteLoss(rand(-35, -45))
 	if(owner.blood_volume)
 		owner.blood_volume -= (BLOOD_VOLUME_MAXIMUM / 3)

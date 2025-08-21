@@ -14,7 +14,7 @@
 	customization_options = list(/datum/preference/choiced/paraplegic)
 
 /datum/quirk/paraplegic/add_unique(client/client_source)
-	put_in_wheelchair(quirk_holder, client_source)
+	put_in_wheelchair(quirk_holder)
 	// During the spawning process, they may have dropped what they were holding, due to the paralysis
 	// So put the things back in their hands.
 	for(var/obj/item/dropped_item in get_turf(quirk_holder))
@@ -45,10 +45,10 @@
 	return ..()
 
 /// Put a mob in a wheelchair, simple as
-/proc/put_in_wheelchair(mob/living/being, client/client_source)
+/proc/put_in_wheelchair(mob/living/being)
 	// more than 5k score? you unlock the gamer wheelchair.
 	var/gold = FALSE
-	if(client_source?.get_award_status(/datum/award/score/hardcore_random) >= 5000)
+	if(being.client?.get_award_status(/datum/award/score/hardcore_random) >= 5000)
 		gold = TRUE
 
 	// early return for if we spawn inside a closet. its more likely than you think

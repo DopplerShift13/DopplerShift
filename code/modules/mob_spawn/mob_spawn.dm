@@ -62,7 +62,7 @@
 		if(mob_species)
 			spawned_human.set_species(mob_species)
 		if(ismermaid(spawned_human))
-			put_in_wheelchair(spawned_human, spawned_human.client)
+			put_in_wheelchair(spawned_human)
 		spawned_human.dna.species.give_important_for_life(spawned_human) // for preventing plasmamen from combusting immediately upon spawning
 		spawned_human.underwear = "Nude"
 		spawned_human.undershirt = "Nude"

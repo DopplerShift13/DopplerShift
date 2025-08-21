@@ -808,4 +808,4 @@ ADMIN_VERB(give_ai_speech, R_FUN, "Give Random AI Speech", ADMIN_VERB_NO_DESCRIP
 	our_controller.planning_subtrees = list(GLOB.ai_subtrees[/datum/ai_planning_subtree/random_speech/blackboard]) + our_controller.planning_subtrees
 
 ADMIN_VERB(give_wheelchair, R_FUN, "Give Wheelchair", ADMIN_VERB_NO_DESCRIPTION, ADMIN_CATEGORY_HIDDEN, mob/living/my_guy)
-	put_in_wheelchair(my_guy, my_guy.client)
+	put_in_wheelchair(my_guy)
