@@ -9,6 +9,10 @@
 	var/obj/item/gun/stored_gun
 	/// Does this spawn with a gun, for mapload
 	var/obj/item/gun/mapload_gun
+	/// How long does this gun take to disassemble
+	var/disassembly_time = 5 SECONDS
+	/// What sound does this thing make when taken apart?
+	var/disassembly_sound = 'sound/items/tools/change_jaws.ogg'
 
 /obj/vehicle/ridden/mounted_turret/Initialize(mapload)
 	. = ..()
@@ -27,6 +31,13 @@
 		stored_gun.set_anchored(FALSE)
 		unregister_gun()
 	return ..()
+
+/// Takes the turret apart and drops the stored gun on the floor
+/obj/vehicle/ridden/mounted_turret/proc/take_her_down(mob/user)
+	if(!do_after(user, disassembly_time, src))
+		return
+	playsound(src, disassembly_sound, 50, TRUE)
+	Destroy()
 
 /// Registers the gun to the turret for various effects
 /obj/vehicle/ridden/mounted_turret/proc/register_gun(obj/item/gun/new_gun)
@@ -85,6 +96,45 @@
 		icon_state = initial(icon_state)
 		desc = initial(desc)
 	return TRUE
+
+/obj/vehicle/ridden/mounted_turret/click_ctrl(mob/user)
+	take_her_down(user)
+
+/obj/vehicle/ridden/mounted_turret/attack_hand(mob/user, list/modifiers)
+	stored_gun.attack_hand(user, modifiers)
+
+/obj/vehicle/ridden/mounted_turret/attack_hand_secondary(mob/user, list/modifiers)
+	stored_gun.attack_hand_secondary(user, modifiers)
+
+/obj/vehicle/ridden/mounted_turret/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	stored_gun.item_interaction(user, tool, modifiers)
+
+/obj/vehicle/ridden/mounted_turret/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
+	stored_gun.item_interaction_secondary(user, tool, modifiers)
+
+/obj/vehicle/ridden/mounted_turret/buckle_feedback(mob/living/being_buckled, mob/buckler)
+	buckler.visible_message(
+		span_notice("[buckler] sits behind [src], grabbing the controls."),
+		span_notice("You sit behind [src], grabbing the controls."),
+		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+		vision_distance = COMBAT_MESSAGE_RANGE,
+	)
+
+/obj/vehicle/ridden/mounted_turret/unbuckle_feedback(mob/living/being_unbuckled, mob/unbuckler)
+	if(being_unbuckled == unbuckler)
+		being_unbuckled.visible_message(
+			span_notice("[unbuckler] lets go of [src]."),
+			span_notice("You let go of [src]."),
+			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+			vision_distance = COMBAT_MESSAGE_RANGE,
+		)
+	else
+		being_unbuckled.visible_message(
+			span_warning("[unbuckler] pushes [being_unbuckled] off of[src]!"),
+			span_warning("[unbuckler] pushes you off of [src]!"),
+			visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
+			vision_distance = COMBAT_MESSAGE_RANGE,
+		)
 
 /obj/vehicle/ridden/mounted_turret/debug_marcielle
 	name = "mounted gun basetype with marcielle"
