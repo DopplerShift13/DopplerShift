@@ -19,7 +19,7 @@
 	AddComponent(/datum/component/complicated_rotation, ROTATION_IGNORE_ANCHORED, 1 SECONDS, 'sound/items/tools/ratchet.ogg')
 	AddElement(/datum/element/ridable_turret, /datum/component/riding/vehicle/mounted_turret)
 	if(mapload_gun)
-		var/new_gun = new mapload_gun(src)
+		new mapload_gun(src)
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
 	stored_gun.forceMove(drop_location())
