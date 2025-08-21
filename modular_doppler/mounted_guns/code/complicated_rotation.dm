@@ -83,7 +83,6 @@
 		return
 	rotated_obj.setDir(turn(rotated_obj.dir, degrees))
 	playsound(rotated_obj, rotation_sound, 50, TRUE)
-	post_rotation.Invoke(user, degrees)
 
 /datum/component/complicated_rotation/proc/can_user_rotate(mob/user, degrees)
 	if(isliving(user) && user.can_perform_action(parent, NEED_DEXTERITY))
