@@ -48,7 +48,6 @@
 	return ..()
 
 /datum/component/complicated_rotation/Destroy()
-	post_rotation = null
 	return ..()
 
 /datum/component/complicated_rotation/proc/ExamineMessage(datum/source, mob/user, list/examine_list)
@@ -75,8 +74,13 @@
 		CRASH("[src] is being rotated without providing the amount of degrees needed")
 	if(!can_be_rotated(user, degrees) || !can_user_rotate(user, degrees))
 		return
-	if(!do_after(user, rotation_time, rotated_obj))
+	INVOKE_ASYNC(src, PROC_REF(real_rotate), user, degrees)
+
+/// Async called rotate for the do_after check
+/datum/component/complicated_rotation/proc/real_rotate(mob/user, degrees)
 	var/obj/rotated_obj = parent
+	if(!do_after(user, rotation_time, rotated_obj))
+		return
 	rotated_obj.setDir(turn(rotated_obj.dir, degrees))
 	playsound(rotated_obj, rotation_sound, 50, TRUE)
 	post_rotation.Invoke(user, degrees)

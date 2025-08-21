@@ -17,7 +17,7 @@
 
 /datum/component/riding/vehicle/mounted_turret/vehicle_turned(datum/source, _old_dir, new_dir)
 	. = ..()
-	update_parent_layer_and_offsets(newdir, TRUE)
+	update_parent_layer_and_offsets(new_dir, TRUE)
 
 /datum/component/riding/vehicle/mounted_turret/handle_ride(mob/user, direction)
 	var/atom/movable/movable_parent = parent
