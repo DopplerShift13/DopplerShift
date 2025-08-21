@@ -12,6 +12,7 @@
 	fire_sound = 'sound/items/weapons/gun/general/rocket_launch.ogg'
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/recoilless_rifle
 	internal_magazine = TRUE
+	bolt_type = BOLT_TYPE_NO_BOLT
 	w_class = WEIGHT_CLASS_HUGE
 	can_suppress = FALSE
 	can_unsuppress = FALSE
@@ -23,9 +24,6 @@
 	. = ..()
 	AddComponent(/datum/component/deployable_turret, 5 SECONDS, /obj/vehicle/ridden/mounted_turret, 'sound/items/tools/ratchet.ogg', 'modular_doppler/mounted_guns/icons/examples/turrets.dmi')
 
-/obj/item/gun/ballistic/rifle/recoilless_rifle/one_ammo_debug
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/recoilless_rifle/one_ammo_max
-
 /obj/item/gun/ballistic/rifle/crash/add_bayonet_point()
 	return
 
@@ -34,8 +32,5 @@
 	desc = "GET SOME!!"
 	ammo_type = /obj/item/ammo_casing/rocket
 	caliber = CALIBER_84MM
-	max_ammo = 0
-	multiload = FALSE
-
-/obj/item/ammo_box/magazine/internal/recoilless_rifle/one_ammo_max
 	max_ammo = 1
+	multiload = FALSE

@@ -24,19 +24,12 @@
 		new mapload_gun(src)
 
 /obj/vehicle/ridden/mounted_turret/examine(mob/user)
-	stored_gun.examine(user)
-
-/obj/vehicle/ridden/mounted_turret/examine_more(mob/user)
-	if(!stored_gun.examine_more(user))
-		return ..()
+	. = ..()
+	if(stored_gun)
+		. += span_notice("It has a <a href='byond://?src=[REF(stored_gun)];examine=1'>[stored_gun]</a> mounted.")
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
 	stored_gun.forceMove(drop_location())
-	return ..()
-
-/obj/vehicle/ridden/mounted_turret/Entered(atom/movable/arrived, atom/old_loc, list/atom/old_locs)
-	if(isgun(arrived))
-		register_gun(arrived)
 	return ..()
 
 /obj/vehicle/ridden/mounted_turret/Exited(atom/movable/gone, direction)
