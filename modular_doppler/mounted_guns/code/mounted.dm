@@ -26,7 +26,7 @@
 /obj/vehicle/ridden/mounted_turret/examine(mob/user)
 	. = ..()
 	if(stored_gun)
-		. += span_notice("It has a <a href='byond://?src=[REF(stored_gun)];examine=1'>[stored_gun]</a> mounted.")
+		. += span_notice("It has a [REF(stored_gun)] mounted.")
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
 	stored_gun.forceMove(drop_location())

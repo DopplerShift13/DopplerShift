@@ -3,8 +3,8 @@
 	desc = "A massive tube for the dispensing of rockets out the end of. How'd you get your hands on such a thing anyways?"
 	icon = 'modular_doppler/mounted_guns/icons/examples/obj.dmi'
 	icon_state = "rocket"
-	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_lefthand.dmi'
-	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
+	lefthand_file = 'modular_doppler/mounted_guns/icons/examples/inhands_left.dmi'
+	righthand_file = 'modular_doppler/mounted_guns/icons/examples/inhands_right.dmi'
 	inhand_icon_state = "rocket"
 	inhand_x_dimension = 32
 	inhand_y_dimension = 32
