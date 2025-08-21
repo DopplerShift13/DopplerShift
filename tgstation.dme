@@ -7518,6 +7518,7 @@
 #include "modular_doppler\mounted_guns\code\turret_deploy_component.dm"
 #include "modular_doppler\mounted_guns\code\turret_offhand.dm"
 #include "modular_doppler\mounted_guns\code\turret_ridable.dm"
+#include "modular_doppler\mounted_guns\code\examples\rocket_launcher.dm"
 #include "modular_doppler\ntnrc_for_all\code\ai_chat.dm"
 #include "modular_doppler\ntnrc_for_all\code\common_chat.dm"
 #include "modular_doppler\ntnrc_for_all\code\ntnrc_client_edits.dm"

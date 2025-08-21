@@ -13,6 +13,8 @@
 	var/disassembly_time = 5 SECONDS
 	/// What sound does this thing make when taken apart?
 	var/disassembly_sound = 'sound/items/tools/change_jaws.ogg'
+	/// Can this be disassembled easily?
+	var/can_be_removed = TRUE
 
 /obj/vehicle/ridden/mounted_turret/Initialize(mapload)
 	. = ..()
@@ -20,6 +22,12 @@
 	AddElement(/datum/element/ridable_turret, /datum/component/riding/vehicle/mounted_turret)
 	if(mapload_gun)
 		new mapload_gun(src)
+
+/obj/vehicle/ridden/mounted_turret/examine(mob/user)
+	stored_gun.examine(user)
+
+/obj/vehicle/ridden/mounted_turret/examine_more(mob/user)
+	stored_gun.examine_more(user)
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
 	stored_gun.forceMove(drop_location())
@@ -50,12 +58,41 @@
 	modify_max_integrity(stored_gun.max_integrity)
 	update_integrity(stored_gun.get_integrity())
 	RegisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE, PROC_REF(check_if_in_arc))
+	RegisterSignal(stored_gun, COMSIG_ATOM_UPDATE_ICON, PROC_REF(update_turret_look))
 	stored_gun.post_mounted_registry(src)
+	name = stored_gun.name
 
 /// Unregisters the gun from the turret for various effects
 /obj/vehicle/ridden/mounted_turret/proc/unregister_gun()
 	stored_gun.mounted_unregistry()
+	UnregisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE)
+	UnregisterSignal(stored_gun, COMSIG_ATOM_UPDATE_ICON)
 	stored_gun = null
+
+/// Updates the look of the turret based on stats from the gun
+/obj/vehicle/ridden/mounted_turret/proc/update_turret_look(obj/item/gun/source)
+	icon_state = stored_gun.icon_state
+	update_appearance()
+
+/obj/vehicle/ridden/mounted_turret/update_overlays()
+	. = ..()
+	var/gun_state = stored_gun.icon_state
+	if(istype(stored_gun, /obj/item/gun/ballistic))
+		var/obj/item/gun/ballistic/ballistic = stored_gun
+		if(ballistic.show_bolt_icon)
+			if(ballistic.bolt_type == BOLT_TYPE_LOCKING)
+				. += "[gun_state]_bolt[bolt_locked ? "_locked" : ""]"
+			if(ballistic.bolt_type == BOLT_TYPE_OPEN && bolt_locked)
+				. += "[gun_state]_bolt"
+	if(ballistic.suppressed && ballistic.can_unsuppress)
+		. += "[gun_state]_suppressor"
+	if(!ballistic.chambered && ballistic.empty_indicator)
+		. += "[gun_state]_empty"
+	if(ballistic.gun_flags & TOY_FIREARM_OVERLAY)
+		. += "[gun_state]_toy"
+	if(!ballistic.magazine || ballistic.internal_magazine || !ballistic.mag_display)
+		return
+	. += "[gun_state]_mag"
 
 /// Checks if the current target is in the firing arc of the turret
 /obj/vehicle/ridden/mounted_turret/proc/check_if_in_arc(mob/living/user, obj/item/gun/the_gun_in_question, atom/target, flag, params)
@@ -102,7 +139,8 @@
 	return TRUE
 
 /obj/vehicle/ridden/mounted_turret/click_ctrl(mob/user)
-	take_her_down(user)
+	if(can_be_removed)
+		take_her_down(user)
 
 /obj/vehicle/ridden/mounted_turret/attack_hand(mob/user, list/modifiers)
 	stored_gun.attack_hand(user, modifiers)

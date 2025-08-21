@@ -7,8 +7,10 @@
 	var/deployment_sound
 	/// If we are currently tracking someone, they will be here
 	var/mob/living/carbon/mouse_tracker
+	/// The icon file that the turret should be looking through for sprites
+	var/turret_icon
 
-/datum/component/deployable_turret/Initialize(deploy_time = 5 SECONDS, thing_to_be_deployed, deployment_sound)
+/datum/component/deployable_turret/Initialize(deploy_time = 5 SECONDS, thing_to_be_deployed, deployment_sound, turret_icon = 'modular_doppler/mounted_guns/icons/drive.dmi')
 	. = ..()
 	if(!isgun(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -16,6 +18,7 @@
 	src.deploy_time = deploy_time
 	src.thing_to_be_deployed = thing_to_be_deployed
 	src.deployment_sound = deployment_sound
+	src.turret_icon = turret_icon
 
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(examine))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
@@ -59,6 +62,8 @@
 	playsound(deploying_turf, deployment_sound, 50, TRUE)
 	var/obj/deployed_turret = new thing_to_be_deployed(deploying_turf)
 	deployed_turret.setDir(get_cardinal_dir(user, deployed_turret))
+	deployed_turret.icon = turret_icon
+	deployed_turret.update_appearance()
 	var/obj/parent_obj = parent
 	parent_obj.forceMove(deployed_turret)
 	return(COMSIG_MOB_CANCEL_CLICKON)
