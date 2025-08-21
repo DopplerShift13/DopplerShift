@@ -12,6 +12,7 @@
 
 /obj/vehicle/ridden/mounted_turret/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/complicated_rotation, ROTATION_IGNORE_ANCHORED)
 	AddElement(/datum/element/ridable_turret, /datum/component/riding/vehicle/mounted_turret)
 	if(mapload_gun)
 		var/new_gun = new mapload_gun(src)
@@ -25,12 +26,13 @@
 /// Registers the gun to turn the turret on firing
 /obj/vehicle/ridden/mounted_turret/proc/register_gun(obj/item/gun/new_gun)
 	stored_gun = new_gun
-	RegisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE, PROC_REF(turn_turret_on_fire))
+	RegisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE, PROC_REF(check_if_in_arc))
 
-/// Turns the turret when the gun tries or succeeds in firing
-/obj/vehicle/ridden/mounted_turret/proc/turn_turret_on_fire(mob/living/user, obj/item/gun/the_gun_in_question, atom/target, flag, params)
+/// Checks if the current target is in the firing arc of the turret
+/obj/vehicle/ridden/mounted_turret/proc/check_if_in_arc(mob/living/user, obj/item/gun/the_gun_in_question, atom/target, flag, params)
 	SIGNAL_HANDLER
-	setDir(get_cardinal_dir(src, target))
+	if(dir != (get_cardinal_dir(src, target)))
+		return COMPONENT_CANCEL_GUN_FIRE
 
 /obj/vehicle/ridden/mounted_turret/debug_marcielle
 	name = "mounted gun basetype with marcielle"

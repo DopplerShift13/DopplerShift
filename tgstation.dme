@@ -7511,6 +7511,7 @@
 #include "modular_doppler\modular_weapons\manufacturer_examine\code\manufacturer_element.dm"
 #include "modular_doppler\most_evil_health_rework\code\carbon_health.dm"
 #include "modular_doppler\most_evil_health_rework\code\yo_doc_im_bleedin_here.dm"
+#include "modular_doppler\mounted_guns\code\complicated_rotation.dm"
 #include "modular_doppler\mounted_guns\code\mounted.dm"
 #include "modular_doppler\mounted_guns\code\turret_component.dm"
 #include "modular_doppler\mounted_guns\code\turret_offhand.dm"
