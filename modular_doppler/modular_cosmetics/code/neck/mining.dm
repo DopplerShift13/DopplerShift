@@ -1,3 +1,5 @@
+GLOBAL_VAR_INIT(liveleak_camera_net_number, 0)
+
 /obj/item/broadcast_camera/mining
 	name = "broadcast camera arm"
 	desc = "A shoulder-mounted camera arm that broadcasts sight and sound to the station's entertainment network."
@@ -22,7 +24,8 @@
 
 /obj/item/broadcast_camera/mining/Initialize(mapload)
 	. = ..()
-	var/random_camera_network = "mining_liveleak_[rand(0,9999)]"
+	var/random_camera_network = "mining_liveleak_[GLOB.liveleak_camera_net_number]"
+	GLOB.liveleak_camera_net_number++
 	camera_networks = list(random_camera_network)
 
 /datum/orderable_item/mining/liveleak
