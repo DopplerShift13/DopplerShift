@@ -18,8 +18,8 @@
 	alert_type = null
 	/// The level of drunkness we are currently at.
 	var/drunk_value = 0
-	/// If TRUE, drunk_value will be capped at 51, preventing serious damage
-	var/iron_liver = FALSE
+	/// If TRUE, drunk_value will be capped at 51, preventing serious damage 
+	var/iron_liver = FALSE 
 
 /datum/status_effect/inebriated/on_creation(mob/living/new_owner, drunk_value = 0)
 	. = ..()
