@@ -3,10 +3,6 @@
 	keytype = null
 	ride_check_flags = RIDER_NEEDS_ARM | UNBUCKLE_DISABLED_RIDER
 
-/datum/component/riding/vehicle/mounted_turret/RegisterWithParent()
-	. = ..()
-	RegisterSignal(parent, COMSIG_ATOM_DIR_CHANGE, PROC_REF(dir_change))
-
 /datum/component/riding/vehicle/mounted_turret/get_rider_offsets_and_layers(pass_index, mob/offsetter)
 	return list(
 		TEXT_NORTH = list(0, -12),
@@ -19,8 +15,8 @@
 		"10" = list(12, 0),
 	)
 
-/datum/component/riding/vehicle/mounted_turret/proc/dir_change(obj/vehicle/source, olddir, newdir)
-	SIGNAL_HANDLER
+/datum/component/riding/vehicle/mounted_turret/vehicle_turned(datum/source, _old_dir, new_dir)
+	. = ..()
 	update_parent_layer_and_offsets(newdir, TRUE)
 
 /datum/component/riding/vehicle/mounted_turret/handle_ride(mob/user, direction)

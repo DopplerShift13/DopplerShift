@@ -18,7 +18,8 @@
 		register_gun(new_gun)
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
-	UnregisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE)
+	stored_gun.forceMove(drop_location())
+	stored_gun = null
 	return ..()
 
 /// Registers the gun to turn the turret on firing
