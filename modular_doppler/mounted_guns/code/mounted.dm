@@ -27,7 +27,8 @@
 	stored_gun.examine(user)
 
 /obj/vehicle/ridden/mounted_turret/examine_more(mob/user)
-	stored_gun.examine_more(user)
+	if(!stored_gun.examine_more(user))
+		return ..()
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
 	stored_gun.forceMove(drop_location())
@@ -61,6 +62,8 @@
 	RegisterSignal(stored_gun, COMSIG_ATOM_UPDATE_ICON, PROC_REF(update_turret_look))
 	stored_gun.post_mounted_registry(src)
 	name = stored_gun.name
+	update_turret_look()
+	update_appearance()
 
 /// Unregisters the gun from the turret for various effects
 /obj/vehicle/ridden/mounted_turret/proc/unregister_gun()
@@ -71,11 +74,15 @@
 
 /// Updates the look of the turret based on stats from the gun
 /obj/vehicle/ridden/mounted_turret/proc/update_turret_look(obj/item/gun/source)
+	if(!stored_gun)
+		return
 	icon_state = stored_gun.icon_state
 	update_appearance()
 
 /obj/vehicle/ridden/mounted_turret/update_overlays()
 	. = ..()
+	if(!stored_gun)
+		return
 	var/gun_state = stored_gun.icon_state
 	if(istype(stored_gun, /obj/item/gun/ballistic))
 		var/obj/item/gun/ballistic/ballistic = stored_gun
@@ -197,11 +204,30 @@
 /obj/item/gun
 	/// If this gun is a part of a mounted turret, refers to that turret
 	var/obj/vehicle/ridden/mounted_turret/turret_location
+	/// Is this gun just unable to fire right now? Used in turret only guns
+	var/blocked_firing = FALSE
+	/// Does this gun unblock firing when deployed in a turret?
+	var/unblocked_in_turrets = TRUE
 
 /// If a gun should have special behavior when registered as part of a mounted turret
 /obj/item/gun/proc/post_mounted_registry(obj/vehicle/ridden/mounted_turret/turret)
+	if(unblocked_in_turrets)
+		blocked_firing = FALSE
 	return
 
 /// If a gun should have special behavior when unregistered as part of a mounted turret
 /obj/item/gun/proc/mounted_unregistry()
+	if(unblocked_in_turrets)
+		blocked_firing = TRUE
 	return
+
+/obj/item/gun/ballistic/can_shoot()
+	if(blocked_firing)
+		return FALSE
+	return chambered?.loaded_projectile
+
+/obj/item/gun/energy/can_shoot()
+	if(blocked_firing)
+		return FALSE
+	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
+	return !QDELETED(cell) ? (cell.charge >= shot.e_cost) : FALSE

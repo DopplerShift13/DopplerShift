@@ -60,10 +60,11 @@
 	if(!do_after(user, deploy_time, deploying_turf))
 		return
 	playsound(deploying_turf, deployment_sound, 50, TRUE)
-	var/obj/deployed_turret = new thing_to_be_deployed(deploying_turf)
+	var/obj/vehicle/ridden/mounted_turret/deployed_turret = new thing_to_be_deployed(deploying_turf)
 	deployed_turret.setDir(get_cardinal_dir(user, deployed_turret))
 	deployed_turret.icon = turret_icon
 	deployed_turret.update_appearance()
 	var/obj/parent_obj = parent
 	parent_obj.forceMove(deployed_turret)
+	deployed_turret.register_gun(parent_obj)
 	return(COMSIG_MOB_CANCEL_CLICKON)
