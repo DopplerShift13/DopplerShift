@@ -20,7 +20,6 @@
 	new /obj/item/clothing/head/mining_cap(src)
 
 /obj/structure/closet/secure_closet/miner/PopulateContents()
-	..()
 	new /obj/item/stack/sheet/mineral/sandbags(src, 5)
 	new /obj/item/storage/box/emptysandbags(src)
 	new /obj/item/card/mining_point_card(src)

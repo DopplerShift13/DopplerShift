@@ -26,3 +26,7 @@
 	icon_state = "explorer2"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
 	worn_icon_state = "explorer2"
+
+/obj/item/storage/belt/mining/primitive
+	icon = 'icons/obj/clothing/belts.dmi'
+	worn_icon = 'icons/mob/clothing/belt.dmi'

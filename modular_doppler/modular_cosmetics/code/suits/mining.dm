@@ -21,6 +21,9 @@
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/mining.dmi'
 	icon_state = "explorer"
 
+/obj/item/clothing/head/hooded/explorer/syndicate
+	icon = 'icons/obj/clothing/head/utility.dmi'
+
 // Casual jacket
 
 /obj/item/clothing/suit/armor/vest/miningjacket
