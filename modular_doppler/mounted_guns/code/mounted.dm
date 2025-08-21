@@ -81,18 +81,18 @@
 		var/obj/item/gun/ballistic/ballistic = stored_gun
 		if(ballistic.show_bolt_icon)
 			if(ballistic.bolt_type == BOLT_TYPE_LOCKING)
-				. += "[gun_state]_bolt[bolt_locked ? "_locked" : ""]"
-			if(ballistic.bolt_type == BOLT_TYPE_OPEN && bolt_locked)
+				. += "[gun_state]_bolt[ballistic.bolt_locked ? "_locked" : ""]"
+			if(ballistic.bolt_type == BOLT_TYPE_OPEN && ballistic.bolt_locked)
 				. += "[gun_state]_bolt"
-	if(ballistic.suppressed && ballistic.can_unsuppress)
-		. += "[gun_state]_suppressor"
-	if(!ballistic.chambered && ballistic.empty_indicator)
-		. += "[gun_state]_empty"
-	if(ballistic.gun_flags & TOY_FIREARM_OVERLAY)
-		. += "[gun_state]_toy"
-	if(!ballistic.magazine || ballistic.internal_magazine || !ballistic.mag_display)
-		return
-	. += "[gun_state]_mag"
+			if(ballistic.suppressed && ballistic.can_unsuppress)
+				. += "[gun_state]_suppressor"
+			if(!ballistic.chambered && ballistic.empty_indicator)
+				. += "[gun_state]_empty"
+			if(ballistic.gun_flags & TOY_FIREARM_OVERLAY)
+				. += "[gun_state]_toy"
+			if(!ballistic.magazine || ballistic.internal_magazine || !ballistic.mag_display)
+				return
+			. += "[gun_state]_mag"
 
 /// Checks if the current target is in the firing arc of the turret
 /obj/vehicle/ridden/mounted_turret/proc/check_if_in_arc(mob/living/user, obj/item/gun/the_gun_in_question, atom/target, flag, params)
