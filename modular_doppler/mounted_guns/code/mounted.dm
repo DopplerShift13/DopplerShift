@@ -73,6 +73,19 @@
 				return FALSE
 	return FALSE // How did we get here ??
 
+/obj/vehicle/ridden/mounted_turret/welder_act(mob/living/user, obj/item/tool)
+	..()
+	if(user.combat_mode)
+		return FALSE
+	if(!tool.tool_start_check(user, amount = 1))
+		return TRUE
+	balloon_alert(user, "repairing...")
+	if(tool.use_tool(src, user, 10, volume = 50))
+		update_integrity(get_integrity() + (max_integrity / 5)) // 1/5 of integrity per repair
+		icon_state = initial(icon_state)
+		desc = initial(desc)
+	return TRUE
+
 /obj/vehicle/ridden/mounted_turret/debug_marcielle
 	name = "mounted gun basetype with marcielle"
 	mapload_gun = /obj/item/gun/ballistic/automatic/marcielle/sport
