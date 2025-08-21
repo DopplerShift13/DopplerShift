@@ -85,16 +85,14 @@
 	if (!iscarbon(owner))
 		return
 	var/mob/living/carbon/carbon_owner = owner
-	var/obj/item/organ/tail/fish/tail = carbon_owner.get_organ_by_type(/obj/item/organ/tail/fish)
-	var/tail_color = tail?.bodypart_overlay?.draw_color
 	// We need to snowflake the tongue because it doesn't count towards the set bonus
 	if (carbon_owner.get_organ_by_type(/obj/item/organ/tongue/inky))
 		new_value += 1
 
-	if (new_value >= FISH_INFUSION_ALL_ORGANS && tail_color)
+	if (new_value >= FISH_INFUSION_ALL_ORGANS)
 		if (!color_active)
 			for(var/obj/item/bodypart/limb as anything in carbon_owner.bodyparts)
-				limb.add_color_override(tail_color, LIMB_COLOR_FISH_INFUSION)
+				limb.add_color_override(carbon_owner.dna.features[FEATURE_TAIL_FISH_COLOR], LIMB_COLOR_FISH_INFUSION)
 			color_active = TRUE
 		return
 
@@ -110,10 +108,7 @@
 	if (!color_active || !iscarbon(owner))
 		return
 	var/mob/living/carbon/carbon_owner = owner
-	var/obj/item/organ/tail/fish/tail = carbon_owner.get_organ_by_type(/obj/item/organ/tail/fish)
-	var/tail_color = tail?.bodypart_overlay?.draw_color
-	if (tail_color)
-		limb.add_color_override(tail_color, LIMB_COLOR_FISH_INFUSION)
+	limb.add_color_override(carbon_owner.dna.features[FEATURE_TAIL_FISH_COLOR], LIMB_COLOR_FISH_INFUSION)
 
 /datum/status_effect/organ_set_bonus/fish/untexture_limb(atom/source, obj/item/bodypart/limb)
 	. = ..()
@@ -285,30 +280,30 @@
 	feature_key = FEATURE_TAIL_FISH
 	color_source = ORGAN_COLOR_OVERRIDE
 
-/datum/bodypart_overlay/mutant/tail/fish/on_mob_insert(obj/item/organ/parent, mob/living/carbon/receiver)
-	//Initialize the related dna feature block if we don't have any so it doesn't error out.
-	//This isn't tied to any species, but I kinda want it to be mutable instead of having a fixed sprite accessory.
-	if(imprint_on_next_insertion && !receiver.dna.features[FEATURE_TAIL_FISH])
-		var/list/possible_tails = SSaccessories.tails_list_fish
-		for(var/tail in possible_tails)
-			var/datum/sprite_accessory/sprite_accessory
-			if(tail[sprite_accessory.locked])
-				possible_tails -= tail
+/datum/bodypart_overlay/mutant/tail/fish/get_global_feature_list()
+	if(type != /datum/bodypart_overlay/mutant/tail/fish/mermaid)
+		return SSaccessories.tails_list_fish - /datum/sprite_accessory/tails/fish/mermaid::name
+	else
+		return SSaccessories.tails_list_fish
 
-		receiver.dna.features[FEATURE_TAIL_FISH] = pick(possible_tails)
+/datum/bodypart_overlay/mutant/tail/fish/on_mob_insert(obj/item/organ/parent, mob/living/carbon/receiver)
+	if(imprint_on_next_insertion)
+		if(istype(parent, /obj/item/organ/tail/fish/mermaid))
+			receiver.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/mermaid::name
+		else
+			receiver.dna.features[FEATURE_TAIL_FISH] = get_random_appearance().name
 		receiver.dna.update_uf_block(/datum/dna_block/feature/tail_fish)
-		LAZYNULL(possible_tails)
 	return ..()
+
+/datum/bodypart_overlay/mutant/tail/fish/added_to_limb(obj/item/bodypart/limb)
+	return // used to apply color, but we already this elsewhere
 
 /datum/bodypart_overlay/mutant/tail/fish/override_color(obj/item/bodypart/bodypart_owner)
 	//If the owner uses mutant colors, inherit the color of the bodypart
 	if(!bodypart_owner.owner || HAS_TRAIT(bodypart_owner.owner, TRAIT_MUTANT_COLORS))
 		return bodypart_owner.draw_color
-	else //otherwise get one from a set of faded out blue and some greys colors.
-		return pick("#B4B8DD", "#85C7D0", "#67BBEE", "#2F4450", "#55CCBB", "#999FD0", "#345066", "#585B69", "#7381A0", "#B6DDE5", "#4E4E50")
-
-/datum/bodypart_overlay/mutant/tail/fish/get_global_feature_list()
-	return SSaccessories.tails_list_fish
+	else //otherwise get a random carp color from the dna feature
+		return bodypart_owner.owner.dna.features[FEATURE_TAIL_FISH_COLOR]
 
 /datum/bodypart_overlay/mutant/tail/fish/get_image(image_layer, obj/item/bodypart/limb)
 	var/mutable_appearance/appearance = ..()

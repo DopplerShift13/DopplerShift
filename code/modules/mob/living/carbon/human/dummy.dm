@@ -107,6 +107,7 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
 	target.dna.features[FEATURE_MUTANT_COLOR] = COLOR_VIBRANT_LIME
 	target.dna.features[FEATURE_ETHEREAL_COLOR] = COLOR_WHITE
+	target.dna.features[FEATURE_TAIL_FISH_COLOR] = COLOR_CARP_TEAL
 	target.dna.features[FEATURE_LIZARD_MARKINGS] = get_consistent_feature_entry(SSaccessories.lizard_markings_list)
 	target.dna.features[FEATURE_EARS] = get_consistent_feature_entry(SSaccessories.ears_list)
 	target.dna.features[FEATURE_FRILLS] = get_consistent_feature_entry(SSaccessories.frills_list)

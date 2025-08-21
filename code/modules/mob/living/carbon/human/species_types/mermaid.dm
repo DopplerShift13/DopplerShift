@@ -4,6 +4,8 @@
 	id = SPECIES_MERMAID
 	mutant_organs = list(/obj/item/organ/tail/fish/mermaid)
 	mutantlungs = /obj/item/organ/lungs/fish/amphibious/mermaid
+	mutantstomach = /obj/item/organ/stomach/fish/mermaid
+	mutantliver = /obj/item/organ/liver/fish/mermaid
 	bodypart_overrides = list(
 		BODY_ZONE_L_ARM = /obj/item/bodypart/arm/left,
 		BODY_ZONE_R_ARM = /obj/item/bodypart/arm/right,
@@ -21,9 +23,13 @@
 //		,
 //	)
 
+/datum/species/human/mermaid/randomize_features()
+	var/list/features = ..()
+	features[FEATURE_TAIL_FISH_COLOR] = pick(GLOB.carp_colors)
+	return features
+
 /datum/species/human/mermaid/randomize_main_appearance_element(mob/living/carbon/human/human_being)
 	human_being.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex(pick(GLOB.skin_tones))
-	human_being.dna.update_uf_block(/datum/dna_block/feature/mermaid_color)
 
 /datum/species/human/mermaid/on_species_gain(mob/living/carbon/human/human_being, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
@@ -38,7 +44,7 @@
 	preview_human.set_haircolor("#a54ea1", update = FALSE)
 	preview_human.set_hairstyle("Ponytail (Country)", update = TRUE)
 	preview_human.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex("asian1")
-	preview_human.dna.features[FEATURE_MERMAID_COLOR] = COLOR_CARP_TEAL
+	preview_human.dna.features[FEATURE_TAIL_FISH_COLOR] = COLOR_CARP_TEAL
 	regenerate_organs(preview_human)
 	preview_human.update_body(is_creating = TRUE)
 
@@ -50,31 +56,28 @@
 		"Nothing yet.",
 	)
 
-/obj/item/organ/lungs/fish/amphibious/mermaid
-//	name = ""
-//	desc = ""
-	has_gills = TRUE
+#define MERMAID_ORGAN_COLOR "#6d5287"
+#define MERMAID_SCLERA_COLOR COLOR_WHITE
+#define MERMAID_PUPIL_COLOR COLOR_BLUE
+#define MERMAID_COLORS MERMAID_ORGAN_COLOR + MERMAID_SCLERA_COLOR + MERMAID_PUPIL_COLOR
 
-/// The organ
 /obj/item/organ/tail/fish/mermaid
 	name = "large fish tail"
 //	desc = ""
 	fillet_amount = 12
-	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/mermaid
+	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/fish/mermaid
+	greyscale_colors = MERMAID_ORGAN_COLOR
 	external_bodyshapes = BODYSHAPE_MERMAID
 	restyle_flags = NONE
 	organ_traits = list(
 		TRAIT_FREE_FLOAT_MOVEMENT,
 		TRAIT_FLOPPING,
 		TRAIT_SWIMMER,
-		TRAIT_SLIPPERY_WHEN_WET,
-		TRAIT_WET_FOR_LONGER,
-		TRAIT_WATER_ADAPTATION,
 	)
 
 /obj/item/organ/tail/fish/mermaid/Initialize(mapload)
 	. = ..()
-	set_greyscale(colors = list(pick(GLOB.carp_colors)))
+	set_greyscale(pick(GLOB.carp_colors))
 
 /obj/item/organ/tail/fish/mermaid/on_mob_insert(mob/living/carbon/owner, special, movement_flags)
 	. = ..()
@@ -84,14 +87,16 @@
 	. = ..()
 	if(QDELING(owner))
 		return
+	owner.bodyshape &= ~BODYSHAPE_MERMAID
 	owner.adjustBruteLoss(rand(-35, -45))
 	if(owner.blood_volume)
 		owner.blood_volume -= (BLOOD_VOLUME_MAXIMUM / 3)
 		owner.spray_blood(REVERSE_DIR(owner.dir))
 		owner.visible_message(span_warning("[src] detaches, spilling out liters of [LOWER_TEXT(owner.get_bloodtype()?.name)]!"))
 		playsound(src, 'sound/effects/cartoon_sfx/cartoon_splat.ogg', 50, TRUE)
-	get_greyscale_color_from_draw_color()
-	owner.bodyshape &= ~BODYSHAPE_MERMAID
+
+/obj/item/organ/tail/fish/mermaid/mutate_feature(features, mob/living/carbon/human/human)
+	return //no mutation
 
 /// Remove legs on insertion, if we had any
 /obj/item/organ/tail/fish/mermaid/proc/get_your_sealegs(mob/living/carbon/owner)
@@ -102,37 +107,35 @@
 	if(left_leg)
 		left_leg.dismember()
 
-
 /// The bodypart overlay
-/datum/bodypart_overlay/mutant/tail/mermaid
-	feature_key = FEATURE_TAIL_FISH
-	color_source = NONE
+/datum/bodypart_overlay/mutant/tail/fish/mermaid
 	layers = EXTERNAL_BEHIND|EXTERNAL_ADJACENT
 
-/datum/bodypart_overlay/mutant/tail/mermaid/get_global_feature_list()
-	return SSaccessories.tails_list_fish
-
-/datum/bodypart_overlay/mutant/tail/mermaid/on_mob_insert(obj/item/organ/limb, mob/living/carbon/receiver)
+/datum/bodypart_overlay/mutant/tail/fish/mermaid/randomize_appearance()
 	set_appearance(/datum/sprite_accessory/tails/fish/mermaid)
-	receiver.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/mermaid::name
-	receiver.dna.update_uf_block(/datum/dna_block/feature/tail_fish)
 
-/datum/bodypart_overlay/mutant/tail/mermaid/color_image(image/overlay, layer, obj/item/bodypart/limb)
-	var/color
-	//dye has priority
-	if(dye_color)
-		color = dye_color
-	//do we have dna set through preferences?
-	else if(limb?.owner?.dna.features[FEATURE_MERMAID_COLOR])
-		color = limb.owner.dna.features[FEATURE_MERMAID_COLOR]
-	//no prefs set, inherit the color of the organ and set the dna
-	else if(locate(/obj/item/organ/tail/fish/mermaid) in limb?.contents)
-		var/obj/item/organ/tail/fish/mermaid/tail = limb.owner.get_organ_by_type(/obj/item/organ/tail/fish/mermaid)
-		limb.owner.dna.features[FEATURE_MERMAID_COLOR] = tail.greyscale_colors
-		limb.owner.dna.update_uf_block(/datum/dna_block/feature/mermaid_color)
-		color = tail.greyscale_colors
-	draw_color = color
-	overlay.color = color
+/datum/bodypart_overlay/mutant/tail/fish/mermaid/override_color(obj/item/bodypart/limb)
+	return limb.owner.dna.features[FEATURE_TAIL_FISH_COLOR]
 
-/datum/bodypart_overlay/mutant/tail/mermaid/can_draw_on_bodypart(obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/tail/fish/mermaid/can_draw_on_bodypart(obj/item/bodypart/limb)
 	return TRUE //always draw
+
+/obj/item/organ/lungs/fish/amphibious/mermaid
+//	name = ""
+//	desc = ""
+	has_gills = TRUE
+
+/obj/item/organ/stomach/fish/mermaid
+//	name = ""
+//	desc = ""
+	greyscale_colors = MERMAID_COLORS
+
+/obj/item/organ/liver/fish/mermaid
+//	name = ""
+//	desc = ""
+	greyscale_colors = MERMAID_COLORS
+
+#undef MERMAID_ORGAN_COLOR
+#undef MERMAID_SCLERA_COLOR
+#undef MERMAID_PUPIL_COLOR
+#undef MERMAID_COLORS
