@@ -20,13 +20,27 @@
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
 	stored_gun.forceMove(drop_location())
-	stored_gun = null
 	return ..()
 
-/// Registers the gun to turn the turret on firing
+/obj/vehicle/ridden/mounted_turret/Exited(atom/movable/gone, direction)
+	if(gone == stored_gun)
+		stored_gun.set_anchored(FALSE)
+		unregister_gun()
+	return ..()
+
+/// Registers the gun to the turret for various effects
 /obj/vehicle/ridden/mounted_turret/proc/register_gun(obj/item/gun/new_gun)
 	stored_gun = new_gun
+	stored_gun.set_anchored(TRUE)
+	modify_max_integrity(stored_gun.max_integrity)
+	update_integrity(stored_gun.get_integrity())
 	RegisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE, PROC_REF(check_if_in_arc))
+	stored_gun.post_mounted_registry(src)
+
+/// Unregisters the gun from the turret for various effects
+/obj/vehicle/ridden/mounted_turret/proc/unregister_gun()
+	stored_gun.mounted_unregistry()
+	stored_gun = null
 
 /// Checks if the current target is in the firing arc of the turret
 /obj/vehicle/ridden/mounted_turret/proc/check_if_in_arc(mob/living/user, obj/item/gun/the_gun_in_question, atom/target, flag, params)
@@ -74,3 +88,15 @@
 /obj/vehicle/ridden/mounted_turret/debug_laser
 	name = "mounted gun basetype with laser"
 	mapload_gun = /obj/item/gun/energy/laser/captain
+
+/obj/item/gun
+	/// If this gun is a part of a mounted turret, refers to that turret
+	var/obj/vehicle/ridden/mounted_turret/turret_location
+
+/// If a gun should have special behavior when registered as part of a mounted turret
+/obj/item/gun/proc/post_mounted_registry(obj/vehicle/ridden/mounted_turret/turret)
+	return
+
+/// If a gun should have special behavior when unregistered as part of a mounted turret
+/obj/item/gun/proc/mounted_unregistry()
+	return
