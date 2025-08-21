@@ -73,7 +73,7 @@
 	desc = "Is it just me or is there a pair of jackboots on the floor?"
 	icon_state = "ftc_boots"
 	inhand_icon_state = null
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 
 /obj/item/clothing/shoes/jackboots/floortile/Initialize(mapload)
 	. = ..()

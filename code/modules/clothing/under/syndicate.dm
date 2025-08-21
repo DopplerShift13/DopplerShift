@@ -32,7 +32,7 @@
 	armor_type = /datum/armor/clothing_under/syndicate_bloodred
 	resistance_flags = FIRE_PROOF | ACID_PROOF
 	can_adjust = FALSE
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 
 /obj/item/clothing/under/syndicate/bloodred/Initialize(mapload)
 	. = ..()
