@@ -15,7 +15,7 @@
 	name = "4mm bullet"
 	icon_state = "shortbullet"
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
-	damage = 12
+	damage = 15
 	speed = 1.5
 
 /obj/item/ammo_box/magazine/ammo_stack/europan4mm
