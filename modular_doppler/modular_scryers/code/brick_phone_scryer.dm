@@ -221,7 +221,7 @@
 		return
 	if(isnull(cell))
 		return
-	cell.use(0.02 * STANDARD_CELL_RATE * seconds_per_tick, force = TRUE)
+	cell.use(0.002 * STANDARD_CELL_RATE * seconds_per_tick, force = TRUE)
 
 /obj/item/brick_phone_scryer/proc/incoming_call_loop()
 	if(isnull(cell))
