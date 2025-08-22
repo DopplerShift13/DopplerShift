@@ -6,11 +6,11 @@
 
 /obj/item/clothing/accessory/vaporizer/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/wetting)
+	AddComponent(/datum/component/hydrating)
 
 /obj/item/clothing/accessory/vaporizer/Destroy()
 	. = ..()
-	qdel(GetComponent(/datum/component/wetting))
+	qdel(GetComponent(/datum/component/hydrating))
 
 /obj/item/clothing/accessory/vaporizer/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
