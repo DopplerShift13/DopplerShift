@@ -1361,7 +1361,6 @@
 	VV_DROPDOWN_OPTION(VV_HK_GIB, "Gib")
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_AI, "Give AI Controller")
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_AI_SPEECH, "Give Random AI Speech")
-	VV_DROPDOWN_OPTION(VV_HK_GIVE_WHEELCHAIR, "Give Wheelchair")
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_SPELL, "Give Spell")
 	VV_DROPDOWN_OPTION(VV_HK_REMOVE_SPELL, "Remove Spell")
 	VV_DROPDOWN_OPTION(VV_HK_GIVE_MOB_ACTION, "Give Mob Ability")
@@ -1408,9 +1407,6 @@
 
 	if(href_list[VV_HK_GIVE_AI_SPEECH])
 		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/give_ai_speech, src)
-
-	if(href_list[VV_HK_GIVE_WHEELCHAIR])
-		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/give_wheelchair, src)
 
 	if(href_list[VV_HK_GIVE_MOB_ACTION])
 		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/give_mob_action, src)

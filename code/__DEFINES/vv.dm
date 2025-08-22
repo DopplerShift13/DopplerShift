@@ -136,7 +136,6 @@
 #define VV_HK_VIEW_PLANES "view_planes"
 #define VV_HK_GIVE_AI "give_ai"
 #define VV_HK_GIVE_AI_SPEECH "give_ai_speech"
-#define VV_HK_GIVE_WHEELCHAIR "give_wheelchair"
 
 // /mob/living
 #define VV_HK_GIVE_SPEECH_IMPEDIMENT "impede_speech"

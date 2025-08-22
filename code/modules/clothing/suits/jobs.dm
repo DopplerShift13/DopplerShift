@@ -28,6 +28,7 @@
 		/obj/item/storage/bag/plants,
 		/obj/item/tank/internals/emergency_oxygen,
 	)
+	supports_variations_flags = CLOTHING_NO_VARIATION
 	species_exception = list(/datum/species/golem)
 	armor_type = /datum/armor/suit_apron
 
