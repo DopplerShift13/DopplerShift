@@ -1,8 +1,8 @@
-/// How many wetstacks does the status effect apply to its wearer
-#define STATUS_EFFECT_STACKS 1
-
+///
 /datum/component/hydrating
 	dupe_mode = COMPONENT_DUPE_UNIQUE
+	/// the kind of status effect that will be given by the component holder
+	var/datum/status_effect/grouped/hydrating/status_effect_type
 
 /datum/component/hydrating/RegisterWithParent()
 	. = ..()
@@ -31,10 +31,12 @@
 	id = "hydrating"
 	alert_type = null
 	tick_interval = 5 SECONDS
+	/// how many wet stacks it will add
+	var/stacks_to_add = 1
+	/// will it remove fire stacks
+	var/dousing = FALSE
 
 /datum/status_effect/grouped/hydrating/tick(seconds_between_ticks)
 	var/datum/status_effect/fire_handler/wet_stacks/wet_status = owner.has_status_effect(/datum/status_effect/fire_handler/wet_stacks)
-	if(wet_status?.stacks <= STATUS_EFFECT_STACKS)
-		owner.set_wet_stacks(stacks = STATUS_EFFECT_STACKS, remove_fire_stacks = FALSE)
-
-#undef STATUS_EFFECT_STACKS
+	if(wet_status?.stacks <= stacks_to_add)
+		owner.set_wet_stacks(stacks = stacks_to_add, remove_fire_stacks = dousing)

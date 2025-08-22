@@ -20,9 +20,25 @@
 //		,
 //	)
 
+/datum/species/human/mermaid/get_species_description()
+	return "Nothing yet."
+
+/datum/species/human/mermaid/get_species_lore()
+	return list(
+		"Nothing yet.",
+	)
+
+/datum/species/human/mermaid/prepare_human_for_preview(mob/living/carbon/human/preview_human)
+	preview_human.set_haircolor("#a54ea1", update = FALSE)
+	preview_human.set_hairstyle("Ponytail (Country)", update = TRUE)
+	preview_human.dna.features[TRAIT_USES_SKINTONES] = "asian1"
+	preview_human.dna.features[FEATURE_TAIL_FISH_COLOR] = COLOR_CARP_TEAL
+	regenerate_organs(preview_human)
+	preview_human.update_body(is_creating = TRUE)
+
 /datum/species/human/mermaid/get_features()
 	var/list/features = ..()
-	LAZYOR(features, "feature_fish_lungs_choice")
+	LAZYOR(features, "feature_lungs_choice")
 	return features
 
 /datum/species/human/mermaid/randomize_features()
@@ -37,32 +53,32 @@
 	if (human_being.has_gravity())
 		human_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
 
+///
 /datum/species/human/mermaid/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
+	if (visuals_only)
+		return
 	put_in_wheelchair(equipping)
-	give_important_for_life(equipping)
 
-/datum/species/human/mermaid/give_important_for_life(mob/living/carbon/human/human_to_equip)
-	human_to_equip.equip_in_one_of_slots(
-		equipping = SSwardrobe.provide_type(/obj/item/clothing/accessory/vaporizer, human_to_equip),
+/// gives a 'necessary for life' device to mermaids with gills
+/datum/species/human/mermaid/post_equip_species_outfit(mob/living/carbon/human/equipping, visuals_only)
+	if (visuals_only)
+		return
+	// have gill?
+	var/obj/item/organ/lungs/lungs = equipping.get_organ_slot(ORGAN_SLOT_LUNGS)
+	if (!(/datum/gas/water_vapor in lungs.breathe_always))
+		return
+	// try to attach to uniform
+	var/obj/item/clothing/under/uniform = equipping.w_uniform
+	if (uniform)
+		var/attached = uniform.attach_accessory(SSwardrobe.provide_type(/obj/item/clothing/accessory/vaporizer, equipping))
+		if (attached)
+			return
+	// try anything else
+	equipping.equip_in_one_of_slots(
+		equipping = SSwardrobe.provide_type(/obj/item/clothing/accessory/vaporizer, equipping),
 		slots = list(LOCATION_LPOCKET, LOCATION_RPOCKET, LOCATION_HANDS, LOCATION_BACKPACK),
 		qdel_on_fail = FALSE,
 		indirect_action = TRUE,
-	)
-
-/datum/species/human/mermaid/prepare_human_for_preview(mob/living/carbon/human/preview_human)
-	preview_human.set_haircolor("#a54ea1", update = FALSE)
-	preview_human.set_hairstyle("Ponytail (Country)", update = TRUE)
-	preview_human.dna.features[TRAIT_USES_SKINTONES] = "asian1"
-	preview_human.dna.features[FEATURE_TAIL_FISH_COLOR] = COLOR_CARP_TEAL
-	regenerate_organs(preview_human)
-	preview_human.update_body(is_creating = TRUE)
-
-/datum/species/human/mermaid/get_species_description()
-	return "Nothing yet."
-
-/datum/species/human/mermaid/get_species_lore()
-	return list(
-		"Nothing yet.",
 	)
 
 #define MERMAID_ORGAN_COLOR "#6d5287"
