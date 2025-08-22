@@ -558,7 +558,7 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	character.dna.real_name = character.real_name
 
 	if(icon_updates)
-		character.regenerate_limbs()
+		character.regenerate_limbs(excluded_zones = list(BODY_ZONE_HEAD))
 		character.icon_render_keys = list()
 		character.update_body(is_creating = TRUE)
 
