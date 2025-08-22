@@ -7435,7 +7435,6 @@
 #include "modular_doppler\modular_sounds\code\sounds.dm"
 #include "modular_doppler\modular_species\_species.dm"
 #include "modular_doppler\modular_species\blood_types.dm"
-#include "modular_doppler\modular_species\species_types\akula\code\wetsuit.dm"
 #include "modular_doppler\modular_species\species_types\android\android.dm"
 #include "modular_doppler\modular_species\species_types\android\android_hud.dm"
 #include "modular_doppler\modular_species\species_types\android\android_parts.dm"

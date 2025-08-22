@@ -43,6 +43,7 @@
 
 /datum/species/human/mermaid/randomize_features()
 	var/list/features = ..()
+	LAZYSET(features, FEATURE_TAIL_FISH, /datum/sprite_accessory/tails/fish/mermaid::name) //DOPPLER ADDITION
 	LAZYSET(features, FEATURE_TAIL_FISH_COLOR, pick(GLOB.carp_colors - COLOR_CARP_SILVER))
 	return features
 
