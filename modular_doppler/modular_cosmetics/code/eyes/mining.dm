@@ -23,6 +23,7 @@
 		color_cutoffs = null
 	else
 		color_cutoffs = list(15, 15, 5)
+	user.update_sight()
 
 /obj/item/clothing/glasses/mining_meson/update_icon_state()
 	. = ..()
