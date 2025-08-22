@@ -415,7 +415,7 @@
 	main_feature_name = "Tail"
 
 /datum/preference/choiced/fish_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_fish)
+	return assoc_to_keys_features(SSaccessories.tails_list_fish - /datum/sprite_accessory/tails/fish/mermaid::name)
 
 /datum/preference/choiced/fish_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
