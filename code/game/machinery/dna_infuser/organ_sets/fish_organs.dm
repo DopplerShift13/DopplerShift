@@ -291,12 +291,14 @@
 		if(istype(parent, /obj/item/organ/tail/fish/mermaid))
 			receiver.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/mermaid::name
 		//	DOPPLER EDIT START
-			receiver.dna.update_uf_block(/datum/dna_block/feature/tail_fish)
+		else
+			receiver.dna.tail_type = FISH
+			receiver.dna.features[FEATURE_TAIL_FISH] = get_random_appearance().name
 		/* tg code
 		else
 			receiver.dna.features[FEATURE_TAIL_FISH] = get_random_appearance().name
-		receiver.dna.update_uf_block(/datum/dna_block/feature/tail_fish)
 		DOPPLER EDIT END */
+		receiver.dna.update_uf_block(/datum/dna_block/feature/tail_fish)
 	return ..()
 
 /datum/bodypart_overlay/mutant/tail/fish/added_to_limb(obj/item/bodypart/limb)
