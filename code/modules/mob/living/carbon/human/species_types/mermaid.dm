@@ -32,9 +32,10 @@
 
 /datum/species/human/mermaid/on_species_gain(mob/living/carbon/human/human_being, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
-	if(isdummy(human_being))
+	if (isdummy(human_being))
 		return
-	human_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
+	if (human_being.has_gravity())
+		human_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
 
 /datum/species/human/mermaid/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
 	put_in_wheelchair(equipping)
@@ -93,11 +94,11 @@
 
 /obj/item/organ/tail/fish/mermaid/on_mob_remove(mob/living/carbon/owner)
 	. = ..()
-	if(QDELING(owner))
+	if (QDELING(owner))
 		return
 	owner.bodyshape &= ~BODYSHAPE_MERMAID //just2bsure
 	owner.adjustBruteLoss(rand(-35, -45))
-	if(owner.blood_volume)
+	if (owner.blood_volume)
 		owner.blood_volume -= (BLOOD_VOLUME_MAXIMUM / 3)
 		owner.spray_blood(REVERSE_DIR(owner.dir))
 		owner.visible_message(span_warning("[src] detaches, spilling out liters of [LOWER_TEXT(owner.get_bloodtype()?.name)]!"))
@@ -110,9 +111,9 @@
 /obj/item/organ/tail/fish/mermaid/proc/get_your_sealegs(mob/living/carbon/owner)
 	var/obj/item/bodypart/right_leg = owner.get_bodypart(BODY_ZONE_R_LEG)
 	var/obj/item/bodypart/left_leg = owner.get_bodypart(BODY_ZONE_L_LEG)
-	if(right_leg)
+	if (right_leg)
 		right_leg.dismember()
-	if(left_leg)
+	if (left_leg)
 		left_leg.dismember()
 
 /// The bodypart overlay

@@ -33,6 +33,8 @@
 	tick_interval = 5 SECONDS
 
 /datum/status_effect/grouped/wetting/tick(seconds_between_ticks)
-	owner.set_wet_stacks(stacks = STATUS_EFFECT_STACKS, remove_fire_stacks = FALSE)
+	var/datum/status_effect/fire_handler/wet_stacks/wet_status = owner.has_status_effect(/datum/status_effect/fire_handler/wet_stacks)
+	if(wet_status?.stacks <= STATUS_EFFECT_STACKS)
+		owner.set_wet_stacks(stacks = STATUS_EFFECT_STACKS, remove_fire_stacks = FALSE)
 
 #undef STATUS_EFFECT_STACKS
