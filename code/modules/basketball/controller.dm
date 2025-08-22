@@ -178,7 +178,9 @@ GLOBAL_VAR(basketball_game)
 
 		var/mob/living/carbon/human/baller = new(get_turf(spawn_landmark))
 
-		if(baller.dna.species.outfit_important_for_life)
+		if(ismermaid(baller))
+			put_in_wheelchair(baller)
+		else if(baller.dna.species.outfit_important_for_life)
 			baller.set_species(/datum/species/human)
 
 		ADD_TRAIT(baller, TRAIT_NOFIRE, BASKETBALL_MINIGAME_TRAIT)

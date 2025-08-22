@@ -1157,6 +1157,15 @@
 /mob/living/carbon/human/species/ethereal
 	race = /datum/species/ethereal
 
+/mob/living/carbon/human/species/mermaid
+	race = /datum/species/human/mermaid
+
+/mob/living/carbon/human/species/mermaid/gilled/set_species(datum/species/mrace, icon_update, pref_load, replace_missing)
+	. = ..()
+	dna.species.mutantlungs = /obj/item/organ/lungs/fish/mermaid
+	var/obj/item/organ/lungs/fish/mermaid/gills = SSwardrobe.provide_type(dna.species.mutantlungs)
+	gills.Insert(src, TRUE, DELETE_IF_REPLACED)
+
 /mob/living/carbon/human/species/moth
 	race = /datum/species/moth
 

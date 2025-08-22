@@ -442,6 +442,13 @@
 	QDEL_NULL(worn_foot_offset)
 	return ..()
 
+/// This limb can't be attached to any humanoid with a mermaid tail!
+/obj/item/bodypart/leg/can_attach_limb(mob/living/carbon/owner, special)
+	if(owner.get_organ_by_type(/obj/item/organ/tail/fish/mermaid))
+		return FALSE
+	else
+		return ..()
+
 /obj/item/bodypart/leg/left
 	name = "left leg"
 	desc = "Some athletes prefer to tie their left shoelaces first for good \

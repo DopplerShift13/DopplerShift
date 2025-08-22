@@ -123,6 +123,7 @@
 	equip_delay_other = 5 SECONDS
 	clothing_flags = CASTING_CLOTHES
 	resistance_flags = FIRE_PROOF | ACID_PROOF
+	supports_variations_flags = CLOTHING_NO_VARIATION
 	///How much this robe affects fishing difficulty
 	var/fishing_modifier = -7
 
