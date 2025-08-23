@@ -33,10 +33,15 @@
 	light_range = 1
 	light_power = 1.4
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
+	light_on = FALSE
 	/// How much the damage is multiplied by when we hit a mob with the correct biotype
 	var/biotype_damage_multiplier = 5
 	/// What biotype we look for
 	var/biotype_we_look_for = MOB_BEAST
+
+/obj/projectile/bullet/c25euro/tracer/fire(fire_angle, atom/direct_target)
+	. = ..()
+	set_light(l_on = TRUE)
 
 /obj/projectile/bullet/c25euro/tracer/on_hit(atom/target, blocked, pierce_hit)
 	if(ismineralturf(target))

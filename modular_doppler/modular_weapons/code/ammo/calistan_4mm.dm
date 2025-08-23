@@ -22,6 +22,15 @@
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	damage = 15
 	speed = 2
+	light_system = OVERLAY_LIGHT
+	light_range = 1
+	light_power = 1.4
+	light_color = LIGHT_COLOR_FAINT_BLUE
+	light_on = FALSE
+
+/obj/projectile/bullet/europan4mm/fire(fire_angle, atom/direct_target)
+	. = ..()
+	set_light(l_on = TRUE)
 
 /obj/projectile/bullet/europan4mm/minebot
 	speed = 1.5
