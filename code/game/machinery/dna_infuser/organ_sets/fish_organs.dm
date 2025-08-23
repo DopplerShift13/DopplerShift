@@ -291,9 +291,6 @@
 		if(istype(parent, /obj/item/organ/tail/fish/mermaid))
 			receiver.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/mermaid::name
 		//	DOPPLER EDIT START
-		else
-			receiver.dna.tail_type = FISH
-			receiver.dna.features[FEATURE_TAIL_FISH] = get_random_appearance().name
 		/* tg code
 		else
 			receiver.dna.features[FEATURE_TAIL_FISH] = get_random_appearance().name
