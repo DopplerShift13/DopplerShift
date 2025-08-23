@@ -21,6 +21,7 @@ GLOBAL_VAR_INIT(liveleak_camera_net_number, 0)
 	light_on = FALSE
 	broadcast_name = "Mining Camera Stream"
 	slot_flags = ITEM_SLOT_NECK
+	active_microphone = FALSE // Defaults microphone to off
 
 /obj/item/broadcast_camera/mining/Initialize(mapload)
 	. = ..()
