@@ -2,7 +2,6 @@
 	name = "generic riding saddle"
 	desc = "someone spawned a basetype!"
 	slot_flags = ITEM_SLOT_BACK // no storage
-	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
 	icon = 'modular_doppler/taurs/icons/taur_mechanics/saddles.dmi'
 	worn_icon = 'modular_doppler/taurs/icons/taur_mechanics/saddles.dmi'
 
@@ -47,7 +46,6 @@
 		Additionally, they have been modified with a hand grip that would allow <b>one free hand</b> during riding."
 	gender = PLURAL
 	slot_flags = ITEM_SLOT_BACK
-	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
 	icon = 'modular_doppler/taurs/icons/taur_mechanics/saddles.dmi'
 	worn_icon = 'modular_doppler/taurs/icons/taur_mechanics/saddles.dmi'
 	storage_type = /datum/storage/saddlebags
