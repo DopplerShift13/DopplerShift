@@ -512,6 +512,7 @@ There are several things that need to be remembered:
 
 		if(HAS_TRAIT(worn_item, TRAIT_NO_WORN_ICON))
 			return
+
 		var/handled_by_bodyshape = TRUE
 		var/use_female_suitsprite = FALSE
 		var/icon_file = DEFAULT_SUIT_FILE
