@@ -34,7 +34,7 @@
 	var/can_ride_saddled_taurs = FALSE
 
 	/// When being ridden via saddle, how much the rider is offset on the x axis when facing west or east.
-	var/riding_offset_side_x = 12
+	var/riding_offset_side_x = 2
 	/// When being ridden via saddle, how much the rider is offset on the y axis when facing west or east.
 	var/riding_offset_side_y = 2
 

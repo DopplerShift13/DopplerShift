@@ -38,4 +38,4 @@
 	ammo_type = /obj/item/ammo_casing/c585naraka
 	caliber = CALIBER_585NARAKA
 	max_ammo = 2
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE

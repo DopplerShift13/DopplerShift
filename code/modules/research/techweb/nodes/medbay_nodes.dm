@@ -82,6 +82,8 @@
 		"defibmount",
 		"medicalbed_emergency",
 		"piercesyringe",
+		"diode_disk_healing",
+		"diode_disk_sanity",
 		"pacification_chip", //DOPPLER EDIT ADDITION
 		"pacification_lockchip", //DOPPLER EDIT ADDITION
 	)
