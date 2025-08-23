@@ -63,7 +63,7 @@
 	)
 	caster.whisper(invocation)
 	mage.halt_regen = TRUE // stop regenerating mana while we channel
-	var/sound/channel_sound = sound('sound/magic/cosmic_energy.ogg')
+	var/sound/channel_sound = sound('modular_doppler/magic_quirk/sound/cosmic_energy.ogg')
 	channel_sound.pitch = 1.25
 
 	while (do_after(caster, 1 SECONDS, human_victim) && (human_victim.getBruteLoss() + human_victim.getFireLoss()) > 44 && mage.can_cast_spell(mana_per_heal_tick))

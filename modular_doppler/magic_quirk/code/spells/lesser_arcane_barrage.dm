@@ -37,7 +37,7 @@
 	icon_state = "arcane_barrage"
 	damage = 10
 	damage_type = BURN
-	hitsound = 'sound/weapons/barragespellhit.ogg'
+	hitsound = 'modular_doppler/magic_quirk/sound/barragespellhit.ogg'
 
 /obj/item/gun/magic/wand/arcane_barrage/lesser
 	name = "lesser arcane barrage"

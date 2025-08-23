@@ -76,7 +76,7 @@
 	//tell the magic quirk we've successfully cast the spell
 	mage.cast_quirk_spell(mana_cost)
 
-	var/sound/teleport_sound = sound('sound/magic/summonitems_generic.ogg')
+	var/sound/teleport_sound = sound('modular_doppler/magic_quirk/sound/summonitems_generic.ogg')
 	teleport_sound.pitch = 0.25
 	new /obj/effect/temp_visual/teleport_flux(start_turf, owner.dir)
 	new /obj/effect/temp_visual/teleport_flux(get_turf(owner), owner.dir)
