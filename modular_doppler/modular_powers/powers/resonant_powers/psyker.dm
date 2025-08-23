@@ -26,10 +26,31 @@
 	root_power = /datum/power/paracausal
 	power_type = TRAIT_PATH_SUBTYPE_PSYKER
 	blacklist = list(/datum/power/astral_dantian, /datum/power/umbral_dantian)
-	cooldown_time = 30 SECONDS
-	cooldown_reduction_per_rank = 0 SECONDS
-	antimagic_flags = MAGIC_RESISTANCE_MIND
-	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
-	spell_max_level = 1
-	invocation_type = INVOCATION_NONE
-	wall_type = /obj/effect/forcefield/psychic
+
+/datum/power/paracasual/cooldown/spell/forcewall/psychic_wall/add(mob/living/carbon/human/target)
+	var/datum/action/new_action = new /datum/action/cooldown/spell/forcewall/psychic_wall(target.mind || target)
+	new_action.Grant(target)
+
+/datum/power/paracasual/cooldown/spell/pointed/psychic_projection
+	name = "Psychic Projection"
+	desc = "Project your psychics into a target to warp their view, and instill absolute terror that will cause them to fire their gun rapidly."
+	cost = 3
+	root_power = /datum/power/paracausal
+	power_type = TRAIT_PATH_SUBTYPE_PSYKER
+	blacklist = list(/datum/power/astral_dantian, /datum/power/umbral_dantian)
+
+/datum/power/paracasual/cooldown/spell/pointed/psychic_projection/add(mob/living/carbon/human/target)
+	var/datum/action/new_action = new /datum/action/cooldown/spell/pointed/psychic_projection(target.mind || target)
+	new_action.Grant(target)
+
+/datum/power/paracasual/cooldown/spell/charged/psychic_booster
+	name = "Psychic Projection"
+	desc = "Project your psychics into a target to warp their view, and instill absolute terror that will cause them to fire their gun rapidly."
+	cost = 2
+	root_power = /datum/power/paracausal
+	power_type = TRAIT_PATH_SUBTYPE_PSYKER
+	blacklist = list(/datum/power/astral_dantian, /datum/power/umbral_dantian)
+
+/datum/power/paracasual/cooldown/spell/charged/psychic_booster/add(mob/living/carbon/human/target)
+	var/datum/action/new_action = new /datum/action/cooldown/spell/charged/psychic_booster(target.mind || target)
+	new_action.Grant(target)
