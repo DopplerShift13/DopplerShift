@@ -521,16 +521,16 @@ There are several things that need to be remembered:
 			if(physique == FEMALE)
 				use_female_suitsprite = TRUE
 
-		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
-			icon_file = DEFAULT_SUIT_FILE
-			handled_by_bodyshape = FALSE
-			use_female_suitsprite = FALSE
-
 		/// DOPPLER SHIFT ADDITION BEGIN
 		for(var/shape in wear_suit.supported_bodyshapes)
 			if(bodyshape & shape)
 				icon_file = wear_suit.bodyshape_icon_files["[shape]"]
 		/// DOPPLER SHIFT ADDITION END
+
+		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
+			icon_file = DEFAULT_SUIT_FILE
+			handled_by_bodyshape = FALSE
+			use_female_suitsprite = FALSE
 
 		var/mutable_appearance/suit_overlay
 		suit_overlay = wear_suit.build_worn_icon(
