@@ -282,7 +282,7 @@
 
 /datum/bodypart_overlay/mutant/tail/fish/get_global_feature_list()
 	if(type != /datum/bodypart_overlay/mutant/tail/fish/mermaid)
-		return SSaccessories.tails_list_fish - /datum/sprite_accessory/tails/fish/mermaid::name
+		return SSaccessories.tails_list_fish //DOPPLER EDIT REMOVAL - /datum/sprite_accessory/tails/fish/mermaid::name
 	else
 		return SSaccessories.tails_list_fish
 
@@ -290,11 +290,8 @@
 	if(imprint_on_next_insertion)
 		if(istype(parent, /obj/item/organ/tail/fish/mermaid))
 			receiver.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/mermaid::name
-		//	DOPPLER EDIT START
-		/* tg code
 		else
 			receiver.dna.features[FEATURE_TAIL_FISH] = get_random_appearance().name
-		DOPPLER EDIT END */
 		receiver.dna.update_uf_block(/datum/dna_block/feature/tail_fish)
 	return ..()
 
