@@ -19,7 +19,7 @@
 	var/obj/item/organ/resonant/paracausal/para_organ = new ()
 	para_organ.Insert(target, special = TRUE)
 
-/datum/power/paracasual/cooldown/spell/forcewall/psychic_wall
+/datum/power/resonant_wall
 	name = "Psychic Wall"
 	desc = "Form a psychic wall, able to deflect projectiles and prevent things from going through."
 	cost = 3
@@ -27,11 +27,11 @@
 	power_type = TRAIT_PATH_SUBTYPE_PSYKER
 	blacklist = list(/datum/power/astral_dantian, /datum/power/umbral_dantian)
 
-/datum/power/paracasual/cooldown/spell/forcewall/psychic_wall/add(mob/living/carbon/human/target)
+/datum/power/resonant_wall/add(mob/living/carbon/human/target)
 	var/datum/action/new_action = new /datum/action/cooldown/spell/forcewall/psychic_wall(target.mind || target)
 	new_action.Grant(target)
 
-/datum/power/paracasual/cooldown/spell/pointed/psychic_projection
+/datum/power/resonant_projection
 	name = "Psychic Projection"
 	desc = "Project your psychics into a target to warp their view, and instill absolute terror that will cause them to fire their gun rapidly."
 	cost = 3
@@ -39,18 +39,18 @@
 	power_type = TRAIT_PATH_SUBTYPE_PSYKER
 	blacklist = list(/datum/power/astral_dantian, /datum/power/umbral_dantian)
 
-/datum/power/paracasual/cooldown/spell/pointed/psychic_projection/add(mob/living/carbon/human/target)
+/datum/power/resonant_projection/add(mob/living/carbon/human/target)
 	var/datum/action/new_action = new /datum/action/cooldown/spell/pointed/psychic_projection(target.mind || target)
 	new_action.Grant(target)
 
-/datum/power/paracasual/cooldown/spell/charged/psychic_booster
-	name = "Psychic Projection"
-	desc = "Project your psychics into a target to warp their view, and instill absolute terror that will cause them to fire their gun rapidly."
+/datum/power/resonant_booster
+	name = "Psychic Booster"
+	desc = "Charge up your mind to shoot firearms faster and home in on your targets. Think smarter, not harder."
 	cost = 2
 	root_power = /datum/power/paracausal
 	power_type = TRAIT_PATH_SUBTYPE_PSYKER
 	blacklist = list(/datum/power/astral_dantian, /datum/power/umbral_dantian)
 
-/datum/power/paracasual/cooldown/spell/charged/psychic_booster/add(mob/living/carbon/human/target)
+/datum/power/resonant_booster/add(mob/living/carbon/human/target)
 	var/datum/action/new_action = new /datum/action/cooldown/spell/charged/psychic_booster(target.mind || target)
 	new_action.Grant(target)
