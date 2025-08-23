@@ -53,7 +53,7 @@
 	if (human_being.has_gravity())
 		human_being.set_resting(TRUE, silent = TRUE, instant = TRUE)
 	//
-	human_being.set_wet_stacks(1, FALSE)
+	human_being.apply_status_effect(/datum/status_effect/fire_handler/wet_stacks, 1, FALSE)
 
 ///
 /datum/species/human/mermaid/pre_equip_species_outfit(datum/job/job, mob/living/carbon/human/equipping, visuals_only)
