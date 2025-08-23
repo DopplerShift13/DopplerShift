@@ -15,7 +15,7 @@ GLOBAL_LIST_INIT(lung_choices, list(
 	return current_species_has_savekey(preferences)
 
 /datum/preference/choiced/lungs_choice/apply_to_human(mob/living/carbon/human/target, value)
-	if(value != "Water vapor") //this is pretty hardcoded but until we gets more choices its good for optimization
+	if(value == "None")
 		return
 	target.dna.species.mutantlungs = GLOB.lung_choices[value]
 	var/obj/item/organ/lungs/new_organ = SSwardrobe.provide_type(GLOB.lung_choices[value])
@@ -36,6 +36,11 @@ GLOBAL_LIST_INIT(lung_choices, list(
 	if(has_relevant_feature(preferences))
 		return "Oxygen"
 	return ..()
+
+/datum/preference/choiced/lungs_choice/deserialize(value, datum/preferences/preferences)
+	if(!current_species_has_savekey(preferences))
+		return ..(create_default_value(), preferences)
+	return ..(value, preferences)
 
 /datum/preference/color/fish_tail_color
 	savefile_key = "feature_fish_tail_color"
