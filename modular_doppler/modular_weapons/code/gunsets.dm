@@ -89,3 +89,8 @@
 
 /obj/item/storage/toolbox/guncase/modular/carwo_large_case/empty/PopulateContents()
 	return
+
+// A version with a weak gun and some security gear
+
+/obj/item/storage/toolbox/guncase/modular/security_equipment_package
+	desc = ""

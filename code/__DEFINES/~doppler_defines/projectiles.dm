@@ -11,3 +11,4 @@
 /// Special Calibers
 
 #define CALIBER_980TYDHOUER ".980 Tydhouer"
+#define CALIBER_STINGBALL ".61 Stingballs"
