@@ -133,6 +133,14 @@
 	build_path = /obj/item/organ/tail/cat
 	category = list(SPECIES_HUMAN)
 
+/datum/design/mermaid_tail
+	name = /obj/item/organ/tail/fish/mermaid::name
+	id = "mermaidtail"
+	build_type = LIMBGROWER
+	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 10)
+	build_path = /obj/item/organ/tail/fish/mermaid
+	category = list(SPECIES_MERMAID)
+
 /datum/design/cat_ears
 	name = "Cat Ears"
 	id = "catears"
@@ -157,6 +165,14 @@
 	build_path = /obj/item/organ/lungs/plasmaman
 	category = list(SPECIES_PLASMAMAN)
 
+/datum/design/mermaid_lungs
+	name = /obj/item/organ/lungs/fish/mermaid::name
+	id = "mermaidlungs"
+	build_type = LIMBGROWER
+	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 10)
+	build_path = /obj/item/organ/lungs/fish/mermaid
+	category = list(SPECIES_MERMAID)
+
 /datum/design/plasmaman_tongue
 	name = "Plasma Bone Tongue"
 	id = "plasmamantongue"
@@ -173,6 +189,14 @@
 	build_path = /obj/item/organ/liver/bone/plasmaman
 	category = list(SPECIES_PLASMAMAN)
 
+/datum/design/mermaid_liver
+	name = /obj/item/organ/liver/fish/mermaid::name
+	id = "mermaidliver"
+	build_type = LIMBGROWER
+	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 10)
+	build_path = /obj/item/organ/liver/fish/mermaid
+	category = list(SPECIES_MERMAID)
+
 /datum/design/plasmaman_stomach
 	name = "Digestive Crystal"
 	id = "plasmamanstomach"
@@ -188,6 +212,14 @@
 	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 10, /datum/reagent/consumable/liquidelectricity/enriched = 20)
 	build_path = /obj/item/organ/stomach/ethereal
 	category = list(SPECIES_ETHEREAL)
+
+/datum/design/mermaid_stomach
+	name = /obj/item/organ/stomach/fish/mermaid::name
+	id = "mermaidstomach"
+	build_type = LIMBGROWER
+	reagents_list = list(/datum/reagent/medicine/c2/synthflesh = 10)
+	build_path = /obj/item/organ/stomach/fish/mermaid
+	category = list(SPECIES_MERMAID)
 
 /datum/design/ethereal_tongue
 	name = "Electrical Discharger"
@@ -285,3 +317,13 @@
 	desc = "Contains designs for ethereal organs for the limbgrower - Ethereal tongue and stomach."
 	id = "limbdesign_ethereal"
 	build_path = /obj/item/disk/design_disk/limbs/ethereal
+
+/obj/item/disk/design_disk/limbs/mermaid
+	name = "Mermaid Organ Design Disk"
+	limb_designs = list(/datum/design/mermaid_stomach, /datum/design/mermaid_liver, /datum/design/mermaid_lungs, /datum/design/mermaid_tail)
+
+/datum/design/limb_disk/mermaid
+	name = "Mermaid Organ Design Disk"
+	desc = "Contains designs for fish organs for the limbgrower - Fish liver, lungs, stomach and large tail."
+	id = "limbdesign_mermaid"
+	build_path = /obj/item/disk/design_disk/limbs/mermaid
