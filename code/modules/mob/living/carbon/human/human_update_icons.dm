@@ -514,13 +514,13 @@ There are several things that need to be remembered:
 			return
 
 		var/handled_by_bodyshape = TRUE
-		var/use_female_suitsprite = FALSE
-		var/icon_file = DEFAULT_SUIT_FILE
+		var/use_female_version = FALSE
+		var/icon_file
 
 		if((bodyshape & BODYSHAPE_MERMAID) && (worn_item.supports_variations_flags & CLOTHING_MERMAID_VARIATION))
 			icon_file = MERMAID_SUIT_FILE
 			if(physique == FEMALE)
-				use_female_suitsprite = TRUE
+				use_female_version = TRUE
 
 		/// DOPPLER SHIFT ADDITION BEGIN
 		for(var/shape in wear_suit.supported_bodyshapes)
@@ -531,14 +531,13 @@ There are several things that need to be remembered:
 		if(!icon_exists(icon_file, RESOLVE_ICON_STATE(worn_item)))
 			icon_file = DEFAULT_SUIT_FILE
 			handled_by_bodyshape = FALSE
-			use_female_suitsprite = FALSE
+			use_female_version = FALSE
 
-		var/mutable_appearance/suit_overlay
-		suit_overlay = wear_suit.build_worn_icon(
+		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(
 			default_layer = SUIT_LAYER,
 			default_icon_file = icon_file,
 			override_file = handled_by_bodyshape ? icon_file : null,
-			override_state = use_female_suitsprite ? "f-[RESOLVE_ICON_STATE(worn_item)]" : null,
+			override_state = use_female_version ? "f-[RESOLVE_ICON_STATE(worn_item)]" : null,
 		)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
 		my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
@@ -779,10 +778,10 @@ There are several things that need to be remembered:
 	var/static/list/mermaid_clothing_icons = list()
 	var/icon/mermaid_clothing_icon = mermaid_clothing_icons[index]
 	if(!mermaid_clothing_icon)
-		if(item.slot_flags & ITEM_SLOT_OCLOTHING)
+		if(item.slot_flags & ITEM_SLOT_ICLOTHING)
+			mermaid_clothing_icon = replace_icon_legs(base_icon, replace = FALSE)
+		else if(item.slot_flags & ITEM_SLOT_OCLOTHING)
 			mermaid_clothing_icon = cut_coat(base_icon)
-		else
-			mermaid_clothing_icon = cut_icon_legs(base_icon)
 		if(!mermaid_clothing_icon)
 			return base_icon
 		mermaid_clothing_icons[index] = fcopy_rsc(mermaid_clothing_icon)
@@ -793,22 +792,13 @@ There are several things that need to be remembered:
 /proc/cut_coat(icon/base_icon)
 	var/static/icon/coat_mask
 	if(!coat_mask)
-		coat_mask = icon('icons/mob/clothing/under/masking_helpers.dmi', "mermaid_coat_mask")
+		coat_mask = icon('icons/mob/clothing/under/masking_helpers.dmi', "coat_mask")
 
 	base_icon.Blend(coat_mask, ICON_SUBTRACT)
 	return base_icon
 
-/// Removes the bottom half of a sprite, similar to replace_icon_legs, but without the replacement
-/proc/cut_icon_legs(icon/base_icon)
-	var/static/icon/leg_mask
-	if(!leg_mask)
-		leg_mask = icon('icons/mob/clothing/under/masking_helpers.dmi', "mermaid_leg_mask")
-
-	base_icon.Blend(leg_mask, ICON_SUBTRACT)
-	return base_icon
-
 /// Modifies a sprite to replace the legs with a new version
-/proc/replace_icon_legs(icon/base_icon, icon/new_legs)
+/proc/replace_icon_legs(icon/base_icon, icon/new_legs, replace = TRUE)
 	var/static/icon/leg_mask
 	if(!leg_mask)
 		leg_mask = icon('icons/mob/clothing/under/masking_helpers.dmi', "digi_leg_mask")
@@ -816,7 +806,8 @@ There are several things that need to be remembered:
 	// cuts the legs off
 	base_icon.Blend(leg_mask, ICON_SUBTRACT)
 	// staples the new legs on
-	base_icon.Blend(new_legs, ICON_OVERLAY)
+	if(replace)
+		base_icon.Blend(new_legs, ICON_OVERLAY)
 	return base_icon
 
 /**
@@ -1023,10 +1014,6 @@ generate/load female uniform sprites matching all previously decided variables
 	//Find a valid layer from variables+arguments
 	var/layer2use = alternate_worn_layer || default_layer
 
-	var/mob/living/carbon/wearer = loc
-	var/is_digi = istype(wearer) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE) && !wearer.is_digitigrade_squished()
-	var/is_mermaid = istype(wearer) && (wearer.bodyshape & BODYSHAPE_MERMAID)
-
 	var/mutable_appearance/draw_target // MA of the item itself, not the final result
 	var/icon/building_icon // used to construct an icon across multiple procs before converting it to MA
 	/// DOPPLER SHIFT REMOVAL BEGIN - see below; migrating this down to better support hybrids of female critter + digi or other legs
@@ -1036,8 +1023,12 @@ generate/load female uniform sprites matching all previously decided variables
 			icon = file2use,
 			type = female_uniform,
 			greyscale_colors = greyscale_colors,
+		)
 		)*/
 	/// DOPPLER SHIFT REMOVAL END
+
+	var/mob/living/carbon/wearer = loc
+	var/is_digi = istype(wearer) && (wearer.bodyshape & BODYSHAPE_DIGITIGRADE) && !wearer.is_digitigrade_squished()
 	if(!isinhands && is_digi && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
 		building_icon = wear_digi_version(
 			base_icon = building_icon || icon(file2use, t_state),
@@ -1045,15 +1036,16 @@ generate/load female uniform sprites matching all previously decided variables
 			key = "[t_state]-[file2use]-[female_uniform]",
 			greyscale_colors = greyscale_colors,
 		)
-	/// DOPPLER SHIFT ADDITION BEGIN - we migrate this down here & use building_icon to allow for auto-generated digi sprites to still support ladies
+
 	if(female_uniform)
 		building_icon = wear_female_version(
 			icon_state = t_state,
-			icon = istype(building_icon) ? building_icon : file2use,
+			icon = file2use,
 			type = female_uniform,
 			greyscale_colors = greyscale_colors,
 		)
-	/// DOPPLER SHIFT ADDITION END
+
+	var/is_mermaid = istype(wearer) && (wearer.bodyshape & BODYSHAPE_MERMAID)
 	if(!isinhands && is_mermaid && (supports_variations_flags & CLOTHING_MERMAID_MASK))
 		building_icon = wear_mermaid_version(
 			base_icon = building_icon || icon(file2use, t_state),
@@ -1061,19 +1053,19 @@ generate/load female uniform sprites matching all previously decided variables
 			key = "[t_state]-[file2use]-[female_uniform]",
 			greyscale_colors = greyscale_colors,
 		)
+
 	/// DOPPLER SHIFT ADDITION START - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0
-	if (istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)
-		if (!using_taur_variant)
-			if (gets_cropped_on_taurs)
-				var/cropping_state = DEFAULT_TAUR_CLIPPING_MASK
-				if (ishuman(humie))
-					var/obj/item/organ/taur_body/taur = humie.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
-					cropping_state = (taur ? taur.clothing_cropping_state : DEFAULT_TAUR_CLIPPING_MASK)
+	if(istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)
+		if(!using_taur_variant)
+			if(gets_cropped_on_taurs)
+				var/obj/item/organ/taur_body/taur = wearer.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+				var/cropping_state = taur ? taur.clothing_cropping_state : DEFAULT_TAUR_CLIPPING_MASK
 				building_icon = wear_taur_version(t_state, building_icon || icon(file2use, t_state), female_uniform, greyscale_colors, cropping_state)
 		else
 			shift_pixel_x = -16 // it doesnt look right otherwise
 	/// DOPPLER SHIFT ADDITION END
+
 	if(building_icon)
 		draw_target = mutable_appearance(building_icon, layer = -layer2use)
 	else
