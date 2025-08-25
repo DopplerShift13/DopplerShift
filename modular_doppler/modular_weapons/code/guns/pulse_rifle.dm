@@ -24,7 +24,7 @@
 	actions_types = list()
 	spread = 5
 	recoil = 0.1
-	pin = /obj/item/firing_pin/explorer
+	pin = /obj/item/firing_pin/explorer/mining
 	/// List of the possible firing sounds
 	var/list/firing_sound_list = list(
 		'sound/items/weapons/gun/smartgun/smartgun_shoot_1.ogg',
@@ -42,6 +42,10 @@
 /obj/item/gun/ballistic/automatic/karim/fire_sounds()
 	var/picked_fire_sound = pick(firing_sound_list)
 	playsound(src, picked_fire_sound, fire_sound_volume, vary_fire_sound)
+
+/obj/item/gun/ballistic/automatic/karim/emag_act(mob/user, obj/item/card/emag/emag_card)
+	pin.emag_act(user, emag_card) // So emagging the gun emags the pin
+	return ..()
 
 /obj/item/gun/ballistic/automatic/karim/no_mag
 	spawnwithmagazine = FALSE
@@ -67,3 +71,17 @@
 /datum/orderable_item/accelerator/pulse_ammo_minebot
 	purchase_path = /obj/item/ammo_box/magazine/karim/minebot
 	cost_per_order = 40
+
+/obj/item/firing_pin/explorer/mining
+	name = "mining firing pin"
+	desc = "A firing pin required by PCAT regulation for powerful explorer's weapons, to prevent their easy use shipboard."
+	fail_message = "locked!"
+	pin_removable = FALSE
+
+/obj/item/firing_pin/explorer/mining/pin_auth(mob/living/user)
+	if(obj_flags & EMAGGED)
+		return TRUE
+	var/turf/station_check = get_turf(user)
+	if(!station_check || is_station_level(station_check.z))
+		return FALSE
+	return TRUE
