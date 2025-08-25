@@ -19,6 +19,7 @@
 	projectile_damage_multiplier = 1.5 // FUCK YOU BALTIMORE!
 	recoil = 1
 	blocked_firing = TRUE
+	pin = /obj/item/firing_pin/mounted
 
 /obj/item/gun/ballistic/rifle/recoilless_rifle/Initialize(mapload)
 	. = ..()
@@ -33,4 +34,3 @@
 	ammo_type = /obj/item/ammo_casing/rocket
 	caliber = CALIBER_84MM
 	max_ammo = 1
-	multiload = FALSE
