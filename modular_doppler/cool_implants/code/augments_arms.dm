@@ -185,7 +185,7 @@
 	ammo_type = /obj/item/ammo_casing/c980grenade/ecm
 	caliber = CALIBER_980TYDHOUER
 	max_ammo = 1
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
 
 /obj/item/organ/cyberimp/arm/toolkit/shell_launcher
 	name = "shell launch system implant"
