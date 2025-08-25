@@ -29,7 +29,7 @@
 		. += span_notice("It has a [REF(stored_gun)] mounted.")
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force)
-	stored_gun.forceMove(drop_location())
+	stored_gun?.forceMove(drop_location())
 	return ..()
 
 /obj/vehicle/ridden/mounted_turret/Exited(atom/movable/gone, direction)
