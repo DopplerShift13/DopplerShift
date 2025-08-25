@@ -7538,6 +7538,7 @@
 #include "modular_doppler\mounted_guns\code\complicated_rotation.dm"
 #include "modular_doppler\mounted_guns\code\debug_mounts.dm"
 #include "modular_doppler\mounted_guns\code\mounted.dm"
+#include "modular_doppler\mounted_guns\code\mounted_firing_pin.dm"
 #include "modular_doppler\mounted_guns\code\turret_component.dm"
 #include "modular_doppler\mounted_guns\code\turret_deploy_component.dm"
 #include "modular_doppler\mounted_guns\code\turret_offhand.dm"
