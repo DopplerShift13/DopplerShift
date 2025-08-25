@@ -317,7 +317,7 @@
 
 
 /obj/item/gun/proc/do_autofire_shot(datum/source, atom/target, mob/living/shooter, allow_akimbo, params)
-	if(SEND_SIGNAL(src, COMSIG_GUN_TRY_FIRE, shooter, target, "Truth & Real...", params) & COMPONENT_CANCEL_GUN_FIRE) // DOPPLER ADDITION - TURRET AUTOFIRE
+	if(SEND_SIGNAL(src, COMSIG_GUN_TRY_FIRE, shooter, target, shooter.Adjacent(target), params) & COMPONENT_CANCEL_GUN_FIRE) // DOPPLER ADDITION - TURRET AUTOFIRE
 		return // DOPPLER ADDITION - TURRET AUTOFIRE
 	var/obj/item/gun/akimbo_gun = shooter.get_inactive_held_item()
 	var/bonus_spread = 0
