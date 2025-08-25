@@ -23,10 +23,12 @@
 	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(examine))
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_equip))
 
+/// What extra you see when examining the gun
 /datum/component/deployable_turret/proc/examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	examine_list += span_notice("<b>Ctrl-Click</b> the ground to deploy this into a stationary turret.")
 
+/// Registers the gun to track the holder's clicks when it is picked up
 /datum/component/deployable_turret/proc/on_equip(datum/source, mob/living/carbon/equipper, slot)
 	SIGNAL_HANDLER
 	if(!istype(equipper))
@@ -35,11 +37,13 @@
 	mouse_tracker = equipper
 	RegisterSignal(parent, COMSIG_ITEM_DROPPED, PROC_REF(on_dropped))
 
+/// Unregisters signals when the gun is dropped
 /datum/component/deployable_turret/proc/on_dropped(datum/source, mob/user)
 	SIGNAL_HANDLER
 	UnregisterSignal(mouse_tracker, COMSIG_MOB_CLICKON)
 	UnregisterSignal(parent, COMSIG_ITEM_DROPPED)
 
+/// Checks on mouse actions if a turf was control clicked with this gun in hands
 /datum/component/deployable_turret/proc/check_deploy(mob/living/carbon/user, atom/clicked_atom, list/modifiers)
 	SIGNAL_HANDLER
 	if(modifiers[RIGHT_CLICK] || modifiers[ALT_CLICK] || modifiers[SHIFT_CLICK] || !modifiers[CTRL_CLICK] || modifiers[MIDDLE_CLICK])
@@ -52,6 +56,7 @@
 		return
 	INVOKE_ASYNC(src, PROC_REF(deploy), user, clicked_atom)
 
+/// Deploys the turret and sets it up on the deploying turf
 /datum/component/deployable_turret/proc/deploy(mob/living/carbon/user, turf/deploying_turf)
 	user.face_atom(deploying_turf)
 	if((deploying_turf.is_blocked_turf(TRUE)) || (get_turf(user) == deploying_turf))

@@ -7,12 +7,8 @@
 	var/rotation_sound = 'sound/items/tools/ratchet.ogg'
 
 /**
- * Adds the ability to rotate an object by Alt-click or using Right-click verbs.
- *
- * args:
- * * rotation_flags (optional) Bitflags that determine behavior for rotation (defined at the top of this file)
- * * rotation_time (optional) How long this takes to rotate
- * * rotation_sound (optional) What sound this makes when rotated
+ * Very similar to simple rotation, except with enough differences that it requires it's own component, such as
+ * rotation delay and sounds on rotation.
  **/
 /datum/component/complicated_rotation/Initialize(rotation_flags = NONE, rotation_time, rotation_sound)
 	if(!ismovable(parent))
@@ -50,21 +46,25 @@
 /datum/component/complicated_rotation/Destroy()
 	return ..()
 
+/// What you see when examining the parent
 /datum/component/complicated_rotation/proc/ExamineMessage(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(rotation_flags & ROTATION_REQUIRE_WRENCH)
 		examine_list += span_notice("This requires a wrench to be rotated.")
 
+/// Rotates the parent clockwise
 /datum/component/complicated_rotation/proc/rotate_right(datum/source, mob/user)
 	SIGNAL_HANDLER
 	rotate(user, ROTATION_CLOCKWISE)
 	return CLICK_ACTION_SUCCESS
 
+/// Rotates the parent counter-clockwise
 /datum/component/complicated_rotation/proc/rotate_left(datum/source, mob/user)
 	SIGNAL_HANDLER
 	rotate(user, ROTATION_COUNTERCLOCKWISE)
 	return CLICK_ACTION_SUCCESS
 
+/// Rotates the parent (if it can be rotated) in the direction given to it
 /datum/component/complicated_rotation/proc/rotate(mob/user, degrees)
 	if(QDELETED(user))
 		CRASH("[src] is being rotated [user ? "with a qdeleting" : "without a"] user")
@@ -84,6 +84,7 @@
 	rotated_obj.setDir(turn(rotated_obj.dir, degrees))
 	playsound(rotated_obj, rotation_sound, 50, TRUE)
 
+/// Checks if the user can actually rotate anything right now
 /datum/component/complicated_rotation/proc/can_user_rotate(mob/user, degrees)
 	if(isliving(user) && user.can_perform_action(parent, NEED_DEXTERITY))
 		return TRUE
@@ -91,6 +92,7 @@
 		return TRUE
 	return FALSE
 
+/// Checks if the thing in question can actually be rotated
 /datum/component/complicated_rotation/proc/can_be_rotated(mob/user, degrees, silent=FALSE)
 	var/obj/rotated_obj = parent
 	if(!rotated_obj.Adjacent(user))

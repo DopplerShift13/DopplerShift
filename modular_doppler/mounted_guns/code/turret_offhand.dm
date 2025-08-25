@@ -1,3 +1,4 @@
+// Passes practically every action done with and to this item to a gun contained within a linked turret structure
 /obj/item/doppler_turret_offhand
 	name = "gun controls"
 	icon = 'modular_doppler/mounted_guns/icons/drive.dmi'
