@@ -7,20 +7,13 @@
 	icon_state = "stingball"
 	caliber = CALIBER_STINGBALL
 	projectile_type = /obj/projectile/bullet/avispa_stingball
-	ammo_stack_type = /obj/item/ammo_casing/avispa_stingball
-
-/obj/item/ammo_box/magazine/ammo_stack/avispa_stingball
-	name = "\improper fistfull of balls"	//sorry
-	desc = "A stack of .61 stingballs"
-	caliber = CALIBER_STINGBALL
-	ammo_type = /obj/item/ammo_casing/avispa_stingball
-	casing_phrasing = "ball"
-	max_ammo = 12
-	casing_w_spacing = 3
-	casing_z_padding = 4
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/avispa_stingball
 
 /obj/projectile/bullet/avispa_stingball
 	name = ".61 'Avispa' stingball"
+	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
+	icon_state = "shortbullet"
+	speed = 1
 	damage = 3
 	stamina = 8
 	ricochets_max = 4

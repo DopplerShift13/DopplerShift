@@ -25,4 +25,5 @@
 	name = "Support Bandolier"
 	icon_item_type =
 	spawned_item_type =
+
 */

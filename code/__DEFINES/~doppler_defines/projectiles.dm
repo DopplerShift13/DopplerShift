@@ -1,6 +1,7 @@
 /// Pistol Calibers
 
 #define CALIBER_6MMGIBRALTAR "6mm NG"
+#define CALIBER_3MMSPORTSCO "3mm Sportsco™"
 
 /// Rifle Calibers
 
