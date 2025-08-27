@@ -294,8 +294,8 @@
 /obj/item/brick_phone_scryer/proc/get_link_visual(atom/movable/visuals)
 	return get_link_visual_generic(mod_link, visuals, PROC_REF(on_user_set_dir))
 
-/obj/item/brick_phone_scryer/proc/delete_link_visual()
-	return delete_link_visual_generic(mod_link)
+/obj/item/brick_phone_scryer/proc/delete_link_visual(old_user)
+	return delete_link_visual_generic(mod_link, old_user)
 
 /obj/item/brick_phone_scryer/proc/override_called_logic(datum/mod_link/new_calling, mob/calling_user)
 	if(!can_call())
