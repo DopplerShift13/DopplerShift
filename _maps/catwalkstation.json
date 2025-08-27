@@ -9,6 +9,7 @@
 		"cargo": "cargo_catwalk",
 		"whiteship": "whiteship_meta"
 	},
+	"exclude_from_ci": true,
 	"traits": [
 		{
 			"Up": true,
