@@ -62,7 +62,7 @@
 	strip_delay = 60
 
 /obj/item/clothing/head/helmet/sec/phelmet
-	name = "\improper Yenika full helmet"
+	name = "\improper Yennika full helmet"
 	desc = "A full-head helmet that requires extensive tooling and robot setups to safely don and doff, making such \
 		an act impossible in usage far from home."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/hats.dmi'
@@ -80,7 +80,7 @@
 	if(slot & ITEM_SLOT_HEAD)
 		ADD_TRAIT(src, TRAIT_NODROP, type) // Remember, you're here forever!
 
-/obj/item/clothing/head/helmet/sec/click_alt(mob/user)
+/obj/item/clothing/head/helmet/sec/phelmet/click_alt(mob/user)
 	flipped_visor = !flipped_visor
 	if(flipped_visor)
 		flags_cover &= ~HEADCOVERSMOUTH

@@ -179,3 +179,7 @@
 /datum/loadout_item/head/breach_helmet
 	name = "Flowing Headband"
 	item_path = /obj/item/clothing/head/flowing_headband
+
+/datum/loadout_item/head/phelmet
+	name = "Yennika full helmet (UNREMOVALBE)"
+	item_path = /obj/item/clothing/head/helmet/sec/phelmet
