@@ -60,3 +60,34 @@
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/sec_hats.dmi'
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
+
+/obj/item/clothing/head/helmet/sec/phelmet
+	name = "\improper Yenika full helmet"
+	desc = "A full-head helmet that requires extensive tooling and robot setups to safely don and doff, making such \
+		an act impossible in usage far from home."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/hats.dmi'
+	icon_state = "phelmet"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/hats.dmi'
+	flags_cover = HEADCOVERSEYES|EARS_COVERED|HEADCOVERSMOUTH
+	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF // Someone wants to be the main character
+
+/obj/item/clothing/head/helmet/sec/phelmet/examine(mob/user)
+	. = ..()
+	. += span_warning("Once you put this on, it cannot be taken off! Think carefully about what you're doing!")
+
+/obj/item/clothing/head/helmet/sec/phelmet/equipped(mob/living/user, slot)
+	. = ..()
+	if(slot & ITEM_SLOT_HEAD)
+		ADD_TRAIT(src, TRAIT_NODROP, type) // Remember, you're here forever!
+
+/obj/item/clothing/head/helmet/sec/click_alt(mob/user)
+	flipped_visor = !flipped_visor
+	if(flipped_visor)
+		flags_cover &= ~HEADCOVERSMOUTH
+		playsound(src, SFX_VISOR_DOWN, 20, TRUE, -1)
+		balloon_alert(user, "mouth uncovered")
+	else
+		flags_cover |= HEADCOVERSMOUTH
+		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
+		balloon_alert(user, "mouth covered")
+	return CLICK_ACTION_SUCCESS
