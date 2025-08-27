@@ -1,5 +1,13 @@
 #define BRICK_SCRYERPHONE_RINGING_INTERVAL (3 SECONDS)
 #define BRICK_SCRYERPHONE_RINGING_DURATION (15 SECONDS)
+/// Rate at which we discharge when in use, per second.
+#define BRICK_SCRYERPHONE_DISCHARGE_RATE (0.002 * STANDARD_CELL_RATE)
+// The calling time left in our cell before we give our first warning, while in a call.
+#define BRICK_SCRYERPHONE_TIME_LEFT_FIRST_INCALL_WARNING (10 MINUTES)
+// The calling time left in our cell before we give our last warning, while in a call.
+#define BRICK_SCRYERPHONE_TIME_LEFT_LAST_INCALL_WARNING (2 MINUTES)
+/// The calling time left in our cell before we start warning whenever we start a call.
+#define BRICK_SCRYERPHONE_TIME_LEFT_START_PRECALL_WARNINGS BRICK_SCRYERPHONE_TIME_LEFT_FIRST_INCALL_WARNING
 
 /obj/item/brick_phone_scryer
 	name = "brick scryerphone"
@@ -32,6 +40,11 @@
 	var/calling_timer_id
 	/// ID for the timer used for our ringing loop.
 	var/calling_loop_timer_id
+
+	/// Whether we have handled our first incall warning for low time left.
+	var/first_incall_warning_handled = FALSE
+	/// Whether we have handled our last incall warning for low time left.
+	var/last_incall_warning_handled = FALSE
 
 	/// Whether this phone has had its ringer silenced.
 	var/ringing_silenced = FALSE
@@ -123,6 +136,7 @@
 	if(isnull(mod_link.frequency))
 		balloon_alert(user, "set frequency first!")
 		return
+	check_precall_warnings(user)
 	call_link(user, mod_link)
 
 /obj/item/brick_phone_scryer/attack_self_secondary(mob/user, modifiers)
@@ -214,14 +228,71 @@
 	else
 		balloon_alert(user, "cell installed")
 	cell = tool
+	reset_incall_warnings()
 	playsound(src, 'sound/machines/click.ogg', 50, vary = TRUE)
+
+/// Gets the call time left, in deciseconds.
+/obj/item/brick_phone_scryer/proc/get_call_time_left()
+	if(isnull(cell))
+		return 0
+	return (cell.charge() / BRICK_SCRYERPHONE_DISCHARGE_RATE) SECONDS
+
+/// Takes in a time in deciseconds, and sends the given user an "X minutes left!" warning.
+/obj/item/brick_phone_scryer/proc/warn_minutes_left(mob/living/user, time_in_deciseconds)
+	var/seconds = FLOOR(time_in_deciseconds * 0.1, 1)
+	var/minutes = FLOOR(seconds / 60, 1)
+	if(minutes > 0)
+		balloon_alert(user, "[minutes] minute[minutes > 1 ? "s" : ""] left!")
+	else
+		balloon_alert(user, "no time left!")
+	user.playsound_local(get_turf(src), 'sound/machines/beep/twobeep.ogg', 15, vary = TRUE)
+
+/// Checks whether we should send a precall warning, and does so if needed.
+/obj/item/brick_phone_scryer/proc/check_precall_warnings(mob/living/user)
+	var/time_left = get_call_time_left()
+	if(time_left > BRICK_SCRYERPHONE_TIME_LEFT_START_PRECALL_WARNINGS)
+		return
+
+	warn_minutes_left(user, time_left)
+
+/// Resets our incall warning trackers, and makes sure we don't give unnecessary warnings.
+/obj/item/brick_phone_scryer/proc/reset_incall_warnings()
+	first_incall_warning_handled = FALSE
+	last_incall_warning_handled = FALSE
+
+	var/time_left = get_call_time_left()
+	if(time_left <= BRICK_SCRYERPHONE_TIME_LEFT_FIRST_INCALL_WARNING)
+		first_incall_warning_handled = TRUE
+	if(time_left <= BRICK_SCRYERPHONE_TIME_LEFT_LAST_INCALL_WARNING)
+		last_incall_warning_handled = TRUE
+
+/// Checks whether we should run our incall warnings, and does so if needed.
+/obj/item/brick_phone_scryer/proc/check_incall_warnings()
+	var/mob/living/user = get_user()
+	if(isnull(user))
+		return
+
+	var/time_left = get_call_time_left()
+	if(!first_incall_warning_handled)
+		if(time_left > BRICK_SCRYERPHONE_TIME_LEFT_FIRST_INCALL_WARNING)
+			return
+		warn_minutes_left(user, BRICK_SCRYERPHONE_TIME_LEFT_FIRST_INCALL_WARNING)
+		first_incall_warning_handled = TRUE
+		return
+	if(!last_incall_warning_handled)
+		if(time_left > BRICK_SCRYERPHONE_TIME_LEFT_LAST_INCALL_WARNING)
+			return
+		warn_minutes_left(user, BRICK_SCRYERPHONE_TIME_LEFT_LAST_INCALL_WARNING)
+		last_incall_warning_handled = TRUE
+		return
 
 /obj/item/brick_phone_scryer/process(seconds_per_tick)
 	if(isnull(mod_link.link_call))
 		return
 	if(isnull(cell))
 		return
-	cell.use(0.002 * STANDARD_CELL_RATE * seconds_per_tick, force = TRUE)
+	cell.use(BRICK_SCRYERPHONE_DISCHARGE_RATE * seconds_per_tick, force = TRUE)
+	check_incall_warnings()
 
 /obj/item/brick_phone_scryer/proc/incoming_call_loop()
 	if(isnull(cell))
@@ -335,6 +406,7 @@
 		return
 
 	new /datum/mod_link_call(calling_mod_link, mod_link)
+	check_precall_warnings(user)
 	calling_mod_link.holder.balloon_alert(calling_user, "call accepted")
 
 /obj/item/brick_phone_scryer/proc/deny_call()
@@ -412,3 +484,7 @@
 
 #undef BRICK_SCRYERPHONE_RINGING_INTERVAL
 #undef BRICK_SCRYERPHONE_RINGING_DURATION
+#undef BRICK_SCRYERPHONE_DISCHARGE_RATE
+#undef BRICK_SCRYERPHONE_TIME_LEFT_FIRST_INCALL_WARNING
+#undef BRICK_SCRYERPHONE_TIME_LEFT_LAST_INCALL_WARNING
+#undef BRICK_SCRYERPHONE_TIME_LEFT_START_PRECALL_WARNINGS
