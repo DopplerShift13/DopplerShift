@@ -130,6 +130,18 @@
 			slowdown_right += wound.limp_slowdown
 			limp_chance_right = max(limp_chance_right, wound.limp_chance)
 
+	// DOPPLER EDIT ADDITION START - Limping quirk functionality
+	var/datum/quirk/item_quirk/limping/limping_quirk = carbon_mob.get_quirk(/datum/quirk/item_quirk/limping)
+	if(limping_quirk)
+		update_alert(slowdown_left || slowdown_right)
+		if(limping_quirk.affected_side & LIMPING_SIDE_LEFT)
+			slowdown_left += limping_quirk.limp_slowdown
+			limp_chance_left = max(limp_chance_left, limping_quirk.limp_chance)
+		if(limping_quirk.affected_side & LIMPING_SIDE_RIGHT)
+			slowdown_right += limping_quirk.limp_slowdown
+			limp_chance_right = max(limp_chance_right, limping_quirk.limp_chance)
+	// DOPPLER EDIT ADDITION END - Limping quirk functionality
+
 	// this handles losing your leg with the limp and the other one being in good shape as well
 	if(!slowdown_left && !slowdown_right)
 		carbon_mob.remove_status_effect(src)
