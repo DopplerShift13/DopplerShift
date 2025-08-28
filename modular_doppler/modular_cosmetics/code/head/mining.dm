@@ -23,8 +23,8 @@
 /obj/item/clothing/head/mining_cap/attack_self(mob/user)
 	if(earflaps)
 		icon_state = upsprite
-		to_chat(user, span_notice("You raise the ear flaps on [src]]."))
+		balloon_alert(user, "raised ear flaps")
 	else
 		icon_state = downsprite
-		to_chat(user, span_notice("You lower the ear flaps on [src]]."))
+		balloon_alert(user, "lowered ear flaps")
 	earflaps = !earflaps
