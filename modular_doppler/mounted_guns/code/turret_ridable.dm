@@ -78,12 +78,12 @@
 
 /// Remove all of the relevant [riding offhand items][/obj/item/riding_offhand] from the target
 /datum/element/ridable_turret/proc/unequip_buckle_inhands(mob/living/carbon/user, atom/movable/target_movable)
-	var/atom/movable/AM = target_movable
-	for(var/obj/item/doppler_turret_offhand/O in user.contents)
-		if(O.turret != AM)
+	var/atom/movable/the_turret = target_movable
+	for(var/obj/item/doppler_turret_offhand/offhand in user.contents)
+		if(offhand.turret != the_turret)
 			CRASH("RIDING OFFHAND ON WRONG MOB")
-		if(O.selfdeleting)
+		if(offhand.selfdeleting)
 			continue
 		else
-			qdel(O)
+			qdel(offhand)
 	return TRUE

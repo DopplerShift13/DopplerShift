@@ -9,10 +9,6 @@
 		TEXT_SOUTH = list(0, 12),
 		TEXT_EAST =  list(-12, 0),
 		TEXT_WEST =  list(12, 0),
-		"5" = list(-12, 0),
-		"6" = list(-12, 0),
-		"9" = list(12, 0),
-		"10" = list(12, 0),
 	)
 
 /datum/component/riding/vehicle/mounted_turret/vehicle_turned(datum/source, _old_dir, new_dir)
@@ -31,12 +27,12 @@
 	return TRUE
 
 /datum/component/riding/vehicle/mounted_turret/unequip_buckle_inhands(mob/living/carbon/user)
-	var/atom/movable/AM = parent
-	for(var/obj/item/doppler_turret_offhand/O in user.contents)
-		if(O.turret != AM)
+	var/atom/movable/parent_movable = parent
+	for(var/obj/item/doppler_turret_offhand/offhand_item in user.contents)
+		if(offhand_item.turret != parent_movable)
 			CRASH("RIDING OFFHAND ON WRONG MOB")
-		if(O.selfdeleting)
+		if(offhand_item.selfdeleting)
 			continue
 		else
-			qdel(O)
+			qdel(offhand_item)
 	return TRUE

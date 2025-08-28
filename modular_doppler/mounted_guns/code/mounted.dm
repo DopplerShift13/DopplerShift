@@ -36,14 +36,17 @@
 	if(gone == stored_gun)
 		stored_gun.set_anchored(FALSE)
 		unregister_gun()
+		if(!QDESTROYING(src)) // If the gun left us and we're not already being destroyed, destroy the turret
+			Destroy()
 	return ..()
 
 /// Takes the turret apart and drops the stored gun on the floor
 /obj/vehicle/ridden/mounted_turret/proc/take_her_down(mob/user)
 	if(!do_after(user, disassembly_time, src))
-		return
+		return FALSE
 	playsound(src, disassembly_sound, 50, TRUE)
 	Destroy()
+	return TRUE
 
 /// Registers the gun to the turret for various effects
 /obj/vehicle/ridden/mounted_turret/proc/register_gun(obj/item/gun/new_gun)
@@ -115,14 +118,13 @@
 	if(!tool.use_tool(src, user, 10, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 	update_integrity(get_integrity() + (max_integrity / 5)) // 1/5 of integrity per repair
-	icon_state = initial(icon_state)
-	desc = initial(desc)
 	balloon_alert(user, "repaired")
 	return ITEM_INTERACT_SUCCESS
 
 /obj/vehicle/ridden/mounted_turret/click_ctrl(mob/user)
-	if(can_be_removed)
-		take_her_down(user)
+	if(!can_be_removed)
+		return NONE
+	return take_her_down(user) ? CLICK_ACTION_SUCCESS : CLICK_ACTION_BLOCKING
 
 /obj/vehicle/ridden/mounted_turret/attack_hand(mob/user, list/modifiers)
 	stored_gun.attack_hand(user, modifiers)
@@ -175,34 +177,3 @@
 /obj/vehicle/ridden/mounted_turret/debug_laser
 	name = "mounted gun basetype with laser"
 	mapload_gun = /obj/item/gun/energy/laser/captain
-
-/obj/item/gun
-	/// If this gun is a part of a mounted turret, refers to that turret
-	var/obj/vehicle/ridden/mounted_turret/turret_location
-	/// Is this gun just unable to fire right now? Used in turret only guns
-	var/blocked_firing = FALSE
-	/// Does this gun unblock firing when deployed in a turret?
-	var/unblocked_in_turrets = TRUE
-
-/// If a gun should have special behavior when registered as part of a mounted turret
-/obj/item/gun/proc/post_mounted_registry(obj/vehicle/ridden/mounted_turret/turret)
-	if(unblocked_in_turrets)
-		blocked_firing = FALSE
-	return
-
-/// If a gun should have special behavior when unregistered as part of a mounted turret
-/obj/item/gun/proc/mounted_unregistry()
-	if(unblocked_in_turrets)
-		blocked_firing = TRUE
-	return
-
-/obj/item/gun/ballistic/can_shoot()
-	if(blocked_firing)
-		return FALSE
-	return chambered?.loaded_projectile
-
-/obj/item/gun/energy/can_shoot()
-	if(blocked_firing)
-		return FALSE
-	var/obj/item/ammo_casing/energy/shot = ammo_type[select]
-	return !QDELETED(cell) ? (cell.charge >= shot.e_cost) : FALSE
