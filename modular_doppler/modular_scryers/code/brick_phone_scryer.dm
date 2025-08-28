@@ -95,15 +95,15 @@
 
 /obj/item/brick_phone_scryer/examine(mob/user)
 	. = ..()
-	. += span_notice("<b>Left-click</b> inhand to answer calls, <b>Right-click</b> to deny them.")
+	. += span_notice("[EXAMINE_HINT("Left-Click")] inhand to answer calls, [EXAMINE_HINT("Right-Click")] to deny them.")
 	if(cell)
-		. += span_notice("The battery charge reads [cell.percent()]%. <b>Right-click</b> with an empty hand to remove it.")
+		. += span_notice("The battery charge reads [cell.percent()]%. [EXAMINE_HINT("Right-Click")] with an empty hand to remove it.")
 	else
 		. += span_notice("It is missing a battery. One can be installed by clicking on it with a power cell .")
 	. += span_notice("The MODlink ID is [mod_link.id], frequency is [mod_link.frequency || "unset"].")
 	. += span_notice("The MODlink label is '[label || "unset"]'.")
-	. += span_notice("Using a multitool, <b>left-click</b> to imprint or <b>right-click</b> to copy frequency.")
-	. += span_notice("<b>Ctrl-click</b> to [label ? "reset" : "set"] its label.")
+	. += span_notice("Using a multitool, [EXAMINE_HINT("Left-Click")] to imprint or [EXAMINE_HINT("Right-Click")] to copy frequency.")
+	. += span_notice("[EXAMINE_HINT("Ctrl-Click")] to [label ? "reset" : "set"] its label.")
 
 /obj/item/brick_phone_scryer/equipped(mob/living/user, slot)
 	. = ..()
