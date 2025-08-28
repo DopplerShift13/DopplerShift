@@ -70,6 +70,12 @@
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/hats.dmi'
 	flags_cover = HEADCOVERSEYES|EARS_COVERED|HEADCOVERSMOUTH
 	resistance_flags = LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF // Someone wants to be the main character
+	clothing_flags = SNUG_FIT | STOPSPRESSUREDAMAGE | STACKABLE_HELMET_EXEMPT
+	heat_protection = HEAD
+	max_heat_protection_temperature = FIRE_HELM_MAX_TEMP_PROTECT
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
+	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 
 /obj/item/clothing/head/helmet/sec/phelmet/examine(mob/user)
 	. = ..()
