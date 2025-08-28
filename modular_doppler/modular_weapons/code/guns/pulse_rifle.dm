@@ -4,7 +4,7 @@
 	name = "\improper Karim Pulse Rifle"
 	desc = "A compact rifle with high magazine capacity and fire-rate. A novel design that replaces many common firearm \
 		components with electrified alternatives, allowing a much smaller size for the firepower it provides. \
-		This gives the weapon it's distinctive firing sound."
+		This gives the weapon its distinctive firing sound."
 	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
 	icon_state = "karim"
 	worn_icon = 'modular_doppler/modular_weapons/icons/mob/worn/guns.dmi'
