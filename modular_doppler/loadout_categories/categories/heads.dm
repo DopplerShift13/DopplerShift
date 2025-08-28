@@ -180,16 +180,10 @@
 	name = "Flowing Headband"
 	item_path = /obj/item/clothing/head/flowing_headband
 
-/datum/loadout_item/head/phelmet
+/datum/loadout_item/head/fullhelmet
 	name = "Yennika full helmet"
-	item_path = /obj/item/clothing/head/helmet/sec/phelmet
+	item_path = /obj/item/clothing/head/helmet/sec/fullhelmet
 
-/datum/loadout_item/head/phelmet/get_ui_buttons()
+/datum/loadout_item/head/fullhelmet/get_item_information()
 	. = ..()
-	UNTYPED_LIST_ADD(., list(
-		"label" = "Cannot be taken off!",
-		"act_key" = "yennika_info_only", // Doesn't do anything, IDK if this can or should be null
-		"button_icon" = FA_ICON_CIRCLE_EXCLAMATION,
-		"active_key" = INFO_LAYER,
-	))
-	return .
+	.[FA_ICON_CIRCLE_EXCLAMATION] = "Cannot be taken off!"

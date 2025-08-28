@@ -61,7 +61,7 @@
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 
-/obj/item/clothing/head/helmet/sec/phelmet
+/obj/item/clothing/head/helmet/sec/fullhelmet
 	name = "\improper Yennika full helmet"
 	desc = "A full-head helmet that requires extensive tooling and robot setups to safely don and doff, making such \
 		an act impossible in usage far from home."
@@ -77,16 +77,16 @@
 	min_cold_protection_temperature = FIRE_HELM_MIN_TEMP_PROTECT
 	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 
-/obj/item/clothing/head/helmet/sec/phelmet/examine(mob/user)
+/obj/item/clothing/head/helmet/sec/fullhelmet/examine(mob/user)
 	. = ..()
 	. += span_warning("Once you put this on, it cannot be taken off! Think carefully about what you're doing!")
 
-/obj/item/clothing/head/helmet/sec/phelmet/equipped(mob/living/user, slot)
+/obj/item/clothing/head/helmet/sec/fullhelmet/equipped(mob/living/user, slot)
 	. = ..()
 	if(slot & ITEM_SLOT_HEAD)
 		ADD_TRAIT(src, TRAIT_NODROP, type) // Remember, you're here forever!
 
-/obj/item/clothing/head/helmet/sec/phelmet/click_alt(mob/user)
+/obj/item/clothing/head/helmet/sec/fullhelmet/click_alt(mob/user)
 	flipped_visor = !flipped_visor
 	if(flipped_visor)
 		flags_cover &= ~HEADCOVERSMOUTH
