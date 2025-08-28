@@ -91,6 +91,10 @@
 
 	if (new_value >= FISH_INFUSION_ALL_ORGANS)
 		if (!color_active)
+		 	// DOPPLER ADDITION START
+			if (carbon_owner.dna.species.inherent_traits.Find(TRAIT_MUTANT_COLORS))
+				return
+			// DOPPLER ADDITION END
 			for(var/obj/item/bodypart/limb as anything in carbon_owner.bodyparts)
 				limb.add_color_override(carbon_owner.dna.features[FEATURE_TAIL_FISH_COLOR], LIMB_COLOR_FISH_INFUSION)
 			color_active = TRUE
@@ -108,6 +112,10 @@
 	if (!color_active || !iscarbon(owner))
 		return
 	var/mob/living/carbon/carbon_owner = owner
+	// DOPPLER ADDITION START
+	if (carbon_owner.dna.species.inherent_traits.Find(TRAIT_MUTANT_COLORS))
+		return
+	// DOPPLER ADDITION END
 	limb.add_color_override(carbon_owner.dna.features[FEATURE_TAIL_FISH_COLOR], LIMB_COLOR_FISH_INFUSION)
 
 /datum/status_effect/organ_set_bonus/fish/untexture_limb(atom/source, obj/item/bodypart/limb)
