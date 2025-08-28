@@ -104,28 +104,7 @@
 
 /// Checks if the target is within 180 degrees of your view
 /obj/vehicle/ridden/mounted_turret/proc/acceptable_dir(our_dir, target_dir)
-	switch(our_dir)
-		if(NORTH)
-			if(target_dir == NORTHWEST || target_dir == NORTH || target_dir == NORTHEAST)
-				return TRUE
-			else
-				return FALSE
-		if(SOUTH)
-			if(target_dir == SOUTHWEST || target_dir == SOUTH || target_dir == SOUTHEAST)
-				return TRUE
-			else
-				return FALSE
-		if(EAST)
-			if(target_dir == NORTHEAST || target_dir == EAST || target_dir == SOUTHEAST)
-				return TRUE
-			else
-				return FALSE
-		if(WEST)
-			if(target_dir == NORTHWEST || target_dir == WEST || target_dir == SOUTHWEST)
-				return TRUE
-			else
-				return FALSE
-	return FALSE // How did we get here ??
+	return (target_dir & our_dir)
 
 /obj/vehicle/ridden/mounted_turret/welder_act(mob/living/user, obj/item/tool)
 	..()
