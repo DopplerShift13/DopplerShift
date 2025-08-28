@@ -107,17 +107,18 @@
 	return (target_dir & our_dir)
 
 /obj/vehicle/ridden/mounted_turret/welder_act(mob/living/user, obj/item/tool)
-	..()
 	if(user.combat_mode)
-		return FALSE
+		return NONE
 	if(!tool.tool_start_check(user, amount = 1))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	balloon_alert(user, "repairing...")
-	if(tool.use_tool(src, user, 10, volume = 50))
-		update_integrity(get_integrity() + (max_integrity / 5)) // 1/5 of integrity per repair
-		icon_state = initial(icon_state)
-		desc = initial(desc)
-	return TRUE
+	if(!tool.use_tool(src, user, 10, volume = 50))
+		return ITEM_INTERACT_BLOCKING
+	update_integrity(get_integrity() + (max_integrity / 5)) // 1/5 of integrity per repair
+	icon_state = initial(icon_state)
+	desc = initial(desc)
+	balloon_alert(user, "repaired")
+	return ITEM_INTERACT_SUCCESS
 
 /obj/vehicle/ridden/mounted_turret/click_ctrl(mob/user)
 	if(can_be_removed)
