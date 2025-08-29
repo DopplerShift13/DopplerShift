@@ -74,7 +74,8 @@
 	if(autofire_stat == AUTOFIRE_STAT_FIRING)
 		stop_autofiring() //Let's stop shooting to avoid issues.
 		return
-	if(user.is_holding(parent))
+	var/atom/atom_parent = parent // DOPPLER EDIT - TURRET AUTOFIRE
+	if(user.is_holding(parent) || istype(atom_parent.loc, /obj/vehicle/ridden/mounted_turret)) // DOPPLER EDIT - TURRET AUTOFIRE - if(user.is_holding(parent))
 		autofire_on(user.client)
 
 // There is a gun and there is a user wielding it. The component now waits for the mouse click.
@@ -300,7 +301,7 @@
 
 /obj/item/gun/proc/autofire_bypass_check(datum/source, client/clicker, atom/target, turf/location, control, params)
 	SIGNAL_HANDLER
-	if(clicker.mob.get_active_held_item() != src)
+	if((clicker.mob.get_active_held_item() != src) && !istype(src.loc, /obj/vehicle/ridden/mounted_turret))// DOPLLER EDIT - TURRET AUTOFIRE - if(clicker.mob.get_active_held_item() != src)
 		return COMPONENT_AUTOFIRE_ONMOUSEDOWN_BYPASS
 
 
@@ -316,6 +317,8 @@
 
 
 /obj/item/gun/proc/do_autofire_shot(datum/source, atom/target, mob/living/shooter, allow_akimbo, params)
+	if(SEND_SIGNAL(src, COMSIG_GUN_TRY_FIRE, shooter, target, shooter.Adjacent(target), params) & COMPONENT_CANCEL_GUN_FIRE) // DOPPLER ADDITION - TURRET AUTOFIRE
+		return // DOPPLER ADDITION - TURRET AUTOFIRE
 	var/obj/item/gun/akimbo_gun = shooter.get_inactive_held_item()
 	var/bonus_spread = 0
 	if(istype(akimbo_gun) && weapon_weight < WEAPON_MEDIUM && allow_akimbo)
