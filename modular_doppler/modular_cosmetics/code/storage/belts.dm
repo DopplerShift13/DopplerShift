@@ -14,3 +14,19 @@
 	. = ..()
 	//atom_storage.max_slots = 3
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
+
+/obj/item/storage/belt/mining
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
+	icon_state = "explorer1"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
+	worn_icon_state = "explorer1"
+
+/obj/item/storage/belt/mining/alt
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
+	icon_state = "explorer2"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
+	worn_icon_state = "explorer2"
+
+/obj/item/storage/belt/mining/primitive
+	icon = 'icons/obj/clothing/belts.dmi'
+	worn_icon = 'icons/mob/clothing/belt.dmi'

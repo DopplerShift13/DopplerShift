@@ -159,6 +159,8 @@
 		/obj/item/wrench,
 		/obj/item/wormhole_jaunter,
 		/obj/item/skeleton_key,
+		/obj/item/ammo_box, // DOPPLER ADDITION - PULSE RIFLE MINING
+		/obj/item/ammo_casing, // DOPPLER ADDITION - PULSE RIFLE MINING
 	))
 
 ///Primitive mining belt

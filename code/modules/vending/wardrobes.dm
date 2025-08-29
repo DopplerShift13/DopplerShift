@@ -213,8 +213,8 @@ GLOBAL_VAR_INIT(roaches_deployed, FALSE)
 		/obj/item/clothing/head/costume/mailman = 1,
 		/obj/item/clothing/under/misc/mailman = 1,
 		/obj/item/flatpack/mailsorter = 1,
-		/obj/item/clothing/under/rank/cargo/miner = 3,
-		/obj/item/clothing/under/rank/cargo/miner/lavaland = 3,
+		// /obj/item/clothing/under/rank/cargo/miner = 3, // DOPPLER EDIT, MOVED TO REGULAR CATEGORY
+		// /obj/item/clothing/under/rank/cargo/miner/lavaland = 3, // DOPPLER EDIT, MOVED TO REGULAR CATEGORY
 		/obj/item/clothing/under/rank/cargo/bitrunner = 3,
 	)
 	refill_canister = /obj/item/vending_refill/wardrobe/cargo_wardrobe

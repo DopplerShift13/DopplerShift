@@ -24,6 +24,10 @@
 
 // Loadout items
 
+/datum/loadout_item/neck/broadcast_camera_arm
+	name = "Broadcast Camera Arm"
+	item_path = /obj/item/broadcast_camera/mining
+
 /datum/loadout_item/neck/colonial_cloak
 	name = "Colonial Cloak"
 	item_path = /obj/item/clothing/neck/cloak/colonial
