@@ -179,3 +179,11 @@
 /datum/loadout_item/head/breach_helmet
 	name = "Flowing Headband"
 	item_path = /obj/item/clothing/head/flowing_headband
+
+/datum/loadout_item/head/fullhelmet
+	name = "Yennika full helmet"
+	item_path = /obj/item/clothing/head/helmet/sec/fullhelmet
+
+/datum/loadout_item/head/fullhelmet/get_item_information()
+	. = ..()
+	.[FA_ICON_CIRCLE_EXCLAMATION] = "Cannot be taken off!"
