@@ -9,11 +9,15 @@
 	caliber = CALIBER_3MMSPORTSCO
 	projectile_type = /obj/projectile/bullet/sportsco3mm
 
+/obj/item/ammo_casing/sportsco3mm/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/caseless)
+
 /obj/projectile/bullet/sportsco3mm
 	name = "3mm Sportsco™ bullet"
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	icon_state = "shortbullet"
-	damage = 15
+	damage = 10
 	speed = 1.6
 	ricochets_max = 1
 	ricochet_chance = 25

@@ -9,6 +9,10 @@
 	projectile_type = /obj/projectile/bullet/avispa_stingball
 	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/avispa_stingball
 
+/obj/item/ammo_casing/avispa_stingball/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/caseless)
+
 /obj/projectile/bullet/avispa_stingball
 	name = ".61 'Avispa' stingball"
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'

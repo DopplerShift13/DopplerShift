@@ -17,13 +17,12 @@
 	inhand_icon_state = "avispa"
 	fire_sound = 'sound/items/weapons/peashoot.ogg'
 	w_class = WEIGHT_CLASS_BULKY
+	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BACK
 	force = 10
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/avispa_stingball_shooter
 	bolt_type = BOLT_TYPE_OPEN
-	casing_ejector = FALSE
 	show_bolt_icon = FALSE
-	internal_magazine = TRUE
 	tac_reloads = FALSE
 	burst_size = 2
 

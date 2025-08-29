@@ -37,14 +37,14 @@
 /datum/greyscale_config/schiebenmaschine_worn
 	name = "Schießenmaschine (Worn)"
 	icon_file = 'modular_doppler/modular_weapons/icons/mob/worn/guns.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/weapons/schiebenmaschineworn.json'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/weapons/schiebenmaschine_worn.json'
 
 /datum/greyscale_config/schiebenmaschine_lefthand
 	name = "Schießenmaschine (Lefthand)"
 	icon_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_lefthand.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/weapons/schiebenmaschineworn.json'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/weapons/schiebenmaschine_worn.json'
 
 /datum/greyscale_config/schiebenmaschine_righthand
 	name = "Schießenmaschine (Righthand)"
 	icon_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/weapons/schiebenmaschineworn.json'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/weapons/schiebenmaschine_worn.json'
