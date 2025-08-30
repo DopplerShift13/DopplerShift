@@ -1,6 +1,7 @@
 /// Pistol Calibers
 
 #define CALIBER_6MMGIBRALTAR "6mm NG"
+#define CALIBER_3MMSPORTSCO "3mm Sportsco™"
 
 /// Rifle Calibers
 
@@ -11,3 +12,4 @@
 /// Special Calibers
 
 #define CALIBER_980TYDHOUER ".980 Tydhouer"
+#define CALIBER_STINGBALL ".61 Stingballs"
