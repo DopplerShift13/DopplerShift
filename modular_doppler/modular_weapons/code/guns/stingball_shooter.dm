@@ -21,10 +21,12 @@
 	slot_flags = ITEM_SLOT_BACK
 	force = 10
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/avispa_stingball_shooter
+	internal_magazine = TRUE
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	tac_reloads = FALSE
 	burst_size = 2
+	custom_price = PAYCHECK_CREW * 7
 
 /obj/item/ammo_box/magazine/internal/avispa_stingball_shooter
 	name = "stingball hopper"

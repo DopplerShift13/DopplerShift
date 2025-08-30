@@ -18,7 +18,7 @@
 	greyscale_config_worn = /datum/greyscale_config/schiebenmaschine_worn
 	greyscale_config_inhand_left = /datum/greyscale_config/schiebenmaschine_lefthand
 	greyscale_config_inhand_right = /datum/greyscale_config/schiebenmaschine_righthand
-	greyscale_colors = "#ffffff" //randomized on init but we need this for mapping icons and stuff
+	greyscale_colors = "#bb2222" //randomized on init but we need this for mapping icons and stuff
 	unique_reskin_changes_base_icon_state = FALSE
 	can_suppress = FALSE
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -27,8 +27,8 @@
 	show_bolt_icon = FALSE
 	internal_magazine = TRUE
 	tac_reloads = FALSE
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/schiebenmaschine
-	custom_price = PAYCHECK_CREW * 6
+	accepted_magazine_type = /obj/item/ammo_box/magazine/schiebenmaschine
+	custom_price = PAYCHECK_CREW * 5
 
 /obj/item/gun/ballistic/automatic/schiebenmaschine/Initialize(mapload)
 	. = ..()
@@ -47,11 +47,10 @@
 
 /obj/item/gun/ballistic/automatic/schiebenmaschine/load_gun(obj/item/ammo, mob/living/user)
 	. = ..()
-	if(istype(ammo, /obj/item/ammo_casing/sportsco3mm))
-		balloon_alert(user, "bolt is sealed!")
-		return ITEM_INTERACT_FAILURE
+	balloon_alert(user, "bolt is sealed!")
+	return
 
-/obj/item/ammo_box/magazine/internal/schiebenmaschine
+/obj/item/ammo_box/magazine/schiebenmaschine
 	name = "integrated schießenmagaschine"
 	ammo_type = /obj/item/ammo_casing/sportsco3mm
 	caliber = CALIBER_3MMSPORTSCO

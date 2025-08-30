@@ -17,3 +17,9 @@
 /datum/outfit/job/paramedic
 	shoes = /obj/item/clothing/shoes/medical
 	suit = /obj/item/clothing/suit/toggle/labcoat/medical
+
+/datum/outfit/job/security
+	suit_store = null
+	backpack_contents = list(
+		/obj/item/signature_beacon/security_equipment_package = 1,
+	)
