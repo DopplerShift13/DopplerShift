@@ -78,7 +78,7 @@
 
 /datum/storage/belt/crusader/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-		set_holdable(
+	set_holdable(
 		can_hold_list = list(
 			/obj/item/storage/belt/storage_pouch,
 			/obj/item/forging/reagent_weapon/sword,
