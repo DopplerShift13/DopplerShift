@@ -33,8 +33,8 @@
 	check_empty()
 
 /obj/item/ammo_box/magazine/ammo_stack/remove_from_stored_ammo(atom/movable/gone)
-	if(!stored_ammo)
-		return FALSE
+	if(QDELING(src))
+		return
 	return ..()
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
