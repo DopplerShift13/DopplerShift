@@ -91,6 +91,7 @@
 		"comm_monitor",
 		"comm_server",
 		"message_monitor",
+		"modlink_scryer_brick", // DOPPLER EDIT ADDITION - Allow for producing new brick scryerphones.
 		"ntnet_relay",
 		"s_hub",
 		"s_messaging",
