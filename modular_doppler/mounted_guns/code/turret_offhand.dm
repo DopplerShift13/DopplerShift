@@ -8,30 +8,25 @@
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
 	var/mob/living/carbon/rider
 	var/obj/vehicle/ridden/mounted_turret/turret
-	var/selfdeleting = FALSE
 
 /obj/item/doppler_turret_offhand/Initialize(mapload)
 	. = ..()
 	RegisterSignal(src, COMSIG_RANGED_ITEM_INTERACTING_WITH_ATOM_SECONDARY, PROC_REF(check_scope_interact))
 
 /obj/item/doppler_turret_offhand/dropped(mob/user)
-	selfdeleting = TRUE
 	turret.stored_gun.dropped(user)
 	. = ..()
 
 /obj/item/doppler_turret_offhand/equipped(mob/user, slot)
 	if(loc != rider && loc != turret)
-		selfdeleting = TRUE
 		qdel(src)
 	turret.stored_gun.equipped(user, slot)
 	. = ..()
 
 /obj/item/doppler_turret_offhand/Destroy()
-	var/atom/movable/AM = turret
 	UnregisterSignal(src, COMSIG_RANGED_ITEM_INTERACTING_WITH_ATOM_SECONDARY)
-	if(selfdeleting)
-		if(rider in AM.buckled_mobs)
-			AM.unbuckle_mob(rider)
+	if(rider in turret.buckled_mobs)
+		turret.unbuckle_mob(rider)
 	. = ..()
 
 /obj/item/doppler_turret_offhand/attack_self(mob/user, modifiers)
