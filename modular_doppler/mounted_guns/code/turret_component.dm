@@ -27,10 +27,4 @@
 	return TRUE
 
 /datum/component/riding/vehicle/mounted_turret/unequip_buckle_inhands(mob/living/carbon/user)
-	var/atom/movable/parent_movable = parent
-	for(var/obj/item/doppler_turret_offhand/offhand_item in user.contents)
-		if(offhand_item.turret != parent_movable)
-			CRASH("RIDING OFFHAND ON WRONG MOB")
-		else
-			qdel(offhand_item)
 	return TRUE
