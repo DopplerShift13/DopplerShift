@@ -33,7 +33,7 @@
 	check_empty()
 
 /obj/item/ammo_box/magazine/ammo_stack/remove_from_stored_ammo(atom/movable/gone)
-	if(QDELING(src))
+	if(QDELETED(src))
 		return
 	return ..()
 
