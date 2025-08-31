@@ -156,6 +156,7 @@
 		moodlet.update_change(drunk_value)
 
 /datum/status_effect/inebriated/drunk/on_tick_effects()
+	/* //DOPPLER EDIT REMOVAL START - Removes Ballmer Peak
 	// Handle the Ballmer Peak.
 	// If our owner is a scientist (has the trait "TRAIT_BALLMER_SCIENTIST"), there's a 5% chance
 	// that they'll say one of the special "ballmer message" lines, depending their drunk-ness level.
@@ -166,6 +167,7 @@
 
 		if(drunk_value > BALLMER_PEAK_WINDOWS_ME) // by this point you're into windows ME territory
 			owner.say(pick_list_replacements(VISTA_FILE, "ballmer_windows_me_msg"), forced = "ballmer")
+	*/ //DOPPLER EDIT REMOVAL END
 
 	// Drunk slurring scales in intensity based on how drunk we are -at 16 you will likely not even notice it,
 	// but when we start to scale up you definitely will

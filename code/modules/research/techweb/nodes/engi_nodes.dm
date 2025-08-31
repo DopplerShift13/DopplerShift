@@ -91,6 +91,7 @@
 		"comm_monitor",
 		"comm_server",
 		"message_monitor",
+		"modlink_scryer_brick", // DOPPLER EDIT ADDITION - Allow for producing new brick scryerphones.
 		"ntnet_relay",
 		"s_hub",
 		"s_messaging",
@@ -179,6 +180,7 @@
 		"welding_goggles",
 		"tray_goggles",
 		"geigercounter",
+		"diode_disk_stamina"
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_1_POINTS)
 	announce_channels = list(RADIO_CHANNEL_ENGINEERING)
@@ -227,6 +229,7 @@
 		"modular_shield_charger",
 		"modular_shield_well",
 		"modular_shield_console",
+		"diode_disk_magnetic",
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 

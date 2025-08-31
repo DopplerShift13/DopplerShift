@@ -32,13 +32,6 @@
 	},
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface)
-"l" = (
-/obj/effect/decal/cleanable/glitter/blue{
-	desc = "It looks like fancy glitter to me.";
-	name = "icy wind"
-	},
-/turf/open/misc/asteroid/snow/icemoon,
-/area/icemoon/surface)
 "m" = (
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 8;
@@ -114,10 +107,6 @@
 /area/icemoon/surface)
 "F" = (
 /obj/structure/flora/rock/pile/icy,
-/obj/effect/decal/cleanable/glitter/blue{
-	desc = "It looks like fancy glitter to me.";
-	name = "icy wind"
-	},
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface)
@@ -150,10 +139,6 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/surface)
 "R" = (
-/obj/effect/decal/cleanable/glitter/blue{
-	desc = "It looks like fancy glitter to me.";
-	name = "icy wind"
-	},
 /obj/item/flashlight/seclite{
 	dir = 1;
 	pixel_x = -10
@@ -215,7 +200,7 @@ w
 (3,1,1) = {"
 a
 a
-l
+B
 B
 B
 B
@@ -285,11 +270,11 @@ a
 a
 a
 B
-l
+B
 W
 C
 B
-l
+B
 f
 j
 W
@@ -319,7 +304,7 @@ w
 a
 W
 B
-l
+B
 S
 A
 B
@@ -337,7 +322,7 @@ a
 a
 B
 B
-l
+B
 Q
 B
 S

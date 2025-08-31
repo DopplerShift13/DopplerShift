@@ -47,9 +47,13 @@
 	name = "Guilmon"
 	icon_state = "guilmon"
 
-/datum/sprite_accessory/horns/humanoid/drake
-	name = "Drake"
-	icon_state = "drake"
+/datum/sprite_accessory/horns/humanoid/drake_inwards
+	name = "Drake, Inwards"
+	icon_state = "drake_inwards"
+
+/datum/sprite_accessory/horns/humanoid/drake_outwards
+	name = "Drake, Outwards"
+	icon_state = "drake_outwards"
 
 /datum/sprite_accessory/horns/humanoid/crippledbull
 	name = "Crippled Bull"
