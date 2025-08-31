@@ -82,8 +82,6 @@
 	for(var/obj/item/doppler_turret_offhand/offhand in user.contents)
 		if(offhand.turret != the_turret)
 			CRASH("RIDING OFFHAND ON WRONG MOB")
-		if(offhand.selfdeleting)
-			continue
 		else
 			qdel(offhand)
 	return TRUE

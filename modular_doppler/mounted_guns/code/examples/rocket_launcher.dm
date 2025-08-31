@@ -18,7 +18,6 @@
 	can_unsuppress = FALSE
 	projectile_damage_multiplier = 1.5 // FUCK YOU BALTIMORE!
 	recoil = 1
-	blocked_firing = TRUE
 	pin = /obj/item/firing_pin/mounted
 
 /obj/item/gun/ballistic/rifle/recoilless_rifle/Initialize(mapload)

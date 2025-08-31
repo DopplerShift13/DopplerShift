@@ -56,14 +56,12 @@
 	update_integrity(stored_gun.get_integrity())
 	RegisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE, PROC_REF(check_if_in_arc))
 	RegisterSignal(stored_gun, COMSIG_ATOM_UPDATE_ICON, PROC_REF(update_turret_look))
-	stored_gun.post_mounted_registry(src)
 	name = stored_gun.name
 	update_turret_look()
 	update_appearance()
 
 /// Unregisters the gun from the turret for various effects
 /obj/vehicle/ridden/mounted_turret/proc/unregister_gun()
-	stored_gun.mounted_unregistry()
 	UnregisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE)
 	UnregisterSignal(stored_gun, COMSIG_ATOM_UPDATE_ICON)
 	stored_gun = null
