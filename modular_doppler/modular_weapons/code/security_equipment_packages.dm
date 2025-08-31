@@ -19,9 +19,3 @@
 	name = "Vanguard's Jitte"
 	icon_item_type = /obj/item/melee/sec_jitte
 	spawned_item_type = /obj/item/storage/belt/secsword/full
-
-/*/datum/signature_equipment/security_equipment_package/support
-	name = "Support Bandolier"
-	icon_item_type =
-	spawned_item_type =
-*/

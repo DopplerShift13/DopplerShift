@@ -10,9 +10,10 @@
 	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/gun/ballistic/automatic/schiebenmaschine"
 	worn_icon = 'modular_doppler/modular_weapons/icons/mob/worn/guns.dmi'
+	worn_icon_state = "schiebenmaschine"
 	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
 	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_lefthand.dmi'
-	inhand_icon_state = "/obj/item/gun/ballistic/automatic/schiebenmaschine"
+	inhand_icon_state = "schiebenmaschine"
 	post_init_icon_state = "schiebenmaschine"
 	greyscale_config = /datum/greyscale_config/schiebenmaschine
 	greyscale_config_worn = /datum/greyscale_config/schiebenmaschine_worn
@@ -46,7 +47,6 @@
 	)
 
 /obj/item/gun/ballistic/automatic/schiebenmaschine/load_gun(obj/item/ammo, mob/living/user)
-	. = ..()
 	balloon_alert(user, "bolt is sealed!")
 	return
 
@@ -54,4 +54,4 @@
 	name = "integrated schießenmagaschine"
 	ammo_type = /obj/item/ammo_casing/sportsco3mm
 	caliber = CALIBER_3MMSPORTSCO
-	max_ammo = 40
+	max_ammo = 30
