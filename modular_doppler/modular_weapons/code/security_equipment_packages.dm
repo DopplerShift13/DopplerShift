@@ -7,8 +7,8 @@
 
 /datum/signature_equipment/security_equipment_package/gunner
 	name = "Gunner's Case"
-	icon_item_type = /obj/item/storage/toolbox/guncase/modular/security_equipment_package
-	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/security_equipment_package
+	icon_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunner_package
+	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunner_package
 
 /datum/signature_equipment/security_equipment_package/vanguard_blade
 	name = "Vanguard's Blade"

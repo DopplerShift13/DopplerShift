@@ -16,3 +16,13 @@
 			RESKIN_WORN_ICON_STATE = "evilwebbing"
 		)
 	)
+
+//preloaded variant for a security loadout package
+/obj/item/storage/belt/military/pouches/security_gunner_package
+	desc = "A web of pockets hung across your chest for storing various murder implements. A label screenprinted to the pouch \
+	designates it as Port Authority standard issue."
+
+/obj/item/storage/belt/military/pouches/security_gunner_package/PopulateContents()
+	new /obj/item/restraints/handcuffs(src)
+	new /obj/item/reagent_containers/spray/pepper(src)
+	new /obj/item/assembly/flash/handheld(src)

@@ -90,7 +90,18 @@
 /obj/item/storage/toolbox/guncase/modular/carwo_large_case/empty/PopulateContents()
 	return
 
-// A version with a weak gun and some security gear
+// A version with a weak gun and some security gear.
 
-/obj/item/storage/toolbox/guncase/modular/security_equipment_package
-	desc = ""
+/obj/item/storage/toolbox/guncase/modular/sportsco_large_case
+	desc = "A Sportsco branded gun case with fitted inserts."
+	icon_state = "sportsco"
+
+/obj/item/storage/toolbox/guncase/modular/sportsco_small_case
+	desc = "A Sportsco branded pistol-sized case with fitted inserts."
+	icon_state = "sportsco_s"
+
+/obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunner_package/PopulateContents()
+	new /obj/item/gun/ballistic/automatic/schiebenmaschine(src)
+	new /obj/item/gun/ballistic/avispa_stingball_shooter(src)
+	new /obj/item/storage/belt/security/webbing(src)
+
