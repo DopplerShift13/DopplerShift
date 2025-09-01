@@ -34,8 +34,10 @@
 	. += stored_gun.examine(user)
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force, mob/living/carbon/collector)
-	if(collector && !collector?.put_in_hands(stored_gun))
-		stored_gun?.forceMove(drop_location())
+	if(collector)
+		INVOKE_ASYNC(collector, PROC_REF(put_in_hands), stored_gun)
+		return ..()
+	stored_gun?.forceMove(drop_location())
 	return ..()
 
 /obj/vehicle/ridden/mounted_turret/Exited(atom/movable/gone, direction)
