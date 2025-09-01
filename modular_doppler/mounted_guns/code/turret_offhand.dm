@@ -25,9 +25,11 @@
 
 /obj/item/doppler_turret_offhand/Destroy()
 	UnregisterSignal(src, COMSIG_RANGED_ITEM_INTERACTING_WITH_ATOM_SECONDARY)
+	if(!turret)
+		return ..()
 	if(rider in turret.buckled_mobs)
 		turret.unbuckle_mob(rider)
-	. = ..()
+	return ..()
 
 /obj/item/doppler_turret_offhand/attack_self(mob/user, modifiers)
 	turret.stored_gun.attack_self(user, modifiers)
