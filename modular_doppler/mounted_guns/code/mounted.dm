@@ -26,10 +26,15 @@
 /obj/vehicle/ridden/mounted_turret/examine(mob/user)
 	. = ..()
 	if(stored_gun)
-		. += span_notice("It has a [REF(stored_gun)] mounted.")
+		. += span_notice("It has a [stored_gun] mounted, <b>examine twice</b> to look at it closer.")
 
-/obj/vehicle/ridden/mounted_turret/Destroy(force)
-	stored_gun?.forceMove(drop_location())
+/obj/vehicle/ridden/mounted_turret/examine_more(mob/user)
+	. = ..()
+	. += stored_gun.examine(user)
+
+/obj/vehicle/ridden/mounted_turret/Destroy(force, mob/living/carbon/collector)
+	if(collector && !collector?.put_in_hands(stored_gun))
+		stored_gun?.forceMove(drop_location())
 	return ..()
 
 /obj/vehicle/ridden/mounted_turret/Exited(atom/movable/gone, direction)
@@ -45,7 +50,7 @@
 	if(!do_after(user, disassembly_time, src))
 		return FALSE
 	playsound(src, disassembly_sound, 50, TRUE)
-	Destroy()
+	Destroy(collector = user)
 	return TRUE
 
 /// Registers the gun to the turret for various effects
@@ -123,6 +128,11 @@
 	if(!can_be_removed)
 		return NONE
 	return take_her_down(user) ? CLICK_ACTION_SUCCESS : CLICK_ACTION_BLOCKING
+
+/obj/vehicle/ridden/mounted_turret/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+	if(user != over)
+		return // You can only disassemble it to yourself
+	take_her_down(user)
 
 /obj/vehicle/ridden/mounted_turret/attack_hand(mob/user, list/modifiers)
 	stored_gun.attack_hand(user, modifiers)

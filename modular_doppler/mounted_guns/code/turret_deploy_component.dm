@@ -72,4 +72,5 @@
 	var/obj/parent_obj = parent
 	parent_obj.forceMove(deployed_turret)
 	deployed_turret.register_gun(parent_obj)
+	deployed_turret.buckle_mob(user) // Tries you make you immediately mount the gun
 	return(COMSIG_MOB_CANCEL_CLICKON)
