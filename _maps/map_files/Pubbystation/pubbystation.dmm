@@ -28608,10 +28608,12 @@
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "drQ" = (
-/obj/structure/disposalpipe/segment,
-/obj/structure/cable,
-/turf/closed/wall,
-/area/station/science/robotics/augments)
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/medical/chemistry)
 "drR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -43706,7 +43708,6 @@
 /area/station/hallway/primary/aft)
 "prD" = (
 /obj/structure/cable,
-/obj/machinery/airalarm/directional/west,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
@@ -55360,6 +55361,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/mapping_helpers/airlock/access/any/science/robotics,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/science/robotics/augments)
 "xyK" = (
@@ -82416,7 +82418,7 @@ bmv
 bFJ
 eyL
 bCh
-drQ
+wRC
 vSc
 iyl
 byz
@@ -84216,7 +84218,7 @@ wRC
 wRC
 wRC
 wRC
-oPH
+bNW
 bNW
 bNW
 bNW
@@ -84473,7 +84475,7 @@ hQh
 fhc
 bCn
 bjc
-bNW
+drQ
 xgA
 txK
 iRD
