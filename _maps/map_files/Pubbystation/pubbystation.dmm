@@ -18310,6 +18310,7 @@
 /obj/effect/turf_decal/tile/pine_green/anticorner/contrasted{
 	dir = 8
 	},
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/central)
 "bCp" = (
@@ -28608,12 +28609,12 @@
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "drQ" = (
-/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+/obj/effect/turf_decal/tile/pine_green/half/contrasted{
 	dir = 1
 	},
-/obj/machinery/airalarm/directional/west,
-/turf/open/floor/iron/white/smooth_corner,
-/area/station/medical/chemistry)
+/obj/machinery/firealarm/directional/east,
+/turf/open/floor/iron/white/smooth_edge,
+/area/station/medical/medbay/central)
 "drR" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
@@ -29740,6 +29741,10 @@
 /obj/structure/plasticflaps/opaque,
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/morgue)
+"emu" = (
+/obj/machinery/firealarm/directional/north,
+/turf/open/floor/plating,
+/area/station/maintenance/department/medical)
 "emB" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/tile/red/half/contrasted{
@@ -43785,6 +43790,13 @@
 /obj/effect/spawner/random/epic_loot/random_maint_loot_structure,
 /turf/open/floor/plating,
 /area/station/maintenance/department/crew_quarters/dorms)
+"ptQ" = (
+/obj/effect/turf_decal/tile/yellow/anticorner/contrasted{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/west,
+/turf/open/floor/iron/white/smooth_corner,
+/area/station/medical/chemistry)
 "ptR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/siding/wood{
@@ -45988,12 +46000,12 @@
 	name = "Medbay Lobby";
 	red_alert_access = 1
 	},
-/obj/effect/mapping_helpers/airlock/access/all/medical/general,
 /obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
 	id = "exam"
 	},
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/any/science/robotics,
+/obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /turf/open/floor/plating,
 /area/station/medical/treatment_center)
 "rdU" = (
@@ -55361,9 +55373,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/mapping_helpers/airlock/access/any/science/robotics,
-/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
-/area/station/science/robotics/augments)
+/area/station/maintenance/department/medical)
 "xyK" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -83446,7 +83457,7 @@ eeb
 bCi
 uEY
 bEE
-wRC
+oJj
 ioj
 oJj
 oJj
@@ -83960,8 +83971,8 @@ xIZ
 hHJ
 ipz
 bkc
-wRC
-oPH
+oJj
+emu
 bNV
 oxA
 hBg
@@ -84464,7 +84475,7 @@ tgT
 pku
 qib
 iGi
-bpF
+drQ
 xUU
 bsF
 fhc
@@ -84475,7 +84486,7 @@ hQh
 fhc
 bCn
 bjc
-drQ
+ptQ
 xgA
 txK
 iRD
