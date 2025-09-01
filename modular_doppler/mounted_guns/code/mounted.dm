@@ -26,7 +26,7 @@
 /obj/vehicle/ridden/mounted_turret/examine(mob/user)
 	. = ..()
 	if(stored_gun)
-		. += span_notice("It has a [stored_gun] mounted, <b>examine twice</b> to look at it closer.")
+		. += span_notice("It has [stored_gun] mounted, <b>examine twice</b> to look at it closer.")
 	. += span_notice("<b>Drag</b> it to yourself, or <b>Ctrl-Click</b> to disassemble the gun.")
 
 /obj/vehicle/ridden/mounted_turret/examine_more(mob/user)
