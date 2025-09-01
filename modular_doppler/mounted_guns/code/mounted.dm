@@ -35,7 +35,7 @@
 
 /obj/vehicle/ridden/mounted_turret/Destroy(force, mob/living/carbon/collector)
 	if(collector)
-		INVOKE_ASYNC(collector, PROC_REF(put_in_hands), stored_gun)
+		INVOKE_ASYNC(collector, TYPE_PROC_REF(/mob, put_in_hands), stored_gun)
 		return ..()
 	stored_gun?.forceMove(drop_location())
 	return ..()
