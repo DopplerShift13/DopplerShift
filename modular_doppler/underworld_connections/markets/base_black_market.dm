@@ -98,6 +98,14 @@
 	stock_max = 1
 	availability_prob = 100
 
+/datum/market_item/misc/cloningboards
+	name = "Experimental Cloning Machine Kit"
+	desc = "An inconspicuous box containing all you need to grow your own clones right at home."
+	item = /obj/item/storage/box/cloningboards
+	price_min = PAYCHECK_CREW * 4
+	price_max = PAYCHECK_CREW * 8
+	availability_prob = 100
+
 /datum/market_item/misc/shove_blocker
 	// ok this is a seriously fucking good module so we'll make it cost a bit
 	price_min = PAYCHECK_CREW * 8

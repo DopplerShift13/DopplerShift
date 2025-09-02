@@ -7668,6 +7668,7 @@
 #include "modular_doppler\tool_poweruse\items.dm"
 #include "modular_doppler\underworld_connections\underworld_connections_quirk.dm"
 #include "modular_doppler\underworld_connections\code\black_market_uplink.dm"
+#include "modular_doppler\underworld_connections\code\bundles.dm"
 #include "modular_doppler\underworld_connections\markets\base_black_market.dm"
 #include "modular_doppler\verbs\code\communication.dm"
 #include "modular_doppler\verbs\code\do_checks.dm"
