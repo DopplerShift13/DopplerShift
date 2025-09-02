@@ -104,7 +104,7 @@
 	item = /obj/item/storage/box/cloningboards
 	price_min = PAYCHECK_CREW * 4
 	price_max = PAYCHECK_CREW * 8
-	availability_prob = 100
+	availability_prob = 50
 
 /datum/market_item/misc/shove_blocker
 	// ok this is a seriously fucking good module so we'll make it cost a bit
