@@ -104,6 +104,8 @@
 	item = /obj/item/storage/box/cloningboards
 	price_min = PAYCHECK_CREW * 4
 	price_max = PAYCHECK_CREW * 8
+	stock_min = 1
+	stock_max = 1
 	availability_prob = 50
 
 /datum/market_item/misc/shove_blocker
