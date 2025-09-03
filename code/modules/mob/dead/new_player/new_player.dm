@@ -238,6 +238,7 @@
 
 	if((job.job_flags & JOB_ASSIGN_QUIRKS) && humanc && CONFIG_GET(flag/roundstart_traits))
 		SSquirks.AssignQuirks(humanc, humanc.client)
+		SSpowers.assign_powers(humanc, humanc.client) // DOPPLER EDIT ADDITION - Archetype Powers
 
 	if(humanc) // Quirks may change manifest datapoints, so inject only after assigning quirks
 		GLOB.manifest.inject(humanc, person_client = humanc.client) // DOPPLER EDIT - RP Records - ORIGINAL: GLOB.manifest.inject(humanc)

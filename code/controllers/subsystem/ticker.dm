@@ -550,6 +550,7 @@ SUBSYSTEM_DEF(ticker)
 			if(new_player_mob.client?.prefs?.should_be_random_hardcore(player_assigned_role, new_player_living.mind))
 				new_player_mob.client.prefs.hardcore_random_setup(new_player_living)
 			SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
+			SSpowers.assign_powers(new_player_living, new_player_mob.client) // DOPPLER EDIT ADDITION - Archetype Powers
 		//DOPPLER EDIT ADDITION
 		if(ishuman(new_player_living))
 			var/list/loadout = loadout_list_to_datums(new_player_mob.client?.prefs?.read_preference(/datum/preference/loadout))

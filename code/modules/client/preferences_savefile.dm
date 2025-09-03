@@ -356,18 +356,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	languages = save_languages
 	alt_job_titles = save_data?["alt_job_titles"]
 
-	var/list/save_powers = SANITIZE_LIST(save_data?["powers"])
-
-	for(var/power in save_powers)
-		var/value = save_powers[power]
-		save_powers -= power
-
-		if(istext(value))
-			value = _text2path(value)
-
-		save_powers[power] = value
-
-	powers = save_powers
+	all_powers = save_data?["all_powers"]
 	// DOPPLER SHIFT ADDITION END
 
 	//try to fix any outdated data if necessary
@@ -381,7 +370,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	all_quirks = SANITIZE_LIST(all_quirks)
 	// DOPPLER SHIFT ADDITION BEGIN
 	languages = SANITIZE_LIST(languages)
-	powers = SANITIZE_LIST(powers)
+	all_powers = SANITIZE_LIST(all_powers)
 	// DOPPLER SHIFT ADDITION END
 
 	//Validate job prefs
@@ -437,7 +426,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	save_data["all_quirks"] = all_quirks
 	save_data["languages"] = languages // DOPPLER SHIFT ADDITION - we might want to migrate this
 	save_data["alt_job_titles"] = alt_job_titles // DOPPLER SHIFT ADDITION: alt job titles
-	save_data["powers"] = powers // dopplor powerz :3c
+	save_data["all_powers"] = all_powers // DOPPLER SHIFT ADDITION - Powers system
 
 	return TRUE
 
