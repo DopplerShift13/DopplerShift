@@ -77,7 +77,7 @@
 		if(linked_alert)
 			return
 		var/atom/movable/screen/alert/status_effect/new_alert = owner.throw_alert(id, alert_type)
-		new_alert.attached_effect = src //so the alert can reference us, if it needs to
+		new_alert.attached_effect = src
 		linked_alert = new_alert
 		return
 
@@ -85,3 +85,10 @@
 		return
 	linked_alert = null
 	owner.clear_alert(id)
+
+/datum/status_effect/limp/on_creation(mob/living/new_owner, ...)
+	. = ..()
+	if(!.)
+		return
+	// Update the limp after creation, so the alert is properly set/unset.
+	update_limp(src)
