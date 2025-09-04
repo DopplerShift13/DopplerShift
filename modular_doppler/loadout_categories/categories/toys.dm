@@ -3,7 +3,7 @@
 	category_name = "Recreative"
 	category_ui_icon = FA_ICON_GUITAR
 	type_to_generate = /datum/loadout_item/toy
-	tab_order = /datum/loadout_category/inhands::tab_order + 1
+	tab_order = /datum/loadout_category/inhands::tab_order + 2
 
 /datum/loadout_item/toy
 	abstract_type = /datum/loadout_item/toy

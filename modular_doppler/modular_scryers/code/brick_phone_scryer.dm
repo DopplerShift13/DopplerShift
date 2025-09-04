@@ -1,7 +1,5 @@
 #define BRICK_SCRYERPHONE_RINGING_INTERVAL (3 SECONDS)
 #define BRICK_SCRYERPHONE_RINGING_DURATION (15 SECONDS)
-/// Rate at which we discharge when in use, per second.
-#define BRICK_SCRYERPHONE_DISCHARGE_RATE (0.002 * STANDARD_CELL_RATE)
 // The calling time left in our cell before we give our first warning, while in a call.
 #define BRICK_SCRYERPHONE_TIME_LEFT_FIRST_INCALL_WARNING (10 MINUTES)
 // The calling time left in our cell before we give our last warning, while in a call.
@@ -101,7 +99,7 @@
 	else
 		. += span_notice("It is missing a battery. One can be installed by clicking on it with a power cell .")
 	. += span_notice("The MODlink ID is [mod_link.id], frequency is [mod_link.frequency || "unset"].")
-	. += span_notice("The MODlink label is '[label || "unset"]'.")
+	. += span_notice("The MODlink label is '[html_encode(label) || "unset"]'.")
 	. += span_notice("Using a multitool, [EXAMINE_HINT("Left-Click")] to imprint or [EXAMINE_HINT("Right-Click")] to copy frequency.")
 	. += span_notice("[EXAMINE_HINT("Ctrl-Click")] to [label ? "reset" : "set"] its label.")
 
@@ -235,7 +233,7 @@
 /obj/item/brick_phone_scryer/proc/get_call_time_left()
 	if(isnull(cell))
 		return 0
-	return (cell.charge() / BRICK_SCRYERPHONE_DISCHARGE_RATE) SECONDS
+	return (cell.charge() / MODLINK_STANDARD_DISCHARGE_RATE) SECONDS
 
 /// Takes in a time in deciseconds, and sends the given user an "X minutes left!" warning.
 /obj/item/brick_phone_scryer/proc/warn_minutes_left(mob/living/user, time_in_deciseconds)
@@ -291,7 +289,7 @@
 		return
 	if(isnull(cell))
 		return
-	cell.use(BRICK_SCRYERPHONE_DISCHARGE_RATE * seconds_per_tick, force = TRUE)
+	cell.use(MODLINK_STANDARD_DISCHARGE_RATE * seconds_per_tick, force = TRUE)
 	check_incall_warnings()
 
 /obj/item/brick_phone_scryer/proc/incoming_call_loop()
@@ -484,7 +482,6 @@
 
 #undef BRICK_SCRYERPHONE_RINGING_INTERVAL
 #undef BRICK_SCRYERPHONE_RINGING_DURATION
-#undef BRICK_SCRYERPHONE_DISCHARGE_RATE
 #undef BRICK_SCRYERPHONE_TIME_LEFT_FIRST_INCALL_WARNING
 #undef BRICK_SCRYERPHONE_TIME_LEFT_LAST_INCALL_WARNING
 #undef BRICK_SCRYERPHONE_TIME_LEFT_START_PRECALL_WARNINGS
