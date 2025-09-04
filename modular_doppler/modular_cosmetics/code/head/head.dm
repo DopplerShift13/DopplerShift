@@ -80,7 +80,7 @@
 
 /obj/item/clothing/head/helmet/sec/fullhelmet/examine(mob/user)
 	. = ..()
-	. += span_notice("You can <b>Alt-Click</b> this to open/close the mouth for eating.")
+	. += span_notice("You can [EXAMINE_HINT("Alt-Click")] this to open/close the mouth for eating.")
 	. += span_notice("The mouth is currently [flipped_visor ? "open" : "closed"].")
 	. += span_warning("Once you put this on, it cannot be taken off! Think carefully about what you're doing!")
 
