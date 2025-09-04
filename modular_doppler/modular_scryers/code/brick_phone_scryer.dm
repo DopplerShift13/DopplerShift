@@ -173,7 +173,7 @@
 		set_label(null)
 		return CLICK_ACTION_SUCCESS
 
-	var/new_label = reject_bad_text(tgui_input_text(user, "Change the visible label", "Set Label", label, MAX_NAME_LEN))
+	var/new_label = reject_bad_text(tgui_input_text(user, "Change the visible label", "Set Label", label, MAX_NAME_LEN, encode = FALSE))
 	if(QDELETED(user) || !user.is_holding(src))
 		return CLICK_ACTION_BLOCKING
 	if(!new_label)

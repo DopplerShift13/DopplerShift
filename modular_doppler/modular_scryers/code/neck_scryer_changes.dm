@@ -1,9 +1,5 @@
-#define MODLINK_SCRYER_DISCHARGE_RATE (0.002 * STANDARD_CELL_RATE)
-
 /**
  * Overrides and additions to base TG MODlink Scryers.
- * Non-modular overrides hooking into this are:
- * - code\modules\mod\mod_link.dm (/datum/mod_link/proc/call_link(...))
  */
 
 /obj/item/clothing/neck/link_scryer/Initialize(mapload)
@@ -22,7 +18,7 @@
 		set_label(null)
 		return
 
-	var/new_label = reject_bad_text(tgui_input_text(user, "Change the visible label", "Set Label", label, MAX_NAME_LEN))
+	var/new_label = reject_bad_text(tgui_input_text(user, "Change the visible label", "Set Label", label, MAX_NAME_LEN, encode = FALSE))
 	if(QDELETED(user) || !user.is_holding(src))
 		return
 	if(!new_label)
