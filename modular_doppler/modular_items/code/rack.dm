@@ -17,6 +17,8 @@
 	return .
 
 /obj/structure/rack/base_item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(user.combat_mode)
+		return ..()
 	// Left click to center item placement
 	if(LAZYACCESS(modifiers, LEFT_CLICK))
 		if(user.transfer_item_to_turf(tool, get_turf(src), silent = FALSE))
