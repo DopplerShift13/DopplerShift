@@ -16,7 +16,7 @@
  * this must be specialcased for each item.
  */
 /datum/loadout_item/modlink
-	abstract_type = /datum/loadout_item/backpack
+	abstract_type = /datum/loadout_item/modlink
 	has_modlink_label = TRUE
 
 /datum/loadout_item/modlink/on_equip_item(
