@@ -12,9 +12,9 @@
 
 //Free prisoner jumpsuit
 /datum/quirk/item_quirk/convict/add_unique(client/client_source)
-	if (ishuman(quirk_holder))
-		var/obj/item/clothing/under/rank/prisoner/prison_outfit = new
-		give_item_to_holder(prison_outfit, list(LOCATION_BACKPACK))
+	if(!ishuman(quirk_holder))
+		return
+	give_item_to_holder(/obj/item/clothing/under/rank/prisoner, list(LOCATION_BACKPACK))
 
 /// Choose a crime
 /datum/quirk_constant_data/convict
