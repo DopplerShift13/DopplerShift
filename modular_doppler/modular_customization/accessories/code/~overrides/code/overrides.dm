@@ -22,6 +22,8 @@
 		if(istype(species, /datum/species/human/genemod))
 			var/skin_tone = pick(GLOB.skin_tones)
 			features[FEATURE_MUTANT_COLOR] = skintone2hex(skin_tone) //spoof
+		if(species.id != /datum/species/human/mermaid::id)
+			features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
 		if(species.id != /datum/species/human/felinid::id)
 			features[FEATURE_TAIL] = /datum/sprite_accessory/tails/human/none::name
 			features[FEATURE_EARS] = /datum/sprite_accessory/ears/none::name

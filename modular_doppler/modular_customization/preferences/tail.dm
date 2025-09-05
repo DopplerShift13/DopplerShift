@@ -35,6 +35,9 @@
 	if(!ishuman(target))
 		return
 
+	if(ismermaid(target))
+		return .
+
 	if(target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/tails/lizard/none::name  && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -412,7 +415,7 @@
 	main_feature_name = "Tail"
 
 /datum/preference/choiced/fish_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_fish)
+	return assoc_to_keys_features(SSaccessories.tails_list_fish - /datum/sprite_accessory/tails/fish/mermaid::name)
 
 /datum/preference/choiced/fish_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -639,6 +642,8 @@
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
+		return ..()
+	if(istype(src, /datum/bodypart_overlay/mutant/tail/fish/mermaid))//this code does not spark joy
 		return ..()
 	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
 		overlay.color = limb.owner.dna.features["tail_color_1"]
