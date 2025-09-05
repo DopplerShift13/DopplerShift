@@ -12,7 +12,7 @@
 	inhand_icon_state = "balaclava"
 	greyscale_config = /datum/greyscale_config/neck_gaiter
 	greyscale_config_worn = /datum/greyscale_config/neck_gaiter/worn
-	greyscale_colors = "#666666"
+	greyscale_colors = "#444444"
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|MASKINTERNALS
 	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDESNOUT
@@ -22,6 +22,7 @@
 	visor_flags_cover = MASKCOVERSMOUTH
 	flags_1 = IS_PLAYER_COLORABLE_1
 	interaction_flags_click = NEED_DEXTERITY|ALLOW_RESTING
+	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/mask/neck_gaiter/attack_self(mob/user)
 	adjust_visor(user)

@@ -22,6 +22,10 @@
 		manager.deselect_item(other_loadout_items[1])
 	return TRUE
 
+/datum/loadout_item/glasses/mining_goggles
+	name = "Explorer Goggles"
+	item_path = /obj/item/clothing/glasses/mining_meson
+
 /datum/loadout_item/glasses/holo_infohud
 	name = "Holographic Infohud"
 	item_path = /obj/item/clothing/glasses/tajaran_hud

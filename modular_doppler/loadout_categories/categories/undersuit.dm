@@ -325,6 +325,14 @@
 *	MISCELLANEOUS
 */
 
+/datum/loadout_item/undersuit/mining_overalls
+	name = "Explorer Overalls"
+	item_path = /obj/item/clothing/under/rank/cargo/miner
+
+/datum/loadout_item/undersuit/mining_turtle
+	name = "Explorer Turtleneck"
+	item_path = /obj/item/clothing/under/rank/cargo/miner/lavaland
+
 /datum/loadout_item/undersuit/bodysuit
 	name = "Bodysuit"
 	item_path = /obj/item/clothing/under/bodysuit

@@ -24,6 +24,10 @@
 
 // Loadout items
 
+/datum/loadout_item/head/mining_cap
+	name = "Explorer Cap"
+	item_path = /obj/item/clothing/head/mining_cap
+
 /datum/loadout_item/head/tv_head
 	name = "TV Head"
 	item_path = /obj/item/clothing/head/costume/tv_head
