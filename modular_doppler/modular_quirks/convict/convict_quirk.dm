@@ -64,7 +64,7 @@
 		var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
 		if (our_record)
 			our_record.wanted_status = WANTED_PAROLE
-			our_record.security_note += "This parolled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits."
+			our_record.security_note += "This paroled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits."
 		if(!length(radio_channels))
 			return
 		var/obj/machinery/announcement_system/aas = get_announcement_system(source = src)
@@ -81,7 +81,7 @@
 		if (isnull(our_record))
 			return
 		if (our_record.security_note)
-			our_record.security_note = replacetext(our_record.security_note, "This parolled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits.", "")
+			our_record.security_note = replacetext(our_record.security_note, "This paroled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits.", "")
 		if (!length(our_record.security_note)) // that was the only thing in the notes
 			our_record.security_note = null
 		if (isnull(our_record.security_note) && our_record.wanted_status == WANTED_PAROLE) // only clear this if the security notes contain nothing but the quirk-generated note, just to be certain we are not accidentally resetting the wanted status for an unrelated crime
