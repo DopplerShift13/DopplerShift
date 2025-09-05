@@ -4,6 +4,6 @@ import {
 } from '../../base';
 
 export const convict_crime_name: Feature<string> = {
-  name: 'Paroled Convict',
+  name: 'Crime Committed',
   component: FeatureShortTextInput,
 };
