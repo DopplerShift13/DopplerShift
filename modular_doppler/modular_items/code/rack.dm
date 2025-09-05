@@ -6,7 +6,7 @@
 	desc = "A tall shelf for storing things on."
 	icon_state = "shelf"
 
-/obj/structure/rack/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+/obj/structure/rack/shelf/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 	if(isnull(held_item))
 		return .
@@ -16,7 +16,7 @@
 		. |= CONTEXTUAL_SCREENTIP_SET
 	return .
 
-/obj/structure/rack/base_item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+/obj/structure/rack/shelf/base_item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(user.combat_mode)
 		return ..()
 	// Left click to center item placement
