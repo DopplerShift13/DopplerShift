@@ -6,6 +6,10 @@
 	desc = "A tall shelf for storing things on."
 	icon_state = "shelf"
 
+/obj/structure/rack/shelf/atom_deconstruct(disassembled = TRUE)
+	var/obj/item/stack/sheet/iron = new(loc)
+	transfer_fingerprints_to(newparts)
+
 /obj/structure/rack/shelf/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	. = ..()
 	if(isnull(held_item))
