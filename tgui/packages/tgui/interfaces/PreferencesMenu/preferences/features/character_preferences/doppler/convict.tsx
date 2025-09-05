@@ -2,9 +2,8 @@ import {
   Feature,
   FeatureShortTextInput,
 } from '../../base';
-import { FeatureDropdownInput } from '../../dropdowns';
 
-export const convict_crime: Feature<string> = {
-  name: 'Crime',
+export const convict_crime_name: Feature<string> = {
+  name: 'Paroled Convict',
   component: FeatureShortTextInput,
 };

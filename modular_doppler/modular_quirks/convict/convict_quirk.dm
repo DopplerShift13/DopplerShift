@@ -1,5 +1,5 @@
 /datum/quirk/item_quirk/convict
-	name = "Parolled Convict"
+	name = "Paroled Convict"
 	desc = "In light of your previous crimes, you've been outfit with a tracking implant."
 	icon = FA_ICON_CHAIN
 	value = -4
