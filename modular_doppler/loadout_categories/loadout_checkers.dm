@@ -145,11 +145,6 @@
 		return set_modlink_label(manager, user)
 	return ..()
 
-/datum/loadout_item/get_item_information()
-	. = ..()
-	if(has_modlink_label)
-		.[FA_ICON_PENCIL] = "Relabelable"
-
 /// Sets the description of the item.
 /datum/loadout_item/proc/set_description(datum/preference_middleware/loadout/manager, mob/user)
 	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
