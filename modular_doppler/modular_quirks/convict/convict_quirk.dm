@@ -40,7 +40,7 @@
 	if (!..())
 		return FALSE
 
-	return "Crime" in preferences.all_quirks
+	return /datum/quirk/item_quirk/convict::name in preferences.all_quirks
 
 /datum/preference/text/convict_crime/apply_to_human(mob/living/carbon/human/target, value)
 	return
