@@ -9,6 +9,10 @@
 
 <!-- Argue for the merits of your changes and how they benefit the game, especially if they are controversial and/or far reaching. If you can't actually explain WHY what you are doing will improve the game, then it probably isn't good for the game in the first place. -->
 
+## Testing Evidence
+
+<!-- Provide proof that the content added, edited, or removed by this pull request is working as intended in-game. Compiling alone doesn't guarantee functionality, so be sure to test thoroughly! -->
+
 ## Changelog
 
 <!-- If your PR modifies aspects of the game that can be concretely observed by players or admins you should add a changelog. If your change does NOT meet this description, remove this section. Be sure to properly mark your PRs to prevent unnecessary GBP loss. You can read up on GBP and its effects on PRs in the tgstation guides for contributors. Please note that maintainers freely reserve the right to remove and add tags should they deem it appropriate. You can attempt to finagle the system all you want, but it's best to shoot for clear communication right off the bat. -->
