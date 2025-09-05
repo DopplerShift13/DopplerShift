@@ -11,7 +11,7 @@
 
 ## Testing Evidence
 
-<!-- Proof that you've made sure the content added, edited by, or removed by the pull request is working as intended ingame. Compiling doesn't always mean it functions as it should; so remember to make sure! -->
+<!-- Provide proof that the content added, edited, or removed by this pull request is working as intended in-game. Compiling alone doesn't guarantee functionality, so be sure to test thoroughly! -->
 
 ## Changelog
 
