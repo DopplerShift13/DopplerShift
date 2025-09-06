@@ -70,16 +70,15 @@
 	aas.broadcast("[human_holder.name], guilty of [convict_crime], has been assigned to your department as a convict on parole.", radio_channels)
 
 /datum/quirk/item_quirk/convict/remove()
-	if (ishuman(quirk_holder))
-		QDEL_NULL(quirk_implant) // Remove Implant
-		var/mob/living/carbon/human/human_holder = quirk_holder
-		var/datum/record/crew/our_record = find_record(human_holder.name)
-		var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
-		if (isnull(our_record))
-			return
-		if (our_record.security_note)
-			our_record.security_note = replacetext(our_record.security_note, "This paroled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits.", "")
-		if (!length(our_record.security_note)) // that was the only thing in the notes
-			our_record.security_note = null
-		if (isnull(our_record.security_note) && our_record.wanted_status == WANTED_PAROLE) // only clear this if the security notes contain nothing but the quirk-generated note, just to be certain we are not accidentally resetting the wanted status for an unrelated crime
-			our_record.wanted_status = WANTED_NONE
+	QDEL_NULL(tracking_implant) // Remove Implant
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/datum/record/crew/our_record = find_record(human_holder.name)
+	var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
+	if(isnull(our_record))
+		return
+	if(our_record.security_note)
+		our_record.security_note = replacetext(our_record.security_note, "This paroled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits.", "")
+	if(!length(our_record.security_note)) // that was the only thing in the notes
+		our_record.security_note = null
+	if(isnull(our_record.security_note) && our_record.wanted_status == WANTED_PAROLE) // only clear this if the security notes contain nothing but the quirk-generated note, just to be certain we are not accidentally resetting the wanted status for an unrelated crime
+		our_record.wanted_status = WANTED_NONE
