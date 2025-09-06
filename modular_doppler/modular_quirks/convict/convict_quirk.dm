@@ -52,14 +52,24 @@
 //Report To Department
 //Shamelessly stolen from underworld_connections_quirk.dm
 //Changes made: security note differs, status is set to parole and not suspected
-/datum/quirk/item_quirk/convict/post_add()
-	. = ..()
+/datum/quirk/item_quirk/convict/add(client/client_source)
+	RegisterSignal(quirk_holder, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED, PROC_REF(update_manifest))
+
+/datum/quirk/item_quirk/convict/proc/update_manifest()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/datum/record/crew/our_record = find_record(human_holder.name)
 	var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
-	if(our_record)
-		our_record.wanted_status = WANTED_PAROLE
-		our_record.security_note += "This paroled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits."
+	if(isnull(our_record))
+		return
+
+	our_record.wanted_status = WANTED_PAROLE
+	our_record.security_note += "This paroled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits."
+	human_holder.sec_hud_set_security_status()
+
+/datum/quirk/item_quirk/convict/post_add()
+	. = ..()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
 
 	var/list/radio_channels = quirk_holder.mind?.assigned_role?.get_radio_channels()
 	if(!length(radio_channels))
@@ -70,6 +80,7 @@
 	aas.broadcast("[human_holder.name], guilty of [convict_crime], has been assigned to your department as a convict on parole.", radio_channels)
 
 /datum/quirk/item_quirk/convict/remove()
+	UnregisterSignal(quirk_holder, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	QDEL_NULL(implant_ref) // Remove Implant
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/datum/record/crew/our_record = find_record(human_holder.name)
