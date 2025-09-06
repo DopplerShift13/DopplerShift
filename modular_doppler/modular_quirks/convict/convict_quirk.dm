@@ -13,12 +13,13 @@
 
 //Free prisoner jumpsuit
 /datum/quirk/item_quirk/convict/add_unique(client/client_source)
-	if(!ishuman(quirk_holder))
-		return
 	give_item_to_holder(/obj/item/clothing/under/rank/prisoner, list(LOCATION_BACKPACK))
+
 	//Add Implant
-	quirk_implant = new
-	quirk_implant.implant(quirk_holder, null, silent=TRUE, force=TRUE)
+	var/obj/item/implant/tracking/tracking_implant = new
+	tracking_implant.implant(quirk_holder, null, silent=TRUE, force=TRUE)
+	implant_ref = WEAKREF(tracking_implant)
+
 /// Choose a crime
 /datum/quirk_constant_data/convict
 	associated_typepath = /datum/quirk/item_quirk/convict
