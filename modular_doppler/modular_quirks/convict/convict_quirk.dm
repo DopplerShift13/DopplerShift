@@ -75,9 +75,7 @@
 	if(!length(radio_channels))
 		return
 	var/obj/machinery/announcement_system/aas = get_announcement_system(source = src)
-	if(isnull(aas))
-		return
-	aas.broadcast("[human_holder.name], guilty of [convict_crime], has been assigned to your department as a convict on parole.", radio_channels)
+	aas?.broadcast("[human_holder.name], guilty of [convict_crime], has been assigned to your department as a convict on parole.", radio_channels)
 
 /datum/quirk/item_quirk/convict/remove()
 	UnregisterSignal(quirk_holder, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
