@@ -8,7 +8,8 @@
 	medical_record_text = "This patient has been convicted of a crime, and should always have a tracking implant."
 	quirk_flags = QUIRK_HIDE_FROM_SCAN|QUIRK_HUMAN_ONLY
 	mail_goodies = list(/obj/item/knife/shiv)
-	var/obj/item/implant/tracking/quirk_implant = null
+	/// A weak reference to our implant.
+	var/datum/weakref/implant_ref
 
 //Free prisoner jumpsuit
 /datum/quirk/item_quirk/convict/add_unique(client/client_source)
