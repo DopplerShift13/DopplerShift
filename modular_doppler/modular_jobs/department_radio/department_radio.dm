@@ -1,5 +1,4 @@
 /// Returns a list of radio channels associated with our role.
-
 /datum/job/proc/get_radio_channels()
 	var/list/radio_channels = list()
 	if(!length(departments_list))
