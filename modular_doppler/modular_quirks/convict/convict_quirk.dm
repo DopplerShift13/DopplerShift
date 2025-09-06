@@ -70,7 +70,7 @@
 	aas.broadcast("[human_holder.name], guilty of [convict_crime], has been assigned to your department as a convict on parole.", radio_channels)
 
 /datum/quirk/item_quirk/convict/remove()
-	QDEL_NULL(tracking_implant) // Remove Implant
+	QDEL_NULL(implant_ref) // Remove Implant
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	var/datum/record/crew/our_record = find_record(human_holder.name)
 	var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
