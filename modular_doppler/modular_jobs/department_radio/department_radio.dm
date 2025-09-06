@@ -8,6 +8,7 @@
 	return radio_channels
 
 /datum/job_department
+	/// The radio channel associated with this department.
 	var/radio_channel
 
 /datum/job_department/assistant
