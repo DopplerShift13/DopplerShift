@@ -31,3 +31,6 @@
 
 /datum/job_department/engineering
 	radio_channel = RADIO_CHANNEL_ENGINEERING
+
+/datum/job_department/cargo
+	radio_channel = RADIO_CHANNEL_SUPPLY
