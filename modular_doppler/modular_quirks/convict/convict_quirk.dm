@@ -6,7 +6,7 @@
 	gain_text = span_notice("You've been found guilty.")
 	lose_text = span_notice("You've been aquitted.")
 	medical_record_text = "This patient has been convicted of a crime, and should always have a tracking implant."
-	quirk_flags = QUIRK_HIDE_FROM_SCAN
+	quirk_flags = QUIRK_HIDE_FROM_SCAN|QUIRK_HUMAN_ONLY
 	mail_goodies = list(/obj/item/knife/shiv)
 	var/obj/item/implant/tracking/quirk_implant = null
 
@@ -15,7 +15,9 @@
 	if(!ishuman(quirk_holder))
 		return
 	give_item_to_holder(/obj/item/clothing/under/rank/prisoner, list(LOCATION_BACKPACK))
-
+	//Add Implant
+	quirk_implant = new
+	quirk_implant.implant(quirk_holder, null, silent=TRUE, force=TRUE)
 /// Choose a crime
 /datum/quirk_constant_data/convict
 	associated_typepath = /datum/quirk/item_quirk/convict
@@ -45,15 +47,9 @@
 /datum/preference/text/convict_crime/apply_to_human(mob/living/carbon/human/target, value)
 	return
 
-// Add & Remove tracking implant
-/datum/quirk/item_quirk/convict/add(client/client_source)
-	quirk_implant = new
-	quirk_implant.implant(quirk_holder, null, silent=TRUE, force=TRUE)
-
-//Report To Security
+//Report To Department
 //Shamelessly stolen from underworld_connections_quirk.dm
 //Changes made: security note differs, status is set to parole and not suspected
-
 /datum/quirk/item_quirk/convict/post_add()
 	. = ..()
 
@@ -74,7 +70,7 @@
 
 /datum/quirk/item_quirk/convict/remove()
 	if (ishuman(quirk_holder))
-		QDEL_NULL(quirk_implant)
+		QDEL_NULL(quirk_implant) // Remove Implant
 		var/mob/living/carbon/human/human_holder = quirk_holder
 		var/datum/record/crew/our_record = find_record(human_holder.name)
 		var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
