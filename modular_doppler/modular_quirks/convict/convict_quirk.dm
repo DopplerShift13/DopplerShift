@@ -54,21 +54,20 @@
 //Changes made: security note differs, status is set to parole and not suspected
 /datum/quirk/item_quirk/convict/post_add()
 	. = ..()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	var/datum/record/crew/our_record = find_record(human_holder.name)
+	var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
+	if(our_record)
+		our_record.wanted_status = WANTED_PAROLE
+		our_record.security_note += "This paroled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits."
 
-	if (ishuman(quirk_holder))
-		var/list/radio_channels = quirk_holder.mind?.assigned_role?.get_radio_channels()
-		var/mob/living/carbon/human/human_holder = quirk_holder
-		var/datum/record/crew/our_record = find_record(human_holder.name)
-		var/convict_crime = quirk_holder.client?.prefs.read_preference(/datum/preference/text/convict_crime)
-		if (our_record)
-			our_record.wanted_status = WANTED_PAROLE
-			our_record.security_note += "This paroled convict has been assigned to your station. [human_holder.name] has been convicted of [convict_crime], and should not be issued weapon permits."
-		if(!length(radio_channels))
-			return
-		var/obj/machinery/announcement_system/aas = get_announcement_system(source = src)
-		if(isnull(aas))
-			return
-		aas.broadcast("[human_holder.name], guilty of [convict_crime], has been assigned to your department as a convict on parole.", radio_channels)
+	var/list/radio_channels = quirk_holder.mind?.assigned_role?.get_radio_channels()
+	if(!length(radio_channels))
+		return
+	var/obj/machinery/announcement_system/aas = get_announcement_system(source = src)
+	if(isnull(aas))
+		return
+	aas.broadcast("[human_holder.name], guilty of [convict_crime], has been assigned to your department as a convict on parole.", radio_channels)
 
 /datum/quirk/item_quirk/convict/remove()
 	if (ishuman(quirk_holder))
