@@ -251,7 +251,7 @@
 #define DIGITIGRADE_LEGS "Digitigrade Legs"
 
 // Health/damage defines
-#define MAX_LIVING_HEALTH 100
+#define MAX_LIVING_HEALTH 150 //DOPPLER EDIT CHANGE - ORIGINAL: MAX_LIVING_HEALTH 100
 
 //for determining which type of heartbeat sound is playing
 ///Heartbeat is beating fast for hard crit
