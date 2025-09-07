@@ -6,7 +6,7 @@
 	layer = TABLE_LAYER
 	density = TRUE
 	anchored = TRUE
-	pass_flags_self = LETPASSTHROW //You can throw objects over this, despite its density.
+	pass_flags_self = LETPASSTHROW
 	max_integrity = 35
 
 /obj/structure/shelf/Initialize(mapload)
@@ -30,14 +30,6 @@
 /obj/structure/shelf/examine(mob/user)
 	. = ..()
 	. += span_notice("It's held together by a couple of <b>bolts</b>.")
-
-// I'm unsure why TG racks do this but it seems important
-/obj/structure/shelf/CanAllowThrough(atom/movable/mover, border_dir)
-	. = ..()
-	if(.)
-		return
-	if(istype(mover) && (mover.pass_flags & PASSTABLE))
-		return TRUE
 
 /obj/structure/shelf/wrench_act_secondary(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src)
