@@ -29,7 +29,7 @@
 
 /obj/structure/shelf/examine(mob/user)
 	. = ..()
-	. += span_notice("It's held together by a couple of <b>bolts</b>.")
+	. += span_notice("It's held together by a couple of [EXAMINE_HINT("bolts")].")
 
 /obj/structure/shelf/wrench_act_secondary(mob/living/user, obj/item/tool)
 	tool.play_tool_sound(src)
