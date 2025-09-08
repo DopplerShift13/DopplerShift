@@ -212,17 +212,19 @@
 	return TRUE
 
 /// adds a chance of a pizza bomb replacing a pizza
-/datum/supply_pack/organic/pizza/proc/add_boombox(obj/structure/closet/crate/new_crate)
-	if(boombox_provided)
-		return FALSE
-	if(!prob(bomb_pizza_chance))
-		return FALSE
-	var/boombox_type = (prob(bomb_dud_chance)) ? /obj/item/pizzabox/bomb : /obj/item/pizzabox/bomb/armed
-	new boombox_type(new_crate)
-	boombox_provided = TRUE
-	log_game("A pizza box bomb was created by a pizza crate delivery.")
-	message_admins("A pizza box bomb has arrived in a pizza crate delivery.")
-	return TRUE
+/// DOPPLER EDIT START - Removes Pizza Bomb Event
+/// /datum/supply_pack/organic/pizza/proc/add_boombox(obj/structure/closet/crate/new_crate)
+///	if(boombox_provided)
+///		return FALSE
+///	if(!prob(bomb_pizza_chance))
+///		return FALSE
+///	var/boombox_type = (prob(bomb_dud_chance)) ? /obj/item/pizzabox/bomb : /obj/item/pizzabox/bomb/armed
+///	new boombox_type(new_crate)
+///	boombox_provided = TRUE
+///	log_game("A pizza box bomb was created by a pizza crate delivery.")
+///	message_admins("A pizza box bomb has arrived in a pizza crate delivery.")
+///	return TRUE
+/// DOPPLER EDIT END - - Removes Pizza Bomb Event
 
 /// adds a randomized pizza from the pizza list
 /datum/supply_pack/organic/pizza/proc/add_normal_pizza(obj/structure/closet/crate/new_crate, list/rng_pizza_list)
