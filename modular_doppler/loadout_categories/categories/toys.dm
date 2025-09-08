@@ -76,3 +76,65 @@
 	name = "Harmonica"
 	item_path = /obj/item/instrument/harmonica
 	restricted_roles =  list(JOB_PRISONER)
+
+/// Plushie blast
+
+/datum/loadout_item/toy/plush/carp
+	name = "Space Carp plushie"
+	item_path = /obj/item/toy/plush/carpplushie
+
+/datum/loadout_item/toy/plush/lizard
+	name = "Lizard plushie"
+	item_path = /obj/item/toy/plush/lizard_plushie/greyscale
+
+/datum/loadout_item/toy/plush/space
+	name = "Space Lizard plushie"
+	item_path = /obj/item/toy/plush/lizard_plushie/space
+
+/datum/loadout_item/toy/plush/snake
+	name = "Snake plushie"
+	item_path = /obj/item/toy/plush/snakeplushie
+
+/datum/loadout_item/toy/plush/plasmaperson
+	name = "Plasmaperson plushie"
+	item_path = /obj/item/toy/plush/plasmamanplushie
+
+/datum/loadout_item/toy/plush/slime
+	name = "Slime plushie"
+	item_path = /obj/item/toy/plush/slimeplushie
+
+/datum/loadout_item/toy/plush/bee
+	name = "Bee plushie"
+	item_path = /obj/item/toy/plush/beeplushie
+
+/datum/loadout_item/toy/plush/moth
+	name = "Moth plushie"
+	item_path = /obj/item/toy/plush/moth
+
+/datum/loadout_item/toy/plush/peacekeeper
+	name = "Peacekeeper plushie"
+	item_path = /obj/item/toy/plush/pkplush
+
+/datum/loadout_item/toy/plush/runner
+	name = "Runner plushie"
+	item_path = /obj/item/toy/plush/rouny
+
+/datum/loadout_item/toy/plush/shark
+	name = "Shark plushie"
+	item_path = /obj/item/toy/plush/shark
+
+/datum/loadout_item/toy/plush/donkpocket
+	name = "Donk pocket plushie"
+	item_path = /obj/item/toy/plush/donkpocket
+
+/datum/loadout_item/toy/plush/horse
+	name = "Horse plushie"
+	item_path = /obj/item/toy/plush/horse
+
+/datum/loadout_item/toy/plush/unicorn
+	name = "Unicorn plushie"
+	item_path = /obj/item/toy/plush/unicorn
+
+/datum/loadout_item/toy/plush/monkey
+	name = "Monkey plushie"
+	item_path = /obj/item/toy/plush/monkey
