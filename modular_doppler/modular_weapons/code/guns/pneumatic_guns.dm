@@ -33,3 +33,34 @@
 	ammo_type = /obj/item/ammo_casing/avispa_stingball
 	caliber = CALIBER_STINGBALL
 	max_ammo = 38
+
+/*
+*	a syringe gun with a constrained set of pre-filled cartridges that it can load, for security's support loadout.
+* 	we want sealed and tamper-proof darts for this, so we subtype from /obj/item/gun/ballistic instead of /obj/item/gun/syringe
+*	and avoid syringes entirely.
+*/
+
+/obj/item/gun/ballistic/alacran
+	name = "\improper Alacrán syringe delivery system"
+	desc = "A pneumatically driven dart pistol that has found broad popularity with trauma response units for its usability, \
+	and with trauma response corporate lawyers for its liability-friendly sealed and proprietary cartridges."
+	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
+	icon_state = ""
+	worn_icon = 'modular_doppler/modular_weapons/icons/mob/worn/guns.dmi'
+	worn_icon_state = ""
+	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_lefthand.dmi'
+	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
+	inhand_icon_state = ""
+	w_class = WEIGHT_CLASS_SMALL
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/alacran
+	internal_magazine = TRUE
+	bolt_type = BOLT_TYPE_LOCKING
+	can_suppress = FALSE
+	cartridge_wording = "dart"
+
+/obj/item/ammo_box/magazine/internal/alacran
+	name = "Alacrán bolt"
+	ammo_type =
+	caliber =
+	max_ammo = 1
