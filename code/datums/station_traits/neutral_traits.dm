@@ -115,19 +115,17 @@
 	report_message = "Something seems to be wrong with the PDAs issued to you all this shift. Nothing too bad though."
 	trait_to_give = STATION_TRAIT_PDA_GLITCHED
 
-/// DOPPLER EDIT START - Disables the Intern
-// /datum/station_trait/announcement_intern
-// 	name = "Announcement Intern"
-// 	trait_type = STATION_TRAIT_NEUTRAL
-// 	weight = 1
-// 	show_in_report = TRUE
-// 	report_message = "Please be nice to him."
-// 	blacklist = list(/datum/station_trait/announcement_medbot, /datum/station_trait/birthday)
+/datum/station_trait/announcement_intern
+	name = "Announcement Intern"
+	trait_type = STATION_TRAIT_NEUTRAL
+	weight = 1
+	show_in_report = TRUE
+	report_message = "Please be nice to him."
+	blacklist = list(/datum/station_trait/announcement_medbot, /datum/station_trait/birthday)
 
-// /datum/station_trait/announcement_intern/New()
-// 	. = ..()
-// 	SSstation.announcer = /datum/centcom_announcer/intern
-/// DOPPLER EDIT END - Disables Intern
+/datum/station_trait/announcement_intern/New()
+	. = ..()
+	SSstation.announcer = /datum/centcom_announcer/intern
 
 /datum/station_trait/announcement_intern/get_pulsar_message()
 	var/advisory_string = "Advisory Level: <b>(TITLE HERE)</b></center><BR>"
@@ -569,15 +567,13 @@
 	overlays += "select_pet"
 
 /// We're pulling a Jim Kramer with this one boys
-/// DOPPLER EDIT START - Disables GMM Spotlight
-// /datum/station_trait/gmm_spotlight
-// 	name = "GMM Economic Spotlight"
-// 	report_message = "This shift, the Galactic Mineral Market is doing a showcase on your crew's affulence! Every paycheck, the station newscasters will alert the crew who has the most credits."
-// 	trait_type = STATION_TRAIT_NEUTRAL
-// 	trait_to_give = STATION_TRAIT_ECONOMY_ALERTS
-// 	weight = 2
-// 	cost = STATION_TRAIT_COST_LOW
-// 	show_in_report = TRUE
+/datum/station_trait/gmm_spotlight
+	name = "GMM Economic Spotlight"
+	report_message = "This shift, the Galactic Mineral Market is doing a showcase on your crew's affulence! Every paycheck, the station newscasters will alert the crew who has the most credits."
+	trait_type = STATION_TRAIT_NEUTRAL
+	trait_to_give = STATION_TRAIT_ECONOMY_ALERTS
+	weight = 2
+	cost = STATION_TRAIT_COST_LOW
+	show_in_report = TRUE
 
-// 	dynamic_threat_id = "GMM Econ Spotlight"
-/// DOPPLER EDIT END - Disables GMM Spotlight
+	dynamic_threat_id = "GMM Econ Spotlight"
