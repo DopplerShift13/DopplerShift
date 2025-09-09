@@ -79,6 +79,10 @@
 
 /// Plushie blast
 
+/datum/loadout_item/toy/plush
+	group = "Plushies"
+	abstract_type = /datum/loadout_item/toy/plush
+
 /datum/loadout_item/toy/plush/carp
 	name = "Space Carp plushie"
 	item_path = /obj/item/toy/plush/carpplushie
