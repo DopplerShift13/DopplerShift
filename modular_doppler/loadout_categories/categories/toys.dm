@@ -142,3 +142,8 @@
 /datum/loadout_item/toy/plush/monkey
 	name = "Monkey plushie"
 	item_path = /obj/item/toy/plush/monkey
+
+/datum/loadout_item/toy/plush/deer
+	name = "Deer plushie"
+	item_path = /obj/item/toy/plush/modular/deer
+
