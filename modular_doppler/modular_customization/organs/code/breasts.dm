@@ -10,7 +10,7 @@
 
 	preference = "feature_breasts"
 
-	dna_block = DNA_BREASTS_BLOCK
+	dna_block = /datum/dna_block/feature/breasts
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
 	bodypart_overlay = /datum/bodypart_overlay/mutant/breasts
@@ -32,7 +32,7 @@
 		return vis
 
 /datum/bodypart_overlay/mutant/breasts
-	feature_key = "breasts"
+	feature_key = FEATURE_BREASTS
 	layers = EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
 
 	var/visibility = ORGAN_VISIBILITY_MODE_NORMAL

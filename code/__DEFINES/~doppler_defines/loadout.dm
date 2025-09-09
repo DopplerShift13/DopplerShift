@@ -1,5 +1,7 @@
 /// Used to set custom descriptions.
 #define INFO_DESCRIBED "description"
+/// Used to set custom labels on MODlink devices.
+#define INFO_MODLINK_LABEL "modlink_label"
 
 /// Max amonut of misc / backpack items that are allowed.
 #define MAX_ALLOWED_MISC_ITEMS 3

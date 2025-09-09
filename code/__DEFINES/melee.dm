@@ -13,4 +13,4 @@
 #define MARTIALART_JUNGLEARTS "jungle arts"
 
 /// The number of hits required to crit a target
-#define HITS_TO_CRIT(damage) round(100 / damage, 0.1)
+#define HITS_TO_CRIT(damage) round(MAX_LIVING_HEALTH / (damage), 0.1) //DOPPLER EDIT CHANGE - ORIGINAL: round(100 / (damage), 0.1)

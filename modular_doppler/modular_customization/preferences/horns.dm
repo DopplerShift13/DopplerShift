@@ -48,7 +48,7 @@
 
 /datum/preference/toggle/horns/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features["horns"] = /datum/sprite_accessory/horns/none::name
+		target.dna.features[FEATURE_HORNS] = /datum/sprite_accessory/horns/none::name
 
 /datum/preference/toggle/horns/create_default_value()
 	return FALSE
@@ -62,8 +62,8 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["horns"] && !(type in GLOB.species_blacklist_no_mutant))
-		if(target.dna.features["horns"] != /datum/sprite_accessory/horns/none::name && target.dna.features["horns"] != /datum/sprite_accessory/blank::name)
+	if(target.dna.features[FEATURE_HORNS] && !(type in GLOB.species_blacklist_no_mutant))
+		if(target.dna.features[FEATURE_HORNS] != /datum/sprite_accessory/horns/none::name && target.dna.features[FEATURE_HORNS] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/horns)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -101,12 +101,12 @@
 	if(sprite_accessory.icon_state != "none")
 		if(icon_exists(sprite_accessory.icon, "m_horns_[sprite_accessory.icon_state]_ADJ"))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_horns_[sprite_accessory.icon_state]_ADJ")
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_WEBSAFE_DARK_GRAY, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 		if(icon_exists(sprite_accessory.icon, "m_horns_[sprite_accessory.icon_state]_FRONT"))
 			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_horns_[sprite_accessory.icon_state]_FRONT")
-			accessory_icon.shift(NORTH, 0, ICON_SIZE_X, ICON_SIZE_Y)
+			accessory_icon.shift(NORTH, 0)
 			accessory_icon.blend_color(COLOR_WEBSAFE_DARK_GRAY, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 

@@ -23,8 +23,6 @@
 /obj/item/storage/backpack/snail
 	/// Whether or not a bluespace anomaly core has been inserted
 	var/storage_core = FALSE
-	slowdown = 6 // The snail's shell is what's making them slow.
-	obj_flags = IMMUTABLE_SLOW //This should hopefully solve other issues involing it as well.
 	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER //This makes them layer over tails like the cult backpack; some tails really shouldn't appear over them!
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
@@ -145,7 +143,7 @@
 		wearer.update_worn_back()
 
 /datum/species/snail/prepare_human_for_preview(mob/living/carbon/human/snail)
-	snail.dna.features["mcolor"] = "#797289"
+	snail.dna.features[FEATURE_MUTANT_COLOR] = "#797289"
 	snail.hairstyle = "Phoenix Half-Shaven"
 	snail.hair_color = "#4C3C7E"
 	snail.eye_color_left = "#615188"

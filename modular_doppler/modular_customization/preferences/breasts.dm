@@ -18,8 +18,8 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features["breasts"])
-		if(target.dna.features["breasts"] != "Bare")
+	if(target.dna.features[FEATURE_BREASTS])
+		if(target.dna.features[FEATURE_BREASTS] != "Bare")
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/breasts)
 			//replacement.build_from_dna(target.dna, "breasts") //TODO: do we need to add this
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -41,7 +41,7 @@
 /datum/preference/toggle/breasts/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
 		//to_chat(world, "Begone, boobs.")
-		target.dna.features["breasts"] = "Bare"
+		target.dna.features[FEATURE_BREASTS] = "Bare"
 
 /datum/preference/toggle/breasts/create_default_value()
 	return FALSE
@@ -63,7 +63,7 @@
 	return generate_breasts_shot(SSaccessories.breasts_list[value])
 
 /datum/preference/choiced/breasts/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["breasts"] = value
+	target.dna.features[FEATURE_BREASTS] = value
 
 /datum/preference/choiced/breasts/create_default_value()
 	return /datum/sprite_accessory/breasts/bare::name
