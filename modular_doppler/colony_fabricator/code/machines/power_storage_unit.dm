@@ -9,9 +9,22 @@
 	output_level_max = 200 KILO WATTS
 	circuit = null
 
+	/// Typepath for the batteries we use to hold our charge, spawned on init.
+	var/spawned_battery_type = /obj/item/stock_parts/power_store/battery/empty
+	/// The amount of batteries we spawn inside of us on init.
+	var/spawned_battery_amount = 5
+
 /obj/machinery/power/smes/battery_pack/Initialize(mapload)
+	initialize_batteries() // Must be done before parent init, so parent can charge the cells.
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
+
+/// Initialize our internal batteries.
+/obj/machinery/power/smes/battery_pack/proc/initialize_batteries()
+	for(var/_ in 1 to spawned_battery_amount)
+		var/obj/item/stock_parts/power_store/spawned_cell = new spawned_battery_type(src)
+		LAZYADD(component_parts, spawned_cell)
+		total_capacity += spawned_cell.max_charge()
 
 /obj/machinery/power/smes/battery_pack/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
 	if(screwdriver.tool_behaviour != TOOL_SCREWDRIVER)
@@ -37,10 +50,10 @@
 
 // Automatically set themselves to be completely charged on init
 /obj/machinery/power/smes/battery_pack/precharged
-	charge = 50 * STANDARD_BATTERY_CHARGE
+	charge = 5 * STANDARD_BATTERY_CHARGE
+
 
 // Item for creating the small battery and carrying it around
-
 /obj/item/flatpacked_machine/station_battery
 	name = "flat-packed stationary battery"
 	desc = /obj/machinery/power/smes/battery_pack::desc
@@ -52,8 +65,8 @@
 		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 
-// Larger station batteries, hold more but have less in/output
 
+// Larger station batteries, hold more but have less in/output
 /obj/machinery/power/smes/battery_pack/large
 	name = "large stationary battery"
 	desc = "A massive block of power storage, commonly seen in high storage low output power applications. \
@@ -63,11 +76,11 @@
 	icon = 'modular_doppler/colony_fabricator/icons/power_storage_unit/large_battery.dmi'
 	input_level_max = 50 KILO WATTS
 	output_level_max = 50 KILO WATTS
+	spawned_battery_type = /obj/item/stock_parts/power_store/battery/super
 
 // Automatically set themselves to be completely charged on init
-
 /obj/machinery/power/smes/battery_pack/large/precharged
-	charge = 50 * STANDARD_BATTERY_CHARGE
+	charge = 100 * STANDARD_BATTERY_CHARGE
 
 
 /obj/item/flatpacked_machine/large_station_battery
