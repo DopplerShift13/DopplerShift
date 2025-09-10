@@ -106,6 +106,8 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
+		/obj/item/melee/secblade, //DOPPLER EDIT ADDITION START
+		/obj/item/melee/sec_jitte,//DOPPLER EDIT ADDITION END
 	))
 
 ///Webbing security belt
