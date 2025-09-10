@@ -13,3 +13,4 @@
 
 #define CALIBER_980TYDHOUER ".980 Tydhouer"
 #define CALIBER_STINGBALL ".61 Stingballs"
+#define CALIBER_ALACRAN ".50 Alacran Dart"

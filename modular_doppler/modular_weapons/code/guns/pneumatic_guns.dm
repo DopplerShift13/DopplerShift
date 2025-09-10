@@ -4,7 +4,7 @@
 */
 
 /obj/item/gun/ballistic/avispa_stingball_shooter
-	name = "\improper Avispa stingball launcher"
+	name = "\improper Avispa stingball launcher"	//avispa means wasp
 	desc = "Oriented glass strand polymers in hivis yellow and blackened pneumatic tubing. The strange and uncomfortable stock \
 	was designed for legalistic concerns over ergonomics. A label on the side admonishes the use of third party ammunition and \
 	recommends against aiming for a target's eyes."
@@ -41,16 +41,16 @@
 */
 
 /obj/item/gun/ballistic/alacran
-	name = "\improper Alacrán syringe delivery system"
+	name = "\improper Alacrán syringe delivery system"	//alacran means scorpion
 	desc = "A pneumatically driven dart pistol that has found broad popularity with trauma response units for its usability, \
 	and with trauma response corporate lawyers for its liability-friendly sealed and proprietary cartridges."
 	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
-	icon_state = ""
+	icon_state = "alacran"
 	worn_icon = 'modular_doppler/modular_weapons/icons/mob/worn/guns.dmi'
-	worn_icon_state = ""
+	worn_icon_state = "alacran"
 	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_lefthand.dmi'
 	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
-	inhand_icon_state = ""
+	inhand_icon_state = "alacran"
 	w_class = WEIGHT_CLASS_SMALL
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_SUITSTORE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/alacran
@@ -61,6 +61,6 @@
 
 /obj/item/ammo_box/magazine/internal/alacran
 	name = "Alacrán bolt"
-	ammo_type =
-	caliber =
+	ammo_type = /obj/item/ammo_casing/alacran_dart
+	caliber = CALIBER_ALACRAN
 	max_ammo = 1
