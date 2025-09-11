@@ -4,7 +4,7 @@
  * Edits can be found here:
  * - code/datums/status_effects/wound_effects.dm (/datum/status_effect/limp/proc/update_limp(...))
  */
-/datum/quirk/item_quirk/limping
+/datum/quirk/limping
 	name = "Limping"
 	desc = "For one reason or another, you have a lingering limp in either or both legs."
 	icon = FA_ICON_CRUTCH
@@ -24,19 +24,10 @@
 	var/affected_side
 
 /datum/quirk_constant_data/limping
-	associated_typepath = /datum/quirk/item_quirk/limping
+	associated_typepath = /datum/quirk/limping
 	customization_options = list(/datum/preference/choiced/limping_side, /datum/preference/choiced/limping_severity)
 
-/datum/quirk/item_quirk/limping/add_unique(client/client_source)
-	give_item_to_holder(
-		/obj/item/cane/crutch,
-		list(
-			LOCATION_HANDS,
-			LOCATION_BACKPACK,
-		)
-	)
-
-/datum/quirk/item_quirk/limping/add(client/client_source)
+/datum/quirk/limping/add(client/client_source)
 	var/chosen_side = client_source?.prefs?.read_preference(/datum/preference/choiced/limping_side)
 	affected_side = GLOB.side_choice_limping[chosen_side]
 	if(isnull(affected_side))  // Client gone or they chose a random side
@@ -58,12 +49,12 @@
 
 	medical_record_text = "Patient has a [LOWER_TEXT(chosen_severity)] limp on [(affected_side == LIMPING_SIDE_BOTH) ? "both sides" : "their [LOWER_TEXT(chosen_side)]"]."
 
-/datum/quirk/item_quirk/limping/remove()
+/datum/quirk/limping/remove()
 	UnregisterSignal(quirk_holder, COMSIG_CARBON_ATTACH_LIMB)
 	var/datum/status_effect/limp/limping_effect = quirk_holder.has_status_effect(/datum/status_effect/limp)
 	limping_effect.update_limp(src)
 
-/datum/quirk/item_quirk/limping/proc/reapply_limp(datum/source, obj/item/bodypart/new_limb, special)
+/datum/quirk/limping/proc/reapply_limp(datum/source, obj/item/bodypart/new_limb, special)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	human_holder.apply_status_effect(/datum/status_effect/limp)
