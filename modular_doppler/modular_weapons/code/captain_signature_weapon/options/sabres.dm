@@ -132,6 +132,28 @@
 	slot_flags = NONE // This doesn't fit on belts, it's a cane. (we don't have a sprite for it)
 	spawned_sword_type = /obj/item/melee/sabre/modular/cane
 
+/obj/item/storage/belt/sheath/modular/cane/equipped(mob/living/user, slot, initial)
+	..()
+	if(!(slot & ITEM_SLOT_HANDS))
+		return
+	movement_support_add(user)
+
+/obj/item/storage/belt/sheath/modular/cane/dropped(mob/living/user, silent = FALSE)
+	. = ..()
+	movement_support_del(user)
+
+/obj/item/storage/belt/sheath/modular/cane/proc/movement_support_add(mob/living/user)
+	RegisterSignal(user, COMSIG_CARBON_LIMPING, PROC_REF(handle_limping))
+	return TRUE
+
+/obj/item/storage/belt/sheath/modular/cane/proc/movement_support_del(mob/living/user)
+	UnregisterSignal(user, list(COMSIG_CARBON_LIMPING))
+	return TRUE
+
+/obj/item/storage/belt/sheath/modular/cane/proc/handle_limping(mob/living/user)
+	SIGNAL_HANDLER
+	return COMPONENT_CANCEL_LIMP
+
 
 /obj/item/melee/sabre/modular/telescopic
 	name = "telescopic blade"
