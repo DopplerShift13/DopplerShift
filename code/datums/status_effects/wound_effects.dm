@@ -131,7 +131,7 @@
 			limp_chance_right = max(limp_chance_right, wound.limp_chance)
 
 	// DOPPLER EDIT ADDITION START - Limping quirk functionality
-	var/datum/quirk/item_quirk/limping/limping_quirk = carbon_mob.get_quirk(/datum/quirk/item_quirk/limping)
+	var/datum/quirk/limping/limping_quirk = carbon_mob.get_quirk(/datum/quirk/limping)
 	if(limping_quirk)
 		update_alert(slowdown_left || slowdown_right)
 		if(limping_quirk.affected_side & LIMPING_SIDE_LEFT)
