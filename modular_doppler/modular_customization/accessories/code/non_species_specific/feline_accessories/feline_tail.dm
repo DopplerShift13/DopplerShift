@@ -26,3 +26,7 @@
 /datum/sprite_accessory/tails/human/cat/leopard
 	name = "Leopard"
 	icon_state = "leopard"
+
+/datum/sprite_accessory/tails/human/cat/tipped
+	name = "Cat, tipped"
+	icon_state = "tipped"
