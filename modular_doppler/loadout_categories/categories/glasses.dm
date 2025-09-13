@@ -84,7 +84,7 @@
 	name = "Retinal Projector (Diagnostics)"
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/diagnostic
 
-/datum/loadout_item/glasses/hud/retinal_projector_diagnostic
+/datum/loadout_item/glasses/hud/retinal_projector_science
 	name = "Retinal Projector (Science)"
 	item_path = /obj/item/clothing/glasses/hud/ar/projector/science
 
@@ -144,7 +144,7 @@
 
 /datum/loadout_item/glasses/hud/stealing/get_item_information()
 	. = ..()
-	.[FA_ICON_LINK] = "Takes in other glasses!"
+	.[FA_ICON_LINK] = "Takes in properties of other glasses!"
 
 /datum/loadout_item/glasses/hud/stealing/techno_visor
 	name = "Techno-Visor"
