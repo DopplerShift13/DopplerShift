@@ -24,6 +24,7 @@
 		outfit.glasses = item_path
 // DOPPLER EDIT END
 
+/* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
 /datum/loadout_item/glasses/regular
 	name = "Glasses"
 	item_path = /obj/item/clothing/glasses/regular
@@ -75,3 +76,4 @@
 /datum/loadout_item/glasses/monocle
 	name = "Monocle"
 	item_path = /obj/item/clothing/glasses/monocle
+*/ // DOPPLER EDIT REMOVAL END
