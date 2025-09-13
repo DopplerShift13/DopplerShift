@@ -25,7 +25,7 @@
 /datum/element/ridable_turret/proc/check_mounting(atom/movable/target_movable, mob/living/potential_rider, force = FALSE, ride_check_flags = NONE)
 	SIGNAL_HANDLER
 
-	if(arms_needed && !equip_buckle_inhands(potential_rider, target_movable))
+	if(!equip_buckle_inhands(potential_rider, target_movable))
 		potential_rider.visible_message(span_warning("[potential_rider] can't get a grip on [target_movable] because [potential_rider.p_their()] hands are full!"),
 			span_warning("You can't get a grip on [target_movable] because your hands are full!"))
 		return COMPONENT_BLOCK_BUCKLE
