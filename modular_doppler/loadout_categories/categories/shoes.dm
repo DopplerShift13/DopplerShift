@@ -73,6 +73,10 @@
 	name = "Work Boots"
 	item_path = /obj/item/clothing/shoes/workboots
 
+/datum/loadout_item/shoes/dark_workboots
+	name = "Tactical Work Boots"
+	item_path = /obj/item/clothing/shoes/workboots/black
+
 /datum/loadout_item/shoes/workboots_mining
 	name = "Mining Boots"
 	item_path = /obj/item/clothing/shoes/workboots/mining

@@ -14,7 +14,8 @@
 			"Baseturf": "/turf/open/lava/plasma/ice_moon",
 			"Bombcap Multiplier": 2,
 			"Gravity": true,
-			"Linkage": null
+			"Linkage": null,
+			"Station": false
 		},
 		{
 			"Mining": true,
@@ -22,7 +23,8 @@
 			"Ice Ruins Underground": true,
 			"Baseturf": "/turf/open/openspace/icemoon/keep_below",
 			"Gravity": true,
-			"Linkage": null
+			"Linkage": null,
+			"Station": false
 		},
 		{
 			"Mining": true,
@@ -31,7 +33,8 @@
 			"Ice Ruins": true,
 			"Baseturf": "/turf/open/openspace/icemoon/keep_below",
 			"Gravity": true,
-			"Linkage": null
+			"Linkage": null,
+			"Station": false
 		}
 	],
 	"blacklist_file": "iceruinblacklist.txt"

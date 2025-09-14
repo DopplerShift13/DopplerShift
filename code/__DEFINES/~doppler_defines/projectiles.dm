@@ -5,6 +5,7 @@
 
 /// Rifle Calibers
 
+#define CALIBER_4MMEUROPAN "4mm Callistan"
 #define CALIBER_25EUROPA ".25 Europa"
 #define CALIBER_34NB ".34 NB"
 #define CALIBER_585NARAKA ".585 Naraka"

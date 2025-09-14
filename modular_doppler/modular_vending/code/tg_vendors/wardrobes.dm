@@ -52,6 +52,18 @@
 	products_doppler = list(
 		/obj/item/clothing/suit/jacket/doppler/departmental_jacket/supply = 3,
 		/obj/item/clothing/under/misc/doppler_uniform/cargo = 5,
+		/obj/item/clothing/under/rank/cargo/miner = 3,
+		/obj/item/clothing/under/rank/cargo/miner/lavaland = 3,
+		/obj/item/clothing/suit/armor/vest/miningjacket = 3,
+		/obj/item/clothing/shoes/workboots/mining = 3,
+		/obj/item/storage/backpack/explorer = 3,
+		/obj/item/storage/backpack/duffelbag/explorer = 3,
+		/obj/item/storage/backpack/satchel/explorer = 3,
+		/obj/item/storage/backpack/messenger/explorer = 3,
+		/obj/item/clothing/head/mining_cap = 3,
+		/obj/item/clothing/mask/neck_gaiter = 3,
+		/obj/item/clothing/gloves/doppler_mining = 3,
+		/obj/item/clothing/glasses/mining_meson = 3,
 	)
 
 /obj/machinery/vending/wardrobe/robo_wardrobe

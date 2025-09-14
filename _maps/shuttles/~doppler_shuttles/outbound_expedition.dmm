@@ -988,7 +988,7 @@
 /area/shuttle/personally_bought/mothership)
 "yv" = (
 /obj/structure/cable,
-/obj/machinery/power/smes/battery_pack/precharged,
+/obj/machinery/power/smes/ship,
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
@@ -1294,7 +1294,7 @@
 /area/shuttle/personally_bought/mothership)
 "GR" = (
 /obj/structure/cable,
-/obj/machinery/power/smes/battery_pack/precharged,
+/obj/machinery/power/smes/ship,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)

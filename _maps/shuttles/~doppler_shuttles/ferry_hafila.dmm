@@ -113,7 +113,7 @@
 /obj/structure/cable,
 /obj/effect/turf_decal/bot_white,
 /obj/structure/extinguisher_cabinet/directional/east,
-/obj/machinery/power/smes/battery_pack/large/precharged,
+/obj/machinery/power/smes/ship,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/people_mover)
 "oI" = (

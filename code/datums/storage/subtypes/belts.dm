@@ -106,6 +106,7 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
+		/obj/item/melee/sec_jitte,//DOPPLER EDIT ADDITION
 	))
 
 ///Webbing security belt
@@ -159,6 +160,8 @@
 		/obj/item/wrench,
 		/obj/item/wormhole_jaunter,
 		/obj/item/skeleton_key,
+		/obj/item/ammo_box, // DOPPLER ADDITION - PULSE RIFLE MINING
+		/obj/item/ammo_casing, // DOPPLER ADDITION - PULSE RIFLE MINING
 	))
 
 ///Primitive mining belt

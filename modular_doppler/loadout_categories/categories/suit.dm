@@ -107,6 +107,10 @@
 	name = "Tizirian Breastplate"
 	item_path = /obj/item/clothing/suit/armor/lizard
 
+/datum/loadout_item/suit/mining_jacket
+	name = "Explorer Coat"
+	item_path = /obj/item/clothing/suit/armor/vest/miningjacket
+
 /*
 *	SUITS / SUIT JACKETS
 */
