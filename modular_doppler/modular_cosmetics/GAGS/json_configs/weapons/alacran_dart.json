@@ -1,0 +1,21 @@
+{
+	"alacran_dart": [
+		{
+			"type": "icon_state",
+			"icon_state": "alacran_plume",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "alacran_case",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "alacran_needle",
+			"blend_mode": "overlay"
+		}
+	]
+}

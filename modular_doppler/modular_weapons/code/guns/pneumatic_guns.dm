@@ -42,7 +42,7 @@
 
 /obj/item/gun/ballistic/alacran
 	name = "\improper Alacrán syringe delivery system"	//alacran means scorpion
-	desc = "A pneumatically driven dart pistol that has found broad popularity with trauma response units for its usability, \
+	desc = "A Deforest branded pneumatically driven dart pistol that has found broad popularity with trauma response units for its usability, \
 	and with trauma response corporate lawyers for its liability-friendly sealed and proprietary cartridges."
 	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
 	icon_state = "alacran"

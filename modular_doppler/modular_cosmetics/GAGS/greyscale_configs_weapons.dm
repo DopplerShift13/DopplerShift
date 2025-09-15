@@ -29,6 +29,10 @@
 ⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⣿⠉⠀⠀⠀⢸⠂⠙⡎⠷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠈⢷⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⠀⡀⣀⣀⣀⡈⠂*/
 
 
+/*
+*	GUNS
+*/
+
 /datum/greyscale_config/schiebenmaschine
 	name = "Schießenmaschine"
 	icon_file = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
@@ -48,3 +52,12 @@
 	name = "Schießenmaschine (Righthand)"
 	icon_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/weapons/schiebenmaschine_worn.json'
+
+/*
+*	AMMO
+*/
+
+/datum/greyscale_config/alacran_dart
+	name = "Alacran Dart"
+	icon_file = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/weapons/alacran_dart.json'
