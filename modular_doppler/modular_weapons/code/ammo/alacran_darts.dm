@@ -33,6 +33,7 @@
 	name = "\improper Puya adrenaline dart"
 	desc = "A proprietary dart for the Alacran platform. This one contains a mixture to stimulate physical activity, \
 	and a warning label stating no liability for complications that arise from use."
+	greyscale_colors = "#af2747,#3a373e"
 
 /obj/item/ammo_casing/alacran_dart/adrenaline/Initialize(mapload)
 	. = ..()
