@@ -7447,6 +7447,7 @@
 #include "modular_doppler\modular_silicons\silicon_edits\on_click.dm"
 #include "modular_doppler\modular_silicons\silicon_edits\pda.dm"
 #include "modular_doppler\modular_silicons\table_interactions\table_overrides.dm"
+#include "modular_doppler\modular_silicons\upgrades\threadripper.dm"
 #include "modular_doppler\modular_skillchips\code\modular_skillchips.dm"
 #include "modular_doppler\modular_sounds\code\sounds.dm"
 #include "modular_doppler\modular_species\_species.dm"
