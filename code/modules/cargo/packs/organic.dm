@@ -77,24 +77,6 @@
 	crate_name = "exotic seeds crate"
 	crate_type = /obj/structure/closet/crate/hydroponics
 
-/datum/supply_pack/organic/lavalandsamples //DOPPLER EDIT, miniature port from Bubber
-	name = "Planetary Flora Samples"
-	desc = "A box of samples usually native to the distant moon of Indecipheres, \
-		recently found and harvested from a peculiar location on Truth's surface."
-	cost = CARGO_CRATE_VALUE * 10 //edited from 6 to 10, these shits were dangerous to harvest and a pain to cultivate
-	access_view = ACCESS_HYDROPONICS
-	contains = list(
-		/obj/item/seeds/lavaland/polypore,
-		/obj/item/seeds/lavaland/porcini,
-		/obj/item/seeds/lavaland/inocybe,
-		/obj/item/seeds/lavaland/ember,
-		/obj/item/seeds/lavaland/seraka,
-		/obj/item/seeds/lavaland/fireblossom,
-		/obj/item/seeds/lavaland/cactus,
-	)
-	crate_name = "planetary seeds crate"
-	crate_type = /obj/structure/closet/crate/hydroponics
-
 /datum/supply_pack/organic/food
 	name = "Food Crate"
 	desc = "Get things cooking with this crate full of useful ingredients! \
