@@ -47,6 +47,7 @@
 	implants = list(/obj/item/implant/mindshield)
 	backpack_contents = list(
 		/obj/item/choice_beacon/bodyguard = 1,
+		/obj/item/skillchip/job/command_bodyguard = 1
 	)
 	backpack = /obj/item/storage/backpack/security
 	satchel = /obj/item/storage/backpack/satchel/sec
@@ -61,7 +62,6 @@
 	id = /obj/item/card/id/advanced/black
 	id_trim = /datum/id_trim/job/security_officer/command_bodyguard
 
-	skillchips = list(/obj/item/skillchip/job/command_bodyguard)
 
 /datum/id_trim/job/security_officer/command_bodyguard
 	assignment = "Command Bodyguard"
