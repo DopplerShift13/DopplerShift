@@ -7494,6 +7494,7 @@
 #include "modular_doppler\modular_species\species_types\ramatae\ramatan_organs.dm"
 #include "modular_doppler\modular_species\species_types\slimes\slime_bodyparts.dm"
 #include "modular_doppler\modular_species\species_types\slimes\code\roundstartslimes.dm"
+#include "modular_doppler\modular_species\species_types\slimes\code\slime_washing.dm"
 #include "modular_doppler\modular_species\species_types\snails\modular_snail.dm"
 #include "modular_doppler\modular_species\species_types\snails\snail_bodyparts.dm"
 #include "modular_doppler\modular_species\species_types\snails\organs\snail_heart.dm"
