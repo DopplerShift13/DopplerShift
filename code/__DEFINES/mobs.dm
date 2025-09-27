@@ -164,6 +164,8 @@
 #define BODYSHAPE_DIGITIGRADE (1<<2)
 ///The limb is snouted.
 #define BODYSHAPE_SNOUTED (1<<3)
+///The limb has a mermaid tail
+#define BODYSHAPE_MERMAID (1<<4)
 
 /// DOPPLER SHIFT ADDITION BEGIN
 // This is where our custom bodyshapes are going to go.  Keeping these in one place is critical for readability.
@@ -212,6 +214,7 @@
 #define SPECIES_LIZARD_ASH "ashwalker"
 #define SPECIES_LIZARD_SILVER "silverscale"
 #define SPECIES_NIGHTMARE "nightmare"
+#define SPECIES_MERMAID "mermaid"
 #define SPECIES_MONKEY "monkey"
 #define SPECIES_MOTH "moth"
 #define SPECIES_MUSHROOM "mush"
