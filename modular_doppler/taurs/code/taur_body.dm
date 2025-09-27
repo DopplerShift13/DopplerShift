@@ -10,7 +10,7 @@
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
 	bodypart_overlay = /datum/bodypart_overlay/mutant/taur_body
 
-	var/abstract_type = /obj/item/organ/taur_body
+	abstract_type = /obj/item/organ/taur_body
 
 	/// If not null, the left leg limb we add to our mob will have this name.
 	var/left_leg_name = "front legs"

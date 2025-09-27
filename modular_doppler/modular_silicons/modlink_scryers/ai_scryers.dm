@@ -22,7 +22,7 @@
 	QDEL_NULL(mod_link)
 	return ..()
 
-/mob/living/silicon/ai/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods, message_range)
+/mob/living/silicon/ai/Hear(atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods, message_range)
 	. = ..()
 	if(isnull(mod_link.link_call) || isnull(mod_link.visual))
 		return
