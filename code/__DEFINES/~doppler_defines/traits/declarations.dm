@@ -10,6 +10,9 @@
 //// The trait for undersized quirk
 #define TRAIT_UNDERSIZED "undersized"
 
+//// The trait for Holosynths
+#define TRAIT_HOLOSYNTH "holosynthetic"
+
 /// Carp infusion: allows preferential metabolism & production of carpotoxin
 #define TRAIT_CARP_GOODTOX "carp_goodtox"
 
