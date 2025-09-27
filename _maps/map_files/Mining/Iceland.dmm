@@ -6919,7 +6919,6 @@
 /area/mine/eva)
 "Ti" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
-/obj/structure/closet/xenoarch,
 /turf/open/floor/iron/colony,
 /area/mine/production)
 "To" = (
