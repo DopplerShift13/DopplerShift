@@ -218,6 +218,16 @@
 	name = "Infinity Scarf (Worn)"
 	icon_file = 'icons/mob/clothing/neck.dmi'
 
+/datum/greyscale_config/capelet
+	name = "Capelet"
+	icon_file = 'icons/obj/clothing/neck.dmi'
+	json_config = 'code/datums/greyscale/json_configs/capelet.json'
+
+/datum/greyscale_config/capelet/worn
+	name = "Capelet (Worn)"
+	icon_file = 'icons/mob/clothing/neck.dmi'
+
+
 //
 // GLOVES
 //

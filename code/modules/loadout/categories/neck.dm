@@ -48,3 +48,7 @@
 /datum/loadout_item/neck/bowtie
 	name = "Bowtie"
 	item_path = /obj/item/clothing/neck/bowtie
+
+/datum/loadout_item/neck/greyscale_larger
+	name = "Capelet (Colorable)"
+	item_path = /obj/item/clothing/neck/capelet
