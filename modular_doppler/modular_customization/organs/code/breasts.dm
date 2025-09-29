@@ -44,5 +44,9 @@
 	var/offset2 = 0.08
 	var/offset3 = 0.07
 
+/datum/bodypart_overlay/mutant/breasts/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner.dna.features["breasts_colors"]
+	return ..()
+
 /datum/bodypart_overlay/mutant/breasts/get_global_feature_list()
 	return SSaccessories.breasts_list

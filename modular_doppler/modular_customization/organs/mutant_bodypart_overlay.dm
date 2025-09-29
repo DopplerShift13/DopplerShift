@@ -53,7 +53,6 @@
 			var/mutable_appearance/image_to_return = get_singular_image(build_icon_state(gender, image_layer), image_layer, owner)
 			returned_images = list(image_to_return)
 			overlay_indexes_to_color += index
-
 	return returned_images
 
 /**
@@ -63,43 +62,34 @@
 /datum/bodypart_overlay/mutant/proc/get_color_layer_names(icon_state_to_lookup)
 	return sprite_datum.color_layer_names
 
-
 /// Colors the given overlays list. Limb can be null.
 /// This is different from the base procs as it allows for multiple overlays to be colored at once.
 /// Useful for matrixed color mutant bodyparts.
 /datum/bodypart_overlay/mutant/proc/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
 	if(!sprite_datum || !overlays)
 		return
-
 	if(limb?.is_husked)
 		if(sprite_datum.color_src == USE_MATRIXED_COLORS) //Matrixed+husk needs special care, otherwise we get sparkle dogs
 			draw_color = HUSK_COLOR_LIST
 		else
 			draw_color = "#AAA" //The gray husk color
-
 	var/i = 1 // Starts at 1 for color layers.
 	alpha = limb?.alpha || ALPHA_OPAQUE
-
 	for(var/index_to_color in overlay_indexes_to_color)
 		if(index_to_color > length(overlays))
 			break
-
 		var/image/overlay = overlays[index_to_color]
-
 		switch(sprite_datum.color_src)
 			if(USE_ONE_COLOR)
 				overlay.color = islist(draw_color) ? draw_color[i] : draw_color
 				overlay.alpha = alpha
-
 			if(USE_MATRIXED_COLORS)
 				overlay.color = islist(draw_color) ? draw_color[i] : draw_color
 				overlay.alpha = alpha
 				i++
-
 			else
 				overlay.color = limb?.color
 				overlay.alpha = alpha
-
 
 /**
  * Helper to generate the icon_state for the bodypart_overlay we're trying to draw.
@@ -114,21 +104,15 @@
  */
 /datum/bodypart_overlay/mutant/proc/build_icon_state(gender, image_layer, color_layer = null, feature_key_suffix = null)
 	var/list/icon_state_builder = list()
-
 	icon_state_builder += sprite_datum.gender_specific ? gender : "m" //Male is default because sprite accessories are so ancient they predate the concept of not hardcoding gender
 	icon_state_builder += get_feature_key_for_overlay() + feature_key_suffix
 	icon_state_builder += get_base_icon_state()
 	icon_state_builder += mutant_bodyparts_layertext(image_layer)
-
 	if(color_layer)
 		icon_state_builder += color_layer
-
 	var/built_icon_state = icon_state_builder.Join("_")
-
 	LAZYADD(last_built_icon_states, built_icon_state)
-
 	return built_icon_state
-
 
 /**
  * Helper to generate one individual image for a multi-image overlay.
@@ -145,10 +129,8 @@
 /datum/bodypart_overlay/mutant/proc/get_singular_image(image_icon_state, image_layer, mob/living/carbon/human/owner, icon_override = null)
 	// We get from icon_override if it is filled, and from sprite_datum.icon if not.
 	var/mutable_appearance/appearance = mutable_appearance(icon_override || sprite_datum.icon, image_icon_state, layer = image_layer)
-
 	if(sprite_datum.center)
 		center_image(appearance, sprite_datum.dimension_x, sprite_datum.dimension_y)
-
 	return appearance
 
 /**

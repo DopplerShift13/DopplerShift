@@ -5,6 +5,10 @@
 /datum/bodypart_overlay/mutant/horns
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
+/datum/bodypart_overlay/mutant/horns/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner.dna.features["horns_colors"]
+	return ..()
+
 //core toggle
 /datum/preference/toggle/horns
 	savefile_key = "has_horns"

@@ -93,3 +93,7 @@
 /datum/bodypart_overlay/mutant/fluff
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
 	feature_key_sprite = FEATURE_FLUFF
+
+/datum/bodypart_overlay/mutant/fluff/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner.dna.features["fluff_colors"]
+	return ..()

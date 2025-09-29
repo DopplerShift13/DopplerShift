@@ -116,6 +116,10 @@
 	feature_key = FEATURE_TAUR
 	feature_key_sprite = FEATURE_TAUR
 
+/datum/bodypart_overlay/mutant/taur_body/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner.dna.features["taur_colors"]
+	return ..()
+
 /datum/bodypart_overlay/mutant/taur_body/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)
 	. = ..()
 

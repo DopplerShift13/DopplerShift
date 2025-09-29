@@ -95,3 +95,7 @@
 /datum/bodypart_overlay/mutant/snout
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
 	feature_key_sprite = "snout"
+
+/datum/bodypart_overlay/mutant/snout/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner.dna.features["snout_colors"]
+	return ..()
