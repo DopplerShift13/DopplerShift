@@ -18,7 +18,7 @@
 	var/flags_for_organ = NONE
 	color_src = USE_ONE_COLOR
 	///Which layers does this accessory affect
-	var/relevent_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BODY_FRONT_UNDER_CLOTHES_LAYER, ABOVE_BODY_FRONT_HEAD_LAYER)
+	var/relevant_layers = list(BODY_BEHIND_LAYER, BODY_ADJ_LAYER, BODY_FRONT_LAYER, BODY_FRONT_UNDER_CLOTHES_LAYER, ABOVE_BODY_FRONT_HEAD_LAYER)
 	///This is used to determine whether an accessory gets added to someone. This is important for accessories that are "None", which should have this set to false
 	var/factual = TRUE
 	///Use this as a type path to an organ that this sprite_accessory will be associated. Make sure the organ has 'mutantpart_info' set properly.
