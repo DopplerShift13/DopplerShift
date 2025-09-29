@@ -636,5 +636,5 @@
 	feature_key_sprite = "tail"
 
 /datum/bodypart_overlay/mutant/tail/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	draw_color = limb.owner.dna.features["tail_colors"]
+	draw_color = limb.owner?.dna.features["tail_colors"]
 	return ..()

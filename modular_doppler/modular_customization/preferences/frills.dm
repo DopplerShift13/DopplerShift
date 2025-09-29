@@ -6,7 +6,7 @@
 	layers = EXTERNAL_FRONT
 
 /datum/bodypart_overlay/mutant/frills/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	draw_color = limb.owner.dna.features["frills_colors"]
+	draw_color = limb.owner?.dna.features["frills_colors"]
 	return ..()
 
 //core toggle

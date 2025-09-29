@@ -135,9 +135,9 @@
 		return ..()
 	var/color_intended = COLOR_WHITE
 
-	var/tcol_1 = limb.owner.dna.features["wings_colors"][1]
-	var/tcol_2 = limb.owner.dna.features["wings_colors"][2]
-	var/tcol_3 = limb.owner.dna.features["wings_colors"][3]
+	var/tcol_1 = limb.owner?.dna.features["wings_colors"][1]
+	var/tcol_2 = limb.owner?.dna.features["wings_colors"][2]
+	var/tcol_3 = limb.owner?.dna.features["wings_colors"][3]
 	if(tcol_1 && tcol_2 && tcol_3)
 		//this is beyond ugly but it works
 		var/r1 = hex2num(copytext(tcol_1, 2, 4)) / 255.0

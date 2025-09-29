@@ -25,6 +25,10 @@
 	name = "No Antennae"
 	icon_state = "none"
 
+/datum/sprite_accessory/fluff
+	key = "fluff"
+	color_src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/fluff/none
 	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
 	name = "No Fluff"
@@ -35,6 +39,10 @@
 	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
 	name = DOPPLER_SPRITE_ACCESSORY_NOEARS
 	icon_state = "none"
+
+/datum/sprite_accessory/ears_more
+	color_src = USE_MATRIXED_COLORS
+	key = "ears"
 
 /datum/sprite_accessory/ears_more/lizard/none
 	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
@@ -102,6 +110,10 @@
 	icon_state = /datum/sprite_accessory/ears/none::icon_state
 
 /// Tail time
+/datum/sprite_accessory/tails
+	key = "tail"
+	color_src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/tails/none
 	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
 	name = DOPPLER_SPRITE_ACCESSORY_NOTAIL
@@ -178,20 +190,35 @@
 	icon_state = /datum/sprite_accessory/tails/none::icon_state
 
 /// Lizard exclusive 🦎
+/datum/sprite_accessory/snouts
+	key = "snout"
+	color_src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/snouts/none
 	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
 	name = DOPPLER_SPRITE_ACCESSORY_NOSNOUT
 	icon_state = "none"
+
+/datum/sprite_accessory/lizard_markings
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/lizard_markings/none
 	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
 	name = "No Markings"
 	icon_state = "none"
 
+/datum/sprite_accessory/frills
+	key = "frills"
+	color_src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/frills/none
 	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
 	name = "No Frills"
 	icon_state = "none"
+
+/datum/sprite_accessory/horns
+	key = "horns"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/none
 	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
