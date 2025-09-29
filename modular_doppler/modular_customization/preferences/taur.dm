@@ -111,7 +111,7 @@
 	taur_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/taur)["default_sprites"]
 
 /datum/bodypart_overlay/mutant/taur_body
-	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3 | EXTERNAL_BODY_FRONT_UNDER_CLOTHES | EXTERNAL_BODY_FRONT_UNDER_CLOTHES_2 | EXTERNAL_BODY_FRONT_UNDER_CLOTHES_3
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND | EXTERNAL_BODY_FRONT_UNDER_CLOTHES
 
 	feature_key = FEATURE_TAUR
 	feature_key_sprite = FEATURE_TAUR
@@ -143,47 +143,3 @@
 
 /datum/bodypart_overlay/mutant/taur_body/get_global_feature_list()
 	return SSaccessories.taur_list
-
-/datum/bodypart_overlay/mutant/taur_body/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
-	if(limb == null)
-		return ..()
-	if(limb.owner == null)
-		return ..()
-
-	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = limb.owner.dna.features["taur_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["taur_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND))
-		overlay.color = limb.owner.dna.features["taur_color_1"]
-		return overlay
-	else if (draw_layer == bitflag_to_layer(EXTERNAL_BODY_FRONT_UNDER_CLOTHES))
-		overlay.color = limb.owner.dna.features["taur_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
-		overlay.color = limb.owner.dna.features["taur_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["taur_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_2))
-		overlay.color = limb.owner.dna.features["taur_color_2"]
-		return overlay
-	else if (draw_layer == bitflag_to_layer(EXTERNAL_BODY_FRONT_UNDER_CLOTHES_2))
-		overlay.color = limb.owner.dna.features["taur_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
-		overlay.color = limb.owner.dna.features["taur_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["taur_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_3))
-		overlay.color = limb.owner.dna.features["taur_color_3"]
-		return overlay
-	else if (draw_layer == bitflag_to_layer(EXTERNAL_BODY_FRONT_UNDER_CLOTHES_3))
-		overlay.color = limb.owner.dna.features["taur_color_3"]
-		return overlay
-	return ..()
