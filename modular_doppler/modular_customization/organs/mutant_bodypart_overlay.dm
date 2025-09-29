@@ -24,8 +24,9 @@
 
 /datum/bodypart_overlay/mutant/get_overlay(layer, obj/item/bodypart/limb)
 	layer = bitflag_to_layer(layer)
-	. = get_images(layer, limb)
-	color_images(., layer, limb)
+	var/list/images = get_images(layer, limb)
+	color_images(images, layer, limb)
+	return images
 
 /// Get the images we need to draw on the person. Called from get_overlay() which is called from _bodyparts.dm.
 /// `limb` can be null.
