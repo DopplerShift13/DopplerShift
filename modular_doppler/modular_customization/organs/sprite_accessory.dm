@@ -47,7 +47,7 @@
 		color_layer_names = list()
 		if (!SSaccessories.cached_mutant_icon_files[icon])
 			SSaccessories.cached_mutant_icon_files[icon] = icon_states(new /icon(icon))
-		for (var/layer in relevent_layers)
+		for (var/layer in relevant_layers)
 			var/layertext = layer == BODY_BEHIND_LAYER ? "BEHIND" : (layer == BODY_ADJ_LAYER ? "ADJ" : "FRONT")
 			if ("m_[key]_[icon_state]_[layertext]" in SSaccessories.cached_mutant_icon_files[icon])
 				color_layer_names["1"] = MUTANT_ACCESSORY_NO_AFFIX
