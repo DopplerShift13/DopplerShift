@@ -47,15 +47,15 @@
 		factual = FALSE
 	if(color_src == USE_MATRIXED_COLORS && default_color != DEFAULT_MATRIXED)
 		default_color = DEFAULT_MATRIXED
-	if (color_src == USE_MATRIXED_COLORS)
+	if(color_src == USE_MATRIXED_COLORS)
 		color_layer_names = list()
 		if (!SSaccessories.cached_mutant_icon_files[icon])
 			SSaccessories.cached_mutant_icon_files[icon] = icon_states(new /icon(icon))
 		for (var/layer in relevent_layers)
 			var/layertext = layer == BODY_BEHIND_LAYER ? "BEHIND" : (layer == BODY_ADJ_LAYER ? "ADJ" : "FRONT")
-			if ("m_[key]_[icon_state]_[layertext]_primary" in SSaccessories.cached_mutant_icon_files[icon])
-				color_layer_names["1"] = "primary"
-			if ("m_[key]_[icon_state]_[layertext]_secondary" in SSaccessories.cached_mutant_icon_files[icon])
-				color_layer_names["2"] = "secondary"
-			if ("m_[key]_[icon_state]_[layertext]_tertiary" in SSaccessories.cached_mutant_icon_files[icon])
-				color_layer_names["3"] = "tertiary"
+			if ("m_[key]_[icon_state]_[layertext]" in SSaccessories.cached_mutant_icon_files[icon])
+				color_layer_names["1"] = null
+			if ("m_[key]_[icon_state]_[layertext]_2" in SSaccessories.cached_mutant_icon_files[icon])
+				color_layer_names["2"] = "2"
+			if ("m_[key]_[icon_state]_[layertext]_3" in SSaccessories.cached_mutant_icon_files[icon])
+				color_layer_names["3"] = "3"
