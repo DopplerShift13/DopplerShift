@@ -28,6 +28,7 @@
 	///Whether this feature is genetic, and thus modifiable by DNA consoles
 	var/genetic = FALSE
 	var/uses_emissives = FALSE
+	var/color_layer_names
 
 /datum/sprite_accessory/New()
 	if(!default_color)
