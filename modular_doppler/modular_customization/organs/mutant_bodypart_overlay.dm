@@ -108,7 +108,7 @@
 	icon_state_builder += get_feature_key_for_overlay() + feature_key_suffix
 	icon_state_builder += get_base_icon_state()
 	icon_state_builder += mutant_bodyparts_layertext(image_layer)
-	if(color_layer)
+	if(color_layer != MUTANT_ACCESSORY_NO_AFFIX)
 		icon_state_builder += color_layer
 	var/built_icon_state = icon_state_builder.Join("_")
 	LAZYADD(last_built_icon_states, built_icon_state)

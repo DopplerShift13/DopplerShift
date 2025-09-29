@@ -2,6 +2,8 @@
 	icon = 'modular_doppler/taurs/icons/taur.dmi'
 	dimension_x = 64
 	center = TRUE
+	color_src = USE_MATRIXED_COLORS
+	key = "taur"
 	organ_type = /obj/item/organ/taur_body/quadruped // quadruped by default, dont forget to override if you make another bodytype
 	/// The primary layer of our body - most bodies use ADJ, but some use FRONT. Used for prefs rendering.
 	var/primary_layer = "ADJ"

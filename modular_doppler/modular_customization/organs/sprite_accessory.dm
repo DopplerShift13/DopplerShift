@@ -54,7 +54,7 @@
 		for (var/layer in relevent_layers)
 			var/layertext = layer == BODY_BEHIND_LAYER ? "BEHIND" : (layer == BODY_ADJ_LAYER ? "ADJ" : "FRONT")
 			if ("m_[key]_[icon_state]_[layertext]" in SSaccessories.cached_mutant_icon_files[icon])
-				color_layer_names["1"] = null
+				color_layer_names["1"] = MUTANT_ACCESSORY_NO_AFFIX
 			if ("m_[key]_[icon_state]_[layertext]_2" in SSaccessories.cached_mutant_icon_files[icon])
 				color_layer_names["2"] = "2"
 			if ("m_[key]_[icon_state]_[layertext]_3" in SSaccessories.cached_mutant_icon_files[icon])
