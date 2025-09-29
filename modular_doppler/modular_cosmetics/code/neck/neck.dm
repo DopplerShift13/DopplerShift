@@ -58,6 +58,19 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "poncho")
 
+/obj/item/clothing/neck/capelet
+	name = "capelet"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/capelet"
+	post_init_icon_state = "capelet"
+	w_class = WEIGHT_CLASS_TINY
+	custom_price = PAYCHECK_CREW
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	greyscale_config = /datum/greyscale_config/capelet
+	greyscale_config_worn = /datum/greyscale_config/capelet/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
 ///////////
 //SCARVES//
 ///////////
