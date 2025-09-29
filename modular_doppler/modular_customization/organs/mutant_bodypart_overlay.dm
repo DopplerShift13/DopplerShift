@@ -44,7 +44,7 @@
 	switch(sprite_datum.color_src)
 		if(USE_MATRIXED_COLORS)
 			var/list/color_layer_names = get_color_layer_names(build_icon_state(gender, image_layer))
-			for (var/color_index in color_layer_names)
+			for(var/color_index in color_layer_names)
 				var/mutable_appearance/color_layer_image = get_singular_image(build_icon_state(gender, image_layer, color_layer_names[color_index]), image_layer, owner)
 				returned_images += color_layer_image
 				overlay_indexes_to_color += index
