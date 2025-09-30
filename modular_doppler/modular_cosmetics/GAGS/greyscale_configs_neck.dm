@@ -52,6 +52,15 @@
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/ranger_poncho_worn.json'
 
+/datum/greyscale_config/capelet
+	name = "Capelet"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/capelet.json'
+
+/datum/greyscale_config/capelet/worn
+	name = "Capelet (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+
 ///////////
 //SCARVES//
 ///////////

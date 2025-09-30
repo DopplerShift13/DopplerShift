@@ -22,6 +22,10 @@
 	name = "Custom Backpack"
 	item_path = /obj/item/storage/backpack/custom
 
+/datum/loadout_item/backpack/modsuit/civilian
+	name = "Civilian Modsuit"
+	item_path = /obj/item/mod/control/pre_equipped/civilian
+
 /datum/loadout_item/backpack/industrial
 	name = "Custom Industrial Backpack"
 	item_path = /obj/item/storage/backpack/industrial/custom

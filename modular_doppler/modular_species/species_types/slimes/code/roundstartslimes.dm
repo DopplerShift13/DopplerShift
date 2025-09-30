@@ -21,9 +21,7 @@
 	/// Ability to allow them to shapeshift their body around.
 	var/datum/action/innate/alter_form/alter_form
 	/// Ability to allow them to clean themselves and their stuff.
-	var/datum/action/cooldown/spell/slime_washing/slime_washing
-	/// Ability to allow them to resist the effects of water.
-	var/datum/action/cooldown/spell/slime_hydrophobia/slime_hydrophobia
+	var/datum/action/cooldown/slime_washing/slime_washing
 	/// Ability to allow them to turn their core's GPS on or off.
 	var/datum/action/innate/core_signal/core_signal
 
@@ -43,10 +41,8 @@
 
 /datum/species/jelly/on_species_loss(mob/living/carbon/former_jellyperson, datum/species/new_species, pref_load)
 	. = ..()
-	if(slime_washing)
-		slime_washing.Remove(former_jellyperson)
-	if(core_signal)
-		core_signal.Remove(former_jellyperson)
+	QDEL_NULL(slime_washing)
+	QDEL_NULL(core_signal)
 
 /obj/item/organ/eyes/jelly
 	name = "photosensitive eyespots"
@@ -288,64 +284,6 @@
 			return
 		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
 		slime.adjustOxyLoss(-1 * seconds_per_tick)
-
-
-/**
-* SLIME CLEANING ABILITY -
-* When toggled, slimes clean themselves and their equipment.
-*/
-/datum/action/cooldown/spell/slime_washing
-	name = "Toggle Slime Cleaning"
-	desc = "Filter grime through your outer membrane, cleaning yourself and your equipment for sustenance. Also cleans the floor. For sustenance."
-	button_icon = 'icons/mob/actions/actions_silicon.dmi'
-	button_icon_state = "activate_wash"
-
-	cooldown_time = 1 SECONDS
-	spell_requirements = NONE
-
-/datum/action/cooldown/spell/slime_washing/cast(mob/living/carbon/human/user = usr)
-	. = ..()
-
-	if(user.has_status_effect(/datum/status_effect/slime_washing))
-		slime_washing_deactivate(user)
-		return
-
-	user.apply_status_effect(/datum/status_effect/slime_washing)
-	user.visible_message(span_purple("[user]'s outer membrane starts to develop a cloudy film on the outside, absorbing grime into [user.p_their()] inner layer!"), span_purple("Your outer membrane develops a cloudy film on the outside, absorbing grime off yourself and your clothes; as well as the floor beneath you."))
-
-/**
-* Called when you activate it again after casting the ability-- turning it off, so to say.
-*/
-/datum/action/cooldown/spell/slime_washing/proc/slime_washing_deactivate(mob/living/carbon/human/user)
-	if(!user.has_status_effect(/datum/status_effect/slime_washing))
-		return
-
-	user.remove_status_effect(/datum/status_effect/slime_washing)
-	user.visible_message(span_notice("[user]'s outer membrane returns to normal, no longer cleaning [user.p_their()] surroundings."), span_notice("Your outer membrane returns to normal, filth no longer being cleansed."))
-
-/datum/status_effect/slime_washing
-	id = "slime_washing"
-	alert_type = null
-	status_type = STATUS_EFFECT_UNIQUE
-
-/datum/status_effect/slime_washing/tick(seconds_between_ticks, seconds_per_tick)
-	if(ishuman(owner))
-		var/mob/living/carbon/human/slime = owner
-		for(var/obj/item/slime_items in slime.get_equipped_items(INCLUDE_ACCESSORIES | INCLUDE_HELD))
-			slime_items.wash(CLEAN_WASH)
-			slime.wash(CLEAN_WASH)
-		if((slime.wear_suit?.body_parts_covered | slime.w_uniform?.body_parts_covered | slime.shoes?.body_parts_covered) & FEET)
-			return
-		else
-			var/turf/open/open_turf = get_turf(slime)
-			if(istype(open_turf))
-				open_turf.wash(CLEAN_WASH)
-				return TRUE
-			if(SPT_PROB(5, seconds_per_tick))
-				slime.adjust_nutrition((rand(5,25)))
-
-/datum/status_effect/slime_washing/get_examine_text()
-	return span_notice("[owner.p_Their()] outer layer is pulling in grime, filth sinking inside of [owner.p_their()] body and vanishing.")
 
 /datum/species/jelly/roundstartslime
 	name = "Xenobiological Slime Hybrid"

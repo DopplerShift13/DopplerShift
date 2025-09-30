@@ -78,7 +78,7 @@
 	name = "Pizza Bomb"
 	desc = "A pizza box with a bomb cunningly attached to the lid. The timer needs to be set by opening the box; afterwards, \
 			opening the box again will trigger the detonation after the timer has elapsed. Comes with free pizza, for you or your target!"
-	item = /obj/item/pizzabox/bomb
+	item = /obj/item/pizzabox/bomb_traitor //DOPPLER EDIT - original: /obj/item/pizzabox/bomb_traitor
 	cost = 2
 	limited_stock = 4
 	surplus = 8

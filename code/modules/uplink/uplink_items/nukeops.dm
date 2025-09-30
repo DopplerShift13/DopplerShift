@@ -464,7 +464,7 @@
 			opening the box again will trigger the detonation after the timer has elapsed. Comes with free pizza, for you or your target!\
 			Cybersun Industries would like to remind you that eating pizza in the middle of a delicate infiltration operation is not recommened, \
 			and that there are no guarantees that the pizza is safe from any explosive contaminants."
-	item = /obj/item/pizzabox/bomb
+	item = /obj/item/pizzabox/bomb_traitor //DOPPLER EDIT - original: /obj/item/pizzabox/bomb_traitor
 	cost = 2
 
 // ~~ Grenadier's Belt Kit ~~

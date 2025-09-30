@@ -31,7 +31,8 @@
 				/obj/item/clothing/neck/fashion_collar/cow = 5,
 				/obj/item/clothing/neck/fashion_collar/cross = 5,
 				/obj/item/clothing/neck/fashion_collar/holo = 5,
-				/obj/item/clothing/neck/fashion_collar/spike=5,
+				/obj/item/clothing/neck/fashion_collar/spike = 5,
+				/obj/item/clothing/neck/capelet = 5,
 			),
 		),
 

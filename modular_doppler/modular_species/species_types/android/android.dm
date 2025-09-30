@@ -46,6 +46,8 @@
 
 	bodytemp_heat_damage_limit = (BODYTEMP_NORMAL + 146) // 456 K / 183 C
 	bodytemp_cold_damage_limit = (BODYTEMP_NORMAL - 80) // 230 K / -43 C
+	death_sound = 'sound/mobs/non-humanoids/cyborg/borg_deathsound.ogg'
+
 	/// Ability to recharge!
 	var/datum/action/innate/power_cord/power_cord
 	/// Hud element to display our energy level
