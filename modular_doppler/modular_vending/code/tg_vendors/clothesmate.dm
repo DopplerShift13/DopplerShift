@@ -70,6 +70,11 @@
 				/obj/item/clothing/suit/hooded/big_hoodie = 5,
 				/obj/item/clothing/suit/hooded/twee_hoodie = 5,
 				/obj/item/clothing/suit/dagger_mantle = 5,
+				/obj/item/clothing/under/dress/skirt/highwaisted_skirt = 5,
+				/obj/item/clothing/under/dress/skirt/miniskirt = 5,
+				/obj/item/clothing/under/dress/doppler/halter_dress = 5,
+				/obj/item/clothing/under/dress/doppler/sweaterdress = 5,
+
 			),
 		),
 
