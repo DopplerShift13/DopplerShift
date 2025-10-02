@@ -172,6 +172,14 @@
 	name = "Long Skirt"
 	item_path = /obj/item/clothing/under/dress/skirt/long
 
+/datum/loadout_item/undersuit/pants/skirt/highwaisted_skirt
+	name = "High-Waisted Skirt"
+	item_path = /obj/item/clothing/under/dress/skirt/highwaisted_skirt
+
+/datum/loadout_item/undersuit/pants/skirt/miniskirt
+	name = "Miniskirt"
+	item_path = /obj/item/clothing/under/dress/skirt/miniskirt
+
 /datum/loadout_item/undersuit/pants/skirt/loincloth
 	name = "Loincloth"
 	item_path = /obj/item/clothing/under/dress/skirt/loincloth
@@ -294,6 +302,14 @@
 /datum/loadout_item/undersuit/dress/strapless
 	name = "Strapless Dress"
 	item_path = /obj/item/clothing/under/dress/doppler/strapless
+
+/datum/loadout_item/undersuit/dress/halter_dress
+	name = "Halter Dress"
+	item_path = /obj/item/clothing/under/dress/doppler/halter_dress
+
+/datum/loadout_item/undersuit/dress/sweaterdress
+	name = "Keyhole Sweater Dress"
+	item_path = /obj/item/clothing/under/dress/doppler/sweaterdress
 
 /// JAPANESE/LUNAR BREAKER
 

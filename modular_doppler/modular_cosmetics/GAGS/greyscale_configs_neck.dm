@@ -61,6 +61,33 @@
 	name = "Capelet (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
 
+/datum/greyscale_config/half_cape
+	name = "Half Cape"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/half_cape.json'
+
+/datum/greyscale_config/half_cape/worn
+	name = "Half Cape (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+
+/datum/greyscale_config/patterned_poncho
+	name = "Patterned Poncho"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/patterned_poncho.json'
+
+/datum/greyscale_config/patterned_poncho/worn
+	name = "Patterned Poncho (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+
+/datum/greyscale_config/basic_poncho
+	name = "Basic Poncho"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/basic_poncho.json'
+
+/datum/greyscale_config/basic_poncho/worn
+	name = "Basic Poncho (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+
 ///////////
 //SCARVES//
 ///////////

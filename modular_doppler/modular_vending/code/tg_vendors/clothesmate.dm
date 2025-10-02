@@ -33,6 +33,9 @@
 				/obj/item/clothing/neck/fashion_collar/holo = 5,
 				/obj/item/clothing/neck/fashion_collar/spike = 5,
 				/obj/item/clothing/neck/capelet = 5,
+				/obj/item/clothing/neck/half_cape = 5,
+				/obj/item/clothing/neck/patterned_poncho = 5,
+				/obj/item/clothing/neck/basic_poncho = 5,
 			),
 		),
 

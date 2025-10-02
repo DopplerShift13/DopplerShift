@@ -51,6 +51,30 @@
 	desc = "A fluffy pink tutu."
 	icon_state = "pinktutu"
 
+/obj/item/clothing/under/dress/doppler/halter_dress
+	name = "halter dress"
+	desc = "A cute dress that loops behind the neck."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/doppler/halter_dress"
+	post_init_icon_state = "halter_dress"
+	body_parts_covered = CHEST|GROIN|LEGS
+	greyscale_config = /datum/greyscale_config/halter_dress
+	greyscale_config_worn = /datum/greyscale_config/halter_dress/worn
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/doppler/sweaterdress
+	name = "keyhole sweater dress"
+	desc = "A warm and cozy dress- with a window for aesthetic. Yep, aesthetic, mhm."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/doppler/sweaterdress"
+	post_init_icon_state = "sweaterdress"
+	body_parts_covered = CHEST|GROIN|LEGS
+	greyscale_config = /datum/greyscale_config/sweaterdress
+	greyscale_config_worn = /datum/greyscale_config/sweaterdress/worn
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /*
 *	LUNAR AND JAPANESE CLOTHES
 */
