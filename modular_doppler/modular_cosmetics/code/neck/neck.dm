@@ -75,7 +75,6 @@
 	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/half_cape"
 	post_init_icon_state = "half_cape"
-	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = COLOR_VERY_LIGHT_GRAY
 	greyscale_config = /datum/greyscale_config/half_cape
