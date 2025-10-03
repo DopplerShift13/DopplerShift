@@ -163,7 +163,7 @@
 	desc = "A tube skirt that sits higher up on the waist. Slay."
 	icon_state = "/obj/item/clothing/under/dress/skirt/highwaisted_skirt"
 	post_init_icon_state = "highwaisted_skirt"
-	body_parts_covered = GROIN|LEGS
+	body_parts_covered = GROIN
 	greyscale_config = /datum/greyscale_config/highwaisted_skirt
 	greyscale_config_worn = /datum/greyscale_config/highwaisted_skirt/worn
 	greyscale_colors = COLOR_VERY_LIGHT_GRAY
