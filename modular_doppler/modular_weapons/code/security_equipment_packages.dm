@@ -5,17 +5,31 @@
 
 	selection_base_type = /datum/signature_equipment/security_equipment_package
 
-/datum/signature_equipment/security_equipment_package/gunner
-	name = "Gunner's Case"
-	icon_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunner_package
-	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunner_package
+/datum/signature_equipment/security_equipment_package/gunnery_kit
+	name = "Gunnery Kit"
+	icon_item_type = /obj/item/security_gunnery_kit
+	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunnery_package
 
-/datum/signature_equipment/security_equipment_package/vanguard_blade
-	name = "Vanguard's Blade"
-	icon_item_type = /obj/item/melee/secblade
-	spawned_item_type = /obj/item/storage/belt/secsword/full_blade
+/datum/signature_equipment/security_equipment_package/support_kit
+	name = "Support Kit"
+	icon_item_type = /obj/item/security_support_kit
+	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_support_package
 
-/datum/signature_equipment/security_equipment_package/vanguard_jitte
-	name = "Vanguard's Jitte"
-	icon_item_type = /obj/item/melee/sec_jitte
+/datum/signature_equipment/security_equipment_package/jitte_belt
+	name = "Jitte Belt"
+	icon_item_type = /obj/item/storage/belt/secsword/full
 	spawned_item_type = /obj/item/storage/belt/secsword/full
+
+/obj/item/security_gunnery_kit
+	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
+	icon_state = "security_gunnery_package"
+
+/obj/item/security_support_kit
+	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
+	icon_state = "security_support_package"
+
+/obj/item/storage/belt/security/webbing/full/PopulateContents()
+	. = ..()
+	new /obj/item/restraints/handcuffs(src)
+	new /obj/item/reagent_containers/spray/pepper(src)
+	new /obj/item/assembly/flash/handheld(src)

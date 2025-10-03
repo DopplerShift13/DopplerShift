@@ -64,3 +64,4 @@
 	ammo_type = /obj/item/ammo_casing/alacran_dart
 	caliber = CALIBER_ALACRAN
 	max_ammo = 1
+	start_empty = TRUE

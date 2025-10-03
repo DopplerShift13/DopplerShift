@@ -7533,6 +7533,7 @@
 #include "modular_doppler\modular_weapons\code\security_equipment_packages.dm"
 #include "modular_doppler\modular_weapons\code\shields.dm"
 #include "modular_doppler\modular_weapons\code\weapon_overrides.dm"
+#include "modular_doppler\modular_weapons\code\ammo\alacran_dart_packs.dm"
 #include "modular_doppler\modular_weapons\code\ammo\alacran_darts.dm"
 #include "modular_doppler\modular_weapons\code\ammo\bandolier.dm"
 #include "modular_doppler\modular_weapons\code\ammo\calistan_4mm.dm"
