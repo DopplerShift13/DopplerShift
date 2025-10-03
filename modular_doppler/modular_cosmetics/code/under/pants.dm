@@ -176,7 +176,7 @@
 	desc = "You might want some leggings to wear under this."
 	icon_state = "/obj/item/clothing/under/dress/skirt/miniskirt"
 	post_init_icon_state = "miniskirt"
-	body_parts_covered = GROIN|LEGS
+	body_parts_covered = GROIN
 	greyscale_config = /datum/greyscale_config/miniskirt
 	greyscale_config_worn = /datum/greyscale_config/miniskirt/worn
 	greyscale_colors = COLOR_VERY_LIGHT_GRAY
