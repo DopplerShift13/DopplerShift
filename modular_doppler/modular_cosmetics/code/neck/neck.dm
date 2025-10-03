@@ -97,7 +97,6 @@
 	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/basic_poncho"
 	post_init_icon_state = "basic_poncho"
-	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
 	greyscale_colors = COLOR_VERY_LIGHT_GRAY
 	greyscale_config = /datum/greyscale_config/basic_poncho
