@@ -181,5 +181,4 @@
 	greyscale_config_worn = /datum/greyscale_config/miniskirt/worn
 	greyscale_colors = COLOR_VERY_LIGHT_GRAY
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
-	alternate_worn_layer = ABOVE_SHOES_LAYER
 	flags_1 = IS_PLAYER_COLORABLE_1
