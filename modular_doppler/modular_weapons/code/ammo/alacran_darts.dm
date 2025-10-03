@@ -15,6 +15,7 @@
 	projectile_type = /obj/projectile/bullet/dart/alacran_dart
 	harmful = FALSE
 	no_live_state = TRUE
+	custom_price = PAYCHECK_COMMAND
 	var/reagent_amount = 15
 
 /obj/item/ammo_casing/alacran_dart/Initialize(mapload)
@@ -47,6 +48,7 @@
 /obj/item/ammo_casing/alacran_dart/adrenaline/piercing
 	name = "\improper Puya adrenaline dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+	custom_price = PAYCHECK_COMMAND * 1.2
 
 /obj/item/ammo_casing/alacran_dart/morpital
 	name = "\improper Puya morpital regeneration dart"
@@ -63,6 +65,7 @@
 /obj/item/ammo_casing/alacran_dart/morpital/piercing
 	name = "\improper Puya morpital regeneration dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+	custom_price = PAYCHECK_COMMAND * 1.2
 
 /obj/item/ammo_casing/alacran_dart/meridine
 	name = "\improper Puya meridine antidote dart"
@@ -85,6 +88,7 @@
 	name = "\improper Puya krotozine manipulative dart"
 	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of stimulants and weak healing agents."
 	greyscale_colors = "#905ea9#905ea9"
+	custom_price = PAYCHECK_COMMAND * 2
 
 /obj/item/ammo_casing/alacran_dart/krotozine/Initialize(mapload)
 	. = ..()
@@ -96,6 +100,7 @@
 /obj/item/ammo_casing/alacran_dart/krotozine/piercing
 	name = "\improper Puya krotozine manipulative dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+	custom_price = PAYCHECK_COMMAND * 2.4
 
 /obj/item/ammo_casing/alacran_dart/slurry
 	name = "\improper Puya smart-slurry dart"
@@ -112,6 +117,7 @@
 /obj/item/ammo_casing/alacran_dart/slurry/piercing
 	name = "\improper Puya smart-slurry dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+	custom_price = PAYCHECK_COMMAND * 1.2
 
 /obj/item/ammo_casing/alacran_dart/sensory_restoration
 	name = "\improper Puya occuisate sensory restoration dart"
@@ -129,6 +135,7 @@
 /obj/item/ammo_casing/alacran_dart/sensory_restoration/piercing
 	name = "\improper Puya occuisate sensory restoration dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+	custom_price = PAYCHECK_COMMAND * 1.2
 
 // some secret ones for the black market with mostly silly mixes in them
 
@@ -137,6 +144,7 @@
 	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of experimental healing chemicals and exotic nootropics \
 	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
 	greyscale_colors = "#8987ff#4d9be6"
+	custom_price = PAYCHECK_COMMAND * 0.9
 
 /obj/item/ammo_casing/alacran_dart/earthsblood/Initialize(mapload)
 	. = ..()
