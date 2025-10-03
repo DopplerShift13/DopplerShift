@@ -80,6 +80,7 @@
 	greyscale_config = /datum/greyscale_config/half_cape
 	greyscale_config_worn = /datum/greyscale_config/half_cape/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
 
 /obj/item/clothing/neck/patterned_poncho
 	name = "patterned poncho"
@@ -91,6 +92,7 @@
 	greyscale_config = /datum/greyscale_config/patterned_poncho
 	greyscale_config_worn = /datum/greyscale_config/patterned_poncho/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
 
 /obj/item/clothing/neck/basic_poncho
 	name = "basic poncho"
@@ -102,6 +104,7 @@
 	greyscale_config = /datum/greyscale_config/basic_poncho
 	greyscale_config_worn = /datum/greyscale_config/basic_poncho/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
 
 ///////////
 //SCARVES//
