@@ -20,6 +20,8 @@
 	icon_item_type = /obj/item/storage/belt/secsword/full
 	spawned_item_type = /obj/item/storage/belt/secsword/full
 
+// these exist purely to populate the radial selection menu with a sprite that shows both 'things' those kits get
+
 /obj/item/security_gunnery_kit
 	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
 	icon_state = "security_gunnery_package"

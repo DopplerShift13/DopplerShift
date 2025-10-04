@@ -3,6 +3,7 @@
 	name = "box of Alacran darts"
 	desc = "A box with a mixed array of standard, non-piercing dart rounds for the Alacran platform."
 	icon_state = "secbox"
+	custom_price = PAYCHECK_COMMAND * 5.5
 
 /obj/item/storage/box/alacran_dart/PopulateContents()
 	. = ..()
@@ -16,7 +17,7 @@
 /obj/item/storage/box/alacran_dart/piercing
 	name = "box of piercing Alacran darts"
 	desc = "A box with a mixed array of armor piercing dart rounds for the Alacran platform."
-	icon_state = "secbox"
+	custom_price = PAYCHECK_COMMAND * 6.5
 
 /obj/item/storage/box/alacran_dart/piercing/PopulateContents()
 	. = ..()

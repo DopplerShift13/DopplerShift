@@ -31,4 +31,5 @@
 	suit_store = null
 	backpack_contents = list(
 		/obj/item/signature_beacon/security_equipment_package = 1,
+		/obj/item/evidencebag = 1,
 	)

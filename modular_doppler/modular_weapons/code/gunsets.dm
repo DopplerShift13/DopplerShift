@@ -110,4 +110,5 @@
 /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_support_package/PopulateContents()
 	new /obj/item/shield/escarabajo(src)	// dont think about how it fits
 	new /obj/item/gun/ballistic/alacran(src)
+	new /obj/item/storage/box/alacran_dart(src)
 	new /obj/item/storage/belt/security/webbing/full(src)
