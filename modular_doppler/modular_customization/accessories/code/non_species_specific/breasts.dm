@@ -2,6 +2,8 @@
 /datum/sprite_accessory/breasts
 	icon = 'modular_doppler/modular_customization/accessories/icons/non_species_specific/breasts.dmi'
 	em_block = TRUE
+	key = "breasts"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/breasts/bare
 	name = "Bare"
