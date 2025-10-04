@@ -75,7 +75,6 @@
 				/obj/item/clothing/suit/hooded/big_hoodie = 5,
 				/obj/item/clothing/suit/hooded/twee_hoodie = 5,
 				/obj/item/clothing/suit/dagger_mantle = 5,
-
 			),
 		),
 
