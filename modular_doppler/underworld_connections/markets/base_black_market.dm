@@ -223,11 +223,27 @@
 /datum/market_item/weapon/earthsblood_dart
 	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of experimental healing chemicals and exotic nootropics \
 	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	item = /obj/item/ammo_casing/alacran_dart/earthsblood
 	price_min = PAYCHECK_COMMAND
 	price_max = PAYCHECK_COMMAND * 4
+
+/datum/market_item/weapon/earthsblood_dart_piercing
+	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of experimental healing chemicals and exotic nootropics \
+	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	item = /obj/item/ammo_casing/alacran_dart/earthsblood/piercing
+	price_min = PAYCHECK_COMMAND * 1.2
+	price_max = PAYCHECK_COMMAND * 5
 
 /datum/market_item/weapon/equestrian_stimulants_dart
 	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of stimulants intended for, among other animals, race horses, \
 	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	item = /obj/item/ammo_casing/alacran_dart/equestrian_stimulants
 	price_min = PAYCHECK_COMMAND
 	price_max = PAYCHECK_COMMAND * 5
+
+/datum/market_item/weapon/equestrian_stimulants_dart_piercing
+	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of stimulants intended for, among other animals, race horses, \
+	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	item = /obj/item/ammo_casing/alacran_dart/equestrian_stimulants/piercing
+	price_min = PAYCHECK_COMMAND * 1.2
+	price_max = PAYCHECK_COMMAND * 5.5
