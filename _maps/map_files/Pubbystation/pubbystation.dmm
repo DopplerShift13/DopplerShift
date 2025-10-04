@@ -3934,13 +3934,12 @@
 /turf/open/floor/iron/dark,
 /area/station/command/gateway)
 "aqT" = (
-/obj/structure/table,
-/obj/item/clothing/under/color/grey,
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/washing_machine,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "aqV" = (
-/obj/machinery/washing_machine,
+/obj/effect/spawner/random/entertainment/arcade,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "aqY" = (
@@ -4273,13 +4272,13 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/turf/open/floor/iron/cafeteria,
-/area/station/commons/dorms/laundry)
-"asg" = (
-/obj/structure/bedsheetbin,
 /obj/machinery/computer/security/telescreen/entertainment/directional/east,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
+"asg" = (
+/obj/machinery/light/floor,
+/turf/open/floor/iron,
+/area/station/commons/dorms)
 "ash" = (
 /obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
@@ -4490,7 +4489,7 @@
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/structure/cable,
 /obj/structure/sign/departments/maint/directional/west,
-/obj/effect/spawner/random/entertainment/arcade,
+/obj/structure/bedsheetbin,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "ath" = (
@@ -4502,23 +4501,21 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/obj/machinery/disposal/bin,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "ati" = (
-/obj/structure/disposalpipe/segment{
-	dir = 6
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/turf/open/floor/iron/cafeteria,
-/area/station/commons/dorms/laundry)
-"atj" = (
-/obj/machinery/disposal/bin,
-/obj/structure/disposalpipe/trunk{
-	dir = 8
+/obj/machinery/firealarm/directional/east,
+/obj/structure/disposalpipe/segment{
+	dir = 10
 	},
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
@@ -5116,7 +5113,6 @@
 /obj/machinery/camera/directional/north{
 	c_tag = "Dormitories Fore"
 	},
-/obj/machinery/light/directional/north,
 /turf/open/floor/iron,
 /area/station/commons/dorms)
 "avm" = (
@@ -25697,10 +25693,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"cod" = (
-/obj/structure/window/reinforced/spawner/directional/east,
-/turf/open/floor/iron/cafeteria,
-/area/station/commons/dorms/laundry)
 "coe" = (
 /obj/machinery/light/small/directional/south,
 /obj/effect/mapping_helpers/burnt_floor,
@@ -38821,7 +38813,7 @@
 /area/station/security/checkpoint/medical)
 "lEQ" = (
 /obj/machinery/washing_machine,
-/obj/machinery/firealarm/directional/north,
+/obj/machinery/light/directional/north,
 /turf/open/floor/iron/cafeteria,
 /area/station/commons/dorms/laundry)
 "lEX" = (
@@ -94933,9 +94925,9 @@ aiT
 aiT
 aiS
 aiS
-cod
-asg
-atj
+lcy
+lcy
+lcy
 apX
 avi
 aws
@@ -95191,8 +95183,8 @@ aaa
 aaa
 aaa
 aaa
-lcy
-lcy
+apX
+apX
 cfv
 avj
 teA
@@ -95451,7 +95443,7 @@ aaa
 ash
 kTo
 aul
-com
+asg
 awu
 axq
 ayo
