@@ -45,6 +45,9 @@
 	/// Set when this casing is fired. Only used for checking if it should burn a user's hand when caught from an ejection port.
 	var/shot_timestamp = 0
 
+	//DOPPLER ADDITION - used to override the icon_updater and enable a GAGS projectile
+	var/no_live_state = FALSE
+
 /obj/item/ammo_casing/spent
 	name = "spent bullet casing"
 	loaded_projectile = null
@@ -108,6 +111,8 @@
 	return readout.Join("\n") // Sending over a single string, rather than the whole list
 
 /obj/item/ammo_casing/update_icon_state()
+	if(no_live_state)	// DOPPLER ADDITION supports GAGS ammo
+		return ..()		//END DOPPLER ADDITION
 	icon_state = "[initial(icon_state)][loaded_projectile ? "-live" : null]"
 	return ..()
 

@@ -12,3 +12,14 @@
 	time = 10 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	category = CAT_WEAPON_MELEE
+
+/datum/crafting_recipe/repaired_escarabajo
+	result = /obj/item/shield/escarabajo
+	reqs = list(
+		/obj/item/escarabajo_broken = 1,
+		/obj/item/stack/sheet/plasteel = 5,
+		/obj/item/stack/sheet/rglass = 2,
+	)
+	time = 30 SECONDS
+	tool_behaviors = list(TOOL_WELDER)
+	category = CAT_WEAPON_MELEE
