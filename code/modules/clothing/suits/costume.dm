@@ -159,6 +159,7 @@
 	desc = "A plush white cloak made of synthetic feathers. Soft to the touch, stylish, and a 2 meter wing span that will drive your captives mad."
 	icon_state = "griffin_wings"
 	inhand_icon_state = null
+	supports_variations_flags = CLOTHING_MERMAID_MASK
 
 /obj/item/clothing/suit/costume/cardborg
 	name = "cardborg suit"

@@ -2,6 +2,10 @@
 	icon = 'modular_doppler/modular_customization/accessories/icons/aquatic/aquatic_tail.dmi'
 	color_src = FALSE
 
+/datum/sprite_accessory/tails/fish/mermaid
+	icon = /datum/sprite_accessory/tails/fish::icon
+	color_src = TRUE
+
 /datum/sprite_accessory/tails/fish/simple
 	name = "Simple"
 	icon_state = "simple"
