@@ -38,11 +38,3 @@
 		/obj/item/storage/box/alacran_dart = 3,
 		/obj/item/storage/box/alacran_dart/piercing = 3,
 	)
-	product_categories_doppler = list(
-		list(
-			"name" = "Alacran Darts",
-			"icon" = "medrt",
-			"products" = list(
-			)
-		)
-	)
