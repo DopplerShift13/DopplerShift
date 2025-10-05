@@ -50,6 +50,86 @@
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
 	custom_price = PAYCHECK_COMMAND * 1.2
 
+/obj/item/ammo_casing/alacran_dart/krotozine
+	name = "\improper Puya krotozine manipulative dart"
+	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of stimulants and weak healing agents."
+	greyscale_colors = "#905ea9#905ea9"
+	custom_price = PAYCHECK_COMMAND * 2
+
+/obj/item/ammo_casing/alacran_dart/krotozine/Initialize(mapload)
+	. = ..()
+	reagents.add_reagent(/datum/reagent/medicine/ondansetron, 3)
+	reagents.add_reagent(/datum/reagent/drug/kronkaine, 5)
+	reagents.add_reagent(/datum/reagent/medicine/omnizine/protozine, 2)
+	reagents.add_reagent(/datum/reagent/drug/maint/tar, 5)
+
+/obj/item/ammo_casing/alacran_dart/krotozine/piercing
+	name = "\improper Puya krotozine manipulative dart - armor piercing"
+	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+	custom_price = PAYCHECK_COMMAND * 2.4
+
+/obj/item/ammo_casing/alacran_dart/rootbeer	// no piercing version on purpose
+	name = "\improper Puya 'sharpshooter' dart"
+	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of stimulants and nootropics purported to assist in firearms use."
+	custom_price = PAYCHECK_COMMAND * 1.1
+	greyscale_colors = "#663300#663300"
+
+/obj/item/ammo_casing/alacran_dart/rootbeer/Initialize(mapload)
+	. = ..()
+	reagents.add_reagent(/datum/reagent/consumable/rootbeer, 13)
+	reagents.add_reagent(/datum/reagent/toxin/lipolicide, 2)
+
+/obj/item/ammo_casing/alacran_dart/beepsky_smash
+	name = "\improper Puya 'electric wizard' experimental tranquilizer dart"
+	desc = "A proprietary dart for the Alacran platform. This one contains an experimental sedative for use in apprehending suspected criminals. All rights reserved."
+	custom_price = PAYCHECK_COMMAND * 1.1
+	greyscale_colors = "#800000#808080"
+
+/obj/item/ammo_casing/alacran_dart/beepsky_smash/Initialize(mapload)
+	. = ..()
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/beepsky_smash, 10)
+	reagents.add_reagent(/datum/reagent/consumable/gakster_energy, 5)
+
+
+// some secret ones for the black market with mostly silly mixes in them
+
+/obj/item/ammo_casing/alacran_dart/earthsblood
+	name = "third-party 'Earthsblood' dart"
+	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of experimental healing chemicals and exotic nootropics \
+	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	greyscale_colors = "#8987ff#4d9be6"
+	custom_price = PAYCHECK_COMMAND * 0.9
+
+/obj/item/ammo_casing/alacran_dart/earthsblood/Initialize(mapload)
+	. = ..()
+	reagents.add_reagent(/datum/reagent/medicine/earthsblood, 6)
+	reagents.add_reagent(/datum/reagent/toxin/lipolicide, 3)
+	reagents.add_reagent(/datum/reagent/inverse/spaceacillin, 3)
+	reagents.add_reagent(/datum/reagent/drug/maint/powder, 3)
+
+/obj/item/ammo_casing/alacran_dart/earthsblood/piercing
+	name = "third-party 'Earthsblood' dart - armor piercing"
+	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+
+/obj/item/ammo_casing/alacran_dart/equestrian_stimulants	// more potent kroto, expensive and harder to get
+	name = "third-party 'Equestrian Stimulants' dart"
+	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of stimulants intended for, among other animals, race horses, \
+	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	greyscale_colors = "#f8f8f8#bc4646"
+
+/obj/item/ammo_casing/alacran_dart/equestrian_stimulants/Initialize(mapload)
+	. = ..()
+	reagents.add_reagent(/datum/reagent/drug/maint/tar, 5)
+	reagents.add_reagent(/datum/reagent/drug/kronkaine, 5)
+	reagents.add_reagent(/datum/reagent/drug/pumpup, 5)
+
+/obj/item/ammo_casing/alacran_dart/equestrian_stimulants/piercing
+	name = "third-party 'Equestrian Stimulants' dart - armor piercing"
+	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+
+// a couple were axed from the main line up for potentially stepping on medical's gameplay if given to security, but are retained here
+// because they can have a second life for ERT loadouts, antags, etc.
+
 /obj/item/ammo_casing/alacran_dart/morpital
 	name = "\improper Puya morpital regeneration dart"
 	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of pain relief \
@@ -83,24 +163,6 @@
 /obj/item/ammo_casing/alacran_dart/meridine/piercing
 	name = "\improper Puya meridine antidote dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
-
-/obj/item/ammo_casing/alacran_dart/krotozine
-	name = "\improper Puya krotozine manipulative dart"
-	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of stimulants and weak healing agents."
-	greyscale_colors = "#905ea9#905ea9"
-	custom_price = PAYCHECK_COMMAND * 2
-
-/obj/item/ammo_casing/alacran_dart/krotozine/Initialize(mapload)
-	. = ..()
-	reagents.add_reagent(/datum/reagent/medicine/ondansetron, 3)
-	reagents.add_reagent(/datum/reagent/drug/kronkaine, 4)
-	reagents.add_reagent(/datum/reagent/medicine/omnizine/protozine, 3)
-	reagents.add_reagent(/datum/reagent/drug/maint/tar, 5)
-
-/obj/item/ammo_casing/alacran_dart/krotozine/piercing
-	name = "\improper Puya krotozine manipulative dart - armor piercing"
-	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
-	custom_price = PAYCHECK_COMMAND * 2.4
 
 /obj/item/ammo_casing/alacran_dart/slurry
 	name = "\improper Puya smart-slurry dart"
@@ -137,38 +199,24 @@
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
 	custom_price = PAYCHECK_COMMAND * 1.2
 
-// some secret ones for the black market with mostly silly mixes in them
+/obj/item/ammo_casing/alacran_dart/quadruple_sec
+	name = "\improper Puya experimental salve dart"
+	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of healing chemicals that target the specific physiogyny of \
+	law enforcement and security guards."
 
-/obj/item/ammo_casing/alacran_dart/earthsblood
-	name = "\improper third-party 'Earthsblood' dart"
-	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of experimental healing chemicals and exotic nootropics \
-	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
-	greyscale_colors = "#8987ff#4d9be6"
-	custom_price = PAYCHECK_COMMAND * 0.9
-
-/obj/item/ammo_casing/alacran_dart/earthsblood/Initialize(mapload)
+/obj/item/ammo_casing/alacran_dart/quadruple_sec/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(/datum/reagent/medicine/earthsblood, 6)
-	reagents.add_reagent(/datum/reagent/toxin/lipolicide, 3)
-	reagents.add_reagent(/datum/reagent/inverse/spaceacillin, 3)
-	reagents.add_reagent(/datum/reagent/drug/maint/powder, 3)
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/quadruple_sec, 7)
+	reagents.add_reagent(/datum/reagent/toxin/lipolicide, 5)
+	reagents.add_reagent(/datum/reagent/medicine/mine_salve, 3)
 
-/obj/item/ammo_casing/alacran_dart/earthsblood/piercing
-	name = "\improper third-party 'Earthsblood' dart - armor piercing"
-	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+/obj/item/ammo_casing/alacran_dart/quintuple_sec
+	name = "\improper Puya HIGHLY experimental salve dart"
+	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of healing chemicals that target the specific physiogyny of \
+	law enforcement and security guards. A skull is emblazoned on the casing, along with some sort of label that's too small to read."
+	greyscale_colors = "#cc9900#800000"
 
-/obj/item/ammo_casing/alacran_dart/equestrian_stimulants
-	name = "\improper third-party 'Equestrian Stimulants' dart"
-	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of stimulants intended for, among other animals, race horses, \
-	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
-	greyscale_colors = "#f8f8f8#bc4646"
-
-/obj/item/ammo_casing/alacran_dart/equestrian_stimulants/Initialize(mapload)
+/obj/item/ammo_casing/alacran_dart/quintuple_sec/Initialize(mapload)
 	. = ..()
-	reagents.add_reagent(/datum/reagent/drug/maint/tar, 5)
-	reagents.add_reagent(/datum/reagent/drug/kronkaine, 5)
-	reagents.add_reagent(/datum/reagent/drug/pumpup, 5)
-
-/obj/item/ammo_casing/alacran_dart/equestrian_stimulants/piercing
-	name = "\improper third-party 'Equestrian Stimulants' dart - armor piercing"
-	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
+	reagents.add_reagent(/datum/reagent/consumable/ethanol/quintuple_sec, 7)
+	reagents.add_reagent(/datum/reagent/drug/blastoff, 8)	// 'when pigs fly' mfers lookin real silly rn
