@@ -1,0 +1,10 @@
+{
+	"basic_poncho": [
+		{
+			"type": "icon_state",
+			"icon_state": "basic_poncho",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

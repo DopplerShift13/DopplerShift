@@ -70,6 +70,41 @@
 	greyscale_config_worn = /datum/greyscale_config/capelet/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/neck/half_cape
+	name = "half cape"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/half_cape"
+	post_init_icon_state = "half_cape"
+	custom_price = PAYCHECK_CREW
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	greyscale_config = /datum/greyscale_config/half_cape
+	greyscale_config_worn = /datum/greyscale_config/half_cape/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
+
+/obj/item/clothing/neck/patterned_poncho
+	name = "patterned poncho"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/patterned_poncho"
+	post_init_icon_state = "patterned_poncho"
+	custom_price = PAYCHECK_CREW
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	greyscale_config = /datum/greyscale_config/patterned_poncho
+	greyscale_config_worn = /datum/greyscale_config/patterned_poncho/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
+
+/obj/item/clothing/neck/basic_poncho
+	name = "basic poncho"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/basic_poncho"
+	post_init_icon_state = "basic_poncho"
+	custom_price = PAYCHECK_CREW
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	greyscale_config = /datum/greyscale_config/basic_poncho
+	greyscale_config_worn = /datum/greyscale_config/basic_poncho/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
 
 ///////////
 //SCARVES//
