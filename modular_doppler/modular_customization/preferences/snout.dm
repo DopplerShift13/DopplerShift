@@ -97,5 +97,5 @@
 	feature_key_sprite = "snout"
 
 /datum/bodypart_overlay/mutant/snout/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	draw_color = limb.owner?.dna.features["snout_colors"]
+	draw_color = limb.owner?.dna.features[FEATURE_SNOUT_COLORS]
 	return ..()

@@ -18,7 +18,7 @@
 	sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"))
 
 /datum/preference/tri_color/horns_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["horns_colors"] = value
+	target.dna.features[FEATURE_HORNS_COLORS] = value
 
 /datum/preference/tri_color/horns_color/is_valid(value)
 	if (!..(value))

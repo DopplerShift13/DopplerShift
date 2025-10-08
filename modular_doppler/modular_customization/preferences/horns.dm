@@ -6,7 +6,7 @@
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
 /datum/bodypart_overlay/mutant/horns/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	draw_color = limb.owner?.dna.features["horns_colors"]
+	draw_color = limb.owner?.dna.features[FEATURE_HORNS_COLORS]
 	return ..()
 
 //core toggle

@@ -117,7 +117,7 @@
 	feature_key_sprite = FEATURE_TAUR
 
 /datum/bodypart_overlay/mutant/taur_body/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	draw_color = limb?.owner?.dna.features["taur_colors"] // Taur bodies sometimes don't have an attached limb when getting deleted I think ?
+	draw_color = limb?.owner?.dna.features[FEATURE_TAUR_COLORS] // Taur bodies sometimes don't have an attached limb when getting deleted I think ?
 	return ..()
 
 /datum/bodypart_overlay/mutant/taur_body/can_draw_on_bodypart(obj/item/bodypart/bodypart_owner)

@@ -95,5 +95,5 @@
 	feature_key_sprite = FEATURE_FLUFF
 
 /datum/bodypart_overlay/mutant/fluff/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	draw_color = limb.owner?.dna.features["fluff_colors"]
+	draw_color = limb.owner?.dna.features[FEATURE_FLUFF_COLORS]
 	return ..()
