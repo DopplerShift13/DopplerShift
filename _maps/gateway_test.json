@@ -12,7 +12,7 @@
 		"/datum/unit_test/required_map_items",
 		"/datum/unit_test/space_dragon_expiration",
 		"/datum/unit_test/spy_bounty",
-		"/datum/unit_test/traitor",
+		"/datum/unit_test/traitor"
 	],
-	"minetype": "lavaland"
+	"minetype": "lavaland" // DOPPLER EDIT - Makes the test work with our special minetypes
 }
