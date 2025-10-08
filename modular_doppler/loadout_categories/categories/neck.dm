@@ -127,3 +127,19 @@
 /datum/loadout_item/neck/mantle
 	name = "Mantle"
 	item_path = /obj/item/clothing/neck/mantle/recolorable
+
+/datum/loadout_item/neck/capelet
+	name = "Capelet (Colorable)"
+	item_path = /obj/item/clothing/neck/capelet
+
+/datum/loadout_item/neck/half_cape
+	name = "Half Cape (Colorable)"
+	item_path = /obj/item/clothing/neck/half_cape
+
+/datum/loadout_item/neck/patterned_poncho
+	name = "Patterned Poncho (Colorable)"
+	item_path = /obj/item/clothing/neck/patterned_poncho
+
+/datum/loadout_item/neck/basic_poncho
+	name = "Basic Poncho (Colorable)"
+	item_path = /obj/item/clothing/neck/basic_poncho

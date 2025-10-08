@@ -38,7 +38,7 @@
 	var/list/severity_choice_list = GLOB.severity_choice_limping[chosen_severity]
 	if(isnull(severity_choice_list))  // Client gone or they chose a random severity
 		chosen_severity = pick(GLOB.severity_choice_limping)
-		affected_side = GLOB.severity_choice_limping[chosen_severity]
+		severity_choice_list = GLOB.severity_choice_limping[chosen_severity]
 
 	limp_slowdown = severity_choice_list[LIMPING_SLOWDOWN]
 	limp_chance = severity_choice_list[LIMPING_CHANCE]

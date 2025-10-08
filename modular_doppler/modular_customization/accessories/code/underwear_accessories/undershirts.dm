@@ -94,6 +94,21 @@
 	name = "Shirt - Athletic Leotard"
 	icon_state = "leotard_athletic"
 
+/datum/sprite_accessory/undershirt/blouse
+	name = "Shirt - Blouse"
+	icon_state = "blouse"
+	use_static = FALSE
+
+/datum/sprite_accessory/undershirt/keyhole_sweater
+	name = "Sweater - Keyhole Sweater"
+	icon_state = "keyhole_sweater"
+	use_static = FALSE
+
+/datum/sprite_accessory/undershirt/sweetheart
+	name = "Shirt - Sweetheart Neckline"
+	icon_state = "sweetheart"
+	use_static = FALSE
+
 //Presets
 /datum/sprite_accessory/undershirt/bulletclub //4 life
 	name = "Shirt - Black Skull"

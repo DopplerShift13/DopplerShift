@@ -157,3 +157,27 @@
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
 	alternate_worn_layer = ABOVE_SHOES_LAYER
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/skirt/highwaisted_skirt
+	name = "high waisted skirt"
+	desc = "A tube skirt that sits higher up on the waist. Slay."
+	icon_state = "/obj/item/clothing/under/dress/skirt/highwaisted_skirt"
+	post_init_icon_state = "highwaisted_skirt"
+	body_parts_covered = GROIN
+	greyscale_config = /datum/greyscale_config/highwaisted_skirt
+	greyscale_config_worn = /datum/greyscale_config/highwaisted_skirt/worn
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/skirt/miniskirt
+	name = "miniskirt"
+	desc = "You might want some leggings to wear under this."
+	icon_state = "/obj/item/clothing/under/dress/skirt/miniskirt"
+	post_init_icon_state = "miniskirt"
+	body_parts_covered = GROIN
+	greyscale_config = /datum/greyscale_config/miniskirt
+	greyscale_config_worn = /datum/greyscale_config/miniskirt/worn
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
+	flags_1 = IS_PLAYER_COLORABLE_1
