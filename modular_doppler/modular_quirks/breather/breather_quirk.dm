@@ -1,6 +1,6 @@
 /datum/quirk/item_quirk/breather
 	abstract_parent_type = /datum/quirk/item_quirk/breather
-	icon = FA_ICON_LUNGS_VIRUS
+	icon = FA_ICON_MASK_VENTILATOR
 	var/breath_type = "oxygen"
 
 /datum/quirk/item_quirk/breather/add_unique(client/client_source)

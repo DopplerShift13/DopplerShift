@@ -31,7 +31,7 @@
 	var/starting_frequency
 	/// A name tag for the scryer, seen in the list of MODlinks.
 	var/label
-	
+
 	/// Reference to the MODlink currently calling us.
 	var/datum/weakref/calling_mod_link_ref
 	/// ID for the timer used to end incoming calls.
@@ -330,7 +330,7 @@
 		var/mob/living/calling_user = calling_mod_link.get_user()
 		if(calling_user)
 			calling_user.playsound_local(get_turf(calling_mod_link.holder), 'sound/machines/buzz/buzz-sigh.ogg', 15, vary = TRUE)
-	
+
 	calling_mod_link_ref = null
 
 /obj/item/brick_phone_scryer/proc/perform_shake()
@@ -418,7 +418,7 @@
 		return
 	calling_mod_link.holder.balloon_alert(calling_user, "call denied!")
 
-/obj/item/brick_phone_scryer/Hear(message, atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods, message_range)
+/obj/item/brick_phone_scryer/Hear(atom/movable/speaker, message_language, raw_message, radio_freq, radio_freq_name, radio_freq_color, list/spans, list/message_mods, message_range)
 	. = ..()
 	if(speaker != loc)
 		return

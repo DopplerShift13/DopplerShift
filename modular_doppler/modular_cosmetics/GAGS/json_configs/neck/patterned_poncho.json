@@ -1,0 +1,10 @@
+{
+	"patterned_poncho": [
+		{
+			"type": "icon_state",
+			"icon_state": "patterned_poncho",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

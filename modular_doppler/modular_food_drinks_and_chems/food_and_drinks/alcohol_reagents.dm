@@ -171,21 +171,6 @@
 	name = "glass of sin's delight"
 	desc = "You can smell the seven sins rolling off the top of the glass."
 
-/datum/reagent/consumable/ethanol/strawberry_daiquiri
-	name = "Strawberry Daiquiri"
-	description = "Pink looking alcoholic drink."
-	boozepwr = 20
-	color = "#FF4A74"
-	quality = DRINK_NICE
-	taste_description = "sweet strawberry, lime and the ocean breeze"
-
-/datum/glass_style/drinking_glass/strawberry_daiquiri
-	required_drink_type = /datum/reagent/consumable/ethanol/strawberry_daiquiri
-	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
-	icon_state = "strawberry_daiquiri"
-	name = "glass of strawberry daiquiri"
-	desc = "Pink looking drink with flowers and a big straw to sip it. Looks sweet and refreshing, perfect for warm days."
-
 /datum/reagent/consumable/ethanol/liz_fizz
 	name = "Liz Fizz"
 	description = "Triple citrus layered with some ice and cream."

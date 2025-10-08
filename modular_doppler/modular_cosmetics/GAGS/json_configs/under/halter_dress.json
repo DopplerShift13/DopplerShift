@@ -1,0 +1,10 @@
+{
+	"halter_dress": [
+		{
+			"type": "icon_state",
+			"icon_state": "halter_dress",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

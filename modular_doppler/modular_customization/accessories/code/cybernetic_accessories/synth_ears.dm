@@ -20,3 +20,19 @@
 /datum/sprite_accessory/ears_more/cybernetic/crowned
 	name = "Crowned"
 	icon_state = "crowned"
+
+/datum/sprite_accessory/ears_more/cybernetic/circular
+	name = "Circular"
+	icon_state = "circular"
+
+/datum/sprite_accessory/ears_more/cybernetic/comet
+	name = "Comet"
+	icon_state = "comet"
+
+/datum/sprite_accessory/ears_more/cybernetic/zero
+	name = "Zero"
+	icon_state = "zero"
+
+/datum/sprite_accessory/ears_more/cybernetic/cutesy
+	name = "Cutesy"
+	icon_state = "cutesy"
