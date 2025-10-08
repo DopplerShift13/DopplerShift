@@ -18,7 +18,7 @@
 
 // Some defines for sprite accessories
 // Which color source we're using when the accessory is added
-#define DEFAULT_PRIMARY	 1
+#define DEFAULT_PRIMARY	1
 #define DEFAULT_SECONDARY 2
 #define DEFAULT_TERTIARY 3
 #define DEFAULT_MATRIXED 4 // Uses all three colors for a matrix
