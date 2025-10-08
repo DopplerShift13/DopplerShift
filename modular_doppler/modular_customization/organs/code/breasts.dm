@@ -33,7 +33,7 @@
 
 /datum/bodypart_overlay/mutant/breasts
 	feature_key = FEATURE_BREASTS
-	layers = EXTERNAL_ADJACENT |  EXTERNAL_BEHIND
+	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
 	var/visibility = ORGAN_VISIBILITY_MODE_NORMAL
 
