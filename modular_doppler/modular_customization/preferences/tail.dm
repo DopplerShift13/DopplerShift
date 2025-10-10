@@ -636,7 +636,7 @@
 	feature_key_sprite = "tail"
 
 /datum/bodypart_overlay/mutant/tail/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	if(sprite_datum.color_src == USE_ONE_COLOR)
+	if((sprite_datum.color_src == USE_ONE_COLOR) && length(limb.owner?.dna.features[FEATURE_TAIL_COLORS]))
 		draw_color = limb.owner?.dna.features[FEATURE_TAIL_COLORS][1]
 	else
 		draw_color = limb.owner?.dna.features[FEATURE_TAIL_COLORS]
