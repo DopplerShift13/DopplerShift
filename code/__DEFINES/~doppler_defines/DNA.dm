@@ -17,7 +17,7 @@
 #define HUSK_COLOR_LIST list(list(0.64, 0.64, 0.64, 0), list(0.64, 0.64, 0.64, 0), list(0.64, 0.64, 0.64, 0), list(0, 0, 0, 1))
 
 /// Default feature colors
-#define DEFAULT_MATRIXED_FEATURE_COLORS list(list(1, 1, 1, 0), list(1, 1, 1, 0), list(1, 1, 1, 0))
+#define DEFAULT_MATRIXED_FEATURE_COLORS list("#ffffff", "#ffffff", "#ffffff")
 
 // Some defines for sprite accessories
 // Which color source we're using when the accessory is added
