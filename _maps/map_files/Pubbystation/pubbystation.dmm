@@ -4277,7 +4277,7 @@
 /area/station/commons/dorms/laundry)
 "asg" = (
 /obj/machinery/light/floor,
-/turf/open/floor/iron,
+/turf/open/floor/iron/dark,
 /area/station/commons/dorms)
 "ash" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -5107,13 +5107,14 @@
 	dir = 10
 	},
 /obj/machinery/firealarm/directional/north,
-/turf/open/floor/iron,
-/area/station/commons/dorms)
-"avj" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Dormitories Fore"
 	},
 /turf/open/floor/iron,
+/area/station/commons/dorms)
+"avj" = (
+/obj/machinery/requests_console/auto_name/directional/north,
+/turf/open/floor/iron/dark,
 /area/station/commons/dorms)
 "avm" = (
 /obj/effect/spawner/structure/window/reinforced,
@@ -15004,10 +15005,6 @@
 /obj/structure/sign/warning/docking/directional/north,
 /turf/open/floor/plating,
 /area/station/service/library)
-"bnC" = (
-/obj/machinery/requests_console/auto_name/directional/north,
-/turf/open/floor/iron,
-/area/station/commons/dorms)
 "bnD" = (
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
@@ -95184,9 +95181,9 @@ aaa
 aaa
 aaa
 apX
-apX
-cfv
 avj
+asg
+com
 teA
 ten
 azv
@@ -95443,7 +95440,7 @@ aaa
 ash
 kTo
 aul
-asg
+com
 awu
 axq
 ayo
@@ -95699,8 +95696,8 @@ aaa
 aaa
 apX
 apX
-apX
-bnC
+cfv
+com
 teA
 axr
 ayq
