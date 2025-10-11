@@ -9,6 +9,7 @@
 	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/ammo_casing/alacran_dart"
 	post_init_icon_state = "alacran_dart"
+	base_icon_state = "alacran_dart"
 	greyscale_config = /datum/greyscale_config/alacran_dart
 	greyscale_colors = "#bb2222#bb2222"	//plume color, casing color
 	caliber = CALIBER_ALACRAN
@@ -16,6 +17,7 @@
 	harmful = FALSE
 	no_live_state = TRUE
 	custom_price = PAYCHECK_COMMAND
+	/// How many units of chems this dart can hold
 	var/reagent_amount = 15
 
 /obj/item/ammo_casing/alacran_dart/Initialize(mapload)
@@ -201,7 +203,7 @@
 
 /obj/item/ammo_casing/alacran_dart/quadruple_sec
 	name = "\improper Puya experimental salve dart"
-	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of healing chemicals that target the specific physiogyny of \
+	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of healing chemicals that target the specific physiology of \
 	law enforcement and security guards."
 
 /obj/item/ammo_casing/alacran_dart/quadruple_sec/Initialize(mapload)
@@ -212,7 +214,7 @@
 
 /obj/item/ammo_casing/alacran_dart/quintuple_sec
 	name = "\improper Puya HIGHLY experimental salve dart"
-	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of healing chemicals that target the specific physiogyny of \
+	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of healing chemicals that target the specific physiology of \
 	law enforcement and security guards. A skull is emblazoned on the casing, along with some sort of label that's too small to read."
 	greyscale_colors = "#cc9900#800000"
 

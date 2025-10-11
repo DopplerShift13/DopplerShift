@@ -4,7 +4,7 @@
 
 /obj/item/shield/escarabajo
 	name = "\improper PA-3S Escarabajo riot shield"	//it means beetle
-	desc = "A monocoque skin of plasma-infused titanium with a broad reinforced viewport. Operators describe the experinece of watching rounds bounce off the \
+	desc = "A monocoque skin of plasma-infused titanium with a broad reinforced viewport. Operators describe the experience of watching rounds bounce off the \
 	viewport as upsetting, by paraphrase."
 	icon = 'modular_doppler/modular_weapons/icons/obj/shield.dmi'
 	icon_state = "escarabajo"

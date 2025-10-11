@@ -111,8 +111,8 @@
 	return readout.Join("\n") // Sending over a single string, rather than the whole list
 
 /obj/item/ammo_casing/update_icon_state()
-	if(no_live_state)	// DOPPLER ADDITION supports GAGS ammo
-		return ..()		//END DOPPLER ADDITION
+	if(no_live_state)	// DOPPLER ADDITION START - supports GAGS ammo
+		return ..()		//END DOPPLER ADDITION END
 	icon_state = "[initial(icon_state)][loaded_projectile ? "-live" : null]"
 	return ..()
 

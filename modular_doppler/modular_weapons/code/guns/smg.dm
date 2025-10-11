@@ -65,6 +65,7 @@
 	and another encourages recycling the frame once the integral magazine is depleted. Available in a wide range of fashion colors."
 	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/gun/ballistic/automatic/schiebenmaschine"
+	base_icon_state = "schiebenmaschine"
 	worn_icon = 'modular_doppler/modular_weapons/icons/mob/worn/guns.dmi'
 	worn_icon_state = "schiebenmaschine"
 	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
@@ -76,7 +77,6 @@
 	greyscale_config_inhand_left = /datum/greyscale_config/schiebenmaschine_lefthand
 	greyscale_config_inhand_right = /datum/greyscale_config/schiebenmaschine_righthand
 	greyscale_colors = "#bb2222" //randomized on init but we need this for mapping icons and stuff
-	unique_reskin_changes_base_icon_state = FALSE
 	can_suppress = FALSE
 	flags_1 = IS_PLAYER_COLORABLE_1
 	bolt_type = BOLT_TYPE_OPEN
@@ -102,6 +102,7 @@
 		"#ffffff",
 	)
 
+// these are single use disposable guns, so the loading is overridden with a explanatory blurb
 /obj/item/gun/ballistic/automatic/schiebenmaschine/load_gun(obj/item/ammo, mob/living/user)
 	balloon_alert(user, "bolt is sealed!")
 	return

@@ -7,28 +7,20 @@
 
 /datum/signature_equipment/security_equipment_package/gunnery_kit
 	name = "Gunnery Kit"
-	icon_item_type = /obj/item/security_gunnery_kit
+	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
+	icon_state = "security_gunnery_package"
 	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunnery_package
 
 /datum/signature_equipment/security_equipment_package/support_kit
 	name = "Support Kit"
-	icon_item_type = /obj/item/security_support_kit
+	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
+	icon_state = "security_support_package"
 	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_support_package
 
 /datum/signature_equipment/security_equipment_package/jitte_belt
 	name = "Jitte Belt"
 	icon_item_type = /obj/item/storage/belt/secsword/full
 	spawned_item_type = /obj/item/storage/belt/secsword/full
-
-// these exist purely to populate the radial selection menu with a sprite that shows both 'things' those kits get
-
-/obj/item/security_gunnery_kit
-	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
-	icon_state = "security_gunnery_package"
-
-/obj/item/security_support_kit
-	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
-	icon_state = "security_support_package"
 
 /obj/item/storage/belt/security/webbing/full/PopulateContents()
 	. = ..()

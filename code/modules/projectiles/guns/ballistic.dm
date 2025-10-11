@@ -204,8 +204,6 @@
 
 /obj/item/gun/ballistic/update_icon_state()
 	. = ..()
-	if(!can_be_sawn_off)	//DOPPLER ADDITION: allows GAGS gun icons to work properly
-		return				//END DOPPLER ADDITION
 	icon_state = "[base_icon_state || initial(icon_state)][sawn_off ? "_sawn" : ""]"
 
 /obj/item/gun/ballistic/update_overlays()

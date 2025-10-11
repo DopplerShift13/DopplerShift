@@ -5,7 +5,7 @@
 
 /obj/item/gun/ballistic/avispa_stingball_shooter
 	name = "\improper Avispa stingball launcher"	//avispa means wasp
-	desc = "Oriented glass strand polymers in hivis yellow and blackened pneumatic tubing. The strange and uncomfortable stock \
+	desc = "Oriented glass strand polymers in hi-vis yellow and blackened pneumatic tubing. The strange and uncomfortable stock \
 	was designed for legalistic concerns over ergonomics. A label on the side admonishes the use of third party ammunition and \
 	recommends against aiming for a target's eyes."
 	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
