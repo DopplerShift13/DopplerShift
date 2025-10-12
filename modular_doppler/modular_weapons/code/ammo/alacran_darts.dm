@@ -22,8 +22,9 @@
 /obj/item/ammo_casing/alacran_dart/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/caseless)
-	create_reagents(dart_reagents, SEALED_CONTAINER)
 	if(dart_reagents)
+		var/reagent_volume = counterlist_sum(dart_reagents)
+		create_reagents(reagent_volume, SEALED_CONTAINER)
 		reagents.add_reagent_list(dart_reagents)
 
 /obj/projectile/bullet/dart/alacran_dart
