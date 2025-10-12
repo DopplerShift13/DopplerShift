@@ -15,14 +15,14 @@
 	caliber = CALIBER_ALACRAN
 	projectile_type = /obj/projectile/bullet/dart/alacran_dart
 	harmful = FALSE
-	no_live_state = TRUE
 	custom_price = PAYCHECK_COMMAND
 	/// A list of the reagents in our payload
 	var/list/dart_reagents = 15
 
 /obj/item/ammo_casing/alacran_dart/Initialize(mapload)
 	. = ..()
-	create_reagents(reagent_amount, SEALED_CONTAINER)
+	AddElement(/datum/element/caseless)
+	create_reagents(dart_reagents, SEALED_CONTAINER)
 	if(dart_reagents)
 		reagents.add_reagent_list(dart_reagents)
 
