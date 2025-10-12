@@ -73,7 +73,7 @@
 		if(sprite_datum.color_src == USE_MATRIXED_COLORS) //Matrixed+husk needs special care, otherwise we get sparkle dogs
 			draw_color = HUSK_COLOR_LIST
 		else
-			draw_color = "#aaaaaa" //The gray husk color
+			draw_color = limb.husk_color ? limb.husk_color : HUSK_COLOR_TONE
 	var/i = 1 // Starts at 1 for color layers.
 	alpha = limb?.alpha || ALPHA_OPAQUE
 	for(var/index_to_color in overlay_indexes_to_color)
