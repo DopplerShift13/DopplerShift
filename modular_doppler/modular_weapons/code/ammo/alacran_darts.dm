@@ -17,7 +17,7 @@
 	harmful = FALSE
 	custom_price = PAYCHECK_COMMAND
 	/// A list of the reagents in our payload
-	var/list/dart_reagents = 15
+	var/list/dart_reagents
 
 /obj/item/ammo_casing/alacran_dart/Initialize(mapload)
 	. = ..()
