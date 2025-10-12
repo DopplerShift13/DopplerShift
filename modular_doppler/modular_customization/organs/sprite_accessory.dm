@@ -28,7 +28,7 @@
 	///Whether this feature is genetic, and thus modifiable by DNA consoles
 	var/genetic = FALSE
 	var/uses_emissives = FALSE
-	var/color_layer_names
+	var/list/color_layer_names = list()
 
 /datum/sprite_accessory/New()
 	if(!default_color)
@@ -39,18 +39,16 @@
 				default_color = DEFAULT_MATRIXED
 			else
 				default_color = "#FFFFFF"
+	color_layer_names["1"] = MUTANT_ACCESSORY_NO_AFFIX // Makes sure single color accessories still work
 	if(name == SPRITE_ACCESSORY_NONE)
 		factual = FALSE
 	if(color_src == USE_MATRIXED_COLORS && default_color != DEFAULT_MATRIXED)
 		default_color = DEFAULT_MATRIXED
 	if(color_src == USE_MATRIXED_COLORS)
-		color_layer_names = list()
-		if (!SSaccessories.cached_mutant_icon_files[icon])
+		if(!SSaccessories.cached_mutant_icon_files[icon])
 			SSaccessories.cached_mutant_icon_files[icon] = icon_states(new /icon(icon))
-		for (var/layer in relevant_layers)
+		for(var/layer in relevant_layers)
 			var/layertext = layer == BODY_BEHIND_LAYER ? "BEHIND" : (layer == BODY_ADJ_LAYER ? "ADJ" : "FRONT")
-			if ("m_[key]_[icon_state]_[layertext]" in SSaccessories.cached_mutant_icon_files[icon])
-				color_layer_names["1"] = MUTANT_ACCESSORY_NO_AFFIX
 			if ("m_[key]_[icon_state]_[layertext]_2" in SSaccessories.cached_mutant_icon_files[icon])
 				color_layer_names["2"] = "2"
 			if ("m_[key]_[icon_state]_[layertext]_3" in SSaccessories.cached_mutant_icon_files[icon])

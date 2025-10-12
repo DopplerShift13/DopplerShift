@@ -51,8 +51,8 @@
 				overlay_indexes_to_color += index
 				index++
 		else
-			var/mutable_appearance/image_to_return = get_singular_image(build_icon_state(gender, image_layer), image_layer, owner)
-			returned_images = list(image_to_return)
+			var/mutable_appearance/image_to_return = get_singular_image(build_icon_state(gender, image_layer, MUTANT_ACCESSORY_NO_AFFIX), image_layer, owner)
+			returned_images += image_to_return
 			overlay_indexes_to_color += index
 	return returned_images
 
