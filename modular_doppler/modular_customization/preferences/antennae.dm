@@ -72,9 +72,25 @@
 
 	return final_icon
 
+/// If antennae are ever made recolorable like literally everything else is, remove this and the color part
+/datum/bodypart_overlay/mutant/antennae/get_overlay(layer, obj/item/bodypart/limb)
+	layer = bitflag_to_layer(layer)
+	var/image/main_image = get_image(layer, limb)
+	if(limb)
+		main_image.alpha = limb.alpha
+	color_image(main_image, layer, limb)
+	if(blocks_emissive == EMISSIVE_BLOCK_NONE || !limb)
+		return main_image
+
+	var/list/all_images = list(
+		main_image,
+		emissive_blocker(main_image.icon, main_image.icon_state, limb, layer = main_image.layer, alpha = main_image.alpha)
+	)
+	return all_images
+
 /// Overwrite lives here
 //	Moth antennae have their own bespoke RGB code.
-/datum/bodypart_overlay/mutant/antennae/color_images(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/antennae/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
