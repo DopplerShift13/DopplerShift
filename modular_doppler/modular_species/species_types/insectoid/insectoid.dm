@@ -42,8 +42,8 @@
 
 /datum/species/insectoid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.features[FEATURE_LIZARD_MARKINGS] = "Insectoid Pattern"
-	human_for_preview.dna.features["body_markings_color_1"] = "#46c346"
-	human_for_preview.dna.features["body_markings_color_2"] = "#1c1c1c"
+	human_for_preview.dna.features[FEATURE_MARKINGS_COLORS][1] = "#46c346"
+	human_for_preview.dna.features[FEATURE_MARKINGS_COLORS][2] = "#1c1c1c"
 	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#383942"
 	human_for_preview.dna.features[FEATURE_FLUFF] = "Insect Fluff"
 	human_for_preview.dna.features[FEATURE_FLUFF_COLORS][1] = "#dae7f7"

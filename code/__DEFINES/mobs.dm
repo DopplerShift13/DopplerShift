@@ -749,6 +749,10 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define BODYPARTS_LAYER 35
 /// Mutantrace features (snout, body markings) that must appear above the body parts
 #define BODY_ADJ_LAYER 34
+/// DOPPLER SHIFT ADDITION BEGIN
+#define BODY_ADJ_LAYER_2 33.75
+#define BODY_ADJ_LAYER_3 33.5
+/// DOPPLER SHIFT ADDITION END
 /// Underwear, undershirts, socks
 #define BODY_LAYER 33
 /// Eyes and eyelids
@@ -886,13 +890,17 @@ GLOBAL_LIST_INIT(layers_to_offset, list(
 #define EXTERNAL_FRONT (1 << 0)
 /// Draws overlay on the BODY_ADJ_LAYER
 #define EXTERNAL_ADJACENT (1 << 1)
+/// DOPPLER SHIFT ADDITION BEGIN
+#define EXTERNAL_ADJACENT_2 (1 << 2)
+#define EXTERNAL_ADJACENT_3 (1 << 3)
+/// DOPPLER SHIFT ADDITION END
 /// Draws overlay on the BODY_BEHIND_LAYER
-#define EXTERNAL_BEHIND (1 << 2)
+#define EXTERNAL_BEHIND (1 << 4)
 /// DOPPLER SHIFT ADDITION BEGIN
 //Hand markings
-#define EXTERNAL_HAND (1 << 4)
+#define EXTERNAL_HAND (1 << 5)
 //Misc
-#define EXTERNAL_BODY_FRONT_UNDER_CLOTHES (1 << 5)
+#define EXTERNAL_BODY_FRONT_UNDER_CLOTHES (1 << 6)
 /// DOPPLER SHIFT ADDITION END
 /// Draws organ on all EXTERNAL layers
 #define ALL_EXTERNAL_OVERLAYS EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND

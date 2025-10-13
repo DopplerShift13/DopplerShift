@@ -91,7 +91,7 @@
 
 /datum/species/ramatan/prepare_human_for_preview(mob/living/carbon/human/ramatan_for_preview)
 	ramatan_for_preview.dna.features[FEATURE_LIZARD_MARKINGS] = "Ramatan Underbelly"
-	ramatan_for_preview.dna.features["body_markings_color_1"] = "#ccecff"
+	ramatan_for_preview.dna.features[FEATURE_MARKINGS_COLORS][1] = "#ccecff"
 	ramatan_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#FFFFFF"
 	ramatan_for_preview.dna.ear_type = ALIEN
 	ramatan_for_preview.dna.features[FEATURE_EARS] = "Ramatan"

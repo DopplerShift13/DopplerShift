@@ -75,6 +75,7 @@
 #define FEATURE_POD_HAIR "pod_hair"
 // DOPPLER FEATURES START
 #define FEATURE_EARS_COLORS "ears_colors"
+#define FEATURE_MARKINGS_COLORS "markings_colors"
 #define FEATURE_FRILLS_COLORS "frills_colors"
 #define FEATURE_HORNS_COLORS "horns_colors"
 #define FEATURE_SNOUT_COLORS "snout_colors"
