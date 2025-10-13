@@ -1,5 +1,5 @@
 /// Moth bodymark fixing
-/datum/bodypart_overlay/simple/body_marking/moth/color_images(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/simple/body_marking/moth/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
