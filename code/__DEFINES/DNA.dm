@@ -78,6 +78,8 @@
 #define FEATURE_MARKINGS_COLORS "markings_colors"
 #define FEATURE_FRILLS_COLORS "frills_colors"
 #define FEATURE_HORNS_COLORS "horns_colors"
+#define FEATURE_MOTH_MARKS_COLORS "moth_markings_colors"
+#define FEATURE_ANTENNAE_COLORS "antennae_colors"
 #define FEATURE_SNOUT_COLORS "snout_colors"
 #define FEATURE_WINGS_COLORS "wings_colors"
 #define FEATURE_TAIL_OTHER "tail_other"

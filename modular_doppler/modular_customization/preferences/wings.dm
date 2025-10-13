@@ -128,7 +128,7 @@
 
 /// Overwrite lives here
 //	Moth wings have their own bespoke RGB code.
-/datum/bodypart_overlay/mutant/wings/moth/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/wings/moth/color_images(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)

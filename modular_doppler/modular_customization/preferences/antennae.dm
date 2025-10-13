@@ -74,16 +74,16 @@
 
 /// Overwrite lives here
 //	Moth antennae have their own bespoke RGB code.
-/datum/bodypart_overlay/mutant/antennae/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/antennae/color_images(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(limb == null)
 		return ..()
 	if(limb.owner == null)
 		return ..()
 	var/color_intended = COLOR_WHITE
 
-	var/tcol_1 = limb.owner.dna.features["antennae_color_1"]
-	var/tcol_2 = limb.owner.dna.features["antennae_color_2"]
-	var/tcol_3 = limb.owner.dna.features["antennae_color_3"]
+	var/tcol_1 = limb.owner.dna.features[FEATURE_ANTENNAE_COLORS][1]
+	var/tcol_2 = limb.owner.dna.features[FEATURE_ANTENNAE_COLORS][2]
+	var/tcol_3 = limb.owner.dna.features[FEATURE_ANTENNAE_COLORS][3]
 	if(tcol_1 && tcol_2 && tcol_3)
 		//this is beyond ugly but it works
 		var/r1 = hex2num(copytext(tcol_1, 2, 4)) / 255.0
