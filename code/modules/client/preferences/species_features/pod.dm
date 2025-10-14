@@ -52,8 +52,6 @@
 //DOPPLER EDIT
 /datum/preference/choiced/pod_hair/compile_constant_data()
 	var/list/data = ..()
-
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/pod_hair_color::savefile_key
-
 	return data
 //DOPPLER EDIT END
