@@ -7528,6 +7528,7 @@
 #include "modular_doppler\modular_species\species_types\snails\snail_bodyparts.dm"
 #include "modular_doppler\modular_species\species_types\snails\organs\snail_heart.dm"
 #include "modular_doppler\modular_species\species_types\snails\organs\snail_liver.dm"
+#include "modular_doppler\modular_species\species_types\viridian\organs\pod_hair.dm"
 #include "modular_doppler\modular_uplink\code\ammunition.dm"
 #include "modular_doppler\modular_uplink\code\kit_special.dm"
 #include "modular_doppler\modular_uplink\code\kit_tactical.dm"
