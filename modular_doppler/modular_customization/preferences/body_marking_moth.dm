@@ -5,7 +5,8 @@
 	if(limb.owner == null)
 		return ..()
 	var/color_intended = COLOR_WHITE
-
+	if(!length(limb.owner?.dna.features[FEATURE_MOTH_MARKS_COLORS]))
+		return ..()
 	var/tcol_1 = limb.owner.dna.features[FEATURE_MOTH_MARKS_COLORS][1]
 	var/tcol_2 = limb.owner.dna.features[FEATURE_MOTH_MARKS_COLORS][2]
 	var/tcol_3 = limb.owner.dna.features[FEATURE_MOTH_MARKS_COLORS][3]
