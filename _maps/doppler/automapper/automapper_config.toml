@@ -85,6 +85,15 @@ required_map = "Iceland.dmm"
 coordinates = [121, 203, 3]
 trait_name = "Mining"
 
+# TRAMSTATION MAP EDITS
+# Tramstation Cryo
+[templates.tramstation_cryo]
+map_files = ["tramstation_cryo.dmm"]
+directory = "_maps/doppler/automapper/templates/tramstation/"
+required_map = "tramstation.dmm"
+coordinates = [68, 102, 2]
+trait_name = "Station"
+
 # NEBULASTATION MAP EDITS
 # Nebulastation Cryo
 [templates.nebulastation_cryo]
