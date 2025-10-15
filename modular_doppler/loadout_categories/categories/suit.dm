@@ -458,3 +458,27 @@
 /datum/loadout_item/suit/peacekeeper_jacket_badged
 	name = "Badged Peacekeeper Jacket"
 	item_path = /obj/item/clothing/suit/jacket/doppler/peacekeeper_jacket/badged
+
+/datum/loadout_item/suit/cargo_coat
+	name = "Cargo Technician's Coat"
+	item_path = /obj/item/clothing/suit/jacket/cargo_coat
+
+/datum/loadout_item/suit/cargo_coat_fancy
+	name = "Cargo Technician's Fancy Coat"
+	item_path = /obj/item/clothing/suit/jacket/cargo_coat/fancy
+
+/datum/loadout_item/suit/cargo_coat_high_vis
+	name = "Cargo Technician's High-vis Coat"
+	item_path = /obj/item/clothing/suit/jacket/cargo_coat/high_vis
+
+/datum/loadout_item/suit/cargo_coat_chore
+	name = "Cargo Technician's Chore Coat"
+	item_path = /obj/item/clothing/suit/jacket/cargo_coat/chore
+
+/datum/loadout_item/suit/cargo_coat_shearling
+	name = "Cargo Technician's Shearling Coat"
+	item_path = /obj/item/clothing/suit/jacket/cargo_coat/cargo_shearling
+
+/datum/loadout_item/suit/cargo_coat_great
+	name = "Cargo Technician's Great Coat"
+	item_path = /obj/item/clothing/suit/jacket/cargo_coat/cargo_greatcoat

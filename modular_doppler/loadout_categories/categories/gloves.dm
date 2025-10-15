@@ -48,6 +48,26 @@
 	name = "Explorer Gloves"
 	item_path = /obj/item/clothing/gloves/doppler_mining
 
+/datum/loadout_item/gloves/cargo
+	name = "Cargo Technician's Leather Gloves"
+	item_path = /obj/item/clothing/gloves/doppler_cargo
+
+/datum/loadout_item/gloves/cargo_work
+	name = "Cargo Technician's Work Gloves"
+	item_path = /obj/item/clothing/gloves/doppler_cargo/work_gloves
+
+/datum/loadout_item/gloves/cargo_colorblock
+	name = "Cargo Technician's Colorblock Gauntlets"
+	item_path = /obj/item/clothing/gloves/doppler_cargo/colorblock_gauntlets
+
+/datum/loadout_item/gloves/cargo_gauntlets
+	name = "Cargo Technician's Gautlets"
+	item_path = /obj/item/clothing/gloves/doppler_cargo/gauntlets
+
+/datum/loadout_item/gloves/cargo_fingerless
+	name = "Cargo Technician's Fingerless Gloves"
+	item_path = /obj/item/clothing/gloves/doppler_cargo/fingerless
+
 /datum/loadout_item/gloves/fingerless
 	name = "Fingerless Gloves"
 	item_path = /obj/item/clothing/gloves/fingerless
