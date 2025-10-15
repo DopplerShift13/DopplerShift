@@ -101,10 +101,10 @@
 /datum/species/human/genemod/hemophage/prepare_human_for_preview(mob/living/carbon/human/human)
 	human.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex("albino")
 	human.dna.features[FEATURE_HORNS] = "Lifted"
-	human.dna.features["horns_color_1"] = "#52435e"
+	human.dna.features[FEATURE_HORNS_COLORS][1] = "#52435e"
 	human.dna.ear_type = HUMANOID
 	human.dna.features[FEATURE_EARS] = "Elf (wide)"
-	human.dna.features["ears_color_1"] = "#F7D1C3"
+	human.dna.features[FEATURE_EARS_COLORS][1] = "#F7D1C3"
 	human.hair_color = "#f1cc9c"
 	human.lip_style = "lipstick"
 	human.lip_color = COLOR_BLACK

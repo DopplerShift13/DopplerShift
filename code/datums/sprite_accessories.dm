@@ -2064,6 +2064,7 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 /datum/sprite_accessory/snouts
 	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
 	em_block = TRUE
+	key = "snout"
 
 /datum/sprite_accessory/snouts/sharp
 	name = "Sharp"
@@ -2084,6 +2085,8 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 /datum/sprite_accessory/horns
 	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
 	em_block = TRUE
+	key = "horns"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/horns/simple
 	name = "Simple"
