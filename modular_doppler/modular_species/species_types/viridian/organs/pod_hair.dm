@@ -3,10 +3,12 @@
 		return ..()
 	if(isnull(limb.owner))
 		return ..()
+	if(!length(limb.owner.dna.features[FEATURE_POD_HAIR_COLORS]))
+		return ..()
 	if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["pod_hair_color_1"]
+		overlay.color = limb.owner.dna.features[FEATURE_POD_HAIR_COLORS][1]
 		return overlay
 	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = limb.owner.dna.features["pod_hair_color_2"]
+		overlay.color = limb.owner.dna.features[FEATURE_POD_HAIR_COLORS][2]
 		return overlay
 	return ..()

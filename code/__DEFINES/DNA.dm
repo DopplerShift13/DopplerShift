@@ -90,6 +90,7 @@
 #define FEATURE_TAUR_COLORS "taur_colors"
 #define FEATURE_FLUFF "fluff"
 #define FEATURE_FLUFF_COLORS "fluff_colors"
+#define FEATURE_POD_HAIR_COLORS "pod_hair_colors"
 // DOPPLER FEATURES END
 
 // Other
