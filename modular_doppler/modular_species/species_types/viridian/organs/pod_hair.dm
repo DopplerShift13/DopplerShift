@@ -1,4 +1,4 @@
-/datum/bodypart_overlay/mutant/pod_hair/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
+/datum/bodypart_overlay/mutant/pod_hair/color_images(image/overlay, draw_layer, obj/item/bodypart/limb)
 	if(isnull(limb))
 		return ..()
 	if(isnull(limb.owner))

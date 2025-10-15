@@ -127,7 +127,11 @@
 	feature_key_sprite = "wings"
 
 /datum/bodypart_overlay/mutant/wings/more/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	draw_color = limb.owner?.dna.features[FEATURE_WINGS_COLORS]
+	if(!limb) // I've seen runtimes you wouldn't believe
+		return ..()
+	if(!limb.owner)
+		return ..()
+	draw_color = limb.owner.dna.features[FEATURE_WINGS_COLORS]
 	return ..()
 
 /// If moth wings ever become 3 color like regular wings, remove this part and the color part below
