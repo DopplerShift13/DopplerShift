@@ -3,7 +3,7 @@
 		return ..()
 	if(isnull(limb.owner))
 		return ..()
-	if(!length(limb.ownder.dna.features[FEATURE_POD_HAIR_COLORS]))
+	if(!length(limb.owner.dna.features[FEATURE_POD_HAIR_COLORS]))
 		return ..()
 	if(layer == -BODY_FRONT_LAYER)
 		draw_color = list(limb.owner.dna.features[FEATURE_POD_HAIR_COLORS][2]) // This sucks
