@@ -229,6 +229,7 @@
 // DOPPLER ADDITIONS:
 #define BLOOD_COLOR_INSECTOID "#945d9b"
 #define BLOOD_COLOR_SYNTHETIC "#f0bd84"
+#define BLOOD_COLOR_HOLOGEL "#43aaff95" //OoOoh extra digits makes transparency
 
 ///Main colors for UI themes
 #define COLOR_THEME_MIDNIGHT "#6086A0"
