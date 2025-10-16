@@ -141,6 +141,10 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 
 	for(var/path in subtypesof(prototype))
 		var/datum/sprite_accessory/accessory = new path
+		// DOPPLER EDIT ADDITION START - Ignore abstract accessories
+		if(isnull(accessory.name))
+			continue
+		// DOPPLER EDIT ADDITION END
 
 		if(accessory.icon_state)
 			returnable_list[DEFAULT_SPRITE_LIST][accessory.name] = accessory
