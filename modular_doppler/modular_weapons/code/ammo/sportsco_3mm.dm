@@ -18,7 +18,8 @@
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	icon_state = "shortbullet"
 	damage = 10
-	speed = 1.6
+	weak_against_armour = TRUE
+	speed = 1.4
 	ricochets_max = 1
 	ricochet_chance = 25
 	ricochet_auto_aim_angle = 10

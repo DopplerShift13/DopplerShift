@@ -78,6 +78,8 @@
 	greyscale_config_inhand_right = /datum/greyscale_config/schiebenmaschine_righthand
 	greyscale_colors = "#bb2222" //randomized on init but we need this for mapping icons and stuff
 	can_suppress = FALSE
+	spread = 25
+	dual_wield_spread = 15 // additive with the previous spread var, the default value makes dual wielding these literally worse so we lower it a touch
 	flags_1 = IS_PLAYER_COLORABLE_1
 	bolt_type = BOLT_TYPE_OPEN
 	casing_ejector = FALSE
@@ -89,7 +91,7 @@
 
 /obj/item/gun/ballistic/automatic/schiebenmaschine/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/automatic_fire, 0.3 SECONDS)
+	AddComponent(/datum/component/automatic_fire, 0.6 SECONDS)
 	greyscale_colors = pick(
 		"#418dab",
 		"#fb7cc7",
@@ -111,4 +113,4 @@
 	name = "integrated schießenmagaschine"
 	ammo_type = /obj/item/ammo_casing/sportsco3mm
 	caliber = CALIBER_3MMSPORTSCO
-	max_ammo = 30
+	max_ammo = 25

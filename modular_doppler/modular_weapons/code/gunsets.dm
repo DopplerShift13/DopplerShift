@@ -101,7 +101,6 @@
 	icon_state = "sportsco_s"
 
 /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunnery_package/PopulateContents()
-	new /obj/item/gun/ballistic/automatic/schiebenmaschine(src)
 	new /obj/item/gun/ballistic/avispa_stingball_shooter(src)
 	new /obj/item/storage/belt/security/webbing/full(src)
 

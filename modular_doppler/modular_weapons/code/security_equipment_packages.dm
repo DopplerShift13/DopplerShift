@@ -7,8 +7,8 @@
 
 /datum/signature_equipment/security_equipment_package/gunnery_kit
 	name = "Gunnery Kit"
-	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
-	icon_state = "security_gunnery_package"
+	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
+	icon_state = "avispa"
 	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunnery_package
 
 /datum/signature_equipment/security_equipment_package/support_kit
