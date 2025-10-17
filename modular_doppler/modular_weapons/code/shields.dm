@@ -17,6 +17,7 @@
 	armor_type = /datum/armor/item_shield/riot
 	shield_break_leftover = /obj/item/escarabajo_broken
 	item_flags = IMMUTABLE_SLOW
+	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 
 /obj/item/shield/escarabajo/Initialize(mapload)
 	. = ..()

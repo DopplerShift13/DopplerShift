@@ -87,7 +87,7 @@
 	internal_magazine = TRUE
 	tac_reloads = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/schiebenmaschine
-	custom_price = PAYCHECK_CREW * 5
+	custom_price = PAYCHECK_CREW * 4
 
 /obj/item/gun/ballistic/automatic/schiebenmaschine/Initialize(mapload)
 	. = ..()
