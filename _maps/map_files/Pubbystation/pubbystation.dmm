@@ -55331,7 +55331,6 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
 "xyp" = (
-/turf/closed/mineral/strange_rock,
 /area/centcom/asteroid/nearstation/bomb_site)
 "xyI" = (
 /obj/structure/disposalpipe/segment,
