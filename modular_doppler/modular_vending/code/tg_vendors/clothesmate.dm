@@ -38,7 +38,6 @@
 				/obj/item/clothing/neck/fashion_collar/cross = 5,
 				/obj/item/clothing/neck/fashion_collar/holo = 5,
 				/obj/item/clothing/neck/fashion_collar/spike = 5,
-				/obj/item/clothing/gloves/lalune_long = 5,
 			),
 		),
 
@@ -134,5 +133,7 @@
 		)
 	)
 
-/*	premium_doppler = list( //being here means you're artificially rare, congratulations
-	)	*/
+	premium_doppler = list( //being here means you're artificially rare, congratulations
+		/obj/item/clothing/suit/toggle/labcoat/lalunevest = 3,
+		/obj/item/clothing/gloves/lalune_long = 3,
+	)
