@@ -311,6 +311,14 @@
 	name = "Keyhole Sweater Dress"
 	item_path = /obj/item/clothing/under/dress/doppler/sweaterdress
 
+/datum/loadout_item/undersuit/dress/maid
+	name = "Maid Dress"
+	item_path = /obj/item/clothing/under/costume/maid
+
+/datum/loadout_item/undersuit/dress/maid_uniform
+	name = "Maid Uniform"
+	item_path = /obj/item/clothing/under/rank/civilian/janitor/maid
+
 /// JAPANESE/LUNAR BREAKER
 
 /datum/loadout_item/undersuit/dress/qipao

@@ -191,3 +191,19 @@
 /datum/loadout_item/head/fullhelmet/get_item_information()
 	. = ..()
 	.[FA_ICON_CIRCLE_EXCLAMATION] = "Cannot be taken off!"
+
+/datum/loadout_item/head/cowboy_wide_feathered
+	name = "Wide-Brimmed Feathered Hat"
+	item_path = /obj/item/clothing/head/cowboy/doppler/wide/feathered
+
+/datum/loadout_item/head/cowboy_wide
+	name = "Wide-Brimmed Hat"
+	item_path = /obj/item/clothing/head/cowboy/doppler/wide
+
+/datum/loadout_item/head/cowboy_cattleman_wide
+	name = "Wide-Brimmed Cattleman Hat"
+	item_path = /obj/item/clothing/head/cowboy/doppler/cattleman/wide
+
+/datum/loadout_item/head/cowboy_cattleman
+	name = "Cattleman Hat"
+	item_path = /obj/item/clothing/head/cowboy/doppler/cattleman
