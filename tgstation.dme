@@ -7537,7 +7537,6 @@
 #include "modular_doppler\modular_species\species_types\viridian\organs\_heart.dm"
 #include "modular_doppler\modular_species\species_types\viridian\organs\_liver.dm"
 #include "modular_doppler\modular_species\species_types\viridian\organs\_lungs.dm"
-#include "modular_doppler\modular_species\species_types\viridian\organs\_lungs.dm"
 #include "modular_doppler\modular_species\species_types\viridian\organs\_tongue.dm"
 #include "modular_doppler\modular_species\species_types\viridian\organs\pod_hair.dm"
 #include "modular_doppler\modular_species\species_types\viridian\organs\stomach.dm"
