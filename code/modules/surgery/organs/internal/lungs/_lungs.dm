@@ -1114,7 +1114,7 @@
 
 
 /obj/item/organ/lungs/pod
-	name = "pod vacuole"
+	name = "viridian vacuole"
 	desc = "A large organelle designed to store oxygen and other important gasses."
 	breath_noise = "a humid hiss"
 	foodtype_flags = PODPERSON_ORGAN_FOODTYPES

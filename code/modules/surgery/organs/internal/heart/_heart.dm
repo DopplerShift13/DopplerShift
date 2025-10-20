@@ -334,9 +334,9 @@
 			owner.reagents.add_reagent(/datum/reagent/medicine/ephedrine, 10)
 
 /obj/item/organ/heart/pod
-	name = "pod mitochondria"
-	desc = "This plant-like organ is the powerhouse of the podperson." // deliberate wording here
-	beat_noise = "the power of the podperson" // makes sense
+	name = "viridian mitochondria"
+	desc = "This plant-like organ is the powerhouse of the viridian." // deliberate wording here
+	beat_noise = "a pulsing rythym like wind." // makes sense
 	foodtype_flags = PODPERSON_ORGAN_FOODTYPES
 	color = COLOR_LIME
 

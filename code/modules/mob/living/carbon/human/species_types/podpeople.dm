@@ -45,18 +45,30 @@
 	human.update_body(is_creating = TRUE)
 
 /datum/species/pod/get_physical_attributes()
-	return "Podpeople are in many ways the inverse of shadows, healing in light and starving with the dark. \
+	return "Viridians are in many ways the inverse of shadows, healing in light and starving with the dark. \
 		Their bodies are like tinder and easy to char."
 
 /datum/species/pod/get_species_description()
-	return "Podpeople are largely peaceful plant based lifeforms, resembling a humanoid figure made of leaves, flowers, and vines."
+	return 	"Viridians are a species of sapient plants-- \
+		the result of an encounter between carefree experimentation by the Ordoht and the modern technology involved in genetically modified crops. \
+		Ordoht scientists, having no concept of ownership over intellectual property and no desire to keep their experiments from ‘spreading,’ ended up later having their work reflected in the highly mutagenic nature of plants designed to grow in space.",
 
 /datum/species/pod/get_species_lore()
 	return list(
-		"Not much is known about the origins of the Podpeople. \
-		Many assume them to be the result of a long forgotten botanical experiment, slowly mutating for years on years until they became the beings they are today. \
-		Ever since they were uncovered long ago, their kind have been found on board stations and planets across the galaxy, \
-		often working in hydroponics bays, kitchens, or science departments, working with plants and other botanical lifeforms.",
+		"Viridians are a wide-ranging species of sapient plants. Ranging from humanoid, to non-humanoid, the description of a Viridian is incredibly loose.",
+
+		"They draw from pre-existing plant species, the term 'cultivars' used to categorize their variations. \
+		Cultivars vary widely in features, culture, and personalities. Cultivars can evolve into a number of niches, depending on their environments.\
+		Usually, cultivars on certain planets or in certain environments form communities to assist eachother.",
+
+		"Viridians are highly sensitive to their environments, poor environments plagued by pollution, pests, or fungal infection, quickly weakening or killing Viridians.\
+		This makes Viridians rather specific and demanding, environments like space stations and ships leaving them homesick, as the lack of natural light and atmospheric systems\
+		are not natural."
+
+		"Within the 4CA and outside of it, Viridians are commonly found working in fields of agriculture, ecological protection, and botanical research."
+
+		"Despite the plant-like nature and peace other species may expect from Viridians, many oppose the ecological damage caused by terraforming and the expansion of other species,\
+		be it trying to at least direct the efforts, or in more radical cases, do acts of ecoterrorism."
 	)
 
 /datum/species/pod/create_pref_unique_perks()

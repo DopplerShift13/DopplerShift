@@ -701,7 +701,7 @@
 	languages_native = list(/datum/language/mushroom)
 
 /obj/item/organ/tongue/pod
-	name = "pod tongue"
+	name = "viridian tongue"
 	desc = "A plant-like organ used for speaking and eating."
 	say_mod = "whistles"
 	liked_foodtypes = VEGETABLES | FRUIT | GRAIN
