@@ -1120,6 +1120,17 @@
 	foodtype_flags = PODPERSON_ORGAN_FOODTYPES
 	color = COLOR_LIME
 
+/obj/item/organ/lungs/pod/Initialize(mapload)
+	. = ..()
+	add_gas_reaction(/datum/gas/carbon_dioxide, while_present = PROC_REF(consume_co2))
+
+/// PHOTOSYNTHESIS! (might not work but IDK! someone else test this -kay)
+/obj/item/organ/lungs/pod/proc/consume_co2(mob/living/carbon/breather, datum/gas_mixture/breath, co2_pp, old_co2_pp)
+	var/gas_breathed = breath.gases[/datum/gas/carbon_dioxide][MOLES]
+	breath.gases[/datum/gas/carbon_dioxide][MOLES] -= gas_breathed
+	breath_out.assert_gases(/datum/gas/oxygen)
+	breath_out.gases[/datum/gas/oxygen][MOLES] += gas_breathed * 3
+
 /obj/item/organ/lungs/evolved
 	name = "evolved lungs"
 	desc = "A pair of lungs, with an organic filtering system and a stronger musculature."
