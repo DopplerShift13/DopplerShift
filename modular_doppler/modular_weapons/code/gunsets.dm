@@ -103,6 +103,7 @@
 /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunnery_package/PopulateContents()
 	new /obj/item/gun/ballistic/avispa_stingball_shooter(src)
 	new /obj/item/storage/belt/security/webbing/full(src)
+	new /obj/item/book/granter/tactical_gun_tosser(src)
 
 // The support package
 

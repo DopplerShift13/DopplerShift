@@ -27,3 +27,31 @@
 	new /obj/item/restraints/handcuffs(src)
 	new /obj/item/reagent_containers/spray/pepper(src)
 	new /obj/item/assembly/flash/handheld(src)
+
+/obj/item/book/granter/tactical_gun_tosser
+	name = "sketchy pamphlet from the shuttlestop bathroom"
+	desc = "Not generally considered great literature, but honestly, there's some pretty good articles in here."
+	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon_state = "pamphlet"
+	remarks = list(
+		"Gun fu, or the utilization of firearms in a martial art...",
+		"Once unweighted of ammo, the pistol becomes a compact and lethal throwing weapon...",
+		"Great care must be taken when practicing gun throws...",
+		"Mig Bauer pistols are specifically not recommended for practice.",
+		"Remember to detach the optic first.",
+	)
+
+/obj/item/book/granter/tactical_gun_tosser/Initialize()
+	name = pick(list(
+		"sketchy pamphlet from the shuttlestop bathroom",
+		"Tac-Tech Weekly",
+		"Bushido: The Warrior's Way for Today's Private Security",
+		"The Discipliner",
+		"Sun Tzu's The Art of War, Abridged",
+	))
+	. = ..()
+
+/obj/item/book/granter/tactical_gun_tosser/on_reading_finished(mob/living/user)
+	..()
+	to_chat(user, span_notice("You can throw guns really well! That's something!"))
+	user.add_traits(list(TRAIT_TOSS_GUN_HARD), INNATE_TRAIT)
