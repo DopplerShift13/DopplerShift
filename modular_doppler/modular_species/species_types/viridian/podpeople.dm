@@ -1,3 +1,6 @@
+/datum/species/pod
+	exotic_bloodtype = BLOOD_TYPE_SAP
+
 /datum/species/pod/get_species_description()
 	return 	"Viridians are a species of sapient plants-- \
 		the result of an encounter between carefree experimentation by the Ordoht and the modern technology involved in genetically modified crops. \
