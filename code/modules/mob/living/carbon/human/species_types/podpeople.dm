@@ -63,9 +63,9 @@
 
 		"Viridians are highly sensitive to their environments, poor environments plagued by pollution, pests, or fungal infection, quickly weakening or killing Viridians.\
 		This makes Viridians rather specific and demanding, environments like space stations and ships leaving them homesick, as the lack of natural light and atmospheric systems\
-		are not natural."
+		are not natural.",
 
-		"Within the 4CA and outside of it, Viridians are commonly found working in fields of agriculture, ecological protection, and botanical research."
+		"Within the 4CA and outside of it, Viridians are commonly found working in fields of agriculture, ecological protection, and botanical research.",
 
 		"Despite the plant-like nature and peace other species may expect from Viridians, many oppose the ecological damage caused by terraforming and the expansion of other species,\
 		be it trying to at least direct the efforts, or in more radical cases, do acts of ecoterrorism."
