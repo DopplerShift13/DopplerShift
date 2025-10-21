@@ -7530,6 +7530,7 @@
 #include "modular_doppler\modular_species\species_types\snails\snail_bodyparts.dm"
 #include "modular_doppler\modular_species\species_types\snails\organs\snail_heart.dm"
 #include "modular_doppler\modular_species\species_types\snails\organs\snail_liver.dm"
+#include "modular_doppler\modular_species\species_types\viridian\podpeople_bodyparts.dm"
 #include "modular_doppler\modular_species\species_types\viridian\podpeople.dm"
 #include "modular_doppler\modular_species\species_types\viridian\organs\_appendix.dm"
 #include "modular_doppler\modular_species\species_types\viridian\organs\_ears.dm"
