@@ -7164,6 +7164,7 @@
 #include "modular_doppler\modular_cosmetics\code\shoes\gags_shoes.dm"
 #include "modular_doppler\modular_cosmetics\code\shoes\galoshes.dm"
 #include "modular_doppler\modular_cosmetics\code\shoes\rollerblades.dm"
+#include "modular_doppler\modular_cosmetics\code\shoes\wheelys.dm"
 #include "modular_doppler\modular_cosmetics\code\shoes\workshoes.dm"
 #include "modular_doppler\modular_cosmetics\code\storage\backpacks.dm"
 #include "modular_doppler\modular_cosmetics\code\storage\belts.dm"
