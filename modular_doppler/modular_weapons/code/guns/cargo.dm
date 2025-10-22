@@ -78,6 +78,16 @@
 	)
 	crate_name = "high power rifle crate"
 
+/datum/supply_pack/security/armory/schiebenmaschine
+	name = "Schießenmaschine Multi-Pack"
+	desc = "Cutting edge personal defense weapon platforms at affordable prices. Three per pack. Intended for sale to \
+	Port Authority certified security contractors."
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list(
+		/obj/item/gun/ballistic/automatic/schiebenmaschine = 3,
+	)
+	crate_name = "schießenmaschine crate"
+
 /datum/supply_pack/goody/dumdum38
 	special = TRUE
 
