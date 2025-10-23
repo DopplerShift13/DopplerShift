@@ -137,8 +137,8 @@
 		return
 	if(hooman.dna.features[FEATURE_LIZARD_MARKINGS] == /datum/sprite_accessory/lizard_markings/none::name)
 		return
-	//if(!hooman.client?.prefs.read_preference(/datum/preference/toggle/markings))
-		//return
+	if(!hooman.client?.prefs.read_preference(/datum/preference/toggle/markings))
+		return
 	var/datum/bodypart_overlay/simple/body_marking/markings = new /datum/bodypart_overlay/simple/body_marking/lizard() // made to die... mostly because we cant use initial on lists but its convenient and organized
 	var/accessory_name = hooman.dna.features[markings.dna_feature_key] //get the accessory name from dna
 	var/datum/sprite_accessory/moth_markings/accessory = markings.get_accessory(accessory_name) //get the actual datum
