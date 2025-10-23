@@ -5,14 +5,6 @@
 /obj/machinery/meter/layer4,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_medium)
-"dX" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/obj/machinery/recharge_station,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/personally_bought/do_it_yourself_medium)
 "ez" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought{
 	view_range = 2;
@@ -34,19 +26,6 @@
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
-"gI" = (
-/obj/structure/closet/crate/cardboard/mothic,
-/obj/item/construction/rtd/loaded{
-	pixel_y = 7
-	},
-/obj/item/airlock_painter/decal,
-/obj/item/airlock_painter{
-	pixel_y = -7
-	},
-/obj/item/rcd_ammo,
-/obj/item/rcd_ammo,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/do_it_yourself_medium)
 "jv" = (
 /obj/structure/railing/eva_handhold/directional/south,
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
@@ -57,6 +36,21 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_medium)
+"mH" = (
+/obj/machinery/light/cold/directional/north,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_medium)
+"nw" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron/smooth,
+/area/shuttle/personally_bought/do_it_yourself_medium)
 "nP" = (
 /obj/machinery/power/shuttle_engine/propulsion{
 	dir = 8
@@ -66,11 +60,30 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/do_it_yourself_medium)
+"oM" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/personally_bought/do_it_yourself_medium)
 "oO" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/light/cold/directional/south,
-/turf/open/floor/iron/smooth_large,
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "pH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -81,8 +94,8 @@
 "tC" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/atmos,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "tE" = (
@@ -105,6 +118,19 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_medium)
+"xp" = (
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/construction/rtd/loaded{
+	pixel_y = 7
+	},
+/obj/item/airlock_painter/decal,
+/obj/item/airlock_painter{
+	pixel_y = -7
+	},
+/obj/item/rcd_ammo,
+/obj/item/rcd_ammo,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "yi" = (
@@ -140,7 +166,7 @@
 	},
 /obj/structure/cable,
 /obj/item/radio/intercom/directional/north,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "BV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -162,6 +188,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/meter/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "CU" = (
@@ -171,7 +200,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "Du" = (
 /obj/structure/marker_beacon/burgundy,
@@ -222,8 +251,8 @@
 "Gm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/light/cold/directional/north,
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/light/cold/directional/south,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "HR" = (
 /obj/effect/turf_decal/delivery/white,
@@ -249,7 +278,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "IG" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -262,7 +291,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "IM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -323,6 +352,14 @@
 /obj/structure/marker_beacon/burgundy,
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/personally_bought/do_it_yourself_medium)
+"LK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/door/airlock/command,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_medium)
 "LV" = (
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/personally_bought/do_it_yourself_medium)
@@ -334,7 +371,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "Ow" = (
 /obj/effect/turf_decal/bot_white,
@@ -348,11 +385,19 @@
 "Pp" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/personally_bought/do_it_yourself_medium)
+"PX" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_medium)
 "PY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/atmos,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "QT" = (
@@ -442,7 +487,7 @@ Ew
 CU
 Kv
 CU
-nP
+oM
 nP
 nP
 CU
@@ -453,7 +498,7 @@ CU
 zd
 pH
 CU
-tG
+oO
 tG
 tG
 CU
@@ -462,20 +507,20 @@ jv
 "}
 (4,1,1) = {"
 Xs
-Gm
+nw
 tC
 CO
 Ef
 bv
 PY
-oO
+Gm
 Xs
 "}
 (5,1,1) = {"
 LV
 Ow
 CU
-Ti
+mH
 KN
 yi
 CU
@@ -486,7 +531,7 @@ LV
 Du
 Pp
 Pp
-gI
+xp
 kO
 yi
 Pp
@@ -499,7 +544,7 @@ BW
 Wb
 IZ
 kO
-dX
+PX
 Pp
 fI
 LH
@@ -542,7 +587,7 @@ Ev
 Ti
 uM
 uM
-zm
+LK
 Dp
 In
 Jd

@@ -12,7 +12,12 @@
 "ez" = (
 /obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/bot_white,
+/obj/structure/disposalpipe/trunk{
+	dir = 8
+	},
+/obj/machinery/disposal/bin,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "eF" = (
 /obj/structure/cable,
@@ -30,6 +35,19 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_small)
+"gH" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/personally_bought/do_it_yourself_small)
 "iv" = (
 /obj/machinery/power/apc/auto_name/directional/south,
 /obj/effect/mapping_helpers/apc/unlocked,
@@ -40,7 +58,7 @@
 "jv" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/light/cold/directional/south,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "ms" = (
 /obj/structure/marker_beacon/olive,
@@ -66,7 +84,7 @@
 "rW" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/hatch,
+/obj/machinery/door/airlock/command,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "tC" = (
@@ -198,10 +216,24 @@
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "GM" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/personally_bought/do_it_yourself_small)
+"HN" = (
+/obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/space_heater/wall_mounted/directional/west,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/command,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "HR" = (
 /obj/structure/marker_beacon/olive,
@@ -218,9 +250,9 @@
 "Im" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/door/airlock/atmos,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "In" = (
@@ -342,7 +374,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "Ur" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -395,12 +427,12 @@
 	dir = 8
 	},
 /obj/machinery/light/cold/directional/south,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/do_it_yourself_small)
 
 (1,1,1) = {"
 eb
-RS
+GM
 DW
 yZ
 RS
@@ -409,7 +441,7 @@ IM
 "}
 (2,1,1) = {"
 yZ
-Ew
+gH
 nP
 yZ
 Yj
@@ -484,14 +516,14 @@ In
 Wi
 bv
 To
-GM
+Ur
 Gm
 Fo
 "}
 (11,1,1) = {"
 HU
 In
-yi
+HN
 In
 uM
 Xs
