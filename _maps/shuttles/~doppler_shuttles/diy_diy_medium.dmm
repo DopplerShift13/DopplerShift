@@ -46,8 +46,10 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "oO" = (
-/obj/machinery/recharge_station,
-/turf/open/floor/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/cold/directional/south,
+/turf/open/floor/iron/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "pH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -161,7 +163,7 @@
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "Em" = (
 /obj/structure/marker_beacon/bronze,
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "Ev" = (
 /obj/item/tether_anchor{
@@ -182,6 +184,14 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
+"Fn" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_medium)
 "Fo" = (
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -199,6 +209,7 @@
 "Gm" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "HR" = (
@@ -380,6 +391,19 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/do_it_yourself_medium)
+"Ww" = (
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/construction/rtd/loaded{
+	pixel_y = 7
+	},
+/obj/item/airlock_painter/decal,
+/obj/item/airlock_painter{
+	pixel_y = -7
+	},
+/obj/item/rcd_ammo,
+/obj/item/rcd_ammo,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_medium)
 "Xs" = (
 /obj/item/tether_anchor{
 	anchored = 1
@@ -444,7 +468,7 @@ CO
 Ef
 bv
 PY
-Gm
+oO
 Xs
 "}
 (5,1,1) = {"
@@ -462,7 +486,7 @@ LV
 Du
 Pp
 Pp
-yi
+Ww
 kO
 yi
 Pp
@@ -475,7 +499,7 @@ BW
 Wb
 IZ
 kO
-IG
+Fn
 Pp
 fI
 LH
@@ -515,7 +539,7 @@ Pp
 "}
 (11,1,1) = {"
 Ev
-yi
+Ti
 uM
 uM
 zm
@@ -525,8 +549,8 @@ Jd
 Ev
 "}
 (12,1,1) = {"
-Du
-oO
+Pp
+yi
 Yj
 CC
 Pp
@@ -547,7 +571,7 @@ Fs
 YR
 "}
 (14,1,1) = {"
-Md
+Du
 Em
 YC
 YC

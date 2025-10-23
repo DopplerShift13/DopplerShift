@@ -43,9 +43,7 @@
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "ms" = (
-/obj/machinery/porta_turret/centcom_shuttle/weak{
-	dir = 4
-	},
+/obj/structure/marker_beacon/olive,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "nP" = (
@@ -290,7 +288,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/machinery/power/micro_reactor,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "Qm" = (
 /obj/machinery/light/cold/directional/north,
@@ -307,6 +305,15 @@
 /area/shuttle/personally_bought/do_it_yourself_small)
 "QT" = (
 /obj/machinery/digital_clock/directional/north,
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/construction/rtd/loaded{
+	pixel_y = 7
+	},
+/obj/item/airlock_painter/decal,
+/obj/item/airlock_painter{
+	pixel_y = -7
+	},
+/obj/item/rcd_ammo,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "RS" = (
