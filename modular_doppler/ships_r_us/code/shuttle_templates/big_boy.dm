@@ -5,7 +5,7 @@
 // One of the transport ships, but retrofit for carrying cargo in a central bay
 
 /datum/map_template/shuttle/personal_buyable/mothership/station_shuttle
-	name = "CAS Farax-Khadar"
+	name = "MZH Farax-Guiji"
 	description = "The mothership of the station-going fleet, \
 		with advanced support facilities as well as research \
 		capability, it is the heart of any fleet-to-be."
@@ -16,8 +16,8 @@
 	personal_shuttle_size = PERSONAL_SHIP_LARGE
 
 /datum/map_template/shuttle/personal_buyable/mothership/station_shuttle/spawner
-	name = "CAS Farax-Khadar (SPAWN LANDMARKS)"
+	name = "MZH Farax-Guiji (SPAWN LANDMARKS)"
 	suffix = "expedition_spawner"
 
 /area/shuttle/personally_bought/mothership
-	name = "CAS Farax-Khadar"
+	name = "MZH Farax-Guiji"
