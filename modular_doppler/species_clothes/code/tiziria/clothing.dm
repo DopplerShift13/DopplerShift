@@ -165,6 +165,7 @@
 		numbers of eyes that many species have. May prove for an awkward fit on anyone without a snout."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
 	icon_state = "snoutacava"
+	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'
 	inhand_icon_state = "balaclava"
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
