@@ -1,6 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"bX" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+"cq" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/light/cold/directional/west,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "cu" = (
@@ -21,8 +24,12 @@
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "cL" = (
-/obj/machinery/suit_storage_unit/industrial/personal_shuttle,
-/obj/effect/turf_decal/bot_white,
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/structure/fans/tiny,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "eo" = (
@@ -34,12 +41,13 @@
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/mapping_helpers/airalarm/all_access,
+/obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
-"ew" = (
-/obj/machinery/button/door/personal_shuttle_bay_two/directional/south,
-/obj/machinery/light/cold/directional/west,
-/turf/open/floor/plating,
+"es" = (
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "eL" = (
 /obj/machinery/power/shuttle_engine/propulsion{
@@ -81,16 +89,34 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/do_it_yourself_large)
+"in" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_large)
 "je" = (
 /obj/structure/marker_beacon/olive,
 /turf/closed/wall/mineral/titanium,
+/area/shuttle/personally_bought/do_it_yourself_large)
+"ju" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_large)
+"jB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "jT" = (
 /obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "ka" = (
-/obj/machinery/light/cold/directional/west,
+/obj/machinery/button/door/personal_shuttle_bay_one/directional/north,
+/obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "kA" = (
@@ -101,12 +127,11 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "lf" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/hatch,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "lk" = (
@@ -154,25 +179,25 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "ql" = (
-/obj/machinery/portable_atmospherics/canister,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
 	dir = 4
 	},
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_large)
+"qE" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/light/cold/directional/south,
+/turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "rf" = (
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/machinery/light/warm/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/personally_bought/do_it_yourself_large)
-"rq" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "sn" = (
 /obj/structure/marker_beacon/bronze,
@@ -230,6 +255,14 @@
 /obj/structure/marker_beacon/olive,
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/personally_bought/do_it_yourself_large)
+"wU" = (
+/obj/machinery/portable_atmospherics/canister,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{
+	dir = 4
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_large)
 "xh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -254,11 +287,6 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
-"za" = (
-/obj/machinery/button/door/personal_shuttle_bay_one/directional/north,
-/obj/structure/extinguisher_cabinet/directional/west,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/do_it_yourself_large)
 "zo" = (
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /obj/structure/cable,
@@ -267,13 +295,6 @@
 /area/shuttle/personally_bought/do_it_yourself_large)
 "zH" = (
 /obj/machinery/button/door/personal_shuttle_bay_one/directional/north,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/do_it_yourself_large)
-"zJ" = (
-/obj/machinery/power/apc/auto_name/directional/west,
-/obj/structure/cable,
-/obj/effect/mapping_helpers/apc/unlocked,
-/obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Ae" = (
@@ -296,18 +317,13 @@
 /obj/machinery/light/cold/directional/east,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
-"Bu" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/do_it_yourself_large)
-"CL" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+"DD" = (
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/hatch,
-/obj/structure/cable,
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "DJ" = (
@@ -322,43 +338,16 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
-"Er" = (
-/obj/structure/closet/crate/cardboard/mothic,
-/obj/item/construction/rtd/loaded{
-	pixel_y = 7
-	},
-/obj/item/airlock_painter/decal,
-/obj/item/airlock_painter{
-	pixel_y = -7
-	},
-/obj/item/rcd_ammo,
-/obj/item/rcd_ammo,
-/obj/item/rcd_ammo,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/do_it_yourself_large)
 "EY" = (
 /obj/machinery/recharge_station,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
-"Fu" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/obj/machinery/light/cold/directional/west,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/do_it_yourself_large)
 "FM" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen/personal_bay_one,
 /obj/structure/holosign/barrier/atmos/sturdy,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/personally_bought/do_it_yourself_large)
-"FY" = (
-/obj/effect/turf_decal/delivery,
-/obj/structure/holosign/barrier/atmos/sturdy,
-/obj/machinery/door/poddoor/preopen/personal_bay_two,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Gs" = (
@@ -371,16 +360,13 @@
 /obj/structure/railing/eva_handhold/directional/south,
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/personally_bought/do_it_yourself_large)
+"Hq" = (
+/obj/machinery/button/door/personal_shuttle_bay_two/directional/south,
+/obj/machinery/light/cold/directional/east,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_large)
 "HK" = (
 /turf/closed/wall/mineral/titanium,
-/area/shuttle/personally_bought/do_it_yourself_large)
-"HS" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
-	dir = 4
-	},
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Iu" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
@@ -390,16 +376,13 @@
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
-"Kh" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/docking_port/mobile/personally_bought{
-	dir = 2;
-	port_direction = 8
-	},
-/obj/structure/fans/tiny,
-/turf/open/floor/iron/dark/smooth_large,
+"IF" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_large)
+"KK" = (
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Ln" = (
 /obj/structure/closet/firecloset/shuttle,
@@ -407,9 +390,10 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Lw" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
+/obj/machinery/power/apc/auto_name/directional/west,
+/obj/structure/cable,
+/obj/effect/mapping_helpers/apc/unlocked,
+/obj/effect/mapping_helpers/apc/cell_10k,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Ma" = (
@@ -445,8 +429,29 @@
 /obj/effect/landmark/ship_captain_spawner,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
+"Pk" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
+/obj/docking_port/mobile/personally_bought{
+	dir = 2;
+	port_direction = 8
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_large)
 "PD" = (
-/obj/structure/extinguisher_cabinet/directional/east,
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/construction/rtd/loaded{
+	pixel_y = 7
+	},
+/obj/item/airlock_painter/decal,
+/obj/item/airlock_painter{
+	pixel_y = -7
+	},
+/obj/item/rcd_ammo,
+/obj/item/rcd_ammo,
+/obj/item/rcd_ammo,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "PG" = (
@@ -458,24 +463,21 @@
 /obj/machinery/button/door/personal_shuttle_bay_two/directional/south,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
-"PT" = (
-/obj/machinery/button/door/personal_shuttle_bay_two/directional/south,
-/obj/machinery/light/cold/directional/east,
+"QJ" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Ra" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/button/door/personal_shuttle_bay_two/directional/south,
+/obj/machinery/light/cold/directional/west,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
-"Sc" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/turf/open/floor/iron/dark/smooth_large,
+"Rg" = (
+/obj/structure/extinguisher_cabinet/directional/east,
+/turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "SU" = (
 /obj/structure/marker_beacon/burgundy,
@@ -508,6 +510,12 @@
 	dir = 1
 	},
 /turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_large)
+"XY" = (
+/obj/effect/turf_decal/delivery,
+/obj/structure/holosign/barrier/atmos/sturdy,
+/obj/machinery/door/poddoor/preopen/personal_bay_two,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "Yd" = (
 /turf/closed/wall/mineral/titanium/nodiagonal,
@@ -578,10 +586,10 @@ Bb
 Yd
 mY
 Zu
-Lw
+qE
 Yd
+wU
 ql
-HS
 UK
 "}
 (5,1,1) = {"
@@ -589,9 +597,9 @@ Yd
 Iu
 oA
 lk
-Ra
-Bu
-Ra
+jB
+ju
+jB
 lk
 oA
 eo
@@ -603,7 +611,7 @@ Yd
 Yd
 Yd
 Mo
-Bu
+ju
 Mo
 Yd
 tC
@@ -616,7 +624,7 @@ Ma
 PG
 Yd
 Yd
-CL
+lf
 Yd
 Yd
 Yd
@@ -629,23 +637,23 @@ YG
 mY
 Mo
 Yd
-Bu
+ju
 Mo
-zJ
 Lw
+in
 Mo
 GD
 "}
 (9,1,1) = {"
 MV
 Ma
-Bu
-Bu
-CL
-Bu
-Bu
+ju
+ju
+lf
+ju
+ju
 Eg
-Ra
+jB
 Mo
 Yd
 "}
@@ -656,7 +664,7 @@ nJ
 Mo
 Yd
 Mo
-Bu
+ju
 tO
 cv
 Mo
@@ -669,7 +677,7 @@ MV
 Yd
 Yd
 Yd
-CL
+lf
 Yd
 Yd
 Yd
@@ -679,12 +687,12 @@ je
 xW
 Yd
 zH
-ka
+KK
 PG
 YB
-Bu
+ju
 Mo
-ew
+Ra
 Yd
 xW
 "}
@@ -695,23 +703,23 @@ Mo
 Mo
 Mo
 Mo
-Bu
+ju
 WO
 Mo
-FY
+XY
 xW
 "}
 (14,1,1) = {"
 xW
 FM
 Mo
-bX
-Bu
-Bu
-Bu
+IF
+ju
+ju
+ju
 Gs
 Mo
-FY
+XY
 xW
 "}
 (15,1,1) = {"
@@ -719,24 +727,24 @@ xW
 FM
 Mo
 ZL
-Bu
+ju
 Mo
 Ma
 Mo
 Mo
-FY
+XY
 xW
 "}
 (16,1,1) = {"
 xW
 Yd
 Bh
-Er
-Bu
 PD
+ju
+Rg
 Ma
 Mo
-PT
+Hq
 Yd
 xW
 "}
@@ -745,7 +753,7 @@ SU
 Yd
 Yd
 Yd
-CL
+lf
 Yd
 MV
 MV
@@ -757,9 +765,9 @@ je
 Ae
 sI
 Yd
-za
-Bu
-Lw
+ka
+ju
+in
 mY
 PH
 Yd
@@ -767,17 +775,17 @@ sI
 GD
 "}
 (19,1,1) = {"
-Kh
+Pk
 pq
-Sc
-Bu
-Bu
+DD
+ju
+ju
 OZ
-Bu
-Ra
+ju
+jB
 xh
 pq
-lf
+cL
 "}
 (20,1,1) = {"
 Ae
@@ -794,27 +802,27 @@ GD
 "}
 (21,1,1) = {"
 Yd
-cL
-Fu
-Bu
+es
+cq
+ju
 Yd
 Mo
-Bu
-ka
-Lw
+ju
+KK
+in
 Mo
 DJ
 "}
 (22,1,1) = {"
 Ae
 EY
-Bu
-Bu
+ju
+ju
 lk
-Bu
-Bu
-Ra
-Ra
+ju
+ju
+jB
+jB
 AW
 GD
 "}
@@ -827,7 +835,7 @@ Yd
 jT
 Ma
 Ma
-rq
+QJ
 Ma
 MV
 "}

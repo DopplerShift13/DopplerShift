@@ -5,6 +5,14 @@
 /obj/machinery/meter/layer4,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_medium)
+"dX" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 4
+	},
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_medium)
 "ez" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought{
 	view_range = 2;
@@ -25,6 +33,19 @@
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/do_it_yourself_medium)
+"gI" = (
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/construction/rtd/loaded{
+	pixel_y = 7
+	},
+/obj/item/airlock_painter/decal,
+/obj/item/airlock_painter{
+	pixel_y = -7
+	},
+/obj/item/rcd_ammo,
+/obj/item/rcd_ammo,
+/turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "jv" = (
 /obj/structure/railing/eva_handhold/directional/south,
@@ -184,14 +205,6 @@
 /obj/structure/extinguisher_cabinet/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
-"Fn" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 4
-	},
-/obj/machinery/recharge_station,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/smooth_large,
-/area/shuttle/personally_bought/do_it_yourself_medium)
 "Fo" = (
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -296,7 +309,7 @@
 /obj/structure/cable,
 /obj/machinery/power/micro_reactor,
 /obj/effect/landmark/ship_captain_spawner,
-/turf/open/floor/plating,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "KV" = (
 /obj/structure/marker_beacon/olive,
@@ -391,19 +404,6 @@
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/do_it_yourself_medium)
-"Ww" = (
-/obj/structure/closet/crate/cardboard/mothic,
-/obj/item/construction/rtd/loaded{
-	pixel_y = 7
-	},
-/obj/item/airlock_painter/decal,
-/obj/item/airlock_painter{
-	pixel_y = -7
-	},
-/obj/item/rcd_ammo,
-/obj/item/rcd_ammo,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/do_it_yourself_medium)
 "Xs" = (
 /obj/item/tether_anchor{
 	anchored = 1
@@ -486,7 +486,7 @@ LV
 Du
 Pp
 Pp
-Ww
+gI
 kO
 yi
 Pp
@@ -499,7 +499,7 @@ BW
 Wb
 IZ
 kO
-Fn
+dX
 Pp
 fI
 LH
