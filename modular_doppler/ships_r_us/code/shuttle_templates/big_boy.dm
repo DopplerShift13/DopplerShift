@@ -15,5 +15,9 @@
 	height = 18
 	personal_shuttle_size = PERSONAL_SHIP_LARGE
 
+/datum/map_template/shuttle/personal_buyable/mothership/station_shuttle/spawner
+	name = "CAS Farax-Khadar (SPAWN LANDMARKS)"
+	suffix = "expedition_spawner"
+
 /area/shuttle/personally_bought/mothership
 	name = "CAS Farax-Khadar"

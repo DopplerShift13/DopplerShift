@@ -419,6 +419,13 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
+"kd" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/latejoin,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/shuttle/personally_bought/mothership)
 "ke" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
@@ -494,6 +501,12 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "lJ" = (
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/personally_bought/mothership)
+"md" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "mm" = (
@@ -928,6 +941,7 @@
 /obj/machinery/camera/autoname/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/mothership)
 "xH" = (
@@ -1194,6 +1208,11 @@
 "Ee" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/personally_bought/mothership)
+"Eh" = (
+/obj/effect/turf_decal/bot_white,
+/obj/structure/closet/firecloset/shuttle,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/mothership)
 "EP" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/tank_dispenser,
@@ -1316,6 +1335,7 @@
 /obj/item/radio/intercom/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "HI" = (
@@ -1384,9 +1404,10 @@
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/mothership)
 "Js" = (
-/obj/effect/turf_decal/bot_white,
-/obj/structure/closet/firecloset/shuttle,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/latejoin,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/mothership)
 "JX" = (
 /obj/effect/turf_decal/stripes/red/line{
@@ -1424,6 +1445,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/latejoin,
 /obj/machinery/cryopod/prison/directional/east,
 /turf/open/floor/iron/smooth_large,
 /area/shuttle/personally_bought/mothership)
@@ -1694,6 +1716,7 @@
 /obj/machinery/light/cold/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/latejoin,
 /obj/machinery/computer/cryopod/directional/east,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/mothership)
@@ -1778,6 +1801,13 @@
 /obj/item/circuitboard/machine/techfab,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
+"TP" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/latejoin,
+/turf/open/floor/catwalk_floor/iron_smooth,
+/area/shuttle/personally_bought/mothership)
 "Uc" = (
 /obj/machinery/suit_storage_unit/industrial/personal_shuttle,
 /obj/effect/turf_decal/bot_white,
@@ -1791,6 +1821,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/item/beacon,
+/obj/effect/landmark/latejoin,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/mothership)
 "Ur" = (
@@ -1933,6 +1964,13 @@
 /obj/item/flatpacked_machine,
 /turf/open/floor/iron/dark/diagonal,
 /area/shuttle/personally_bought/mothership)
+"XY" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/latejoin,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/personally_bought/mothership)
 "Yu" = (
 /obj/effect/turf_decal/tile/neutral/diagonal_centre,
 /obj/effect/turf_decal/tile/neutral/diagonal_edge,
@@ -1948,6 +1986,12 @@
 	dir = 8
 	},
 /turf/open/floor/iron/dark/diagonal,
+/area/shuttle/personally_bought/mothership)
+"YQ" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/latejoin,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/mothership)
 "YR" = (
 /obj/structure/cable,
@@ -2208,11 +2252,11 @@ nH
 Vq
 CU
 ws
-qc
-ws
-qc
+Js
+md
+Js
 Ud
-jv
+YQ
 rH
 Oq
 jv
@@ -2290,7 +2334,7 @@ Cj
 rH
 Ry
 rH
-uX
+TP
 Qr
 KS
 be
@@ -2390,7 +2434,7 @@ tL
 tL
 tL
 Tw
-hZ
+kd
 tv
 Kp
 tv
@@ -2410,7 +2454,7 @@ BB
 DN
 tL
 wT
-hZ
+kd
 ub
 tL
 hW
@@ -2430,7 +2474,7 @@ Nq
 xo
 RP
 nY
-be
+XY
 ub
 tL
 tL
@@ -2610,7 +2654,7 @@ aa
 aa
 dN
 HI
-uX
+TP
 bs
 Sm
 Sm
@@ -2630,7 +2674,7 @@ ou
 ou
 dN
 Qn
-uX
+TP
 dN
 HV
 SF
@@ -2649,7 +2693,7 @@ aa
 aa
 aa
 dN
-Js
+Eh
 xC
 tL
 tL
@@ -2690,7 +2734,7 @@ aa
 aa
 tL
 jb
-uX
+TP
 Pa
 Sm
 Sm
@@ -2710,7 +2754,7 @@ tL
 tL
 tL
 Ad
-uX
+TP
 dN
 Dl
 gp
