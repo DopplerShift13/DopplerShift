@@ -16,7 +16,7 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/breasts
 
 /datum/bodypart_overlay/mutant/breasts/can_draw_on_bodypart(obj/item/bodypart/chest/chest)
-	if(!chest.owner)
+	if(isnull(chest.owner))
 		return FALSE // ?? Sometimes this runtimes in the char menu
 	var/mob/living/carbon/human/human = chest.owner
 	if(visibility == ORGAN_VISIBILITY_MODE_NORMAL)
