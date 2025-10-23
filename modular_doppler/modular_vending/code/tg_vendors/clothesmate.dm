@@ -1,4 +1,7 @@
 /obj/machinery/vending/clothing
+	contraband_doppler = list(
+		/obj/item/clothing/mask/snout_balaclava = 3,
+	)
 	product_categories_doppler = list(
 		list(
 			"name" = "Head",
