@@ -88,13 +88,6 @@
 /obj/machinery/digital_clock/directional/north,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_small)
-"vU" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/curtain/bounty,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/do_it_yourself_small)
 "wA" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought{
 	y_offset = 3
@@ -332,8 +325,9 @@
 "To" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/curtain/bounty,
-/turf/open/floor/plating,
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "TJ" = (
 /obj/structure/cable,
@@ -445,7 +439,7 @@ In
 (6,1,1) = {"
 CO
 In
-vU
+yi
 In
 In
 In
