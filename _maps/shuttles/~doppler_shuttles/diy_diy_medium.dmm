@@ -58,7 +58,8 @@
 "pH" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/closet/firecloset/shuttle,
-/turf/open/floor/iron/smooth_large,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_medium)
 "rW" = (
 /obj/machinery/light_switch/directional/east,
