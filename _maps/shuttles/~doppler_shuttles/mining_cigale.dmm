@@ -401,6 +401,13 @@
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mining_hub)
+"vK" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/vending/wallmed/directional/south,
+/turf/open/floor/iron/smooth,
+/area/shuttle/personally_bought/mining_hub)
 "wb" = (
 /obj/machinery/power/shuttle_engine/propulsion{
 	dir = 8
@@ -554,6 +561,13 @@
 /obj/effect/turf_decal/bot_white,
 /obj/structure/tank_holder/oxygen/yellow,
 /turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/mining_hub)
+"CW" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/wall_healer/free/directional/south,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/mining_hub)
 "DD" = (
 /obj/machinery/power/shuttle_engine/propulsion{
@@ -1191,7 +1205,7 @@ MV
 AT
 DJ
 mh
-bN
+vK
 AT
 Px
 bN
@@ -1204,7 +1218,7 @@ cu
 ZH
 Mo
 bN
-bN
+CW
 AT
 Bu
 AT

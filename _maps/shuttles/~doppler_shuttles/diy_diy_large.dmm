@@ -184,6 +184,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/machinery/light/warm/directional/south,
+/obj/machinery/vending/wallmed/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/do_it_yourself_large)
 "sn" = (
@@ -560,6 +561,13 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_large)
+"Xe" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/wall_healer/free/directional/east,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/do_it_yourself_large)
 "XY" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/external,
@@ -880,7 +888,7 @@ DJ
 Ae
 EY
 Bu
-Bu
+Xe
 lk
 Bu
 Bu

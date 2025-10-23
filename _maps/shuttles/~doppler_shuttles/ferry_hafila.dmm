@@ -17,6 +17,7 @@
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/suit_storage_unit/industrial/personal_shuttle,
 /obj/machinery/button/door/personal_shuttle_windows/directional/north,
+/obj/machinery/vending/wallmed/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/people_mover)
 "aL" = (
@@ -173,6 +174,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/machinery/wall_healer/free/directional/west,
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/people_mover)
 "qy" = (

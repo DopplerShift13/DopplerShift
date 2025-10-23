@@ -21,6 +21,7 @@
 /area/shuttle/personally_bought/do_it_yourself_small)
 "eF" = (
 /obj/structure/cable,
+/obj/machinery/vending/wallmed/directional/east,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "fI" = (
@@ -382,8 +383,8 @@
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "UW" = (
-/obj/machinery/light_switch/directional/east,
 /obj/structure/cable,
+/obj/machinery/wall_healer/free/directional/east,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "Wb" = (

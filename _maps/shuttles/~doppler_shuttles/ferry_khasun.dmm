@@ -189,10 +189,10 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "nC" = (
-/obj/machinery/light_switch/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "oO" = (
@@ -291,9 +291,9 @@
 "tZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/airalarm/directional/north,
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/structure/cable,
+/obj/machinery/wall_healer/free/directional/north,
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/private_liner)
 "ul" = (
