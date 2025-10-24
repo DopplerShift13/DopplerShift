@@ -109,6 +109,10 @@
 	name = "Wheelys"
 	item_path = /obj/item/clothing/shoes/wheelys
 
+/datum/loadout_item/shoes/rainbowwheelies
+	name = "Wheelys (Rainbow)"
+	item_path = /obj/item/clothing/shoes/wheelys/rainbow
+
 /datum/loadout_item/shoes/cowboy
 	name = "Cowboy Boots"
 	item_path = /obj/item/clothing/shoes/cowboy
