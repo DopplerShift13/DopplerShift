@@ -61,6 +61,10 @@
 	name = "Balaclava"
 	item_path = /obj/item/clothing/mask/balaclava
 
+/datum/loadout_item/mask/snout_balaclava
+	name = "Snout Balaclava"
+	item_path = /obj/item/clothing/mask/snout_balaclava
+
 /datum/loadout_item/mask/gas/atmos
 	name = "Atmos Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/atmos
