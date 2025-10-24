@@ -27,6 +27,14 @@
 /obj/item/storage/box/survival/mining
 	mask_type = /obj/item/clothing/mask/neck_gaiter
 
+/datum/outfit/job/quartermaster
+	uniform = /obj/item/clothing/under/rank/doppler_cargo/tech/turtleneck
+	suit = /obj/item/clothing/suit/jacket/cargo_coat/cargo_greatcoat
+
+/datum/outfit/job/cargo_tech
+	uniform = /obj/item/clothing/under/rank/doppler_cargo/tech
+	suit = /obj/item/clothing/suit/jacket/cargo_coat
+
 /datum/outfit/job/security
 	suit_store = null
 	backpack_contents = list(
