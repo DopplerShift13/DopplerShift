@@ -656,6 +656,7 @@
 #include "code\_globalvars\~doppler_globalvars\religion.dm"
 #include "code\_globalvars\~doppler_globalvars\text.dm"
 #include "code\_globalvars\~doppler_globalvars\lists\quirks.dm"
+#include "code\_globalvars\~doppler_globalvars\lists\signature_beacon.dm"
 #include "code\_js\byjax.dm"
 #include "code\_js\menus.dm"
 #include "code\_onclick\adjacent.dm"
