@@ -814,6 +814,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/wall_healer/directional/east,
 /turf/open/floor/iron/white,
 /area/mine/laborcamp/production)
 "fi" = (
@@ -2970,6 +2971,7 @@
 /obj/effect/turf_decal/trimline/blue/filled/line{
 	dir = 6
 	},
+/obj/machinery/wall_healer/directional/east,
 /turf/open/floor/iron/colony/white/bolts,
 /area/mine/medical)
 "tC" = (
@@ -5356,6 +5358,7 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 5
 	},
+/obj/machinery/wall_healer/directional/east,
 /turf/open/floor/iron/colony,
 /area/mine/production)
 "JH" = (
@@ -6919,7 +6922,7 @@
 /area/mine/eva)
 "Ti" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
-/obj/structure/closet/xenoarch,
+/obj/structure/table/greyscale,
 /turf/open/floor/iron/colony,
 /area/mine/production)
 "To" = (
