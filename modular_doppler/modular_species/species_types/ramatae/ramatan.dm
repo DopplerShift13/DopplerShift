@@ -91,18 +91,18 @@
 
 /datum/species/ramatan/prepare_human_for_preview(mob/living/carbon/human/ramatan_for_preview)
 	ramatan_for_preview.dna.features[FEATURE_LIZARD_MARKINGS] = "Ramatan Underbelly"
-	ramatan_for_preview.dna.features["body_markings_color_1"] = "#ccecff"
+	ramatan_for_preview.dna.features[FEATURE_MARKINGS_COLORS][1] = "#ccecff"
 	ramatan_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#FFFFFF"
 	ramatan_for_preview.dna.ear_type = ALIEN
 	ramatan_for_preview.dna.features[FEATURE_EARS] = "Ramatan"
-	ramatan_for_preview.dna.features["ears_color_1"] = "#ffffff"
-	ramatan_for_preview.dna.features["ears_color_2"] = "#dddddd"
+	ramatan_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#ffffff"
+	ramatan_for_preview.dna.features[FEATURE_EARS_COLORS][2] = "#dddddd"
 	ramatan_for_preview.dna.features[FEATURE_FRILLS] = "Ramatan"
-	ramatan_for_preview.dna.features["frills_color_1"] = "#ccecff"
+	ramatan_for_preview.dna.features[FEATURE_FRILLS_COLORS][1] = "#ccecff"
 	ramatan_for_preview.dna.features[FEATURE_SNOUT] = "Ramatan"
-	ramatan_for_preview.dna.features["snout_color_1"] = "#ffffff"
-	ramatan_for_preview.dna.features["snout_color_2"] = "#dddddd"
-	ramatan_for_preview.dna.features["snout_color_3"] = "#9a9b9e"
+	ramatan_for_preview.dna.features[FEATURE_SNOUT_COLORS][1] = "#ffffff"
+	ramatan_for_preview.dna.features[FEATURE_SNOUT_COLORS][2] = "#dddddd"
+	ramatan_for_preview.dna.features[FEATURE_SNOUT_COLORS][3] = "#9a9b9e"
 	ramatan_for_preview.eye_color_left = "#CCECFF"
 	ramatan_for_preview.eye_color_right = "#CCECFF"
 	regenerate_organs(ramatan_for_preview)

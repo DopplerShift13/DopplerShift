@@ -41,8 +41,8 @@
 /datum/species/human/genemod/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	human_for_preview.dna.ear_type = DOG
 	human_for_preview.dna.features[FEATURE_EARS] = "Fold"
-	human_for_preview.dna.features["ears_color_1"] = "#4E3E30"
-	human_for_preview.dna.features["ears_color_2"] = "#F4B1C8"
+	human_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#4E3E30"
+	human_for_preview.dna.features[FEATURE_EARS_COLORS][2] = "#F4B1C8"
 	human_for_preview.set_haircolor("#3a2d22", update = FALSE)
 	human_for_preview.set_hairstyle("Short twintails", update = TRUE)
 	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex("mixed3")

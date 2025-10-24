@@ -1,8 +1,10 @@
 /datum/sprite_accessory/wings_more
+	key = "wings"
 	icon = 'modular_doppler/modular_customization/accessories/icons/non_species_specific/avian/avian_wings.dmi'
 	dimension_x = 46
 	dimension_y = 34
 	center = TRUE
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/wings_more/feathery
 	name = "Feathery"

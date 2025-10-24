@@ -91,30 +91,9 @@
 /// Overwrite lives here
 //	This is for the triple color channel
 /datum/bodypart_overlay/mutant/fluff
-	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
 	feature_key_sprite = FEATURE_FLUFF
 
-/datum/bodypart_overlay/mutant/fluff/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
-	if(limb == null)
-		return ..()
-	if(limb.owner == null)
-		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = limb.owner.dna.features["fluff_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["fluff_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
-		overlay.color = limb.owner.dna.features["fluff_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["fluff_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
-		overlay.color = limb.owner.dna.features["fluff_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["fluff_color_3"]
-		return overlay
+/datum/bodypart_overlay/mutant/fluff/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner?.dna.features[FEATURE_FLUFF_COLORS]
 	return ..()

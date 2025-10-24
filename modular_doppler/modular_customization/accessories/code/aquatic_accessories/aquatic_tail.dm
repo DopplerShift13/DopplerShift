@@ -1,6 +1,6 @@
 /datum/sprite_accessory/tails/fish
 	icon = 'modular_doppler/modular_customization/accessories/icons/aquatic/aquatic_tail.dmi'
-	color_src = FALSE
+	color_src = USE_ONE_COLOR
 
 /datum/sprite_accessory/tails/fish/simple
 	name = "Simple"
@@ -34,6 +34,7 @@
 	name = "Shrimp (Fish)"
 	icon = 'modular_doppler/modular_customization/accessories/icons/insectoid/insect_tail.dmi'
 	icon_state = "segmentedtail"
+	color_src = USE_MATRIXED_COLORS
 
 /datum/sprite_accessory/tails/fish/big // big .dmi starts here
 	name = "Sea Slug"

@@ -1,3 +1,7 @@
+/datum/sprite_accessory/tails
+	key = "tail"
+	color_src = USE_MATRIXED_COLORS
+
 /datum/sprite_accessory/tails/bug
 	icon = 'modular_doppler/modular_customization/accessories/icons/insectoid/insect_tail.dmi'
 

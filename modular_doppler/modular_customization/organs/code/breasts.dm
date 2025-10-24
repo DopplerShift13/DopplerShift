@@ -16,6 +16,8 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/breasts
 
 /datum/bodypart_overlay/mutant/breasts/can_draw_on_bodypart(obj/item/bodypart/chest/chest)
+	if(isnull(chest.owner))
+		return FALSE // ?? Sometimes this runtimes in the char menu
 	var/mob/living/carbon/human/human = chest.owner
 	if(visibility == ORGAN_VISIBILITY_MODE_NORMAL)
 		if((human.undershirt != "Nude" && !(human.underwear_visibility & UNDERWEAR_HIDE_SHIRT)) || (human.bra != "Nude" && !(human.underwear_visibility & UNDERWEAR_HIDE_BRA)))
@@ -33,7 +35,7 @@
 
 /datum/bodypart_overlay/mutant/breasts
 	feature_key = FEATURE_BREASTS
-	layers = EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
+	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 
 	var/visibility = ORGAN_VISIBILITY_MODE_NORMAL
 
@@ -44,47 +46,9 @@
 	var/offset2 = 0.08
 	var/offset3 = 0.07
 
+/datum/bodypart_overlay/mutant/breasts/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner?.dna.features[FEATURE_BREASTS_COLORS]
+	return ..()
+
 /datum/bodypart_overlay/mutant/breasts/get_global_feature_list()
 	return SSaccessories.breasts_list
-
-/datum/bodypart_overlay/mutant/breasts/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
-	if(limb.owner == null)
-		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["breasts_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND))
-		overlay.color = limb.owner.dna.features["breasts_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["breasts_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_2))
-		overlay.color = limb.owner.dna.features["breasts_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["breasts_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_3))
-		overlay.color = limb.owner.dna.features["breasts_color_3"]
-		return overlay
-	return ..()
-
-/datum/bodypart_overlay/mutant/breasts/mutant_bodyparts_layertext(layer)
-	if(layer == -(baselayer + offset1))
-		return "ADJ"
-	if(layer == -(baselayer + offset2))
-		return "ADJ_2"
-	if(layer == -(baselayer + offset3))
-		return "ADJ_3"
-	return ..()
-
-/datum/bodypart_overlay/mutant/breasts/bitflag_to_layer(layer)
-	switch(layer)
-		if(EXTERNAL_ADJACENT)
-			return -(baselayer + offset1)
-		if(EXTERNAL_ADJACENT_2)
-			return -(baselayer + offset2)
-		if(EXTERNAL_ADJACENT_3)
-			return -(baselayer + offset3)
-	return ..()
