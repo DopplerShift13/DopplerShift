@@ -58,6 +58,7 @@
 #define BLOOD_TYPE_SYNTHETIC "CL"
 #define BLOOD_TYPE_HEMOPHAGE "COR"
 #define BLOOD_TYPE_HOLOGEL "HOLO"
+#define BLOOD_TYPE_SAP "SAP"
 
 // Blood exposure behavior flag defines
 /// Add our DNA to turfs/mobs/items, does not correlate with adding decals/overlays
