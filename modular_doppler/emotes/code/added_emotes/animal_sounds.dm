@@ -313,3 +313,11 @@
 	cant_muffle = TRUE
 	vary = TRUE
 	sound = 'sound/mobs/non-humanoids/crab/claw_click.ogg'
+
+/datum/emote/living/vines
+	key = "vine"
+	message = "writhes!"
+	emote_type = EMOTE_AUDIBLE
+	cant_muffle = TRUE
+	vary = TRUE
+	sound = 'sound/mobs/non-humanoids/venus_trap/venus_trap_death.ogg'

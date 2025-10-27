@@ -155,3 +155,24 @@
 		This one is white for the empire's career service members."
 	icon_state = "kilt_reg"
 	worn_icon_state = "kilt_reg"
+
+// masks
+
+/obj/item/clothing/mask/snout_balaclava
+	name = "snout balaclava"
+	desc = "A special balaclava, first popularized by the Tizirians and then stolen by everyone else, that \
+		comfortably fits the average snout that any creature may have. Has generous eye holes for the wide variety of \
+		numbers of eyes that many species have. May prove for an awkward fit on anyone without a snout."
+	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
+	icon_state = "snoutacava"
+	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'
+	inhand_icon_state = "balaclava"
+	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	alternate_worn_layer = LOW_FACEMASK_LAYER
+	w_class = WEIGHT_CLASS_SMALL
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_SNOUTED)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/species_clothes/icons/tiziria/gear_worn_dig.dmi',
+	)

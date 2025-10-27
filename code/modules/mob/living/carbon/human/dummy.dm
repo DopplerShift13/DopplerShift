@@ -133,6 +133,19 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 	target.dna.features[FEATURE_BREASTS] = "Bare"
 	target.dna.features[FEATURE_TAUR] = "No Taur"
 	target.dna.features[FEATURE_FLUFF] = "No Fluff"
+	target.dna.features[FEATURE_EARS_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_MARKINGS_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_FRILLS_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_HORNS_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_SNOUT_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_WINGS_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_TAIL_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_BREASTS_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_TAUR_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_FLUFF_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_MOTH_MARKS_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_ANTENNAE_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
+	target.dna.features[FEATURE_POD_HAIR_COLORS] = DEFAULT_MATRIXED_FEATURE_COLORS
 	// DOPPLER FEATURES END
 	target.dna.initialize_dna(newblood_type = get_blood_type(BLOOD_TYPE_O_MINUS), create_mutation_blocks = FALSE, randomize_features = FALSE)
 	// UF and UI are nondeterministic, even though the features are the same some blocks will randomize slightly

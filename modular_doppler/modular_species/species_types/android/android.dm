@@ -140,7 +140,7 @@
 /datum/species/android/prepare_human_for_preview(mob/living/carbon/human/robot_for_preview)
 	robot_for_preview.dna.ear_type = CYBERNETIC
 	robot_for_preview.dna.features["ears"] = "TV Antennae"
-	robot_for_preview.dna.features["ears_color_1"] = "#333333"
+	robot_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#333333"
 	robot_for_preview.dna.features["frame_list"] = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/robot/android/sgm,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/robot/android/sgm,

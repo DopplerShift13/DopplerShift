@@ -1,0 +1,336 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/open/misc/grass/roofing,
+/area/ruin/unpowered/primitive_genemod_den)
+"e" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 4
+	},
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"i" = (
+/obj/structure/lamppost{
+	dir = 8
+	},
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
+"j" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
+"m" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"n" = (
+/turf/closed/mineral/snowmountain/icemoon/unscrapeable,
+/area/icemoon/surface/outdoors/nospawn)
+"o" = (
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"z" = (
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
+"B" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner,
+/turf/open/misc/sandy_dirt/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
+"D" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 5
+	},
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 8
+	},
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"K" = (
+/turf/open/openspace/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"N" = (
+/obj/effect/turf_decal/weather/snow/corner{
+	dir = 10
+	},
+/turf/open/misc/sandy_dirt/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+"S" = (
+/turf/closed/mineral/snowmountain/icemoon/unscrapeable,
+/area/ruin/unpowered/primitive_genemod_den)
+"Y" = (
+/obj/structure/stairs/stone,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/ruin/unpowered/primitive_genemod_den)
+
+(1,1,1) = {"
+n
+n
+o
+o
+K
+K
+K
+K
+o
+o
+o
+o
+n
+n
+n
+"}
+(2,1,1) = {"
+n
+m
+o
+K
+K
+K
+K
+K
+K
+K
+o
+o
+o
+n
+n
+"}
+(3,1,1) = {"
+m
+o
+o
+K
+K
+K
+K
+K
+K
+K
+K
+o
+o
+S
+n
+"}
+(4,1,1) = {"
+o
+o
+a
+a
+a
+a
+K
+K
+K
+K
+K
+S
+o
+o
+n
+"}
+(5,1,1) = {"
+o
+K
+a
+a
+a
+a
+K
+K
+K
+K
+K
+K
+o
+o
+z
+"}
+(6,1,1) = {"
+o
+K
+a
+a
+a
+a
+K
+K
+K
+K
+K
+K
+o
+o
+o
+"}
+(7,1,1) = {"
+o
+K
+a
+a
+a
+a
+K
+K
+K
+K
+K
+K
+o
+o
+o
+"}
+(8,1,1) = {"
+o
+K
+a
+a
+a
+a
+K
+K
+K
+K
+K
+K
+o
+o
+o
+"}
+(9,1,1) = {"
+o
+K
+a
+a
+a
+a
+K
+K
+K
+K
+K
+K
+o
+o
+S
+"}
+(10,1,1) = {"
+o
+K
+a
+a
+a
+a
+K
+K
+K
+K
+K
+S
+o
+o
+S
+"}
+(11,1,1) = {"
+o
+K
+a
+a
+a
+a
+K
+K
+K
+K
+S
+o
+o
+S
+S
+"}
+(12,1,1) = {"
+o
+K
+K
+K
+K
+K
+K
+K
+K
+o
+o
+o
+o
+S
+S
+"}
+(13,1,1) = {"
+o
+S
+K
+K
+K
+K
+K
+K
+o
+o
+o
+S
+S
+S
+n
+"}
+(14,1,1) = {"
+j
+N
+S
+K
+K
+o
+o
+o
+o
+o
+S
+S
+S
+n
+n
+"}
+(15,1,1) = {"
+i
+B
+o
+o
+o
+D
+e
+o
+m
+Y
+S
+S
+n
+n
+n
+"}

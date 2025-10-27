@@ -17,6 +17,13 @@
 			),
 		),
 		list(
+			"name" = "Service",
+			"icon" = "kitchen-set",
+			"products" = list(
+				/obj/item/clothing/under/costume/bunnysuit = 1,
+			),
+		),
+		list(
 			"name" = "Undersuit",
 			"icon" = "shirt",
 			"products" = list(
