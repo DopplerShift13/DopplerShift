@@ -22,10 +22,12 @@
 			"name" = "Accessories",
 			"icon" = "glasses",
 			"products" = list(
+				/obj/item/clothing/neck/mantle/recolorable = 5,
+				/obj/item/clothing/neck/doppler_mantle = 5,
+				/obj/item/clothing/neck/doppler_mantle/light = 5,
 				/obj/item/clothing/neck/ranger_poncho = 5,
 				/obj/item/clothing/neck/patterned_poncho = 5,
 				/obj/item/clothing/neck/basic_poncho = 5,
-				/obj/item/clothing/neck/mantle/recolorable = 5,
 				/obj/item/clothing/neck/long_cape = 5,
 				/obj/item/clothing/neck/wide_cape = 5,
 				/obj/item/clothing/neck/robe_cape = 5,
@@ -39,7 +41,6 @@
 				/obj/item/clothing/neck/fashion_collar/cross = 5,
 				/obj/item/clothing/neck/fashion_collar/holo = 5,
 				/obj/item/clothing/neck/fashion_collar/spike = 5,
-				/obj/item/clothing/gloves/lalune_long = 5,
 			),
 		),
 
@@ -48,6 +49,14 @@
 			"icon" = "shirt",
 			"products" = list(
 				/obj/item/clothing/under/pants/jeans/ripped = 5,
+				/obj/item/clothing/under/pants/moto_leggings = 5,
+				/obj/item/clothing/under/pants/big_pants = 5,
+				/obj/item/clothing/under/shorts/shorter = 5,
+				/obj/item/clothing/under/shorts/shorter/jeans = 5,
+				/obj/item/clothing/under/shorts/shorter/shortest = 5,
+				/obj/item/clothing/under/shorts/shorter/jeans/shortest = 5,
+				/obj/item/clothing/under/cowl_neck_shirt = 5,
+				/obj/item/clothing/under/collared_shirt = 5,
 			),
 		),
 
@@ -61,23 +70,37 @@
 				/obj/item/clothing/under/dress/doppler/pentagram = 5,
 				/obj/item/clothing/under/dress/doppler/halter_dress = 5,
 				/obj/item/clothing/under/dress/doppler/sweaterdress = 5,
+				/obj/item/clothing/under/dress/doppler/giant_scarf = 5,
 				/obj/item/clothing/under/dress/skirt/highwaisted_skirt = 5,
 				/obj/item/clothing/under/dress/skirt/miniskirt = 5,
+				/obj/item/clothing/under/dress/skirt/medium = 5,
+				/obj/item/clothing/under/dress/skirt/long = 5,
+				/obj/item/clothing/under/shorts/shorter/skirt = 5,
+				/obj/item/clothing/under/suit/pencil = 5,
+				/obj/item/clothing/under/suit/pencil/noshirt = 5,
+				/obj/item/clothing/under/suit/pencil/black_really = 5,
+				/obj/item/clothing/under/suit/pencil/charcoal = 5,
+				/obj/item/clothing/under/suit/pencil/checkered = 5,
+				/obj/item/clothing/under/suit/pencil/checkered/noshirt = 5,
+				/obj/item/clothing/under/suit/pencil/tan = 5,
+				/obj/item/clothing/under/suit/pencil/green = 5,
 				/obj/item/clothing/suit/jacket/doppler/departmental_jacket = 5,
 				/obj/item/clothing/suit/jacket/doppler/field_jacket = 5,
 				/obj/item/clothing/suit/jacket/doppler/field_jacket/tan = 5,
 				/obj/item/clothing/suit/hooded/doppler/leather_hoodie = 5,
 				/obj/item/clothing/suit/jacket/doppler/long_suit_jacket = 5,
+				/obj/item/clothing/suit/jacket/doppler/short_suit_jacket = 5,
 				/obj/item/clothing/suit/jacket/doppler/big_jacket = 5,
+				/obj/item/clothing/suit/jacket/doppler/gacket = 5,
 				/obj/item/clothing/suit/jacket/doppler/chokha = 5,
 				/obj/item/clothing/suit/jacket/doppler/fur_coat = 5,
 				/obj/item/clothing/suit/jacket/doppler/wrap_coat = 5,
 				/obj/item/clothing/suit/jacket/doppler/red_trench = 5,
 				/obj/item/clothing/suit/warm_coat = 5,
+				/obj/item/clothing/suit/dagger_mantle = 5,
 				/obj/item/clothing/suit/hooded/crop_cold_hoodie = 5,
 				/obj/item/clothing/suit/hooded/big_hoodie = 5,
 				/obj/item/clothing/suit/hooded/twee_hoodie = 5,
-				/obj/item/clothing/suit/dagger_mantle = 5,
 			),
 		),
 
@@ -86,17 +109,34 @@
 			"icon" = "socks",
 			"products" = list(
 				/obj/item/clothing/shoes/colorable_laceups = 5,
+				/obj/item/clothing/shoes/colorable_sandals = 5,
+				/obj/item/clothing/shoes/jackboots/recolorable = 5,
 			),
 		),
 
-/*		//Only put clothing in Special thats either Families or exteremly out-of-place
+		//Only put clothing in Special thats either Families or extremely out-of-place
 		list(
 			"name" = "Special",
 			"icon" = "star",
 			"products" = list(
+				/obj/item/clothing/under/dress/doppler/cheongsam = 5,
+				/obj/item/clothing/under/dress/doppler/cheongsam/customtrim = 5,
+				/obj/item/clothing/under/dress/doppler/qipao = 5,
+				/obj/item/clothing/under/dress/doppler/qipao/customtrim = 5,
+				/obj/item/clothing/under/dress/skirt/loincloth = 5,
+				/obj/item/clothing/under/dress/skirt/loincloth/loincloth_alt = 5,
+				/obj/item/clothing/shoes/wraps = 5,
+				/obj/item/clothing/shoes/wraps/leggy = 5,
+				/obj/item/clothing/under/costume/kimono/greyscale = 5,
+				/obj/item/clothing/under/costume/yukata/greyscale = 5,
+				/obj/item/clothing/under/misc/gear_harness = 5,
+				/obj/item/clothing/under/bodysuit = 5,
+				/obj/item/clothing/under/athletas_bodysuit = 5,
 			)
-		)	*/
+		)
 	)
 
-/*	premium_doppler = list( //being here means you're artificially rare, congratulations
-	)	*/
+	premium_doppler = list( //being here means you're artificially rare, congratulations
+		/obj/item/clothing/suit/toggle/labcoat/lalunevest = 3,
+		/obj/item/clothing/gloves/lalune_long = 3,
+	)
