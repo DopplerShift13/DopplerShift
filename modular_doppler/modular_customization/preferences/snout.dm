@@ -93,24 +93,9 @@
 /// Overwrite lives here
 //	This is for the triple color channel
 /datum/bodypart_overlay/mutant/snout
-	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT
 	feature_key_sprite = "snout"
 
-/datum/bodypart_overlay/mutant/snout/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
-	if(limb == null)
-		return ..()
-	if(limb.owner == null)
-		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["snout_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["snout_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["snout_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = limb.owner.dna.features["snout_color_1"]
-		return overlay
+/datum/bodypart_overlay/mutant/snout/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner?.dna.features[FEATURE_SNOUT_COLORS]
 	return ..()

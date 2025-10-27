@@ -7276,6 +7276,8 @@
 #include "modular_doppler\modular_customization\markings\body_markings\vox.dm"
 #include "modular_doppler\modular_customization\markings\preferences\markings.dm"
 #include "modular_doppler\modular_customization\organs\_organs.dm"
+#include "modular_doppler\modular_customization\organs\mutant_bodypart_overlay.dm"
+#include "modular_doppler\modular_customization\organs\sprite_accessory.dm"
 #include "modular_doppler\modular_customization\organs\code\breasts.dm"
 #include "modular_doppler\modular_customization\organs\code\ears.dm"
 #include "modular_doppler\modular_customization\organs\code\eyes.dm"

@@ -123,44 +123,32 @@
 /// Overwrite lives here
 //	This is for the triple color channel
 /datum/bodypart_overlay/mutant/wings/more
-	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 	feature_key_sprite = "wings"
 
-/datum/bodypart_overlay/mutant/wings/more/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
-	if(limb == null)
+/datum/bodypart_overlay/mutant/wings/more/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	if(!limb) // I've seen runtimes you wouldn't believe
 		return ..()
-	if(limb.owner == null)
+	if(!limb.owner)
 		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = limb.owner.dna.features["wings_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["wings_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND))
-		overlay.color = limb.owner.dna.features["wings_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
-		overlay.color = limb.owner.dna.features["wings_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["wings_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_2))
-		overlay.color = limb.owner.dna.features["wings_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
-		overlay.color = limb.owner.dna.features["wings_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["wings_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_3))
-		overlay.color = limb.owner.dna.features["wings_color_3"]
-		return overlay
+	draw_color = limb.owner.dna.features[FEATURE_WINGS_COLORS]
 	return ..()
 
+/// If moth wings ever become 3 color like regular wings, remove this part and the color part below
+/datum/bodypart_overlay/mutant/wings/moth/get_overlay(layer, obj/item/bodypart/limb)
+	layer = bitflag_to_layer(layer)
+	var/image/main_image = get_image(layer, limb)
+	if(limb)
+		main_image.alpha = limb.alpha
+	color_image(main_image, layer, limb)
+	if(blocks_emissive == EMISSIVE_BLOCK_NONE || !limb)
+		return main_image
 
+	var/list/all_images = list(
+		main_image,
+		emissive_blocker(main_image.icon, main_image.icon_state, limb, layer = main_image.layer, alpha = main_image.alpha)
+	)
+	return all_images
 
 /// Overwrite lives here
 //	Moth wings have their own bespoke RGB code.
@@ -170,10 +158,11 @@
 	if(limb.owner == null)
 		return ..()
 	var/color_intended = COLOR_WHITE
-
-	var/tcol_1 = limb.owner.dna.features["wings_color_1"]
-	var/tcol_2 = limb.owner.dna.features["wings_color_2"]
-	var/tcol_3 = limb.owner.dna.features["wings_color_3"]
+	if(!length(limb.owner.dna.features[FEATURE_WINGS_COLORS]))
+		return ..()
+	var/tcol_1 = limb.owner.dna.features[FEATURE_WINGS_COLORS][1]
+	var/tcol_2 = limb.owner.dna.features[FEATURE_WINGS_COLORS][2]
+	var/tcol_3 = limb.owner.dna.features[FEATURE_WINGS_COLORS][3]
 	if(tcol_1 && tcol_2 && tcol_3)
 		//this is beyond ugly but it works
 		var/r1 = hex2num(copytext(tcol_1, 2, 4)) / 255.0

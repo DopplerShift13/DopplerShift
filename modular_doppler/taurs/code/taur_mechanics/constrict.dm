@@ -216,9 +216,9 @@
 	//coloring
 	var/list/finished_list = list()
 
-	finished_list += rgb2num("[owner.dna.features["taur_color_1"]]00")
-	finished_list += rgb2num("[owner.dna.features["taur_color_2"]]00")
-	finished_list += rgb2num("[owner.dna.features["taur_color_3"]]00")
+	finished_list += rgb2num("[owner.dna.features[FEATURE_TAUR_COLORS][1]]00")
+	finished_list += rgb2num("[owner.dna.features[FEATURE_TAUR_COLORS][2]]00")
+	finished_list += rgb2num("[owner.dna.features[FEATURE_TAUR_COLORS][3]]00")
 
 	finished_list += list(0, 0, 0, 255)
 	for(var/index in 1 to finished_list.len)

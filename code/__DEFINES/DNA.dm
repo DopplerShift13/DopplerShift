@@ -74,10 +74,23 @@
 #define FEATURE_MUSH_CAP "caps"
 #define FEATURE_POD_HAIR "pod_hair"
 // DOPPLER FEATURES START
+#define FEATURE_EARS_COLORS "ears_colors"
+#define FEATURE_MARKINGS_COLORS "markings_colors"
+#define FEATURE_FRILLS_COLORS "frills_colors"
+#define FEATURE_HORNS_COLORS "horns_colors"
+#define FEATURE_MOTH_MARKS_COLORS "moth_markings_colors"
+#define FEATURE_ANTENNAE_COLORS "antennae_colors"
+#define FEATURE_SNOUT_COLORS "snout_colors"
+#define FEATURE_WINGS_COLORS "wings_colors"
 #define FEATURE_TAIL_OTHER "tail_other"
+#define FEATURE_TAIL_COLORS "tail_colors"
 #define FEATURE_BREASTS "breasts"
+#define FEATURE_BREASTS_COLORS "breasts_colors"
 #define FEATURE_TAUR "taur"
+#define FEATURE_TAUR_COLORS "taur_colors"
 #define FEATURE_FLUFF "fluff"
+#define FEATURE_FLUFF_COLORS "fluff_colors"
+#define FEATURE_POD_HAIR_COLORS "pod_hair_colors"
 // DOPPLER FEATURES END
 
 // Other

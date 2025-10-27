@@ -579,40 +579,10 @@
 /// Overwrite lives here
 //	This is for the triple color channel
 /datum/bodypart_overlay/mutant/ears
-	layers = EXTERNAL_FRONT | EXTERNAL_FRONT_2 | EXTERNAL_FRONT_3 | EXTERNAL_ADJACENT | EXTERNAL_ADJACENT_2 | EXTERNAL_ADJACENT_3 | EXTERNAL_BEHIND | EXTERNAL_BEHIND_2 | EXTERNAL_BEHIND_3
+	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 	feature_key = FEATURE_EARS
 	feature_key_sprite = FEATURE_EARS
 
-/datum/bodypart_overlay/mutant/ears/color_image(image/overlay, draw_layer, obj/item/bodypart/limb)
-	if(limb == null)
-		return ..()
-	if(limb.owner == null)
-		return ..()
-	if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT))
-		overlay.color = limb.owner.dna.features["ears_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT))
-		overlay.color = limb.owner.dna.features["ears_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND))
-		overlay.color = limb.owner.dna.features["ears_color_1"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_2))
-		overlay.color = limb.owner.dna.features["ears_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_2))
-		overlay.color = limb.owner.dna.features["ears_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_2))
-		overlay.color = limb.owner.dna.features["ears_color_2"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_FRONT_3))
-		overlay.color = limb.owner.dna.features["ears_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_ADJACENT_3))
-		overlay.color = limb.owner.dna.features["ears_color_3"]
-		return overlay
-	else if(draw_layer == bitflag_to_layer(EXTERNAL_BEHIND_3))
-		overlay.color = limb.owner.dna.features["ears_color_3"]
-		return overlay
+/datum/bodypart_overlay/mutant/ears/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
+	draw_color = limb.owner?.dna.features[FEATURE_EARS_COLORS]
 	return ..()
