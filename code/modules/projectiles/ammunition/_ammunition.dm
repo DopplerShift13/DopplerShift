@@ -108,7 +108,7 @@
 	return readout.Join("\n") // Sending over a single string, rather than the whole list
 
 /obj/item/ammo_casing/update_icon_state()
-	icon_state = "[initial(icon_state)][loaded_projectile ? "-live" : null]"
+	icon_state = "[base_icon_state || initial(icon_state)][loaded_projectile ? "-live" : null]" // DOPPLER CHANGE - GAGS support - original: icon_state = "[initial(icon_state)][loaded_projectile ? "-live" : null]"
 	return ..()
 
 /obj/item/ammo_casing/update_desc()

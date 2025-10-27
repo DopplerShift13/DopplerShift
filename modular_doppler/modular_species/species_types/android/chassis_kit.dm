@@ -224,8 +224,8 @@
 		new_android.gender = stored_gender
 
 		// inserting ears randomizes the actual design for reasons i do not understand. color works fine and it's probably good to apply both anyways
-		new_android.dna.features["ears"] = stored_antenna_design
-		new_android.dna.features["ears_color_1"] = stored_antenna_color
+		new_android.dna.features[FEATURE_EARS] = stored_antenna_design
+		new_android.dna.features[FEATURE_EARS_COLORS][1] = stored_antenna_color
 
 		// remove random markings because in general they're going to look bad or at least unintentional
 		new_android.dna.features[FEATURE_LIZARD_MARKINGS] = "No Markings"

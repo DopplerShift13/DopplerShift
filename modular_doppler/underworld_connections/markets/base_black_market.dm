@@ -219,3 +219,43 @@
 /datum/market_item/weapon/fisher
 	price_min = PAYCHECK_CREW * 4
 	price_max = PAYCHECK_CREW * 8
+
+/datum/market_item/weapon/earthsblood_dart
+	name = "\improper third-party 'Earthsblood' dart"
+	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of experimental healing chemicals and exotic nootropics \
+	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	item = /obj/item/ammo_casing/alacran_dart/earthsblood
+	price_min = PAYCHECK_COMMAND
+	price_max = PAYCHECK_COMMAND * 4
+	stock_max = 9
+	availability_prob = 80
+
+/datum/market_item/weapon/earthsblood_dart_piercing
+	name = "\improper third-party 'Earthsblood' dart - armor piercing"
+	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of experimental healing chemicals and exotic nootropics \
+	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	item = /obj/item/ammo_casing/alacran_dart/earthsblood/piercing
+	price_min = PAYCHECK_COMMAND * 1.2
+	price_max = PAYCHECK_COMMAND * 5
+	stock_max = 4
+	availability_prob = 60
+
+/datum/market_item/weapon/equestrian_stimulants_dart
+	name = "\improper third-party 'Equestrian Stimulants' dart"
+	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of stimulants intended for, among other animals, race horses, \
+	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	item = /obj/item/ammo_casing/alacran_dart/equestrian_stimulants
+	price_min = PAYCHECK_COMMAND
+	price_max = PAYCHECK_COMMAND * 5
+	stock_max = 9
+	availability_prob = 80
+
+/datum/market_item/weapon/equestrian_stimulants_dart_piercing
+	name = "\improper third-party 'Equestrian Stimulants' dart - armor piercing"
+	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of stimulants intended for, among other animals, race horses, \
+	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
+	item = /obj/item/ammo_casing/alacran_dart/equestrian_stimulants/piercing
+	price_min = PAYCHECK_COMMAND * 1.2
+	price_max = PAYCHECK_COMMAND * 5.5
+	stock_max = 4
+	availability_prob = 60

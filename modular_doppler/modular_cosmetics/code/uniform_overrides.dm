@@ -26,3 +26,10 @@
 
 /obj/item/storage/box/survival/mining
 	mask_type = /obj/item/clothing/mask/neck_gaiter
+
+/datum/outfit/job/security
+	suit_store = null
+	backpack_contents = list(
+		/obj/item/signature_beacon/security_equipment_package = 1,
+		/obj/item/evidencebag = 1,
+	)

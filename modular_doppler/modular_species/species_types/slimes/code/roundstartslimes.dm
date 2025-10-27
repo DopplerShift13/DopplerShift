@@ -314,9 +314,9 @@
 	human.dna.features[FEATURE_MUTANT_COLOR] = "#EF313F"
 	human.dna.ear_type = BUNNY
 	human.dna.features[FEATURE_EARS] = "Lop (Sexy)"
-	human.dna.features["ears_color_1"] = "#EF313F"
-	human.dna.features["ears_color_2"] = "#EF313F"
-	human.dna.features["ears_color_3"] = "#EF313F"
+	human.dna.features[FEATURE_EARS_COLORS][1] = "#EF313F"
+	human.dna.features[FEATURE_EARS_COLORS][2] = "#EF313F"
+	human.dna.features[FEATURE_EARS_COLORS][3] = "#EF313F"
 	human.hair_color = "#EF313F"
 	human.hairstyle = "Slime Droplet"
 	regenerate_organs(human, src, visual_only = TRUE)
