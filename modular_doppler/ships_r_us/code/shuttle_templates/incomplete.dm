@@ -5,7 +5,7 @@
 // Small incomplete ship for finishing yourself
 
 /datum/map_template/shuttle/personal_buyable/incomplete/small
-	name = "MZH Wei-Chuang"
+	name = "CAS Khar-Habka"
 	description = "A small-sized shuttle that comes without most of it's interior. \
 		A popular choice among those who are more of the handy-do-it-yourself type \
 		when it comes to high tech shuttle construction."
@@ -16,12 +16,12 @@
 	personal_shuttle_size = PERSONAL_SHIP_SMALL
 
 /area/shuttle/personally_bought/do_it_yourself_small
-	name = "MZH Wei-Chuang"
+	name = "CAS Khar-Habka"
 
 // Medium sized incomplete ship
 
 /datum/map_template/shuttle/personal_buyable/incomplete/medium
-	name = "MZH Wei-Kuang"
+	name = "CAS Khar-Hiktar"
 	description = "A medium-sized shuttle that comes without most of it's interior. \
 		A popular choice among those who are more of the handy-do-it-yourself type \
 		when it comes to high tech shuttle construction."
@@ -32,12 +32,12 @@
 	personal_shuttle_size = PERSONAL_SHIP_MEDIUM
 
 /area/shuttle/personally_bought/do_it_yourself_medium
-	name = "MZH Wei-Kuang"
+	name = "CAS Khar-Hiktar"
 
 // Big sized incomplete ship
 
 /datum/map_template/shuttle/personal_buyable/incomplete/large
-	name = "MZH Wei-Ta"
+	name = "CAS Khar-Milkia"
 	description = "A large shuttle that comes without most of it's interior. \
 		A popular choice among those who are more of the handy-do-it-yourself type \
 		when it comes to high tech shuttle construction."
@@ -48,4 +48,4 @@
 	personal_shuttle_size = PERSONAL_SHIP_LARGE
 
 /area/shuttle/personally_bought/do_it_yourself_large
-	name = "MZH Wei-Ta"
+	name = "CAS Khar-Milkia"
