@@ -518,7 +518,7 @@
 		addtimer(CALLBACK(src, PROC_REF(animate_eyelids), owner), blink_delay + duration)
 
 /obj/item/organ/eyes/proc/animate_eyelids(mob/living/carbon/human/parent)
-	var/sync_blinking = synchronized_blinking && (parent.get_organ_loss(ORGAN_SLOT_BRAIN) < BRAIN_DAMAGE_ASYNC_BLINKING)
+	var/sync_blinking = TRUE // synchronized_blinking && (parent.get_organ_loss(ORGAN_SLOT_BRAIN) < BRAIN_DAMAGE_ASYNC_BLINKING) //doppler edit - disables async blinking
 	// Randomize order for unsynched animations
 	if (sync_blinking || prob(50))
 		var/list/anim_times = animate_eyelid(eyelid_left, parent, sync_blinking)
@@ -1139,7 +1139,7 @@
 	name = "reptile eyes"
 	desc = "A pair of reptile eyes with thin vertical slits for pupils."
 	icon_state = "lizard_eyes"
-	synchronized_blinking = FALSE
+	// synchronized_blinking = FALSE // doppler edit - disables async blinking
 	pupils_name = "slit pupils"
 	penlight_message = "have vertically slit pupils and tinted whites"
 
