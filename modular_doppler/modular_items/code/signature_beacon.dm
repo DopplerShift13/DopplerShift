@@ -16,8 +16,9 @@
 	. = ..()
 	attempt_selection(user)
 
-/obj/item/signature_beacon/proc/generate_equipment_options()
-	var/static/list/equipment_option_list
+/obj/item/signature_beacon/proc/get_equipment_options()
+	PRIVATE_PROC(TRUE)
+	var/list/equipment_option_list = GLOB.signature_equipment_options_cache[selection_base_type]
 	if(equipment_option_list)
 		return equipment_option_list
 
@@ -25,14 +26,17 @@
 	for(var/datum/signature_equipment/signature_equipment as anything in subtypesof(selection_base_type))
 		equipment_option_list[signature_equipment::name] = signature_equipment
 	sort_list(equipment_option_list)
+
+	GLOB.signature_equipment_options_cache[selection_base_type] = equipment_option_list
 	return equipment_option_list
 
-/obj/item/signature_beacon/proc/generate_radial_options()
-	var/static/list/radial_option_list
+/obj/item/signature_beacon/proc/get_radial_options()
+	PRIVATE_PROC(TRUE)
+	var/list/radial_option_list = GLOB.signature_equipment_radials_cache[selection_base_type]
 	if(radial_option_list)
 		return radial_option_list
 
-	var/list/equipment_option_list = generate_equipment_options()
+	var/list/equipment_option_list = get_equipment_options()
 	radial_option_list = list()
 	for(var/equipment_option as anything in equipment_option_list)
 		var/datum/signature_equipment/signature_equipment = equipment_option_list[equipment_option]
@@ -49,6 +53,7 @@
 		radial_option_list[equipment_option] = radial_option
 	sort_list(radial_option_list)
 
+	GLOB.signature_equipment_radials_cache[selection_base_type] = radial_option_list
 	return radial_option_list
 
 /obj/item/signature_beacon/proc/check_option_menu(mob/user)
@@ -65,7 +70,7 @@
 		playsound(src, 'sound/machines/buzz/buzz-sigh.ogg', 40, TRUE)
 		return
 
-	var/list/radial_option_list = generate_radial_options()
+	var/list/radial_option_list = get_radial_options()
 	var/chosen_option = show_radial_menu(
 		user,
 		src,
@@ -77,7 +82,7 @@
 
 	if(isnull(chosen_option))
 		return
-	var/list/equipment_option_list = generate_equipment_options()
+	var/list/equipment_option_list = get_equipment_options()
 	var/datum/signature_equipment/chosen_signature_type = equipment_option_list[chosen_option]
 	if(isnull(chosen_signature_type))
 		return
