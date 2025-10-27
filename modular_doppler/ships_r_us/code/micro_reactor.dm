@@ -10,7 +10,7 @@
 	density = FALSE
 	anchored = TRUE
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
-	light_color = BLOOD_COLOR_LIZARD
+	light_color = "#7fe7ce"
 	light_on = FALSE
 	var/power_gen = 50 KILO WATTS
 	var/active = FALSE
