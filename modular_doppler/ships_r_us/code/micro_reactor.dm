@@ -9,12 +9,12 @@
 	base_icon_state = "reactor0"
 	density = FALSE
 	anchored = TRUE
-	var/power_gen = 50 KILO WATTS
-	var/active = FALSE
-	var/power_output = 1
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
 	light_color = BLOOD_COLOR_LIZARD
 	light_on = FALSE
+	var/power_gen = 50 KILO WATTS
+	var/active = FALSE
+	var/power_output = 1
 	var/datum/looping_sound/generator/soundloop
 
 /obj/machinery/power/micro_reactor/Initialize(mapload)
