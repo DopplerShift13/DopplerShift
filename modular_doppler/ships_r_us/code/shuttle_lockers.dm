@@ -2,7 +2,7 @@
 	name = "shuttle emergency locker"
 	desc = "Otherwise known as the \"Oh, FUCK!\" locker, has a good chance to contain whatever you need to fix \
 		basic problems aboard shuttles, so long as the contents haven't been reappropriated for some other use. \
-		If nothing within helps, you could always try hiding inside of it from your problems?"
+		If nothing within helps, you could always try hiding from your problems inside of it?"
 	icon = 'modular_doppler/ships_r_us/icons/shuttle_lockers.dmi'
 	icon_state = "disastre"
 	contents_pressure_protection = 1
