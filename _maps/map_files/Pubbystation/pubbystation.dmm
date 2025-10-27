@@ -55377,9 +55377,6 @@
 /obj/item/assembly/timer,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
-"xyp" = (
-/turf/closed/mineral/strange_rock,
-/area/centcom/asteroid/nearstation/bomb_site)
 "xyI" = (
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/iron/terracotta,
@@ -100222,14 +100219,14 @@ ckK
 ckK
 ckK
 ckK
-xyp
-xyp
+cju
+cju
 ckK
 ckK
 ckK
-xyp
+cju
 ckK
-xyp
+cju
 ckK
 ckK
 ckK
@@ -101011,8 +101008,8 @@ bft
 bft
 ckK
 ckK
-xyp
-xyp
+cju
+cju
 ckK
 cju
 ckK

@@ -1,5 +1,5 @@
 /obj/item/shard/attackby(obj/item/item, mob/user, params)
-	//xenoarch hammer, forging hammer, etc.
+	//forging hammer
 	if(item.tool_behaviour == TOOL_HAMMER)
 		var/added_color
 		switch(src.type)
