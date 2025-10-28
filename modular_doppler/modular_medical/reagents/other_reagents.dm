@@ -1,6 +1,6 @@
 /datum/reagent/consumable/sap
 	name = "Sap"
-	description  = "Water saturated with glucose and other nutrients. Used by viridians in their vascular system."
+	description = "Water saturated with glucose and other nutrients. Used by viridians in their vascular system."
 	color = "#d6ba6cff"
 	nutriment_factor = 1
 	taste_description = "sweet and earthy"
