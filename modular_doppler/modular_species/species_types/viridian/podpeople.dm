@@ -10,7 +10,7 @@
 /datum/species/pod/get_species_description()
 	return 	"Viridians are a species of sapient plants-- \
 		the result of an encounter between carefree experimentation by the Ordoht and the modern technology involved in genetically modified crops. \
-		Ordoht scientists, having no concept of ownership over intellectual property and no desire to keep their experiments from ‘spreading,’ ended up later having their work reflected in the highly mutagenic nature of plants designed to grow in space."
+		Ordoht scientists, having no concept of ownership over intellectual property and no desire to keep their experiments from ‘spreading’, ended up later having their work reflected in the highly mutagenic nature of plants designed to grow in space."
 
 /datum/species/pod/get_species_lore()
 	return list(
