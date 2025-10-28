@@ -1,8 +1,9 @@
 /datum/reagent/sap
 	name = "Sap"
 	description  = "Water saturated with glucose and other nutrients. Used by viridians in their vascular system."
-	color = "#d6ba6cff" // rgb: 200, 0, 0
-	metabolization_rate = 12.5 * REAGENTS_METABOLISM //fast rate so it disappears fast.
+	color = "#d6ba6cff"
+	metabolization_rate = 10 * REAGENTS_METABOLISM
+	nutriment_factor = 1
 	taste_description = "sweet and earthy"
 	taste_mult = 1.3
 	penetrates_skin = NONE
