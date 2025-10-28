@@ -18,8 +18,8 @@
 	new /obj/item/flatpacked_machine/damage_lathe(src)
 	new /obj/item/emergency_bed(src)
 	new /obj/item/storage/toolbox/emergency(src)
-	new /obj/item/storage/medkit/frontier(src)
-	new /obj/item/storage/medkit/combat_surgeon(src)
+	new /obj/item/storage/medkit/frontier/stocked(src)
+	new /obj/item/storage/medkit/combat_surgeon/stocked(src)
 
 /obj/structure/closet/firecloset/shuttle/tools
 	name = "shuttle tools locker"
