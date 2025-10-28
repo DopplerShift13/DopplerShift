@@ -406,7 +406,7 @@
 	item_path = /obj/item/clothing/under/color/jumpskirt/rainbow
 
 /datum/loadout_item/undersuit/biosuitalt
-	name = "White Biosuit"
+	name = "Biosuit (White)"
 	item_path = /obj/item/clothing/under/underlayer/white
 
 // Man in suit gif
