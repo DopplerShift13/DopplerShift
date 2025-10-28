@@ -33,6 +33,21 @@
 	icon_state = "flushed_cheeks"
 	body_zones = HEAD
 
+/datum/sprite_accessory/body_marking/other/anime_eyes_inner
+	name = "Anime Eyes (Inner)"
+	icon_state = "anime_eyes_inner"
+	body_zones = HEAD
+
+/datum/sprite_accessory/body_marking/other/anime_eyes_outer
+	name = "Anime Eyes (Outer)"
+	icon_state = "anime_eyes_outer"
+	body_zones = HEAD
+
+/datum/sprite_accessory/body_marking/other/deer_face
+	name = "Deer Face"
+	icon_state = "deer_face"
+	body_zones = HEAD
+
 /datum/sprite_accessory/body_marking/other/cyclops
 	name = "Cyclopean Eye"
 	icon_state = "cyclops"
