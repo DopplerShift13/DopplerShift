@@ -2,7 +2,6 @@
 	name = "Sap"
 	description  = "Water saturated with glucose and other nutrients. Used by viridians in their vascular system."
 	color = "#d6ba6cff"
-	metabolization_rate = 10 * REAGENTS_METABOLISM
 	nutriment_factor = 1
 	taste_description = "sweet and earthy"
 	taste_mult = 1.3
