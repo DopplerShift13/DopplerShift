@@ -1,4 +1,4 @@
-/datum/reagent/sap
+/datum/reagent/consumable/sap
 	name = "Sap"
 	description  = "Water saturated with glucose and other nutrients. Used by viridians in their vascular system."
 	color = "#d6ba6cff"
