@@ -79,7 +79,7 @@
 	name = "Cap (Yellow)"
 	item_path = /obj/item/clothing/head/soft/yellow
 
- /datum/loadout_item/head/flatcap
+/datum/loadout_item/head/flatcap
 	name = "Cap (Flat)"
 	item_path = /obj/item/clothing/head/flatcap
 
