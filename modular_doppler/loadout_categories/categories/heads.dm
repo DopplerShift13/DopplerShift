@@ -378,19 +378,19 @@ datum/loadout_item/head/hats/beige_fedora
 
 /datum/loadout_item/head/costume/jester
     name = "Jester Hat (Small)"
-    item_path = /obj/item/clothing/costume/jester
+    item_path = /obj/item/clothing/head/costume/jester
 
 /datum/loadout_item/head/costume/jesteralt
     name = "Jester Hat (Large)"
-    item_path = /obj/item/clothing/costume/jesteralt
+    item_path = /obj/item/clothing/head/costume/jesteralt
 
 /datum/loadout_item/head/costume/pirate
     name = "Pirate Hat (Classic)"
-    item_path = /obj/item/clothing/costume/pirate
+    item_path = /obj/item/clothing/head/costume/pirate
 
 /datum/loadout_item/head/costume/pirate/captain
     name = "Pirate Hat (Captain)"
-    item_path = /obj/item/clothing/costume/pirate/captain
+    item_path = /obj/item/clothing/head/costume/pirate/captain
 
 /datum/loadout_item/head/costume/kitty_ears
 	name = "Kitty Ears"
@@ -455,10 +455,10 @@ datum/loadout_item/head/hats/beige_fedora
 	name = "Welding Mask"
 	item_path = /obj/item/clothing/head/utility/welding
 
-/datum/loadout_item/head/costume/nightcap/blue
+/datum/loadout_item/head/misc/nightcap/blue
     name = "Nightcap (Blue)"
     item_path = /obj/item/clothing/head/costume/nightcap/blue
 
-/datum/loadout_item/head/costume/nightcap/red
+/datum/loadout_item/head/misc/nightcap/red
     name = "Nightcap (Red)"
     item_path = /obj/item/clothing/head/costume/nightcap/red
