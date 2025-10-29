@@ -81,6 +81,10 @@
 	name = "Bowler Hat"
 	item_path = /obj/item/clothing/head/hats/bowler
 
+/datum/loadout_item/head/hats/fedora_greyscale
+    name = "Fedora (Colorable)"
+    item_path = /obj/item/clothing/head/fedora/greyscale
+
 datum/loadout_item/head/hats/beige_fedora
 	name = "Fedora (Beige)"
 	item_path = /obj/item/clothing/head/fedora/beige
@@ -313,6 +317,34 @@ datum/loadout_item/head/hats/beige_fedora
 	name = "Flower (Lily)"
 	item_path = /obj/item/food/grown/poppy/lily
 
+/datum/loadout_item/head/flowers/moonflower
+    name = "Flower (Moonflower)"
+    item_path = /obj/item/food/grown/moonflower
+
+/datum/loadout_item/head/flowers/fraxinella
+    name = "Flower (Fraxinella)"
+    item_path = /obj/item/food/grown/poppy/geranium/fraxinella
+
+/datum/loadout_item/head/flowers/garland
+    name = "Garland"
+    item_path = /obj/item/clothing/head/costume/garland
+
+/datum/loadout_item/head/flowers/garland/rainbowbunch
+    name = "Garland (Rainbow)"
+    item_path = /obj/item/clothing/head/costume/garland/rainbowbunch
+
+/datum/loadout_item/head/flowers/garland/sunflower
+    name = "Garland (Sunflower)"
+    item_path = /obj/item/clothing/head/costume/garland/sunflower
+
+/datum/loadout_item/head/flowers/garland/poppy
+    name = "Garland (Poppy)"
+    item_path = /obj/item/clothing/head/costume/garland/poppy
+
+/datum/loadout_item/head/flowers/garland/lily
+    name = "Garland (Lily)"
+    item_path = /obj/item/clothing/head/costume/garland/lily
+
 /**
  * COSTUME
  */
@@ -324,6 +356,10 @@ datum/loadout_item/head/hats/beige_fedora
 	name = "Witch Hat"
 	item_path = /obj/item/clothing/head/wizard/marisa/fake
 
+/datum/loadout_item/head/costume/wizard
+    name = "Wizard Hat"
+    item_path = /obj/item/clothing/head/wizard
+
 /datum/loadout_item/head/costume/fancy_cap
 	name = "Fancy Hat"
 	item_path = /obj/item/clothing/head/costume/fancy
@@ -331,6 +367,30 @@ datum/loadout_item/head/hats/beige_fedora
 /datum/loadout_item/head/costume/top_hat
 	name = "Top Hat"
 	item_path = /obj/item/clothing/head/hats/tophat
+
+/datum/loadout_item/head/costume/sombrero/green
+    name = "Green Sombrero"
+    item_path = /obj/item/clothing/head/costume/sombrero/green
+
+/datum/loadout_item/head/costume/propeller_hat
+    name = "Propeller Hat"
+    item_path = /obj/item/clothing/head/soft/propeller_hat
+
+/datum/loadout_item/head/costume/jester
+    name = "Jester Hat (Small)"
+    item_path = /obj/item/clothing/head/costume/jester
+
+/datum/loadout_item/head/costume/jesteralt
+    name = "Jester Hat (Large)"
+    item_path = /obj/item/clothing/head/costume/jesteralt
+
+/datum/loadout_item/head/costume/pirate
+    name = "Pirate Hat (Classic)"
+    item_path = /obj/item/clothing/head/costume/pirate
+
+/datum/loadout_item/head/costume/pirate/captain
+    name = "Pirate Hat (Captain)"
+    item_path = /obj/item/clothing/head/costume/pirate/captain
 
 /datum/loadout_item/head/costume/kitty_ears
 	name = "Kitty Ears"
@@ -394,3 +454,11 @@ datum/loadout_item/head/hats/beige_fedora
 /datum/loadout_item/head/misc/welding
 	name = "Welding Mask"
 	item_path = /obj/item/clothing/head/utility/welding
+
+/datum/loadout_item/head/misc/nightcap/blue
+    name = "Nightcap (Blue)"
+    item_path = /obj/item/clothing/head/costume/nightcap/blue
+
+/datum/loadout_item/head/misc/nightcap/red
+    name = "Nightcap (Red)"
+    item_path = /obj/item/clothing/head/costume/nightcap/red
