@@ -81,7 +81,7 @@
 	name = "Bowler Hat"
 	item_path = /obj/item/clothing/head/hats/bowler
 
-datum/loadout_item/head/hats/beige_fedora
+/datum/loadout_item/head/hats/beige_fedora
 	name = "Fedora (Beige)"
 	item_path = /obj/item/clothing/head/fedora/beige
 
