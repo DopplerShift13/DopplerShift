@@ -4,33 +4,30 @@
 /obj/structure/curtain/bounty,
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "am" = (
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 8
-	},
-/obj/structure/window/reinforced/plasma/spawner/directional/east,
-/obj/effect/turf_decal/stripes/line{
-	dir = 6
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/plating/airless,
-/area/shuttle/personally_bought/private_liner)
-"bf" = (
-/obj/machinery/modular_computer/preset/engineering{
+/obj/effect/turf_decal/box/white/corners{
 	dir = 4
 	},
+/obj/structure/closet/crate,
+/obj/effect/spawner/random/maintenance/no_decals/two,
+/obj/machinery/light/red/dim/directional/north,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/private_liner)
+"bf" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/extinguisher_cabinet/directional/west,
+/obj/machinery/computer/crew{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "bg" = (
 /obj/effect/turf_decal/bot_white,
 /obj/structure/extinguisher_cabinet/directional/south,
-/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked,
-/obj/item/storage/medkit/robotic_repair/stocked,
-/obj/structure/rack,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "bl" = (
@@ -39,7 +36,8 @@
 /area/shuttle/personally_bought/private_liner)
 "bQ" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/suit_storage_unit/industrial/personal_shuttle,
+/obj/structure/tank_dispenser,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "bU" = (
@@ -48,6 +46,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /turf/open/floor/carpet/green,
 /area/shuttle/personally_bought/private_liner)
 "cG" = (
@@ -55,7 +54,8 @@
 /obj/machinery/light/warm/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/private_liner)
 "cH" = (
 /obj/effect/turf_decal/bot_white,
@@ -64,7 +64,6 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
-/obj/machinery/space_heater/wall_mounted/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "cP" = (
@@ -80,9 +79,11 @@
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/private_liner)
 "dP" = (
-/obj/structure/table/reinforced,
 /obj/machinery/button/door/personal_shuttle_windows/directional/west,
-/obj/machinery/chem_dispenser/frontier_appliance,
+/obj/structure/bed/pod{
+	dir = 1
+	},
+/obj/structure/curtain/bounty,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "ea" = (
@@ -93,20 +94,22 @@
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/disposal/bin,
+/obj/structure/disposalpipe/trunk,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "fb" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 5
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "fh" = (
-/obj/structure/sign/poster/contraband/mothic_rations/directional/west,
-/obj/structure/closet/crate/cardboard/mothic,
-/obj/item/storage/box/mothic_rations,
-/obj/effect/turf_decal/bot_white,
+/obj/structure/table/reinforced,
+/obj/structure/cable,
+/obj/machinery/coffeemaker,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "fG" = (
@@ -124,11 +127,7 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/personally_bought/private_liner)
 "ic" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/command,
-/turf/open/floor/iron/dark/smooth_large,
+/turf/closed/wall/mineral/plastitanium,
 /area/shuttle/personally_bought/private_liner)
 "ig" = (
 /obj/machinery/power/shuttle_engine/propulsion{
@@ -140,95 +139,114 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/private_liner)
 "iB" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/holopad,
+/obj/effect/turf_decal/bot_red,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "jj" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought{
-	x_offset = -4;
-	y_offset = 5;
-	view_range = 4
+/obj/structure/cable,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
 	},
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/button/door/personal_shuttle_windows/directional/north,
+/obj/structure/closet/crate/preopen,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "km" = (
-/obj/machinery/power/shuttle_engine/propulsion{
+/obj/structure/cable,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
 	dir = 8
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/corner,
-/obj/machinery/atmospherics/components/unary/passive_vent/layer2{
-	dir = 4
-	},
-/turf/open/floor/plating/airless,
+/obj/structure/shelf,
+/obj/effect/spawner/random/maintenance/no_decals,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "kS" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 8
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/poddoor/preopen/personal_bay_one,
+/obj/structure/holosign/barrier/atmos/sturdy,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/private_liner)
+"la" = (
+/obj/effect/turf_decal/bot_white,
+/obj/structure/closet/firecloset/shuttle/tools,
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 9
-	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "mP" = (
 /obj/machinery/light/warm/directional/east,
 /obj/item/radio/intercom/directional/east,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/personally_bought/private_liner)
-"nC" = (
-/obj/machinery/light_switch/directional/north,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
-/area/shuttle/personally_bought/private_liner)
-"oO" = (
-/obj/machinery/light/cold/directional/east,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/computer/shuttle/personally_bought{
 	dir = 8
 	},
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/button/door/personal_shuttle_bay_one/directional/east,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/private_liner)
+"nC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/smooth,
+/area/shuttle/personally_bought/private_liner)
+"oO" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
+/area/shuttle/personally_bought/private_liner)
+"oZ" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock/hatch,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "pn" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/turf/open/floor/iron/smooth_large,
+/obj/structure/cable,
+/turf/open/floor/iron/smooth,
+/area/shuttle/personally_bought/private_liner)
+"qc" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/hatch,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "qV" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/bot,
 /obj/machinery/light/warm/directional/east,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "rx" = (
-/obj/machinery/airalarm/directional/north,
-/obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
+/obj/structure/cable,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "rS" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 8
+/obj/structure/disposalpipe/segment{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/private_liner)
@@ -255,13 +273,9 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "tf" = (
-/obj/machinery/computer/crew{
-	dir = 4
-	},
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/space_heater/wall_mounted/directional/west,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/structure/cable,
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "tm" = (
 /obj/effect/turf_decal/delivery/white,
@@ -277,7 +291,10 @@
 "tZ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
+/obj/effect/mapping_helpers/airalarm/all_access,
+/obj/structure/cable,
+/obj/machinery/wall_healer/free/directional/north,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/private_liner)
 "ul" = (
 /obj/machinery/modular_computer/preset/civilian{
@@ -287,11 +304,8 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "vf" = (
-/obj/structure/chair/plastic{
-	dir = 8
-	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/private_liner)
 "vh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -305,33 +319,67 @@
 /area/shuttle/personally_bought/private_liner)
 "vJ" = (
 /obj/structure/cable,
-/obj/structure/closet/firecloset/full,
-/turf/open/floor/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/bot_white,
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/storage/box/foodpack/marsian/beef_rice,
+/obj/item/storage/box/foodpack/marsian/beef_rice,
+/obj/item/storage/box/foodpack/marsian/burger_blind_bag{
+	pixel_y = 3;
+	pixel_x = 4
+	},
+/obj/item/storage/box/foodpack/marsian/duck_crepe{
+	pixel_y = 9
+	},
+/obj/item/storage/box/foodpack/marsian/sushi{
+	pixel_y = 13;
+	pixel_x = 2
+	},
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "vM" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/structure/cable,
-/obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/atmos,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "vN" = (
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/personally_bought/private_liner)
 "wn" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/cable,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "wI" = (
-/obj/effect/turf_decal/bot,
-/obj/machinery/airalarm/directional/west,
-/obj/effect/mapping_helpers/airalarm/all_access,
-/obj/structure/closet/firecloset/full,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/structure/shelf,
+/obj/effect/spawner/random/maintenance/no_decals,
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/private_liner)
+"wX" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/door/airlock/mining,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/private_liner)
+"xc" = (
+/obj/structure/table/reinforced,
+/obj/structure/cable,
+/obj/machinery/microwave/engineering/cell_included,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "yv" = (
@@ -341,9 +389,14 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/personally_bought/private_liner)
 "zu" = (
-/obj/structure/table/reinforced,
 /obj/structure/extinguisher_cabinet/directional/south,
-/obj/machinery/biogenerator/foodricator,
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/effect/turf_decal/box/red/corners{
+	dir = 8
+	},
+/obj/effect/turf_decal/box/red/corners,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "zT" = (
@@ -356,47 +409,51 @@
 /turf/open/floor/iron/freezer,
 /area/shuttle/personally_bought/private_liner)
 "Aq" = (
-/obj/structure/toilet{
-	dir = 8
+/obj/machinery/button/door/personal_shuttle_bay_one/directional/east,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
 	},
-/obj/structure/curtain,
-/obj/effect/turf_decal/bot_red,
-/turf/open/floor/iron/freezer,
+/obj/effect/turf_decal/box/white/corners,
+/obj/structure/shelf,
+/obj/effect/spawner/random/engineering/material_cheap,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "AG" = (
-/obj/machinery/shower/directional/north,
-/obj/structure/sink/kitchen/directional/east,
-/obj/structure/curtain,
-/obj/effect/turf_decal/bot_white,
-/obj/machinery/space_heater/wall_mounted/directional/south,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/structure/closet/crate,
+/obj/effect/spawner/random/maintenance/no_decals/two,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "BU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/meter/layer2,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "Ct" = (
-/turf/open/floor/plating/reinforced/airless,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/machinery/door/poddoor/preopen/personal_shuttle_windows,
+/obj/structure/cable,
+/turf/open/floor/plating,
 /area/shuttle/personally_bought/private_liner)
 "CR" = (
-/obj/structure/chair/plastic{
-	dir = 1
-	},
-/obj/structure/extinguisher_cabinet/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/private_liner)
 "DH" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/effect/mapping_helpers/apc/unlocked,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/apc/cell_5k,
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "DI" = (
 /obj/machinery/portable_atmospherics/canister/air,
@@ -419,12 +476,27 @@
 /obj/machinery/door/airlock/command,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
+"Gi" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/atmospherics/components/unary/passive_vent/layer2{
+	dir = 4
+	},
+/turf/open/floor/plating/airless,
+/area/shuttle/personally_bought/private_liner)
 "GB" = (
 /obj/machinery/power/shuttle_engine/propulsion{
 	dir = 8
 	},
 /obj/effect/turf_decal/stripes/line{
-	dir = 10
+	dir = 8
+	},
+/obj/structure/disposalpipe/trunk{
+	dir = 4
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/private_liner)
@@ -432,11 +504,9 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
 /obj/effect/turf_decal/stripes/line{
 	dir = 4
-	},
-/obj/effect/turf_decal/stripes/corner{
-	dir = 1
 	},
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/private_liner)
@@ -451,15 +521,25 @@
 /turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/private_liner)
 "If" = (
-/obj/structure/tank_dispenser,
-/obj/machinery/light/cold/directional/north,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/obj/machinery/space_heater/wall_mounted/directional/east,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/east,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating/airless,
 /area/shuttle/personally_bought/private_liner)
 "Ir" = (
-/obj/effect/turf_decal/bot_red,
-/obj/machinery/holopad,
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought{
+	x_offset = -4;
+	y_offset = 5;
+	view_range = 4;
+	dir = 8
+	},
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "Jw" = (
@@ -476,19 +556,42 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/personally_bought/private_liner)
 "JC" = (
+/obj/structure/cable,
+/obj/structure/closet/crate/cardboard/tiziran,
+/obj/item/reagent_containers/cup/coffeepot,
+/obj/item/coffee_cartridge/fancy,
+/obj/item/coffee_cartridge/fancy,
+/obj/item/coffee_cartridge,
+/obj/item/coffee_cartridge,
+/obj/item/coffee_cartridge,
+/obj/item/coffee_cartridge,
+/obj/item/coffee_cartridge,
+/obj/item/coffee_cartridge,
+/obj/item/coffee_cartridge/decaf,
+/obj/item/coffee_cartridge/decaf,
+/obj/item/reagent_containers/cup/glass/coffee_cup,
+/obj/item/reagent_containers/cup/glass/coffee_cup,
+/obj/item/reagent_containers/cup/glass/coffee_cup,
 /obj/effect/turf_decal/bot_white,
-/obj/structure/table/reinforced,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "JH" = (
-/obj/structure/table/reinforced,
-/turf/open/floor/iron/smooth_large,
+/obj/structure/bed/pod{
+	dir = 1
+	},
+/obj/structure/curtain/bounty,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "Kc" = (
-/obj/structure/bed/pod,
-/obj/structure/curtain/bounty,
-/obj/structure/secure_safe/directional/east,
-/obj/effect/turf_decal/bot_white,
+/obj/machinery/button/door/personal_shuttle_bay_one/directional/east,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners,
+/obj/structure/closet/crate/preopen,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "Kk" = (
@@ -506,12 +609,8 @@
 /area/shuttle/personally_bought/private_liner)
 "KO" = (
 /obj/effect/turf_decal/bot_white,
-/obj/structure/closet/crate/cargo,
-/obj/item/stack/sheet/glass/fifty,
-/obj/item/stack/sheet/iron/fifty,
-/obj/item/flatpacked_machine,
-/obj/item/circuitboard/machine/techfab,
 /obj/machinery/space_heater/wall_mounted/directional/south,
+/obj/structure/closet/emcloset,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "KY" = (
@@ -520,30 +619,57 @@
 /obj/item/trench_tool,
 /obj/effect/turf_decal/bot_white,
 /obj/structure/secure_safe/directional/north,
-/obj/structure/rack,
+/obj/structure/shelf,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "LQ" = (
-/obj/structure/table/reinforced,
-/obj/machinery/microwave/frontier_printed,
-/obj/machinery/space_heater/wall_mounted/directional/east,
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/box/red/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/red/corners{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "LV" = (
-/obj/effect/turf_decal/bot_white,
-/obj/structure/closet/emcloset,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "Mx" = (
-/obj/structure/table/reinforced,
-/obj/item/toy/cards/deck,
+/obj/effect/turf_decal/box/white/corners,
+/obj/effect/spawner/random/engineering/atmospherics_portable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/private_liner)
+"MA" = (
+/obj/effect/turf_decal/bot_white,
+/obj/structure/closet/firecloset/shuttle,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "MM" = (
+/obj/machinery/holopad,
+/obj/machinery/button/door/personal_shuttle_windows/directional/north,
 /obj/structure/chair/comfy/shuttle{
-	dir = 1
+	dir = 4
 	},
-/turf/open/floor/iron/smooth_large,
+/obj/structure/cable,
+/turf/open/floor/iron/smooth,
+/area/shuttle/personally_bought/private_liner)
+"Nw" = (
+/obj/structure/cable,
+/obj/effect/turf_decal/box/white/corners{
+	dir = 8
+	},
+/obj/structure/closet/crate/robust,
+/obj/effect/spawner/random/maintenance/no_decals/four,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "NC" = (
 /obj/structure/railing/eva_handhold/directional/north,
@@ -562,16 +688,13 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "Ov" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
-	},
-/obj/effect/turf_decal/stripes/corner{
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/turf/open/floor/plating/airless,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/private_liner)
 "OC" = (
 /obj/structure/marker_beacon/olive,
@@ -583,7 +706,6 @@
 /obj/item/pen/fourcolor,
 /obj/machinery/light/warm/directional/north,
 /obj/machinery/button/door/personal_shuttle_windows/directional/north,
-/obj/machinery/space_heater/wall_mounted/directional/west,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "Po" = (
@@ -592,21 +714,41 @@
 /obj/effect/mapping_helpers/airalarm/all_access,
 /obj/machinery/light/cold/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/modular_computer/preset/engineering,
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/private_liner)
+"Pv" = (
+/obj/effect/turf_decal/box/white/corners{
+	dir = 4
+	},
+/obj/effect/turf_decal/box/white/corners,
+/obj/structure/shelf,
+/obj/effect/spawner/random/medical/medkit,
+/obj/effect/spawner/random/engineering/flashlight,
+/obj/structure/extinguisher_cabinet/directional/south,
+/obj/machinery/light/red/dim/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "Py" = (
 /obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/hatch,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/hatch,
+/obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "PT" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/meter/layer4,
-/turf/open/floor/catwalk_floor/iron_smooth,
+/obj/machinery/power/micro_reactor,
+/obj/effect/turf_decal/bot_white,
+/obj/structure/disposalpipe/segment{
+	dir = 10
+	},
+/obj/structure/cable,
+/turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "Qy" = (
 /obj/structure/cable,
@@ -615,25 +757,23 @@
 /turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/private_liner)
 "RH" = (
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 8
-	},
-/obj/structure/window/reinforced/plasma/spawner/directional/east,
-/obj/effect/turf_decal/stripes/line{
-	dir = 5
-	},
-/turf/open/floor/plating/airless,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/cold/directional/west,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "RQ" = (
-/obj/machinery/computer/shuttle/personally_bought,
-/obj/effect/turf_decal/bot_white,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/iron_smooth,
 /area/shuttle/personally_bought/private_liner)
 "RS" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/landmark/ship_captain_spawner,
-/turf/open/floor/iron/smooth_large,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "Ti" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
@@ -645,7 +785,6 @@
 	dir = 8
 	},
 /obj/machinery/recharge_station,
-/obj/machinery/space_heater/wall_mounted/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "VJ" = (
@@ -662,20 +801,29 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
-/turf/open/floor/iron/smooth_large,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "Xu" = (
 /obj/structure/cable,
 /obj/effect/turf_decal/bot_white,
-/obj/machinery/power/micro_reactor,
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/storage/box/mothic_rations,
+/obj/item/storage/fancy/cigarettes/tangerine{
+	pixel_y = 10;
+	pixel_x = 2
+	},
+/obj/item/storage/fancy/cigarettes/tangerine{
+	pixel_y = 8;
+	pixel_x = -2
+	},
+/obj/structure/sign/poster/contraband/mothic_rations/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "Xy" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/atmos,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/machinery/meter/layer4,
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "YM" = (
 /obj/structure/closet/secure_closet/personal,
@@ -687,7 +835,10 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/iron/smooth_large,
+/obj/structure/disposalpipe/segment{
+	dir = 9
+	},
+/turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 
 (1,1,1) = {"
@@ -695,42 +846,38 @@ KF
 KF
 KF
 KF
-KF
-KF
-kS
+ic
+ig
 GB
-KF
+ic
 KF
 KF
 "}
 (2,1,1) = {"
 KF
 KF
-KF
 ea
 ig
-km
+Ti
 GR
 rS
-Ov
-ig
+Ti
+Gi
 OC
 "}
 (3,1,1) = {"
 KF
 KF
-KF
 Ti
 HV
-am
 Ti
+MA
+la
 Ti
-RH
-HV
+If
 Ti
 "}
 (4,1,1) = {"
-KF
 KF
 KF
 Ti
@@ -743,20 +890,18 @@ vJ
 Ti
 "}
 (5,1,1) = {"
-KF
-vN
+hy
 yv
 Kk
 Kk
 DI
 Kk
 Po
-Qy
+Ov
 Xu
 Kk
 "}
 (6,1,1) = {"
-hy
 Kk
 KY
 Os
@@ -770,7 +915,6 @@ yv
 "}
 (7,1,1) = {"
 Oi
-jj
 MM
 iB
 tf
@@ -782,22 +926,20 @@ KO
 JA
 "}
 (8,1,1) = {"
-dc
-RQ
+Ct
 Ir
 mP
 wn
 DH
 FD
-ZM
+Qy
 qV
 bg
 Kk
 "}
 (9,1,1) = {"
 DN
-dc
-dc
+Ct
 Kk
 Kk
 Kk
@@ -810,7 +952,6 @@ Kk
 (10,1,1) = {"
 KF
 KF
-KF
 Kk
 OH
 ul
@@ -818,36 +959,33 @@ Kk
 nC
 JH
 dP
-dc
+Ct
 "}
 (11,1,1) = {"
 KF
 KF
-KF
-dc
+Ct
 ae
 bU
-ic
-tZ
+Py
+RQ
 pn
 JC
-dc
+Ct
 "}
 (12,1,1) = {"
 KF
 KF
-KF
-dc
+Ct
 YM
 vh
 Kk
 cG
 LV
-Kk
+xc
 bl
 "}
 (13,1,1) = {"
-KF
 KF
 KF
 DN
@@ -857,16 +995,15 @@ Kk
 tZ
 Xf
 fh
-dc
+Ct
 "}
 (14,1,1) = {"
-KF
 KF
 KF
 NC
 zT
 Jw
-Kk
+oZ
 rx
 LQ
 zu
@@ -875,12 +1012,11 @@ JA
 (15,1,1) = {"
 KF
 KF
-KF
 Kk
 Kk
 Kk
 Kk
-Py
+qc
 Kk
 Kk
 yv
@@ -888,12 +1024,11 @@ yv
 (16,1,1) = {"
 KF
 KF
-KF
 tm
 vq
 fG
-tZ
-tZ
+RH
+rx
 st
 sF
 VJ
@@ -901,25 +1036,23 @@ VJ
 (17,1,1) = {"
 KF
 KF
-KF
 Oi
 cH
-dc
+Ct
 bQ
-tZ
-dc
+RQ
+Ct
 TL
 JA
 "}
 (18,1,1) = {"
 KF
 KF
-KF
 hy
 Kk
 Kk
-If
-tZ
+Kk
+wX
 Kk
 Kk
 tN
@@ -928,30 +1061,27 @@ tN
 KF
 KF
 KF
-KF
 Ct
-Kk
-Kk
-Py
-Kk
+jj
+Nw
+Qy
+km
 Ct
 KF
 "}
 (20,1,1) = {"
 KF
 KF
-KF
 Kk
 Kk
-Kk
+am
 Mx
 CR
-Kk
+Pv
 Kk
 Kk
 "}
 (21,1,1) = {"
-KF
 KF
 KF
 hy
@@ -967,10 +1097,9 @@ tN
 KF
 KF
 KF
-KF
 NC
 Kc
-Kc
+vf
 oO
 Aq
 cP
@@ -980,11 +1109,10 @@ KF
 KF
 KF
 KF
-KF
 vN
 Kk
-Kk
-Kk
+kS
+kS
 Kk
 vN
 KF

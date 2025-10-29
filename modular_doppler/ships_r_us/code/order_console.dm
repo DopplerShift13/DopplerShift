@@ -3,6 +3,22 @@
 	greyscale_colors = CIRCUIT_COLOR_SUPPLY
 	build_path = /obj/machinery/computer/personal_shuttle_order
 
+/datum/design/board/personal_shuttle_order
+	name = "Personal Shuttle Order Console"
+	desc = "A console giving you access to only the sleaziest of shuttle sales services."
+	id = "personal_shuttle_console"
+	build_path = /obj/item/circuitboard/computer/personal_shuttle_order
+	category = list(
+		RND_CATEGORY_COMPUTER + RND_SUBCATEGORY_COMPUTER_CARGO
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_CARGO
+
+/datum/techweb_node/mining/New()
+	design_ids += list(
+		"personal_shuttle_console",
+	)
+	return ..()
+
 /obj/machinery/computer/personal_shuttle_order
 	name = "personal shuttle order console"
 	desc = "A console giving you access to only the sleaziest of shuttle sales services. \

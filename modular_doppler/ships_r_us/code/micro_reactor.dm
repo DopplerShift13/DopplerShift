@@ -1,23 +1,20 @@
 /obj/machinery/power/micro_reactor
-	name = "micro reactor"
-	desc = "Designed as a self-containing powersource for long-haul vessels, the stamp of SOAR Industries \
-		on the top. A steady output once active with plenty of safety features to ensure a meltdown is not possible, \
-		having one installed means a steady clean powersource for between 75-125 years."
+	name = "shuttle core"
+	desc = "A large container attached to the bottom of smaller ships, using the same \
+		crystal heart technology as MOD cores and ethereals do. Acts not as a generator, but \
+		rather a battery with a lifespan anywhere between \"generational\" and a year or two, \
+		depending on how much energy the ship will use."
 	icon = 'modular_doppler/ships_r_us/icons/reactor.dmi'
 	icon_state = "reactor0_0"
 	base_icon_state = "reactor0"
-	density = TRUE
+	density = FALSE
 	anchored = TRUE
-
+	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
+	light_color = "#7fe7ce"
+	light_on = FALSE
 	var/power_gen = 50 KILO WATTS
 	var/active = FALSE
 	var/power_output = 1
-
-	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
-
-	light_color = LIGHT_COLOR_ELECTRIC_CYAN
-	light_on = FALSE
-
 	var/datum/looping_sound/generator/soundloop
 
 /obj/machinery/power/micro_reactor/Initialize(mapload)
