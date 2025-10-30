@@ -11,6 +11,8 @@
 /datum/loadout_item/shoes/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	outfit.shoes = item_path
 
+/* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
+
 /datum/loadout_item/shoes/sneakers
 	name = "Sneakers (Colourable)"
 	item_path = /obj/item/clothing/shoes/sneakers
@@ -46,3 +48,5 @@
 /datum/loadout_item/shoes/jackboots
 	name = "Workboots (Black)"
 	item_path = /obj/item/clothing/shoes/workboots/black
+
+*/ // DOPPLER EDIT REMOVAL END
