@@ -104,31 +104,31 @@
 	group = "Scarves"
 	abstract_type = /datum/loadout_item/neck/scarf
 
-/datum/loadout_item/neck/ranger_poncho
+/datum/loadout_item/neck/scarf/ranger_poncho
 	name = "Ranger Poncho"
 	item_path = /obj/item/clothing/neck/ranger_poncho
 
-/datum/loadout_item/neck/patterned_poncho
+/datum/loadout_item/neck/scarf/patterned_poncho
 	name = "Patterned Poncho (Colorable)"
 	item_path = /obj/item/clothing/neck/patterned_poncho
 
-/datum/loadout_item/neck/basic_poncho
+/datum/loadout_item/neck/scarf/basic_poncho
 	name = "Basic Poncho (Colorable)"
 	item_path = /obj/item/clothing/neck/basic_poncho
 
-/datum/loadout_item/neck/face_scarf
+/datum/loadout_item/neck/scarf/face_scarf
 	name = "Face Scarf"
 	item_path = /obj/item/clothing/neck/face_scarf
 
-/datum/loadout_item/neck/scarf_greyscale
+/datum/loadout_item/neck/scarf/scarf_greyscale
 	name = "Scarf (Colorable)"
 	item_path = /obj/item/clothing/neck/scarf
 
-/datum/loadout_item/neck/greyscale_large
+/datum/loadout_item/neck/scarf/greyscale_large
 	name = "Scarf (Large, Colorable)"
 	item_path = /obj/item/clothing/neck/large_scarf
 
-/datum/loadout_item/neck/greyscale_larger
+/datum/loadout_item/neck/scarf/greyscale_larger
 	name = "Scarf (Larger, Colorable)"
 	item_path = /obj/item/clothing/neck/infinity_scarf
 
