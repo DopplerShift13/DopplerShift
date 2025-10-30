@@ -105,15 +105,15 @@
 	abstract_type = /datum/loadout_item/neck/scarf
 
 /datum/loadout_item/neck/scarf/ranger_poncho
-	name = "Ranger Poncho"
+	name = "Poncho (Ranger)"
 	item_path = /obj/item/clothing/neck/ranger_poncho
 
 /datum/loadout_item/neck/scarf/patterned_poncho
-	name = "Patterned Poncho (Colorable)"
+	name = "Poncho (Patterned, Colorable)"
 	item_path = /obj/item/clothing/neck/patterned_poncho
 
 /datum/loadout_item/neck/scarf/basic_poncho
-	name = "Basic Poncho (Colorable)"
+	name = "Poncho (Basic, Colorable)"
 	item_path = /obj/item/clothing/neck/basic_poncho
 
 /datum/loadout_item/neck/scarf/face_scarf
