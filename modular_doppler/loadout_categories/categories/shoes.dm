@@ -107,52 +107,45 @@
 	item_path = /obj/item/clothing/shoes/magboots
 
 /**
- * FORMAL
+ * OTHER SHOES
  */
-/datum/loadout_item/shoes/formal
-	group = "Formal Shoes"
-	abstract_type = /datum/loadout_item/shoes/formal
+/datum/loadout_item/shoes/other
+	group = "Other Shoes"
+	abstract_type = /datum/loadout_item/shoes/other
 
-/datum/loadout_item/shoes/formal/laceup
+/datum/loadout_item/shoes/other/laceup
 	name = "Laceup Shoes"
 	item_path = /obj/item/clothing/shoes/laceup
 
-/datum/loadout_item/shoes/formal/greyscale_laceups
+/datum/loadout_item/shoes/other/greyscale_laceups
 	name = "Laceup Shoes (Colorable)"
 	item_path = /obj/item/clothing/shoes/colorable_laceups
 
-/datum/loadout_item/shoes/formal/wraps/disco
+/datum/loadout_item/shoes/other/wraps/disco
 	name = "Green Lizardskin Shoes"
 	item_path = /obj/item/clothing/shoes/discoshoes
 
-/datum/loadout_item/shoes/formal/medical
+/datum/loadout_item/shoes/other/medical
 	name = "Medical Shoes"
 	item_path = /obj/item/clothing/shoes/medical
 
-/**
- * CASUAL
- */
-/datum/loadout_item/shoes/casual
-	group = "Casual Shoes"
-	abstract_type = /datum/loadout_item/shoes/casual
-
-/datum/loadout_item/shoes/casual/sneakers
+/datum/loadout_item/shoes/other/sneakers
 	name = "Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers
 
-/datum/loadout_item/shoes/casual/sandal
+/datum/loadout_item/shoes/other/sandal
 	name = "Sandals"
 	item_path = /obj/item/clothing/shoes/sandal
 
-/datum/loadout_item/shoes/casual/greyscale_sandals
+/datum/loadout_item/shoes/other/greyscale_sandals
 	name = "Sandals (Colorable)"
 	item_path = /obj/item/clothing/shoes/colorable_sandals
 
-/datum/loadout_item/shoes/casual/sandals_laced
+/datum/loadout_item/shoes/other/sandals_laced
 	name = "Sandals (Velcro)"
 	item_path = /obj/item/clothing/shoes/sandal/velcro
 
-/datum/loadout_item/shoes/casual/sandals_laced_black
+/datum/loadout_item/shoes/other/sandals_laced_black
 	name = "Sandals (Black, Velcro)"
 	item_path = /obj/item/clothing/shoes/sandal/alt/velcro
 
