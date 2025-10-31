@@ -13,9 +13,9 @@
 		TRAIT_MUTANT_COLORS,
 		TRAIT_NO_UNDERWEAR,
 	)
-	mutant_organs = list(
+	/*mutant_organs = list(
 		/obj/item/organ/tail/teshari = "No Tail",
-	)
+	)*/
 	mutantears = /obj/item/organ/ears/teshari
 	digitigrade_customization = DIGITIGRADE_NEVER
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -38,6 +38,7 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/teshari,
 	)
 	meat = /obj/item/food/meat/slab/chicken/human
+	var/datum/action/innate/teshari_tablerun/tablerun
 
 /datum/language_holder/teshari
 	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
@@ -54,21 +55,27 @@
 	var/base_color = "#c0965f"
 	var/ear_color = "#e4c49b"
 
+	tesh.dna.ear_type = TESHARI
+	//tesh.dna.tail_type = TESHARI
 	tesh.dna.features[FEATURE_MUTANT_COLOR] = base_color
-	tesh.dna.features[FEATURE_EARS] = list(MUTANT_INDEX_NAME = "Teshari Feathers Upright", MUTANT_INDEX_COLOR_LIST = list(ear_color, ear_color, ear_color))
-	tesh.dna.features[FEATURE_TAIL_OTHER] = list(MUTANT_INDEX_NAME = "Teshari (Default)", MUTANT_INDEX_COLOR_LIST = list(base_color, base_color, ear_color))
+	tesh.dna.features[FEATURE_EARS] = "Teshari Feathers Upright"
+	tesh.dna.features[FEATURE_EARS_COLORS][1] = base_color
+	tesh.dna.features[FEATURE_EARS_COLORS][2] = ear_color
 	regenerate_organs(tesh, src, visual_only = TRUE)
 	tesh.update_body(TRUE)
 
 /datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load, regenerate_icons)
 	new_teshari.dna.ear_type = TESHARI
-	new_teshari.dna.tail_type = TESHARI
+	//new_teshari.dna.tail_type = TESHARI
 	. = ..()
-	passtable_on(new_teshari, SPECIES_TRAIT) // TODO make it a toggleable ability
+	tablerun = new /datum/action/innate/teshari_tablerun()
+	tablerun.Grant(new_teshari)
+	//passtable_on(new_teshari, SPECIES_TRAIT) // TODO make it a toggleable ability
 
 /datum/species/teshari/on_species_loss(mob/living/carbon/C, datum/species/new_species, pref_load)
 	. = ..()
-	passtable_off(C, SPECIES_TRAIT)
+	//passtable_off(C, SPECIES_TRAIT)
+	QDEL_NULL(tablerun)
 
 /datum/species/teshari/create_pref_unique_perks()
 	var/list/perk_descriptions = list()

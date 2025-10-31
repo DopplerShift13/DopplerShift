@@ -96,6 +96,7 @@
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/sneakers_teshari.dmi'
 
 /datum/greyscale_config/boots/worn/teshari
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/shoes/boots_teshari.json'
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/shoes_teshari.dmi'
 
 ///datum/greyscale_config/laceup/worn/teshari
@@ -148,9 +149,9 @@
 //	name = "Colourable Sterile Mask (Worn) (Teshari)"
 //	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/masks_teshari.dmi'
 
-/datum/greyscale_config/respirator/worn/teshari
+/*/datum/greyscale_config/respirator/worn/teshari
 	name = "Colourable Respirator (Worn) (Teshari)"
-	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/masks_teshari.dmi'
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/masks_teshari.dmi'*/
 
 /datum/greyscale_config/standalone_hood/worn/teshari
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/head_teshari.dmi'

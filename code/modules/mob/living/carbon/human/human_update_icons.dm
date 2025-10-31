@@ -233,10 +233,10 @@ There are several things that need to be remembered:
 
 	var/autogen_override = FALSE
 	if(!found_alt_shape)
-		var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+		var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_GLOVES, worn_item)
 		if (!isnull(fallback_config))
 			// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-			var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+			var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_GLOVES, worn_item, src)
 			if(species_icon_file)
 				icon_file = species_icon_file
 				autogen_override = TRUE
@@ -301,10 +301,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_GLASSES, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_GLASSES, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE
@@ -352,10 +352,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_EARS, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_EARS, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE
@@ -398,10 +398,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_NECK, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_NECK, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE
@@ -450,10 +450,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SHOES, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SHOES, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE
@@ -507,10 +507,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_S_STORE, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_S_STORE, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE
@@ -553,10 +553,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_HEAD, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_HEAD, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE
@@ -602,10 +602,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE
@@ -724,10 +724,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_FACEMASK, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_FACEMASK, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE
@@ -773,10 +773,10 @@ There are several things that need to be remembered:
 
 		var/autogen_override = FALSE
 		if(!found_alt_shape)
-			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_SUIT, worn_item)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BACK, worn_item)
 			if (!isnull(fallback_config))
 				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
-				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_SUIT, worn_item, src)
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BACK, worn_item, src)
 				if(species_icon_file)
 					icon_file = species_icon_file
 					autogen_override = TRUE

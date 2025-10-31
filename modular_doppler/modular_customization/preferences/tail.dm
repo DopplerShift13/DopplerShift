@@ -77,7 +77,7 @@
 	return NO_VARIATION
 
 /datum/preference/choiced/tail_variation/init_possible_values()
-	return list(NO_VARIATION) + (GLOB.mutant_variations) + list(TESHARI)
+	return list(NO_VARIATION) + (GLOB.mutant_variations) + list(TESHARI) // causes runtimes with other species... how do i fix this
 
 /datum/preference/choiced/tail_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -85,6 +85,11 @@
 	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	return TRUE
+
+/datum/preference/choiced/tail_variation/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
 
 /datum/preference/choiced/tail_variation/apply_to_human(mob/living/carbon/human/target, chosen_variation)
 //	Read by the regenerate_organs() proc to know what organ subtype to grant
@@ -131,6 +136,11 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+
+/datum/preference/choiced/lizard_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
 
 /datum/preference/choiced/lizard_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -188,6 +198,11 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
+/datum/preference/choiced/dog_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
 /datum/preference/choiced/dog_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_dog)
 
@@ -220,6 +235,11 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+
+/datum/preference/choiced/fox_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
 
 /datum/preference/choiced/fox_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_fox)
@@ -254,6 +274,11 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
+/datum/preference/choiced/bunny_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
 /datum/preference/choiced/bunny_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_bunny)
 
@@ -286,6 +311,11 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+
+/datum/preference/choiced/mouse_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
 
 /datum/preference/choiced/mouse_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_mouse)
@@ -320,6 +350,11 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
+/datum/preference/choiced/bird_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
 /datum/preference/choiced/bird_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_bird)
 
@@ -351,6 +386,11 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
+/datum/preference/choiced/monkey_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
 /datum/preference/choiced/monkey_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
@@ -379,6 +419,11 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+
+/datum/preference/choiced/deer_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
 
 /datum/preference/choiced/deer_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_deer)
@@ -413,6 +458,11 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
+/datum/preference/choiced/fish_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
 /datum/preference/choiced/fish_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_fish)
 
@@ -445,6 +495,11 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+
+/datum/preference/choiced/bug_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
 
 /datum/preference/choiced/bug_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_bug)
@@ -479,6 +534,11 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
+/datum/preference/choiced/synth_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
 /datum/preference/choiced/synth_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_synth)
 
@@ -511,6 +571,11 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+
+/datum/preference/choiced/humanoid_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
 
 /datum/preference/choiced/humanoid_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_humanoid)
@@ -545,6 +610,11 @@
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
+/datum/preference/choiced/alien_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
 /datum/preference/choiced/alien_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_alien)
 
@@ -577,7 +647,7 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
-	priority = PREFERENCE_PRIORITY_SPECIES + 0.1
+	//priority = PREFERENCE_PRIORITY_SPECIES + 0.1
 
 /datum/preference/choiced/teshari_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_teshari)

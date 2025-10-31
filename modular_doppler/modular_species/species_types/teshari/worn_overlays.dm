@@ -15,7 +15,7 @@
 		for(var/shape in iter_accessory.supported_bodyshapes)
 			if(human_wearer.bodyshape & shape)
 				var/potential_file = iter_accessory.bodyshape_icon_files["[shape]"]
-				if (icon_exists(potential_file, icon_state))
+				if (icon_exists(potential_file, iter_accessory.icon_state))
 					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
 						return accessory_overlay // dont modify
 

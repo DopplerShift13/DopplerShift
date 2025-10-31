@@ -632,10 +632,17 @@ GLOBAL_VAR(generic_uni_icon_ears_tesh)
 			accessory_icon.blend_color(COLOR_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 
+	shift_ears_icon(final_icon)
 	final_icon.crop(11, 20, 23, 32)
 	final_icon.scale(32, 32)
 
 	return final_icon
+
+/datum/preference/choiced/proc/shift_ears_icon(var/datum/universal_icon/icon)
+	return
+
+/datum/preference/choiced/teshari_ears/shift_ears_icon(var/datum/universal_icon/icon)
+	icon.shift(NORTH, 5)
 
 /// Overwrite lives here
 //	This is for the triple color channel
