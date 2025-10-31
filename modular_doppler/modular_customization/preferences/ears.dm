@@ -539,7 +539,7 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
-	priority = PREFERENCE_PRIORITY_SPECIES + 0.1
+	priority = PREFERENCE_PRIORITY_SPECIES + 0.1 // ears are only applied if the human is a tesh, so we have to wait for species
 
 /datum/preference/choiced/teshari_ears/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.ears_list_teshari)

@@ -647,7 +647,6 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
-	//priority = PREFERENCE_PRIORITY_SPECIES + 0.1
 
 /datum/preference/choiced/teshari_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_teshari)
