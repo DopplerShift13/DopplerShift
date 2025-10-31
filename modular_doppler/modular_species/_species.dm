@@ -160,6 +160,10 @@
 		if(dna && dna.species)
 			dna.species.spec_revival(src)
 
+/**
+ * Determines if we're allowed to regenerate a mutant appearance/organ associated with the feature key.
+ * By default, returns FALSE if we cant have mutant organs.
+ */
 /datum/species/proc/can_regenerate_mutant_feature(feature_key)
 	if (type in GLOB.species_blacklist_no_mutant)
 		return FALSE

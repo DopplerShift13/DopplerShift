@@ -3,7 +3,6 @@
 #define TESHARI_BURN_MODIFIER 1.25 // They take more damage from practically everything
 #define TESHARI_BRUTE_MODIFIER 1.2
 
-// teshari!
 /obj/item/bodypart/head/mutant/teshari
 	icon_greyscale = BODYPART_ICON_TESHARI
 	bodyshape = parent_type::bodyshape | BODYSHAPE_TESHARI

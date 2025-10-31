@@ -13,9 +13,6 @@
 		TRAIT_MUTANT_COLORS,
 		TRAIT_NO_UNDERWEAR,
 	)
-	/*mutant_organs = list(
-		/obj/item/organ/tail/teshari = "No Tail",
-	)*/
 	mutantears = /obj/item/organ/ears/teshari
 	digitigrade_customization = DIGITIGRADE_NEVER
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
@@ -27,8 +24,6 @@
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT + TESHARI_TEMP_OFFSET)
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + TESHARI_TEMP_OFFSET)
 	species_language_holder = /datum/language_holder/teshari
-	//mutantlungs = /obj/item/organ/lungs/adaptive/cold
-	//body_size_restricted = TRUE
 	bodypart_overrides = list(
 		BODY_ZONE_HEAD = /obj/item/bodypart/head/mutant/teshari,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/mutant/teshari,
@@ -38,6 +33,8 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/mutant/teshari,
 	)
 	meat = /obj/item/food/meat/slab/chicken/human
+	// species are instanced, so this is ok
+	/// The tablerun ability we will give to our teshari.
 	var/datum/action/innate/teshari_tablerun/tablerun
 
 /datum/language_holder/teshari
@@ -66,15 +63,12 @@
 
 /datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load, regenerate_icons)
 	new_teshari.dna.ear_type = TESHARI
-	//new_teshari.dna.tail_type = TESHARI
 	. = ..()
 	tablerun = new /datum/action/innate/teshari_tablerun()
 	tablerun.Grant(new_teshari)
-	//passtable_on(new_teshari, SPECIES_TRAIT) // TODO make it a toggleable ability
 
 /datum/species/teshari/on_species_loss(mob/living/carbon/C, datum/species/new_species, pref_load)
 	. = ..()
-	//passtable_off(C, SPECIES_TRAIT)
 	QDEL_NULL(tablerun)
 
 /datum/species/teshari/create_pref_unique_perks()
@@ -99,7 +93,7 @@
 		"no lore yet",
 	)
 
-/datum/species/teshari/generate_custom_worn_icon_fallback(item_slot, obj/item/item, mob/living/carbon/human/human_owner)
+/datum/species/teshari/generate_autogen_worn_icon(item_slot, obj/item/item, mob/living/carbon/human/human_owner)
 	. = ..()
 	if(.)
 		return
@@ -120,8 +114,8 @@
 			return
 
 		// Use already resolved icon
-		use_custom_worn_icon_cached()
-		var/icon/cached_icon = get_custom_worn_icon_cached(human_icon, human_icon_state, "m")
+		use_autogen_worn_icon_cached()
+		var/icon/cached_icon = get_autogen_worn_icon_cached(human_icon, human_icon_state, "m")
 		if(cached_icon)
 			return cached_icon
 
@@ -129,7 +123,7 @@
 		var/icon/new_icon = icon('icons/blanks/32x32.dmi', "nothing")
 		new_icon.Blend(icon(human_icon, human_icon_state), ICON_OVERLAY, x = selected_offset.offset_x["north"], y = selected_offset.offset_y["north"])
 		new_icon.Insert(new_icon, human_icon_state)
-		set_custom_worn_icon_cached(human_icon, human_icon_state, "m", new_icon)
+		set_autogen_worn_icon_cached(human_icon, human_icon_state, "m", new_icon)
 		return new_icon
 
 /datum/species/teshari/can_regenerate_mutant_feature(feature_key)

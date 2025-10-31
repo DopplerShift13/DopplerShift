@@ -618,6 +618,7 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
 	)
 
+// disabled; we use custom medical clothing
 /*/obj/item/clothing/under/rank/medical
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
