@@ -6,6 +6,8 @@
 	icon_state = "hgown"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/labcoat.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/suit/labcoat.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 	toggle_noun = "drapes"
 	body_parts_covered = NONE
 	armor_type = /datum/armor/none
@@ -17,6 +19,8 @@
 	icon_state = "labcoat_lalunevest"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/labcoat.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/suit/labcoat.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/suit/toggle/labcoat/medical
@@ -24,6 +28,8 @@
 	desc = "A suit that protects against minor chemical spills. This one is greener than you'd typically expect."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/labcoat.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/suit/labcoat.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 	icon_state = "labcoat_med"
 
 /obj/item/clothing/suit/toggle/labcoat/medical/unbuttoned
@@ -36,6 +42,8 @@
 	desc = "A neon jacket piped with retroreflective strips and ample pocket room. This style is common for forensicists and field medical researchers."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/labcoat.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/suit/labcoat.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 	icon_state = "labcoat_highvis"
 	blood_overlay_type = "armor"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
