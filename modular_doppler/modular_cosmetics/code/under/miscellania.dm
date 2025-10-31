@@ -52,6 +52,11 @@
 	desc = "A simple, inconspicuous harness replacement for a jumpsuit."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
 	icon_state = "gear_harness"
 	body_parts_covered = NONE
 	attachment_slot_override = CHEST

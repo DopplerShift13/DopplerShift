@@ -37,23 +37,23 @@
 	if(!ishuman(target))
 		return
 
-	if(target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/tails/lizard/none::name  && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
+	if(target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/tails/lizard/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_LIZARD) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features[FEATURE_TAIL] != /datum/sprite_accessory/tails/human/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL] != /datum/sprite_accessory/tails/human/none::name && can_regenerate_mutant_feature(FEATURE_TAIL) && target.dna.features[FEATURE_TAIL] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/cat)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/tails/monkey/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/tails/monkey/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_MONKEY) && target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/monkey)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/tails/fish/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/tails/fish/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_FISH) && target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/fish)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if((target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/tails/lizard/none::name && !(type in GLOB.species_blacklist_no_mutant) && target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
+	else if((target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/tails/lizard/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_OTHER) && target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
 		var/obj/item/organ/organ_path = text2path("/obj/item/organ/tail/[target.dna.tail_type]")
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -77,12 +77,12 @@
 	return NO_VARIATION
 
 /datum/preference/choiced/tail_variation/init_possible_values()
-	return list(NO_VARIATION) + (GLOB.mutant_variations)
+	return list(NO_VARIATION) + (GLOB.mutant_variations) + list(TESHARI)
 
 /datum/preference/choiced/tail_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	return TRUE
 
@@ -135,7 +135,7 @@
 /datum/preference/choiced/lizard_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == LIZARD)
@@ -162,7 +162,7 @@
 /datum/preference/choiced/tail_felinid/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == CAT)
@@ -194,7 +194,7 @@
 /datum/preference/choiced/dog_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == DOG)
@@ -227,7 +227,7 @@
 /datum/preference/choiced/fox_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == FOX)
@@ -260,7 +260,7 @@
 /datum/preference/choiced/bunny_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == BUNNY)
@@ -293,7 +293,7 @@
 /datum/preference/choiced/mouse_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == MOUSE)
@@ -326,7 +326,7 @@
 /datum/preference/choiced/bird_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == BIRD)
@@ -354,7 +354,7 @@
 /datum/preference/choiced/monkey_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == MONKEY)
@@ -386,7 +386,7 @@
 /datum/preference/choiced/deer_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == DEER)
@@ -419,7 +419,7 @@
 /datum/preference/choiced/fish_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == FISH)
@@ -452,7 +452,7 @@
 /datum/preference/choiced/bug_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == BUG)
@@ -485,7 +485,7 @@
 /datum/preference/choiced/synth_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == CYBERNETIC)
@@ -518,7 +518,7 @@
 /datum/preference/choiced/humanoid_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == HUMANOID)
@@ -551,7 +551,7 @@
 /datum/preference/choiced/alien_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
 	if(chosen_variation == ALIEN)
@@ -569,7 +569,7 @@
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_alien[value]
 	return generate_back_icon(chosen_tail, "tail")
 
-// Teshari - the only tail choice available to tesh
+// Teshari
 /datum/preference/choiced/teshari_tail
 	savefile_key = "feature_teshari_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -577,6 +577,7 @@
 	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	priority = PREFERENCE_PRIORITY_SPECIES + 0.1
 
 /datum/preference/choiced/teshari_tail/init_possible_values()
 	return assoc_to_keys_features(SSaccessories.tails_list_teshari)
@@ -584,10 +585,8 @@
 /datum/preference/choiced/teshari_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if (ispath(species, /datum/species/teshari))
-		return TRUE
 
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
@@ -595,12 +594,18 @@
 		return TRUE
 	return FALSE
 
+/datum/preference/choiced/teshari_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
 /datum/preference/choiced/teshari_tail/create_default_value()
 	return /datum/sprite_accessory/tails/alien/none::name
 
 /datum/preference/choiced/teshari_tail/apply_to_human(mob/living/carbon/human/target, value)
-	if(target.dna.tail_type == ALIEN || isteshari(target))
+	if(target.dna.tail_type == TESHARI)
 		target.dna.features[FEATURE_TAIL_OTHER] = value
+		target.regenerate_organs()
 
 /datum/preference/choiced/teshari_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_teshari[value]

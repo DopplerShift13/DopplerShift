@@ -196,16 +196,10 @@
 	species_clothing_color_coords = list(list(JACKET_COLORPIXEL_X_1, JACKET_COLORPIXEL_Y_1), list(JACKET_COLORPIXEL_X_2, JACKET_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(JACKET_COLORPIXEL_X_4, JACKET_COLORPIXEL_Y_4))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/thickrobe/jacket)
 
-// Wintercoats and Satchels
+// Wintercoats and Satchels and stuff
 
-/obj/item/storage/backpack/satchel
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/back/backpack.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/back.dmi'
-	)
-
-/obj/item/storage/backpack/duffelbag
+// unfortunately the basetype backpack has a sprite, so...
+/obj/item/storage/backpack
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/back/backpack.dmi',
@@ -218,3 +212,633 @@
 		component.undeployed_overlay = null
 	. = ..()
 
+/obj/item/gravity_harness
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/gravity_harness/icons/gravity_harness_back.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/back.dmi'
+	)
+
+/obj/item/tank/jetpack
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/back.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/back.dmi'
+	)
+
+// mods
+/obj/item/mod/control/pre_equipped/loader
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/modsuit/mod_clothing.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/back.dmi'
+	)
+
+// belts
+
+/obj/item/storage/belt/utility
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+/obj/item/storage/belt/medical
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+/obj/item/storage/belt/janitor
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+
+/obj/item/storage/belt/military
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+
+/obj/item/storage/belt/mining
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+
+/obj/item/storage/belt/security/webbing
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+
+/obj/item/storage/belt/mining
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+/obj/item/tank/internals/emergency_oxygen
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/back.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+/obj/item/storage/belt/bandolier
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+/obj/item/storage/belt/sheath/sabre
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+
+/obj/item/storage/bag/trash
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
+// ears
+
+// the basetype has a sprite; the has_icon will remedy the overlap
+/obj/item/radio/headset
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/ears.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/ears.dmi'
+	)
+
+// eyes
+
+// yet another basetype w/ a sprite :(
+/obj/item/clothing/glasses
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/eyes.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/eyes.dmi'
+	)
+
+// shoes
+
+/obj/item/clothing/shoes/wheelys
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/feet.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/feet_64.dmi'
+	)
+
+// gloves
+
+/obj/item/clothing/gloves/captain
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/hands.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/hands.dmi'
+	)
+
+/obj/item/clothing/gloves/color/black
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/hands.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/hands.dmi'
+	)
+
+/obj/item/clothing/gloves/fingerless
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/hands.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/hands.dmi'
+	)
+
+
+/obj/item/clothing/gloves/combat
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/hands.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/hands.dmi'
+	)
+
+/obj/item/clothing/gloves/combat/wizard
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
+
+/obj/item/clothing/gloves/radio
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/hands.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/hands.dmi'
+	)
+
+/obj/item/clothing/gloves/chief_engineer
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/hands.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/hands.dmi'
+	)
+
+/obj/item/clothing/gloves/bracer
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/hands.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/hands.dmi'
+	)
+
+// head
+
+/obj/item/clothing/head/utility/welding
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hooded/cloakhood/drake
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/helmet.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hooded/explorer
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/soft
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/hats.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/costume/weddingveil
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/costume.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/reagent_containers/cup/bucket
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/cone
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/helmet/alt
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/helmet.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/helmet/swat
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/helmet.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+// i cant be assed to maintain parity between every single collectible hat so here. basetype.
+/obj/item/clothing/head/collectable
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/helmet.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/helmet/toggleable/riot
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/helmet.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hooded/winterhood
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/winterhood.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hats/hos/cap
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/hats.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hats/hopcap
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/hats.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hats/caphat
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/hats.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hats/centcom_cap
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/hats.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hats/centhat
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/hats.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/hats/warden
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/hats.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/utility/hardhat/cakehat
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/costume.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/wizard
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/wizard.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/costume/maid_headband
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/costume.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/utility/radiation
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+/obj/item/clothing/head/armor/captain
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
+// masks
+
+/obj/item/clothing/mask/gas
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
+/obj/item/clothing/mask/joy
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
+/obj/item/clothing/mask/breath
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
+/obj/item/cigarette
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
+/obj/item/clothing/mask/muzzle
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
+/obj/item/clothing/mask/balaclava
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
+// uniforms
+
+/obj/item/clothing/under/rank/engineering
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/engineering.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+/*/obj/item/clothing/under/rank/medical
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/medical.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)*/
+
+/obj/item/clothing/under/rank/security
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/security.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+/obj/item/clothing/under/rank/rnd
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/rnd.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+/obj/item/clothing/under/rank/civilian
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/civilian.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+/obj/item/clothing/under/rank/cargo
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/cargo.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+/obj/item/clothing/under/syndicate
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/syndicate.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+/obj/item/clothing/under/costume/kilt
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/costume.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+/obj/item/clothing/under/dress/wedding_dress
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/dress.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+/obj/item/clothing/under/suit
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/suits.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
+
+// suits
+
+/obj/item/clothing/suit/hooded/cloak/drake
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/armor.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+/obj/item/clothing/suit/hooded/explorer
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+/obj/item/clothing/suit/armor
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/armor.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+/obj/item/clothing/suit/toggle/labcoat
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/labcoat.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+/obj/item/clothing/suit/utility/radiation
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+/obj/item/clothing/suit/hooded/wintercoat
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/wintercoat.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+/obj/item/clothing/suit/bio_suit
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/bio.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+/obj/item/clothing/suit/wizrobe/tape
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/wizard.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+/obj/item/clothing/suit/costume/poncho
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/costume.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
+
+// neck
+
+/obj/item/clothing/neck/cloak
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/neck.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/neck.dmi'
+	)
+
+/obj/item/clothing/neck/tie
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/neck.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/neck.dmi'
+	)
+
+// misc
+
+/obj/item/storage/medkit/robotic_repair
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	)
+
+/obj/item/storage/medkit/frontier
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	)
+
+/obj/item/storage/medkit/combat_surgeon
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	)
+
+/obj/item/storage/backpack/duffelbag/deforest_medkit
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	)
+
+/obj/item/storage/backpack/duffelbag/deforest_surgical
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	)
+
+/obj/item/storage/backpack/duffelbag/deforest_paramedic
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	)
+
+// accessories
+
+/obj/item/clothing/accessory/maidapron
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/accessories.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/accessories.dmi'
+	)
+
+/obj/item/clothing/accessory/maidapron
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/accessories.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/accessories.dmi'
+	)
+
+/obj/item/clothing/accessory/talisman
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/accessories.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/accessories.dmi'
+	)
+
+/obj/item/clothing/accessory/pocketprotector
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/accessories.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/accessories.dmi'
+	)
+
+/obj/item/clothing/accessory/armband
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/accessories.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/accessories.dmi'
+	)

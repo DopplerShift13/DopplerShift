@@ -16,3 +16,14 @@ custom_worn_icons is important
 check greyscale_config_worn_teshari when youre filling in premade sprites! worn_icon_teshari too
 
 cahnge the name of the fallback gen sprite to not be a fallback
+
+need to add
+				if (shape != BODYSHAPE_HUMANOID)
+					found_alt_shape = TRUE
+
+to all human_update_icons procs... the chec that discludes bodyshapehumanoid
+    maybe check to see if  the icon state actually exists in the target, and if not, skip...
+    if so. use icon_states_fast
+
+
+many sprites arent used bc they were updated to gags and the tesh sprite is NOT g ags

@@ -13,6 +13,10 @@
 		TRAIT_MUTANT_COLORS,
 		TRAIT_NO_UNDERWEAR,
 	)
+	mutant_organs = list(
+		/obj/item/organ/tail/teshari = "No Tail",
+	)
+	mutantears = /obj/item/organ/ears/teshari
 	digitigrade_customization = DIGITIGRADE_NEVER
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.0
@@ -23,7 +27,6 @@
 	bodytemp_heat_damage_limit = (BODYTEMP_HEAT_DAMAGE_LIMIT + TESHARI_TEMP_OFFSET)
 	bodytemp_cold_damage_limit = (BODYTEMP_COLD_DAMAGE_LIMIT + TESHARI_TEMP_OFFSET)
 	species_language_holder = /datum/language_holder/teshari
-	mutantears = /obj/item/organ/ears/teshari
 	//mutantlungs = /obj/item/organ/lungs/adaptive/cold
 	//body_size_restricted = TRUE
 	bodypart_overrides = list(
@@ -58,6 +61,8 @@
 	tesh.update_body(TRUE)
 
 /datum/species/teshari/on_species_gain(mob/living/carbon/human/new_teshari, datum/species/old_species, pref_load, regenerate_icons)
+	new_teshari.dna.ear_type = TESHARI
+	new_teshari.dna.tail_type = TESHARI
 	. = ..()
 	passtable_on(new_teshari, SPECIES_TRAIT) // TODO make it a toggleable ability
 
@@ -119,3 +124,8 @@
 		new_icon.Insert(new_icon, human_icon_state)
 		set_custom_worn_icon_cached(human_icon, human_icon_state, "m", new_icon)
 		return new_icon
+
+/datum/species/teshari/can_regenerate_mutant_feature(feature_key)
+	if (feature_key == FEATURE_EARS || feature_key == FEATURE_TAIL_OTHER)
+		return TRUE
+	return ..()

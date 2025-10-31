@@ -37,7 +37,7 @@ GLOBAL_LIST_INIT(mutant_variations, list(
 	LIZARD,
 	MONKEY,
 	MOUSE,
-	// no TESHARI bc theyre only for tesh - TODO allow use of tails... somehow?
+	// no TESHARI - TESHARI is handled specially in tail.dm
 ))
 
 ///	This list gets read by the animalistic preference for genemod and anthros

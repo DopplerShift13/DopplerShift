@@ -159,3 +159,8 @@
 	if(.)
 		if(dna && dna.species)
 			dna.species.spec_revival(src)
+
+/datum/species/proc/can_regenerate_mutant_feature(feature_key)
+	if (type in GLOB.species_blacklist_no_mutant)
+		return FALSE
+	return TRUE
