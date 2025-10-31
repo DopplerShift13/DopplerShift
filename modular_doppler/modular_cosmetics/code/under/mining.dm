@@ -6,9 +6,10 @@
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/mining.dmi'
 	resistance_flags = FIRE_PROOF
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/mining.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/mining_digi.dmi'
 	)
 
@@ -17,8 +18,9 @@
 	desc = "It's a snappy turtleneck with a pair of working pants."
 	icon_state = "explorer"
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/mining.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/mining_digi.dmi'
 	)
