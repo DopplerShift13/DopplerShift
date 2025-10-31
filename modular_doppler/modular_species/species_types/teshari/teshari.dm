@@ -43,6 +43,8 @@
 	spoken_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
 							/datum/language/schechi = list(LANGUAGE_ATOM))
 
+/datum/species/teshari/get_scream_sound(mob/living/carbon/human/human)
+	return 'modular_doppler/modular_species/species_types/teshari/sounds/raptorscream.ogg'
 
 /obj/item/organ/tongue/teshari
 	liked_foodtypes = SEAFOOD | VEGETABLES | NUTS
