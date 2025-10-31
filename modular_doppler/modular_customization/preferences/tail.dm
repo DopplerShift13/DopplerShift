@@ -10,6 +10,7 @@
 	var/list/tails_list_synth
 	var/list/tails_list_humanoid
 	var/list/tails_list_alien
+	var/list/tails_list_teshari
 
 /datum/controller/subsystem/accessories/setup_lists()
 	. = ..()
@@ -23,6 +24,7 @@
 	tails_list_synth = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/cybernetic)["default_sprites"]
 	tails_list_humanoid = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/humanoid)["default_sprites"]
 	tails_list_alien = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/alien)["default_sprites"]
+	tails_list_teshari = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/teshari)["default_sprites"]
 
 /datum/dna
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
@@ -565,6 +567,43 @@
 
 /datum/preference/choiced/alien_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_alien[value]
+	return generate_back_icon(chosen_tail, "tail")
+
+// Teshari - the only tail choice available to tesh
+/datum/preference/choiced/teshari_tail
+	savefile_key = "feature_teshari_tail"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_CLOTHING
+	relevant_external_organ = null
+	should_generate_icons = TRUE
+	main_feature_name = "Tail"
+
+/datum/preference/choiced/teshari_tail/init_possible_values()
+	return assoc_to_keys_features(SSaccessories.tails_list_teshari)
+
+/datum/preference/choiced/teshari_tail/is_accessible(datum/preferences/preferences)
+	. = ..()
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if (ispath(species, /datum/species/teshari))
+		return TRUE
+
+	if(species.type in GLOB.species_blacklist_no_mutant)
+		return FALSE
+
+	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
+	if(chosen_variation == TESHARI)
+		return TRUE
+	return FALSE
+
+/datum/preference/choiced/teshari_tail/create_default_value()
+	return /datum/sprite_accessory/tails/alien/none::name
+
+/datum/preference/choiced/teshari_tail/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.dna.tail_type == ALIEN || isteshari(target))
+		target.dna.features[FEATURE_TAIL_OTHER] = value
+
+/datum/preference/choiced/teshari_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_teshari[value]
 	return generate_back_icon(chosen_tail, "tail")
 
 /// Proc to gen that icon

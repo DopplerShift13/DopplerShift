@@ -1,0 +1,18 @@
+notes on how to translate...
+
+feel free to ignore mutant_styles on build_worn_icons, it doesnt do anything important
+
+
+generate_custom_worn_icon
+
+		// SKYRAT EDIT ADDITION
+		if(!mutant_override)
+			my_chest?.worn_belt_offset?.apply_offset(belt_overlay)
+		// SKYRAT EDIT END
+
+we're not doing this right now but check if it fails to render properly - do we need to abort the sprite offset if we autogen
+custom_worn_icons is important
+
+check greyscale_config_worn_teshari when youre filling in premade sprites! worn_icon_teshari too
+
+cahnge the name of the fallback gen sprite to not be a fallback

@@ -180,6 +180,9 @@
 /// A bit nasty, but I can't think of another way to do this. Owners of this limb will not render shoes.
 #define BODYSHAPE_HIDE_SHOES (1<<11)
 
+/// Teshari limbs. They are very much not normally shaped, so they need an entire bodytype.
+#define BODYSHAPE_TESHARI (1<<12)
+
 /// BREAKER: Numeric -> text for use in defines
 #define BODYSHAPE_HUMANOID_T "1"
 #define BODYSHAPE_MONKEY_T "2"
@@ -188,6 +191,7 @@
 #define BODYSHAPE_TAUR_SNAKE_T "256"
 #define BODYSHAPE_TAUR_HOOF_T "512"
 #define BODYSHAPE_TAUR_PAW_T "1024"
+#define BODYSHAPE_TESHARI_T "4096"
 /// DOPPLER SHIFT ADDITION END
 
 #define BODYTYPE_BIOSCRAMBLE_INCOMPATIBLE (BODYTYPE_ROBOTIC | BODYTYPE_LARVA_PLACEHOLDER | BODYTYPE_GOLEM | BODYTYPE_PEG)
@@ -489,6 +493,7 @@
 #define OFFSET_SUIT "suit"
 #define OFFSET_NECK "neck"
 #define OFFSET_HELD "held"
+#define OFFSET_ACCESSORY "accessory" // Doppler edit - addition
 
 //MINOR TWEAKS/MISC
 #define AGE_MIN 18 //youngest a character can be

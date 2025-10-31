@@ -101,11 +101,21 @@ There are several things that need to be remembered:
 		var/handled_by_bodyshape = TRUE
 		var/icon_file
 		var/woman
-		/// DOPPLER ADDITION BEGIN
+		/// DOPPLER SHIFT ADDITION BEGIN
+		var/found_alt_shape = FALSE
 		for(var/shape in uniform.supported_bodyshapes)
 			if(bodyshape & shape)
 				icon_file = uniform.bodyshape_icon_files["[shape]"]
-		/// DOPPLER SHIFT REMOVAL BEGIN
+				found_alt_shape = TRUE
+
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, uniform)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, uniform, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+		/// DOPPLER SHIFT ADDITION END
 		//BEGIN SPECIES HANDLING
 		/*if((bodyshape & BODYSHAPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			icon_file = DIGITIGRADE_UNIFORM_FILE*/
@@ -207,9 +217,19 @@ There are several things that need to be remembered:
 	var/icon_file = 'icons/mob/clothing/hands.dmi'
 
 	/// DOPPLER SHIFT ADDITION BEGIN
-	for(var/shape in gloves.supported_bodyshapes)
+	var/found_alt_shape = FALSE
+	for(var/shape in worn_item.supported_bodyshapes)
 		if(bodyshape & shape)
-			icon_file = gloves.bodyshape_icon_files["[shape]"]
+			icon_file = worn_item.bodyshape_icon_files["[shape]"]
+			found_alt_shape = TRUE
+
+	if(!found_alt_shape)
+		var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
+		if (!isnull(fallback_config))
+			// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+			var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
+			if(species_icon_file)
+				icon_file = species_icon_file
 	/// DOPPLER SHIFT ADDITION END
 	var/mutable_appearance/gloves_overlay = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
 
@@ -318,9 +338,22 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/neck.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
+		var/found_alt_shape = FALSE
 		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
 				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				found_alt_shape = TRUE
+
+		//var/mutant_override = FALSE
+		// always defer to the alt shape. this is a LAST RESORT
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					//mutant_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
 		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
@@ -394,9 +427,19 @@ There are several things that need to be remembered:
 		/// DOPPLER SHIFT ADDITION BEGIN
 		var/icon_file = 'icons/mob/clothing/belt_mirror.dmi'
 
+		var/found_alt_shape = FALSE
 		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
 				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				found_alt_shape = TRUE
+
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
 		/// DOPPLER SHIFT ADDITION END
 
 		var/mutable_appearance/s_store_overlay = worn_item.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
@@ -421,9 +464,19 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/head/default.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in head.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = head.bodyshape_icon_files["[shape]"]
+				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				found_alt_shape = TRUE
+
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
 		/// DOPPLER SHIFT ADDITION END
 
 		var/mutable_appearance/head_overlay = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
@@ -451,9 +504,19 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/belt.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in belt.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = belt.bodyshape_icon_files["[shape]"]
+				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				found_alt_shape = TRUE
+
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
 		/// DOPPLER SHIFT ADDITION END
 
 		var/mutable_appearance/belt_overlay = belt.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
@@ -480,9 +543,19 @@ There are several things that need to be remembered:
 		var/icon_file = DEFAULT_SUIT_FILE
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in wear_suit.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = wear_suit.bodyshape_icon_files["[shape]"]
+				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				found_alt_shape = TRUE
+
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
 		/// DOPPLER SHIFT ADDITION END
 
 		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
@@ -535,9 +608,19 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/mask.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in wear_mask.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = wear_mask.bodyshape_icon_files["[shape]"]
+				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				found_alt_shape = TRUE
+
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
 		/// DOPPLER SHIFT ADDITION END
 
 		var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
@@ -565,9 +648,19 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/back.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
+		var/found_alt_shape = FALSE
 		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
 				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				found_alt_shape = TRUE
+
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_custom_worn_config_fallback(OFFSET_BELT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_custom_worn_icon_fallback(OFFSET_BELT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
 		/// DOPPLER SHIFT ADDITION END
 
 		back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT

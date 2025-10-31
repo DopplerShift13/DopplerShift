@@ -13,6 +13,7 @@
 	var/list/ears_list_humanoid
 	var/list/ears_list_synthetic
 	var/list/ears_list_alien
+	var/list/ears_list_teshari
 
 /datum/controller/subsystem/accessories/setup_lists()
 	. = ..()
@@ -29,6 +30,7 @@
 	ears_list_humanoid = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_more/humanoid)["default_sprites"]
 	ears_list_synthetic = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_more/cybernetic)["default_sprites"]
 	ears_list_alien = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_more/alien)["default_sprites"]
+	ears_list_teshari = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_more/teshari)["default_sprites"]
 
 /datum/dna
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
@@ -529,6 +531,38 @@
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_alien[value]
 	return generate_ears_icon(chosen_ears)
 
+// Teshari
+// Only available to teshari, and their only choice, because of how they work on sprites
+/datum/preference/choiced/teshari_ears
+	savefile_key = "feature_teshari_ears"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_CLOTHING
+	relevant_external_organ = null
+	should_generate_icons = TRUE
+	main_feature_name = "Ears"
+
+/datum/preference/choiced/teshari_ears/init_possible_values()
+	return assoc_to_keys_features(SSaccessories.ears_list_teshari)
+
+/datum/preference/choiced/teshari_ears/is_accessible(datum/preferences/preferences)
+	. = ..()
+
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if (!ispath(species, /datum/species/teshari))
+		return FALSE
+
+	return TRUE
+
+/datum/preference/choiced/teshari_ears/create_default_value()
+	return /datum/sprite_accessory/ears_more/alien/none::name
+
+/datum/preference/choiced/teshari_ears/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.dna.ear_type == ALIEN)
+		target.dna.features[FEATURE_EARS] = value
+
+/datum/preference/choiced/teshari_ears/icon_for(value)
+	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_teshari[value]
+	return generate_ears_icon(chosen_ears)
 
 /// Proc to gen that icon
 //	We don't wanna copy paste this
