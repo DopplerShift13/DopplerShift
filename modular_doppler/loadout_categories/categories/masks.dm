@@ -87,7 +87,7 @@
 	name = "Half-Mask Respirator"
 	item_path = /obj/item/clothing/mask/gas/respirator
 
-/datum/loadout_item/mask/other/gas/nightlight
+/datum/loadout_item/mask/other/nightlight
 	name = "Half-Mask Rebreather"
 	item_path = /obj/item/clothing/mask/gas/nightlight
 
