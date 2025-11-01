@@ -62,7 +62,7 @@
 	name = "Heavy Boots"
 	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist
 
-/datum/loadout_item/shoes/boots/wraps/aerostatic
+/datum/loadout_item/shoes/boots/aerostatic
 	name = "Aerostatic Boots"
 	item_path = /obj/item/clothing/shoes/kim
 
