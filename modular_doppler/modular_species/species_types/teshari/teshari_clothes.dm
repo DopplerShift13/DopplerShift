@@ -698,6 +698,10 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
 	)
 
+/obj/item/clothing/suit/toggle/labcoat/cmo
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
+
 /obj/item/clothing/suit/utility/radiation
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
