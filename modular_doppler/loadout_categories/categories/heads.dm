@@ -94,7 +94,7 @@
 	item_path = /obj/item/clothing/head/fedora/white
 
 /datum/loadout_item/head/hats/ushanka
-	name ="Ushanka"
+	name = "Ushanka"
 	item_path = /obj/item/clothing/head/costume/ushanka
 
 /datum/loadout_item/head/hats/wrussian
