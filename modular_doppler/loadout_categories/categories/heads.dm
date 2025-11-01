@@ -368,11 +368,11 @@
 	abstract_type = /datum/loadout_item/head/misc
 
 /datum/loadout_item/head/misc/vulp_bandana
-	name = "Vulpkanin Bandana"
+	name = "Bandana (Vulpkanin)"
 	item_path = /obj/item/clothing/head/vulp_hat/headband
 
 /datum/loadout_item/head/misc/bandana
-	name = "Thin Bandana"
+	name = "Bandana (Thin)"
 	item_path = /obj/item/clothing/head/costume/tmc
 
 /datum/loadout_item/head/misc/flowing_headband
