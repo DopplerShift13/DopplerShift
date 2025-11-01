@@ -94,7 +94,7 @@
 	name = "Cowboy Boots (White)"
 	item_path = /obj/item/clothing/shoes/cowboy/white/laced
 
-/datum/loadout_item/shoes/boots/cowboy/lizard
+/datum/loadout_item/shoes/boots/cowboy_lizard
 	name = "Cowboy Boots (Lizard)"
 	item_path = /obj/item/clothing/shoes/cowboy/lizard
 
