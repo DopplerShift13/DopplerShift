@@ -25,7 +25,8 @@
 
 /datum/preference/toggle/frills/is_accessible(datum/preferences/preferences)
 	. = ..()
-	if(!species_can_access_mutant_customization())
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!species_can_access_mutant_customization(species))
 		return FALSE
 	return TRUE
 
@@ -71,7 +72,8 @@
 
 /datum/preference/choiced/lizard_frills/is_accessible(datum/preferences/preferences)
 	. = ..()
-	if(!species_can_access_mutant_customization())
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!species_can_access_mutant_customization(species))
 		return FALSE
 	var/has_frills = preferences.read_preference(/datum/preference/toggle/frills)
 	if(has_frills == TRUE)
