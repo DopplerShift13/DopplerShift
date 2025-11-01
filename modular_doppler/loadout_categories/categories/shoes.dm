@@ -121,7 +121,7 @@
 	name = "Laceup Shoes (Colorable)"
 	item_path = /obj/item/clothing/shoes/colorable_laceups
 
-/datum/loadout_item/shoes/other/wraps/disco
+/datum/loadout_item/shoes/other/disco
 	name = "Green Lizardskin Shoes"
 	item_path = /obj/item/clothing/shoes/discoshoes
 
