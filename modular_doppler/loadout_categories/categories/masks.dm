@@ -45,86 +45,110 @@
 	else
 		outfit.mask = item_path
 
-/datum/loadout_item/mask/face_mask
-	name = "Face Mask"
-	item_path = /obj/item/clothing/mask/breath
-
+/**
+ * GAS MASKS
+ */
 /datum/loadout_item/mask/gas
+	group = "Gas Masks"
+	abstract_type = /datum/loadout_item/mask/gas
+
+/datum/loadout_item/mask/gas/gas
 	name = "Gas Mask"
 	item_path = /obj/item/clothing/mask/gas
 
-/datum/loadout_item/mask/clown
-	name = "Clown Mask"
-	item_path = /obj/item/clothing/mask/gas/clown_hat
-
-/datum/loadout_item/mask/balaclava
-	name = "Balaclava"
-	item_path = /obj/item/clothing/mask/balaclava
-
-/datum/loadout_item/mask/snout_balaclava
-	name = "Snout Balaclava"
-	item_path = /obj/item/clothing/mask/snout_balaclava
-
-/datum/loadout_item/mask/gas/atmos
+/datum/loadout_item/mask/gas/gas/atmos
 	name = "Atmos Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/atmos
 
-/datum/loadout_item/mask/gas/explorer
+/datum/loadout_item/mask/gas/gas/explorer
 	name = "Explorer Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/explorer
 
-/datum/loadout_item/mask/whistle
-	name = "Whistle"
-	item_path = /obj/item/clothing/mask/whistle
-
-/datum/loadout_item/mask/fakemoustache
-	name = "Fake Moustache"
-	item_path = /obj/item/clothing/mask/fakemoustache
-
-/datum/loadout_item/mask/surgical
-	name = "Surgical Mask"
-	item_path = /obj/item/clothing/mask/surgical
-
-/datum/loadout_item/mask/frontier
+/datum/loadout_item/mask/gas/frontier
 	name = "Frontier Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 
-/datum/loadout_item/mask/gas_cooler
+/datum/loadout_item/mask/gas/gas_cooler
 	name = "Alternate Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/breach
 
-/datum/loadout_item/mask/bandana
-	name = "Bandana"
-	item_path = /obj/item/clothing/mask/bandana
-
-/datum/loadout_item/mask/bandana_stripe
-	name = "Bandana (Stripe)"
-	item_path = /obj/item/clothing/mask/bandana/striped
-
-/datum/loadout_item/mask/bandana_skull
-	name = "Bandana (Skull)"
-	item_path = /obj/item/clothing/mask/bandana/skull
-
-/datum/loadout_item/mask/neck_gaiter
-	name = "Neck Gaiter"
-	item_path = /obj/item/clothing/mask/neck_gaiter
-
-/datum/loadout_item/mask/paper
-	name = "Paper Mask"
-	item_path = /obj/item/clothing/mask/paper
-
-/datum/loadout_item/mask/kitsune
-	name = "Kitsune Mask"
-	item_path = /obj/item/clothing/mask/kitsune
-
-/datum/loadout_item/mask/respirator
-	name = "Half-Mask Respirator"
-	item_path = /obj/item/clothing/mask/gas/respirator
-
-/datum/loadout_item/mask/mantis
+/datum/loadout_item/mask/gas/mantis
 	name = "Composite Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/mantis
 
-/datum/loadout_item/mask/half_face
-	name = "Half-Face Rebreather"
+/**
+ * OTHER MASKS
+ */
+/datum/loadout_item/mask/other
+	group = "Other Masks"
+	abstract_type = /datum/loadout_item/mask/other
+
+/datum/loadout_item/mask/other/respirator
+	name = "Half-Mask Respirator"
+	item_path = /obj/item/clothing/mask/gas/respirator
+
+/datum/loadout_item/mask/other/nightlight
+	name = "Half-Mask Rebreather"
 	item_path = /obj/item/clothing/mask/gas/nightlight
+
+/datum/loadout_item/mask/other/face_mask
+	name = "Face Mask"
+	item_path = /obj/item/clothing/mask/breath
+
+/datum/loadout_item/mask/other/surgical
+	name = "Surgical Mask"
+	item_path = /obj/item/clothing/mask/surgical
+
+/**
+ * CLOTH COVERS
+ */
+/datum/loadout_item/mask/cloth
+	group = "Cloth Covers"
+	abstract_type = /datum/loadout_item/mask/cloth
+
+/datum/loadout_item/mask/cloth/balaclava
+	name = "Balaclava"
+	item_path = /obj/item/clothing/mask/balaclava
+
+/datum/loadout_item/mask/cloth/snout_balaclava
+	name = "Balaclava (Snout)"
+	item_path = /obj/item/clothing/mask/snout_balaclava
+
+/datum/loadout_item/mask/cloth/bandana
+	name = "Bandana"
+	item_path = /obj/item/clothing/mask/bandana
+
+/datum/loadout_item/mask/cloth/bandana_stripe
+	name = "Bandana (Stripe)"
+	item_path = /obj/item/clothing/mask/bandana/striped
+
+/datum/loadout_item/mask/cloth/bandana_skull
+	name = "Bandana (Skull)"
+	item_path = /obj/item/clothing/mask/bandana/skull
+
+/datum/loadout_item/mask/cloth/neck_gaiter
+	name = "Neck Gaiter"
+	item_path = /obj/item/clothing/mask/neck_gaiter
+
+/**
+ * COSTUME
+ */
+/datum/loadout_item/mask/costume
+	group = "Costume"
+	abstract_type = /datum/loadout_item/mask/costume
+
+/datum/loadout_item/mask/costume/clown
+	name = "Clown Mask"
+	item_path = /obj/item/clothing/mask/gas/clown_hat
+
+/datum/loadout_item/mask/costume/fakemoustache
+	name = "Fake Moustache"
+	item_path = /obj/item/clothing/mask/fakemoustache
+
+/datum/loadout_item/mask/costume/paper
+	name = "Paper Mask"
+	item_path = /obj/item/clothing/mask/paper
+
+/datum/loadout_item/mask/costume/kitsune
+	name = "Kitsune Mask"
+	item_path = /obj/item/clothing/mask/kitsune
