@@ -46,7 +46,7 @@
 	item_path = /obj/item/clothing/head/beret/doppler_command
 
 /datum/loadout_item/head/hats/slim_beret_light
-	name = "Slim Beret (Light)"
+	name = "Beret (Slim, Light)"
 	item_path = /obj/item/clothing/head/beret/doppler_command/light
 
 /datum/loadout_item/head/hats/red_beret
