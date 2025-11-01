@@ -34,15 +34,15 @@
 	item_path = /obj/item/clothing/neck/cloak/colonial
 
 /datum/loadout_item/neck/cape/robe_cape
-	name = "Robe Cape (Colorable)"
+	name = "Cape (Robe)"
 	item_path = /obj/item/clothing/neck/robe_cape
 
 /datum/loadout_item/neck/cape/long_cape
-	name = "Long Cape (Colorable)"
+	name = "Cape (Long)"
 	item_path = /obj/item/clothing/neck/long_cape
 
 /datum/loadout_item/neck/cape/wide_cape
-	name = "Wide Cape (Colorable)"
+	name = "Cape (Wide)"
 	item_path = /obj/item/clothing/neck/wide_cape
 
 /datum/loadout_item/neck/cape/vulp_cape
@@ -54,11 +54,11 @@
 	item_path = /obj/item/clothing/neck/vulp_cape/med
 
 /datum/loadout_item/neck/cape/capelet
-	name = "Capelet (Colorable)"
+	name = "Capelet"
 	item_path = /obj/item/clothing/neck/capelet
 
 /datum/loadout_item/neck/cape/half_cape
-	name = "Half Cape (Colorable)"
+	name = "Cape (Half)"
 	item_path = /obj/item/clothing/neck/half_cape
 
 /datum/loadout_item/neck/cape/lizard_cape_hand
