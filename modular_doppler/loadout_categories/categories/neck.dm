@@ -46,11 +46,11 @@
 	item_path = /obj/item/clothing/neck/wide_cape
 
 /datum/loadout_item/neck/cape/vulp_cape
-	name = "Skirmisher's Cape"
+	name = "Skirmisher's Cape (Vulpkanin)"
 	item_path = /obj/item/clothing/neck/vulp_cape
 
 /datum/loadout_item/neck/cape/vulp_medic_cape
-	name = "Medic's Cape"
+	name = "Medic's Cape (Vulpkanin)"
 	item_path = /obj/item/clothing/neck/vulp_cape/med
 
 /datum/loadout_item/neck/cape/capelet
@@ -66,7 +66,7 @@
 	item_path = /obj/item/clothing/neck/lizard_cape
 
 /datum/loadout_item/neck/cape/lizard_cape_med
-	name = "Scaler's Cape"
+	name = "Scaler's Cape (Tizirian)"
 	item_path = /obj/item/clothing/neck/lizard_cape/med
 
 /datum/loadout_item/neck/cape/lizard_cape_claw
@@ -74,15 +74,15 @@
 	item_path = /obj/item/clothing/neck/lizard_cape/spec
 
 /datum/loadout_item/neck/cape/taj_cape_holder
-	name = "Holder's Cape"
+	name = "Holder's Cape (Tajaran)"
 	item_path = /obj/item/clothing/neck/tajaran_cape
 
 /datum/loadout_item/neck/cape/taj_cape_medic
-	name = "Healer's Cape"
+	name = "Healer's Cape (Tajaran)"
 	item_path = /obj/item/clothing/neck/tajaran_cape/med
 
 /datum/loadout_item/neck/cape/vatcloak
-	name = "Vatcloak"
+	name = "Vatcloak (Vulpkanin)"
 	item_path = /obj/item/clothing/neck/vulp_cloak
 
 /datum/loadout_item/neck/cape/hazard_mantle
