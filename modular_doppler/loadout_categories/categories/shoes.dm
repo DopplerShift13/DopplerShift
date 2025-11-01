@@ -161,11 +161,11 @@
 	item_path = /obj/item/clothing/shoes/lizard_shins
 
 /datum/loadout_item/shoes/shins/tajaran_greaves
-	name = "Greaves (Gold-Plate)"
+	name = "Greaves (Gold-Plate, Tajaran)"
 	item_path = /obj/item/clothing/shoes/tajaran_shins
 
 /datum/loadout_item/shoes/shins/vulp_greaves
-	name = "Greaves (Alloy)"
+	name = "Greaves (Alloy, Vulpkanin)"
 	item_path = /obj/item/clothing/shoes/vulp_shins
 
 /datum/loadout_item/shoes/shins/wraps
