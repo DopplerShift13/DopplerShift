@@ -1,10 +1,10 @@
 /datum/loadout_category/head
-	/// How many maximum of these can be chosen
-	var/max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
+    /// How many maximum of these can be chosen
+    var/max_allowed = MAX_ALLOWED_EXTRA_CLOTHES
 
 /datum/loadout_category/head/New()
-	. = ..()
-	category_info = "([max_allowed] allowed)"
+    . = ..()
+    category_info = "([max_allowed] allowed)"
 
 /datum/loadout_category/head/handle_duplicate_entires(
 	datum/preference_middleware/loadout/manager,
@@ -17,8 +17,8 @@
 		other_loadout_items += other_loadout_item
 
 	if(length(other_loadout_items) >= max_allowed)
-		// We only need to deselect something if we're above the limit
-		// (And if we are we prioritize the first item found, FIFO)
+        // We only need to deselect something if we're above the limit
+        // (And if we are we prioritize the first item found, FIFO)
 		manager.deselect_item(other_loadout_items[1])
 	return TRUE
 
@@ -30,11 +30,11 @@
 	abstract_type = /datum/loadout_item/head/hats
 
 /datum/loadout_item/head/hats/peakhat_tan
-	name = "Peak-Cover (Tan)"
+	name = "Tizirian Peak-Cover (Tan)"
 	item_path = /obj/item/clothing/head/lizard_hat
 
 /datum/loadout_item/head/hats/peakhat_white
-	name = "Peak-Cover (White)"
+	name = "Tizirian Peak-Cover (White)"
 	item_path = /obj/item/clothing/head/lizard_hat/white
 
 /datum/loadout_item/head/hats/flattop
@@ -53,6 +53,38 @@
 	name = "Beret (Colorable)"
 	item_path = /obj/item/clothing/head/beret
 
+/datum/loadout_item/head/hats/sec_beret
+	name = "Beret (Security)"
+	item_path = /obj/item/clothing/head/beret/sec
+
+/datum/loadout_item/head/hats/navy/sec_beret
+	name = "Beret (Security, Blue)"
+	item_path = /obj/item/clothing/head/beret/sec/navyofficer
+
+/datum/loadout_item/head/hats/engi_beret
+	name = "Beret (Engineering)"
+	item_path = /obj/item/clothing/head/beret/engi
+
+/datum/loadout_item/head/hats/med_beret
+	name = "Beret (Medical)"
+	item_path = /obj/item/clothing/head/beret/medical
+
+/datum/loadout_item/head/hats/paramed_beret
+	name = "Beret (Medical, Paramedic)"
+	item_path = /obj/item/clothing/head/beret/medical/paramedic
+
+/datum/loadout_item/head/hats/sci_beret
+	name = "Beret (Science)"
+	item_path = /obj/item/clothing/head/beret/science/fancy
+
+/datum/loadout_item/head/hats/robo_beret
+	name = "Beret (Science, Robotics)"
+	item_path = /obj/item/clothing/head/beret/science/fancy/robo
+
+/datum/loadout_item/head/hats/cargo_beret
+	name = "Beret (Cargo)"
+	item_path = /obj/item/clothing/head/beret/science
+
 /datum/loadout_item/head/hats/cowboy_wide_feathered
 	name = "Wide-Brimmed Hat (Feathered)"
 	item_path = /obj/item/clothing/head/cowboy/doppler/wide/feathered
@@ -69,9 +101,25 @@
 	name = "Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/doppler/cattleman
 
+/datum/loadout_item/head/hats/cowboy/ten_gallon
+	name = "Ten-Gallon Hat"
+	item_path = /obj/item/clothing/head/cowboy/white
+
+/datum/loadout_item/head/hats/drifter_hat
+	name = "Drifter Hat"
+	item_path = /obj/item/clothing/head/cowboy/grey
+
+/datum/loadout_item/head/hats/flat_brim
+	name = "Flat-Brimmed Hat"
+	item_path = /obj/item/clothing/head/cowboy/doppler/flat
+
 /datum/loadout_item/head/hats/bowler_hat
 	name = "Bowler Hat"
 	item_path = /obj/item/clothing/head/hats/bowler
+
+/datum/loadout_item/head/hats/fedora_greyscale
+	name = "Fedora (Colorable)"
+	item_path = /obj/item/clothing/head/fedora/greyscale
 
 /datum/loadout_item/head/hats/beige_fedora
 	name = "Fedora (Beige)"
@@ -89,6 +137,10 @@
 	name = "Ushanka"
 	item_path = /obj/item/clothing/head/costume/ushanka
 
+/datum/loadout_item/head/hats/ushanka_sec
+	name = "Ushanka (Security)"
+	item_path = /obj/item/clothing/head/costume/ushanka/sec
+
 /datum/loadout_item/head/hats/wrussian
 	name = "Papakha (Black)"
 	item_path = /obj/item/clothing/head/costume/papakha
@@ -105,6 +157,10 @@
 	name = "Beanie (Rastafarian)"
 	item_path = /obj/item/clothing/head/rasta
 
+/datum/loadout_item/head/hats/nurse_hat
+	name = "Nurse Hat (Medical)"
+	item_path = /obj/item/clothing/head/costume/nursehat
+
 /**
  * CAPS
  */
@@ -120,8 +176,24 @@
 	name = "Frontier Medical Cap"
 	item_path = /obj/item/clothing/head/soft/frontier_colonist/medic
 
+/datum/loadout_item/head/caps/security_cap
+	name = "Security Cap"
+	item_path = /obj/item/clothing/head/soft/sec
+
+/datum/loadout_item/head/caps/para_cap
+	name = "Paramedic Cap (Medical)"
+	item_path = /obj/item/clothing/head/soft/paramedic
+
+/datum/loadout_item/head/caps/cargo_cap
+	name = "Cargo Cap"
+	item_path = /obj/item/clothing/head/soft
+
+/datum/loadout_item/head/caps/jan_cap
+	name = "Janitor Cap (Service)"
+	item_path = /obj/item/clothing/head/hats/janitor_doppler
+
 /datum/loadout_item/head/caps/mining_cap
-	name = "Explorer Cap"
+	name = "Explorer Cap (Mining)"
 	item_path = /obj/item/clothing/head/mining_cap
 
 /datum/loadout_item/head/caps/earcap
@@ -184,6 +256,22 @@
 	name = "Mail Cap"
 	item_path = /obj/item/clothing/head/costume/mailman
 
+/datum/loadout_item/head/caps/blue_surgery
+	name = "Surgery Cap (Medical, Blue)"
+	item_path = /obj/item/clothing/head/utility/surgerycap
+
+/datum/loadout_item/head/caps/burgundy_surgery
+	name = "Surgery Cap (Medical, Burgundy)"
+	item_path = /obj/item/clothing/head/utility/surgerycap/purple
+
+/datum/loadout_item/head/caps/green_surgery
+	name = "Surgery Cap (Medical, Green)"
+	item_path = /obj/item/clothing/head/utility/surgerycap/green
+
+/datum/loadout_item/head/caps/black_surgery
+	name = "Surgery Cap (Medical, Black)"
+	item_path = /obj/item/clothing/head/utility/surgerycap/black
+
 /**
  * HELMETS
  */
@@ -234,6 +322,26 @@
 /datum/loadout_item/head/helmets/breach_helmet
 	name = "Breach Helmet"
 	item_path = /obj/item/clothing/head/utility/hardhat/welding/doppler_dc
+
+/datum/loadout_item/head/helmets/orange_hardhat
+	name = "Hard Hat (Orange)"
+	item_path = /obj/item/clothing/head/utility/hardhat/orange
+
+/datum/loadout_item/head/helmets/yellow_hardhat
+	name = "Hard Hat (Yellow)"
+	item_path = /obj/item/clothing/head/utility/hardhat
+
+/datum/loadout_item/head/helmets/white_hardhat
+	name = "Hard Hat (White)"
+	item_path = /obj/item/clothing/head/utility/hardhat/white
+
+/datum/loadout_item/head/helmets/blue_hardhat
+	name = "Hard Hat (Blue)"
+	item_path = /obj/item/clothing/head/utility/hardhat/dblue
+
+/datum/loadout_item/head/helmets/red_hardhat
+	name = "Hard Hat (Red)"
+	item_path = /obj/item/clothing/head/utility/hardhat/red
 
 /**
  * HAIR ACCESSORIES
@@ -305,6 +413,38 @@
 	name = "Flower (Lily)"
 	item_path = /obj/item/food/grown/poppy/lily
 
+/datum/loadout_item/head/flowers/moonflower
+	name = "Flower (Moonflower)"
+	item_path = /obj/item/food/grown/moonflower
+
+/datum/loadout_item/head/flowers/fraxinella
+	name = "Flower (Fraxinella)"
+	item_path = /obj/item/food/grown/poppy/geranium/fraxinella
+
+/datum/loadout_item/head/flowers/fireblossom
+	name = "Flower (Fireblossom)"
+	item_path = /obj/item/food/grown/ash_flora/fireblossom
+
+/datum/loadout_item/head/flowers/garland
+	name = "Garland"
+	item_path = /obj/item/clothing/head/costume/garland
+
+/datum/loadout_item/head/flowers/garland/rainbowbunch
+	name = "Garland (Rainbow)"
+	item_path = /obj/item/clothing/head/costume/garland/rainbowbunch
+
+/datum/loadout_item/head/flowers/garland/sunflower
+	name = "Garland (Sunflower)"
+	item_path = /obj/item/clothing/head/costume/garland/sunflower
+
+/datum/loadout_item/head/flowers/garland/poppy
+	name = "Garland (Poppy)"
+	item_path = /obj/item/clothing/head/costume/garland/poppy
+
+/datum/loadout_item/head/flowers/garland/lily
+	name = "Garland (Lily)"
+	item_path = /obj/item/clothing/head/costume/garland/lily
+
 /**
  * COSTUME
  */
@@ -316,6 +456,10 @@
 	name = "Witch Hat"
 	item_path = /obj/item/clothing/head/wizard/marisa/fake
 
+/datum/loadout_item/head/costume/wizard
+	name = "Wizard Hat"
+	item_path = /obj/item/clothing/head/wizard
+
 /datum/loadout_item/head/costume/fancy_cap
 	name = "Fancy Hat"
 	item_path = /obj/item/clothing/head/costume/fancy
@@ -323,6 +467,34 @@
 /datum/loadout_item/head/costume/top_hat
 	name = "Top Hat"
 	item_path = /obj/item/clothing/head/hats/tophat
+
+/datum/loadout_item/head/costume/sombrero/green
+	name = "Green Sombrero"
+	item_path = /obj/item/clothing/head/costume/sombrero/green
+
+/datum/loadout_item/head/costume/propeller_hat
+	name = "Propeller Hat"
+	item_path = /obj/item/clothing/head/soft/propeller_hat
+
+/datum/loadout_item/head/costume/jester
+	name = "Jester Hat (Small)"
+	item_path = /obj/item/clothing/head/costume/jester
+
+/datum/loadout_item/head/costume/jesteralt
+	name = "Jester Hat (Large)"
+	item_path = /obj/item/clothing/head/costume/jesteralt
+
+/datum/loadout_item/head/costume/pirate
+	name = "Pirate Hat (Classic)"
+	item_path = /obj/item/clothing/head/costume/pirate
+
+/datum/loadout_item/head/costume/pirate/captain
+	name = "Pirate Hat (Captain)"
+	item_path = /obj/item/clothing/head/costume/pirate/captain
+
+/datum/loadout_item/head/costume/crown
+	name = "Crown"
+	item_path = /obj/item/clothing/head/costume/crown
 
 /datum/loadout_item/head/costume/kitty_ears
 	name = "Kitty Ears"
@@ -359,6 +531,14 @@
 	group = "Miscellaneous"
 	abstract_type = /datum/loadout_item/head/misc
 
+/datum/loadout_item/head/misc/mirror
+	name = "Head Mirror (Medical)"
+	item_path = /obj/item/clothing/head/utility/head_mirror
+
+/datum/loadout_item/head/misc/chef
+	name = "Chef Hat (Service)"
+	item_path = /obj/item/clothing/head/utility/chefhat
+
 /datum/loadout_item/head/misc/vulp_bandana
 	name = "Bandana (Vulpkanin)"
 	item_path = /obj/item/clothing/head/vulp_hat/headband
@@ -386,3 +566,11 @@
 /datum/loadout_item/head/misc/welding
 	name = "Welding Mask"
 	item_path = /obj/item/clothing/head/utility/welding
+
+/datum/loadout_item/head/misc/nightcap/blue
+	name = "Nightcap (Blue)"
+	item_path = /obj/item/clothing/head/costume/nightcap/blue
+
+/datum/loadout_item/head/misc/nightcap/red
+	name = "Nightcap (Red)"
+	item_path = /obj/item/clothing/head/costume/nightcap/red
