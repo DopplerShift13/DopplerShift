@@ -203,7 +203,7 @@
 	name = "Wheelys (Rainbow)"
 	item_path = /obj/item/clothing/shoes/wheelys/rainbow
 
-/datum/loadout_item/shoes/fun/wraps/skates
+/datum/loadout_item/shoes/fun/skates
 	name = "Roller Skates"
 	item_path = /obj/item/clothing/shoes/wheelys/rollerskates
 
