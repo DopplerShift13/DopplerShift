@@ -417,13 +417,6 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
 	)
 
-/obj/item/clothing/head/hooded/explorer
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/utility.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
-	)
-
 /obj/item/clothing/head/soft
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
@@ -688,13 +681,6 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/armor.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
-	)
-
-/obj/item/clothing/suit/hooded/explorer
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/utility.dmi',
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
 	)
 
