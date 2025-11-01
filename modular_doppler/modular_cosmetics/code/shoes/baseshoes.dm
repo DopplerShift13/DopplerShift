@@ -52,5 +52,8 @@
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/shoes/basefeet_digi.dmi'
 
 /obj/item/clothing/shoes/wheelys
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/feet.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/feet_64.dmi'
+	)
