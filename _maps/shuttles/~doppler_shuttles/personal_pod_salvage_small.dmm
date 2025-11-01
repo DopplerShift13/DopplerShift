@@ -93,9 +93,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
-/obj/docking_port/mobile/personally_bought{
-	dir = 4
-	},
+/obj/docking_port/mobile/personally_bought,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/cramped_salvage)
 "C" = (
