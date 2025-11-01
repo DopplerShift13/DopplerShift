@@ -7186,6 +7186,7 @@
 #include "modular_doppler\modular_cosmetics\code\under\mining.dm"
 #include "modular_doppler\modular_cosmetics\code\under\miscellania.dm"
 #include "modular_doppler\modular_cosmetics\code\under\pants.dm"
+#include "modular_doppler\modular_cosmetics\code\under\rad_alt.dm"
 #include "modular_doppler\modular_cosmetics\code\under\syndicate.dm"
 #include "modular_doppler\modular_cosmetics\GAGS\greyscale_configs_face.dm"
 #include "modular_doppler\modular_cosmetics\GAGS\greyscale_configs_hand.dm"
