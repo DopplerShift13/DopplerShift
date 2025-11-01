@@ -191,7 +191,7 @@
 	name = "Glow Shoes (Colorable)"
 	item_path = /obj/item/clothing/shoes/glow
 
-/datum/loadout_item/shoes/fun/wraps/swag
+/datum/loadout_item/shoes/fun/swag
 	name = "Drip Shoes"
 	item_path = /obj/item/clothing/shoes/swagshoes
 
