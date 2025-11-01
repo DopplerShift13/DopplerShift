@@ -42,7 +42,7 @@
 	item_path = /obj/item/clothing/head/vulp_hat
 
 /datum/loadout_item/head/hats/slim_beret
-	name = "Slim Beret (Dark)"
+	name = "Beret (Slim, Dark)"
 	item_path = /obj/item/clothing/head/beret/doppler_command
 
 /datum/loadout_item/head/hats/slim_beret_light
