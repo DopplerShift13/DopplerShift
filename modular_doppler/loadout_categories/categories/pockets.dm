@@ -199,6 +199,10 @@
 	name = "Shock collar"
 	item_path = /obj/item/electropack/shockcollar
 
+/datum/loadout_item/pocket_items/whistle
+	name = "Whistle"
+	item_path = /obj/item/clothing/mask/whistle
+
 /*
 *	UTILITY
 */
