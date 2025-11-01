@@ -38,7 +38,7 @@
 	item_path = /obj/item/clothing/head/lizard_hat/white
 
 /datum/loadout_item/head/hats/flattop
-	name = "Flat-Top"
+	name = "Flat-Top (Vulpkanin)"
 	item_path = /obj/item/clothing/head/vulp_hat
 
 /datum/loadout_item/head/hats/slim_beret
@@ -133,7 +133,7 @@
 	item_path = /obj/item/clothing/head/mining_cap
 
 /datum/loadout_item/head/caps/earcap
-	name = "Earcap"
+	name = "Earcap (Tajaran)"
 	item_path = /obj/item/clothing/head/tajaran_hat
 
 /datum/loadout_item/head/caps/black_cap
@@ -204,7 +204,7 @@
 	item_path = /obj/item/clothing/head/frontier_colonist_helmet
 
 /datum/loadout_item/head/helmets/vulp_skirmisher
-	name = "Vulpkanin Skirmisher Helmet"
+	name = "Skirmisher Helmet (Vulpkanin)"
 	item_path = /obj/item/clothing/head/helmet/vulp
 
 /datum/loadout_item/head/helmets/tajaran_helmet
@@ -224,11 +224,11 @@
 	item_path = /obj/item/clothing/head/helmet/lizard/white
 
 /datum/loadout_item/head/helmets/lizard_helmet_tan_glass
-	name = "Glassed Tizirian Helmet (Tan)"
+	name = "Tizirian Glassed Helmet (Tan)"
 	item_path = /obj/item/clothing/head/helmet/lizard/glass
 
 /datum/loadout_item/head/helmets/lizard_helmet_white_glass
-	name = "Glassed Tizirian Helmet (White)"
+	name = "Tizirian Glassed Helmet (White)"
 	item_path = /obj/item/clothing/head/helmet/lizard/white/glass
 
 /datum/loadout_item/head/helmets/fullhelmet
