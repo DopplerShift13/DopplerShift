@@ -50,6 +50,10 @@
 	name = "Jackboots (Colorable)"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
 
+/datum/loadout_item/shoes/boots/jackboots_sec
+	name = "Jackboots (Security)"
+	item_path = /obj/item/clothing/shoes/jackboots/sec
+
 /datum/loadout_item/shoes/boots/colonial_boots
 	name = "Colonial Half-boots"
 	item_path = /obj/item/clothing/shoes/jackboots/colonial
@@ -133,6 +137,10 @@
 	name = "Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers
 
+/datum/loadout_item/shoes/other/sneakers_white
+	name = "White Sneakers"
+	item_path = /obj/item/clothing/shoes/sneakers/white
+
 /datum/loadout_item/shoes/other/sandal
 	name = "Sandals"
 	item_path = /obj/item/clothing/shoes/sandal
@@ -148,6 +156,10 @@
 /datum/loadout_item/shoes/other/sandals_laced_black
 	name = "Sandals (Black, Velcro)"
 	item_path = /obj/item/clothing/shoes/sandal/alt/velcro
+
+/datum/loadout_item/shoes/other/sandals_grill
+	name = "Sandals (Grilling)"
+	item_path = /obj/item/clothing/shoes/cookflops
 
 /**
  * SHIN COVERS
@@ -216,5 +228,17 @@
 	item_path = /obj/item/clothing/shoes/clown_shoes
 
 /datum/loadout_item/shoes/fun/jester_shoes
-	name = "Jester Shoes"
+	name = "Jester Shoes (Colorable)"
 	item_path = /obj/item/clothing/shoes/jester_shoes
+
+/datum/loadout_item/shoes/fun/jester_shoes_alt
+	name = "Jester Shoes"
+	item_path = /obj/item/clothing/shoes/clown_shoes/jester
+
+/datum/loadout_item/shoes/fun/singery
+	name = "Performer's Shoes (Yellow)"
+	item_path = /obj/item/clothing/shoes/singery
+
+/datum/loadout_item/shoes/fun/singerb
+	name = "Performer's Shoes (Blue)"
+	item_path = /obj/item/clothing/shoes/singerb
