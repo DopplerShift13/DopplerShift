@@ -57,7 +57,7 @@
 	name = "Beret (Security)"
 	item_path = /obj/item/clothing/head/beret/sec
 
-/datum/loadout_item/head/hats/navy/sec_beret
+/datum/loadout_item/head/hats/sec_beret_navy
 	name = "Beret (Security, Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
 
