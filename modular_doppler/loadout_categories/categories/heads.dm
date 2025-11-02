@@ -101,7 +101,7 @@
 	name = "Cattleman Hat"
 	item_path = /obj/item/clothing/head/cowboy/doppler/cattleman
 
-/datum/loadout_item/head/hats/cowboy/ten_gallon
+/datum/loadout_item/head/hats/cowboy_ten_gallon
 	name = "Ten-Gallon Hat"
 	item_path = /obj/item/clothing/head/cowboy/white
 
