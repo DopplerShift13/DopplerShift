@@ -101,11 +101,25 @@ There are several things that need to be remembered:
 		var/handled_by_bodyshape = TRUE
 		var/icon_file
 		var/woman
-		/// DOPPLER ADDITION BEGIN
+		/// DOPPLER SHIFT ADDITION BEGIN
+		var/found_alt_shape = FALSE
 		for(var/shape in uniform.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = uniform.bodyshape_icon_files["[shape]"]
-		/// DOPPLER SHIFT REMOVAL BEGIN
+				var/potential_file = uniform.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, uniform.icon_state))
+					icon_file = uniform.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_UNIFORM, uniform)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_UNIFORM, uniform, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+		/// DOPPLER SHIFT ADDITION END
 		//BEGIN SPECIES HANDLING
 		/*if((bodyshape & BODYSHAPE_DIGITIGRADE) && (uniform.supports_variations_flags & CLOTHING_DIGITIGRADE_VARIATION))
 			icon_file = DIGITIGRADE_UNIFORM_FILE*/
@@ -207,11 +221,27 @@ There are several things that need to be remembered:
 	var/icon_file = 'icons/mob/clothing/hands.dmi'
 
 	/// DOPPLER SHIFT ADDITION BEGIN
-	for(var/shape in gloves.supported_bodyshapes)
+	var/found_alt_shape = FALSE
+	for(var/shape in worn_item.supported_bodyshapes)
 		if(bodyshape & shape)
-			icon_file = gloves.bodyshape_icon_files["[shape]"]
+			var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+			if (icon_exists(potential_file, worn_item.icon_state))
+				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+					found_alt_shape = TRUE
+					break
+
+	var/autogen_override = FALSE
+	if(!found_alt_shape)
+		var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_GLOVES, worn_item)
+		if (!isnull(fallback_config))
+			// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+			var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_GLOVES, worn_item, src)
+			if(species_icon_file)
+				icon_file = species_icon_file
+				autogen_override = TRUE
 	/// DOPPLER SHIFT ADDITION END
-	var/mutable_appearance/gloves_overlay = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
+	var/mutable_appearance/gloves_overlay = gloves.build_worn_icon(default_layer = GLOVES_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
 
 	var/feature_y_offset = 0
 	//needs to be typed, hand_bodyparts can have nulls
@@ -259,13 +289,32 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/eyes.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in glasses.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = glasses.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_GLASSES, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_GLASSES, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/glasses_overlay = glasses.build_worn_icon(default_layer = GLASSES_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
-		my_head.worn_glasses_offset?.apply_offset(glasses_overlay)
+		var/mutable_appearance/glasses_overlay = glasses.build_worn_icon(default_layer = GLASSES_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_head?.worn_glasses_offset?.apply_offset(glasses_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[GLASSES_LAYER] = glasses_overlay
 	apply_overlay(GLASSES_LAYER)
 
@@ -291,13 +340,32 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/ears.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in ears.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = ears.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_EARS, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_EARS, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
-		my_head.worn_ears_offset?.apply_offset(ears_overlay)
+		var/mutable_appearance/ears_overlay = ears.build_worn_icon(default_layer = EARS_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_head?.worn_ears_offset?.apply_offset(ears_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[EARS_LAYER] = ears_overlay
 	apply_overlay(EARS_LAYER)
 
@@ -318,14 +386,33 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/neck.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
+		var/found_alt_shape = FALSE
 		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_NECK, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_NECK, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
+		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_belt_offset?.apply_offset(neck_overlay)
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_chest?.worn_neck_offset?.apply_offset(neck_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[NECK_LAYER] = neck_overlay
 
 	apply_overlay(NECK_LAYER)
@@ -353,12 +440,26 @@ There are several things that need to be remembered:
 		if(bodyshape & BODYSHAPE_HIDE_SHOES)
 			return // We just don't want shoes that float if we're not displaying legs (useful for taurs, for now)
 
-		for(var/shape in shoes.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = shoes.bodyshape_icon_files["[shape]"]
+				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (shape != BODYSHAPE_HUMANOID)
+					found_alt_shape = TRUE
+					break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_SHOES, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_SHOES, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/shoes_overlay = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
+		var/mutable_appearance/shoes_overlay = shoes.build_worn_icon(default_layer = SHOES_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
 		if(!shoes_overlay)
 			return
 
@@ -394,14 +495,33 @@ There are several things that need to be remembered:
 		/// DOPPLER SHIFT ADDITION BEGIN
 		var/icon_file = 'icons/mob/clothing/belt_mirror.dmi'
 
+		var/found_alt_shape = FALSE
 		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_S_STORE, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_S_STORE, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/s_store_overlay = worn_item.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
+		var/mutable_appearance/s_store_overlay = worn_item.build_worn_icon(default_layer = SUIT_STORE_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_suit_storage_offset?.apply_offset(s_store_overlay)
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_chest?.worn_suit_storage_offset?.apply_offset(s_store_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[SUIT_STORE_LAYER] = s_store_overlay
 	apply_overlay(SUIT_STORE_LAYER)
 
@@ -421,14 +541,33 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/head/default.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in head.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = head.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_HEAD, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_HEAD, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/head_overlay = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
+		var/mutable_appearance/head_overlay = head.build_worn_icon(default_layer = HEAD_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
 		var/obj/item/bodypart/head/my_head = get_bodypart(BODY_ZONE_HEAD)
-		my_head?.worn_head_offset?.apply_offset(head_overlay)
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_head?.worn_head_offset?.apply_offset(head_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[HEAD_LAYER] = head_overlay
 
 	apply_overlay(HEAD_LAYER)
@@ -451,14 +590,33 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/belt.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in belt.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = belt.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_BELT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_BELT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/belt_overlay = belt.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
+		var/mutable_appearance/belt_overlay = belt.build_worn_icon(default_layer = BELT_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_belt_offset?.apply_offset(belt_overlay)
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_chest?.worn_belt_offset?.apply_offset(belt_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[BELT_LAYER] = belt_overlay
 
 	apply_overlay(BELT_LAYER)
@@ -480,14 +638,33 @@ There are several things that need to be remembered:
 		var/icon_file = DEFAULT_SUIT_FILE
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in wear_suit.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = wear_suit.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_SUIT, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_SUIT, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
+		var/mutable_appearance/suit_overlay = wear_suit.build_worn_icon(default_layer = SUIT_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_chest?.worn_suit_offset?.apply_offset(suit_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[SUIT_LAYER] = suit_overlay
 
 	apply_overlay(SUIT_LAYER)
@@ -535,13 +712,32 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/mask.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
-		for(var/shape in wear_mask.supported_bodyshapes)
+		var/found_alt_shape = FALSE
+		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = wear_mask.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_FACEMASK, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_FACEMASK, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
-		my_head.worn_mask_offset?.apply_offset(mask_overlay)
+		var/mutable_appearance/mask_overlay = wear_mask.build_worn_icon(default_layer = FACEMASK_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_head?.worn_mask_offset?.apply_offset(mask_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[FACEMASK_LAYER] = mask_overlay
 
 	apply_overlay(FACEMASK_LAYER)
@@ -565,17 +761,36 @@ There are several things that need to be remembered:
 		var/icon_file = 'icons/mob/clothing/back.dmi'
 
 		/// DOPPLER SHIFT ADDITION BEGIN
+		var/found_alt_shape = FALSE
 		for(var/shape in worn_item.supported_bodyshapes)
 			if(bodyshape & shape)
-				icon_file = worn_item.bodyshape_icon_files["[shape]"]
+				var/potential_file = worn_item.bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, worn_item.icon_state))
+					icon_file = worn_item.bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						found_alt_shape = TRUE
+						break
+
+		var/autogen_override = FALSE
+		if(!found_alt_shape)
+			var/fallback_config = dna.species.get_autogen_worn_config(OFFSET_BACK, worn_item)
+			if (!isnull(fallback_config))
+				// we found a config for our species? that must mean the clothing doesnt fit. so just trust it
+				var/species_icon_file = dna.species.generate_autogen_worn_icon(OFFSET_BACK, worn_item, src)
+				if(species_icon_file)
+					icon_file = species_icon_file
+					autogen_override = TRUE
 		/// DOPPLER SHIFT ADDITION END
 
-		back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, humie = src) /// DOPPLER SHIFT EDIT
+		back_overlay = back.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src) /// DOPPLER SHIFT EDIT
 
 		if(!back_overlay)
 			return
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		my_chest?.worn_back_offset?.apply_offset(back_overlay)
+		// DOPPLER SHIFT EDIT BEGIN - autogen sprites bypass offsets as we assume they offset themselves
+		if (!autogen_override && !found_alt_shape)
+			my_chest?.worn_back_offset?.apply_offset(back_overlay)
+		// DOPPLER SHIFT EDIT END
 		overlays_standing[BACK_LAYER] = back_overlay
 	apply_overlay(BACK_LAYER)
 
@@ -951,7 +1166,7 @@ generate/load female uniform sprites matching all previously decided variables
 			greyscale_colors = greyscale_colors,
 		)
 	/// DOPPLER SHIFT ADDITION BEGIN - we migrate this down here & use building_icon to allow for auto-generated digi sprites to still support ladies
-	if(female_uniform)
+	if(!is_digi && female_uniform)
 		building_icon = wear_female_version(
 			icon_state = t_state,
 			icon = istype(building_icon) ? building_icon : file2use,

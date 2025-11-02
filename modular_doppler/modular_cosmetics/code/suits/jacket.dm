@@ -30,6 +30,11 @@
 	desc = "A simple and practical jacket for labor with a center front zipper closure, two handwarmer pockets, \
 	and two interior pockets. A venerable old design in cutting edge textile fiber."
 	icon_state = "off_dep_jacket"
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
 	allowed = list(
 		/obj/item/flashlight,
 		/obj/item/tank/internals/emergency_oxygen,
