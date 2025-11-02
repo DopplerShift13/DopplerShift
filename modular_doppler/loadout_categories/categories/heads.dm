@@ -17,8 +17,8 @@
 		other_loadout_items += other_loadout_item
 
 	if(length(other_loadout_items) >= max_allowed)
-        // We only need to deselect something if we're above the limit
-        // (And if we are we prioritize the first item found, FIFO)
+		// We only need to deselect something if we're above the limit
+		// (And if we are we prioritize the first item found, FIFO)
 		manager.deselect_item(other_loadout_items[1])
 	return TRUE
 
