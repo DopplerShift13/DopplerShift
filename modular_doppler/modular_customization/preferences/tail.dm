@@ -77,7 +77,7 @@
 	return NO_VARIATION
 
 /datum/preference/choiced/tail_variation/init_possible_values()
-	return list(NO_VARIATION) + (GLOB.mutant_variations) + list(TESHARI) // causes runtimes with other species... how do i fix this
+	return list(NO_VARIATION) + (GLOB.mutant_variations) + list(TESHARI)
 
 /datum/preference/choiced/tail_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
