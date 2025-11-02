@@ -468,7 +468,7 @@
 	name = "Top Hat"
 	item_path = /obj/item/clothing/head/hats/tophat
 
-/datum/loadout_item/head/costume/sombrero/green
+/datum/loadout_item/head/costume/sombrero_green
 	name = "Green Sombrero"
 	item_path = /obj/item/clothing/head/costume/sombrero/green
 
