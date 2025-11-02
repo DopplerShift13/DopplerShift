@@ -567,10 +567,10 @@
 	name = "Welding Mask"
 	item_path = /obj/item/clothing/head/utility/welding
 
-/datum/loadout_item/head/misc/nightcap/blue
+/datum/loadout_item/head/misc/nightcap_blue
 	name = "Nightcap (Blue)"
 	item_path = /obj/item/clothing/head/costume/nightcap/blue
 
-/datum/loadout_item/head/misc/nightcap/red
+/datum/loadout_item/head/misc/nightcap_red
 	name = "Nightcap (Red)"
 	item_path = /obj/item/clothing/head/costume/nightcap/red
