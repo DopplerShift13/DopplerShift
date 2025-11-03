@@ -8,7 +8,7 @@ GLOBAL_LIST_EMPTY(species_autogen_clothing_cache)
 	/// List of lists in format: (X, Y) coordinates. When an autogen clothing is made, these are the coordinates on the base sprite that will be used
 	/// to determine the color of the created sprite.
 	/// Add multiple entries if the target sprite template uses multiple colors.
-	var/list/autogen_clothing_color_coods = null
+	var/list/autogen_clothing_color_coords = null
 
 /**
  * Modularly get the species' fallback greyscale config.
@@ -92,11 +92,11 @@ GLOBAL_LIST_EMPTY(species_autogen_clothing_cache)
 		var/list/color_list = list()
 
 		for(var/i in 1 to expected_num_colors)
-			if(isnull(item.autogen_clothing_color_coods) || \
-			length(item.autogen_clothing_color_coods) < i)
+			if(isnull(item.autogen_clothing_color_coords) || \
+			length(item.autogen_clothing_color_coords) < i)
 				color_list += COLOR_DARK
 				continue
-			var/coord = item.autogen_clothing_color_coods[i]
+			var/coord = item.autogen_clothing_color_coords[i]
 			color_list += final_human_icon.GetPixel(coord[1], coord[2]) || COLOR_DARK
 
 		fallback_greyscale_colors = color_list.Join("")

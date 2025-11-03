@@ -1,68 +1,68 @@
 // For defining teshari autogen sprite variables on TG clothes. Use your own doppler definition for doppler-made clothing.
 
 /obj/item/storage/backpack
-	autogen_clothing_color_coods = list(list(BACK_COLORPIXEL_X_1, BACK_COLORPIXEL_Y_1))
+	autogen_clothing_color_coords = list(list(BACK_COLORPIXEL_X_1, BACK_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/backpack)
 
 /obj/item/clothing/glasses
-	autogen_clothing_color_coods = list(list(GLASSES_COLORPIXEL_X_1, GLASSES_COLORPIXEL_Y_1), list(GLASSES_COLORPIXEL_X_2, GLASSES_COLORPIXEL_Y_2))
+	autogen_clothing_color_coords = list(list(GLASSES_COLORPIXEL_X_1, GLASSES_COLORPIXEL_Y_1), list(GLASSES_COLORPIXEL_X_2, GLASSES_COLORPIXEL_Y_2))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/glasses)
 
 /obj/item/clothing/gloves
-	autogen_clothing_color_coods = list(list(GLOVES_COLORPIXEL_X_1, GLOVES_COLORPIXEL_Y_1))
+	autogen_clothing_color_coords = list(list(GLOVES_COLORPIXEL_X_1, GLOVES_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/gloves)
 
 /obj/item/clothing/neck
-	autogen_clothing_color_coods = list(list(SCARF_COLORPIXEL_X_1, SCARF_COLORPIXEL_Y_1))
+	autogen_clothing_color_coords = list(list(SCARF_COLORPIXEL_X_1, SCARF_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/scarf)
 
 /obj/item/clothing/neck/cloak
-	autogen_clothing_color_coods = list(list(CLOAK_COLORPIXEL_X_1, CLOAK_COLORPIXEL_Y_1), list(CLOAK_COLORPIXEL_X_2, CLOAK_COLORPIXEL_Y_2))
+	autogen_clothing_color_coords = list(list(CLOAK_COLORPIXEL_X_1, CLOAK_COLORPIXEL_Y_1), list(CLOAK_COLORPIXEL_X_2, CLOAK_COLORPIXEL_Y_2))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/cloak)
 
 /obj/item/clothing/neck/mantle
-	autogen_clothing_color_coods = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
+	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/mantle)
 
 /obj/item/clothing/neck/tie
-	autogen_clothing_color_coods = list(list(TIE_COLORPIXEL_X_1, TIE_COLORPIXEL_Y_1))
+	autogen_clothing_color_coords = list(list(TIE_COLORPIXEL_X_1, TIE_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/tie)
 
 /obj/item/clothing/shoes
-	autogen_clothing_color_coods = list(list(SHOES_COLORPIXEL_X_1, SHOES_COLORPIXEL_Y_1))
+	autogen_clothing_color_coords = list(list(SHOES_COLORPIXEL_X_1, SHOES_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/shoes)
 
 /obj/item/clothing/suit
-	autogen_clothing_color_coods = list(list(COAT_COLORPIXEL_X_1, COAT_COLORPIXEL_Y_1))
+	autogen_clothing_color_coords = list(list(COAT_COLORPIXEL_X_1, COAT_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/coat)
 
 /obj/item/clothing/suit/wizrobe
-	autogen_clothing_color_coods = list(list(THICKROBE_COLORPIXEL_X_1, THICKROBE_COLORPIXEL_Y_1), list(THICKROBE_COLORPIXEL_X_2, THICKROBE_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(THICKROBE_COLORPIXEL_X_4, THICKROBE_COLORPIXEL_Y_4), list(THICKROBE_COLORPIXEL_X_5, THICKROBE_COLORPIXEL_Y_5), list(THICKROBE_COLORPIXEL_X_6, THICKROBE_COLORPIXEL_Y_6))
+	autogen_clothing_color_coords = list(list(THICKROBE_COLORPIXEL_X_1, THICKROBE_COLORPIXEL_Y_1), list(THICKROBE_COLORPIXEL_X_2, THICKROBE_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(THICKROBE_COLORPIXEL_X_4, THICKROBE_COLORPIXEL_Y_4), list(THICKROBE_COLORPIXEL_X_5, THICKROBE_COLORPIXEL_Y_5), list(THICKROBE_COLORPIXEL_X_6, THICKROBE_COLORPIXEL_Y_6))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/thickrobe/wiz)
 
 /obj/item/clothing/suit/jacket/trenchcoat
-	autogen_clothing_color_coods = list(list(LONGCOAT_COLORPIXEL_X_1, LONGCOAT_COLORPIXEL_Y_1), list(THICKROBE_COLORPIXEL_X_2, THICKROBE_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(LONGCOAT_COLORPIXEL_X_4, LONGCOAT_COLORPIXEL_Y_4))
+	autogen_clothing_color_coords = list(list(LONGCOAT_COLORPIXEL_X_1, LONGCOAT_COLORPIXEL_Y_1), list(THICKROBE_COLORPIXEL_X_2, THICKROBE_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(LONGCOAT_COLORPIXEL_X_4, LONGCOAT_COLORPIXEL_Y_4))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/thickrobe/longcoat)
 
 /obj/item/clothing/suit/jacket
-	autogen_clothing_color_coods = list(list(JACKET_COLORPIXEL_X_1, JACKET_COLORPIXEL_Y_1), list(JACKET_COLORPIXEL_X_2, JACKET_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(JACKET_COLORPIXEL_X_4, JACKET_COLORPIXEL_Y_4))
+	autogen_clothing_color_coords = list(list(JACKET_COLORPIXEL_X_1, JACKET_COLORPIXEL_Y_1), list(JACKET_COLORPIXEL_X_2, JACKET_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(JACKET_COLORPIXEL_X_4, JACKET_COLORPIXEL_Y_4))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/thickrobe/jacket)
 
 /obj/item/clothing/suit/armor
-	autogen_clothing_color_coods = list(list(ARMOR_COLORPIXEL_X_1, ARMOR_COLORPIXEL_Y_1))
+	autogen_clothing_color_coords = list(list(ARMOR_COLORPIXEL_X_1, ARMOR_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/armor)
 
 /obj/item/clothing/suit/mod
-	autogen_clothing_color_coods = list(list(MODSUIT_COLORPIXEL_X_1, MODSUIT_COLORPIXEL_Y_1), list(MODSUIT_COLORPIXEL_X_2, MODSUIT_COLORPIXEL_Y_2), list(MODSUIT_COLORPIXEL_X_3, MODSUIT_COLORPIXEL_Y_3))
+	autogen_clothing_color_coords = list(list(MODSUIT_COLORPIXEL_X_1, MODSUIT_COLORPIXEL_Y_1), list(MODSUIT_COLORPIXEL_X_2, MODSUIT_COLORPIXEL_Y_2), list(MODSUIT_COLORPIXEL_X_3, MODSUIT_COLORPIXEL_Y_3))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/hardsuit)
 
 /obj/item/clothing/under
-	autogen_clothing_color_coods = list(list(UNDER_COLORPIXEL_X_1, UNDER_COLORPIXEL_Y_1), list(UNDER_COLORPIXEL_X_2, UNDER_COLORPIXEL_Y_2), list(UNDER_COLORPIXEL_X_3, UNDER_COLORPIXEL_Y_3))
+	autogen_clothing_color_coords = list(list(UNDER_COLORPIXEL_X_1, UNDER_COLORPIXEL_Y_1), list(UNDER_COLORPIXEL_X_2, UNDER_COLORPIXEL_Y_2), list(UNDER_COLORPIXEL_X_3, UNDER_COLORPIXEL_Y_3))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/under)
 	autogen_clothing_config_skirt = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/under_skirt)
 
 /obj/item/mod/control
-	autogen_clothing_color_coods = list(list(MODCONTROL_COLORPIXEL_X_1, MODCONTROL_COLORPIXEL_Y_1))
+	autogen_clothing_color_coords = list(list(MODCONTROL_COLORPIXEL_X_1, MODCONTROL_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/modcontrol)
 
 ///GAGS below here
@@ -178,11 +178,11 @@
 // Unique clothing here
 
 /obj/item/clothing/suit/kimjacket
-	autogen_clothing_color_coods = list(list(JACKET_COLORPIXEL_X_1, JACKET_COLORPIXEL_Y_1), list(JACKET_COLORPIXEL_X_2, JACKET_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(JACKET_COLORPIXEL_X_4, JACKET_COLORPIXEL_Y_4))
+	autogen_clothing_color_coords = list(list(JACKET_COLORPIXEL_X_1, JACKET_COLORPIXEL_Y_1), list(JACKET_COLORPIXEL_X_2, JACKET_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(JACKET_COLORPIXEL_X_4, JACKET_COLORPIXEL_Y_4))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/thickrobe/jacket)
 
 /obj/item/clothing/suit/discoblazer
-	autogen_clothing_color_coods = list(list(JACKET_COLORPIXEL_X_1, JACKET_COLORPIXEL_Y_1), list(JACKET_COLORPIXEL_X_2, JACKET_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(JACKET_COLORPIXEL_X_4, JACKET_COLORPIXEL_Y_4))
+	autogen_clothing_color_coords = list(list(JACKET_COLORPIXEL_X_1, JACKET_COLORPIXEL_Y_1), list(JACKET_COLORPIXEL_X_2, JACKET_COLORPIXEL_Y_2), list(THICKROBE_COLORPIXEL_X_3, THICKROBE_COLORPIXEL_Y_3), list(JACKET_COLORPIXEL_X_4, JACKET_COLORPIXEL_Y_4))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/thickrobe/jacket)
 
 // Wintercoats and Satchels and stuff
