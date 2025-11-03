@@ -38,10 +38,14 @@
 	var/datum/action/innate/teshari_tablerun/tablerun
 
 /datum/language_holder/teshari
-	understood_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
-								/datum/language/schechi = list(LANGUAGE_ATOM))
-	spoken_languages = list(/datum/language/common = list(LANGUAGE_ATOM),
-							/datum/language/schechi = list(LANGUAGE_ATOM))
+	understood_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+		/datum/language/schechi = list(LANGUAGE_ATOM)
+	)
+	spoken_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+		/datum/language/schechi = list(LANGUAGE_ATOM)
+	)
 
 /datum/species/teshari/get_scream_sound(mob/living/carbon/human/human)
 	return 'modular_doppler/modular_species/species_types/teshari/sounds/raptorscream.ogg'
@@ -55,7 +59,6 @@
 	var/ear_color = "#e4c49b"
 
 	tesh.dna.ear_type = TESHARI
-	//tesh.dna.tail_type = TESHARI
 	tesh.dna.features[FEATURE_MUTANT_COLOR] = base_color
 	tesh.dna.features[FEATURE_EARS] = "Teshari Feathers Upright"
 	tesh.dna.features[FEATURE_EARS_COLORS][1] = base_color
@@ -76,6 +79,12 @@
 /datum/species/teshari/create_pref_unique_perks()
 	var/list/perk_descriptions = list()
 
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
+		SPECIES_PERK_ICON = FA_ICON_EAR_LISTEN,
+		SPECIES_PERK_NAME = "Sensitive Hearing",
+		SPECIES_PERK_DESC = "Your ears are extremely sensitive, and can hear whispers. Unfortunately, this also increases ear damage taken..."
+	))
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_RUNNING,

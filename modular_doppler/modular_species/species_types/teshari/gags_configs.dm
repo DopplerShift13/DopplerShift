@@ -99,12 +99,6 @@
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/shoes/boots_teshari.json'
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/shoes_teshari.dmi'
 
-///datum/greyscale_config/laceup/worn/teshari
-//	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/shoes_teshari.dmi'
-
-///datum/greyscale_config/sandals/worn/teshari
-//	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/shoes_teshari.dmi'
-
 /datum/greyscale_config/plaidskirt/worn/teshari
 	name = "Plaid Skirt (Worn, Teshari)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/dressteshari.dmi'
@@ -112,13 +106,6 @@
 /datum/greyscale_config/sundress/worn/teshari
 	name = "Sundress (Worn, Teshari)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/dressteshari.dmi'
-
-///datum/greyscale_config/shorts_ripped/worn/teshari
-//	name = "Ripped Shorts (Worn, Teshari)"
-//	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/teshari_uniform.dmi'
-
-///datum/greyscale_config/bathrobe/worn/teshari
-//	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/suit_teshari.dmi'
 
 /datum/greyscale_config/suspenders/worn/teshari
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/suit_teshari.dmi'
@@ -141,24 +128,8 @@
 	name = "Ranger Poncho (Worn, Teshari)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/ranger_poncho_teshari.dmi'
 
-///datum/greyscale_config/masquerade_mask/worn/teshari
-//	name = "Masquerade Mask (Worn) (Teshari)"
-//	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/masquerade_mask_worn_teshari.dmi'
-
-///datum/greyscale_config/sterile_mask/worn/teshari
-//	name = "Colourable Sterile Mask (Worn) (Teshari)"
-//	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/masks_teshari.dmi'
-
-/*/datum/greyscale_config/respirator/worn/teshari
-	name = "Colourable Respirator (Worn) (Teshari)"
-	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/masks_teshari.dmi'*/
-
 /datum/greyscale_config/standalone_hood/worn/teshari
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/head_teshari.dmi'
-
-///datum/greyscale_config/beret_badge_fancy/worn/teshari
-//	name = "Beret With Fancy Badge (Worn, Teshari)"
-//	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/beret_teshari.dmi'
 
 /datum/greyscale_config/beret_badge/worn/teshari
 	name = "Badged Beret (Worn, Teshari)"

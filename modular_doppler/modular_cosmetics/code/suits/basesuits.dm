@@ -85,7 +85,7 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/spacesuit_digi.dmi')
-	species_clothing_color_coords = list(list(SPACESUIT_COLORPIXEL_X_1, SPACESUIT_COLORPIXEL_Y_1))
+	autogen_clothing_color_coods = list(list(SPACESUIT_COLORPIXEL_X_1, SPACESUIT_COLORPIXEL_Y_1))
 	autogen_clothing_config = list(SPECIES_TESHARI = /datum/greyscale_config/teshari/spacesuit)
 
 /// RADSUITS
