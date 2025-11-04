@@ -38,26 +38,21 @@
 	if(pressure_too_low)
 		. += span_notice("There must be enough atmospheric <b>pressure</b> for the turbine to spin.")
 
-
 /obj/machinery/power/colony_wind_turbine/process()
 	var/area/our_current_area = get_area(src)
 	if(!our_current_area.outdoors)
 		icon_state = "turbine"
 		add_avail(0)
 		return
-
 	var/turf/our_turf = get_turf(src)
 	var/datum/gas_mixture/environment = our_turf.return_air()
-
 	if(environment.return_pressure() < minimum_pressure)
 		pressure_too_low = TRUE
 		icon_state = "turbine"
 		add_avail(0)
 		return
-
 	pressure_too_low = FALSE
 	var/storming_out = FALSE
-
 	var/datum/weather/weather_we_track
 	for(var/datum/weather/possible_weather in SSweather.processing)
 		if((our_turf.z in possible_weather.impacted_z_levels) || (our_current_area in possible_weather.impacted_areas))
@@ -66,12 +61,9 @@
 	if(weather_we_track)
 		if(!(weather_we_track.stage == END_STAGE))
 			storming_out = TRUE
-
 	add_avail(power_to_energy(storming_out ? storm_power_production : regular_power_production))
-
 	var/new_icon_state = (storming_out ? "turbine_storm" : "turbine_normal")
 	icon_state = new_icon_state
-
 
 // Item for deploying wind turbines
 /obj/item/flatpacked_machine/wind_turbine

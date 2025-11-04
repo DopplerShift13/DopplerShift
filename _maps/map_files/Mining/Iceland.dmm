@@ -1813,7 +1813,6 @@
 /area/mine/living_quarters)
 "ls" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/space_heater/wall_mounted/directional/south,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 1
 	},

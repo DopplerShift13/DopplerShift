@@ -70,7 +70,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 		deconstruct(TRUE)
 		return
 
-
 /obj/machinery/cell_charger_multi/attackby(obj/item/tool, mob/user, params)
 	if(istype(tool, /obj/item/stock_parts/power_store/cell) && !panel_open)
 		if(machine_stat & BROKEN)
@@ -95,7 +94,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 				return
 			if(!user.transferItemToLoc(tool,src))
 				return
-
 			charging_batteries += tool
 			user.visible_message(span_notice("[user] inserts a cell into [src]."), span_notice("You insert a cell into [src]."))
 			update_appearance()
@@ -111,32 +109,25 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 /obj/machinery/cell_charger_multi/process(seconds_per_tick)
 	if(!charging_batteries.len || !anchored || (machine_stat & (BROKEN|NOPOWER)))
 		return
-
 	// create a charging queue, we only want cells that require charging to use the power budget
 	var/list/charging_queue
 	for(var/obj/item/stock_parts/power_store/cell/battery_slot in charging_batteries)
 		if(battery_slot.percent() >= 100)
 			continue
 		LAZYADD(charging_queue, battery_slot)
-
 	if(!LAZYLEN(charging_queue))
 		return
-
 	//use a small bit for the charger itself, but power usage scales up with the part tier
 	use_energy(charge_rate / length(charging_queue) * seconds_per_tick * 0.01)
-
 	for(var/obj/item/stock_parts/power_store/cell/charging_cell in charging_queue)
 		charge_cell(charge_rate * seconds_per_tick, charging_cell)
-
 	LAZYNULL(charging_queue)
 	update_appearance()
 
 /obj/machinery/cell_charger_multi/attack_tk(mob/user)
 	if(!charging_batteries.len)
 		return
-
 	to_chat(user, span_notice("You telekinetically remove [removecell(user)] from [src]."))
-
 	return COMPONENT_CANCEL_ATTACK_CHAIN
 
 
@@ -149,10 +140,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 
 /obj/machinery/cell_charger_multi/emp_act(severity)
 	. = ..()
-
 	if(machine_stat & (BROKEN|NOPOWER) || . & EMP_PROTECT_CONTENTS)
 		return
-
 	for(var/obj/item/stock_parts/power_store/cell/charging in charging_batteries)
 		charging.emp_act(severity)
 
@@ -162,7 +151,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 	charging_batteries = null
 	return ..()
 
-
 /obj/machinery/cell_charger_multi/attack_ai(mob/user)
 	return
 
@@ -170,15 +158,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 	. = ..()
 	if(.)
 		return
-
 	var/obj/item/stock_parts/power_store/cell/charging = removecell(user)
-
 	if(!charging)
 		return
-
 	user.put_in_hands(charging)
 	charging.add_fingerprint(user)
-
 	user.visible_message(span_notice("[user] removes [charging] from [src]."), span_notice("You remove [charging] from [src]."))
 
 /obj/machinery/cell_charger_multi/proc/removecell(mob/user)

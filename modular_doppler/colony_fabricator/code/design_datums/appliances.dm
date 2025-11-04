@@ -24,7 +24,6 @@
 		"co2_cracker",
 		"portable_recycler",
 		"foodricator",
-		"wall_heater",
 		"macrowave",
 		"frontier_range",
 		"tabletop_griddle",
@@ -82,24 +81,6 @@
 		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_ATMOS,
 	)
 	construction_time = 30 SECONDS
-
-/// Space heater, but it mounts on walls
-
-/datum/design/wall_mounted_space_heater
-	name = "Mounted Heater"
-	id = "wall_heater"
-	build_type = COLONY_FABRICATOR
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 1,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
-	)
-	build_path = /obj/item/wallframe/wall_heater
-	category = list(
-		RND_CATEGORY_INITIAL,
-		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_ATMOS,
-	)
-	construction_time = 15 SECONDS
 
 // Plumbable chem machine that makes nothing but water
 
