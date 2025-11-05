@@ -102,6 +102,7 @@
 	var/power_modifier = (current_charge / total_capacity) + 0.25 // Max charge batteries are even bigger, good luck pal
 	explosion(src, 0, 1 * power_modifier, 5 * power_modifier, 7 * power_modifier, 7 * power_modifier, smoke = TRUE)
 	cut_overlay(sparks)
+	set_light(l_on = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(able_to_blow_up_again)), 30 SECONDS) // If it somehow survives it can blow up again later
 
 /// Makes a big electric zap
@@ -110,6 +111,7 @@
 	tesla_zap(source = src, zap_range = 5, power = current_charge / 100, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
 	take_damage(max_integrity * 0.8) // At least its not blowing up this time ??
 	cut_overlay(sparks)
+	set_light(l_on = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(able_to_blow_up_again)), 30 SECONDS) // If it somehow survives it can blow up again later
 
 /// Spawns a bunch of hydrogen and then lights it on fire
@@ -121,6 +123,7 @@
 	our_turf.atmos_spawn_air("[GAS_HYDROGEN]=[40 * power_modifier];[GAS_O2]=[20 * power_modifier];[TURF_TEMPERATURE(FIRE_MINIMUM_TEMPERATURE_TO_EXIST + 50)]")
 	do_sparks(3, FALSE, src)
 	cut_overlay(sparks)
+	set_light(l_on = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(able_to_blow_up_again)), 30 SECONDS) // If it somehow survives it can blow up again later
 
 /// Sets the battery to be able to explode once again, in case you weren't careful already
