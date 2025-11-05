@@ -152,24 +152,6 @@
 	)
 	construction_time = 30 SECONDS
 
-// A portable recycling machine, use item with materials on it to recycle
-
-/datum/design/portable_recycler
-	name = "Portable Recycler"
-	id = "portable_recycler"
-	build_type = COLONY_FABRICATOR
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT, // Titan for the crushing element
-	)
-	build_path = /obj/item/flatpacked_machine/recycler
-	category = list(
-		RND_CATEGORY_INITIAL,
-		FABRICATOR_CATEGORY_APPLIANCES + FABRICATOR_SUBCATEGORY_MATERIALS,
-	)
-	construction_time = 30 SECONDS
-
 // Rations printer, turns biomass into seeds, some synthesized foods, ingredients, so on
 
 /datum/design/foodricator

@@ -6858,7 +6858,6 @@
 #include "modular_doppler\colony_fabricator\code\appliances\chem_machines.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\co2_cracker.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\foodricator.dm"
-#include "modular_doppler\colony_fabricator\code\appliances\recycler.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\wall_cell_charger.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\wind_turbine.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\kitchen_appliances\griddle.dm"

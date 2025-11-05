@@ -207,7 +207,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 
 /obj/machinery/cell_charger_multi/RefreshParts()
 	. = ..()
-	charge_rate = STANDARD_CELL_RATE * 3 // Nuh uh!
+	charge_rate = STANDARD_CELL_RATE * 2 // Nuh uh!
 
 // Item for creating the arc furnace or carrying it around
 
