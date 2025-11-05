@@ -74,7 +74,7 @@
 	type_to_deploy = /obj/machinery/power/colony_wind_turbine
 	w_class = WEIGHT_CLASS_NORMAL
 	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
 	)

@@ -154,9 +154,9 @@
 	id = "flatpack_turbine_team_fortress_two"
 	build_type = COLONY_FABRICATOR
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/flatpacked_machine/wind_turbine
 	category = list(
