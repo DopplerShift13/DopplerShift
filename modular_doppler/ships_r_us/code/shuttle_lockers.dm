@@ -15,7 +15,6 @@
 	new /obj/item/tank/internals/emergency_oxygen/engi(src)
 	new /obj/item/clothing/mask/gas/breach(src)
 	new /obj/item/clothing/mask/gas/breach(src)
-	new /obj/item/flatpacked_machine/damage_lathe(src)
 	new /obj/item/emergency_bed(src)
 	new /obj/item/storage/toolbox/emergency(src)
 	new /obj/item/storage/medkit/frontier/stocked(src)

@@ -15,10 +15,7 @@
 	design_ids = list(
 		"flatpack_arc_furnace",
 		"flatpack_colony_fab",
-		"flatpack_station_battery",
-		"flatpack_station_battery_large",
 		"flatpack_fuel_generator",
-		"flatpack_rtg",
 		"flatpack_turbine_team_fortress_two",
 		"flatpack_bootleg_teg",
 	)
@@ -69,42 +66,6 @@
 	)
 	construction_time = 15 SECONDS
 
-// Power storage structures
-
-/datum/design/flatpack_power_storage
-	name = "Flat-Packed Stationary Battery"
-	desc = "A deployable station-scale power cell with an overall low capacity, but high input and output rate."
-	id = "flatpack_station_battery"
-	build_type = COLONY_FABRICATOR
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
-	)
-	build_path = /obj/item/flatpacked_machine/station_battery
-	category = list(
-		RND_CATEGORY_INITIAL,
-		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
-	)
-	construction_time = 20 SECONDS
-
-/datum/design/flatpack_power_storage_large
-	name = "Flat-Packed Large Stationary Battery"
-	desc = "A deployable station-scale power cell with an overall extremely high capacity, but low input and output rate."
-	id = "flatpack_station_battery_large"
-	build_type = COLONY_FABRICATOR
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 4,
-		/datum/material/gold = SHEET_MATERIAL_AMOUNT,
-	)
-	build_path = /obj/item/flatpacked_machine/large_station_battery
-	category = list(
-		RND_CATEGORY_INITIAL,
-		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
-	)
-	construction_time = 40 SECONDS
-
 // PACMAN generator but epic!!
 
 /datum/design/flatpack_solids_generator
@@ -120,27 +81,6 @@
 		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/flatpacked_machine/fuel_generator
-	category = list(
-		RND_CATEGORY_INITIAL,
-		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
-	)
-	construction_time = 30 SECONDS
-
-// Buildable RTG that is quite radioactive
-
-/datum/design/flatpack_rtg
-	name = "Flat-Packed Radioisotope Thermoelectric Generator"
-	desc = "A deployable radioisotope generator capable of producing a practically free trickle of power. \
-		Free if you can tolerate the radiation that the machine makes while deployed, that is."
-	id = "flatpack_rtg"
-	build_type = COLONY_FABRICATOR
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/uranium = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT / 2,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT / 2,
-	)
-	build_path = /obj/item/flatpacked_machine/rtg
 	category = list(
 		RND_CATEGORY_INITIAL,
 		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
