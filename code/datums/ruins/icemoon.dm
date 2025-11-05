@@ -209,13 +209,13 @@
 	description = "Rumors have developed over the many years of Freyja plasma mining. These rumors suggest that the ghosts of dead mistreated excavation staff have returned to \
 	exact revenge on their (now former) employers. Coorperate reminds all staff that rumors are just that: Old Housewife tales meant to scare misbehaving kids to bed."
 	suffix = "icemoon_underground_abandoned_plasma_facility.dmm"
-
+/* DOPPLER EDIT DISABLES CURSED SPRING
 /datum/map_template/ruin/icemoon/underground/hotsprings
 	name = "Ice-Ruin Hot Springs"
 	id = "hotsprings"
 	description = "Just relax and take a dip, nothing will go wrong, I swear!"
 	suffix = "icemoon_underground_hotsprings.dmm"
-
+*/
 /datum/map_template/ruin/icemoon/underground/vent
 	name = "Ice-Ruin Icemoon Ore Vent"
 	id = "ore_vent_i"
