@@ -189,6 +189,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door/personal_shuttle_bay_four
 // Suit storage unit for a free emergency eva suit
 
 /obj/machinery/suit_storage_unit/industrial/personal_shuttle
-	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
-	mod_type = /obj/item/mod/control/pre_equipped/frontier_colonist
+	mask_type = /obj/item/clothing/mask/gas/breach
+	mod_type = /obj/item/mod/control/pre_equipped/moonlight
+	storage_type = /obj/item/tank/internals/oxygen/red
+
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy
+	mask_type = /obj/item/clothing/mask/gas/breach
+	mod_type = /obj/item/mod/control/pre_equipped/orbiter
 	storage_type = /obj/item/tank/internals/oxygen/yellow
