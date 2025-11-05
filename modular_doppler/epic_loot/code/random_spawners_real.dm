@@ -436,7 +436,6 @@
 		/obj/item/stack/sheet/mineral/plasma/five = 2,
 		// Flatpack machines
 		/obj/item/flatpacked_machine = 1,
-		/obj/item/flatpacked_machine/airlock_kit = 2,
 		/obj/item/flatpacked_machine/airlock_kit_manual = 2,
 		/obj/item/flatpacked_machine/arc_furnace = 1,
 		/obj/item/flatpacked_machine/co2_cracker = 2,
@@ -452,7 +451,6 @@
 		/obj/item/flatpacked_machine/organics_ration_printer = 2,
 		/obj/item/flatpacked_machine/recycler = 2,
 		/obj/item/flatpacked_machine/rtg = 2,
-		/obj/item/flatpacked_machine/shutter_kit = 1,
 		/obj/item/flatpacked_machine/station_battery = 1,
 		/obj/item/flatpacked_machine/stirling_generator = 1,
 		/obj/item/flatpacked_machine/sustenance_machine = 2,

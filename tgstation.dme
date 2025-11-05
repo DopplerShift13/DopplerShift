@@ -6865,7 +6865,6 @@
 #include "modular_doppler\colony_fabricator\code\appliances\kitchen_appliances\kitchenaid.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\kitchen_appliances\macrowave.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\kitchen_appliances\range.dm"
-#include "modular_doppler\colony_fabricator\code\construction\doors.dm"
 #include "modular_doppler\colony_fabricator\code\construction\manual_door.dm"
 #include "modular_doppler\colony_fabricator\code\construction\turfs.dm"
 #include "modular_doppler\colony_fabricator\code\design_datums\appliances.dm"

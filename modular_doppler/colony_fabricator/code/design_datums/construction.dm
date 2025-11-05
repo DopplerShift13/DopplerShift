@@ -9,9 +9,7 @@
 	display_name = "Colony Fabricator Structure Designs"
 	description = "Contains all of the colony fabricator's structure designs."
 	design_ids = list(
-		"prefab_airlock_kit",
 		"prefab_manual_airlock_kit",
-		"prefab_shutters_kit",
 		"prefab_floor_tile",
 		"prefab_cat_floor_tile",
 		"colony_fab_plastic_wall_panel",
@@ -21,32 +19,16 @@
 	show_on_wiki = FALSE
 	starting_node = TRUE
 
-// Airlock kit
-
-/datum/design/prefab_airlock_kit
-	name = "Prefab Airlock"
-	id = "prefab_airlock_kit"
-	build_type = COLONY_FABRICATOR
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
-	)
-	build_path = /obj/item/flatpacked_machine/airlock_kit
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
-	)
-	construction_time = 10 SECONDS
-
 // Manul Airlock kit
 
 /datum/design/prefab_manual_airlock_kit
-	name = "Prefab Manual Airlock"
+	name = "Manual Airlock Kit"
 	id = "prefab_manual_airlock_kit"
 	build_type = COLONY_FABRICATOR
 	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1,
 	)
 	build_path = /obj/item/flatpacked_machine/airlock_kit_manual
 	category = list(
@@ -55,27 +37,10 @@
 	)
 	construction_time = 5 SECONDS
 
-// Shutters kit
-
-/datum/design/prefab_shutters_kit
-	name = "Prefab Shutters"
-	id = "prefab_shutters_kit"
-	build_type = COLONY_FABRICATOR
-	materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
-	)
-	build_path = /obj/item/flatpacked_machine/shutter_kit
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
-	)
-	construction_time = 10 SECONDS
-
 // Fancy floor tiles
 
 /datum/design/prefab_floor_tile
-	name = "Prefab Floor Tile"
+	name = "High-Strength Plastic Floor Tile"
 	id = "prefab_floor_tile"
 	build_type = COLONY_FABRICATOR
 	materials = list(
@@ -91,7 +56,7 @@
 // Fancy catwalk floor tiles
 
 /datum/design/prefab_cat_floor_tile
-	name = "Prefab Catwalk Plating"
+	name = "Catwalk Plating"
 	id = "prefab_cat_floor_tile"
 	build_type = COLONY_FABRICATOR
 	materials = list(
@@ -104,15 +69,14 @@
 	)
 	construction_time = 0.5 SECONDS
 
-// Plastic wall panels, twice the wall for the same price in plastic, efficient!
-
 /datum/design/colony_fab_plastic_wall_panel
-	name = "Plastic Paneling"
+	name = "LDSPPE Plastic Paneling"
 	id = "colony_fab_plastic_wall_panel"
 	build_type = COLONY_FABRICATOR
 	materials = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = SMALL_MATERIAL_AMOUNT,
 	)
 	build_path = /obj/item/stack/sheet/plastic_wall_panel
 	category = list(

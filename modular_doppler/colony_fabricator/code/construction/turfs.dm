@@ -1,36 +1,37 @@
 // Plastic panel walls, how colony of you
 
 /turf/closed/wall/prefab_plastic
-	name = "prefabricated wall"
-	desc = "A conservatively built metal frame with plastic paneling covering a thin air-seal layer. \
-		It's a little unnerving, but it's better than nothing at all."
+	name = "high-strength plastic wall"
+	desc = "A solid made of an air-tight middle layer protected by multiple panels of \
+		strong plasma-based plastics on both sides. Despite it's strength, the walls are easy \
+		to take apart when needed."
 	icon = 'modular_doppler/colony_fabricator/icons/prefab_wall.dmi'
-	icon_state = "prefab-0"
-	base_icon_state = "prefab"
+	icon_state = "prefab_wall-0"
+	base_icon_state = "prefab_wall"
 	can_engrave = FALSE
 	girder_type = null
 	hardness = 70
-	slicing_duration = 5 SECONDS
+	slicing_duration = 3 SECONDS
 	sheet_type = /obj/item/stack/sheet/plastic_wall_panel
 	sheet_amount = 1
 
 GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
-	new/datum/stack_recipe("prefabricated wall", /turf/closed/wall/prefab_plastic, time = 3 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
-	new/datum/stack_recipe("prefabricated window", /obj/structure/window/fulltile/colony_fabricator, time = 1 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ON_SOLID_GROUND | CRAFT_CHECK_DIRECTION | CRAFT_IS_FULLTILE, category = CAT_WINDOWS), \
+	new/datum/stack_recipe("prefabricated wall", /turf/closed/wall/prefab_plastic, time = 2 SECONDS,  crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
 	))
 
 /obj/item/stack/sheet/plastic_wall_panel
-	name = "plastic panels"
-	singular_name = "plastic panel"
-	desc = "What better material to make the walls of your soon to be home out of than sheets of flimsy plastic? \
-		Metal? What are you talking about, metal walls, in this economy? May also be used to make structures other \
-		than walls."
+	name = "LDSPPE plastic panels"
+	singular_name = "LDSPPE plastic panel"
+	desc = "A strong plastic with a chemical chain that would make even bio-chemists dizzy. \
+		Widely known among the frontier for it's common use as wall and floor panels, better known \
+		in the online block game community for it's terrifying production chain." // gregtech reference, in MY ss13?
 	icon = 'modular_doppler/colony_fabricator/icons/tiles_item.dmi'
 	icon_state = "sheet-plastic"
 	inhand_icon_state = "sheet-plastic"
 	mats_per_unit = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/plasma = SMALL_MATERIAL_AMOUNT,
 	)
 	has_unique_girder = TRUE
 	material_type = /datum/material/plastic
@@ -86,9 +87,9 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	tile_reskin_types = null
 
 /obj/item/stack/tile/iron/colony
-	name = "prefab floor tiles"
-	singular_name = "prefab floor tile"
-	desc = "A stack of large floor tiles that are a common sight in frontier colonies and prefab buildings."
+	name = "high-strength plastic floor tiles"
+	singular_name = "high-strength plastic floor tile"
+	desc = "A stack of large floor tiles of a high-strength plasma plastic, perfect for spilling on and having to clean later."
 	icon = 'modular_doppler/colony_fabricator/icons/tiles_item.dmi'
 	icon_state = "colony_grey"
 	turf_type = /turf/open/floor/iron/colony
