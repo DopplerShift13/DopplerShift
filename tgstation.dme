@@ -6868,7 +6868,6 @@
 #include "modular_doppler\colony_fabricator\code\construction\doors.dm"
 #include "modular_doppler\colony_fabricator\code\construction\manual_door.dm"
 #include "modular_doppler\colony_fabricator\code\construction\turfs.dm"
-#include "modular_doppler\colony_fabricator\code\construction\windows.dm"
 #include "modular_doppler\colony_fabricator\code\design_datums\appliances.dm"
 #include "modular_doppler\colony_fabricator\code\design_datums\construction.dm"
 #include "modular_doppler\colony_fabricator\code\design_datums\equipment.dm"
