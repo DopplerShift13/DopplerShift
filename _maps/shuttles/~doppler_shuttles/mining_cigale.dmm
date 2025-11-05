@@ -1,4 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ad" = (
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/mining_hub)
 "ar" = (
 /obj/effect/turf_decal/delivery/white,
 /obj/machinery/door/airlock/external,
@@ -179,10 +184,12 @@
 /obj/effect/mapping_helpers/apc/unlocked,
 /obj/effect/mapping_helpers/apc/cell_10k,
 /obj/structure/shelf,
-/obj/item/mecha_parts/mecha_equipment/thrusters/gas,
 /obj/item/mining_scanner,
 /obj/item/pickaxe/drill,
 /obj/effect/turf_decal/bot_white,
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp,
+/obj/item/mecha_parts/mecha_equipment/mining_scanner,
+/obj/item/mecha_parts/mecha_equipment/drill,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mining_hub)
 "kO" = (
@@ -1036,7 +1043,7 @@ cu
 ZH
 YG
 tU
-DJ
+ad
 AT
 bN
 mY

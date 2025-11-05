@@ -60,6 +60,7 @@
 /obj/effect/turf_decal/bot_white,
 /obj/structure/closet/crate/preopen,
 /obj/effect/spawner/random/maintenance/no_decals,
+/obj/structure/extinguisher_cabinet/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/house_boat)
 "oO" = (
