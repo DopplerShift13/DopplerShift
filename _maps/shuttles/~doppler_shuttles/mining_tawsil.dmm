@@ -225,6 +225,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/landmark/ship_captain_spawner,
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/small_cargo)
 "rx" = (

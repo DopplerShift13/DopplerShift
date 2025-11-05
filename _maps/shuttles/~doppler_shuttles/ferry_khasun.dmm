@@ -160,8 +160,7 @@
 /obj/effect/turf_decal/box/white/corners{
 	dir = 8
 	},
-/obj/structure/shelf,
-/obj/effect/spawner/random/maintenance/no_decals,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "kS" = (
@@ -229,6 +228,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/landmark/ship_captain_spawner,
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "rx" = (
