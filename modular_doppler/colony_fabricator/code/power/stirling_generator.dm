@@ -1,29 +1,40 @@
-// Stirling generator, like a miniature TEG, pipe hot air in, and keep the air around it cold
+/obj/item/circuitboard/machine/plasma_mini_turbine
+	name = "Plasma Micro-Turbine"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/power/rtg/portable
+	needs_anchored = FALSE
+	req_components = list(
+		/datum/stock_part/capacitor = 1,
+		/datum/stock_part/servo = 2,
+		/obj/item/stack/sheet/mineral/titanium = 2,
+		/obj/item/stack/cable_coil = 5,
+	)
+
+// Plasma microturbine, pump in specifically gaseous plasma which will be consumed in small amounts to make a lot of power
 /obj/machinery/power/stirling_generator
-	name = "stirling generator"
-	desc = "An industrial scale stirling generator. Stirling generators operate by intaking \
-		hot gasses through their inlet pipes, and being cooled by the ambient air around them. \
-		The cycling compression and expansion caused by this creates power, and this one is made \
-		to make power on the scale of small stations and outposts."
+	name = "plasma micro-turbine"
+	desc = "A compact turbine engine that consumes small amounts of plasma gas in order to produce a large \
+		amount of power, in exchange for outputting a waste gas from the process out at freezing temperatures. \
+		You should absolutely not stick your hand into the exposed fan blades out of the top."
 	icon = 'modular_doppler/colony_fabricator/icons/stirling_generator/big_generator.dmi'
 	icon_state = "stirling"
 	density = TRUE
 	use_power = NO_POWER_USE
-	circuit = null
+	circuit = /obj/item/circuitboard/machine/plasma_mini_turbine
 	max_integrity = 300
 	armor_type = /datum/armor/unary_thermomachine
 	set_dir_on_move = FALSE
 	can_change_cable_layer = TRUE
 	/// Reference to the datum connector we're using to interface with the pipe network
 	var/datum/gas_machine_connector/connected_chamber
-	/// Maximum efficient heat difference, at what heat difference does more difference stop meaning anything for power?
-	var/max_efficient_heat_difference = 6000
 	/// Maximum power output from this machine
-	var/max_power_output = 100 KILO WATTS
+	var/max_power_output = 50 KILO WATTS
 	/// How much power the generator is currently making
 	var/current_power_generation
 	/// Our looping fan sound that we play when turned on
 	var/datum/looping_sound/ore_thumper_fan/soundloop
+	/// What power level are we working at, multiplies fuel usage
+	var/power_level = 1
 
 /obj/machinery/power/stirling_generator/Initialize(mapload)
 	. = ..()
@@ -37,13 +48,21 @@
 /obj/machinery/power/stirling_generator/examine(mob/user)
 	. = ..()
 	. += span_notice("You can use a <b>wrench</b> with <b>Left-Click</b> to rotate the generator.")
-	. += span_notice("It will not work in a <b>vacuum</b> as it must be cooled by the gas around it.")
+	. += span_notice("It needs <b>plasma gas</b> through it's input pipe in order to work.")
+	. += span_notice("It will output <b>freezing helium</b> while running, which needs to be dealt with.")
 	. += span_notice("It is currently generating <b>[display_power(current_power_generation, convert = FALSE)]</b> of power.")
-	. += span_notice("It has a maximum power output of <b>[display_power(max_power_output, convert = FALSE)]</b> at a temperature difference of <b>[max_efficient_heat_difference] K</b>.")
 
 /obj/machinery/power/stirling_generator/Destroy()
 	QDEL_NULL(connected_chamber)
 	return ..()
+
+/obj/machinery/power/stirling_generator/RefreshParts()
+	. = ..()
+	max_power_output = initial(max_power_output)
+	power_level = 1
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		power_level = capacitor.tier
+		max_power_output *= (capacitor.tier / 2)
 
 /obj/machinery/power/stirling_generator/process_atmos()
 	if(!powernet)
@@ -51,26 +70,25 @@
 		if(!powernet)
 			return
 	var/turf/our_turf = get_turf(src)
-	var/datum/gas_mixture/hot_air_from_pipe = connected_chamber.gas_connector.airs[1]
-	var/datum/gas_mixture/environment = our_turf.return_air()
-	if(!QUANTIZE(hot_air_from_pipe.total_moles()) || !QUANTIZE(environment.total_moles())) //Don't transfer if there's no gas
-		return
-	var/gas_temperature_delta = hot_air_from_pipe.temperature - environment.temperature
-	if(!(gas_temperature_delta > 0))
+	var/datum/gas_mixture/plasma_inlet = connected_chamber.gas_connector.airs[1]
+	if(!QUANTIZE(plasma_inlet.total_moles())) //Don't transfer if there's no gas
 		current_power_generation = 0
 		return
-	/// Takes the amount of heat moved, and divides it by the maximum temperature difference we expect, creating a number to divide power generation by
-	var/effective_energy_transfer = round((max_efficient_heat_difference / min(gas_temperature_delta, max_efficient_heat_difference)), 0.01)
-	current_power_generation = round(max_power_output / effective_energy_transfer)
+	if(!plasma_inlet.has_gas(/datum/gas/plasma, 2 * power_level))
+		current_power_generation = 0
+		return
+	plasma_inlet.remove_specific(/datum/gas/plasma, 1 * power_level)
+	var/turf/where_we_spawn_air = get_turf(src)
+	where_we_spawn_air.atmos_spawn_air("helium=[1 * power_level];TEMP=193")
+	current_power_generation = max_power_output
 
 /obj/machinery/power/stirling_generator/process()
-	var/power_output = round(current_power_generation)
-	add_avail(power_to_energy(power_output))
-	var/new_icon_state = (power_output ? "stirling_on" : "stirling")
+	add_avail(power_to_energy(current_power_generation))
+	var/new_icon_state = (current_power_generation ? "stirling_on" : "stirling")
 	icon_state = new_icon_state
-	if(soundloop.is_active() && !power_output)
+	if(soundloop.is_active() && !current_power_generation)
 		soundloop.stop()
-	else if(!soundloop.is_active() && power_output)
+	else if(!soundloop.is_active() && current_power_generation)
 		soundloop.start()
 
 /obj/machinery/power/stirling_generator/wrench_act(mob/living/user, obj/item/tool)
@@ -88,18 +106,3 @@
 /obj/machinery/power/stirling_generator/Destroy()
 	QDEL_NULL(connected_chamber)
 	return ..()
-
-// Item for creating stirling generators
-/obj/item/flatpacked_machine/stirling_generator
-	name = "flat-packed stirling generator"
-	desc = /obj/machinery/power/stirling_generator::desc
-	icon = 'modular_doppler/colony_fabricator/icons/stirling_generator/packed_machines.dmi'
-	icon_state = "stirling"
-	type_to_deploy = /obj/machinery/power/stirling_generator
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 15,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/plasma = SHEET_MATERIAL_AMOUNT * 10,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 5,
-	)

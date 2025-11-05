@@ -1,5 +1,15 @@
+/obj/item/circuitboard/machine/colony_generator
+	name = "SOFIE-Type Portable Generator"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/power/rtg/portable
+	needs_anchored = FALSE
+	req_components = list(
+		/datum/stock_part/capacitor = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
+
 /obj/machinery/power/port_gen/pacman/solid_fuel
-	name = "\improper S.O.F.I.E.-type portable generator"
+	name = "\improper SOFIE-type portable generator"
 	desc = "The second most common generator design in the galaxy, second only to the P.A.C.M.A.N. \
 		The S.O.F.I.E. (Stationary Operating Fuel Ignition Engine) is similar to other generators in \
 		burning sheets of plasma in order to produce power. \
@@ -10,7 +20,7 @@
 	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "fuel_generator_0"
 	base_icon_state = "fuel_generator"
-	circuit = null
+	circuit = /obj/item/circuitboard/machine/colony_generator
 	anchored = TRUE
 	max_sheets = 25
 	time_per_sheet = parent_type::time_per_sheet * (5 / 3) //66.6% better
@@ -22,7 +32,6 @@
 	. = ..()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
-// We don't need to worry about the board, this machine doesn't have one!
 /obj/machinery/power/port_gen/pacman/solid_fuel/on_construction(mob/user, from_flatpack)
 	return
 
@@ -30,18 +39,4 @@
 	. = ..()
 	if(active)
 		var/turf/where_we_spawn_air = get_turf(src)
-		where_we_spawn_air.atmos_spawn_air("co2=10;TEMP=480") // Standard UK diesel engine operating temp is about 220 celsius or ~473 K
-
-// Item for creating the generator or carrying it around
-
-/obj/item/flatpacked_machine/fuel_generator
-	name = "flat-packed S.O.F.I.E.-type portable generator"
-	desc = /obj/machinery/power/port_gen/pacman/solid_fuel::desc
-	icon_state = "fuel_generator_packed"
-	type_to_deploy = /obj/machinery/power/port_gen/pacman/solid_fuel
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
-		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
-	)
+		where_we_spawn_air.atmos_spawn_air("helium=10;TEMP=480")
