@@ -122,6 +122,7 @@
 	var/turf/our_turf = get_turf(src)
 	our_turf.atmos_spawn_air("[GAS_HYDROGEN]=[40 * power_modifier];[GAS_O2]=[20 * power_modifier];[TURF_TEMPERATURE(FIRE_MINIMUM_TEMPERATURE_TO_EXIST + 50)]")
 	do_sparks(3, FALSE, src)
+	take_damage(max_integrity * 0.8)
 	cut_overlay(sparks)
 	set_light(l_on = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(able_to_blow_up_again)), 30 SECONDS) // If it somehow survives it can blow up again later
