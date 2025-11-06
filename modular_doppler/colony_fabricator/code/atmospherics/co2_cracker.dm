@@ -51,13 +51,26 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 
 /datum/cracker_reaction/co2_cracking/react(turf/location, datum/gas_mixture/air_mixture, working_power)
 	var/old_heat_capacity = air_mixture.heat_capacity()
-	air_mixture.assert_gases(/datum/gas/water_vapor, /datum/gas/oxygen)
+	air_mixture.assert_gases(/datum/gas/carbon_dioxide, /datum/gas/oxygen)
 	var/proportion = min(air_mixture.gases[/datum/gas/carbon_dioxide][MOLES] * INVERSE(2), (2.5 * (working_power ** 2)))
 	air_mixture.gases[/datum/gas/carbon_dioxide][MOLES] -= proportion
 	air_mixture.gases[/datum/gas/oxygen][MOLES] += proportion
 	var/new_heat_capacity = air_mixture.heat_capacity()
 	if(new_heat_capacity > MINIMUM_HEAT_CAPACITY)
 		air_mixture.temperature = max(air_mixture.temperature * old_heat_capacity / new_heat_capacity, TCMB)
+
+// Board
+
+/obj/item/circuitboard/machine/co2_cracker
+	name = "CO2 Cracker"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/electrolyzer/co2_cracker
+	req_components = list(
+		/datum/stock_part/servo = 2,
+		/datum/stock_part/capacitor = 2,
+		/obj/item/stack/cable_coil = 5,
+		/obj/item/stack/sheet/glass = 1)
+	needs_anchored = FALSE
 
 // CO2 cracker machine itself
 
@@ -67,8 +80,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 		it takes in nearby gasses and breaks them into different gasses. The big draw of this one? It can crack carbon dioxide \
 		into breathable oxygen. Handy for places where CO2 is all too common, and oxygen is all too hard to find."
 	icon = 'modular_doppler/colony_fabricator/icons/portable_machines.dmi'
-	circuit = null
-	working_power = 1
+	circuit = /obj/item/circuitboard/machine/co2_cracker
 	/// Soundloop for while the thermomachine is turned on
 	var/datum/looping_sound/conditioner_running/soundloop
 	/// What this repacks into
@@ -97,25 +109,5 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 
 	env.garbage_collect()
 
-/obj/machinery/electrolyzer/co2_cracker/RefreshParts()
-	. = ..()
-	working_power = 2
-	efficiency = 1
-
 /obj/machinery/electrolyzer/co2_cracker/crowbar_act(mob/living/user, obj/item/tool)
 	return
-
-// "parts kit" for buying these from cargo
-
-/obj/item/flatpacked_machine/co2_cracker
-	name = "CO2 cracker parts kit"
-	desc = /obj/machinery/electrolyzer/co2_cracker::desc
-	icon = 'modular_doppler/colony_fabricator/icons/parts_kits.dmi'
-	icon_state = "co2_cracker"
-	type_to_deploy = /obj/machinery/electrolyzer/co2_cracker
-	deploy_time = 2 SECONDS
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7.5,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT, // We're gonna pretend plasma is the catalyst for co2 cracking
-	)
