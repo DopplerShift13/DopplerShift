@@ -26,6 +26,18 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
+/datum/design/board/pump/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/scrubber/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/pipe_scrubber/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
 // Turbine Stuff
 
 /datum/design/board/turbine_computer/New()

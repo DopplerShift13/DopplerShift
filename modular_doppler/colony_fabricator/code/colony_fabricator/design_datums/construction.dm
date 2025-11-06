@@ -51,7 +51,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 0.5 SECONDS
+	construction_time = 0.25 SECONDS
 
 // Fancy catwalk floor tiles
 
@@ -67,7 +67,7 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 0.5 SECONDS
+	construction_time = 0.25 SECONDS
 
 /datum/design/colony_fab_plastic_wall_panel
 	name = "LDSPPE Plastic Paneling"
@@ -83,6 +83,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + FABRICATOR_SUBCATEGORY_STRUCTURES,
 	)
-	construction_time = 1 SECONDS
+	construction_time = 0.5 SECONDS
 
 #undef FABRICATOR_SUBCATEGORY_STRUCTURES

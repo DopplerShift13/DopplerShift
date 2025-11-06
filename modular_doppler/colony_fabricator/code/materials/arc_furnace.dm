@@ -6,7 +6,7 @@
 /obj/item/circuitboard/machine/arc_furnace
 	name = "Arc Furnace"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
-	build_path = /obj/machinery/power/rtg/portable
+	build_path = /obj/machinery/arc_furnace
 	needs_anchored = FALSE
 	req_components = list(
 		/obj/item/assembly/igniter = 1,

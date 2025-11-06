@@ -1,4 +1,5 @@
-/obj/item/circuitboard/machine/amenity_autolathe
+/// To be used in the second half of the PR, to not kill ephe nearly as hard
+/* /obj/item/circuitboard/machine/amenity_autolathe
 	name = "Amenity Autolathe"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/autolathe/colony_amenities
@@ -25,4 +26,4 @@
 
 /obj/machinery/autolathe/colony_amenities/finalize_build()
 	. = ..()
-	flick("autolathe_finish_print", src)
+	flick("autolathe_finish_print", src) */
