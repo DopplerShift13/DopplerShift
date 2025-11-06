@@ -1,7 +1,7 @@
 /obj/item/circuitboard/machine/colony_generator
 	name = "SOFIE-Type Portable Generator"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
-	build_path = /obj/machinery/power/rtg/portable
+	build_path = /obj/machinery/power/port_gen/pacman/solid_fuel
 	needs_anchored = FALSE
 	req_components = list(
 		/datum/stock_part/capacitor = 1,

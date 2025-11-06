@@ -1,3 +1,11 @@
+/obj/item/circuitboard/machine/colony_wind_turbine
+	name = "Wind Turbine"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/power/colony_wind_turbine
+	req_components = list(
+		/datum/stock_part/capacitor = 1,
+	)
+
 /obj/machinery/power/colony_wind_turbine
 	name = "miniature wind turbine"
 	desc = "A post with two special-designed vertical turbine blades attached to its sides. \
@@ -38,6 +46,14 @@
 	if(pressure_too_low)
 		. += span_notice("There must be enough atmospheric <b>pressure</b> for the turbine to spin.")
 
+/obj/machinery/power/colony_wind_turbine/RefreshParts()
+	. = ..()
+	regular_power_production = initial(regular_power_production)
+	storm_power_production = initial(storm_power_production)
+	for(var/datum/stock_part/capacitor/capacitor in component_parts)
+		regular_power_production += 1 KILO WATTS * (capacitor.tier - 1)
+		storm_power_production += 1 KILO WATTS * (capacitor.tier - 1)
+
 /obj/machinery/power/colony_wind_turbine/process()
 	var/area/our_current_area = get_area(src)
 	if(!our_current_area.outdoors)
@@ -64,17 +80,3 @@
 	add_avail(power_to_energy(storming_out ? storm_power_production : regular_power_production))
 	var/new_icon_state = (storming_out ? "turbine_storm" : "turbine_normal")
 	icon_state = new_icon_state
-
-// Item for deploying wind turbines
-/obj/item/flatpacked_machine/wind_turbine
-	name = "flat-packed miniature wind turbine"
-	desc = /obj/machinery/power/colony_wind_turbine::desc
-	icon = 'modular_doppler/colony_fabricator/icons/wind_turbine.dmi'
-	icon_state = "turbine_packed"
-	type_to_deploy = /obj/machinery/power/colony_wind_turbine
-	w_class = WEIGHT_CLASS_NORMAL
-	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
-		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
-	)

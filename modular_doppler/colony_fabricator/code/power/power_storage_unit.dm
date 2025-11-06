@@ -34,7 +34,7 @@
 /obj/item/circuitboard/machine/large_battery_pack
 	name = "Large Battery Pack"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
-	build_path = /obj/machinery/power/smes/battery_pack
+	build_path = /obj/machinery/power/smes/battery_pack/large
 	req_components = list(
 		/obj/item/stack/cable_coil = 5,
 		/obj/item/stock_parts/power_store/battery = 3,
