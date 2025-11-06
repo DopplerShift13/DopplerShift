@@ -106,6 +106,7 @@
 	shuttlePortId = "personal_ship_custom"
 	jump_to_ports = list("whiteship_away" = 1, "whiteship_home" = 1, "whiteship_z4" = 1, "whiteship_waystation" = 1, "monestary_dock" = 1)
 	designate_time = 5 SECONDS
+	zlink_range = 1
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought/mothership
 	name = "Mothership Navigation Computer"
