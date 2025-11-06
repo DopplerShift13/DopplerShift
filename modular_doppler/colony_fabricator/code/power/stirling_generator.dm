@@ -69,7 +69,6 @@
 		connect_to_network()
 		if(!powernet)
 			return
-	var/turf/our_turf = get_turf(src)
 	var/datum/gas_mixture/plasma_inlet = connected_chamber.gas_connector.airs[1]
 	if(!QUANTIZE(plasma_inlet.total_moles())) //Don't transfer if there's no gas
 		current_power_generation = 0

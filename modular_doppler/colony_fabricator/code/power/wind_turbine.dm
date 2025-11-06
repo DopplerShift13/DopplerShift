@@ -30,8 +30,6 @@
 	var/pressure_too_low = FALSE
 	/// Minimum external pressure needed to work
 	var/minimum_pressure = 5
-	/// What we undeploy into
-	var/undeploy_type = /obj/item/flatpacked_machine/wind_turbine
 
 /obj/machinery/power/colony_wind_turbine/Initialize(mapload)
 	. = ..()

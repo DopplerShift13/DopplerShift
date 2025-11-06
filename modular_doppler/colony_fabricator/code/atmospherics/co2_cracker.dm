@@ -83,8 +83,6 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	circuit = /obj/item/circuitboard/machine/co2_cracker
 	/// Soundloop for while the thermomachine is turned on
 	var/datum/looping_sound/conditioner_running/soundloop
-	/// What this repacks into
-	var/repacked_type = /obj/item/flatpacked_machine/co2_cracker
 
 /obj/machinery/electrolyzer/co2_cracker/Initialize(mapload)
 	. = ..()
