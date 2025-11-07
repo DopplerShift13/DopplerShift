@@ -32,6 +32,12 @@
 /obj/machinery/chem_dispenser/kitchenaid_stand,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
+"aN" = (
+/obj/machinery/computer/order_console/cook/cantina{
+	dir = 4
+	},
+/turf/open/floor/iron/freezer,
+/area/ruin/space/has_grav/powered)
 "aT" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/syndie_kit/space{
@@ -91,10 +97,17 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
-"cz" = (
-/obj/structure/flora/rock/pile,
-/turf/closed/mineral/random,
+"cs" = (
+/obj/structure/lattice/catwalk,
+/turf/template_noop,
 /area/space)
+"cD" = (
+/obj/machinery/vending/hydronutrients{
+	all_products_free = 1
+	},
+/obj/effect/turf_decal/siding/wood,
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/powered)
 "cP" = (
 /obj/structure/window/spawner/directional/east,
 /obj/machinery/light/dim/directional/north,
@@ -305,6 +318,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
+"gj" = (
+/obj/structure/flora/rock/pile,
+/turf/closed/mineral/random,
+/area/space)
 "gw" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -317,6 +334,15 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/powered)
+"gG" = (
+/obj/machinery/biogenerator/organic_printer{
+	anchored = 1
+	},
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "gN" = (
 /obj/effect/decal/cleanable/dirt,
@@ -362,12 +388,6 @@
 /obj/machinery/fax/cantina,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
-"hD" = (
-/obj/machinery/computer/order_console/cook/cantina{
-	dir = 4
-	},
-/turf/open/floor/iron/freezer,
-/area/ruin/space/has_grav/powered)
 "hH" = (
 /obj/structure/closet/crate/secure/syndicate/gorlex,
 /obj/item/gun/energy/temperature{
@@ -383,15 +403,6 @@
 	pixel_y = -2
 	},
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/powered)
-"hI" = (
-/obj/machinery/biogenerator/organic_printer{
-	anchored = 1
-	},
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "hN" = (
 /obj/machinery/light/small{
@@ -445,18 +456,6 @@
 /area/ruin/space/has_grav/powered)
 "hV" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 8
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/powered)
-"ia" = (
-/obj/structure/table,
-/obj/machinery/biogenerator/foodricator{
-	anchored = 1;
-	pixel_y = 5
-	},
-/obj/machinery/light/dim/directional/south,
-/obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /turf/open/floor/wood/parquet,
@@ -522,13 +521,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
-"jR" = (
-/obj/machinery/vending/hydronutrients{
-	all_products_free = 1
-	},
-/obj/effect/turf_decal/siding/wood,
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/powered)
 "kd" = (
 /obj/machinery/deepfryer,
 /obj/effect/decal/cleanable/dirt,
@@ -592,14 +584,6 @@
 	pixel_y = -7
 	},
 /turf/open/floor/wood/tile,
-/area/ruin/space/has_grav/powered)
-"lo" = (
-/obj/machinery/hydroponics/constructable,
-/obj/machinery/light/dim/directional/north,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "lq" = (
 /obj/structure/closet/firecloset,
@@ -775,13 +759,6 @@
 /obj/item/radio/intercom/cantina/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
-"oe" = (
-/obj/machinery/hydroponics/constructable,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/powered)
 "oo" = (
 /obj/structure/table/wood/poker,
 /obj/item/clothing/glasses/nightmare_vision{
@@ -861,14 +838,6 @@
 /obj/structure/cable,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/powered)
-"pP" = (
-/obj/machinery/hydroponics/constructable,
-/obj/machinery/light/dim/directional/north,
-/obj/effect/turf_decal/siding/wood{
-	dir = 8
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/powered)
 "pS" = (
 /obj/structure/chair/plastic{
 	dir = 4
@@ -915,6 +884,10 @@
 /obj/structure/sign/departments/telecomms/alt/directional/west,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
+"qt" = (
+/obj/structure/flora/rock/style_random,
+/turf/open/misc/asteroid/airless,
+/area/space)
 "qu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -1040,13 +1013,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
-"tK" = (
-/obj/machinery/seed_extractor,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/floor/wood/parquet,
-/area/ruin/space/has_grav/powered)
 "ua" = (
 /obj/structure/table,
 /obj/item/reagent_containers/cup/bucket,
@@ -1061,6 +1027,13 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor,
+/area/ruin/space/has_grav/powered)
+"ud" = (
+/obj/machinery/seed_extractor,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "uh" = (
 /obj/structure/window/reinforced/spawner/directional/north,
@@ -1094,6 +1067,11 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
 /turf/open/floor/plating,
+/area/ruin/space/has_grav/powered)
+"uD" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/recharge_station,
+/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "uS" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1223,6 +1201,14 @@
 /obj/item/reagent_containers/syringe/contraband/saturnx,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/white,
+/area/ruin/space/has_grav/powered)
+"xN" = (
+/obj/machinery/hydroponics/constructable,
+/obj/machinery/light/dim/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 8
+	},
+/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "ye" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1372,10 +1358,12 @@
 	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
-"As" = (
-/obj/structure/flora/rock/style_random,
-/turf/open/misc/asteroid/airless,
-/area/space)
+"An" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
+/area/ruin/space/has_grav/powered)
 "AU" = (
 /obj/structure/closet/secure_closet/freezer/cantina_eggs,
 /turf/open/floor/iron/freezer,
@@ -1413,18 +1401,16 @@
 /turf/open/misc/asteroid/airless,
 /area/space)
 "Bg" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+/obj/structure/table,
+/obj/machinery/biogenerator/foodricator{
+	anchored = 1;
+	pixel_y = 5
+	},
+/obj/machinery/light/dim/directional/south,
+/obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
-/turf/open/floor/wood/tile,
-/area/ruin/space/has_grav/powered)
-"Bh" = (
-/obj/structure/table,
-/obj/machinery/coffeemaker/impressa{
-	pixel_x = 2;
-	pixel_y = 6
-	},
-/turf/open/floor/wood/tile,
+/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "Bw" = (
 /turf/open/floor/iron/white,
@@ -1480,10 +1466,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
-"Co" = (
-/obj/structure/lattice/catwalk,
-/turf/template_noop,
-/area/space)
 "CB" = (
 /obj/structure/rack/wooden,
 /obj/item/weldingtool/hugetank{
@@ -1516,6 +1498,13 @@
 	dir = 10
 	},
 /turf/open/floor/wood/large,
+/area/ruin/space/has_grav/powered)
+"CV" = (
+/obj/machinery/hydroponics/constructable,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "De" = (
 /obj/structure/chair/plastic,
@@ -1679,10 +1668,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/powered)
-"GM" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/turf/open/floor/wood/tile,
-/area/ruin/space/has_grav/powered)
 "GT" = (
 /obj/structure/flora/rock/style_3,
 /turf/open/misc/asteroid/airless,
@@ -1815,6 +1800,14 @@
 	},
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/powered)
+"Ja" = (
+/obj/machinery/biogenerator,
+/obj/machinery/light/dim/directional/south,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/powered)
 "Jp" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/condiment/peppermill{
@@ -1875,6 +1868,12 @@
 	},
 /obj/structure/sign/departments/security/directional/north,
 /turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/powered)
+"Kt" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/powered)
 "KD" = (
 /obj/structure/shelf,
@@ -1937,12 +1936,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/powered)
-"LM" = (
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
-/turf/open/floor/wood/tile,
-/area/ruin/space/has_grav/powered)
 "Mr" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/reinforced,
@@ -1958,6 +1951,10 @@
 "MA" = (
 /turf/open/misc/asteroid/airless,
 /area/space)
+"MB" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/wood/tile,
+/area/ruin/space/has_grav/powered)
 "MK" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/closet/emcloset,
@@ -2105,6 +2102,14 @@
 	},
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/powered)
+"Pn" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock,
+/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
+/obj/effect/mapping_helpers/airlock/cutaiwire,
+/turf/open/floor/wood/tile,
+/area/ruin/space/has_grav/powered)
 "Px" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/wood{
@@ -2135,7 +2140,7 @@
 /obj/structure/table/reinforced/rglass,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/powered)
-"Qm" = (
+"QK" = (
 /obj/machinery/vending/hydroseeds{
 	slogan_delay = 700;
 	all_products_free = 1
@@ -2224,6 +2229,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
+"RV" = (
+/obj/structure/table,
+/obj/machinery/coffeemaker/impressa{
+	pixel_x = 2;
+	pixel_y = 6
+	},
+/turf/open/floor/wood/tile,
+/area/ruin/space/has_grav/powered)
 "Sf" = (
 /obj/structure/dresser,
 /obj/machinery/light/dim/directional/north,
@@ -2271,6 +2284,14 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/powered)
+"SH" = (
+/obj/machinery/hydroponics/constructable,
+/obj/machinery/light/dim/directional/north,
+/obj/effect/turf_decal/siding/wood{
+	dir = 4
+	},
+/turf/open/floor/wood/parquet,
+/area/ruin/space/has_grav/powered)
 "SM" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -2280,7 +2301,7 @@
 	},
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/powered)
-"Tb" = (
+"ST" = (
 /obj/machinery/hydroponics/constructable,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -2313,14 +2334,6 @@
 /obj/machinery/computer/operating,
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/wood/large,
-/area/ruin/space/has_grav/powered)
-"Um" = (
-/obj/machinery/biogenerator,
-/obj/machinery/light/dim/directional/south,
-/obj/effect/turf_decal/siding/wood{
-	dir = 4
-	},
-/turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "Uw" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2553,14 +2566,6 @@
 	},
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
-"ZR" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock,
-/obj/effect/mapping_helpers/airlock/access/all/syndicate/general,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
-/turf/open/floor/wood/tile,
-/area/ruin/space/has_grav/powered)
 "ZY" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/noticeboard/directional/north{
@@ -2687,7 +2692,7 @@ wX
 ng
 MA
 jr
-Co
+cs
 jr
 jr
 Ln
@@ -3049,7 +3054,7 @@ Ov
 ng
 fQ
 AU
-hD
+aN
 ai
 ej
 El
@@ -3102,7 +3107,7 @@ jr
 "}
 (17,1,1) = {"
 MA
-cz
+gj
 YU
 ng
 YQ
@@ -3123,8 +3128,8 @@ KE
 Mr
 ei
 Ip
-Bh
-Ip
+RV
+uD
 Jw
 Ln
 OJ
@@ -3167,7 +3172,7 @@ jr
 jr
 "}
 (19,1,1) = {"
-As
+qt
 MA
 MA
 MA
@@ -3236,11 +3241,11 @@ jr
 YU
 ng
 ng
-lo
-oe
-oe
-tK
-Um
+SH
+CV
+CV
+ud
+Ja
 ng
 ZC
 LF
@@ -3268,13 +3273,13 @@ jr
 (22,1,1) = {"
 YU
 ng
-jR
+cD
 mf
 mf
 mf
-GM
+MB
 DT
-ZR
+Pn
 bi
 gw
 Gl
@@ -3301,12 +3306,12 @@ jr
 (23,1,1) = {"
 MA
 ng
-Qm
+QK
 mf
 mf
 mf
-LM
-Bg
+Kt
+An
 ng
 ua
 LF
@@ -3335,11 +3340,11 @@ jr
 MA
 ng
 ng
-pP
-Tb
-Tb
-hI
-ia
+xN
+ST
+ST
+gG
+Bg
 ng
 eB
 sA
@@ -3366,7 +3371,7 @@ jr
 "}
 (25,1,1) = {"
 jr
-As
+qt
 ng
 Ln
 Ln
