@@ -51,7 +51,7 @@
 
 // Big battery lmfao
 
-/datum/design/battery_pack
+/datum/design/board/battery_pack
 	name = "Battery Pack"
 	desc = "A collection of large power cells wired together inside of a non-conductive box in order to stop people \
 		like you from touching them and electrocuting yourself. You get the general idea that this thing should be kept \
@@ -64,7 +64,7 @@
 		FABRICATOR_CATEGORY_FLATPACK_MACHINES + FABRICATOR_SUBCATEGORY_POWER,
 	)
 
-/datum/design/large_battery_pack
+/datum/design/board/large_battery_pack
 	name = "Large Battery Pack"
 	desc = "A large collection of large power cells wired together inside of a non-conductive box in order to stop people \
 		like you from touching them and electrocuting yourself. This one is much larger than usual, a veritable \
@@ -94,7 +94,7 @@
 
 // PACMAN generator but epic!!
 
-/datum/design/flatpack_solids_generator
+/datum/design/board/flatpack_solids_generator
 	name = "S.O.F.I.E. Generator"
 	desc = "A deployable plasma-burning generator capable of outperforming even upgraded P.A.C.M.A.N. type generators, \
 		at expense of creating hot carbon dioxide exhaust."
