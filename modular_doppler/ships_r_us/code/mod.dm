@@ -16,6 +16,16 @@
 		/obj/item/mod/module/tether,
 	)
 
+/obj/item/mod/control/pre_equipped/moonlight/Initialize(mapload)
+	. = ..()
+	for(var/obj/item/part as anything in get_parts())
+		if(istype(part, /obj/item/clothing/gloves/mod))
+			continue
+		part.bodyshape_icon_files = list(
+			BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
+			BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
+		)
+
 /datum/mod_theme/moonlight
 	name = "moonlight"
 	desc = "A suit with roots deep in spacer culture, no two are identical in construction and each is personalized for it's own user."
@@ -109,6 +119,16 @@
 		/obj/item/mod/module/flashlight,
 		/obj/item/mod/module/tether,
 	)
+
+/obj/item/mod/control/pre_equipped/orbiter/Initialize(mapload)
+	. = ..()
+	for(var/obj/item/part as anything in get_parts())
+		if(istype(part, /obj/item/clothing/gloves/mod))
+			continue
+		part.bodyshape_icon_files = list(
+			BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
+			BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
+		)
 
 /datum/mod_theme/orbiter
 	name = "orbiter"
