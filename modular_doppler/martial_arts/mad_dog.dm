@@ -1,6 +1,6 @@
 #define KICK_COMBO "HH"
 #define BRACED_KICK_COMBO "DHD"
-#define CONSECUTIVE_COMBO "DHH"
+#define CONSECUTIVE_COMBO "HDH"
 
 /datum/martial_art/mad_dog
 	name = "The Mad Dog's Style"
@@ -155,8 +155,6 @@
 	to_chat(attacker, span_danger("You strike [defender]'s abdomen, neck and back consecutively!"))
 	playsound(defender, 'sound/items/weapons/cqchit2.ogg', 50, TRUE, -1)
 	var/obj/item/held_item = defender.get_active_held_item()
-	if(held_item && defender.temporarilyRemoveItemFromInventory(held_item))
-		attacker.put_in_hands(held_item)
 	defender.adjustStaminaLoss(50)
 	defender.apply_damage(25, attacker.get_attack_type())
 	return TRUE
@@ -176,8 +174,6 @@
 		return MARTIAL_ATTACK_INVALID
 
 	var/grab_log_description = "grabbed"
-	attacker.do_attack_animation(defender, ATTACK_EFFECT_PUNCH)
-	playsound(defender, 'sound/items/weapons/punch1.ogg', 25, TRUE, -1)
 	log_combat(attacker, defender, "[grab_log_description] (Mad Dog)")
 	return MARTIAL_ATTACK_INVALID
 
@@ -259,13 +255,13 @@
 		return MARTIAL_ATTACK_SUCCESS
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_DISARM)
-	if(prob(20) && (defender.stat == CONSCIOUS || !defender.IsParalyzed() || attacker.combat_mode))
-		var/obj/item/disarmed_item = defender.get_active_held_item()
-		if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item))
-			attacker.put_in_hands(disarmed_item)
-		else
-			disarmed_item = null
-
+	if(defender.stat == CONSCIOUS || !defender.IsParalyzed() || attacker.combat_mode))
+		if(prob(20))
+			var/obj/item/disarmed_item = defender.get_active_held_item()
+			if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item))
+				attacker.put_in_hands(disarmed_item)
+			else
+				disarmed_item = null
 		defender.visible_message(
 			span_danger("[attacker] strikes [defender]'s jaw with their hand[disarmed_item ? ", disarming [defender.p_them()] of [disarmed_item]" : ""]!"),
 			span_userdanger("[attacker] strikes your jaw,[disarmed_item ? " disarming you of [disarmed_item] and" : ""] leaving you disoriented!"),
@@ -273,25 +269,12 @@
 			COMBAT_MESSAGE_RANGE,
 			attacker,
 		)
-		to_chat(attacker, span_danger("You strike [defender]'s jaw,[disarmed_item ? " disarming [defender.p_them()] of [disarmed_item] and" : ""] leaving [defender.p_them()] disoriented!"))
-		playsound(defender, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
-		defender.set_jitter_if_lower(4 SECONDS)
-		defender.apply_damage(5, attacker.get_attack_type())
-		log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
-		return MARTIAL_ATTACK_SUCCESS
-
-	defender.visible_message(
-		span_danger("[attacker] fails to disarm [defender]!"), \
-		span_userdanger("You're nearly disarmed by [attacker]!"),
-		span_hear("You hear a swoosh!"),
-		COMBAT_MESSAGE_RANGE,
-		attacker,
-	)
-	to_chat(attacker, span_warning("You fail to disarm [defender]!"))
-	playsound(defender, 'sound/items/weapons/punchmiss.ogg', 25, TRUE, -1)
-	log_combat(attacker, defender, "failed to disarm (Mad Dog)")
-	return MARTIAL_ATTACK_FAIL
-
+	to_chat(attacker, span_danger("You strike [defender]'s jaw,[disarmed_item ? " disarming [defender.p_them()] of [disarmed_item] and" : ""] leaving [defender.p_them()] disoriented!"))
+	playsound(defender, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
+	defender.set_jitter_if_lower(4 SECONDS)
+	defender.apply_damage(5, attacker.get_attack_type())
+	log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
+	return MARTIAL_ATTACK_SUCCESS
 
 /mob/living/proc/mad_dog_help()
 	set name = "Remember Your Teachings"
@@ -301,7 +284,7 @@
 	to_chat(usr, "<b><i>You remember the core tenets of The Mad Dog's Style...</i></b>\n\
 	[span_notice("Center Kick")]: Punch Punch. Knocks an opponent away and deals reliable damage.\n\
 	[span_notice("Braced Kick")]: Shove Punch Shove. Sends opponents flying away into walls or other objects, like tables and people.\n\
-	[span_notice("Combo Strike")]: Shove Punch Punch. Primary offensive move, massive damage and some stamina damage.\n\
+	[span_notice("Combo Strike")]: Punch Shove Punch. Primary offensive move, massive damage and some stamina damage.\n\
 	[span_notice("Leaping Dive")]: While on throw mode, right click to perform a leaping dive. This is poor at restraining and tackling targets, but is effective at closing distance.\n\
 	[span_notice("Neck Snap")]: Once you're choking someone, you can target their head and attack to snap their neck in one easy motion.\n\
 	[span_notice("Deflective Palm")]: While on combat mode, you possess an 60% chance to deflect melee attacks, and your shoves have a low chance of disarming your foe.") // inversion of scarp's ranged resistance
