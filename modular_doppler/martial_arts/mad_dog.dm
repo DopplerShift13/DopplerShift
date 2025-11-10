@@ -28,14 +28,14 @@
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!")
 	)
-	tackle_comp = new_holder.AddComponent(/datum/component/tackler,
-		stamina_cost = 10,
-		base_knockdown = 0.2 SECONDS,
-		range = 5,
-		speed = 2,
-		skill_mod = -2, // poor at actually tackling a target
-		min_distance = 2,
-		silent_gain = TRUE
+	tackle_comp = new_holder.AddComponent(/datum/component/tackler, \
+		stamina_cost = 10, \
+		base_knockdown = 0.2 SECONDS, \
+		range = 5, \
+		speed = 2, \
+		skill_mod = -2, \ // poor at actually tackling a target
+		min_distance = 2, \
+		silent_gain = TRUE, \
 	)
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
