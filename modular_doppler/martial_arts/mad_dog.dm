@@ -20,6 +20,7 @@
 /datum/martial_art/mad_dog/activate_style(mob/living/new_holder)
 	. = ..()
 	new_holder.add_traits(mad_dog_traits, MAD_DOG_TRAIT)
+	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
 	new_holder.AddComponent(/datum/component/unbreakable)
 	new_holder.add_stun_absorption(
 		source = name,
@@ -39,8 +40,6 @@
 		min_distance = 2, \
 		silent_gain = TRUE, \
 	)
-	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
-	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
 
 /datum/martial_art/mad_dog/deactivate_style(mob/living/remove_from)
 	remove_from.remove_traits(mad_dog_traits, MAD_DOG_TRAIT)
