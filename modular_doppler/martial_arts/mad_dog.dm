@@ -1,9 +1,9 @@
 #define SLAM_COMBO "GH"
 #define KICK_COMBO "HH"
-#define FLYING_KICK_COMBO "HDH"
+#define FLYING_KICK_COMBO "DDHD"
 #define RESTRAIN_COMBO "GG"
 #define PRESSURE_COMBO "DG"
-#define CONSECUTIVE_COMBO "DHD"
+#define CONSECUTIVE_COMBO "DHH"
 
 /datum/martial_art/mad_dog
 	name = "The Mad Dog's Style"
@@ -11,10 +11,10 @@
 	help_verb = /mob/living/proc/mad_dog_help
 	smashes_tables = TRUE
 	display_combos = TRUE
-	/// Weakref to a mob we're currently restraining (with grab-grab combo)
-	VAR_PRIVATE/datum/weakref/restraining_mob
+	grab_state_modifier = 1
+	grab_damage_modifier = 5
 	/// Probability of successfully blocking attacks
-	var/block_chance = 80
+	var/block_chance = 60
 	/// List of traits applied/taken away on gain/loss; similar to sleeping carp but with a focus on survival instead of supernatural bullet deflection
 	var/list/mad_dog_traits = list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD, TRAIT_HARDLY_WOUNDED, TRAIT_NODISMEMBER, TRAIT_PUSHIMMUNE, TRAIT_NOSOFTCRIT)
 
@@ -29,8 +29,7 @@
 		delete_after_passing_max = FALSE,
 		recharge_time = 20 SECONDS,
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
-		self_message = span_boldwarning("You shrug off the debilitating attack!"),
-		examine_message = span_boldwarning("[new_holder.p_Theyre()] bristling with raw determination! It'd take something painful to slow [new_holder.p_them()] down!")
+		self_message = span_boldwarning("You shrug off the debilitating attack!")
 	)
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
@@ -42,29 +41,10 @@
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
 	return ..()
 
-///Signal from getting attacked with an item, for a special interaction with touch spells
-/datum/martial_art/mad_dog/proc/on_attackby(mob/living/mad_dog_user, obj/item/attack_weapon, mob/attacker, list/modifiers)
-	SIGNAL_HANDLER
-
-	if(!istype(attack_weapon, /obj/item/melee/touch_attack))
-		return
-	if(!can_use(mad_dog_user))
-		return
-	mad_dog_user.visible_message(
-		span_danger("[mad_dog_user] twists [attacker]'s arm, sending their [attack_weapon] back towards them!"),
-		span_userdanger("Making sure to avoid [attacker]'s [attack_weapon], you twist their arm to send it right back at them!"),
-	)
-	var/obj/item/melee/touch_attack/touch_weapon = attack_weapon
-	var/datum/action/cooldown/spell/touch/touch_spell = touch_weapon.spell_which_made_us?.resolve()
-	if(!touch_spell)
-		return
-	INVOKE_ASYNC(touch_spell, TYPE_PROC_REF(/datum/action/cooldown/spell/touch, do_hand_hit), touch_weapon, attacker, attacker)
-	return COMPONENT_NO_AFTERATTACK
-
 /datum/martial_art/mad_dog/proc/check_block(mob/living/mad_dog_user, atom/movable/hitby, damage, attack_text, attack_type, ...)
 	SIGNAL_HANDLER
 
-	if(!can_use(mad_dog_user) || !mad_dog_user.throw_mode || INCAPACITATED_IGNORING(mad_dog_user, INCAPABLE_GRAB))
+	if(!can_use(mad_dog_user) || !mad_dog_user.combat_mode || INCAPACITATED_IGNORING(mad_dog_user, INCAPABLE_GRAB))
 		return NONE
 	if(attack_type == PROJECTILE_ATTACK)
 		return NONE
@@ -74,12 +54,10 @@
 	var/mob/living/attacker = GET_ASSAILANT(hitby)
 	if(istype(attacker) && mad_dog_user.Adjacent(attacker))
 		mad_dog_user.visible_message(
-			span_danger("[mad_dog_user] deflects [attack_text] and twists [attacker]'s arm behind [attacker.p_their()] back!"),
+			span_danger("[mad_dog_user] deflects [attack_text] with [mad_dog_user.p_their()] arm!"),
 			span_userdanger("You deflect [attack_text]!"),
 		)
-		attacker.Stun(3 SECONDS)
-		attacker.painful_scream()
-		playsound(attacker.loc, 'sound/effects/wounds/crack2.ogg', 70, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+		playsound(attacker.loc, 'sound/items/weapons/block_shield.ogg', 70, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 		INVOKE_ASYNC(attacker, TYPE_PROC_REF(/atom, Shake), 1, 0, 0.25 SECONDS)
 	else
 		mad_dog_user.visible_message(
@@ -87,12 +65,6 @@
 			span_userdanger("You block [attack_text]!"),
 		)
 	return SUCCESSFUL_BLOCK
-
-
-/datum/martial_art/mad_dog/reset_streak(mob/living/new_target)
-	if(!IS_WEAKREF_OF(new_target, restraining_mob))
-		restraining_mob = null
-	return ..()
 
 /datum/martial_art/mad_dog/proc/check_streak(mob/living/attacker, mob/living/defender)
 	if(findtext(streak, SLAM_COMBO))
@@ -129,50 +101,27 @@
 	)
 	to_chat(attacker, span_danger("You slam [defender] into the ground!"))
 	playsound(attacker, 'sound/items/weapons/slam.ogg', 50, TRUE, -1)
-	defender.apply_damage(10, BRUTE)
-	defender.Paralyze(10 SECONDS)
+	defender.apply_damage(15, BRUTE)
+	defender.Paralyze(2 SECONDS)
 	log_combat(attacker, defender, "slammed (Mad Dog)")
 	return TRUE
 
 /datum/martial_art/mad_dog/proc/Kick(mob/living/attacker, mob/living/defender)
-	if(defender.stat != CONSCIOUS)
-		return FALSE
-
-	attacker.do_attack_animation(defender)
-	if(defender.body_position == LYING_DOWN && !defender.IsUnconscious() && defender.getStaminaLoss() >= 100)
-		log_combat(attacker, defender, "knocked out (Head kick)(Mad Dog)")
-		defender.visible_message(
-			span_danger("[attacker] kicks [defender]'s head, knocking [defender.p_them()] out!"),
-			span_userdanger("You're knocked unconscious by [attacker]!"),
-			span_hear("You hear a sickening sound of flesh hitting flesh!"),
-			null,
-			attacker,
-		)
-		to_chat(attacker, span_danger("You kick [defender]'s head, knocking [defender.p_them()] out!"))
-		playsound(attacker, 'sound/items/weapons/genhit1.ogg', 50, TRUE, -1)
-
-		var/helmet_protection = defender.run_armor_check(BODY_ZONE_HEAD, MELEE)
-		defender.apply_effect(20 SECONDS, EFFECT_KNOCKDOWN, helmet_protection)
-		defender.apply_effect(10 SECONDS, EFFECT_UNCONSCIOUS, helmet_protection)
-		defender.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15, 150)
-
-	else
-		defender.visible_message(
-			span_danger("[attacker] kicks [defender] back!"),
-			span_userdanger("You're kicked back by [attacker]!"),
-			span_hear("You hear a sickening sound of flesh hitting flesh!"),
-			COMBAT_MESSAGE_RANGE,
-			attacker,
-		)
-		to_chat(attacker, span_danger("You kick [defender] back!"))
-		playsound(attacker, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
-		var/atom/throw_target = get_edge_target_turf(defender, attacker.dir)
-		defender.throw_at(throw_target, 1, 14, attacker)
-		defender.apply_damage(15, attacker.get_attack_type())
-		if(defender.body_position == LYING_DOWN && !defender.IsUnconscious())
-			defender.adjustStaminaLoss(45)
-		log_combat(attacker, defender, "center kicked (Mad Dog)")
-
+	defender.visible_message(
+		span_danger("[attacker] kicks [defender] back!"),
+		span_userdanger("You're kicked back by [attacker]!"),
+		span_hear("You hear a sickening sound of flesh hitting flesh!"),
+		COMBAT_MESSAGE_RANGE,
+		attacker,
+	)
+	to_chat(attacker, span_danger("You kick [defender] back!"))
+	playsound(attacker, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
+	var/atom/throw_target = get_edge_target_turf(defender, attacker.dir)
+	defender.throw_at(throw_target, 2, 14, attacker, gentle = TRUE)
+	defender.apply_damage(15, attacker.get_attack_type())
+	if(defender.body_position == LYING_DOWN && !defender.IsUnconscious())
+		defender.adjustStaminaLoss(15)
+	log_combat(attacker, defender, "center kicked (Mad Dog)")
 	return TRUE
 
 /datum/martial_art/mad_dog/proc/flyingKick(mob/living/attacker, mob/living/defender)
@@ -204,27 +153,6 @@
 	to_chat(attacker, span_danger("You punch [defender]'s neck!"))
 	defender.adjustStaminaLoss(60)
 	playsound(attacker, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
-	return TRUE
-
-/datum/martial_art/mad_dog/proc/Restrain(mob/living/attacker, mob/living/defender)
-	if(restraining_mob?.resolve())
-		return FALSE
-	if(defender.stat != CONSCIOUS)
-		return FALSE
-
-	log_combat(attacker, defender, "restrained (Mad Dog)")
-	defender.visible_message(
-		span_warning("[attacker] locks [defender] into a restraining position!"),
-		span_userdanger("You're locked into a restraining position by [attacker]!"),
-		span_hear("You hear shuffling and a muffled groan!"),
-		null,
-		attacker,
-	)
-	to_chat(attacker, span_danger("You lock [defender] into a restraining position!"))
-	defender.adjustStaminaLoss(20)
-	defender.Stun(10 SECONDS)
-	restraining_mob = WEAKREF(defender)
-	addtimer(VARSET_CALLBACK(src, restraining_mob, null), 5 SECONDS, TIMER_UNIQUE)
 	return TRUE
 
 /datum/martial_art/mad_dog/proc/Consecutive(mob/living/attacker, mob/living/defender)
@@ -285,6 +213,8 @@
 	)
 		var/obj/item/bodypart/head = defender.get_bodypart(BODY_ZONE_HEAD)
 		if(!isnull(head))
+			if(!do_after(user, 10 SECONDS, target = target)) // takes time to do a neck snap
+				return
 			playsound(defender, 'sound/effects/wounds/crack1.ogg', 100)
 			defender.visible_message(
 				span_danger("[attacker] snaps the neck of [defender]!"),
@@ -353,7 +283,7 @@
 		return MARTIAL_ATTACK_SUCCESS
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_DISARM)
-	if(prob(65) && (defender.stat == CONSCIOUS || !defender.IsParalyzed() || !restraining_mob?.resolve()))
+	if(prob(20) && (defender.stat == CONSCIOUS || !defender.IsParalyzed() || mad_dog_user.combat_mode))
 		var/obj/item/disarmed_item = defender.get_active_held_item()
 		if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item))
 			attacker.put_in_hands(disarmed_item)
@@ -394,13 +324,12 @@
 
 	to_chat(usr, "<b><i>You remember the core tenets of The Mad Dog's Style...</i></b>\n\
 	[span_notice("Slam")]: Grab Punch. Slam opponent into the ground, knocking them down.\n\
-	[span_notice("Center Kick")]: Shove Sove. Knocks opponent away. Knocks out stunned opponents and does stamina damage.\n\
-	[span_notice("Flying Kick")]: Punch Shove Punch. Sends opponents flying away into walls or other objects, like tables and people.\n\
-	[span_notice("Restrain")]: Grab Grab. Locks opponents into a restraining position, allowing for deadly table slams or throwing them.\n\
+	[span_notice("Center Kick")]: Punch Punch. Knocks an opponent away and deals reliable damage.\n\
+	[span_notice("Flying Kick")]: Shove Shove Punch Shove. Sends opponents flying away into walls or other objects, like tables and people.\n\
 	[span_notice("Neck Snap")]: Once you're choking someone, you can target their head and attack to snap their neck in one easy motion.\n\
 	[span_notice("Pressure")]: Shove Grab. Decent stamina damage.\n\
-	[span_notice("Combo Strike")]: Shove Punch Shove. Mainly offensive move, huge damage and decent stamina damage.\n\
-	[span_notice("Deflective Palm")]: While on throw mode, you possess an 80% chance to block and counter attacks done to you, so long as you are able to fight.")
+	[span_notice("Combo Strike")]: Shove Punch Punch. Primary offensive move, huge damage and okay stamina damage.\n\
+	[span_notice("Deflective Palm")]: While on combat mode, you possess an 60% chance to deflect melee attacks, and your shoves have a low chance of disarming your foe.") // inversion of scarp's ranged resistance
 
 	to_chat(usr, "<b><i>Furthermore, you will only fall when entering hardcrit, will occasionally heal when extremely close to death, and can absorb stuns up to a limit, after which you must wait 20 seconds before absorbing more.</i></b>")
 
