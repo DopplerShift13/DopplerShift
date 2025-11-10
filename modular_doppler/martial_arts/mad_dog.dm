@@ -9,7 +9,7 @@
 	smashes_tables = TRUE
 	display_combos = TRUE
 	grab_state_modifier = 1
-	grab_damage_modifier = 10
+	grab_damage_modifier = 5
 	/// Probability of successfully blocking attacks
 	var/block_chance = 60
 	/// List of traits applied/taken away on gain/loss; similar to sleeping carp but with a focus on survival instead of supernatural bullet deflection
@@ -29,13 +29,14 @@
 		self_message = span_boldwarning("You shrug off the debilitating attack!")
 	)
 	tackle_comp = new_holder.AddComponent(/datum/component/tackler, \
-		stamina_cost = 10, \
-		base_knockdown = 0.2 SECONDS, \
-		range = 5, \
-		speed = 2, \
-		skill_mod = -2, \ // poor at actually tackling a target
-		min_distance = 2, \
-		silent_gain = TRUE, \
+		stamina_cost = 10,
+		base_knockdown = 0.2 SECONDS,
+		range = 5,
+		speed = 2,
+		skill_mod = -2, // poor at actually tackling a target
+		min_distance = 2,
+		silent_gain = TRUE
+	)
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
 
