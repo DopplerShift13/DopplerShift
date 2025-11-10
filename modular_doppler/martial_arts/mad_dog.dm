@@ -14,6 +14,8 @@
 	var/block_chance = 60
 	/// List of traits applied/taken away on gain/loss; similar to sleeping carp but with a focus on survival instead of supernatural bullet deflection
 	var/list/mad_dog_traits = list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD, TRAIT_HARDLY_WOUNDED, TRAIT_NODISMEMBER, TRAIT_PUSHIMMUNE, TRAIT_NOSOFTCRIT)
+	/// Component reference for tackling
+	var/datum/component/tackler/tackle_comp
 
 /datum/martial_art/mad_dog/activate_style(mob/living/new_holder)
 	. = ..()
@@ -36,7 +38,7 @@
 		skill_mod = -2, \
 		min_distance = 2, \
 		silent_gain = TRUE, \
-	) // poor at actually tackling a target
+	)
 	RegisterSignal(new_holder, COMSIG_ATOM_ATTACKBY, PROC_REF(on_attackby))
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
 
@@ -188,7 +190,7 @@
 	)
 		var/obj/item/bodypart/head = defender.get_bodypart(BODY_ZONE_HEAD)
 		if(!isnull(head))
-			if(!do_after(user, 10 SECONDS, target = target)) // takes time to do a neck snap
+			if(!do_after(attacker, 10 SECONDS, target = defender)) // takes time to do a neck snap
 				return
 			playsound(defender, 'sound/effects/wounds/crack1.ogg', 100)
 			defender.visible_message(
@@ -258,7 +260,7 @@
 		return MARTIAL_ATTACK_SUCCESS
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_DISARM)
-	if(prob(20) && (defender.stat == CONSCIOUS || !defender.IsParalyzed() || mad_dog_user.combat_mode))
+	if(prob(20) && (defender.stat == CONSCIOUS || !defender.IsParalyzed() || attacker.combat_mode))
 		var/obj/item/disarmed_item = defender.get_active_held_item()
 		if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item))
 			attacker.put_in_hands(disarmed_item)
