@@ -26,13 +26,13 @@
 /datum/preference/toggle/horns/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	if(!species_can_access_mutant_customization(species))
 		return FALSE
 	return TRUE
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features[FEATURE_HORNS] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features[FEATURE_HORNS] && can_regenerate_mutant_feature(FEATURE_HORNS))
 		if(target.dna.features[FEATURE_HORNS] != /datum/sprite_accessory/horns/none::name && target.dna.features[FEATURE_HORNS] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/horns)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -49,7 +49,7 @@
 /datum/preference/choiced/lizard_horns/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if(!species_can_access_mutant_customization(species))
 		return FALSE
 	var/has_horns = preferences.read_preference(/datum/preference/toggle/horns)
 	if(has_horns == TRUE)

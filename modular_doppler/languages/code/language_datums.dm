@@ -7,6 +7,7 @@
 	langs += /datum/language/slime
 	langs += /datum/language/primitive_genemod
 	langs += /datum/language/nambuni
+	langs += /datum/language/schechi
 	return langs
 
 /// ACTUAL LANGUAGES BEGIN HERE
