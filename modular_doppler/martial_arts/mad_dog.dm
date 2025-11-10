@@ -28,7 +28,7 @@
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!")
 	)
-	tackle_comp = new_holder.AddComponent(/datum/component/tackler, \
+	tackle_comp = new_holder.AddComponent(/datum/component/tackler,
 		stamina_cost = 10,
 		base_knockdown = 0.2 SECONDS,
 		range = 5,
