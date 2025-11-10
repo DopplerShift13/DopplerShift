@@ -37,7 +37,7 @@
 	remove_from.remove_stun_absorption(name)
 	QDEL_NULL(tackle_comp)
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
-	UnregisterSignal(remove_from, list(COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
+	UnregisterSignal(remove_from, list(COMSIG_MOVABLE_MOVED)
 	return ..()
 
 /datum/martial_art/mad_dog/proc/check_block(mob/living/mad_dog_user, atom/movable/hitby, damage, attack_text, attack_type, ...)
