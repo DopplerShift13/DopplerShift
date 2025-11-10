@@ -11,16 +11,15 @@
 	grab_state_modifier = 1
 	grab_damage_modifier = 5
 	/// Probability of successfully blocking attacks
-	var/block_chance = 60
+	var/block_chance = 40
 	/// List of traits applied/taken away on gain/loss; similar to sleeping carp but with a focus on survival instead of supernatural bullet deflection
 	var/list/mad_dog_traits = list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD, TRAIT_HARDLY_WOUNDED, TRAIT_NODISMEMBER, TRAIT_PUSHIMMUNE, TRAIT_NOSOFTCRIT)
-	/// Component reference for tackling
-	var/datum/component/tackler/tackle_comp
 
 /datum/martial_art/mad_dog/activate_style(mob/living/new_holder)
 	. = ..()
 	new_holder.add_traits(mad_dog_traits, MAD_DOG_TRAIT)
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
+	RegisterSignal(our_guy, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	new_holder.AddComponent(/datum/component/unbreakable)
 	new_holder.add_stun_absorption(
 		source = name,
@@ -31,15 +30,6 @@
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!")
 	)
-	tackle_comp = new_holder.AddComponent(/datum/component/tackler, \
-		stamina_cost = 10, \
-		base_knockdown = 0.2 SECONDS, \
-		range = 5, \
-		speed = 2, \
-		skill_mod = -2, \
-		min_distance = 2, \
-		silent_gain = TRUE, \
-	)
 
 /datum/martial_art/mad_dog/deactivate_style(mob/living/remove_from)
 	remove_from.remove_traits(mad_dog_traits, MAD_DOG_TRAIT)
@@ -47,6 +37,7 @@
 	remove_from.remove_stun_absorption(name)
 	QDEL_NULL(tackle_comp)
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
+	UnregisterSignal(remove_from, list(COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	return ..()
 
 /datum/martial_art/mad_dog/proc/check_block(mob/living/mad_dog_user, atom/movable/hitby, damage, attack_text, attack_type, ...)
@@ -56,13 +47,13 @@
 		return NONE
 	if(attack_type == PROJECTILE_ATTACK)
 		return NONE
-	if(!prob(block_chance))
+	if(!prob(block_chance + mad_dog_user.throw_mode * 30)) // 70% chance to block melee with throw mode on, 100% chance if you're holding down throwmode and not hitting any other key
 		return NONE
 
 	var/mob/living/attacker = GET_ASSAILANT(hitby)
 	if(istype(attacker) && mad_dog_user.Adjacent(attacker))
 		mad_dog_user.visible_message(
-			span_danger("[mad_dog_user] deflects [attack_text] with [mad_dog_user.p_their()] arm!"),
+			span_danger("[mad_dog_user] deflects [attack_text] with [mad_dog_user.p_their()] defensive stance!"),
 			span_userdanger("You deflect [attack_text]!"),
 		)
 		playsound(attacker.loc, 'sound/items/weapons/block_shield.ogg', 70, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
@@ -185,7 +176,13 @@
 	)
 		var/obj/item/bodypart/head = defender.get_bodypart(BODY_ZONE_HEAD)
 		if(!isnull(head))
-			if(!do_after(attacker, 10 SECONDS, target = defender)) // takes time to do a neck snap
+			defender.visible_message(
+				span_danger("[attacker] secures their grip around [defender]'s head..."),
+				span_userdanger("[attacker] grabs your head and begins to twist..."),
+				span_hear("You hear a violent struggle..."),
+				ignored_mobs = attacker
+			)
+			if(!do_after(attacker, 8 SECONDS, target = defender)) // takes time to do a neck snap
 				return
 			playsound(defender, 'sound/effects/wounds/crack1.ogg', 100)
 			defender.visible_message(
@@ -194,7 +191,7 @@
 				span_hear("You hear a sickening snap!"),
 				ignored_mobs = attacker
 			)
-			to_chat(attacker, span_danger("In a swift motion, you snap the neck of [defender]!"))
+			to_chat(attacker, span_danger("In a brutal motion, you snap the neck of [defender]!"))
 			log_combat(attacker, defender, "snapped neck")
 			defender.apply_damage(100, BRUTE, BODY_ZONE_HEAD, wound_bonus=CANT_WOUND)
 			if(!HAS_TRAIT(defender, TRAIT_NODEATH))
@@ -276,6 +273,11 @@
 	log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
 	return MARTIAL_ATTACK_SUCCESS
 
+/datum/martial_art/mad_dog/on_movement(mob/living/carbon/user, atom/previous_loc)
+	SIGNAL_HANDLER
+	if(user.combat_mode || user.combat_indicator || !user.IsParalyzed() || user.stat == CONSCIOUS)
+		new /obj/effect/temp_visual/decoy/twitch_afterimage(previous_loc, user)
+
 /mob/living/proc/mad_dog_help()
 	set name = "Remember Your Teachings"
 	set desc = "Recall the core tenets of The Mad Dog's Style."
@@ -283,11 +285,10 @@
 
 	to_chat(usr, "<b><i>You remember the core tenets of The Mad Dog's Style...</i></b>\n\
 	[span_notice("Center Kick")]: Punch Punch. Knocks an opponent away and deals reliable damage.\n\
-	[span_notice("Braced Kick")]: Shove Punch Shove. Sends opponents flying away into walls or other objects, like tables and people.\n\
+	[span_notice("Braced Throw")]: Shove Punch Shove. Sends opponents flying away into walls or other objects, like tables and people.\n\
 	[span_notice("Combo Strike")]: Punch Shove Punch. Primary offensive move, massive damage and some stamina damage.\n\
-	[span_notice("Leaping Dive")]: While on throw mode, right click to perform a leaping dive. This is poor at restraining and tackling targets, but is effective at closing distance.\n\
 	[span_notice("Neck Snap")]: Once you're choking someone, you can target their head and attack to snap their neck in one easy motion.\n\
-	[span_notice("Deflective Palm")]: While on combat mode, you possess an 60% chance to deflect melee attacks, and your shoves have a low chance of disarming your foe.") // inversion of scarp's ranged resistance
+	[span_notice("Deflective Palm")]: While on combat mode, you possess a 40% chance to deflect melee attacks, boosted to 70% on throw mode and 100% while holding down throw mode, and your shoves have a low chance of disarming your foe.") // inversion of scarp's ranged resistance
 
 	to_chat(usr, "<b><i>Furthermore, you will only fall when entering hardcrit, will occasionally heal when extremely close to death, and can absorb stuns up to a limit, after which you must wait 20 seconds before absorbing more.</i></b>")
 
