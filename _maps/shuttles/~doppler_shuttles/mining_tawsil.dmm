@@ -565,7 +565,9 @@
 "Kk" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen/personal_bay_one,
-/obj/structure/holosign/barrier/atmos/sturdy,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/small_cargo)
 "KF" = (
@@ -593,6 +595,12 @@
 /obj/effect/turf_decal/bot_white,
 /obj/structure/secure_safe/directional/north,
 /obj/structure/shelf,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/small_cargo)
+"Lc" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/poddoor/preopen/personal_bay_one,
+/obj/machinery/atmos_shield_gen/active,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/small_cargo)
 "Lq" = (
@@ -1123,7 +1131,7 @@ KF
 KF
 vN
 bU
-Kk
+Lc
 Kk
 bU
 vN
