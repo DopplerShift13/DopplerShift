@@ -1039,10 +1039,10 @@
 /area/ruin/space/has_grav/powered)
 "tt" = (
 /obj/structure/shelf,
-/obj/item/storage/medkit{
+/obj/item/storage/medkit/regular{
 	pixel_y = -4
 	},
-/obj/item/storage/medkit{
+/obj/item/storage/medkit/regular{
 	pixel_y = 2;
 	pixel_x = 1
 	},
