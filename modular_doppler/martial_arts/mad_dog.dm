@@ -10,6 +10,8 @@
 	display_combos = TRUE
 	grab_state_modifier = 1
 	grab_damage_modifier = 5
+	/// Weakref for our stun absorption status effect, to reference the vars it uses
+	var/datum/weakref/stun_absorption_ref
 	/// Probability of successfully blocking attacks
 	var/block_chance = 20
 	/// List of traits applied/taken away on gain/loss; similar to sleeping carp but with a focus on survival instead of supernatural bullet deflection
@@ -30,6 +32,7 @@
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!")
 	)
+	stun_absorption_ref = WEAKREF(stun_absorption)
 
 /datum/martial_art/mad_dog/deactivate_style(mob/living/remove_from)
 	remove_from.remove_traits(mad_dog_traits, MAD_DOG_TRAIT)
@@ -37,6 +40,7 @@
 	remove_from.remove_stun_absorption(name)
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
 	UnregisterSignal(remove_from, list(COMSIG_MOVABLE_MOVED))
+	stun_absorption_ref = null
 	return ..()
 
 /datum/martial_art/mad_dog/proc/check_block(mob/living/mad_dog_user, atom/movable/hitby, damage, attack_text, attack_type, ...)
@@ -256,6 +260,17 @@
 	SIGNAL_HANDLER
 	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS)
 		new /obj/effect/temp_visual/decoy/fading/halfsecond(previous_loc, user)
+
+/datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc)
+	SIGNAL_HANDLER
+	if(!user.combat_mode || !user.combat_indicator || user.IsParalyzed() || !user.stat == CONSCIOUS)
+		return
+	var/datum/status_effect/stun_absorption/stun_absorption = stun_absorption_ref.resolve()
+	if(isnull(stun_absorption))
+		return
+	if(!stun_absorption.can_absorb_stun())
+		return
+	new /obj/effect/temp_visual/decoy/fading/halfsecond(previous_loc, user)
 
 /mob/living/proc/mad_dog_help()
 	set name = "Remember Your Teachings"
