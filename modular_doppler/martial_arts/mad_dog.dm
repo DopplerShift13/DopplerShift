@@ -270,7 +270,7 @@
 		log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
 		return MARTIAL_ATTACK_SUCCESS
 
-/datum/martial_art/mad_dog/on_movement(mob/living/carbon/user, atom/previous_loc)
+/datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc)
 	SIGNAL_HANDLER
 	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS)
 		new /obj/effect/temp_visual/decoy/twitch_afterimage(previous_loc, user)
