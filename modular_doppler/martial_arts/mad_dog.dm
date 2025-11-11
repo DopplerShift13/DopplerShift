@@ -11,7 +11,7 @@
 	grab_state_modifier = 1
 	grab_damage_modifier = 5
 	/// Probability of successfully blocking attacks
-	var/block_chance = 40
+	var/block_chance = 20
 	/// List of traits applied/taken away on gain/loss; similar to sleeping carp but with a focus on survival instead of supernatural bullet deflection
 	var/list/mad_dog_traits = list(TRAIT_NOGUNS, TRAIT_TOSS_GUN_HARD, TRAIT_HARDLY_WOUNDED, TRAIT_NODISMEMBER, TRAIT_PUSHIMMUNE, TRAIT_NOSOFTCRIT)
 
@@ -46,7 +46,7 @@
 		return NONE
 	if(attack_type == PROJECTILE_ATTACK)
 		return NONE
-	if(!prob(block_chance + mad_dog_user.throw_mode * 30)) // 70% chance to block melee with throw mode on, 100% chance if you're holding down throwmode and not hitting any other key
+	if(!prob(block_chance + mad_dog_user.throw_mode * 40)) // 60% chance to block melee with throw mode on, 100% chance if you're holding down throwmode and not hitting any other key
 		return NONE
 
 	var/mob/living/attacker = GET_ASSAILANT(hitby)
@@ -274,7 +274,7 @@
 	[span_notice("Braced Throw")]: Shove Punch Shove. Sends opponents flying away into walls or other objects, like tables and people.\n\
 	[span_notice("Combo Strike")]: Punch Shove Punch. Primary offensive move, massive damage and some stamina damage.\n\
 	[span_notice("Neck Snap")]: Once you're choking someone, you can target their head and attack to snap their neck in one easy motion.\n\
-	[span_notice("Deflective Palm")]: While on combat mode, you possess a 40% chance to deflect melee attacks, boosted to 70% on throw mode and 100% while holding down throw mode, and your shoves have a low chance of disarming your foe.") // inversion of scarp's ranged resistance
+	[span_notice("Deflective Palm")]: While on combat mode, you possess a 20% chance to deflect melee attacks, boosted to 60% on throw mode and 100% while holding down throw mode, and your shoves have a low chance of disarming your foe.") // inversion of scarp's ranged resistance
 
 	to_chat(usr, "<b><i>Furthermore, you will only fall when entering hardcrit, will occasionally heal when extremely close to death, and can absorb stuns up to a limit, after which you must wait 20 seconds before absorbing more.</i></b>")
 
