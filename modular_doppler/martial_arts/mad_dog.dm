@@ -19,7 +19,7 @@
 	. = ..()
 	new_holder.add_traits(mad_dog_traits, MAD_DOG_TRAIT)
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
-	RegisterSignal(new_older, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
+	RegisterSignal(new_holder, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	new_holder.AddComponent(/datum/component/unbreakable)
 	new_holder.add_stun_absorption(
 		source = name,
