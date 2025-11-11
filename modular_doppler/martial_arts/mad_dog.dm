@@ -161,7 +161,7 @@
 				span_hear("You hear a violent struggle..."),
 				ignored_mobs = attacker
 			)
-				to_chat(attacker, span_danger("You carefully secure your grip around [defender]'s head and twist..."))
+			to_chat(attacker, span_danger("You carefully secure your grip around [defender]'s head and twist..."))
 			if(!do_after(attacker, 8 SECONDS, target = defender)) // takes time to do a neck snap
 				return
 			playsound(defender, 'sound/effects/wounds/crack1.ogg', 100)
