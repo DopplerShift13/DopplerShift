@@ -270,10 +270,17 @@
 		log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
 		return MARTIAL_ATTACK_SUCCESS
 
+/obj/effect/temp_visual/decoy/mad_dog_afterimage
+	duration = 0.5 SECONDS
+	/// The color matrix it should be at spawn
+	var/list/matrix_start = list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1, 0,0.1,0.4,0)
+	/// The color matrix it should be by the time it despawns
+	var/list/matrix_end = list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1, 0,0.5,0,0)
+
 /datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc)
 	SIGNAL_HANDLER
 	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS)
-		new /obj/effect/temp_visual/decoy/twitch_afterimage(previous_loc, user)
+		new /obj/effect/temp_visual/decoy/fading/halfsecond(previous_loc, user)
 
 /mob/living/proc/mad_dog_help()
 	set name = "Remember Your Teachings"
