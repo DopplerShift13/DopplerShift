@@ -46,15 +46,19 @@
 	name = "Jackboots"
 	item_path = /obj/item/clothing/shoes/jackboots
 
-/datum/loadout_item/shoes/boots/jackboots/greyscale
+/datum/loadout_item/shoes/boots/jackboots_greyscale
 	name = "Jackboots (Colorable)"
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
+
+/datum/loadout_item/shoes/boots/jackboots_sec
+	name = "Jackboots (Security)"
+	item_path = /obj/item/clothing/shoes/jackboots/sec
 
 /datum/loadout_item/shoes/boots/colonial_boots
 	name = "Colonial Half-boots"
 	item_path = /obj/item/clothing/shoes/jackboots/colonial
 
-/datum/loadout_item/shoes/boots/colonial_boots/greyscale
+/datum/loadout_item/shoes/boots/colonial_boots_greyscale
 	name = "Colonial Half-boots (Colorable)"
 	item_path = /obj/item/clothing/shoes/jackboots/colonial/greyscale
 
@@ -78,7 +82,7 @@
 	name = "Mining Boots"
 	item_path = /obj/item/clothing/shoes/workboots/mining
 
-/datum/loadout_item/shoes/boots/winterboots
+/datum/loadout_item/shoes/boots/winter_boots
 	name = "Winter Boots"
 	item_path = /obj/item/clothing/shoes/winterboots
 
@@ -98,7 +102,7 @@
 	name = "Cowboy Boots (Lizard)"
 	item_path = /obj/item/clothing/shoes/cowboy/lizard
 
-/datum/loadout_item/shoes/boots/pirate
+/datum/loadout_item/shoes/boots/pirate_boots
 	name = "Pirate Boots"
 	item_path = /obj/item/clothing/shoes/pirate
 
@@ -125,7 +129,7 @@
 	name = "Green Lizardskin Shoes"
 	item_path = /obj/item/clothing/shoes/discoshoes
 
-/datum/loadout_item/shoes/other/medical
+/datum/loadout_item/shoes/other/medical_shoes
 	name = "Medical Shoes"
 	item_path = /obj/item/clothing/shoes/medical
 
@@ -133,7 +137,11 @@
 	name = "Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers
 
-/datum/loadout_item/shoes/other/sandal
+/datum/loadout_item/shoes/other/sneakers_white
+	name = "White Sneakers"
+	item_path = /obj/item/clothing/shoes/sneakers/white
+
+/datum/loadout_item/shoes/other/sandals
 	name = "Sandals"
 	item_path = /obj/item/clothing/shoes/sandal
 
@@ -148,6 +156,10 @@
 /datum/loadout_item/shoes/other/sandals_laced_black
 	name = "Sandals (Black, Velcro)"
 	item_path = /obj/item/clothing/shoes/sandal/alt/velcro
+
+/datum/loadout_item/shoes/other/sandals_grill
+	name = "Sandals (Grilling)"
+	item_path = /obj/item/clothing/shoes/cookflops
 
 /**
  * SHIN COVERS
@@ -172,7 +184,7 @@
 	name = "Cloth Footwraps"
 	item_path = /obj/item/clothing/shoes/wraps
 
-/datum/loadout_item/shoes/shins/wraps/leggy
+/datum/loadout_item/shoes/shins/wraps_legs
 	name = "Cloth Legwraps"
 	item_path = /obj/item/clothing/shoes/wraps/leggy
 
@@ -191,7 +203,7 @@
 	name = "Glow Shoes (Colorable)"
 	item_path = /obj/item/clothing/shoes/glow
 
-/datum/loadout_item/shoes/fun/swag
+/datum/loadout_item/shoes/fun/swag_shoes
 	name = "Drip Shoes"
 	item_path = /obj/item/clothing/shoes/swagshoes
 
@@ -199,11 +211,11 @@
 	name = "Wheelys"
 	item_path = /obj/item/clothing/shoes/wheelys
 
-/datum/loadout_item/shoes/fun/rainbowwheelies
+/datum/loadout_item/shoes/fun/rainbow_wheelys
 	name = "Wheelys (Rainbow)"
 	item_path = /obj/item/clothing/shoes/wheelys/rainbow
 
-/datum/loadout_item/shoes/fun/skates
+/datum/loadout_item/shoes/fun/rollerskates
 	name = "Roller Skates"
 	item_path = /obj/item/clothing/shoes/wheelys/rollerskates
 
@@ -216,5 +228,17 @@
 	item_path = /obj/item/clothing/shoes/clown_shoes
 
 /datum/loadout_item/shoes/fun/jester_shoes
-	name = "Jester Shoes"
+	name = "Jester Shoes (Colorable)"
 	item_path = /obj/item/clothing/shoes/jester_shoes
+
+/datum/loadout_item/shoes/fun/jester_shoes_alt
+	name = "Jester Shoes"
+	item_path = /obj/item/clothing/shoes/clown_shoes/jester
+
+/datum/loadout_item/shoes/fun/singery
+	name = "Performer's Shoes (Yellow)"
+	item_path = /obj/item/clothing/shoes/singery
+
+/datum/loadout_item/shoes/fun/singerb
+	name = "Performer's Shoes (Blue)"
+	item_path = /obj/item/clothing/shoes/singerb
