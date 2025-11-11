@@ -23,7 +23,7 @@
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
 	RegisterSignal(new_holder, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	new_holder.AddComponent(/datum/component/unbreakable)
-	new_holder.add_stun_absorption(
+	var/datum/status_effect/stun_absorption/martial_stun_res = new_holder.add_stun_absorption(
 		source = name,
 		priority = 3, // arbitrary
 		max_seconds_of_stuns_blocked = 3 SECONDS, // lock the fuck in
@@ -32,7 +32,7 @@
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
 		self_message = span_boldwarning("You shrug off the debilitating attack!")
 	)
-	stun_absorption_ref = WEAKREF(stun_absorption)
+	stun_absorption_ref = WEAKREF(martial_stun_res)
 
 /datum/martial_art/mad_dog/deactivate_style(mob/living/remove_from)
 	remove_from.remove_traits(mad_dog_traits, MAD_DOG_TRAIT)
@@ -255,11 +255,6 @@
 		defender.apply_damage(5, attacker.get_attack_type())
 		log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
 		return MARTIAL_ATTACK_SUCCESS
-
-/datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc)
-	SIGNAL_HANDLER
-	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS)
-		new /obj/effect/temp_visual/decoy/fading/halfsecond(previous_loc, user)
 
 /datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc)
 	SIGNAL_HANDLER
