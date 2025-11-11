@@ -1,5 +1,5 @@
 #define KICK_COMBO "HH"
-#define BRACED_KICK_COMBO "DHD"
+#define BRACED_THROW_COMBO "DHD"
 #define CONSECUTIVE_COMBO "HDH"
 
 /datum/martial_art/mad_dog
@@ -68,9 +68,9 @@
 	if(findtext(streak, KICK_COMBO))
 		reset_streak()
 		return Kick(attacker, defender)
-	if(findtext(streak, BRACED_KICK_COMBO))
+	if(findtext(streak, BRACED_THROW_COMBO))
 		reset_streak()
-		return braceKick(attacker, defender)
+		return braceThrow(attacker, defender)
 	if(findtext(streak, CONSECUTIVE_COMBO))
 		reset_streak()
 		return Consecutive(attacker, defender)
@@ -94,12 +94,12 @@
 	log_combat(attacker, defender, "center kicked (Mad Dog)")
 	return TRUE
 
-/datum/martial_art/mad_dog/proc/braceKick(mob/living/attacker, mob/living/defender)
+/datum/martial_art/mad_dog/proc/braceThrow(mob/living/attacker, mob/living/defender)
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_KICK)
 	defender.visible_message(
-		span_warning("[attacker] jumps up and kicks [defender] right in the abdomen, sending them flying!"),
-		span_userdanger("You are held still and kicked in the abdomen by [attacker], sending you flying!"),
-		span_hear("You hear the sickening sound of flesh hitting flesh!"),
+		span_warning("[attacker] braces themselves, grabbing [defender] and tossing them with inhuman strength!"),
+		span_userdanger("You are grappled and tossed like a ragdoll by [attacker]!"),
+		span_hear("You hear the sound of a struggle, followed by a crashing noise!"),
 		COMBAT_MESSAGE_RANGE,
 		attacker,
 	)
