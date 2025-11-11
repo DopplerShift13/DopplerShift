@@ -15,6 +15,7 @@
 	//atom_storage.max_slots = 3
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
+// Mining
 /obj/item/storage/belt/mining
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
 	icon_state = "explorer1"
@@ -30,3 +31,18 @@
 /obj/item/storage/belt/mining/primitive
 	icon = 'icons/obj/clothing/belts.dmi'
 	worn_icon = 'icons/mob/clothing/belt.dmi'
+
+// Medical
+/obj/item/storage/belt/medical/green
+	name = "medical belt"
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
+	icon_state = "medbelt"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
+	worn_icon_state = "medbelt"
+
+/obj/item/storage/belt/emt
+	name = "emt belt"
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
+	icon_state = "emtbelt"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
+	worn_icon_state = "emtbelt"

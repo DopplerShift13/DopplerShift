@@ -11,6 +11,13 @@
 		/obj/item/clothing/under/rank/medical/scrubs/skirt = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt/green = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt/purple = 6,
+		/obj/item/storage/backpack/medical = 5,
+		/obj/item/storage/backpack/messenger/medical = 5,
+		/obj/item/storage/backpack/duffelbag/medical = 5,
+		/obj/item/storage/backpack/satchel/medical = 5,
+		/obj/item/storage/backpack/duffelbag/paramed = 5,
+		/obj/item/storage/belt/medical/green = 5,
+		/obj/item/storage/belt/emt = 5,
 	)
 	excluded_products = list(
 		/obj/item/clothing/shoes/sneakers/blue = 4,
@@ -139,11 +146,27 @@
 		/obj/item/clothing/under/rank/medical/chemist/pharmacologist = 2,
 		/obj/item/clothing/under/rank/medical/chemist/pharmacologist/skirt = 2,
 		/obj/item/clothing/head/beret/medical/chemist = 2,
+		/obj/item/storage/backpack/chemistry = 5,
+		/obj/item/storage/backpack/messenger/chemistry = 5,
+		/obj/item/storage/backpack/duffelbag/chemistry = 5,
+		/obj/item/storage/backpack/satchel/chemistry = 5,
 	)
 
 /obj/machinery/vending/wardrobe/viro_wardrobe
 	products_doppler = list(
 		/obj/item/clothing/head/beret/medical/virologist = 2,
+		/obj/item/storage/backpack/virology = 5,
+		/obj/item/storage/backpack/messenger/virology = 5,
+		/obj/item/storage/backpack/duffelbag/virology =5,
+		/obj/item/storage/backpack/satchel/virology = 5,
+	)
+
+/obj/machinery/vending/wardrobe/coroner_wardrobe
+	products_doppler = list(
+		/obj/item/storage/backpack/coroner = 5,
+		/obj/item/storage/backpack/messenger/coroner = 5,
+		/obj/item/storage/backpack/duffelbag/coroner = 5,
+		/obj/item/storage/backpack/satchel/coroner = 5,
 	)
 
 /obj/machinery/vending/wardrobe/det_wardrobe
