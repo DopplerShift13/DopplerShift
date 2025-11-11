@@ -147,8 +147,7 @@
 	if(attacker.body_position == LYING_DOWN)
 		return MARTIAL_ATTACK_INVALID
 
-	var/grab_log_description = "grabbed"
-	log_combat(attacker, defender, "[grab_log_description] (Mad Dog)")
+	log_combat(attacker, defender, "grabbed (Mad Dog)")
 	return MARTIAL_ATTACK_INVALID
 
 /datum/martial_art/mad_dog/harm_act(mob/living/attacker, mob/living/defender)
@@ -256,7 +255,7 @@
 		log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
 		return MARTIAL_ATTACK_SUCCESS
 
-/datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc)
+/datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc) // fading trail effect when in combat with stun res active
 	SIGNAL_HANDLER
 	if(!user.combat_mode || !user.combat_indicator || user.IsParalyzed() || !user.stat == CONSCIOUS)
 		return
