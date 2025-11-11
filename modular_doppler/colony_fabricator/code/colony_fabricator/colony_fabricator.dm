@@ -1,4 +1,4 @@
-/obj/item/circuitboard/machine/autolathe
+/obj/item/circuitboard/machine/colony_lathe
 	name = "Construction Autofab"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/rnd/production/colony_lathe
@@ -15,7 +15,7 @@
 	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "colony_lathe"
 	base_icon_state = "colony_lathe"
-	circuit = /obj/item/circuitboard/machine/autolathe
+	circuit = /obj/item/circuitboard/machine/colony_lathe
 	production_animation = "colony_lathe_working"
 	light_color = LIGHT_COLOR_BRIGHT_YELLOW
 	light_power = 5
