@@ -76,25 +76,6 @@
 		return Consecutive(attacker, defender)
 	return FALSE
 
-/datum/martial_art/mad_dog/proc/Slam(mob/living/attacker, mob/living/defender)
-	if(defender.body_position != STANDING_UP)
-		return FALSE
-
-	attacker.do_attack_animation(defender)
-	defender.visible_message(
-		span_danger("[attacker] slams [defender] into the ground!"),
-		span_userdanger("You're slammed into the ground by [attacker]!"),
-		span_hear("You hear a sickening sound of flesh hitting flesh!"),
-		null,
-		attacker,
-	)
-	to_chat(attacker, span_danger("You slam [defender] into the ground!"))
-	playsound(attacker, 'sound/items/weapons/slam.ogg', 50, TRUE, -1)
-	defender.apply_damage(15, BRUTE)
-	defender.Paralyze(2 SECONDS)
-	log_combat(attacker, defender, "slammed (Mad Dog)")
-	return TRUE
-
 /datum/martial_art/mad_dog/proc/Kick(mob/living/attacker, mob/living/defender)
 	defender.visible_message(
 		span_danger("[attacker] kicks [defender] back!"),
@@ -180,6 +161,7 @@
 				span_hear("You hear a violent struggle..."),
 				ignored_mobs = attacker
 			)
+				to_chat(attacker, span_danger("You carefully secure your grip around [defender]'s head and twist..."))
 			if(!do_after(attacker, 8 SECONDS, target = defender)) // takes time to do a neck snap
 				return
 			playsound(defender, 'sound/effects/wounds/crack1.ogg', 100)
