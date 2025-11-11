@@ -19,7 +19,7 @@
 	. = ..()
 	new_holder.add_traits(mad_dog_traits, MAD_DOG_TRAIT)
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
-	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
+	RegisterSignal(new_older, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	new_holder.AddComponent(/datum/component/unbreakable)
 	new_holder.add_stun_absorption(
 		source = name,
@@ -263,12 +263,12 @@
 			COMBAT_MESSAGE_RANGE,
 			attacker,
 		)
-	to_chat(attacker, span_danger("You strike [defender]'s jaw,[disarmed_item ? " disarming [defender.p_them()] of [disarmed_item] and" : ""] leaving [defender.p_them()] disoriented!"))
-	playsound(defender, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
-	defender.set_jitter_if_lower(4 SECONDS)
-	defender.apply_damage(5, attacker.get_attack_type())
-	log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
-	return MARTIAL_ATTACK_SUCCESS
+		to_chat(attacker, span_danger("You strike [defender]'s jaw,[disarmed_item ? " disarming [defender.p_them()] of [disarmed_item] and" : ""] leaving [defender.p_them()] disoriented!"))
+		playsound(defender, 'sound/items/weapons/cqchit1.ogg', 50, TRUE, -1)
+		defender.set_jitter_if_lower(4 SECONDS)
+		defender.apply_damage(5, attacker.get_attack_type())
+		log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
+		return MARTIAL_ATTACK_SUCCESS
 
 /datum/martial_art/mad_dog/on_movement(mob/living/carbon/user, atom/previous_loc)
 	SIGNAL_HANDLER
