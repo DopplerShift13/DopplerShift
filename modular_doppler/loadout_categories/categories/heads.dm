@@ -61,29 +61,9 @@
 	name = "Beret (Security, Blue)"
 	item_path = /obj/item/clothing/head/beret/sec/navyofficer
 
-/datum/loadout_item/head/hats/engi_beret
-	name = "Beret (Engineering)"
-	item_path = /obj/item/clothing/head/beret/engi
-
-/datum/loadout_item/head/hats/med_beret
-	name = "Beret (Medical)"
-	item_path = /obj/item/clothing/head/beret/medical
-
-/datum/loadout_item/head/hats/paramed_beret
-	name = "Beret (Medical, Paramedic)"
-	item_path = /obj/item/clothing/head/beret/medical/paramedic
-
-/datum/loadout_item/head/hats/sci_beret
-	name = "Beret (Science)"
-	item_path = /obj/item/clothing/head/beret/science/fancy
-
-/datum/loadout_item/head/hats/robo_beret
-	name = "Beret (Science, Robotics)"
-	item_path = /obj/item/clothing/head/beret/science/fancy/robo
-
-/datum/loadout_item/head/hats/cargo_beret
-	name = "Beret (Cargo)"
-	item_path = /obj/item/clothing/head/beret/science
+/datum/loadout_item/head/hats/beret_badge
+	name = "Beret (Colorable, Badge)"
+	item_path = /obj/item/clothing/head/beret/colorable_badge
 
 /datum/loadout_item/head/hats/cowboy_wide_feathered
 	name = "Wide-Brimmed Hat (Feathered)"
