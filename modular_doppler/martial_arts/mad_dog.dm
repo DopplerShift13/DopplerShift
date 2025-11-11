@@ -261,7 +261,7 @@
 
 /datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc)
 	SIGNAL_HANDLER
-	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS)
+	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS && user.stun_absorption(max_seconds_of_stuns_blocked > 0)) // cool afterimage while your stun resistance is active and you're using combat mode & combat indicator
 		new /obj/effect/temp_visual/decoy/fading/halfsecond(previous_loc, user)
 
 /mob/living/proc/mad_dog_help()
