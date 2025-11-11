@@ -19,7 +19,7 @@
 	. = ..()
 	new_holder.add_traits(mad_dog_traits, MAD_DOG_TRAIT)
 	RegisterSignal(new_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
-	RegisterSignal(our_guy, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
+	RegisterSignal(user, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	new_holder.AddComponent(/datum/component/unbreakable)
 	new_holder.add_stun_absorption(
 		source = name,
@@ -35,7 +35,6 @@
 	remove_from.remove_traits(mad_dog_traits, MAD_DOG_TRAIT)
 	remove_from.RemoveComponentSource(REF(src), /datum/component/unbreakable)
 	remove_from.remove_stun_absorption(name)
-	QDEL_NULL(tackle_comp)
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
 	UnregisterSignal(remove_from, list(COMSIG_MOVABLE_MOVED))
 	return ..()
@@ -145,7 +144,6 @@
 	)
 	to_chat(attacker, span_danger("You strike [defender]'s abdomen, neck and back consecutively!"))
 	playsound(defender, 'sound/items/weapons/cqchit2.ogg', 50, TRUE, -1)
-	var/obj/item/held_item = defender.get_active_held_item()
 	defender.adjustStaminaLoss(50)
 	defender.apply_damage(25, attacker.get_attack_type())
 	return TRUE
@@ -252,13 +250,12 @@
 		return MARTIAL_ATTACK_SUCCESS
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_DISARM)
-	if(defender.stat == CONSCIOUS || !defender.IsParalyzed() || attacker.combat_mode)
-		if(prob(20))
-			var/obj/item/disarmed_item = defender.get_active_held_item()
-			if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item))
-				attacker.put_in_hands(disarmed_item)
-			else
-				disarmed_item = null
+	if(defender.stat == CONSCIOUS && !defender.IsParalyzed() && attacker.combat_mode)
+		var/obj/item/disarmed_item = defender.get_active_held_item()
+		if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item) && prob(20))
+			attacker.put_in_hands(disarmed_item)
+		else
+			disarmed_item = null
 		defender.visible_message(
 			span_danger("[attacker] strikes [defender]'s jaw with their hand[disarmed_item ? ", disarming [defender.p_them()] of [disarmed_item]" : ""]!"),
 			span_userdanger("[attacker] strikes your jaw,[disarmed_item ? " disarming you of [disarmed_item] and" : ""] leaving you disoriented!"),
@@ -275,7 +272,7 @@
 
 /datum/martial_art/mad_dog/on_movement(mob/living/carbon/user, atom/previous_loc)
 	SIGNAL_HANDLER
-	if(user.combat_mode || user.combat_indicator || !user.IsParalyzed() || user.stat == CONSCIOUS)
+	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS)
 		new /obj/effect/temp_visual/decoy/twitch_afterimage(previous_loc, user)
 
 /mob/living/proc/mad_dog_help()
