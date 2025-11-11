@@ -24,7 +24,7 @@
 	new_holder.add_stun_absorption(
 		source = name,
 		priority = 3, // arbitrary
-		max_seconds_of_stuns_blocked = 2 SECONDS, // lock the fuck in
+		max_seconds_of_stuns_blocked = 3 SECONDS, // lock the fuck in
 		delete_after_passing_max = FALSE,
 		recharge_time = 20 SECONDS,
 		message = span_boldwarning("%EFFECT_OWNER pushes through the stun!"),
@@ -252,16 +252,9 @@
 		log_combat(attacker, defender, "disarmed (Mad Dog)", addition = disarmed_item ? "(disarmed of [disarmed_item])" : null)
 		return MARTIAL_ATTACK_SUCCESS
 
-/obj/effect/temp_visual/decoy/mad_dog_afterimage
-	duration = 0.5 SECONDS
-	/// The color matrix it should be at spawn
-	var/list/matrix_start = list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1, 0,0.1,0.4,0)
-	/// The color matrix it should be by the time it despawns
-	var/list/matrix_end = list(1,0,0,0, 0,1,0,0, 0,0,1,0, 0,0,0,1, 0,0.5,0,0)
-
 /datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc)
 	SIGNAL_HANDLER
-	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS && user.stun_absorption(max_seconds_of_stuns_blocked > 0)) // cool afterimage while your stun resistance is active and you're using combat mode & combat indicator
+	if(user.combat_mode && user.combat_indicator && !user.IsParalyzed() && user.stat == CONSCIOUS)
 		new /obj/effect/temp_visual/decoy/fading/halfsecond(previous_loc, user)
 
 /mob/living/proc/mad_dog_help()
