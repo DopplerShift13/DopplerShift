@@ -37,7 +37,7 @@
 	remove_from.remove_stun_absorption(name)
 	QDEL_NULL(tackle_comp)
 	UnregisterSignal(remove_from, list(COMSIG_ATOM_ATTACKBY, COMSIG_LIVING_CHECK_BLOCK))
-	UnregisterSignal(remove_from, list(COMSIG_MOVABLE_MOVED)
+	UnregisterSignal(remove_from, list(COMSIG_MOVABLE_MOVED))
 	return ..()
 
 /datum/martial_art/mad_dog/proc/check_block(mob/living/mad_dog_user, atom/movable/hitby, damage, attack_text, attack_type, ...)
@@ -252,7 +252,7 @@
 		return MARTIAL_ATTACK_SUCCESS
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_DISARM)
-	if(defender.stat == CONSCIOUS || !defender.IsParalyzed() || attacker.combat_mode))
+	if(defender.stat == CONSCIOUS || !defender.IsParalyzed() || attacker.combat_mode)
 		if(prob(20))
 			var/obj/item/disarmed_item = defender.get_active_held_item()
 			if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item))
