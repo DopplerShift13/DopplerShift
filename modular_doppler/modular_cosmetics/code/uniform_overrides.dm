@@ -10,28 +10,25 @@
 /datum/outfit/job/doctor
 	shoes = /obj/item/clothing/shoes/medical
 	suit = /obj/item/clothing/suit/toggle/labcoat/medical
-	backpack = /obj/item/storage/backpack/medical
-	satchel = /obj/item/storage/backpack/satchel/medical
-	duffelbag = /obj/item/storage/backpack/duffelbag/medical
-	messenger = /obj/item/storage/backpack/messenger/medical
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel/med
+	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	messenger = /obj/item/storage/backpack/messenger/med
 
 /datum/outfit/job/chemist
 	shoes = /obj/item/clothing/shoes/medical
 	backpack = /obj/item/storage/backpack/chemistry
-	satchel = /obj/item/storage/backpack/satchel/chemistry
+	satchel = /obj/item/storage/backpack/satchel/chem
 	duffelbag = /obj/item/storage/backpack/duffelbag/chemistry
-	messenger = /obj/item/storage/backpack/messenger/chemistry
+	messenger = /obj/item/storage/backpack/messenger/chem
 
 /datum/outfit/job/paramedic
 	shoes = /obj/item/clothing/shoes/medical
 	suit = /obj/item/clothing/suit/toggle/labcoat/medical
-	duffelbag = /obj/item/storage/backpack/duffelbag/paramed
-
-/datum/outfit/job/virologist
-	backpack = /obj/item/storage/backpack/virology
-	satchel = /obj/item/storage/backpack/satchel/virology
-	duffelbag = /obj/item/storage/backpack/duffelbag/virology
-	messenger = /obj/item/storage/backpack/messenger/virology
+	backpack = /obj/item/storage/backpack/medic
+	satchel = /obj/item/storage/backpack/satchel/med
+	duffelbag = /obj/item/storage/backpack/duffelbag/med
+	messenger = /obj/item/storage/backpack/messenger/med
 
 /datum/outfit/job/coroner
 	backpack = /obj/item/storage/backpack/coroner

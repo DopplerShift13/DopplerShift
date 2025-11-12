@@ -33,7 +33,7 @@
 	worn_icon = 'icons/mob/clothing/belt.dmi'
 
 // Medical
-/obj/item/storage/belt/medical/green
+/obj/item/storage/belt/medical
 	name = "medical belt"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
 	icon_state = "medbelt"
