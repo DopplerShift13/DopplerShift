@@ -156,6 +156,7 @@
 	name = "D00"
 	item_path = /obj/item/dice/d00 */
 
+/* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
 /datum/loadout_item/pocket_items/card_binder
 	name = "Card Binder"
 	item_path = /obj/item/storage/card_binder
@@ -175,6 +176,8 @@
 /datum/loadout_item/pocket_items/lipstick
 	name = "Lipstick"
 	item_path = /obj/item/lipstick
+
+*/ // DOPPLER EDIT REMOVAL END
 
 /datum/loadout_item/pocket_items/lipstick/get_item_information()
 	. = ..()
@@ -245,6 +248,7 @@
 
 	return ..()
 
+/* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
 /datum/loadout_item/pocket_items/lighter
 	name = "Zippo Lighter"
 	item_path = /obj/item/lighter
@@ -285,10 +289,16 @@
 	name = "British Flag Cup"
 	item_path = /obj/item/reagent_containers/cup/glass/mug/britcup
 
+*/ // DOPPLER EDIT REMOVAL END
+
+/* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
+
 // The wallet loadout item is special, and puts the player's ID and other small items into it on initialize (fancy!)
 /datum/loadout_item/pocket_items/wallet
 	name = "Wallet"
 	item_path = /obj/item/storage/wallet
+
+*/ // DOPPLER EDIT REMOVAL END
 
 /datum/loadout_item/pocket_items/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
 	return
@@ -334,9 +344,11 @@
 			continue
 		wallet.atom_storage.attempt_insert(thing, override = TRUE, force = STORAGE_FULLY_LOCKED, messages = FALSE)
 
-
+/* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
 /datum/loadout_item/pocket_items/borg_me_dogtag
 	item_path = /obj/item/clothing/accessory/dogtag/borg_ready
+
+*/ // DOPPLER EDIT REMOVAL END
 
 /datum/loadout_item/pocket_items/borg_me_dogtag/on_equip_item(
 	obj/item/equipped_item,
