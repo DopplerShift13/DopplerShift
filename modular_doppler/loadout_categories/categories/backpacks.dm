@@ -131,7 +131,7 @@
 	group = "Miscellaneous"
 	abstract_type = /datum/loadout_item/backpack/misc
 
-/datum/loadout_item/backpack/misc/modsuit/civilian
+/datum/loadout_item/backpack/misc/modsuit_civilian
 	name = "Civilian Modsuit"
 	item_path = /obj/item/mod/control/pre_equipped/civilian
 
