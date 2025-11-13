@@ -31,18 +31,3 @@
 /obj/item/storage/belt/mining/primitive
 	icon = 'icons/obj/clothing/belts.dmi'
 	worn_icon = 'icons/mob/clothing/belt.dmi'
-
-// Medical
-/obj/item/storage/belt/medical
-	name = "medical belt"
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
-	icon_state = "medbelt"
-	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
-	worn_icon_state = "medbelt"
-
-/obj/item/storage/belt/emt
-	name = "emt belt"
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
-	icon_state = "emtbelt"
-	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
-	worn_icon_state = "emtbelt"
