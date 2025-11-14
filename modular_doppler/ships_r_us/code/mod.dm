@@ -33,7 +33,7 @@
 
 /datum/mod_theme/moonlight
 	name = "moonlight"
-	desc = "A suit with roots deep in spacer culture, no two are identical in construction and each is personalized for it's own user."
+	desc = "A suit with roots deep in spacer culture, no two are identical in construction and each is personalized for its own user."
 	extended_desc = "A wide helmet for seeing much as possible, and a build that affords the highest flexibility \
 		possible. A practical design that, much like the crab, most deep spacers' suits end up evolving towards. \
 		Your suit is, of course, one of the most important things you can own as a spacer. This leads to many being \
