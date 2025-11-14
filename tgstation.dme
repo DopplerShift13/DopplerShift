@@ -6854,7 +6854,6 @@
 #include "modular_doppler\chatroom_soul\code\irc_verbs.dm"
 #include "modular_doppler\colony_fabricator\code\cargo_packs.dm"
 #include "modular_doppler\colony_fabricator\code\looping_sounds.dm"
-#include "modular_doppler\colony_fabricator\code\amenities_autolathe\amenities_autolathe.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\chem_machines.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\foodricator.dm"
 #include "modular_doppler\colony_fabricator\code\appliances\griddle.dm"
