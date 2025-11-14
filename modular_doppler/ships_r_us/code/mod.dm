@@ -43,13 +43,9 @@
 	armor_type = /datum/armor/mod_theme_moonlight
 	resistance_flags = FIRE_PROOF
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
-	siemens_coefficient = 0
+	siemens_coefficient = 0.25
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 3 // 12
 	charge_drain = DEFAULT_CHARGE_DRAIN * 0.8
-	inbuilt_modules = list(
-		/obj/item/mod/module/joint_torsion/permanent, // Did you know you can stack these?
-		/obj/item/mod/module/joint_torsion/permanent, // This is only barely power positive if you are using no modules
-	)
 	allowed_suit_storage = list(
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
@@ -151,14 +147,10 @@
 	armor_type = /datum/armor/mod_theme_orbiter
 	resistance_flags = FIRE_PROOF
 	max_heat_protection_temperature = FIRE_SUIT_MAX_TEMP_PROTECT
-	siemens_coefficient = 0
+	siemens_coefficient = 0.25
 	slowdown_deployed = 1.25
 	complexity_max = DEFAULT_MAX_COMPLEXITY
 	charge_drain = DEFAULT_CHARGE_DRAIN
-	inbuilt_modules = list(
-		/obj/item/mod/module/joint_torsion/permanent,
-		/obj/item/mod/module/joint_torsion/permanent,
-	)
 	allowed_suit_storage = list(
 		/obj/item/ammo_box,
 		/obj/item/ammo_casing,
