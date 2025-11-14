@@ -130,6 +130,11 @@
 	for(var/obj/item/part as anything in get_parts())
 		if(istype(part, /obj/item/clothing/gloves/mod))
 			continue
+		if(istype(part, /obj/item/clothing/head/mod))
+			part.bodyshape_icon_files = list(
+				BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
+				BODYSHAPE_SNOUTED_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
+			)
 		part.bodyshape_icon_files = list(
 			BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
 			BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
