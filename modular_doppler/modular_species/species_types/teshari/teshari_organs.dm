@@ -80,7 +80,7 @@
 
 /obj/item/organ/tail/teshari
 	name = "teshari tail"
-	desc = "A long, sinewous tail typically found in teshari. Whoever lost it probably isn't very pleased."
+	desc = "A long, sinuous tail typically found in teshari. Whoever lost it probably isn't very pleased."
 	preference = "feature_teshari_tail"
 	dna_block = null
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/teshari
