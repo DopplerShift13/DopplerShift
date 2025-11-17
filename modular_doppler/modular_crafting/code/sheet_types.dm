@@ -117,6 +117,7 @@ GLOBAL_LIST_INIT(doppler_leather_recipes, list(
 
 GLOBAL_LIST_INIT(doppler_leather_belt_recipes, list(
 	new/datum/stack_recipe("medical bandolier", /obj/item/storage/belt/med_bandolier, 5, category = CAT_CONTAINERS),
+	new/datum/stack_recipe("emt belt", /obj/item/storage/belt/medical/empty/paramedic, 5, category = CAT_CONTAINERS),
 ))
 
 /obj/item/stack/sheet/leather/get_main_recipes()
