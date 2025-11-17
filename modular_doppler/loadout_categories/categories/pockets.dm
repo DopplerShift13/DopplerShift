@@ -11,11 +11,11 @@
 	item_path = /obj/item/storage/wallet
 
 // We add our wallet manually, later, so no need to put it in any outfits.
-/datum/loadout_item/pocket_items/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only)
+/datum/loadout_item/pocket_items/storage/wallet/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only)
 	return FALSE
 
 // We didn't spawn any item yet, so nothing to call here.
-/datum/loadout_item/pocket_items/wallet/on_equip_item(
+/datum/loadout_item/pocket_items/storage/wallet/on_equip_item(
 	obj/item/equipped_item,
 	datum/preferences/preference_source,
 	list/preference_list,
@@ -25,7 +25,7 @@
 	return FALSE
 
 // We add our wallet at the very end of character initialization (after quirks, etc) to ensure the backpack / their ID is all set by now.
-/datum/loadout_item/pocket_items/wallet/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
+/datum/loadout_item/pocket_items/storage/wallet/post_equip_item(datum/preferences/preference_source, mob/living/carbon/human/equipper)
 	var/obj/item/card/id/advanced/id_card = equipper.get_item_by_slot(ITEM_SLOT_ID)
 	if(istype(id_card, /obj/item/storage/wallet))
 		return
@@ -47,7 +47,98 @@
 		if(!equipper.equip_to_storage(wallet, ITEM_SLOT_BACK, indirect_action = TRUE))
 			wallet.forceMove(equipper.drop_location())
 
+//Dogtag
+/datum/loadout_item/pocket_items/tech/borg_me_dogtag/on_equip_item(
+	obj/item/equipped_item,
+	datum/preferences/preference_source,
+	list/preference_list,
+	mob/living/carbon/human/equipper,
+	visuals_only = FALSE,
+)
+	// We're hooking this datum to add an extra bit of flavor to the dogtag - a pregenerated medical record
+	if(!visuals_only && !isdummy(equipper))
+		RegisterSignal(equipper, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED, PROC_REF(apply_after_setup), override = TRUE)
+	return NONE
 
+/datum/loadout_item/pocket_items/tech/borg_me_dogtag/proc/apply_after_setup(mob/living/carbon/human/source, ...)
+	SIGNAL_HANDLER
+
+	UnregisterSignal(source, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
+	var/datum/record/crew/record = find_record(source.real_name)
+	record?.medical_notes += new /datum/medical_note("Central Command", "Patient is a registered brain donor for Robotics research.", null)
+
+//Lipstick
+/datum/loadout_item/pocket_items/cosmetics/lipstick/get_item_information()
+	. = ..()
+	.[FA_ICON_PALETTE] = "Recolorable"
+
+/datum/loadout_item/pocket_items/cosmetics/lipstick/on_equip_item(
+	obj/item/lipstick/equipped_item,
+	datum/preferences/preference_source,
+	list/preference_list,
+	mob/living/carbon/human/equipper,
+	visuals_only,
+)
+	. = ..()
+	var/picked_style = style_to_style(preference_list[item_path]?[INFO_LAYER])
+	var/picked_color = preference_list[item_path]?[INFO_GREYSCALE] || /obj/item/lipstick::lipstick_color
+	if(istype(equipped_item)) // can be null for visuals_only
+		equipped_item.style = picked_style
+		equipped_item.lipstick_color = picked_color
+	equipper.update_lips(picked_style, picked_color)
+
+/// Converts style (readable) to style (internal)
+/datum/loadout_item/pocket_items/cosmetics/lipstick/proc/style_to_style(style)
+	switch(style)
+		if(UPPER_LIP)
+			return "lipstick_upper"
+		if(LOWER_LIP)
+			return "lipstick_lower"
+	return "lipstick"
+
+/datum/loadout_item/pocket_items/cosmetics/lipstick/get_ui_buttons()
+	. = ..()
+	UNTYPED_LIST_ADD(., list(
+		"label" = "Style",
+		"act_key" = "select_lipstick_style",
+		"button_icon" = FA_ICON_ARROWS_ROTATE,
+		"active_key" = INFO_LAYER,
+	))
+	UNTYPED_LIST_ADD(., list(
+		"label" = "Color",
+		"act_key" = "select_lipstick_color",
+		"button_icon" = FA_ICON_PALETTE,
+		"active_key" = INFO_GREYSCALE,
+	))
+
+	return .
+
+/datum/loadout_item/pocket_items/cosmetics/lipstick/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
+	switch(action)
+		if("select_lipstick_style")
+			var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout)
+			var/old_style = their_loadout?[item_path]?[INFO_LAYER] || MIDDLE_LIP
+			var/chosen = tgui_input_list(user, "Pick a lipstick style. (This determines where it sits on your sprite.)", "Pick a style", list(UPPER_LIP, MIDDLE_LIP, LOWER_LIP), old_style)
+			their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
+			if(their_loadout?[item_path]) // Validate they still have it equipped
+				their_loadout[item_path][INFO_LAYER] = chosen
+				manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], their_loadout)
+			return TRUE // Update UI
+
+		if("select_lipstick_color")
+			var/list/their_loadout = manager.preferences.read_preference(/datum/preference/loadout)
+			var/old_color = their_loadout?[item_path]?[INFO_GREYSCALE] || /obj/item/lipstick::lipstick_color
+			var/chosen = input(user, "Pick a lipstick color.", "Pick a color", old_color) as color|null
+			their_loadout = manager.preferences.read_preference(/datum/preference/loadout) // after sleep: sanity check
+			if(their_loadout?[item_path]) // Validate they still have it equipped
+				their_loadout[item_path][INFO_GREYSCALE] = chosen
+				manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], their_loadout)
+			return TRUE // Update UI
+
+	return ..()
+
+
+//CATEGORIES
 /**
  * EQUIPMENT
  */
