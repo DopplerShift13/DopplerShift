@@ -24,15 +24,15 @@
 	group = "Backpacks"
 	abstract_type = /datum/loadout_item/backpack/back
 
-/datum/loadout_item/backpack/back/custom
+/datum/loadout_item/backpack/back/custom_backpack
 	name = "Custom Backpack"
 	item_path = /obj/item/storage/backpack/custom
 
-/datum/loadout_item/backpack/back/industrial
+/datum/loadout_item/backpack/back/industrial_backpack
 	name = "Custom Industrial Backpack"
 	item_path = /obj/item/storage/backpack/industrial/custom
 
-/datum/loadout_item/backpack/back/frontier
+/datum/loadout_item/backpack/back/frontier_backpack
 	name = "Frontier Backpack"
 	item_path = /obj/item/storage/backpack/industrial/frontier_colonist
 
@@ -62,11 +62,11 @@
 	group = "Duffel Bags"
 	abstract_type = /datum/loadout_item/backpack/duffel_bag
 
-/datum/loadout_item/backpack/duffel_bag/duffel
+/datum/loadout_item/backpack/duffel_bag/custom_duffel
 	name = "Custom Duffelbag"
 	item_path = /obj/item/storage/backpack/duffelbag/custom
 
-/datum/loadout_item/backpack/duffel_bag/duffel/industrial
+/datum/loadout_item/backpack/duffel_bag/industrial_duffel
 	name = "Custom Industrial Duffelbag"
 	item_path = /obj/item/storage/backpack/duffelbag/engineering/custom
 
@@ -77,11 +77,11 @@
 	group = "Messenger Bags"
 	abstract_type = /datum/loadout_item/backpack/messenger_bag
 
-/datum/loadout_item/backpack/messenger_bag/messenger
+/datum/loadout_item/backpack/messenger_bag/custom_messenger
 	name = "Custom Messenger Bag"
 	item_path = /obj/item/storage/backpack/messenger/custom
 
-/datum/loadout_item/backpack/messenger_bag/messenger/industrial
+/datum/loadout_item/backpack/messenger_bag/industrial_messenger
 	name = "Custom Industrial Messenger Bag"
 	item_path = /obj/item/storage/backpack/messenger/eng/custom
 
