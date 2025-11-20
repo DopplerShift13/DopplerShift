@@ -88,6 +88,7 @@
 	)
 
 /datum/mod_theme/moonlight/set_skin(obj/item/mod/control/mod, skin)
+	. = ..()
 	for(var/obj/item/part as anything in parts)
 		if(istype(part, /obj/item/clothing/gloves/mod))
 			continue
@@ -96,10 +97,11 @@
 				BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
 				BODYSHAPE_SNOUTED_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
 			)
-		part.bodyshape_icon_files = list(
-			BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
-			BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
-		)
+		else
+			part.bodyshape_icon_files = list(
+				BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
+				BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
+			)
 
 /obj/item/mod/control/pre_equipped/orbiter
 	theme = /datum/mod_theme/orbiter
@@ -191,6 +193,7 @@
 	)
 
 /datum/mod_theme/orbiter/set_skin(obj/item/mod/control/mod, skin)
+	. = ..()
 	for(var/obj/item/part as anything in parts)
 		if(istype(part, /obj/item/clothing/gloves/mod))
 			continue
@@ -199,10 +202,11 @@
 				BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
 				BODYSHAPE_SNOUTED_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
 			)
-		part.bodyshape_icon_files = list(
-			BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
-			BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
-		)
+		else
+			part.bodyshape_icon_files = list(
+				BODYSHAPE_HUMANOID_T = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
+				BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/special_modsuits/icons/mod_worn_digi.dmi',
+			)
 
 /datum/armor/mod_theme_moonlight
 	melee = ARMOR_LEVEL_TINY
