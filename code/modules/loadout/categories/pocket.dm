@@ -51,7 +51,7 @@
 
 /* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
 
-/* /datum/loadout_item/pocket_items/plush/bee
+/datum/loadout_item/pocket_items/plush/bee
 	name = "Plush (Bee)"
 	item_path = /obj/item/toy/plush/beeplushie
 
@@ -335,6 +335,7 @@
 		if(thing.w_class > wallet.atom_storage.max_specific_storage)
 			continue
 		wallet.atom_storage.attempt_insert(thing, override = TRUE, force = STORAGE_FULLY_LOCKED, messages = FALSE)
+
 
 /datum/loadout_item/pocket_items/borg_me_dogtag
 	item_path = /obj/item/clothing/accessory/dogtag/borg_ready
