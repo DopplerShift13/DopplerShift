@@ -156,7 +156,7 @@
 
 /datum/loadout_item/pocket_items/dice/d00
 	name = "D00"
-	item_path = /obj/item/dice/d00 */
+	item_path = /obj/item/dice/d00 */ // DOPPLER EDIT REMOVAL END
 
 /datum/loadout_item/pocket_items/card_binder
 	name = "Card Binder"
@@ -358,5 +358,3 @@
 	UnregisterSignal(source, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 	var/datum/record/crew/record = find_record(source.real_name)
 	record?.medical_notes += new /datum/medical_note("Central Command", "Patient is a registered brain donor for Robotics research.", null)
-
-*/ // DOPPLER EDIT REMOVAL END
