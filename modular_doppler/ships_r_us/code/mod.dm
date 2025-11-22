@@ -89,6 +89,7 @@
 
 /datum/mod_theme/moonlight/set_skin(obj/item/mod/control/mod, skin)
 	. = ..()
+	var/list/parts = list(mod)
 	for(var/obj/item/part as anything in parts)
 		if(istype(part, /obj/item/clothing/gloves/mod))
 			continue
@@ -194,6 +195,7 @@
 
 /datum/mod_theme/orbiter/set_skin(obj/item/mod/control/mod, skin)
 	. = ..()
+	var/list/parts = list(mod)
 	for(var/obj/item/part as anything in parts)
 		if(istype(part, /obj/item/clothing/gloves/mod))
 			continue
