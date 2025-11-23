@@ -281,5 +281,5 @@
 	to_chat(usr, "<b><i>Furthermore, you will only fall when entering hardcrit, will occasionally heal when extremely close to death, and can absorb stuns up to a limit, after which you must wait 20 seconds before absorbing more.</i></b>")
 
 #undef KICK_COMBO
-#undef FLYING_KICK_COMBO
+#undef BRACED_THROW_COMBO
 #undef CONSECUTIVE_COMBO
