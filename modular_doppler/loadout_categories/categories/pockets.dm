@@ -385,6 +385,58 @@
 	name = "Card Deck (Wizoff)"
 	item_path = /obj/item/toy/cards/deck/wizoff
 
+/datum/loadout_item/pocket_items/recreational/dice_bag
+	name = "Dice Bag"
+	item_path = /obj/item/storage/dice
+
+/datum/loadout_item/pocket_items/recreational/d1
+	name = "D1"
+	item_path = /obj/item/dice/d1
+
+/datum/loadout_item/pocket_items/recreational/d2
+	name = "D2"
+	item_path = /obj/item/dice/d2
+
+/datum/loadout_item/pocket_items/recreational/d4
+	name = "D4"
+	item_path = /obj/item/dice/d4
+
+/datum/loadout_item/pocket_items/recreational/d6
+	name = "D6"
+	item_path = /obj/item/dice/d6
+
+/datum/loadout_item/pocket_items/recreational/d6_ebony
+	name = "D6 (Ebony)"
+	item_path = /obj/item/dice/d6/ebony
+
+/datum/loadout_item/pocket_items/recreational/d6_space
+	name = "D6 (Space)"
+	item_path = /obj/item/dice/d6/space
+
+/datum/loadout_item/pocket_items/recreational/d8
+	name = "D8"
+	item_path = /obj/item/dice/d8
+
+/datum/loadout_item/pocket_items/recreational/d10
+	name = "D10"
+	item_path = /obj/item/dice/d10
+
+/datum/loadout_item/pocket_items/recreational/d12
+	name = "D12"
+	item_path = /obj/item/dice/d12
+
+/datum/loadout_item/pocket_items/recreational/d20
+	name = "D20"
+	item_path = /obj/item/dice/d20
+
+/datum/loadout_item/pocket_items/recreational/d100
+	name = "D100"
+	item_path = /obj/item/dice/d100
+
+/datum/loadout_item/pocket_items/recreational/d00
+	name = "D00"
+	item_path = /obj/item/dice/d00
+
 /**
  * COSMETICS
  */
