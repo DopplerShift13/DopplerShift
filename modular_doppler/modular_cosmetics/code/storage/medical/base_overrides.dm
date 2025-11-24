@@ -114,7 +114,6 @@
 	worn_icon_state = "emtbelt"
 
 /obj/item/storage/belt/medical/empty/paramedic
-	name = "emt belt"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
 	icon_state = "emtbelt"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
