@@ -42,7 +42,6 @@
 
 // Duffel Bags
 /obj/item/storage/backpack/duffelbag/med
-	name = "medical duffel bag"
 	icon_state = "duffel_medical"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
