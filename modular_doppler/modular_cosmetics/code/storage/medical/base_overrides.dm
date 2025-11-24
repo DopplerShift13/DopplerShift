@@ -70,7 +70,6 @@
 
 // Satchels
 /obj/item/storage/backpack/satchel/med
-	name = "medical satchel"
 	icon_state = "satchel_medical"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
