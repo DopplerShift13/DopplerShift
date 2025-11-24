@@ -101,7 +101,6 @@
 // Belts
 
 /obj/item/storage/belt/medical
-	name = "medical belt"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
 	icon_state = "medbelt"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
