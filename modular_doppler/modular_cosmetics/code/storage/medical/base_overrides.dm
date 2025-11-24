@@ -12,7 +12,6 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
 
 /obj/item/storage/backpack/virology
-	name = "virology backpack"
 	icon_state = "backpack_virology"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
