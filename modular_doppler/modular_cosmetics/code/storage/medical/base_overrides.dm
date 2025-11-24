@@ -6,7 +6,6 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
 
 /obj/item/storage/backpack/chemistry
-	name = "chemistry backpack"
 	icon_state = "backpack_chemistry"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
