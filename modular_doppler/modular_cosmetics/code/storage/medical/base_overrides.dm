@@ -1,6 +1,5 @@
 // Backpacks
 /obj/item/storage/backpack/medic
-	name = "medical backpack"
 	icon_state = "backpack_medical"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
