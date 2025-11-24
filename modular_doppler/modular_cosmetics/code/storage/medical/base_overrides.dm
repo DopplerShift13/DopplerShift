@@ -25,7 +25,6 @@
 
 // Messenger Bags
 /obj/item/storage/backpack/messenger/med
-	name = "medical messenger bag"
 	icon_state = "messenger_medical"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
