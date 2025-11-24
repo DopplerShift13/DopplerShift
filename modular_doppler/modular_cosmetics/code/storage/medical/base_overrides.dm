@@ -36,7 +36,6 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
 
 /obj/item/storage/backpack/messenger/coroner
-	name = "coroner messenger bag"
 	icon_state = "messenger_coroner"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
