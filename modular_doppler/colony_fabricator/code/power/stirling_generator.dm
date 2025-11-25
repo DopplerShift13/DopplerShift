@@ -2,7 +2,6 @@
 	name = "Plasma Micro-Turbine"
 	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
 	build_path = /obj/machinery/power/stirling_generator
-	needs_anchored = FALSE
 	req_components = list(
 		/datum/stock_part/capacitor = 1,
 		/datum/stock_part/servo = 2,
