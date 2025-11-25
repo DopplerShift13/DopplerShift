@@ -21,8 +21,8 @@
 	circuit = /obj/item/circuitboard/machine/battery_pack
 	/// Is this battery currently undergoing a spectacular failure
 	var/tesla_car_company_mode = FALSE
-	/// The sparks overlay we use when failing
-	var/mutable_appearance/sparks
+	/// Is the battery currently sparking and exploding
+	var/sparking = FALSE
 
 /obj/machinery/power/smes/battery_pack/Initialize(mapload)
 	. = ..()
@@ -62,11 +62,21 @@
 	spectacular_failure()
 	return ..()
 
+/obj/machinery/power/smes/battery_pack/update_overlays()
+	. = ..()
+	if(sparking)
+		. += mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE, appearance_flags = RESET_COLOR|KEEP_APART)
+
 /obj/machinery/power/smes/battery_pack/expose_reagents(list/reagents, datum/reagents/source, methods, volume_modifier, show_message)
 	. = ..()
 	for(var/datum/reagent/water/water in reagents)
 		spectacular_failure()
 		return
+
+/// Sets our sparking state and updates it visually
+/obj/machinery/power/smes/battery_pack/proc/set_sparks(new_sparking = TRUE)
+	sparking = new_sparking
+	update_appearance(UPDATE_OVERLAYS)
 
 /// Rolls the dice and chooses a destructive mode of failure, only one can happen at once
 /obj/machinery/power/smes/battery_pack/proc/spectacular_failure()
@@ -91,8 +101,7 @@
 // Living and working inside of a galaxy note seven
 /// Makes effects like a lithium battery about to blow up
 /obj/machinery/power/smes/battery_pack/proc/brave_lithium_battery()
-	sparks = mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE)
-	add_overlay(sparks)
+	set_sparks(TRUE)
 	visible_message(span_boldwarning("[src] starts to hiss and spark violently!"), blind_message = span_boldwarning("You hear a violent hissing and sparking!"))
 	playsound(src, 'sound/machines/steam_hiss.ogg', 50, TRUE)
 	set_light(3, 2, LIGHT_COLOR_ELECTRIC_CYAN, l_on = TRUE)
@@ -102,7 +111,7 @@
 	var/current_charge = total_charge()
 	var/power_modifier = (current_charge / total_capacity) + 0.25 // Max charge batteries are even bigger, good luck pal
 	explosion(src, 0, 1 * power_modifier, 5 * power_modifier, 7 * power_modifier, 7 * power_modifier, smoke = TRUE)
-	cut_overlay(sparks)
+	set_sparks(FALSE)
 	set_light(l_on = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(able_to_blow_up_again)), 30 SECONDS) // If it somehow survives it can blow up again later
 
@@ -111,7 +120,7 @@
 	var/current_charge = total_charge()
 	tesla_zap(source = src, zap_range = 5, power = current_charge / 100, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
 	take_damage(max_integrity * 0.8) // At least its not blowing up this time ??
-	cut_overlay(sparks)
+	set_sparks(FALSE)
 	set_light(l_on = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(able_to_blow_up_again)), 30 SECONDS) // If it somehow survives it can blow up again later
 
@@ -124,7 +133,7 @@
 	our_turf.atmos_spawn_air("[GAS_HYDROGEN]=[40 * power_modifier];[GAS_O2]=[20 * power_modifier];[TURF_TEMPERATURE(FIRE_MINIMUM_TEMPERATURE_TO_EXIST + 50)]")
 	do_sparks(3, FALSE, src)
 	take_damage(max_integrity * 0.8)
-	cut_overlay(sparks)
+	set_sparks(FALSE)
 	set_light(l_on = FALSE)
 	addtimer(CALLBACK(src, PROC_REF(able_to_blow_up_again)), 30 SECONDS) // If it somehow survives it can blow up again later
 
