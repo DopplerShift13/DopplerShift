@@ -40,6 +40,8 @@
 	var/static/list/radial_options = list(RADIAL_CHOICE_EJECT = radial_eject, RADIAL_CHOICE_USE = radial_use)
 	/// Soundloop for while we are smelting ores
 	var/datum/looping_sound/arc_furnace_running/soundloop
+	/// The thing we're holding to smelt
+	var/obj/item/smelting_thing
 
 /obj/machinery/arc_furnace/Initialize(mapload)
 	. = ..()
@@ -48,8 +50,8 @@
 
 /obj/machinery/arc_furnace/examine(mob/user)
 	. = ..()
-	if(length(contents))
-		. += span_notice("It has <b>[contents[1]]</b> sitting in it.")
+	if(smelting_thing)
+		. += span_notice("It has [EXAMINE_HINT("[smelting_thing]")] sitting in it.")
 
 /obj/machinery/arc_furnace/on_deconstruction(disassembled)
 	eject_contents()
@@ -57,8 +59,8 @@
 /obj/machinery/arc_furnace/update_appearance()
 	. = ..()
 	cut_overlays()
-	if(length(contents))
-		var/image/overlayed_item = image(icon = contents[1].icon, icon_state = contents[1].icon_state)
+	if(smelting_thing)
+		var/image/overlayed_item = image(icon = smelting_thing.icon, icon_state = smelting_thing.icon_state)
 		overlayed_item.transform = matrix(, 0, 0, 0, 0.8, 0)
 		add_overlay(overlayed_item)
 	var/image/furnace_front_overlay = image(icon = icon, icon_state = "[operating ? "[base_icon_state]_overlay_active" : "[base_icon_state]_overlay"]")
@@ -68,11 +70,12 @@
 	if(operating)
 		balloon_alert(user, "furnace busy")
 		return TRUE
-	if(length(contents))
+	if(smelting_thing)
 		balloon_alert(user, "furnace full")
 		return TRUE
 	if(istype(attacking_item, /obj/item/stack/ore))
 		attacking_item.forceMove(src)
+		smelting_thing = attacking_item
 		balloon_alert(user, "ore added")
 		update_appearance()
 		return TRUE
@@ -84,7 +87,7 @@
 		return
 	if(isAI(user) && (machine_stat & NOPOWER))
 		return
-	if(!length(contents))
+	if(!smelting_thing)
 		balloon_alert(user, "it's empty!")
 		return
 	var/choice = show_radial_menu(user, src, radial_options, require_near = !issilicon(user))
@@ -104,10 +107,10 @@
 	if(operating)
 		return
 	playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
-	if(!length(contents))
+	if(!smelting_thing)
 		return
-	var/atom/movable/thing_inside = contents[1]
-	thing_inside.forceMove(drop_location())
+	smelting_thing.forceMove(drop_location())
+	smelting_thing = null
 	update_appearance()
 
 /// Starts the smelting process, checking if the machine has power or if it's broken at all
@@ -118,7 +121,7 @@
 	if(operating)
 		balloon_alert(user, "already smelting")
 		return
-	var/obj/item/stack/ore/ore_to_smelt = contents[1]
+	var/obj/item/stack/ore/ore_to_smelt = smelting_thing
 	if(!istype(ore_to_smelt))
 		balloon_alert(user, "nothing to smelt")
 	operating = TRUE
@@ -134,7 +137,7 @@
 	if(machine_stat & (NOPOWER|BROKEN|MAINT))
 		end_smelting()
 		return
-	if(!length(contents))
+	if(!smelting_thing)
 		end_smelting()
 		return
 	if(time <= 0)
@@ -143,7 +146,7 @@
 	time -= 1 SECONDS
 	use_energy(active_power_usage)
 	var/turf/where_we_spawn_air = get_turf(src)
-	var/obj/item/stack/ore/ore_stack_to_check = contents[1]
+	var/obj/item/stack/ore/ore_stack_to_check = smelting_thing
 	switch(ore_stack_to_check.refined_type)
 		if(/obj/item/stack/sheet/mineral/plasma)
 			where_we_spawn_air.atmos_spawn_air("co2=30;n2o=5;n2=30;plasma=5;TEMP=2000")
@@ -153,7 +156,7 @@
 
 /// Takes the ore contained and turns it into an equal stack amount of its smelt result
 /obj/machinery/arc_furnace/proc/succeed_smelting()
-	var/obj/item/stack/ore/ore_to_smelt = contents[1]
+	var/obj/item/stack/ore/ore_to_smelt = smelting_thing
 	if(!istype(ore_to_smelt))
 		end_smelting()
 	// We collect how many sheets of material we will need to spawn with the multiplier, whole sheets only!
@@ -168,6 +171,7 @@
 	// Now, we spawn a stack with whatever's left, if there is anything left
 	if(how_much_material_to_spawn)
 		new ore_refined_type(drop_location(), how_much_material_to_spawn)
+	smelting_thing = null
 	qdel(ore_to_smelt)
 	end_smelting()
 

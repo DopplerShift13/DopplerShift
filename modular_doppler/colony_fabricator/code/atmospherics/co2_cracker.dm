@@ -106,6 +106,3 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 		current_reaction.react(loc, env, working_power)
 
 	env.garbage_collect()
-
-/obj/machinery/electrolyzer/co2_cracker/crowbar_act(mob/living/user, obj/item/tool)
-	return

@@ -78,3 +78,14 @@
 	add_avail(power_to_energy(storming_out ? storm_power_production : regular_power_production))
 	var/new_icon_state = (storming_out ? "turbine_storm" : "turbine_normal")
 	icon_state = new_icon_state
+
+/obj/machinery/power/colony_wind_turbine/screwdriver_act(mob/user, obj/item/tool)
+	if(!default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		return ITEM_INTERACT_BLOCKING
+	update_appearance()
+	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/power/colony_wind_turbine/crowbar_act(mob/user, obj/item/tool)
+	if(!default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_BLOCKING
+	return ITEM_INTERACT_SUCCESS
