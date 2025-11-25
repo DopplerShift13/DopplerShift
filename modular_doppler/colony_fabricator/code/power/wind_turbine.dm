@@ -19,7 +19,7 @@
 	idle_power_usage = 0
 	anchored = TRUE
 	can_change_cable_layer = FALSE
-	circuit = null
+	circuit = /obj/item/circuitboard/machine/colony_wind_turbine
 	layer = ABOVE_MOB_LAYER
 	can_change_cable_layer = TRUE
 	/// How much power the turbine makes without a storm
