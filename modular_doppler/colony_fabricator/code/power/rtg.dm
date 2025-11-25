@@ -13,7 +13,7 @@
 		This type emits radiation, however it is weak enough to be blocked by simple shielding \
 		like metal girders. Produces more power than some other RTG designs."
 	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
-	circuit = null
+	circuit = /obj/item/circuitboard/machine/colony_rtg
 	power_gen = 2 KILO WATTS
 
 /obj/machinery/power/rtg/portable/Initialize(mapload)
