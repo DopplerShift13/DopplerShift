@@ -14,7 +14,7 @@
 /obj/machinery/power/stirling_generator
 	name = "plasma micro-turbine"
 	desc = "A compact turbine engine that consumes small amounts of plasma gas in order to produce a large \
-		amount of power, in exchange for outputting a waste gas from the process out at freezing temperatures. \
+		amount of power, in exchange for the process putting out a waste gas at freezing temperatures. \
 		You should absolutely not stick your hand into the exposed fan blades out of the top."
 	icon = 'modular_doppler/colony_fabricator/icons/stirling_generator/big_generator.dmi'
 	icon_state = "stirling"
