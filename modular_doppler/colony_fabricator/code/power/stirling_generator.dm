@@ -47,10 +47,10 @@
 
 /obj/machinery/power/stirling_generator/examine(mob/user)
 	. = ..()
-	. += span_notice("You can use a <b>wrench</b> with <b>Left-Click</b> to rotate the generator.")
-	. += span_notice("It needs <b>plasma gas</b> through it's input pipe in order to work.")
-	. += span_notice("It will output <b>freezing helium</b> while running, which needs to be dealt with.")
-	. += span_notice("It is currently generating <b>[display_power(current_power_generation, convert = FALSE)]</b> of power.")
+	. += span_notice("You can use a [EXAMINE_HINT("wrench")] with [EXAMINE_HINT("Left-Click")] to rotate the generator.")
+	. += span_notice("It needs [EXAMINE_HINT("plasma gas")] through it's input pipe in order to work.")
+	. += span_notice("It will output [EXAMINE_HINT("freezing helium")] while running, which needs to be dealt with.")
+	. += span_notice("It is currently generating [EXAMINE_HINT("[display_power(current_power_generation, convert = FALSE)]")] of power.")
 
 /obj/machinery/power/stirling_generator/Destroy()
 	QDEL_NULL(connected_chamber)
