@@ -101,7 +101,3 @@
 	to_chat(user, span_notice("You rotate [src]."))
 	SEND_SIGNAL(src, COMSIG_MACHINERY_DEFAULT_ROTATE_WRENCH, user, wrench)
 	return TRUE
-
-/obj/machinery/power/stirling_generator/Destroy()
-	QDEL_NULL(connected_chamber)
-	return ..()
