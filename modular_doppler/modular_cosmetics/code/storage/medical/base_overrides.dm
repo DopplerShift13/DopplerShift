@@ -91,6 +91,8 @@
 	worn_icon_state = "medbelt"
 
 /obj/item/storage/belt/medical/paramedic
+	name = "EMT harness"
+	desc = "A practical harness to carry all your medical gear."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
 	icon_state = "emtbelt"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
@@ -105,8 +107,6 @@
 	worn_icon_state = "emtbelt"
 
 /obj/item/storage/belt/medical/ert
-	name = "EMT harness"
-	desc = "A practical harness to carry all your medical gear."
 	icon = 'icons/obj/clothing/belts.dmi'
 	icon_state = "emt"
 	worn_icon = 'icons/mob/clothing/belt.dmi'
