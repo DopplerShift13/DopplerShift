@@ -43,10 +43,24 @@
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 	// This is just to make sure our atmos connection spawns facing the right way
 	setDir(dir)
+	register_context()
+
+/obj/machinery/power/stirling_generator/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	if(isnull(held_item))
+		return NONE
+	if(held_item.tool_behaviour == TOOL_WRENCH)
+		context[SCREENTIP_CONTEXT_LMB] = "Rotate clockwise"
+		return CONTEXTUAL_SCREENTIP_SET
+	if(held_item.tool_behaviour == TOOL_SCREWDRIVER)
+		context[SCREENTIP_CONTEXT_LMB] = "[panel_open ? "Close" : "Open"] panel"
+		return CONTEXTUAL_SCREENTIP_SET
+	if(panel_open && held_item.tool_behaviour == TOOL_CROWBAR)
+		context[SCREENTIP_CONTEXT_LMB] = "Deconstruct"
+		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/machinery/power/stirling_generator/examine(mob/user)
 	. = ..()
-	. += span_notice("You can use a [EXAMINE_HINT("wrench")] with [EXAMINE_HINT("Left-Click")] to rotate the generator.")
+	. += span_notice("When the panel is [EXAMINE_HINT("screwed open")], you can use a [EXAMINE_HINT("wrench")] with [EXAMINE_HINT("Left-Click")] to rotate the generator.")
 	. += span_notice("It needs [EXAMINE_HINT("plasma gas")] through it's input pipe in order to work.")
 	. += span_notice("It will output [EXAMINE_HINT("freezing helium")] while running, which needs to be dealt with.")
 	. += span_notice("It is currently generating [EXAMINE_HINT("[display_power(current_power_generation, convert = FALSE)]")] of power.")
@@ -91,13 +105,20 @@
 		soundloop.start()
 
 /obj/machinery/power/stirling_generator/wrench_act(mob/living/user, obj/item/tool)
-	return default_change_direction_wrench(user, tool)
+	if(!panel_open)
+		balloon_alert(user, "panel closed!")
+		return ITEM_INTERACT_BLOCKING
+	if(!default_change_direction_wrench(user, tool))
+		return ITEM_INTERACT_BLOCKING
+	return ITEM_INTERACT_SUCCESS
 
-/obj/machinery/power/stirling_generator/default_change_direction_wrench(mob/user, obj/item/wrench)
-	if(wrench.tool_behaviour != TOOL_WRENCH)
-		return FALSE
-	wrench.play_tool_sound(src, 50)
-	setDir(turn(dir,-90))
-	to_chat(user, span_notice("You rotate [src]."))
-	SEND_SIGNAL(src, COMSIG_MACHINERY_DEFAULT_ROTATE_WRENCH, user, wrench)
-	return TRUE
+/obj/machinery/power/stirling_generator/screwdriver_act(mob/user, obj/item/tool)
+	if(!default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		return ITEM_INTERACT_BLOCKING
+	update_appearance()
+	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/power/stirling_generator/crowbar_act(mob/user, obj/item/tool)
+	if(!default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_BLOCKING
+	return ITEM_INTERACT_SUCCESS
