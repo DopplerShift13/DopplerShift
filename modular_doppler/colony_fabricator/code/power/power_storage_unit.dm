@@ -66,6 +66,7 @@
 	. = ..()
 	for(var/datum/reagent/water/water in reagents)
 		spectacular_failure()
+		return
 
 /// Rolls the dice and chooses a destructive mode of failure, only one can happen at once
 /obj/machinery/power/smes/battery_pack/proc/spectacular_failure()
