@@ -54,6 +54,7 @@
 
 /obj/machinery/power/stirling_generator/Destroy()
 	QDEL_NULL(connected_chamber)
+	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/machinery/power/stirling_generator/RefreshParts()
