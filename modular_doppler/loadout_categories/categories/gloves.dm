@@ -56,11 +56,11 @@
 	name = "Frontier Gloves"
 	item_path = /obj/item/clothing/gloves/frontier_colonist
 
-/datum/loadout_item/gloves/cargo
+/datum/loadout_item/gloves/work/cargo
 	name = "Leather Gloves (Cargo)"
 	item_path = /obj/item/clothing/gloves/doppler_cargo
 
-/datum/loadout_item/gloves/cargo_work
+/datum/loadout_item/gloves/work/cargo_work
 	name = "Work Gloves (Cargo)"
 	item_path = /obj/item/clothing/gloves/doppler_cargo/work_gloves
 
@@ -95,11 +95,11 @@
 	name = "Tizirian Gauntlets"
 	item_path = /obj/item/clothing/gloves/lizard_gloves
 
-/datum/loadout_item/gloves/cargo_colorblock
+/datum/loadout_item/gloves/gauntlets/cargo_colorblock
 	name = "Colorblock Gauntlets (Cargo)"
 	item_path = /obj/item/clothing/gloves/doppler_cargo/colorblock_gauntlets
 
-/datum/loadout_item/gloves/cargo_gauntlets
+/datum/loadout_item/gloves/gauntlets/cargo_gauntlets
 	name = "Gauntlets (Cargo)"
 	item_path = /obj/item/clothing/gloves/doppler_cargo/gauntlets
 
@@ -169,7 +169,7 @@
 	name = "Fingerless Gloves"
 	item_path = /obj/item/clothing/gloves/fingerless
 
-/datum/loadout_item/gloves/cargo_fingerless
+/datum/loadout_item/gloves/misc/cargo_fingerless
 	name = "Fingerless Gloves (Cargo)"
 	item_path = /obj/item/clothing/gloves/doppler_cargo/fingerless
 
