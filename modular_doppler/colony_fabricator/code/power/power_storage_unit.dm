@@ -69,6 +69,8 @@
 
 /obj/machinery/power/smes/battery_pack/expose_reagents(list/reagents, datum/reagents/source, methods, volume_modifier, show_message)
 	. = ..()
+	if(!total_charge())
+		return // If the battery is empty then dont explode
 	for(var/datum/reagent/water/water in reagents)
 		spectacular_failure()
 		return
