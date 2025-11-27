@@ -79,14 +79,14 @@
 	. = ..()
 	. += span_notice("You could write your own words on the tag with a pen.")
 	if(display)
-		. += "It has \"[display]\" on it."
+		. += "It has \"[display]\" written on it."
 	else
 		. += "There is nothing written on it."
 
 /obj/item/clothing/accessory/ear_tag/item_interaction(mob/living/user, obj/item/weapon, list/modifiers)
 	if(!istype(weapon, /obj/item/pen))
 		return NONE
-	var/new_display = tgui_input_text(user, "What should the tag say?", "Writing on tag", null, MAX_DESC_LEN)
+	var/new_display = tgui_input_text(user, "What should the tag say?", "Writing on tag", html_decode(display), MAX_DESC_LEN)
 	if(QDELETED(user) || QDELETED(src) || !user.can_perform_action(src) || (!weapon in user.held_items))
 		return ITEM_INTERACT_BLOCKING
 	if(!new_display)
