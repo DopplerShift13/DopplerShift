@@ -5,6 +5,10 @@
 	item_path = /obj/item/clothing/accessory/ear_tag
 	tag_examine_description = TRUE
 
+/datum/loadout_item/accessory/ear_tag/get_item_information()
+	. = ..()
+	.[FA_ICON_CIRCLE_EXCLAMATION] = "Customizable tag contents!"
+
 /datum/loadout_item/accessory/ear_tag/on_equip_item(
 	obj/item/equipped_item,
 	datum/preferences/preference_source,

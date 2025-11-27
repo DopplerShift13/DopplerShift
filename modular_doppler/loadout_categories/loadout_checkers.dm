@@ -132,7 +132,7 @@
 		))
 	if(tag_examine_description)
 		UNTYPED_LIST_ADD(buttons, list(
-			"label" = "Change Tag Contents",
+			"label" = "Change tag contents",
 			"act_key" = "set_tag_description",
 			"button_icon" = FA_ICON_PEN,
 			"active_key" = INFO_EAR_TAG_TEXT,
