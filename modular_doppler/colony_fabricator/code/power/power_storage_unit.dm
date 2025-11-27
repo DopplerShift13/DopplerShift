@@ -59,6 +59,8 @@
 
 // New and unique ways to blow up and die
 /obj/machinery/power/smes/battery_pack/fire_act(exposed_temperature, exposed_volume)
+	if(!total_charge())
+		return ..() // If the battery is empty then dont explode
 	spectacular_failure()
 	return ..()
 
