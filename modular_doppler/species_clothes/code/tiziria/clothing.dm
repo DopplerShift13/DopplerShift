@@ -87,7 +87,7 @@
 	if(!istype(weapon, /obj/item/pen))
 		return NONE
 	var/new_display = tgui_input_text(user, "What should the tag say?", "Writing on tag", html_decode(display), MAX_DESC_LEN)
-	if(QDELETED(user) || QDELETED(src) || !user.can_perform_action(src) || (!weapon in user.held_items))
+	if(QDELETED(user) || QDELETED(src) || !user.can_perform_action(src) || !(weapon in user.held_items))
 		return ITEM_INTERACT_BLOCKING
 	if(!new_display)
 		return ITEM_INTERACT_BLOCKING
