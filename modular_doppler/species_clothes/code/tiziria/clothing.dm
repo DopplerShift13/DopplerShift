@@ -65,6 +65,38 @@
 	inhand_icon_state = null
 	alternate_worn_layer = HANDCUFF_LAYER // above hats for visibility
 	attachment_slot = NONE
+	/// What message is displayed when our dogtags / its clothes / its wearer is examined
+	var/display = "Nothing!"
+
+/obj/item/clothing/accessory/ear_tag/examine(mob/user)
+	. = ..()
+	. += display
+
+// Examining the clothes will display the examine message of the tag
+/obj/item/clothing/accessory/ear_tag/attach(obj/item/clothing/under/attach_to, mob/living/attacher)
+	. = ..()
+	if(!.)
+		return
+	RegisterSignal(attach_to, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+
+/obj/item/clothing/accessory/ear_tag/detach(obj/item/clothing/under/detach_from)
+	. = ..()
+	UnregisterSignal(detach_from, COMSIG_ATOM_EXAMINE)
+
+// Double examining the person wearing the clothes will display the examine message of the tag
+/obj/item/clothing/accessory/ear_tag/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
+	RegisterSignal(user, COMSIG_ATOM_EXAMINE_MORE, PROC_REF(on_examine))
+
+/obj/item/clothing/accessory/ear_tag/accessory_dropped(obj/item/clothing/under/clothes, mob/living/user)
+	UnregisterSignal(user, COMSIG_ATOM_EXAMINE_MORE)
+
+/// Adds the examine message to the clothes and mob.
+/obj/item/clothing/accessory/ear_tag/proc/on_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	if(ismob(source))
+		examine_list += "A tag is clipped to [source.p_their()] ear: [display]"
+	else
+		examine_list += "A tag is clipped to [source]: [display]"
 
 // neck capes
 
