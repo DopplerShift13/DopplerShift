@@ -79,7 +79,7 @@
 	. = ..()
 	. += span_notice("You could write your own words on the tag with a pen.")
 	if(display)
-		. += "It has \"[display]\" on it."
+		. += "It has \"[display]\" written on it."
 	else
 		. += "There is nothing written on it."
 
