@@ -82,7 +82,7 @@
 	if(smelting_thing)
 		balloon_alert(user, "furnace full!")
 		return ITEM_INTERACT_BLOCKING
-	if(!user.transferItemToLoc(item, src, silent = FALSE))
+	if(!user.transferItemToLoc(tool, src, silent = FALSE))
 		return ITEM_INTERACT_BLOCKING
 	smelting_thing = tool
 	playsound(src, 'sound/machines/click.ogg', 15, TRUE, -3)
