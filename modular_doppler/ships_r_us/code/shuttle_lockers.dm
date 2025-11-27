@@ -30,10 +30,17 @@
 	new /obj/item/storage/toolbox/mechanical(src)
 	new /obj/item/storage/toolbox/electrical(src)
 	new /obj/item/multitool(src)
-	new /obj/item/stack/sheet/iron/twenty(src)
+	new /obj/item/stack/sheet/iron/thirty(src)
+	new /obj/item/stack/sheet/glass/twenty(src)
 	new /obj/item/door_seal(src)
 	new /obj/item/door_seal(src)
 	new /obj/item/folded_navigation_gigabeacon(src)
 	new /obj/item/flatpack/autolathe(src)
 	new /obj/item/wallframe/cell_charger_multi(src)
 	new /obj/item/flatpacked_machine(src)
+
+/obj/item/stack/sheet/iron/thirty
+	amount = 30
+
+/obj/item/stack/sheet/glass/twenty
+	amount = 20

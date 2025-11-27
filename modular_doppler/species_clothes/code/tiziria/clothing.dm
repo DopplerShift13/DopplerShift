@@ -167,6 +167,8 @@
 	icon_state = "snoutacava"
 	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'
 	inhand_icon_state = "balaclava"
+	resistance_flags = FIRE_PROOF
+	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|MASKINTERNALS
 	flags_inv = HIDEFACE|HIDEHAIR|HIDEFACIALHAIR|HIDESNOUT
 	visor_flags_inv = HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	alternate_worn_layer = LOW_FACEMASK_LAYER

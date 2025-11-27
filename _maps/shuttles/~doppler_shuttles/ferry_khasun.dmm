@@ -160,14 +160,15 @@
 /obj/effect/turf_decal/box/white/corners{
 	dir = 8
 	},
-/obj/structure/shelf,
-/obj/effect/spawner/random/maintenance/no_decals,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "kS" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen/personal_bay_one,
-/obj/structure/holosign/barrier/atmos/sturdy,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "la" = (
@@ -229,6 +230,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/landmark/ship_captain_spawner,
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/private_liner)
 "rx" = (
@@ -462,6 +464,12 @@
 	},
 /obj/effect/turf_decal/bot_white,
 /obj/machinery/light/cold/directional/east,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/private_liner)
+"DK" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/poddoor/preopen/personal_bay_one,
+/obj/machinery/atmos_shield_gen/active,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/private_liner)
 "DN" = (
@@ -1110,7 +1118,7 @@ KF
 KF
 vN
 Kk
-kS
+DK
 kS
 Kk
 vN
