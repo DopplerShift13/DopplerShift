@@ -86,7 +86,7 @@
 /obj/item/clothing/accessory/ear_tag/item_interaction(mob/living/user, obj/item/weapon, list/modifiers)
 	if(!istype(weapon, /obj/item/pen))
 		return NONE
-	var/new_display = tgui_input_text(user, "What should the tag say?", "Writing on tag", null, MAX_DESC_LEN)
+	var/new_display = tgui_input_text(user, "What should the tag say?", "Writing on tag", html_decode(display), MAX_DESC_LEN)
 	if(!new_display)
 		return ITEM_INTERACT_BLOCKING
 	display = new_display
