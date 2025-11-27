@@ -68,10 +68,33 @@
 	/// What message is displayed when our dogtags / its clothes / its wearer is examined
 	var/display = null
 
+/obj/item/clothing/accessory/ear_tag/Initialize(mapload)
+	. = ..()
+	register_context()
+
+/obj/item/clothing/accessory/ear_tag/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	if(isnull(held_item))
+		return NONE
+	if(istype(held_item, /obj/item/pen))
+		context[SCREENTIP_CONTEXT_LMB] = "Write on tag"
+		return CONTEXTUAL_SCREENTIP_SET
+
 /obj/item/clothing/accessory/ear_tag/examine(mob/user)
 	. = ..()
+	. += span_notice("You could write your own words on the tag with a pen.")
 	if(display)
 		. += "It has \"[display]\" on it."
+	else
+		. += "There is nothing written on it."
+
+/obj/item/clothing/accessory/ear_tag/item_interaction(mob/living/user, obj/item/weapon, list/modifiers)
+	if(!istype(weapon, /obj/item/pen))
+		return NONE
+	var/new_display = tgui_input_text(user, "What should the tag say?", "Writing on tag", null, MAX_DESC_LEN)
+	if(!new_display)
+		return ITEM_INTERACT_BLOCKING
+	display = new_display
+	return ITEM_INTERACT_SUCCESS
 
 // Examining the clothes will display the examine message of the tag
 /obj/item/clothing/accessory/ear_tag/attach(obj/item/clothing/under/attach_to, mob/living/attacher)
