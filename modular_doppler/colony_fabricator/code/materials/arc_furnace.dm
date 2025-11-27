@@ -53,33 +53,41 @@
 	if(smelting_thing)
 		. += span_notice("It has [EXAMINE_HINT("[smelting_thing]")] sitting in it.")
 
+/obj/machinery/arc_furnace/Destroy(force)
+	QDEL_NULL(smelting_thing)
+	return ..()
+
 /obj/machinery/arc_furnace/on_deconstruction(disassembled)
 	eject_contents()
 
-/obj/machinery/arc_furnace/update_appearance()
+/obj/machinery/arc_furnace/Exited(atom/movable/gone, direction)
 	. = ..()
-	cut_overlays()
+	if(gone == smelting_thing)
+		smelting_thing = null
+
+/obj/machinery/arc_furnace/update_overlays()
+	. = ..()
 	if(smelting_thing)
 		var/image/overlayed_item = image(icon = smelting_thing.icon, icon_state = smelting_thing.icon_state)
-		overlayed_item.transform = matrix(, 0, 0, 0, 0.8, 0)
-		add_overlay(overlayed_item)
-	var/image/furnace_front_overlay = image(icon = icon, icon_state = "[operating ? "[base_icon_state]_overlay_active" : "[base_icon_state]_overlay"]")
-	add_overlay(furnace_front_overlay)
+		overlayed_item.transform = matrix().Scale(1, 0.8)
+		. += overlayed_item
+	. += image(icon = icon, icon_state = "[operating ? "[base_icon_state]_overlay_active" : "[base_icon_state]_overlay"]")
 
-/obj/machinery/arc_furnace/attackby(obj/item/attacking_item, mob/living/user, params)
+/obj/machinery/arc_furnace/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!istype(tool, /obj/item/stack/ore))
+		return NONE
 	if(operating)
-		balloon_alert(user, "furnace busy")
-		return TRUE
+		balloon_alert(user, "furnace busy!")
+		return ITEM_INTERACT_BLOCKING
 	if(smelting_thing)
-		balloon_alert(user, "furnace full")
-		return TRUE
-	if(istype(attacking_item, /obj/item/stack/ore))
-		attacking_item.forceMove(src)
-		smelting_thing = attacking_item
-		balloon_alert(user, "ore added")
-		update_appearance()
-		return TRUE
-	return ..()
+		balloon_alert(user, "furnace full!")
+		return ITEM_INTERACT_BLOCKING
+	if(!user.transferItemToLoc(item, src, silent = FALSE))
+		return ITEM_INTERACT_BLOCKING
+	smelting_thing = tool
+	playsound(src, 'sound/machines/click.ogg', 15, TRUE, -3)
+	update_appearance(UPDATE_OVERLAYS)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/arc_furnace/ui_interact(mob/user)
 	. = ..()
@@ -98,14 +106,14 @@
 		return
 	switch(choice)
 		if(RADIAL_CHOICE_EJECT)
+			if(operating)
+				return
 			eject_contents()
 		if(RADIAL_CHOICE_USE)
 			smelt_it_up(user)
 
 /// Removes the first item in the contents list which should only ever be ore and if it's not, we have problems
 /obj/machinery/arc_furnace/proc/eject_contents()
-	if(operating)
-		return
 	playsound(loc, 'sound/machines/click.ogg', 15, TRUE, -3)
 	if(!smelting_thing)
 		return
