@@ -85,10 +85,10 @@
 
 // Double examining the person wearing the clothes will display the examine message of the tag
 /obj/item/clothing/accessory/ear_tag/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
-	RegisterSignal(user, COMSIG_ATOM_EXAMINE_MORE, PROC_REF(on_examine))
+	RegisterSignal(user, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 
 /obj/item/clothing/accessory/ear_tag/accessory_dropped(obj/item/clothing/under/clothes, mob/living/user)
-	UnregisterSignal(user, COMSIG_ATOM_EXAMINE_MORE)
+	UnregisterSignal(user, COMSIG_ATOM_EXAMINE)
 
 /// Adds the examine message to the clothes and mob.
 /obj/item/clothing/accessory/ear_tag/proc/on_examine(datum/source, mob/user, list/examine_list)
