@@ -207,7 +207,7 @@
 	return TRUE
 
 /// Sets the tag text of the item, for dogtags
-/datum/loadout_item/proc/set_modlink_label(datum/preference_middleware/loadout/manager, mob/user)
+/datum/loadout_item/proc/set_tag_description(datum/preference_middleware/loadout/manager, mob/user)
 	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
 	var/input_label = tgui_input_text(
 		user = user,

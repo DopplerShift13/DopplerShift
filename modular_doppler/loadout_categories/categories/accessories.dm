@@ -15,7 +15,7 @@
 	. = ..()
 	if(visuals_only)
 		return
-	var/datum/loadout_item/accessory/ear_tag/our_tag = equipped_item
+	var/obj/item/clothing/accessory/ear_tag/our_tag = equipped_item
 	var/list/item_details = preference_list[item_path]
 	var/prefs_label = item_details?[INFO_EAR_TAG_TEXT]
 	our_tag.display = prefs_label ? html_decode(prefs_label) : "Nothing!"
