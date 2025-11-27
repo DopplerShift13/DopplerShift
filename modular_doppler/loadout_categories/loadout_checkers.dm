@@ -213,7 +213,7 @@
 		user = user,
 		message = "What do you want the [name] to say on it? Leave blank to clear.",
 		title = "[name] Text",
-		default = loadout?[item_path]?[INFO_TAG_TEXT], // plop in existing label (if any)
+		default = html_decode(loadout?[item_path]?[INFO_TAG_TEXT]), // plop in existing label (if any)
 		max_length = MAX_DESC_LEN,
 	)
 	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
