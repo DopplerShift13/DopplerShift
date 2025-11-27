@@ -83,8 +83,6 @@
 		if(handlayer)
 			overlay.ishand = TRUE
 			overlay.layers = handlayer
-		else
-			overlay.layers = EXTERNAL_ADJACENT
 		if(bodypart == BODY_ZONE_HEAD)
 			overlay.use_gender = FALSE
 		else
