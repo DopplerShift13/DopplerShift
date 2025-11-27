@@ -49,8 +49,6 @@
 	abstract_type = /datum/loadout_item/pocket_items/plush
 	can_be_named = TRUE
 
-
-
 /datum/loadout_item/pocket_items/plush/bee
 	name = "Plush (Bee)"
 	item_path = /obj/item/toy/plush/beeplushie
