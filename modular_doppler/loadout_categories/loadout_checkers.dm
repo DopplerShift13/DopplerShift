@@ -135,7 +135,7 @@
 			"label" = "Change tag contents",
 			"act_key" = "set_tag_description",
 			"button_icon" = FA_ICON_PEN,
-			"active_key" = INFO_EAR_TAG_TEXT,
+			"active_key" = INFO_TAG_TEXT,
 		))
 	return buttons
 
@@ -213,7 +213,7 @@
 		user = user,
 		message = "What do you want the [name] to say on it? Leave blank to clear.",
 		title = "[name] Text",
-		default = loadout?[item_path]?[INFO_EAR_TAG_TEXT], // plop in existing label (if any)
+		default = loadout?[item_path]?[INFO_TAG_TEXT], // plop in existing label (if any)
 		max_length = MAX_DESC_LEN,
 	)
 	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
@@ -224,9 +224,9 @@
 		return FALSE
 
 	if(input_label)
-		loadout[item_path][INFO_EAR_TAG_TEXT] = input_label
+		loadout[item_path][INFO_TAG_TEXT] = input_label
 	else if(input_label == "")
-		loadout[item_path] -= INFO_EAR_TAG_TEXT
+		loadout[item_path] -= INFO_TAG_TEXT
 
 	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return TRUE

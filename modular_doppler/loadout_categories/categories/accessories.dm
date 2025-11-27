@@ -21,8 +21,8 @@
 		return
 	var/obj/item/clothing/accessory/ear_tag/our_tag = equipped_item
 	var/list/item_details = preference_list[item_path]
-	var/prefs_label = item_details?[INFO_EAR_TAG_TEXT]
-	our_tag.display = prefs_label ? html_decode(prefs_label) : "Nothing!"
+	var/prefs_label = item_details?[INFO_TAG_TEXT]
+	our_tag.display = prefs_label ? html_decode(prefs_label) : null
 
 /datum/loadout_item/accessory/vaporizer
 	name = "Hydro-Vaporizer"

@@ -3,7 +3,7 @@
 /// Used to set custom labels on MODlink devices.
 #define INFO_MODLINK_LABEL "modlink_label"
 /// Used to set special examine text for ear tags
-#define INFO_EAR_TAG_TEXT "ear_tag_text"
+#define INFO_TAG_TEXT "tag_text"
 
 /// Max amonut of misc / backpack items that are allowed.
 #define MAX_ALLOWED_MISC_ITEMS 3

@@ -66,11 +66,12 @@
 	alternate_worn_layer = HANDCUFF_LAYER // above hats for visibility
 	attachment_slot = NONE
 	/// What message is displayed when our dogtags / its clothes / its wearer is examined
-	var/display = "Nothing!"
+	var/display = null
 
 /obj/item/clothing/accessory/ear_tag/examine(mob/user)
 	. = ..()
-	. += display
+	if(display)
+		. += "It has \"[display]\" on it."
 
 // Examining the clothes will display the examine message of the tag
 /obj/item/clothing/accessory/ear_tag/attach(obj/item/clothing/under/attach_to, mob/living/attacher)
@@ -94,9 +95,9 @@
 /obj/item/clothing/accessory/ear_tag/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(ismob(source))
-		examine_list += "A tag is clipped to [source.p_their()] ear: [display]"
+		examine_list += "A tag is clipped to [source.p_their()] ear [display ? ": [display]" : "but nothing is on it."]"
 	else
-		examine_list += "A tag is clipped to [source]: [display]"
+		examine_list += "A tag is clipped to [source] [display ? ": [display]" : "but nothing is on it."]"
 
 // neck capes
 
