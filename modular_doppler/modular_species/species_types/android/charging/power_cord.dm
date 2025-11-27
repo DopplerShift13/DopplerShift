@@ -4,23 +4,60 @@
 #define POWER_CORD_CHARGE_DELAY 0.55 SECONDS
 #define POWER_CORD_APC_MINIMUM_PERCENT 5
 
-/datum/action/innate/power_cord
-	name = "Power Cord"
+/**
+ * ORGAN
+ */
+
+/obj/item/organ/stomach/charging/power_cord
+	name = "plug-based charging apparatus"
+	desc = "" // TODO
+	actions_types = list(/datum/action/item_action/organ_action/power_cord)
+
+	// Weakref to our power cord item.
+	var/datum/weakref/power_cord_ref
+
+/obj/item/organ/stomach/charging/power_cord/Destroy()
+	var/obj/item/hand_item/power_cord/our_cord = power_cord_ref?.resolve()
+	if(our_cord)
+		qdel(our_cord)
+	power_cord_ref = null
+	return ..()
+
+/obj/item/organ/stomach/charging/power_cord/on_mob_remove(mob/living/carbon/stomach_owner)
+	. = ..()
+	var/obj/item/hand_item/power_cord/our_cord = power_cord_ref?.resolve()
+	if(our_cord)
+		playsound(src, 'sound/vehicles/mecha/mechmove03.ogg', 20, TRUE)
+		qdel(our_cord)
+
+/obj/item/organ/stomach/charging/power_cord/ui_action_click()
+	var/obj/item/hand_item/power_cord/our_cord = power_cord_ref?.resolve()
+	if(our_cord)
+		qdel(our_cord)
+		playsound(owner, 'sound/vehicles/mecha/mechmove03.ogg', 20, TRUE)
+		return
+	if(owner.get_active_held_item())
+		owner.balloon_alert(owner, "hand occupied!")
+		return
+	our_cord = new
+	power_cord_ref = WEAKREF(our_cord)
+	owner.put_in_active_hand(our_cord)
+	playsound(owner, 'sound/vehicles/mecha/mechmove03.ogg', 20, TRUE)
+
+/**
+ * ACTION
+ */
+
+/datum/action/item_action/organ_action/power_cord
+	name = "Toggle Power Cord"
 	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_HANDS_BLOCKED|AB_CHECK_CONSCIOUS
 	button_icon_state = "toolkit_generic"
 	button_icon = 'icons/obj/medical/organs/organs.dmi'
 	background_icon_state = "bg_default"
-	// What will be given in-hand
-	var/obj/item/hand_item/power_cord/power_cord
 
-/datum/action/innate/power_cord/Activate()
-	for(var/obj/item/hand_item/item in owner.held_items)
-		if(item)
-			owner.balloon_alert(owner, "hand occupied!")
-			return
-	power_cord = new
-	owner.put_in_active_hand(power_cord)
-	playsound(owner, 'sound/vehicles/mecha/mechmove03.ogg', 20, TRUE)
+/**
+ * HAND ITEM
+ */
 
 /obj/item/hand_item/power_cord
 	name = "power cord"
@@ -67,7 +104,7 @@
 		return
 
 	if(HAS_TRAIT(user, TRAIT_CHARGING))
-		REMOVE_TRAIT(user, TRAIT_CHARGING, SPECIES_TRAIT)
+		REMOVE_TRAIT(user, TRAIT_CHARGING, ORGAN_TRAIT)
 	user.visible_message(span_notice("[user] unplugs from [target]."), span_notice("You unplug from [target]."))
 
 /**
@@ -93,15 +130,15 @@
 	var/minimum_cell_charge = target_apc ? POWER_CORD_APC_MINIMUM_PERCENT : 0
 
 	if(!target_cell || target_cell.percent() < minimum_cell_charge)
-		user.balloon_alert(user, "APC charge low!")
+		user.balloon_alert(user, "target charge low!")
 		return
 	var/energy_needed
 	while(TRUE)
-		ADD_TRAIT(user, TRAIT_CHARGING, SPECIES_TRAIT)
+		ADD_TRAIT(user, TRAIT_CHARGING, ORGAN_TRAIT)
 		// Check if the charge level of the cell is below the minimum.
 		// Prevents from overloading the cell.
 		if(target_cell.percent() < minimum_cell_charge)
-			user.balloon_alert(user, "APC charge low!")
+			user.balloon_alert(user, "target charge low!")
 			break
 
 		// Attempt to drain charge from the cell.
@@ -122,7 +159,7 @@
 			// The cell could be sabotaged, which causes it to explode and qdelete.
 			if(QDELETED(target_cell))
 				return
-			user.balloon_alert(user, "[target_apc ? "APC" : "Cell"] empty!")
+			user.balloon_alert(user, "target empty!")
 			break
 
 		energy_holder.core_energy += energy_delivered
