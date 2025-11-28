@@ -32,12 +32,12 @@
 	purchase_path = /obj/item/stock_parts/power_store/cell/lead
 	cost_per_order = 30
 
-/datum/orderable_item/grey_market_hardware/lead_battery
+/datum/orderable_item/grey_market_hardware/nine_volt
 	name = "'Jolta-Cell' Branded Battery"
 	purchase_path = /obj/item/stock_parts/power_store/cell/upgraded
 	cost_per_order = 20
 
-/datum/orderable_item/grey_market_hardware/lead_battery
+/datum/orderable_item/grey_market_hardware/double_a_battery
 	name = "AA Battery"
 	purchase_path = /obj/item/stock_parts/power_store/cell/crap
 	cost_per_order = 15
