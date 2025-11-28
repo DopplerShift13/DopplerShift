@@ -34,11 +34,13 @@
 
 /datum/orderable_item/grey_market_hardware/nine_volt
 	name = "'Jolta-Cell' Branded Battery"
+	desc = "A power cell with a slightly higher capacity than normal! This one has a rating of 25 kJ."
 	purchase_path = /obj/item/stock_parts/power_store/cell/upgraded
 	cost_per_order = 20
 
 /datum/orderable_item/grey_market_hardware/double_a_battery
 	name = "AA Battery"
+	desc = "You can't top the plasma top. This one has a rating of 5 kJ."
 	purchase_path = /obj/item/stock_parts/power_store/cell/crap
 	cost_per_order = 15
 
