@@ -68,6 +68,10 @@
 	/// What message is displayed when our dogtags / its clothes / its wearer is examined
 	var/display = null
 
+/obj/item/clothing/accessory/ear_tag/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/pinnable_accessory, silent = TRUE, pinning_time = 5 SECONDS)
+
 /obj/item/clothing/accessory/ear_tag/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	if(isnull(held_item))
 		return NONE
