@@ -42,7 +42,7 @@
 			alert.desc = "You can feel the heat blasting off of [parent]."
 			current_alerts[candidate] = TRUE
 		candidate.adjust_bodytemperature(temp_per_second, max_temp = max_temperature)
-		new /obj/effect/temp_visual/heal(get_turf(candidate), healing_color)
+		new /obj/effect/temp_visual/radiator_heat(get_turf(candidate))
 	for(var/mob/living/remove_alert_from as anything in current_alerts - to_heat)
 		remove_alert_from.clear_alert(alert_category)
 		current_alerts -= remove_alert_from
@@ -58,7 +58,7 @@
 	duration = 1.5 SECONDS
 	alpha = 155
 
-/obj/effect/temp_visual/radiator_heat/Initialize(mapload, set_color)
+/obj/effect/temp_visual/radiator_heat/Initialize(mapload)
 	. = ..()
 	pixel_x = rand(-12, 12)
 	pixel_y = rand(-9, 0)
