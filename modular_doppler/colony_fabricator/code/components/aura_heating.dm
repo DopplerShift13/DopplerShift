@@ -1,4 +1,4 @@
-#define HEAT_EFFECT_COOLDOWN (1 SECONDS)
+#define HEAT_EFFECT_COOLDOWN (3 SECONDS)
 
 /datum/component/powerful_heat_radiator
 	/// How far away should mobs be directly warmed?
