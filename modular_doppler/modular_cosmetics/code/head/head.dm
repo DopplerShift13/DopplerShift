@@ -100,3 +100,21 @@
 		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		balloon_alert(user, "mouth covered")
 	return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/head/helmet/space/pirate/tiziran_raider
+	name = "Tiziran EVA helmet"
+	desc = "An EVA-rated helmet specially suited to Tiziran physiology. Originally developed for special operations, time and surplusing \
+	have diffused this style of helmet across Tiziran-controlled space."
+	icon = 'modular_doppler/modular_cosmetics/icons/mob/head/helmet.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/obj/head/helmet.dmi'
+	icon_state = "tiziran_raider"
+	worn_icon_state = "tiziran_raider"
+	armor_type = /datum/armor/space_pirate
+
+/obj/item/clothing/head/helmet/space/pirate/tiziran_raider/red
+	icon_state = "tiziran_raider_red"
+	worn_icon_state = "tiziran_raider_red"
+
+/obj/item/clothing/head/helmet/space/pirate/tiziran_raider/yellow
+	icon_state = "tiziran_raider_yellow"
+	worn_icon_state = "tiziran_raider_yellow"

@@ -1,0 +1,294 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/turf/template_noop,
+/area/space)
+"c" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+"d" = (
+/obj/machinery/atmospherics/components/unary/passive_vent/layer2{
+	dir = 4
+	},
+/turf/open/floor/catwalk_floor/iron_dark/airless,
+/area/space)
+"e" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"g" = (
+/obj/structure/guncase,
+/obj/item/ammo_box/magazine/ammo_stack/bolt_slug/full,
+/obj/item/ammo_box/magazine/ammo_stack/bolt_slug/full,
+/obj/item/gun/ballistic/bolt_thrower,
+/turf/open/floor/plating,
+/area/space)
+"h" = (
+/obj/machinery/power/micro_reactor,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+"i" = (
+/obj/machinery/portable_atmospherics/canister/air,
+/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer4{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/space)
+"j" = (
+/obj/machinery/door/airlock/external,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/space)
+"l" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/template_noop,
+/area/space)
+"n" = (
+/obj/structure/closet/crate/secure/plasma,
+/obj/item/stack/sheet/mineral/plasma/five,
+/obj/item/stack/sheet/mineral/plasma/five,
+/turf/open/floor/plating,
+/area/space)
+"o" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/space)
+"r" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+"s" = (
+/obj/machinery/porta_turret/syndicate,
+/turf/closed/wall/mineral/plastitanium,
+/area/space)
+"u" = (
+/obj/machinery/computer/shuttle/pirate{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+"v" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/turf/closed/wall/mineral/plastitanium,
+/area/space)
+"z" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+"A" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+"B" = (
+/obj/structure/railing/eva_handhold/directional/west,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/space)
+"H" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/space)
+"I" = (
+/obj/machinery/suit_storage_unit/pirate{
+	helmet_type = /obj/item/clothing/head/helmet/space/pirate/tiziran_raider;
+	suit_type = /obj/item/clothing/suit/space/pirate/tiziran
+	},
+/turf/open/floor/plating,
+/area/space)
+"K" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/space)
+"L" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+"M" = (
+/obj/machinery/power/port_gen/pacman/pre_loaded,
+/turf/open/floor/plating,
+/area/space)
+"O" = (
+/turf/open/floor/plating,
+/area/space)
+"P" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced/spawner/directional/west,
+/obj/structure/window/reinforced/spawner/directional/south,
+/turf/open/floor/plating,
+/area/space)
+"Q" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/syndicate_access,
+/obj/effect/mapping_helpers/apc/cell_10k,
+/turf/open/floor/plating,
+/area/space)
+"R" = (
+/turf/open/floor/catwalk_floor/iron_dark/airless,
+/area/space)
+"S" = (
+/turf/closed/wall/mineral/plastitanium,
+/area/space)
+"T" = (
+/obj/structure/minecart_rail{
+	dir = 4
+	},
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 16;
+	pixel_y = -7
+	},
+/obj/structure/marker_beacon/burgundy{
+	pixel_x = 16;
+	pixel_y = 5
+	},
+/turf/template_noop,
+/area/space)
+"U" = (
+/obj/machinery/computer/monitor{
+	dir = 8
+	},
+/obj/machinery/turretid{
+	pixel_y = -24
+	},
+/obj/machinery/button/door{
+	id = "silverbridge";
+	name = "Window Shutters Control";
+	pixel_y = -34;
+	pixel_x = -3
+	},
+/turf/open/floor/plating,
+/area/space)
+"V" = (
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "piratebridge"
+	},
+/obj/effect/spawner/structure/window/reinforced/plasma/plastitanium,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/space)
+
+(1,1,1) = {"
+K
+K
+a
+a
+a
+a
+K
+K
+"}
+(2,1,1) = {"
+o
+o
+B
+d
+R
+B
+o
+o
+"}
+(3,1,1) = {"
+o
+h
+o
+j
+o
+o
+i
+o
+"}
+(4,1,1) = {"
+o
+A
+c
+L
+H
+H
+H
+o
+"}
+(5,1,1) = {"
+o
+M
+n
+L
+O
+O
+g
+o
+"}
+(6,1,1) = {"
+v
+o
+O
+L
+P
+I
+o
+S
+"}
+(7,1,1) = {"
+l
+S
+o
+Q
+U
+o
+S
+a
+"}
+(8,1,1) = {"
+T
+a
+V
+z
+e
+V
+a
+a
+"}
+(9,1,1) = {"
+a
+a
+V
+u
+r
+V
+a
+a
+"}
+(10,1,1) = {"
+a
+a
+s
+V
+V
+s
+a
+a
+"}

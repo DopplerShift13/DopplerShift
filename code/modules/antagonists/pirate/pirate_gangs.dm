@@ -54,7 +54,7 @@ GLOBAL_LIST_INIT(heavy_pirate_gangs, init_pirate_gangs(is_heavy = TRUE))
 
 /datum/pirate_gang/New()
 	. = ..()
-	ship_name = pick(strings(PIRATE_NAMES_FILE, ship_name_pool))
+	ship_name = pick(strings(PIRATE_NAMES_FILE || DOPPLER_PIRATE_NAMES_FILE, ship_name_pool)) //DOPPLER EDIT originally ship_name = pick(strings(PIRATE_NAMES_FILE, ship_name_pool)) allows us to use a modular json for this
 
 ///whether this pirate gang can roll today. this is called when the global list initializes, so
 ///returning FALSE means it cannot show up at all for the entire round.
