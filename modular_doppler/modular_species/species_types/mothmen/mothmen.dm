@@ -1,5 +1,8 @@
 /datum/species/moth
 	preview_outfit = /datum/outfit/moth_preview
+	inherent_traits = list(
+		TRAIT_MUTANT_COLORS,
+	)
 
 /datum/outfit/moth_preview
 	name = "Moth (Species Preview)"
