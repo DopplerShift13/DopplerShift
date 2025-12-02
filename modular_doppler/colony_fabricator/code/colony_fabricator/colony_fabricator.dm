@@ -16,7 +16,7 @@
 	icon_state = "colony_lathe"
 	base_icon_state = "colony_lathe"
 	circuit = /obj/item/circuitboard/machine/colony_lathe
-	production_animation = "colony_lathe_working"
+	production_animation = "colony_lathe_progress"
 	light_color = LIGHT_COLOR_BRIGHT_YELLOW
 	light_power = 5
 	allowed_buildtypes = COLONY_FABRICATOR
