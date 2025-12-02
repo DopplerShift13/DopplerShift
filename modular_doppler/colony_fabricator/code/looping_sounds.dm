@@ -19,3 +19,18 @@
 	mid_length = 3 SECONDS
 	volume = 40
 	falloff_exponent = 3
+
+/datum/looping_sound/plasma_turbine_fan
+	start_sound = 'modular_doppler/colony_fabricator/sounds/turbine/fan_start.wav'
+	start_length = 3
+	mid_sounds = list(
+		'modular_doppler/colony_fabricator/sounds/turbine/fan_mid_1.wav' = 1,
+		'modular_doppler/colony_fabricator/sounds/turbine/fan_mid_2.wav' = 1,
+		'modular_doppler/colony_fabricator/sounds/turbine/fan_mid_3.wav' = 1,
+		'modular_doppler/colony_fabricator/sounds/turbine/fan_mid_4.wav' = 1,
+	)
+	mid_length = 3 SECONDS
+	end_sound = 'modular_doppler/colony_fabricator/sounds/turbine/fan_end.wav'
+	volume = 100
+	falloff_exponent = 3
+

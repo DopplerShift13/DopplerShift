@@ -31,7 +31,7 @@
 	/// How much power the generator is currently making
 	var/current_power_generation
 	/// Our looping fan sound that we play when turned on
-	var/datum/looping_sound/ore_thumper_fan/soundloop
+	var/datum/looping_sound/plasma_turbine_fan/soundloop
 	/// What power level are we working at, multiplies fuel usage
 	var/power_level = 1
 

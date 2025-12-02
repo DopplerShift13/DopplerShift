@@ -27,10 +27,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 
 /obj/machinery/cell_charger_multi/update_overlays()
 	. = ..()
-
 	if(!charging_batteries.len)
 		return
-
 	for(var/i = charging_batteries.len, i >= 1, i--)
 		var/obj/item/stock_parts/power_store/cell/charging = charging_batteries[i]
 		var/newlevel = round(charging.percent() * 4 / 100)
