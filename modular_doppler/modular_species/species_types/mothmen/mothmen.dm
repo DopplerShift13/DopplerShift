@@ -11,6 +11,7 @@
 	uniform = /obj/item/clothing/under/rank/civilian/hydroponics/skirt
 
 /datum/species/moth/prepare_human_for_preview(mob/living/carbon/human/moth_for_preview)
+	moth_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#74828b"
 	moth_for_preview.dna.wing_type = "Moth Wings"
 	moth_for_preview.dna.features["moth_wings"] = "Royal"
 	moth_for_preview.dna.features["moth_antennae"] = "Royal"
