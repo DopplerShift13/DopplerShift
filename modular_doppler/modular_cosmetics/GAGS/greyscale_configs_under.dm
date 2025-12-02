@@ -238,6 +238,19 @@
 	name = "Shorts (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
 
+/datum/greyscale_config/shortalls
+	name = "Shortalls"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/pants.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/shortalls.json'
+
+/datum/greyscale_config/shortalls/worn
+	name = "Shortalls (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi'
+
+/datum/greyscale_config/shortalls/worn/digi
+	name = "Shortalls (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
+
 
 //these two jeans configs are loadbearing. they are overrides of existing tg configs, and if you remove them absolutely nothing will change in the game
 // itself, but the antag screenshot unit test will fail consistently.
@@ -282,6 +295,19 @@
 
 /datum/greyscale_config/camo_pants/worn/digi
 	name = "Camo Pants (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
+
+/datum/greyscale_config/moto_leggings
+	name = "Moto Leggings"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/moto_leggings.json'
+
+/datum/greyscale_config/moto_leggings/worn
+	name = "Moto Leggings (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/moto_leggings/digi
+	name = "Moto Leggings (Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
 
 /datum/greyscale_config/track_pants
@@ -400,4 +426,13 @@
 
 /datum/greyscale_config/athletas_bodysuit/worn
 	name = "ATHLETAS bodysuit (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/gear_harness_visible
+	name = "Gear Harness, Visible"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/gear_harness_visible.json'
+
+/datum/greyscale_config/gear_harness_visible/worn
+	name = "Gear Harness, Visible (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'

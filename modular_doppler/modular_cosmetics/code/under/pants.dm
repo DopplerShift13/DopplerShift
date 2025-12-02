@@ -133,6 +133,28 @@
 	icon_state = "/obj/item/clothing/under/shorts/shorter/skirt"
 	post_init_icon_state = "skirt"
 
+/obj/item/clothing/under/shortalls
+	name = "short overalls"
+	desc = "A pair of dungarees whose legs terminate at hand length."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/shortalls"
+	post_init_icon_state = "shortalls"
+	body_parts_covered = CHEST|GROIN
+	species_exception = list(/datum/species/golem)
+	greyscale_colors = "#66ccff"
+	greyscale_config = /datum/greyscale_config/shortalls
+	greyscale_config_worn = /datum/greyscale_config/shortalls/worn
+	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/under/shortalls/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
+	greyscale_config_worn_bodyshapes = list()
+	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/shortalls/worn
+	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/shortalls/worn/digi
+	set_greyscale(colors = greyscale_colors)
+
 /obj/item/clothing/under/dress/skirt/medium
 	name = "medium skirt"
 	desc = "An appealing medium-length skirt. Top not included."

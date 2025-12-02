@@ -263,6 +263,10 @@
 	name = "Crop-top Jacket"
 	item_path = /obj/item/clothing/suit/jacket/doppler/gacket
 
+/datum/loadout_item/suit/bad_for_school
+	name = "Bad for School Jacket"
+	item_path = /obj/item/clothing/suit/jacket/doppler/bad_for_school
+
 /*
 *	COLONIST
 */

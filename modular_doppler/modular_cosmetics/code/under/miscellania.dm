@@ -21,15 +21,25 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/pants/moto_leggings
-	name = "'Naka' moto leggings"
+	name = "moto leggings"
 	desc = "Lab grown lambskin has been adhered to a spandex underlayer to produce a leather with considerable \
 	four way stretch, allowing for a closer fit in leather pants than ever before. This style features integrated \
-	kneepads to boot. It's not recommended to use these for motorsports; they are not actually very protective."
+	kneepads."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
-	icon_state = "moto_leggings"
-	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+	icon_state = "/obj/item/clothing/under/pants/moto_leggings"
+	post_init_icon_state = "moto_leggings"
+	greyscale_config = /datum/greyscale_config/moto_leggings
+	greyscale_colors = "#872c2c#780a0a"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = GROIN|LEGS
 	can_adjust = FALSE
+
+/obj/item/clothing/under/pants/moto_leggings/Initialize(mapload)
+	. = ..()
+	greyscale_config_worn_bodyshapes = list()
+	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/moto_leggings/worn
+	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/moto_leggings/digi
+	set_greyscale(colors = greyscale_colors)
 
 /obj/item/clothing/under/pants/big_pants
 	name = "\improper JUNCO megacargo pants"
@@ -62,6 +72,17 @@
 /obj/item/clothing/under/misc/gear_harness/Initialize(mapload)
 	. = ..()
 	allowed += GLOB.colonist_suit_allowed
+
+/obj/item/clothing/under/misc/gear_harness/visible
+	desc = "A loop of leather straps and metal jump rings for attaching modular storage systems."
+	slot_flags = ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING | ITEM_SLOT_BELT
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/misc/gear_harness/visible"
+	post_init_icon_state = "gear_harness_visible"
+	greyscale_config = /datum/greyscale_config/gear_harness_visible
+	greyscale_config_worn = /datum/greyscale_config/gear_harness_visible/worn
+	greyscale_colors = "#292929"
+	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/under/costume/bunnysuit
 	name = "bunny suit"
