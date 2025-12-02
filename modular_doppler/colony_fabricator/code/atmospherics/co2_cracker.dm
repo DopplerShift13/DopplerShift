@@ -79,7 +79,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	desc = "A portable device that is the savior of many a colony on the frontier. Performing similarly to an electrolyzer, \
 		it takes in nearby gasses and breaks them into different gasses. The big draw of this one? It can crack carbon dioxide \
 		into breathable oxygen. Handy for places where CO2 is all too common, and oxygen is all too hard to find."
-	icon = 'modular_doppler/colony_fabricator/icons/portable_machines.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	circuit = /obj/item/circuitboard/machine/co2_cracker
 	/// Soundloop for while the thermomachine is turned on
 	var/datum/looping_sound/conditioner_running/soundloop

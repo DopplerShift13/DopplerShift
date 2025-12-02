@@ -5,7 +5,7 @@
 	desc = "An infinitely useful device for those finding themselves in a frontier without a stable source of water. \
 		Using a simplified version of the chemistry dispenser's synthesizer process, it can create water out of nothing \
 		but good old electricity."
-	icon = 'modular_doppler/colony_fabricator/icons/chemistry_machines.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "water_synth"
 	anchored = FALSE
 	/// Reagents that this can dispense, overrides the default list on init
@@ -25,7 +25,7 @@
 /obj/item/flatpacked_machine/water_synth
 	name = "water synthesizer parts kit"
 	desc = /obj/machinery/plumbing/synthesizer/water_synth::desc
-	icon = 'modular_doppler/colony_fabricator/icons/chemistry_machines.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "water_synth_parts"
 	w_class = WEIGHT_CLASS_NORMAL
 	type_to_deploy = /obj/machinery/plumbing/synthesizer/water_synth
@@ -42,7 +42,7 @@
 	desc = "An infinitely useful device for those finding themselves in a frontier without a stable source of nutrients for crops. \
 		Using a simplified version of the chemistry dispenser's synthesizer process, it can create hydroponics nutrients out of nothing \
 		but good old electricity."
-	icon = 'modular_doppler/colony_fabricator/icons/chemistry_machines.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "hydro_synth"
 	anchored = FALSE
 	/// Reagents that this can dispense, overrides the default list on init
@@ -68,7 +68,7 @@
 /obj/item/flatpacked_machine/hydro_synth
 	name = "hydroponics chemical synthesizer parts kit"
 	desc = /obj/machinery/plumbing/synthesizer/colony_hydroponics::desc
-	icon = 'modular_doppler/colony_fabricator/icons/chemistry_machines.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "hydro_synth_parts"
 	w_class = WEIGHT_CLASS_NORMAL
 	type_to_deploy = /obj/machinery/plumbing/synthesizer/colony_hydroponics
