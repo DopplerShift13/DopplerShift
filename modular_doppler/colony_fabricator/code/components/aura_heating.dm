@@ -2,7 +2,7 @@
 
 /datum/component/powerful_heat_radiator
 	/// How far away should mobs be directly warmed?
-	var/range = 4
+	var/range = 3
 	/// How much should the temperature change per second?
 	var/temp_per_second = 0.05 // 1C per 20 seconds
 	/// What body temperature should we bring mobs up to?
@@ -48,14 +48,14 @@
 		current_alerts -= remove_alert_from
 
 /atom/movable/screen/alert/aura_heating
-	name = "Aura Heating"
+	name = "Radiator Heating"
 	icon_state = "template"
 
 /obj/effect/temp_visual/radiator_heat //color is white by default, set to whatever is needed
 	name = "heating steam"
 	icon = 'icons/effects/steam.dmi'
 	icon_state = "steam_single"
-	duration = 1.5 SECONDS
+	duration = 1 SECONDS
 	alpha = 155
 
 /obj/effect/temp_visual/radiator_heat/Initialize(mapload)

@@ -40,6 +40,3 @@
 	icon_state = "beacon_folded"
 	w_class = WEIGHT_CLASS_SMALL
 	type_to_deploy = /obj/item/gps/colony_beacon
-
-/obj/item/flatpacked_machine/gps_beacon/give_manufacturer_examine()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)

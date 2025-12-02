@@ -89,6 +89,10 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	soundloop = new(src, FALSE)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
+/obj/machinery/electrolyzer/co2_cracker/Destroy(force)
+	QDEL_NULL(soundloop)
+	return ..()
+
 /obj/machinery/electrolyzer/co2_cracker/process_atmos()
 	if(on && !soundloop.loop_started)
 		soundloop.start()
