@@ -1,3 +1,6 @@
+/// Light colored like lizard blood, but not using the blood define
+#define LIGHT_COLOR_COPPER_OXIDE "#7fe7ce"
+
 /// Category for clothing in the organics printer
 #define RND_CATEGORY_AKHTER_CLOTHING "Clothing"
 /// Category for equipment like belts and bags in the organics printer

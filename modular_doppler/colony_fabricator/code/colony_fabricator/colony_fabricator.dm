@@ -31,6 +31,9 @@
 	. = ..()
 	flick("colony_lathe_finish_print", src)
 
+/obj/machinery/rnd/production/colony_lathe/flick_animation(datum/material/mat_ref)
+	flick_overlay_view(material_insertion_animation(mat_ref), 1 SECONDS)
+
 // We take from all nodes even unresearched ones
 /obj/machinery/rnd/production/colony_lathe/update_designs()
 	var/previous_design_count = cached_designs.len

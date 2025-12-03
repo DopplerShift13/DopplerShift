@@ -10,7 +10,7 @@
 	density = FALSE
 	anchored = TRUE
 	interaction_flags_atom = INTERACT_ATOM_ATTACK_HAND
-	light_color = "#7fe7ce"
+	light_color = LIGHT_COLOR_COPPER_OXIDE
 	light_on = FALSE
 	var/power_gen = 50 KILO WATTS
 	var/active = FALSE
