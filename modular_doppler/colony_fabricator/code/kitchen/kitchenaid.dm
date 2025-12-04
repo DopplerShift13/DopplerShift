@@ -100,10 +100,6 @@
 	// If you're cold she's cold. Emag the kitchen dispenser.
 	. += span_warning("HEALTH AND SAFETY NOTICE :: KEEP AWAY FROM CRYPTOGRAPHIC SEQUENCING DEVICES")
 
-/obj/machinery/chem_dispenser/kitchenaid_stand/work_animation()
-	. = ..()
-	playsound(src, 'sound/machines/mining/refinery.ogg', 50, TRUE)
-
 /obj/machinery/chem_dispenser/kitchenaid_stand/display_beaker()
 	var/mutable_appearance/overlayed_beaker = beaker_overlay || mutable_appearance(icon, "disp_beaker")
 	return overlayed_beaker
