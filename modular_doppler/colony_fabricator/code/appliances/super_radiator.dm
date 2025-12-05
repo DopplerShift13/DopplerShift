@@ -30,6 +30,14 @@
 	QDEL_NULL(soundloop)
 	return ..()
 
+/obj/structure/tizirian_radiator/wrench_act(mob/living/user, obj/item/wrench)
+	..()
+	user.visible_message(span_warning("[user] disassembles [src]."),
+		span_notice("You start to disassemble [src]..."), span_hear("You hear clanking and banging noises."))
+	if(wrench.use_tool(src, user, 2 SECONDS, volume=50))
+		deconstruct(TRUE)
+	return TRUE
+
 /obj/structure/tizirian_radiator/atom_deconstruct(disassembled)
 	. = ..()
 	if(disassembled)
