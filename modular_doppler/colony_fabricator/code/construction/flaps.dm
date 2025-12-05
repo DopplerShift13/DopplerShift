@@ -9,4 +9,4 @@
 	icon_state = "flaps"
 	armor_type = /datum/armor/structure_plasticflaps/kitchen
 	require_resting = FALSE
-	flaps_alpha = 150
+	flaps_alpha = 200
