@@ -45,4 +45,6 @@
 
 /obj/machinery/chem_dispenser/frontier_appliance/display_beaker()
 	var/mutable_appearance/overlayed_beaker = beaker_overlay || mutable_appearance(icon, "disp_beaker")
+	overlayed_beaker.pixel_w = 0
+	overlayed_beaker.pixel_z = 0
 	return overlayed_beaker

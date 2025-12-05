@@ -16,7 +16,7 @@
 	pass_flags = PASSTABLE
 	circuit = /obj/item/circuitboard/machine/table_griddle
 	// Lines up perfectly with tables when anchored on them
-	anchored_tabletop_offset = 3
+	anchored_tabletop_offset = 1
 
 /obj/machinery/griddle/frontier_tabletop/unanchored
 	anchored = FALSE

@@ -4,7 +4,7 @@
 	/// How far away should mobs be directly warmed?
 	var/range = 3
 	/// How much should the temperature change per second?
-	var/temp_per_second = 0.05 // 1C per 20 seconds
+	var/temp_per_second = 0.1 // 1C per 10 seconds
 	/// What body temperature should we bring mobs up to?
 	var/max_temperature = BODYTEMP_HEAT_DAMAGE_LIMIT + 5 // A little too spicy for humans
 	/// A list of being heated to active alerts
@@ -42,7 +42,8 @@
 			alert.desc = "You can feel the heat blasting off of [parent]."
 			current_alerts[candidate] = TRUE
 		candidate.adjust_bodytemperature(temp_per_second, max_temp = max_temperature)
-		new /obj/effect/temp_visual/radiator_heat(get_turf(candidate))
+		if(should_show_effect)
+			new /obj/effect/temp_visual/radiator_heat(get_turf(candidate))
 	for(var/mob/living/remove_alert_from as anything in current_alerts - to_heat)
 		remove_alert_from.clear_alert(alert_category)
 		current_alerts -= remove_alert_from
@@ -54,7 +55,7 @@
 /obj/effect/temp_visual/radiator_heat //color is white by default, set to whatever is needed
 	name = "heating steam"
 	icon = 'icons/effects/steam.dmi'
-	icon_state = "steam_single"
+	icon_state = "steam_triple"
 	duration = 1 SECONDS
 	alpha = 155
 

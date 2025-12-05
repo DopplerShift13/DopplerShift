@@ -4,12 +4,14 @@
 		Standing anywhere near it is bound to warm you up. Thanks in part to being designed by \
 		and for Tizirians, humans standing near it for too long may experience discomfort and \
 		potential burns."
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
+	icon_state = "lizard_heater"
 	density = FALSE
 	anchored = TRUE
 	light_on = TRUE
 	light_color = LIGHT_COLOR_FLARE
-	light_range = 3
-	light_power = 0.75
+	light_range = 5
+	light_power = 1.25
 	/// Soundloop because this thing is potentially dangerous and potentially hard to notice
 	var/datum/looping_sound/arc_furnace_running/soundloop
 	/// The item that the heater disassembles into
