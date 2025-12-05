@@ -12,7 +12,7 @@
 /obj/machinery/cell_charger/emergency_solar/examine(mob/user)
 	. = ..()
 	. += span_notice("You can pack this back up with a [EXAMINE_HINT("wrench")].")
-	var/area/current_area = get_area()
+	var/area/current_area = get_area(src)
 	if(!current_area.outdoors)
 		. += span_notice("This needs to be [EXAMINE_HINT("outside")] in order to charge cells.")
 
@@ -36,7 +36,7 @@
 		return ITEM_INTERACT_SUCCESS
 	return FALSE
 
-/obj/machinery/cell_charger_multi/on_deconstruction(disassembled)
+/obj/machinery/cell_charger/emergency_solar/on_deconstruction(disassembled)
 	if(disassembled)
 		new repacked_type(drop_location())
 	return ..()
@@ -70,8 +70,17 @@
 	. = ..()
 	charge_rate = src::charge_rate
 
+/obj/machinery/cell_charger/emergency_solar/default_deconstruction_screwdriver(mob/user, icon_state_open, icon_state_closed, obj/item/screwdriver)
+	return NONE
+
+/obj/machinery/cell_charger/emergency_solar/default_deconstruction_crowbar(obj/item/crowbar, ignore_panel, custom_deconstruct)
+	return NONE
+
+/obj/machinery/cell_charger/emergency_solar/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
+	return NONE
+
 /obj/machinery/cell_charger/emergency_solar/process(seconds_per_tick)
-	var/area/current_area = get_area()
+	var/area/current_area = get_area(src)
 	if(!current_area.outdoors)
 		return
 	return ..()
