@@ -14,6 +14,7 @@
 	base_icon_state = "stove"
 	density = FALSE
 	pass_flags = PASSTABLE
+	anchored_tabletop_offset = 3
 	layer = BELOW_OBJ_LAYER
 	circuit = /obj/item/circuitboard/machine/burner_plate
 	processing_flags = START_PROCESSING_MANUALLY
@@ -27,7 +28,6 @@
 	if(mapload)
 		mapload_container = new(loc)
 	AddComponent(/datum/component/stove, container_x = 0, container_y = 8, spawn_container = mapload_container)
-
 
 /obj/machinery/burner_plate/wrench_act(mob/living/user, obj/item/tool)
 	if(!panel_open)
