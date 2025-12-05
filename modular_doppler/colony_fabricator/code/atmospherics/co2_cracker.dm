@@ -7,9 +7,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	var/list/built_reaction_list = list()
 	for(var/reaction_path in subtypesof(/datum/cracker_reaction))
 		var/datum/cracker_reaction/reaction = new reaction_path()
-
 		built_reaction_list[reaction.id] = reaction
-
 	return built_reaction_list
 
 /datum/cracker_reaction
@@ -103,10 +101,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 /obj/machinery/electrolyzer/co2_cracker/call_reactions(datum/gas_mixture/env)
 	for(var/reaction in GLOB.cracker_reactions)
 		var/datum/cracker_reaction/current_reaction = GLOB.cracker_reactions[reaction]
-
 		if(!current_reaction.reaction_check(env))
 			continue
-
 		current_reaction.react(loc, env, working_power)
-
 	env.garbage_collect()

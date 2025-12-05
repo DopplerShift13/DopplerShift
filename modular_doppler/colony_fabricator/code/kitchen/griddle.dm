@@ -8,7 +8,7 @@
 /obj/machinery/griddle/frontier_tabletop
 	name = "tabletop griddle"
 	desc = "A griddle made to be compact enough to sit on top of your tables, instead of \
-		forcing you to drag them all out of the way whenever you want to cook."
+		forcing you to drag a full size kitchen griddle wherever you want to cook."
 	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "griddletable_off"
 	variant = "table" // Note, stops it from trying to randomize sprites

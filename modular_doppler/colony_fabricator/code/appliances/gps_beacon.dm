@@ -6,7 +6,7 @@
 	icon_state = "gps_beacon"
 	anchored = TRUE
 	density = TRUE
-	gpstag = "BEACON_UNK"
+	gpstag = "UNL_HOME_BEACON"
 	/// The item that the beacon disassembles into
 	var/repacked_type = /obj/item/flatpacked_machine/gps_beacon
 
