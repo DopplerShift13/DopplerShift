@@ -7,7 +7,7 @@
 	pass_flags = PASSTABLE
 	charge_rate = 0.1 * STANDARD_CELL_RATE
 	/// What this charger unpacks into
-	var/repacked_type
+	var/repacked_type = /obj/item/flatpacked_machine/solar_charger
 
 /obj/machinery/cell_charger/emergency_solar/examine(mob/user)
 	. = ..()
@@ -87,3 +87,16 @@
 
 /obj/machinery/cell_charger/emergency_solar/use_energy(amount, channel, ignore_apc, force)
 	return amount // It's just that easy
+
+/obj/item/flatpacked_machine/solar_charger
+	name = "solar cell charger"
+	desc = /obj/machinery/cell_charger/emergency_solar::desc
+	icon = 'modular_doppler/colony_fabricator/icons/packed_machines.dmi'
+	icon_state = "solar_charger"
+	w_class = WEIGHT_CLASS_NORMAL
+	type_to_deploy = /obj/machinery/cell_charger/emergency_solar
+	deploy_time = 2 SECONDS
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+	)
