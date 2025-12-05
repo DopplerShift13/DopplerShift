@@ -21,7 +21,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	RemoveElement(/datum/element/elevation, pixel_shift = 8) //they're on the wall, you can't climb this
 	RemoveElement(/datum/element/climbable)
 	if(mapload)
-		cell = new /obj/machinery/space_heater::cell(src)
+		cell = new parent_type::cell(src)
 
 /obj/machinery/space_heater/wall_mounted/RefreshParts()
 	. = ..()
