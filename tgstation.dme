@@ -6886,6 +6886,7 @@
 #include "modular_doppler\colony_fabricator\code\materials\plastic_panels.dm"
 #include "modular_doppler\colony_fabricator\code\power\power_storage_unit.dm"
 #include "modular_doppler\colony_fabricator\code\power\rtg.dm"
+#include "modular_doppler\colony_fabricator\code\power\solar_cell_charger.dm"
 #include "modular_doppler\colony_fabricator\code\power\solid_fuel_generator.dm"
 #include "modular_doppler\colony_fabricator\code\power\stirling_generator.dm"
 #include "modular_doppler\colony_fabricator\code\power\wall_cell_charger.dm"
