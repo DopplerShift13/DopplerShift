@@ -86,17 +86,6 @@
 		RND_CATEGORY_COLONIAL_MEDICAL,
 	)
 
-/datum/design/conv_pill
-	name = "Convermol Pill"
-	id = "slavic_conv"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 75)
-	build_path = /obj/item/reagent_containers/applicator/pill/convermol
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_COLONIAL_MEDICAL,
-	)
-
 /datum/design/multiver_pill
 	name = "Multiver Pill"
 	id = "slavic_multiver"

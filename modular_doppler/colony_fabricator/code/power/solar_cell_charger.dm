@@ -5,13 +5,13 @@
 	use_power = FALSE
 	circuit = /obj/item/circuitboard/machine/cell_charger
 	pass_flags = PASSTABLE
-	charge_rate = 0.1 * STANDARD_CELL_RATE
+	charge_rate = 0.05 * STANDARD_CELL_RATE
 	/// What this charger unpacks into
 	var/repacked_type = /obj/item/flatpacked_machine/solar_charger
 
 /obj/machinery/cell_charger/emergency_solar/examine(mob/user)
 	. = ..()
-	. += span_notice("You can pack this back up with a [EXAMINE_HINT("wrench")].")
+	. += span_notice("You can pack this back up with a [EXAMINE_HINT("wrench")] and [EXAMINE_HINT("Right-Click")].")
 	var/area/current_area = get_area(src)
 	if(!current_area.outdoors)
 		. += span_notice("This needs to be [EXAMINE_HINT("outside")] in order to charge cells.")

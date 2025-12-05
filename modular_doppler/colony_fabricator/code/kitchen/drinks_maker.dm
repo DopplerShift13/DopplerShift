@@ -34,7 +34,6 @@
 		/datum/reagent/consumable/milk,
 		/datum/reagent/consumable/soymilk,
 		/datum/reagent/consumable/cream,
-		/datum/reagent/consumable/powdered_milk,
 		/datum/reagent/consumable/lemonade,
 		/datum/reagent/consumable/coco,
 		/datum/reagent/consumable/coffee,

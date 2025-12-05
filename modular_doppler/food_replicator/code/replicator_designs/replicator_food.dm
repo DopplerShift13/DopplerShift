@@ -42,18 +42,6 @@
 		RND_CATEGORY_COLONIAL_FOOD,
 	)
 
-///Despite being in the medical.dm file, it's still used to fill your hunger up, as such, technically, is food.
-/datum/design/glucose
-	name = "EVA Glucose Injector"
-	id = "slavic_glupen"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 150)
-	build_path = /obj/item/reagent_containers/hypospray/medipen/glucose
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_COLONIAL_FOOD,
-	)
-
 /datum/design/spork
 	name = "Foreign Colonization Ration, Utensils"
 	id = "slavic_utens"
@@ -87,67 +75,12 @@
 		RND_CATEGORY_COLONIAL_FOOD,
 	)
 
-/datum/design/tea
-	name = "Powdered Black Tea"
-	id = "slavic_tea"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 4)
-	make_reagent = /datum/reagent/consumable/powdered_tea
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_COLONIAL_FOOD,
-	)
-
-/datum/design/coffee
-	name = "Powdered Coffee"
-	id = "slavic_coffee"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 4)
-	make_reagent = /datum/reagent/consumable/powdered_coffee
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_COLONIAL_FOOD,
-	)
-
-/datum/design/cocoa
-	name = "Powdered Hot Chocolate"
-	id = "slavic_coco"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 4)
-	make_reagent = /datum/reagent/consumable/powdered_coco
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_COLONIAL_FOOD,
-	)
-
-/datum/design/lemonade
-	name = "Powdered Lemonade"
-	id = "slavic_lemon"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 4)
-	make_reagent = /datum/reagent/consumable/powdered_lemonade
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_COLONIAL_FOOD,
-	)
-
 /datum/design/replicator_sugar
 	name = "Sugar"
 	id = "slavic_sugar"
 	build_type = BIOGENERATOR
 	materials = list(/datum/material/biomass = 5)
 	make_reagent = /datum/reagent/consumable/sugar
-	category = list(
-		RND_CATEGORY_INITIAL,
-		RND_CATEGORY_COLONIAL_FOOD,
-	)
-
-/datum/design/powdered_milk
-	name = "Powdered Milk"
-	id = "slavic_milk"
-	build_type = BIOGENERATOR
-	materials = list(/datum/material/biomass = 4)
-	make_reagent = /datum/reagent/consumable/powdered_milk
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_COLONIAL_FOOD,

@@ -2,7 +2,7 @@
 	name = "mounted heater"
 	desc = "A compact heating and cooling device for small scale applications, made to mount onto walls up and out of the way. \
 		Like other, more free-standing space heaters however, these still require cell power to function."
-	icon = 'modular_doppler/colony_fabricator/icons/space_heater.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	anchored = TRUE
 	density = FALSE
 	circuit = null
