@@ -6,7 +6,7 @@
 	volume = 150
 	possible_transfer_amounts = list(20, 50, 100, 150)
 	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 	) // WE were LIED TO
 	max_ingredients = 18
 
@@ -43,3 +43,37 @@
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 	)
+
+// plates n trays
+/obj/item/plate/oven_tray/copper
+	desc = "Time to bake... Have Tizirians invented cookies yet?"
+	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
+	fragile = FALSE
+	custom_materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+
+/obj/item/plate/copper
+	desc = "Holds food, powerful. Good for morale when you're not eating your nizaya off of a desk."
+	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
+	fragile = FALSE
+	custom_materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+
+// bowl
+/obj/item/reagent_containers/cup/bowl/copper
+	name = "bowl"
+	desc = "A simple bowl, used for soups. What's a salad you ask? I couldn't tell you."
+	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
+	reagent_flags = OPENCONTAINER | DUNKABLE
+	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3)
+	fill_icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
+
+/obj/item/reagent_containers/cup/bowl/copper/Initialize(mapload)
+	. = ..()
+	// This sucks but neither of these will work with these sprites
+	var/salad_component = GetComponent(/datum/component/ingredients_holder)
+	var/appearance_component = GetComponent(/datum/component/takes_reagent_appearance)
+	qdel(salad_component)
+	qdel(appearance_component)
