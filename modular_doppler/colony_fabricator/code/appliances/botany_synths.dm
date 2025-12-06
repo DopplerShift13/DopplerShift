@@ -51,6 +51,7 @@
 		/datum/reagent/plantnutriment/liquidearthquake,
 		/datum/reagent/toxin/plantbgone/weedkiller,
 		/datum/reagent/toxin/pestkiller,
+		/datum/reagent/ash,
 	)
 
 /obj/machinery/plumbing/synthesizer/colony_hydroponics/Initialize(mapload, bolt = FALSE, layer)
