@@ -210,6 +210,10 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
+/datum/design/board/microwave_engineering/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
 /datum/design/board/hydroponics/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR

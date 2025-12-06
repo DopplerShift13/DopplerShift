@@ -57,6 +57,13 @@
 	icon = 'modular_doppler/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "colony_lathe_packed"
 	w_class = WEIGHT_CLASS_BULKY
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 6,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 	/// What structure is created by this item.
 	var/obj/type_to_deploy = /obj/machinery/rnd/production/colony_lathe
 	/// How long it takes to create the structure in question.

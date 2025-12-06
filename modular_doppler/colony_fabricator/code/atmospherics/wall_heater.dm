@@ -61,7 +61,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/space_heater/wall_mounted, 29)
 	result_path = /obj/machinery/space_heater/wall_mounted
 	pixel_shift = 29
 	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
 		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
 	)

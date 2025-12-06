@@ -51,3 +51,8 @@
 	icon_state = "lizard_heater"
 	w_class = WEIGHT_CLASS_SMALL
 	type_to_deploy = /obj/structure/tizirian_radiator
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
+	)

@@ -40,3 +40,7 @@
 	icon_state = "beacon_folded"
 	w_class = WEIGHT_CLASS_SMALL
 	type_to_deploy = /obj/item/gps/colony_beacon
+	custom_materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+		/datum/material/gold = SMALL_MATERIAL_AMOUNT,
+	)

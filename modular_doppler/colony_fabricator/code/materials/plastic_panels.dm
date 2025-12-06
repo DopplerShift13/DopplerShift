@@ -15,7 +15,6 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	mats_per_unit = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = SMALL_MATERIAL_AMOUNT,
 	)
 	has_unique_girder = TRUE
 	material_type = /datum/material/plastic
