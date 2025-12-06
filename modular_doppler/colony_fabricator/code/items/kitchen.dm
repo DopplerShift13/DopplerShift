@@ -67,7 +67,9 @@
 	desc = "A simple bowl, used for soups. What's a salad you ask? I couldn't tell you."
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
 	reagent_flags = OPENCONTAINER | DUNKABLE
-	custom_materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3)
+	custom_materials = list(
+		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,
+	)
 	fill_icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
 
 /obj/item/reagent_containers/cup/bowl/copper/Initialize(mapload)
@@ -81,3 +83,6 @@
 // Cutting board
 /obj/item/cutting_board/modern
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
+	custom_materials = list(
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
+	)

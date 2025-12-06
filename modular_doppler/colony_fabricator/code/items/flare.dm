@@ -16,3 +16,6 @@
 
 /obj/item/trash/flare/copper
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
+	custom_materials = list(
+		/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 0.5,
+	)

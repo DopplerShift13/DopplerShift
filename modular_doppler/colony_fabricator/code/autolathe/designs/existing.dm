@@ -1,0 +1,235 @@
+/datum/design/light_tube/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/light_bulb/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/flashlight/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/crowbar/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/multitool/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/tscanner/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/analyzer/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/mini_weldingtool/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/screwdriver/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/wirecutters/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/wrench/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/plunger/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/welding_helmet/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/cable_coil/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/toolbox/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/emergency_oxygen/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/emergency_oxygen_engi/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/plasmaman_tank_belt/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/boxcutter/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/jerrycan/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/igniter/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/condenser/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/signaler/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/spraycan/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/desttagger/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/ducts/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/digital_clock_frame/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/package_wrap/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/holodisk/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/laptop/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/universal_scanner/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/paper_biscuit/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/iron/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/rods/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/glass/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/rglass/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/silver/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/gold/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/diamond/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/plasma/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/uranium/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/titanium/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/plastic/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/bs_crystal/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/miniature_power_cell/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/geiger/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/earmuffs/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/pipe_painter/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/airlock_painter/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/airlock_painter/decal/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/pocketfireextinguisher/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/recorder/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/tape/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/bucket/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/watering_can/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/mop/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/broom/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/camera/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/camera_film/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
