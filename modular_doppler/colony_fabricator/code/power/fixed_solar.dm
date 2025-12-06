@@ -37,7 +37,7 @@
 	tool.play_tool_sound(src)
 	if(tool.use_tool(src, user, 2 SECONDS))
 		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		queue_turn(target_azimuth + 45)
+		queue_turn(azimuth_target + 45)
 		return ITEM_INTERACT_SUCCESS
 	return FALSE
 
@@ -49,7 +49,7 @@
 	tool.play_tool_sound(src)
 	if(tool.use_tool(src, user, 2 SECONDS))
 		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		queue_turn(target_azimuth - 45)
+		queue_turn(azimuth_target - 45)
 		return ITEM_INTERACT_SUCCESS
 	return FALSE
 
@@ -58,7 +58,7 @@
 		qdel(assembly)
 
 /obj/machinery/power/solar/fixed/on_deconstruction(disassembled)
-	if((machine_state & BROKEN) || !disassembled)
+	if((machine_stat & BROKEN) || !disassembled)
 		playsound(src, SFX_SHATTER, 70, TRUE)
 		new material_type.shard_type(get_turf(src))
 	else

@@ -77,3 +77,7 @@
 	var/appearance_component = GetComponent(/datum/component/takes_reagent_appearance)
 	qdel(salad_component)
 	qdel(appearance_component)
+
+// Cutting board
+/obj/item/cutting_board/modern
+	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
