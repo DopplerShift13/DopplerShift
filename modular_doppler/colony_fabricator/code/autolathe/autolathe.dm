@@ -14,7 +14,7 @@
 /obj/machinery/autolathe/colony_amenities
 	name = "microlathe"
 	desc = "An all-in-one recycler and tool maker, creating anything from pots and plates, to batteries and filters."
-	icon = 'modular_doppler/colony_fabricator/icons/autolathe.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	circuit = /obj/item/circuitboard/machine/amenity_autolathe
 
 /obj/machinery/autolathe/colony_amenities/Initialize(mapload)
