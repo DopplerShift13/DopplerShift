@@ -233,3 +233,19 @@
 /datum/design/camera_film/New()
 	. = ..()
 	build_type |= AMENITY_LATHE
+
+/datum/design/gas_filter/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/plasmaman_gas_filter/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/plasmarefiller/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/portaseeder/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
