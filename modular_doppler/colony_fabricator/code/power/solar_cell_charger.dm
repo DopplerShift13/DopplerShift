@@ -16,14 +16,6 @@
 	if(!current_area.outdoors)
 		. += span_notice("This needs to be [EXAMINE_HINT("outside")] in order to charge cells.")
 
-/obj/machinery/cell_charger/emergency_solar/wrench_act(mob/living/user, obj/item/tool)
-	. = ..()
-	if(charging)
-		return FALSE
-	if(default_unfasten_wrench(user, tool))
-		update_appearance()
-	return ITEM_INTERACT_SUCCESS
-
 /obj/machinery/cell_charger/emergency_solar/wrench_act_secondary(mob/living/user, obj/item/tool)
 	. = ..()
 	if(charging)

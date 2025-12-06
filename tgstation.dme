@@ -6878,6 +6878,7 @@
 #include "modular_doppler\colony_fabricator\code\kitchen\stove.dm"
 #include "modular_doppler\colony_fabricator\code\materials\arc_furnace.dm"
 #include "modular_doppler\colony_fabricator\code\materials\plastic_panels.dm"
+#include "modular_doppler\colony_fabricator\code\power\fixed_solar.dm"
 #include "modular_doppler\colony_fabricator\code\power\power_storage_unit.dm"
 #include "modular_doppler\colony_fabricator\code\power\rtg.dm"
 #include "modular_doppler\colony_fabricator\code\power\solar_cell_charger.dm"

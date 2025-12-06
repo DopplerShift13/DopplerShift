@@ -75,8 +75,8 @@
 	icon_state = "airlock_parts_manual"
 	type_to_deploy = /obj/structure/mineral_door/manual_colony_door
 	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1,
+		/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 2,
 	)
 	w_class = WEIGHT_CLASS_NORMAL
