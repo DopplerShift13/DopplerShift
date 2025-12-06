@@ -6858,6 +6858,7 @@
 #include "modular_doppler\colony_fabricator\code\appliances\super_radiator.dm"
 #include "modular_doppler\colony_fabricator\code\atmospherics\co2_cracker.dm"
 #include "modular_doppler\colony_fabricator\code\atmospherics\wall_heater.dm"
+#include "modular_doppler\colony_fabricator\code\autolathe\autolathe.dm"
 #include "modular_doppler\colony_fabricator\code\colony_fabricator\colony_fabricator.dm"
 #include "modular_doppler\colony_fabricator\code\components\aura_heating.dm"
 #include "modular_doppler\colony_fabricator\code\construction\flaps.dm"
