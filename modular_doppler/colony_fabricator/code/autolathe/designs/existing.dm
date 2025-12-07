@@ -249,3 +249,55 @@
 /datum/design/portaseeder/New()
 	. = ..()
 	build_type |= AMENITY_LATHE
+
+/datum/design/tray/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/cultivator/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/plant_analyzer/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/shovel/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/spade/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/hatchet/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/secateurs/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/watering_can/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/pickaxe/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/handlabeler/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/mining_scanner/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/miningsatchel_holding/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/light_replacer/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
