@@ -35,6 +35,10 @@
 		"sofie",
 		"stirling_generator",
 		"wind_turbine_colony",
+		"colony_crowbar",
+		"colony_screwdriver",
+		"colony_wirecutters",
+		"colony_wrench",
 	)
 
 /datum/design/board/wind_turbine_colony
@@ -312,4 +316,70 @@
 	category = list(
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + RND_SUBCATEGORY_CONSTRUCTION_MACHINERY,
+	)
+
+/datum/design/colony_crowbar
+	name = "Experimental Crowbar"
+	id = "colony_crowbar"
+	build_type = COLONY_FABRICATOR
+	build_path = /obj/item/crowbar/red/caravan
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
+		/datum/material/titanium = SMALL_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING_ADVANCED,
+	)
+
+// red screwdriver lmao
+
+/datum/design/colony_screwdriver
+	name = "Experimental Screwdriver"
+	id = "colony_screwdriver"
+	build_type = COLONY_FABRICATOR
+	build_path = /obj/item/screwdriver/caravan
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
+		/datum/material/titanium = SMALL_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING_ADVANCED,
+	)
+
+// red wrench lmao
+
+/datum/design/colony_wrench
+	name = "Experimental Wrench"
+	id = "colony_wrench"
+	build_type = COLONY_FABRICATOR
+	build_path = /obj/item/wrench/caravan
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
+		/datum/material/titanium = SMALL_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING_ADVANCED,
+	)
+
+// red wirecutters lmao
+
+/datum/design/colony_wirecutters
+	name = "Experimental Wirecutters"
+	id = "colony_wirecutters"
+	build_type = COLONY_FABRICATOR
+	build_path = /obj/item/wirecutters/caravan
+	materials = list(
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
+		/datum/material/silver = SMALL_MATERIAL_AMOUNT,
+		/datum/material/titanium = SMALL_MATERIAL_AMOUNT,
+	)
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_TOOLS + RND_SUBCATEGORY_TOOLS_ENGINEERING_ADVANCED,
 	)
