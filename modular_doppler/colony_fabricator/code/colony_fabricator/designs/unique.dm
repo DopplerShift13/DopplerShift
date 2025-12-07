@@ -68,7 +68,7 @@
 	)
 
 /datum/design/board/colony_rtg
-	name = "Large Battery Pack Machine Board"
+	name = "RTG Machine Board"
 	desc = /obj/machinery/power/rtg/portable::desc
 	id = "colony_rtg"
 	build_path = /obj/item/circuitboard/machine/colony_rtg

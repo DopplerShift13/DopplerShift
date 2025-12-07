@@ -353,3 +353,135 @@
 /datum/design/plasmacutter/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR // behold, your welder
+
+/datum/design/digital_clock_frame/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/miniature_power_cell/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/atmos_thermal/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/telesci_gps/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/bounced_radio/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/magboots/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/nitrogen_tank_belt/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/gear_strap/service/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/toner/large/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/airlock_painter/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/drill/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/atmos_control/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/atmosshieldgen/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/electrolyzer/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/seed_extractor/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/mailsorter/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/stacking_machine/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/stacking_unit_console/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/reagentgrinder/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/holopad/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/flatpacker/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/mass_driver/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/recycler/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/dehydrator/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/smartfridge/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/recharger/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/coffeemaker/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/fax/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/fat_sucker/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/photopcopier/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/brm/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/smelter/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/refinery/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR

@@ -58,15 +58,15 @@
 	. = ..()
 	build_type |= AMENITY_LATHE
 
-/datum/design/emergency_oxygen/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
 /datum/design/emergency_oxygen_engi/New()
 	. = ..()
 	build_type |= AMENITY_LATHE
 
 /datum/design/plasmaman_tank_belt/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/nitrogen_tank_belt/New()
 	. = ..()
 	build_type |= AMENITY_LATHE
 
@@ -299,5 +299,61 @@
 	build_type |= AMENITY_LATHE
 
 /datum/design/light_replacer/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/miniature_power_cell/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/coffeepot/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/telesci_gps/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/bounced_radio/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/gear_strap/service/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/zipties/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/sticky_tape/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/toner/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/spraybottle/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/normtrash/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/wirebrush/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/brick_scryerphone/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/fishing_rod_basic/New()
+	. = ..()
+	build_type |= AMENITY_LATHE
+
+/datum/design/fish_analyzer/New()
 	. = ..()
 	build_type |= AMENITY_LATHE
