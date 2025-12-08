@@ -126,54 +126,6 @@
 	. = ..()
 	build_type |= AMENITY_LATHE
 
-/datum/design/iron/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/rods/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/glass/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/rglass/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/silver/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/gold/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/diamond/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/plasma/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/uranium/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/titanium/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/plastic/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/bs_crystal/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
 /datum/design/miniature_power_cell/New()
 	. = ..()
 	build_type |= AMENITY_LATHE

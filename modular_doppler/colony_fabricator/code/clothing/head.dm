@@ -3,7 +3,7 @@
 	desc = "A flashlight, but stuck to your forehead instead. Genius! How have we never before thought of such a thing?"
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
-	icon_state = "headmirror"
+	icon_state = "headlamp"
 	body_parts_covered = NONE
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,

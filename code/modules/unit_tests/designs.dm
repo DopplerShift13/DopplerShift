@@ -85,5 +85,17 @@
 				all_designs -= design_id
 		qdel(techweb)
 
+	// DOPPLER EDIT START - We have some special techwebs (modular_doppler/colony_fabricator/code/organic_printer/organic_printer.dm)
+	// That will not get tested normally and thus would fail checks
+	var/list/special_techwebs_to_test = list(
+		/datum/techweb/organic_printer,
+	)
+	for(var/datum/techweb/doppler_web as anything in special_techwebs_to_test)
+		doppler_web = new doppler_web()
+		for(var/design_id in doppler_web.researched_designs + doppler_web.hacked_designs)
+			all_designs -= design_id
+		qdel(doppler_web)
+	// DOPPLER EDIT END
+
 	for (var/missing_id in all_designs)
 		TEST_FAIL("Design [all_designs[missing_id]] has an ID \"[missing_id]\" which is not in any of the techweb nodes or tech disks, or it is possibly misconfigured!")

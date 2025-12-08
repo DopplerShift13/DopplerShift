@@ -92,7 +92,7 @@
 		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING
 	)
 
-/datum/design/board/battery_pack
+/datum/design/board/battery_pack_large
 	name = "Large Battery Pack Machine Board"
 	desc = /obj/machinery/power/smes/battery_pack/large::desc
 	id = "large_battery_pack"
@@ -278,7 +278,10 @@
 	name = "Plastic Panel"
 	id = "colony_panels"
 	build_type = COLONY_FABRICATOR
-	materials = /obj/item/stack/sheet/plastic_wall_panel::custom_materials
+	materials = list(
+		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
+	)
 	build_path = /obj/item/stack/sheet/plastic_wall_panel
 	category = list(
 		RND_CATEGORY_INITIAL,

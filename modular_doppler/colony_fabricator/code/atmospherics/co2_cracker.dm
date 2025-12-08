@@ -88,10 +88,13 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
 /obj/machinery/electrolyzer/co2_cracker/Destroy(force)
+	SSair.stop_processing_machine(src)
 	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/machinery/electrolyzer/co2_cracker/process_atmos()
+	if(!soundloop) // You can be both deleting and processing atmos at once, it seems
+		return ..()
 	if(on && !soundloop.loop_started)
 		soundloop.start()
 	else if(soundloop.loop_started)
