@@ -13,7 +13,7 @@
 	name = "organic materials printer"
 	desc = "A complex recycler and chemical plant combined into one convenient box in order to turn \
 		waste biomatter like leftover food and plants, into different organic materials like plastics."
-	icon = 'modular_doppler/colony_fabricator/icons/biogenerator.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	circuit = /obj/item/circuitboard/machine/organic_printer
 	show_categories = list(
 		ORGANICS_PRINTER_CLOTHES,

@@ -439,7 +439,6 @@
 		/obj/item/flatpacked_machine/airlock_kit_manual = 2,
 		/obj/item/flatpacked_machine/gps_beacon = 2,
 		/obj/item/flatpacked_machine/hydro_synth = 1,
-		/obj/item/flatpacked_machine/organics_printer = 2,
 		/obj/item/flatpacked_machine/water_synth = 2,
 		/obj/item/folded_navigation_gigabeacon = 1,
 		/obj/item/wallframe/cell_charger_multi = 2,
