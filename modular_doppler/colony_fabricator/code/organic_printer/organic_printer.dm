@@ -8,6 +8,7 @@
 		/obj/item/stack/cable_coil = 1,
 		/obj/item/stack/sheet/glass = 1,
 	)
+	needs_anchored = FALSE
 
 /obj/machinery/biogenerator/organic_printer
 	name = "organic materials printer"

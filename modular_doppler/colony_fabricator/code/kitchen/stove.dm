@@ -3,7 +3,7 @@
 	greyscale_colors = CIRCUIT_COLOR_SERVICE
 	build_path = /obj/machinery/burner_plate
 	req_components = list(/datum/stock_part/micro_laser = 1)
-	needs_anchored = TRUE
+	needs_anchored = FALSE
 
 /obj/machinery/burner_plate
 	name = "burner plate"

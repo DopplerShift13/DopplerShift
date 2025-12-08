@@ -9111,9 +9111,6 @@
 	id = "kitchenwindowshutters";
 	name = "Kitchen Shutters"
 	},
-/obj/machinery/biogenerator/foodricator{
-	anchored = 1
-	},
 /obj/structure/table/reinforced,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
@@ -12673,24 +12670,36 @@
 /area/station/service/hydroponics)
 "bce" = (
 /obj/machinery/airalarm/directional/north,
-/obj/machinery/oven/range_frontier,
+/obj/structure/table/reinforced/titaniumglass,
+/obj/machinery/burner_plate,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "bcg" = (
-/obj/item/book/manual/wiki/cooking_to_serve_man{
-	pixel_x = -8;
-	pixel_y = 8
-	},
 /obj/structure/table/wood,
+/obj/item/book/manual/wiki/cooking_to_serve_man{
+	pixel_x = -2;
+	pixel_y = 2
+	},
 /obj/item/book/granter/crafting_recipe/cooking_sweets_101{
-	pixel_x = 8;
-	pixel_y = 8
+	pixel_x = 1;
+	pixel_y = 6
 	},
 /turf/open/floor/iron/kitchen/small,
 /area/station/service/kitchen)
 "bch" = (
-/obj/item/flatpacked_machine/sustenance_machine,
 /obj/structure/table/wood,
+/obj/item/kitchen/spoon/soup_ladle/copper{
+	pixel_y = 10;
+	pixel_x = 8
+	},
+/obj/item/reagent_containers/cup/soup_pot/lizard{
+	pixel_y = 12;
+	pixel_x = -3
+	},
+/obj/item/food/grown/tomato{
+	pixel_y = -2;
+	pixel_x = -6
+	},
 /turf/open/floor/iron/kitchen/small,
 /area/station/service/kitchen)
 "bck" = (
@@ -12920,8 +12929,11 @@
 /area/station/hallway/primary/central/aft)
 "bdq" = (
 /obj/structure/table/wood,
-/obj/item/cutting_board,
-/obj/item/knife/kitchen,
+/obj/item/cutting_board/modern,
+/obj/item/knife/lizard_kitchen{
+	pixel_y = 6;
+	pixel_x = 2
+	},
 /turf/open/floor/iron/kitchen/small,
 /area/station/service/kitchen)
 "bdr" = (
@@ -13174,6 +13186,7 @@
 	c_tag = "Bar Port"
 	},
 /obj/machinery/light/directional/south,
+/obj/machinery/chem_dispenser/big_drink_machine,
 /turf/open/floor/iron/dark,
 /area/station/commons/lounge)
 "bey" = (
@@ -13363,7 +13376,7 @@
 	name = "Kitchen Window Shutters Control";
 	req_access = list("kitchen")
 	},
-/obj/machinery/chem_dispenser/kitchenaid_stand,
+/obj/machinery/food_cart,
 /turf/open/floor/iron/kitchen/small,
 /area/station/service/kitchen)
 "bfr" = (
@@ -16277,30 +16290,6 @@
 	dir = 8
 	},
 /obj/effect/turf_decal/trimline/brown/filled/end,
-/obj/item/reagent_containers/hypospray/medipen/glucose{
-	pixel_x = 9;
-	pixel_y = 0
-	},
-/obj/item/reagent_containers/hypospray/medipen/glucose{
-	pixel_x = -5;
-	pixel_y = 0
-	},
-/obj/item/reagent_containers/hypospray/medipen/glucose{
-	pixel_x = 9;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/hypospray/medipen/glucose{
-	pixel_x = 9;
-	pixel_y = 8
-	},
-/obj/item/reagent_containers/hypospray/medipen/glucose{
-	pixel_x = -5;
-	pixel_y = 4
-	},
-/obj/item/reagent_containers/hypospray/medipen/glucose{
-	pixel_x = -5;
-	pixel_y = 8
-	},
 /turf/open/floor/iron,
 /area/station/cargo/miningdock)
 "btK" = (
@@ -25880,9 +25869,19 @@
 /turf/open/floor/iron/terracotta/small,
 /area/station/service/kitchen)
 "cpm" = (
-/obj/effect/spawner/random/food_or_drink/donkpockets,
-/obj/effect/spawner/random/food_or_drink/donkpockets,
+/obj/effect/spawner/random/food_or_drink/donkpockets{
+	pixel_x = -3;
+	pixel_y = 6
+	},
+/obj/effect/spawner/random/food_or_drink/donkpockets{
+	pixel_x = -4;
+	pixel_y = 12
+	},
 /obj/structure/table/wood,
+/obj/item/kitchen/rollingpin/press{
+	pixel_x = 12;
+	pixel_y = 8
+	},
 /turf/open/floor/iron/kitchen/small,
 /area/station/service/kitchen)
 "cpn" = (
@@ -25900,8 +25899,8 @@
 /obj/machinery/power/apc/auto_name/directional/west,
 /obj/structure/cable,
 /obj/machinery/light/directional/west,
-/obj/machinery/microwave/frontier_printed,
 /obj/structure/table/reinforced/titaniumglass,
+/obj/machinery/microwave,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "cpt" = (
@@ -25913,8 +25912,7 @@
 /area/station/commons/lounge)
 "cpu" = (
 /obj/machinery/newscaster/directional/west,
-/obj/machinery/microwave/frontier_printed,
-/obj/structure/table/reinforced/titaniumglass,
+/obj/machinery/oven,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "cpw" = (
@@ -25948,7 +25946,7 @@
 /turf/open/floor/iron/terracotta/small,
 /area/station/service/kitchen)
 "cpy" = (
-/obj/machinery/food_cart,
+/obj/machinery/chem_dispenser/spice_machine,
 /turf/open/floor/iron/kitchen/small,
 /area/station/service/kitchen)
 "cpz" = (
@@ -55823,10 +55821,10 @@
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "xPQ" = (
-/obj/machinery/biogenerator/food_replicator,
-/obj/machinery/door/firedoor,
-/turf/open/floor/plating,
-/area/station/service/hydroponics)
+/obj/machinery/autolathe/colony_amenities,
+/obj/effect/turf_decal/trimline/brown/filled/warning,
+/turf/open/floor/iron,
+/area/station/cargo/lobby)
 "xQr" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -83183,7 +83181,7 @@ gLd
 bdl
 bei
 aZW
-xPQ
+bdm
 dyg
 sMg
 dpV
@@ -93195,7 +93193,7 @@ piM
 ruD
 sre
 piM
-aVq
+xPQ
 aWu
 bat
 prO

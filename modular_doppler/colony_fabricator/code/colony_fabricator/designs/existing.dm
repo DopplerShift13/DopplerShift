@@ -485,3 +485,7 @@
 /datum/design/board/refinery/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
+
+/datum/design/board/oven/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
