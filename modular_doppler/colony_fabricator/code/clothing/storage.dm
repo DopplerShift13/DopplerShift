@@ -7,7 +7,6 @@
 	icon_state = "backpack"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-//	worn_icon_teshari = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "backpack"
 	inhand_icon_state = "backpack"
 
@@ -38,7 +37,6 @@
 	icon_state = "harness"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-//	worn_icon_teshari = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "harness"
 	inhand_icon_state = null
 
