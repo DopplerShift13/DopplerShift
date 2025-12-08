@@ -1,3 +1,15 @@
+/datum/design/colony_headlamp
+	name = "Head Lamp"
+	id = "colony_headlamp"
+	build_type = AMENITY_LATHE
+	materials = /obj/item/clothing/head/utility/headlights::custom_materials
+	build_path = /obj/item/clothing/head/utility/headlights
+	category = list(
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
+
 /datum/design/kitchen_knife_lizard
 	name = "Kitchen Knife"
 	id = "kitchen_knife_lizard"

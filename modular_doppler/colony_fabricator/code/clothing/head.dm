@@ -5,6 +5,10 @@
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	icon_state = "headmirror"
 	body_parts_covered = NONE
+	custom_materials = list(
+		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = SMALL_MATERIAL_AMOUNT,
+	)
 
 /obj/item/clothing/head/utility/headlights/Initialize(mapload)
 	. = ..()

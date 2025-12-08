@@ -39,6 +39,17 @@
 		"colony_screwdriver",
 		"colony_wirecutters",
 		"colony_wrench",
+		"colony_biogenerator",
+	)
+
+/datum/design/board/organic_synthesizer
+	name = "Organic Materials Printer Board"
+	desc = /obj/machinery/biogenerator/organic_printer::desc
+	id = "colony_biogenerator"
+	build_path = /obj/item/circuitboard/machine/organic_printer
+	build_type = COLONY_FABRICATOR
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_SERVICE
 	)
 
 /datum/design/board/wind_turbine_colony
