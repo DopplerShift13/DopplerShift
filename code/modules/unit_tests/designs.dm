@@ -92,7 +92,7 @@
 	)
 	for(var/datum/techweb/doppler_web as anything in special_techwebs_to_test)
 		doppler_web = new doppler_web()
-		for(var/design_id in doppler_web.researched_designs + doppler_web.hacked_designs)
+		for(var/design_id in doppler_web.researched_designs)
 			all_designs -= design_id
 		qdel(doppler_web)
 	// DOPPLER EDIT END
