@@ -4,6 +4,19 @@
 /// Techweb for all the colony lathe stuff
 #define TECHWEB_NODE_COLONY_EVERYTHING "colony_lathe_everything"
 
+/// Organics printer clothing
+#define ORGANICS_PRINTER_CLOTHES "Clothing"
+/// Organics printer gear
+#define ORGANICS_PRINTER_GEAR "Gear"
+/// Organics printer materials
+#define ORGANICS_PRINTER_MATERIALS "Materials"
+/// Organics printer seeds
+#define ORGANICS_PRINTER_SEEDS "Seeds"
+/// Organics printer food
+#define ORGANICS_PRINTER_FOOD "Food"
+/// Organics printer medical items
+#define ORGANICS_PRINTER_MEDICAL "Medical"
+
 /// The items the frontier clothing can hold
 GLOBAL_LIST_INIT(colonist_suit_allowed, list(
 	/obj/item/ammo_box,

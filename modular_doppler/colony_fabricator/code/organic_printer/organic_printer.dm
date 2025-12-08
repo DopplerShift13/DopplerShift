@@ -15,6 +15,14 @@
 		waste biomatter like leftover food and plants, into different organic materials like plastics."
 	icon = 'modular_doppler/colony_fabricator/icons/biogenerator.dmi'
 	circuit = /obj/item/circuitboard/machine/organic_printer
+	show_categories = list(
+		ORGANICS_PRINTER_CLOTHES,
+		ORGANICS_PRINTER_GEAR,
+		ORGANICS_PRINTER_MATERIALS,
+		ORGANICS_PRINTER_SEEDS,
+		ORGANICS_PRINTER_FOOD,
+		ORGANICS_PRINTER_MEDICAL,
+	)
 
 /obj/machinery/biogenerator/organic_printer/Initialize(mapload)
 	. = ..()
