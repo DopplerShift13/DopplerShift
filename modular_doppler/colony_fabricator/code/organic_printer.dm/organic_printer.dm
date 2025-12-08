@@ -15,3 +15,29 @@
 		waste biomatter like leftover food and plants, into different organic materials like plastics."
 	icon = 'modular_doppler/colony_fabricator/icons/biogenerator.dmi'
 	circuit = /obj/item/circuitboard/machine/organic_printer
+
+/obj/machinery/biogenerator/organic_printer/Initialize(mapload)
+	. = ..()
+	if(!GLOB.autounlock_techwebs[/datum/techweb/organic_printer])
+		GLOB.autounlock_techwebs[/datum/techweb/organic_printer] = new /datum/techweb/organic_printer
+	stored_research = GLOB.autounlock_techwebs[/datum/techweb/organic_printer]
+
+// Techweb
+// Reason for all of this:
+// In order to avoid pushing us near the bit limit for machine buildtypes
+// And since this will never change recipes mid round anyways
+// We can just do our own thing
+
+/datum/techweb/organic_printer
+
+/datum/techweb/organic_printer/New()
+	. = ..()
+	for(var/datum/design/printer_design in subtypesof(/datum/design/organic_printer))
+		add_design_by_id(printer_design.id)
+
+/datum/techweb/organic_printer/add_design(datum/design/design, custom = FALSE, list/add_to)
+	if(!istype(design, /datum/design/organic_printer))
+		return FALSE
+	return ..()
+
+/datum/design/organic_printer
