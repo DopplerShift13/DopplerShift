@@ -748,7 +748,9 @@
 /area/shuttle/personally_bought/mothership)
 "rA" = (
 /obj/structure/table/reinforced,
-/obj/item/cutting_board,
+/obj/item/cutting_board/modern,
+/obj/item/knife/lizard_kitchen,
+/obj/item/kitchen/rollingpin/press,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "rH" = (
@@ -1437,7 +1439,6 @@
 /obj/item/flatpacked_machine/airlock_kit_manual,
 /obj/item/flatpacked_machine/airlock_kit_manual,
 /obj/item/flatpacked_machine/gps_beacon,
-/obj/item/flatpacked_machine/organics_printer,
 /obj/item/flatpacked_machine,
 /turf/open/floor/iron/dark/diagonal,
 /area/shuttle/personally_bought/mothership)
@@ -1476,7 +1477,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "LH" = (
-/obj/machinery/oven/range_frontier,
+/obj/machinery/oven,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "LT" = (
@@ -1493,8 +1494,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "Ml" = (
-/obj/structure/table/reinforced,
-/obj/machinery/chem_dispenser/frontier_appliance,
+/obj/machinery/chem_dispenser/big_drink_machine,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "Mp" = (
@@ -1552,8 +1552,7 @@
 /turf/open/floor/engine,
 /area/shuttle/personally_bought/mothership)
 "Nc" = (
-/obj/structure/table/reinforced,
-/obj/machinery/microwave/frontier_printed,
+/obj/machinery/chem_dispenser/spice_machine,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "Nd" = (
@@ -1736,6 +1735,7 @@
 "Re" = (
 /obj/structure/table/reinforced,
 /obj/machinery/camera/autoname/directional/east,
+/obj/machinery/burner_plate,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "Rf" = (
@@ -1845,10 +1845,7 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "US" = (
-/obj/machinery/biogenerator/foodricator{
-	biomass = 1000
-	},
-/obj/structure/table/reinforced,
+/obj/machinery/autolathe/colony_amenities,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "UT" = (
@@ -1960,7 +1957,6 @@
 /obj/item/flatpacked_machine/airlock_kit_manual,
 /obj/item/flatpacked_machine/airlock_kit_manual,
 /obj/item/flatpacked_machine/gps_beacon,
-/obj/item/flatpacked_machine/organics_printer,
 /obj/item/flatpacked_machine,
 /turf/open/floor/iron/dark/diagonal,
 /area/shuttle/personally_bought/mothership)

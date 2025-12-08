@@ -9,11 +9,6 @@
 	pixel_y = 23;
 	pixel_x = -7
 	},
-/obj/item/gps/computer/beacon{
-	pixel_y = 22;
-	pixel_x = 7;
-	gpstag = "ANCHOR-BUOY"
-	},
 /obj/structure/fluff{
 	icon = 'icons/mob/simple/hivebot.dmi';
 	icon_state = "def_radar-off";
@@ -37,6 +32,11 @@
 /obj/machinery/power/rtg/portable{
 	pixel_y = -12;
 	pixel_x = 5
+	},
+/obj/item/gps/colony_beacon{
+	pixel_y = 23;
+	pixel_x = 10;
+	gpstag = "NAV_BEACON_4CA"
 	},
 /turf/open/floor/plating/airless,
 /area/template_noop)
