@@ -4,13 +4,13 @@
 	name = "frontier jumpsuit"
 	desc = "A heavy grey jumpsuit with extra padding around the joints. Two massive pockets included. \
 		No matter what you do to adjust it, it's always just slightly too large."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "jumpsuit"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_digi.dmi',
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_digi.dmi',
 	)
 	worn_icon_state = "jumpsuit"
 	sensor_mode = SENSOR_COORDS
@@ -26,12 +26,12 @@
 	name = "heavy frontier boots"
 	desc = "A well built pair of tall boots usually seen on the feet of explorers, first wave colonists, \
 		and LARPers across the galaxy."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "boots"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_digi.dmi')
+	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_digi.dmi')
 	worn_icon_state = "boots"
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = FIRE_PROOF
@@ -47,9 +47,9 @@
 	desc = "A knee length coat with a water-resistant exterior and relatively comfortable interior. \
 		In between? Just enough protective material to stop the odd sharp thing getting through, \
 		though don't expect miracles."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "jacket"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "jacket"
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 	armor_type = /datum/armor/colonist_clothing
@@ -88,9 +88,9 @@
 	desc = "A simple flak jacket with an exterior of water-resistant material. \
 		Jackets like these are often found on first wave colonists that want some armor \
 		due to the fact they can be made easily within a colony core type machine."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "flak"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "flak"
 	body_parts_covered = CHEST
 	cold_protection = CHEST|GROIN
@@ -111,11 +111,11 @@
 /obj/item/clothing/head/soft/frontier_colonist
 	name = "frontier cap"
 	desc = "It's a robust baseball hat in a rugged green color."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "cap"
 	soft_type = "cap"
 	soft_suffix = null
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "cap"
 
 /obj/item/clothing/head/soft/frontier_colonist/Initialize(mapload)
@@ -134,9 +134,9 @@
 /obj/item/clothing/head/frontier_colonist_helmet
 	name = "frontier soft helmet"
 	desc = "A unusual piece of headwear somewhere between a proper helmet and a normal cap."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "tanker"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "tanker"
 	armor_type = /datum/armor/colonist_armor
 	resistance_flags = NONE
@@ -153,9 +153,9 @@
 	name = "frontier radio headset"
 	desc = "A bulky headset that should hopefully survive exposure to the elements better than station headsets might. \
 		Has a built-in antenna allowing the headset to work independently of a communications network."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "radio"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "radio"
 	alternate_worn_layer = FACEMASK_LAYER + 0.5
 	subspace_transmission = FALSE
@@ -190,9 +190,9 @@
 	name = "frontier gloves"
 	desc = "A sturdy pair of black gloves that'll keep your precious fingers protected from the outside world. \
 		They go a bit higher up the arm than most gloves should, and you aren't quite sure why."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "gloves"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "gloves"
 	greyscale_colors = "#3a373e"
 	siemens_coefficient = 0.25 // Doesn't insulate you entirely, but makes you a little more resistant
@@ -214,13 +214,13 @@
 	desc = "An improved gas mask commonly seen in places where the atmosphere is less than breathable, \
 		but otherwise more or less habitable. It's certified to protect against most biological hazards \
 		to boot."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "mask"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_SNOUTED)
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_SNOUTED_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_digi.dmi')
+	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_digi.dmi')
 	worn_icon_state = "mask"
 	flags_inv = HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
 	armor_type = /datum/armor/colonist_hazard

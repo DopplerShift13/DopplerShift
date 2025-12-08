@@ -41,8 +41,8 @@
 	)
 	variants = list(
 		"colonist" = list(
-			MOD_ICON_OVERRIDE = 'modular_doppler/kahraman_equipment/icons/modsuits/mod.dmi',
-			MOD_WORN_ICON_OVERRIDE = 'modular_doppler/kahraman_equipment/icons/modsuits/mod_worn.dmi',
+			MOD_ICON_OVERRIDE = 'modular_doppler/colony_fabricator/icons/modsuits/mod.dmi',
+			MOD_WORN_ICON_OVERRIDE = 'modular_doppler/colony_fabricator/icons/modsuits/mod_worn.dmi',
 			/obj/item/clothing/head/mod = list(
 				UNSEALED_LAYER = null,
 				UNSEALED_CLOTHING = SNUG_FIT|THICKMATERIAL,

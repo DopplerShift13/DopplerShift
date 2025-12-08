@@ -3,11 +3,11 @@
 /obj/item/storage/backpack/industrial/frontier_colonist
 	name = "frontier backpack"
 	desc = "A rugged backpack often used by settlers and explorers. Holds all of your equipment and then some."
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "backpack"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-//	worn_icon_teshari = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
+//	worn_icon_teshari = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "backpack"
 	inhand_icon_state = "backpack"
 
@@ -34,11 +34,11 @@
 	desc = "A versatile chest rig with pockets to store really whatever you could think of within. \
 		That is, if whatever you could think of is within the realms of a utility belt. Fashion like this \
 		comes at a price you know!"
-	icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "harness"
-	worn_icon = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-//	worn_icon_teshari = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
+//	worn_icon_teshari = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	worn_icon_state = "harness"
 	inhand_icon_state = null
 
