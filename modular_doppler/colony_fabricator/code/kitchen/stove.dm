@@ -22,6 +22,9 @@
 	idle_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.1
 	active_power_usage = BASE_MACHINE_IDLE_CONSUMPTION * 0.8
 
+/obj/machinery/burner_plate/unanchored
+	anchored = FALSE
+
 /obj/machinery/burner_plate/Initialize(mapload)
 	. = ..()
 	var/obj/item/reagent_containers/cup/soup_pot/lizard/mapload_container

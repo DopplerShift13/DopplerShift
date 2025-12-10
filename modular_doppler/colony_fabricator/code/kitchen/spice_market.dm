@@ -69,3 +69,6 @@
 	overlayed_beaker.pixel_w = 0
 	overlayed_beaker.pixel_z = 0
 	return overlayed_beaker
+
+/obj/machinery/chem_dispenser/spice_machine/unanchored
+	anchored = FALSE

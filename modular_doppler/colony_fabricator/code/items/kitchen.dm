@@ -17,6 +17,7 @@
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
 	icon_state = "press"
 	inhand_icon_state = null
+	w_class = WEIGHT_CLASS_SMALL
 	obj_flags = CONDUCTS_ELECTRICITY
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
@@ -49,6 +50,7 @@
 	desc = "Time to bake... Have Tizirians invented cookies yet?"
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
 	fragile = FALSE
+	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 	)
@@ -57,6 +59,7 @@
 	desc = "Holds food, powerful. Good for morale when you're not eating your nizaya off of a desk."
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
 	fragile = FALSE
+	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
 	)
@@ -67,6 +70,7 @@
 	desc = "A simple bowl, used for soups. What's a salad you ask? I couldn't tell you."
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
 	reagent_flags = OPENCONTAINER | DUNKABLE
+	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,
 	)
@@ -86,3 +90,18 @@
 	custom_materials = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 	)
+
+/obj/item/storage/box/colony_cookware
+	name = "Cookware Pack"
+	desc = "A box containing the tools you need to COOK."
+	icon_state = "lizard_package"
+	illustration = null
+
+/obj/item/storage/box/colony_cookware/PopulateContents()
+	new /obj/item/kitchen/rollingpin/press(src)
+	new /obj/item/knife/lizard_kitchen(src)
+	new /obj/item/kitchen/spoon/soup_ladle/copper(src)
+	new /obj/item/plate/oven_tray/copper(src)
+	new /obj/item/plate/copper(src)
+	new /obj/item/plate/copper(src)
+	new /obj/item/reagent_containers/cup/bowl/copper(src)
