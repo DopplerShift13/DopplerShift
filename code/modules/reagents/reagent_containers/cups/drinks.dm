@@ -241,19 +241,16 @@
 	fill_icon_thresholds = list(0, 10, 25, 50, 75, 80, 90)
 	isGlass = FALSE
 	// The 2 bottles have separate cap overlay icons because if the bottle falls over while bottle flipping the cap stays fucked on the moved overlay
-	/// DOPPLER SHIFT REMOVAL BEGIN - everything has caps now
-	/*var/cap_icon = 'icons/obj/drinks/drink_effects.dmi'
+	var/cap_icon = 'icons/obj/drinks/drink_effects.dmi'
 	var/cap_icon_state = "bottle_cap_small"
 	var/start_capped = TRUE
 	var/cap_lost = FALSE
-	var/mutable_appearance/cap_overlay*/
-	/// DOPPLER SHIFT REMOVAL END
+	var/mutable_appearance/cap_overlay
 	var/flip_chance = 10
 	custom_price = PAYCHECK_LOWER * 0.8
 	reagent_container_liquid_sound = SFX_PLASTIC_BOTTLE_LIQUID_SLOSH
 
-/// DOPPLER SHIFT REMOVAL BEGIN
-/*/obj/item/reagent_containers/cup/glass/waterbottle/Initialize(mapload)
+/obj/item/reagent_containers/cup/glass/waterbottle/Initialize(mapload)
 	cap_overlay = mutable_appearance(cap_icon, cap_icon_state)
 	. = ..()
 	if(start_capped)

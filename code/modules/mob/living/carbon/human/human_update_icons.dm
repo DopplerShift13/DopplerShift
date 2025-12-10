@@ -1058,7 +1058,7 @@ generate/load female uniform sprites matching all previously decided variables
 	// Underwear, Undershirts & Socks
 	// DOPPLER EDIT ADDITION START
 	var/list/standing = list()
-	if(.underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
 		var/datum/sprite_accessory/underwear/underwear = SSaccessories.underwear_list[underwear]
 		var/mutable_appearance/underwear_overlay
 		var/female_sprite_flags = FEMALE_UNIFORM_FULL // the default gender shaping

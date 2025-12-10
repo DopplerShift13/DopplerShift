@@ -17,9 +17,9 @@
 // We didn't spawn any item yet, so nothing to call here.
 /datum/loadout_item/pocket_items/wallet/on_equip_item(
 	obj/item/equipped_item,
-	datum/preferences/preference_source,
-	list/preference_list,
+	list/item_details,
 	mob/living/carbon/human/equipper,
+	datum/outfit/outfit,
 	visuals_only = FALSE,
 )
 	return FALSE

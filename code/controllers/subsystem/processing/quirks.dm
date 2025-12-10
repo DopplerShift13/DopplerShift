@@ -28,7 +28,6 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/numb, /datum/quirk/selfaware),
 	// DOPPLER EDIT ADDITION START
 	list(/datum/quirk/empath, /datum/quirk/bad_vibes),
-	list(/datum/quirk/item_quirk/spiritual, /datum/quirk/unholy),
 	list(/datum/quirk/undersized, /datum/quirk/frail),
 	list(/datum/quirk/undersized, /datum/quirk/oversized),
 	list(/datum/quirk/genemodded, /datum/quirk/oversized),

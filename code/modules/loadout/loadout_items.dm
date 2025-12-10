@@ -285,7 +285,7 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 		equipped_item.on_loadout_custom_named() // DOPPLER EDIT ADDITION - Loadout item names
 
 	// DOPPLER EDIT ADDITION START - Loadout item descriptions
-	if(can_be_named && item_details?[INFO_DESCRIBED] && !visuals_only)
+	if((loadout_flags & LOADOUT_FLAG_ALLOW_NAMING) && item_details?[INFO_DESCRIBED] && !visuals_only)
 		equipped_item.desc = item_details[INFO_DESCRIBED]
 		ADD_TRAIT(equipped_item, TRAIT_WAS_RENAMED, "Loadout")
 		equipped_item.on_loadout_custom_described()

@@ -118,7 +118,7 @@
 /datum/loadout_item/get_ui_buttons()
 	var/list/buttons = ..()
 
-	if(can_be_named)
+	if(loadout_flags & LOADOUT_FLAG_ALLOW_NAMING)
 		UNTYPED_LIST_ADD(buttons, list(
 			"label" = "Change description",
 			"act_key" = "set_description",
@@ -143,7 +143,7 @@
 	return formatted_item
 
 /datum/loadout_item/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
-	if(action == "set_description" && can_be_named)
+	if(action == "set_description" && (loadout_flags & LOADOUT_FLAG_ALLOW_NAMING))
 		return set_description(manager, user)
 	if(action == "set_modlink_label" && has_modlink_label)
 		return set_modlink_label(manager, user)
