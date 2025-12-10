@@ -7,6 +7,10 @@
 /atom/proc/on_loadout_custom_named()
 	return
 
+/datum/loadout_item/New() // All items are nameable
+	loadout_flags |= LOADOUT_FLAG_ALLOW_NAMING
+	. = ..()
+
 /*
  * Generate a list of singleton loadout_item datums from all subtypes of [type_to_generate]
  *

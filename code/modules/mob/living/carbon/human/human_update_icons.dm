@@ -1046,6 +1046,114 @@ generate/load female uniform sprites matching all previously decided variables
 					observers = null
 					break
 
+/mob/living/carbon/human/update_body(is_creating = FALSE)
+	update_eyes()
+	update_underwear()
+	return ..()
+
+/mob/living/carbon/human/proc/update_underwear()
+	remove_overlay(BODY_LAYER)
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		return
+	// Underwear, Undershirts & Socks
+	// DOPPLER EDIT ADDITION START
+	var/list/standing = list()
+	if(.underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
+		var/datum/sprite_accessory/underwear/underwear = SSaccessories.underwear_list[underwear]
+		var/mutable_appearance/underwear_overlay
+		var/female_sprite_flags = FEMALE_UNIFORM_FULL // the default gender shaping
+		if(underwear)
+			var/icon_state = underwear.icon_state
+			if(underwear.has_digitigrade && (bodyshape & BODYSHAPE_DIGITIGRADE))
+				icon_state += "_d"
+				female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
+			if(dna.species.sexes && physique == FEMALE && (underwear.gender == MALE))
+				underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = -UNDERWEAR_UNDERSHIRT)
+			else
+				underwear_overlay = mutable_appearance(underwear.icon, icon_state, -UNDERWEAR_UNDERSHIRT)
+			if(!underwear.use_static)
+				underwear_overlay.color = underwear_color
+			standing += underwear_overlay
+
+	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
+		var/datum/sprite_accessory/bra/bra = SSaccessories.bra_list[bra]
+		if(bra)
+			var/mutable_appearance/bra_overlay
+			var/icon_state = bra.icon_state
+			bra_overlay = mutable_appearance(bra.icon, icon_state, -BRA_SOCKS_LAYER)
+			if(!bra.use_static)
+				bra_overlay.color = bra_color
+			standing += bra_overlay
+
+	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT))
+		var/datum/sprite_accessory/undershirt/undershirt = SSaccessories.undershirt_list[undershirt]
+		if(undershirt)
+			var/mutable_appearance/undershirt_overlay
+			if(dna.species.sexes && physique == FEMALE)
+				undershirt_overlay = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -UNDERWEAR_UNDERSHIRT)
+			else
+				undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -UNDERWEAR_UNDERSHIRT)
+			if(!undershirt.use_static)
+				undershirt_overlay.color = undershirt_color
+			standing += undershirt_overlay
+
+	if(socks && num_legs >= 2 && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
+		var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[socks]
+		if(socks)
+			var/mutable_appearance/socks_overlay
+			var/icon_state = socks.icon_state
+			if((bodyshape & BODYSHAPE_DIGITIGRADE))
+				icon_state += "_d"
+			socks_overlay = mutable_appearance(socks.icon, icon_state, -BRA_SOCKS_LAYER)
+			if(!socks.use_static)
+				socks_overlay.color = socks_color
+			standing += socks_overlay
+	// DOPPLER EDIT END
+
+	if(standing.len)
+		overlays_standing[BODY_LAYER] = standing
+
+	apply_overlay(BODY_LAYER)
+
+/mob/living/carbon/human/proc/update_eyes()
+	remove_overlay(EYES_LAYER)
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		return
+	var/obj/item/bodypart/head/noggin = get_bodypart(BODY_ZONE_HEAD)
+	if(!(noggin?.head_flags & HEAD_EYESPRITES))
+		return
+	// eyes (missing eye sprites get handled by the head itself, but sadly we have to do this stupid shit here, for now)
+	var/obj/item/organ/eyes/eye_organ = get_organ_slot(ORGAN_SLOT_EYES)
+	if(eye_organ)
+		eye_organ.refresh(call_update = FALSE)
+		overlays_standing[EYES_LAYER] = eye_organ.generate_body_overlay(src)
+		// DOPPLER ADDITION START
+		if(istype(eye_organ, /obj/item/organ/eyes/snail))
+			var/list/eye_overlays = overlays_standing[EYES_LAYER]
+			for(var/mutable_appearance/overlay as anything in eye_overlays)
+				overlay.layer = ABOVE_BODY_FRONT_HEAD_LAYER
+		// DOPPLER ADDITION END
+		apply_overlay(EYES_LAYER)
+
+/// Updates face (as of now, only eye) offsets
+/mob/living/carbon/human/update_face_offset()
+	var/list/eye_overlays = overlays_standing[EYES_LAYER]
+
+	if(HAS_TRAIT(src, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(src, TRAIT_HUSK) || !length(eye_overlays))
+		return
+
+	remove_overlay(EYES_LAYER)
+
+	var/obj/item/bodypart/head/noggin = get_bodypart(BODY_ZONE_HEAD)
+	for (var/mutable_appearance/overlay as anything in eye_overlays)
+		overlay.pixel_w = 0
+		overlay.pixel_z = 0
+		noggin.worn_face_offset.apply_offset(overlay)
+
+	overlays_standing[EYES_LAYER] = eye_overlays
+	apply_overlay(EYES_LAYER)
+
+
 // Only renders the head of the human
 /mob/living/carbon/human/proc/update_body_parts_head_only(update_limb_data)
 	if(!dna?.species)
@@ -1094,7 +1202,7 @@ generate/load female uniform sprites matching all previously decided variables
 	// hardcoding this here until bodypart updating is more sane
 	// we need to update clothing items that may have been affected by bodyshape updates
 	if(check_shapes & BODYSHAPE_DIGITIGRADE)
-		for(var/obj/item/thing as anything in get_equipped_items())
+		for(var/obj/item/thing as anything in get_equipped_items(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT))
 			if(thing.slot_flags & ignore_slots)
 				continue
 			if(thing.supports_variations_flags & DIGITIGRADE_VARIATIONS)
