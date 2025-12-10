@@ -41,12 +41,7 @@
 
 /datum/techweb/organic_printer/New()
 	. = ..()
-	for(var/datum/design/printer_design in subtypesof(/datum/design/organic_printer))
+	for(var/datum/design/printer_design as anything in subtypesof(/datum/design/organic_printer))
 		add_design_by_id(printer_design.id)
-
-/datum/techweb/organic_printer/add_design(datum/design/design, custom = FALSE, list/add_to)
-	if(!istype(design, /datum/design/organic_printer))
-		return FALSE
-	return ..()
 
 /datum/design/organic_printer
