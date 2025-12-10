@@ -54,10 +54,6 @@
 	. = ..()
 	build_type |= AMENITY_LATHE
 
-/datum/design/toolbox/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
 /datum/design/emergency_oxygen_engi/New()
 	. = ..()
 	build_type |= AMENITY_LATHE
@@ -119,10 +115,6 @@
 	build_type |= AMENITY_LATHE
 
 /datum/design/universal_scanner/New()
-	. = ..()
-	build_type |= AMENITY_LATHE
-
-/datum/design/paper_biscuit/New()
 	. = ..()
 	build_type |= AMENITY_LATHE
 
