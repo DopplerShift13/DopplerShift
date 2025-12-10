@@ -9,11 +9,11 @@
 /// Organics printer gear
 #define ORGANICS_PRINTER_GEAR "Gear"
 /// Organics printer materials
-#define ORGANICS_PRINTER_MATERIALS "Materials"
+#define ORGANICS_PRINTER_MATERIALS "Resources"
 /// Organics printer seeds
 #define ORGANICS_PRINTER_SEEDS "Seeds"
 /// Organics printer food
-#define ORGANICS_PRINTER_FOOD "Food"
+#define ORGANICS_PRINTER_FOOD "Foods"
 /// Organics printer medical items
 #define ORGANICS_PRINTER_MEDICAL "Medical"
 

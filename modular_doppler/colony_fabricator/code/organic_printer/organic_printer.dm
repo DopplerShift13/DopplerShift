@@ -25,24 +25,6 @@
 		ORGANICS_PRINTER_MEDICAL,
 	)
 
-/obj/machinery/biogenerator/organic_printer/Initialize(mapload)
-	. = ..()
-	if(!GLOB.autounlock_techwebs[/datum/techweb/autounlocking/organic_printer])
-		GLOB.autounlock_techwebs[/datum/techweb/autounlocking/organic_printer] = new /datum/techweb/autounlocking/organic_printer
-	stored_research = GLOB.autounlock_techwebs[/datum/techweb/autounlocking/organic_printer]
-
+// Type for all the designs
 /datum/design/organic_printer
-
-/datum/techweb/autounlocking/organic_printer
-	allowed_buildtypes = NONE
-
-/datum/techweb/autounlocking/New()
-	. = ..()
-	for(var/id in SSresearch.techweb_designs)
-		var/datum/design/design = SSresearch.techweb_designs[id]
-		if(!istype(design, /datum/design/organic_printer))
-			continue
-		if(RND_CATEGORY_INITIAL in design.category)
-			add_design_by_id(id)
-		if(RND_CATEGORY_HACKED in design.category)
-			add_design_by_id(id, add_to = hacked_designs)
+	build_type = BIOGENERATOR
