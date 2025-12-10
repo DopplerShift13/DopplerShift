@@ -27,21 +27,4 @@
 
 /obj/machinery/biogenerator/organic_printer/Initialize(mapload)
 	. = ..()
-	if(!GLOB.autounlock_techwebs[/datum/techweb/organic_printer])
-		GLOB.autounlock_techwebs[/datum/techweb/organic_printer] = new /datum/techweb/organic_printer
-	stored_research = GLOB.autounlock_techwebs[/datum/techweb/organic_printer]
-
-// Techweb
-// Reason for all of this:
-// In order to avoid pushing us near the bit limit for machine buildtypes
-// And since this will never change recipes mid round anyways
-// We can just do our own thing
-
-/datum/techweb/organic_printer
-
-/datum/techweb/organic_printer/New()
-	. = ..()
-	for(var/datum/design/printer_design as anything in subtypesof(/datum/design/organic_printer))
-		add_design_by_id(printer_design.id)
-
-/datum/design/organic_printer
+	stored_research = locate(/datum/techweb/admin) in SSresearch.techwebs
