@@ -647,7 +647,6 @@
 		/obj/item/food/grown/mushroom/odious_puffball = 1,
 		/obj/item/food/badrecipe/moldy/bacteria = 1,
 		/obj/item/food/deadmouse/moldy = 1,
-
 	)
 
 // Da money
