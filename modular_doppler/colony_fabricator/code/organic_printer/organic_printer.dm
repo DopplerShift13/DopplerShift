@@ -41,6 +41,7 @@
 	for(var/id in SSresearch.techweb_designs)
 		var/datum/design/design = SSresearch.techweb_designs[id]
 		if(!istype(design, /datum/design/organic_printer))
+			continue
 		if(RND_CATEGORY_INITIAL in design.category)
 			add_design_by_id(id)
 		if(RND_CATEGORY_HACKED in design.category)
