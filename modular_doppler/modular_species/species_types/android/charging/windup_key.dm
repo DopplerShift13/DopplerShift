@@ -48,7 +48,7 @@
 	. = ..()
 	limb.remove_bodypart_overlay(key_overlay)
 
-/obj/item/organ/stomach/charging/windup_key/emp_act(severity)
+/obj/item/organ/stomach/charging/windup_key/run_emp_effects(severity)
 	return // We're a windup key.
 
 /obj/item/organ/stomach/charging/windup_key/handle_charge_effects()
