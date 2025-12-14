@@ -12,7 +12,8 @@
 
 /obj/item/organ/stomach/charging/power_cord
 	name = "plug-based charging apparatus"
-	desc = "" // TODO
+	desc = "An electronic device designed to replace the need for food with \
+	the need to plug into the wall every once in a while."
 	actions_types = list(/datum/action/item_action/organ_action/power_cord)
 
 	// Weakref to our power cord item.

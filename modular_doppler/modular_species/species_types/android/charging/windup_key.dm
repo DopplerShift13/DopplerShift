@@ -10,7 +10,8 @@
 
 /obj/item/organ/stomach/charging/windup_key
 	name = "wind-up key charging apparatus"
-	desc = "" // TODO
+	desc = "A device designed to replace the need for food with \
+	an oversized wind-up key you have to ask others to turn for you."
 	icon = 'modular_doppler/modular_species/species_types/android/icons/synth_organs.dmi'
 	icon_state = "winding_key"
 	emp_vulnerability = 0 // We're a windup key.
