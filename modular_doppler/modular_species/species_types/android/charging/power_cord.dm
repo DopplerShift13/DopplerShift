@@ -1,7 +1,9 @@
-// Charge level defines
-#define POWER_CORD_CHARGE_MAX 5 MEGA JOULES
-#define POWER_CORD_CHARGE_RATE (STANDARD_CELL_RATE * 1.5)
-#define POWER_CORD_CHARGE_DELAY 0.55 SECONDS
+
+/// Rate at which a power cord can charge its stomach cell.
+#define POWER_CORD_CHARGE_RATE (CHARGING_STOMACH_DISCHARGE_RATE * 30)
+/// Delay between power cord charging attempts.
+#define POWER_CORD_CHARGE_DELAY 0.5 SECONDS
+/// Minimum charge percent an APC must have for a power cord to be able to drain it.
 #define POWER_CORD_APC_MINIMUM_PERCENT 5
 
 /**
@@ -15,6 +17,8 @@
 
 	// Weakref to our power cord item.
 	var/datum/weakref/power_cord_ref
+	/// Last time we drained power, to block spam-draining.
+	var/last_drain_time = 0
 
 /obj/item/organ/stomach/charging/power_cord/Destroy()
 	var/obj/item/hand_item/power_cord/our_cord = power_cord_ref?.resolve()
@@ -43,6 +47,16 @@
 	power_cord_ref = WEAKREF(our_cord)
 	owner.put_in_active_hand(our_cord)
 	playsound(owner, 'sound/vehicles/mecha/mechmove03.ogg', 20, TRUE)
+
+/// Check whether we can currently drain power.
+/obj/item/organ/stomach/charging/power_cord/proc/can_currently_drain()
+	if(world.time < (last_drain_time + POWER_CORD_CHARGE_DELAY))
+		return FALSE
+	return TRUE
+
+/// Update our last drain time to the current time.
+/obj/item/organ/stomach/charging/power_cord/proc/update_last_drain_time()
+	last_drain_time = world.time
 
 /**
  * ACTION
@@ -90,87 +104,82 @@
 
 /// Attempts to start using an object as a power source.
 /obj/item/hand_item/power_cord/proc/try_power_draw(obj/target, mob/living/carbon/human/user)
-	user.changeNext_move(CLICK_CD_MELEE)
+	var/obj/item/organ/stomach/charging/power_cord/charging_stomach = user.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(!istype(charging_stomach))
+		return
 
-	var/datum/species/android/energy_holder = user.dna.species
-	if(energy_holder.core_energy >= POWER_CORD_CHARGE_MAX)
-		user.balloon_alert(user, "fully charged!")
+	if(charging_stomach.internal_cell.used_charge() <= 0)
+		balloon_alert(user, "fully charged!")
+		return
+	if(!charging_stomach.can_currently_drain())
+		balloon_alert(user, "too soon!")
 		return
 
 	user.visible_message(span_notice("[user] inserts a power connector into [target]."), span_notice("You begin to draw power from [target]."))
-	do_power_draw(target, user)
+	do_power_draw(target, user, charging_stomach)
 
-	if(QDELETED(target))
+	if(QDELETED(user) || QDELETED(target))
 		return
 
-	if(HAS_TRAIT(user, TRAIT_CHARGING))
-		REMOVE_TRAIT(user, TRAIT_CHARGING, ORGAN_TRAIT)
 	user.visible_message(span_notice("[user] unplugs from [target]."), span_notice("You unplug from [target]."))
 
 /**
- * Runs a loop to charge an android from a cell or APC.
- * Displays chat messages to the user and nearby observers.
- *
- * Stops when:
- * - The user's is full.
- * - The cell has less than the minimum charge.
- * - The user moves, or anything else that can happen to interrupt a do_after.
+ * Runs a loop to charge a power cord stomach from an object with a cell.
  *
  * Arguments:
- * * target - The power cell or APC to drain.
+ * * target - The object whose cell to drain.
  * * user - The human mob draining the power cell.
+ * * charging_stomach - the stomach to charge
  */
-/obj/item/hand_item/power_cord/proc/do_power_draw(obj/target, mob/living/carbon/human/user)
-	// Draw power from an APC if one was given.
-	var/obj/machinery/power/apc/target_apc
-	if(istype(target, /obj/machinery/power/apc))
-		target_apc = target
-
-	var/obj/item/stock_parts/power_store/target_cell = target_apc ? target_apc.cell : target
-	var/minimum_cell_charge = target_apc ? POWER_CORD_APC_MINIMUM_PERCENT : 0
-
-	if(!target_cell || target_cell.percent() < minimum_cell_charge)
-		user.balloon_alert(user, "target charge low!")
+/obj/item/hand_item/power_cord/proc/do_power_draw(obj/target, mob/living/carbon/human/user, obj/item/organ/stomach/charging/charging_stomach)
+	var/obj/item/stock_parts/power_store/target_cell = target?.get_cell(src, user)
+	if(!istype(target_cell))
+		target.balloon_alert(user, "no cell!")
 		return
-	var/energy_needed
-	while(TRUE)
-		ADD_TRAIT(user, TRAIT_CHARGING, ORGAN_TRAIT)
-		// Check if the charge level of the cell is below the minimum.
-		// Prevents from overloading the cell.
-		if(target_cell.percent() < minimum_cell_charge)
-			user.balloon_alert(user, "target charge low!")
-			break
 
-		// Attempt to drain charge from the cell.
-		if(!do_after(user, POWER_CORD_CHARGE_DELAY, target)) // slurp slurp slurp slurp
-			break
+	// The minimum percent charge our target needs to let us drain it.
+	var/target_minimum_charge = 0
+	if(istype(target, /obj/machinery/power/apc))
+		target_minimum_charge = target_cell.max_charge() * POWER_CORD_APC_MINIMUM_PERCENT / 100
+	if(target_cell.charge() < target_minimum_charge)
+		target.balloon_alert(user, "charge too low!")
+		return
 
-		// Check if the user is nearly fully charged.
-		// Ensures minimum draw is always lower than this margin.
-		var/datum/species/android/energy_holder = user.dna.species
-		energy_needed = POWER_CORD_CHARGE_MAX - energy_holder.core_energy
+	var/obj/item/stock_parts/power_store/stomach_cell = charging_stomach.internal_cell
+	while(do_after(user, POWER_CORD_CHARGE_DELAY, target = target))
+		if(isnull(charging_stomach) || (charging_stomach != user.get_organ_slot(ORGAN_SLOT_STOMACH)))
+			balloon_alert(user, "stomach removed!?")
+			return
+		if(isnull(target_cell) || (target_cell != target.get_cell(src, user)))
+			target.balloon_alert(user, "cell removed!")
+			return
+		if(target_cell.charge() < target_minimum_charge)
+			target.balloon_alert(user, "charge too low!")
+			return
 
-		// Calculate how much to draw from the cell this cycle.
-		var/current_draw = min(energy_needed, POWER_CORD_CHARGE_RATE * POWER_CORD_CHARGE_DELAY)
+		var/our_available_charge = target_cell.charge() - target_minimum_charge
+		var/stomach_used_charge = stomach_cell.used_charge()
+		var/potential_charge = min(our_available_charge, stomach_used_charge)
+		var/to_drain = min(POWER_CORD_CHARGE_RATE, potential_charge)
+		var/energy_drained = target_cell.use(to_drain, force = TRUE)
+		if(energy_drained)
+			charging_stomach.adjust_charge(energy_drained)
+			playsound(user, 'modular_doppler/modular_sounds/sound/mobs/humanoids/android/drain.wav', 25, FALSE)
+			if(prob(8))
+				do_sparks(3, FALSE, get_turf(target_cell))
 
-		var/energy_delivered = target_cell.use(current_draw, force = TRUE)
-		target_cell.update_appearance()
-		if(!energy_delivered)
-			// The cell could be sabotaged, which causes it to explode and qdelete.
-			if(QDELETED(target_cell))
-				return
-			user.balloon_alert(user, "target empty!")
-			break
+		if(QDELETED(target_cell) || QDELETED(target))
+			return // The cell could be sabotaged, which causes it to explode and qdelete.
+		if(stomach_cell.used_charge() <= 0)
+			balloon_alert(user, "fully charged!")
+			return
+		if(target_cell.charge() <= 0)
+			target.balloon_alert(user, "empty!")
+			return
+		if(target_cell.charge() < target_minimum_charge)
+			target.balloon_alert(user, "charge too low!")
+			return
 
-		energy_holder.core_energy += energy_delivered
-
-		playsound(user, 'modular_doppler/modular_sounds/sound/mobs/humanoids/android/drain.wav', 25, FALSE)
-		if(prob(8))
-			do_sparks(3, FALSE, target_cell.loc)
-		if(energy_holder.core_energy >= POWER_CORD_CHARGE_MAX)
-			user.balloon_alert(user, "fully charged")
-			break
-
-#undef POWER_CORD_CHARGE_MAX
 #undef POWER_CORD_CHARGE_RATE
+#undef POWER_CORD_CHARGE_DELAY
 #undef POWER_CORD_APC_MINIMUM_PERCENT
