@@ -16,8 +16,3 @@
 #define CHARGING_STOMACH_DISCHARGE_RATE (CHARGING_STOMACH_CHARGE_FULL / 2000)
 /// The default amount by which a charging stomach discharges when EMP'd.
 #define CHARGING_STOMACH_EMP_DISCHARGE (CHARGING_STOMACH_DISCHARGE_RATE * 30)
-
-/**
- * Charging Method Preferences
- */
-
