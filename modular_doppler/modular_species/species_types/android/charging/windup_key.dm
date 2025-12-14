@@ -73,6 +73,7 @@
 
 /// Handles our windup charging loop.
 /obj/item/organ/stomach/charging/windup_key/proc/wind_up(mob/living/carbon/stomach_owner, mob/living/carbon/helper)
+	helper.balloon_alert_to_viewers("winding key...")
 	while(do_after(helper, WINDUP_KEY_CHARGE_DELAY, target = stomach_owner, extra_checks = CALLBACK(src, PROC_REF(check_if_key_reachable_by), helper)))
 		if(owner != stomach_owner)
 			stomach_owner.balloon_alert(helper, "key removed!?")
