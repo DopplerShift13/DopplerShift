@@ -571,7 +571,7 @@
 /obj/structure/table/glass/proc/check_break(mob/living/M)
 	if(is_flipped)
 		return FALSE
-	if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & MOVETYPES_NOT_TOUCHING_GROUND) && (!isteshari(M))) // Doppler edit addition - Teshari can tablerun without breaking glass tables
+	if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & MOVETYPES_NOT_TOUCHING_GROUND) && (!HAS_TRAIT(M, TRAIT_LIGHT_BODY))) // Doppler edit addition - Teshari can tablerun without breaking glass tables
 		table_shatter(M)
 
 /obj/structure/table/glass/proc/table_shatter(mob/living/victim)

@@ -17,6 +17,8 @@
 #define TRAIT_ANIMALISTIC "animalistic"
 // Trait that lets golems put stone limbs back on
 #define TRAIT_GOLEM_LIMBATTACHMENT "golem_limbattachment"
+// Prevents the mob from breaking tables from standing on them
+#define TRAIT_LIGHT_BODY "light_body"
 
 ////
 // Quirks
