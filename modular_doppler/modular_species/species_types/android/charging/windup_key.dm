@@ -140,7 +140,7 @@
  */
 
 /datum/bodypart_overlay/windup_key
-	layers = EXTERNAL_BEHIND | EXTERNAL_ADJACENT
+	layers = EXTERNAL_ADJACENT | EXTERNAL_FRONT
 	/// Wind-up key that owns this overlay
 	var/obj/item/organ/stomach/charging/windup_key/our_key
 
