@@ -130,7 +130,7 @@
 	return FALSE
 
 /obj/item/organ/stomach/charging/windup_key/proc/get_overlay_state()
-	return "windup_key_[internal_cell.charge() > 0 ? "on" : "off"]"
+	return "winding_key_[internal_cell.charge() > 0 ? "on" : "off"]"
 
 /obj/item/organ/stomach/charging/windup_key/proc/get_overlay(image_layer, obj/item/bodypart/limb)
 	return list(image(icon = key_overlay_icon, icon_state = get_overlay_state(), layer = image_layer))
