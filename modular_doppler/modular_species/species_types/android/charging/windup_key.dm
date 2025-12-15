@@ -1,8 +1,8 @@
 
 /// Rate at which turning the key will charge its stomach cell each loop.
-#define WINDUP_KEY_CHARGE_RATE (CHARGING_STOMACH_DISCHARGE_RATE * 60)
+#define WINDUP_KEY_CHARGE_RATE (CHARGING_STOMACH_DISCHARGE_RATE * 264)
 /// Delay between key turning attempts.
-#define WINDUP_KEY_CHARGE_DELAY 1 SECONDS
+#define WINDUP_KEY_CHARGE_DELAY 4.2 SECONDS
 
 /**
  * ORGAN
@@ -23,6 +23,7 @@
 	var/key_overlay_icon = 'modular_doppler/modular_species/species_types/android/icons/synth_organ_overlays.dmi'
 	/// Are we out of charge? Used to limit how often we update our overlays.
 	var/out_of_charge = FALSE
+	var/currently_winding = FALSE
 
 /obj/item/organ/stomach/charging/windup_key/Initialize(mapload)
 	. = ..()
@@ -39,6 +40,7 @@
 /obj/item/organ/stomach/charging/windup_key/on_mob_remove(mob/living/carbon/stomach_owner)
 	. = ..()
 	UnregisterSignal(stomach_owner, COMSIG_CARBON_PRE_MISC_HELP)
+	currently_winding = FALSE // Edge case just in case we get removed mid-wind.
 
 /obj/item/organ/stomach/charging/windup_key/on_bodypart_insert(obj/item/bodypart/limb)
 	. = ..()
@@ -68,16 +70,20 @@
 	SIGNAL_HANDLER
 	if(!check_if_key_reachable_by(helper))
 		return NONE
+	if(currently_winding)
+		owner.balloon_alert(helper, "already winding!")
+		return COMPONENT_BLOCK_MISC_HELP
 	INVOKE_ASYNC(src, PROC_REF(wind_up), owner, helper)
 	return COMPONENT_BLOCK_MISC_HELP
 
 /// Handles our windup charging loop.
 /obj/item/organ/stomach/charging/windup_key/proc/wind_up(mob/living/carbon/stomach_owner, mob/living/carbon/helper)
 	helper.balloon_alert_to_viewers("winding key...")
+	update_winding(TRUE)
 	while(do_after(helper, WINDUP_KEY_CHARGE_DELAY, target = stomach_owner, extra_checks = CALLBACK(src, PROC_REF(check_if_key_reachable_by), helper)))
 		if(owner != stomach_owner)
 			stomach_owner.balloon_alert(helper, "key removed!?")
-			return
+			break
 
 		adjust_charge(WINDUP_KEY_CHARGE_RATE)
 		handle_bad_touch(stomach_owner)
@@ -85,7 +91,15 @@
 
 		if(internal_cell.used_charge() <= 0)
 			stomach_owner.balloon_alert(helper, "fully charged!")
-			return
+			break
+	update_winding(FALSE)
+
+/// Update our winding state, including visuals.
+/obj/item/organ/stomach/charging/windup_key/proc/update_winding(new_winding)
+	if(currently_winding == new_winding)
+		return
+	currently_winding = new_winding
+	owner.update_body_parts()
 
 /// Handles our bad touch debuffs, if any.
 /obj/item/organ/stomach/charging/windup_key/proc/handle_bad_touch(mob/living/carbon/stomach_owner)
@@ -132,6 +146,8 @@
 	return FALSE
 
 /obj/item/organ/stomach/charging/windup_key/proc/get_overlay_state()
+	if(currently_winding)
+		return "winding_key_winding"
 	return "winding_key_[internal_cell.charge() > 0 ? "on" : "off"]"
 
 /obj/item/organ/stomach/charging/windup_key/proc/get_overlay(image_layer, obj/item/bodypart/limb)

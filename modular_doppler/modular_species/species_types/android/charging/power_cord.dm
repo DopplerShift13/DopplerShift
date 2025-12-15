@@ -1,6 +1,6 @@
 
 /// Rate at which a power cord can charge its stomach cell.
-#define POWER_CORD_CHARGE_RATE (CHARGING_STOMACH_DISCHARGE_RATE * 30)
+#define POWER_CORD_CHARGE_RATE (CHARGING_STOMACH_DISCHARGE_RATE * 33)
 /// Delay between power cord charging attempts.
 #define POWER_CORD_CHARGE_DELAY 0.5 SECONDS
 /// Minimum charge percent an APC must have for a power cord to be able to drain it.
