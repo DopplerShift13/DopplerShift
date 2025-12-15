@@ -68,6 +68,8 @@
 
 /obj/item/organ/stomach/charging/windup_key/proc/on_pre_misc_help(datum/source, mob/living/carbon/helper)
 	SIGNAL_HANDLER
+	if(helper == owner)
+		return NONE
 	if(!check_if_key_reachable_by(helper))
 		return NONE
 	if(currently_winding)
