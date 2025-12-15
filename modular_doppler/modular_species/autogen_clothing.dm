@@ -14,10 +14,9 @@ GLOBAL_LIST_EMPTY(species_autogen_clothing_cache)
  * Modularly get the species' fallback greyscale config.
  * Only used if you use generate_autogen_worn_icon()
  * Arguments:
- * * item_slot: The slot we're updating. One of OFFSET_HEAD, etc.
  * * item: The item being rendered.
  */
-/datum/species/proc/get_autogen_worn_config(item_slot, obj/item/item)
+/datum/species/proc/get_autogen_worn_config(obj/item/item)
 	if (isnull(item)) return
 	var/list/list_to_use = item.autogen_clothing_config
 	if(istype(item, /obj/item/clothing/under) && !(item.body_parts_covered & LEGS) && !isnull(item.autogen_clothing_config_skirt))
@@ -53,9 +52,17 @@ GLOBAL_LIST_EMPTY(species_autogen_clothing_cache)
 	GLOB.species_autogen_clothing_cache[name]["[file_to_use]-[state_to_use]-[meta]"] = cached_value
 
 /**
- * Generate a fallback worn icon, if the species supports it. You must call it in an override of generate_custom_worn_icon()
+ * Generate a fallback worn icon, if the species supports it.
+ * Arguments:
+ * * obj/item/item: The item we are considering.
+ * * mob/living/carbon/human/human_owner: The owner of the item.
+ *
+ * Returns:
+ * * A /icon, or null, if no sprite could be generated.
  */
-/datum/species/proc/generate_autogen_worn_icon(item_slot, obj/item/item, mob/living/carbon/human/human_owner)
+/datum/species/proc/generate_autogen_worn_icon(obj/item/item, mob/living/carbon/human/human_owner)
+	RETURN_TYPE(/icon)
+
 	var/icon/human_icon = item.worn_icon || item.icon
 	var/human_icon_state = item.worn_icon_state || item.icon_state
 
@@ -68,7 +75,7 @@ GLOBAL_LIST_EMPTY(species_autogen_clothing_cache)
 		return cached_icon
 
 	// Get GAGs config
-	var/fallback_config = get_autogen_worn_config(item_slot, item)
+	var/fallback_config = get_autogen_worn_config(item)
 	if(!fallback_config)
 		return null
 
@@ -102,7 +109,7 @@ GLOBAL_LIST_EMPTY(species_autogen_clothing_cache)
 		fallback_greyscale_colors = color_list.Join("")
 
 	// Finally, render with GAGs
-	var/icon/final_icon = icon(SSgreyscale.GetColoredIconByType(get_autogen_worn_config(item_slot, item), fallback_greyscale_colors))
+	var/icon/final_icon = icon(SSgreyscale.GetColoredIconByType(get_autogen_worn_config(item), fallback_greyscale_colors))
 	// Duplicate to the specific icon_state and set.
 	final_icon.Insert(final_icon, icon_state = human_icon_state) // include the expected icon_state
 	// Cache the clean copy.

@@ -494,7 +494,7 @@
 #define OFFSET_SUIT "suit"
 #define OFFSET_NECK "neck"
 #define OFFSET_HELD "held"
-#define OFFSET_ACCESSORY "accessory" // Doppler edit - addition
+#define OFFSET_ACCESSORY "accessory" // DOPPLER EDIT ADDITION - Accesory offsets, currently used only for teshari
 
 //MINOR TWEAKS/MISC
 #define AGE_MIN 18 //youngest a character can be

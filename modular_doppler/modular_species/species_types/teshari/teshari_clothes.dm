@@ -195,12 +195,6 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/back.dmi'
 	)
 
-/obj/item/clothing/suit/hooded/wintercoat/equipped(mob/living/user, slot)
-	if(isteshari(user))
-		var/datum/component/toggle_attached_clothing/component = GetComponent(/datum/component/toggle_attached_clothing)
-		component.undeployed_overlay = null
-	. = ..()
-
 /obj/item/gravity_harness
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
