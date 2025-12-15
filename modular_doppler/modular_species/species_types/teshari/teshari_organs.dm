@@ -2,7 +2,7 @@
 	name = "teshari ears"
 	desc = "A set of four long rabbit-like ears, a Teshari's main tool while hunting. Naturally extremely sensitive to loud sounds."
 	damage_multiplier = 1.5
-	actions_types = list(/datum/action/cooldown/spell/teshari_hearing)
+	actions_types = list(/datum/action/cooldown/teshari_hearing)
 	preference = "feature_teshari_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/teshari
 
@@ -10,7 +10,7 @@
 	. = ..()
 	REMOVE_TRAIT(ear_owner, TRAIT_GOOD_HEARING, ORGAN_TRAIT)
 
-/datum/action/cooldown/spell/teshari_hearing
+/datum/action/cooldown/teshari_hearing
 	name = "Toggle Sensitive Hearing"
 	desc = "Perk up your ears to listen for quiet sounds, useful for picking up whispering."
 	button_icon = 'modular_doppler/modular_species/species_types/teshari/icons/abilities/actions.dmi'
@@ -19,33 +19,36 @@
 	overlay_icon_state = "bg_alien_border"
 
 	cooldown_time = 1 SECONDS
-	spell_requirements = NONE
 
-/datum/action/cooldown/spell/teshari_hearing/proc/update_button_state(new_state) //This makes it so that the button icon changes dynamically based on ears being up or not.
+/datum/action/cooldown/teshari_hearing/proc/update_button_state(new_state) //This makes it so that the button icon changes dynamically based on ears being up or not.
 	button_icon_state = new_state
 	owner.update_action_buttons()
 
-/datum/action/cooldown/spell/teshari_hearing/Remove(mob/living/remove_from)
+/datum/action/cooldown/teshari_hearing/Remove(mob/living/remove_from)
 	REMOVE_TRAIT(remove_from, TRAIT_GOOD_HEARING, ORGAN_TRAIT)
 	remove_from.update_sight()
 	return ..()
 
-/datum/action/cooldown/spell/teshari_hearing/cast(list/targets, mob/living/carbon/human/user = usr)
+/datum/action/cooldown/teshari_hearing/Activate(atom/target)
 	. = ..()
 
-	if(HAS_TRAIT(user, TRAIT_GOOD_HEARING))
-		teshari_hearing_deactivate(user)
+	var/mob/living/living_target = target
+	if (!istype(living_target))
 		return
 
-	user.apply_status_effect(/datum/status_effect/teshari_hearing)
-	user.visible_message(span_notice("[user], pricks up [user.p_their()] four ears, each twitching intently!"), span_notice("You perk up all four of your ears, hunting for even the quietest sounds."))
+	if(HAS_TRAIT(living_target, TRAIT_GOOD_HEARING))
+		teshari_hearing_deactivate(living_target)
+		return
+
+	living_target.apply_status_effect(/datum/status_effect/teshari_hearing)
+	living_target.visible_message(span_notice("[living_target], pricks up [living_target.p_their()] four ears, each twitching intently!"), span_notice("You perk up all four of your ears, hunting for even the quietest sounds."))
 	update_button_state("echolocation_on")
 
-	var/obj/item/organ/ears/ears = user.get_organ_slot(ORGAN_SLOT_EARS)
+	var/obj/item/organ/ears/ears = living_target.get_organ_slot(ORGAN_SLOT_EARS)
 	if(ears)
 		ears.damage_multiplier = 3
 
-/datum/action/cooldown/spell/teshari_hearing/proc/teshari_hearing_deactivate(mob/living/carbon/human/user) //Called when you activate it again after casting the ability-- turning them off, so to say.
+/datum/action/cooldown/teshari_hearing/proc/teshari_hearing_deactivate(mob/living/carbon/human/user) //Called when you activate it again after casting the ability-- turning them off, so to say.
 	if(!HAS_TRAIT_FROM(user, TRAIT_GOOD_HEARING, ORGAN_TRAIT))
 		return
 
