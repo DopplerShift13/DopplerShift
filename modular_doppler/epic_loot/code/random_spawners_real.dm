@@ -631,6 +631,10 @@
 		/obj/item/storage/box/colonial_rations = 1,
 		// Da cooler
 		/obj/item/storage/epic_loot_cooler = 2,
+		//This is what happens when crates are left abandoned in maints :(
+		/obj/item/food/grown/mushroom/odious_puffball = 1,
+		/obj/item/food/badrecipe/moldy/bacteria = 1,
+		/obj/item/food/deadmouse/moldy = 1,
 	)
 
 // Da money
