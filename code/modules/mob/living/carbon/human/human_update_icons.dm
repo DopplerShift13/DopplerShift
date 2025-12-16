@@ -1059,53 +1059,53 @@ generate/load female uniform sprites matching all previously decided variables
 	// DOPPLER EDIT ADDITION START
 	var/list/standing = list()
 	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES))
-		var/datum/sprite_accessory/underwear/underwear = SSaccessories.underwear_list[underwear]
+		var/datum/sprite_accessory/underwear/underwear_accessory = SSaccessories.underwear_list[underwear]
 		var/mutable_appearance/underwear_overlay
 		var/female_sprite_flags = FEMALE_UNIFORM_FULL // the default gender shaping
-		if(underwear)
-			var/icon_state = underwear.icon_state
-			if(underwear.has_digitigrade && (bodyshape & BODYSHAPE_DIGITIGRADE))
+		if(underwear_accessory)
+			var/icon_state = underwear_accessory.icon_state
+			if(underwear_accessory.has_digitigrade && (bodyshape & BODYSHAPE_DIGITIGRADE))
 				icon_state += "_d"
 				female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY // for digi gender shaping
-			if(dna.species.sexes && physique == FEMALE && (underwear.gender == MALE))
-				underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear.icon, female_sprite_flags), layer = -UNDERWEAR_UNDERSHIRT)
+			if(dna.species.sexes && physique == FEMALE && (underwear_accessory.gender == MALE))
+				underwear_overlay = mutable_appearance(wear_female_version(icon_state, underwear_accessory.icon, female_sprite_flags), layer = -UNDERWEAR_UNDERSHIRT)
 			else
-				underwear_overlay = mutable_appearance(underwear.icon, icon_state, -UNDERWEAR_UNDERSHIRT)
-			if(!underwear.use_static)
+				underwear_overlay = mutable_appearance(underwear_accessory.icon, icon_state, -UNDERWEAR_UNDERSHIRT)
+			if(!underwear_accessory.use_static)
 				underwear_overlay.color = underwear_color
 			standing += underwear_overlay
 
 	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
-		var/datum/sprite_accessory/bra/bra = SSaccessories.bra_list[bra]
-		if(bra)
+		var/datum/sprite_accessory/bra/bra_accessory = SSaccessories.bra_list[bra]
+		if(bra_accessory)
 			var/mutable_appearance/bra_overlay
-			var/icon_state = bra.icon_state
-			bra_overlay = mutable_appearance(bra.icon, icon_state, -BRA_SOCKS_LAYER)
-			if(!bra.use_static)
+			var/icon_state = bra_accessory.icon_state
+			bra_overlay = mutable_appearance(bra_accessory.icon, icon_state, -BRA_SOCKS_LAYER)
+			if(!bra_accessory.use_static)
 				bra_overlay.color = bra_color
 			standing += bra_overlay
 
 	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT))
-		var/datum/sprite_accessory/undershirt/undershirt = SSaccessories.undershirt_list[undershirt]
-		if(undershirt)
+		var/datum/sprite_accessory/undershirt/undershirt_accessory = SSaccessories.undershirt_list[undershirt]
+		if(undershirt_accessory)
 			var/mutable_appearance/undershirt_overlay
 			if(dna.species.sexes && physique == FEMALE)
-				undershirt_overlay = mutable_appearance(wear_female_version(undershirt.icon_state, undershirt.icon), layer = -UNDERWEAR_UNDERSHIRT)
+				undershirt_overlay = mutable_appearance(wear_female_version(undershirt_accessory.icon_state, undershirt_accessory.icon), layer = -UNDERWEAR_UNDERSHIRT)
 			else
-				undershirt_overlay = mutable_appearance(undershirt.icon, undershirt.icon_state, layer = -UNDERWEAR_UNDERSHIRT)
-			if(!undershirt.use_static)
+				undershirt_overlay = mutable_appearance(undershirt_accessory.icon, undershirt_accessory.icon_state, layer = -UNDERWEAR_UNDERSHIRT)
+			if(!undershirt_accessory.use_static)
 				undershirt_overlay.color = undershirt_color
 			standing += undershirt_overlay
 
 	if(socks && num_legs >= 2 && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS))
-		var/datum/sprite_accessory/socks/socks = SSaccessories.socks_list[socks]
-		if(socks)
+		var/datum/sprite_accessory/socks/socks_accessory = SSaccessories.socks_list[socks]
+		if(socks_accessory)
 			var/mutable_appearance/socks_overlay
-			var/icon_state = socks.icon_state
+			var/icon_state = socks_accessory.icon_state
 			if((bodyshape & BODYSHAPE_DIGITIGRADE))
 				icon_state += "_d"
-			socks_overlay = mutable_appearance(socks.icon, icon_state, -BRA_SOCKS_LAYER)
-			if(!socks.use_static)
+			socks_overlay = mutable_appearance(socks_accessory.icon, icon_state, -BRA_SOCKS_LAYER)
+			if(!socks_accessory.use_static)
 				socks_overlay.color = socks_color
 			standing += socks_overlay
 	// DOPPLER EDIT END

@@ -146,7 +146,7 @@
 	target.dna.features[FEATURE_TAIL_LIZARD] = value
 
 /datum/preference/choiced/lizard_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_lizard[value]
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_LIZARD]
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Cat
@@ -172,7 +172,7 @@
 	target.dna.features[FEATURE_TAIL_CAT] = value
 
 /datum/preference/choiced/tail_felinid/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_felinid[value]
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_CAT]
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Dog
@@ -358,7 +358,7 @@
 	target.dna.features[FEATURE_TAIL_MONKEY] = value
 
 /datum/preference/choiced/monkey_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_monkey[value]
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_MONKEY]
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Deer
@@ -402,7 +402,7 @@
 	main_feature_name = "Tail"
 
 /datum/preference/choiced/fish_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_fish)
+	return assoc_to_keys_features(SSaccessories.feature_list[FEATURE_TAIL_FISH])
 
 /datum/preference/choiced/fish_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -422,7 +422,7 @@
 		target.dna.features[FEATURE_TAIL_FISH] = value
 
 /datum/preference/choiced/fish_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_fish[value]
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_FISH]
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Bug

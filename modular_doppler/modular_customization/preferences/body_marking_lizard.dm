@@ -40,7 +40,7 @@
 	return /datum/sprite_accessory/lizard_markings/none::name
 
 /datum/preference/choiced/lizard_body_markings/icon_for(value)
-	var/datum/sprite_accessory/sprite_accessory = SSaccessories.lizard_markings_list[value]
+	var/datum/sprite_accessory/sprite_accessory = SSaccessories.feature_list[FEATURE_LIZARD_MARKINGS]
 
 	var/static/datum/universal_icon/body
 	if (isnull(body))

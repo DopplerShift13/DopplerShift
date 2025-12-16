@@ -60,7 +60,7 @@
 	return /datum/sprite_accessory/horns/none::name
 
 /datum/preference/choiced/lizard_horns/icon_for(value)
-	return generate_horns_icon(SSaccessories.horns_list[value])
+	return generate_horns_icon(SSaccessories.feature_list[FEATURE_HORNS])
 
 /datum/preference/choiced/proc/generate_horns_icon(datum/sprite_accessory/sprite_accessory)
 	var/static/datum/universal_icon/body

@@ -5,8 +5,6 @@
 	external_bodyshapes = BODYSHAPE_TAUR | BODYSHAPE_HIDE_SHOES
 	use_mob_sprite_as_obj_sprite = TRUE
 
-	preference = "feature_taur"
-
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
 	bodypart_overlay = /datum/bodypart_overlay/mutant/taur_body
 

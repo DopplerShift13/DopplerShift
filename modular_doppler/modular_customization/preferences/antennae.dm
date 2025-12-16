@@ -49,7 +49,7 @@
 	return /datum/sprite_accessory/moth_antennae/none::name
 
 /datum/preference/choiced/moth_antennae/icon_for(value)
-	return generate_antennae_icon(SSaccessories.moth_antennae_list[value])
+	return generate_antennae_icon(SSaccessories.feature_list[FEATURE_MOTH_ANTENNAE])
 
 /datum/preference/choiced/proc/generate_antennae_icon(datum/sprite_accessory/sprite_accessory)
 	var/static/datum/universal_icon/body

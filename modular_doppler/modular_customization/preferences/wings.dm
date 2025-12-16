@@ -99,7 +99,7 @@
 	return generate_back_icon(wings, "wings")
 
 /datum/preference/choiced/moth_wings/icon_for(value)
-	var/datum/sprite_accessory/wings = SSaccessories.moth_wings_list[value]
+	var/datum/sprite_accessory/wings = SSaccessories.feature_list[FEATURE_MOTH_WINGS]
 	return generate_back_icon(wings, "moth_wings")
 
 //	Moth Wings
