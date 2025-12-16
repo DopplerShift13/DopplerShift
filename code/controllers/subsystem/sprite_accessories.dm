@@ -45,6 +45,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/list/feature_list
 
 	var/list/cached_mutant_icon_files = list() // DOPPLER ADDITION - caches files for the mutant parts system
+
 /datum/controller/subsystem/accessories/PreInit() // this stuff NEEDS to be set up before GLOB for preferences and stuff to work so this must go here. sorry
 	setup_lists()
 	init_hair_gradients()
