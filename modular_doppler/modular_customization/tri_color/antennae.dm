@@ -20,7 +20,7 @@
 	return TRUE
 
 // Gotta add to the selector too
-/datum/preference/choiced/moth_antennae/compile_constant_data()
+/datum/preference/choiced/species_feature/moth_antennae/compile_constant_data()
 	var/list/data = ..()
 
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/antennae_color::savefile_key

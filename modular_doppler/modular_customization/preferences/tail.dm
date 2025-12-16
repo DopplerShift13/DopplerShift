@@ -124,12 +124,12 @@
 
 ///	All current tail types to choose from
 //	Lizard
-/datum/preference/choiced/lizard_tail // this is an overwrite, so its missing some variables
+/datum/preference/choiced/species_feature/lizard_tail // this is an overwrite, so its missing some variables
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
-/datum/preference/choiced/lizard_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.species_blacklist_no_mutant)
@@ -139,13 +139,13 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/lizard_tail/create_default_value()
+/datum/preference/choiced/species_feature/lizard_tail/create_default_value()
 	return /datum/sprite_accessory/tails/lizard/none::name
 
-/datum/preference/choiced/lizard_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/lizard_tail/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_TAIL_LIZARD] = value
 
-/datum/preference/choiced/lizard_tail/icon_for(value)
+/datum/preference/choiced/species_feature/lizard_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_LIZARD]
 	return generate_back_icon(chosen_tail, "tail")
 

@@ -1,5 +1,5 @@
 // Gotta add to the selector
-/datum/preference/choiced/lizard_frills/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_snout/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/frills_color::savefile_key
 	return data

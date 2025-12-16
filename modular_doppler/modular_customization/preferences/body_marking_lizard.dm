@@ -36,10 +36,10 @@
 		return overlay
 	return ..()
 
-/datum/preference/choiced/lizard_body_markings/create_default_value()
+/datum/preference/choiced/species_feature/lizard_body_markings/create_default_value()
 	return /datum/sprite_accessory/lizard_markings/none::name
 
-/datum/preference/choiced/lizard_body_markings/icon_for(value)
+/datum/preference/choiced/species_feature/lizard_body_markings/icon_for(value)
 	var/datum/sprite_accessory/sprite_accessory = SSaccessories.feature_list[FEATURE_LIZARD_MARKINGS]
 
 	var/static/datum/universal_icon/body
@@ -120,10 +120,10 @@
 	return FALSE
 
 //toggle pref integration
-/datum/preference/choiced/lizard_body_markings
+/datum/preference/choiced/species_feature/lizard_body_markings
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/lizard_body_markings/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_body_markings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/has_markings = preferences.read_preference(/datum/preference/toggle/markings)
 	if(has_markings == TRUE)

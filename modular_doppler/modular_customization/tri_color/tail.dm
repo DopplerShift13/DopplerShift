@@ -1,6 +1,6 @@
 
 // Add the selector to ALL THE TAILS!
-/datum/preference/choiced/lizard_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
