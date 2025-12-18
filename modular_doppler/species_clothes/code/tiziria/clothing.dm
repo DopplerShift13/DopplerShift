@@ -65,6 +65,67 @@
 	inhand_icon_state = null
 	alternate_worn_layer = HANDCUFF_LAYER // above hats for visibility
 	attachment_slot = NONE
+	/// What message is displayed when our dogtags / its clothes / its wearer is examined
+	var/display = null
+
+/obj/item/clothing/accessory/ear_tag/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/pinnable_accessory, silent = TRUE, pinning_time = 5 SECONDS)
+
+/obj/item/clothing/accessory/ear_tag/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	if(isnull(held_item))
+		return NONE
+	if(istype(held_item, /obj/item/pen))
+		context[SCREENTIP_CONTEXT_LMB] = "Write on tag"
+		return CONTEXTUAL_SCREENTIP_SET
+
+/obj/item/clothing/accessory/ear_tag/examine(mob/user)
+	. = ..()
+	. += span_notice("You could write your own words on the tag with a pen.")
+	if(display)
+		. += "It has \"[display]\" written on it."
+	else
+		. += "There is nothing written on it."
+
+/obj/item/clothing/accessory/ear_tag/item_interaction(mob/living/user, obj/item/weapon, list/modifiers)
+	if(!istype(weapon, /obj/item/pen))
+		return NONE
+	var/new_display = tgui_input_text(user, "What should the tag say?", "Writing on tag", html_decode(display), MAX_DESC_LEN)
+	if(QDELETED(user) || QDELETED(src) || !user.can_perform_action(src) || !(weapon in user.held_items))
+		return ITEM_INTERACT_BLOCKING
+	if(!new_display)
+		return ITEM_INTERACT_BLOCKING
+	if(new_display == "")
+		display = null
+		return ITEM_INTERACT_SUCCESS
+	display = new_display
+	return ITEM_INTERACT_SUCCESS
+
+// Examining the clothes will display the examine message of the tag
+/obj/item/clothing/accessory/ear_tag/attach(obj/item/clothing/under/attach_to, mob/living/attacher)
+	. = ..()
+	if(!.)
+		return
+	RegisterSignal(attach_to, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+
+/obj/item/clothing/accessory/ear_tag/detach(obj/item/clothing/under/detach_from)
+	. = ..()
+	UnregisterSignal(detach_from, COMSIG_ATOM_EXAMINE)
+
+// Double examining the person wearing the clothes will display the examine message of the tag
+/obj/item/clothing/accessory/ear_tag/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)
+	RegisterSignal(user, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
+
+/obj/item/clothing/accessory/ear_tag/accessory_dropped(obj/item/clothing/under/clothes, mob/living/user)
+	UnregisterSignal(user, COMSIG_ATOM_EXAMINE)
+
+/// Adds the examine message to the clothes and mob.
+/obj/item/clothing/accessory/ear_tag/proc/on_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+	if(ismob(source))
+		examine_list += "A tag is clipped to [source.p_their()] ear [display ? ": [display]" : "but nothing is on it."]"
+	else
+		examine_list += "A tag is clipped to [source] [display ? ": [display]" : "but nothing is on it."]"
 
 // neck capes
 

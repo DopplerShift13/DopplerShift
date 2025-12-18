@@ -147,7 +147,7 @@
 	},
 /area/mine/laborcamp/production)
 "bc" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -377,7 +377,7 @@
 /turf/open/floor/iron/colony/white/texture,
 /area/mine/living_quarters)
 "cE" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/storage/public)
 "cF" = (
@@ -389,7 +389,7 @@
 /turf/open/floor/iron/colony/white,
 /area/mine/lounge)
 "cJ" = (
-/obj/machinery/door/airlock/colony_prefab{
+/obj/machinery/door/airlock/mining{
 	name = "Station Stairs"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -492,11 +492,9 @@
 /turf/open/floor/iron/colony/white/bolts,
 /area/mine/cafeteria)
 "df" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Shuttle Lounge"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/lounge)
 "dh" = (
@@ -519,15 +517,13 @@
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/surface/outdoors/nospawn)
 "dk" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/production/lower)
 "dr" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Enrichment Center"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/door/airlock,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
 "dv" = (
@@ -600,7 +596,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "dK" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/eva)
 "dN" = (
@@ -749,12 +745,12 @@
 "eQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/production)
 "eR" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/laborcamp/production)
 "eT" = (
@@ -826,7 +822,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "fk" = (
-/obj/machinery/door/airlock/colony_prefab{
+/obj/machinery/door/airlock/mining{
 	name = "Mineral Processing"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -983,7 +979,7 @@
 /area/mine/maintenance/living/south)
 "gh" = (
 /obj/effect/decal/cleanable/glass,
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/laborcamp)
 "gl" = (
@@ -1141,18 +1137,18 @@
 /turf/open/floor/iron/colony,
 /area/mine/laborcamp/security)
 "hd" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Labor Camp Shuttle Guard Airlock"
-	},
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/machinery/door/airlock/external/glass{
+	name = "Labor Camp External Airlock"
+	},
 /turf/open/floor/iron/colony/texture,
 /area/mine/laborcamp)
 "he" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security)
@@ -1185,7 +1181,7 @@
 /turf/open/floor/iron/colony,
 /area/mine/production)
 "ho" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "hr" = (
@@ -1296,18 +1292,14 @@
 /turf/open/floor/iron/checker,
 /area/mine/laborcamp)
 "hY" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Prisoner Bunk"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
 "ia" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Emergency Clinic"
-	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/door/airlock/medical/glass,
 /turf/open/floor/iron/white/side{
 	dir = 1
 	},
@@ -1316,9 +1308,6 @@
 /turf/open/floor/iron/colony/white,
 /area/mine/lounge)
 "ie" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Native Hydroponics"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -1326,6 +1315,7 @@
 /obj/effect/turf_decal/tile/green/opposingcorners{
 	dir = 1
 	},
+/obj/machinery/door/airlock/hydroponics/glass,
 /turf/open/floor/iron/colony,
 /area/mine/hydroponics)
 "ii" = (
@@ -1429,7 +1419,7 @@
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/living_quarters)
 "jc" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security)
 "jd" = (
@@ -1467,16 +1457,13 @@
 /turf/open/floor/iron/colony,
 /area/mine/laborcamp/security)
 "jj" = (
-/obj/machinery/door/airlock/colony_prefab{
+/obj/machinery/door/airlock/mining{
 	name = "Maintenance"
 	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /turf/open/floor/plating,
 /area/mine/maintenance/public/north)
 "jm" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Showers"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -1484,6 +1471,7 @@
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/machinery/door/airlock/titanium,
 /turf/open/floor/iron/freezer,
 /area/mine/laborcamp)
 "jq" = (
@@ -1703,15 +1691,13 @@
 /turf/open/floor/iron/colony/white,
 /area/mine/lounge)
 "kL" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Cafeteria-Bunks"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 1
 	},
+/obj/machinery/door/airlock/glass,
 /turf/open/floor/iron/colony,
 /area/mine/cafeteria)
 "kR" = (
@@ -1813,7 +1799,6 @@
 /area/mine/living_quarters)
 "ls" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/space_heater/wall_mounted/directional/south,
 /turf/open/floor/iron/dark/textured_edge{
 	dir = 1
 	},
@@ -1851,13 +1836,11 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "lJ" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Security Supply"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/machinery/door/airlock/security/glass,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
 "lM" = (
@@ -1872,14 +1855,12 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production)
 "lN" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Maintenance"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/effect/mapping_helpers/airlock/unres,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/south)
 "lO" = (
@@ -1941,9 +1922,6 @@
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "my" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Maintenance"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -1952,6 +1930,7 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
 	},
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/maintenance/living/north)
 "mA" = (
@@ -2184,14 +2163,12 @@
 /turf/open/floor/iron/colony,
 /area/mine/laborcamp/security)
 "ob" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Cafeteria"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 1
 	},
+/obj/machinery/door/airlock/glass,
 /turf/open/floor/iron/colony,
 /area/mine/cafeteria)
 "od" = (
@@ -2199,7 +2176,7 @@
 /turf/open/floor/iron/colony/white/bolts,
 /area/mine/lounge)
 "og" = (
-/obj/machinery/door/poddoor/shutters/colony_fabricator{
+/obj/machinery/door/poddoor/shutters{
 	id = 12
 	},
 /turf/open/floor/plating,
@@ -2528,13 +2505,10 @@
 	},
 /area/mine/laborcamp/quarters)
 "ql" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/production/middle)
 "qo" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Expedition Supplies"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -2542,18 +2516,17 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/brown/opposingcorners,
+/obj/machinery/door/airlock/mining/glass,
 /turf/open/floor/iron/colony,
 /area/mine/storage/public)
 "qp" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Cafeteria-Bunks"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/door/airlock/glass,
 /turf/open/floor/iron/colony,
 /area/mine/cafeteria)
 "qq" = (
@@ -2609,16 +2582,14 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "qH" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Private Shower"
-	},
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/machinery/door/airlock/titanium,
 /turf/open/floor/iron/colony/white/texture,
 /area/mine/living_quarters)
 "qN" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/cafeteria)
@@ -2684,7 +2655,7 @@
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp)
 "rp" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/production)
@@ -2744,7 +2715,7 @@
 /turf/closed/wall/prefab_plastic,
 /area/mine/storage/public)
 "rX" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/laborcamp)
 "rY" = (
@@ -2912,15 +2883,13 @@
 /area/mine/cafeteria)
 "tg" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Air Tanks"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "th" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/production/lower)
@@ -3023,7 +2992,7 @@
 /area/mine/storage)
 "tW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "tX" = (
@@ -3053,14 +3022,12 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "uk" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Lounge"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 1
 	},
+/obj/machinery/door/airlock/glass,
 /turf/open/floor/iron/colony/bolts,
 /area/mine/cafeteria)
 "ul" = (
@@ -3093,12 +3060,10 @@
 /turf/open/floor/iron/colony/white/bolts,
 /area/mine/cafeteria)
 "ux" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Bunk B"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/door/airlock,
 /turf/open/floor/iron/colony/white/texture,
 /area/mine/living_quarters)
 "uA" = (
@@ -3185,12 +3150,10 @@
 /turf/open/floor/iron/colony/white,
 /area/mine/medical)
 "vc" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Power"
-	},
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock/maintenance/external,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "vd" = (
@@ -3217,12 +3180,10 @@
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "vh" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Sleeping Quarters"
-	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/airlock,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
 "vi" = (
@@ -3257,7 +3218,7 @@
 /turf/open/floor/iron/colony,
 /area/mine/laborcamp/security)
 "vp" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/hydroponics)
@@ -3292,11 +3253,9 @@
 /turf/closed/wall/prefab_plastic,
 /area/mine/laborcamp/security/maintenance)
 "vF" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Mining Maintenance"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/supply/mining_station,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/plating,
 /area/mine/mechbay)
 "vI" = (
@@ -3396,12 +3355,6 @@
 	},
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/surface/outdoors/nospawn)
-"wf" = (
-/obj/structure/closet/emcloset,
-/turf/open/floor/iron/dark/textured_edge{
-	dir = 1
-	},
-/area/mine/production/middle)
 "wg" = (
 /obj/effect/turf_decal/trimline/blue/filled/line,
 /obj/effect/turf_decal/siding/red{
@@ -3599,11 +3552,9 @@
 "xI" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Telecommunications Relay"
-	},
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/tcoms,
+/obj/machinery/door/airlock/research,
 /turf/open/floor/plating,
 /area/mine/maintenance/service/comms)
 "xJ" = (
@@ -3705,13 +3656,11 @@
 /turf/closed/wall/prefab_plastic,
 /area/mine/hydroponics)
 "yl" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Expedition Lounge"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/door/airlock/glass,
 /turf/open/floor/iron,
 /area/mine/lounge)
 "yn" = (
@@ -3803,11 +3752,11 @@
 /turf/closed/wall/prefab_plastic,
 /area/mine/production/middle)
 "yX" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/hydroponics)
 "zc" = (
-/obj/machinery/door/airlock/colony_prefab{
+/obj/machinery/door/airlock/mining{
 	name = "Maintenance"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -3823,12 +3772,10 @@
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "zf" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Community Showers"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/white,
+/obj/machinery/door/airlock/titanium,
 /turf/open/floor/iron/colony/white/texture,
 /area/mine/living_quarters)
 "zg" = (
@@ -4020,7 +3967,7 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "Am" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
 "Ao" = (
@@ -4079,11 +4026,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Security Post Power"
-	},
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/laborcamp/security/maintenance)
 "AJ" = (
@@ -4181,7 +4126,7 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/underground/explored)
 "BR" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
@@ -4246,12 +4191,10 @@
 /turf/open/floor/iron/colony/bolts,
 /area/mine/production)
 "Cm" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Cafeteria"
-	},
 /obj/effect/turf_decal/tile/bar/opposingcorners{
 	dir = 1
 	},
+/obj/machinery/door/airlock/glass,
 /turf/open/floor/iron/colony,
 /area/mine/cafeteria)
 "Ct" = (
@@ -4264,7 +4207,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
 "Cz" = (
-/obj/machinery/door/airlock/colony_prefab{
+/obj/machinery/door/airlock/mining{
 	name = "Prisoner Clinic"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -4341,7 +4284,7 @@
 /turf/open/floor/iron/colony,
 /area/mine/mechbay)
 "CS" = (
-/obj/machinery/door/airlock/colony_prefab{
+/obj/machinery/door/airlock/mining{
 	name = "Emergency Clinic Maintenance"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -4405,12 +4348,12 @@
 /turf/open/floor/iron/smooth_large,
 /area/mine/laborcamp)
 "Dl" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Labor Camp Shuttle Guard Airlock"
-	},
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock/external/glass{
+	name = "Labor Camp External Airlock"
+	},
 /turf/open/floor/iron/colony/texture,
 /area/mine/laborcamp)
 "Dn" = (
@@ -4523,7 +4466,7 @@
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/surface/outdoors/nospawn)
 "Eg" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
@@ -4542,11 +4485,11 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "Eq" = (
-/obj/machinery/door/airlock/colony_prefab,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/machinery/door/airlock/security/glass,
 /turf/open/floor/iron/colony/texture,
 /area/mine/laborcamp/security)
 "Ev" = (
@@ -4557,13 +4500,11 @@
 /turf/open/floor/circuit,
 /area/mine/maintenance/service/comms)
 "Ex" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Bathroom"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/white{
 	dir = 8
 	},
+/obj/machinery/door/airlock/titanium,
 /turf/open/floor/iron/freezer,
 /area/mine/laborcamp/quarters)
 "Ey" = (
@@ -4742,7 +4683,7 @@
 /turf/open/floor/iron/colony/white,
 /area/mine/lounge)
 "FX" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/maintenance/production)
 "FZ" = (
@@ -4774,7 +4715,7 @@
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "Gj" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
@@ -4851,12 +4792,10 @@
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/production)
 "GH" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Expedition Lounge"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/door/airlock/glass,
 /turf/open/floor/iron,
 /area/mine/lounge)
 "GL" = (
@@ -5122,7 +5061,7 @@
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/laborcamp/security/maintenance)
 "It" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/medical)
 "Ix" = (
@@ -5243,11 +5182,9 @@
 "Ji" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Storage and Power"
-	},
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/machinery/door/airlock/security,
 /turf/open/floor/iron/colony,
 /area/mine/laborcamp/security)
 "Jl" = (
@@ -5342,16 +5279,14 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "JE" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/maintenance/labor)
 "JF" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Public Supply Hall"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/door/airlock,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/lounge)
 "JG" = (
@@ -5401,14 +5336,12 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "JN" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Security Post Power"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/laborcamp/security/maintenance)
 "JP" = (
@@ -5579,7 +5512,7 @@
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/living_quarters)
 "Le" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/production)
 "Lf" = (
@@ -5734,7 +5667,7 @@
 	},
 /area/mine/laborcamp/quarters)
 "LK" = (
-/obj/machinery/door/airlock/colony_prefab{
+/obj/machinery/door/airlock/mining{
 	name = "Maintenance"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5987,7 +5920,7 @@
 /turf/open/floor/iron/colony/bolts,
 /area/mine/production)
 "Ni" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/mechbay)
 "Nl" = (
@@ -6069,11 +6002,9 @@
 "NE" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Bunk C"
-	},
 /obj/effect/mapping_helpers/airlock/access/any/supply/mining_station,
 /obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/door/airlock,
 /turf/open/floor/iron/colony/white/texture,
 /area/mine/living_quarters)
 "NG" = (
@@ -6088,7 +6019,7 @@
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/underground/explored)
 "NM" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
@@ -6114,7 +6045,7 @@
 /turf/closed/wall/prefab_plastic,
 /area/mine/production)
 "NV" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "NX" = (
@@ -6316,7 +6247,7 @@
 /turf/open/floor/iron/colony,
 /area/mine/hydroponics)
 "Pm" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/cafeteria)
 "Po" = (
@@ -6479,9 +6410,6 @@
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "Qi" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Exosuit Bay"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/any/supply/mining_station,
@@ -6489,6 +6417,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/machinery/door/airlock/science/glass,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/mechbay)
 "Qq" = (
@@ -6529,12 +6458,10 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "QG" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Prisoner Bunk"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/door/airlock,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
 "QH" = (
@@ -6589,7 +6516,7 @@
 /turf/closed/wall/prefab_plastic,
 /area/mine/mechbay)
 "Ra" = (
-/obj/machinery/door/airlock/colony_prefab{
+/obj/machinery/door/airlock/mining{
 	name = "Mining EVA"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6710,7 +6637,7 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "RG" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
@@ -6833,15 +6760,6 @@
 	},
 /turf/open/floor/iron/colony,
 /area/mine/hydroponics)
-"SA" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Public Supply Hall"
-	},
-/obj/structure/disposalpipe/segment{
-	dir = 4
-	},
-/turf/open/floor/catwalk_floor/colony_fabricator,
-/area/mine/lounge)
 "SB" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -6888,7 +6806,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "SP" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/lounge)
 "SQ" = (
@@ -6908,7 +6826,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "Te" = (
-/obj/structure/window/fulltile/colony_fabricator,
+/obj/effect/spawner/structure/window/reinforced,
 /turf/open/floor/plating,
 /area/mine/laborcamp/quarters)
 "Tf" = (
@@ -7027,22 +6945,18 @@
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/laborcamp/security)
 "TV" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Utility Storage"
-	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "TW" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Power and Storage"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/access/all/security/brig,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
 "Ua" = (
@@ -7128,11 +7042,9 @@
 /turf/open/floor/iron/smooth_edge,
 /area/mine/laborcamp)
 "Uu" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Break Lounge"
-	},
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
 /obj/effect/turf_decal/tile/red/fourcorners,
+/obj/machinery/door/airlock/security,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp/security)
 "UD" = (
@@ -7249,12 +7161,12 @@
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp)
 "Vn" = (
-/obj/machinery/door/airlock/colony_prefab,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/all/supply/mining_station,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/maintenance/production)
 "Vp" = (
@@ -7525,13 +7437,11 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "WX" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Mining Station Production Storage"
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/access/any/supply/mining_station,
+/obj/machinery/door/airlock/maintenance_hatch,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/storage)
 "Xd" = (
@@ -7611,10 +7521,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Security Post Maintenance"
-	},
 /obj/effect/mapping_helpers/airlock/access/any/security/brig,
+/obj/machinery/door/airlock/security,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security)
 "Xu" = (
@@ -7701,12 +7609,10 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "XT" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Shuttle Lounge"
-	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/machinery/door/airlock,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/lounge)
 "XV" = (
@@ -7906,15 +7812,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
-"Zb" = (
-/obj/machinery/door/airlock/colony_prefab{
-	name = "Bunk A"
-	},
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/tile/blue/fourcorners,
-/turf/open/floor/iron/colony/white/texture,
-/area/mine/living_quarters)
 "Zh" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -115422,7 +115319,7 @@ yV
 qc
 aL
 Dt
-wf
+ls
 yV
 pU
 pU
@@ -171199,7 +171096,7 @@ kv
 iu
 hE
 gz
-Zb
+ux
 Uf
 lq
 iu
@@ -171475,7 +171372,7 @@ CS
 Dz
 Dz
 JF
-SA
+XT
 Ym
 ch
 sR
