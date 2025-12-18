@@ -292,10 +292,6 @@
 	name = "Crop-Top Jacket"
 	item_path = /obj/item/clothing/suit/jacket/doppler/gacket
 
-/datum/loadout_item/suit/jacket/bad_for_school
-	name = "Bad for School Jacket"
-	item_path = /obj/item/clothing/suit/jacket/doppler/bad_for_school
-
 /datum/loadout_item/suit/jacket/jacket_sweater
 	name = "Sweater Jacket (Colorable)"
 	item_path = /obj/item/clothing/suit/toggle/jacket/sweater
