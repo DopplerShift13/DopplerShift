@@ -333,7 +333,7 @@
  */
 /datum/loadout_item/suit/hoodies
 	group = "Hoodies"
-	abstract_type = /datum/loadout_item/suit/
+	abstract_type = /datum/loadout_item/suit/hoodies
 
 /datum/loadout_item/suit/hoodies/hoodie/crop_cold_hoodie
 	name = "Cropped Cold Shoulder Hoodie"
@@ -357,7 +357,7 @@
  */
 /datum/loadout_item/suit/lab
 	group = "Labcoats"
-	abstract_type = /datum/loadout_item/suit/
+	abstract_type = /datum/loadout_item/suit/lab
 
 /datum/loadout_item/suit/lab/labcoat
 	name = "Labcoat (White)"
