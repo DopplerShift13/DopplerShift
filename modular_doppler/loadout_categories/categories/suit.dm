@@ -335,15 +335,15 @@
 	group = "Hoodies"
 	abstract_type = /datum/loadout_item/suit/hoodies
 
-/datum/loadout_item/suit/hoodies/hoodie/crop_cold_hoodie
+/datum/loadout_item/suit/hoodies/crop_cold_hoodie
 	name = "Cropped Cold Shoulder Hoodie"
 	item_path = /obj/item/clothing/suit/hooded/crop_cold_hoodie
 
-/datum/loadout_item/suit/hoodies/hoodie/big_hoodie
+/datum/loadout_item/suit/hoodies/big_hoodie
 	name = "Big Hoodie"
 	item_path = /obj/item/clothing/suit/hooded/big_hoodie
 
-/datum/loadout_item/suit/hoodies/hoodie/twee_hoodie
+/datum/loadout_item/suit/hoodies/twee_hoodie
 	name = "Disconcertingly Twee Hoodie"
 	item_path = /obj/item/clothing/suit/hooded/twee_hoodie
 
