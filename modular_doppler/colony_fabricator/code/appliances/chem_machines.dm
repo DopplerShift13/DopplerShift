@@ -38,7 +38,7 @@
 // Machine that makes botany nutrients for hydroponics farming
 
 /obj/machinery/plumbing/synthesizer/colony_hydroponics
-	name = "hydroponics chemical synthesizer"
+	name = "hydroponics synthesizer"
 	desc = "An infinitely useful device for those finding themselves in a frontier without a stable source of nutrients for crops. \
 		Using a simplified version of the chemistry dispenser's synthesizer process, it can create hydroponics nutrients out of nothing \
 		but good old electricity."

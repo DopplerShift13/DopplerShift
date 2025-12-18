@@ -17,6 +17,8 @@
 /datum/outfit/job/paramedic
 	shoes = /obj/item/clothing/shoes/medical
 	suit = /obj/item/clothing/suit/toggle/labcoat/medical
+	duffelbag = /obj/item/storage/backpack/duffelbag/paramed
+	belt = /obj/item/storage/belt/medical/paramedic
 
 /datum/outfit/job/miner
 	suit = /obj/item/clothing/suit/armor/vest/miningjacket

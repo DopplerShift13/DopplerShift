@@ -11,6 +11,8 @@
 		/obj/item/clothing/under/rank/medical/scrubs/skirt = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt/green = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt/purple = 6,
+		/obj/item/storage/backpack/duffelbag/paramed = 5,
+		/obj/item/storage/belt/medical/empty/paramedic = 5,
 	)
 	excluded_products = list(
 		/obj/item/clothing/shoes/sneakers/blue = 4,
