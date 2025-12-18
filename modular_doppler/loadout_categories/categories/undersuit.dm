@@ -119,7 +119,7 @@
 	name = "Lost MC Clothing"
 	item_path = /obj/item/clothing/under/costume/tmc
 
-/datum/loadout_item/undersuit/pants/buttondown/slacks
+/datum/loadout_item/undersuit/pants/buttondown_slacks
 	name = "Buttondown & Slacks"
 	item_path = /obj/item/clothing/under/costume/buttondown/slacks
 
@@ -363,19 +363,19 @@
 	group = "Full Body"
 	abstract_type = /datum/loadout_item/undersuit/fullbody
 
-/datum/loadout_item/undersuit/fullbody/dress/cheongsam
+/datum/loadout_item/undersuit/fullbody/dress_cheongsam
 	name = "Cheongsam"
 	item_path = /obj/item/clothing/under/dress/doppler/cheongsam
 
-/datum/loadout_item/undersuit/fullbody/dress/cheongsam/customtrim
+/datum/loadout_item/undersuit/fullbody/dress_cheongsam/customtrim
 	name = "Cheongsam (Custom Trim)"
 	item_path = /obj/item/clothing/under/dress/doppler/cheongsam/customtrim
 
-/datum/loadout_item/undersuit/fullbody/dress/yukata
+/datum/loadout_item/undersuit/fullbody/dress_yukata
 	name = "Custom Yukata"
 	item_path = /obj/item/clothing/under/costume/yukata/greyscale
 
-/datum/loadout_item/undersuit/fullbody/dress/kimono
+/datum/loadout_item/undersuit/fullbody/dress_kimono
 	name = "Custom Kimono"
 	item_path = /obj/item/clothing/under/costume/kimono/greyscale
 
@@ -422,7 +422,7 @@
 	name = "Loincloth, Alt"
 	item_path = /obj/item/clothing/under/dress/skirt/loincloth/loincloth_alt
 
-/datum/loadout_item/undersuit/misc/dress/giantscarf
+/datum/loadout_item/undersuit/misc/dress_giantscarf
 	name = "Giant Scarf"
 	item_path = /obj/item/clothing/under/dress/doppler/giant_scarf
 
