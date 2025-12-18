@@ -15,6 +15,7 @@
 	//atom_storage.max_slots = 3
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 
+// Mining
 /obj/item/storage/belt/mining
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
 	icon_state = "explorer1"
