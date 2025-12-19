@@ -186,7 +186,7 @@
 	name = "Buttondown & Shorts"
 	item_path = /obj/item/clothing/under/costume/buttondown/shorts
 
-/datum/loadout_item/undersuit/shorts
+/datum/loadout_item/undersuit/shorts/shorts
 	name = "Shorts"
 	item_path = /obj/item/clothing/under/shorts
 
