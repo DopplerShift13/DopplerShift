@@ -178,35 +178,35 @@
 /**
  * SHORTS
  */
-/datum/loadout_item/undersuit/shorts
+/datum/loadout_item/undersuit/short
 	group = "Shorts"
-	abstract_type = /datum/loadout_item/undersuit/shorts
+	abstract_type = /datum/loadout_item/undersuit/short
 
-/datum/loadout_item/undersuit/shorts/buttondown_shorts
+/datum/loadout_item/undersuit/short/buttondown_shorts
 	name = "Buttondown & Shorts"
 	item_path = /obj/item/clothing/under/costume/buttondown/shorts
 
-/datum/loadout_item/undersuit/shorts/shorts
+/datum/loadout_item/undersuit/short/shorts
 	name = "Shorts"
 	item_path = /obj/item/clothing/under/shorts
 
-/datum/loadout_item/undersuit/shorts/shorter
+/datum/loadout_item/undersuit/short/shorter
 	name = "Shorter Shorts"
 	item_path = /obj/item/clothing/under/shorts/shorter
 
-/datum/loadout_item/undersuit/shorts/shorter/shortest
+/datum/loadout_item/undersuit/short/shortest
 	name = "Shortest Shorts"
 	item_path = /obj/item/clothing/under/shorts/shorter/shortest
 
-/datum/loadout_item/undersuit/shorts/jean_shorts
+/datum/loadout_item/undersuit/short/jean_shorts
 	name = "Jean Shorts"
 	item_path = /obj/item/clothing/under/shorts/jeanshorts
 
-/datum/loadout_item/undersuit/shorts/jean_shorts/shorter
+/datum/loadout_item/undersuit/short/jean_shorter
 	name = "Jean Shorts (Shorter)"
 	item_path = /obj/item/clothing/under/shorts/shorter/jeans
 
-/datum/loadout_item/undersuit/shorts/jeans_shorts/shorter/shortest
+/datum/loadout_item/undersuit/short/jeans_shortest
 	name = "Jean Shorts (Shortest)"
 	item_path = /obj/item/clothing/under/shorts/shorter/jeans/shortest
 
