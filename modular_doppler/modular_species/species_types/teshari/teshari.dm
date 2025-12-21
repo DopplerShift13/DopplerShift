@@ -104,39 +104,6 @@
 		"no lore yet",
 	)
 
-/datum/species/teshari/generate_autogen_worn_icon(item_slot, obj/item/item, mob/living/carbon/human/human_owner)
-	. = ..()
-	if(.)
-		return
-
-	// If there isn't even a fallback, use snouted sprites for masks and helmets, but offsetted
-	if((item_slot == OFFSET_FACEMASK || item_slot == OFFSET_HEAD) && (item.supported_bodyshapes & BODYSHAPE_SNOUTED))
-		var/obj/item/bodypart/head/my_head = human_owner.get_bodypart(BODY_ZONE_HEAD)
-		var/datum/worn_feature_offset/selected_offset
-		var/human_icon = item.bodyshape_icon_files[BODYSHAPE_SNOUTED_T]
-		var/human_icon_state = item.worn_icon_state || item.icon_state
-		if(item_slot == OFFSET_HEAD)
-			selected_offset = my_head?.worn_head_offset
-		else
-			selected_offset = my_head?.worn_mask_offset
-
-		// Did the snout variation flag lie to us?
-		if(!icon_exists(human_icon, human_icon_state))
-			return
-
-		// Use already resolved icon
-		use_autogen_worn_icon_cached()
-		var/icon/cached_icon = get_autogen_worn_icon_cached(human_icon, human_icon_state, "m")
-		if(cached_icon)
-			return cached_icon
-
-		// Generate muzzled icon, but offset
-		var/icon/new_icon = icon('icons/blanks/32x32.dmi', "nothing")
-		new_icon.Blend(icon(human_icon, human_icon_state), ICON_OVERLAY, x = selected_offset.offset_x["north"], y = selected_offset.offset_y["north"])
-		new_icon.Insert(new_icon, human_icon_state)
-		set_autogen_worn_icon_cached(human_icon, human_icon_state, "m", new_icon)
-		return new_icon
-
 /datum/species/teshari/can_regenerate_mutant_feature(feature_key)
 	if (feature_key == FEATURE_EARS || feature_key == FEATURE_TAIL_OTHER)
 		return TRUE
