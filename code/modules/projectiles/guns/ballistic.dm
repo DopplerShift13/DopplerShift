@@ -237,7 +237,7 @@
 		. += "[icon_state]_toy"
 
 
-	if(!magazine || internal_magazine || !mag_display)
+	if(!magazine || !mag_display)	//DOPPLER EDIT originally if(!magazine || internal_magazine || !mag_display) this allows guns with internal magazines to use the mag display function.
 		return
 
 	if(special_mags)
