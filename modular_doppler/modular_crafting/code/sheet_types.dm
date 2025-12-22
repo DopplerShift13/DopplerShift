@@ -117,6 +117,7 @@ GLOBAL_LIST_INIT(doppler_leather_recipes, list(
 
 GLOBAL_LIST_INIT(doppler_leather_belt_recipes, list(
 	new/datum/stack_recipe("medical bandolier", /obj/item/storage/belt/med_bandolier, 5, category = CAT_CONTAINERS),
+	new/datum/stack_recipe("emt belt", /obj/item/storage/belt/medical/empty/paramedic, 5, category = CAT_CONTAINERS),
 ))
 
 /obj/item/stack/sheet/leather/get_main_recipes()
@@ -151,3 +152,13 @@ GLOBAL_LIST_INIT(doppler_sand_recipes, list(
 /obj/item/stack/ore/glass/get_main_recipes()
 	. = ..()
 	. += GLOB.doppler_sand_recipes
+
+// Plastic
+
+GLOBAL_LIST_INIT(doppler_plastic_recipes, list(
+	new/datum/stack_recipe("ear tag", /obj/item/clothing/accessory/ear_tag, 1, category = CAT_CLOTHING),
+))
+
+/obj/item/stack/sheet/plastic/get_main_recipes()
+	. = ..()
+	. += GLOB.doppler_plastic_recipes

@@ -225,6 +225,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/landmark/ship_captain_spawner,
 /turf/open/floor/iron/smooth,
 /area/shuttle/personally_bought/small_cargo)
 "rx" = (
@@ -564,7 +565,9 @@
 "Kk" = (
 /obj/effect/turf_decal/delivery,
 /obj/machinery/door/poddoor/preopen/personal_bay_one,
-/obj/structure/holosign/barrier/atmos/sturdy,
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/small_cargo)
 "KF" = (
@@ -594,6 +597,12 @@
 /obj/structure/shelf,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/small_cargo)
+"Lc" = (
+/obj/effect/turf_decal/delivery,
+/obj/machinery/door/poddoor/preopen/personal_bay_one,
+/obj/machinery/atmos_shield_gen/active,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/personally_bought/small_cargo)
 "Lq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -619,7 +628,6 @@
 /area/shuttle/personally_bought/small_cargo)
 "LV" = (
 /obj/effect/turf_decal/bot_white,
-/obj/machinery/space_heater/wall_mounted/directional/south,
 /obj/structure/closet/emcloset,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/small_cargo)
@@ -648,8 +656,7 @@
 /obj/effect/turf_decal/box/white/corners{
 	dir = 8
 	},
-/obj/structure/shelf,
-/obj/effect/spawner/random/maintenance/no_decals,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/small_cargo)
 "Os" = (
@@ -738,11 +745,13 @@
 /obj/item/mining_scanner,
 /obj/item/pickaxe/drill,
 /obj/effect/turf_decal/bot_white,
-/obj/item/mecha_parts/mecha_equipment/thrusters/gas,
 /obj/machinery/computer/pod/old/mass_driver_controller{
 	id = "tawsil_port";
 	pixel_x = 32
 	},
+/obj/item/mecha_parts/mecha_equipment/hydraulic_clamp,
+/obj/item/mecha_parts/mecha_equipment/mining_scanner,
+/obj/item/mecha_parts/mecha_equipment/drill,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/small_cargo)
 "RQ" = (
@@ -1121,7 +1130,7 @@ KF
 KF
 vN
 bU
-Kk
+Lc
 Kk
 bU
 vN
