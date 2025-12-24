@@ -95,3 +95,27 @@
 	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/boots/worn
 	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/boots/worn/digi
 	set_greyscale(colors = greyscale_colors)
+
+/obj/item/clothing/shoes/geowpn
+	name = "'GEOWPN' designer sneakers"
+	desc = "A pair of designer high tops that come much coveted amongst introverted fashion bloggers, underground Marsian ravers, bourgeoisie poseurs, and \
+	innumerable subcultural phenotypes between. The leather uppers are admittedly pretty nice."
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/shoes/casual.dmi'
+	icon_state = "/obj/item/clothing/shoes/geowpns"
+	post_init_icon_state = "geowpn"
+	greyscale_config = /datum/greyscale_config/geowpn
+	greyscale_config_worn = /datum/greyscale_config/geowpn/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/geowpn/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/geowpn/digi,
+	)
+	greyscale_colors = "#e8dccf#292929#cfdbe8"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/shoes/geowpn/Initialize(mapload)
+	. = ..()
+	greyscale_config_worn_bodyshapes = list()
+	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/geowpn/worn
+	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/geowpn/digi
+	set_greyscale(colors = greyscale_colors)

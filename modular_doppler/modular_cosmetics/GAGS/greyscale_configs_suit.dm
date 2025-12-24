@@ -123,6 +123,15 @@
 /datum/greyscale_config/twee_hoodie_hood/worn
 	name = "Twee Hoodie Hood (Worn)"
 
+/datum/greyscale_config/bad_for_school
+	name = "Bad for School Jacket"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/bad_for_school_jacket.json'
+
+/datum/greyscale_config/bad_for_school/worn
+	name = "Bad for School Jacket (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
 // Apron
 
 /datum/greyscale_config/apron
