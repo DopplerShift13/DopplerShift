@@ -7,9 +7,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	var/list/built_reaction_list = list()
 	for(var/reaction_path in subtypesof(/datum/cracker_reaction))
 		var/datum/cracker_reaction/reaction = new reaction_path()
-
 		built_reaction_list[reaction.id] = reaction
-
 	return built_reaction_list
 
 /datum/cracker_reaction
@@ -79,7 +77,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	desc = "A portable device that is the savior of many a colony on the frontier. Performing similarly to an electrolyzer, \
 		it takes in nearby gasses and breaks them into different gasses. The big draw of this one? It can crack carbon dioxide \
 		into breathable oxygen. Handy for places where CO2 is all too common, and oxygen is all too hard to find."
-	icon = 'modular_doppler/colony_fabricator/icons/portable_machines.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	circuit = /obj/item/circuitboard/machine/co2_cracker
 	/// Soundloop for while the thermomachine is turned on
 	var/datum/looping_sound/conditioner_running/soundloop
@@ -89,7 +87,14 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 	soundloop = new(src, FALSE)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
+/obj/machinery/electrolyzer/co2_cracker/Destroy(force)
+	SSair.stop_processing_machine(src)
+	QDEL_NULL(soundloop)
+	return ..()
+
 /obj/machinery/electrolyzer/co2_cracker/process_atmos()
+	if(!soundloop) // You can be both deleting and processing atmos at once, it seems
+		return ..()
 	if(on && !soundloop.loop_started)
 		soundloop.start()
 	else if(soundloop.loop_started)
@@ -99,10 +104,7 @@ GLOBAL_LIST_INIT(cracker_reactions, cracker_reactions_list())
 /obj/machinery/electrolyzer/co2_cracker/call_reactions(datum/gas_mixture/env)
 	for(var/reaction in GLOB.cracker_reactions)
 		var/datum/cracker_reaction/current_reaction = GLOB.cracker_reactions[reaction]
-
 		if(!current_reaction.reaction_check(env))
 			continue
-
 		current_reaction.react(loc, env, working_power)
-
 	env.garbage_collect()

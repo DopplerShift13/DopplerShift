@@ -66,15 +66,6 @@
 	tastes = list("insane amount of sweetness" = 10, "crepes" = 3)
 	foodtypes = SUGAR | GRAIN | DAIRY | BREAKFAST
 
-/obj/item/reagent_containers/cup/glass/coffee/colonial
-	name = "colonial thermocup"
-	desc = "Technically, used to drink hot beverages. But since it's the only cup design that was available, you gotta make do. It has an instruction written on its side. \
-	<br> This particular one comes prefilled with a single serving of coffee powder."
-	special_desc = "A small instruction on the side reads: <i>\"For use in food replicators; mix water and powdered solutions in one-to-one proportions. \
-	<br> For cocoa, mix milk and powdered solution in one-to-one proportion.\"</i>"
-	icon = 'modular_doppler/food_replicator/icons/rationpack.dmi'
-	list_reagents = list(/datum/reagent/consumable/powdered_coffee = 25)
-
 /obj/item/reagent_containers/cup/glass/coffee/colonial/empty
 	desc = "Technically, used to drink hot beverages. But since it's the only cup design that was available, you gotta make do. It has an instruction written on its side."
 	list_reagents = null

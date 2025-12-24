@@ -12,7 +12,7 @@
 		When placed outdoors in a planet with an atmosphere, will produce a small trickle of power \
 		for free. If there is a storm in the area the turbine is placed, the power production will \
 		multiply significantly."
-	icon = 'modular_doppler/colony_fabricator/icons/wind_turbine.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "turbine"
 	density = TRUE
 	max_integrity = 100
