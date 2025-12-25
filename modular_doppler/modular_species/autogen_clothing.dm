@@ -127,13 +127,15 @@ GLOBAL_LIST_EMPTY(bodyshape_autogen_clothing_cache)
 	// Cache the clean copy.
 	set_autogen_worn_icon_cached(human_icon, human_icon_state, greyscale_colors || "x", final_icon)
 
-	final_icon = do_bodyshape_modifiers(final_icon, bodyshape_text, item_slot)
+	var/mob/living/carbon/wearer = null
+	if (iscarbon(loc))
+		wearer = loc
+	final_icon = do_bodyshape_modifiers(final_icon, bodyshape_text, wearer?.bodyshape, item_slot)
 
 	return final_icon
 
-/obj/item/proc/do_bodyshape_modifiers(icon/final_icon, bodyshape_text, item_slot)
-
-	if (bodyshape_text == BODYSHAPE_TESHARI_T)
+/obj/item/proc/do_bodyshape_modifiers(icon/final_icon, bodyshape_text, all_bodyshapes, item_slot)
+	if (bodyshape_text == BODYSHAPE_SNOUTED_T && (all_bodyshapes & BODYSHAPE_TESHARI))
 		if ((item_slot == OFFSET_FACEMASK || item_slot == OFFSET_HEAD) && (supported_bodyshapes & BODYSHAPE_SNOUTED))
 			if (!ishuman(loc))
 				return final_icon
