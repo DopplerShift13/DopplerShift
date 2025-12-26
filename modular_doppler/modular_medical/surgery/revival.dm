@@ -21,9 +21,3 @@
 	return !isnull(target_brain)
 
 /datum/surgery_step/revive/carbon/mechanic
-
-/datum/surgery_step/revive/carbon/mechanic/on_revived(mob/surgeon, mob/living/patient)
-	. = ..()
-	var/mob/living/carbon/robotic_patient = patient
-	var/datum/species/android/energy_holder = robotic_patient.dna.species
-	energy_holder.core_energy += 1 MEGA JOULES // from the defibb :)
