@@ -32,3 +32,37 @@
 	name = "Half-Mask Respirator (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/respirator_worn.json'
+
+// FACEPLATE
+
+/datum/greyscale_config/faceplate
+	name = "Faceplate Mask"
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/faceplate.json'
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/face.dmi'
+
+/datum/greyscale_config/faceplate/worn
+	name = "Faceplate Mask (Worn)"
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/faceplate.json'
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
+
+/datum/greyscale_config/faceplate/worn_snout
+	name = "Faceplate Mask (Worn)(Snout)"
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/faceplate.json'
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face_snout.dmi'
+
+// FACEPLATE EYES
+
+/datum/greyscale_config/faceplate_eyes
+	name = "Faceplate Mask"
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/faceplate_eyes.json'
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/face.dmi'
+
+/datum/greyscale_config/faceplate_eyes/worn
+	name = "Faceplate Mask (Worn)"
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/faceplate_eyes.json'
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
+
+/datum/greyscale_config/faceplate_eyes/worn_snout
+	name = "Faceplate Mask (Worn)(Snout)"
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/faceplate_eyes.json'
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face_snout.dmi'
