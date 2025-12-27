@@ -163,7 +163,7 @@
 		user = user,
 		message = "What description do you want to give the [name]? Leave blank to clear.",
 		title = "[name] description",
-		default = loadout?[item_path]?[INFO_DESCRIBED], // plop in existing description (if any)
+		default = html_decode(loadout?[item_path]?[INFO_DESCRIBED]), // plop in existing description (if any)
 		max_length = MAX_DESC_LEN,
 	)
 	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
@@ -188,7 +188,7 @@
 		user = user,
 		message = "What MODlink label do you want to give the [name]? Leave blank to clear.",
 		title = "[name] MODlink label",
-		default = loadout?[item_path]?[INFO_MODLINK_LABEL], // plop in existing label (if any)
+		default = html_decode(loadout?[item_path]?[INFO_MODLINK_LABEL]), // plop in existing label (if any)
 		max_length = MAX_DESC_LEN,
 	)
 	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
