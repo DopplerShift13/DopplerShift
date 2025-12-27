@@ -8,8 +8,6 @@
 	slot = ORGAN_SLOT_EXTERNAL_BREASTS
 	zone = BODY_ZONE_CHEST
 
-	preference = "feature_breasts"
-
 	dna_block = /datum/dna_block/feature/breasts
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 

@@ -4,8 +4,6 @@
 	savefile_key = "fluff_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	// TODO: we need fluff organs & selection
-	//relevant_external_organ = /obj/item/organ/fluff
 
 /datum/preference/tri_color/fluff_color/create_default_value()
 	return list(sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"),

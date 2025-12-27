@@ -5,10 +5,9 @@
 /obj/item/reagent_containers/chem_pack/spawns_sealed/Initialize(mapload, vol)
 	. = ..()
 	reagents.flags = NONE
-	reagent_flags = DRAWABLE | INJECTABLE
-	reagents.flags = reagent_flags
+	initial_reagent_flags = DRAWABLE | INJECTABLE | SEALED_CONTAINER
+	reagents.flags = initial_reagent_flags
 	spillable = FALSE
-	sealed = TRUE
 
 // The actual types
 
