@@ -7,9 +7,6 @@
 			"name" = "Head",
 			"icon" = "hat-cowboy",
 			"products" = list(
-				/obj/item/clothing/head/fedora= 5,
-				/obj/item/clothing/head/fedora/beige = 5,
-				/obj/item/clothing/head/fedora/white = 5,
 				/obj/item/clothing/head/standalone_hood = 5,
 				/obj/item/clothing/head/bow = 5,
 				/obj/item/clothing/head/bow/small = 5,
