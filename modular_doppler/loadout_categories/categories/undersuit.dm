@@ -191,11 +191,11 @@
 	item_path = /obj/item/clothing/under/shorts
 
 /datum/loadout_item/undersuit/short/shorter
-	name = "Shorter Shorts"
+	name = "Shorts (Shorter)"
 	item_path = /obj/item/clothing/under/shorts/shorter
 
 /datum/loadout_item/undersuit/short/shortest
-	name = "Shortest Shorts"
+	name = "Shorts (Shortest)"
 	item_path = /obj/item/clothing/under/shorts/shorter/shortest
 
 /datum/loadout_item/undersuit/short/jean_shorts
