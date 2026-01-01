@@ -144,7 +144,7 @@
 	item_path = /obj/item/clothing/under/tajaran_corset
 
 /datum/loadout_item/undersuit/pants/vulp_pants
-	name = "Padded Combat Pants"
+	name = "Vulpkanin Padded Combat Pants"
 	item_path = /obj/item/clothing/under/vulp_pants
 
 /datum/loadout_item/undersuit/pants/slacks
