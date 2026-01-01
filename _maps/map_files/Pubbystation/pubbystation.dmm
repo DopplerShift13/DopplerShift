@@ -6810,7 +6810,7 @@
 "aCs" = (
 /obj/structure/cable,
 /obj/structure/extinguisher_cabinet/directional/north,
-/obj/machinery/rnd/production/damage_control_fab,
+/obj/machinery/autolathe,
 /turf/open/floor/iron/dark,
 /area/station/commons/storage/primary)
 "aCt" = (
@@ -21828,9 +21828,8 @@
 "bTy" = (
 /obj/structure/rack,
 /obj/effect/turf_decal/tile/electric_yellow/full,
-/obj/item/flatpacked_machine/damage_lathe,
-/obj/item/flatpacked_machine/fuel_generator,
-/obj/item/flatpacked_machine/stirling_generator,
+/obj/item/circuitboard/machine/colony_generator,
+/obj/item/circuitboard/machine/plasma_mini_turbine,
 /obj/item/flatpacked_machine,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/engineering/storage/tech)
@@ -38835,7 +38834,7 @@
 /area/station/commons/dorms/laundry)
 "lEX" = (
 /obj/effect/turf_decal/tile/pine_green/fourcorners,
-/obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
+/obj/machinery/door/poddoor/shutters/preopen{
 	id = "exam"
 	},
 /obj/machinery/door/firedoor,
@@ -46046,7 +46045,7 @@
 	red_alert_access = 1
 	},
 /obj/effect/mapping_helpers/airlock/access/all/medical/general,
-/obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
+/obj/machinery/door/poddoor/shutters/preopen{
 	id = "exam"
 	},
 /obj/machinery/door/firedoor,
@@ -54043,7 +54042,7 @@
 /area/station/service/library/artgallery)
 "wJL" = (
 /obj/effect/spawner/structure/window/reinforced,
-/obj/machinery/door/poddoor/shutters/colony_fabricator/preopen{
+/obj/machinery/door/poddoor/shutters/preopen{
 	id = "exam"
 	},
 /turf/open/floor/plating,

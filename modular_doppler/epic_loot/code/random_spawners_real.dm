@@ -436,31 +436,19 @@
 		/obj/item/stack/sheet/mineral/plasma/five = 2,
 		// Flatpack machines
 		/obj/item/flatpacked_machine = 1,
-		/obj/item/flatpacked_machine/airlock_kit = 2,
 		/obj/item/flatpacked_machine/airlock_kit_manual = 2,
-		/obj/item/flatpacked_machine/arc_furnace = 1,
-		/obj/item/flatpacked_machine/co2_cracker = 2,
 		/obj/item/flatpacked_machine/frontier_griddle = 1,
 		/obj/item/flatpacked_machine/frontier_range = 1,
-		/obj/item/flatpacked_machine/fuel_generator = 1,
 		/obj/item/flatpacked_machine/gps_beacon = 2,
 		/obj/item/flatpacked_machine/hydro_synth = 1,
-		/obj/item/flatpacked_machine/large_station_battery = 1,
 		/obj/item/flatpacked_machine/macrowave = 1,
 		/obj/item/flatpacked_machine/ore_thumper = 1,
 		/obj/item/flatpacked_machine/organics_printer = 2,
 		/obj/item/flatpacked_machine/organics_ration_printer = 2,
-		/obj/item/flatpacked_machine/recycler = 2,
-		/obj/item/flatpacked_machine/rtg = 2,
-		/obj/item/flatpacked_machine/shutter_kit = 1,
-		/obj/item/flatpacked_machine/station_battery = 1,
-		/obj/item/flatpacked_machine/stirling_generator = 1,
 		/obj/item/flatpacked_machine/sustenance_machine = 2,
 		/obj/item/flatpacked_machine/water_synth = 2,
-		/obj/item/flatpacked_machine/wind_turbine = 2,
 		/obj/item/folded_navigation_gigabeacon = 1,
 		/obj/item/wallframe/cell_charger_multi = 2,
-		/obj/item/wallframe/wall_heater = 2,
 		/obj/item/wallframe/digital_clock = 1,
 		// Other things
 		/obj/item/door_seal = 2,
@@ -643,6 +631,10 @@
 		/obj/item/storage/box/colonial_rations = 1,
 		// Da cooler
 		/obj/item/storage/epic_loot_cooler = 2,
+		//This is what happens when crates are left abandoned in maints :(
+		/obj/item/food/grown/mushroom/odious_puffball = 1,
+		/obj/item/food/badrecipe/moldy/bacteria = 1,
+		/obj/item/food/deadmouse/moldy = 1,
 	)
 
 // Da money

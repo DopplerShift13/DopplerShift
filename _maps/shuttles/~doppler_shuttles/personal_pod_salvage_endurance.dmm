@@ -125,10 +125,11 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/endurance_salvage)
 "C" = (
-/obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought{
+/obj/effect/turf_decal/bot_white,
+/obj/machinery/button/door/personal_shuttle_windows/directional/south,
+/obj/machinery/computer/shuttle/personally_bought{
 	dir = 8
 	},
-/obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/endurance_salvage)
 "D" = (
@@ -154,9 +155,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
-/obj/docking_port/mobile/personally_bought{
-	dir = 4
-	},
+/obj/docking_port/mobile/personally_bought,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/endurance_salvage)
 "H" = (
