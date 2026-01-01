@@ -357,6 +357,38 @@
 	name = "Explorer Turtleneck"
 	item_path = /obj/item/clothing/under/rank/cargo/miner/lavaland
 
+/datum/loadout_item/undersuit/cargo_tech_uniform
+	name = "Uniform (Cargo)"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech
+
+/datum/loadout_item/undersuit/cargo_tech_uniform_skirt
+	name = "Uniform Skirt (Cargo)"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/skirt
+
+/datum/loadout_item/undersuit/cargo_tech_tanktop
+	name = "Uniform Tanktop (Cargo)"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/alt
+
+/datum/loadout_item/undersuit/cargo_tech_tankskirt
+	name = "Uniform Tanktop & Skirt (Cargo)"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/skirt/alt
+
+/datum/loadout_item/undersuit/cargo_tech_turtleneck
+	name = "Turtleneck (Cargo)"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/turtleneck
+
+/datum/loadout_item/undersuit/cargo_tech_turtleskirt
+	name = "Turtleneck & Skirt (Cargo)"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/turtleskirt
+
+/datum/loadout_item/undersuit/cargo_tech_rough
+	name = "Rugged Uniform (Cargo)"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/rough
+
+/datum/loadout_item/undersuit/cargo_tech_rough_skirt
+	name = "Rugged Skirt Uniform (Cargo)"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/rough_skirt
+
 /datum/loadout_item/undersuit/bodysuit
 	name = "Bodysuit"
 	item_path = /obj/item/clothing/under/bodysuit

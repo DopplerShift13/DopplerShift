@@ -1395,7 +1395,7 @@
 /area/shuttle/personally_bought/mothership)
 "Jm" = (
 /obj/effect/turf_decal/bot_white,
-/obj/machinery/colony_recycler,
+/obj/machinery/autolathe,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/mothership)
 "Jn" = (

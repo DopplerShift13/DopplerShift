@@ -40,3 +40,5 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
 	clothing_traits = list(TRAIT_QUICK_CARRY)
+
+
