@@ -131,6 +131,22 @@
 	name = "Explorer Turtleneck (Cargo, Mining)"
 	item_path = /obj/item/clothing/under/rank/cargo/miner/lavaland
 
+/datum/loadout_item/undersuit/pants/cargo_tech_uniform
+	name = "Cargo Uniform"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech
+
+/datum/loadout_item/undersuit/pants/cargo_tech_tanktop
+	name = "Cargo Uniform Tanktop"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/alt
+
+/datum/loadout_item/undersuit/pants/cargo_tech_turtleneck
+	name = "Cargo Turtleneck"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/turtleneck
+
+/datum/loadout_item/undersuit/pants/cargo_tech_rough
+	name = "Cargo Rugged Uniform"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/rough
+
 /datum/loadout_item/undersuit/pants/combat
 	name = "Combat Uniform"
 	item_path = /obj/item/clothing/under/syndicate/combat
@@ -280,6 +296,22 @@
 /datum/loadout_item/undersuit/skirt/mini
 	name = "Skirt (Mini)"
 	item_path = /obj/item/clothing/under/dress/skirt/miniskirt
+
+/datum/loadout_item/undersuit/skirt/cargo_tech_uniform_skirt
+	name = "Cargo Uniform Skirt"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/skirt
+
+/datum/loadout_item/undersuit/skirt/cargo_tech_tankskirt
+	name = "Cargo Uniform Tanktop & Skirt"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/skirt/alt
+
+/datum/loadout_item/undersuit/skirt/cargo_tech_turtleskirt
+	name = "Cargo Turtleneck & Skirt"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/turtleskirt
+
+/datum/loadout_item/undersuit/skirt/cargo_tech_rough_skirt
+	name = "Cargo Rugged Skirt Uniform"
+	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/rough_skirt
 
 /**
  * DRESSES
