@@ -1,23 +1,153 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"bF" = (
+"aV" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 4
+	},
+/obj/docking_port/mobile/arrivals,
+/turf/open/floor/plating,
+/area/shuttle/arrival)
+"dm" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown,
+/turf/open/floor/pod/light,
+/area/shuttle/arrival)
+"dN" = (
+/obj/structure/fluff/tram_rail/anchor,
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/turf/template_noop,
+/area/shuttle/arrival)
+"dQ" = (
+/turf/template_noop,
+/area/shuttle/arrival)
+"ff" = (
+/obj/machinery/door/window/survival_pod{
+	dir = 8
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/arrival)
+"gq" = (
+/turf/closed/wall/mineral/titanium/survival/pod,
+/area/shuttle/arrival)
+"gB" = (
+/obj/machinery/digital_clock/directional/south,
+/obj/effect/turf_decal/trimline/brown,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/cold/no_nightlight/directional/south,
+/turf/open/floor/pod/light,
+/area/shuttle/arrival)
+"gH" = (
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/item/tether_anchor{
+	anchored = 1
+	},
+/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/area/shuttle/arrival)
+"hC" = (
+/obj/structure/marker_beacon/olive,
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/arrival)
+"hZ" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 4
+	},
+/obj/structure/fluff/tram_rail,
+/turf/template_noop,
+/area/shuttle/arrival)
+"iI" = (
+/obj/effect/turf_decal/trimline/brown,
 /obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
-/obj/effect/turf_decal/trimline/brown,
-/obj/structure/sign/poster/random/directional/east,
 /turf/open/floor/pod/light,
 /area/shuttle/arrival)
-"bS" = (
+"kf" = (
+/obj/structure/window/reinforced/survival_pod{
+	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/window/reinforced/survival_pod{
+	dir = 1
+	},
+/obj/structure/hedge,
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"kE" = (
+/obj/machinery/door/airlock/highsecurity{
+	locked = 1
+	},
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"lb" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod/dark,
+/area/shuttle/arrival)
+"li" = (
 /turf/closed/wall/mineral/titanium/survival/nodiagonal,
 /area/shuttle/arrival)
-"cA" = (
-/obj/machinery/digital_clock/directional/north,
+"ln" = (
+/obj/structure/marker_beacon/olive,
+/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/area/shuttle/arrival)
+"mU" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/closed/wall/mineral/plastitanium,
+/area/shuttle/arrival)
+"nA" = (
+/obj/machinery/light/floor,
+/turf/open/floor/pod/dark,
+/area/shuttle/arrival)
+"oC" = (
+/obj/machinery/light/red/directional/west,
+/obj/effect/turf_decal/trimline/white,
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"oO" = (
+/obj/structure/fans/tiny/invisible,
+/obj/effect/spawner/structure/window/survival_pod,
+/turf/open/floor/plating,
+/area/shuttle/arrival)
+"pa" = (
 /obj/effect/turf_decal/trimline/brown,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/cold/no_nightlight/directional/north,
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
 /turf/open/floor/pod/light,
 /area/shuttle/arrival)
-"db" = (
+"pD" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating/dark,
+/obj/machinery/status_display/evac/directional/north,
+/obj/effect/turf_decal/trimline/white,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"qK" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 4
+	},
+/turf/template_noop,
+/area/shuttle/arrival)
+"rF" = (
+/obj/structure/fluff/tram_rail/end,
+/turf/template_noop,
+/area/shuttle/arrival)
+"sz" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/turf/open/floor/plating,
+/area/shuttle/arrival)
+"th" = (
+/obj/item/radio/intercom/directional/west,
 /obj/effect/turf_decal/siding/thinplating/dark{
 	dir = 1
 	},
@@ -25,42 +155,74 @@
 /obj/effect/turf_decal/trimline/white,
 /turf/open/floor/pod,
 /area/shuttle/arrival)
-"dm" = (
-/obj/structure/fluff/tram_rail/anchor,
-/obj/structure/fluff/tram_rail{
-	dir = 1
-	},
-/turf/template_noop,
-/area/shuttle/arrival)
-"hf" = (
-/obj/machinery/digital_clock/directional/south,
+"vD" = (
 /obj/effect/turf_decal/trimline/brown,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/light/cold/no_nightlight/directional/south,
 /turf/open/floor/pod/light,
 /area/shuttle/arrival)
-"hG" = (
-/obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/titanium/survival,
-/area/shuttle/arrival)
-"ie" = (
-/obj/machinery/door/window/survival_pod{
+"wo" = (
+/obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
-/turf/open/floor/pod/dark,
+/obj/effect/turf_decal/trimline/brown,
+/turf/open/floor/pod/light,
 /area/shuttle/arrival)
-"iB" = (
+"wr" = (
+/obj/effect/turf_decal/trimline/yellow,
+/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/area/shuttle/arrival)
+"wv" = (
 /obj/structure/fluff/tram_rail/anchor,
 /turf/template_noop,
 /area/shuttle/arrival)
-"iH" = (
+"xX" = (
+/turf/template_noop,
+/area/template_noop)
+"Ao" = (
+/obj/machinery/digital_clock/directional/north,
 /obj/effect/turf_decal/trimline/brown,
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/cold/no_nightlight/directional/north,
 /turf/open/floor/pod/light,
 /area/shuttle/arrival)
-"iQ" = (
+"AW" = (
+/obj/structure/closet/emcloset{
+	pixel_x = 4
+	},
+/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
+/obj/item/storage/medkit,
+/turf/open/floor/pod/dark,
+/area/shuttle/arrival)
+"BA" = (
+/obj/machinery/telecomms/server{
+	name = "navigational computer";
+	tempfreq = 0;
+	is_operational = 0
+	},
+/obj/effect/turf_decal/recharge,
+/turf/open/floor/pod/dark,
+/area/shuttle/arrival)
+"CU" = (
+/obj/machinery/door/airlock/survival_pod/glass,
+/obj/structure/fans/tiny,
+/turf/open/floor/pod/dark,
+/area/shuttle/arrival)
+"DC" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/item/tether_anchor{
+	anchored = 1
+	},
+/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/area/shuttle/arrival)
+"DV" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/brown,
+/obj/structure/sign/poster/random/directional/east,
+/turf/open/floor/pod/light,
+/area/shuttle/arrival)
+"Ee" = (
 /obj/machinery/telecomms/server{
 	icon_state = "blackbox";
 	name = "Radio Recorder";
@@ -70,13 +232,57 @@
 /obj/effect/turf_decal/recharge,
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
-"jf" = (
-/obj/structure/fluff/tram_rail/end{
-	dir = 8
+"EM" = (
+/turf/open/floor/pod/dark,
+/area/shuttle/arrival)
+"Fq" = (
+/obj/structure/railing/eva_handhold/directional/west,
+/obj/item/tether_anchor,
+/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/area/shuttle/arrival)
+"GR" = (
+/obj/effect/turf_decal/trimline/brown,
+/obj/machinery/digital_clock/directional/north,
+/obj/machinery/light/cold/no_nightlight/directional/north,
+/turf/open/floor/pod/light,
+/area/shuttle/arrival)
+"Hs" = (
+/obj/effect/turf_decal/trimline/brown,
+/turf/open/floor/pod/light,
+/area/shuttle/arrival)
+"Hw" = (
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating/dark,
+/obj/effect/turf_decal/trimline/white,
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"Lm" = (
+/obj/structure/marker_beacon/burgundy,
+/turf/closed/wall/mineral/titanium/survival,
+/area/shuttle/arrival)
+"Lr" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/shuttle/arrival)
+"Nd" = (
+/obj/effect/turf_decal/trimline/brown,
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/sign/poster/random/directional/west,
+/turf/open/floor/pod/light,
+/area/shuttle/arrival)
+"Ny" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
 	},
 /turf/template_noop,
 /area/shuttle/arrival)
-"jS" = (
+"OQ" = (
 /obj/structure/fluff{
 	icon = 'icons/mob/simple/hivebot.dmi';
 	icon_state = "def_radar-off";
@@ -97,212 +303,46 @@
 	},
 /turf/open/floor/plating,
 /area/shuttle/arrival)
-"jV" = (
-/obj/structure/window/reinforced/survival_pod{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod{
+"Ql" = (
+/obj/structure/fluff/tram_rail/end{
 	dir = 8
 	},
-/obj/structure/window/reinforced/survival_pod{
+/turf/template_noop,
+/area/shuttle/arrival)
+"RD" = (
+/obj/structure/fluff/tram_rail/end{
 	dir = 1
 	},
-/obj/structure/hedge,
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"kw" = (
-/turf/closed/wall/mineral/titanium/survival,
-/area/shuttle/arrival)
-"kW" = (
 /turf/template_noop,
 /area/shuttle/arrival)
-"na" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 4
-	},
-/turf/open/floor/plating,
-/area/shuttle/arrival)
-"nf" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating/dark,
-/obj/machinery/status_display/evac/directional/north,
-/obj/effect/turf_decal/trimline/white,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"nt" = (
-/obj/structure/fluff/tram_rail/end{
-	dir = 4
-	},
-/turf/template_noop,
-/area/shuttle/arrival)
-"pO" = (
-/obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/arrival)
-"qn" = (
-/obj/structure/railing/eva_handhold/directional/north,
-/obj/item/tether_anchor{
-	anchored = 1
-	},
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
-/area/shuttle/arrival)
-"qE" = (
-/obj/effect/turf_decal/trimline/brown,
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/turf/open/floor/pod/light,
-/area/shuttle/arrival)
-"qR" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 4
-	},
-/obj/docking_port/mobile/arrivals,
-/turf/open/floor/plating,
-/area/shuttle/arrival)
-"qU" = (
-/obj/structure/window/reinforced/survival_pod{
-	dir = 8
-	},
-/obj/structure/window/reinforced/survival_pod{
-	dir = 4
-	},
-/obj/structure/hedge,
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"rN" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/effect/turf_decal/trimline/brown,
-/turf/open/floor/pod/light,
-/area/shuttle/arrival)
-"tz" = (
-/obj/structure/fluff/tram_rail/end{
-	dir = 4
-	},
-/obj/structure/fluff/tram_rail,
-/turf/template_noop,
-/area/shuttle/arrival)
-"ui" = (
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 4
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/turf/open/floor/plating,
-/area/shuttle/arrival)
-"ur" = (
-/obj/effect/turf_decal/trimline/brown,
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/obj/structure/sign/poster/random/directional/west,
-/turf/open/floor/pod/light,
-/area/shuttle/arrival)
-"uJ" = (
-/obj/structure/closet/emcloset{
-	pixel_x = 4
-	},
-/obj/structure/window/reinforced/survival_pod/spawner/directional/west,
-/obj/item/storage/medkit,
-/turf/open/floor/pod/dark,
-/area/shuttle/arrival)
-"vA" = (
-/obj/effect/turf_decal/trimline/brown,
-/turf/open/floor/pod/light,
-/area/shuttle/arrival)
-"xH" = (
-/turf/open/floor/pod/dark,
-/area/shuttle/arrival)
-"xM" = (
+"Uy" = (
 /obj/structure/closet/wardrobe/mixed,
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
-"xW" = (
+"UE" = (
+/obj/structure/window/reinforced/survival_pod{
+	dir = 8
+	},
+/obj/structure/window/reinforced/survival_pod{
+	dir = 4
+	},
+/obj/structure/hedge,
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"Xd" = (
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/arrival)
+"XN" = (
+/turf/closed/wall/mineral/titanium/survival,
+/area/shuttle/arrival)
+"Yv" = (
 /obj/structure/closet/firecloset{
 	pixel_x = 4
 	},
 /obj/structure/window/reinforced/survival_pod/spawner/directional/west,
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
-"zK" = (
-/obj/effect/turf_decal/trimline/brown,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/pod/light,
-/area/shuttle/arrival)
-"Ba" = (
-/obj/structure/railing/eva_handhold/directional/west,
-/obj/item/tether_anchor,
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
-/area/shuttle/arrival)
-"Bk" = (
-/obj/structure/fluff/tram_rail/end,
-/turf/template_noop,
-/area/shuttle/arrival)
-"Cv" = (
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
-/area/shuttle/arrival)
-"Di" = (
-/obj/structure/railing/eva_handhold/directional/south,
-/obj/item/tether_anchor{
-	anchored = 1
-	},
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
-/area/shuttle/arrival)
-"En" = (
-/obj/structure/marker_beacon/olive,
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
-/area/shuttle/arrival)
-"FR" = (
-/obj/structure/fluff/tram_rail/end{
-	dir = 1
-	},
-/turf/template_noop,
-/area/shuttle/arrival)
-"Gp" = (
-/obj/structure/fans/tiny/invisible,
-/obj/effect/spawner/structure/window/survival_pod,
-/turf/open/floor/plating,
-/area/shuttle/arrival)
-"Gs" = (
-/obj/machinery/door/airlock/survival_pod/glass,
-/obj/structure/fans/tiny,
-/turf/open/floor/pod/dark,
-/area/shuttle/arrival)
-"GK" = (
-/obj/machinery/light/floor,
-/turf/open/floor/pod/dark,
-/area/shuttle/arrival)
-"Hg" = (
-/turf/template_noop,
-/area/template_noop)
-"Jv" = (
-/obj/effect/turf_decal/trimline/yellow,
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
-/area/shuttle/arrival)
-"Lb" = (
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating/dark,
-/obj/effect/turf_decal/trimline/white/end{
-	dir = 4
-	},
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"Nu" = (
-/obj/machinery/telecomms/server{
-	name = "navigational computer";
-	tempfreq = 0;
-	is_operational = 0
-	},
-/obj/effect/turf_decal/recharge,
-/turf/open/floor/pod/dark,
-/area/shuttle/arrival)
-"NO" = (
+"ZK" = (
 /obj/machinery/requests_console/directional/south{
 	department = "Arrival shuttle";
 	name = "Arrival Shuttle Requests Console";
@@ -332,191 +372,139 @@
 /obj/machinery/space_heater/wall_mounted/directional/south,
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
-"RL" = (
-/obj/machinery/door/airlock/highsecurity{
-	locked = 1
-	},
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"Sl" = (
-/obj/effect/turf_decal/trimline/brown,
-/obj/machinery/digital_clock/directional/north,
-/obj/machinery/light/cold/no_nightlight/directional/north,
-/turf/open/floor/pod/light,
-/area/shuttle/arrival)
-"Sw" = (
-/obj/machinery/light/red/directional/west,
-/obj/effect/turf_decal/trimline/white,
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"SO" = (
-/obj/structure/fluff/tram_rail/anchor{
-	dir = 1
-	},
-/turf/template_noop,
-/area/shuttle/arrival)
-"Wi" = (
-/turf/closed/wall/mineral/titanium/survival/pod,
-/area/shuttle/arrival)
-"Xe" = (
-/obj/structure/marker_beacon/olive,
-/turf/closed/wall/mineral/plastitanium,
-/area/shuttle/arrival)
-"Xy" = (
-/obj/item/radio/intercom/directional/west,
-/obj/effect/turf_decal/siding/thinplating/dark{
-	dir = 1
-	},
-/obj/effect/turf_decal/siding/thinplating/dark,
-/obj/effect/turf_decal/trimline/white/end{
-	dir = 8
-	},
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"Yl" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/obj/effect/turf_decal/trimline/brown,
-/turf/open/floor/pod/light,
-/area/shuttle/arrival)
-"Zu" = (
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/pod/dark,
-/area/shuttle/arrival)
 
 (1,1,1) = {"
-Hg
-Hg
-kW
-jf
-kW
-nt
-kW
+xX
+xX
+dQ
+Ql
+dQ
+qK
+dQ
 "}
 (2,1,1) = {"
-Hg
-jf
-kW
-iB
-jS
-SO
-kW
+xX
+Ql
+dQ
+wv
+OQ
+Ny
+dQ
 "}
 (3,1,1) = {"
-Hg
-tz
-hG
-Ba
-bS
-bS
-En
+xX
+hZ
+Lm
+Fq
+li
+li
+ln
 "}
 (4,1,1) = {"
-Hg
-dm
-bS
-Nu
-Sw
-iQ
-bS
+xX
+dN
+li
+BA
+oC
+Ee
+li
 "}
 (5,1,1) = {"
-kw
-bS
-bS
-Jv
-RL
-Wi
-bS
+XN
+li
+li
+wr
+kE
+gq
+li
 "}
 (6,1,1) = {"
-Gp
-iH
-ur
-Xy
-xH
-NO
-bS
+oO
+pa
+Nd
+th
+EM
+ZK
+li
 "}
 (7,1,1) = {"
-bS
-Sl
-zK
-db
-Zu
-GK
-Gs
+li
+GR
+vD
+Hw
+lb
+nA
+CU
 "}
 (8,1,1) = {"
-Gp
-qE
-qE
-db
-xM
-xM
-bS
+oO
+iI
+iI
+Hw
+Uy
+Uy
+li
 "}
 (9,1,1) = {"
-qn
-bS
-bS
-nf
-jV
-qU
-Di
+gH
+li
+li
+pD
+kf
+UE
+DC
 "}
 (10,1,1) = {"
-Gp
-Yl
-Yl
-db
-Yl
-Yl
-Gp
+oO
+dm
+dm
+Hw
+dm
+dm
+oO
 "}
 (11,1,1) = {"
-bS
-cA
-vA
-db
-vA
-hf
-bS
+li
+Ao
+Hs
+Hw
+Hs
+gB
+li
 "}
 (12,1,1) = {"
-Gp
-bF
-rN
-Lb
-rN
-rN
-Gp
+oO
+DV
+wo
+Hw
+wo
+wo
+oO
 "}
 (13,1,1) = {"
-kw
-bS
-xW
-ie
-uJ
-bS
-bS
+XN
+li
+Yv
+ff
+AW
+li
+li
 "}
 (14,1,1) = {"
-iB
-Cv
-ui
-ui
-ui
-Cv
-SO
+wv
+Xd
+sz
+sz
+sz
+Xd
+Ny
 "}
 (15,1,1) = {"
-Bk
-pO
-na
-qR
-na
-Xe
-FR
+rF
+mU
+Lr
+aV
+Lr
+hC
+RD
 "}
