@@ -478,7 +478,7 @@
 	item_path = /obj/item/clothing/suit/mothcoat/winter
 
 /datum/loadout_item/suit/misc/dressing
-	name = "Regal Dressing"
+	name = "Regal Dressing (Tajaran)"
 	item_path = /obj/item/clothing/suit/tajaran_dressing
 
 /datum/loadout_item/suit/misc/suspenders
