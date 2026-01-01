@@ -191,6 +191,10 @@
 	name = "JUNCO Megacargo Pants (Cargo)"
 	item_path = /obj/item/clothing/under/pants/big_pants
 
+/datum/loadout_item/undersuit/pants/shortalls
+	name = "Short Overalls"
+	item_path = /obj/item/clothing/under/shortalls
+
 /**
  * SHORTS
  */
@@ -436,7 +440,7 @@
 	item_path = /obj/item/clothing/under/costume/osi
 
 /datum/loadout_item/undersuit/fullbody/athletas_bodysuit
-	name = "ATHLETAS bodysuit"
+	name = "ATHLETAS Bodysuit"
 	item_path = /obj/item/clothing/under/athletas_bodysuit
 
 /**
@@ -461,6 +465,10 @@
 /datum/loadout_item/undersuit/misc/gear_harness
 	name = "Gear Harness"
 	item_path = /obj/item/clothing/under/misc/gear_harness
+
+/datum/loadout_item/undersuit/misc/gear_harness_visible
+	name = "Gear Harness (Visible)"
+	item_path = /obj/item/clothing/under/misc/gear_harness/visible
 
 /datum/loadout_item/undersuit/misc/bunnysuit
 	name = "Bunny Suit"
