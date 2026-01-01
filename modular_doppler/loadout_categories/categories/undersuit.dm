@@ -441,6 +441,14 @@
 	name = "Biosuit (White)"
 	item_path = /obj/item/clothing/under/underlayer/white
 
+/datum/loadout_item/undersuit/gear_harness_visible
+	name = "Gear Harness (Visible)"
+	item_path = /obj/item/clothing/under/misc/gear_harness/visible
+
+/datum/loadout_item/undersuit/shortalls
+	name = "Short Overalls"
+	item_path = /obj/item/clothing/under/shortalls
+
 // Man in suit gif
 
 /datum/loadout_item/undersuit/detective_suit

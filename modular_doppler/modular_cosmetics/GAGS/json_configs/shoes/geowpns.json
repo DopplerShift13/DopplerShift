@@ -1,0 +1,22 @@
+{
+	"geowpn": [
+		{
+			"type": "icon_state",
+			"icon_state": "geowpn",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "geowpn_swoop",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "geowpn_sole",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}
