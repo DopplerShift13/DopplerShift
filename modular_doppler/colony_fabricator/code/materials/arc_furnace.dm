@@ -55,6 +55,7 @@
 
 /obj/machinery/arc_furnace/Destroy(force)
 	QDEL_NULL(smelting_thing)
+	QDEL_NULL(soundloop)
 	return ..()
 
 /obj/machinery/arc_furnace/on_deconstruction(disassembled)

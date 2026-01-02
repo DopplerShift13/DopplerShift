@@ -18,42 +18,43 @@
 	desc = "A range of frontier appliance classics, enough to set up a functioning kitchen no matter where you are in the galaxy."
 	cost = CARGO_CRATE_VALUE * 5
 	contains = list(
-		/obj/machinery/plumbing/synthesizer/water_synth,
-		/obj/machinery/chem_dispenser/frontier_appliance,
+		/obj/item/stock_parts/water_recycler,
+		/obj/machinery/chem_dispenser/spice_machine/unanchored,
+		/obj/machinery/chem_dispenser/big_drink_machine/unanchored,
 		/obj/machinery/griddle/frontier_tabletop/unanchored,
-		/obj/machinery/microwave/frontier_printed/unanchored,
-		/obj/machinery/oven/range_frontier/unanchored,
-		/obj/machinery/biogenerator/foodricator,
+		/obj/machinery/microwave/engineering/cell_included/unanchored,
+		/obj/machinery/burner_plate/unanchored,
+		/obj/item/flatpack/oven,
+		/obj/item/reagent_containers/cup/soup_pot/lizard,
+		/obj/item/cutting_board/modern,
+		/obj/item/storage/box/colony_cookware,
 	)
 	crate_name = "frontier kitchen crate"
-
-/datum/supply_pack/service/kitchenmage
-	name = "'KitchenMage' Culinary Acquisition Helper"
-	desc = "'KitchenMage', even YOUR kitchen deserves the magic of our patented dispensing system!"
-	cost = CARGO_CRATE_VALUE * 4
-	contains = list(
-		/obj/machinery/chem_dispenser/kitchenaid_stand,
-	)
-	crate_name = "heavy kitchen machinery crate"
-	crate_type = /obj/structure/closet/crate/radiation
 
 // Engineering
 
 /datum/supply_pack/engineering/colony_starter
-	name = "Colonization Starter Kit"
-	desc = "The Sol standard minimum kit for frontier colonization, contains everything you need to construct a mostly functioning colony in most places across the galaxy."
-	cost = CARGO_CRATE_VALUE * 11 // 6 for the lathe, 3 for the organics printer, 2 for the rest of the stuff
+	name = "Outpost Starter Kit"
+	desc = "Hunting for riches? Starting a new lfe all over? Extremely asocial? If you order now, we'll even throw in a lifetime \
+		warranty for the flatpack of your fabricator. Contains most of what you should need in order to start fresh just about \
+		anywhere uninhabited in the galaxy."
+	cost = CARGO_CRATE_VALUE * 10
 	contains = list(
 		/obj/item/flatpacked_machine,
-		/obj/item/flatpacked_machine/organics_printer,
 		/obj/item/flatpacked_machine/gps_beacon,
+		/obj/item/flatpack/organic_materials_printer,
 		/obj/item/stack/sheet/plastic_wall_panel/fifty,
 		/obj/item/stack/rods/twentyfive,
-		/obj/item/stack/sheet/iron/twenty,
+		/obj/item/stack/sheet/iron/thirty,
+		/obj/item/stack/sheet/glass/twenty,
 		/obj/item/flatpacked_machine/airlock_kit_manual,
 		/obj/item/flatpacked_machine/airlock_kit_manual,
+		/obj/item/stack/cable_coil/thirty,
 		/obj/item/wallframe/apc,
 		/obj/item/electronics/apc,
 		/obj/item/stock_parts/power_store/battery/high,
+		/obj/item/pickaxe/emergency,
+		/obj/item/crowbar/red,
+		/obj/item/multitool,
 	)
 	crate_name = "colonization kit crate"

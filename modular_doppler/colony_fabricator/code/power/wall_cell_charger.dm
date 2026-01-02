@@ -1,7 +1,7 @@
 /obj/machinery/cell_charger_multi
 	name = "mounted multi-cell charging rack"
 	desc = "The innovative technology of a cell charging rack, but mounted neatly on a wall out of the way!"
-	icon = 'modular_doppler/colony_fabricator/icons/cell_charger.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "wall_charger"
 	base_icon_state = "wall_charger"
 	use_power = IDLE_POWER_USE
@@ -14,7 +14,7 @@
 	/// Number of concurrent batteries that can be charged
 	var/max_batteries = 3
 	/// The base charge rate when spawned
-	var/charge_rate = STANDARD_CELL_RATE * 3
+	var/charge_rate = STANDARD_CELL_RATE * 2
 	/// The item we turn into when repacked
 	var/repacked_type = /obj/item/wallframe/cell_charger_multi
 
@@ -27,10 +27,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 
 /obj/machinery/cell_charger_multi/update_overlays()
 	. = ..()
-
 	if(!charging_batteries.len)
 		return
-
 	for(var/i = charging_batteries.len, i >= 1, i--)
 		var/obj/item/stock_parts/power_store/cell/charging = charging_batteries[i]
 		var/newlevel = round(charging.percent() * 4 / 100)
@@ -117,10 +115,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 		LAZYADD(charging_queue, battery_slot)
 	if(!LAZYLEN(charging_queue))
 		return
-	//use a small bit for the charger itself, but power usage scales up with the part tier
-	use_energy(charge_rate / length(charging_queue) * seconds_per_tick * 0.01)
+	// use a small bit for the charger itself, but power usage scales up with the part tier
+	use_energy((charge_rate / max_batteries) * length(charging_queue) * seconds_per_tick * 0.01)
 	for(var/obj/item/stock_parts/power_store/cell/charging_cell in charging_queue)
-		charge_cell(charge_rate * seconds_per_tick, charging_cell)
+		charge_cell((charge_rate / max_batteries) * seconds_per_tick, charging_cell)
 	LAZYNULL(charging_queue)
 	update_appearance()
 
@@ -129,14 +127,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 		return
 	to_chat(user, span_notice("You telekinetically remove [removecell(user)] from [src]."))
 	return COMPONENT_CANCEL_ATTACK_CHAIN
-
-
-/obj/machinery/cell_charger_multi/RefreshParts()
-	. = ..()
-	var/tier_total
-	for(var/datum/stock_part/capacitor/capacitor in component_parts)
-		tier_total += capacitor.tier
-	charge_rate = tier_total * (initial(charge_rate) / 6)
 
 /obj/machinery/cell_charger_multi/emp_act(severity)
 	. = ..()
@@ -149,6 +139,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 	for(var/obj/item/stock_parts/power_store/cell/charging in charging_batteries)
 		charging.forceMove(drop_location())
 	charging_batteries = null
+	if(disassembled)
+		new repacked_type(drop_location())
 	return ..()
 
 /obj/machinery/cell_charger_multi/attack_ai(mob/user)
@@ -201,10 +193,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 /obj/machinery/cell_charger_multi/default_pry_open(obj/item/crowbar, close_after_pry, open_density, closed_density)
 	return NONE
 
-/obj/machinery/cell_charger_multi/on_deconstruction(disassembled)
-	if(disassembled)
-		new repacked_type(drop_location())
-
 /obj/machinery/cell_charger_multi/RefreshParts()
 	. = ..()
 	charge_rate = STANDARD_CELL_RATE * 2 // Nuh uh!
@@ -221,5 +209,5 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 	pixel_shift = 29
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 1,
+		/datum/material/silver = HALF_SHEET_MATERIAL_AMOUNT,
 	)

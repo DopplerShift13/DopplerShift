@@ -1,7 +1,7 @@
 // Stacks of floor tiles
 
 /obj/item/stack/tile/catwalk_tile/colony_lathe
-	icon = 'modular_doppler/colony_fabricator/icons/tiles_item.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/construction/tiles_item.dmi'
 	icon_state = "prefab_catwalk"
 	mats_per_unit = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT)
 	turf_type = /turf/open/floor/catwalk_floor/colony_fabricator
@@ -12,7 +12,7 @@
 	name = "high-strength plastic floor tiles"
 	singular_name = "high-strength plastic floor tile"
 	desc = "A stack of large floor tiles of a high-strength plasma plastic, perfect for spilling on and having to clean later."
-	icon = 'modular_doppler/colony_fabricator/icons/tiles_item.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/construction/tiles_item.dmi'
 	icon_state = "colony_grey"
 	turf_type = /turf/open/floor/iron/colony
 	merge_type = /obj/item/stack/tile/iron/colony
@@ -28,7 +28,7 @@
 // Grated floor tile, for seeing wires under
 
 /turf/open/floor/catwalk_floor/colony_fabricator
-	icon = 'modular_doppler/colony_fabricator/icons/tiles.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/construction/tiles.dmi'
 	icon_state = "prefab_above"
 	catwalk_type = "prefab"
 	baseturfs = /turf/open/floor/plating
@@ -45,7 +45,7 @@
 	turf_type = /turf/open/floor/iron/colony/bolts
 
 /turf/open/floor/iron/colony
-	icon = 'modular_doppler/colony_fabricator/icons/tiles.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/construction/tiles.dmi'
 	icon_state = "colony_grey"
 	base_icon_state = "colony_grey"
 	floor_tile = /obj/item/stack/tile/iron/colony
