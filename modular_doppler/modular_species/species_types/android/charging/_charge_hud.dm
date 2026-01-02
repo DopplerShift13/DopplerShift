@@ -13,15 +13,22 @@
 	screen_loc = UI_ENERGY_DISPLAY
 	maptext_width = 48
 
-/atom/movable/screen/android/energy/proc/update_energy_hud(core_energy)
-	maptext = FORMAT_ANDROID_HUD_TEXT(hud_text_color(core_energy), core_energy)
-	if(core_energy <= 1.5 MEGA JOULES)
+	/// The threshold below which we're considered low on charge.
+	var/low_charge_threshold = 0
+
+/atom/movable/screen/android/energy/Initialize(mapload, datum/hud/hud_owner, low_charge_threshold)
+	. = ..()
+	src.low_charge_threshold = low_charge_threshold
+
+/atom/movable/screen/android/energy/proc/update_energy_hud(current_energy)
+	maptext = FORMAT_ANDROID_HUD_TEXT(hud_text_color(current_energy), current_energy)
+	if(current_energy <= low_charge_threshold)
 		icon_state = "energy_display_low"
 	else
 		icon_state = "energy_display"
 
-/atom/movable/screen/android/energy/proc/hud_text_color(core_energy)
-	return core_energy > 1.5 MEGA JOULES ? "#ffffff" : "#b64b4b"
+/atom/movable/screen/android/energy/proc/hud_text_color(current_energy)
+	return current_energy > low_charge_threshold ? "#ffffff" : "#b64b4b"
 
 #undef UI_ENERGY_DISPLAY
 #undef FORMAT_ANDROID_HUD_TEXT
