@@ -1,0 +1,16 @@
+{
+	"mailman_recolorable": [
+		{
+			"type": "icon_state",
+			"icon_state": "mailman_recolorable",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "mailman_recolorable_trim",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

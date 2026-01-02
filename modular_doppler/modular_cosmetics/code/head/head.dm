@@ -52,6 +52,17 @@
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
 
+/obj/item/clothing/head/mailman_recolorable
+	name = "mail cap (colorable)"
+	desc = "<i>'Right-on-time'</i> mail service head wear- with new colors!"
+	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
+	icon_state = "mailman_recolorable"
+	post_init_icon_state = "mailman_recolorable"
+	greyscale_colors = "#cfd1d4#D5D5B9"
+	greyscale_config = /datum/greyscale_config/mailman_recolorable
+	greyscale_config_worn = /datum/greyscale_config/mailman_recolorable/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/head/flowing_headband
 	name = "flowing headband"
 	desc = "A headband from across the galaxy. Said to make the impossible possible."
