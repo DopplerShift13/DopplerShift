@@ -1,0 +1,54 @@
+{
+	"bad_for_school": [
+		{
+			"type": "icon_state",
+			"icon_state": "bad_for_school_jacket",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bad_for_school_patch",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bad_for_school_bottom",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bad_for_school_top",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	],
+	"bad_for_school_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "bad_for_school_jacket_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bad_for_school_patch_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bad_for_school_bottom",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "bad_for_school_top",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	]
+}
