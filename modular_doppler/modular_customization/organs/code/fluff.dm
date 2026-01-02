@@ -7,7 +7,6 @@
 	slot = ORGAN_SLOT_EXTERNAL_FLUFF
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
-	preference = "feature_fluff"
 	dna_block = null
 	bodypart_overlay = /datum/bodypart_overlay/mutant/fluff
 

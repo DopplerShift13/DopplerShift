@@ -95,7 +95,6 @@
 		),
 		cant_hold_list = list(	// - - - except the second list's items (no fedora in the sheath)
 			/obj/item/nullrod/armblade,
-			/obj/item/nullrod/carp,
 			/obj/item/nullrod/chainsaw,
 			/obj/item/nullrod/bostaff,
 			/obj/item/nullrod/hammer,
