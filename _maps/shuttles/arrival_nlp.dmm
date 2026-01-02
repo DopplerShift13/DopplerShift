@@ -30,7 +30,7 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
 "gq" = (
-/turf/closed/wall/mineral/titanium/survival/pod,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/arrival)
 "gB" = (
 /obj/machinery/digital_clock/directional/south,
@@ -44,7 +44,7 @@
 /obj/item/tether_anchor{
 	anchored = 1
 	},
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/arrival)
 "hC" = (
 /obj/structure/marker_beacon/olive,
@@ -88,11 +88,18 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
 "li" = (
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/obj/item/tether_anchor{
+	anchored = 1
+	},
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/arrival)
 "ln" = (
 /obj/structure/marker_beacon/olive,
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/arrival)
+"mt" = (
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/arrival)
 "mU" = (
 /obj/structure/marker_beacon/burgundy,
@@ -109,7 +116,7 @@
 /area/shuttle/arrival)
 "oO" = (
 /obj/structure/fans/tiny/invisible,
-/obj/effect/spawner/structure/window/survival_pod,
+/obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/arrival)
 "pa" = (
@@ -128,6 +135,14 @@
 /obj/effect/turf_decal/trimline/white,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/pod,
+/area/shuttle/arrival)
+"qG" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/effect/turf_decal/trimline/brown,
+/obj/structure/sign/poster/random/directional/west,
+/turf/open/floor/pod/light,
 /area/shuttle/arrival)
 "qK" = (
 /obj/structure/fluff/tram_rail/end{
@@ -168,8 +183,7 @@
 /turf/open/floor/pod/light,
 /area/shuttle/arrival)
 "wr" = (
-/obj/effect/turf_decal/trimline/yellow,
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/turf/closed/wall/mineral/titanium/interior,
 /area/shuttle/arrival)
 "wv" = (
 /obj/structure/fluff/tram_rail/anchor,
@@ -203,8 +217,8 @@
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
 "CU" = (
-/obj/machinery/door/airlock/survival_pod/glass,
 /obj/structure/fans/tiny,
+/obj/machinery/door/airlock/shuttle,
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
 "DC" = (
@@ -212,7 +226,7 @@
 /obj/item/tether_anchor{
 	anchored = 1
 	},
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/arrival)
 "DV" = (
 /obj/structure/chair/comfy/shuttle{
@@ -238,7 +252,7 @@
 "Fq" = (
 /obj/structure/railing/eva_handhold/directional/west,
 /obj/item/tether_anchor,
-/turf/closed/wall/mineral/titanium/survival/nodiagonal,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/arrival)
 "GR" = (
 /obj/effect/turf_decal/trimline/brown,
@@ -260,7 +274,7 @@
 /area/shuttle/arrival)
 "Lm" = (
 /obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/titanium/survival,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/arrival)
 "Lr" = (
 /obj/machinery/power/shuttle_engine/propulsion{
@@ -309,6 +323,14 @@
 	},
 /turf/template_noop,
 /area/shuttle/arrival)
+"QC" = (
+/obj/effect/turf_decal/trimline/white,
+/obj/effect/turf_decal/siding/thinplating/dark{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/thinplating/dark,
+/turf/open/floor/pod,
+/area/shuttle/arrival)
 "RD" = (
 /obj/structure/fluff/tram_rail/end{
 	dir = 1
@@ -333,7 +355,11 @@
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/arrival)
 "XN" = (
-/turf/closed/wall/mineral/titanium/survival,
+/obj/item/tether_anchor{
+	anchored = 1
+	},
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/arrival)
 "Yv" = (
 /obj/structure/closet/firecloset{
@@ -369,7 +395,6 @@
 	pixel_x = 7;
 	pixel_y = -12
 	},
-/obj/machinery/space_heater/wall_mounted/directional/south,
 /turf/open/floor/pod/dark,
 /area/shuttle/arrival)
 
@@ -396,26 +421,26 @@ xX
 hZ
 Lm
 Fq
-li
-li
+gq
+gq
 ln
 "}
 (4,1,1) = {"
 xX
 dN
-li
+gq
 BA
 oC
 Ee
-li
+gq
 "}
 (5,1,1) = {"
-XN
-li
-li
+mt
+gq
+gq
 wr
 kE
-gq
+wr
 li
 "}
 (6,1,1) = {"
@@ -425,10 +450,10 @@ Nd
 th
 EM
 ZK
-li
+gq
 "}
 (7,1,1) = {"
-li
+gq
 GR
 vD
 Hw
@@ -443,12 +468,12 @@ iI
 Hw
 Uy
 Uy
-li
+gq
 "}
 (9,1,1) = {"
 gH
-li
-li
+wr
+wr
 pD
 kf
 UE
@@ -456,7 +481,7 @@ DC
 "}
 (10,1,1) = {"
 oO
-dm
+qG
 dm
 Hw
 dm
@@ -464,17 +489,17 @@ dm
 oO
 "}
 (11,1,1) = {"
-li
+gq
 Ao
 Hs
 Hw
 Hs
 gB
-li
+gq
 "}
 (12,1,1) = {"
 oO
-DV
+wo
 wo
 Hw
 wo
@@ -483,14 +508,50 @@ oO
 "}
 (13,1,1) = {"
 XN
-li
-Yv
-ff
-AW
-li
+wr
+wr
+QC
+kf
+UE
 li
 "}
 (14,1,1) = {"
+oO
+dm
+dm
+Hw
+dm
+dm
+oO
+"}
+(15,1,1) = {"
+gq
+Ao
+Hs
+Hw
+Hs
+gB
+gq
+"}
+(16,1,1) = {"
+oO
+DV
+wo
+Hw
+wo
+wo
+oO
+"}
+(17,1,1) = {"
+mt
+gq
+Yv
+ff
+AW
+gq
+gq
+"}
+(18,1,1) = {"
 wv
 Xd
 sz
@@ -499,7 +560,7 @@ sz
 Xd
 Ny
 "}
-(15,1,1) = {"
+(19,1,1) = {"
 rF
 mU
 Lr
