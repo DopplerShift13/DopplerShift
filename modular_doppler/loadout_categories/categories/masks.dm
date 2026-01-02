@@ -99,6 +99,14 @@
 	name = "Surgical Mask"
 	item_path = /obj/item/clothing/mask/surgical
 
+/datum/loadout_item/mask/other/faceplate
+	name = "Faceplate Mask"
+	item_path = /obj/item/clothing/mask/gas/atmos/faceplate
+
+/datum/loadout_item/mask/other/faceplate_eyes
+	name = "Faceplate Mask (Eyes)"
+	item_path = /obj/item/clothing/mask/gas/atmos/faceplate/why_so_eyes
+
 /**
  * CLOTH COVERS
  */

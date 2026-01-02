@@ -247,6 +247,25 @@
 	icon_state = "gacket"
 	worn_icon_state = "gacket"
 
+/obj/item/clothing/suit/jacket/doppler/bad_for_school
+	name = "'Bad for School' jacket"
+	desc = "An oversized moto jacket of thick and protective synthhide. Padded double-layer patches guard the shoulders and elbows, \
+	and a patch on the back expresses disdain for conformity."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/jacket/doppler/bad_for_school"
+	post_init_icon_state = "bad_for_school"
+	greyscale_config = /datum/greyscale_config/bad_for_school
+	greyscale_config_worn = /datum/greyscale_config/bad_for_school/worn
+	greyscale_colors = "#872c2c#780a0a#a06262#3399ff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
+/obj/item/clothing/suit/jacket/doppler/bad_for_school/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "zipper")
+
 /////////
 //COATS//
 /////////
