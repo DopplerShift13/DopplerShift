@@ -22,7 +22,7 @@
 	item_path = /obj/item/knife/combat/survival
 
 /datum/loadout_item/pocket_items/equipment/swisstool
-	name = "Knife (Spess)"
+	name = "Knife (Utility)"
 	item_path = /obj/item/spess_knife
 
 /datum/loadout_item/pocket_items/equipment/etool
