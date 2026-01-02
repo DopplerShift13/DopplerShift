@@ -141,6 +141,10 @@
 	name = "White Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers/white
 
+/datum/loadout_item/shoes/other/geowpn
+	name = "GEOWPN Sneakers"
+	item_path = /obj/item/clothing/shoes/geowpn
+
 /datum/loadout_item/shoes/other/sandals
 	name = "Sandals"
 	item_path = /obj/item/clothing/shoes/sandal

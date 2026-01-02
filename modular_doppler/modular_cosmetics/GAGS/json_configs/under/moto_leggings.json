@@ -1,0 +1,16 @@
+{
+	"moto_leggings": [
+		{
+			"type": "icon_state",
+			"icon_state": "moto_leggings",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "moto_kneepads",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}
