@@ -117,11 +117,11 @@
 
 //HATS
 
-/datum/greyscale_config/mailman_recolorable
-	name = "Colorable mailman cap"
+/datum/greyscale_config/colorable_mailcap
+	name = "Colorable mailcap"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/hats/mailman_recolorable.json'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/hats/colorable_mailcap.json'
 
-/datum/greyscale_config/mailman_recolorable/worn
-	name = "Colorable mailman cap (Worn)"
+/datum/greyscale_config/colorable_mailcap/worn
+	name = "Colorable mailcap (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'

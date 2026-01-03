@@ -236,9 +236,9 @@
 	name = "Mail Cap"
 	item_path = /obj/item/clothing/head/costume/mailman
 
-/datum/loadout_item/head/caps/recolorable_mailman
+/datum/loadout_item/head/caps/colorable_mailcap
 	name = "Mail Cap (Colorable)"
-	item_path = /obj/item/clothing/head/mailman_recolorable
+	item_path = /obj/item/clothing/head/colorable_mailcap
 
 /datum/loadout_item/head/caps/blue_surgery
 	name = "Surgery Cap (Medical, Blue)"
