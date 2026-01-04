@@ -86,9 +86,19 @@
 /obj/item/storage/belt/lizard_sabre/update_icon_state()
 	icon_state = initial(icon_state)
 	worn_icon_state = initial(worn_icon_state)
-	if(contents.len)
-		icon_state += "_choppa"
-		worn_icon_state += "_choppa"
+	for(var/obj/item/belt_content in contents)
+		/*if(!contents.len)
+			icon_state = initial(icon_state)
+			worn_icon_state = initial(worn_icon_state)
+			*/
+		if(istype(belt_content, /obj/item/melee/tizirian_sword/boffa))
+			icon_state += "_boffa"
+			worn_icon_state += "_boffa"
+			return
+		else if(istype(belt_content, /obj/item/melee/tizirian_sword))
+			icon_state += "_choppa"
+			worn_icon_state += "_choppa"
+			return
 	return ..()
 
 /obj/item/storage/belt/lizard_sabre/PopulateContents()
@@ -104,3 +114,24 @@
 /datum/storage/lizard_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
 	set_holdable(/obj/item/melee/tizirian_sword)
+
+/obj/item/melee/tizirian_sword/boffa
+	name = "\improper Tiziran training sword"
+	desc = "A polymer made from bitumenic discharge shaped into a facisimilie of the chopping sabres \
+	favored still by Tiziran warriors. Distributed to nascent striplings for their training, it's also \
+	found a niche amongst lizard-obsessive collectors and martial artists in 4CA controlled space. These \
+	tend to be a little shorter than the genuine articles."
+	icon_state = "boffa"
+	worn_icon_state = "boffa"
+	inhand_icon_state = "boffa"
+	hitsound = 'sound/items/weapons/genhit1.ogg'
+	block_sound = 'sound/items/weapons/block_shield.ogg'
+	obj_flags = null
+	sharpness = null
+	tool_behaviour = TOOL_KNIFE
+	force = 5 // yeeeeeouch!
+	throwforce = 5
+	armour_penetration = 0
+	exposed_wound_bonus = 0
+	attack_verb_continuous = list("bonks", "bops", "bashes", "slaps", "thumps", "thwacks", "wallops", "biffs")
+	attack_verb_simple = list("bonk", "bop", "bash", "slap", "thump", "thwack", "wallop", "biff")
