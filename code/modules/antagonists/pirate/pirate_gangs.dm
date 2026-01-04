@@ -59,7 +59,16 @@ GLOBAL_LIST_INIT(heavy_pirate_gangs, init_pirate_gangs(is_heavy = TRUE))
 ///whether this pirate gang can roll today. this is called when the global list initializes, so
 ///returning FALSE means it cannot show up at all for the entire round.
 /datum/pirate_gang/proc/can_roll()
-	return TRUE
+	/// DOPPLER EDIT - allows us to blacklist certain pirate gangs.
+	/* ORIGINALLY
+	* /datum/pirate_gang/proc/can_roll()
+	* 	return TRUE
+	*/
+	if(!enabled)
+		return FALSE
+	else
+		return TRUE
+	/// END DOPPLER EDIT
 
 ///returns a new comm_message datum from this pirate gang
 /datum/pirate_gang/proc/generate_message(payoff)
@@ -88,6 +97,7 @@ GLOBAL_LIST_INIT(heavy_pirate_gangs, init_pirate_gangs(is_heavy = TRUE))
 	response_not_enough = "You thought we wouldn't notice if you underpaid? Funny. We'll be seeing you soon."
 
 ///aristocrat lizards looking to hunt the serfs
+
 /datum/pirate_gang/silverscales
 	name = "Silverscales"
 
