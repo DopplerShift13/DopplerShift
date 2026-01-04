@@ -614,7 +614,7 @@
 //Regular Glasses
 
 /obj/item/clothing/glasses/recolorable
-	name = "glasses (colorable)"
+	name = "glasses"
 	desc = "What's your favorite color to see through?"
 	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/glasses/recolorable"
