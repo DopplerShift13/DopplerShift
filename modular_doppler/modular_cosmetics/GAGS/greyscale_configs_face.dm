@@ -77,4 +77,3 @@
 /datum/greyscale_config/recolorable_glasses/worn
 	name = "Colorable Glasses (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/glasses.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/eyes/recolorable_glasses.json'
