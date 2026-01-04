@@ -53,7 +53,7 @@
 	strip_delay = 60
 
 /obj/item/clothing/head/costume/mailman/colorable_mailcap
-	name = "mail cap (colorable)"
+	name = "mailcap"
 	desc = "<i>'Right-on-time'</i> mail service head wear- with new colors!"
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/colorable_mailcap"
