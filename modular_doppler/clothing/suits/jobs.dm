@@ -20,7 +20,3 @@
 	icon_state = "techpriesthood"
 	body_parts_covered = HEAD
 	flags_inv = HIDEHAIR|HIDEEARS
-
-/datum/loadout_item/suit/labcoat/techpriest
-	name = "Machine Dustcover"
-	item_path = /obj/item/clothing/suit/hooded/techpriest

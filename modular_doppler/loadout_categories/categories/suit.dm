@@ -384,6 +384,11 @@
 	item_path = /obj/item/clothing/suit/toggle/labcoat/high_vis
 
 
+/datum/loadout_item/suit/labcoat/techpriest
+	name = "Machine Dustcover"
+	item_path = /obj/item/clothing/suit/hooded/techpriest
+
+
 /**
  * TOPS
  */
