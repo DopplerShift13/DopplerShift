@@ -696,6 +696,10 @@
 	y_offset = 6
 	icon_state = "hair_hugeafro_eyescovered"
 
+/datum/sprite_accessory/hair/modular/frills_big
+	name = "Reptile Frills"
+	icon_state = "hair_frillsbig"
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/modular
@@ -736,3 +740,4 @@
 /datum/sprite_accessory/facial_hair/modular/selleckreceeded
 	name = "Moustache (Selleck - Alt)"
 	icon_state = "facial_selleckreceeded"
+

@@ -108,7 +108,7 @@
 	return readout.Join("\n") // Sending over a single string, rather than the whole list
 
 /obj/item/ammo_casing/update_icon_state()
-	icon_state = "[initial(icon_state)][loaded_projectile ? "-live" : null]"
+	icon_state = "[base_icon_state || initial(icon_state)][loaded_projectile ? "-live" : null]" // DOPPLER CHANGE - GAGS support - original: icon_state = "[initial(icon_state)][loaded_projectile ? "-live" : null]"
 	return ..()
 
 /obj/item/ammo_casing/update_desc()
@@ -147,7 +147,7 @@
 					continue
 			if (boolets > 0)
 				box.update_appearance()
-				to_chat(user, span_notice("You collect [boolets] shell\s. [box] now contains [box.stored_ammo.len] shell\s."))
+				to_chat(user, span_notice("You collect [boolets] [box.casing_phrasing]\s. [box] now contains [box.stored_ammo.len] [box.casing_phrasing]\s."))
 			else
 				to_chat(user, span_warning("You fail to collect anything!"))
 	else

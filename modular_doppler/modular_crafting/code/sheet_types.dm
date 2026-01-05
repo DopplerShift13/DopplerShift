@@ -24,6 +24,7 @@ GLOBAL_LIST_INIT(doppler_metal_recipes, list(
 	new/datum/stack_recipe("anvil", /obj/structure/reagent_anvil, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("forge", /obj/structure/reagent_forge, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("throwing wheel", /obj/structure/throwing_wheel, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
+	new/datum/stack_recipe("metal shelf", /obj/structure/shelf, 1, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
 ))
 
 GLOBAL_LIST_INIT(doppler_metal_airlock_recipes, list(
@@ -98,7 +99,6 @@ GLOBAL_LIST_INIT(doppler_cloth_recipes, list(
 	new/datum/stack_recipe("towel", /obj/item/towel, 2, category = CAT_CLOTHING),
 	new/datum/stack_recipe("eyepatch wrap", /obj/item/clothing/glasses/eyepatch/wrap, 2, category = CAT_CLOTHING),
 	new/datum/stack_recipe("eyepatch", /obj/item/clothing/glasses/eyepatch, 2, category = CAT_CLOTHING),
-	new/datum/stack_recipe("xenoarch bag", /obj/item/storage/bag/xenoarch, 4, category = CAT_CONTAINERS),
 	new/datum/stack_recipe("saddlebags", /obj/item/storage/backpack/saddlebags, 5, category = CAT_CONTAINERS),
 ))
 
@@ -117,7 +117,7 @@ GLOBAL_LIST_INIT(doppler_leather_recipes, list(
 
 GLOBAL_LIST_INIT(doppler_leather_belt_recipes, list(
 	new/datum/stack_recipe("medical bandolier", /obj/item/storage/belt/med_bandolier, 5, category = CAT_CONTAINERS),
-	new/datum/stack_recipe("xenoarch belt", /obj/item/storage/belt/utility/xenoarch, 4, category = CAT_CONTAINERS),
+	new/datum/stack_recipe("emt belt", /obj/item/storage/belt/medical/empty/paramedic, 5, category = CAT_CONTAINERS),
 ))
 
 /obj/item/stack/sheet/leather/get_main_recipes()
@@ -152,3 +152,13 @@ GLOBAL_LIST_INIT(doppler_sand_recipes, list(
 /obj/item/stack/ore/glass/get_main_recipes()
 	. = ..()
 	. += GLOB.doppler_sand_recipes
+
+// Plastic
+
+GLOBAL_LIST_INIT(doppler_plastic_recipes, list(
+	new/datum/stack_recipe("ear tag", /obj/item/clothing/accessory/ear_tag, 1, category = CAT_CLOTHING),
+))
+
+/obj/item/stack/sheet/plastic/get_main_recipes()
+	. = ..()
+	. += GLOB.doppler_plastic_recipes

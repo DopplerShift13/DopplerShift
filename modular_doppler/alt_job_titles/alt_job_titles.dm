@@ -354,7 +354,6 @@
 		"Plasma Researcher",
 		"Resonance Researcher",
 		"Theoretical Physicist",
-		"Xenoarchaeologist",
 		"Xenobiologist",
 		"Research Assistant",
 		"Geologist",

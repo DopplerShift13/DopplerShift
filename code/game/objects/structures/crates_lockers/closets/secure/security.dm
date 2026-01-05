@@ -122,7 +122,7 @@
 
 /obj/structure/closet/secure_closet/security/sec/PopulateContents()
 	..()
-	new /obj/item/storage/belt/secsword/full(src) // DOPPLER EDIT - new /obj/item/storage/belt/security/full(src)
+	//new /obj/item/storage/belt/security/full(src) // DOPPLER REMOVAL - replaced with a loadout beacon for security officers; c.f. Dopplershift PR #688
 
 /obj/structure/closet/secure_closet/security/cargo
 

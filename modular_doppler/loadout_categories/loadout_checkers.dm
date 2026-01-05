@@ -41,6 +41,11 @@
 	var/list/restricted_species
 	/// Whether the item requires a specific season in order to be available
 	var/required_season = null
+	/// Whether the item has a MODlink label we should be able to set in the loadout.
+	/// Requires setting such to be implemented on on_equip_item for each such item.
+	var/has_modlink_label = FALSE
+	/// Allows setting special description for dogtag-type accessories
+	var/tag_examine_description = FALSE
 
 /*
  * Place our [var/item_path] into [outfit].
@@ -118,6 +123,20 @@
 			"button_icon" = FA_ICON_PEN,
 			"active_key" = INFO_DESCRIBED,
 		))
+	if(has_modlink_label)
+		UNTYPED_LIST_ADD(buttons, list(
+			"label" = "Change MODlink label",
+			"act_key" = "set_modlink_label",
+			"button_icon" = FA_ICON_PEN,
+			"active_key" = INFO_MODLINK_LABEL,
+		))
+	if(tag_examine_description)
+		UNTYPED_LIST_ADD(buttons, list(
+			"label" = "Change tag contents",
+			"act_key" = "set_tag_description",
+			"button_icon" = FA_ICON_PEN,
+			"active_key" = INFO_TAG_TEXT,
+		))
 	return buttons
 
 /datum/loadout_item/to_ui_data()
@@ -131,6 +150,10 @@
 /datum/loadout_item/handle_loadout_action(datum/preference_middleware/loadout/manager, mob/user, action, params)
 	if(action == "set_description" && can_be_named)
 		return set_description(manager, user)
+	if(action == "set_modlink_label" && has_modlink_label)
+		return set_modlink_label(manager, user)
+	if(action == "set_tag_description" && tag_examine_description)
+		return set_tag_description(manager, user)
 	return ..()
 
 /// Sets the description of the item.
@@ -154,6 +177,56 @@
 		loadout[item_path][INFO_DESCRIBED] = input_desc
 	else if(input_desc == "")
 		loadout[item_path] -= INFO_DESCRIBED
+
+	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	return TRUE
+
+/// Sets the MODlink label of the item.
+/datum/loadout_item/proc/set_modlink_label(datum/preference_middleware/loadout/manager, mob/user)
+	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/input_label = tgui_input_text(
+		user = user,
+		message = "What MODlink label do you want to give the [name]? Leave blank to clear.",
+		title = "[name] MODlink label",
+		default = loadout?[item_path]?[INFO_MODLINK_LABEL], // plop in existing label (if any)
+		max_length = MAX_DESC_LEN,
+	)
+	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
+		return FALSE
+
+	loadout = manager.preferences.read_preference(/datum/preference/loadout) // Make sure no shenanigans happened
+	if(!loadout?[item_path])
+		return FALSE
+
+	if(input_label)
+		loadout[item_path][INFO_MODLINK_LABEL] = input_label
+	else if(input_label == "")
+		loadout[item_path] -= INFO_MODLINK_LABEL
+
+	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
+	return TRUE
+
+/// Sets the tag text of the item, for dogtags
+/datum/loadout_item/proc/set_tag_description(datum/preference_middleware/loadout/manager, mob/user)
+	var/list/loadout = manager.preferences.read_preference(/datum/preference/loadout)
+	var/input_label = tgui_input_text(
+		user = user,
+		message = "What do you want the [name] to say on it? Leave blank to clear.",
+		title = "[name] Text",
+		default = html_decode(loadout?[item_path]?[INFO_TAG_TEXT]), // plop in existing label (if any)
+		max_length = MAX_DESC_LEN,
+	)
+	if(QDELETED(src) || QDELETED(user) || QDELETED(manager) || QDELETED(manager.preferences))
+		return FALSE
+
+	loadout = manager.preferences.read_preference(/datum/preference/loadout) // Make sure no shenanigans happened
+	if(!loadout?[item_path])
+		return FALSE
+
+	if(input_label)
+		loadout[item_path][INFO_TAG_TEXT] = input_label
+	else if(input_label == "")
+		loadout[item_path] -= INFO_TAG_TEXT
 
 	manager.preferences.update_preference(GLOB.preference_entries[/datum/preference/loadout], loadout)
 	return TRUE

@@ -133,6 +133,31 @@
 	icon_state = "/obj/item/clothing/under/shorts/shorter/skirt"
 	post_init_icon_state = "skirt"
 
+/obj/item/clothing/under/shortalls
+	name = "short overalls"
+	desc = "A pair of dungarees whose legs terminate at hand length."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/shortalls"
+	post_init_icon_state = "shortalls"
+	species_exception = list(/datum/species/golem)
+	greyscale_colors = "#66ccff"
+	greyscale_config = /datum/greyscale_config/shortalls
+	greyscale_config_worn = /datum/greyscale_config/shortalls/worn
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/shortalls/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/shortalls/worn/digi,
+	)
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN
+	can_adjust = FALSE
+
+/obj/item/clothing/suit/under/shortalls/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
+
 /obj/item/clothing/under/dress/skirt/medium
 	name = "medium skirt"
 	desc = "An appealing medium-length skirt. Top not included."
@@ -156,4 +181,28 @@
 	greyscale_colors = "#3a3c45"
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
 	alternate_worn_layer = ABOVE_SHOES_LAYER
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/skirt/highwaisted_skirt
+	name = "high waisted skirt"
+	desc = "A tube skirt that sits higher up on the waist. Slay."
+	icon_state = "/obj/item/clothing/under/dress/skirt/highwaisted_skirt"
+	post_init_icon_state = "highwaisted_skirt"
+	body_parts_covered = GROIN
+	greyscale_config = /datum/greyscale_config/highwaisted_skirt
+	greyscale_config_worn = /datum/greyscale_config/highwaisted_skirt/worn
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/dress/skirt/miniskirt
+	name = "miniskirt"
+	desc = "You might want some leggings to wear under this."
+	icon_state = "/obj/item/clothing/under/dress/skirt/miniskirt"
+	post_init_icon_state = "miniskirt"
+	body_parts_covered = GROIN
+	greyscale_config = /datum/greyscale_config/miniskirt
+	greyscale_config_worn = /datum/greyscale_config/miniskirt/worn
+	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY|FEMALE_UNIFORM_NO_BREASTS
 	flags_1 = IS_PLAYER_COLORABLE_1

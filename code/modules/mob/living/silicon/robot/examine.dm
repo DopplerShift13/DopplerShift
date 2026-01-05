@@ -15,14 +15,6 @@
 	var/custom_model_name = READ_PREFS(src, text/silicon_model_name)
 	if (custom_model_name)
 		. += "It is [prefix_a_or_an(custom_model_name)] <em>[get_species_description_href(custom_model_name)]</em> model construct."
-
-	//Temp Flavor Text DLC
-	if(temporary_flavor_text)
-		if(length_char(temporary_flavor_text) < TEMPORARY_FLAVOR_PREVIEW_LIMIT)
-			. += span_revennotice("<br>They look different than usual: [temporary_flavor_text]")
-		else
-			. += span_revennotice("<br>They look different than usual: [copytext_char(temporary_flavor_text, 1, TEMPORARY_FLAVOR_PREVIEW_LIMIT)]... <a href='byond://?src=[REF(src)];temporary_flavor=1'>More...</a>")
-
 	// DOPPLER EDIT END
 
 	var/model_name = model ? "\improper [model.name]" : "\improper Default"

@@ -9,6 +9,7 @@
 	icon_state = "revolver"
 	inhand_icon_state = "gun"
 	worn_icon_state = "gun"
+	abstract_type = /obj/item/gun
 	obj_flags = CONDUCTS_ELECTRICITY
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|LONG_GLIDE|KEEP_TOGETHER
 	slot_flags = ITEM_SLOT_BELT
@@ -192,7 +193,7 @@
 	return TRUE
 
 /obj/item/gun/proc/tk_firing(mob/living/user)
-	return !user.contains(src)
+	return !user.contains(src) && !istype(loc, /obj/vehicle/ridden/mounted_turret)// DOPPLER EDIT - MOUNTED GUN FIRE MESSAGES - return !user.contains(src)
 
 /obj/item/gun/proc/shoot_with_empty_chamber(mob/living/user as mob|obj)
 	balloon_alert_to_viewers("*click*")

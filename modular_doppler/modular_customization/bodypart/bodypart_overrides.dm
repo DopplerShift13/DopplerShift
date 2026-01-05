@@ -5,13 +5,13 @@
 	var/eyes_icon
 
 /obj/item/bodypart/head/lizard
-	head_flags = HEAD_ALL_FEATURES
+	head_flags = HEAD_DEFAULT_FEATURES
 
 /obj/item/bodypart/head/moth
-	head_flags = HEAD_ALL_FEATURES
+	head_flags = HEAD_DEFAULT_FEATURES
 
 /obj/item/bodypart/head/pod
-	head_flags = HEAD_ALL_FEATURES
+	head_flags = HEAD_DEFAULT_FEATURES
 
 /obj/item/bodypart/head/robot
 	head_flags = HEAD_EYESPRITES | HEAD_FACIAL_HAIR | HEAD_HAIR | HEAD_EYECOLOR
@@ -42,3 +42,41 @@
 		return
 	if (owner.dna.features["legs_color_custom"] == TRUE)
 		draw_color = owner.dna.features["legs_color"]
+
+// MOTH
+
+/obj/item/bodypart/head/moth
+	icon = null
+	icon_static = null
+	icon_greyscale = 'modular_doppler/modular_customization/bodypart/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
+
+/obj/item/bodypart/chest/moth
+	icon = null
+	icon_static = null
+	icon_greyscale = 'modular_doppler/modular_customization/bodypart/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
+
+/obj/item/bodypart/arm/left/moth
+	icon = null
+	icon_static = null
+	icon_greyscale = 'modular_doppler/modular_customization/bodypart/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
+
+/obj/item/bodypart/arm/right/moth
+	icon = null
+	icon_static = null
+	icon_greyscale = 'modular_doppler/modular_customization/bodypart/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
+
+/obj/item/bodypart/leg/left/moth
+	icon = null
+	icon_static = null
+	icon_greyscale = 'modular_doppler/modular_customization/bodypart/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE
+
+/obj/item/bodypart/leg/right/moth
+	icon = null
+	icon_static = null
+	icon_greyscale = 'modular_doppler/modular_customization/bodypart/icons/bodyparts.dmi'
+	should_draw_greyscale = TRUE

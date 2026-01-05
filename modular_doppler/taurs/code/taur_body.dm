@@ -10,7 +10,7 @@
 	organ_flags = parent_type::organ_flags | ORGAN_EXTERNAL
 	bodypart_overlay = /datum/bodypart_overlay/mutant/taur_body
 
-	var/abstract_type = /obj/item/organ/taur_body
+	abstract_type = /obj/item/organ/taur_body
 
 	/// If not null, the left leg limb we add to our mob will have this name.
 	var/left_leg_name = "front legs"
@@ -34,7 +34,7 @@
 	var/can_ride_saddled_taurs = FALSE
 
 	/// When being ridden via saddle, how much the rider is offset on the x axis when facing west or east.
-	var/riding_offset_side_x = 12
+	var/riding_offset_side_x = 8
 	/// When being ridden via saddle, how much the rider is offset on the y axis when facing west or east.
 	var/riding_offset_side_y = 2
 

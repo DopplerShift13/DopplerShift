@@ -124,6 +124,7 @@
 
 		if("toggle_joinable")
 			ghost_joinable = !ghost_joinable
+			update_joinability()
 			return TRUE
 
 		if("toggle_approval")
@@ -251,6 +252,9 @@
 
 			remove_self()
 			return TRUE
+
+/datum/component/soulcatcher/proc/update_joinability()
+	SEND_GLOBAL_SIGNAL(COMSIG_SOULCATCHER_UPDATE_JOINABILITY)
 
 /datum/component/soulcatcher_user/New()
 	. = ..()

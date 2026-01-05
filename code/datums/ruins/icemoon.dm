@@ -79,6 +79,12 @@
 	description = "Here lies Charles Morlbaro. He died the way he lived."
 	suffix = "icemoon_surface_smoking_room.dmm"
 
+/datum/map_template/ruin/icemoon/roro
+	name = "Ice-Ruin RoroCo Factory"
+	id = "gloves"
+	description = "A manufacturing and packaging facility producing insulated gloves."
+	suffix = "icemoon_surface_gloves.dmm"
+
 /datum/map_template/ruin/icemoon/lavaland // DOPPLER EDIT TO NOT BE UNDERGROUND
 	name = "Ice-Ruin Lavaland Incursion"
 	id = "lavalandsite"

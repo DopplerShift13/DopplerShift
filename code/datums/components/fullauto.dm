@@ -28,9 +28,12 @@
 	var/windup_spindown = 3 SECONDS
 	///Timer for tracking the spindown reset timings
 	var/timerid
+	///Looping sound while firing.
+	var/datum/looping_sound/autofire_sound_loop
 	COOLDOWN_DECLARE(next_shot_cd)
 
-/datum/component/automatic_fire/Initialize(autofire_shot_delay, windup_autofire, windup_autofire_reduction_multiplier, windup_autofire_cap, windup_spindown, allow_akimbo = TRUE)
+
+/datum/component/automatic_fire/Initialize(autofire_shot_delay, windup_autofire, windup_autofire_reduction_multiplier, windup_autofire_cap, windup_spindown, allow_akimbo = TRUE, firing_sound_loop)
 	. = ..()
 	if(!isgun(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -48,8 +51,12 @@
 		var/mob/user = gun.loc
 		wake_up(src, user)
 
+	if(firing_sound_loop)
+		autofire_sound_loop = new firing_sound_loop(parent)
+
 
 /datum/component/automatic_fire/Destroy()
+	QDEL_NULL(autofire_sound_loop)
 	autofire_off()
 	return ..()
 
@@ -67,7 +74,8 @@
 	if(autofire_stat == AUTOFIRE_STAT_FIRING)
 		stop_autofiring() //Let's stop shooting to avoid issues.
 		return
-	if(user.is_holding(parent))
+	var/atom/atom_parent = parent // DOPPLER EDIT - TURRET AUTOFIRE
+	if(user.is_holding(parent) || istype(atom_parent.loc, /obj/vehicle/ridden/mounted_turret)) // DOPPLER EDIT - TURRET AUTOFIRE - if(user.is_holding(parent))
 		autofire_on(user.client)
 
 // There is a gun and there is a user wielding it. The component now waits for the mouse click.
@@ -191,6 +199,8 @@
 	START_PROCESSING(SSprojectiles, src)
 	RegisterSignal(clicker, COMSIG_CLIENT_MOUSEDRAG, PROC_REF(on_mouse_drag))
 
+	if(autofire_sound_loop)
+		autofire_sound_loop.start(shooter)
 
 /datum/component/automatic_fire/proc/on_mouse_up(datum/source, atom/object, turf/location, control, params)
 	SIGNAL_HANDLER
@@ -217,6 +227,9 @@
 	target_loc = null
 	mouse_parameters = null
 
+	if(autofire_sound_loop)
+		autofire_sound_loop.stop()
+
 /datum/component/automatic_fire/proc/on_mouse_drag(client/source, atom/src_object, atom/over_object, turf/src_location, turf/over_location, src_control, over_control, params)
 	SIGNAL_HANDLER
 	if(isnull(over_location)) //This happens when the mouse is over an inventory or screen object, or on entering deep darkness, for example.
@@ -237,7 +250,6 @@
 	target = over_object
 	target_loc = get_turf(over_object)
 	mouse_parameters = params
-
 
 /datum/component/automatic_fire/proc/process_shot()
 	if(autofire_stat != AUTOFIRE_STAT_FIRING)
@@ -289,7 +301,7 @@
 
 /obj/item/gun/proc/autofire_bypass_check(datum/source, client/clicker, atom/target, turf/location, control, params)
 	SIGNAL_HANDLER
-	if(clicker.mob.get_active_held_item() != src)
+	if((clicker.mob.get_active_held_item() != src) && !istype(src.loc, /obj/vehicle/ridden/mounted_turret))// DOPLLER EDIT - TURRET AUTOFIRE - if(clicker.mob.get_active_held_item() != src)
 		return COMPONENT_AUTOFIRE_ONMOUSEDOWN_BYPASS
 
 
@@ -305,6 +317,8 @@
 
 
 /obj/item/gun/proc/do_autofire_shot(datum/source, atom/target, mob/living/shooter, allow_akimbo, params)
+	if(SEND_SIGNAL(src, COMSIG_GUN_TRY_FIRE, shooter, target, shooter.Adjacent(target), params) & COMPONENT_CANCEL_GUN_FIRE) // DOPPLER ADDITION - TURRET AUTOFIRE
+		return // DOPPLER ADDITION - TURRET AUTOFIRE
 	var/obj/item/gun/akimbo_gun = shooter.get_inactive_held_item()
 	var/bonus_spread = 0
 	if(istype(akimbo_gun) && weapon_weight < WEAPON_MEDIUM && allow_akimbo)

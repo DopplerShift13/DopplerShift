@@ -201,3 +201,8 @@ export const taur_color: Feature<string[]> = {
   name: 'Taur Color',
   component: FeatureTriColorInput,
 };
+
+export const pod_hair_color: Feature<string[]> = {
+  name: 'Viridian Hair Color',
+  component: FeatureTriColorInput,
+};

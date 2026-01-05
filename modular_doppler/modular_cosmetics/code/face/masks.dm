@@ -12,7 +12,7 @@
 	inhand_icon_state = "balaclava"
 	greyscale_config = /datum/greyscale_config/neck_gaiter
 	greyscale_config_worn = /datum/greyscale_config/neck_gaiter/worn
-	greyscale_colors = "#666666"
+	greyscale_colors = "#444444"
 	clothing_flags = BLOCK_GAS_SMOKE_EFFECT|MASKINTERNALS
 	w_class = WEIGHT_CLASS_SMALL
 	flags_inv = HIDEFACIALHAIR | HIDEFACE | HIDESNOUT
@@ -22,6 +22,7 @@
 	visor_flags_cover = MASKCOVERSMOUTH
 	flags_1 = IS_PLAYER_COLORABLE_1
 	interaction_flags_click = NEED_DEXTERITY|ALLOW_RESTING
+	resistance_flags = FIRE_PROOF
 
 /obj/item/clothing/mask/neck_gaiter/attack_self(mob/user)
 	adjust_visor(user)
@@ -163,3 +164,43 @@
 /obj/item/clothing/mask/gas/nightlight/examine(mob/user)
 	. = ..()
 	. += span_notice("Alt-click [src] to adjust it.")
+
+/obj/item/clothing/mask/gas/atmos/faceplate
+	name = "faceplate mask"
+	desc = "A solid mask that completely covers the face, or a lack of one."
+	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/face.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
+	icon_state = "/obj/item/clothing/mask/gas/atmos/faceplate"
+	post_init_icon_state = "faceplate"
+	tint = 0
+	greyscale_colors = "#FFFFFF"
+	greyscale_config = /datum/greyscale_config/faceplate
+	greyscale_config_worn = /datum/greyscale_config/faceplate/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/faceplate/worn,
+		BODYSHAPE_SNOUTED_T = /datum/greyscale_config/faceplate/worn_snout,
+	)
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_SNOUTED)
+	flags_inv = HIDEEYES|HIDEFACE|HIDEFACIALHAIR|HIDESNOUT
+	visor_flags_cover = MASKCOVERSMOUTH
+	interaction_flags_click = NEED_DEXTERITY|ALLOW_RESTING
+	flags_1 = IS_PLAYER_COLORABLE_1
+	actions_types = list(/datum/action/item_action/adjust)
+	toggle_message = "You wear the mask tight to your face."
+	alt_toggle_message = "You wear the mask loosely, letting you eat."
+
+/obj/item/clothing/mask/gas/atmos/faceplate/update_icon_state()
+	. = ..()
+	icon_state = "[base_icon_state || initial(post_init_icon_state)]"
+
+/obj/item/clothing/mask/gas/atmos/faceplate/why_so_eyes
+	icon_state = "/obj/item/clothing/mask/gas/atmos/faceplate/why_so_eyes"
+	post_init_icon_state = "faceplate_eyes"
+	greyscale_colors = "#FFFFFF#333333"
+	greyscale_config = /datum/greyscale_config/faceplate_eyes
+	greyscale_config_worn = /datum/greyscale_config/faceplate_eyes/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/faceplate_eyes/worn,
+		BODYSHAPE_SNOUTED_T = /datum/greyscale_config/faceplate_eyes/worn_snout,
+	)

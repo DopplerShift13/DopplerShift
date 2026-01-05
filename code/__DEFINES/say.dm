@@ -48,7 +48,10 @@
 #define MODE_KEY_PUPPET "j"
 
 #define MODE_ALIEN "alientalk"
+#define MODE_KEY_ALIEN "a"
+
 #define MODE_HOLOPAD "holopad"
+#define MODE_KEY_HOLOPAD "h"
 
 #define MODE_CHANGELING "changeling"
 #define MODE_KEY_CHANGELING "g"
@@ -108,19 +111,22 @@
 #define FOLLOW_OR_TURF_LINK(alice, bob, turfy) "<a href=byond://?src=[REF(alice)];follow=[REF(bob)];x=[turfy.x];y=[turfy.y];z=[turfy.z]>(F)</a>"
 
 //Don't set this very much higher then 1024 unless you like inviting people in to dos your server with message spam
-#define MAX_MESSAGE_LEN 1024
+#define MAX_MESSAGE_LEN 2048 // DOPPLER EDIT CHANGE - orig: #define MAX_MESSAGE_LEN 1024
 #define MAX_NAME_LEN 42
 #define MAX_BROADCAST_LEN 512
 #define MAX_CHARTER_LEN 80
 #define MAX_PLAQUE_LEN 144
 #define MAX_LABEL_LEN 64
-#define MAX_DESC_LEN 280
+#define MAX_DESC_LEN 560 // DOPPLER EDIT CHANGE - orig: #define MAX_DESC_LEN 560
 
 // Audio/Visual Flags. Used to determine what sense are required to notice a message.
 #define MSG_VISUAL (1<<0)
 #define MSG_AUDIBLE (1<<1)
 
 
+// Say mode message handling return flags, exist for readability.
+/// Say mode has handled the message.
+#define SAYMODE_MESSAGE_HANDLED (1<<0)
 
 // Used in visible_message_flags, audible_message_flags and runechat_flags
 /// Automatically applies emote related spans/fonts/formatting to the message
@@ -137,6 +143,3 @@
 ///Defines for priorities for the bubble_icon_override comp
 #define BUBBLE_ICON_PRIORITY_ACCESSORY 2
 #define BUBBLE_ICON_PRIORITY_ORGAN 1
-
-/// Sent from /atom/movable/proc/compose_message() to find an honorific. Compatible with NAME_PART_INDEX: (list/stored_name, mob/living/carbon/carbon_human)
-#define COMSIG_ID_GET_HONORIFIC "id_get_honorific"

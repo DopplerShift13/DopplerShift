@@ -147,10 +147,6 @@
 	name = "Personal AI Device"
 	item_path = /obj/item/pai_card
 
-/datum/loadout_item/pocket_items/link_scryer
-	name = "MODlink Scryer"
-	item_path = /obj/item/clothing/neck/link_scryer/loaded
-
 /datum/loadout_item/pocket_items/cigarettes
 	name = "Cigarette Pack"
 	item_path = /obj/item/storage/fancy/cigarettes
@@ -202,6 +198,10 @@
 /datum/loadout_item/pocket_items/shock_collar
 	name = "Shock collar"
 	item_path = /obj/item/electropack/shockcollar
+
+/datum/loadout_item/pocket_items/whistle
+	name = "Whistle"
+	item_path = /obj/item/clothing/mask/whistle
 
 /*
 *	UTILITY

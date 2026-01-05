@@ -28,7 +28,7 @@
 	armor_type = /datum/armor/baton_security
 	throwforce = 7
 	force_say_chance = 50
-	stamina_damage = 35 // DOPPLER EDIT - 4 baton crit now (Original: 60)
+	stamina_damage = 35 // DOPPLER EDIT - 5 baton crit now (Original: 60)
 	knockdown_time = 5 SECONDS
 	clumsy_knockdown_time = 15 SECONDS
 	cooldown = 2.5 SECONDS
@@ -77,7 +77,9 @@
 
 /obj/item/melee/baton/doppler_security/clumsy_check(mob/living/carbon/human/user)
 	. = ..()
-	deductcharge(cell_hit_cost)
+	if(.)
+		SEND_SIGNAL(user, COMSIG_LIVING_MINOR_SHOCK)
+		deductcharge(cell_hit_cost)
 
 /obj/item/melee/baton/doppler_security/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
 	if(iscyborg(loc))

@@ -73,7 +73,7 @@
 		// scuffed not-tgui flavor text stuff
 		var/mob/viewer = usr
 
-		if (HAS_TRAIT(src, TRAIT_UNKNOWN))
+		if (HAS_TRAIT(src, TRAIT_EXAMINE_SKIP))
 			to_chat(viewer, span_notice("You can't discern a thing about them!"))
 			return
 
@@ -126,7 +126,7 @@
 	if (href_list["full_desc"])
 		var/mob/viewer = usr
 
-		if (HAS_TRAIT(src, TRAIT_UNKNOWN))
+		if (HAS_TRAIT(src, TRAIT_EXAMINE_SKIP))
 			to_chat(viewer, span_notice("You can't discern a thing about them!"))
 			return
 
@@ -170,7 +170,7 @@
 	if (href_list["full_desc"])
 		var/mob/viewer = usr
 
-		if (HAS_TRAIT(src, TRAIT_UNKNOWN))
+		if (HAS_TRAIT(src, TRAIT_EXAMINE_SKIP))
 			to_chat(viewer, span_notice("You can't discern a thing about them!"))
 			return
 

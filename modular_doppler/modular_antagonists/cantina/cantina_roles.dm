@@ -29,7 +29,7 @@
 	id = /obj/item/card/id/advanced/chameleon
 	belt = /obj/item/storage/belt/utility/frontier_colonist
 	box = /obj/item/storage/box/survival/syndie
-	implants = /obj/item/implant/weapons_auth
+	implants = list(/obj/item/implant/weapons_auth)
 	backpack_contents = list(
 		/obj/item/stack/spacecash/c1000 = 2,
 		/obj/item/encryptionkey/syndicate/cantina_headset,
@@ -47,7 +47,7 @@
 	id = /obj/item/card/id/advanced/chameleon
 	belt = /obj/item/storage/belt/utility/frontier_colonist
 	box = /obj/item/storage/box/survival/syndie
-	implants = /obj/item/implant/weapons_auth
+	implants = list(/obj/item/implant/weapons_auth)
 	backpack_contents = list(
 		/obj/item/stack/spacecash/c1000 = 10,
 		)

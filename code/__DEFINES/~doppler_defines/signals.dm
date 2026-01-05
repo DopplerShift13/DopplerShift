@@ -23,5 +23,7 @@
 #define COMSIG_SOULCATCHER_CHECK_SOUL "soulcatcher_check_soul"
 /// Whenever we need to get the soul of the mob inside of the soulcatcher.
 #define COMSIG_SOULCATCHER_SCAN_BODY "soulcatcher_scan_body"
+/// When a soulcatcher room's joinability is updated by opening the room, closing the room, allowing ghosts, etc
+#define COMSIG_SOULCATCHER_UPDATE_JOINABILITY "soulcatcher_update_joinability"
 /// For modifying a mob holder based on what it's holding
 #define COMSIG_ADDING_MOB_HOLDER_SPECIALS "adding_mob_holder_specials"

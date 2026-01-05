@@ -8,7 +8,7 @@
 	appearance_flags = parent_type::appearance_flags | KEEP_TOGETHER
 	w_class = WEIGHT_CLASS_SMALL
 	multiple_sprites = AMMO_BOX_ONE_SPRITE
-	multiload = FALSE
+	ammo_box_multiload = AMMO_BOX_MULTILOAD_NONE
 	start_empty = TRUE
 	max_ammo = 12
 	/// Spacing between random w offsets of casings. Change based on the size of the casing being put into the stack.
@@ -31,6 +31,11 @@
 /obj/item/ammo_box/magazine/ammo_stack/Exited(atom/movable/gone, direction)
 	. = ..()
 	check_empty()
+
+/obj/item/ammo_box/magazine/ammo_stack/remove_from_stored_ammo(atom/movable/gone)
+	if(QDELETED(src))
+		return
+	return ..()
 
 /obj/item/ammo_box/magazine/ammo_stack/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()

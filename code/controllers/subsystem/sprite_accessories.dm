@@ -58,6 +58,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	var/list/moth_markings_list
 	var/list/caps_list
 	var/list/pod_hair_list
+	var/list/cached_mutant_icon_files = list() // DOPPLER ADDITION - caches files for the mutant parts system
 
 /datum/controller/subsystem/accessories/PreInit() // this stuff NEEDS to be set up before GLOB for preferences and stuff to work so this must go here. sorry
 	setup_lists()
@@ -141,6 +142,10 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 
 	for(var/path in subtypesof(prototype))
 		var/datum/sprite_accessory/accessory = new path
+		// DOPPLER EDIT ADDITION START - Ignore abstract accessories
+		if(isnull(accessory.name))
+			continue
+		// DOPPLER EDIT ADDITION END
 
 		if(accessory.icon_state)
 			returnable_list[DEFAULT_SPRITE_LIST][accessory.name] = accessory

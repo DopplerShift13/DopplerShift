@@ -124,6 +124,7 @@
 #define COLOR_SCIENCE_PINK "#C96DBF"
 #define COLOR_MOSTLY_PURE_PINK "#E4005B"
 #define COLOR_ADMIN_PINK "#D100D1"
+#define COLOR_TONGUE_PINK "#ff6ea0"
 #define COLOR_BLUSH_PINK "#DE5D83"
 #define COLOR_FADED_PINK "#ff80d5"
 #define COLOR_MAGENTA "#FF00FF"
@@ -228,6 +229,7 @@
 // DOPPLER ADDITIONS:
 #define BLOOD_COLOR_INSECTOID "#945d9b"
 #define BLOOD_COLOR_SYNTHETIC "#f0bd84"
+#define BLOOD_COLOR_HOLOGEL "#43aaff95" //OoOoh extra digits makes transparency
 
 ///Main colors for UI themes
 #define COLOR_THEME_MIDNIGHT "#6086A0"

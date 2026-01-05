@@ -32,28 +32,11 @@
 /obj/docking_port/mobile/personally_bought/canDock(obj/docking_port/stationary/stationary_dock)
 	if(!stationary_dock)
 		return SHUTTLE_CAN_DOCK
-
 	if(!istype(stationary_dock))
 		return SHUTTLE_NOT_A_DOCKING_PORT
-
 	if(stationary_dock.override_can_dock_checks)
 		return SHUTTLE_CAN_DOCK
-
-	/*
-	if(dwidth > stationary_dock.dwidth)
-		return SHUTTLE_DWIDTH_TOO_LARGE
-
-	if(width-dwidth > stationary_dock.width-stationary_dock.dwidth)
-		return SHUTTLE_WIDTH_TOO_LARGE
-
-	if(dheight > stationary_dock.dheight)
-		return SHUTTLE_DHEIGHT_TOO_LARGE
-
-	if(height-dheight > stationary_dock.height-stationary_dock.dheight)
-		return SHUTTLE_HEIGHT_TOO_LARGE
-	*/
-
-	//check the dock isn't occupied
+	// check the dock isn't occupied
 	var/currently_docked = stationary_dock.get_docked()
 	if(currently_docked)
 		// by someone other than us
@@ -63,7 +46,6 @@
 		// This isn't an error, per se, but we can't let the shuttle code
 		// attempt to move us where we currently are, it will get weird.
 			return SHUTTLE_ALREADY_DOCKED
-
 	return SHUTTLE_CAN_DOCK
 
 /obj/item/circuitboard/computer/personally_bought
@@ -101,11 +83,11 @@
 			name = stationary_docking_port.name
 		)
 		valid_destinations += list(location_data)
-	var/list/null_location_data = list( // DOPPLER ADDITION START
+	var/list/null_location_data = list(
 		id = "infinite_transit_super_hell",
 		name = "Infinite Transit",
 	)
-	valid_destinations += list(null_location_data) // DOPPLER ADDITION END
+	valid_destinations += list(null_location_data)
 	return valid_destinations
 
 /obj/machinery/computer/shuttle/personally_bought/mothership
@@ -124,6 +106,7 @@
 	shuttlePortId = "personal_ship_custom"
 	jump_to_ports = list("whiteship_away" = 1, "whiteship_home" = 1, "whiteship_z4" = 1, "whiteship_waystation" = 1, "monestary_dock" = 1)
 	designate_time = 5 SECONDS
+	zlink_range = 1
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/personally_bought/mothership
 	name = "Mothership Navigation Computer"
@@ -207,6 +190,11 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/button/door/personal_shuttle_bay_four
 // Suit storage unit for a free emergency eva suit
 
 /obj/machinery/suit_storage_unit/industrial/personal_shuttle
-	mask_type = /obj/item/clothing/mask/gas/atmos/frontier_colonist
-	mod_type = /obj/item/mod/control/pre_equipped/frontier_colonist
+	mask_type = /obj/item/clothing/mask/gas/breach
+	mod_type = /obj/item/mod/control/pre_equipped/moonlight
+	storage_type = /obj/item/tank/internals/oxygen/red
+
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy
+	mask_type = /obj/item/clothing/mask/gas/breach
+	mod_type = /obj/item/mod/control/pre_equipped/orbiter
 	storage_type = /obj/item/tank/internals/oxygen/yellow
