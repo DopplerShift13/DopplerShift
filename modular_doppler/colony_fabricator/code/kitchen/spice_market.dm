@@ -7,7 +7,8 @@
 		/datum/stock_part/capacitor = 1,
 		/datum/stock_part/servo = 1,
 		/obj/item/stack/sheet/glass = 1,
-		/obj/item/stock_parts/power_store/cell = 1)
+		/obj/item/stock_parts/power_store/cell = 1,
+	)
 	def_components = list(/obj/item/stock_parts/power_store/cell = /obj/item/stock_parts/power_store/cell)
 	needs_anchored = FALSE
 
