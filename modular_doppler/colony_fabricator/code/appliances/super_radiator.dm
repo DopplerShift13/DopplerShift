@@ -1,6 +1,6 @@
 /obj/structure/tizirian_radiator
 	name = "portable heat radiator"
-	desc = "A small, self powering machine that works not too much unlike a large heat lamp. \
+	desc = "A small, self-powering machine that works not too much unlike a large heat lamp. \
 		Standing anywhere near it is bound to warm you up. Thanks in part to being designed by \
 		and for Tizirians, humans standing near it for too long may experience discomfort and \
 		potential burns."
