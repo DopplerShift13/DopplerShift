@@ -15,12 +15,12 @@
 	. += span_notice("Disassemble with a [EXAMINE_HINT("wrench")].")
 
 /obj/item/gps/colony_beacon/wrench_act(mob/living/user, obj/item/wrench)
-	..()
 	user.visible_message(span_warning("[user] disassembles [src]."),
 		span_notice("You start to disassemble [src]..."), span_hear("You hear clanking and banging noises."))
-	if(wrench.use_tool(src, user, 2 SECONDS, volume=50))
-		deconstruct(TRUE)
-	return TRUE
+	if(!wrench.use_tool(src, user, 2 SECONDS, volume=50))
+		return ITEM_INTERACT_BLOCKING
+	deconstruct(TRUE)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/item/gps/colony_beacon/atom_deconstruct(disassembled)
 	. = ..()

@@ -332,6 +332,8 @@
 		RND_CATEGORY_CONSTRUCTION + RND_SUBCATEGORY_CONSTRUCTION_MACHINERY,
 	)
 
+// red crowbar has been exlcluded from the lmao chain due to prior involvements with law enforcement
+
 /datum/design/colony_crowbar
 	name = "Experimental Crowbar"
 	id = "colony_crowbar"

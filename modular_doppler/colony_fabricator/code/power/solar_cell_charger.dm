@@ -51,11 +51,6 @@
 			charging = new_cell
 			user.visible_message(span_notice("[user] inserts a cell into [src]."), span_notice("You insert a cell into [src]."))
 			update_appearance()
-	else
-		if(!charging && default_deconstruction_screwdriver(user, icon_state, icon_state, new_cell))
-			return
-		if(default_deconstruction_crowbar(new_cell))
-			return
 		return ..()
 
 /obj/machinery/cell_charger/emergency_solar/RefreshParts()

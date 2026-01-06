@@ -119,7 +119,7 @@
 
 /datum/design/organic_printer/white_beet_seeds
 	name = "White Beet Seeds"
-	id = "colony_seed_"
+	id = "colony_seed_white_beet"
 	materials = list(/datum/material/biomass = 5)
 	build_path = /obj/item/seeds/whitebeet
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_SEEDS)
@@ -195,7 +195,7 @@
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_SEEDS)
 
 /datum/design/organic_printer/tobacco_seeds
-	name = "Tobacco Seeds"
+	name = "Space Tobacco Seeds"
 	id = "colony_seed_tobacco"
 	materials = list(/datum/material/biomass = 5)
 	build_path = /obj/item/seeds/tobacco/space
