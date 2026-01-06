@@ -17,16 +17,16 @@
 		. += span_notice("This needs to be [EXAMINE_HINT("outside")] in order to charge cells.")
 
 /obj/machinery/cell_charger/emergency_solar/wrench_act_secondary(mob/living/user, obj/item/tool)
-	. = ..()
 	if(charging)
-		return FALSE
-	user.balloon_alert(user, "deconstructing...")
+		balloon_alert(user, "remove cell!")
+		return ITEM_INTERACT_BLOCKING
+	balloon_alert(user, "deconstructing...")
 	tool.play_tool_sound(src)
-	if(tool.use_tool(src, user, 3 SECONDS))
-		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		deconstruct(TRUE)
-		return ITEM_INTERACT_SUCCESS
-	return FALSE
+	if(!tool.use_tool(src, user, 3 SECONDS))
+		return ITEM_INTERACT_BLOCKING
+	playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
+	deconstruct(TRUE)
+	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/cell_charger/emergency_solar/on_deconstruction(disassembled)
 	if(disassembled)
