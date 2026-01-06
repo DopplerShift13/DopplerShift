@@ -35,7 +35,7 @@
 
 /datum/design/organic_printer/multiver
 	name = "Multiver Pill"
-	id = "colony_multiver"
+	id = "colony_multiver_pill"
 	materials = list(/datum/material/biomass = 10)
 	build_path = /obj/item/reagent_containers/applicator/pill/multiver
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_MEDICAL)
