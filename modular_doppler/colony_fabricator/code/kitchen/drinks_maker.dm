@@ -13,7 +13,7 @@
 
 /obj/machinery/chem_dispenser/big_drink_machine
 	name = "drink dispenser"
-	desc = "The most overbuilt coffee machine in the entire world, made to fit the varying palattes of the many species \
+	desc = "The most overbuilt coffee machine in the entire world, made to fit the varying palates of the many species \
 		in the 4CA, within the limits of whatever technology you can stuff into a metal box."
 	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "dispenser"
