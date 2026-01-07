@@ -38,14 +38,14 @@
 /// Rotates the solar panel by the angle given to it once the tool is used on it
 /obj/machinery/power/solar/fixed/proc/manual_rotation(mob/living/user, obj/item/tool, target_change)
 	if(machine_stat & BROKEN)
-		return FALSE
+		return ITEM_INTERACT_BLOCKING
 	user.balloon_alert(user, "turning...")
 	tool.play_tool_sound(src)
 	if(tool.use_tool(src, user, 2 SECONDS))
 		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 		queue_turn(azimuth_target + target_change)
 		return ITEM_INTERACT_SUCCESS
-	return FALSE
+	return ITEM_INTERACT_BLOCKING
 
 /obj/machinery/power/solar/fixed/Make(obj/item/solar_assembly/assembly)
 	if(assembly) // We don't want it to spawn stray solar assemblies when taken apart
