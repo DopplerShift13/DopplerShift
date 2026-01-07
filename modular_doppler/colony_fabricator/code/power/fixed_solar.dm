@@ -42,7 +42,7 @@
 	user.balloon_alert(user, "turning...")
 	tool.play_tool_sound(src)
 	if(tool.use_tool(src, user, 2 SECONDS))
-		playsound(loc, 'sound/items/deconstruct', 50, TRUE)
+		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
 		queue_turn(azimuth_target + target_change)
 		return ITEM_INTERACT_SUCCESS
 	return FALSE
