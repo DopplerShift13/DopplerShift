@@ -30,26 +30,20 @@
 	. += span_notice("You can rotate it in increments of 45 degrees with a [EXAMINE_HINT("wrench")] and [EXAMINE_HINT("Left or Right-Click")].")
 
 /obj/machinery/power/solar/fixed/wrench_act(mob/living/user, obj/item/tool)
-	if(machine_stat & BROKEN)
-		balloon_alert(user, "broken!")
-		return ITEM_INTERACT_BLOCKING
-	balloon_alert(user, "turning...")
-	tool.play_tool_sound(src)
-	if(!tool.use_tool(src, user, 2 SECONDS))
-		return ITEM_INTERACT_BLOCKING
-	playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-	queue_turn(azimuth_target + 45)
-	return ITEM_INTERACT_SUCCESS
+	return manual_rotation(user, tool, 45)
 
 /obj/machinery/power/solar/fixed/wrench_act_secondary(mob/living/user, obj/item/tool)
-	. = ..()
+	return manual_rotation(user, tool, -45)
+
+/// Rotates the solar panel by the angle given to it once the tool is used on it
+/obj/machinery/power/solar/fixed/proc/manual_rotation(mob/living/user, obj/item/tool, target_change)
 	if(machine_stat & BROKEN)
 		return FALSE
 	user.balloon_alert(user, "turning...")
 	tool.play_tool_sound(src)
 	if(tool.use_tool(src, user, 2 SECONDS))
-		playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-		queue_turn(azimuth_target - 45)
+		playsound(loc, 'sound/items/deconstruct', 50, TRUE)
+		queue_turn(azimuth_target + target_change)
 		return ITEM_INTERACT_SUCCESS
 	return FALSE
 
