@@ -42,7 +42,7 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
 
-/datum/design/kitchen_knife_lizard
+/datum/design/ladle_lizard
 	name = "Ladle"
 	id = "ladle_lizard"
 	build_type = AMENITY_LATHE
