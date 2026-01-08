@@ -17,6 +17,8 @@
 /datum/outfit/job/paramedic
 	shoes = /obj/item/clothing/shoes/medical
 	suit = /obj/item/clothing/suit/toggle/labcoat/medical
+	duffelbag = /obj/item/storage/backpack/duffelbag/paramed
+	belt = /obj/item/storage/belt/medical/paramedic
 
 /datum/outfit/job/miner
 	suit = /obj/item/clothing/suit/armor/vest/miningjacket
@@ -26,6 +28,14 @@
 
 /obj/item/storage/box/survival/mining
 	mask_type = /obj/item/clothing/mask/neck_gaiter
+
+/datum/outfit/job/quartermaster
+	uniform = /obj/item/clothing/under/rank/doppler_cargo/tech/turtleneck
+	suit = /obj/item/clothing/suit/jacket/cargo_coat/cargo_greatcoat
+
+/datum/outfit/job/cargo_tech
+	uniform = /obj/item/clothing/under/rank/doppler_cargo/tech
+	suit = /obj/item/clothing/suit/jacket/cargo_coat
 
 /datum/outfit/job/security
 	suit_store = null
