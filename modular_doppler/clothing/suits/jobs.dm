@@ -1,5 +1,6 @@
 //Robotocist
 /obj/item/clothing/suit/hooded/techpriest
+	slot_flags = ITEM_SLOT_OCLOTHING | ITEM_SLOT_NECK
 	name = "machine dustcover"
 	desc = "Cotton sheeting provides a comfortable interior under layers of woven coutil, at once capable of breathing yet holding a watertight weft. \
 	Closing with magnetic clasps, it is only one of many cloaklike designs used to keep the duststorms of Red Mars out-- saving on frequent cleaning, \
