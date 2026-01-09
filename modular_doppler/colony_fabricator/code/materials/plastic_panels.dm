@@ -9,13 +9,12 @@ GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	desc = "A strong plastic with a chemical chain that would make even bio-chemists dizzy. \
 		Widely known among the frontier for it's common use as wall and floor panels, better known \
 		in the online block game community for it's terrifying production chain." // gregtech reference, in MY ss13?
-	icon = 'modular_doppler/colony_fabricator/icons/tiles_item.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/construction/tiles_item.dmi'
 	icon_state = "sheet-plastic"
 	inhand_icon_state = "sheet-plastic"
 	mats_per_unit = list(
 		/datum/material/plastic = HALF_SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,
-		/datum/material/plasma = SMALL_MATERIAL_AMOUNT,
 	)
 	has_unique_girder = TRUE
 	material_type = /datum/material/plastic
