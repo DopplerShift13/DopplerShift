@@ -154,7 +154,7 @@
 	body_parts_covered = CHEST|GROIN
 	can_adjust = FALSE
 
-/obj/item/clothing/suit/under/shortalls/Initialize(mapload)
+/obj/item/clothing/under/shortalls/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
 
