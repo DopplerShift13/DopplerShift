@@ -28,9 +28,15 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
+/obj/machinery/cell_charger/emergency_solar/spawn_frame(disassembled)
+	return
+
 /obj/machinery/cell_charger/emergency_solar/on_deconstruction(disassembled)
 	if(disassembled)
 		new repacked_type(drop_location())
+	qdel(circuit)
+	for(var/datum/stock_part/part in component_parts)
+		component_parts.Remove(part) // stock parts are singleton datums this should be fine ?
 	return ..()
 
 // This changes because normal cell chargers deny you if you're in a place without an APC (outside) (where this works)

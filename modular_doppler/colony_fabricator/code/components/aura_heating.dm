@@ -4,7 +4,7 @@
 	/// How far away should mobs be directly warmed?
 	var/range = 3
 	/// How much should the temperature change per second?
-	var/temp_per_second = 0.1 // 1C per 10 seconds
+	var/temp_per_second = 0.2 // 1C per 5 seconds
 	/// What body temperature should we bring mobs up to?
 	var/max_temperature = BODYTEMP_HEAT_DAMAGE_LIMIT + 5 // A little too spicy for humans
 	/// A list of being heated to active alerts

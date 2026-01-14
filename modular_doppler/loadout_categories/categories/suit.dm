@@ -383,7 +383,6 @@
 	name = "High-Vis Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/high_vis
 
-
 /**
  * TOPS
  */
@@ -496,3 +495,7 @@
 /datum/loadout_item/suit/misc/dagger_mantle
 	name = "'Dagger' Designer Mantle"
 	item_path = /obj/item/clothing/suit/dagger_mantle
+
+/datum/loadout_item/suit/misc/techpriest
+	name = "Machine Dustcover"
+	item_path = /obj/item/clothing/suit/hooded/techpriest

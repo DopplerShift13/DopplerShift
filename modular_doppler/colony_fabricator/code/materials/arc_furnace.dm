@@ -75,6 +75,12 @@
 	. += image(icon = icon, icon_state = "[operating ? "[base_icon_state]_overlay_active" : "[base_icon_state]_overlay"]")
 
 /obj/machinery/arc_furnace/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(tool.tool_behaviour == TOOL_SCREWDRIVER)
+		default_deconstruction_screwdriver(user, icon_state, icon_state, screwdriver = tool)
+		return ITEM_INTERACT_SUCCESS
+	if(tool.tool_behaviour == TOOL_CROWBAR)
+		default_deconstruction_crowbar(tool, FALSE)
+		return ITEM_INTERACT_SUCCESS
 	if(!istype(tool, /obj/item/stack/ore))
 		return NONE
 	if(operating)

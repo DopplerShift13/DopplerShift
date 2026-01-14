@@ -143,7 +143,7 @@
 	)
 
 /datum/design/board/tabletop_griddle
-	name = "Drink Dispenser Machine Board"
+	name = "Tabletop Griddle Machine Board"
 	desc = /obj/machinery/griddle/frontier_tabletop::desc
 	id = "tabletop_griddle"
 	build_path = /obj/item/circuitboard/machine/table_griddle
