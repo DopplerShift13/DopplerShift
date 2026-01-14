@@ -5,7 +5,7 @@
 	desc = "A solid made of an air-tight middle layer protected by multiple panels of \
 		strong plasma-based plastics on both sides. Despite it's strength, the walls are easy \
 		to take apart when needed."
-	icon = 'modular_doppler/colony_fabricator/icons/prefab_wall.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/construction/prefab_wall.dmi'
 	icon_state = "prefab_wall-0"
 	base_icon_state = "prefab_wall"
 	can_engrave = FALSE
