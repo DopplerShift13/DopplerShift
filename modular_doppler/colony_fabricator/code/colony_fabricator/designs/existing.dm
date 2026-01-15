@@ -66,6 +66,10 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
+/datum/design/igniter/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
 /datum/design/sparker/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR

@@ -15,7 +15,7 @@
 	/// Soundloop because this thing is potentially dangerous and potentially hard to notice
 	var/datum/looping_sound/arc_furnace_running/soundloop
 	/// The item that the heater disassembles into
-	var/repacked_type = /obj/item/flatpacked_machine/gps_beacon
+	var/repacked_type = /obj/item/flatpacked_machine/lizard_heater
 
 /obj/structure/tizirian_radiator/Initialize(mapload)
 	. = ..()

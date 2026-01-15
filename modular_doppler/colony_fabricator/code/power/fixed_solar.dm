@@ -28,6 +28,7 @@
 /obj/machinery/power/solar/fixed/examine(mob/user)
 	. = ..()
 	. += span_notice("You can rotate it in increments of 45 degrees with a [EXAMINE_HINT("wrench")] and [EXAMINE_HINT("Left or Right-Click")].")
+	. += span_notice("It can be taken apart with a [EXAMINE_HINT("crowbar")].")
 
 /obj/machinery/power/solar/fixed/wrench_act(mob/living/user, obj/item/tool)
 	return manual_rotation(user, tool, 45)

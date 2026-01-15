@@ -8,7 +8,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_ENGINEERING,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
 
 /datum/design/kitchen_knife_lizard
 	name = "Kitchen Knife"
@@ -20,7 +19,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/soup_pot_lizard
 	name = "Stout Soup Pot"
@@ -32,7 +30,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/food_press
 	name = "Food Press"
@@ -44,9 +41,8 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
-/datum/design/kitchen_knife_lizard
+/datum/design/ladle_lizard
 	name = "Ladle"
 	id = "ladle_lizard"
 	build_type = AMENITY_LATHE
@@ -56,7 +52,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/oven_tray_lizard
 	name = "Oven Tray"
@@ -68,7 +63,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/plate_lizard
 	name = "Plate"
@@ -80,7 +74,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/bowl_lizard
 	name = "Bowl"
@@ -92,7 +85,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/cutting_board_modern
 	name = "Cutting Board"
@@ -104,7 +96,6 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_KITCHEN,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE
 
 /datum/design/copper_flare
 	name = "Flare"
@@ -116,4 +107,3 @@
 		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_CONSTRUCTION + RND_SUBCATEGORY_CONSTRUCTION_LIGHTING,
 	)
-	departmental_flags = DEPARTMENT_BITFLAG_SERVICE | DEPARTMENT_BITFLAG_ENGINEERING
