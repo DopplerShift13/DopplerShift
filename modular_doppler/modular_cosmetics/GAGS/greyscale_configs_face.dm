@@ -66,3 +66,14 @@
 	name = "Faceplate Mask (Worn)(Snout)"
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/faceplate_eyes.json'
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face_snout.dmi'
+
+// COLORABLE GLASSES
+
+/datum/greyscale_config/recolorable_glasses
+	name = "Colorable Glasses"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/glasses.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/eyes/recolorable_glasses.json'
+
+/datum/greyscale_config/recolorable_glasses/worn
+	name = "Colorable Glasses (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/glasses.dmi'

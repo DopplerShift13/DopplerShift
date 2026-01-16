@@ -235,7 +235,7 @@
 	if(isnull(design))
 		stack_trace("got passed an invalid design id: [design_id] and somehow made it past all checks")
 		return
-	if(!(design.build_type & AUTOLATHE))
+	if(!(design.build_type & stored_research.allowed_buildtypes)) /// DOPPLER EDIT - CANT USE CUSTOM AUTOLATHES OTHERWISE - if(!(design.build_type & AUTOLATHE))
 		say("This fabricator does not have the necessary keys to decrypt this design.")
 		return
 
