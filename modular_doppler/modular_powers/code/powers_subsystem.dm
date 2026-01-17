@@ -68,6 +68,8 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		POWER_ARCHETYPE_RESONANT = list(),
 		POWER_ARCHETYPE_MORTAL = list(),
 	)
+	/// If sanitize had to nuke, this stores why (for prefs to display to player)
+	var/sanitize_nuke_reason
 
 /datum/controller/subsystem/processing/powers/Initialize()
 	get_powers()
@@ -132,6 +134,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 /// If no changes need to be made, will return the same list.
 /// Expects all power names to be unique, but makes no other expectations.
 /datum/controller/subsystem/processing/powers/proc/filter_invalid_powers(list/powers_to_check)
+	sanitize_nuke_reason = null
 	var/current_balance = 0
 	var/current_archetype
 	var/list/intermediary_powers = list()
@@ -182,14 +185,31 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 				break
 		if(blacklisted)
 			continue // Incompatible, discard.
+		intermediary_powers += power_name
 
-		// TODO: remove this and finish stuff
-		intermediary_powers += power_type.name
-	
+	// Build a set of selected power types.
+	var/list/selected_types = list()
+	for(var/power_name in intermediary_powers)
+		var/datum/power/power_type = all_powers[power_name]
+		selected_types[power_type] = TRUE
+
+	// If ANY selected power is missing ANY requirement, nuke the entire list.
+	for(var/power_name in intermediary_powers)
+		var/datum/power/power_type = all_powers[power_name]
+		var/list/required = GLOB.powers_requirements_list[power_type]
+		if(!length(required))
+			continue
+
+		for(var/datum/power/req_type as anything in required)
+			if(!selected_types[req_type])
+				sanitize_nuke_reason = "Saved powers reset: \"[power_name]\" requires [req_type], which was not present."
+				return list()
+
+	// Everything is fine = return as normal
 	if(intermediary_powers.len == powers_to_check.len)
 		return powers_to_check
-
 	return intermediary_powers
+
 
 	/** TODO: ALL THE REST OF THIS
 

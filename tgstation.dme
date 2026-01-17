@@ -7429,6 +7429,7 @@
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_enigmatist_root.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_enigmatist_spell.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\lodestone_legends.dm"
+#include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\test_powerthatrequirespower"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_root.dm"
 #include "modular_doppler\modular_quirks\atypical_tastes\atypical_tastes.dm"
 #include "modular_doppler\modular_quirks\atypical_tastes\code\preferences.dm"

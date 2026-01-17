@@ -18,6 +18,12 @@
 	)
 
 /datum/preference_middleware/powers/get_ui_data(mob/user)
+	// Show "kerplode" notice once when the UI is opened (avoids init spam)
+	// TODO: Move this when we overhaul this mess.
+	if(preferences.power_sanitize_notice)
+		to_chat(user, span_boldwarning("[preferences.power_sanitize_notice]"))
+		preferences.power_sanitize_notice = null
+
 	var/list/data = list()
 
 	var/list/thaumaturge = list()
@@ -196,7 +202,7 @@
 		return FALSE // We don't have this power.
 
 	// Make sure none of our other powers need this power.
-	
+
 	var/datum/power/requiring_power_type = get_requiring_power(power_type)
 	if(requiring_power_type)
 		to_chat(user, span_boldwarning("[power_name] is needed by [requiring_power_type.name]!"))
