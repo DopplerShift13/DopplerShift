@@ -24,8 +24,8 @@
 		return
 
 	// The message, resets after being send so you don't see it more than once.
-	if(prefs.power_sanitize_notice)
-		var/mob/user = ui.user
+	if(prefs?.power_sanitize_notice)
+		var/mob/user = ui?.user
 		if(user)
 			to_chat(user, span_boldwarning(prefs.power_sanitize_notice))
 		prefs.power_sanitize_notice = null
