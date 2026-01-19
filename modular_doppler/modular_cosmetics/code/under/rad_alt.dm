@@ -8,3 +8,4 @@
 	clothing_flags = THICKMATERIAL
 	can_adjust = FALSE
 	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	supports_variations_flags = NONE
