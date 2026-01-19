@@ -55,12 +55,6 @@
 		"advanced_r_arm",
 		"advanced_l_leg",
 		"advanced_r_leg",
-		// DOPPLER EDIT ADDITION BEGIN
-		"teshari_advanced_l_arm",
-		"teshari_advanced_r_arm",
-		"teshari_advanced_l_leg",
-		"teshari_advanced_r_leg",
-		// DOPPLER EDIT END
 		"borg_upgrade_rename",
 		"borg_upgrade_restart",
 	)

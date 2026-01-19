@@ -1,3 +1,16 @@
+/**
+ * Returns a mutable appearance of [clothing], adjusted for bodyshape and offsets. Effectively the final step in update icons for clothing.
+ *
+ * Args:
+ * * obj/item/clothing: The clothing item we are getting a new appearance for.
+ * * layer: The layer the resultant appearance will be using.
+ * * slot: The item slot of the clothing item. OFFSET_UNIFORM, etc
+ * * icon_file: The DEFAULT icon file that will be used. Will be overridden by bodyshape modifiers if applicable!
+ * * datum/worn_feature_offset/offset: The offset to be applied to the resultant appearance, if no bodyshape override was found/created. Nullable.
+ *
+ * Returns:
+ * * A /mutable_appearance, either from a cache or newly created, adjusted by bodyshape and offsets.
+ */
 /mob/living/carbon/human/proc/get_updated_worn_icon(obj/item/clothing, layer, slot, icon_file, datum/worn_feature_offset/offset)
 	RETURN_TYPE(/mutable_appearance)
 

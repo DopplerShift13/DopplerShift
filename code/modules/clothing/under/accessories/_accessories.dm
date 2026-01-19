@@ -138,7 +138,7 @@
 					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
 						break
 	// DOPPLER EDIT END
-	var/mutable_appearance/appearance = mutable_appearance(local_worn_icon, icon_state) // DOPPLER SHIFT EDIT
+	var/mutable_appearance/appearance = mutable_appearance(local_worn_icon, icon_state) // DOPPLER SHIFT EDIT - was var/mutable_appearance/appearance = mutable_appearance(worn_icon, icon_state)
 	appearance.alpha = alpha
 	appearance.color = color
 	return appearance
