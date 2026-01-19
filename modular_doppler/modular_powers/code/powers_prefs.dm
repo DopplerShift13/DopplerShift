@@ -19,6 +19,7 @@
 		LAZYADD(feedback, "Your powers were removed because of the following reasons:")
 		LAZYADD(feedback, powers_removed)
 		if(LAZYLEN(feedback))
+			// This doesn't work if the player joins the game with an invalid file. SAD!
 			to_chat(parent, span_greentext(feedback.Join("\n")))
 		return TRUE
 	return FALSE
