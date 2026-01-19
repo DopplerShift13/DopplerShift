@@ -6,23 +6,20 @@
 /datum/preferences
 	/// List of all our powers, by name.
 	var/list/all_powers = list()
-	var/power_sanitize_notice
 
 
 /datum/preferences/proc/sanitize_powers()
-	// Returns TRUE if changes were made.
 	var/list/new_powers = SSpowers.filter_invalid_powers(all_powers)
+	var/list/powers_removed = SSpowers.powers_removed
+	var/list/feedback
 
-	// If the subsystem nuked the list, tell the player why.
-	if(!length(new_powers) && SSpowers.sanitize_nuke_reason)
+	// If filter_invalid_powers came back with removed powers, we apply the changes and give feedback
+	if(LAZYLEN(powers_removed) && !length(new_powers))
 		all_powers = list()
-		power_sanitize_notice = SSpowers.sanitize_nuke_reason
+		LAZYADD(feedback, "Your powers were removed because of the following reasons:")
+		LAZYADD(feedback, powers_removed)
+		if(LAZYLEN(feedback))
+			to_chat(parent, span_greentext(feedback.Join("\n")))
 		return TRUE
-
-	// Changes were made but we didn't nuke everythin
-	if(length(new_powers) != length(all_powers))
-		all_powers = new_powers
-		return TRUE
-
 	return FALSE
 
