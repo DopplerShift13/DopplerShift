@@ -17,6 +17,21 @@
 		"remove_power" = PROC_REF(remove_power),
 	)
 
+/datum/preference_middleware/powers/ui_act(action, list/params, datum/tgui/ui, datum/preferences/prefs)
+	// Notice that power preferences were nuked; queqed to occur when the user opens the character setup UI
+	. = ..()
+	if(.)
+		return
+
+	// The message, resets after being send so you don't see it more than once.
+	if(prefs.power_sanitize_notice)
+		var/mob/user = ui.user
+		if(user)
+			to_chat(user, span_boldwarning(prefs.power_sanitize_notice))
+		prefs.power_sanitize_notice = null
+
+	return FALSE
+
 /datum/preference_middleware/powers/get_ui_data(mob/user)
 	// Show "kerplode" notice once when the UI is opened (avoids init spam)
 	// TODO: Move this when we overhaul this mess.
