@@ -57,8 +57,8 @@
 	worn_icon_state = "jacket"
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 	armor_type = /datum/armor/colonist_clothing
@@ -103,8 +103,8 @@
 	worn_icon_state = "flak"
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	body_parts_covered = CHEST
 	cold_protection = CHEST|GROIN
@@ -159,8 +159,8 @@
 	worn_icon_state = "tanker"
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	armor_type = /datum/armor/colonist_armor
 	resistance_flags = NONE
@@ -183,12 +183,12 @@
 	worn_icon_state = "radio"
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	alternate_worn_layer = FACEMASK_LAYER + 0.5
 	subspace_transmission = FALSE
-//	radio_talk_sound = 'modular_doppler/kahraman_equipment/sounds/morse_signal.wav'
+//	radio_talk_sound = 'modular_doppler/colony_fabricator/sounds/morse_signal.wav'
 
 /obj/item/radio/headset/headset_frontier_colonist/Initialize(mapload)
 	. = ..()
@@ -225,8 +225,8 @@
 	worn_icon_state = "gloves"
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/kahraman_equipment/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	greyscale_colors = "#3a373e"
 	siemens_coefficient = 0.25 // Doesn't insulate you entirely, but makes you a little more resistant

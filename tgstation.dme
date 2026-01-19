@@ -464,7 +464,6 @@
 #include "code\__DEFINES\~doppler_defines\species_clothing_paths.dm"
 #include "code\__DEFINES\~doppler_defines\speech_channels.dm"
 #include "code\__DEFINES\~doppler_defines\strippable.dm"
-#include "code\__DEFINES\~doppler_defines\techweb_nodes.dm"
 #include "code\__DEFINES\~doppler_defines\teshari.dm"
 #include "code\__DEFINES\~doppler_defines\text.dm"
 #include "code\__DEFINES\~doppler_defines\traits.dm"
