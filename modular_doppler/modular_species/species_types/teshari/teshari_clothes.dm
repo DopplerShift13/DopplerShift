@@ -195,6 +195,10 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/back.dmi'
 	)
 
+/obj/item/storage/backpack/messenger
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
+
 /obj/item/gravity_harness
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
