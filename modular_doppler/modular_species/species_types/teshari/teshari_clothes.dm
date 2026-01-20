@@ -233,7 +233,7 @@
 /obj/item/storage/belt/medical
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi',
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
 	)
 

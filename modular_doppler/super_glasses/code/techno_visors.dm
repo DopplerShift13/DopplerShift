@@ -7,6 +7,8 @@
 	icon = 'modular_doppler/super_glasses/icons/visors.dmi'
 	icon_state = "black"
 	worn_icon = 'modular_doppler/super_glasses/icons/worn/visors.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 	worn_icon_state = "black"
 	obj_flags = UNIQUE_RENAME | INFINITE_RESKIN
 	uses_advanced_reskins = TRUE

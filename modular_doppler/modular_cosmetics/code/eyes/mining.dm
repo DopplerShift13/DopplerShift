@@ -13,6 +13,8 @@
 	color_cutoffs = list(15, 15, 5)
 	resistance_flags = FIRE_PROOF
 	glass_colour_type = /datum/client_colour/glass_colour/yellow
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/glasses/mining_meson/attack_self(mob/living/user)
 	adjust_visor(user)
