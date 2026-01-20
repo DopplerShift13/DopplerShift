@@ -51,8 +51,9 @@
 	return 'modular_doppler/modular_species/species_types/teshari/sounds/raptorscream.ogg'
 
 /obj/item/organ/tongue/teshari
-	liked_foodtypes = SEAFOOD | VEGETABLES | NUTS
-	disliked_foodtypes = GROSS | GRAIN
+	liked_foodtypes = RAW | MEAT | GORE
+	disliked_foodtypes = GROSS | CLOTH | BUGS
+	toxic_foodtypes = parent_type::toxic_foodtypes | FRUIT
 
 /datum/species/teshari/prepare_human_for_preview(mob/living/carbon/human/tesh)
 	var/base_color = "#c0965f"
