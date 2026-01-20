@@ -19,6 +19,11 @@
 					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
 						return accessory_overlay // dont modify
 
+	// TEMPORARY TM ONLY FIX - Accesories are cached when they shouldnt be. Thus tesh accessories stack their offset forever
+	// REMOVE THIS ONCE WE FIX THIS ON TG
+	accessory_overlay.pixel_w = 0
+	accessory_overlay.pixel_z = 0
+	// Temporary fix end
 	my_chest?.worn_accessory_offset?.apply_offset(accessory_overlay)
 
 	return accessory_overlay
