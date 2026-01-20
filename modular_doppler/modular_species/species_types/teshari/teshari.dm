@@ -104,10 +104,10 @@
 
 /datum/species/teshari/get_species_lore()
 	var/static/desc = list(
-		"A race of feathered, carnivous scavengers, the Teshari descend from the tundra moon Sirisai IV, in orbit around the much larger Sirisai Prime - a gas giant often revered and feared as a portal to the underworld. \"
-		"Teshari are a tribal, scattered people. Making do with scavenged and reverse-engineered technology, the Teshari roam their ruined homeworld to recover their dead, find treasures, and find a new future.",
+		"A race of feathered, carnivous scavengers, the Teshari descend from the tundra moon Sirisai IV, in orbit around the much larger Sirisai Prime - a gas giant often revered and feared as a portal to the underworld. \
+		Teshari are a tribal, scattered people. Making do with scavenged and reverse-engineered technology, the Teshari roam their ruined homeworld to recover their dead, find treasures, and find a new future.",
 		"Teshari consider their dead sacred. In order for a soul to be \"light\", the body which houses it must be well kept. Burning a corpse is to damn a Teshari - keeping their bones, embroidering them, preserving their corpse - all ways to make a soul lighter. \
-		Some Teshari are even made into meals to be consumed by their tribemates, their lovers, their friends - such an act is extremely meaningful in Teshari culture, even if outside observers are often reviled by it."
+		Some Teshari are even made into meals to be consumed by their tribemates, their lovers, their friends - such an act is extremely meaningful in Teshari culture, even if outside observers are often reviled by it.",
 		"",
 		"Much of Teshari history is formed, and lost, by and due to the event termed the \"Cataclysm\". Two hundred years ago, what is now understood as stray ordnance from a long-ended war struck the planet, destroying its ecosystem and \
 		plunging its inhabitants into a dark age. Its colonies withered and died, many taken over by the Tiziran clan Talunan, while the planet itself was left to recover, with its massively dwindled population.",
@@ -116,6 +116,7 @@
 	)
 
 	return desc
+
 /datum/species/teshari/can_regenerate_mutant_feature(feature_key)
 	if (feature_key == FEATURE_EARS || feature_key == FEATURE_TAIL_OTHER)
 		return TRUE
