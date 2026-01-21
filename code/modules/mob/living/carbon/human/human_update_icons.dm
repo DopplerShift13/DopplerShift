@@ -681,7 +681,7 @@ There are several things that need to be remembered:
 
 /// Modifies a sprite slightly to conform to female body shapes
 /proc/wear_female_version(icon_state, icon, type, greyscale_colors)
-	var/index = "[icon_state]-[greyscale_colors]"
+	var/index = "[icon]-[icon_state]-[greyscale_colors]" // DOPPLER EDIT CHANGE - Include icon in key to cache per bodyshape - original: var/index = "[icon_state]-[greyscale_colors]"
 	var/static/list/female_clothing_icons = list()
 	var/icon/female_clothing_icon = female_clothing_icons[index]
 	if(!female_clothing_icon) //Create standing/laying icons if they don't exist
@@ -934,15 +934,13 @@ generate/load female uniform sprites matching all previously decided variables
 
 	var/mutable_appearance/draw_target // MA of the item itself, not the final result
 	var/icon/building_icon // used to construct an icon across multiple procs before converting it to MA
-	/// DOPPLER SHIFT REMOVAL BEGIN - see below; migrating this down to better support hybrids of female critter + digi or other legs
-	/*if(female_uniform)
+	if(female_uniform)
 		building_icon = wear_female_version(
 			icon_state = t_state,
 			icon = file2use,
 			type = female_uniform,
 			greyscale_colors = greyscale_colors,
-		)*/
-	/// DOPPLER SHIFT REMOVAL END
+		)
 	if(!isinhands && is_digi && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
 		building_icon = wear_digi_version(
 			base_icon = building_icon || icon(file2use, t_state),
@@ -950,15 +948,6 @@ generate/load female uniform sprites matching all previously decided variables
 			key = "[t_state]-[file2use]-[female_uniform]",
 			greyscale_colors = greyscale_colors,
 		)
-	/// DOPPLER SHIFT ADDITION BEGIN - we migrate this down here & use building_icon to allow for auto-generated digi sprites to still support ladies
-	if(female_uniform)
-		building_icon = wear_female_version(
-			icon_state = t_state,
-			icon = istype(building_icon) ? building_icon : file2use,
-			type = female_uniform,
-			greyscale_colors = greyscale_colors,
-		)
-	/// DOPPLER SHIFT ADDITION END
 	/// DOPPLER SHIFT ADDITION START - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0
 	if (istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)

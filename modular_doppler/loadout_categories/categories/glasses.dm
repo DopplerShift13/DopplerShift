@@ -219,3 +219,7 @@
 /datum/loadout_item/glasses/other/osisunglasses
 	name = "O.S.I. Sunglasses"
 	item_path = /obj/item/clothing/glasses/osi
+
+/datum/loadout_item/glasses/other/recolorable_glasses
+	name = "Glasses (Colorable)"
+	item_path = /obj/item/clothing/glasses/recolorable

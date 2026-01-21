@@ -1,6 +1,6 @@
 /obj/structure/mineral_door/manual_colony_door
 	name = "manual airlock"
-	icon = 'modular_doppler/colony_fabricator/icons/doors/airlock_manual.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/construction/airlock_manual.dmi'
 	material_flags = NONE
 	icon_state = "manual"
 	openSound = 'modular_doppler/colony_fabricator/sounds/manual_door/manual_door_open.wav'
@@ -71,12 +71,12 @@
 /obj/item/flatpacked_machine/airlock_kit_manual
 	name = "manual airlock parts kit"
 	desc = /obj/structure/mineral_door/manual_colony_door::desc
-	icon = 'modular_doppler/colony_fabricator/icons/doors/packed.dmi'
+	icon = 'modular_doppler/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "airlock_parts_manual"
 	type_to_deploy = /obj/structure/mineral_door/manual_colony_door
 	custom_materials = list(
-		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3,
-		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
-		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 1,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1,
+		/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 2,
 	)
 	w_class = WEIGHT_CLASS_NORMAL

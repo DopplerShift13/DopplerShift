@@ -23,13 +23,13 @@
 	var/life_support_failed = FALSE
 	/// Alternate icon files for each modular skin
 	var/list/modular_icon_files = list(
-		"colonist" = 'modular_doppler/kahraman_equipment/icons/modsuits/mod.dmi',
+		"colonist" = 'modular_doppler/colony_fabricator/icons/modsuits/mod.dmi',
 		"moonlight" = 'modular_doppler/special_modsuits/icons/mod.dmi',
 		"orbiter" = 'modular_doppler/special_modsuits/icons/mod.dmi',
 	)
 	/// Alternate icon files for each modular worn skin
 	var/list/modular_worn_files = list(
-		"colonist" = 'modular_doppler/kahraman_equipment/icons/modsuits/mod_worn.dmi',
+		"colonist" = 'modular_doppler/colony_fabricator/icons/modsuits/mod_worn.dmi',
 		"moonlight" = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
 		"orbiter" = 'modular_doppler/special_modsuits/icons/mod_worn.dmi',
 	)

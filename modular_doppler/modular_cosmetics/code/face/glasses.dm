@@ -611,6 +611,20 @@
 	category = CAT_CLOTHING
 //eyepatches end//
 
+//Regular Glasses
+
+/obj/item/clothing/glasses/recolorable
+	name = "glasses"
+	desc = "What's your favorite color to see through?"
+	icon = 'icons/map_icons/clothing/_clothing.dmi'
+	icon_state = "/obj/item/clothing/glasses/recolorable"
+	post_init_icon_state = "recolorable_glasses"
+	greyscale_colors = "#cfd1d4#D5D5B9"
+	greyscale_config = /datum/greyscale_config/recolorable_glasses
+	greyscale_config_worn = /datum/greyscale_config/recolorable_glasses/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
 #undef MODE_OFF
 #undef MODE_OFF_FLASH_PROTECTION
 #undef MODE_ON

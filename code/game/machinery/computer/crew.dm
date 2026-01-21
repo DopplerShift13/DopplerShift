@@ -250,10 +250,10 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 				entry["ijob"] = jobs[trim_assignment]
 
 		// DOPPLER EDIT ADDITION START
-		if (isandroid(tracked_human))
-			var/datum/species/android/energy_holder = tracked_human.dna.species
+		var/obj/item/organ/stomach/charging/charging_stomach = tracked_human.get_organ_slot(ORGAN_SLOT_STOMACH)
+		if(istype(charging_stomach))
 			entry["is_robot"] = TRUE
-			entry["charge"] = "[round((energy_holder.core_energy/1000000), 0.1)]MJ"
+			entry["charge"] = charging_stomach.get_charge_string()
 		// DOPPLER EDIT ADDITION END
 
 		// Broken sensors show garbage data

@@ -1,0 +1,16 @@
+{
+	"recolorable_glasses": [
+		{
+			"type": "icon_state",
+			"icon_state": "recolorable_glasses",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "recolorable_glasses_frames",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}
