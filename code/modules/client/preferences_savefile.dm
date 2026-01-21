@@ -364,6 +364,12 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	if(SHOULD_UPDATE_DATA(data_validity_integer))
 		update_character(data_validity_integer, save_data)
 
+	// DOPPLER SHIFT ADDITION BEGIN
+	if(check_for_old_powers(save_data))
+		//We get rid of all the powers that once prevously existed from the old system.
+		save_data?["powers"] = list()
+	// DOPPLER SHIFT ADDITION END
+
 	//Sanitize
 	randomise = SANITIZE_LIST(randomise)
 	job_preferences = SANITIZE_LIST(job_preferences)
