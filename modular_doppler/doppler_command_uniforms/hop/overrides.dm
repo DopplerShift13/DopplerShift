@@ -3,6 +3,8 @@
 	worn_icon = 'modular_doppler/doppler_command_uniforms/hop/worn.dmi'
 	icon_state = "uniform"
 	inhand_icon_state = null
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/under/rank/civilian/head_of_personnel/skirt
 	icon = 'modular_doppler/doppler_command_uniforms/hop/icon.dmi'
@@ -19,6 +21,8 @@
 	worn_icon = 'modular_doppler/doppler_command_uniforms/hop/worn.dmi'
 	icon_state = "jacket"
 	inhand_icon_state = null
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/head/hats/hopcap
 	icon = 'modular_doppler/doppler_command_uniforms/hop/icon.dmi'
@@ -31,6 +35,8 @@
 	worn_icon = 'modular_doppler/doppler_command_uniforms/hop/worn.dmi'
 	icon_state = "wintercoat"
 	inhand_icon_state = null
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/head/hooded/winterhood/hop
 	icon = 'modular_doppler/doppler_command_uniforms/hop/icon.dmi'
