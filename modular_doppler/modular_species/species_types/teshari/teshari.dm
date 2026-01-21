@@ -12,12 +12,14 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 		TRAIT_NO_UNDERWEAR,
+		TRAIT_STRONG_STOMACH
 	)
 	mutantears = /obj/item/organ/ears/teshari
 	digitigrade_customization = DIGITIGRADE_NEVER
 	changesource_flags = MIRROR_BADMIN | WABBAJACK | MIRROR_MAGIC | MIRROR_PRIDE | ERT_SPAWN | RACE_SWAP | SLIME_EXTRACT
 	payday_modifier = 1.0
 	mutanttongue = /obj/item/organ/tongue/teshari
+	mutanteyes = /obj/item/organ/eyes/teshari
 	coldmod = TESHARI_COLDMOD
 	heatmod = TESHARI_HEATMOD
 	bodytemp_normal = BODYTEMP_NORMAL + TESHARI_TEMP_OFFSET
@@ -49,6 +51,9 @@
 
 /datum/species/teshari/get_scream_sound(mob/living/carbon/human/human)
 	return 'modular_doppler/modular_species/species_types/teshari/sounds/raptorscream.ogg'
+
+/obj/item/organ/eyes/teshari
+	blink_animation = FALSE
 
 /obj/item/organ/tongue/teshari
 	liked_foodtypes = RAW | MEAT | GORE
@@ -85,6 +90,12 @@
 		SPECIES_PERK_ICON = FA_ICON_EAR_LISTEN,
 		SPECIES_PERK_NAME = "Sensitive Hearing",
 		SPECIES_PERK_DESC = "Your ears are extremely sensitive, and can hear whispers. Unfortunately, this also increases ear damage taken..."
+	))
+	perk_descriptions += list(list(
+		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
+		SPECIES_PERK_ICON = FA_ICON_BIOHAZARD,
+		SPECIES_PERK_NAME = "Carrion Eater",
+		SPECIES_PERK_DESC = "Your biology is well suited to eating stale food. You don't get disgusted, nor get diseases, from eating old or rotting food."
 	))
 	perk_descriptions += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,

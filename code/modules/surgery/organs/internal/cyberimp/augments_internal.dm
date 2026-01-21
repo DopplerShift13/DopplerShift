@@ -34,7 +34,7 @@
 
 /obj/item/organ/cyberimp/on_bodypart_insert(obj/item/bodypart/limb)
 	. = ..()
-	if (bodypart_aug)
+	if (bodypart_aug && !(limb.bodyshape & BODYSHAPE_TESHARI)) // DOPPLER EDIT - was if (bodypart_aug)
 		limb.add_bodypart_overlay(bodypart_aug)
 
 /obj/item/organ/cyberimp/on_bodypart_remove(obj/item/bodypart/limb)
