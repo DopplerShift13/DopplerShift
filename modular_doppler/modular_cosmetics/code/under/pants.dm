@@ -4,22 +4,22 @@
 	digitigrade_greyscale_config_worn = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi',
-	BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi')
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi',
+	)
 
-/obj/item/clothing/under/pants/slacks/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/slacks/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/slacks/worn/digi
-	set_greyscale(colors = greyscale_colors)
+/obj/item/clothing/under/pants/slacks
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/slacks/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/slacks/worn/digi,
+	)
 
-/obj/item/clothing/under/pants/jeans/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/jeans/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/jeans/worn/digi
-	set_greyscale(colors = greyscale_colors)
+/obj/item/clothing/under/pants/jeans
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/jeans/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/jeans/worn/digi,
+	)
 
 /obj/item/clothing/under/pants/track
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
@@ -28,14 +28,11 @@
 	greyscale_colors = "#2b2b2b#FFFFFF"
 	greyscale_config = /datum/greyscale_config/track_pants
 	greyscale_config_worn = /datum/greyscale_config/track_pants/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/track_pants/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/track_pants/worn/digi,
+	)
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/under/pants/track/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/track_pants/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/track_pants/worn/digi
-	set_greyscale(colors = greyscale_colors)
 
 /obj/item/clothing/under/pants/camo
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
@@ -44,14 +41,11 @@
 	greyscale_colors = "#69704C#6E5B4C#343741"
 	greyscale_config = /datum/greyscale_config/camo_pants
 	greyscale_config_worn = /datum/greyscale_config/camo_pants/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/camo_pants/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/camo_pants/worn/digi,
+	)
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/under/pants/camo/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/camo_pants/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/camo_pants/worn/digi
-	set_greyscale(colors = greyscale_colors)
 
 /obj/item/clothing/under/pants/jeans/ripped
 	name = "ripped jeans"
@@ -61,13 +55,11 @@
 	post_init_icon_state = "ripped_jeans"
 	greyscale_config = /datum/greyscale_config/ripped_jeans
 	greyscale_config_worn = /datum/greyscale_config/ripped_jeans/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/ripped_jeans/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/ripped_jeans/worn/digi,
+	)
 
-/obj/item/clothing/under/pants/jeans/ripped/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/ripped_jeans/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/ripped_jeans/worn/digi
-	set_greyscale(colors = greyscale_colors)
 
 /// SHORTS UPDATES
 
@@ -76,22 +68,20 @@
 	digitigrade_greyscale_config_worn = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi',
-	BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi')
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi',
+	)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/shorts/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/shorts/worn/digi,
+	)
 
-/obj/item/clothing/under/shorts/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/shorts/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/shorts/worn/digi
-	set_greyscale(colors = greyscale_colors)
-
-/obj/item/clothing/under/shorts/jeanshorts/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/jeanshorts/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/jeanshorts/worn/digi
-	set_greyscale(colors = greyscale_colors)
+/obj/item/clothing/under/shorts/jeanshorts
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/jeanshorts/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/jeanshorts/worn/digi,
+	)
 
 /obj/item/clothing/under/shorts/shorter
 	name = "short shorts"
@@ -100,13 +90,10 @@
 	post_init_icon_state = "shortshorts"
 	greyscale_config = /datum/greyscale_config/skimpypants
 	greyscale_config_worn = /datum/greyscale_config/skimpypants/worn
-
-/obj/item/clothing/under/shorts/shorter/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/skimpypants/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/skimpypants/worn/digi
-	set_greyscale(colors = greyscale_colors)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/skimpypants/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/skimpypants/worn/digi,
+	)
 
 /obj/item/clothing/under/shorts/shorter/shortest
 	name = "shortest shorts"
@@ -132,6 +119,31 @@
 	desc = "A lone skirt, suitable to combo with your favorite getup."
 	icon_state = "/obj/item/clothing/under/shorts/shorter/skirt"
 	post_init_icon_state = "skirt"
+
+/obj/item/clothing/under/shortalls
+	name = "short overalls"
+	desc = "A pair of dungarees whose legs terminate at hand length."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/shortalls"
+	post_init_icon_state = "shortalls"
+	species_exception = list(/datum/species/golem)
+	greyscale_colors = "#66ccff"
+	greyscale_config = /datum/greyscale_config/shortalls
+	greyscale_config_worn = /datum/greyscale_config/shortalls/worn
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/shortalls/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/shortalls/worn/digi,
+	)
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|GROIN
+	can_adjust = FALSE
+
+/obj/item/clothing/under/shortalls/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
 
 /obj/item/clothing/under/dress/skirt/medium
 	name = "medium skirt"
