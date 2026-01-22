@@ -15,21 +15,21 @@
 		if(!check_rights(R_SPAWN))
 			return
 		var/list/options = list("Clear"="Clear")
-		for(var/x in subtypesof(/datum/power))
-			var/datum/power/pow = x
-			var/name = initial(pow.name)
-			options[src.has_power(pow) ? "[name] (Remove)" : "[name] (Add)"] = pow
+		for(var/listedpower in subtypesof(/datum/power))
+			var/datum/power/power = listedpower
+			var/name = initial(power.name)
+			options[src.has_power(power) ? "[name] (Remove)" : "[name] (Add)"] = power
 		var/result = input(usr, "Choose power to add/remove","Power Mod") as null|anything in sort_list(options)
 		if(result)
 			if(result == "Clear")
-				for(var/datum/power/p in powers)
-					remove_power(p.type)
+				for(var/datum/power/toberemoved in powers)
+					remove_power(toberemoved.type)
 			else
-				var/T = options[result]
-				if(has_power(T))
-					remove_power(T)
+				var/chosen = options[result]
+				if(has_power(chosen))
+					remove_power(chosen)
 				else
-					add_power(T)
+					add_power(chosen)
 
 // Checks if a power is on the selected target
 /mob/living/carbon/human/proc/has_power(powertype)
@@ -46,15 +46,15 @@
 	if(!SSpowers || !SSpowers.powers[pname])
 		return FALSE
 	var/datum/power/power = new powertype()
-	if(power.add_to_holder(new_holder = src, power_transfer = power_transfer, client_source = override_client, unique = unique))
-		return TRUE
-	qdel(power)
-	return FALSE
+	if(!power.add_to_holder(new_holder = src, power_transfer = power_transfer, client_source = override_client, unique = unique))
+		qdel(power)
+		return FALSE
+	return TRUE
 
 // Removes a power.
 /mob/living/carbon/human/proc/remove_power(powertype)
 	for(var/datum/power/power in powers)
-		if(power.type == powertype)
-			qdel(power)
-			return TRUE
-	return FALSE
+		if(!power.type == powertype)
+			return FALSE
+		qdel(power)
+		return TRUE
