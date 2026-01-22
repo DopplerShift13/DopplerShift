@@ -1,3 +1,4 @@
+/* DOPPLER EDIT - IN MODULAR LOADOUT
 /datum/loadout_category/suits
 	category_name = "Suits"
 	category_ui_icon = FA_ICON_USER_SECRET
@@ -27,7 +28,6 @@
 
 	outfit.suit = item_path
 
-/* DOPPLER EDIT - IN MODULAR LOADOUT
 /datum/loadout_item/suit/overall
 	name = "Overall"
 	item_path = /obj/item/clothing/suit/apron/overalls
