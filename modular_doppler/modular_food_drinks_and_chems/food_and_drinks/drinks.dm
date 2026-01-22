@@ -59,7 +59,7 @@
 	QDEL_IN(src, 1 SECONDS) // give it a second so it can still be logged for the throw impact
 
 /obj/item/trash/can/doppler
-	icon = 'modular_doppler/clutter objects/icons/janitor.dmi'
+	icon = 'modular_doppler/clutter_objects/icons/janitor.dmi'
 	icon_state = "lemonade"
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/lubricola
