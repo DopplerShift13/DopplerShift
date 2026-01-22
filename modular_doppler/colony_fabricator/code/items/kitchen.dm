@@ -69,7 +69,6 @@
 	name = "bowl"
 	desc = "A simple bowl, used for soups. What's a salad you ask? I couldn't tell you."
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
-	reagent_flags = OPENCONTAINER | DUNKABLE
 	w_class = WEIGHT_CLASS_SMALL
 	custom_materials = list(
 		/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3,
