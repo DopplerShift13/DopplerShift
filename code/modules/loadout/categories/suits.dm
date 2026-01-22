@@ -27,6 +27,7 @@
 
 	outfit.suit = item_path
 
+/* DOPPLER EDIT - IN MODULAR LOADOUT
 /datum/loadout_item/suit/overall
 	name = "Overall"
 	item_path = /obj/item/clothing/suit/apron/overalls
@@ -40,3 +41,4 @@
 		/datum/job/paramedic = "#28324b",
 		/datum/job/prisoner = "#ff8b00",
 	)
+*/
