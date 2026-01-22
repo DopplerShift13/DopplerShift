@@ -149,15 +149,8 @@ GLOBAL_LIST_EMPTY(bodyshape_autogen_clothing_cache)
 		if ((item_slot == OFFSET_FACEMASK || item_slot == OFFSET_HEAD) && (supported_bodyshapes & BODYSHAPE_SNOUTED))
 			if (!ishuman(loc))
 				return final_icon
-			var/mob/living/carbon/human/human_owner = loc
-			var/obj/item/bodypart/head/my_head = human_owner.get_bodypart(BODY_ZONE_HEAD)
-			var/datum/worn_feature_offset/selected_offset
 			var/human_icon = bodyshape_icon_files[BODYSHAPE_SNOUTED_T]
 			var/human_icon_state = worn_icon_state || icon_state
-			if(item_slot == OFFSET_HEAD)
-				selected_offset = my_head?.worn_head_offset
-			else
-				selected_offset = my_head?.worn_mask_offset
 
 			// Did the snout variation flag lie to us?
 			if(!icon_exists(human_icon, human_icon_state))
@@ -169,9 +162,9 @@ GLOBAL_LIST_EMPTY(bodyshape_autogen_clothing_cache)
 			if(cached_icon)
 				return cached_icon
 
-			// Generate muzzled icon, but offset
+			// Generate muzzled icon
 			var/icon/new_icon = icon('icons/blanks/32x32.dmi', "nothing")
-			new_icon.Blend(icon(human_icon, human_icon_state), ICON_OVERLAY, x = selected_offset.offset_x["north"], y = selected_offset.offset_y["north"])
+			new_icon.Blend(icon(human_icon, human_icon_state), ICON_OVERLAY)
 			new_icon.Insert(new_icon, human_icon_state)
 			set_autogen_worn_icon_cached(human_icon, human_icon_state, "m", new_icon)
 

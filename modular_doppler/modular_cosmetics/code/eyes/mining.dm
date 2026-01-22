@@ -39,3 +39,8 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/eyes/mining.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/eyes/mining.dmi'
 	glass_colour_type = /datum/client_colour/glass_colour/blue
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/eyes/mining.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)

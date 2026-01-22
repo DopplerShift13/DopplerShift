@@ -107,12 +107,8 @@
 	return perk_descriptions
 
 /datum/species/teshari/get_species_description()
-	var/static/desc = list(
-		"Short of stature, full of heart, the Teshari race has recently entered the galactic stage after a cataclysmic event wrecked their homeworld Sirisai.",
-		"Having - somewhat - bounced back, these agile avians are slowly spreading throughout all of space, bringing their death-worship and 'interesting' cuisine (read: carrion) with them.",
-	)
-
-	return desc
+	return "Short of stature, full of heart, the Teshari race has recently entered the galactic stage after a cataclysmic event wrecked their homeworld Sirisai. \
+		Having - somewhat - bounced back, these agile avians are slowly spreading throughout all of space, bringing their death-worship and 'interesting' cuisine (read: carrion) with them."
 
 /datum/species/teshari/get_species_lore()
 	var/static/desc = list(

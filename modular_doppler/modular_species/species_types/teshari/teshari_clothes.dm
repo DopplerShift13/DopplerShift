@@ -252,24 +252,7 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
 	)
 
-
-/obj/item/storage/belt/mining
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
-	)
-
-
 /obj/item/storage/belt/security/webbing
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
-	)
-
-
-/obj/item/storage/belt/mining
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/belt.dmi',
@@ -519,6 +502,10 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
 	)
 
+/obj/item/clothing/head/wizard/marisa
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
+
 /obj/item/clothing/head/costume/maid_headband
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
@@ -539,9 +526,17 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi',
 		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
 	)
+
+/obj/item/clothing/mask/gas/atmos
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_SNOUTED)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
+	)
+
 /obj/item/clothing/mask/joy
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
 	bodyshape_icon_files = list(

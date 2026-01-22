@@ -1,6 +1,6 @@
 /obj/item/bodypart/head/mutant/teshari
 	icon_greyscale = BODYPART_ICON_TESHARI
-	bodyshape = parent_type::bodyshape | BODYSHAPE_TESHARI | BODYSHAPE_SNOUTED
+	bodyshape = parent_type::bodyshape | BODYSHAPE_TESHARI
 	eyes_icon = 'modular_doppler/modular_species/species_types/teshari/icons/teshari_eyes.dmi'
 	limb_id = SPECIES_TESHARI
 	brute_modifier = TESHARI_BRUTE_MODIFIER
