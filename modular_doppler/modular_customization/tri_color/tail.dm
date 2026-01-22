@@ -5,12 +5,12 @@
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/tail_felinid/compile_constant_data()
+/datum/preference/choiced/species_feature/tail_felinid/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/monkey_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/monkey_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data

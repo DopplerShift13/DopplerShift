@@ -150,12 +150,12 @@
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Cat
-/datum/preference/choiced/tail_felinid
+/datum/preference/choiced/species_feature/tail_felinid
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
-/datum/preference/choiced/tail_felinid/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/tail_felinid/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.species_blacklist_no_mutant)
@@ -165,13 +165,13 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/tail_felinid/create_default_value()
+/datum/preference/choiced/species_feature/tail_felinid/create_default_value()
 	return /datum/sprite_accessory/tails/human/none::name
 
-/datum/preference/choiced/tail_felinid/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/tail_felinid/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_TAIL_CAT] = value
 
-/datum/preference/choiced/tail_felinid/icon_for(value)
+/datum/preference/choiced/species_feature/tail_felinid/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_CAT]
 	return generate_back_icon(chosen_tail, "tail")
 
@@ -336,12 +336,12 @@
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Monkey
-/datum/preference/choiced/monkey_tail
+/datum/preference/choiced/species_feature/monkey_tail
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
 
-/datum/preference/choiced/monkey_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/monkey_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.species_blacklist_no_mutant)
@@ -351,13 +351,13 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/monkey_tail/create_default_value()
+/datum/preference/choiced/species_feature/monkey_tail/create_default_value()
 	return /datum/sprite_accessory/tails/monkey/none::name
 
-/datum/preference/choiced/monkey_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/monkey_tail/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_TAIL_MONKEY] = value
 
-/datum/preference/choiced/monkey_tail/icon_for(value)
+/datum/preference/choiced/species_feature/monkey_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_MONKEY]
 	return generate_back_icon(chosen_tail, "tail")
 
