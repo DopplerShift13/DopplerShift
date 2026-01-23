@@ -42,7 +42,7 @@
 		/datum/reagent/consumable/mushroom_tea,
 		/datum/reagent/consumable/vanilla,
 	)
-	default_upgrade_reagents = list(
+	upgrade_reagents = list(
 		/datum/reagent/consumable/aloejuice,
 		/datum/reagent/consumable/ethanol/gin,
 		/datum/reagent/consumable/ethanol/kortara,

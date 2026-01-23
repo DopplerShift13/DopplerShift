@@ -64,7 +64,7 @@
 		/datum/reagent/consumable/grounding_solution,
 		/datum/reagent/medicine/salglu_solution, // You cook with this just believe me here
 	)
-	default_upgrade_reagents = list(
+	upgrade_reagents = list(
 		/datum/reagent/consumable/olivepaste,
 		/datum/reagent/consumable/nutriment/soup/dashi,
 		/datum/reagent/consumable/nutriment/soup/teriyaki,
