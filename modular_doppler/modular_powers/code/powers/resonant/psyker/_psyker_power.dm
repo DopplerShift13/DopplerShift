@@ -9,9 +9,9 @@
 	path = POWER_PATH_PSYKER
 	required_powers = list(/datum/power/psyker_root)
 
-/*
+
 /datum/power/psyker_power/proc/add_stress(amount)
-	var/obj/item/organ/resonant/psyker_organ/psyker_organ = power_owner.get_organ_slot(ORGAN_SLOT_PSYKER)
+	var/obj/item/organ/resonant/psyker/psyker_organ = power_holder.get_organ_slot(ORGAN_SLOT_PSYKER)
 	if(psyker_organ)
 		psyker_organ.stress += amount
-*/
+
