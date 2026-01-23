@@ -81,3 +81,11 @@
 
 #define MARTIALART_BREACHERKNUCKLE "breacher knuckle"
 #define MARTIALART_MAD_DOG "the mag dog style"
+
+/**
+ * RESONANT
+ * All defines related to the resonant archetype.
+ */
+
+/// Trait held by all under the resonant archetype.
+#define TRAIT_ARCHETYPE_RESONANT "archetype_resonant"

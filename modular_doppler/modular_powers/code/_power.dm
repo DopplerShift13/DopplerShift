@@ -37,7 +37,9 @@
 	var/priority = NONE
 	/// The powers this requires, if any.
 	var/list/required_powers
-	
+
+	// The path, if applicable, to the action.
+	var/datum/action/cooldown/action_path
 
 /datum/power/New()
 	. = ..()
@@ -158,7 +160,25 @@
 /// This proc is guaranteed to run if the mob has a client when the power is added.
 /// Otherwise, it runs once on the next COMSIG_MOB_LOGIN.
 /datum/power/proc/post_add()
+	// Grants appropriate actions in the UI
+	grant_action()
 	return
+
+// Adds activateable power buttons.
+/datum/power/proc/grant_action()
+	if(!ispath(action_path) || !power_holder)
+		return FALSE
+
+	var/datum/action/cooldown/new_power = new action_path(src)
+	new_power.background_icon_state = "bg_tech_blue"
+	new_power.base_background_icon_state = new_power.background_icon_state
+	new_power.active_background_icon_state = "[new_power.base_background_icon_state]_active"
+	new_power.overlay_icon_state = "bg_tech_blue_border"
+	new_power.active_overlay_icon_state = "bg_spell_border_active_blue"
+	new_power.panel = "Powers"
+	new_power.Grant(power_holder)
+
+	return new_power
 
 /// Returns if the power holder should process currently or not.
 /datum/power/proc/should_process()

@@ -32,14 +32,14 @@
 					add_power(chosen)
 
 // Checks if a power is on the selected target
-/mob/living/carbon/human/proc/has_power(powertype)
+/mob/living/carbon/proc/has_power(powertype)
 	for(var/datum/power/power in powers)
 		if(power.type == powertype)
 			return TRUE
 	return FALSE
 
 // Adds a power by calling the power subsystem.
-/mob/living/carbon/human/proc/add_power(datum/power/powertype, power_transfer = FALSE, client/override_client, unique = TRUE)
+/mob/living/carbon/proc/add_power(datum/power/powertype, power_transfer = FALSE, client/override_client, unique = TRUE)
 	if(has_power(powertype))
 		return FALSE
 	var/pname = initial(powertype.name)
@@ -52,7 +52,7 @@
 	return TRUE
 
 // Removes a power.
-/mob/living/carbon/human/proc/remove_power(powertype)
+/mob/living/carbon/proc/remove_power(powertype)
 	for(var/datum/power/power in powers)
 		if(!power.type == powertype)
 			return FALSE
