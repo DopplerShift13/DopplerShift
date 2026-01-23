@@ -28683,7 +28683,9 @@
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
 "dxo" = (
-/obj/machinery/igniter/incinerator_ordmix,
+/obj/machinery/igniter/incinerator_ordmix{
+	use_power = 0
+	},
 /turf/open/floor/engine/vacuum,
 /area/station/science/ordnance/burnchamber)
 "dxF" = (
@@ -33042,7 +33044,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/computer/security/telescreen/research/directional/south,
+/obj/machinery/computer/security/telescreen/ordnance/directional/south,
 /obj/effect/turf_decal/siding/dark_blue{
 	dir = 4
 	},
@@ -36690,9 +36692,7 @@
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/science/lab)
 "jWr" = (
-/obj/machinery/atmospherics/components/tank/oxygen{
-	dir = 4
-	},
+/obj/machinery/atmospherics/components/tank/oxygen,
 /obj/structure/sign/poster/official/plasma_effects/directional/east,
 /turf/open/floor/iron/dark/small,
 /area/station/science/ordnance)
@@ -37180,8 +37180,12 @@
 	pixel_y = -36
 	},
 /obj/effect/mapping_helpers/airalarm/mixingchamber_access,
+/obj/effect/mapping_helpers/airalarm/link{
+	chamber_id = "ordnanceburn"
+	},
+/obj/effect/mapping_helpers/airalarm/tlv_no_checks,
 /turf/open/floor/iron/white,
-/area/station/science/ordnance/burnchamber)
+/area/station/science/ordnance)
 "kqc" = (
 /obj/machinery/light/directional/west,
 /obj/machinery/camera/directional/west{
@@ -42081,8 +42085,12 @@
 	},
 /obj/machinery/airalarm/directional/west,
 /obj/effect/mapping_helpers/airalarm/mixingchamber_access,
+/obj/effect/mapping_helpers/airalarm/link{
+	chamber_id = "ordnancefreezer"
+	},
+/obj/effect/mapping_helpers/airalarm/tlv_no_checks,
 /turf/open/floor/engine,
-/area/station/science/ordnance/freezerchamber)
+/area/station/science/ordnance)
 "okX" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -43653,6 +43661,10 @@
 	},
 /turf/open/floor/iron/white/smooth_edge,
 /area/station/science/xenobiology)
+"pnj" = (
+/obj/machinery/atmospherics/components/tank/oxygen,
+/turf/open/floor/iron/dark/small,
+/area/station/science/ordnance)
 "pnn" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -98626,7 +98638,7 @@ oaI
 efu
 bzh
 bHy
-dfU
+pnj
 dfU
 vDo
 psV
@@ -98883,8 +98895,8 @@ oaI
 bxK
 bzi
 bHy
-dfU
-dfU
+pnj
+pnj
 tOY
 khM
 eZE
@@ -99141,7 +99153,7 @@ pJT
 bxL
 bHy
 jWr
-dfU
+pnj
 bEd
 kmn
 bGv
