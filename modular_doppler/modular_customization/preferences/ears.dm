@@ -96,7 +96,7 @@
 		target.dna.features[FEATURE_EARS] = value
 
 /datum/preference/choiced/species_feature/felinid_ears/icon_for(value)
-	var/datum/sprite_accessory/chosen_ears = SSaccessories.feature_list[FEATURE_EARS]
+	var/datum/sprite_accessory/chosen_ears = SSaccessories.feature_list[FEATURE_EARS][value]
 	return generate_ears_icon(chosen_ears)
 
 //	Lizard
