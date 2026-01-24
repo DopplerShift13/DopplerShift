@@ -23,7 +23,7 @@
 	update_organs()
 	// Adds visual effects
 	var/datum/status_effect/spotlight_light/light = get_spotlight_color()
-	spotlighttarget.apply_status_effect(light, 300)
+	spotlighttarget.apply_status_effect(light, 3000)
 	do
 		if(do_after(owner, 25, target = owner))
 			if(!psyker_organ)
