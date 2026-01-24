@@ -146,7 +146,7 @@
 	target.dna.features[FEATURE_TAIL_LIZARD] = value
 
 /datum/preference/choiced/species_feature/lizard_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_LIZARD]
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_LIZARD][value]
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Cat
@@ -172,7 +172,7 @@
 	target.dna.features[FEATURE_TAIL_CAT] = value
 
 /datum/preference/choiced/species_feature/tail_felinid/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_CAT]
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_CAT][value]
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Dog
