@@ -14,7 +14,7 @@
 	var/obj/item/organ/resonant/psyker/psyker_organ
 	var/cultivator_organ //TODO: Cultivator Organ
 
-/datum/action/cooldown/spell/resonant_meditate/cast(mob/on_who)
+/datum/action/cooldown/spell/resonant_meditate/cast()
 	. = ..()
 	var/keep_going = TRUE
 	var/mob/living/spotlighttarget = owner // cause we need to call it on a mob/living

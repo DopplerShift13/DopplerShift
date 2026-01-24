@@ -252,7 +252,7 @@
 	ADD_TRAIT(grabbed_atom, TRAIT_NO_FLOATING_ANIM, REF(src))
 	RegisterSignal(grabbed_atom, COMSIG_MOVABLE_SET_ANCHORED, PROC_REF(on_setanchored))
 
-	playsound(grabbed_atom, 'sound/effects/magic/magic_missile.ogg', 75, TRUE)
+	playsound(grabbed_atom, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 	kinesis_icon = mutable_appearance(
 		icon = 'icons/effects/effects.dmi',
@@ -260,7 +260,6 @@
 		layer = grabbed_atom.layer - 0.1,
 		appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART
 	)
-	kinesis_icon.color = "#8A2BE2" //mutable appearance doesn't support color?
 	player_icon = mutable_appearance(
 		icon = 'icons/effects/effects.dmi',
 		icon_state = "purplesparkles",
@@ -295,7 +294,7 @@
 	grabbed_atom = null
 
 	if(playsound)
-		playsound(held, 'sound/effects/magic/cosmic_energy.ogg', 75, TRUE)
+		playsound(held, 'sound/effects/magic/cosmic_energy.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 
 	STOP_PROCESSING(SSfastprocess, src)
 

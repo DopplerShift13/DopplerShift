@@ -7439,6 +7439,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_power.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_organ.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\telekinesis.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\psyker\levitate.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\_psyker_event.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\mild\nosebleed.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\mild\headache.dm"
