@@ -31,10 +31,10 @@
 		return FALSE
 	return TRUE
 
-/datum/preference/choiced/lizard_snout
+/datum/preference/choiced/species_feature/lizard_snout
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/lizard_snout/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_snout/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.species_blacklist_no_mutant)
@@ -44,12 +44,12 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/lizard_snout/create_default_value()
+/datum/preference/choiced/species_feature/lizard_snout/create_default_value()
 	return /datum/sprite_accessory/snouts/none::name
 
 
-/datum/preference/choiced/lizard_snout/icon_for(value)
-	return generate_snout_icon(SSaccessories.snouts_list[value])
+/datum/preference/choiced/species_feature/lizard_snout/icon_for(value)
+	return generate_snout_icon(SSaccessories.feature_list[FEATURE_SNOUT][value])
 
 /datum/preference/choiced/proc/generate_snout_icon(datum/sprite_accessory/sprite_accessory)
 	var/static/datum/universal_icon/body

@@ -30,8 +30,8 @@
 		return FALSE
 	return TRUE
 
-/datum/preference/choiced/lizard_frills/icon_for(value)
-	var/datum/sprite_accessory/sprite_accessory = SSaccessories.frills_list[value]
+/datum/preference/choiced/species_feature/lizard_snout/icon_for(value)
+	var/datum/sprite_accessory/sprite_accessory = SSaccessories.feature_list[FEATURE_FRILLS][value]
 	var/static/datum/universal_icon/body
 	if (isnull(body))
 		body = uni_icon('icons/mob/human/species/lizard/bodyparts.dmi', "lizard_head")
@@ -67,10 +67,10 @@
 		old_part.moveToNullspace()
 
 //sprite selection
-/datum/preference/choiced/lizard_frills
+/datum/preference/choiced/species_feature/lizard_snout
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/lizard_frills/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_snout/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.species_blacklist_no_mutant)
@@ -80,5 +80,5 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/lizard_frills/create_default_value()
+/datum/preference/choiced/species_feature/lizard_snout/create_default_value()
 	return /datum/sprite_accessory/frills/none::name

@@ -117,9 +117,9 @@
 // We didn't spawn any item yet, so nothing to call here.
 /datum/loadout_item/pocket_items/storage/wallet/on_equip_item(
 	obj/item/equipped_item,
-	datum/preferences/preference_source,
-	list/preference_list,
+	list/item_details,
 	mob/living/carbon/human/equipper,
+	datum/outfit/outfit,
 	visuals_only = FALSE,
 )
 	return FALSE
@@ -194,9 +194,9 @@
 //Dogtag Code
 /datum/loadout_item/pocket_items/tech/borg_me_dogtag/on_equip_item(
 	obj/item/equipped_item,
-	datum/preferences/preference_source,
-	list/preference_list,
+	list/item_details,
 	mob/living/carbon/human/equipper,
+	datum/outfit/outfit,
 	visuals_only = FALSE,
 )
 	// We're hooking this datum to add an extra bit of flavor to the dogtag - a pregenerated medical record
@@ -407,14 +407,14 @@
 
 /datum/loadout_item/pocket_items/cosmetics/lipstick/on_equip_item(
 	obj/item/lipstick/equipped_item,
-	datum/preferences/preference_source,
-	list/preference_list,
+	list/item_details,
 	mob/living/carbon/human/equipper,
-	visuals_only,
+	datum/outfit/outfit,
+	visuals_only = FALSE,
 )
 	. = ..()
-	var/picked_style = style_to_style(preference_list[item_path]?[INFO_LAYER])
-	var/picked_color = preference_list[item_path]?[INFO_GREYSCALE] || /obj/item/lipstick::lipstick_color
+	var/picked_style = style_to_style(item_details[INFO_LAYER])
+	var/picked_color = item_details[INFO_GREYSCALE] || /obj/item/lipstick::lipstick_color
 	if(istype(equipped_item)) // can be null for visuals_only
 		equipped_item.style = picked_style
 		equipped_item.lipstick_color = picked_color

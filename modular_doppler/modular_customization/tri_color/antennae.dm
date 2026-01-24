@@ -4,7 +4,6 @@
 	savefile_key = "antennae_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	//relevant_external_organ = /obj/item/organ/wings
 
 /datum/preference/tri_color/antennae_color/create_default_value()
 	return list(sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"),
@@ -21,7 +20,7 @@
 	return TRUE
 
 // Gotta add to the selector too
-/datum/preference/choiced/moth_antennae/compile_constant_data()
+/datum/preference/choiced/species_feature/moth_antennae/compile_constant_data()
 	var/list/data = ..()
 
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/antennae_color::savefile_key

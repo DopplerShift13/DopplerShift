@@ -5,7 +5,7 @@
 	return data
 
 // Gotta add to the selector for moths too
-/datum/preference/choiced/moth_wings/compile_constant_data()
+/datum/preference/choiced/species_feature/moth_wings/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/wings_color::savefile_key
 	return data
@@ -16,7 +16,6 @@
 	savefile_key = "wings_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	//relevant_external_organ = /obj/item/organ/wings
 
 /datum/preference/tri_color/wings_color/create_default_value()
 	return list(sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"),

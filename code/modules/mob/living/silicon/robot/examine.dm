@@ -1,6 +1,5 @@
-/// DOPPLER ADDITION START, Adds a newline to the examine list if the above entry is not empty and it is not the first element in the list
-#define ADD_NEWLINE_IF_NECESSARY(list) if(length(list) > 0 && list[length(list)]) { list += "" }
-// DOPPLER ADDITION END
+/// DOPPLER ADDITION, Adds a newline to the examine list if the above entry is not empty and it is not the first element in the list
+#define ADD_NEWLINE_IF_NECESSARY(list) if(length(list) > 0 && list[length(list)]) { list += "" } // DOPPLER ADDITION
 
 /mob/living/silicon/robot/examine(mob/user)
 	. = list()
@@ -63,4 +62,7 @@
 
 	. += ..()
 
-#undef ADD_NEWLINE_IF_NECESSARY
+/mob/living/silicon/robot/examine_descriptor(mob/user)
+	return "cyborg"
+
+#undef ADD_NEWLINE_IF_NECESSARY // DOPPLER ADDITION (SEE TOP OF FILE)

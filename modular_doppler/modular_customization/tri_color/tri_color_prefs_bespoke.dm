@@ -7,8 +7,6 @@
 	savefile_key = "ipc_antenna_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	// TODO: we need fluff organs & selection
-	//relevant_external_organ = /obj/item/organ/fluff
 
 /datum/preference/tri_color/ipc_antenna_color/create_default_value()
 	return list(sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"),
@@ -53,8 +51,6 @@
 	savefile_key = "xenodorsal_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	// TODO: we need fluff organs & selection
-	//relevant_external_organ = /obj/item/organ/fluff
 
 /datum/preference/tri_color/xenodorsal_color/create_default_value()
 	return list(sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"),
@@ -89,8 +85,6 @@
 	savefile_key = "xenohead_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	// TODO: we need fluff organs & selection
-	//relevant_external_organ = /obj/item/organ/fluff
 
 /datum/preference/tri_color/xenohead_color/create_default_value()
 	return list(sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"),

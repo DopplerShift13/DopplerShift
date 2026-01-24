@@ -32,10 +32,10 @@
 	return TRUE
 
 //sprite selection
-/datum/preference/choiced/moth_antennae
+/datum/preference/choiced/species_feature/moth_antennae
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/moth_antennae/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/moth_antennae/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.species_blacklist_no_mutant)
@@ -45,13 +45,13 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/moth_antennae/create_default_value()
+/datum/preference/choiced/species_feature/moth_antennae/create_default_value()
 	return /datum/sprite_accessory/moth_antennae/none::name
 
-/datum/preference/choiced/moth_antennae/icon_for(value)
-	return generate_antennae_icon(SSaccessories.moth_antennae_list[value])
+/datum/preference/choiced/species_feature/moth_antennae/icon_for(value)
+	return generate_antennae_icon(SSaccessories.feature_list[FEATURE_MOTH_ANTENNAE][value])
 
-/datum/preference/choiced/proc/generate_antennae_icon(datum/sprite_accessory/sprite_accessory)
+/datum/preference/choiced/species_feature/moth_antennae/proc/generate_antennae_icon(datum/sprite_accessory/sprite_accessory)
 	var/static/datum/universal_icon/body
 	if (isnull(body))
 		body = uni_icon('icons/mob/human/species/moth/bodyparts.dmi', "moth_head")

@@ -1,5 +1,5 @@
 // Gotta add to the selector
-/datum/preference/choiced/lizard_horns/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_horns/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/horns_color::savefile_key
 	return data
@@ -10,7 +10,6 @@
 	savefile_key = "horns_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	//relevant_external_organ = /obj/item/organ/horns
 
 /datum/preference/tri_color/horns_color/create_default_value()
 	return list(sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"),

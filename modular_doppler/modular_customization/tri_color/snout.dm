@@ -1,5 +1,5 @@
 // Gotta add to the selector
-/datum/preference/choiced/lizard_snout/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_snout/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/snout_color::savefile_key
 	return data
@@ -10,7 +10,6 @@
 	savefile_key = "snout_color"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_SUPPLEMENTAL_FEATURES
-	//relevant_external_organ = /obj/item/organ/snout
 
 /datum/preference/tri_color/snout_color/create_default_value()
 	return list(sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]"),

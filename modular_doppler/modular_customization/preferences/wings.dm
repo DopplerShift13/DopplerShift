@@ -72,7 +72,6 @@
 	savefile_key = "feature_wings"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Wings"
 
@@ -99,15 +98,15 @@
 	var/datum/sprite_accessory/wings = SSaccessories.wings_list_more[value]
 	return generate_back_icon(wings, "wings")
 
-/datum/preference/choiced/moth_wings/icon_for(value)
-	var/datum/sprite_accessory/wings = SSaccessories.moth_wings_list[value]
+/datum/preference/choiced/species_feature/moth_wings/icon_for(value)
+	var/datum/sprite_accessory/wings = SSaccessories.feature_list[FEATURE_MOTH_WINGS][value]
 	return generate_back_icon(wings, "moth_wings")
 
 //	Moth Wings
-/datum/preference/choiced/moth_wings
+/datum/preference/choiced/species_feature/moth_wings
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/moth_wings/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/moth_wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.species_blacklist_no_mutant)
@@ -117,7 +116,10 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/moth_wings/create_default_value()
+/datum/preference/choiced/species_feature/moth_wings/init_possible_values()
+	return assoc_to_keys_features(SSaccessories.wings_list_more)
+
+/datum/preference/choiced/species_feature/moth_wings/create_default_value()
 	return /datum/sprite_accessory/moth_wings/none::name
 
 /// Overwrite lives here

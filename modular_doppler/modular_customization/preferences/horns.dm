@@ -43,10 +43,10 @@
 		old_part.moveToNullspace()
 
 //sprite selection
-/datum/preference/choiced/lizard_horns
+/datum/preference/choiced/species_feature/lizard_horns
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/lizard_horns/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_horns/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(species.type in GLOB.species_blacklist_no_mutant)
@@ -56,11 +56,11 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/lizard_horns/create_default_value()
+/datum/preference/choiced/species_feature/lizard_horns/create_default_value()
 	return /datum/sprite_accessory/horns/none::name
 
-/datum/preference/choiced/lizard_horns/icon_for(value)
-	return generate_horns_icon(SSaccessories.horns_list[value])
+/datum/preference/choiced/species_feature/lizard_horns/icon_for(value)
+	return generate_horns_icon(SSaccessories.feature_list[FEATURE_HORNS][value])
 
 /datum/preference/choiced/proc/generate_horns_icon(datum/sprite_accessory/sprite_accessory)
 	var/static/datum/universal_icon/body

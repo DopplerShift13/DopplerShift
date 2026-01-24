@@ -14,7 +14,11 @@ SUBSYSTEM_DEF(ticker)
 	/// or a "round-ending" event, like summoning Nar'Sie, a blob victory, the nuke going off, etc. ([FORCE_END_ROUND])
 	var/force_ending = END_ROUND_AS_NORMAL
 	/// If TRUE, there is no lobby phase, the game starts immediately.
+	#ifdef ABSOLUTE_MINIMUM
+	var/start_immediately = TRUE
+	#else
 	var/start_immediately = FALSE
+	#endif
 	/// Boolean to track and check if our subsystem setup is done.
 	var/setup_done = FALSE
 
@@ -546,18 +550,23 @@ SUBSYSTEM_DEF(ticker)
 			var/acting_captain = !is_captain_job(player_assigned_role)
 			SSjob.promote_to_captain(new_player_living, acting_captain)
 			OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), player_assigned_role.get_captaincy_announcement(new_player_living)))
-		if((player_assigned_role.job_flags & JOB_ASSIGN_QUIRKS) && ishuman(new_player_living) && CONFIG_GET(flag/roundstart_traits))
-			if(new_player_mob.client?.prefs?.should_be_random_hardcore(player_assigned_role, new_player_living.mind))
-				new_player_mob.client.prefs.hardcore_random_setup(new_player_living)
-			SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
-		//DOPPLER EDIT ADDITION
 		if(ishuman(new_player_living))
+			//DOPPLER EDIT ADDITION
 			var/list/loadout = loadout_list_to_datums(new_player_mob.client?.prefs?.read_preference(/datum/preference/loadout))
 			for(var/datum/loadout_item/item as anything in loadout)
 				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
 				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
-		//DOPPLER EDIT END
+			//DOPPLER EDIT END
+			if(player_assigned_role.job_flags & JOB_ASSIGN_QUIRKS)
+				if(CONFIG_GET(flag/roundstart_traits))
+					if(new_player_mob.client?.prefs?.should_be_random_hardcore(player_assigned_role, new_player_living.mind))
+						new_player_mob.client.prefs.hardcore_random_setup(new_player_living)
+					SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
+			else // clear any personalities the prefs added since our job clearly does not want them
+				new_player_living.clear_personalities()
+
+		if(ishuman(new_player_living))
 			SEND_SIGNAL(new_player_living, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 		CHECK_TICK
 
