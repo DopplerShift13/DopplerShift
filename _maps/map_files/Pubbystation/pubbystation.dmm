@@ -4099,9 +4099,6 @@
 "arH" = (
 /obj/machinery/modular_computer/preset/command,
 /obj/effect/turf_decal/tile/dark_green/full,
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_x = -32
-	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/command/bridge)
 "arI" = (
@@ -10949,9 +10946,6 @@
 /area/station/service/theater)
 "aVm" = (
 /obj/machinery/vending/autodrobe,
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_y = 32
-	},
 /turf/open/floor/wood/tile,
 /area/station/service/theater)
 "aVn" = (
@@ -14067,9 +14061,6 @@
 /obj/effect/turf_decal/tile/brown/half/contrasted{
 	dir = 8
 	},
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_x = -32
-	},
 /turf/open/floor/iron,
 /area/station/commons/vacant_room/commissary)
 "bic" = (
@@ -14681,9 +14672,6 @@
 "blD" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 5
-	},
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_x = 32
 	},
 /turf/open/floor/wood/large,
 /area/station/hallway/primary/aft)
@@ -17514,9 +17502,6 @@
 /obj/machinery/light/directional/south,
 /obj/structure/table/wood,
 /obj/effect/turf_decal/siding/wood,
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_y = -32
-	},
 /turf/open/floor/wood,
 /area/station/science/lab)
 "byW" = (
@@ -18579,9 +18564,6 @@
 /obj/structure/table,
 /obj/item/folder,
 /obj/machinery/light/directional/east,
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_x = 32
-	},
 /turf/open/floor/iron/white,
 /area/station/hallway/primary/aft)
 "bDL" = (
@@ -19553,9 +19535,6 @@
 /area/station/hallway/primary/aft)
 "bJE" = (
 /obj/structure/railing/corner,
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_y = -32
-	},
 /obj/effect/turf_decal/tile/electric_yellow{
 	dir = 8
 	},
@@ -29235,6 +29214,7 @@
 	pixel_x = 8;
 	pixel_y = 5
 	},
+/obj/item/folder/yellow,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "dWk" = (
@@ -30124,16 +30104,9 @@
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
 "eIg" = (
-/obj/effect/turf_decal/tile/blue/half/contrasted{
-	dir = 8
-	},
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_x = -32
-	},
-/turf/open/floor/iron/white/side{
-	dir = 8
-	},
-/area/station/engineering/atmos/hfr_room)
+/obj/machinery/computer/security/telescreen/entertainment,
+/turf/closed/wall/r_wall,
+/area/station/command/bridge)
 "eIL" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/dark,
@@ -31894,7 +31867,8 @@
 /obj/structure/cable,
 /obj/machinery/door/window/brigdoor{
 	name = "Communications Access";
-	red_alert_access = 1
+	red_alert_access = 1;
+	req_access = list("command")
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/command/bridge)
@@ -38371,6 +38345,27 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/tcommsat/computer)
+"llW" = (
+/obj/effect/turf_decal/trimline/brown/filled/line{
+	dir = 6
+	},
+/obj/structure/table,
+/obj/item/paper_bin{
+	pixel_x = -4;
+	pixel_y = 1
+	},
+/obj/effect/spawner/random/bureaucracy/pen,
+/obj/item/stamp/denied{
+	pixel_x = 10;
+	pixel_y = -2
+	},
+/obj/item/stamp/granted{
+	pixel_y = 13;
+	pixel_x = 10
+	},
+/obj/item/folder/yellow,
+/turf/open/floor/iron,
+/area/station/cargo/storage)
 "lmI" = (
 /obj/machinery/computer/security/telescreen/entertainment,
 /turf/closed/wall/r_wall,
@@ -40741,6 +40736,17 @@
 /obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
+"ngk" = (
+/obj/docking_port/stationary{
+	dir = 2;
+	dwidth = 2;
+	height = 13;
+	name = "port bay 2";
+	shuttle_id = "ferry_home";
+	width = 5
+	},
+/turf/open/space/basic,
+/area/space)
 "ngp" = (
 /obj/item/chair/stool,
 /turf/open/floor/carpet,
@@ -45495,6 +45501,10 @@
 /obj/structure/window/reinforced/plasma/fulltile,
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
+"qFD" = (
+/obj/machinery/computer/security/telescreen/entertainment,
+/turf/closed/wall/r_wall,
+/area/station/security/lockers)
 "qFJ" = (
 /obj/machinery/atmospherics/components/binary/pump/on{
 	dir = 1;
@@ -46122,9 +46132,6 @@
 "rgs" = (
 /obj/structure/table,
 /obj/item/instrument/eguitar,
-/obj/item/wallframe/telescreen/entertainment{
-	pixel_y = 32
-	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/exit/departure_lounge)
 "rgF" = (
@@ -50425,6 +50432,7 @@
 "ueu" = (
 /obj/structure/table,
 /obj/item/stack/sheet/cardboard,
+/obj/item/folder/yellow,
 /turf/open/floor/iron,
 /area/station/cargo/warehouse)
 "ueJ" = (
@@ -52220,7 +52228,6 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/electric_yellow/line,
-/obj/machinery/wall_healer/directional/west,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/engineering/atmos)
 "vtT" = (
@@ -70616,7 +70623,7 @@ aaa
 aaa
 aaa
 aaa
-aaa
+ngk
 bGF
 bHJ
 pbm
@@ -82610,7 +82617,7 @@ aaa
 aaa
 fon
 aht
-dAa
+qFD
 air
 anf
 tCJ
@@ -85455,7 +85462,7 @@ bje
 apo
 aht
 arA
-arA
+eIg
 arA
 atQ
 ooa
@@ -94794,7 +94801,7 @@ pfp
 ksg
 bZh
 rAm
-eIg
+rAm
 odp
 jWA
 bOZ
@@ -99364,7 +99371,7 @@ rUE
 myc
 ltf
 rAP
-nNk
+llW
 eJf
 aTy
 aaa
@@ -100406,7 +100413,7 @@ jHZ
 iSi
 iSi
 iSi
-iSi
+dIU
 iSi
 iSi
 iSi
