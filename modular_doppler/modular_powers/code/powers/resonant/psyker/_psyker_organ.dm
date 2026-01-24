@@ -3,6 +3,7 @@
 	desc = "An intrusive organ that should not even be able to function in most bodies. Commonly found in the bodies of Psykers. Though many would try to implement these into themselves to try and awaken psychic powers, its presence in those without such powers is often life-threatening."
 	icon = 'icons/obj/medical/organs/organs.dmi'
 	icon_state = "demon_heart-on"
+	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = 5 * STANDARD_ORGAN_DECAY //about 12mins to fully decay.
 	slot = ORGAN_SLOT_PSYKER
 	zone = BODY_ZONE_CHEST
@@ -24,15 +25,21 @@
 /obj/item/organ/resonant/psyker/proc/add_stress(amount)
 	// TODO; Add clothing affinity. Wearing psychic nicknacks makes you gain less stress.
 	stress += amount
+	if(stress <= 0)
+		stress = 0
+	return
 
 /obj/item/organ/resonant/psyker/proc/remove_stress(amount)
 	// TODO: Ditto on above.
 	stress -= amount
+	if(stress <= 0)
+		stress = 0
+	return
 
 /obj/item/organ/resonant/psyker/on_life(seconds_per_tick, times_fired)
 	. = ..()
 
-	// If you have the associated power read; you are a psyker.
+	// If you have the associated power. read; you are a psyker.
 	if(owner.has_power(/datum/power/psyker_root))
 		if(stress <= 0)
 			stress = 0
@@ -51,26 +58,86 @@
 		stress = max(stress - stress_to_recover * seconds_per_tick, 0)
 
 		// Check if we do stress backlash after stress reduction.
-		if(stress >= 200) // Catastrophic event.
+		if(stress >= (stress_threshold * 2)) // Catastrophic event.
 			stress_backlash(3)
-		else if(stress >= 150 &&  && CDstressMild <= 0) // Severe Event
-			CDStresssevere = 100 // reset CD
+			stress = 0 // No CD, just a hard reset and the consequences of your actions.
+			CDstressMild = 0
+			CDstressSevere = 0
+		else if(stress >= (stress_threshold * 1.5) && CDstressSevere <= 0) // Severe Event
+			CDstressSevere = 60 // reset CD
 			stress_backlash(2)
-		else if (stress >= 100 && CDstressMild <= 0) // Mild Event
-			CDstressMild = 100 // reset CD
+		else if (stress >= stress_threshold && CDstressMild <= 0) // Mild Event
+			CDstressMild = 60 // reset CD
 			stress_backlash(1)
 
-		if(!CDstressMild >= 0)
-			CDStressMild--
-		if(!CDstressSevere >= 0)
-			CDStressSevere--
+		if(CDstressMild > 0)
+			CDstressMild = max(CDstressMild - seconds_per_tick, 0)
+		if(CDstressSevere > 0)
+			CDstressSevere = max(CDstressSevere - seconds_per_tick, 0)
 
 	// In the event that you implant this into someone else.
 	// Currently placeholder til we settle on what it do on people that don't have it.
+	// TODO: Appear on med scanners.
 	else
 		damage += 1
 		owner.apply_damage(damage * 0.1, TOX)
 
-// The psyker is exploding and probably about to summon extradimensional demons.
+// "The psyker is exploding and probably about to summon extradimensional demons."
+// When psyker stress gets too high, it triggers bad events, this chooses said bad events.
 /obj/item/organ/resonant/psyker/proc/stress_backlash(degree)
-	if(degree = 3)
+	var/mob/living/carbon/human/human = owner
+	if(!istype(human))
+		return FALSE
+
+	var/base_type
+	switch(degree)
+		if(1)
+			base_type = /datum/psyker_event/mild
+		if(2)
+			base_type = /datum/psyker_event/severe
+		if(3)
+			if(prob(20)) // If you get 'lucky' you get FUN
+				base_type = /datum/psyker_event/special
+			else
+				base_type = /datum/psyker_event/catastrophic
+		else
+			return FALSE
+
+	pick_psyker_event(base_type, human)
+	return
+
+// Picks the backlash event
+/obj/item/organ/resonant/psyker/proc/pick_psyker_event(base_type, mob/living/carbon/human/human)
+	var/list/candidate_types = list()
+
+	for(var/subtype in subtypesof(base_type))
+		var/datum/psyker_event/event_type = subtype
+
+		// Skip the abstract root itself
+		if(initial(event_type.abstract_type) == subtype)
+			continue
+
+		candidate_types += subtype
+
+
+	while(length(candidate_types))
+		var/subtype = pick(candidate_types)
+		candidate_types -= subtype
+
+		var/datum/psyker_event/event = new subtype
+
+		if(!event.can_execute(human, src))
+			qdel(event)
+			continue
+
+		// We check if it actually succesfully executed. Qdel it under normal circumstances; if it lingers we don't.
+		if(event.execute(human))
+			if(!event.lingering)
+				qdel(event)
+			return
+
+		// Execution failed? We retry
+		qdel(event)
+
+	return
+
