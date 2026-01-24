@@ -1,0 +1,35 @@
+/datum/psyker_event
+	var/abstract = TRUE
+	var/weight = 1
+
+	proc/can_execute(mob/living/carbon/human/H, obj/item/organ/resonant/psyker/gland)
+		return TRUE
+
+	proc/execute(mob/living/carbon/human/H, obj/item/organ/resonant/psyker/gland)
+		return
+
+/datum/psyker_event/mild
+	abstract = TRUE
+
+/datum/psyker_event/severe
+	abstract = TRUE
+
+/datum/psyker_event/catastrophic
+	abstract = TRUE
+
+
+// Example mild event
+/datum/psyker_event/mild/eye_twitch
+	abstract = FALSE
+	weight = 3
+
+	execute(mob/living/carbon/human/H, obj/item/organ/resonant/psyker/gland)
+		H.balloon_alert(H, span_warning("Your eye won't stop twitching."))
+
+// Example severe event
+/datum/psyker_event/severe/nosebleed
+	abstract = FALSE
+	weight = 1
+
+	execute(mob/living/carbon/human/H, obj/item/organ/resonant/psyker/gland)
+		H.balloon_alert(H, span_danger("Blood drips from your nose."))

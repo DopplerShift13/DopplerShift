@@ -16,6 +16,18 @@
 	// Base recovery per second
 	var/recovery_per_second = 1.1
 
+	//Cooldowns for the stress events
+	var/CDstressMild = 0
+	var/CDstressSevere = 0
+
+// Don't modify stress directly. In the future affinity has a bearing on how much stress you gain.
+/obj/item/organ/resonant/psyker/proc/add_stress(amount)
+	// TODO; Add clothing affinity. Wearing psychic nicknacks makes you gain less stress.
+	stress += amount
+
+/obj/item/organ/resonant/psyker/proc/remove_stress(amount)
+	// TODO: Ditto on above.
+	stress -= amount
 
 /obj/item/organ/resonant/psyker/on_life(seconds_per_tick, times_fired)
 	. = ..()
@@ -38,9 +50,27 @@
 		// Apply recovery, don't let it send stress into the negatives.
 		stress = max(stress - stress_to_recover * seconds_per_tick, 0)
 
+		// Check if we do stress backlash after stress reduction.
+		if(stress >= 200) // Catastrophic event.
+			stress_backlash(3)
+		else if(stress >= 150 &&  && CDstressMild <= 0) // Severe Event
+			CDStresssevere = 100 // reset CD
+			stress_backlash(2)
+		else if (stress >= 100 && CDstressMild <= 0) // Mild Event
+			CDstressMild = 100 // reset CD
+			stress_backlash(1)
+
+		if(!CDstressMild >= 0)
+			CDStressMild--
+		if(!CDstressSevere >= 0)
+			CDStressSevere--
+
 	// In the event that you implant this into someone else.
 	// Currently placeholder til we settle on what it do on people that don't have it.
 	else
 		damage += 1
 		owner.apply_damage(damage * 0.1, TOX)
 
+// The psyker is exploding and probably about to summon extradimensional demons.
+/obj/item/organ/resonant/psyker/proc/stress_backlash(degree)
+	if(degree = 3)

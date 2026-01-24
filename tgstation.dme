@@ -7434,6 +7434,7 @@
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\lodestone_legends.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\test_powerthatrequirespower.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_root.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\meditate.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_power.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_organ.dm"

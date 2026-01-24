@@ -41,15 +41,6 @@
 	// Mouse tracker overlay (telekinesis-specific)
 	var/atom/movable/screen/fullscreen/cursor_catcher/kinesis/psyker_tk/kinesis_catcher
 
-	// Reference for the base psyker power, so we can call add_stress.
-	var/datum/power/psyker_power/psyker_power
-
-/datum/action/cooldown/spell/pointed/telekinesis/New(Target)
-	. = ..()
-	// We do this so we can call add_stress from the spell itself.
-	if(istype(Target, /datum/power/psyker_power))
-		psyker_power = Target
-
 /datum/action/cooldown/spell/pointed/telekinesis/on_activation(mob/on_who)
 	// I am to commit a most heinous crime.
 	// If I do not call parent, we'll get compile warnings. If I don't do this, there'll be misleading messages that we cannot suppress (we don't use left click because it mimmicks the MODsuit controls)
@@ -167,7 +158,7 @@
 				return
 
 
-	psyker_power.add_stress(1 * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
+	psyker_organ.add_stress(1 * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
 
 // The fun part, punting shit.
 /datum/action/cooldown/spell/pointed/telekinesis/proc/punt_held(mob/living/user, atom/target, params)
@@ -190,7 +181,7 @@
 	var/atom/movable/launched = grabbed_atom
 
 	// Basically the same stress cost for picking it up.
-	psyker_power.add_stress(get_stress_cost_for_atom(launched))
+	psyker_organ.add_stress(get_stress_cost_for_atom(launched))
 
 	clear_grab(playsound = FALSE)
 	playsound(launched, 'sound/effects/magic/repulse.ogg', 75, TRUE)
@@ -285,7 +276,7 @@
 		kinesis_catcher.assign_to_mob(owner)
 
 	// Amounts are in the get_stress_cost_for_atom
-	psyker_power.add_stress(get_stress_cost_for_atom(target))
+	psyker_organ.add_stress(get_stress_cost_for_atom(target))
 
 	START_PROCESSING(SSfastprocess, src)
 
