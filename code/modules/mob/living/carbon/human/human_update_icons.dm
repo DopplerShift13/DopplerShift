@@ -879,6 +879,8 @@ generate/load female uniform sprites matching all previously decided variables
 	var/using_taur_variant = FALSE
 	if(ishuman(humie))
 		for(var/shape in supported_bodyshapes)
+			if(shape == BODYSHAPE_HUMANOID)
+				continue
 			if(humie.bodyshape & shape)
 				using_taur_variant = (shape & BODYSHAPE_TAUR_ALL)
 				chosen_worn_icon = bodyshape_icon_files["[shape]"]
