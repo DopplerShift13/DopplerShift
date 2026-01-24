@@ -358,7 +358,7 @@
 	target.dna.features[FEATURE_TAIL_MONKEY] = value
 
 /datum/preference/choiced/species_feature/monkey_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_MONKEY]
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_MONKEY][value]
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Deer
@@ -422,7 +422,7 @@
 		target.dna.features[FEATURE_TAIL_FISH] = value
 
 /datum/preference/choiced/fish_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_FISH]
+	var/datum/sprite_accessory/chosen_tail = SSaccessories.feature_list[FEATURE_TAIL_FISH][value]
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Bug

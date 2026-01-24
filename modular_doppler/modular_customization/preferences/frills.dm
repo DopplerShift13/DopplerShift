@@ -31,7 +31,7 @@
 	return TRUE
 
 /datum/preference/choiced/species_feature/lizard_snout/icon_for(value)
-	var/datum/sprite_accessory/sprite_accessory = SSaccessories.feature_list[FEATURE_FRILLS]
+	var/datum/sprite_accessory/sprite_accessory = SSaccessories.feature_list[FEATURE_FRILLS][value]
 	var/static/datum/universal_icon/body
 	if (isnull(body))
 		body = uni_icon('icons/mob/human/species/lizard/bodyparts.dmi', "lizard_head")

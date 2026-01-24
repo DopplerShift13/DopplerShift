@@ -49,7 +49,7 @@
 
 
 /datum/preference/choiced/species_feature/lizard_snout/icon_for(value)
-	return generate_snout_icon(SSaccessories.feature_list[FEATURE_SNOUT])
+	return generate_snout_icon(SSaccessories.feature_list[FEATURE_SNOUT][value])
 
 /datum/preference/choiced/proc/generate_snout_icon(datum/sprite_accessory/sprite_accessory)
 	var/static/datum/universal_icon/body
