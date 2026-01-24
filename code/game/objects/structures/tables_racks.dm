@@ -571,6 +571,10 @@
 /obj/structure/table/glass/proc/check_break(mob/living/M)
 	if(is_flipped)
 		return FALSE
+	// DOPPLER EDIT ADDITION START -  Light-bodied species can tablerun without breaking glass tables
+	if(HAS_TRAIT(M, TRAIT_LIGHT_BODY))
+		return FALSE
+	// DOPPLER EDIT ADDITION END
 	if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & MOVETYPES_NOT_TOUCHING_GROUND))
 		table_shatter(M)
 

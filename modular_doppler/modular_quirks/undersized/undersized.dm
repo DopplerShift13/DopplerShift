@@ -134,6 +134,11 @@
 
 	gained.name = "Tiny " + gained.name
 
+/datum/quirk/undersized/is_species_appropriate(datum/species/mob_species)
+	if(mob_species == /datum/species/teshari)
+		return FALSE
+	return ..()
+
 /datum/movespeed_modifier/undersized
 	multiplicative_slowdown = UNDERSIZED_SPEED_SLOWDOWN
 

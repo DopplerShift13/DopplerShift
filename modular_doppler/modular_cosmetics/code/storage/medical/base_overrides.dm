@@ -3,21 +3,29 @@
 	icon_state = "backpack_medical"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/chemistry
 	icon_state = "backpack_chemistry"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/virology
 	icon_state = "backpack_virology"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/coroner
 	icon_state = "backpack_coroner"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 // Messenger Bags
 /obj/item/storage/backpack/messenger/med

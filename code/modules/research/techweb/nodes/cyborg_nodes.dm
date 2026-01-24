@@ -20,6 +20,12 @@
 		"cybernetic_liver",
 		"cybernetic_heart",
 		// DOPPLER ADDITION START
+		"teshari_cyber_chest",
+		"teshari_cyber_l_arm",
+		"teshari_cyber_r_arm",
+		"teshari_cyber_l_leg",
+		"teshari_cyber_r_leg",
+		"teshari_cyber_head",
 		"android_chest",
 		"android_head",
 		"android_l_arm",

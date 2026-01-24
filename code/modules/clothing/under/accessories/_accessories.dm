@@ -126,7 +126,19 @@
 
 /obj/item/clothing/accessory/proc/generate_accessory_overlay(obj/item/clothing/under/attached_to)
 	SHOULD_CALL_PARENT(TRUE)
-	var/mutable_appearance/appearance = mutable_appearance(worn_icon, icon_state)
+	// DOPPLER EDIT BEGIN
+	var/local_worn_icon = worn_icon
+	var/mob/living/carbon/human/human_wearer = attached_to.loc
+	if (istype(human_wearer))
+		for(var/shape in supported_bodyshapes)
+			if(human_wearer.bodyshape & shape)
+				var/potential_file = bodyshape_icon_files["[shape]"]
+				if (icon_exists(potential_file, icon_state))
+					local_worn_icon = bodyshape_icon_files["[shape]"]
+					if (shape != BODYSHAPE_HUMANOID) // EVERYTHING has this
+						break
+	// DOPPLER EDIT END
+	var/mutable_appearance/appearance = mutable_appearance(local_worn_icon, icon_state) // DOPPLER SHIFT EDIT - was var/mutable_appearance/appearance = mutable_appearance(worn_icon, icon_state)
 	appearance.alpha = alpha
 	appearance.color = color
 	return appearance

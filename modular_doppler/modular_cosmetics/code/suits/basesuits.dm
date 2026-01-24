@@ -2,10 +2,14 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	supported_bodyshapes = list(
 		BODYSHAPE_HUMANOID,
+		BODYSHAPE_TESHARI,
 		BODYSHAPE_DIGITIGRADE
 		)
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/bio.dmi',
-		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/bio_digi.dmi')
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/bio.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/bio_digi.dmi'
+	)
 
 /obj/item/clothing/suit/wizrobe
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
@@ -17,8 +21,14 @@
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/wizard_digi.dmi')
 
 /obj/item/clothing/suit/hooded/wintercoat/medical
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
+	supported_bodyshapes = list(
+		BODYSHAPE_HUMANOID,
+		BODYSHAPE_TESHARI,
+		)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/wintercoat.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+		)
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/wintercoat.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/suit/wintercoat.dmi'
 
@@ -26,10 +36,12 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	supported_bodyshapes = list(
 		BODYSHAPE_HUMANOID,
+		BODYSHAPE_TESHARI,
 		BODYSHAPE_DIGITIGRADE
 		)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/labcoat.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/labcoat_digi.dmi'
 		)
 
@@ -73,20 +85,23 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/spacesuit.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/spacesuit_digi.dmi')
+	autogen_clothing_color_coords = list(list(SPACESUIT_COLORPIXEL_X_1, SPACESUIT_COLORPIXEL_Y_1))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/spacesuit)
 
 /// RADSUITS
 /obj/item/clothing/head/utility/radiation
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_SNOUTED)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
 	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/head/utility.dmi',
-		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/head/basehead_muzzled.dmi')
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/head/basehead_muzzled.dmi',
+	)
 
 /obj/item/clothing/suit/utility/radiation
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/suits/utility.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/suit_digi.dmi')
-
-
 
 /// FLAKY SUITS
 /obj/item/clothing/suit/chaplainsuit

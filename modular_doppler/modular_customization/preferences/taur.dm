@@ -10,7 +10,7 @@
 // dna is a string
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features[FEATURE_TAUR] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features[FEATURE_TAUR] && can_regenerate_mutant_feature(FEATURE_TAUR))
 		if(target.dna.features[FEATURE_TAUR] != /datum/sprite_accessory/taur/none::name && target.dna.features[FEATURE_TAUR] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/taur_body/body_to_use = /obj/item/organ/taur_body
 			var/datum/sprite_accessory/taur/accessory = SSaccessories.taur_list[target.dna.features[FEATURE_TAUR]]
@@ -41,7 +41,7 @@
 /datum/preference/toggle/taur/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	return TRUE
 
@@ -89,7 +89,7 @@
 		return FALSE
 
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/has_taur = preferences.read_preference(/datum/preference/toggle/taur)
 	if(has_taur == TRUE)

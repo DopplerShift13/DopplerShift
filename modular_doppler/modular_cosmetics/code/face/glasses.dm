@@ -6,6 +6,11 @@
 /obj/item/clothing/glasses/eyepatch/wrap
 	name = "eye wrap"
 	desc = "A glorified bandage. At least this one's actually made for your head..."
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/eyes.dmi'
+	)
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "eyewrap"
@@ -16,6 +21,11 @@
 	desc = "This is what happens when a pirate gets a PhD."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/eyes.dmi'
+	)
 	icon_state = "eyepatch_white"
 	base_icon_state = "eyepatch_white"
 
@@ -79,6 +89,11 @@
 	desc = "A simple HUD designed to interface with optical nerves of a lost eye. This one seems busted."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/eyes.dmi'
+	)
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
 	inhand_icon_state = "sunhudmed"
@@ -235,6 +250,8 @@
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "obsoletefold"
 	base_icon_state = "obsoletefold"
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
 	name = "sec blindfold HUD"
@@ -269,6 +286,8 @@
 /obj/item/clothing/glasses/hud/ar
 	name = "\improper AR glasses"
 	icon = 'icons/obj/clothing/glasses.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 	icon_state = "glasses_regular"
 	desc = "A heads-up display that provides important info in (almost) real time. These don't really seem to work"
 	actions_types = list(/datum/action/item_action/toggle_mode)
@@ -418,6 +437,8 @@
 	icon_state = "aviator"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 // Security Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/security
@@ -623,7 +644,8 @@
 	greyscale_config = /datum/greyscale_config/recolorable_glasses
 	greyscale_config_worn = /datum/greyscale_config/recolorable_glasses/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
-
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 #undef MODE_OFF
 #undef MODE_OFF_FLASH_PROTECTION

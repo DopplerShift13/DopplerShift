@@ -19,6 +19,7 @@
 #define MOUSE "mouse"
 #define ROACH "roach"
 #define BAT "bat"
+#define TESHARI "teshari"
 
 ///	This list gets read by the dropdown pref when a player chooses what type of sprite accessory to access
 GLOBAL_LIST_INIT(mutant_variations, list(
@@ -36,6 +37,7 @@ GLOBAL_LIST_INIT(mutant_variations, list(
 	LIZARD,
 	MONKEY,
 	MOUSE,
+	// no TESHARI - TESHARI is handled specially in tail.dm
 ))
 
 ///	This list gets read by the animalistic preference for genemod and anthros

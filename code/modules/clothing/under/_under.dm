@@ -103,7 +103,7 @@
 	if(damaged_clothes)
 		. += mutable_appearance('icons/effects/item_damage.dmi', "damageduniform")
 	if(accessory_overlay)
-		. += accessory_overlay
+		. += modify_accessory_overlay() // DOPPLER EDIT CHANGE - ORIGINAL: . += accessory_overlay
 
 /obj/item/clothing/under/separate_worn_overlays(mutable_appearance/standing, mutable_appearance/draw_target, isinhands = FALSE, icon_file)
 	. = ..()

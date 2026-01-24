@@ -8,6 +8,8 @@
 	greyscale_config = /datum/greyscale_config/backpack
 	greyscale_config_worn = /datum/greyscale_config/backpack/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/industrial/custom
 	name = "custom industrial backpack"
@@ -18,6 +20,8 @@
 	greyscale_config = /datum/greyscale_config/backpack
 	greyscale_config_worn = /datum/greyscale_config/backpack/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 // satchels
 /obj/item/storage/backpack/satchel/custom
@@ -29,6 +33,8 @@
 	greyscale_config = /datum/greyscale_config/backpack/satchel
 	greyscale_config_worn = /datum/greyscale_config/backpack/satchel/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/satchel/eng/custom
 	name = "custom industrial satchel"
@@ -39,6 +45,8 @@
 	greyscale_config = /datum/greyscale_config/backpack/satchel
 	greyscale_config_worn = /datum/greyscale_config/backpack/satchel/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/satchel/crusader	//Not very special, really just a satchel texture
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/crusaderbandolier.dmi'
@@ -48,6 +56,8 @@
 	icon_state = "crusader_bandolier"
 	inhand_icon_state = "explorerpack"
 	w_class = WEIGHT_CLASS_BULKY
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /datum/crafting_recipe/crusader_satchel
 	name = "Adventurer's Bandolier"
@@ -67,6 +77,8 @@
 	greyscale_config = /datum/greyscale_config/backpack/duffel
 	greyscale_config_worn = /datum/greyscale_config/backpack/duffel/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/duffelbag/engineering/custom
 	name = "custom industrial duffelbag"
@@ -77,6 +89,8 @@
 	greyscale_config = /datum/greyscale_config/backpack/duffel
 	greyscale_config_worn = /datum/greyscale_config/backpack/duffel/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 // messenger bags
 /obj/item/storage/backpack/messenger/custom
@@ -88,6 +102,8 @@
 	greyscale_config = /datum/greyscale_config/backpack/messenger
 	greyscale_config_worn = /datum/greyscale_config/backpack/messenger/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/messenger/eng/custom
 	name = "custom industrial messenger bag"
@@ -98,6 +114,8 @@
 	greyscale_config = /datum/greyscale_config/backpack/messenger
 	greyscale_config_worn = /datum/greyscale_config/backpack/messenger/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 // slimpacks
 /obj/item/storage/backpack/satchel/flat/empty/custom
@@ -110,3 +128,5 @@
 	greyscale_config = /datum/greyscale_config/backpack/slimpack
 	greyscale_config_worn = /datum/greyscale_config/backpack/slimpack/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
