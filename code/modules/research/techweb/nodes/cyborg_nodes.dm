@@ -228,6 +228,10 @@
 		"cybernetic_stomach_tier2",
 		"cybernetic_liver_tier2",
 		"cybernetic_heart_tier2",
+		// DOPPLER ADDITION START - Synthetic Charging Organs
+		"cybernetic_stomach_power_cord",
+		"cybernetic_stomach_windup_key",
+		// DOPPLER ADDITION END
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
