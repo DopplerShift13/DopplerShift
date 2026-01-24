@@ -13,9 +13,9 @@
 	var/stress = 0
 	// Stress threshold is how much the psyker organ can handle before the bad events start befalling the user.
 	// Usually, 1x is the minor events, 1.5x are the major events, and 2x are the catastrophic events.
-	var/stress_threshold = 100
+	var/stress_threshold = PSYKER_STRESS_STANDARD_THRESHOLD
 	// Base recovery per second
-	var/recovery_per_second = 1.1
+	var/recovery_per_second = PSYKER_STRESS_RECOVERY
 
 	//Cooldowns for the stress events
 	var/CDstressMild = 0

@@ -7443,6 +7443,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\mild\nosebleed.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\mild\headache.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\severe\vomit.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\severe\hallucinate.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\catastrophic\telekinetic_backlash.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\catastrophic\cardiac_arrest.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\special\magic_trauma.dm"

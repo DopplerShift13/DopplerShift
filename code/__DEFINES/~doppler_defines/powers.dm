@@ -89,3 +89,24 @@
 
 /// Trait held by all under the resonant archetype.
 #define TRAIT_ARCHETYPE_RESONANT "archetype_resonant"
+
+/**
+ * RESONANT: PSYKER
+ * All defines related to the enigmatist powers.
+ */
+
+// Standard stress threshold value for the Psyker's organ.
+#define PSYKER_STRESS_STANDARD_THRESHOLD 100
+
+// Standard stress recovery per second before modifiers.
+#define PSYKER_STRESS_RECOVERY 1.1
+
+// How much meditate recovers.
+#define PSYKER_STRESS_MEDITATION_POWER 10
+
+// Standard stress for Psykers. This all goes off of the base organ being 100.
+#define PSYKER_STRESS_TRIVIAL (PSYKER_STRESS_STANDARD_THRESHOLD / 100)
+#define PSYKER_STRESS_MINOR (PSYKER_STRESS_STANDARD_THRESHOLD / 10)
+#define PSYKER_STRESS_MODERATE (PSYKER_STRESS_STANDARD_THRESHOLD / 5)
+#define PSYKER_STRESS_MAJOR (PSYKER_STRESS_STANDARD_THRESHOLD / 2)
+#define PSYKER_STRESS_CRUSHING (PSYKER_STRESS_STANDARD_THRESHOLD)

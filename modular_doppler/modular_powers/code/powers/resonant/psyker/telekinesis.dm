@@ -101,21 +101,21 @@
 
 // You shouldn't get as stressed from picking up a pen as a closet.
 /datum/action/cooldown/spell/pointed/telekinesis/proc/get_stress_cost_for_atom(atom/target)
-	var/cost = 10
+	var/cost
 
 	if(isitem(target))
 		var/obj/item/I = target
 		switch(I.w_class)
 			if(WEIGHT_CLASS_TINY)
-				cost = 1
+				cost = PSYKER_STRESS_TRIVIAL
 			if(WEIGHT_CLASS_SMALL)
-				cost = 2
+				cost = PSYKER_STRESS_TRIVIAL * 2
 			if(WEIGHT_CLASS_NORMAL)
-				cost = 4
+				cost = PSYKER_STRESS_TRIVIAL * 4
 			if(WEIGHT_CLASS_BULKY)
-				cost = 8
-			else
-				cost = 15 // structures, superheavy things, basically anything that goes beyond w_class.
+				cost = PSYKER_STRESS_MINOR * 0.8
+	else
+		cost = PSYKER_STRESS_MINOR // structures, superheavy things, basically anything that goes beyond w_class.
 
 	return cost
 
@@ -158,7 +158,7 @@
 				return
 
 
-	psyker_organ.add_stress(1 * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
+	psyker_organ.add_stress(PSYKER_STRESS_TRIVIAL * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
 
 // The fun part, punting shit.
 /datum/action/cooldown/spell/pointed/telekinesis/proc/punt_held(mob/living/user, atom/target, params)
