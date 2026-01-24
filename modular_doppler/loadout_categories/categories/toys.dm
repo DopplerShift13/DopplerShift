@@ -20,6 +20,10 @@
 	name = "Fake Energy-Sword"
 	item_path = /obj/item/toy/sword
 
+/datum/loadout_item/toy/tiziran_boffa
+	name = "\improper Tiziran training sword"
+	item_path = /obj/item/melee/tizirian_sword/boffa
+
 /datum/loadout_item/toy/toy_gun
 	name = "Fake .357 Revolver"
 	item_path = /obj/item/toy/gun
@@ -39,6 +43,10 @@
 /datum/loadout_item/toy/donk_rifle
 	name = "DONK CO. C-20r"
 	item_path = /obj/item/gun/ballistic/automatic/c20r/toy/unrestricted
+
+/datum/loadout_item/toy/karim
+	name = "\improper RealToy™ Karim Pulse Rifle"
+	item_path = /obj/item/gun/ballistic/automatic/karim/toy
 
 /datum/loadout_item/toy/synth
 	name = "Keyboard"

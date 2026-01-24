@@ -449,6 +449,7 @@
 	if(greyscale_config_worn_bodyshapes && greyscale_config_last_bodyshape)
 		if(greyscale_config_worn_bodyshapes[greyscale_config_last_bodyshape])
 			greyscale_config_worn = greyscale_config_worn_bodyshapes[greyscale_config_last_bodyshape]
+			LAZYINITLIST(bodyshape_icon_files)
 			bodyshape_icon_files["[greyscale_config_last_bodyshape]"] = SSgreyscale.GetColoredIconByType(greyscale_config_worn, greyscale_colors)
 			worn_icon = bodyshape_icon_files["[greyscale_config_last_bodyshape]"]
 		else

@@ -2045,7 +2045,7 @@
 /area/mine/laborcamp/production)
 "ni" = (
 /obj/structure/rack,
-/obj/item/stack/sheet/mineral/plasma/five,
+/obj/item/stack/sheet/mineral/uranium/fifty,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "nk" = (
@@ -2731,7 +2731,8 @@
 /area/mine/lounge)
 "rZ" = (
 /obj/structure/cable,
-/obj/item/flatpacked_machine/fuel_generator,
+/obj/machinery/power/port_gen/pacman/super,
+/obj/item/wrench,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "se" = (
