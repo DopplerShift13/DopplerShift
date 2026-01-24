@@ -2,7 +2,7 @@
 
 /datum/psyker_event/mild/headache/execute(mob/living/carbon/human/psyker)
 	psyker.add_mood_event("headache", /datum/mood_event/psyker_headache)
-	to_chat(psyker, span_purple("Overusing your powers has given you a splitting headache!"))
+	to_chat(psyker, span_danger("Overusing your powers has given you a splitting headache!"))
 	return TRUE
 
 /datum/mood_event/psyker_headache
