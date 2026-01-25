@@ -6,7 +6,7 @@
 	// Remember to set abstracts to this.
 	var/abstract_type = /datum/psyker_event
 	var/weight = 1
-	// For events that continue for a while, this skips the qdel step, under the condition you qdel it later.
+	// For events that continue for a while, this skips the qdel step. MAKE SURE YOU QDEL IT YOURSELF LATER INSIDE THE CODE.
 	var/lingering = FALSE
 
 // Are there any special prerequisites?
@@ -17,12 +17,15 @@
 /datum/psyker_event/proc/execute(mob/living/carbon/human/psyker)
 		return FALSE
 
+// Milds generally want to not take you out of the flow but be noticeable enough that someone paying attention will notice they're pushing the line.
 /datum/psyker_event/mild
 	abstract_type = /datum/psyker_event/mild
 
+// Severe are the very clear warning to stop. These should be obvious and detrimental, with a clear goal of making it so that you stop and meditate or face the consequences.
 /datum/psyker_event/severe
 	abstract_type = /datum/psyker_event/severe
 
+// The consequences of your actions. Usually things that demand an immediate medbay visit or leave lingering consequences for the Psyker.
 /datum/psyker_event/catastrophic
 	abstract_type = /datum/psyker_event/catastrophic
 

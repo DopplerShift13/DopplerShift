@@ -11,9 +11,9 @@
 	)
 
 /datum/psyker_event/severe/hallucinate/execute(mob/living/carbon/human/psyker)
-	to_chat(psyker, span_danger("You begin to lose your grip on reality!"))
+	to_chat(psyker, span_userdanger("You begin to lose your grip on reality!"))
 	// Generaly speaking we don't want these to last too long.
-	psyker.adjust_hallucinations(60 SECONDS)
+	psyker.set_hallucinations_if_lower(60 SECONDS)
 	// We do also want immediate hallucinations as feedback, as the psyker_events double as stress warnings.
 	psyker.cause_hallucination(pick(initial_hallucinations), src)
 	return TRUE

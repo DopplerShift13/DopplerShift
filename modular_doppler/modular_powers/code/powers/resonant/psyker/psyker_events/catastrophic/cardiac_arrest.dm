@@ -5,7 +5,7 @@
 		return FALSE
 	psyker.apply_status_effect(/datum/status_effect/heart_attack)
 	//Standard message for catastrophic for when we don't explicitly want to tell them what is going to happen to them.
-	to_chat(psyker, span_userdanger("<b>As you strain your psychic powers past the breaking point, you are suddenly hit with a strange sense of clarity..."))
+	to_chat(psyker, span_userdanger("<b>As you strain your psychic powers past the breaking point, you are suddenly hit with a strange sense of clarity; as well as a feeling that something is very wrong.</b>"))
 
 	return TRUE
 
