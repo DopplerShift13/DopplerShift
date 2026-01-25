@@ -9,6 +9,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor/iron_dark/airless,
 /area/shuttle/personally_bought/tiziran_corvette)
 "af" = (
@@ -68,9 +69,7 @@
 	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "cL" = (
@@ -128,9 +127,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "fc" = (
@@ -217,7 +213,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "hQ" = (
@@ -303,6 +298,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/power/micro_reactor,
 /obj/structure/cable,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/tiziran_corvette)
+"oe" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "oO" = (
@@ -605,6 +604,7 @@
 /obj/docking_port/mobile/personally_bought{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "CY" = (
@@ -631,6 +631,10 @@
 	dir = 1
 	},
 /turf/open/floor/iron/dark,
+/area/shuttle/personally_bought/tiziran_corvette)
+"ER" = (
+/obj/machinery/recharge_station,
+/turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "Fy" = (
 /obj/structure/railing/eva_handhold/directional/east,
@@ -732,6 +736,7 @@
 /obj/structure/chair/bronze,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/marker_beacon/burgundy,
+/obj/machinery/holopad,
 /turf/open/floor/iron/dark/smooth_half,
 /area/shuttle/personally_bought/tiziran_corvette)
 "Ql" = (
@@ -748,6 +753,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/structure/tizirian_radiator,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "QV" = (
@@ -886,8 +892,8 @@ nl
 lh
 xz
 lh
-hq
-hq
+ER
+oe
 lh
 nl
 nl

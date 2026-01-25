@@ -78,6 +78,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/pirate/tiziran_corvette)
 "eq" = (
@@ -100,6 +101,7 @@
 /obj/structure/chair/bronze,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/marker_beacon/burgundy,
+/obj/machinery/holopad,
 /turf/open/floor/iron/dark/smooth_half,
 /area/shuttle/pirate/tiziran_corvette)
 "fA" = (
@@ -132,6 +134,10 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/pirate/tiziran_corvette)
+"ic" = (
+/obj/machinery/porta_turret/syndicate,
+/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/area/shuttle/pirate/tiziran_corvette)
 "jl" = (
 /obj/structure/marker_beacon/burgundy,
 /turf/open/floor/catwalk_floor/iron_dark,
@@ -152,6 +158,7 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 1
 	},
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor/iron_dark/airless,
 /area/shuttle/pirate/tiziran_corvette)
 "kC" = (
@@ -194,6 +201,10 @@
 "lY" = (
 /obj/machinery/light/red/directional/east,
 /obj/structure/kitchenspike,
+/turf/open/floor/plating,
+/area/shuttle/pirate/tiziran_corvette)
+"mA" = (
+/obj/machinery/recharge_station,
 /turf/open/floor/plating,
 /area/shuttle/pirate/tiziran_corvette)
 "mJ" = (
@@ -319,6 +330,7 @@
 /obj/effect/turf_decal/tile/red{
 	dir = 8
 	},
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/pirate/tiziran_corvette)
 "tX" = (
@@ -344,9 +356,7 @@
 	req_access = list("syndicate")
 	},
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
+/obj/structure/fans/tiny,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/pirate/tiziran_corvette)
 "wq" = (
@@ -597,9 +607,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
 /turf/open/floor/plating,
 /area/shuttle/pirate/tiziran_corvette)
 "IB" = (
@@ -614,7 +621,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/pirate/tiziran_corvette)
 "IS" = (
@@ -730,6 +736,10 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/shuttle/pirate/tiziran_corvette)
+"QR" = (
+/obj/machinery/portable_atmospherics/canister/carbon_dioxide,
+/turf/open/floor/plating,
+/area/shuttle/pirate/tiziran_corvette)
 "Ra" = (
 /obj/machinery/computer/monitor{
 	dir = 1
@@ -746,6 +756,7 @@
 /area/shuttle/pirate/tiziran_corvette)
 "Rm" = (
 /obj/machinery/light/red/directional/west,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plating,
 /area/shuttle/pirate/tiziran_corvette)
 "RO" = (
@@ -787,6 +798,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/tile/red,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/light/red/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/pirate/tiziran_corvette)
 "TK" = (
@@ -888,8 +900,8 @@ BS
 Ja
 LG
 Ja
-In
-In
+mA
+QR
 Ja
 BS
 BS
@@ -1007,7 +1019,7 @@ CE
 nt
 Ja
 Ja
-TK
+ic
 MZ
 MZ
 MZ
@@ -1055,7 +1067,7 @@ Ja
 ce
 Ja
 Ja
-BS
+Ja
 vw
 MZ
 MZ
@@ -1076,7 +1088,7 @@ GI
 NK
 Ja
 Vi
-zh
+Vi
 VT
 Ra
 QC
@@ -1247,7 +1259,7 @@ Ja
 Vi
 jl
 Ja
-BS
+Ja
 MZ
 MZ
 MZ
@@ -1270,7 +1282,7 @@ Dv
 Ja
 wq
 Ja
-BS
+Ja
 tX
 MZ
 MZ
@@ -1295,7 +1307,7 @@ Mp
 Vi
 In
 Ja
-TK
+ic
 MZ
 MZ
 MZ
