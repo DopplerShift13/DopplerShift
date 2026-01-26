@@ -1,5 +1,5 @@
 // Gives deep-rooted normal traumas.
-/datum/psyker_event/catastrophic/brain_taruma
+/datum/psyker_event/catastrophic/brain_trauma
 	weight = PSYKER_EVENT_RARITY_UNCOMMON
 
 /datum/psyker_event/catastrophic/brain_trauma/execute(mob/living/carbon/human/psyker)
