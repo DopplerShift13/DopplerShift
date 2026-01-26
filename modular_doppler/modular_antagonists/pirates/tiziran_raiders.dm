@@ -32,6 +32,11 @@
 	shoes = /obj/item/clothing/shoes/lizard_shins
 	belt = /obj/item/storage/belt/lizard_sabre
 
+/datum/outfit/pirate/tiziran/captain
+	belt = null
+	r_hand = /obj/item/melee/tizirian_sword/megachoppa
+
+
 /obj/effect/mob_spawn/ghost_role/human/pirate/tiziran
 	name = "\improper Tiziran sleeper"
 	desc = "A cryogenic stasis bed for long term space travel. Tizirans find the brief window of consciousness before hypersleep spares them the \
@@ -53,6 +58,7 @@
 /obj/effect/mob_spawn/ghost_role/human/pirate/tiziran/captain
 	name = "\improper Tiziran command sleeper"
 	rank = "captain"
+	outfit = /datum/outfit/pirate/tiziran/captain
 
 /obj/structure/showcase/machinery/empty_tiziran_pod
 	name = "empty sleeper pod"
