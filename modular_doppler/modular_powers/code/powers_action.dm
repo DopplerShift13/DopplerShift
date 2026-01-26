@@ -23,6 +23,8 @@
 	var/origin_power
 	/// Can only humans use this power?
 	var/human_only = TRUE
+	/// Can we target ourselves?
+	var/target_self = TRUE
 
 	// Is it an ability that requires us to click our mouse?
 	var/click_to_activate = FALSE
@@ -115,7 +117,10 @@ Handles all the logic involved in using a targeted, click-based action.
 
 	// Checks if we are allowed to actually target that type.
 	if(!istype(target, target_type))
-		owner.balloon_alert(owner, "Invalid target!")
+		return FALSE
+
+	// Check if we are allowed to target ourselves.
+	if(!target_self && target == owner)
 		return FALSE
 
 	// Range gate (only applies if target_range is non-zero).
@@ -123,7 +128,7 @@ Handles all the logic involved in using a targeted, click-based action.
 		var/turf/clicker_turf = get_turf(clicker)
 		var/turf/target_turf = get_turf(target)
 		if(clicker_turf && target_turf && get_dist(clicker_turf, target_turf) > target_range)
-			owner.balloon_alert("Out of range!"))
+			owner.balloon_alert("Out of range!")
 			return FALSE
 
 	// If the power can't be used, refuse the click and keep intercept state as-is.

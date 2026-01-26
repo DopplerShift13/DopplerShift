@@ -17,6 +17,7 @@
 	target_range = 1
 	target_type = /mob/living
 	click_to_activate = TRUE
+	target_self = FALSE
 
 /datum/action/power/theologist/theologist_root/revered/use_action(mob/living/user, mob/living/target)
 	to_chat(owner, span_boldnotice("Placeholder"))
