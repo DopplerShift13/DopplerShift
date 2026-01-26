@@ -15,10 +15,12 @@
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "transformslime"
 	target_range = 1
+	target_type = /mob/living
 	click_to_activate = TRUE
 
 /datum/action/power/theologist/theologist_root/revered/use_action(mob/living/user, mob/living/target)
-	to_chat(owner, span_boldnotice("Your body gently floats in the air!"))
+	to_chat(owner, span_boldnotice("Placeholder"))
+
 	return TRUE
 
 /datum/action/power/theologist/theologist_root/revered/on_activation(mob/living/user)

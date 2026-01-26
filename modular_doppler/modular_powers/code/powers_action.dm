@@ -11,11 +11,11 @@
 	overlay_icon_state = "bg_revenant_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
-	/// Maximum stat before the ability is blocked.
+	/// Maximum state of consciousness before the ability is blocked.
 	/// For example, `UNCONSCIOUS` prevents it from being used when in hard crit or dead,
 	/// while `DEAD` allows the ability to be used on any stat values.
 	var/req_stat = CONSCIOUS
-	/// used by a few powers that toggle
+	/// If your power has an active state of any type, use this.
 	var/active = FALSE
 	/// Does this ability stop working if you are silenced?
 	var/disabled_by_silence = TRUE
@@ -28,6 +28,8 @@
 	var/click_to_activate = FALSE
 	/// Maximum targeting range (in tiles) for click_to_activate powers. Set to 0 or null for no range limit.
 	var/target_range = 7
+	/// If set, clicked target MUST be of this type (or subtype).
+	var/target_type = null
 	/// The click cooldown added onto the user's next click (only for click_to_activate abilities)
 	var/click_cd_override = CLICK_CD_CLICK_ABILITY
 	/// If TRUE, we will unset after using our click intercept.
@@ -49,7 +51,7 @@
 	return try_use(user, target = null)
 
 // Attempts to actively use the action
-/datum/action/power/proc/try_use(mob/living/user, mob/living/target)
+/datum/action/power/proc/try_use(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_use(user, target))
 		return FALSE
@@ -61,7 +63,7 @@
 	return FALSE
 
 // Validates the action can be used.
-/datum/action/power/proc/can_use(mob/living/user, mob/living/target)
+/datum/action/power/proc/can_use(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_be_used_by(user)) // Runs can_be_used_by below
 		return FALSE
@@ -80,7 +82,7 @@
 	return TRUE
 
 // Now we do THINGS!
-/datum/action/power/proc/use_action(mob/living/user, mob/living/target)
+/datum/action/power/proc/use_action(mob/living/user, atom/target)
 	return TRUE
 
 /*
@@ -97,13 +99,13 @@ Handles all the logic involved in using a targeted, click-based action.
 	var/datum/action/power/already_set = user.click_intercept
 	if(already_set == src)
 		// If we clicked ourself and we're already set, unset and return
-		return unset_click_ability(user)
+		return unset_click_ability(TRUE)
 
 	else if(istype(already_set))
 		// If we have an active one set already, unset it before we set ours
-		already_set.unset_click_ability(user)
+		already_set.unset_click_ability()
 
-	return set_click_ability(user)
+	return set_click_ability()
 
 /// Intercepts client owner clicks to activate the ability.
 /// Note: this is called by the click intercept system on left click.
@@ -111,12 +113,17 @@ Handles all the logic involved in using a targeted, click-based action.
 	if(!target)
 		return FALSE
 
+	// Checks if we are allowed to actually target that type.
+	if(!istype(target, target_type))
+		owner.balloon_alert(owner, "Invalid target!")
+		return FALSE
+
 	// Range gate (only applies if target_range is non-zero).
 	if(target_range)
 		var/turf/clicker_turf = get_turf(clicker)
 		var/turf/target_turf = get_turf(target)
 		if(clicker_turf && target_turf && get_dist(clicker_turf, target_turf) > target_range)
-			to_chat(clicker, span_warning("Out of range!"))
+			owner.balloon_alert("Out of range!"))
 			return FALSE
 
 	// If the power can't be used, refuse the click and keep intercept state as-is.
@@ -125,7 +132,7 @@ Handles all the logic involved in using a targeted, click-based action.
 
 	// Successful click.
 	if(unset_after_click)
-		unset_click_ability(clicker)
+		unset_click_ability()
 
 	clicker.next_click = world.time + click_cd_override
 	return TRUE
@@ -133,31 +140,32 @@ Handles all the logic involved in using a targeted, click-based action.
 /**
  * Set our action as the click override on the passed mob.
  */
-/datum/action/power/proc/set_click_ability(mob/on_who)
+/datum/action/power/proc/set_click_ability()
 	SHOULD_CALL_PARENT(TRUE)
 
-	on_who.click_intercept = src
+	owner.click_intercept = src
 	if(ranged_mousepointer)
-		on_who.client?.mouse_override_icon = ranged_mousepointer
-		on_who.update_mouse_pointer()
+		owner.client?.mouse_override_icon = ranged_mousepointer
+		owner.update_mouse_pointer()
 
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
-	on_activation(on_who)
+	on_activation(owner)
 	return TRUE
 
 /**
  * Unset our action as the click override of the passed mob.
  */
-/datum/action/power/proc/unset_click_ability(mob/on_who)
+/datum/action/power/proc/unset_click_ability(manual = FALSE)
 	SHOULD_CALL_PARENT(TRUE)
 
-	on_who.click_intercept = null
+	owner.click_intercept = null
 	if(ranged_mousepointer)
-		on_who.client?.mouse_override_icon = initial(on_who.client?.mouse_override_icon)
-		on_who.update_mouse_pointer()
+		owner.client?.mouse_override_icon = initial(owner.client?.mouse_override_icon)
+		owner.update_mouse_pointer()
 
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
-	on_deactivation(on_who)
+	if(manual)
+		on_deactivation(owner)
 	return TRUE
 
 /// These only call on pointed actions
