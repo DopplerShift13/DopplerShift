@@ -5,7 +5,8 @@
 /datum/psyker_event
 	// Remember to set abstracts to this.
 	var/abstract_type = /datum/psyker_event
-	var/weight = 1
+	// check defines for weights.
+	var/weight = PSYKER_EVENT_RARITY_COMMON
 	// For events that continue for a while, this skips the qdel step. MAKE SURE YOU QDEL IT YOURSELF LATER INSIDE THE CODE.
 	var/lingering = FALSE
 
@@ -28,6 +29,3 @@
 // The consequences of your actions. Usually things that demand an immediate medbay visit or leave lingering consequences for the Psyker.
 /datum/psyker_event/catastrophic
 	abstract_type = /datum/psyker_event/catastrophic
-
-/datum/psyker_event/special
-	abstract_type = /datum/psyker_event/special

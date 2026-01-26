@@ -47,7 +47,7 @@
 	else
 		owner.RemoveElement(/datum/element/forced_gravity, 0)
 		owner.RemoveElement(/datum/element/simple_flying)
-		to_chat(owner, span_boldnotice("You let yourself be affected by gravity once more."))
+		to_chat(owner, span_boldnotice("You let yourself gently drop the ground."))
 		STOP_PROCESSING(SSfastprocess, src)
 		levitating = FALSE
 		// visual fx

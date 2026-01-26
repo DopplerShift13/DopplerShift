@@ -110,3 +110,17 @@
 #define PSYKER_STRESS_MODERATE (PSYKER_STRESS_STANDARD_THRESHOLD / 5)
 #define PSYKER_STRESS_MAJOR (PSYKER_STRESS_STANDARD_THRESHOLD / 2)
 #define PSYKER_STRESS_CRUSHING (PSYKER_STRESS_STANDARD_THRESHOLD)
+
+// Psyker event tiers.
+#define PSYKER_EVENT_TIER_MILD 1
+#define PSYKER_EVENT_TIER_SEVERE 2
+#define PSYKER_EVENT_TIER_CATASTROPHIC 3
+
+// Psyker event rarities
+#define PSYKER_EVENT_RARITY_COMMON 100
+#define PSYKER_EVENT_RARITY_UNCOMMON 50
+#define PSYKER_EVENT_RARITY_RARE 25
+#define PSYKER_EVENT_RARITY_VERYRARE 10
+
+// Standard messages for Psyker Events
+#define PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE "<b>As you strain your psychic powers past the breaking point, you are suddenly hit with a strange sense of clarity; as well as a feeling that something is very wrong.</b>"

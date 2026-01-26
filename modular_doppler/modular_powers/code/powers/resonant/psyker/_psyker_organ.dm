@@ -59,16 +59,16 @@
 
 		// Check if we do stress backlash after stress reduction.
 		if(stress >= (stress_threshold * 2)) // Catastrophic event.
-			stress_backlash(3)
+			stress_backlash(PSYKER_EVENT_TIER_CATASTROPHIC)
 			stress = 0 // No CD, just a hard reset and the consequences of your actions.
 			CDstressMild = 0
 			CDstressSevere = 0
 		else if(stress >= (stress_threshold * 1.5) && CDstressSevere <= 0) // Severe Event
 			CDstressSevere = 60 // reset CD
-			stress_backlash(2)
+			stress_backlash(PSYKER_EVENT_TIER_SEVERE)
 		else if (stress >= stress_threshold && CDstressMild <= 0) // Mild Event
 			CDstressMild = 60 // reset CD
-			stress_backlash(1)
+			stress_backlash(PSYKER_EVENT_TIER_MILD)
 
 		if(CDstressMild > 0)
 			CDstressMild = max(CDstressMild - seconds_per_tick, 0)
@@ -91,38 +91,37 @@
 
 	var/base_type
 	switch(degree)
-		if(1)
+		if(PSYKER_EVENT_TIER_MILD)
 			base_type = /datum/psyker_event/mild
-		if(2)
+		if(PSYKER_EVENT_TIER_SEVERE)
 			base_type = /datum/psyker_event/severe
-		if(3)
-			if(prob(20)) // If you get 'lucky' you get FUN
-				base_type = /datum/psyker_event/special
-			else
-				base_type = /datum/psyker_event/catastrophic
+		if(PSYKER_EVENT_TIER_CATASTROPHIC)
+			base_type = /datum/psyker_event/catastrophic
 		else
 			return FALSE
 
 	pick_psyker_event(base_type, human)
-	return
+	return TRUE
 
 // Picks the backlash event
 /obj/item/organ/resonant/psyker/proc/pick_psyker_event(base_type, mob/living/carbon/human/human)
-	var/list/candidate_types = list()
+	var/list/candidates = list()
 
+	// We check for abstract types and assign the weights
 	for(var/subtype in subtypesof(base_type))
 		var/datum/psyker_event/event_type = subtype
 
-		// Skip the abstract root itself
 		if(initial(event_type.abstract_type) == subtype)
 			continue
 
-		candidate_types += subtype
+		var/weight = initial(event_type.weight)
+		candidates[subtype] = weight
 
-
-	while(length(candidate_types))
-		var/subtype = pick(candidate_types)
-		candidate_types -= subtype
+	// We check the canidates, pick one, try it. If it returns true, we ened. If it returns false, we try another.
+	// In principle this should never fail because each category has one that will always return true.
+	while(length(candidates))
+		var/subtype = pick_weight(candidate)
+		candidates -= subtype
 
 		var/datum/psyker_event/event = new subtype
 

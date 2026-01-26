@@ -7451,7 +7451,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\severe\eyes_bleed.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\catastrophic\telekinetic_backlash.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\catastrophic\cardiac_arrest.dm"
-#include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\special\magic_trauma.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\catastrophic\magic_trauma.dm"
 #include "modular_doppler\modular_quirks\atypical_tastes\atypical_tastes.dm"
 #include "modular_doppler\modular_quirks\atypical_tastes\code\preferences.dm"
 #include "modular_doppler\modular_quirks\bouncy\bouncy.dm"
