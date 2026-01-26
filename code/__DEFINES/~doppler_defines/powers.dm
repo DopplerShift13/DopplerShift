@@ -34,6 +34,9 @@
 /// This power is has a visual aspect in that it changes how the player looks. Used in generating dummies.
 #define POWER_CHANGES_APPEARANCE (1<<2)
 
+// Trait for when you are unable to use resonant powers
+#define TRAIT_RESONANCE_SILENCED
+
 /**
  * SORCEROUS
  * All defines related to the sorcerous archetype.

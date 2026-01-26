@@ -9,6 +9,8 @@
 	var/severe_brute = 10
 	var/critical_brute = 20
 
+	weight = PSYKER_EVENT_RARITY_UNCOMMON
+
 /datum/psyker_event/catastrophic/telekinetic_backlash/execute(mob/living/carbon/human/psyker)
 	to_chat(psyker, span_userdanger("<b>As you strain your psychic powers past the breaking point, you feel yourself wracked by pain, as your skin, bones and flesh are pulled in all manner of directions!</b>"))
 

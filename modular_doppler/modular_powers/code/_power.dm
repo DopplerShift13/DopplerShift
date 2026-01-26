@@ -156,20 +156,27 @@
 /datum/power/proc/remove()
 	return
 
+/// Dispels the current power, basically a forced-off switch. Normally only used by resonant powers.
+/// TRUE = There was a power, and whatever it was, its off now. FALSE = There was nothing to turn off
+/datum/power/proc/dispel()
+	return FALSE
+
 /// Any special effects or chat messages which should be applied.
 /// This proc is guaranteed to run if the mob has a client when the power is added.
 /// Otherwise, it runs once on the next COMSIG_MOB_LOGIN.
 /datum/power/proc/post_add()
 	// Grants appropriate actions in the UI
-	grant_action()
+	if(action_path)
+		var/new_action_path = grant_action(action_path)
+		action_path = new_action_path
 	return
 
 // Adds activateable power buttons.
-/datum/power/proc/grant_action()
-	if(!ispath(action_path) || !power_holder)
+/datum/power/proc/grant_action(datum/action/cooldown/power_path)
+	if(!ispath(power_path) || !power_holder)
 		return FALSE
 
-	var/datum/action/cooldown/new_power = new action_path(src)
+	var/datum/action/cooldown/new_power = new power_path(src)
 	new_power.background_icon_state = "bg_tech_blue"
 	new_power.base_background_icon_state = new_power.background_icon_state
 	new_power.active_background_icon_state = "[new_power.base_background_icon_state]_active"

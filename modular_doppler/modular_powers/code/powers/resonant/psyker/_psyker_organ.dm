@@ -120,7 +120,7 @@
 	// We check the canidates, pick one, try it. If it returns true, we ened. If it returns false, we try another.
 	// In principle this should never fail because each category has one that will always return true.
 	while(length(candidates))
-		var/subtype = pick_weight(candidate)
+		var/subtype = pick_weight(candidates)
 		candidates -= subtype
 
 		var/datum/psyker_event/event = new subtype
