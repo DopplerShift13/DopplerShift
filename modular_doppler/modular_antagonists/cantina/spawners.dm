@@ -19,6 +19,7 @@
 	var/mob/living/spawned_mob = .
 	if(istype(spawned_mob))
 		spawned_mob.mind.add_antag_datum(/datum/antagonist/traitor/cantina_regular)
+		spawned_mob.faction = list(ROLE_SYNDICATE)
 
 /obj/effect/mob_spawn/ghost_role/human/cantina/special(mob/living/new_spawn)
 	. = ..()
@@ -45,6 +46,7 @@
 	var/mob/living/spawned_mob = .
 	if(istype(spawned_mob))
 		spawned_mob.mind.add_antag_datum(/datum/antagonist/traitor/cantina_bartender)
+		spawned_mob.faction = list(ROLE_SYNDICATE)
 
 /obj/effect/mob_spawn/ghost_role/human/cantina_bartender/special(mob/living/new_spawn)
 	. = ..()

@@ -105,3 +105,5 @@
 	inhand_icon_state = null
 	body_parts_covered = HANDS|ARMS
 	armor_type = /datum/armor/colonist_armor
+
+// EVA suit for the pirates

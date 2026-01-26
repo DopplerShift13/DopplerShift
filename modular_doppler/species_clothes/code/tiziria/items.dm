@@ -129,3 +129,23 @@
 	exposed_wound_bonus = 0
 	attack_verb_continuous = list("bonks", "bops", "bashes", "slaps", "thumps", "thwacks", "wallops", "biffs")
 	attack_verb_simple = list("bonk", "bop", "bash", "slap", "thump", "thwack", "wallop", "biff")
+
+/obj/item/melee/tizirian_sword/megachoppa	// a special variant for the raider captain, thus it's roughly one esword in strength
+	name = "\improper Tizirian great sword"
+	desc = "A rare variation of the utilitarian Tiziran sabre, this design relies on the cutting edge of bronze metallurgy \
+	to achieve such a lengthy blade. Exotic amendments to its constiuent alloys allow for keener edge and help alleviate a rare \
+	phenomena where clashed blades in near vacuum can contact weld to one another."
+	icon = 'modular_doppler/species_clothes/icons/tiziria/gear48x.dmi'
+	icon_state = "megachoppa"
+	worn_icon_state = "megachoppa"
+	inhand_icon_state = "megachoppa"
+	force = 30
+	throwforce = 20
+	armour_penetration = 35
+	block_chance = 50
+	exposed_wound_bonus = 30
+	demolition_mod = 1.5
+
+/obj/item/melee/tizirian_sword/megachoppa/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/two_handed, require_twohands = TRUE, icon_wielded = "megachoppa")
