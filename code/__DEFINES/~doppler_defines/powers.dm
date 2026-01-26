@@ -35,7 +35,7 @@
 #define POWER_CHANGES_APPEARANCE (1<<2)
 
 // Trait for when you are unable to use resonant powers
-#define TRAIT_RESONANCE_SILENCED
+#define TRAIT_RESONANCE_SILENCED "RESONANCE_SILENCED"
 
 /**
  * SORCEROUS

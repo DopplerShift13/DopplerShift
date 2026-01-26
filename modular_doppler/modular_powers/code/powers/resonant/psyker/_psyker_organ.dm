@@ -24,16 +24,12 @@
 // Don't modify stress directly. In the future affinity has a bearing on how much stress you gain.
 /obj/item/organ/resonant/psyker/proc/add_stress(amount)
 	// TODO; Add clothing affinity. Wearing psychic nicknacks makes you gain less stress.
-	stress += amount
-	if(stress <= 0)
-		stress = 0
+	stress = max(0, stress + amount)
 	return
 
 /obj/item/organ/resonant/psyker/proc/remove_stress(amount)
 	// TODO: Ditto on above.
-	stress -= amount
-	if(stress <= 0)
-		stress = 0
+	stress = max(0, stress - amount)
 	return
 
 /obj/item/organ/resonant/psyker/on_life(seconds_per_tick, times_fired)

@@ -1,4 +1,8 @@
-
+/* This leviathan of spaghetti is based off of the MODsuit modules.
+It is currently still using spells as a system rather than powers.
+BIG TODO: FIX THAT
+*/
+/*
 /datum/power/psyker_power/telekinesis
 	name = "Telekinesis"
 	desc = "Grants the ability to manipulate and move various objects. Generates stress based upon weight on pick-up and throw, as well as passively while holding an object."
@@ -338,3 +342,5 @@
 	alpha = 180
 	color = "#8A2BE2"
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
+
+*/

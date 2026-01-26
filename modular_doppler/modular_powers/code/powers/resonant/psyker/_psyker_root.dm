@@ -11,7 +11,7 @@
 	path = POWER_PATH_PSYKER
 	priority = POWER_PRIORITY_ROOT
 
-	action_path = /datum/action/cooldown/spell/resonant_meditate // todo; deal with duplicates
+	action_path = /datum/action/power/resonant_meditate // todo; deal with duplicates
 
 	var/obj/item/organ/resonant/psyker/psyker_organ
 

@@ -172,20 +172,16 @@
 	return
 
 // Adds activateable power buttons.
-/datum/power/proc/grant_action(datum/action/cooldown/power_path)
+/datum/power/proc/grant_action(datum/action/power/power_path)
 	if(!ispath(power_path) || !power_holder)
 		return FALSE
 
-	var/datum/action/cooldown/new_power = new power_path(src)
-	new_power.background_icon_state = "bg_tech_blue"
-	new_power.base_background_icon_state = new_power.background_icon_state
-	new_power.active_background_icon_state = "[new_power.base_background_icon_state]_active"
-	new_power.overlay_icon_state = "bg_tech_blue_border"
-	new_power.active_overlay_icon_state = "bg_spell_border_active_blue"
-	new_power.panel = "Powers"
-	new_power.Grant(power_holder)
+	var/datum/action/power/new_action = new power_path(src)
+	// TODO: Browse this and see how much of this we can move to the action subtypes.
+	new_action.origin_power = src
+	new_action.Grant(power_holder)
 
-	return new_power
+	return new_action
 
 /// Returns if the power holder should process currently or not.
 /datum/power/proc/should_process()
