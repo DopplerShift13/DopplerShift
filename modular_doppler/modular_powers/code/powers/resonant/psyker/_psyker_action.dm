@@ -18,9 +18,9 @@
 /datum/action/power/psyker/proc/ValidateOrgan()
 	if(owner) // Prevents runtiming on start
 		psyker_organ =  owner.get_organ_slot(ORGAN_SLOT_PSYKER)
-	if(psyker_organ)
-		return TRUE
-	return FALSE
+	if(!psyker_organ)
+		return FALSE
+	return TRUE
 
 // This doesn't actually add the stress itself; it merely tells the organ to add the stress.
 // Why not handle it here? Because why give them an organ if we're not going to use it?!
@@ -36,7 +36,7 @@
 	if(!ValidateOrgan())
 		owner.balloon_alert(owner, "No paracausal gland!")
 		return FALSE
-	if(disabled_by_mental_immunity && owner.can_block_magic(MAGIC_RESISTANCE_MIND))
+	if(disabled_by_mental_immunity && target.can_block_magic(MAGIC_RESISTANCE_MIND))
 		add_stress(PSYKER_STRESS_MINOR) // This actively stresses you out.
 		owner.balloon_alert(owner, "Something interveres with your powers!")
 		return FALSE

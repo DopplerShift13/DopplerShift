@@ -1,34 +1,17 @@
 /datum/power/theologist_root
-	name = "Abstract Theologist Root"
-	desc = "There's no 4th theologist root; this is just debug code. \
-	Please report this!"
+	name = "Abstract theologist root"
+	desc = "Oh noes, tell the coders!"
 	abstract_parent_type = /datum/power/theologist_root
 
-	// Used as a resource. We permit decimal numbers, but the UI will always show non-decimals.
-	var/piety = 0
+	mob_trait = TRAIT_ARCHETYPE_SORCEROUS
+	archetype = POWER_ARCHETYPE_SORCEROUS
+	path = POWER_PATH_THEOLOGIST
+	priority = POWER_PRIORITY_ROOT
 
-	// The UI itself
-	var/atom/movable/screen/theologist_piety/theologist_ui
-
-/datum/power/theologist_root/New()
+/datum/power/theologist_root/revered/post_add()
+	if(!power_holder) // So it doesn't runtime at init
+		return
+	// We pass along the piety power to actually handle most of the piety stuff.
+	var/datum/power/theologist_piety/piety = new /datum/power/theologist_piety
+	piety.add_to_holder(new_holder = power_holder)
 	. = ..()
-	//Grants the UI element for Piety
-/*
-// UI Elements for Piety
-/atom/movable/screen/theologoist_resource
-	name = "piety"
-	icon = 'icons/hud/blob.dmi'
-	icon_state = "corehealth"
-	screen_loc = "EAST+0:23,NORTH-1:5" // We really need to use a define for this but currently I'm lazy
-
-/atom/movable/screen/theologist_framework
-	name = "piety framework"
-	icon_state = "block"
-	screen_loc = ui_health
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	plane = ABOVE_HUD_PLANE
-
-	var/piety_ui = new /atom/movable/screen/theologoist_resource
-	infodisplay += piety_ui
-
-*/

@@ -24,16 +24,35 @@
 	/// Can only humans use this power?
 	var/human_only = TRUE
 
+	// Is it an ability that requires us to click our mouse?
+	var/click_to_activate = FALSE
+	/// Maximum targeting range (in tiles) for click_to_activate powers. Set to 0 or null for no range limit.
+	var/target_range = 7
+	/// The click cooldown added onto the user's next click (only for click_to_activate abilities)
+	var/click_cd_override = CLICK_CD_CLICK_ABILITY
+	/// If TRUE, we will unset after using our click intercept.
+	var/unset_after_click = TRUE
+	/// What icon to replace our mouse cursor with when active.
+	var/ranged_mousepointer = 'icons/effects/mouse_pointers/supplypod_target.dmi'
+
 // When you press the button
-/datum/action/power/Trigger(mob/clicker, trigger_flags)
-	var/mob/user = owner
+/datum/action/power/Trigger(mob/clicker, trigger_flags, atom/target)
+	var/mob/living/user = owner
 	if(!user)
 		return
-	try_use(user)
+
+	// Click-to-activate powers set themselves as a click intercept, and then wait for a left click target.
+	if(click_to_activate)
+		return handle_click_to_activate(user, target)
+
+	// Non-targeted powers just use immediately.
+	return try_use(user, target = null)
 
 // Attempts to actively use the action
 /datum/action/power/proc/try_use(mob/living/user, mob/living/target)
 	SHOULD_CALL_PARENT(TRUE)
+	if(!can_use(user, target))
+		return FALSE
 	if(disabled_by_silence && HAS_TRAIT(owner, TRAIT_RESONANCE_SILENCED))
 		owner.balloon_alert(user, "silenced!")
 		return FALSE
@@ -63,3 +82,88 @@
 // Now we do THINGS!
 /datum/action/power/proc/use_action(mob/living/user, mob/living/target)
 	return TRUE
+
+/*
+Handles all the logic involved in using a targeted, click-based action.
+- First press: enables click intercept (targeting mode)
+- Second press (while already active): disables click intercept
+- While active: a left click calls InterceptClickOn() and passes the clicked atom as target
+*/
+/datum/action/power/proc/handle_click_to_activate(mob/living/user, atom/target)
+	// If this was called with a direct target (ex: some automated caller), treat it like a click immediately.
+	if(target)
+		return InterceptClickOn(user, null, target)
+
+	var/datum/action/power/already_set = user.click_intercept
+	if(already_set == src)
+		// If we clicked ourself and we're already set, unset and return
+		return unset_click_ability(user)
+
+	else if(istype(already_set))
+		// If we have an active one set already, unset it before we set ours
+		already_set.unset_click_ability(user)
+
+	return set_click_ability(user)
+
+/// Intercepts client owner clicks to activate the ability.
+/// Note: this is called by the click intercept system on left click.
+/datum/action/power/proc/InterceptClickOn(mob/living/clicker, params, atom/target)
+	if(!target)
+		return FALSE
+
+	// Range gate (only applies if target_range is non-zero).
+	if(target_range)
+		var/turf/clicker_turf = get_turf(clicker)
+		var/turf/target_turf = get_turf(target)
+		if(clicker_turf && target_turf && get_dist(clicker_turf, target_turf) > target_range)
+			to_chat(clicker, span_warning("Out of range!"))
+			return FALSE
+
+	// If the power can't be used, refuse the click and keep intercept state as-is.
+	if(!try_use(clicker, target))
+		return FALSE
+
+	// Successful click.
+	if(unset_after_click)
+		unset_click_ability(clicker)
+
+	clicker.next_click = world.time + click_cd_override
+	return TRUE
+
+/**
+ * Set our action as the click override on the passed mob.
+ */
+/datum/action/power/proc/set_click_ability(mob/on_who)
+	SHOULD_CALL_PARENT(TRUE)
+
+	on_who.click_intercept = src
+	if(ranged_mousepointer)
+		on_who.client?.mouse_override_icon = ranged_mousepointer
+		on_who.update_mouse_pointer()
+
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	on_activation(on_who)
+	return TRUE
+
+/**
+ * Unset our action as the click override of the passed mob.
+ */
+/datum/action/power/proc/unset_click_ability(mob/on_who)
+	SHOULD_CALL_PARENT(TRUE)
+
+	on_who.click_intercept = null
+	if(ranged_mousepointer)
+		on_who.client?.mouse_override_icon = initial(on_who.client?.mouse_override_icon)
+		on_who.update_mouse_pointer()
+
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	on_deactivation(on_who)
+	return TRUE
+
+/// These only call on pointed actions
+/datum/action/power/proc/on_activation(mob/living/user)
+	return
+
+/// Same as above
+/datum/action/power/proc/on_deactivation(mob/living/user)
+	return

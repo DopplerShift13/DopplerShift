@@ -28,6 +28,8 @@
 	/// A list of traits that should stop this power from processing.
 	/// Signals for adding and removing this trait will automatically be added to `process_update_signals`.
 	var/list/no_process_traits
+	// Is it not available in the preference menu?
+	var/available_in_prefs = TRUE
 
 	/// The overarching archetype this belongs to.
 	var/archetype
