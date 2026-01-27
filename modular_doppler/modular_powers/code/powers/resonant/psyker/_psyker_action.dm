@@ -1,4 +1,4 @@
-/datum/action/power/psyker
+/datum/action/cooldown/power/psyker
 	name = "abstract psyker power action - ahelp this"
 	background_icon_state = "bg_hive"
 	overlay_icon_state = "bg_hive_border"
@@ -10,12 +10,12 @@
 	// Disabled by the trait
 	var/disabled_by_mental_immunity = TRUE
 
-/datum/action/power/psyker/New()
+/datum/action/cooldown/power/psyker/New()
 	. = ..()
 	ValidateOrgan()
 
 // Actually checks if our Psyker Organ is there. We really want to check this every use.
-/datum/action/power/psyker/proc/ValidateOrgan()
+/datum/action/cooldown/power/psyker/proc/ValidateOrgan()
 	if(owner) // Prevents runtiming on start
 		psyker_organ =  owner.get_organ_slot(ORGAN_SLOT_PSYKER)
 	if(!psyker_organ)
@@ -25,14 +25,14 @@
 // This doesn't actually add the stress itself; it merely tells the organ to add the stress.
 // Why not handle it here? Because why give them an organ if we're not going to use it?!
 // Validation is handled on the organ side.
-/datum/action/power/psyker/proc/add_stress(amount)
+/datum/action/cooldown/power/psyker/proc/add_stress(amount)
 	psyker_organ.add_stress(amount)
 
-/datum/action/power/psyker/proc/remove_stress(amount)
+/datum/action/cooldown/power/psyker/proc/remove_stress(amount)
 	psyker_organ.remove_stress(amount)
 
 // We added checking for organs on try_use, as well as making sure that if we are wearing a tinfoil cap, we can't just wield our psychic powers.
-/datum/action/power/psyker/try_use(mob/living/user, mob/living/target)
+/datum/action/cooldown/power/psyker/try_use(mob/living/user, mob/living/target)
 	if(!ValidateOrgan())
 		owner.balloon_alert(owner, "No paracausal gland!")
 		return FALSE

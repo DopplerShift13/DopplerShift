@@ -2,7 +2,7 @@
 Reduces stress for psykers and restores Dantian for cultivators
 */
 
-/datum/action/power/resonant_meditate
+/datum/action/cooldown/power/resonant_meditate
 	name = "Resonant Meditation"
 	desc = "Restores the full potential of your resonant powers."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
@@ -13,7 +13,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 	var/obj/item/organ/resonant/psyker/psyker_organ
 	var/cultivator_organ //TODO: Cultivator Organ
 
-/datum/action/power/resonant_meditate/use_action()
+/datum/action/cooldown/power/resonant_meditate/use_action()
 	. = ..()
 	var/keep_going = TRUE
 	var/mob/living/spotlighttarget = owner // cause we need to call it on a mob/living
@@ -43,7 +43,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 	spotlighttarget.remove_status_effect(light)
 	return
 
-/datum/action/power/resonant_meditate/proc/get_spotlight_color()
+/datum/action/cooldown/power/resonant_meditate/proc/get_spotlight_color()
 	if(psyker_organ && cultivator_organ)
 		return /datum/status_effect/spotlight_light/resonant
 	else if(psyker_organ)
@@ -53,7 +53,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 	else
 		return /datum/status_effect/spotlight_light
 
-/datum/action/power/resonant_meditate/proc/update_organs()
+/datum/action/cooldown/power/resonant_meditate/proc/update_organs()
 	psyker_organ = owner.get_organ_slot(ORGAN_SLOT_PSYKER)
 	//TODO: Cultivator Organ
 

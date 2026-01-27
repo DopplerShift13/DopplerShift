@@ -5,16 +5,16 @@
 	value = 5
 	priority = POWER_PRIORITY_BASIC
 	required_powers = list(/datum/power/psyker_root)
-	action_path = /datum/action/power/psyker/levitate
+	action_path = /datum/action/cooldown/power/psyker/levitate
 
 /datum/power/psyker_power/levitate/dispel()
 	// TODO: Ask Ephe on how to do this better.
-	var/datum/action/power/psyker/levitate/to_be_dispelled = action_path
+	var/datum/action/cooldown/power/psyker/levitate/to_be_dispelled = action_path
 	if(to_be_dispelled.dispel())
 		return TRUE
 	return FALSE
 
-/datum/action/power/psyker/levitate
+/datum/action/cooldown/power/psyker/levitate
 	name = "Levitate"
 	desc = "Toggles levitation, causing you to ignore the ground. Also allows for propulsion in zero-gravity. Passively drains stress while in use."
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
@@ -23,7 +23,7 @@
 	// Overlay we add to the caster
 	var/mutable_appearance/caster_effect
 
-/datum/action/power/psyker/levitate/use_action()
+/datum/action/cooldown/power/psyker/levitate/use_action()
 	. = ..()
 	psyker_organ = owner.get_organ_slot(ORGAN_SLOT_PSYKER)
 	if(!active)
@@ -55,7 +55,7 @@
 
 	return
 
-/datum/action/power/psyker/levitate/process(seconds_per_tick)
+/datum/action/cooldown/power/psyker/levitate/process(seconds_per_tick)
 	if(!owner)
 		STOP_PROCESSING(SSfastprocess, src)
 		return
@@ -71,7 +71,7 @@
 // Dispel function; basically off-switch and possibly comedic faceplant
 
 // TODO: TURN THIS INTO A LISTENER
-/datum/action/power/psyker/levitate/proc/dispel()
+/datum/action/cooldown/power/psyker/levitate/proc/dispel()
 	var/mob/living/carbon/human/victim = owner
 	if(active)
 		owner.RemoveElement(/datum/element/forced_gravity, 0)

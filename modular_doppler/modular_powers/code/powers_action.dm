@@ -5,11 +5,13 @@
 
  Largely modeled after changeling_power.dm
 */
-/datum/action/power
+/datum/action/cooldown/power
 	name = "abstract power action - ahelp this"
 	background_icon_state = "bg_revenant"
 	overlay_icon_state = "bg_revenant_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
+	active_overlay_icon_state = "bg_spell_border_active_red"
+	ranged_mousepointer = 'icons/effects/mouse_pointers/supplypod_target.dmi'
 
 	/// Maximum state of consciousness before the ability is blocked.
 	/// For example, `UNCONSCIOUS` prevents it from being used when in hard crit or dead,
@@ -19,45 +21,25 @@
 	var/active = FALSE
 	/// Does this ability stop working if you are silenced?
 	var/disabled_by_silence = TRUE
-	/// What power gave the origin?
+	/// What power is the origin?
 	var/origin_power
 	/// Can only humans use this power?
 	var/human_only = TRUE
 	/// Can we target ourselves?
 	var/target_self = TRUE
 
-	// Is it an ability that requires us to click our mouse?
-	var/click_to_activate = FALSE
 	/// Maximum targeting range (in tiles) for click_to_activate powers. Set to 0 or null for no range limit.
 	var/target_range = 7
 	/// If set, clicked target MUST be of this type (or subtype).
 	var/target_type = null
-	/// The click cooldown added onto the user's next click (only for click_to_activate abilities)
-	var/click_cd_override = CLICK_CD_CLICK_ABILITY
-	/// If TRUE, we will unset after using our click intercept.
-	var/unset_after_click = TRUE
-	/// What icon to replace our mouse cursor with when active.
-	var/ranged_mousepointer = 'icons/effects/mouse_pointers/supplypod_target.dmi'
 
 // When you press the button
-/datum/action/power/Trigger(mob/clicker, trigger_flags, atom/target)
-	var/mob/living/user = owner
-	if(!user)
-		return
-
-	// Click-to-activate powers set themselves as a click intercept, and then wait for a left click target.
-	if(click_to_activate)
-		return handle_click_to_activate(user, target)
-
-	// Non-targeted powers just use immediately.
-	return try_use(user, target = null)
-
 // Attempts to actively use the action
-/datum/action/power/proc/try_use(mob/living/user, atom/target)
+/datum/action/cooldown/power/proc/try_use(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_use(user, target))
 		return FALSE
-	if(disabled_by_silence && HAS_TRAIT(owner, TRAIT_RESONANCE_SILENCED))
+	if(disabled_by_silence && HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
 		owner.balloon_alert(user, "silenced!")
 		return FALSE
 	if(use_action(user, target))
@@ -65,7 +47,7 @@
 	return FALSE
 
 // Validates the action can be used.
-/datum/action/power/proc/can_use(mob/living/user, atom/target)
+/datum/action/cooldown/power/proc/can_use(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_be_used_by(user)) // Runs can_be_used_by below
 		return FALSE
@@ -75,16 +57,16 @@
 	return TRUE
 
 // Checks if we exist (wow) and are human.
-/datum/action/power/proc/can_be_used_by(mob/living/user)
+/datum/action/cooldown/power/proc/can_be_used_by(mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
 	if(QDELETED(user))
 		return FALSE
-	if(!ishuman(owner) && human_only)
+	if(!ishuman(user) && human_only)
 		return FALSE
 	return TRUE
 
 // Now we do THINGS!
-/datum/action/power/proc/use_action(mob/living/user, atom/target)
+/datum/action/cooldown/power/proc/use_action(mob/living/user, atom/target)
 	return TRUE
 
 /*
@@ -93,34 +75,39 @@ Handles all the logic involved in using a targeted, click-based action.
 - Second press (while already active): disables click intercept
 - While active: a left click calls InterceptClickOn() and passes the clicked atom as target
 */
-/datum/action/power/proc/handle_click_to_activate(mob/living/user, atom/target)
-	// If this was called with a direct target (ex: some automated caller), treat it like a click immediately.
-	if(target)
-		return InterceptClickOn(user, null, target)
 
-	var/datum/action/power/already_set = user.click_intercept
-	if(already_set == src)
-		// If we clicked ourself and we're already set, unset and return
-		return unset_click_ability(TRUE)
+/**
+ * Non-click_to_activate actions run through the cooldown framework:
+ * Trigger() -> PreActivate(owner) -> Activate(owner)
+ */
+/datum/action/cooldown/power/Activate(atom/target)
+	var/mob/living/user = owner
+	if(!user)
+		return FALSE
 
-	else if(istype(already_set))
-		// If we have an active one set already, unset it before we set ours
-		already_set.unset_click_ability()
+	// Non-targeted powers just use immediately.
+	if(!try_use(user, target = null))
+		return FALSE
 
-	return set_click_ability()
+	StartCooldown()
+	return TRUE
 
 /// Intercepts client owner clicks to activate the ability.
-/// Note: this is called by the click intercept system on left click.
-/datum/action/power/proc/InterceptClickOn(mob/living/clicker, params, atom/target)
+/// Called by the base click intercept system on left click.
+/// Whilst /datum/action/cooldown does have click support, it doesn't support range-detecting and target filtering, so we are overriding that with our own.
+/datum/action/cooldown/power/InterceptClickOn(mob/living/clicker, params, atom/target)
+	if(!IsAvailable(feedback = TRUE))
+		return FALSE
 	if(!target)
 		return FALSE
 
 	// Checks if we are allowed to actually target that type.
-	if(!istype(target, target_type))
+	if(target_type && !istype(target, target_type))
 		return FALSE
 
 	// Check if we are allowed to target ourselves.
-	if(!target_self && target == owner)
+	if(!target_self && target == clicker)
+		owner.balloon_alert(clicker, "Can't target self!")
 		return FALSE
 
 	// Range gate (only applies if target_range is non-zero).
@@ -128,55 +115,18 @@ Handles all the logic involved in using a targeted, click-based action.
 		var/turf/clicker_turf = get_turf(clicker)
 		var/turf/target_turf = get_turf(target)
 		if(clicker_turf && target_turf && get_dist(clicker_turf, target_turf) > target_range)
-			owner.balloon_alert("Out of range!")
+			owner.balloon_alert(clicker, "Out of range!")
 			return FALSE
 
 	// If the power can't be used, refuse the click and keep intercept state as-is.
 	if(!try_use(clicker, target))
 		return FALSE
 
+	StartCooldown()
+
 	// Successful click.
 	if(unset_after_click)
-		unset_click_ability()
+		unset_click_ability(clicker, refund_cooldown = FALSE)
 
 	clicker.next_click = world.time + click_cd_override
 	return TRUE
-
-/**
- * Set our action as the click override on the passed mob.
- */
-/datum/action/power/proc/set_click_ability()
-	SHOULD_CALL_PARENT(TRUE)
-
-	owner.click_intercept = src
-	if(ranged_mousepointer)
-		owner.client?.mouse_override_icon = ranged_mousepointer
-		owner.update_mouse_pointer()
-
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
-	on_activation(owner)
-	return TRUE
-
-/**
- * Unset our action as the click override of the passed mob.
- */
-/datum/action/power/proc/unset_click_ability(manual = FALSE)
-	SHOULD_CALL_PARENT(TRUE)
-
-	owner.click_intercept = null
-	if(ranged_mousepointer)
-		owner.client?.mouse_override_icon = initial(owner.client?.mouse_override_icon)
-		owner.update_mouse_pointer()
-
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
-	if(manual)
-		on_deactivation(owner)
-	return TRUE
-
-/// These only call on pointed actions
-/datum/action/power/proc/on_activation(mob/living/user)
-	return
-
-/// Same as above
-/datum/action/power/proc/on_deactivation(mob/living/user)
-	return

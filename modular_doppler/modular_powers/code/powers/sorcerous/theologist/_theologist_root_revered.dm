@@ -4,30 +4,111 @@
 	desc = "Nullifies pain and slowly heals the creature over a prolonged period of time. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. \
 	This is mutually exclusive with the other 'A Burden...' powers."
-	action_path = /datum/action/power/theologist/theologist_root/revered
+	action_path = /datum/action/cooldown/power/theologist/theologist_root/revered
 
 	value = 5
 
-/datum/action/power/theologist/theologist_root/revered
+/datum/action/cooldown/power/theologist/theologist_root/revered
 	name = "A Burden Revered"
 	desc = "Nullifies pain and slowly heals the creature over a prolonged period of time. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "transformslime"
+	cooldown_time = 50
 	target_range = 1
 	target_type = /mob/living
 	click_to_activate = TRUE
-	target_self = FALSE
+	target_self = TRUE
 
-/datum/action/power/theologist/theologist_root/revered/use_action(mob/living/user, mob/living/target)
+	// Current instance of the status effect
+	var/datum/status_effect/power/burden_revered/active_effect
+
+/datum/action/cooldown/power/theologist/theologist_root/revered/use_action(mob/living/user, mob/living/target)
 	to_chat(owner, span_boldnotice("Placeholder"))
-
+	if(active_effect)
+		qdel(active_effect)
+	active_effect = target.apply_status_effect(/datum/status_effect/power/burden_revered, src)
 	return TRUE
 
-/datum/action/power/theologist/theologist_root/revered/on_activation(mob/living/user)
+/datum/action/cooldown/power/theologist/theologist_root/revered/set_click_ability(mob/on_who)
+	. = ..()
 	to_chat(owner, span_notice("You ready yourself to relieve the burden of others!<br><B>Left-click</B> a creature next to you to target them!"))
 
-/datum/action/power/theologist/theologist_root/revered/on_deactivation(mob/living/user)
-	to_chat(owner, span_notice("You withdraw your power."))
+/datum/action/cooldown/power/theologist/theologist_root/revered/proc/effect_expired(amount)
+	adjust_piety(amount)
+	if(amount >= 1)
+		to_chat(owner, span_notice("Your Burden Revered has expired, you gained [amount] piety!"))
+		owner.playsound_local(owner, 'sound/effects/pray.ogg', 50, FALSE)
+	else
+		to_chat(owner, span_notice("Your Burden Revered has expired!"))
+	return
+
 
 ///datum/power/theologist_root/revered/process()
+
+// Status effect that Burden Revered applies
+/datum/status_effect/power/burden_revered
+	id = "burden_revered"
+	duration = 2 MINUTES // If somehow it overestays its welcome
+	tick_interval = 1 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/burden_revered
+	// The power responsible for this, so we can make sure it properly gives piety to the caster
+	var/datum/action/cooldown/power/theologist/theologist_root/revered/burden_power
+	// The maximum amount we will heal
+	var/healing_max = 30
+	// How much we have healed already
+	var/healing_done = 0
+	// How much we heal per tick.
+	var/base_healing_amount = 1
+	// Has the thing already expired?
+	var/already_expired
+
+/datum/status_effect/power/burden_revered/on_apply()
+	ADD_TRAIT(owner, TRAIT_ANALGESIA, type)
+	return TRUE
+
+// Sets the link with the original action
+/datum/status_effect/power/burden_revered/on_creation(mob/living/new_owner,	datum/action/cooldown/power/theologist/theologist_root/revered/passed_power)
+	. = ..()
+	burden_power = passed_power
+
+
+// You might wonder why we run Destroy as well as on_remove. The issue is that on_remove can trigger on qdel, which invalidates burden_power, which prevents us from efficiently passing on the piety back to the owner.
+/datum/status_effect/power/burden_revered/Destroy()
+	if(!already_expired)
+		expire()
+	..()
+
+/datum/status_effect/power/burden_revered/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_ANALGESIA, type)
+	return
+
+// This is where the heal budgeting happens.
+/datum/status_effect/power/burden_revered/tick(seconds_between_ticks)
+	var/healing_amount = (base_healing_amount * seconds_between_ticks)
+	new /obj/effect/temp_visual/heal(get_turf(owner), "#ddd166")
+	owner.heal_overall_damage(healing_amount)
+	healing_done += healing_amount
+	// Expire if at full health.
+	if(owner && owner.health >= owner.maxHealth)
+		expire()
+		return
+	// Expire if we've reached the max.
+	if(healing_done >= healing_max)
+		expire()
+		return
+
+// QDEL destroys burden_power
+/datum/status_effect/power/burden_revered/proc/expire()
+	var/piety_gained = max(0, floor(healing_done * 0.2)) // TODO: defines
+	// Report back BEFORE deletion starts
+	if(burden_power)
+		burden_power.effect_expired(piety_gained)
+	already_expired = TRUE
+	src.Destroy() // There might be something better, but QDEL triggers the qdel loop warning.
+
+/atom/movable/screen/alert/status_effect/burden_revered
+	name = "A Burden Revered"
+	desc = "You passively heal damage, and are immune to pain for it's duration."
+	icon_state = "designated_target" // Placeholder
+

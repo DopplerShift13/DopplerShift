@@ -21,22 +21,61 @@
 	// The UI itself
 	var/atom/movable/screen/theologist_piety/theologist_ui
 
-/datum/power/theologist_piety/New()
+/datum/power/theologist_piety/post_add()
 	. = ..()
-	//Grants the UI element for Piety
-	if(power_holder) // Prevents runtiming at init
-		if(power_holder.hud_used)
-			var/datum/hud/hud_used = power_holder.hud_used
 
-			theologist_ui = new /atom/movable/screen/theologist_piety(null, hud_used)
-			hud_used.infodisplay += theologist_ui
+	if(!power_holder)
+		return
+
+	var/mob/living/living_holder = power_holder
+	if(living_holder.hud_used)
+		install_piety_hud(living_holder)
+	else
+		RegisterSignal(living_holder, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created))
+
+/datum/power/theologist_piety/remove()
+	. = ..()
+
+	if(!power_holder)
+		return
+
+	var/mob/living/living_holder = power_holder
+	UnregisterSignal(living_holder, COMSIG_MOB_HUD_CREATED)
+
+	if(living_holder.hud_used && theologist_ui)
+		living_holder.hud_used.infodisplay -= theologist_ui
+		qdel(theologist_ui)
+		theologist_ui = null
+
+/datum/power/theologist_piety/proc/on_hud_created(datum/source)
+	SIGNAL_HANDLER
+
+	var/mob/living/living_holder = power_holder
+	if(!living_holder || !living_holder.hud_used)
+		return
+
+	install_piety_hud(living_holder)
+
+/datum/power/theologist_piety/proc/install_piety_hud(mob/living/living_holder)
+	if(theologist_ui) // already installed
+		return
+
+	var/datum/hud/hud_used = living_holder.hud_used
+	theologist_ui = new /atom/movable/screen/theologist_piety(null, hud_used)
+	hud_used.infodisplay += theologist_ui
+
+	// Set initial text so it isn't blank until first adjust.
+	theologist_ui.maptext = FORMAT_PIETY_TEXT(piety)
+
+	// THIS is the missing “why it only appears after changeling”
+	hud_used.show_hud(hud_used.hud_version)
 
 // UI Elements for Piety
 /atom/movable/screen/theologist_piety
 	name = "piety"
-	icon = 'icons/hud/blob.dmi'
-	icon_state = "corehealth"
-	screen_loc = "WEST,CENTER-1:15" // TODO: Define & Move this.
+	icon = 'icons/hud/blob.dmi' // TODO: Get sprites/UI for this.
+	icon_state = "block"
+	screen_loc = "WEST,CENTER-2:15" // TODO: Define & Move this.
 
 
 /datum/power/theologist_piety/proc/adjust_piety(amount, override_cap)
