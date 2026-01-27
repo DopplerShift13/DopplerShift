@@ -18,7 +18,7 @@
 	target_range = 1
 	target_type = /mob/living
 	click_to_activate = TRUE
-	target_self = TRUE
+	target_self = FALSE
 
 	// Current instance of the status effect
 	var/datum/status_effect/power/burden_revered/active_effect
@@ -37,7 +37,7 @@
 /datum/action/cooldown/power/theologist/theologist_root/revered/proc/effect_expired(amount)
 	adjust_piety(amount)
 	if(amount >= 1)
-		to_chat(owner, span_notice("Your Burden Revered has expired, you gained [amount] piety!"))
+		to_chat(owner, span_notice("Your Burden Revered has expired! You gained [amount] piety!"))
 		owner.playsound_local(owner, 'sound/effects/pray.ogg', 50, FALSE)
 	else
 		to_chat(owner, span_notice("Your Burden Revered has expired!"))
@@ -87,8 +87,7 @@
 /datum/status_effect/power/burden_revered/tick(seconds_between_ticks)
 	var/healing_amount = (base_healing_amount * seconds_between_ticks)
 	new /obj/effect/temp_visual/heal(get_turf(owner), "#ddd166")
-	owner.heal_overall_damage(healing_amount)
-	healing_done += healing_amount
+
 	// Expire if at full health.
 	if(owner && owner.health >= owner.maxHealth)
 		expire()
@@ -97,6 +96,45 @@
 	if(healing_done >= healing_max)
 		expire()
 		return
+
+	// Only include damage types that actually need healing
+	var/list/damage_choices = list()
+	var/brute_damage = owner.getBruteLoss()
+	var/burn_damage = owner.getFireLoss()
+	var/tox_damage = owner.getToxLoss()
+	var/oxy_damage = owner.getOxyLoss()
+
+	if(brute_damage > 0) damage_choices += "brute"
+	if(burn_damage > 0) damage_choices += "burn"
+	if(tox_damage > 0) damage_choices += "tox"
+	if(oxy_damage > 0) damage_choices += "oxy"
+
+	// Nothing to heal
+	if(!damage_choices.len)
+		return
+
+	var/damage_choice = pick(damage_choices)
+
+	switch(damage_choice)
+		if("brute")
+			var/heal_done = min(healing_amount, brute_damage)
+			owner.adjustBruteLoss(-heal_done)
+			healing_done += heal_done
+
+		if("burn")
+			var/heal_done = min(healing_amount, burn_damage)
+			owner.adjustFireLoss(-heal_done)
+			healing_done += heal_done
+
+		if("tox")
+			var/heal_done = min(healing_amount, tox_damage)
+			owner.adjustToxLoss(-heal_done)
+			healing_done += heal_done
+
+		if("oxy")
+			var/heal_done = min(healing_amount, oxy_damage)
+			owner.adjustOxyLoss(-heal_done)
+			healing_done += heal_done
 
 // QDEL destroys burden_power
 /datum/status_effect/power/burden_revered/proc/expire()

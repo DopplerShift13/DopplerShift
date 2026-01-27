@@ -21,6 +21,8 @@
 	var/active = FALSE
 	/// Does this ability stop working if you are silenced?
 	var/disabled_by_silence = TRUE
+	/// Does this ability stop working if you are incapacitated?
+	var/disabled_by_incapacitate = TRUE
 	/// What power is the origin?
 	var/origin_power
 	/// Can only humans use this power?
@@ -38,6 +40,9 @@
 /datum/action/cooldown/power/proc/try_use(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_use(user, target))
+		return FALSE
+	if(disabled_by_incapacitate && HAS_TRAIT(user, TRAIT_INCAPACITATED))
+		owner.balloon_alert(user, "incapacitated!")
 		return FALSE
 	if(disabled_by_silence && HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
 		owner.balloon_alert(user, "silenced!")
