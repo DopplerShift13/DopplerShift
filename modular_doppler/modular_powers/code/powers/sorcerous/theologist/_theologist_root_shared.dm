@@ -135,8 +135,8 @@
 	RegisterSignal(current_beam, COMSIG_QDELETING, PROC_REF(beam_died))
 
 	target_glow = mutable_appearance(
-		icon = 'icons/mob/effects/genetics.dmi',
-		icon_state = "servitude",
+		icon = 'icons/effects/effects.dmi',
+		icon_state = "shield-yellow",
 		layer = current_target.layer - 0.1,
 		appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART
 	)
@@ -163,6 +163,7 @@
 			return
 		// Checks if our owner or target are DEAD
 		if(current_target.stat == DEAD || owner.stat == DEAD)
+			to_chat(owner, span_warning("You cannot share burdens with dead people!"))
 			clear_link()
 			return
 
@@ -171,8 +172,8 @@
 			clear_link()
 			return
 
-		// checks if our owner or target are INCAPACITATED
-		if(HAS_TRAIT(owner, TRAIT_INCAPACITATED) || HAS_TRAIT(current_target, TRAIT_INCAPACITATED))
+		// checks if our owner is INCAPACITATED
+		if(HAS_TRAIT(owner, TRAIT_INCAPACITATED))
 			clear_link()
 			return
 

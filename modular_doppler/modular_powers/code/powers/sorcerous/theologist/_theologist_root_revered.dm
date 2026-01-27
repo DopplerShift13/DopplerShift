@@ -1,7 +1,7 @@
 
 /datum/power/theologist_root/revered
 	name = "A Burden Revered"
-	desc = "Nullifies pain and slowly heals the creature over a prolonged period of time. \
+	desc = "Nullifies pain and slowly heals the target over a prolonged period of time. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. \
 	This is mutually exclusive with the other 'A Burden...' powers."
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/revered
@@ -10,7 +10,7 @@
 
 /datum/action/cooldown/power/theologist/theologist_root/revered
 	name = "A Burden Revered"
-	desc = "Nullifies pain and slowly heals the creature over a prolonged period of time. \
+	desc = "Nullifies pain and slowly heals the target over a prolonged period of time. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "transformslime"
@@ -18,7 +18,7 @@
 	target_range = 1
 	target_type = /mob/living
 	click_to_activate = TRUE
-	target_self = FALSE
+	target_self = TRUE
 
 	// Current instance of the status effect
 	var/datum/status_effect/power/burden_revered/active_effect

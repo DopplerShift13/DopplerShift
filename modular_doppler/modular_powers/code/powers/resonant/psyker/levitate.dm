@@ -59,7 +59,9 @@
 	if(!owner)
 		STOP_PROCESSING(SSfastprocess, src)
 		return
-
+	//Faceplant if you get KO'd
+	if(HAS_TRAIT(owner, TRAIT_INCAPACITATED))
+		dispel()
 	// Passive stress cost
 	if(active)
 		var/mob/living/carbon/human/psyker = owner
@@ -87,10 +89,11 @@
 		// Do you have anything to brace your fall? Or do you possibly manage to get lucky?
 		var/obj/item/organ/wings/gliders = owner.get_organ_by_type(/obj/item/organ/wings)
 		if(HAS_TRAIT(owner, TRAIT_FREERUNNING) || gliders?.can_soften_fall() || prob(30))
-			to_chat(owner, span_warning("You suddenly fall to the ground, but manage to catch yourself!"))
+			to_chat(owner, span_warning("You drop to the ground, but manage to catch yourself!"))
 		else
-			to_chat(owner, span_userdanger("You suddenly fall to the ground!"))
+			to_chat(owner, span_userdanger("You drop to the ground!"))
 			playsound(owner, 'sound/effects/desecration/desecration-02.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
+			victim.adjustBruteLoss(5)
 			victim.Knockdown(3 SECONDS)
 		return TRUE
 

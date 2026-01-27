@@ -1,8 +1,8 @@
 /* This leviathan of spaghetti is based off of the MODsuit modules.
-It is currently still using spells as a system rather than powers.
+It is a lazy port to the current acitons powers system from the spells system and has a lot wonkiness as a consequence.
 BIG TODO: FIX THAT
 */
-/*
+
 /datum/power/psyker_power/telekinesis
 	name = "Telekinesis"
 	desc = "Grants the ability to manipulate and move various objects. Generates stress based upon weight on pick-up and throw, as well as passively while holding an object."
@@ -10,20 +10,18 @@ BIG TODO: FIX THAT
 	value = 5
 	priority = POWER_PRIORITY_BASIC
 	required_powers = list(/datum/power/psyker_root)
-	action_path = /datum/action/cooldown/spell/pointed/telekinesis
+	action_path = /datum/action/cooldown/power/psyker/telekinesis
 
-/datum/action/cooldown/spell/pointed/telekinesis
+/datum/action/cooldown/power/psyker/telekinesis
 	name = "Telekinesis"
 	desc = "Middle-click to grab an object, Right-Click to drop, Middle-Click again to punt!"
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "repulse"
+	click_to_activate = TRUE
+	target_self = FALSE
 
-	deactive_msg = "You unfocus your telekinetic powers."
 	unset_after_click = FALSE
-	cast_range = 255 // this is just for show.
-	aim_assist = FALSE
-	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
-	antimagic_flags = MAGIC_RESISTANCE_MIND
+	target_range = 255 // this is just for show.
 
 	// Range of the kinesis grab.
 	var/grab_range = 8
@@ -39,32 +37,23 @@ BIG TODO: FIX THAT
 	// Overlay we add to the player when using this power.
 	var/mutable_appearance/player_icon
 
-	// Psyker organ for stress.
-	var/obj/item/organ/resonant/psyker/psyker_organ
-
 	// Mouse tracker overlay (telekinesis-specific)
 	var/atom/movable/screen/fullscreen/cursor_catcher/kinesis/psyker_tk/kinesis_catcher
 
-/datum/action/cooldown/spell/pointed/telekinesis/on_activation(mob/on_who)
-	// I am to commit a most heinous crime.
-	// If I do not call parent, we'll get compile warnings. If I don't do this, there'll be misleading messages that we cannot suppress (we don't use left click because it mimmicks the MODsuit controls)
-	// Maintainers forgive my sins.
-	var/mob/real_on_who = on_who
-	on_who = null
-	// Sins end.
+/datum/action/cooldown/power/psyker/telekinesis/Trigger(mob/clicker, trigger_flags, atom/target)
 	. = ..()
-	if(!.)
-		return
-	psyker_organ = real_on_who.get_organ_slot(ORGAN_SLOT_PSYKER)
-	to_chat(real_on_who, span_notice("You focus your telekinetic powers...<br><B>Middle-click</B>: Grab/Punt<B> | Right-click</B>: Drop<B> | Move mouse</B>: to drag"))
+	// We run this here cause telekinesis doesn't use use_action for some awful reason and I cba to fix it.
+	ValidateOrgan()
+
+	if(grabbed_atom)
+		clear_grab(playsound = FALSE)
+		to_chat(owner, span_notice("You relax your telekinetic powers."))
+	else
+		to_chat(owner, span_notice("You focus your telekinetic powers...<br><B>Middle-click</B>: Grab/Punt<B> | Right-click</B>: Drop<B> | Move mouse</B>: to drag"))
 	return TRUE
 
-/datum/action/cooldown/spell/pointed/telekinesis/on_deactivation(mob/on_who, refund_cooldown = TRUE)
-	clear_grab(playsound = FALSE)
-	psyker_organ = null
-	return ..()
-
-/datum/action/cooldown/spell/pointed/telekinesis/InterceptClickOn(mob/living/clicker, params, atom/target)
+/datum/action/cooldown/power/psyker/telekinesis/InterceptClickOn(mob/living/clicker, params, atom/target)
+	.=..()
 	if(clicker != owner)
 		return FALSE
 
@@ -104,7 +93,7 @@ BIG TODO: FIX THAT
 		return TRUE
 
 // You shouldn't get as stressed from picking up a pen as a closet.
-/datum/action/cooldown/spell/pointed/telekinesis/proc/get_stress_cost_for_atom(atom/target)
+/datum/action/cooldown/power/psyker/telekinesis/proc/get_stress_cost_for_atom(atom/target)
 	var/cost
 
 	if(isitem(target))
@@ -123,7 +112,7 @@ BIG TODO: FIX THAT
 
 	return cost
 
-/datum/action/cooldown/spell/pointed/telekinesis/process(seconds_per_tick)
+/datum/action/cooldown/power/psyker/telekinesis/process(seconds_per_tick)
 	var/mob/living/user = owner
 	if(!grabbed_atom || !user?.client)
 		STOP_PROCESSING(SSfastprocess, src)
@@ -162,10 +151,10 @@ BIG TODO: FIX THAT
 				return
 
 
-	psyker_organ.add_stress(PSYKER_STRESS_TRIVIAL * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
+	add_stress(PSYKER_STRESS_TRIVIAL * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
 
 // The fun part, punting shit.
-/datum/action/cooldown/spell/pointed/telekinesis/proc/punt_held(mob/living/user, atom/target, params)
+/datum/action/cooldown/power/psyker/telekinesis/proc/punt_held(mob/living/user, atom/target, params)
 	if(!grabbed_atom)
 		return
 
@@ -185,7 +174,7 @@ BIG TODO: FIX THAT
 	var/atom/movable/launched = grabbed_atom
 
 	// Basically the same stress cost for picking it up.
-	psyker_organ.add_stress(get_stress_cost_for_atom(launched))
+	add_stress(get_stress_cost_for_atom(launched))
 
 	clear_grab(playsound = FALSE)
 	playsound(launched, 'sound/effects/magic/repulse.ogg', 75, TRUE)
@@ -199,7 +188,7 @@ BIG TODO: FIX THAT
 	)
 
 // The proverbial leash.
-/datum/action/cooldown/spell/pointed/telekinesis/proc/range_check(mob/living/user, atom/target)
+/datum/action/cooldown/power/psyker/telekinesis/proc/range_check(mob/living/user, atom/target)
 	if(!user || !isturf(user.loc))
 		return FALSE
 	if(ismovable(target) && !isturf(target.loc))
@@ -209,7 +198,7 @@ BIG TODO: FIX THAT
 	return TRUE
 
 // Can we ACTUALLY grab it or will it just fizz out?
-/datum/action/cooldown/spell/pointed/telekinesis/proc/can_grab(mob/living/user, atom/target)
+/datum/action/cooldown/power/psyker/telekinesis/proc/can_grab(mob/living/user, atom/target)
 	if(user == target)
 		return FALSE
 	if(!ismovable(target))
@@ -242,7 +231,7 @@ BIG TODO: FIX THAT
 
 	return TRUE
 
-/datum/action/cooldown/spell/pointed/telekinesis/proc/grab_atom(atom/movable/target)
+/datum/action/cooldown/power/psyker/telekinesis/proc/grab_atom(atom/movable/target)
 	// If anything was already held, clear it first
 	if(grabbed_atom)
 		clear_grab(playsound = FALSE)
@@ -279,11 +268,11 @@ BIG TODO: FIX THAT
 		kinesis_catcher.assign_to_mob(owner)
 
 	// Amounts are in the get_stress_cost_for_atom
-	psyker_organ.add_stress(get_stress_cost_for_atom(target))
+	add_stress(get_stress_cost_for_atom(target))
 
 	START_PROCESSING(SSfastprocess, src)
 
-/datum/action/cooldown/spell/pointed/telekinesis/proc/clear_grab(playsound = TRUE)
+/datum/action/cooldown/power/psyker/telekinesis/proc/clear_grab(playsound = TRUE)
 	if(!grabbed_atom)
 		// Still ensure the fullscreen overlay is gone if we somehow desynced
 		if(owner)
@@ -322,12 +311,12 @@ BIG TODO: FIX THAT
 		owner.clear_fullscreen("psyker_tk")
 	kinesis_catcher = null
 
-/datum/action/cooldown/spell/pointed/telekinesis/proc/on_statchange(mob/grabbed_mob, new_stat)
+/datum/action/cooldown/power/psyker/telekinesis/proc/on_statchange(mob/grabbed_mob, new_stat)
 	SIGNAL_HANDLER
 	if(new_stat < stat_required)
 		clear_grab()
 
-/datum/action/cooldown/spell/pointed/telekinesis/proc/on_setanchored(atom/movable/grabbed_atom_ref, anchorvalue)
+/datum/action/cooldown/power/psyker/telekinesis/proc/on_setanchored(atom/movable/grabbed_atom_ref, anchorvalue)
 	SIGNAL_HANDLER
 	if(grabbed_atom_ref.anchored)
 		clear_grab()
@@ -342,5 +331,3 @@ BIG TODO: FIX THAT
 	alpha = 180
 	color = "#8A2BE2"
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
-
-*/

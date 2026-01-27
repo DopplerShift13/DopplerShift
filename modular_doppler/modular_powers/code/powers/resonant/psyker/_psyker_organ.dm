@@ -21,6 +21,9 @@
 	var/CDstressMild = 0
 	var/CDstressSevere = 0
 
+	//The stress warning message
+	var/datum/status_effect/power/stress_warning
+
 // Don't modify stress directly. In the future affinity has a bearing on how much stress you gain.
 /obj/item/organ/resonant/psyker/proc/add_stress(amount)
 	// TODO; Add clothing affinity. Wearing psychic nicknacks makes you gain less stress.
@@ -70,6 +73,13 @@
 			CDstressMild = max(CDstressMild - seconds_per_tick, 0)
 		if(CDstressSevere > 0)
 			CDstressSevere = max(CDstressSevere - seconds_per_tick, 0)
+
+		//Handle the warning status effect
+		if(stress >= stress_threshold && !stress_warning)
+			stress_warning = owner.apply_status_effect(/datum/status_effect/power/stress_warning)
+		else if(stress < stress_threshold && stress_warning)
+			owner.remove_status_effect(/datum/status_effect/power/stress_warning)
+			stress_warning = null
 
 	// In the event that you implant this into someone else.
 	// Currently placeholder til we settle on what it do on people that don't have it.
@@ -136,3 +146,15 @@
 
 	return
 
+
+// Warning message for high stress
+/datum/status_effect/power/stress_warning
+	id = "stress_warning"
+	tick_interval = -1 SECONDS // This one's just a warning
+	alert_type = /atom/movable/screen/alert/status_effect/stress_warning
+
+/atom/movable/screen/alert/status_effect/stress_warning
+	icon = 'icons/mob/actions/actions_ecult.dmi'
+	name = "Stress Warning!"
+	desc = "Your stress is at the backlash threshold! You will suffer periodic negative events until you meditate, and continued use of your powers will only make things worse!"
+	icon_state = "mansus_link" // Placeholder

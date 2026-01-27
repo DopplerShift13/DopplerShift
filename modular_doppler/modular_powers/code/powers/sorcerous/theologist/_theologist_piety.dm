@@ -16,7 +16,7 @@
 	var/piety = 0
 
 	//At what point do we cap out piety?
-	var/max_piety = 20
+	var/max_piety = 99
 
 	// The UI itself
 	var/atom/movable/screen/theologist_piety/theologist_ui
