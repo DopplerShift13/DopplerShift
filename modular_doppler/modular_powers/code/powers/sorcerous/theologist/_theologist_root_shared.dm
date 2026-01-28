@@ -62,15 +62,15 @@
 // Currency exchange for piety.
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/exchange_buildup()
 	// Have we been a good boy?
-	if(piety_buildup >= 5)
-		piety_buildup -= 5
+	if(piety_buildup >= 1)
+		piety_buildup -= 1
 		adjust_piety(1)
 		to_chat(owner, span_notice("Taking on the burdens of others has gained you piety!"))
 	// Have we been a bad boy?
-	else if (piety_buildup <= -5)
-		piety_buildup += 5
+	else if (piety_buildup <= -1)
+		piety_buildup += 1
 		// Have we been a VERY bad boy? Don't think you can get away with willynilly using this at 0 piety.
-		if(piety_power.piety <= 0 && prob(25))
+		if(get_piety() <= 0 && prob(25))
 			lightningbolt(owner)
 			if(ishuman(owner))
 				var/mob/living/carbon/human/sinner = owner
@@ -172,8 +172,10 @@
 			clear_link()
 			return
 
-		// checks if our owner is INCAPACITATED
-		if(HAS_TRAIT(owner, TRAIT_INCAPACITATED))
+		// checks if our owner is INCAPACITATED or KNOCKED DOWN
+		// Honestly more of a balance concern the latter, sorry paraplegic people.
+		if(HAS_TRAIT(owner, TRAIT_INCAPACITATED) || HAS_TRAIT(owner, TRAIT_FLOORED))
+			to_chat(owner, span_warning("You need to be standing!"))
 			clear_link()
 			return
 
@@ -248,9 +250,9 @@
 
 	// Piety buildup increases/deductions
 	if(taker == owner)
-		piety_buildup += amount
+		piety_buildup += amount * PIETY_HEALING_COEFFICIENT
 	else if(giver == owner)
-		piety_buildup -= amount
+		piety_buildup -= amount * PIETY_HEALING_COEFFICIENT
 
 	return
 

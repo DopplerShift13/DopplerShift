@@ -1,7 +1,8 @@
 
 // Both of these lists are shifted to glob so they are generated at world start instead of risking players doing preference stuff before the subsystem inits.
 GLOBAL_LIST_INIT_TYPED(powers_blacklist, /list/datum/power, list(
-	list(/datum/power/item_power/thaumaturge_root, /datum/power/enigmatist_root)
+	list(/datum/power/item_power/thaumaturge_root, /datum/power/enigmatist_root),
+	list(/datum/power/theologist_root/revered, /datum/power/theologist_root/shared, /datum/power/theologist_root/twisted) // The three Theologist Roots
 ))
 
 GLOBAL_LIST_INIT(powers_requirements_list, generate_powers_requirements_list())

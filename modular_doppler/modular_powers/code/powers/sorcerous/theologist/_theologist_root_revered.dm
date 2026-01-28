@@ -1,7 +1,7 @@
 
 /datum/power/theologist_root/revered
 	name = "A Burden Revered"
-	desc = "Nullifies pain and slowly heals the target over a prolonged period of time. \
+	desc = "Nullifies pain and slowly heals the targeted creature over a prolonged period of time. This may be yourself. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. \
 	This is mutually exclusive with the other 'A Burden...' powers."
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/revered
@@ -10,7 +10,7 @@
 
 /datum/action/cooldown/power/theologist/theologist_root/revered
 	name = "A Burden Revered"
-	desc = "Nullifies pain and slowly heals the target over a prolonged period of time. \
+	desc = "Nullifies pain and slowly heals the targeted creature over a prolonged period of time. This may be yourself. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "transformslime"
@@ -23,11 +23,17 @@
 	// Current instance of the status effect
 	var/datum/status_effect/power/burden_revered/active_effect
 
+	// Keeps track if we are targeting ourselves, as to ensure we don't give ourselves piety by repeatedly healing ourselves, which isn't very pious (according to MOST religions).
+	var/healing_self = FALSE
+
 /datum/action/cooldown/power/theologist/theologist_root/revered/use_action(mob/living/user, mob/living/target)
 	to_chat(owner, span_boldnotice("Placeholder"))
 	if(active_effect)
 		qdel(active_effect)
 	active_effect = target.apply_status_effect(/datum/status_effect/power/burden_revered, src)
+	active = TRUE
+	if(active_effect && target == owner)
+		healing_self = TRUE
 	return TRUE
 
 /datum/action/cooldown/power/theologist/theologist_root/revered/set_click_ability(mob/on_who)
@@ -36,15 +42,17 @@
 
 /datum/action/cooldown/power/theologist/theologist_root/revered/proc/effect_expired(amount)
 	adjust_piety(amount)
-	if(amount >= 1)
-		to_chat(owner, span_notice("Your Burden Revered has expired! You gained [amount] piety!"))
+	if(amount >= 1 && !healing_self)
+		to_chat(owner, span_notice("Your previous Burden Revered has expired! You gained [amount] piety!"))
 		owner.playsound_local(owner, 'sound/effects/pray.ogg', 50, FALSE)
 	else
-		to_chat(owner, span_notice("Your Burden Revered has expired!"))
+		to_chat(owner, span_notice("Your previous Burden Revered has expired!"))
+
+	//Always reset this after use.
+	active = FALSE
+	healing_self = FALSE
+
 	return
-
-
-///datum/power/theologist_root/revered/process()
 
 // Status effect that Burden Revered applies
 /datum/status_effect/power/burden_revered
@@ -55,7 +63,7 @@
 	// The power responsible for this, so we can make sure it properly gives piety to the caster
 	var/datum/action/cooldown/power/theologist/theologist_root/revered/burden_power
 	// The maximum amount we will heal
-	var/healing_max = 30
+	var/healing_max = ROOT_HEALING
 	// How much we have healed already
 	var/healing_done = 0
 	// How much we heal per tick.
@@ -138,7 +146,7 @@
 
 // QDEL destroys burden_power
 /datum/status_effect/power/burden_revered/proc/expire()
-	var/piety_gained = max(0, floor(healing_done * 0.2)) // TODO: defines
+	var/piety_gained = max(0, floor(healing_done * PIETY_HEALING_COEFFICIENT)) // TODO: defines
 	// Report back BEFORE deletion starts
 	if(burden_power)
 		burden_power.effect_expired(piety_gained)

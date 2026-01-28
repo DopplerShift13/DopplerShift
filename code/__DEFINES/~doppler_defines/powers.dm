@@ -76,6 +76,21 @@
 /// Any Enigmatist lore whatsoever.
 #define ENIGMATIST_ANY_ALL (ENIGMATIST_RESONANT|ENIGMATIST_UNSEALED|ENIGMATIST_ILLUMINATED|ENIGMATIST_DIVIDED)
 
+/**
+ * SORCEROUS: THEOLOGIST
+ * All defines related to the enigmatist powers.
+ */
+
+// How much root abilities should heal (max), if they heal.
+#define ROOT_HEALING 30
+
+// Healing equates to this much piety.
+#define PIETY_HEALING_COEFFICIENT 0.2
+
+// Maximum amount of Piety
+#define PIETY_MAX 99
+
+
 /**MORTAL DEFINES
 * I'm literally just using this to define Breacher Knuckle right now
 * These things, they take time.

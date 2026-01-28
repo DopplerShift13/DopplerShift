@@ -29,6 +29,8 @@
 	var/human_only = TRUE
 	/// Can we target ourselves?
 	var/target_self = TRUE
+	// Do we need our hands free?
+	var/need_hands_free = TRUE
 
 	/// Maximum targeting range (in tiles) for click_to_activate powers. Set to 0 or null for no range limit.
 	var/target_range = 7
@@ -41,12 +43,6 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_use(user, target))
 		return FALSE
-	if(disabled_by_incapacitate && HAS_TRAIT(user, TRAIT_INCAPACITATED))
-		owner.balloon_alert(user, "incapacitated!")
-		return FALSE
-	if(disabled_by_silence && HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
-		owner.balloon_alert(user, "silenced!")
-		return FALSE
 	if(use_action(user, target))
 		return TRUE
 	return FALSE
@@ -56,7 +52,16 @@
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_be_used_by(user)) // Runs can_be_used_by below
 		return FALSE
-	if(req_stat < user.stat) // Are we conscious?
+	if(disabled_by_incapacitate && HAS_TRAIT(user, TRAIT_INCAPACITATED))
+		owner.balloon_alert(user, "incapacitated!")
+		return FALSE
+	if(disabled_by_silence && HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
+		owner.balloon_alert(user, "silenced!")
+		return FALSE
+	if(need_hands_free && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		owner.balloon_alert(user, "restrained!")
+		return FALSE
+	if(req_stat < user.stat) // Whilst this seems similiar to trait_incapacitated, it is also used to check if you're dead in the event that disable_by_incapacitate is false. No corpses using powers!
 		owner.balloon_alert(user, "incapacitated!")
 		return FALSE
 	return TRUE

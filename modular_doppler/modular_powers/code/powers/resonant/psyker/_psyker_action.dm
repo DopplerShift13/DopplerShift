@@ -36,7 +36,7 @@
 	if(!ValidateOrgan())
 		owner.balloon_alert(owner, "No paracausal gland!")
 		return FALSE
-	if(target)
+	if(isliving(target))
 		if(disabled_by_mental_immunity && target.can_block_magic(MAGIC_RESISTANCE_MIND))
 			add_stress(PSYKER_STRESS_MINOR) // This actively stresses you out.
 			owner.balloon_alert(owner, "Something interveres with your powers!")

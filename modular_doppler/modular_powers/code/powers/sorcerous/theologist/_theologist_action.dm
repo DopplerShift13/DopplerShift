@@ -5,31 +5,40 @@
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
 	// The organ that processes most of the Psyker Powers. Mostly all functions here communicate with this.
-	var/datum/power/theologist_piety/piety_power
+	var/datum/component/theologist_piety/piety_component
 
 	// The UI used for piety.alist
 	var/atom/movable/screen/theologist_piety/theologist_ui
 
+	// Cost in Piety to use.
+	// THIS IS NOT IN EVERY POWER DATUM, ONLY ONES THAT HAVE RESOURCE SPENDING MECHANICS.
+	var/cost
+
 /datum/action/cooldown/power/theologist/New()
 	. = ..()
-	ValidatePietyPower()
+	ValidatePietyComponent()
 
-// Since Theologist has both 3 roots and a persistent resource system, we use a hidden extra power for handling Piety.
-/datum/action/cooldown/power/theologist/proc/ValidatePietyPower()
+// Since Theologist has both 3 roots and a persistent resource system, we use a component for handling Piety
+/datum/action/cooldown/power/theologist/proc/ValidatePietyComponent()
 	if(owner) // Prevents runtiming on start
 		var/mob/living/carrier = owner
-		piety_power = carrier.get_power(/datum/power/theologist_piety)
-	if(!piety_power)
+		piety_component = carrier.GetComponent(/datum/component/theologist_piety)
+
+	if(!piety_component)
 		return FALSE
 	return TRUE
 
-// Validation handled in the piety power.
+// Validation handled in the piety component.
 /datum/action/cooldown/power/theologist/proc/adjust_piety(amount, override_cap)
-	piety_power.adjust_piety(amount, override_cap)
+	piety_component.adjust_piety(amount, override_cap)
 
-// We check to see if our piety power is actually there, because usually things will go bad if they don't.
+//Easy access to piety
+/datum/action/cooldown/power/theologist/proc/get_piety()
+	return piety_component.piety
+
+// We check to see if our piety component is actually there, because usually things will go bad if they don't.
 /datum/action/cooldown/power/theologist/try_use(mob/living/user, mob/living/target)
-	if(!ValidatePietyPower())
+	if(!ValidatePietyComponent())
 		owner.balloon_alert(owner, "Yell at the coders; you're missing your piety system!")
 		return FALSE
 	. = .. ()
