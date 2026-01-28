@@ -6,7 +6,7 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	name = "Entropic Mending"
 	desc = "Entropy's a long road, a few steps further along it will do you more good than harm. Spend 5 Piety to touch another humanoid and attempt to restore it's lingering wounds. \
 	Moderate wounds will be healed automatically; all other wounds have a random chance to depending on severity. \
-	Invoking this power will cause temporary, lingering entropic effects; such as increased metabolism, hunger and blood replenishment, at triple pace."
+	Invoking this power will cause temporary, lingering entropic effects on the target; such as increased metabolism, hunger and blood replenishment, at triple pace."
 	action_path = /datum/action/cooldown/power/theologist/entropic_mending
 	value = 6
 
@@ -18,16 +18,16 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	name = "Entropic Mending"
 	desc = "Entropy's a long road, a few steps further along it will do one more good than harm. Spend 5 Piety to touch another humanoid and attempt to restore it's lingering wounds. \
 	Moderate wounds will be healed automatically; all other wounds have a random chance to depending on severity. \
-	Invoking this power will cause temporary, lingering entropic effects; such as increased metabolism, hunger and blood replenishment, at triple pace."
+	Invoking this power will cause temporary, lingering entropic effects on the target; such as increased metabolism, hunger and blood replenishment, at triple pace."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "manip"
 	cooldown_time = 150
 	target_range = 1
 	target_type = /mob/living/carbon/human
 	click_to_activate = TRUE
-	target_self = TRUE // Make false in final version, for testing.
+	target_self = FALSE
 	unset_after_click = TRUE
-	cost = 5 // TODO PROGRAM IN PIETY COST LOL
+	cost = 5
 
 	// Current instance of the status effect
 	var/datum/status_effect/power/entropic_mending/active_effect
@@ -82,30 +82,26 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 // So given it is 'part of the effect', we actually handle the wound removal on here.
 /datum/status_effect/power/entropic_mending/on_apply()
 	victim = owner // Whilst I would like to set it on_creation, it doesn't always pass it along 4somerasinss.
+	playsound(owner, 'sound/effects/magic/staff_healing.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 	// Attemps to remove wounds
 	for(var/datum/wound/wound in victim.all_wounds)
 		switch(wound.severity)
-			if(WOUND_SEVERITY_TRIVIAL || WOUND_SEVERITY_MODERATE)
-				wound.remove_wound()
-				to_chat(entropic_mending.owner, span_notice("The restorative energies manage to treat the [wound.name]!"))
-				to_chat(victim, span_notice("Your [wound.name] got healed!"))
+			if(WOUND_SEVERITY_TRIVIAL, WOUND_SEVERITY_MODERATE)
+				handle_wound_heal_success(entropic_mending.owner, victim, wound)
 				wounds_treated++
 			if(WOUND_SEVERITY_SEVERE)
 				if(prob(60))
-					wound.remove_wound()
-					to_chat(entropic_mending.owner, span_notice("The restorative energies manage to treat the [wound.name]!"))
-					to_chat(victim, span_notice("Your [wound.name] got healed!"))
+					handle_wound_heal_success(entropic_mending.owner, victim, wound)
 					wounds_treated++
 				else
 					to_chat(entropic_mending.owner, span_warning("The restorative energies fail to treat the [wound.name]!"))
 			if(WOUND_SEVERITY_CRITICAL)
 				if(prob(30))
-					wound.remove_wound()
-					to_chat(entropic_mending.owner, span_notice("The restorative energies manage to treat the [wound.name]!"))
-					to_chat(victim, span_notice("Your [wound.name] got healed!"))
+					handle_wound_heal_success(entropic_mending.owner, victim, wound)
 					wounds_treated++
 				else
 					to_chat(entropic_mending.owner, span_warning("The restorative energies fail to treat the [wound.name]!"))
+	// Feedback to user
 	if(!LAZYLEN(victim.all_wounds)) // Not necessarily bad, you might use this for it's metabolize effect.
 		to_chat(entropic_mending.owner, span_notice("[victim.get_visible_name()] has no wounds to treat!"))
 	else if(wounds_treated <= 0)
@@ -121,6 +117,13 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 		physiology_modified = TRUE
 
 	return TRUE
+
+// Just there to quickly handle wound-healing.
+/datum/status_effect/power/entropic_mending/proc/handle_wound_heal_success(caster, mob/living/victim, datum/wound/wound)
+	new /obj/effect/temp_visual/heal(get_turf(victim), "#cf2525")
+	wound.remove_wound()
+	to_chat(entropic_mending.owner, span_notice("The restorative energies manage to treat the [wound.name]!"))
+	to_chat(victim, span_notice("Your [wound.name] got healed!"))
 
 // Sets the link with the original action
 /datum/status_effect/power/entropic_mending/on_creation(mob/living/new_owner, datum/action/cooldown/power/theologist/entropic_mending/passed_power)

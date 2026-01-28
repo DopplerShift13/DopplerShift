@@ -44,6 +44,7 @@
 	if(!can_use(user, target))
 		return FALSE
 	if(use_action(user, target))
+		on_action_success()
 		return TRUE
 	return FALSE
 
@@ -79,6 +80,10 @@
 /datum/action/cooldown/power/proc/use_action(mob/living/user, atom/target)
 	return TRUE
 
+// Anything that should happen as a result of use_action returning TRUE.
+// Cost systems for archetypes to name an example.
+/datum/action/cooldown/power/proc/on_action_success(mob/living/user, atom/target)
+	return
 /*
 Handles all the logic involved in using a targeted, click-based action.
 - First press: enables click intercept (targeting mode)

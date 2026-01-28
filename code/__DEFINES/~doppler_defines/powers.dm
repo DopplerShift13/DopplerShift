@@ -88,7 +88,7 @@
 #define PIETY_HEALING_COEFFICIENT 0.2
 
 // Maximum amount of Piety
-#define PIETY_MAX 99
+#define PIETY_MAX 50
 
 
 /**MORTAL DEFINES

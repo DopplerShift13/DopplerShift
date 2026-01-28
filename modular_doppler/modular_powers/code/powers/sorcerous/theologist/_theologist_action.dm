@@ -23,7 +23,6 @@
 	if(owner) // Prevents runtiming on start
 		var/mob/living/carrier = owner
 		piety_component = carrier.GetComponent(/datum/component/theologist_piety)
-
 	if(!piety_component)
 		return FALSE
 	return TRUE
@@ -41,4 +40,14 @@
 	if(!ValidatePietyComponent())
 		owner.balloon_alert(owner, "Yell at the coders; you're missing your piety system!")
 		return FALSE
+	if(piety_component.piety < cost)
+		user.balloon_alert(user, "needs [cost] piety!")
+		return FALSE
 	. = .. ()
+
+// Make sure the cost gets deducted after using the power (we already checked if we can afford it)
+/datum/action/cooldown/power/theologist/on_action_success(mob/living/user, atom/target)
+	if(cost)
+		adjust_piety(-cost)
+	return
+

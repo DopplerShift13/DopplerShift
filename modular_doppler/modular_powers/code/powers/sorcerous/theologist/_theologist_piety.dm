@@ -20,6 +20,9 @@
 		return COMPONENT_INCOMPATIBLE
 	attached_mob = parent
 
+	// Clearly the Chaplain is VERY pious.
+	if(is_chaplain_job(attached_mob.mind?.assigned_role))
+		max_piety *= 2
 
 	// If your old system used signals, register them here.
 	RegisterWithParent()
