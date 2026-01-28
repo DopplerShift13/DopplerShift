@@ -82,14 +82,16 @@
  */
 
 // How much root abilities should heal (max), if they heal.
-#define ROOT_HEALING 30
+#define THEOLOGIAN_ROOT_HEALING 30
 
 // Healing equates to this much piety.
-#define PIETY_HEALING_COEFFICIENT 0.2
+#define THEOLOGIAN_PIETY_HEALING_COEFFICIENT 0.2
 
 // Maximum amount of Piety
-#define PIETY_MAX 50
+#define THEOLOGIAN_PIETY_MAX 50
 
+// Trait made as to prevent duplicate smites.
+#define TRAIT_HAS_SMITING_STRIKE "has_smiting_strike"
 
 /**MORTAL DEFINES
 * I'm literally just using this to define Breacher Knuckle right now

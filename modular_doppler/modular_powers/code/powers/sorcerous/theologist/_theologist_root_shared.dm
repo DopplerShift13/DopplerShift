@@ -250,9 +250,9 @@
 
 	// Piety buildup increases/deductions
 	if(taker == owner)
-		piety_buildup += amount * PIETY_HEALING_COEFFICIENT
+		piety_buildup += amount * THEOLOGIAN_PIETY_HEALING_COEFFICIENT
 	else if(giver == owner)
-		piety_buildup -= amount * PIETY_HEALING_COEFFICIENT
+		piety_buildup -= amount * THEOLOGIAN_PIETY_HEALING_COEFFICIENT
 
 	return
 

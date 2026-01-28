@@ -36,13 +36,15 @@
 			to_chat(owner, span_warning("You aren't holding anything that can be imbued!"))
 		return FALSE
 
-	var/link_message = ""
+	// In order to detect our buff, we pass along a trait to the host item.
+	if(HAS_TRAIT(potential_smite, TRAIT_HAS_SMITING_STRIKE))
+		to_chat(owner, span_warning("The item is already imbued!"))
+		return FALSE
 	if(potential_smite.item_flags & ABSTRACT)
 		return FALSE
 	if(SEND_SIGNAL(potential_smite, COMSIG_ITEM_MARK_RETRIEVAL, src, owner) & COMPONENT_BLOCK_MARK_RETRIEVAL)
 		return FALSE
 
-	to_chat(owner, span_notice(link_message))
 	if(!can_imbue_multiples)
 		imbue_singular(potential_smite)
 	else
@@ -51,10 +53,9 @@
 
 /datum/action/cooldown/power/theologist/smiting_strike/proc/imbue_singular(obj/to_imbue)
 	if(currently_imbued)
-		currently_imbued.RemoveElement(/datum/element/theologist_smite)
 		var/thingholdingimbued = currently_imbued.loc
 		if(ismob(thingholdingimbued))
-			to_chat(thingholdingimbued, span_warning("The smiting energies leave your [currently_imbued]"))
+			to_chat(thingholdingimbued, span_warning("The smiting energies leave [currently_imbued]"))
 		currently_imbued = null
 	currently_imbued = to_imbue
 	currently_imbued.AddElement(/datum/element/theologist_smite, smite_damage, smite_knockback, FALSE, TRUE, TRUE)
@@ -85,17 +86,18 @@
 
 
 // This is basically the knockback code but hybridized. Sue me.
-/datum/element/theologist_smite/Attach(datum/target, smite_damage = 1, throw_distance = 1, throw_anchored = FALSE, throw_gentle = FALSE, self_terminate_on_drop = TRUE)
+/datum/element/theologist_smite/Attach(datum/target, smite_damage = 1, throw_distance = 1, throw_anchored = FALSE, throw_gentle = FALSE, self_terminate_on_drop = FALSE)
 // While the balancer inside me suggests we restrict this to melee hits... I kind of want to see the fun of ranged smites.
 // For the future person to balance this; really just remove projectile_hit() and the first if in this sequence if you want to axe ranged.
 	. = ..()
-	if(ismachinery(target) || isstructure(target) || isgun(target) || isprojectilespell(target)) // turrets, etc
+	if(isgun(target) || isprojectilespell(target)) // turrets, etc
 		RegisterSignal(target, COMSIG_PROJECTILE_ON_HIT, PROC_REF(projectile_hit))
 	else if(isitem(target))
 		RegisterSignal(target, COMSIG_ITEM_AFTERATTACK, PROC_REF(item_afterattack))
 	else
 		return ELEMENT_INCOMPATIBLE
 
+	ADD_TRAIT(target, TRAIT_HAS_SMITING_STRIKE, src)
 	src.smite_damage = smite_damage
 	src.throw_distance = throw_distance
 	src.throw_anchored = throw_anchored
@@ -103,8 +105,7 @@
 	src.self_terminate_on_drop = self_terminate_on_drop
 
 	attached_item = target
-	if(isitem(target))
-		attached_item = target
+	if(isitem(target) && self_terminate_on_drop) // No point tracking this if we aren't going to self_terminate on drop
 		RegisterSignal(attached_item, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
 
 	// Applies the glowing effect
@@ -120,23 +121,21 @@
 /datum/element/theologist_smite/proc/on_item_dropped(datum/source, mob/user)
 	SIGNAL_HANDLER
 	if(self_terminate_on_drop)
-		self_terminate()
+		Detach(attached_item)
 	return
 
-// Said removing this element.
-/datum/element/theologist_smite/proc/self_terminate()
-	Detach(attached_item) //Have to do it like so to make sure we de-bless guns too.
 
 // Prevents signalers from loitering.
 /datum/element/theologist_smite/Detach(datum/source)
 	UnregisterSignal(source, list(COMSIG_ITEM_AFTERATTACK, COMSIG_HOSTILE_POST_ATTACKINGTARGET, COMSIG_PROJECTILE_ON_HIT))
-	if(attached_item)
+	if(attached_item && self_terminate_on_drop)
 		UnregisterSignal(attached_item, COMSIG_ITEM_DROPPED)
 
 	if(target_glow)
 		attached_item.cut_overlay(target_glow)
 		target_glow = null
 
+	REMOVE_TRAIT(source, TRAIT_HAS_SMITING_STRIKE, src)
 	attached_item = null
 	holder = null
 	return ..()
@@ -149,6 +148,8 @@
 	if(!isliving(target))
 		return
 	on_hit(target, user, get_dir(source, target))
+	Detach(source)
+
 
 /// triggered after a projectile hits something
 /datum/element/theologist_smite/proc/projectile_hit(datum/fired_from, atom/movable/firer, atom/target, Angle)
@@ -157,6 +158,7 @@
 	if(!isliving(target))
 		return
 	on_hit(target, null, angle2dir(Angle))
+	Detach(fired_from)
 
 // The on hit effect
 /datum/element/theologist_smite/proc/on_hit(mob/living/target, mob/thrower, throw_dir)
@@ -174,6 +176,3 @@
 	playsound(target, 'sound/effects/magic/magic_block_holy.ogg', 75, TRUE)
 	target.adjustFireLoss(smite_damage)
 	to_chat(target, span_userdanger("You are knocked back by a burning, resonant energy!"))
-	self_terminate()
-
-// Metorimpact.ogg in sounds/effects.

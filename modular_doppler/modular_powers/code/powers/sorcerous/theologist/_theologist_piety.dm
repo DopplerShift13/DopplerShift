@@ -9,7 +9,7 @@
 
 	// Whatever state your old attached_theologist_piety tracked:
 	var/piety = 0
-	var/max_piety = PIETY_MAX
+	var/max_piety = THEOLOGIAN_PIETY_MAX
 
 	// The UI itself
 	var/atom/movable/screen/theologist_piety/theologist_ui
@@ -43,7 +43,8 @@
 /datum/component/theologist_piety/UnregisterFromParent()
 	// UnregisterSignal(attached_mob, list(COMSIG_..., COMSIG_...))
 	. = ..()
-	UnregisterSignal(attached_mob, COMSIG_MOB_HUD_CREATED)
+	if(attached_mob) // prevents runtiming when adding/removing duplicate components
+		UnregisterSignal(attached_mob, COMSIG_MOB_HUD_CREATED)
 
 /datum/component/theologist_piety/Destroy()
 	UnregisterFromParent()

@@ -7444,6 +7444,7 @@
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_piety.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\entropic_mending.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\smiting_strike.dm"
+#include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\smiting_strike_upgrades.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\meditate.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\silence_trauma.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_action.dm"

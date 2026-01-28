@@ -63,7 +63,7 @@
 	// The power responsible for this, so we can make sure it properly gives piety to the caster
 	var/datum/action/cooldown/power/theologist/theologist_root/revered/burden_power
 	// The maximum amount we will heal
-	var/healing_max = ROOT_HEALING
+	var/healing_max = THEOLOGIAN_ROOT_HEALING
 	// How much we have healed already
 	var/healing_done = 0
 	// How much we heal per tick.
@@ -146,7 +146,7 @@
 
 // QDEL destroys burden_power
 /datum/status_effect/power/burden_revered/proc/expire()
-	var/piety_gained = max(0, floor(healing_done * PIETY_HEALING_COEFFICIENT)) // TODO: defines
+	var/piety_gained = max(0, floor(healing_done * THEOLOGIAN_PIETY_HEALING_COEFFICIENT)) // TODO: defines
 	// Report back BEFORE deletion starts
 	if(burden_power)
 		burden_power.effect_expired(piety_gained)
