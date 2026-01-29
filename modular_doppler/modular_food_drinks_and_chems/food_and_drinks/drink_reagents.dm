@@ -115,3 +115,9 @@
 	need_mob_update = affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
+
+/datum/reagent/consumable/berryjuice/blueberry
+	name = "Blueberry Juice"
+	description = "A delicious juicing of one particular kind of berry."
+	color = "#4c3cd8"
+	taste_description = "blueberries"

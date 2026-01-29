@@ -115,3 +115,13 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
+
+/obj/item/clothing/under/nevada_uniform
+	name = "\improper Nevada Beverage Co. uniform"
+	desc = "A comfortable paired set of a branded ThermoWick™ fabric henley and relaxed khaki joggers. For Nevada employees, \
+	and Nevada diehards."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon_state = "nevada_uniform"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
+	can_adjust = FALSE

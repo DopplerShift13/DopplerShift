@@ -247,16 +247,6 @@
 	list_reagents = list(/datum/reagent/consumable/yogurt_soda = 30)
 	drink_type = DAIRY
 
-/obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea
-	name = "\improper Nevada green tea"
-	desc = "A staple item of fuel stations, bodegas, convenience stores, and checkout aisle coolers. Cheaper than water, \
-	yet begging the question why."
-	icon = 'modular_doppler/modular_vending/icons/imported_quick_foods.dmi'
-	icon_state = "nevada_can"
-	volume = 60
-	list_reagents = list(/datum/reagent/consumable/icetea = 50, /datum/reagent/consumable/honey = 10)
-	custom_price = PAYCHECK_LOWER
-
 /obj/item/reagent_containers/cup/soda_cans/doppler/gakster_energy
 	name = "\improper Gakster Energy™"
 	desc = "First courting outrage over its commercialization of a cultural locii known to most by way of live combat footage and darkweb \
