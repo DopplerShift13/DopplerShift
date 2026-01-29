@@ -1,0 +1,51 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../"><link rel="stylesheet" href="dmdoc.css"><title>modular_doppler/verbs/readme.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>modular_doppler/verbs/readme.md <a href="https://github.com/DopplerShift13/DopplerShift/blob/2383c2c9728c0d70043ee67d95a889796aedff1f/modular_doppler/verbs/readme.md"><img src="git.png" width="16" height="16" title="modular_doppler/verbs/readme.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><h2 id="title-more-verbs-and-subtler">Title: More verbs and subtler.</h2>
+<p>MODULE ID: VERBS</p>
+<h3 id="description">Description:</h3>
+<p>Adds the following new verbs:</p>
+<ul>
+<li>LOOC: OOC with a default range of 7 tiles.</li>
+<li>LOOC (Wallpierce): Like LOOC but a wall piercing version.</li>
+<li>Subtle (Anti-Ghost): Like Me but invisible to ghosts. Range can be 1 tile, choosing a character in this range or same tile.</li>
+<li>Do: Like Me but not centered on character. Perfect for narrations. Default range of 7 tiles.</li>
+<li>Do (Longer): Like Do but in a TGUI format.</li>
+</ul>
+<p>Adds keybinds for LOOC, Do, Do (Longer) and Whisper.</p>
+<h3 id="tg-proc-changes">TG Proc Changes:</h3><table><thead><tr><th>proc</th><th>file</th></tr></thead><tbody>
+<tr><td><code>/proc/cmd_admin_mute(whom, mute_type, automute = 0)</code></td><td><code>code\modules\admin\verbs\admin.dm</code></td></tr>
+<tr><td><code>ADMIN_VERB_ONLY_CONTEXT_MENU(..., ..., ..., ...)</code></td><td><code>code\modules\admin\verbs\admingame.dm</code></td></tr>
+<tr><td><code>/datum/tgui_say/proc/open(payload)</code></td><td><code>code\modules\tgui_input\say_modal\modal.dm</code></td></tr>
+<tr><td><code>/datum/tgui_say/proc/alter_entry(payload)</code></td><td><code>code\modules\tgui_input\say_modal\speech.dm</code></td></tr>
+</tbody></table>
+<h3 id="defines">Defines:</h3>
+<ul>
+<li><code>code\__DEFINES\~doppler_defines\admin.dm</code> looc mute</li>
+<li><code>code\__DEFINES\~doppler_defines\banning.dm</code> looc ban define</li>
+<li><code>code\__DEFINES\~doppler_defines\keybindings.dm</code> looc, whisper and do keybinds</li>
+<li><code>code\__DEFINES\~doppler_defines\logging.dm</code> subtle log define</li>
+<li><code>code\__DEFINES\~doppler_defines\say.dm</code> looc range define</li>
+<li><code>code\__DEFINES\~doppler_defines\span.dm</code> looc(wallpierce), do, subtle and span defines</li>
+<li><code>code\__DEFINES\~doppler_defines\speech_channels.dm</code> looc, whis and do channel defines</li>
+</ul>
+<h3 id="included-files-that-are-not-contained-in-this-module">Included files that are not contained in this module:</h3>
+<ul>
+<li><code>code\__HELPERS\logging\_logging.dm</code> subtle logging</li>
+<li><code>code\__HELPERS\logging\mob.dm</code> subtle messages readibility for admins</li>
+<li><code>code\__HELPERS\~doppler_helpers\chat.dm</code> subtle formatting helper</li>
+<li><code>code\__HELPERS\~doppler_helpers\logging.dm</code> subtle helper for logging</li>
+<li><code>code\__HELPERS\~doppler_helpers\verbs.dm</code> looc range hearing helper</li>
+<li><code>code\_globalvars\~doppler_globalvars\configuration.dm</code> looc configuration global var init</li>
+<li><code>code\modules\admin\sql_ban_system.dm</code> looc ban option in admin banning panel</li>
+<li><code>code\modules\admin\verbs\admingame.dm</code> looc mute message</li>
+<li><code>modular_doppler\administration\code\preferences.dm</code> toggle admin preference datum</li>
+<li><code>tgui\packages\tgui\interfaces\PreferencesMenu\preferences\features\dopplershift_preferences\looc.tsx</code> looc preferences visual components</li>
+<li><code>tgui\packages\tgui-panel\chat\constants.ts</code></li>
+<li><code>tgui\packages\tgui-panel\styles\tgchat\chat-dark.scss</code> multiple font colors for dark theme</li>
+<li><code>tgui\packages\tgui-panel\styles\tgchat\chat-light.scss</code> multiple font colors for light theme</li>
+<li><code>tgui\packages\tgui-say\ChannelIterator.test.ts</code> whis, looc and do channel cycler test</li>
+<li><code>tgui\packages\tgui-say\ChannelIterator.ts</code> whis, looc and do channel types and channel iterators</li>
+<li><code>tgui\packages\tgui-say\styles\colors.scss</code> whis, looc and do font colors</li>
+</ul>
+<h3 id="credits">Credits:</h3>
+<p>Gandalf2k15 - porting and refactoring
+yooriss - do verb
+Kaostico - edition</p></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/DopplerShift13/DopplerShift/tree/2383c2c9728c0d70043ee67d95a889796aedff1f">2383c2c</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>

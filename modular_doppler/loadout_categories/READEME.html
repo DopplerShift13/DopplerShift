@@ -1,0 +1,38 @@
+<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"><base href="../../"><link rel="stylesheet" href="dmdoc.css"><title>modular_doppler/loadout_categories/READEME.md - /tg/ Station 13</title></head><body><header><a href="index.html">/tg/ Station 13</a> - <a href="index.html#modules">Modules</a> - <a href="index.html#types">Types</a></header><main><h1>LOADOUT CATEGORIES <aside>modular_doppler/loadout_categories/READEME.md</aside> <a href="https://github.com/DopplerShift13/DopplerShift/blob/2383c2c9728c0d70043ee67d95a889796aedff1f/modular_doppler/loadout_categories/READEME.md"><img src="git.png" width="16" height="16" title="modular_doppler/loadout_categories/READEME.md"></a></h1><table class="summary" cellspacing="0"><tr><td colspan="2"><p>Most loadout categories are added in, if it is one that is stock TG just add in additional items in the respecitve files.</p>
+<p>If you need to add more categories or items the following format should be followed:</p>
+<h2 id="format">Format</h2>
+<pre><code class="language-DM">/datum/loadout_category/&lt;category name here&gt;
+    category_name = &quot;&lt;category name here&gt;&quot;
+    category_ui_icon = FA_ICON_GLASSES // A Fontawesome icon to be used for the Category item
+    type_to_generate = /datum/loadout_item/&lt;category item here&gt;
+    tab_order = /datum/loadout_category/head::tab_order + 1 //This is where it will place the item in the tab order
+
+/datum/loadout_item/&lt;category item here&gt;
+    abstract_type = /datum/loadout_item/glasses
+
+/datum/loadout_item/&lt;category item here&gt;/insert_path_into_outfit(datum/outfit/outfit, mob/living/carbon/human/equipper, visuals_only = FALSE)
+    if(outfit.glasses)
+        LAZYADD(outfit.backpack_contents, outfit.glasses) // This will dictate if the item will go into the backpack if the slot is already occupied
+    outfit.glasses = item_path
+</code></pre>
+<pre><code class="language-DM">    /datum/loadout_item/pocket_items/&lt;Logical name for the loadout item&gt;
+        name = &quot;&lt;Name that will show up in the loadout menu&gt;&quot;
+        item_path = &lt;The items actual path&gt;
+        /* Here there could be additional vars specified current list of possible vars as follows:
+            restricted_roles // If the item is only allowed on specific roles I.E Security Items
+            blacklisted_roles // If the item cannot be given to specific roles I.E. Prisoner
+            restricted_species // If the item would cause issues with a species
+            required_season = null // If the item is a seasonal one and should only show up then
+            erp_item = FALSE // If the item is suggestive
+            erp_box = FALSE // If the item is suggestive and should be put in a box
+        /*
+</code></pre>
+<h2 id="helper-functions">Helper Functions</h2><h3 id="post-equip-item">Post equip Item</h3>
+<p><code>/datum/loadout_item/proc/post_equip_item</code>
+This proc particulalrly is useful if you wish for a specific item to do something after it gets equipped to the character. As an exapmple take the wallet, equip it on the ID card slot then just put the ID into the wallet so you dont have to put your own ID in your wallet. Useful for that sort of thing.</p>
+<h3 id="pre-equip-item">Pre equip Item</h3>
+<p><code>/datum/loadout_item/proc/pre_equip_item</code>
+Useful for doing checks on a item before it gets equipped for whatever reason, most of the time check to see if the slot would affect someone who has a item there they need to survive, I.E. Plasmamen.</p>
+<h3 id="can-be-applied-to">Can be applied to</h3>
+<p><code>/datum/loadout_item/proc/can_be_applied_to</code>
+Checkes if the item passes requirements and isn't blacklisted based on role or species or restricted to specific role</p></td></tr></table></main><footer>tgstation.dme <a href="https://github.com/DopplerShift13/DopplerShift/tree/2383c2c9728c0d70043ee67d95a889796aedff1f">2383c2c</a> (master) — <a href="https://github.com/SpaceManiac/SpacemanDMM/blob/master/crates/dmdoc/README.md">dmdoc 1.11.0</a></footer></body></html>
