@@ -213,10 +213,33 @@
 	var/list/required_powers = GLOB.powers_requirements_list[power_type]
 	if(!length(required_powers))
 		return
+
 	for(var/datum/power/required_power_type as anything in required_powers)
 		var/required_power_name = required_power_type.name
-		if(!(required_power_name in preferences.all_powers))
-			return required_power_type
+
+		// Exact requirement satisfied (current behaviour)
+		if(required_power_name in preferences.all_powers)
+			continue
+
+		// Optional: allow subtypes, decided by the power we're trying to learn
+		if(power_type.required_allow_subtypes)
+			var/required_typepath = ispath(required_power_type) ? required_power_type : required_power_type.type
+			var/found_subtype = FALSE
+
+			for(var/selected_power_name in preferences.all_powers)
+				var/datum/power/selected_power_type = SSpowers.powers[selected_power_name]
+				if(!selected_power_type)
+					continue
+
+				if(ispath(selected_power_type.type, required_typepath))
+					found_subtype = TRUE
+					break
+
+			if(found_subtype)
+				continue
+
+		return required_power_type
+
 
 /**
  * Checks whether at least one of our powers requires the given power type,

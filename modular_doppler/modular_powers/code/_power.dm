@@ -39,6 +39,8 @@
 	var/priority = NONE
 	/// The powers this requires, if any.
 	var/list/required_powers
+	/// Allow subtypes to count for requirements.
+	var/required_allow_subtypes
 
 	// The path, if applicable, to the action.
 	var/datum/action/cooldown/action_path

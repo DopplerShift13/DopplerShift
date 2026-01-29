@@ -9,7 +9,7 @@
 	path = POWER_PATH_THEOLOGIST
 	priority = POWER_PRIORITY_ROOT
 
-/datum/power/theologist_root/post_add()
+/datum/power/theologist_root/post_add() // I'd love to run this during add but that runtimes at round start.
 	if(!power_holder) // So it doesn't runtime at init
 		return
 	// We pass along the piety component to actually handle most of the piety stuff.

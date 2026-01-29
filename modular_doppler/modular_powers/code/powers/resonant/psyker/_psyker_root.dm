@@ -19,3 +19,7 @@
 	psyker_organ = new /obj/item/organ/resonant/psyker
 	psyker_organ.Insert(power_holder, special = TRUE)
 
+/datum/power/psyker_root/remove(client/client_source)
+	if(psyker_organ)
+		qdel(psyker_organ)
+

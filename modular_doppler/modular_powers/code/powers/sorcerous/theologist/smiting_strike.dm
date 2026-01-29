@@ -1,7 +1,7 @@
 /datum/power/theologist/smiting_strike
 	name = "Smiting Strike"
 	desc = "Channel energy into the item you are currently holding. Your next attack that hits with it against a creature deals 15 additional burn damage and sends them flying backwards 4 spaces. \
-	This knockback cannot stun or damage on impact. Costs 5 Piety to use; recast to cancel. This effect ends if the item leaves your hands."
+	This knockback cannot stun or damage on impact. Costs 5 Piety to use. This effect ends if the item leaves your hands."
 	action_path = /datum/action/cooldown/power/theologist/smiting_strike
 	value = 5
 
@@ -12,7 +12,7 @@
 /datum/action/cooldown/power/theologist/smiting_strike
 	name = "Smiting Strike"
 	desc = "Channel energy into the item you are currently holding. Your next attack that hits with it against a creature deals 15 additional burn damage and sends them flying backwards 4 spaces. \
-	This knockback cannot stun or damage on impact. Costs 5 Piety to use; recast to cancel. This effect ends if the item leaves your hands."
+	This knockback cannot stun or damage on impact. Costs 5 Piety to use. This effect ends if the item leaves your hands."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "sword_fling"
 	cooldown_time = 150
@@ -56,6 +56,7 @@
 		var/thingholdingimbued = currently_imbued.loc
 		if(ismob(thingholdingimbued))
 			to_chat(thingholdingimbued, span_warning("The smiting energies leave [currently_imbued]"))
+		currently_imbued.RemoveElement(/datum/element/theologist_smite)
 		currently_imbued = null
 	currently_imbued = to_imbue
 	currently_imbued.AddElement(/datum/element/theologist_smite, smite_damage, smite_knockback, FALSE, TRUE, TRUE)
@@ -63,7 +64,7 @@
 
 /datum/action/cooldown/power/theologist/smiting_strike/proc/imbue_global(obj/to_imbue)
 	to_imbue.AddElement(/datum/element/theologist_smite, smite_damage, smite_knockback, FALSE, TRUE, FALSE)
-	to_chat(owner, span_notice("You infuse smiting energies into [currently_imbued]"))
+	to_chat(owner, span_notice("You infuse smiting energies into [to_imbue]"))
 
 // Whilst I originally considered adding just the knockback element, we kind-of want more control over when the smite fades.
 /datum/element/theologist_smite
@@ -79,14 +80,12 @@
 	var/self_terminate_on_drop
 	// The person assigned to be the holder of the object.
 	var/mob/living/holder
-	// the glowy effect
-	var/mutable_appearance/target_glow
-	// The attached item
-	var/obj/item/attached_item
+	// the bless effect
+	var/image/bless_overlay
 
 
 // This is basically the knockback code but hybridized. Sue me.
-/datum/element/theologist_smite/Attach(datum/target, smite_damage = 1, throw_distance = 1, throw_anchored = FALSE, throw_gentle = FALSE, self_terminate_on_drop = FALSE)
+/datum/element/theologist_smite/Attach(atom/target, smite_damage = 1, throw_distance = 1, throw_anchored = FALSE, throw_gentle = FALSE, self_terminate_on_drop = FALSE)
 // While the balancer inside me suggests we restrict this to melee hits... I kind of want to see the fun of ranged smites.
 // For the future person to balance this; really just remove projectile_hit() and the first if in this sequence if you want to axe ranged.
 	. = ..()
@@ -104,39 +103,36 @@
 	src.throw_gentle = throw_gentle
 	src.self_terminate_on_drop = self_terminate_on_drop
 
-	attached_item = target
 	if(isitem(target) && self_terminate_on_drop) // No point tracking this if we aren't going to self_terminate on drop
-		RegisterSignal(attached_item, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
+		RegisterSignal(target, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
 
-	// Applies the glowing effect
-	target_glow = mutable_appearance(
-		icon = 'icons/effects/effects.dmi',
-		icon_state = "blessed",
-		layer = attached_item.layer - 0.1,
-		appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART
-	)
-	attached_item.add_overlay(target_glow)
+	// Applies the sparkling bless effect
+	// I'd normally do mutable_appearance but overlays are uppity with elements and this method works with rust soooo I am using it like this.
+	bless_overlay = image(icon = 'icons/effects/effects.dmi', icon_state = "blessed", layer = target.layer - 0.1)
+	RegisterSignal(target, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(apply_bless_overlay))
+	target.update_appearance()
+
 
 // Checks if the item is no longer in our hands. If so, remove this element.
 /datum/element/theologist_smite/proc/on_item_dropped(datum/source, mob/user)
 	SIGNAL_HANDLER
 	if(self_terminate_on_drop)
-		Detach(attached_item)
+		Detach(source)
 	return
 
+/datum/element/theologist_smite/proc/apply_bless_overlay(atom/parent_atom, list/overlays)
+	SIGNAL_HANDLER
+
+	if(bless_overlay)
+		overlays += bless_overlay
 
 // Prevents signalers from loitering.
-/datum/element/theologist_smite/Detach(datum/source)
-	UnregisterSignal(source, list(COMSIG_ITEM_AFTERATTACK, COMSIG_HOSTILE_POST_ATTACKINGTARGET, COMSIG_PROJECTILE_ON_HIT))
-	if(attached_item && self_terminate_on_drop)
-		UnregisterSignal(attached_item, COMSIG_ITEM_DROPPED)
-
-	if(target_glow)
-		attached_item.cut_overlay(target_glow)
-		target_glow = null
-
+/datum/element/theologist_smite/Detach(atom/source)
+	UnregisterSignal(source, list(COMSIG_ITEM_AFTERATTACK, COMSIG_HOSTILE_POST_ATTACKINGTARGET, COMSIG_PROJECTILE_ON_HIT, COMSIG_ATOM_UPDATE_OVERLAYS))
+	if(self_terminate_on_drop)
+		UnregisterSignal(source, COMSIG_ITEM_DROPPED)
 	REMOVE_TRAIT(source, TRAIT_HAS_SMITING_STRIKE, src)
-	attached_item = null
+	source.update_appearance()
 	holder = null
 	return ..()
 
@@ -172,7 +168,7 @@
 		throw_distance *= -1
 	var/atom/throw_target = get_edge_target_turf(target, throw_dir)
 	target.safe_throw_at(throw_target, throw_distance, 1, thrower, gentle = throw_gentle)
-	new /obj/effect/temp_visual/kinetic_blast(get_turf(target), "#ddd166")
+	new /obj/effect/temp_visual/electricity(get_turf(target), "#ddd166")
 	playsound(target, 'sound/effects/magic/magic_block_holy.ogg', 75, TRUE)
 	target.adjustFireLoss(smite_damage)
 	to_chat(target, span_userdanger("You are knocked back by a burning, resonant energy!"))
