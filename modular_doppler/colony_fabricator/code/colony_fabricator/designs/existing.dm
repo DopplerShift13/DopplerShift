@@ -190,6 +190,10 @@
 	. = ..()
 	build_type |= COLONY_FABRICATOR
 
+/datum/design/super_battery/New()
+	. = ..()
+	build_type |= COLONY_FABRICATOR
+
 /datum/design/adv_capacitor/New()
 	. = ..()
 	build_type |= COLONY_FABRICATOR
