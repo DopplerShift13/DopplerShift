@@ -1,0 +1,83 @@
+/datum/action/cooldown/power/thaumaturge
+	name = "abstract thaumaturge power action - ahelp this"
+	background_icon_state = "bg_star"
+	overlay_icon_state = "bg_default_border"
+	button_icon = 'icons/mob/actions/backgrounds.dmi'
+
+	// We generally don't dabble with cooldowns but a GCD of 0.5 seconds is kinda handy to prevent you from blowing your load on all your charges by accident.
+	cooldown_time = 5
+	// Unlike normal spells, we have charges. More of that explained below at action_success()
+	var/charges = 0
+	// The cap on charges; you can't prepare more than these. If you leave this null, the spell will not interact with the charges system.
+	var/max_charges
+	// How many charges does it consume on use?
+	var/charges_to_use = 1
+	// How much 'mana' does it cost to prepare this per charge?
+	var/prep_cost = 1
+
+	// Overlay that shows the number of charges
+	var/mutable_appearance/charge_overlay
+
+/datum/action/cooldown/power/thaumaturge/New()
+	update_charges_overlay()
+
+/datum/action/cooldown/power/thaumaturge/proc/adjust_charges(amount, override_cap)
+	if(!isnum(amount))
+		return
+	var/cap_to = isnum(override_cap) ? override_cap : max_charges
+	charges = clamp(charges + amount, 0, cap_to)
+
+	//theologist_ui?.maptext = FORMAT_PIETY_TEXT(charges)
+
+/*
+	Deviating massively from the original cooldown system, thaumaturge has charges they have to prepare and plan for in advance, just like the classic vanician spellcasting system.
+	Mechanically, we check if charges are 0. If so we Disable(). Otherwise, we deduct a charge and go on a short 1 second (or whatever is programmed in) cooldown.
+*/
+
+/datum/action/cooldown/power/thaumaturge/on_action_success(mob/living/user, atom/target)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	adjust_charges(-charges_to_use)
+	check_if_valid()
+	return
+
+// Checks if we have charges to use.
+/datum/action/cooldown/power/thaumaturge/proc/check_if_valid()
+	if(charges <= 0 && max_charges) // If charges are 0 or less and it has a max_charges set.
+		disable()
+	else
+		enable()
+	update_charges_overlay()
+
+// Handles the UI stuff.
+/datum/action/cooldown/power/thaumaturge/proc/update_charges_overlay()
+	var/atom/movable/ui_element = get_atom_moveable()
+	if(!ui_element)
+		return
+	if(!max_charges)
+		return
+
+	ui_element.cut_overlay(charge_overlay)
+	charge_overlay = new/mutable_appearance
+	charge_overlay.maptext_width = 32
+	charge_overlay.maptext_height = 16
+
+	// Bottom-left-ish
+	charge_overlay.maptext_x = 4
+	charge_overlay.maptext_y = 0
+
+	charge_overlay.maptext = MAPTEXT("<span style='text-align:left; color:#ff69b4;'>[charges]</span>")
+	ui_element.add_overlay(charge_overlay)
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
+
+// Get the moveable atom specifically for adjusting the number.
+/datum/action/cooldown/power/thaumaturge/proc/get_atom_moveable()
+	for(var/datum/hud/hud_instance as anything in viewers)
+		var/atom/movable/screen/movable/action_button/action_button_instance = viewers[hud_instance]
+		if(istype(action_button_instance, /atom/movable/screen/movable/action_button))
+			return action_button_instance
+
+
+
+
+

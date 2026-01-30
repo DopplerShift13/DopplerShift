@@ -46,6 +46,14 @@
 #define TRAIT_ARCHETYPE_SORCEROUS "archetype_sorcerous"
 
 /**
+ * SORCEROUS: THAUMATURGE
+ * All defines related to the Thaumaturge powers.
+ */
+
+// How much mana you practically can cap out at.
+#define THAUMATURGE_MAX_MANA 50
+
+/**
  * SORCEROUS: ENIGMATIST
  * All defines related to the enigmatist powers.
  */
