@@ -6851,7 +6851,6 @@
 #include "modular_doppler\chatroom_soul\code\chatroom_keybinding.dm"
 #include "modular_doppler\chatroom_soul\code\irc_checks.dm"
 #include "modular_doppler\chatroom_soul\code\irc_verbs.dm"
-#include "modular_doppler\clothing\suits\jobs.dm"
 #include "modular_doppler\colony_fabricator\code\cargo_packs.dm"
 #include "modular_doppler\colony_fabricator\code\looping_sounds.dm"
 #include "modular_doppler\colony_fabricator\code\machine_flatpacks.dm"
