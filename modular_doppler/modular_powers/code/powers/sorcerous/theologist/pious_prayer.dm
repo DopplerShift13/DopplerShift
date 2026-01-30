@@ -30,10 +30,10 @@
 /datum/action/cooldown/power/theologist/pious_prayer/New()
 	// Increase prayer cap based on various factors.
 	// Are you the Chaplain?
-	if(is_chaplain_job(attached_mob.mind?.assigned_role))
+	if(is_chaplain_job(owner.mind?.assigned_role))
 		prayer_cap = 15
 	// Do you have the religious quirk?
-	if(HAS_TRAIT(user, TRAIT_SPIRITUAL))
+	if(HAS_TRAIT(owner, TRAIT_SPIRITUAL))
 		prayer_cap = 10
 
 /datum/action/cooldown/power/theologist/pious_prayer/use_action(mob/living/user, atom/target)
@@ -73,7 +73,7 @@
 	var/total_chance = 10
 
 	// Are you the chaplain?
-	if(is_chaplain_job(attached_mob.mind?.assigned_role))
+	if(is_chaplain_job(user.mind?.assigned_role))
 		total_chance += 20
 	// Do you have the religious quirk?
 	if(HAS_TRAIT(user, TRAIT_SPIRITUAL))
