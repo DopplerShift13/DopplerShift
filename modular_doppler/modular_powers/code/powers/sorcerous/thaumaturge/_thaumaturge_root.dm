@@ -40,7 +40,7 @@
 	if(!prep_component)
 		to_chat(user, span_warning("Something terrible has happened; you're missing your preperation component. Yell at devs!"))
 		return FALSE
-	prep_component.validate_spells() // We call it here so all the spells are loaded when we open it.
+	prep_component.build_spells() // We call it here so all the spells are loaded when we open it.
 	prep_component.ui_interact(user)
 	return TRUE
 

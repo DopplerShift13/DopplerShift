@@ -19,20 +19,15 @@
 	var/mutable_appearance/charge_overlay
 
 /datum/action/cooldown/power/thaumaturge/New()
+	if(max_charges)
+		disable() // prep your spells first
 	update_charges_overlay()
 
-/datum/action/cooldown/power/thaumaturge/proc/adjust_charges(amount, override_cap)
-	if(!isnum(amount))
-		return
-	var/cap_to = isnum(override_cap) ? override_cap : max_charges
-	charges = clamp(charges + amount, 0, cap_to)
-
-	//theologist_ui?.maptext = FORMAT_PIETY_TEXT(charges)
-
-/*
-	Deviating massively from the original cooldown system, thaumaturge has charges they have to prepare and plan for in advance, just like the classic vanician spellcasting system.
-	Mechanically, we check if charges are 0. If so we Disable(). Otherwise, we deduct a charge and go on a short 1 second (or whatever is programmed in) cooldown.
-*/
+/datum/action/cooldown/power/thaumaturge/Trigger(mob/clicker, trigger_flags, atom/target)
+	SHOULD_CALL_PARENT(TRUE)
+	if(!check_if_valid())
+		return FALSE
+	. = ..()
 
 /datum/action/cooldown/power/thaumaturge/on_action_success(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
@@ -41,13 +36,26 @@
 	check_if_valid()
 	return
 
+/datum/action/cooldown/power/thaumaturge/proc/adjust_charges(amount, override_cap)
+	if(!isnum(amount))
+		return
+	var/cap_to = isnum(override_cap) ? override_cap : max_charges
+	charges = clamp(charges + amount, 0, cap_to)
+
+/*
+	Deviating massively from the original cooldown system, thaumaturge has charges they have to prepare and plan for in advance, just like the classic vanician spellcasting system.
+	Mechanically, we check if charges are 0. If so we Disable(). Otherwise, we deduct a charge and go on a short 1 second (or whatever is programmed in) cooldown.
+*/
+
 // Checks if we have charges to use.
 /datum/action/cooldown/power/thaumaturge/proc/check_if_valid()
+	update_charges_overlay()
 	if(charges <= 0 && max_charges) // If charges are 0 or less and it has a max_charges set.
 		disable()
+		return FALSE
 	else
 		enable()
-	update_charges_overlay()
+		return TRUE
 
 // Handles the UI stuff.
 /datum/action/cooldown/power/thaumaturge/proc/update_charges_overlay()
