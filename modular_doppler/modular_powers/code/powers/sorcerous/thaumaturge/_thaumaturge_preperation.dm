@@ -48,11 +48,11 @@
 	// Do we have queqed changes and is the flag that it passed validation on?
 	if(applied_prepared_charges && recharge_when_sleep)
 		//Do we have the focus on our person?
-		if(locate(/obj/item/book/bible) in attached_mob.get_all_contents())
+		for(var/obj/item/spell_focus/focus_item in attached_mob.get_all_contents())
 			apply_spell_charges()
 			to_chat(attached_mob, span_notice("Your mind focuses on your spells, and through your dreams, you feel your Thaumaturge powers recharge!"))
-		else
-			to_chat(attached_mob, span_warning("You cannot recharge your spells without a Spell Focus on your person!"))
+			return
+		to_chat(attached_mob, span_warning("You cannot recharge your spells without a Spell Focus on your person!"))
 
 
 // Validates mana and adds spells to the list.

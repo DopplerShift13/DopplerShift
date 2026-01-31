@@ -29,16 +29,19 @@
 	update_charges_overlay()
 
 /datum/action/cooldown/power/thaumaturge/try_use(mob/living/user, atom/target)
-	. = ..()
 	if(!check_if_valid()) // checks for charges
 		return FALSE
 	if(ishuman(user)) // We're not checking for clothes on cats
 		affinity = get_affinity(user)
+	if(affinity < required_affinity) // Do we have the minimal required affinity
+		owner.balloon_alert(user, "requires [required_affinity] affinity!")
+		return FALSE
+	. = ..()
 
-/datum/action/cooldown/power/thaumaturge/on_action_success(mob/living/user, atom/target)
+/datum/action/cooldown/power/thaumaturge/on_action_success(mob/living/user, atom/target, override_charges)
 	SHOULD_CALL_PARENT(TRUE)
 	. = ..()
-	adjust_charges(-charges_to_use)
+	adjust_charges(isnull(override_charges) ? -charges_to_use : -override_charges)
 	check_if_valid()
 	return
 
