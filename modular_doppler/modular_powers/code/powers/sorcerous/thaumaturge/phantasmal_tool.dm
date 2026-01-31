@@ -19,7 +19,8 @@
 	button_icon_state = "tomealtar"
 
 	max_charges = 5
+	required_affinity = 1
 
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool/use_action(mob/living/user, atom/target)
-	to_chat(user, span_notice("hello WORLD"))
+	to_chat(user, span_notice("hello WORLD [affinity]"))
 	return TRUE

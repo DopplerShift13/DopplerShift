@@ -70,6 +70,8 @@
 	// See above; sort by TOP PRIORITY to BOTTOM PRIORITY with the bodyshapes as keys (DIGI | FEMME > DIGI > FEMME > HUMANOID)
 	// !!KEYS IN THIS SHOULD BE IDENTICAL TO SUPPORTED_BODYSHAPES!!
 	var/list/bodyshape_icon_files
+	// Used for the affinity system in the Powers system, by Thaumaturge.
+	var/affinity = 0
 	/// DOPPLER SHIFT ADDITION END
 
 	/* !!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!

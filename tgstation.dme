@@ -7438,6 +7438,8 @@
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_action.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_power.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_preperation.dm"
+#include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\affinity\thaumaturge_spell_focus.dm"
+#include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\affinity\thaumaturge_affinity.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\phantasmal_tool.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_action.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_power.dm"

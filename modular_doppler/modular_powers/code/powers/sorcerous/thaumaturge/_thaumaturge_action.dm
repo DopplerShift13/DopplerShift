@@ -18,16 +18,22 @@
 	// Overlay that shows the number of charges
 	var/mutable_appearance/charge_overlay
 
+	// How much affinity is currently affecting the action.
+	var/affinity
+	// How much affinity is required to use the action.
+	var/required_affinity
+
 /datum/action/cooldown/power/thaumaturge/New()
 	if(max_charges)
 		disable() // prep your spells first
 	update_charges_overlay()
 
-/datum/action/cooldown/power/thaumaturge/Trigger(mob/clicker, trigger_flags, atom/target)
-	SHOULD_CALL_PARENT(TRUE)
-	if(!check_if_valid())
-		return FALSE
+/datum/action/cooldown/power/thaumaturge/try_use(mob/living/user, atom/target)
 	. = ..()
+	if(!check_if_valid()) // checks for charges
+		return FALSE
+	if(ishuman(user)) // We're not checking for clothes on cats
+		affinity = get_affinity(user)
 
 /datum/action/cooldown/power/thaumaturge/on_action_success(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
@@ -41,6 +47,38 @@
 		return
 	var/cap_to = isnum(override_cap) ? override_cap : max_charges
 	charges = clamp(charges + amount, 0, cap_to)
+
+/*
+	Affinity system stuff here. Dress like a mage, get bonuses.
+*/
+/datum/action/cooldown/power/thaumaturge/proc/get_affinity(mob/living/user)
+	var/highest_affinity = 0
+
+	// Checks if you're wearing items with affinity. This has to be clothing; wearing your staff does not count.
+	var/list/equipped_items = user.get_equipped_items()
+	for(var/obj/item/equipped_item as anything in equipped_items)
+		if(!equipped_item)
+			continue
+		if(!istype(equipped_item, /obj/item/clothing))
+			continue
+
+		var/obj/item/clothing/equipped_clothing = equipped_item
+		if(equipped_clothing.affinity > highest_affinity)
+			highest_affinity = equipped_clothing.affinity
+
+	// Checks if you're holding items with affinity.
+	for(var/obj/item/held_item as anything in user.held_items)
+		if(!held_item)
+			continue
+
+		// Holding clothing shouldn't contribute
+		if(istype(held_item, /obj/item/clothing))
+			continue
+
+		if(held_item.affinity > highest_affinity)
+			highest_affinity = held_item.affinity
+
+	return highest_affinity
 
 /*
 	Deviating massively from the original cooldown system, thaumaturge has charges they have to prepare and plan for in advance, just like the classic vanician spellcasting system.
@@ -84,7 +122,6 @@
 		var/atom/movable/screen/movable/action_button/action_button_instance = viewers[hud_instance]
 		if(istype(action_button_instance, /atom/movable/screen/movable/action_button))
 			return action_button_instance
-
 
 
 
