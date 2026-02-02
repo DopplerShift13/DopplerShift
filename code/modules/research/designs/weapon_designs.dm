@@ -351,7 +351,9 @@
 	name = "Telescopic Riot Shield"
 	desc = "An advanced riot shield made of lightweight materials that collapses for easy storage."
 	id = "tele_shield"
-	build_type = PROTOLATHE | AWAY_LATHE
+	//DOPPLER EDIT removes this design from any player accessible lathe in favor of a modularly added shield gauntlet
+	build_type = null //was: build_type = PROTOLATHE | AWAY_LATHE
+	//END DOPPLER EDIT
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver =SMALL_MATERIAL_AMOUNT * 3, /datum/material/titanium =SMALL_MATERIAL_AMOUNT * 2)
 	build_path = /obj/item/shield/riot/tele
 	category = list(

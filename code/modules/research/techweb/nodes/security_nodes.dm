@@ -57,6 +57,9 @@
 		"ballistic_shield",
 		"handcuffs_s",
 		"bola_energy",
+		//DOPPLER ADDITION makes a new shield recipe accessible
+		"platillo",
+		//END DOPPLER ADDITION
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SECURITY)
