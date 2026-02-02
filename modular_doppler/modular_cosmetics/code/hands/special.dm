@@ -22,6 +22,7 @@
 	armor_type = /datum/armor/platillo
 	block_chance = 25
 	block_sound = 'sound/items/weapons/block_shield.ogg'
+	body_parts_covered = HANDS | ARMS
 
 /// negates block chance if there's a shield in either hand
 /obj/item/clothing/gloves/platillo/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
