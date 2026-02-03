@@ -67,6 +67,10 @@
 		)
 	)
 
+/obj/item/clothing/suit/armor/lizard/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/belt/lizard_sabre
+
 // leg armor
 
 /obj/item/clothing/shoes/lizard_shins
