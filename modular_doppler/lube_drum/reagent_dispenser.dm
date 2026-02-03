@@ -1,7 +1,7 @@
 /obj/structure/reagent_dispensers/lubedrum
 	name = "lube drum"
 	desc = "You fail to comprehend valid applications for a quantity of lube this large."
-	icon = 'modular_doppler/lube_drum/icons.dmi'
+	icon = 'modular_doppler/lube_drum/chemical_tanks.dmi'
 	icon_state = "lube"
 	reagent_id = /datum/reagent/lube
 	openable = TRUE
