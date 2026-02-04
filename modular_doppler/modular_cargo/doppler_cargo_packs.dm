@@ -40,3 +40,12 @@
 	contains = list(/obj/structure/reagent_dispensers/lubedrum/large)
 	crate_name = "xxxxl lube drum crate"
 	crate_type = /obj/structure/closet/crate/large
+
+/datum/supply_pack/imports/lubedrumevil
+	name = "Drum of Super Lube"
+	desc = "Contains a fifty-five gallon drum filled with industrial space-grade super-lubricant outlawed in most sectors. Handle with extreme care."
+	cost = CARGO_CRATE_VALUE * 50 // 1000 units of superlube for ten thousand moolah
+	contraband = TRUE // cannot be service-ordered because it's an import, console must be hacked
+	contains = list(/obj/structure/reagent_dispensers/lubedrum/evil)
+	crate_name = "super lube drum crate"
+	crate_type = /obj/structure/closet/crate/large
