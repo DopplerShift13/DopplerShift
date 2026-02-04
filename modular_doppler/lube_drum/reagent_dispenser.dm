@@ -11,3 +11,10 @@
 	desc = "God lives in heaven only because he fears what he has created."
 	icon_state = "lubelarge"
 	tank_volume = 5000
+
+/obj/structure/reagent_dispensers/lubedrum/evil
+	name = "warning-labeled lube drum"
+	desc = "The writing on the side and numerous red stripes indicate the contents of this drum are extremely dangerous."
+	icon = 'modular_doppler/lube_drum/chemical_tanks.dmi'
+	icon_state = "lubedanger"
+	reagent_id = /datum/reagent/lube/superlube
