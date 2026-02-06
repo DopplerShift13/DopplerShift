@@ -17,18 +17,18 @@
 	required_powers = list(/datum/power/thaumaturge_root)
 
 /datum/action/cooldown/power/thaumaturge/gale_blast
-	name = "Gale blast"
+	name = "Gale Blast"
 	desc = "Shoots forth a blast of wind. The blast keeps traveling until it hits a solid structure, extinguishing any fires and dragging along any items with it. If it hits a creature, it knocks them back 3 spaces and extinguishes them."
 	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "smoke"
 
-	max_charges = 6
+	max_charges = 7
 	required_affinity = 3
 	prep_cost = 3
 	projectile_type = /obj/projectile/resonant/gale_blast
 	click_to_activate = TRUE
 
-/datum/action/cooldown/power/thaumaturge/use_action(mob/living/user, atom/target)
+/datum/action/cooldown/power/thaumaturge/gale_blast/use_action(mob/living/user, atom/target)
 	. = ..()
 	playsound(user, 'sound/effects/podwoosh.ogg', 60, TRUE, SILENCED_SOUND_EXTRARANGE)
 

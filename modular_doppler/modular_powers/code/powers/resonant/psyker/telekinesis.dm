@@ -1,6 +1,6 @@
 /* This leviathan of spaghetti is based off of the MODsuit modules.
-It is a lazy port to the current acitons powers system from the spells system and has a lot wonkiness as a consequence.
-BIG TODO: FIX THAT
+It is a lazy port to the current acitons powers system from the spells system and has a lot wonkiness as a consequence, including not using use_action.
+TODO: FIX THAT
 */
 
 /datum/power/psyker_power/telekinesis
@@ -42,7 +42,7 @@ BIG TODO: FIX THAT
 
 /datum/action/cooldown/power/psyker/telekinesis/Trigger(mob/clicker, trigger_flags, atom/target)
 	. = ..()
-	// We run this here cause telekinesis doesn't use use_action for some awful reason and I cba to fix it.
+	// We run this here cause telekinesis doesn't use use_action because we need click intercepts.
 	ValidateOrgan()
 
 	if(grabbed_atom)

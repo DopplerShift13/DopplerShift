@@ -3,7 +3,7 @@
 */
 /datum/power/aberrant/anomaly/counter_resonance
 	name = "Counter-Resonance Anomaly"
-	desc = "You have a counteractive effect on resonance-based phenomena. You are immune to resonance-based magic (but not normal magic!), and you cannot use any resonance-based powers."
+	desc = "You have a counteractive effect on resonance-based phenomena. You are immune to resonance-based effects (but not the highly advanced magics wielded by some antagonistic forces), and you cannot use any resonance-based powers."
 	value = 9
 
 	archetype = POWER_ARCHETYPE_RESONANT

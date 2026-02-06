@@ -25,7 +25,6 @@
 
 /datum/action/cooldown/power/psyker/levitate/use_action()
 	. = ..()
-	psyker_organ = owner.get_organ_slot(ORGAN_SLOT_PSYKER)
 	if(!active)
 		owner.AddElement(/datum/element/forced_gravity, 0)
 		owner.AddElement(/datum/element/simple_flying)
@@ -53,7 +52,7 @@
 		caster_effect = null
 		playsound(owner, 'sound/effects/magic/cosmic_energy.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 
-	return
+	return TRUE
 
 /datum/action/cooldown/power/psyker/levitate/process(seconds_per_tick)
 	if(!owner)

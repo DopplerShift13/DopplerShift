@@ -7445,6 +7445,7 @@
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\phantasmal_tool.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\blend_for_me.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\gale_blast.dm"
+#include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\magic_barrage.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_action.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_power.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_root.dm"

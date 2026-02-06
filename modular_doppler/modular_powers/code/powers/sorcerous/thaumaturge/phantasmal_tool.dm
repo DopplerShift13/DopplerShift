@@ -19,7 +19,7 @@
 
 	max_charges = 7
 	required_affinity = 1
-	prep_cost = 2
+	prep_cost = 3
 
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool/use_action(mob/living/user, atom/target)
 	if(user.get_active_held_item() && user.get_inactive_held_item())

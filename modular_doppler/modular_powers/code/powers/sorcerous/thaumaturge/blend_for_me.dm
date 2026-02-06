@@ -1,12 +1,11 @@
 // Will it blend?
 // Emulates the effects of a grinder on the target in your hand. Can be used offensively too through aggressive grabs.
-// TODO: Test on undersized characters.
 
 /datum/power/thaumaturge/blend_for_me
 	name = "Blend For Me"
 	desc = "Grinds the item in your hand as if it were inserted in a grinder, then conjures a glass to hold it (if you're grinding). Right-hand for grinding, left-hand for juicing. Can be used on people using an aggressive grab to inflict brute damage and bleeding. \
 	Affinity gives a chance to not consume charges."
-	value = 3
+	value = 2
 
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THAUMATURGE
@@ -20,8 +19,9 @@
 	button_icon_state = "juicer"
 
 	cooldown_time = 50 // we don't want people spamming the blender noise. that's it. that's the whole reason why we force a 5 second cooldown.
-	max_charges = 6
+	max_charges = 8
 	required_affinity = 1
+	prep_cost = 2
 
 	// The grab damage.
 	// TODO: define
