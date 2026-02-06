@@ -45,6 +45,11 @@
 	// The path, if applicable, to the action.
 	var/datum/action/cooldown/power/action_path
 
+	// Where items were spawned for the power, if any.
+	var/list/where_items_spawned
+	/// If true, the backpack automatically opens on post_add(). Usually set to TRUE when an item is equipped inside the player's backpack.
+	var/open_backpack = FALSE
+
 /datum/power/New()
 	. = ..()
 	for(var/trait in no_process_traits)
@@ -169,10 +174,22 @@
 /// This proc is guaranteed to run if the mob has a client when the power is added.
 /// Otherwise, it runs once on the next COMSIG_MOB_LOGIN.
 /datum/power/proc/post_add()
+	SHOULD_CALL_PARENT(TRUE)
 	// Grants appropriate actions in the UI
 	if(action_path)
 		var/new_action_path = grant_action(action_path)
 		action_path = new_action_path
+	// If we give items to the player and open_backpack is true, have it open on round start.
+	if(open_backpack)
+		var/mob/living/carbon/human/human_holder = power_holder
+		// post_add() can be called via delayed callback. Check they still have a backpack equipped before trying to open it.
+		if(human_holder.back)
+			human_holder.back.atom_storage.show_contents(human_holder)
+	// Informs the players of any spawned items.
+	for(var/chat_string in where_items_spawned)
+		to_chat(power_holder, chat_string)
+
+	where_items_spawned = null
 	return
 
 // Adds activateable power buttons.
@@ -222,14 +239,6 @@
 		return FALSE
 	return TRUE
 
-/// Subtype power that has some bonus logic to spawn items for the player.
-/datum/power/item_power
-	/// Lazylist of strings describing where all the power items have been spawned.
-	var/list/where_items_spawned
-	/// If true, the backpack automatically opens on post_add(). Usually set to TRUE when an item is equipped inside the player's backpack.
-	var/open_backpack = FALSE
-	abstract_parent_type = /datum/power/item_power
-
 /**
  * Handles inserting an item in any of the valid slots provided, then allows for post_add notification.
  *
@@ -241,7 +250,7 @@
  * * default_location - If the item isn't possible to equip in a valid slot, this is a description of where the item was spawned.
  * * notify_player - If TRUE, adds strings to where_items_spawned list to be output to the player in [/datum/power/item_power/post_add()]
  */
-/datum/power/item_power/proc/give_item_to_holder(obj/item/power_item, list/valid_slots, flavour_text = null, default_location = "at your feet", notify_player = FALSE)
+/datum/power/proc/give_item_to_holder(obj/item/power_item, list/valid_slots, flavour_text = null, default_location = "at your feet", notify_player = FALSE)
 	if(ispath(power_item))
 		power_item = new power_item(get_turf(power_holder))
 
@@ -254,15 +263,3 @@
 
 	if(notify_player)
 		LAZYADD(where_items_spawned, span_boldnotice("You have \a [power_item] [where]. [flavour_text]"))
-
-/datum/power/item_power/post_add()
-	if(open_backpack)
-		var/mob/living/carbon/human/human_holder = power_holder
-		// post_add() can be called via delayed callback. Check they still have a backpack equipped before trying to open it.
-		if(human_holder.back)
-			human_holder.back.atom_storage.show_contents(human_holder)
-
-	for(var/chat_string in where_items_spawned)
-		to_chat(power_holder, chat_string)
-
-	where_items_spawned = null

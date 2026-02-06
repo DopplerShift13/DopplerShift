@@ -22,7 +22,7 @@
 
 	if(isliving(target))
 		var/mob/living/victim = target
-		if(victim.can_block_magic(antimagic_flags, antimagic_charge_cost) || victim.can_block_resonance(antimagic_charge_cost))
+		if(victim.can_block_resonance(antimagic_charge_cost) || victim.can_block_magic(antimagic_flags, antimagic_charge_cost))
 			visible_message(span_warning("[src] fizzles on contact with [victim]!"))
 			return PROJECTILE_DELETE_WITHOUT_HITTING
 

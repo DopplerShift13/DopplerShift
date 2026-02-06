@@ -11,23 +11,16 @@
 	path = POWER_PATH_THAUMATURGE
 	priority = POWER_PRIORITY_ROOT
 
-/* Previous Item Power stuff. TODO: Make Item power a variable rather than a subtype.
-/datum/power/item_power/thaumaturge_root/add_unique(client/client_source)
-	//var/obj/item/book/random/spellbook = new(get_turf(power_holder))
-	//.name = "[power_holder.real_name]'s spellbook"
-	//give_item_to_holder(spellbook, list(LOCATION_BACKPACK, LOCATION_HANDS))
-
-/datum/power/item_power/thaumaturge_root/add(client/client_source)
-	//var/datum/action/cooldown/spell/touch/prestidigitation/that_magic_touch = new
-	//that_magic_touch.Grant(power_holder)
-*/
+/datum/power/thaumaturge_root/add_unique(client/client_source)
+	var/obj/item/spell_focus/spell_focus = new(get_turf(power_holder))
+	spell_focus.name = "[power_holder.real_name]'s spell focus"
+	give_item_to_holder(spell_focus, list(LOCATION_BACKPACK, LOCATION_HANDS))
 
 /datum/power/thaumaturge_root/post_add()
 	if(!power_holder) // So it doesn't runtime at init
 		return
 	// Spell preperation is so complicated we basically handle it all in a component, including the UI part.
 	power_holder.AddComponent(/datum/component/thaumaturge_preparation, power_holder)
-	power_holder.put_in_hands(new /obj/item/spell_focus)
 	. = ..()
 
 /datum/action/cooldown/power/thaumaturge/thaumaturge_root
