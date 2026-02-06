@@ -27,7 +27,7 @@
 		return
 	// Spell preperation is so complicated we basically handle it all in a component, including the UI part.
 	power_holder.AddComponent(/datum/component/thaumaturge_preparation, power_holder)
-	power_holder.put_in_hands(new /obj/item/spell_focus)
+	power_holder.put_in_hands(new /obj/item/spell_focus/staff) // TODO: Change to normal spell focus item after testing.
 	. = ..()
 
 /datum/action/cooldown/power/thaumaturge/thaumaturge_root

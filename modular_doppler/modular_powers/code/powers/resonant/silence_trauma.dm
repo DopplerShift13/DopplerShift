@@ -14,10 +14,9 @@
 	for(var/datum/power/power_instance in powers_list)
 		power_instance.dispel()
 
-	// TODO: actually make the silence work (the spell_requirements code scares me)
-	//ADD_TRAIT(owner, TRAIT_RESONANCE_SILENCED, TRAUMA_TRAIT)
+	ADD_TRAIT(owner, TRAIT_RESONANCE_SILENCED, TRAUMA_TRAIT)
 	. = ..()
 
 /datum/brain_trauma/magic/resonance_silenced/on_lose()
-	//REMOVE_TRAIT(owner, TRAIT_RESONANCE_SILENCED, TRAUMA_TRAIT)
+	REMOVE_TRAIT(owner, TRAIT_RESONANCE_SILENCED, TRAUMA_TRAIT)
 	..()

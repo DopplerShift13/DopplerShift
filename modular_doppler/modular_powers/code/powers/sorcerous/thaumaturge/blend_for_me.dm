@@ -1,0 +1,136 @@
+// Will it blend?
+// Emulates the effects of a grinder on the target in your hand. Can be used offensively too through aggressive grabs.
+// TODO: Test on undersized characters.
+
+/datum/power/thaumaturge/blend_for_me
+	name = "Blend For Me"
+	desc = "Grinds the item in your hand as if it were inserted in a grinder, then conjures a glass to hold it (if you're grinding). Right-hand for grinding, left-hand for juicing. Can be used on people using an aggressive grab to inflict brute damage and bleeding. \
+	Affinity gives a chance to not consume charges."
+	value = 3
+
+	archetype = POWER_ARCHETYPE_SORCEROUS
+	path = POWER_PATH_THAUMATURGE
+	action_path = /datum/action/cooldown/power/thaumaturge/blend_for_me
+	required_powers = list(/datum/power/thaumaturge_root)
+
+/datum/action/cooldown/power/thaumaturge/blend_for_me
+	name = "Blend For Me"
+	desc = "The younger cousin of another notorious spell; grinds the item in your hand as if it were inserted in a grinder, then conjures a glass to hold it (if you're grinding). Right-hand for grinding, left-hand for juicing. Can be used on people using an aggressive grab to inflict brute damage and bleeding."
+	button_icon = 'icons/obj/machines/kitchen.dmi'
+	button_icon_state = "juicer"
+
+	cooldown_time = 50 // we don't want people spamming the blender noise. that's it. that's the whole reason why we force a 5 second cooldown.
+	max_charges = 6
+	required_affinity = 1
+
+	// The grab damage.
+	// TODO: define
+	var/grab_blend_brute = 15
+
+/datum/action/cooldown/power/thaumaturge/blend_for_me/use_action(mob/living/user, atom/target)
+	// Are we grinding or juicing?
+	var/grinding
+	// What item is in our active hand?
+	var/obj/item/active_held_item = user.get_active_held_item()
+	if(!active_held_item)
+		return FALSE
+
+	// Is the item too big?
+	if(active_held_item.w_class >= WEIGHT_CLASS_BULKY)
+		user.balloon_alert(user, "Too large to blend!")
+		return FALSE
+
+	// Which hand is active?
+	var/held_index = user.get_held_index_of_item(active_held_item)
+	if(!held_index)
+		return FALSE
+	var/active_is_right_hand = IS_RIGHT_INDEX(held_index)
+	if(active_is_right_hand) // If its in the right hand we grind, otherwise we blend.
+		grinding = TRUE
+
+	return will_it_blend(user, active_held_item, grinding)
+
+
+// Attempts to blend the item.
+/datum/action/cooldown/power/thaumaturge/blend_for_me/proc/will_it_blend(mob/living/user, obj/item/input_item, grinding)
+	// Start cooldown immediately (anti-spam)
+	StartCooldown()
+
+	// FX
+	user.Shake(pixelshiftx = 1, pixelshifty = 0, duration = 40)
+	playsound(user, grinding ? 'sound/machines/blender.ogg' : 'sound/machines/juicer.ogg', 50, TRUE)
+
+	// Channel
+	if(!do_after(user, 4 SECONDS, target = user))
+		return FALSE
+
+	// Temporary buffer to house the results so we can neatly transfer it to the same hand.
+	var/turf/user_turf = get_turf(user)
+	if(!user_turf)
+		return FALSE
+
+	var/obj/effect/abstract/thaum_blend_buffer/buffer = new(user_turf, 30)
+
+	// We reject multiple stacks of items for now. Despite multiple attempts, it seems to just NOT WORK?!
+	// If you can figure out how, please do :)
+	if(istype(input_item, /obj/item/stack))
+		var/obj/item/stack/stack_item = input_item
+		if(stack_item.amount > 1)
+			user.balloon_alert(user, "Split the stack first!")
+			return FALSE
+
+	var/success
+	// The blending process
+	if(grinding)
+		success = input_item.grind(buffer.reagents, user)
+	else
+		success = input_item.juice(buffer.reagents, user)
+
+	if(!success) // If it somehow fails to grind/juice
+		user.balloon_alert(user, "[input_item] resists being processed!")
+		qdel(buffer)
+		return FALSE
+
+	if(buffer.reagents.total_volume <= 0) // If somehow we grind something but ntohing comes out.
+		user.balloon_alert(user, "Nothing useful comes out.")
+		qdel(buffer)
+		return FALSE
+
+	// Conjure bottle AFTER grind so hands are likely freed
+	var/obj/item/reagent_containers/cup/glass/bottle/small/result_bottle = new(user_turf)
+	user.put_in_hands(result_bottle)
+
+	// Transfer contents
+	buffer.reagents.trans_to(result_bottle, buffer.reagents.total_volume, transferred_by = user)
+	qdel(buffer)
+
+	return TRUE
+
+// To potentially refund it, we run a small check.
+/datum/action/cooldown/power/thaumaturge/blend_for_me/on_action_success(mob/living/user, atom/target, override_charges)
+	var/chance_to_refund = clamp(11 * affinity + 30, 20, 100) // Caps out at 85 for T5.
+	if(prob(chance_to_refund))
+		override_charges = 0
+		to_chat(owner, span_notice("Your [name] spell did not consume a charge!"))
+	else if(chance_to_refund >= 51) // At this point it's more common that it does not consume a charge, so we invert them and tell them when it does consume a charge!
+		to_chat(owner, span_warning("Your [name] spell consumed a charge!"))
+	return ..(user, target, override_charges)
+
+
+// We create a temporary buffer for holding the reagents, given that our 'blender' in this case isn't a conventional object.
+/obj/effect/abstract/thaum_blend_buffer
+	name = "resonant blender"
+	desc = "You think you're so fancy seeing invisible coder objects huh? Reaaal magician right here."
+	invisibility = INVISIBILITY_ABSTRACT
+	anchored = TRUE
+	density = FALSE
+
+	var/datum/reagents/reagent_buffer
+	var/buffer_volume = 50
+
+/obj/effect/abstract/thaum_blend_buffer/Initialize(mapload, new_buffer_volume)
+	. = ..()
+	if(isnum(new_buffer_volume) && new_buffer_volume > 0)
+		buffer_volume = new_buffer_volume
+	reagents = new /datum/reagents(buffer_volume, src)
+	reagents.flags = TRANSPARENT | DRAINABLE

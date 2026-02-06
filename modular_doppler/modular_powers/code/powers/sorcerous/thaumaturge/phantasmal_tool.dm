@@ -10,7 +10,6 @@
 	path = POWER_PATH_THAUMATURGE
 	action_path = /datum/action/cooldown/power/thaumaturge/phantasmal_tool
 	required_powers = list(/datum/power/thaumaturge_root)
-	required_allow_subtypes = TRUE
 
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool
 	name = "Phantasmal Tool"
@@ -18,8 +17,9 @@
 	button_icon = 'icons/obj/weapons/club.dmi'
 	button_icon_state = "hypertool"
 
-	max_charges = 5
+	max_charges = 7
 	required_affinity = 1
+	prep_cost = 2
 
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool/use_action(mob/living/user, atom/target)
 	if(user.get_active_held_item() && user.get_inactive_held_item())
@@ -27,8 +27,7 @@
 
 	var/list/tool_type_to_image = get_phantasmal_tool_radial_images()
 
-	// No anchor, no require_near, no adjacency gate.
-	// show_radial_menu returns the key from the assoc list (here: a typepath).
+	// show_radial_menu returns the key from the assoc list.
 	var/selected_tool_type = show_radial_menu(
 		user,
 		user, // "anchor" just for placement; using the user keeps it simple
@@ -44,11 +43,11 @@
 	new_tool_item.AddElement(/datum/element/phantasmal_tool)
 	if(!user.put_in_hands(new_tool_item))
 		qdel(new_tool_item) // destroys the item if it fails to put it in our hands, as it shouldn't ever exist out of hands.
-
+	playsound(user, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return TRUE
 
 // To potentially refund it, we run a small check.
-/datum/action/cooldown/power/thaumaturge/on_action_success(mob/living/user, atom/target, override_charges)
+/datum/action/cooldown/power/thaumaturge/phantasmal_tool/on_action_success(mob/living/user, atom/target, override_charges)
 	var/chance_to_refund = clamp(11 * affinity + 30, 20, 100) // Caps out at 85 for T5.
 	if(prob(chance_to_refund))
 		override_charges = 0
@@ -57,14 +56,14 @@
 		to_chat(owner, span_warning("Your [name] spell consumed a charge!"))
 	return ..(user, target, override_charges)
 
-/datum/action/cooldown/power/thaumaturge/proc/phantasmal_tool_menu_check(mob/user)
+/datum/action/cooldown/power/thaumaturge/phantasmal_tool/proc/phantasmal_tool_menu_check(mob/user)
 	if(!istype(user))
 		return FALSE
 	if(user.incapacitated)
 		return FALSE
 	return TRUE
 
-/datum/action/cooldown/power/thaumaturge/proc/get_phantasmal_tool_radial_images()
+/datum/action/cooldown/power/thaumaturge/phantasmal_tool/proc/get_phantasmal_tool_radial_images()
 	var/static/list/tool_type_to_image
 	if(tool_type_to_image)
 		return tool_type_to_image

@@ -37,6 +37,9 @@
 // Trait for when you are unable to use resonant powers
 #define TRAIT_RESONANCE_SILENCED "RESONANCE_SILENCED"
 
+// Trait for when you are immune to resonant powers
+#define TRAIT_ANTIRESONANCE "TRAIT_ANTIRESONANCE"
+
 /**
  * SORCEROUS
  * All defines related to the sorcerous archetype.

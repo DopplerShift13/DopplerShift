@@ -6,7 +6,7 @@
 
 	// We generally don't dabble with cooldowns but a GCD of 0.5 seconds is kinda handy to prevent you from blowing your load on all your charges by accident.
 	cooldown_time = 5
-	// Unlike normal spells, we have charges. More of that explained below at action_success()
+	// Unlike normal spells, we have charges. More of that explained below at check_if_valid()
 	var/charges = 0
 	// The cap on charges; you can't prepare more than these. If you leave this null, the spell will not interact with the charges system.
 	var/max_charges
@@ -18,7 +18,7 @@
 	// Overlay that shows the number of charges
 	var/mutable_appearance/charge_overlay
 
-	// How much affinity is currently affecting the action.
+	// How much affinity is currently affecting the action. It is deliberate we snap-shot this on cast.
 	var/affinity
 	// How much affinity is required to use the action.
 	var/required_affinity
@@ -38,6 +38,9 @@
 		return FALSE
 	. = ..()
 
+// The charge deduction is handled on_action_success and thusly gains override_charges as an arg.
+// If your spell does anything unusual with charges such as refunds or costing multiples, this is where you would handle that.
+// You can otherwise use on_action_success as normal, just make sure to call parrent.
 /datum/action/cooldown/power/thaumaturge/on_action_success(mob/living/user, atom/target, override_charges)
 	SHOULD_CALL_PARENT(TRUE)
 	. = ..()
@@ -85,7 +88,7 @@
 
 /*
 	Deviating massively from the original cooldown system, thaumaturge has charges they have to prepare and plan for in advance, just like the classic vanician spellcasting system.
-	Mechanically, we check if charges are 0. If so we Disable(). Otherwise, we deduct a charge and go on a short 1 second (or whatever is programmed in) cooldown.
+	Mechanically, we check if charges are 0. If so we Disable(). Otherwise, we deduct a charge and go on a short cooldown.
 */
 
 // Checks if we have charges to use.
