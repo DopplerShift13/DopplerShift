@@ -27,14 +27,17 @@
 		return
 	// Spell preperation is so complicated we basically handle it all in a component, including the UI part.
 	power_holder.AddComponent(/datum/component/thaumaturge_preparation, power_holder)
-	power_holder.put_in_hands(new /obj/item/spell_focus/staff) // TODO: Change to normal spell focus item after testing.
+	power_holder.put_in_hands(new /obj/item/spell_focus)
 	. = ..()
 
 /datum/action/cooldown/power/thaumaturge/thaumaturge_root
 	name = "Spell Preperation"
 	desc = "Adjust the amount of charges your spells have! Requires sleeping with a Spell Focus on your person to apply (except the first time in a round)."
-	button_icon = 'icons/obj/antags/cult/structures.dmi'
-	button_icon_state = "pylon"
+	button_icon = 'icons/obj/storage/book.dmi'
+	button_icon_state = "ithaqua"
+
+	// Lets you tweak it while you sleep.
+	disabled_by_incapacitate = FALSE
 
 /datum/action/cooldown/power/thaumaturge/thaumaturge_root/use_action(mob/living/user, atom/target)
 	var/datum/component/thaumaturge_preparation/prep_component = user.GetComponent(/datum/component/thaumaturge_preparation)

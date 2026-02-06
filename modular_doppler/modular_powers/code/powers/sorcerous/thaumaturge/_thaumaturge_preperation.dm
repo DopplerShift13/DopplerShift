@@ -82,11 +82,11 @@
 // Find the spell in the current spell_list and read its prep_cost.
 /datum/component/thaumaturge_preparation/proc/get_prep_cost_for_spell_ref(spell_ref)
 	for(var/datum/power/power_instance as anything in spell_list)
-		if("[power_instance.action_path]" == spell_ref)
+		if("[power_instance.action_path.type]" == spell_ref)
 			var/datum/action/cooldown/power/thaumaturge/action_instance = power_instance.action_path
 			return max(0, action_instance?.prep_cost || 0)
-
 	return 0
+
 
 // Starts the process of applying spells. Verification & all
 /datum/component/thaumaturge_preparation/proc/apply_preperation()
@@ -96,13 +96,13 @@
 	if(first_time_preperation)
 		if(apply_spell_charges())
 			first_time_preperation = FALSE
-			to_chat(attached_mob, span_warning("Your spell preperation has been applied!"))
+			to_chat(attached_mob, span_notice("Your spell preperation has been applied!"))
 		else
 			to_chat(attached_mob, span_warning("Something went wrong when applying spell charges; this shouldn't happen! Yell at a dev!"))
 	else
 		// For those curious how we trigger it, its the on_sleep_set() signaler at the top.
 		recharge_when_sleep = TRUE
-		to_chat(attached_mob, span_warning("Your changes have been saved! The next time you take the sleep action, the charges will be applied."))
+		to_chat(attached_mob, span_notice("Your changes have been saved! The next time you take the sleep action, the charges will be applied."))
 
 // Applies the prepared spell charges.
 /datum/component/thaumaturge_preparation/proc/apply_spell_charges()
@@ -229,11 +229,14 @@
 
 	return list(
 		"mana_total" = mana,
+		"mana_max" = max_mana,
 		"mana_spend" = mana_spend,
 		"mana_remaining" = mana_remaining,
 		"spell_count" = length(spells_payload),
 		"spells" = spells_payload,
+		"first_time_preperation" = first_time_preperation,
 	)
+
 
 
 

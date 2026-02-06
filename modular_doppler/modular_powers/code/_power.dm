@@ -43,7 +43,7 @@
 	var/required_allow_subtypes
 
 	// The path, if applicable, to the action.
-	var/datum/action/cooldown/action_path
+	var/datum/action/cooldown/power/action_path
 
 /datum/power/New()
 	. = ..()

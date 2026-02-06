@@ -16,6 +16,9 @@ type SpellEntry = {
 type Data = {
   tguitheme?: string;
   mana_remaining: number;
+  mana_total: number;
+  mana_max: number;
+  first_time_preperation: boolean;
   spell_count: number;
   spells: SpellEntry[];
 };
@@ -34,7 +37,8 @@ export const ThaumaturgeSpellPrep = (_props) => {
       <Window.Content scrollable>
         <Section title="Mana">
           <Box>
-            Mana remaining: <b>{data.mana_remaining}</b>
+            Mana remaining: <b>{data.mana_remaining}</b> /{' '}
+            <b>{data.mana_total}</b>
           </Box>
         </Section>
 
@@ -101,14 +105,20 @@ export const ThaumaturgeSpellPrep = (_props) => {
         <Section>
           <Stack vertical>
             <Stack.Item>
-              <Box color="bad">
-                Preparing spells for the first time applies the charges
-                instantly!
-              </Box>
+              {data.first_time_preperation ? (
+                <Box color="bad">
+                  Preparing spells for the first time applies the charges
+                  instantly!
+                </Box>
+              ) : (
+                <Box>
+                  Your prepared charges will be applied the next time you sleep.
+                </Box>
+              )}
             </Stack.Item>
             <Stack.Item>
               <Button color="bad" width="100%" onClick={() => act('apply')}>
-                Prepare
+                Apply Prepared Spells
               </Button>
             </Stack.Item>
           </Stack>

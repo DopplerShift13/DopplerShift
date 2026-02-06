@@ -3,7 +3,7 @@
 	Really its an example of what being clever gets you.
 */
 
-/datum/power/thaumaturge/magic_barrage
+/datum/power/thaumaturge/magical_barrage
 	name = "Magical Barrage"
 	desc = "Shoots a volley of magic projectiles equal to your Affinity. You can either fire single shots with a short delay between shots, or shoot all your remaining shots in a barrage. Requires Affinity 3."
 	value = 4
@@ -60,12 +60,6 @@
 	RegisterSignal(owner, COMSIG_MOB_CLICKON, PROC_REF(on_owner_clickon))
 	to_chat(owner, span_notice("Magical missiles orbit you. Left-click: Fire one. Right-click: Fire all."))
 	return TRUE
-
-// Dispel effect
-/datum/power/thaumaturge/magic_barrage/Dispel()
-	if(active)
-		disable_barrage(user, span_warning("Your magic missiles were dispelled!"))
-		return TRUE
 
 // Turns off barrage mode and cleans up signals + orbitals.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/disable_barrage(mob/living/user, message)
