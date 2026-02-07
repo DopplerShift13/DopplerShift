@@ -4,7 +4,7 @@
 /datum/power/thaumaturge/blend_for_me
 	name = "Blend For Me"
 	desc = "Grinds the item in your hand as if it were inserted in a grinder, then conjures a glass to hold it (if you're grinding). Right-hand for grinding, left-hand for juicing. Can be used on people using an aggressive grab to inflict brute damage and bleeding. \
-	Affinity gives a chance to not consume charges."
+	Requires Affinity 1. Affinity gives a chance to not consume charges."
 	value = 2
 
 	archetype = POWER_ARCHETYPE_SORCEROUS
@@ -14,7 +14,7 @@
 
 /datum/action/cooldown/power/thaumaturge/blend_for_me
 	name = "Blend For Me"
-	desc = "The younger cousin of another notorious spell; grinds the item in your hand as if it were inserted in a grinder, then conjures a glass to hold it (if you're grinding). Right-hand for grinding, left-hand for juicing. Can be used on people using an aggressive grab to inflict brute damage and bleeding."
+	desc = "The younger cousin of a remarkably wicked spell; grinds the item in your hand as if it were inserted in a grinder, then conjures a glass to hold it (if you're grinding). Right-hand for grinding, left-hand for juicing. Can be used on people using an aggressive grab to inflict brute damage and bleeding."
 	button_icon = 'icons/obj/machines/kitchen.dmi'
 	button_icon_state = "juicer"
 
@@ -23,11 +23,16 @@
 	required_affinity = 1
 	prep_cost = 2
 
-	// The grab damage.
-	// TODO: define
-	var/grab_blend_brute = 15
+	// The grab damage per tick.
+	var/grab_blend_brute = 10
+	// How many cycles can we blend a person.
+	var/grab_blend_duration = 3
 
 /datum/action/cooldown/power/thaumaturge/blend_for_me/use_action(mob/living/user, atom/target)
+	// Check first if we are pulling a person. If so we go for the grab_blend
+	if(owner.pulling && owner.grab_state <= GRAB_AGGRESSIVE && isliving(owner.pulling))
+		return will_a_person_blend(user, owner.pulling)
+
 	// Are we grinding or juicing?
 	var/grinding
 	// What item is in our active hand?
@@ -50,6 +55,35 @@
 
 	return will_it_blend(user, active_held_item, grinding)
 
+// Attemps to blend A PERSON.
+// Keep in mind that if you try to blend an undersized person in your hand, it will use will_it_blend instead.
+/datum/action/cooldown/power/thaumaturge/blend_for_me/proc/will_a_person_blend(mob/living/user, mob/living/target)
+	// How many times has our do_while hurt the person?
+	var/blend_attacks = 0
+	owner.visible_message(span_danger("[owner] begins to magically grind [target]'s body to bits!"), span_notice("You begin to grind [target] into a pulp."))
+	playsound(user, 'sound/machines/blender.ogg' , 50, TRUE)
+	do
+		user.Shake(pixelshiftx = 1, pixelshifty = 0, duration = 10)
+		target.Shake(pixelshiftx = 1, pixelshifty = 0, duration = 10)
+		if(do_after(owner, 10, target = target))
+			target.adjustBruteLoss(grab_blend_brute)
+			// Carbon mobs can receive wounds.
+			if(iscarbon(target))
+				var/mob/living/carbon/thatpoorguy = target
+				// 30% chance to receive a severe wound
+				if(prob(30))
+					thatpoorguy.cause_wound_of_type_and_severity(WOUND_SLASH, null, WOUND_SEVERITY_SEVERE, WOUND_SEVERITY_SEVERE)
+				else
+					thatpoorguy.cause_wound_of_type_and_severity(WOUND_SLASH, null, WOUND_SEVERITY_MODERATE, WOUND_SEVERITY_MODERATE)
+			// Scream for the first time cause this is HORRIFYING.
+			if(blend_attacks == 0)
+				target.emote("scream")
+			playsound(user, SFX_DESECRATION, 75, TRUE, SILENCED_SOUND_EXTRARANGE)
+			blend_attacks++
+		else
+			break
+	while (blend_attacks <= grab_blend_duration)
+	return TRUE
 
 // Attempts to blend the item.
 /datum/action/cooldown/power/thaumaturge/blend_for_me/proc/will_it_blend(mob/living/user, obj/item/input_item, grinding)

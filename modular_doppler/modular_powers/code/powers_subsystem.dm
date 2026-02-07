@@ -141,6 +141,9 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	var/maximum_balance = MAXIMUM_POWER_POINTS
 	var/list/all_powers = get_powers()
 
+	// Track distinct paths we accept while filtering this batch
+	var/list/unique_paths = list()
+
 	// TODO: work out how to filter powers missing their requirements.
 	// This could be higher priorities, but could also be at the same priority level.
 	// TODO: work out how to filter for going over the balance cap without introducing major issues.
@@ -165,11 +168,11 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		if(!ispath(power_type))
 			continue
 
-		// Make sure we only have one overarching archetype.
-		if(isnull(current_archetype))
-			current_archetype = power_type.archetype
-		else if(current_archetype != power_type.archetype)
-			continue // Mismatched archetype, discard.
+		// Make sure we only have up to two distinct paths.
+		if(!(power_type.path in unique_paths))
+			if(length(unique_paths) >= 2)
+				continue // Third distinct path, discard.
+			unique_paths[power_type.path] = TRUE
 
 		// Make sure we don't have incompatible powers
 		var/blacklisted = FALSE

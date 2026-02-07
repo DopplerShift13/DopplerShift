@@ -145,11 +145,18 @@
 	if(power_name in preferences.all_powers)
 		return FALSE // Already have this power.
 
-	// Make sure we stay in the same archetype.
+	// Make sure we don't exceed 2 distinct paths.
 	if(length(preferences.all_powers))
-		var/datum/power/first_power_type = SSpowers.powers[preferences.all_powers[1]]
-		if(power_type.archetype != first_power_type.archetype)
-			to_chat(user, span_boldwarning("Mismatched archetype!"))
+		var/list/unique_paths = list()
+		// Collect the distinct paths the player already has
+		for(var/power_key in preferences.all_powers)
+			var/datum/power/existing_power = SSpowers.powers[power_key]
+			if(!existing_power)
+				continue
+			unique_paths[existing_power.path] = TRUE
+		// If the new power's path isn't already present, it would add a new path
+		if(!(power_type.path in unique_paths) && length(unique_paths) >= 2)
+			to_chat(user, span_boldwarning("You can only have powers from two paths!"))
 			return FALSE
 
 	// Make sure we have the required powers.
