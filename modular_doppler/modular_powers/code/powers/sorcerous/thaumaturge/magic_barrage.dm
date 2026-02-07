@@ -6,7 +6,7 @@
 /datum/power/thaumaturge/magical_barrage
 	name = "Magical Barrage"
 	desc = "Shoots a volley of magic projectiles equal to your Affinity + 2. You can either fire single shots with a short delay between shots, or shoot all your remaining shots in a barrage. Requires Affinity 3."
-	value = 4
+	value = 5
 
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THAUMATURGE
@@ -19,9 +19,9 @@
 	button_icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	button_icon_state = "arcane_barrage"
 
-	max_charges = 6
+	max_charges = 5
 	required_affinity = 3
-	prep_cost = 4
+	prep_cost = 5
 
 	// The projectile we fire
 	var/obj/projectile/projectile_path = /obj/projectile/resonant/magic_barrage
@@ -188,7 +188,7 @@
 /obj/projectile/resonant/magic_barrage
 	name = "magic missile"
 	icon_state = "arcane_barrage"
-	damage = 7.5
+	damage = 9
 	damage_type = BURN
 	armour_penetration = 25 // Great for civilian use, less-so on armored opponents.
 	armor_flag = LASER
