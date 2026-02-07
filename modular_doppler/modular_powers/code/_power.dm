@@ -165,11 +165,6 @@
 /datum/power/proc/remove()
 	return
 
-/// Dispels the current power, basically a forced-off switch. Normally only used by resonant powers.
-/// TRUE = There was a power, and whatever it was, its off now. FALSE = There was nothing to turn off
-/datum/power/proc/dispel()
-	return FALSE
-
 /// Any special effects or chat messages which should be applied.
 /// This proc is guaranteed to run if the mob has a client when the power is added.
 /// Otherwise, it runs once on the next COMSIG_MOB_LOGIN.

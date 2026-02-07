@@ -41,3 +41,63 @@
 	mob_light(range = 2, power = 2, color = antimagic_color, duration = 5 SECONDS)
 	add_overlay(antimagic_effect)
 	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, cut_overlay), antimagic_effect), 5 SECONDS)
+
+/*
+Dispel proc handler
+*/
+
+/proc/dispel(atom/target, atom/dispeller, dispel_flags = 0)
+	if(!target)
+		return FALSE
+
+	var/signal_result = SEND_SIGNAL(target, COMSIG_ATOM_DISPEL, dispeller)
+	var/was_dispersed = (signal_result & DISPEL_RESULT_DISPELLED)
+
+	// Only cascade if explicitly requested AND target is a mob
+	if((dispel_flags & DISPEL_CASCADE_CARRIED) && ismob(target))
+		var/mob/living/target_mob = target
+
+		for(var/obj/item/held_item in target_mob.held_items)
+			if(dispel(held_item, dispeller))
+				was_dispersed = TRUE
+
+		for(var/obj/item/worn_item in target_mob.get_equipped_items())
+			if(dispel(worn_item, dispeller))
+				was_dispersed = TRUE
+
+	// SFX that a dispel occurred.
+	if(was_dispersed)
+		playsound(target, 'sound/effects/magic/smoke.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
+	return was_dispersed
+
+
+/*
+	Very simple wiz spell to test dispel functionality, plus for admeme purposes.
+*/
+
+/datum/action/cooldown/spell/pointed/resonant_dispel
+	name = "Dispel Resonance"
+	desc = "Ends the weaker, resonance-based magics on the target and anything contained on or within. Doesn't dispel any ADVANCED magic!"
+	button_icon_state = "emp"
+
+	sound = 'sound/effects/magic/disable_tech.ogg'
+	school = SCHOOL_EVOCATION
+	cooldown_time = 10 SECONDS
+	cooldown_reduction_per_rank = 2 SECONDS
+
+	invocation = "WE AK." // I am glad I did not add invocations to Thaumaturge because my creativity with these would ruin server prop.
+	invocation_type = INVOCATION_SHOUT
+	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
+
+	active_msg = "You prepare to dispel a target..."
+
+/datum/action/cooldown/spell/pointed/resonant_dispel/cast(atom/cast_on)
+	. = ..()
+	if(ismob(cast_on))
+		var/mob/living/living_target = cast_on
+		if(living_target.can_block_magic(antimagic_flags))
+			to_chat(owner, span_warning("Your dispel failed to work!"))
+			return FALSE
+
+	dispel(cast_on, owner, DISPEL_CASCADE_CARRIED)
+	return TRUE

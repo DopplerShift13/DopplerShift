@@ -7428,7 +7428,7 @@
 #include "modular_doppler\modular_powers\code\powers_prefs_middleware.dm"
 #include "modular_doppler\modular_powers\code\powers_subsystem.dm"
 #include "modular_doppler\modular_powers\code\powers_vv.dm"
-#include "modular_doppler\modular_powers\code\powers_magic_immunity.dm"
+#include "modular_doppler\modular_powers\code\powers_antimagic.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\prestidigitation.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\_resonant_projectile.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_chalks.dm"

@@ -86,6 +86,9 @@
  * Always-called cleanup. Use manual = TRUE when the user actively cancels the power.
  */
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/clear_link(manual = FALSE)
+	// gets rid of the dispel signaler
+	UnregisterSignal(current_target, COMSIG_ATOM_DISPEL)
+	UnregisterSignal(owner, COMSIG_ATOM_DISPEL)
 	// gets rid of the beam
 	if(current_beam)
 		UnregisterSignal(current_beam, COMSIG_QDELETING)
@@ -112,9 +115,20 @@
  */
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/beam_died()
 	SIGNAL_HANDLER
-	current_beam = null
-	active = FALSE // avoid re-qdel
 	clear_link()
+
+/**
+ * Called when the target or the caster is dispelled
+ */
+/datum/action/cooldown/power/theologist/theologist_root/shared/proc/on_dispel(mob/owner, atom/dispeller)
+	SIGNAL_HANDLER
+	if(!active)
+		return NONE
+	to_chat(owner, span_userdanger("Your burdens are no longer shared!"))
+	to_chat(current_target, span_userdanger("Your burdens are no longer shared!"))
+	clear_link
+	StartCooldownSelf(150) // Just so you don't immediately reapply it.
+	return DISPEL_RESULT_DISPELLED
 
 /**
  * Starts (or re-targets) the link between the user and a clicked target.
@@ -129,10 +143,13 @@
 
 	current_target = new_target
 	last_check = 0
+	active = TRUE
 
 	// Create a beam from user -> target. This mirrors medbeam.dm's Beam() lifecycle.
 	current_beam = user.Beam(current_target, icon_state = "light_beam", time = 10 MINUTES, maxdistance = target_range, beam_type = /obj/effect/ebeam/medical, beam_color = "#ddd166")
 	RegisterSignal(current_beam, COMSIG_QDELETING, PROC_REF(beam_died))
+	RegisterSignal(user, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+	RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 	target_glow = mutable_appearance(
 		icon = 'icons/effects/effects.dmi',
@@ -141,8 +158,6 @@
 		appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART
 	)
 	current_target.add_overlay(target_glow)
-
-	active = TRUE
 	active_effect = current_target.apply_status_effect(/datum/status_effect/power/burden_shared)
 
 	return TRUE

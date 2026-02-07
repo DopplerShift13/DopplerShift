@@ -30,7 +30,7 @@
 
 /datum/action/cooldown/power/thaumaturge/gale_blast/use_action(mob/living/user, atom/target)
 	. = ..()
-	playsound(user, 'sound/effects/podwoosh.ogg', 60, TRUE, SILENCED_SOUND_EXTRARANGE)
+	playsound(user, 'sound/effects/podwoosh.ogg', 60, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 
 
 // The projectile itself
@@ -159,7 +159,7 @@
 		knockback_dist += 1
 
 	movable_target.safe_throw_at(destination_turf, knockback_dist, 2, firer)
-	playsound(movable_target, 'sound/effects/bamf.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
+	playsound(movable_target, 'sound/effects/bamf.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 // Extinguishes the target we just hit.
 /obj/projectile/resonant/gale_blast/proc/extinguish_hit_target(atom/hit_atom)

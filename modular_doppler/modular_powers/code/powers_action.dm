@@ -19,7 +19,7 @@
 	var/req_stat = CONSCIOUS
 	/// If your power has an active state of any type, use this.
 	var/active
-	/// Is this a resonant ability (read: magical)? Detemrines if this ability stop working if you are silenced and if we check against target magic immunites.
+	/// Is this a resonant ability (read: magical)? Determines if this ability stop working if you are silenced and if we check against target magic immunites.
 	var/resonant = TRUE
 	/// Does this ability stop working if you are incapacitated?
 	var/disabled_by_incapacitate = TRUE
@@ -48,7 +48,7 @@
 	if(!can_use(user, target))
 		return FALSE
 	// Checking for anti-resonance/anti-magic below which really is a pain.
-	if(!projectile_type && resonant && ismob(target)) // If it is not a projectile spell, and if the spell is resonance based, and if the target is a mob.
+	if(!projectile_type && resonant && ismob(target) && target != user) // If it is not a projectile spell, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
 		var/mob/mob_target = target
 		if(mob_target.can_block_resonance(1)) // Runs the special can_block_resonance function which also handles the anti-magic part.
 			// I would like to deduct resources on spell fail, but that is going to be so utterly complex. TODO for the future chap who wants this.
@@ -220,7 +220,7 @@ Projectile action code down below
 		var/obj/projectile/resonant/resonant_proj = projectile_instance
 		resonant_proj.creating_power = src
 
-	// If you want “on hit” logic for the power, hook it here.
+	// If you want “on hit” logic for your power, hook it here.
 	RegisterSignal(projectile_instance, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_power_projectile_hit))
 
 // Signal handler for projectile hits; relays into an overridable proc.

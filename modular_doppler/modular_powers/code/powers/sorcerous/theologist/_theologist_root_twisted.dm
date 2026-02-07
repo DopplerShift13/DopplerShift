@@ -35,13 +35,23 @@
 	//The beam effect when channeling
 	var/datum/beam/current_beam
 
+	// The current target of the effect
+	var/mob/living/current_target
+
+	//Tells the do_while loop to keep_going
+	var/keep_going
 
 /datum/action/cooldown/power/theologist/theologist_root/twisted/use_action(mob/living/user, mob/living/target)
+	// We define the target just for the on_dispel listener
+	current_target = target
 	// Because we have a do_while, it won't get to the usual unset_click_ability() until after the efffect resolves, so we have to run it here.
 	unset_click_ability(owner, FALSE)
-	//Tells the do_while loop to keep_going
-	var/keep_going = TRUE
-	owner.visible_message(span_warning("[owner] lays a hand on [target.get_visible_name()], twisting their injurioes into other, smaller injuries!"), span_notice("You twist [target.get_visible_name()]'s injuries!"))
+	keep_going = TRUE
+	owner.visible_message(span_warning("[owner.get_visible_name()] lays a hand on [target.get_visible_name()], twisting their injurioes into other, smaller injuries!"), span_notice("You twist [target.get_visible_name()]'s injuries!"))
+	// Listeners for dispelling.
+	RegisterSignal(user, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+	RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+
 	// Does the healing and damage
 
 	do
@@ -75,6 +85,10 @@
 	active = FALSE
 	target.remove_status_effect(/datum/status_effect/spotlight_light/resonant)
 	QDEL_NULL(current_beam)
+
+	// unregister signal
+	UnregisterSignal(current_target, COMSIG_ATOM_DISPEL)
+	UnregisterSignal(owner, COMSIG_ATOM_DISPEL)
 
 	// Handles piety gain
 	var/piety_gained = max(0, floor(healing_done * THEOLOGIAN_PIETY_HEALING_COEFFICIENT))
@@ -169,3 +183,13 @@
 
 	no_more_damaging = FALSE
 	return TRUE
+
+// Dispel effect
+/datum/action/cooldown/power/theologist/theologist_root/twisted/proc/on_dispel(mob/owner, atom/dispeller)
+	SIGNAL_HANDLER
+	if(!active)
+		return NONE
+	keep_going = FALSE
+	owner.visible_message(span_warning("The resonant link between [owner.get_visible_name()] and [current_target.get_visible_name()] is broken!!"), span_notice("Your [name] is dispelled!"))
+	StartCooldownSelf(300)
+	return DISPEL_RESULT_DISPELLED

@@ -33,3 +33,23 @@
 		if(plant_tray.myseed.get_gene(/datum/plant_gene/trait/anti_magic))
 			visible_message(span_warning("[src] fizzles on contact with [plant_tray]!"))
 			return PROJECTILE_DELETE_WITHOUT_HITTING
+
+// Signalers for dispels; in the event you're shooting into an antimagic zone or something like that.
+/obj/projectile/resonant/fire(fire_angle, atom/direct_target)
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	RegisterSignal(src, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+
+/obj/projectile/resonant/Destroy()
+	SHOULD_CALL_PARENT(TRUE)
+	. = ..()
+	UnregisterSignal(src, COMSIG_ATOM_DISPEL)
+
+// todo: test
+/obj/projectile/resonant/proc/on_dispel(obj/projectile/projectile, atom/dispeller)
+	SIGNAL_HANDLER
+	if(dispeller)
+		projectile.visible_message(span_warning("[name] disappears into thin air as it makes contact with [dispeller]!"))
+	else
+		projectile.visible_message(span_warning("[name] disappears into thin air!"))
+	qdel(projectile)

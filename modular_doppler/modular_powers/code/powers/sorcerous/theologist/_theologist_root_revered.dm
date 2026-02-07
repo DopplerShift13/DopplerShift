@@ -73,6 +73,7 @@
 
 /datum/status_effect/power/burden_revered/on_apply()
 	ADD_TRAIT(owner, TRAIT_ANALGESIA, type)
+	RegisterSignal(owner, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	return TRUE
 
 // Sets the link with the original action
@@ -88,8 +89,20 @@
 	..()
 
 /datum/status_effect/power/burden_revered/on_remove()
+	UnregisterSignal(owner, COMSIG_ATOM_DISPEL)
 	REMOVE_TRAIT(owner, TRAIT_ANALGESIA, type)
 	return
+
+// Dispel functionality
+/datum/status_effect/power/burden_revered/proc/on_dispel(mob/owner, atom/dispeller)
+	SIGNAL_HANDLER
+	to_chat(owner, span_userdanger("Your [burden_power.name] deactives prematurely!"))
+	if(!owner == burden_power.owner)
+		to_chat(burden_power.owner, span_warning("Your [burden_power.name] has been dispelled!"))
+	burden_power.StartCooldownSelf(150) // Just so you don't immediately reapply it.
+	expire()
+	return DISPEL_RESULT_DISPELLED
+
 
 // This is where the heal budgeting happens.
 /datum/status_effect/power/burden_revered/tick(seconds_between_ticks)
@@ -157,4 +170,3 @@
 	name = "A Burden Revered"
 	desc = "You passively heal damage, and are immune to pain for it's duration."
 	icon_state = "designated_target" // Placeholder
-

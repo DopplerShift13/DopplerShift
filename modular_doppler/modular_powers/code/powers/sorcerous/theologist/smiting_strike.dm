@@ -111,6 +111,8 @@
 	bless_overlay = image(icon = 'icons/effects/effects.dmi', icon_state = "blessed", layer = target.layer - 0.1)
 	RegisterSignal(target, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(apply_bless_overlay))
 	target.update_appearance()
+	// dispel listener
+	RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 
 // Checks if the item is no longer in our hands. If so, remove this element.
@@ -128,6 +130,7 @@
 
 // Prevents signalers from loitering.
 /datum/element/theologist_smite/Detach(atom/source)
+	UnregisterSignal(source, COMSIG_ATOM_DISPEL)
 	UnregisterSignal(source, list(COMSIG_ITEM_AFTERATTACK, COMSIG_HOSTILE_POST_ATTACKINGTARGET, COMSIG_PROJECTILE_ON_HIT, COMSIG_ATOM_UPDATE_OVERLAYS))
 	if(self_terminate_on_drop)
 		UnregisterSignal(source, COMSIG_ITEM_DROPPED)
@@ -172,3 +175,8 @@
 	playsound(target, 'sound/effects/magic/magic_block_holy.ogg', 75, TRUE)
 	target.adjustFireLoss(smite_damage)
 	to_chat(target, span_userdanger("You are knocked back by a burning, resonant energy!"))
+
+// The on dispel effect
+/datum/element/theologist_smite/proc/on_dispel(atom/source, atom/dispeller)
+	SIGNAL_HANDLER
+	Detach(source)

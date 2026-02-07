@@ -40,6 +40,16 @@
 // Trait for when you are immune to resonant powers
 #define TRAIT_ANTIRESONANCE "TRAIT_ANTIRESONANCE"
 
+// Listener for dispelling
+#define COMSIG_ATOM_DISPEL "atom_dispel"
+
+// Bitflag return value(s) from handlers:
+#define DISPEL_RESULT_DISPELLED (1<<0)
+
+// Bitflags for how dispel should behave
+#define DISPEL_CASCADE_CARRIED (1<<0)
+
+
 /**
  * SORCEROUS
  * All defines related to the sorcerous archetype.

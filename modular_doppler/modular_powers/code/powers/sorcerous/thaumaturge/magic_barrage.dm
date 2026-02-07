@@ -5,7 +5,7 @@
 
 /datum/power/thaumaturge/magical_barrage
 	name = "Magical Barrage"
-	desc = "Shoots a volley of magic projectiles equal to your Affinity. You can either fire single shots with a short delay between shots, or shoot all your remaining shots in a barrage. Requires Affinity 3."
+	desc = "Shoots a volley of magic projectiles equal to your Affinity + 2. You can either fire single shots with a short delay between shots, or shoot all your remaining shots in a barrage. Requires Affinity 3."
 	value = 4
 
 	archetype = POWER_ARCHETYPE_SORCEROUS
@@ -15,7 +15,7 @@
 
 /datum/action/cooldown/power/thaumaturge/magical_barrage
 	name = "Magical Barrage"
-	desc = "Shoots a volley of magic projectiles equal to your Affinity. Left click to fire single shots with a short delay between shots, or right click to shoot all your remaining shots in a barrage."
+	desc = "Shoots a volley of magic projectiles equal to your Affinity + 2. Left click to fire single shots with a short delay between shots, or right click to shoot all your remaining shots in a barrage."
 	button_icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	button_icon_state = "arcane_barrage"
 
@@ -24,16 +24,18 @@
 	prep_cost = 4
 
 	// The projectile we fire
-	var/projectile_path = /obj/projectile/resonant/magic_barrage
+	var/obj/projectile/projectile_path = /obj/projectile/resonant/magic_barrage
 
-	// Barrage state (we use the basetype's active var to indicate mode)
+	// How many missiles we have left to fire.
 	var/missiles_remaining = 0
+
+	// Orbital fluff
 	var/list/orbiting_missiles = list()
-	var/time_between_initial_missiles = 0.15 SECONDS // Missiles spawned sequentially to prevent stacking.
+	var/time_between_initial_missiles = 0.12 SECONDS // Missiles spawned sequentially to prevent stacking.
 	var/missile_orbit_radius = 20
 	var/missile_rotation_speed = 15
 
-	// Cooldown for single shots.
+	// Cooldown for single shots in miliseconds.
 	var/next_single_shot_time = 0
 	var/single_shot_delay = 3
 
@@ -47,11 +49,10 @@
 		return FALSE
 
 	if(user != owner)
-		// Safety: this action should only ever be used by its owner.
 		return FALSE
 
 	active = TRUE
-	missiles_remaining = clamp(affinity, 3, 10)
+	missiles_remaining = clamp(affinity + 2, 3, 10)
 	next_single_shot_time = world.time // allow immediate first shot
 
 	// prevent firing until all the projectiles are ready
@@ -104,7 +105,7 @@
 	if(LAZYACCESS(modifiers, "right") || LAZYACCESS(modifiers, "button") == "right")
 		if(fire_projectile_shotgun(owner, target, projectile_path, pellet_count = missiles_remaining))
 			disable_barrage(owner, null)
-			return
+		return
 
 	// Left click: single shot
 	if(fire_single_shot(owner, target))
@@ -187,7 +188,7 @@
 /obj/projectile/resonant/magic_barrage
 	name = "magic missile"
 	icon_state = "arcane_barrage"
-	damage = 10
+	damage = 7.5
 	damage_type = BURN
 	armour_penetration = 25 // Great for civilian use, less-so on armored opponents.
 	armor_flag = LASER
@@ -224,6 +225,8 @@
 	var/obj/effect/magic_missile_orbiter/orbiter = new(get_turf(owner))
 	orbiter.transform = matrix()
 	orbiter.transform.Scale(0.5, 0.5)
+	orbiter.icon = projectile_path.icon // if you end up editing the projectile, it should also affect the orbitals.
+	orbiter.icon_state = projectile_path.icon_state // ditto on above
 	orbiting_missiles += orbiter
 	orbiter.orbit(owner, missile_orbit_radius, rotation_speed =  missile_rotation_speed)
 	RegisterSignal(orbiter, COMSIG_QDELETING, PROC_REF(on_orbiter_deleted))
@@ -251,3 +254,21 @@
 		orbiter.stop_orbit(owner.orbiters)
 
 	orbiting_missiles -= orbiter
+
+// Dispel functionality
+/datum/action/cooldown/power/thaumaturge/magical_barrage/Grant(mob/granted_to)
+	. = ..()
+	if(resonant)
+		RegisterSignal(granted_to, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+
+/datum/action/cooldown/power/thaumaturge/magical_barrage/Remove(mob/removed_from)
+	. = ..()
+	if(resonant)
+		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
+
+/datum/action/cooldown/power/thaumaturge/magical_barrage/proc/on_dispel(mob/owner, atom/dispeller)
+	SIGNAL_HANDLER
+	if(!active)
+		return NONE
+	disable_barrage(owner, span_userdanger("Your magic missiles vanish as they are dispelled!"))
+	return DISPEL_RESULT_DISPELLED

@@ -99,26 +99,28 @@
 /datum/element/phantasmal_tool/Attach(datum/target)
 	. = ..()
 	attached_item = target
+	attached_item.item_flags = DROPDEL | ABSTRACT
 	attached_item.alpha = 200
 	attached_item.color = "#66cbdd"
 	attached_item.force = 0
 	attached_item.AddElementTrait(TRAIT_ON_HIT_EFFECT, REF(src), /datum/element/on_hit_effect)
 	RegisterSignal(attached_item, COMSIG_ON_HIT_EFFECT, PROC_REF(break_on_hit))
-	RegisterSignal(attached_item, COMSIG_ITEM_DROPPED, PROC_REF(on_item_dropped))
+	RegisterSignal(attached_item, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 /datum/element/phantasmal_tool/Detach(datum/source)
 	UnregisterSignal(source, COMSIG_ON_HIT_EFFECT)
-	UnregisterSignal(source, COMSIG_ITEM_DROPPED)
+	UnregisterSignal(source, COMSIG_ATOM_DISPEL)
 	REMOVE_TRAIT(source, TRAIT_ON_HIT_EFFECT, REF(src))
 	return ..()
-
-// Checks if the item is no longer in our hands. If so, destroy hte item.
-/datum/element/phantasmal_tool/proc/on_item_dropped(datum/source, mob/user)
-	SIGNAL_HANDLER
-	qdel(attached_item)
 
 /datum/element/phantasmal_tool/proc/break_on_hit(datum/source, atom/damage_target, hit_zone, throw_hit)
 	SIGNAL_HANDLER
 	if(ismob(damage_target))
-		playsound(attached_item, 'sound/items/ceramic_break.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
+		playsound(attached_item, 'sound/items/ceramic_break.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
+		qdel(attached_item)
+
+/datum/element/phantasmal_tool/proc/on_dispel(datum/source, atom/dispeller)
+	SIGNAL_HANDLER
+	if(attached_item)
+		playsound(attached_item, 'sound/items/ceramic_break.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 		qdel(attached_item)
