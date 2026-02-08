@@ -49,7 +49,6 @@
 // Bitflags for how dispel should behave
 #define DISPEL_CASCADE_CARRIED (1<<0)
 
-
 /**
  * SORCEROUS
  * All defines related to the sorcerous archetype.
@@ -64,7 +63,11 @@
  */
 
 // How much mana you practically can cap out at.
-#define THAUMATURGE_MAX_MANA 50
+#define THAUMATURGE_MAX_MANA (MAXIMUM_POWER_POINTS * THAUMATURGE_MANA_MULT )
+
+#define THAUMATURGE_MANA_MULT 2
+
+// How much
 
 /**
  * SORCEROUS: ENIGMATIST

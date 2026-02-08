@@ -24,7 +24,7 @@
 	prep_cost = 2
 
 	// The grab damage per tick.
-	var/grab_blend_brute = 9
+	var/grab_blend_brute = 12.5
 	// How many cycles can we blend a person.
 	var/grab_blend_duration = 4
 

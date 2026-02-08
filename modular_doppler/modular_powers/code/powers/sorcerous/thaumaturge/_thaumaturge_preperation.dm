@@ -67,7 +67,7 @@
 		if(check_if_can_prepare(power_instance.action_path))
 			spell_list.Add(power_instance)
 		calculated_mana += power_instance.value
-	mana = clamp(calculated_mana * 2, 0, max_mana)
+	mana = clamp(calculated_mana * THAUMATURGE_MANA_MULT, 0, max_mana)
 
 // Checks if we can prepare the spell in our spellbook and if so adds it to the spell list.
 /datum/component/thaumaturge_preparation/proc/check_if_can_prepare(action_type)
