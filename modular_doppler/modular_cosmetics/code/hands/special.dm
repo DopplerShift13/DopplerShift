@@ -27,9 +27,8 @@
 /// we can't block when we hold a shield.
 
 /obj/item/clothing/gloves/platillo/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
-	//var/obj/item/shield/held_shield as anything in owner.held_items	//since only a shield would block these gauntlets in theory
 	. = ..()
-	for(var/obj/item/shield/held_shield in owner.held_items)
+	for(var/obj/item/shield/held_shield in owner.held_items)	//since only a shield would block these gauntlets in theory
 		if(held_shield.block_chance > 0)
 			final_block_chance -= 25
 
