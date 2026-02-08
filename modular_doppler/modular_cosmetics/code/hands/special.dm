@@ -24,11 +24,14 @@
 	block_sound = 'sound/items/weapons/block_shield.ogg'
 	body_parts_covered = HANDS | ARMS
 
-/// negates block chance if there's a shield in either hand
+/// we can't block when we hold a shield.
+
 /obj/item/clothing/gloves/platillo/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
+	//var/obj/item/shield/held_shield as anything in owner.held_items	//since only a shield would block these gauntlets in theory
 	. = ..()
-	if(owner.held_items == typesof(/obj/item/shield))
-		final_block_chance = 0
+	for(var/obj/item/shield/held_shield in owner.held_items)
+		if(held_shield.block_chance > 0)
+			final_block_chance -= 25
 
 /obj/item/clothing/gloves/platillo/examine_more(mob/user)
 	. = ..()
