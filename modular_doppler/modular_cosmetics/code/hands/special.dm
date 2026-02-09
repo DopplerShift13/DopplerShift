@@ -23,15 +23,71 @@
 	block_chance = 25
 	block_sound = 'sound/items/weapons/block_shield.ogg'
 	body_parts_covered = HANDS | ARMS
+	max_integrity = 75
+	repairable_by = /obj/item/stack/sheet/mineral/titanium
+	var/break_sound = 'sound/effects/bang.ogg'
 
-/// we can't block when we hold a shield.
-
+///we can't block when we hold a shield.
 /obj/item/clothing/gloves/platillo/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
-	. = ..()
 	for(var/obj/item/shield/held_shield in owner.held_items)	//since only a shield would block these gauntlets in theory
 		if(held_shield.block_chance > 0)
 			final_block_chance -= 25
+			return
+	//reproduces some code from shields. none of these give a bonus greater than 25, both so we do not obliviate the code above and because
+	//it's a tiny little baby shield. ya gotta get a big one for the bennies.
+	var/effective_block_chance = final_block_chance
+	if(attack_type == THROWN_PROJECTILE_ATTACK)
+		effective_block_chance += 25
+	if(attack_type == LEAP_ATTACK)
+		effective_block_chance += 25
+	if(attack_type == OVERWHELMING_ATTACK)
+		effective_block_chance -= 25
+	final_block_chance = clamp(effective_block_chance, 0, 100)
+	. = ..()
+	if(.)
+		on_shield_block(owner, hitby, attack_text, damage, attack_type, damage_type)
 
+//more reproduced shield code, this handles taking damage on block as shields do.
+/obj/item/clothing/gloves/platillo/proc/on_shield_block(mob/living/carbon/human/owner, atom/movable/hitby, attack_text = "the attack", damage = 0, attack_type = MELEE_ATTACK, damage_type = BRUTE)
+	if(damage_type != BRUTE && damage_type != BURN)
+		return
+	var/penetration = 0
+	var/armor_flag = MELEE
+	if(isprojectile(hitby))
+		var/obj/projectile/bang_bang = hitby
+		armor_flag = bang_bang.armor_flag
+		penetration = bang_bang.armour_penetration
+	else if(isitem(hitby))
+		var/obj/item/weapon = hitby
+		penetration = weapon.armour_penetration
+	else if(isanimal(hitby))
+		var/mob/living/simple_animal/critter = hitby
+		penetration = critter.armour_penetration
+	else if(isbasicmob(hitby))
+		var/mob/living/basic/critter = hitby
+		penetration = critter.armour_penetration
+	take_damage(damage, damage_type, armor_flag, armour_penetration = penetration)
+
+//makes a shieldy sound and gives us a popup when we break
+/obj/item/clothing/gloves/platillo/atom_destruction(damage_flag)
+	playsound(src, break_sound, 50)
+	if(isliving(loc))
+		loc.balloon_alert(loc, "shield broken!")
+	return ..()
+
+//we can see about how damaged we are on examine
+/obj/item/clothing/gloves/platillo/examine(mob/user)
+	. = ..()
+	var/healthpercent = round((atom_integrity/max_integrity) * 100, 1)
+	switch(healthpercent)
+		if(50 to 99)
+			. += span_info("It looks slightly damaged.")
+		if(25 to 50)
+			. += span_info("It appears heavily damaged.")
+		if(0 to 25)
+			. += span_warning("It's falling apart!")
+
+//we know that wearing this with a shield won't help us
 /obj/item/clothing/gloves/platillo/examine_more(mob/user)
 	. = ..()
 	. += span_notice("It doesn't seem like it would do much good to wear this while holding another shield.")
