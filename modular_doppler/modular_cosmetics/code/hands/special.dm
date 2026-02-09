@@ -20,22 +20,21 @@
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/hands/gloves.dmi'
 	worn_icon_state = "platillo"
 	armor_type = /datum/armor/platillo
-	block_chance = 25
+	block_chance = 35
 	block_sound = 'sound/items/weapons/block_shield.ogg'
 	body_parts_covered = HANDS | ARMS
 	max_integrity = 75
 	repairable_by = /obj/item/stack/sheet/mineral/titanium
 	var/break_sound = 'sound/effects/bang.ogg'
 
-///we can't block when we hold a shield.
+///nullifies block_chance if a shield is held
 /obj/item/clothing/gloves/platillo/hit_reaction(mob/living/carbon/human/owner, atom/movable/hitby, attack_text, final_block_chance, damage, attack_type, damage_type)
+	var/effective_block_chance = final_block_chance
 	for(var/obj/item/shield/held_shield in owner.held_items)	//since only a shield would block these gauntlets in theory
 		if(held_shield.block_chance > 0)
-			final_block_chance -= 25
+			effective_block_chance -= src.block_chance
 			return
-	//reproduces some code from shields. none of these give a bonus greater than 25, both so we do not obliviate the code above and because
-	//it's a tiny little baby shield. ya gotta get a big one for the bennies.
-	var/effective_block_chance = final_block_chance
+	//reproduces some code from shields. the bonuses are lower than a real shield because of the other advantages these have as gloves.
 	if(attack_type == THROWN_PROJECTILE_ATTACK)
 		effective_block_chance += 25
 	if(attack_type == LEAP_ATTACK)
@@ -67,6 +66,19 @@
 		var/mob/living/basic/critter = hitby
 		penetration = critter.armour_penetration
 	take_damage(damage, damage_type, armor_flag, armour_penetration = penetration)
+
+//normally clothes can't be repaired before they break, so we fix that here.
+/obj/item/clothing/gloves/platillo/attackby(obj/item/attackby_item, mob/user, list/modifiers, list/attack_modifiers)
+	if(istype(attackby_item, /obj/item/stack/sheet/mineral/titanium))
+		if (atom_integrity >= max_integrity)
+			to_chat(user, span_warning("[src] is already in perfect condition."))
+			return
+		var/obj/item/stack/sheet/mineral/titanium/titanium_sheet = attackby_item
+		titanium_sheet.use(1)
+		atom_integrity = max_integrity
+		to_chat(user, span_notice("You repair [src] with [titanium_sheet]."))
+		return
+	return ..()
 
 //makes a shieldy sound and gives us a popup when we break
 /obj/item/clothing/gloves/platillo/atom_destruction(damage_flag)
