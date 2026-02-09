@@ -14,7 +14,7 @@
 /obj/item/clothing/gloves/platillo	//instead of being a backpack riot shield, it's a glove with much more modest block
 	name = "\improper PA-4N Platillo shield gauntlets"	//"little plate"
 	desc = "An armored gauntlet augmented with a thick buckler of plastitanium, from which it takes its officially designated name 'platillo'. \
-	Meant primarily for melee combatants to wield two handed weapons without encumberance, the light coverage fares poorly under fire."
+	Meant primarily for melee combatants to wield two handed weapons without encumbrance, the light coverage fares poorly under fire."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/hands/gloves.dmi'
 	icon_state = "platillo"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/hands/gloves.dmi'
