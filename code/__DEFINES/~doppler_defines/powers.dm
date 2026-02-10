@@ -117,15 +117,6 @@
 // Trait made as to prevent duplicate smites.
 #define TRAIT_HAS_SMITING_STRIKE "has_smiting_strike"
 
-/**MORTAL DEFINES
-* I'm literally just using this to define Breacher Knuckle right now
-* These things, they take time.
-* edit: im also using this to def the mad dog style because it will not allow me to make a new file for melee defines
-*/
-
-#define MARTIALART_BREACHERKNUCKLE "breacher knuckle"
-#define MARTIALART_MAD_DOG "the mag dog style"
-
 /**
  * RESONANT
  * All defines related to the resonant archetype.
@@ -168,3 +159,20 @@
 
 // Standard messages for Psyker Events
 #define PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE "<b>As you strain your psychic powers past the breaking point, you are suddenly hit with a strange sense of clarity; as well as a feeling that something is very wrong.</b>"
+
+/**MORTAL DEFINES
+* I'm literally just using this to define Breacher Knuckle right now
+* These things, they take time.
+* edit: im also using this to def the mad dog style because it will not allow me to make a new file for melee defines
+*/
+
+#define MARTIALART_BREACHERKNUCKLE "breacher knuckle"
+#define MARTIALART_MAD_DOG "the mag dog style"
+
+/**
+ * MORTAL: Augmented
+ * All defines related to the augmented powers.
+ */
+
+// Used for the prefs to shorthand tell there's nothing in the right or left arm augment slot.
+#define AUGMENTED_NO_AUGMENT "None"

@@ -15,6 +15,7 @@
 	action_delegations = list(
 		"give_power" = PROC_REF(give_power),
 		"remove_power" = PROC_REF(remove_power),
+		"set_augment_arm" = PROC_REF(set_augment_arm),
 	)
 
 /datum/preference_middleware/powers/get_ui_data(mob/user)
@@ -83,15 +84,19 @@
 				word = "Learn"
 				color = "1"
 
+		var/augment_info = build_augment_ui_info(power_type, preferences)
+
 		var/final_list = list(list(
 				"description" = power_type.desc,
 				"name" = power_type.name,
 				"cost" = power_type.value,
+				"has_power" = has_given_power,
 				"state" = state,
 				"word" = word,
 				"color" = color,
 				"powertype" = powertype,
 				"rootpower" = rootpower,
+				"augment" = augment_info,
 			))
 
 		switch(power_type.path)
@@ -128,6 +133,41 @@
 	data["power_points"] = current_points
 
 	return data
+
+/datum/preference_middleware/powers/proc/build_augment_ui_info(
+	datum/power/power_type,
+	datum/preferences/preferences
+)
+	// Snowflake code for Augments: expose arm assignment + location.
+	var/augment_location
+	var/is_arm_augment
+	var/augment_assignment
+	var/arm_left_blocked
+	var/arm_right_blocked
+	if(ispath(power_type, /datum/power/augmented))
+		var/datum/power/augmented/power_instance = new power_type
+		augment_location = power_instance.get_augment_location_label()
+		is_arm_augment = (augment_location == "Arms")
+		qdel(power_instance)
+		if(is_arm_augment)
+			var/augment_left = preferences.read_preference(/datum/preference/choiced/augment_left)
+			var/augment_right = preferences.read_preference(/datum/preference/choiced/augment_right)
+			arm_left_blocked = (augment_left && augment_left != AUGMENTED_NO_AUGMENT && augment_left != power_type.name)
+			arm_right_blocked = (augment_right && augment_right != AUGMENTED_NO_AUGMENT && augment_right != power_type.name)
+			if(augment_left == power_type.name && augment_right == power_type.name)
+				augment_assignment = "Both"
+			else if(augment_left == power_type.name)
+				augment_assignment = "Left"
+			else if(augment_right == power_type.name)
+				augment_assignment = "Right"
+		return list(
+			"location" = augment_location,
+			"is_arm" = is_arm_augment,
+			"assignment" = augment_assignment,
+			"left_blocked" = arm_left_blocked,
+			"right_blocked" = arm_right_blocked,
+		)
+	return null
 
 /**
  * Gives a power to a character using the params list provided by tgui.
@@ -181,7 +221,51 @@
 		to_chat(user, span_boldwarning("[power_name] costs too much!"))
 		return FALSE
 
+	// Augmented specific validation.
+	if(!validate_augment(power_type, power_name, user))
+		return FALSE
+
 	preferences.all_powers += power_name
+	return TRUE
+
+// A lot of validation specifically for augmented, given they're very snowflakey in their restrictions.
+/datum/preference_middleware/powers/proc/validate_augment(datum/power/power_type, power_name, mob/user)
+	if(!ispath(power_type, /datum/power/augmented))
+		return TRUE
+
+	var/datum/power/augmented/power_instance = new power_type
+	var/augment_location = power_instance.get_augment_location_label()
+	qdel(power_instance)
+	if(augment_location == "Arms") // Arm augment validation + auto-assign missing arm.
+		var/augment_left = preferences.read_preference(/datum/preference/choiced/augment_left)
+		var/augment_right = preferences.read_preference(/datum/preference/choiced/augment_right)
+		var/left_taken = (augment_left && augment_left != AUGMENTED_NO_AUGMENT && augment_left != power_name)
+		var/right_taken = (augment_right && augment_right != AUGMENTED_NO_AUGMENT && augment_right != power_name)
+		if(left_taken && right_taken)
+			to_chat(user, span_boldwarning("Both arms already have augments assigned."))
+			return FALSE
+		if(!right_taken)
+			to_chat(user, span_notice("[power_name] will be assigned to your right arm."))
+			preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_right], power_name)
+		else if(!left_taken)
+			to_chat(user, span_notice("[power_name] will be assigned to your left arm."))
+			preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_left], power_name)
+	else // Non-arm validation; just goes off of slots and looks if there's any others.
+		var/obj/item/organ/new_augment_path = initial(power_instance.augment)
+		if(new_augment_path)
+			var/new_slot = initial(new_augment_path.slot)
+			for(var/existing_power_name in preferences.all_powers)
+				var/datum/power/augmented/existing_power_type = SSpowers.powers[existing_power_name]
+				if(!ispath(existing_power_type, /datum/power/augmented))
+					continue
+				var/obj/item/organ/existing_augment_path = initial(existing_power_type.augment)
+				if(!existing_augment_path)
+					continue
+				var/existing_slot = initial(existing_augment_path.slot)
+				if(existing_slot && existing_slot == new_slot)
+					to_chat(user, span_boldwarning("[power_name] conflicts with [existing_power_name] (same organ slot)."))
+					return FALSE
+
 	return TRUE
 
 /**
@@ -210,6 +294,68 @@
 		return FALSE
 
 	preferences.all_powers -= power_name
+	if(ispath(power_type, /datum/power/augmented))
+		var/augment_left = preferences.read_preference(/datum/preference/choiced/augment_left)
+		var/augment_right = preferences.read_preference(/datum/preference/choiced/augment_right)
+		if(augment_left == power_name)
+			preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_left], AUGMENTED_NO_AUGMENT)
+		if(augment_right == power_name)
+			preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_right], AUGMENTED_NO_AUGMENT)
+	return TRUE
+
+/**
+ * Assign an arm augment to left/right/both for the global arm loadout.
+ */
+/datum/preference_middleware/powers/proc/set_augment_arm(list/params, mob/user)
+	var/power_name = params["power_name"]
+	var/side = params["side"]
+	var/datum/power/power_type = SSpowers.powers[power_name]
+	if(isnull(power_type))
+		return FALSE
+	if(!(power_name in preferences.all_powers))
+		to_chat(user, span_boldwarning("You must learn [power_name] before assigning it to an arm."))
+		return FALSE
+	if(!ispath(power_type, /datum/power/augmented))
+		return FALSE
+
+	// Verify arm augment
+	var/datum/power/augmented/power_instance = new power_type
+	var/augment_location = power_instance.get_augment_location_label()
+	qdel(power_instance)
+	if(augment_location != "Arms")
+		to_chat(user, span_boldwarning("[power_name] is not an arm augment."))
+		return FALSE
+
+	var/augment_left = preferences.read_preference(/datum/preference/choiced/augment_left)
+	var/augment_right = preferences.read_preference(/datum/preference/choiced/augment_right)
+	var/left_blocked = (augment_left && augment_left != AUGMENTED_NO_AUGMENT && augment_left != power_name)
+	var/right_blocked = (augment_right && augment_right != AUGMENTED_NO_AUGMENT && augment_right != power_name)
+
+	var/side_lower = lowertext(side)
+	if(side_lower == "left")
+		if(left_blocked)
+			to_chat(user, span_boldwarning("Your left arm already has an augment assigned."))
+			return FALSE
+		preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_left], power_name)
+		if(augment_right == power_name)
+			preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_right], AUGMENTED_NO_AUGMENT)
+	else if(side_lower == "right")
+		if(right_blocked)
+			to_chat(user, span_boldwarning("Your right arm already has an augment assigned."))
+			return FALSE
+		preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_right], power_name)
+		if(augment_left == power_name)
+			preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_left], AUGMENTED_NO_AUGMENT)
+	else if(side_lower == "both")
+		if(left_blocked || right_blocked)
+			to_chat(user, span_boldwarning("Both arms must be free to assign this augment to both."))
+			return FALSE
+		preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_left], power_name)
+		preferences.write_preference(GLOB.preference_entries[/datum/preference/choiced/augment_right], power_name)
+	else
+		to_chat(user, span_boldwarning("Invalid arm selection."))
+		return FALSE
+
 	return TRUE
 
 /**

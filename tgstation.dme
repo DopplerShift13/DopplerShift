@@ -7482,6 +7482,8 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\catastrophic\silence_trauma.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\catastrophic\brain_trauma.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\resonant_immune.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\augmented\_augmented_power.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\augmented\simple_augments.dm"
 #include "modular_doppler\modular_quirks\atypical_tastes\atypical_tastes.dm"
 #include "modular_doppler\modular_quirks\atypical_tastes\code\preferences.dm"
 #include "modular_doppler\modular_quirks\bouncy\bouncy.dm"

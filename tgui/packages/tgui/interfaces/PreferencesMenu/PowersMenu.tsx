@@ -1,8 +1,15 @@
-import { Box, Button, Image, Section, Stack } from 'tgui-core/components';
+import {
+  Box,
+  Button,
+  Dropdown,
+  Image,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
-import { PreferencesMenuData } from './types';
+import type { PreferencesMenuData } from './types';
 
 export const Powers = (props) => {
   const { act } = useBackend<PreferencesMenuData>();
@@ -19,22 +26,57 @@ export const Powers = (props) => {
         <b>{'Cost: ' + props.power.cost}</b>
         <br />
       </Section>
-
-      <Button
-        icon={props.power.powertype}
-        color={props.power.state}
-        tooltip={props.power.rootpower}
-        tooltipPosition="right"
-        onClick={() => {
-          if (props.power.state === 'bad') {
-            act('remove_power', { power_name: props.power.name });
-          } else {
-            act('give_power', { power_name: props.power.name });
-          }
-        }}
-      >
-        {props.power.word} <Box />
-      </Button>
+      <Stack mt={1}>
+        <Stack.Item>
+          <Button
+            icon={props.power.powertype}
+            color={props.power.state}
+            tooltip={props.power.rootpower}
+            tooltipPosition="right"
+            onClick={() => {
+              if (props.power.state === 'bad') {
+                act('remove_power', { power_name: props.power.name });
+              } else {
+                act('give_power', { power_name: props.power.name });
+              }
+            }}
+          >
+            {props.power.word} <Box />
+          </Button>
+        </Stack.Item>
+        <Stack.Item>
+          {props.power.augment?.is_arm && props.power.has_power ? (
+            <Box ml={1}>
+              <Dropdown
+                options={[
+                  ...(props.power.augment?.left_blocked ? [] : ['Left']),
+                  ...(props.power.augment?.right_blocked ? [] : ['Right']),
+                  ...(!props.power.augment?.left_blocked &&
+                  !props.power.augment?.right_blocked
+                    ? ['Both']
+                    : []),
+                ]}
+                selected={props.power.augment?.assignment}
+                placeholder="Arm"
+                disabled={
+                  props.power.augment?.left_blocked &&
+                  props.power.augment?.right_blocked
+                }
+                onSelected={(value) =>
+                  act('set_augment_arm', {
+                    power_name: props.power.name,
+                    side: value,
+                  })
+                }
+              />
+            </Box>
+          ) : props.power.augment?.location ? (
+            <Box ml={1} color="label" fontSize="0.8em">
+              ({props.power.augment?.location})
+            </Box>
+          ) : null}
+        </Stack.Item>
+      </Stack>
     </Stack.Item>
   );
 };
