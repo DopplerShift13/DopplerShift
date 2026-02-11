@@ -7,8 +7,6 @@
 	desc = "Summons a set of manacles made from brass, capable of dispelling and disabling Resonant powers on the bound target. The magic that made them is fragile, causing them to break once someone escapes. Requires Affinity 1. Additional affinity increases the time it takes to break out."
 	value = 3
 
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THAUMATURGE
 	action_path = /datum/action/cooldown/power/thaumaturge/brazen_bindings
 	required_powers = list(/datum/power/thaumaturge_root)
 

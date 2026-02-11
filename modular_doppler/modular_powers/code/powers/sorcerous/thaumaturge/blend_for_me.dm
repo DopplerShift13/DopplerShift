@@ -7,8 +7,6 @@
 	Requires Affinity 1. Affinity gives a chance to not consume charges."
 	value = 2
 
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THAUMATURGE
 	action_path = /datum/action/cooldown/power/thaumaturge/blend_for_me
 	required_powers = list(/datum/power/thaumaturge_root)
 

@@ -6,8 +6,6 @@
 	desc = "Summons a basic tool of your choice in your hand, that disappears after a duration, or if it is dropped/used to attack a person. Requires Affinity 1 to cast. Affinity gives a chance to not consume charges on cast."
 	value = 3
 
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THAUMATURGE
 	action_path = /datum/action/cooldown/power/thaumaturge/phantasmal_tool
 	required_powers = list(/datum/power/thaumaturge_root)
 

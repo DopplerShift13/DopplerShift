@@ -36,10 +36,8 @@
 	var/target_range
 	/// If set, clicked target MUST be of this type (or subtype).
 	var/target_type
-
-	/// Imitates the effects of action/cooldown/spell/pointed/projectile if set to a projectile by shooting the listed projectile towards the target space. Useful for actions that just shoot stuff without too much nuance.
-	/// If used with click_to_activate, it will shoot towards the targeted space. Otherwise, it shoots directly forwards.
-	var/obj/projectile/projectile_type
+	/// Do we check for anti magic on the target when we click them? Basically if your action targets but doesn't do anything directly magical to them immediately (like projectiles), this should be false.
+	var/anti_magic_on_click_target = TRUE
 
 // When you press the button
 // Attempts to actively use the action
@@ -48,7 +46,7 @@
 	if(!can_use(user, target))
 		return FALSE
 	// Checking for anti-resonance/anti-magic below which really is a pain.
-	if(!projectile_type && resonant && ismob(target) && target != user) // If it is not a projectile spell, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
+	if(anti_magic_on_click_target && resonant && ismob(target) && target != user) // If the spell does check for antimagic on click, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
 		var/mob/mob_target = target
 		if(mob_target.can_block_resonance(1)) // Runs the special can_block_resonance function which also handles the anti-magic part.
 			// I would like to deduct resources on spell fail, but that is going to be so utterly complex. TODO for the future chap who wants this.
@@ -89,10 +87,6 @@
 // Now we do THINGS!
 // Make sure you return TRUE or FALSE to tell the power that it has succesfully (or unsuccesfully) been used and trigger on_action_success.
 /datum/action/cooldown/power/proc/use_action(mob/living/user, atom/target)
-	// Most spells won't use this so they are free to override this, but projectile spells use this step to actually fire ze misiles.
-	if(projectile_type)
-		return fire_projectile(user, target)
-
 	return TRUE
 
 // Anything that should happen as a result of use_action returning TRUE.
@@ -167,11 +161,11 @@ Projectile action code down below
 
 // Fires the configured or given projectile at the clicked target.
 // This assumes you are shooting just one projectile. Override if you need multi-shot, spread, special spawn logic, etc.
-/datum/action/cooldown/power/proc/fire_projectile(mob/living/user, atom/target,	obj/projectile/projectile_override)
+// Requires click_to_activate = TRUE to do mouse based targeting.
+/datum/action/cooldown/power/proc/fire_projectile(mob/living/user, atom/target,	obj/projectile/projectile)
 	SHOULD_CALL_PARENT(TRUE)
 
-	// We allow for projectile_override in the event that you want to call fire_projectile outside of its standard use.
-	var/projectile_path = projectile_override ? projectile_override : projectile_type
+	var/projectile_path = projectile
 	if(!projectile_path || !user || !target)
 		return FALSE
 

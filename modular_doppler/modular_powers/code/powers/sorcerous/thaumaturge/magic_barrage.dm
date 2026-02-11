@@ -8,8 +8,6 @@
 	desc = "Shoots a volley of magic projectiles equal to your Affinity + 2. You can either fire single shots with a short delay between shots, or shoot all your remaining shots in a barrage. Requires Affinity 3."
 	value = 5
 
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THAUMATURGE
 	action_path = /datum/action/cooldown/power/thaumaturge/magical_barrage
 	required_powers = list(/datum/power/thaumaturge_root)
 
@@ -22,6 +20,7 @@
 	max_charges = 5
 	required_affinity = 3
 	prep_cost = 5
+	anti_magic_on_click_target = FALSE
 
 	// The projectile we fire
 	var/obj/projectile/projectile_path = /obj/projectile/resonant/magic_barrage
@@ -126,13 +125,13 @@
 
 
 // Special proc for shotgunning it.
-/datum/action/cooldown/power/thaumaturge/magical_barrage/proc/fire_projectile_shotgun(mob/living/user, atom/target, obj/projectile/projectile_override, pellet_count = 5, cone_degrees = 18, angle_jitter_degrees = 1)
+/datum/action/cooldown/power/thaumaturge/magical_barrage/proc/fire_projectile_shotgun(mob/living/user, atom/target, obj/projectile/projectile, pellet_count = 5, cone_degrees = 18, angle_jitter_degrees = 1)
 	SHOULD_CALL_PARENT(TRUE)
 
 	if(!can_fire_now(user))
 		return FALSE
 
-	var/projectile_path = projectile_override ? projectile_override : projectile_type
+	var/projectile_path = projectile
 	if(!projectile_path || !user || !target)
 		return FALSE
 

@@ -11,8 +11,6 @@
 	desc = "Shoots forth a blast of wind. The blast keeps traveling until it hits a solid structure, extinguishing any fires and dragging along any items with it. If it hits a creature, it knocks them back 3 spaces and extinguishes them. Requires Affinity 3. Extra affinity gives a chance to knockback further."
 	value = 3
 
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THAUMATURGE
 	action_path = /datum/action/cooldown/power/thaumaturge/gale_blast
 	required_powers = list(/datum/power/thaumaturge_root)
 
@@ -25,12 +23,14 @@
 	max_charges = 7
 	required_affinity = 3
 	prep_cost = 3
-	projectile_type = /obj/projectile/resonant/gale_blast
 	click_to_activate = TRUE
+	anti_magic_on_click_target = FALSE
 
 /datum/action/cooldown/power/thaumaturge/gale_blast/use_action(mob/living/user, atom/target)
-	. = ..()
-	playsound(user, 'sound/effects/podwoosh.ogg', 60, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
+	if(fire_projectile(user, target, /obj/projectile/resonant/gale_blast))
+		playsound(user, 'sound/effects/podwoosh.ogg', 60, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
+		return TRUE
+	return FALSE
 
 
 // The projectile itself
