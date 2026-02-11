@@ -8,6 +8,14 @@
 			),
 		),
 		list(
+			"name" = "Art",
+			"icon" = "palette",
+			"products" = list(
+				/obj/item/storage/box/stickers/local = 5,
+				/obj/item/storage/box/stickers/local/rhinestones = 5,
+			),
+		),
+		list(
 			"name" = "Hair",
 			"icon" = "scissors",
 			"products" = list(
