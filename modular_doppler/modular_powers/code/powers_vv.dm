@@ -54,7 +54,8 @@
 // Removes a power.
 /mob/living/carbon/proc/remove_power(powertype)
 	for(var/datum/power/power in powers)
-		if(!power.type == powertype)
-			return FALSE
+		if(power.type != powertype)
+			continue
 		qdel(power)
 		return TRUE
+	return FALSE
