@@ -264,7 +264,8 @@
 			taker.adjustOxyLoss(amount)
 
 	// Piety buildup increases/deductions
-	if(taker == owner)
+	// you can't gain piety from taking burdens from a ckey-less creature (sorry pets), but you can lose piety from dumping onto a ckey-less creature.
+	if(taker == owner && giver.ckey)
 		piety_buildup += amount * THEOLOGIAN_PIETY_HEALING_COEFFICIENT
 	else if(giver == owner)
 		piety_buildup -= amount * THEOLOGIAN_PIETY_HEALING_COEFFICIENT

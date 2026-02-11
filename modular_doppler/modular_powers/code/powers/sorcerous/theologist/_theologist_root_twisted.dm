@@ -95,9 +95,12 @@
 	// resets for next time
 	healing_done = 0
 	damage_done = 0
-	adjust_piety(piety_gained)
-	if(piety_gained >= 1)
-		to_chat(owner, span_notice("You Burden Twisted yielded [piety_gained] piety!"))
+	if(target.ckey)
+		adjust_piety(piety_gained)
+		if(piety_gained >= 1)
+			to_chat(owner, span_notice("You Burden Twisted yielded [piety_gained] piety!"))
+		else
+			to_chat(owner, span_notice("Your Burden Twisted yielded no piety!"))
 	else
 		to_chat(owner, span_notice("Your Burden Twisted yielded no piety!"))
 

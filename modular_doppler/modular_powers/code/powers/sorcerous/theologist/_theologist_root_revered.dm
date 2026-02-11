@@ -40,11 +40,14 @@
 	. = ..()
 	to_chat(owner, span_notice("You ready yourself to relieve the burden of others!<br><B>Left-click</B> a creature next to you to target them!"))
 
-/datum/action/cooldown/power/theologist/theologist_root/revered/proc/effect_expired(amount)
-	adjust_piety(amount)
-	if(amount >= 1 && !healing_self)
-		to_chat(owner, span_notice("Your previous Burden Revered has expired! You gained [amount] piety!"))
-		owner.playsound_local(owner, 'sound/effects/pray.ogg', 50, FALSE)
+/datum/action/cooldown/power/theologist/theologist_root/revered/proc/effect_expired(mob/living/target, amount)
+	if(target.ckey) // Don't get piety from healing nobodies.
+		adjust_piety(amount)
+		if(amount >= 1 && !healing_self)
+			to_chat(owner, span_notice("Your previous Burden Revered has expired! You gained [amount] piety!"))
+			owner.playsound_local(owner, 'sound/effects/pray.ogg', 50, FALSE)
+		else
+			to_chat(owner, span_notice("Your previous Burden Revered has expired!"))
 	else
 		to_chat(owner, span_notice("Your previous Burden Revered has expired!"))
 
@@ -162,7 +165,7 @@
 	var/piety_gained = max(0, floor(healing_done * THEOLOGIAN_PIETY_HEALING_COEFFICIENT)) // TODO: defines
 	// Report back BEFORE deletion starts
 	if(burden_power)
-		burden_power.effect_expired(piety_gained)
+		burden_power.effect_expired(owner, piety_gained)
 	already_expired = TRUE
 	src.Destroy() // There might be something better, but QDEL triggers the qdel loop warning.
 

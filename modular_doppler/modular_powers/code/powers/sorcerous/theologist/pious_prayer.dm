@@ -32,9 +32,11 @@
 	// Are you the Chaplain?
 	if(is_chaplain_job(owner.mind?.assigned_role))
 		prayer_cap = 15
+		return
 	// Do you have the religious quirk?
 	if(HAS_TRAIT(owner, TRAIT_SPIRITUAL))
 		prayer_cap = 10
+		return
 
 /datum/action/cooldown/power/theologist/pious_prayer/use_action(mob/living/user, atom/target)
 	//Tells the do_while loop to keep_going
