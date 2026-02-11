@@ -2,7 +2,7 @@
 	name = "Creature Tamer"
 	desc = "You're always met with success when taming creatures. Grants you the 'Tame Creature' ability, allowing you to automatically tame any normally tameable creatures. Now you too can have your very own space carp pet."
 
-	value = 3
+	value = 2
 	required_powers = list(/datum/power/expert/zoologist)
 	action_path = /datum/action/cooldown/power/expert/creature_tamer
 
@@ -18,9 +18,6 @@
 	cooldown_time = 5
 
 /datum/action/cooldown/power/expert/creature_tamer/use_action(mob/living/user, mob/living/target)
-	if(!target?.compare_sentience_type(SENTIENCE_ORGANIC))
-		user.balloon_alert(user, "invalid creature!")
-		return FALSE
 	if (target.stat == DEAD)
 		user.balloon_alert(user, "they're dead, they won't make for good friends like this!")
 		return FALSE
