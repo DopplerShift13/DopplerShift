@@ -32,6 +32,13 @@
 	// Do we need our hands free?
 	var/need_hands_free = TRUE
 
+	/// If set, we must wait this long before use_action executes. Cast time basically.
+	var/use_time = 0
+	/// Flags passed to do_after during use_time (e.g. IGNORE_HELD_ITEM, IGNORE_USER_LOC_CHANGE).
+	var/use_time_flags = NONE
+	/// Optional overlay to show on the user during use_time.
+	var/use_time_overlay_type
+
 	/// Maximum targeting range (in tiles) for click_to_activate powers. Set to 0 or null for no range limit.
 	var/target_range
 	/// If set, clicked target MUST be of this type (or subtype).
@@ -51,6 +58,8 @@
 		if(mob_target.can_block_resonance(1)) // Runs the special can_block_resonance function which also handles the anti-magic part.
 			// I would like to deduct resources on spell fail, but that is going to be so utterly complex. TODO for the future chap who wants this.
 			return FALSE
+	if(!do_use_time(user, target))
+		return FALSE
 	if(use_action(user, target))
 		on_action_success()
 		return TRUE
@@ -88,6 +97,22 @@
 // Make sure you return TRUE or FALSE to tell the power that it has succesfully (or unsuccesfully) been used and trigger on_action_success.
 /datum/action/cooldown/power/proc/use_action(mob/living/user, atom/target)
 	return TRUE
+
+// Handles optional channel time before the action goes off.
+/datum/action/cooldown/power/proc/do_use_time(mob/living/user, atom/target)
+	if(use_time <= 0)
+		return TRUE
+	var/atom/use_target = target ? target : user
+	var/mutable_appearance/use_overlay
+	if(use_time_overlay_type)
+		var/atom/overlay_obj = new use_time_overlay_type(null)
+		use_overlay = new /mutable_appearance(overlay_obj)
+		qdel(overlay_obj)
+		user.add_overlay(use_overlay)
+	var/success = do_after(user, use_time, target = use_target, timed_action_flags = use_time_flags)
+	if(use_overlay && !QDELETED(user))
+		user.cut_overlay(use_overlay)
+	return success
 
 // Anything that should happen as a result of use_action returning TRUE.
 // Cost systems for archetypes to name an example.

@@ -45,6 +45,9 @@
 
 /datum/component/thaumaturge_preparation/proc/on_sleep_set(mob/living/source, amount)
 	SIGNAL_HANDLER
+	// Only trigger on entering sleep (not waking, shortening, or extending existing sleep).
+	if(amount <= 0 || source.IsSleeping())
+		return
 	// Do we have queqed changes and is the flag that it passed validation on?
 	if(applied_prepared_charges && recharge_when_sleep)
 		//Do we have the focus on our person?
@@ -96,6 +99,7 @@
 	if(first_time_preperation)
 		if(apply_spell_charges())
 			first_time_preperation = FALSE
+			recharge_when_sleep = TRUE
 			to_chat(attached_mob, span_notice("Your spell preperation has been applied!"))
 		else
 			to_chat(attached_mob, span_warning("Something went wrong when applying spell charges; this shouldn't happen! Yell at a dev!"))
