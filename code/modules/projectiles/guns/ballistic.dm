@@ -237,7 +237,7 @@
 		. += "[icon_state]_toy"
 
 	//BEGIN DOPPLER EDIT - allows guns with internal magazines to display them visually
-	if(!magazine || !mag_display || internal_magazine)	//originally if(!magazine || internal_magazine || !mag_display)
+	if(!magazine || !mag_display || (internal_magazine && !mag_display))	//originally if(!magazine || internal_magazine || !mag_display)
 	//END DOPPLER EDIT
 		return
 
