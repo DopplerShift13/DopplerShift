@@ -17,7 +17,6 @@
 	button_icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	button_icon_state = "arcane_barrage"
 
-	max_charges = 5
 	required_affinity = 3
 	prep_cost = 5
 	anti_magic_on_click_target = FALSE

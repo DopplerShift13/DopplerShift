@@ -65,9 +65,18 @@
 // How much mana you practically can cap out at.
 #define THAUMATURGE_MAX_MANA (MAXIMUM_POWER_POINTS * THAUMATURGE_MANA_MULT )
 
+// The factor with which we multiply our power points to get our mana.
 #define THAUMATURGE_MANA_MULT 2
 
-// How much
+// How many spells of a type can you prepare max?
+#define THAUMATURGE_MAX_CHARGES_BASE 6
+
+// For refund abilities, how much refund chance does each level/degree add.
+#define THAUMATURGE_REFUND_MULT_BASE 35
+#define THAUMATURGE_REFUND_MULT_AFFINITY 5
+
+// hard cap on refund powers.
+#define THAUMATURGE_REFUND_MAX 75
 
 /**
  * SORCEROUS: ENIGMATIST

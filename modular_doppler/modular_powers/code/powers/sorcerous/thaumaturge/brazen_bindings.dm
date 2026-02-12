@@ -16,7 +16,6 @@
 	button_icon = 'icons/obj/weapons/restraints.dmi'
 	button_icon_state = "brass_manacles"
 
-	max_charges = 7
 	required_affinity = 1
 	prep_cost = 3
 

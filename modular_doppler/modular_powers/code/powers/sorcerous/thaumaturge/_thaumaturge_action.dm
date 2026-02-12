@@ -9,7 +9,7 @@
 	// Unlike normal spells, we have charges. More of that explained below at check_if_valid()
 	var/charges = 0
 	// The cap on charges; you can't prepare more than these. If you leave this null, the spell will not interact with the charges system.
-	var/max_charges
+	var/max_charges = THAUMATURGE_MAX_CHARGES_BASE
 	// How many charges does it consume on use?
 	var/charges_to_use = 1
 	// How much 'mana' does it cost to prepare this per charge?

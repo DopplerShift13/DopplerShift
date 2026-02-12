@@ -5,7 +5,7 @@
 
 	action_path = /datum/action/cooldown/power/thaumaturge/thaumaturge_root
 
-	value = 5
+	value = 3
 	mob_trait = TRAIT_ARCHETYPE_SORCEROUS
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THAUMATURGE
@@ -29,6 +29,8 @@
 	button_icon = 'icons/obj/storage/book.dmi'
 	button_icon_state = "ithaqua"
 
+	// Makes it not interact with the charges system.
+	max_charges = null
 	// Lets you tweak it while you sleep.
 	disabled_by_incapacitate = FALSE
 

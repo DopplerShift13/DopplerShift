@@ -17,7 +17,6 @@
 	button_icon_state = "juicer"
 
 	cooldown_time = 50 // we don't want people spamming the blender noise. that's it. that's the whole reason why we force a 5 second cooldown.
-	max_charges = 8
 	required_affinity = 1
 	prep_cost = 2
 
@@ -110,7 +109,7 @@
 
 // To potentially refund it, we run a small check.
 /datum/action/cooldown/power/thaumaturge/blend_for_me/on_action_success(mob/living/user, atom/target, override_charges)
-	var/chance_to_refund = clamp(11 * affinity + 30, 20, 100) // Caps out at 85 for T5.
+	var/chance_to_refund = clamp(THAUMATURGE_REFUND_MULT_AFFINITY * affinity + THAUMATURGE_REFUND_MULT_BASE, 0, THAUMATURGE_REFUND_MAX)
 	if(prob(chance_to_refund))
 		override_charges = 0
 		to_chat(owner, span_notice("Your [name] spell did not consume a charge!"))

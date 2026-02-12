@@ -20,7 +20,6 @@
 	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "smoke"
 
-	max_charges = 7
 	required_affinity = 3
 	prep_cost = 3
 	click_to_activate = TRUE

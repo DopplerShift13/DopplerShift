@@ -15,7 +15,6 @@
 	button_icon = 'icons/obj/weapons/club.dmi'
 	button_icon_state = "hypertool"
 
-	max_charges = 7
 	required_affinity = 1
 	prep_cost = 3
 
@@ -46,7 +45,7 @@
 
 // To potentially refund it, we run a small check.
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool/on_action_success(mob/living/user, atom/target, override_charges)
-	var/chance_to_refund = clamp(11 * affinity + 30, 20, 100) // Caps out at 85 for T5.
+	var/chance_to_refund = clamp(THAUMATURGE_REFUND_MULT_AFFINITY * affinity + THAUMATURGE_REFUND_MULT_BASE, 0, THAUMATURGE_REFUND_MAX)
 	if(prob(chance_to_refund))
 		override_charges = 0
 		to_chat(owner, span_notice("Your [name] spell did not consume a charge!"))
