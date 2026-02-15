@@ -7448,6 +7448,7 @@
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\greater_tackler.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\krav_maga.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\martial_artist.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\warfighter\quick_draw.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\tackler.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\_aberrant_action.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\_aberrant_power.dm"
