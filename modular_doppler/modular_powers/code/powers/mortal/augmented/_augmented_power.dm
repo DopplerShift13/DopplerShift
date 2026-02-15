@@ -2,6 +2,7 @@
 	name = "Augmented Power"
 	desc = "I never asked for this (abstract type to appear. You shouldn't be seeing this.)"
 
+	power_flags = POWER_HUMAN_ONLY
 	archetype = POWER_ARCHETYPE_MORTAL
 	path = POWER_PATH_AUGMENTED
 	priority = POWER_PRIORITY_BASIC

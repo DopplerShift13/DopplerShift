@@ -199,6 +199,9 @@
 // The global GCD for Warfigher powers
 #define WARFIGHTER_COMMANDER_SHARED_COOLDOWN 2 SECONDS
 
+// Trait for the Explosives Specialist power
+#define TRAIT_POWER_EXPLOSIVES_SPECIALIST "power_explosives_specialist"
+
 /**
  * MORTAL: Augmented
  * All defines related to the augmented powers.

@@ -6,6 +6,7 @@
 	desc = "Trained in specialized combat maneuvers, you know where to best strike your opponents. Your punches deal extra damage."
 	value = 2
 
+	power_flags = POWER_HUMAN_ONLY
 	// how much EEEEXTRA DEEEAAMEEEEG we do with our punches.
 	var/bonus_damage = 5
 

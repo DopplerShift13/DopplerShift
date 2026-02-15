@@ -16,7 +16,7 @@
 	button_icon = 'icons/mob/actions/actions_slime.dmi' // placeholders out of the wazoo
 	button_icon_state = "slimeeject"
 
-	cooldown_time = 20
+	cooldown_time = 5
 	/// Cached overlay so we can cleanly update it.
 	var/mutable_appearance/bonded_overlay
 	/// Type path of the bonded item.
