@@ -69,7 +69,9 @@
 
 /obj/item/clothing/suit/armor/lizard/Initialize(mapload)
 	. = ..()
-	allowed += /obj/item/storage/belt/lizard_sabre
+	var/list/allowed_two = allowed.Copy()
+	allowed_two += /obj/item/storage/belt/lizard_sabre
+	allowed = allowed_two
 
 // leg armor
 
