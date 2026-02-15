@@ -4,8 +4,10 @@
 	overlay_icon_state = "bg_default_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
-	// We generally don't dabble with cooldowns but a GCD of 0.5 seconds is kinda handy to prevent you from blowing your load on all your charges by accident.
+	// We generally don't dabble with cooldowns but a cooldown of 0.5 seconds is kinda handy to prevent you from blowing your load on all your charges by accident.
 	cooldown_time = 5
+	// hides the cooldown text cause we contest the ui element location.
+	text_cooldown = FALSE
 	// Unlike normal spells, we have charges. More of that explained below at check_if_valid()
 	var/charges = 0
 	// The cap on charges; you can't prepare more than these. If you leave this null, the spell will not interact with the charges system.

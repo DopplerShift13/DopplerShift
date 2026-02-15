@@ -179,6 +179,23 @@
 #define MARTIALART_MAD_DOG "the mag dog style"
 
 /**
+ * MORTAL: WARFIGHTER
+ * All defines related to the augmented powers.
+ */
+
+// The amount to multiple the effects of all commander powers by.
+#define WARFIGHTER_COMMANDER_BASE_MULT 1
+
+// The multiplier bonus for sharing a department with the target as a commander
+#define WARFIGHTER_COMMANDER_DEPARTMENT_BONUS 0.3
+
+// The multiplier bonus for being a head of staff as a commander
+#define WARFIGHTER_COMMANDER_HEAD_BONUS 0.3
+
+// The global GCD for Warfigher powers
+#define WARFIGHTER_COMMANDER_SHARED_COOLDOWN 2 SECONDS
+
+/**
  * MORTAL: Augmented
  * All defines related to the augmented powers.
  */

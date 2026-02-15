@@ -61,7 +61,7 @@
 	if(!do_use_time(user, target))
 		return FALSE
 	if(use_action(user, target))
-		on_action_success()
+		on_action_success(user, target)
 		return TRUE
 	return FALSE
 
