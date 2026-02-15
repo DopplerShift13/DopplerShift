@@ -4,14 +4,14 @@ Most of the effects are already baked into the existing power for convenience.
 /datum/power/theologist/smiting_strike/imbue_armaments
 	name = "Imbue Armaments"
 	desc = "Changes Smiting Strike to no longer be removed when it passes hands, and allows you to have an unlimited amount of items blessed. Reduces the smite effect's knockback by 2 and damage by 5."
-	value = 5
+	value = 3
 
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THEOLOGIST
 	required_powers = list(/datum/power/theologist/smiting_strike)
 	action_path = null // So we don't give em another use of the ability.
 
-/datum/power/theologist/smiting_strike/imbue_armaments/add()
+/datum/power/theologist/smiting_strike/imbue_armaments/post_add()
 	. = ..()
 	var/datum/power/theologist/smiting_strike/smiting_strike = power_holder.get_power(/datum/power/theologist/smiting_strike)
 	var/datum/action/cooldown/power/theologist/smiting_strike/smite_action = smiting_strike.action_path // I really should find a better way to get the variables of actions.

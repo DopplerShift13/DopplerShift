@@ -70,6 +70,38 @@ Dispel proc handler
 		playsound(target, 'sound/effects/magic/smoke.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	return was_dispersed
 
+/*
+	Adds dispel on hit for the null rod.
+*/
+/obj/item/nullrod/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/resonant_dispel_hit, TRUE)
+
+/*
+	Component to make something dispel on smack.
+*/
+
+/datum/element/resonant_dispel_hit
+	element_flags = ELEMENT_BESPOKE
+	argument_hash_start_idx = 2
+	// does it cascade  it's dispel (Everything on the target)
+	var/cascade_dispels
+
+/datum/element/resonant_dispel_hit/Attach(datum/target, cascade = FALSE)
+	. = ..()
+	target.AddElementTrait(TRAIT_ON_HIT_EFFECT, REF(src), /datum/element/on_hit_effect)
+	RegisterSignal(target, COMSIG_ON_HIT_EFFECT, PROC_REF(dispel_on_hit))
+	if(cascade)
+		cascade_dispels = TRUE
+
+/datum/element/resonant_dispel_hit/Detach(datum/source)
+	UnregisterSignal(source, COMSIG_ON_HIT_EFFECT)
+	REMOVE_TRAIT(source, TRAIT_ON_HIT_EFFECT, REF(src))
+	return ..()
+
+/datum/element/resonant_dispel_hit/proc/dispel_on_hit(datum/source, atom/attacker, atom/damage_target, hit_zone, throw_hit)
+	SIGNAL_HANDLER
+	dispel(damage_target, attacker, cascade_dispels ? DISPEL_CASCADE_CARRIED : null)
 
 /*
 	Very simple wiz spell to test dispel functionality, plus for admeme purposes.

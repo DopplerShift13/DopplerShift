@@ -3,7 +3,7 @@
 	desc = "Channel energy into the item you are currently holding. Your next attack that hits with it against a creature deals 15 additional burn damage and sends them flying backwards 4 spaces. \
 	This knockback cannot stun or damage on impact. Costs 5 Piety to use. This effect ends if the item leaves your hands."
 	action_path = /datum/action/cooldown/power/theologist/smiting_strike
-	value = 5
+	value = 4
 
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THEOLOGIST
@@ -15,7 +15,7 @@
 	This knockback cannot stun or damage on impact. Costs 5 Piety to use. This effect ends if the item leaves your hands."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "sword_fling"
-	cooldown_time = 150
+	cooldown_time = 60
 	cost = 5
 
 	// How much damage the smite element will do
@@ -36,6 +36,10 @@
 			to_chat(owner, span_warning("You aren't holding anything that can be imbued!"))
 		return FALSE
 
+	// To prevent you from smiting with something that doesn't normally want you to attack wtih it.
+	if(potential_smite.force <= 0)
+		to_chat(owner, span_warning("Item is too weak"))
+		return FALSE
 	// In order to detect our buff, we pass along a trait to the host item.
 	if(HAS_TRAIT(potential_smite, TRAIT_HAS_SMITING_STRIKE))
 		to_chat(owner, span_warning("The item is already imbued!"))
@@ -68,6 +72,8 @@
 
 // Whilst I originally considered adding just the knockback element, we kind-of want more control over when the smite fades.
 /datum/element/theologist_smite
+	element_flags = ELEMENT_BESPOKE
+	argument_hash_start_idx = 2
 	/// extra damage the smite does
 	var/smite_damage
 	/// distance the atom will be thrown

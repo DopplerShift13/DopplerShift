@@ -169,8 +169,10 @@ Handles all the logic involved in using a targeted, click-based action.
 
 	// If the power can't be used, refuse the click and keep intercept state as-is.
 	if(!try_use(clicker, target))
+		// fixes the overlay from cast time getting stuck.
+		if(clicker?.click_intercept == src)
+			unset_click_ability(clicker, refund_cooldown = TRUE)
 		return FALSE
-
 	StartCooldown()
 
 	// Successful click.
@@ -179,6 +181,26 @@ Handles all the logic involved in using a targeted, click-based action.
 
 	clicker.next_click = world.time + click_cd_override
 	return TRUE
+
+// We override the click abilities to fix an issue with the active_overlay_icon_state not appearing when it should.
+/datum/action/cooldown/power/set_click_ability(mob/on_who)
+	. = ..()
+	if(.)
+		build_all_button_icons(UPDATE_BUTTON_STATUS | UPDATE_BUTTON_OVERLAY)
+	return .
+
+/datum/action/cooldown/power/unset_click_ability(mob/on_who, refund_cooldown = TRUE)
+	. = ..()
+	if(.)
+		for(var/datum/action/A as anything in on_who.actions)
+			for(var/datum/hud/H as anything in A.viewers)
+				var/atom/movable/screen/movable/action_button/B = A.viewers[H]
+				if(B)
+					B.cut_overlay(B.button_overlay)
+					B.button_overlay = null
+					B.active_overlay_icon_state = null
+		on_who.update_mob_action_buttons(UPDATE_BUTTON_OVERLAY, TRUE)
+	return .
 
 /*
 Projectile action code down below

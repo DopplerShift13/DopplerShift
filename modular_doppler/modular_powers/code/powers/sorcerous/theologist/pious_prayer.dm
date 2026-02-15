@@ -30,11 +30,11 @@
 /datum/action/cooldown/power/theologist/pious_prayer/New()
 	// Increase prayer cap based on various factors.
 	// Are you the Chaplain?
-	if(is_chaplain_job(owner.mind?.assigned_role))
+	if(is_chaplain_job(usr.mind?.assigned_role))
 		prayer_cap = 15
 		return
 	// Do you have the religious quirk?
-	if(HAS_TRAIT(owner, TRAIT_SPIRITUAL))
+	if(HAS_TRAIT(usr, TRAIT_SPIRITUAL))
 		prayer_cap = 10
 		return
 

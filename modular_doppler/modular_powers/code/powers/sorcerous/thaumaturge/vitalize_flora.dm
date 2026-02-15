@@ -21,7 +21,7 @@
 
 
 	// the amount to heal mob plants by
-	var/mob_heal_amount = 10
+	var/mob_heal_amount = 15
 	// the amount to heal non-mob plants by
 	var/obj_heal_amount = 10
 	// How many seconds to make it grow by.
@@ -36,6 +36,10 @@
 	var/affected_anything = FALSE
 	// affected something this cycle
 	var/affected_anything_this_cycle = FALSE
+	// nearby vine to propagate from (if any)
+	var/obj/structure/spacevine/nearby_vine = locate(/obj/structure/spacevine) in range(1, user_turf)
+	var/datum/spacevine_controller/vine_master = nearby_vine?.master
+
 	// Get everyhing in a 3x3 area
 	for(var/turf/area_turf in range(1, user_turf))
 		affected_anything_this_cycle = FALSE
@@ -65,14 +69,25 @@
 			affected_anything = TRUE
 			affected_anything_this_cycle = TRUE
 
-		// Heals plant mobs in the area for either burn, brute or tox.
+		// Kudzu growth (spacevines) around the caster, only if vines are nearby
+		if(vine_master && !isspaceturf(area_turf) && !locate(/obj/structure/spacevine) in area_turf)
+			vine_master.spawn_spacevine_piece(area_turf, nearby_vine, list())
+			affected_anything = TRUE
+			affected_anything_this_cycle = TRUE
+
+		// Heals plant mobs in the area for either burn, brute or tox. Also does things to turtles.
 		for(var/mob/living/area_mob in area_turf)
 			if(!(area_mob.mob_biotypes & MOB_PLANT))
 				continue
-			// prevents charge consumption for podpeople when theyre at full hp
+			// prevents charge consumption for platn creatures when theyre at full hp
 			if(area_mob.health >= area_mob.maxHealth)
 				continue
+			// heals plant creatures
 			area_mob.heal_ordered_damage(mob_heal_amount, list(BRUTE, BURN, TOX))
+			// so there's these cute turtles that can grow plants on themselves and clearly we should be able to grow that too.
+			if(istype(area_mob, /mob/living/basic/turtle))
+				var/mob/living/basic/turtle/plant_turtle = area_mob
+				plant_turtle.set_plant_growth(plant_turtle.retrieve_destined_path(), grow_amount)
 			affected_anything = TRUE
 			affected_anything_this_cycle = TRUE
 
