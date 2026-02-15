@@ -1,3 +1,6 @@
+/*
+	Gives pain negation as well as stam-damage immunity.
+*/
 /datum/power/warfighter/command_grit
 	name = "Command: Grit"
 	desc = "Whilst active, the target ignores pain for 15 seconds, as well as slowdown from damage and stamina loss. Has a long cooldown. Increased effect lenghtens duration."

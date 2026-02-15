@@ -1,3 +1,7 @@
+/*
+	Gets someone up as if shook a couple of times. Also contains the lore dump on how commander powers work and their overarching mechanics.
+	Gateway power for all the commander stuff
+*/
 /datum/power/warfighter/command_recover
 	name = "Commander"
 	desc = "There's many facets to a good leader, but being able to delegate and manage people under pressure is an art of it's own. \

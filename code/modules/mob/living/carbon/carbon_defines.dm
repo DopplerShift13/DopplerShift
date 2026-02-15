@@ -125,6 +125,9 @@
 	/// A bitfield of "bodyshapes", updated by /obj/item/bodypart/proc/synchronize_bodyshapes()
 	var/bodyshape = BODYSHAPE_HUMANOID
 
+	// DOPPLER ADDITION - Used by the Powers system to add unarmed damage without modifying the arms.
+	var/unarmed_damage_bonus = 0
+
 	COOLDOWN_DECLARE(bleeding_message_cd)
 
 	/// Obscured hide flags (hideflags that can't be seen AND can't be interacted with)

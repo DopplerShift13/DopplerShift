@@ -917,6 +917,7 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/grappled = (target.pulledby && target.pulledby.grab_state >= GRAB_AGGRESSIVE)
 
 	var/damage = rand(attacking_bodypart.unarmed_damage_low, attacking_bodypart.unarmed_damage_high)
+	damage += user.unarmed_damage_bonus	// DOPPLER ADDITION - Used by the Powers system to add unarmed damage without modifying the arms.
 	var/limb_accuracy = attacking_bodypart.unarmed_effectiveness
 	var/limb_sharpness = attacking_bodypart.unarmed_sharpness
 
