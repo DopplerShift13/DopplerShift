@@ -917,7 +917,6 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/grappled = (target.pulledby && target.pulledby.grab_state >= GRAB_AGGRESSIVE)
 
 	var/damage = rand(attacking_bodypart.unarmed_damage_low, attacking_bodypart.unarmed_damage_high)
-	damage += user.unarmed_damage_bonus	// DOPPLER ADDITION - Used by the Powers system to add unarmed damage without modifying the arms.
 	var/limb_accuracy = attacking_bodypart.unarmed_effectiveness
 	var/limb_sharpness = attacking_bodypart.unarmed_sharpness
 
@@ -1009,6 +1008,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/attack_type = attacking_bodypart.attack_type
 	var/kicking = (atk_effect == ATTACK_EFFECT_KICK)
 	var/final_armor_block = armor_block
+
+	SEND_SIGNAL(user, COMSIG_HUMAN_UNARMED_HIT, target, affecting, damage, armor_block, limb_accuracy, limb_sharpness) // DOPPLER ADDITION - Adds a signaler for the power system so that we can track if we land punches.
+
 	if(kicking || grappled) //kicks and punches when grappling bypass armor slightly.
 		if(damage >= 9)
 			target.force_say()
