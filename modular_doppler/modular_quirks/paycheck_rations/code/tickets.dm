@@ -11,25 +11,25 @@
 
 /obj/item/paper/paperslip/ration_ticket/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(istype(interacting_with, /obj/machinery/computer/cargo))
-		return try_to_make_ration_order_list(object_we_attack, user)
+		return try_to_make_ration_order_list(interacting_with, user)
 	return ..()
 
 /obj/item/paper/paperslip/ration_ticket/proc/try_to_make_ration_order_list(obj/machinery/computer/cargo/supply_console_used, mob/living/user)
 	if(!supply_console_used.is_operational)
 		supply_console_used.balloon_alert(user, "not operational")
 		return ITEM_INTERACT_BLOCKING
-	forceMove(object_we_attack)
-	playsound(object_we_attack, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, FALSE)
+	forceMove(supply_console_used)
+	playsound(supply_console_used, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, FALSE)
 	// List of diet options
 	var/list/radial_diet_options = list(
 		"Standard Diet" = image(icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/menu_icons.dmi', icon_state = "4ca"),
 		"Tizirian Diet" = image(icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/menu_icons.dmi', icon_state = "tiziria"),
 	)
-	var/diet_choice = show_radial_menu(user, object_we_attack, radial_diet_options, require_near = TRUE)
+	var/diet_choice = show_radial_menu(user, supply_console_used, radial_diet_options, require_near = TRUE)
 	if(!diet_choice)
-		object_we_attack.balloon_alert(user, "no selection made")
-		forceMove(drop_location(object_we_attack))
-		playsound(object_we_attack, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, FALSE)
+		supply_console_used.balloon_alert(user, "no selection made")
+		forceMove(drop_location(supply_console_used))
+		playsound(supply_console_used, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, FALSE)
 		return
 	switch(diet_choice)
 		if("Standard Diet")
@@ -58,10 +58,10 @@
 			items_we_deliver += /obj/item/food/headcheese_slice
 			items_we_deliver += /obj/item/food/headcheese_slice
 			items_we_deliver += /obj/item/reagent_containers/cup/glass/waterbottle/large
-	make_the_actual_order(object_we_attack, user)
+	make_the_actual_order(supply_console_used, user)
 
 /// Takes the list of things to deliver and puts it into a cargo order
-/obj/item/paper/paperslip/ration_ticket/proc/make_the_actual_order(obj/machinery/computer/cargo/object_we_attack, mob/user)
+/obj/item/paper/paperslip/ration_ticket/proc/make_the_actual_order(obj/machinery/computer/cargo/supply_console_used, mob/user)
 	var/datum/supply_pack/custom/ration_pack/ration_pack = new(
 		purchaser = user, \
 		cost = 0, \
@@ -80,7 +80,7 @@
 		manifest_can_fail = FALSE,
 		can_be_cancelled = FALSE,
 	)
-	object_we_attack.say("Ration order placed! It will arrive on the next cargo shuttle!")
+	supply_console_used.say("Ration order placed! It will arrive on the next cargo shuttle!")
 	SSshuttle.shopping_list += new_order
 	qdel(src)
 
