@@ -141,6 +141,10 @@
 	/// If it has an icon for a selector switch indicating current firemode.
 	var/selector_switch_icon = FALSE
 
+/// DOPPLER EDIT ADDITION - allows a firearm with an internal magazine to display that magazine on the sprite
+	var/display_internal_magazine = FALSE
+/// END DOPPLER EDIT
+
 /obj/item/gun/ballistic/Initialize(mapload)
 	. = ..()
 	if(!spawn_magazine_type)
@@ -236,9 +240,9 @@
 	if(gun_flags & TOY_FIREARM_OVERLAY)
 		. += "[icon_state]_toy"
 
-	//BEGIN DOPPLER EDIT - allows guns with internal magazines to display them visually
-	if(!magazine || !mag_display || (internal_magazine && !mag_display))	//originally if(!magazine || internal_magazine || !mag_display)
-	//END DOPPLER EDIT
+/// DOPPLER EDIT - allows firearms with internal magazines to display said magazine
+	if(!magazine || internal_magazine & !display_internal_magazine || !mag_display)	///was: if(!magazine || internal_magazine || !mag_display)
+/// END DOPPLER EDIT
 		return
 
 	if(special_mags)

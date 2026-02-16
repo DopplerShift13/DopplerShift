@@ -18,6 +18,7 @@
 	slot_flags = ITEM_SLOT_BACK | ITEM_SLOT_SUITSTORE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/bolt_thrower
 	internal_magazine = TRUE
+	display_internal_magazine = TRUE
 	mag_display = TRUE
 	mag_display_ammo = TRUE
 	fire_delay = 10
