@@ -10,7 +10,6 @@
 	Command abilities can never be used on yourself, and require the target to be able to see or hear you."
 
 	value = 4
-	required_powers
 	action_path = /datum/action/cooldown/power/warfighter/command/recover
 
 /datum/action/cooldown/power/warfighter/command/recover

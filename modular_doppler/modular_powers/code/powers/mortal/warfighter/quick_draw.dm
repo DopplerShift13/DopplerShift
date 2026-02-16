@@ -199,15 +199,16 @@
 	if(!user || !target_item)
 		return FALSE
 
-	// stole from a mob
+	// taken from a mob
 	if(ismob(target_item.loc))
 		var/mob/living/holder_mob = target_item.loc
 		if(!holder_mob.canUnEquip(target_item, FALSE))
 			return FALSE
 		if(!holder_mob.transferItemToLoc(target_item, user, force = FALSE))
 			return FALSE
-		user.balloon_alert(user, "snagged")
-		holder_mob.balloon_alert(holder_mob, "snagged")
+		if(!holder_mob == user) // tell the person we're stealing from that we stole from them.
+			user.balloon_alert(user, "snagged")
+			holder_mob.balloon_alert(holder_mob, "[target_item.name] was snagged!")
 		return user.put_in_hands(target_item)
 
 	// took it from our person
