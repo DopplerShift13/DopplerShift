@@ -62,6 +62,7 @@
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/foods.dmi'
 	icon_state = "wheat_hardtack"
 	foodtypes = GRAIN
+	tastes = list("bread" = 8, "regret" = 2,)
 	food_reagents = list(/datum/reagent/consumable/nutriment/stabilized = 12)
 
 /obj/item/food/breadslice/roottack
@@ -70,15 +71,17 @@
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/foods.dmi'
 	icon_state = "root_hardtack"
 	foodtypes = VEGETABLES | NUTS
+	tastes = list("bread" = 8, "nuts" = 2, "regret" = 3,)
 	food_reagents = list(/datum/reagent/consumable/nutriment/stabilized = 12)
 
 /obj/item/food/aspic
+	abstract_type = /obj/item/food/aspic
 	name = "empty aspic"
 	desc = "Wait, it's just gelatin?"
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/foods.dmi'
 	icon_state = "aspic"
-	abstract_type = /obj/item/food/aspic
 	alpha = 230
+	food_reagents = list(/datum/reagent/consumable/nutriment/stabilized = 8)
 	/// What type of soup we should emulate the flavours and colours of
 	var/datum/reagent/consumable/nutriment/soup/soup_type
 
@@ -184,18 +187,24 @@
 	desc = "A maritime ration-sized portion of flour, containing just enough to make a single good loaf of bread to fuel the day."
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/food_containers.dmi'
 	list_reagents = list(/datum/reagent/consumable/flour = 15)
+	possible_transfer_amounts = list(5, 10, 15)
+	volume = 15
 
 /obj/item/reagent_containers/condiment/rice/small_ration
 	name = "small rice sack"
 	desc = "A maritime ration-sized portion of rice, containing just enough to make the universe's saddest rice dish."
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/food_containers.dmi'
 	list_reagents = list(/datum/reagent/consumable/rice = 10)
+	possible_transfer_amounts = list(5, 10)
+	volume = 10
 
 /obj/item/reagent_containers/condiment/sugar/small_ration
 	name = "small sugar sack"
 	desc = "A maritime ration-sized portion of sugar, containing just enough to make the day just a tiny bit sweeter."
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/food_containers.dmi'
 	list_reagents = list(/datum/reagent/consumable/sugar = 10)
+	possible_transfer_amounts = list(5, 10)
+	volume = 10
 
 /obj/item/reagent_containers/condiment/small_ration_korta_flour
 	name = "small korta flour sack"
@@ -206,6 +215,8 @@
 	lefthand_file = 'icons/mob/inhands/items/drinks_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items/drinks_righthand.dmi'
 	list_reagents = list(/datum/reagent/consumable/korta_flour = 10)
+	possible_transfer_amounts = list(5, 10)
+	volume = 10
 	fill_icon_thresholds = null
 
 /obj/item/reagent_containers/condiment/soymilk/small_ration
@@ -213,9 +224,13 @@
 	desc = "It's soy milk. White and nutritious goodness! This one is significantly smaller than normal cartons; just enough to make some rootdough with."
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/food_containers.dmi'
 	list_reagents = list(/datum/reagent/consumable/soymilk = 15)
+	possible_transfer_amounts = list(5, 10, 15)
+	volume = 15
 
 /obj/item/reagent_containers/condiment/milk/small_ration
 	name = "small milk"
 	desc = "It's milk. White and nutritious goodness! This one is significantly smaller than normal cartons; just enough to make some cheese with."
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/food_containers.dmi'
 	list_reagents = list(/datum/reagent/consumable/milk = 15)
+	possible_transfer_amounts = list(5, 10, 15)
+	volume = 15

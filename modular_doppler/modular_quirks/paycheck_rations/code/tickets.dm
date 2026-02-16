@@ -9,15 +9,15 @@
 	/// The finalized list of items we send once the ticket is used, don't define here, the procs will do it
 	var/list/items_we_deliver = list()
 
-/obj/item/paper/paperslip/ration_ticket/attack_atom(obj/machinery/computer/cargo/object_we_attack, mob/living/user, params)
-	if(!istype(object_we_attack))
-		return ..()
-	if(!object_we_attack.is_operational || !user.can_perform_action(object_we_attack))
-		return ..()
-	try_to_make_ration_order_list(object_we_attack, user)
+/obj/item/paper/paperslip/ration_ticket/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(istype(interacting_with, /obj/machinery/computer/cargo))
+		return try_to_make_ration_order_list(object_we_attack, user)
+	return ..()
 
-/// Attempts to fill out the order list with items of the user's choosing, will stop in its tracks if it fails
-/obj/item/paper/paperslip/ration_ticket/proc/try_to_make_ration_order_list(obj/machinery/computer/cargo/object_we_attack, mob/living/user)
+/obj/item/paper/paperslip/ration_ticket/proc/try_to_make_ration_order_list(obj/machinery/computer/cargo/supply_console_used, mob/living/user)
+	if(!supply_console_used.is_operational)
+		supply_console_used.balloon_alert(user, "not operational")
+		return ITEM_INTERACT_BLOCKING
 	forceMove(object_we_attack)
 	playsound(object_we_attack, 'sound/machines/terminal/terminal_insert_disc.ogg', 50, FALSE)
 	// List of diet options
