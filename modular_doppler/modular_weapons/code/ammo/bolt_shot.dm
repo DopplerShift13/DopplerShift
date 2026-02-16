@@ -10,6 +10,7 @@
 	icon_state = "machined_bolt"
 	caliber = CALIBER_BOLT_THROWER
 	projectile_type = /obj/projectile/bullet/bolt_slug
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/bolt_slug
 
 /obj/item/ammo_casing/bolt_slug/Initialize(mapload)
 	. = ..()
