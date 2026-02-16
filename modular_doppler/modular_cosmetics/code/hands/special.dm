@@ -24,6 +24,7 @@
 	block_sound = 'sound/items/weapons/block_shield.ogg'
 	body_parts_covered = HANDS | ARMS
 	max_integrity = 75
+	integrity_failure = 0.6 // higher than usual to ensure it can be repaired sooner
 	repairable_by = /obj/item/stack/sheet/mineral/titanium
 	var/break_sound = 'sound/effects/bang.ogg'
 
@@ -67,21 +68,9 @@
 		penetration = critter.armour_penetration
 	take_damage(damage, damage_type, armor_flag, armour_penetration = penetration)
 
-//normally clothes can't be repaired before they break, so we fix that here.
-/obj/item/clothing/gloves/platillo/attackby(obj/item/attackby_item, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(attackby_item, /obj/item/stack/sheet/mineral/titanium))
-		if (atom_integrity >= max_integrity)
-			to_chat(user, span_warning("[src] is already in perfect condition."))
-			return
-		var/obj/item/stack/sheet/mineral/titanium/titanium_sheet = attackby_item
-		titanium_sheet.use(1)
-		atom_integrity = max_integrity
-		to_chat(user, span_notice("You repair [src] with [titanium_sheet]."))
-		return
-	return ..()
-
 //makes a shieldy sound and gives us a popup when we break
 /obj/item/clothing/gloves/platillo/atom_destruction(damage_flag)
+	. = ..()
 	playsound(src, break_sound, 50)
 	if(isliving(loc))
 		loc.balloon_alert(loc, "shield broken!")
