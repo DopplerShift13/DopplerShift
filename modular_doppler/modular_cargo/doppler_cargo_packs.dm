@@ -33,10 +33,11 @@
 	crate_type = /obj/structure/closet/crate/large
 	discountable = SUPPLY_PACK_UNCOMMON_DISCOUNTABLE
 
-/datum/supply_pack/service/hugelubedrum
+/datum/supply_pack/imports/hugelubedrum
 	name = "Drum of Lube of Unusual Size"
 	desc = "Contains a two hundred seventy-five gallon drum filled with industrial space-grade lubricant. Cherry flavor. Handle with care."
 	cost = CARGO_CRATE_VALUE * 100 // exorbitant. use it wisely
+	contraband = TRUE
 	contains = list(/obj/structure/reagent_dispensers/lubedrum/large)
 	crate_name = "xxxxl lube drum crate"
 	crate_type = /obj/structure/closet/crate/large
