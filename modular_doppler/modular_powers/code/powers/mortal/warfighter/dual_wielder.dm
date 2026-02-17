@@ -49,9 +49,12 @@
 		return
 
 	var/is_offhand = LAZYACCESS(attack_modifiers, DUAL_WIELD_OFFHAND)
-	var/obj/item/attacking_item = LAZYACCESS(attack_modifiers, DUAL_WIELD_ATTACK_ITEM) || source.get_active_held_item()
-	if(!is_valid_melee_item(attacking_item))
+	var/obj/item/main_item = source.get_active_held_item()
+	var/obj/item/off_item = source.get_inactive_held_item()
+	// Only apply dual-wield logic if both hands are valid melee weapons (force > 0).
+	if(!is_valid_melee_item(main_item) || !is_valid_melee_item(off_item))
 		return
+	var/obj/item/attacking_item = LAZYACCESS(attack_modifiers, DUAL_WIELD_ATTACK_ITEM) || main_item
 
 	var/forced_miss = FALSE
 	var/has_forced_miss = LAZYACCESS(attack_modifiers, DUAL_WIELD_HAS_FORCED_MISS)
@@ -74,7 +77,7 @@
 		return COMPONENT_CANCEL_ATTACK_CHAIN
 
 	if(!is_offhand && offhand_attempted && !offhand_miss) // if you hit both
-		target.visible_message(span_warning("[user] lands a hit with both weapons!"), span_danger("<b>You land a hit with both weapons!</b>"))
+		target.visible_message(span_warning("[user] lands a hit with both weapons!"), span_userdanger("<b>You were hit by both of [user]'s weapons!</b>"))
 		playsound(owner, 'sound/items/weapons/etherealhit.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 /datum/action/cooldown/power/warfighter/dual_wielder/proc/is_valid_melee_item(obj/item/item)

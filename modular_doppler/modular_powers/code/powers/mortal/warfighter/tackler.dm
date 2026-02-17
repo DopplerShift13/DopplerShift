@@ -13,7 +13,7 @@
 	var/datum/component/tackler
 
 /datum/power/warfighter/tackler/add()
-	// Taking these over from tackle gloves just for clarity. They're in here becuase I don't want to clog the upgrade vars with these.
+	// Taking these over from tackle gloves just for clarity. They're in here becuase I don't want to clog the upgrade vars with these + the component inherits these values so having them tweakable in vv doesnt make sense.
 	/// See: [/datum/component/tackler/var/stamina_cost]
 	var/tackle_stam_cost = 25
 	/// See: [/datum/component/tackler/var/base_knockdown]
