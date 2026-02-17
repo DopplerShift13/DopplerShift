@@ -7445,6 +7445,7 @@
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\_warfighter_power.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\command_grit.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\command_recover.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\warfighter\dual_wielder.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\explosives_specialist.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\greater_tackler.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\krav_maga.dm"

@@ -7,7 +7,7 @@
 	The power itself grants you the 'Quick Draw' ability, letting you 'acclimate' with an item of your choice. \
 	Whilst acclimated, you can use the power to instantly draw that type of item to your hand, as long as it is anywhere on your person, or within melee range of you. \
 	You can even use this to snag it back from your enemies."
-	value = 3
+	value = 4
 	action_path = /datum/action/cooldown/power/warfighter/quick_draw
 
 /datum/action/cooldown/power/warfighter/quick_draw
@@ -16,7 +16,6 @@
 	button_icon = 'icons/mob/actions/actions_slime.dmi' // placeholders out of the wazoo
 	button_icon_state = "slimeeject"
 
-	cooldown_time = 5
 	/// Cached overlay so we can cleanly update it.
 	var/mutable_appearance/bonded_overlay
 	/// Type path of the bonded item.
