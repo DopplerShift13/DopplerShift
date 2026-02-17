@@ -7451,6 +7451,7 @@
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\explosives_specialist.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\focused_block.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\greater_tackler.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\warfighter\heavy_slam.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\krav_maga.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\martial_artist.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\quick_draw.dm"
