@@ -59,6 +59,7 @@
 			items_we_deliver += /obj/item/food/headcheese_slice
 			items_we_deliver += /obj/item/reagent_containers/cup/glass/waterbottle/large
 	make_the_actual_order(supply_console_used, user)
+	return ITEM_INTERACT_SUCCESS
 
 /// Takes the list of things to deliver and puts it into a cargo order
 /obj/item/paper/paperslip/ration_ticket/proc/make_the_actual_order(obj/machinery/computer/cargo/supply_console_used, mob/user)
