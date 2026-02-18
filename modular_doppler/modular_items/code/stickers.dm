@@ -32,31 +32,50 @@
 	name = "4CA sticker"
 	icon_state = "4ca"
 
-///special doppie sticker pack, these will still appear in normal sticker packs anyway
-/obj/item/storage/box/stickers/local
-	name = "local sector sticker pack"
+///special doppie sticker pack, these will still appear in normal sticker packs anyway. parent type first.
+/obj/item/storage/box/stickers/doppler
+	abstract_type = /obj/item/storage/box/stickers/doppler
 	icon = 'modular_doppler/modular_items/icons/stickers.dmi'
-	///necessary intervention, see below
+	///the parent item populates its illustration var from a static list, this var allows us to define a new list
 	var/list/doppler_pack_labels = list(
 		"dolphin",
 	)
+	/// The base type from which we pick subtypes to spawn.
+	var/spawned_sticker_basetype
 
-///the parent item populates its illustrate var from a static list, so we override it
-/obj/item/storage/box/stickers/local/Initialize(mapload)
+///the parent item populates its illustration var from the aforementioned static list, so we override it
+/obj/item/storage/box/stickers/doppler/Initialize(mapload)
 	if(isnull(illustration))
 		illustration = pick(doppler_pack_labels)
 		update_appearance()
 	. = ..()
 
 ///makes our list of doppie stickers, overrides basically the same code from the parent /obj/item/storage/box/stickers
-/obj/item/storage/box/stickers/local/generate_non_contraband_stickers_list()
+/obj/item/storage/box/stickers/doppler/generate_non_contraband_stickers_list()
 	var/list/allowed_stickers = list()
 
-	for(var/obj/item/sticker/sticker_type as anything in subtypesof(/obj/item/sticker/doppler))
+	for(var/obj/item/sticker/sticker_type as anything in subtypesof(spawned_sticker_basetype))
 		if(!sticker_type::exclude_from_random)
 			allowed_stickers += sticker_type
 
 	return allowed_stickers
+
+/// PopulateContents() on the parent item uses a static list, meaning the first pack that's spawned into the round decides the sticker pool
+/// for every other one. We override this with the same block and a non-static list.
+
+/obj/item/storage/box/stickers/doppler/PopulateContents()
+	var/list/non_contraband
+
+	if(isnull(non_contraband))
+		non_contraband = generate_non_contraband_stickers_list()
+
+	for(var/i in 1 to rand(4, 8))
+		var/type = pick(non_contraband)
+		new type(src)
+
+/obj/item/storage/box/stickers/doppler/local
+	name = "local sector sticker pack"
+	spawned_sticker_basetype = /obj/item/sticker/doppler
 
 ///rhinestones! starting with a parent item for the same purpose as above
 /obj/item/sticker/rhinestone
@@ -88,7 +107,7 @@
 	icon_state = "rhinestone_green"
 
 ///special boxes for the rhinestones
-/obj/item/storage/box/stickers/local/rhinestones
+/obj/item/storage/box/stickers/doppler/rhinestones
 	name = "rhinestone pack"
 	doppler_pack_labels = list(
 		"rhinestone_pink",
@@ -98,13 +117,4 @@
 		"rhinestone_blue",
 		"rhinestone_green",
 	)
-
-///makes a list of rhinestones as above
-/obj/item/storage/box/stickers/local/rhinestones/generate_non_contraband_stickers_list()
-	var/list/allowed_stickers = list()
-
-	for(var/obj/item/sticker/sticker_type as anything in subtypesof(/obj/item/sticker/rhinestone))
-		if(!sticker_type::exclude_from_random)
-			allowed_stickers += sticker_type
-
-	return allowed_stickers
+	spawned_sticker_basetype = /obj/item/sticker/rhinestone
