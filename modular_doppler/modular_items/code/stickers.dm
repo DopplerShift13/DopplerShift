@@ -1,6 +1,7 @@
 
 ///a parent doppler sticker item so we can populate a doppie sticker pack easily
 /obj/item/sticker/doppler
+	abstract_type = /obj/item/sticker/doppler
 	icon = 'modular_doppler/modular_items/icons/stickers.dmi'
 
 /obj/item/sticker/doppler/dolphin
