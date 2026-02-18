@@ -74,7 +74,7 @@
 	playsound(src, break_sound, 50)
 	if(isliving(loc))
 		loc.balloon_alert(loc, "shield broken!")
-	return ..()
+	return
 
 //we can see about how damaged we are on examine
 /obj/item/clothing/gloves/platillo/examine(mob/user)
