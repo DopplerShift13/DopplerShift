@@ -45,7 +45,7 @@
 
 /// Attempts to create a ration ticket book in the card holder's hand, and failing that, the drop location of the card
 /datum/bank_account/proc/make_ration_ticket()
-	if(!(SSeconomy.times_fired % 6 == 0))
+	if(!(SSeconomy.times_fired % 5 == 0))
 		return
 	if(!bank_cards.len)
 		return
