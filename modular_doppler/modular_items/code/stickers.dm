@@ -60,6 +60,7 @@
 
 ///rhinestones! starting with a parent item for the same purpose as above
 /obj/item/sticker/rhinestone
+	abstract_type = /obj/item/sticker/rhinestone
 	icon = 'modular_doppler/modular_items/icons/stickers.dmi'
 
 /obj/item/sticker/rhinestone/pink
