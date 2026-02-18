@@ -1,8 +1,8 @@
 /datum/quirk/item_quirk/ration_system
 	name = "Ration Ticket Receiver"
-	desc = "Due to some circumstance of your life, you have enrolled in the ration tickets program, \
-		which will halve all of your paychecks in exchange for granting you ration tickets, which can be \
-		redeemed at a cargo console for food and other items."
+	desc = "While often spread thin, the 4CA still manages to provide few basic services no matter where you are in the \
+		galaxy. Working with all of its members, and even independent empires such as the Talunan, you can be gauranteed \
+		a meal anywhere in civilized and even uncivilized space. The quality of the food, however, is far from a promise."
 	icon = FA_ICON_DONATE
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_HIDE_FROM_SCAN
 	medical_record_text = "Has enrolled in the ration ticket program."
@@ -34,8 +34,6 @@
 /datum/bank_account
 	/// Tracks a linked ration ticket book. If we have one of these, then we'll put tickets in it every payday.
 	var/datum/weakref/tracked_ticket_book
-	/// Tracks if the last ticket we got was for luxury items, if this is true we get a normal food ticket
-	var/last_ticket_luxury = TRUE
 
 /datum/bank_account/payday(amount_of_paychecks, free = FALSE, skippable = FALSE, event = "Payday")
 	. = ..()
@@ -47,33 +45,26 @@
 
 /// Attempts to create a ration ticket book in the card holder's hand, and failing that, the drop location of the card
 /datum/bank_account/proc/make_ration_ticket()
-	if(!(SSeconomy.times_fired % 3 == 0))
+	if(!(SSeconomy.times_fired % 6 == 0))
 		return
-
 	if(!bank_cards.len)
 		return
-
 	var/obj/item/storage/ration_ticket_book/ticket_book = tracked_ticket_book.resolve()
 	if(!ticket_book)
 		tracked_ticket_book = null
 		return
-
 	var/obj/item/created_ticket
 	for(var/obj/card in bank_cards)
-		// We want to only make one ticket pr account per payday
+		// We want to only make one ticket per account per payday
 		if(created_ticket)
 			continue
 		var/ticket_to_make
-		if(!last_ticket_luxury)
-			ticket_to_make = /obj/item/paper/paperslip/ration_ticket/luxury
-		else
-			ticket_to_make = /obj/item/paper/paperslip/ration_ticket
+		ticket_to_make = /obj/item/paper/paperslip/ration_ticket
 		created_ticket = new ticket_to_make(card)
-		last_ticket_luxury = !last_ticket_luxury
 		if(!ticket_book.atom_storage.can_insert(created_ticket, messages = FALSE))
 			qdel(created_ticket)
-			bank_card_talk("ERROR: Failed to place ration ticket in ticket book, ensure book is not full.")
+			bank_card_talk("ERROR: Ticket book full, please use existing tickets to limit waste.")
 			// We can stop here, it's joever for trying to place tickets in the book this payday. You snooze you lose!
 			return
 		created_ticket.forceMove(ticket_book)
-		bank_card_talk("A new [last_ticket_luxury ? "luxury item" : "standard"] ration ticket has been placed in your ticket book.")
+		bank_card_talk("A new meal ticket has been added to your ration book.")
