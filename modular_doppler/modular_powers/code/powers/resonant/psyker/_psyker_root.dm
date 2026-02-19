@@ -5,7 +5,7 @@
 	grown by prolonged exposure to certain types of Resonance. \
 	The catalyst for psychic abilities; but beware overexerting it."
 
-	value = 3
+	value = 2
 	power_flags = POWER_HUMAN_ONLY
 	mob_trait = TRAIT_ARCHETYPE_RESONANT
 	archetype = POWER_ARCHETYPE_RESONANT
