@@ -23,6 +23,8 @@ TODO: FIX THAT
 	unset_after_click = FALSE
 	target_range = 255 // this is just for show.
 
+	mental = FALSE // We are lifting them with the mind but it doesn't affect the target's mind
+
 	// Range of the kinesis grab.
 	var/grab_range = 8
 
@@ -151,7 +153,7 @@ TODO: FIX THAT
 				return
 
 
-	add_stress(PSYKER_STRESS_TRIVIAL * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
+	modify_stress(PSYKER_STRESS_TRIVIAL * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
 
 // The fun part, punting shit.
 /datum/action/cooldown/power/psyker/telekinesis/proc/punt_held(mob/living/user, atom/target, params)
@@ -174,7 +176,7 @@ TODO: FIX THAT
 	var/atom/movable/launched = grabbed_atom
 
 	// Basically the same stress cost for picking it up.
-	add_stress(get_stress_cost_for_atom(launched))
+	modify_stress(get_stress_cost_for_atom(launched))
 
 	clear_grab(playsound = FALSE)
 	playsound(launched, 'sound/effects/magic/repulse.ogg', 75, TRUE)
@@ -268,7 +270,7 @@ TODO: FIX THAT
 		kinesis_catcher.assign_to_mob(owner)
 
 	// Amounts are in the get_stress_cost_for_atom
-	add_stress(get_stress_cost_for_atom(target))
+	modify_stress(get_stress_cost_for_atom(target))
 
 	START_PROCESSING(SSfastprocess, src)
 

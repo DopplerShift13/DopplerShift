@@ -13,6 +13,7 @@
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "beam_up"
 
+	mental = FALSE
 	// Overlay we add to the caster
 	var/mutable_appearance/caster_effect
 
@@ -61,7 +62,7 @@
 		var/cost = PSYKER_STRESS_TRIVIAL * 2
 		if(psyker.get_quirk(/datum/quirk/paraplegic)) // There'll probably be several that'd like to do this. Effecively puts you just below the rate at which regen will keep up.
 			cost = PSYKER_STRESS_TRIVIAL
-		add_stress(cost * seconds_per_tick)
+		modify_stress(cost * seconds_per_tick)
 
 // Dispel function; basically off-switch and possibly comedic faceplant
 /datum/action/cooldown/power/psyker/levitate/Grant(mob/granted_to)

@@ -24,16 +24,12 @@
 	//The stress warning message
 	var/datum/status_effect/power/stress_warning
 
-// Don't modify stress directly. In the future affinity has a bearing on how much stress you gain.
-/obj/item/organ/resonant/psyker/proc/add_stress(amount)
-	// TODO; Add clothing affinity. Wearing psychic nicknacks makes you gain less stress.
-	stress = max(0, stress + amount)
-	return
-
-/obj/item/organ/resonant/psyker/proc/remove_stress(amount)
-	// TODO: Ditto on above.
-	stress = max(0, stress - amount)
-	return
+// Call to modify stress. Don't adjust directly.
+/obj/item/organ/resonant/psyker/proc/modify_stress(amount, override_cap)
+	if(!isnum(amount))
+		return
+	var/cap_to = isnum(override_cap) ? override_cap : PSYKER_STRESS_STANDARD_THRESHOLD * 2
+	stress = clamp(stress + amount, 0, cap_to)
 
 /obj/item/organ/resonant/psyker/on_life(seconds_per_tick, times_fired)
 	. = ..()
@@ -63,10 +59,10 @@
 			CDstressMild = 0
 			CDstressSevere = 0
 		else if(stress >= (stress_threshold * 1.5) && CDstressSevere <= 0) // Severe Event
-			CDstressSevere = 60 // reset CD
+			CDstressSevere = 90 // reset CD
 			stress_backlash(PSYKER_EVENT_TIER_SEVERE)
 		else if (stress >= stress_threshold && CDstressMild <= 0) // Mild Event
-			CDstressMild = 60 // reset CD
+			CDstressMild = 90 // reset CD
 			stress_backlash(PSYKER_EVENT_TIER_MILD)
 
 		if(CDstressMild > 0)

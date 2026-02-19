@@ -40,6 +40,9 @@
 // Trait for when you are immune to resonant powers
 #define TRAIT_ANTIRESONANCE "TRAIT_ANTIRESONANCE"
 
+// Trait for when you are immune to resonant powers that reveal any information about you.
+#define TRAIT_ANTIRESONANCE_SCRYING "TRAIT_ANTIRESONANCE_SCRYING"
+
 // Listener for dispelling
 #define COMSIG_ATOM_DISPEL "atom_dispel"
 

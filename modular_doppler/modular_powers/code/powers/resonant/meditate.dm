@@ -30,7 +30,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 				to_chat(owner, span_notice("I have nothing to meditate on!"))
 				keep_going = FALSE
 			if(psyker_organ)
-				psyker_organ.remove_stress(PSYKER_STRESS_MEDITATION_POWER)
+				psyker_organ.modify_stress(-PSYKER_STRESS_MEDITATION_POWER)
 				if(psyker_organ.stress <= 0)
 					to_chat(owner, span_notice("I no longer feel any stress"))
 					keep_going = FALSE
