@@ -7,7 +7,7 @@
 	The power itself grants you the 'Quick Draw' ability, letting you 'acclimate' with an item of your choice. \
 	Whilst acclimated, you can use the power to instantly draw that type of item to your hand, as long as it is anywhere on your person, or within melee range of you. \
 	You can even use this to snag it back from your enemies."
-	value = 4
+	value = 3
 	action_path = /datum/action/cooldown/power/warfighter/quick_draw
 
 /datum/action/cooldown/power/warfighter/quick_draw
@@ -114,7 +114,7 @@
 	if(ishuman(user))
 		var/mob/living/carbon/human/human_user = user
 		var/slot_id = human_user.get_slot_by_item(candidate_item)
-		if(slot_id == ITEM_SLOT_LPOCKET || slot_id == ITEM_SLOT_RPOCKET || slot_id == ITEM_SLOT_BELT || slot_id == ITEM_SLOT_SUITSTORE || slot_id == ITEM_SLOT_ID)
+		if(slot_id == ITEM_SLOT_LPOCKET || slot_id == ITEM_SLOT_RPOCKET || slot_id == ITEM_SLOT_BELT || slot_id == ITEM_SLOT_BACK || slot_id == ITEM_SLOT_SUITSTORE || slot_id == ITEM_SLOT_ID)
 			allow_equipped_slot = TRUE
 
 	if(candidate_item in equipped_items)
