@@ -32,10 +32,6 @@
 	// and Scrying Tracker which basically handels any and all things related to stress gain.
 	var/datum/psyker_scry_tracker/tracker
 
-
-	// Did our scrying get blocked by something?
-	var/scry_blocked = FALSE
-
 /datum/action/cooldown/power/psyker/scrying/Trigger(mob/clicker, trigger_flags, atom/target)
 	. = ..()
 	if(active)
@@ -74,8 +70,10 @@
 	immunity_mask = new(src, user, scry_camera.scry_eye)
 	immunity_mask.refresh_now()
 
-	// Bit of psyker stress on use ontop of the processing cost just to prevent too much screen flicking.
-	modify_stress(PSYKER_STRESS_MINOR * 2)
+	// Bit of psyker stress on use ontop of the processing cost just to prevent too much spam peeking.
+	modify_stress(PSYKER_STRESS_MINOR * 1.5)
+
+	playsound(launched, 'sound/effects/magic/swap.ogg', 75, TRUE)
 	return TRUE
 
 // Gets DNA from blood
@@ -301,8 +299,11 @@
 		if(prob((seconds_per_tick / 30) * 100))
 			to_chat(target_mob, span_warning("A shudder runs down your spine, as if you're being watched."))
 
-	// Stress over time
-	action.modify_stress(PSYKER_STRESS_MINOR * seconds_per_tick)
+	// Applies stress. On the trope of having cripple quirks for psyker, being blind halves your stress upkeep.
+	if(owner.has_quirk(/datum/quirk/item_quirk/blindness))
+		action.modify_stress((PSYKER_STRESS_MINOR * seconds_per_tick) / 2) // handicap discount
+	else
+		action.modify_stress(PSYKER_STRESS_MINOR * seconds_per_tick) // normal people cost
 
 	// Re-apply in case other systems reassert blindness/quirk/etc.
 	if(action.scry_vision)

@@ -49,8 +49,6 @@
 
 // Checks if the target can be affected by mental based psyker stuff, since it has its own litle list of unique immunities. Returns TRUE if the target has nothing that affects mental.
 /datum/action/cooldown/power/psyker/proc/can_affect_mental(mob/living/target, charge_cost = 0)
-	if(!target)
-		return TRUE
 	if(target.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = charge_cost))
 		return FALSE
 	if(target.can_block_magic(MAGIC_RESISTANCE, charge_cost = charge_cost))
@@ -63,8 +61,6 @@
 
 // Checks if the target can be affected by specifically psyker's scrying
 /datum/action/cooldown/power/psyker/proc/can_affect_scrying(mob/living/target, charge_cost = 0)
-	if(!target)
-		return TRUE
 	if(!can_affect_mental(target))
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_ANTIRESONANCE_SCRYING))
