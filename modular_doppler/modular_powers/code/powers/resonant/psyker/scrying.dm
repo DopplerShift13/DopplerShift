@@ -1,0 +1,428 @@
+/*
+	TODO: Add blood for targeting.
+*/
+
+/datum/power/psyker_power/scrying
+	name = "Scrying"
+	desc = "Using a sample of a creature's blood, you can see the world through their eyes remotely. \
+	In this state, you use their sight instead of your own; but you cannot see creatures that are immune to magic, scrying; or lack the brain activity required to be detectable (dumb). \
+	Passively builds up stress. The target sometimes gets preminations to indicate they are watched."
+
+	value = 9
+	priority = POWER_PRIORITY_BASIC
+	action_path = /datum/action/cooldown/power/psyker/scrying
+
+/datum/action/cooldown/power/psyker/scrying
+	name = "Scrying"
+	desc = "Using a sample of a creature's blood, you can see the world through their eyes remotely."
+	button_icon = 'icons/mob/actions/actions_spells.dmi'
+	button_icon_state = "telepathy"
+	click_to_activate = TRUE
+
+	var/atom/movable/scry_target
+
+	// This thing is a MESS. We have split functionality into three datums.
+	// Scrying Camera which handles imparting the sight of the target
+	var/datum/scrying_camera/scry_camera
+	// Scrying Vision which handles vision traits on the user.
+	var/datum/scrying_vision/scry_vision
+	// Scrying Immunity Mask which takes care of hiding creatures immune from scrying
+	var/datum/scrying_immunity_mask/immunity_mask
+	// and Scrying Tracker which basically handels any and all things related to stress gain.
+	var/datum/psyker_scry_tracker/tracker
+
+
+	// Did our scrying get blocked by something?
+	var/scry_blocked = FALSE
+
+/datum/action/cooldown/power/psyker/scrying/Trigger(mob/clicker, trigger_flags, atom/target)
+	. = ..()
+	if(active)
+		end_scrying()
+		to_chat(owner, span_notice("You return your senses to your mind."))
+		return FALSE
+	return TRUE
+
+/*
+	Most of the delegation with scrying is handled by scry_vision
+*/
+/datum/action/cooldown/power/psyker/scrying/use_action(mob/living/user, atom/target)
+	if(!isliving(target))
+		return FALSE
+
+	if(!can_affect_scrying(target))
+		to_chat(user, span_warning("Your sight cannot find purchase on that mind."))
+		return FALSE
+
+	scry_target = target
+	active = TRUE
+
+	scry_camera = new(user, scry_target, src)
+	scry_vision = new(user)
+	tracker = new(src, user)
+	immunity_mask = new(src, user, scry_camera.scry_eye)
+	immunity_mask.refresh_now()
+
+	return TRUE
+
+/datum/action/cooldown/power/psyker/scrying/Remove(mob/removed_from)
+	end_scrying()
+	return ..()
+
+/datum/action/cooldown/power/psyker/scrying/proc/end_scrying()
+	if(!active)
+		return
+
+	active = FALSE
+
+	QDEL_NULL(tracker)
+	QDEL_NULL(scry_vision)
+	QDEL_NULL(scry_camera)
+	QDEL_NULL(immunity_mask)
+
+	scry_target = null
+
+/*
+	We bypass our own vision traits and see the world from the target's pov.
+	Handles the removal of vision traits and the application of the overlay.
+*/
+/datum/scrying_vision
+	// Used to remove/re-add quirk blindness safely.
+	var/had_blind_quirk = FALSE
+	var/datum/weakref/viewer_ref
+
+/datum/scrying_vision/New(mob/living/viewer)
+	. = ..()
+	viewer_ref = WEAKREF(viewer)
+	apply()
+
+/datum/scrying_vision/Destroy()
+	clear()
+	viewer_ref = null
+	return ..()
+
+/datum/scrying_vision/proc/apply()
+	var/mob/living/viewer = viewer_ref?.resolve()
+	if(!istype(viewer))
+		return
+
+	// If blindness is being enforced by the blind quirk, we temporarily remove it.
+	if(viewer.is_blind_from(QUIRK_TRAIT))
+		had_blind_quirk = TRUE
+		viewer.remove_status_effect(/datum/status_effect/grouped/blindness, QUIRK_TRAIT)
+
+	ADD_TRAIT(viewer, TRAIT_SIGHT_BYPASS, REF(src))
+
+	// Restrict vision partially.
+	viewer.overlay_fullscreen("curse", /atom/movable/screen/fullscreen/curse, 1)
+	viewer.update_sight()
+
+/datum/scrying_vision/proc/clear()
+	var/mob/living/viewer = viewer_ref?.resolve()
+	if(!istype(viewer))
+		return
+
+	viewer.clear_fullscreen("curse", 50)
+
+	REMOVE_TRAIT(viewer, TRAIT_SIGHT_BYPASS, REF(src))
+
+	// Restore the blind quirk's blindness if we removed it.
+	if(had_blind_quirk)
+		viewer.become_blind(QUIRK_TRAIT)
+
+	had_blind_quirk = FALSE
+	viewer.update_sight()
+
+/*
+	This sets the player's perspective to a scry eye that follows the target.
+*/
+/datum/scrying_camera
+	var/datum/weakref/viewer_ref
+	var/datum/weakref/target_ref
+	var/datum/weakref/action_ref
+	var/mob/eye/psyker_scry/scry_eye
+
+
+/datum/scrying_camera/New(mob/living/viewer, atom/movable/target, datum/action/cooldown/power/psyker/scrying/action)
+	. = ..()
+	viewer_ref = WEAKREF(viewer)
+	target_ref = WEAKREF(target)
+	action_ref = WEAKREF(action)
+
+	var/turf/target_turf = get_turf(target)
+	if(!target_turf)
+		qdel(src)
+		return
+
+	scry_eye = new(target_turf)
+	scry_eye.set_target(target)
+	scry_eye.assign_user(viewer)
+
+	RegisterSignals(target, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING), PROC_REF(on_target_event))
+
+/datum/scrying_camera/Destroy()
+	var/atom/movable/target = target_ref?.resolve()
+	if(target)
+		UnregisterSignal(target, list(COMSIG_MOVABLE_MOVED, COMSIG_QDELETING))
+
+	if(scry_eye)
+		scry_eye.assign_user(null)
+		QDEL_NULL(scry_eye)
+
+	viewer_ref = null
+	target_ref = null
+	return ..()
+
+/datum/scrying_camera/proc/on_target_event(datum/source)
+	SIGNAL_HANDLER
+
+	if(!scry_eye || QDELETED(scry_eye))
+		qdel(src)
+		return
+
+	var/atom/movable/target = target_ref?.resolve()
+	if(QDELETED(target) || !ismovable(target))
+		qdel(src)
+		return
+
+	var/turf/target_turf = get_turf(target)
+	if(target_turf)
+		scry_eye.setLoc(target_turf)
+		var/datum/action/cooldown/power/psyker/scrying/action = action_ref?.resolve()
+		action?.immunity_mask?.refresh_now()
+
+
+
+/*
+	Tracker just adds stress and handles proccessing.
+*/
+/datum/psyker_scry_tracker
+	var/datum/weakref/action_ref
+	var/datum/weakref/owner_ref
+
+/datum/psyker_scry_tracker/New(datum/action/cooldown/power/psyker/scrying/action, mob/living/owner)
+	. = ..()
+	action_ref = WEAKREF(action)
+	owner_ref = WEAKREF(owner)
+	START_PROCESSING(SSfastprocess, src)
+
+/datum/psyker_scry_tracker/Destroy()
+	STOP_PROCESSING(SSfastprocess, src)
+	return ..()
+
+/datum/psyker_scry_tracker/process(seconds_per_tick)
+	var/datum/action/cooldown/power/psyker/scrying/action = action_ref?.resolve()
+	if(!action || !action.active)
+		qdel(src)
+		return
+
+	var/mob/living/owner = owner_ref?.resolve()
+	if(!owner)
+		action.end_scrying()
+		qdel(src)
+		return
+
+	var/atom/movable/current_target = action.scry_target
+	if(current_target && !action.can_affect_scrying(current_target))
+		action.end_scrying()
+		to_chat(owner, span_warning("Your scrying link was cut off!"))
+		qdel(src)
+		return
+
+	// Stress over time
+	action.modify_stress(PSYKER_STRESS_MINOR * seconds_per_tick)
+
+	// Re-apply in case other systems reassert blindness/quirk/etc.
+	if(action.scry_vision)
+		action.scry_vision.apply()
+
+/*
+	Used to mask mobs from the scrying eye.
+*/
+/datum/scrying_immunity_mask
+	var/datum/weakref/viewer_ref
+	var/datum/weakref/eye_ref
+	var/datum/weakref/action_ref
+
+	// mob -> list(hide_image)
+	var/list/masked_mobs = list()
+
+/datum/scrying_immunity_mask/New(datum/action/cooldown/power/psyker/scrying/action, mob/living/viewer, mob/eye/psyker_scry/eye)
+	. = ..()
+	action_ref = WEAKREF(action)
+	viewer_ref = WEAKREF(viewer)
+	eye_ref = WEAKREF(eye)
+
+	if(viewer)
+		viewer.mob_flags |= MOB_HAS_SCREENTIPS_NAME_OVERRIDE
+		RegisterSignal(viewer, COMSIG_MOB_REQUESTING_SCREENTIP_NAME_FROM_USER, PROC_REF(screentip_name_override))
+		RegisterSignal(viewer, COMSIG_LIVING_PERCEIVE_EXAMINE_NAME, PROC_REF(examine_name_override))
+
+	START_PROCESSING(SSfastprocess, src)
+
+/datum/scrying_immunity_mask/Destroy()
+	STOP_PROCESSING(SSfastprocess, src)
+	var/mob/living/viewer = viewer_ref?.resolve()
+	if(viewer)
+		UnregisterSignal(viewer, list(COMSIG_MOB_REQUESTING_SCREENTIP_NAME_FROM_USER, COMSIG_LIVING_PERCEIVE_EXAMINE_NAME))
+	clear_all()
+	return ..()
+
+/datum/scrying_immunity_mask/process(seconds_per_tick)
+	var/datum/action/cooldown/power/psyker/scrying/action = action_ref?.resolve()
+	var/mob/living/viewer = viewer_ref?.resolve()
+	var/mob/eye/psyker_scry/eye = eye_ref?.resolve()
+
+	if(!action || !action.active || !viewer || !viewer.client || !eye)
+		qdel(src)
+		return
+
+	update_masks(viewer, eye, action)
+
+/datum/scrying_immunity_mask/proc/refresh_now()
+	var/datum/action/cooldown/power/psyker/scrying/action = action_ref?.resolve()
+	var/mob/living/viewer = viewer_ref?.resolve()
+	var/mob/eye/psyker_scry/eye = eye_ref?.resolve()
+	if(!action || !action.active || !viewer || !viewer.client || !eye)
+		return
+
+	update_masks(viewer, eye, action)
+
+/datum/scrying_immunity_mask/proc/update_masks(mob/living/viewer, mob/eye/psyker_scry/eye, datum/action/cooldown/power/psyker/scrying/action)
+	// Determine what mobs are currently "in view" of the scry eye.
+	// Use view() around the eye, not around the viewer.
+	var/list/current_mobs = list()
+	for(var/mob/living/seen_mob in view(viewer.client.view, eye))
+		current_mobs += seen_mob
+
+	// Remove masks for mobs no longer in view (or deleted)
+	for(var/mob/living/masked_mob as anything in masked_mobs.Copy())
+		if(QDELETED(masked_mob) || !(masked_mob in current_mobs) || action.can_affect_scrying(masked_mob))
+			unmask_mob(viewer, masked_mob)
+
+	// Apply masks for newly seen immune mobs (excluding the direct target if you want)
+	for(var/mob/living/seen_mob as anything in current_mobs)
+		if(seen_mob == action.scry_target)
+			continue
+
+		if(masked_mobs[seen_mob])
+			continue
+
+		if(!action.can_affect_scrying(seen_mob))
+			mask_mob(viewer, seen_mob)
+
+/datum/scrying_immunity_mask/proc/mask_mob(mob/living/viewer, mob/living/target_mob)
+	if(!viewer?.client || QDELETED(target_mob))
+		return
+
+	// Hide the mob for THIS client only (visual override)
+	var/image/hide_image = image(loc = target_mob)
+	hide_image.appearance = target_mob.appearance
+	hide_image.override = TRUE
+	hide_image.alpha = 0
+
+	viewer.client.images += hide_image
+
+	masked_mobs[target_mob] = list(hide_image)
+	RegisterSignal(target_mob, COMSIG_ATOM_EXAMINE, PROC_REF(on_target_examine))
+	hide_data_huds(viewer, target_mob)
+
+/datum/scrying_immunity_mask/proc/unmask_mob(mob/living/viewer, mob/living/target_mob)
+	var/list/entry = masked_mobs[target_mob]
+	if(!entry)
+		return
+
+	var/image/hide_image = entry[1]
+
+	if(viewer?.client)
+		if(hide_image)
+			viewer.client.images -= hide_image
+
+	UnregisterSignal(target_mob, COMSIG_ATOM_EXAMINE)
+	unhide_data_huds(viewer, target_mob)
+	masked_mobs -= target_mob
+
+/datum/scrying_immunity_mask/proc/clear_all()
+	var/mob/living/viewer = viewer_ref?.resolve()
+	if(!viewer?.client)
+		masked_mobs.Cut()
+		return
+
+	for(var/mob/living/masked_mob as anything in masked_mobs.Copy())
+		unmask_mob(viewer, masked_mob)
+
+/datum/scrying_immunity_mask/proc/on_target_examine(datum/source, mob/user, list/examine_list)
+	SIGNAL_HANDLER
+
+	var/mob/living/viewer = viewer_ref?.resolve()
+	if(user != viewer)
+		return NONE
+
+	if(!istype(source, /mob/living) || !masked_mobs[source])
+		return NONE
+
+	examine_list.Cut()
+	examine_list += span_notice("It's too hazy to make out details.")
+	return NONE
+
+/datum/scrying_immunity_mask/proc/hide_data_huds(mob/living/viewer, mob/living/target_mob)
+	if(!viewer || !target_mob)
+		return
+	for(var/datum/atom_hud/hud as anything in GLOB.huds)
+		hud.hide_single_atomhud_from(viewer, target_mob)
+
+/datum/scrying_immunity_mask/proc/unhide_data_huds(mob/living/viewer, mob/living/target_mob)
+	if(!viewer || !target_mob)
+		return
+	for(var/datum/atom_hud/hud as anything in GLOB.huds)
+		hud.unhide_single_atomhud_from(viewer, target_mob)
+
+/datum/scrying_immunity_mask/proc/examine_name_override(datum/source, mob/living/examined, visible_name, list/name_override)
+	SIGNAL_HANDLER
+
+	if(!istype(examined) || !masked_mobs[examined])
+		return NONE
+
+	name_override[1] = "Unknown"
+	return COMPONENT_EXAMINE_NAME_OVERRIDEN
+
+/datum/scrying_immunity_mask/proc/screentip_name_override(datum/source, list/returned_name, obj/item/held_item, atom/hovered)
+	SIGNAL_HANDLER
+
+	if(!istype(hovered) || !masked_mobs[hovered])
+		return NONE
+
+	returned_name[1] = "Unknown"
+	return SCREENTIP_NAME_SET
+
+
+/*
+	Scry eye mob: purely perspective anchor.
+*/
+/mob/eye/psyker_scry
+	name = "scrying eye"
+	var/datum/weakref/user_ref
+	var/datum/weakref/target_ref
+
+/mob/eye/psyker_scry/Destroy()
+	assign_user(null)
+	return ..()
+
+/mob/eye/psyker_scry/proc/assign_user(mob/living/new_user)
+	var/mob/living/old_user = user_ref?.resolve()
+	if(old_user)
+		old_user.reset_perspective(null)
+		name = initial(src.name)
+
+	user_ref = WEAKREF(new_user)
+
+	if(new_user)
+		new_user.reset_perspective(src)
+		name = "Scrying Eye ([new_user.name])"
+
+/mob/eye/psyker_scry/proc/set_target(atom/movable/target)
+	target_ref = WEAKREF(target)
+
+/mob/eye/psyker_scry/proc/setLoc(turf/destination, force_update = FALSE)
+	if(destination)
+		forceMove(destination)
