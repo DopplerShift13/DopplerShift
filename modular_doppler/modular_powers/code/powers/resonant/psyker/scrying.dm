@@ -1,5 +1,5 @@
 /*
-	TODO: Add blood for targeting.
+	Lets you use blood to scry someone. Really potent for detectives and the likes; but has a massive laundry list of things that disable it.
 */
 
 /datum/power/psyker_power/scrying
@@ -8,7 +8,7 @@
 	In this state, you use their sight instead of your own; but you cannot see creatures that are immune to magic, scrying; or lack the brain activity required to be detectable (dumb). \
 	Passively builds up stress. The target sometimes gets preminations to indicate they are watched."
 
-	value = 9
+	value = 10
 	priority = POWER_PRIORITY_BASIC
 	action_path = /datum/action/cooldown/power/psyker/scrying
 
@@ -18,6 +18,7 @@
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "telepathy"
 	click_to_activate = TRUE
+	target_range = 1
 
 	var/atom/movable/scry_target
 
@@ -44,31 +45,96 @@
 	return TRUE
 
 /*
-	Most of the delegation with scrying is handled by scry_vision
+	Most of the delegation with scrying is handled by scry_vision. We simply verify here and build the datums used.
 */
 /datum/action/cooldown/power/psyker/scrying/use_action(mob/living/user, atom/target)
-	if(!isliving(target))
+	var/list/dna_samples = get_blood_dna_list_from_target(target)
+	if(!length(dna_samples))
+		to_chat(user, span_warning("You need blood to focus your scrying."))
 		return FALSE
 
-	if(!can_affect_scrying(target))
+	// If your list of dna samples has multiples then my man you gotta clean your samples. Chooses a random one.
+	var/selected_dna = pick(dna_samples)
+	var/mob/living/chosen_target = find_scry_target_from_dna(selected_dna)
+	if(!chosen_target)
+		to_chat(user, span_warning("No mind to link to."))
+		return FALSE
+
+	if(!can_affect_scrying(chosen_target))
 		to_chat(user, span_warning("Your sight cannot find purchase on that mind."))
 		return FALSE
 
-	scry_target = target
 	active = TRUE
 
+	scry_target = chosen_target
+	// We create the new datums which will immedaitely handle their effects.
 	scry_camera = new(user, scry_target, src)
 	scry_vision = new(user)
 	tracker = new(src, user)
 	immunity_mask = new(src, user, scry_camera.scry_eye)
 	immunity_mask.refresh_now()
 
+	// Bit of psyker stress on use ontop of the processing cost just to prevent too much screen flicking.
+	modify_stress(PSYKER_STRESS_MINOR * 2)
 	return TRUE
+
+// Gets DNA from blood
+/datum/action/cooldown/power/psyker/scrying/proc/get_blood_dna_list_from_target(atom/target)
+	if(isnull(target))
+		return null
+
+	var/list/dna_list = list()
+
+	if(ismob(target))
+		return dna_list
+
+	// Gets dna from a blood decal.
+	if(istype(target, /obj/effect/decal/cleanable/blood))
+		var/list/blood = GET_ATOM_BLOOD_DNA(target)
+		for(var/dna in blood)
+			dna_list += dna
+		return dna_list
+
+	// Gets dna from blood from reagent containers. Note: There's a bug with scraping blood not saving DNA; so if it acts weirds its likely that (as of 20/02/26)
+	if(istype(target, /obj/item/reagent_containers))
+		for(var/datum/reagent/present_reagent as anything in target.reagents?.reagent_list)
+			if(!istype(present_reagent, /datum/reagent/blood))
+				continue
+			var/blood_dna = present_reagent.data?["blood_DNA"]
+			if(isnull(blood_dna))
+				continue
+			if(islist(blood_dna))
+				for(var/dna in blood_dna)
+					dna_list += dna
+			else
+				dna_list += blood_dna
+
+	// Any non-mob atom with forensics blood on it (e.g. clothes, tools)
+	var/list/blood = GET_ATOM_BLOOD_DNA(target)
+	if(length(blood))
+		for(var/dna in blood)
+			dna_list += dna
+
+	return dna_list
+
+// Checks the blood for a dna match.
+/datum/action/cooldown/power/psyker/scrying/proc/find_scry_target_from_dna(selected_dna)
+	if(!selected_dna)
+		return null
+
+	for(var/mob/living/target in GLOB.mob_list)
+		if(isobserver(target))
+			continue
+		var/list/blood_dna = target.get_blood_dna_list()
+		if(blood_dna && blood_dna[selected_dna])
+			return target
+	return null
 
 /datum/action/cooldown/power/psyker/scrying/Remove(mob/removed_from)
 	end_scrying()
 	return ..()
 
+// called by everything that eneds scrying; removes all the datums and left over signalers.
 /datum/action/cooldown/power/psyker/scrying/proc/end_scrying()
 	if(!active)
 		return
@@ -228,6 +294,12 @@
 		to_chat(owner, span_warning("Your scrying link was cut off!"))
 		qdel(src)
 		return
+
+	// Random chance for the target to feel a chill down their spine.
+	if(ismob(current_target))
+		var/mob/target_mob = current_target
+		if(prob((seconds_per_tick / 30) * 100))
+			to_chat(target_mob, span_warning("A shudder runs down your spine, as if you're being watched."))
 
 	// Stress over time
 	action.modify_stress(PSYKER_STRESS_MINOR * seconds_per_tick)
