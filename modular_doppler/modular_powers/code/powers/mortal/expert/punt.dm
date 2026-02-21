@@ -14,7 +14,7 @@
 
 /datum/action/cooldown/power/expert/punt
 	name = "Punt"
-	desc = "Using your foot or some other part of your body, you send an object barreling down a long distance away from you. If someone is hit by the object and it is solid, they are knocked down and take damage. \
+	desc = "You send an object barreling down a long distance away from you. If someone is hit by the object and it is solid, they are knocked down and take damage. \
 	Distance (and damage) scale with your Athletics skill. Double distance on crates and non-bulky objects!"
 	button_icon = 'icons/mob/actions/actions_elites.dmi' // another placeholder
 	button_icon_state = "herald_teleshot"
@@ -69,17 +69,18 @@
 	if(source.density)
 		if(isliving(hit_atom)) // if you manage to line up the shot you deserve this
 			var/mob/living/living_atom = hit_atom
+			var/mob/thrower = thrownthing?.get_thrower() || owner
+
 			living_atom.apply_damage(damage, BRUTE)
 			living_atom.Knockdown(2 SECONDS)
 			playsound(living_atom, 'sound/items/lead_pipe_hit.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE) // I am not sorry for this choice in sound effect
 
-			var/mob/thrower = thrownthing?.get_thrower() || owner
+			// logging
+			living_atom.log_message("was punted by an object from [thrower] for [damage] damage.")
+			thrower.log_message("punted an object at [living_atom] for [damage] damage.")
+
 			if(!thrower || get_dist(thrower, hit_atom) >= 12) //if you hit someone offscreen, which can't be done without legendary.
 				thrower.playsound_local(thrower, 'sound/items/weapons/homerun.ogg', 75)
 				to_chat(thrower, span_boldnotice("You can't see it, but you've got a hunch you just hit a fantastic shot."))
 		else if(hit_atom.uses_integrity) // sorry about the window ma'am
 			hit_atom.take_damage(damage, BRUTE, MELEE)
-
-	// Items landing in trash bins should go inside
-	if(isitem(source) && istype(hit_atom, /obj/structure/closet/crate/bin))
-		source.forceMove(hit_atom)

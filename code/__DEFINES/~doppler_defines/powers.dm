@@ -142,6 +142,23 @@
 #define TRAIT_ARCHETYPE_RESONANT "archetype_resonant"
 
 /**
+ * RESONANT: CULTIVATOR
+ * All defines related to the cultivator powers.
+ */
+
+// Maximum amount of Dantian we can have.
+#define CULTIVATOR_DANTIAN_MAX 1000
+
+// How much dantian we get from meditation every 2.5 seconds
+#define CULTIVATOR_DANTIAN_MEDITATION_POWER 4
+
+// UI location of the Cultivator element
+#define CULTIVATOR_UI_SCREEN_LOC "WEST,CENTER-2:20"
+
+// Bonus damage on strikes done by alignment
+#define CULTIVATOR_ALIGNMENT_DAMAGE_BONUS 10
+
+/**
  * RESONANT: PSYKER
  * All defines related to the enigmatist powers.
  */
