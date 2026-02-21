@@ -157,3 +157,8 @@
 	icon_state = "babydoll"
 	gender = FEMALE
 	use_static = FALSE
+
+/datum/sprite_accessory/undershirt/tizirian_undershirt
+	name = "Tizirian Undershirt"
+	icon_state = "tizzy"
+	use_static = FALSE

@@ -144,3 +144,8 @@
 /datum/sprite_accessory/bra/pasties_alt
 	name = "Pasties (Alt)"
 	icon_state = "pasties_alt"
+
+/datum/sprite_accessory/bra/tizirian_braces
+	name = "Tizirian Braces"
+	icon_state = "tizzy"
+	use_static = FALSE
