@@ -40,17 +40,19 @@
 			stress = 0
 			return
 		var/stress_to_recover = recovery_per_second
-		// Harder to recover at higher stress
-		stress_to_recover -= (stress * 0.01)
-
 		// Organ damage makes recovery worse
 		stress_to_recover -= (damage * 0.015)
+
+		// Can't recover stress while at high stress.
+		if(stress => PSYKER_STRESS_STANDARD_THRESHOLD)
+			stress_to_recover = 0
 
 		// Don’t let recovery go negative (would increase stress)
 		stress_to_recover = max(stress_to_recover, 0)
 
 		// Apply recovery, don't let it send stress into the negatives.
 		stress = max(stress - stress_to_recover * seconds_per_tick, 0)
+
 
 		// Check if we do stress backlash after stress reduction.
 		if(stress >= (stress_threshold * 2)) // Catastrophic event.

@@ -150,7 +150,7 @@
 #define PSYKER_STRESS_STANDARD_THRESHOLD 100
 
 // Standard stress recovery per second before modifiers.
-#define PSYKER_STRESS_RECOVERY 1.1
+#define PSYKER_STRESS_RECOVERY 1
 
 // How much meditate recovers.
 #define PSYKER_STRESS_MEDITATION_POWER 10

@@ -73,7 +73,7 @@
 	// Bit of psyker stress on use ontop of the processing cost just to prevent too much spam peeking.
 	modify_stress(PSYKER_STRESS_MINOR * 1.5)
 
-	playsound(launched, 'sound/effects/magic/swap.ogg', 75, TRUE)
+	playsound(user, 'sound/effects/magic/swap.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return TRUE
 
 // Gets DNA from blood
