@@ -27,7 +27,7 @@
 	// The base distance we punt. Keep in mind this is without the athletics bonus (they'll at least be journeyman so +2)
 	var/base_range = 1
 	// how much damage punt impact does if its a solid object.
-	var/base_damage = 10
+	var/base_damage = 5
 
 /datum/action/cooldown/power/expert/punt/use_action(mob/living/user, obj/target)
 	if(!target || target.anchored || !isturf(target.loc))
@@ -46,13 +46,16 @@
 		var/obj/item/target_item = target
 		if(target_item.w_class <= WEIGHT_CLASS_NORMAL)
 			range *= 2
+	// If we're legendary we get a bit more throw distance; enough to be able to offscreen people.
+	if(user.mind?.get_skill_level(/datum/skill/athletics) >= SKILL_LEVEL_LEGENDARY)
+		range += 2
 
 	var/dir = get_dir(user, target)
 	user.setDir(dir)
 	var/turf/target_turf = get_ranged_target_turf(target, dir, range)
 
 	RegisterSignal(target, COMSIG_MOVABLE_IMPACT, PROC_REF(punt_impact))
-	playsound(user, 'sound/effects/meteorimpact.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	playsound(user, 'sound/effects/meteorimpact.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 	target.throw_at(target_turf, range = range, speed = target.density ? 3 : 4, thrower = user, spin = isitem(target))
 	return TRUE
 
@@ -68,7 +71,12 @@
 			var/mob/living/living_atom = hit_atom
 			living_atom.apply_damage(damage, BRUTE)
 			living_atom.Knockdown(2 SECONDS)
-			playsound(living_atom, 'sound/items/lead_pipe_hit.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE) // I am not sorry for this choice in sound effect
+			playsound(living_atom, 'sound/items/lead_pipe_hit.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE) // I am not sorry for this choice in sound effect
+
+			var/mob/thrower = thrownthing?.get_thrower() || owner
+			if(!thrower || get_dist(thrower, hit_atom) >= 12) //if you hit someone offscreen, which can't be done without legendary.
+				thrower.playsound_local(thrower, 'sound/items/weapons/homerun.ogg', 75)
+				to_chat(thrower, span_boldnotice("You can't see it, but you've got a hunch you just hit a fantastic shot."))
 		else if(hit_atom.uses_integrity) // sorry about the window ma'am
 			hit_atom.take_damage(damage, BRUTE, MELEE)
 
