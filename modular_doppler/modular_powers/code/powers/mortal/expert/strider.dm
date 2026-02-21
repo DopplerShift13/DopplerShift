@@ -4,7 +4,7 @@
 
 /datum/power/expert/strider
 	name = "Strider"
-	desc = "You're one hell of a hunk of a man. You ignore all slowdowns from held & worn items. \
+	desc = "Your strength is herculean. You ignore all slowdowns from held & worn items. \
 	You also start out at Master proficiency athletics."
 	value = 6
 	required_powers = list(/datum/power/expert/heavy_lifter)

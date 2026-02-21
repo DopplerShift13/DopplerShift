@@ -15,8 +15,8 @@
 /datum/action/cooldown/power/psyker/scrying
 	name = "Scrying"
 	desc = "Using a sample of a creature's blood, you can see the world through their eyes remotely."
-	button_icon = 'icons/mob/actions/actions_spells.dmi'
-	button_icon_state = "telepathy"
+	button_icon = 'icons/mob/actions/actions_animal.dmi'
+	button_icon_state = "gaze"
 	click_to_activate = TRUE
 	target_range = 1
 
@@ -33,11 +33,11 @@
 	var/datum/psyker_scry_tracker/tracker
 
 /datum/action/cooldown/power/psyker/scrying/Trigger(mob/clicker, trigger_flags, atom/target)
-	. = ..()
 	if(active)
 		end_scrying()
 		to_chat(owner, span_notice("Your sight returns as you focus back on your own mind."))
-		return FALSE
+	else
+		. = ..()
 	return TRUE
 
 /*
