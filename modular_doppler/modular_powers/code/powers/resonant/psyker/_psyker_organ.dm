@@ -44,7 +44,7 @@
 		stress_to_recover -= (damage * 0.015)
 
 		// Can't recover stress while at high stress.
-		if(stress => PSYKER_STRESS_STANDARD_THRESHOLD)
+		if(stress >= PSYKER_STRESS_STANDARD_THRESHOLD)
 			stress_to_recover = 0
 
 		// Don’t let recovery go negative (would increase stress)

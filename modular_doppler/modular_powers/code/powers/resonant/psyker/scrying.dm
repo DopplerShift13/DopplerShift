@@ -27,9 +27,9 @@
 	var/datum/scrying_camera/scry_camera
 	// Scrying Vision which handles vision traits on the user.
 	var/datum/scrying_vision/scry_vision
-	// Scrying Immunity Mask which takes care of hiding creatures immune from scrying
+	// Scrying Immunity Mask which hides people into indistinct overlays.
 	var/datum/scrying_immunity_mask/immunity_mask
-	// and Scrying Tracker which basically handels any and all things related to stress gain.
+	// and Scrying Tracker which basically handles any and all things related to stress gain.
 	var/datum/psyker_scry_tracker/tracker
 
 /datum/action/cooldown/power/psyker/scrying/Trigger(mob/clicker, trigger_flags, atom/target)
@@ -74,7 +74,28 @@
 	modify_stress(PSYKER_STRESS_MINOR * 1.5)
 
 	playsound(user, 'sound/effects/magic/swap.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
+
+	// Adds listeners for dispelling on the target
+	RegisterSignal(scry_target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	return TRUE
+
+// Dispel functionality
+/datum/action/cooldown/power/psyker/scrying/Grant(mob/granted_to)
+	. = ..()
+	if(resonant)
+		RegisterSignal(granted_to, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+
+/datum/action/cooldown/power/psyker/scrying/Remove(mob/removed_from)
+	. = ..()
+	if(resonant)
+		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
+	end_scrying()
+
+/datum/action/cooldown/power/psyker/scrying/proc/on_dispel(mob/owner, atom/dispeller)
+	SIGNAL_HANDLER
+	if(active)
+		to_chat(owner, span_warning("Your scrying link was cut off!"))
+		end_scrying()
 
 // Gets DNA from blood
 /datum/action/cooldown/power/psyker/scrying/proc/get_blood_dna_list_from_target(atom/target)
@@ -128,10 +149,6 @@
 			return target
 	return null
 
-/datum/action/cooldown/power/psyker/scrying/Remove(mob/removed_from)
-	end_scrying()
-	return ..()
-
 // called by everything that eneds scrying; removes all the datums and left over signalers.
 /datum/action/cooldown/power/psyker/scrying/proc/end_scrying()
 	if(!active)
@@ -144,7 +161,12 @@
 	QDEL_NULL(scry_camera)
 	QDEL_NULL(immunity_mask)
 
+	// removes dispel signal from target
+	UnregisterSignal(scry_target, COMSIG_ATOM_DISPEL)
+
 	scry_target = null
+
+
 
 /*
 	We bypass our own vision traits and see the world from the target's pov.
@@ -301,9 +323,9 @@
 
 	// Applies stress. On the trope of having cripple quirks for psyker, being blind halves your stress upkeep.
 	if(owner.has_quirk(/datum/quirk/item_quirk/blindness))
-		action.modify_stress((PSYKER_STRESS_MINOR * seconds_per_tick) / 2) // handicap discount
+		action.modify_stress((PSYKER_STRESS_MINOR * seconds_per_tick) / 4) // handicap discount
 	else
-		action.modify_stress(PSYKER_STRESS_MINOR * seconds_per_tick) // normal people cost
+		action.modify_stress((PSYKER_STRESS_MINOR * seconds_per_tick) / 2) // normal people cost
 
 	// Re-apply in case other systems reassert blindness/quirk/etc.
 	if(action.scry_vision)
@@ -362,27 +384,31 @@
 	update_masks(viewer, eye, action)
 
 /datum/scrying_immunity_mask/proc/update_masks(mob/living/viewer, mob/eye/psyker_scry/eye, datum/action/cooldown/power/psyker/scrying/action)
-	// Determine what mobs are currently "in view" of the scry eye.
-	// Use view() around the eye, not around the viewer.
 	var/list/current_mobs = list()
 	for(var/mob/living/seen_mob in view(viewer.client.view, eye))
 		current_mobs += seen_mob
 
 	// Remove masks for mobs no longer in view (or deleted)
 	for(var/mob/living/masked_mob as anything in masked_mobs.Copy())
-		if(QDELETED(masked_mob) || !(masked_mob in current_mobs) || action.can_affect_scrying(masked_mob))
+		if(QDELETED(masked_mob) || !(masked_mob in current_mobs))
 			unmask_mob(viewer, masked_mob)
 
-	// Apply masks for newly seen immune mobs (excluding the direct target if you want)
+	// Apply masks for newly seen mobs (baseline: everyone)
 	for(var/mob/living/seen_mob as anything in current_mobs)
-		if(seen_mob == action.scry_target)
-			continue
-
 		if(masked_mobs[seen_mob])
+			update_silhouette_dir(seen_mob)
 			continue
 
-		if(!action.can_affect_scrying(seen_mob))
-			mask_mob(viewer, seen_mob)
+		mask_mob(viewer, seen_mob)
+
+// makes the silhouettes directional
+/datum/scrying_immunity_mask/proc/update_silhouette_dir(mob/living/target_mob)
+	var/list/entry = masked_mobs[target_mob]
+	if(!entry)
+		return
+	var/image/silhouette_image = entry[2]
+	if(silhouette_image)
+		silhouette_image.dir = target_mob.dir
 
 /datum/scrying_immunity_mask/proc/mask_mob(mob/living/viewer, mob/living/target_mob)
 	if(!viewer?.client || QDELETED(target_mob))
@@ -394,9 +420,20 @@
 	hide_image.override = TRUE
 	hide_image.alpha = 0
 
-	viewer.client.images += hide_image
+	// Silhouette marker, anchored to the mob so it follows movement
+	var/image/silhouette_image = image('icons/effects/effects.dmi', target_mob, "blank")
+	silhouette_image.override = FALSE
+	silhouette_image.layer = ABOVE_MOB_LAYER
+	silhouette_image.plane = GAME_PLANE
+	silhouette_image.appearance_flags = RESET_ALPHA | RESET_COLOR | RESET_TRANSFORM
+	silhouette_image.dir = target_mob.dir
 
-	masked_mobs[target_mob] = list(hide_image)
+	viewer.client.images += hide_image
+	viewer.client.images += silhouette_image
+
+	masked_mobs[target_mob] = list(hide_image, silhouette_image)
+
+	// Keep your existing “don’t leak info” hooks
 	RegisterSignal(target_mob, COMSIG_ATOM_EXAMINE, PROC_REF(on_target_examine))
 	hide_data_huds(viewer, target_mob)
 
@@ -406,10 +443,13 @@
 		return
 
 	var/image/hide_image = entry[1]
+	var/image/silhouette_image = entry[2]
 
 	if(viewer?.client)
 		if(hide_image)
 			viewer.client.images -= hide_image
+		if(silhouette_image)
+			viewer.client.images -= silhouette_image
 
 	UnregisterSignal(target_mob, COMSIG_ATOM_EXAMINE)
 	unhide_data_huds(viewer, target_mob)
