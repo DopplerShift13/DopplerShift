@@ -87,11 +87,11 @@
 	icon_state = "exhaust"
 	is_editable = TRUE
 
-/obj/structure/sign/semiotic/refridgeration
-	name = "refridgeration label"
-	sign_change_name = "Semiotic Label - Refridgeration"
-	desc = "Indicates the space beyond is refridgerated."
-	icon_state = "refridgeration"
+/obj/structure/sign/semiotic/refrigeration
+	name = "refrigeration label"
+	sign_change_name = "Semiotic Label - Refrigeration"
+	desc = "Indicates the space beyond is refrigerated."
+	icon_state = "refrigeration"
 	is_editable = TRUE
 
 /obj/structure/sign/semiotic/galley
