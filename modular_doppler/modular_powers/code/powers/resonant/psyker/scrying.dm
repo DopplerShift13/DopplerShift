@@ -4,8 +4,8 @@
 
 /datum/power/psyker_power/scrying
 	name = "Scrying"
-	desc = "Using a sample of a creature's blood, you can see the world through their eyes remotely. \
-	In this state, you use their sight instead of your own; but you cannot see creatures that are immune to magic, scrying; or lack the brain activity required to be detectable (dumb). \
+	desc = "Using a sample of a creature's blood, you can see the world through their eyes remotely. Creatures will be vague and hard to distinguish, but their environment will appear clear. \
+	In this state, you use their sight instead of your own; but you cannot target creatures that are immune to magic, scrying; or lack the brain activity required to be detectable (dumb). \
 	Passively builds up stress. The target sometimes gets preminations to indicate they are watched."
 
 	value = 10
@@ -36,7 +36,7 @@
 	. = ..()
 	if(active)
 		end_scrying()
-		to_chat(owner, span_notice("You return your senses to your mind."))
+		to_chat(owner, span_notice("Your sight returns as you focus back on your own mind."))
 		return FALSE
 	return TRUE
 
