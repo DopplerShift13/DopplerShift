@@ -26,6 +26,7 @@
 		The three moons of Tiziria are stamped onto the top, along with a certificate of quality \
 		in worn down Khaishhs."
 	icon_state = "lizard_tea"
+	break_type = /obj/item/reagent_containers/applicator/pill/tea_brick_piece/mushroom
 	list_reagents = list(
 		/datum/reagent/toxin/mushroom_powder = 36
 	)
