@@ -22,7 +22,8 @@
 	if (!..(value))
 		return FALSE
 
+	/* DOPPLER REMOVAL BEGIN - Allows pretty dark characters. Update from a previous 2 year old update that removed the whole proc instead.
 	if (is_color_dark(value, 15))
 		return FALSE
-
+	*/ // DOPPLER REMOVAL END
 	return TRUE
