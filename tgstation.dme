@@ -7468,6 +7468,8 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\_cultivator_power.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\_cultivator_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\astraltouched_root.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\cultivator\flamesoul_root.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\cultivator\shadowwalker_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\scrying.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_root.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_action.dm"

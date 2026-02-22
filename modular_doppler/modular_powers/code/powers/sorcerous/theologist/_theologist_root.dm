@@ -30,4 +30,4 @@
 
 	if(!has_other_root)
 		var/tobedel = power_holder.GetComponent(/datum/component/theologist_piety)
-		QDELL_NULL(tobedel)
+		QDEL_NULL(tobedel)

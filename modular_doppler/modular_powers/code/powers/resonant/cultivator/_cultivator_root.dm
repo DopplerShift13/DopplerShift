@@ -32,4 +32,4 @@
 
 	if(!has_other_root)
 		var/tobedel = power_holder.GetComponent(/datum/component/cultivator_dantian)
-		QDELL_NULL(tobedel)
+		QDEL_NULL(tobedel)
