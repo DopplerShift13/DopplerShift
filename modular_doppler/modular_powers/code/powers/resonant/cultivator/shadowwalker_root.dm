@@ -27,7 +27,7 @@
 
 
 	alignment_outline_color = "#000000"
-	alignment_damage_type = TOX
+	alignment_overlay_state = "curse"
 
 	// the spooky overlay unique to shadow walker
 	var/mutable_appearance/echo_overlay

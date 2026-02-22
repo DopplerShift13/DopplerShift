@@ -130,6 +130,12 @@
 // Maximum amount of Piety
 #define THEOLOGIAN_PIETY_MAX 50
 
+// UI location of the Piety element
+#define THEOLOGIST_UI_SCREEN_LOC "WEST,CENTER-2:15"
+
+// In case the space is taken up by cultivator
+#define THEOLOGIST_ALT_UI_SCREEN_LOC "WEST+1,CENTER-2:15"
+
 // Trait made as to prevent duplicate smites.
 #define TRAIT_HAS_SMITING_STRIKE "has_smiting_strike"
 
@@ -153,7 +159,7 @@
 #define CULTIVATOR_DANTIAN_MEDITATION_POWER 4
 
 // UI location of the Cultivator element
-#define CULTIVATOR_UI_SCREEN_LOC "WEST,CENTER-2:20"
+#define CULTIVATOR_UI_SCREEN_LOC "WEST,CENTER-2:15"
 
 // Bonus damage on strikes done by alignment
 #define CULTIVATOR_ALIGNMENT_DAMAGE_BONUS 10

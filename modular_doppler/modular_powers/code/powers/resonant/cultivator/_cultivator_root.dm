@@ -20,16 +20,17 @@
 
 /datum/power/cultivator_root/remove()
 	. = ..()
-	if(!power_holder)
+	var/mob/living/holder = power_holder
+	if(!holder)
 		return
 
 	// We check for other roots of our type, in the event that admin shenanigangs gave multiple roots. Don't want to throw out the whole component when other things are still in use.
 	var/has_other_root = FALSE
-	for(var/datum/power/power as anything in power_holder.powers)
+	for(var/datum/power/power as anything in holder.powers)
 		if(istype(power, /datum/power/cultivator_root))
 			has_other_root = TRUE
 			break
 
 	if(!has_other_root)
-		var/tobedel = power_holder.GetComponent(/datum/component/cultivator_dantian)
+		var/tobedel = holder.GetComponent(/datum/component/cultivator_dantian)
 		QDEL_NULL(tobedel)

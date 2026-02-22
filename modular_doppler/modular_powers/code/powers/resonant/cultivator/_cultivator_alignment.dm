@@ -103,6 +103,7 @@
 /datum/action/cooldown/power/cultivator/alignment/proc/disable_alignment(mob/living/carbon/user)
 	if(alignment_overlay)
 		user.cut_overlay(alignment_overlay)
+		QDEL_NULL(alignment_overlay)
 	UnregisterSignal(user, list(COMSIG_HUMAN_UNARMED_HIT, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM))
 	user.remove_filter(filter_id)
 	remove_alignment_armor()
