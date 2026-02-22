@@ -7,7 +7,7 @@
 	// The mob we’re attached to is always `parent`.
 	var/mob/living/attached_mob
 
-	// Whatever state your old attached_cultivator_dantian tracked:
+	// Current Dantian & the cap itself.
 	var/dantian = 0
 	var/max_dantian = CULTIVATOR_DANTIAN_MAX
 

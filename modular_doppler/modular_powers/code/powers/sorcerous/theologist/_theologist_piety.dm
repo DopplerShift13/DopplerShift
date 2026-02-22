@@ -7,7 +7,7 @@
 	// The mob we’re attached to is always `parent`.
 	var/mob/living/attached_mob
 
-	// Whatever state your old attached_theologist_piety tracked:
+	// current piety & max piety
 	var/piety = 0
 	var/max_piety = THEOLOGIAN_PIETY_MAX
 

@@ -32,6 +32,7 @@
 	alignment_activation_sound = 'sound/effects/magic/fireball.ogg'
 	alignment_overlay_icon = 'icons/effects/eldritch.dmi'
 	alignment_overlay_state = "ring_leader_effect"
+	alignment_overlay_layer = LOW_MOB_LAYER
 
 	alignment_damage_type = BURN
 	alignment_defense = /datum/armor/alignment_flamesoul_defense
