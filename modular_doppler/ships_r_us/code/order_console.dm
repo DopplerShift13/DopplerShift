@@ -113,6 +113,8 @@
 
 /obj/machinery/computer/personal_shuttle_order/ui_interact(mob/user, datum/tgui/ui)
 	. = ..()
+	if(!can_interact(user))
+		return
 	if(!our_docking_port)
 		balloon_alert(user, "no linked docking port")
 		return
