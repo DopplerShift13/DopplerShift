@@ -2,7 +2,6 @@
 // Both of these lists are shifted to glob so they are generated at world start instead of risking players doing preference stuff before the subsystem inits.
 GLOBAL_LIST_INIT_TYPED(powers_blacklist, /list/datum/power, list(
 	//list(/datum/power/item_power/thaumaturge_root, /datum/power/enigmatist_root),
-	list(/datum/power/theologist_root/revered, /datum/power/theologist_root/shared, /datum/power/theologist_root/twisted) // The three Theologist Roots
 ))
 
 GLOBAL_LIST_INIT(powers_requirements_list, generate_powers_requirements_list())
@@ -144,6 +143,9 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	// Track distinct paths we accept while filtering this batch
 	var/list/unique_paths = list()
 
+	// Track distinct roots we accept.
+	var/list/root_by_path = list()
+
 	// TODO: work out how to filter powers missing their requirements.
 	// This could be higher priorities, but could also be at the same priority level.
 	// TODO: work out how to filter for going over the balance cap without introducing major issues.
@@ -174,6 +176,12 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 				continue // Third distinct path, discard.
 			unique_paths[power_type.path] = TRUE
 
+		// Block multiple root powers on the same path
+		if(power_type.priority == POWER_PRIORITY_ROOT)
+			if(root_by_path[power_type.path])
+				continue // another root of this path already accepted
+			root_by_path[power_type.path] = power_type
+
 		// Make sure we don't have incompatible powers
 		var/blacklisted = FALSE
 		for(var/list/blacklist as anything in GLOB.powers_blacklist)
@@ -187,6 +195,8 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 				break
 		if(blacklisted)
 			continue // Incompatible, discard.
+
+		// Succes = add power
 		intermediary_powers += power_name
 
 	// Build a set of selected power types.

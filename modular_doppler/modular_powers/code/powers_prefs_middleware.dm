@@ -54,7 +54,7 @@
 			if(get_requiring_power(power_type))
 				locked_in = TRUE
 		else
-			if(get_incompatible_power(power_type) || get_required_power(power_type))
+			if(get_incompatible_power(power_type) || get_required_power(power_type) || would_exceed_path_limit(power_type))
 				locked_in = TRUE
 
 		var/state
@@ -411,12 +411,36 @@
  * and returns the first one encountered if so.
  */
 /datum/preference_middleware/powers/proc/get_incompatible_power(datum/power/power_type)
+	// checks for blacklist
 	for(var/list/blacklist as anything in GLOB.powers_blacklist)
 		if(!(power_type in blacklist))
 			continue
 		for(var/datum/power/other_power_type as anything in blacklist)
 			if(other_power_type.name in preferences.all_powers)
 				return other_power_type
+	// checks for multiple roots of same path
+	if(power_type.priority == POWER_PRIORITY_ROOT)
+		for(var/existing_power_name in preferences.all_powers)
+			var/datum/power/existing_power_type = SSpowers.powers[existing_power_name]
+			if(!existing_power_type)
+				continue
+			if(existing_power_type.priority == POWER_PRIORITY_ROOT && existing_power_type.path == power_type.path)
+				return existing_power_type
+
+/**
+ * Returns TRUE if selecting power_type would exceed the 2-path limit.
+ */
+/datum/preference_middleware/powers/proc/would_exceed_path_limit(datum/power/power_type)
+	var/list/unique_paths = list()
+	for(var/existing_power_name in preferences.all_powers)
+		var/datum/power/existing_power_type = SSpowers.powers[existing_power_name]
+		if(!existing_power_type)
+			continue
+		unique_paths[existing_power_type.path] = TRUE
+
+	// If this power adds a third distinct path, block it.
+	if(!(power_type.path in unique_paths) && length(unique_paths) >= 2)
+		return TRUE
 
 /datum/asset/simple/powers
 	assets = list(
