@@ -27,7 +27,11 @@ Reduces stress for psykers and restores Dantian for cultivators
 	do
 		active = TRUE
 		if(do_after(owner, 25, target = owner))
-			if(!psyker_organ && cultivator_dantian)
+			if(user_has_active_power(target))
+				to_chat(owner, span_notice("You have active abilities draining your resources!"))
+				keep_going = FALSE
+				break
+			if(!psyker_organ && !cultivator_dantian)
 				to_chat(owner, span_notice("I have nothing to meditate on!"))
 			if(psyker_organ)
 				psyker_organ.modify_stress(-PSYKER_STRESS_MEDITATION_POWER)
@@ -39,6 +43,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 					to_chat(owner, span_notice("My Dantian is fully charged."))
 		else
 			keep_going = FALSE
+			break
 	while (keep_going)
 
 	to_chat(owner, "You stop meditating.")
@@ -61,6 +66,18 @@ Reduces stress for psykers and restores Dantian for cultivators
 	psyker_organ = owner.get_organ_slot(ORGAN_SLOT_PSYKER)
 	cultivator_dantian = owner.GetComponent(/datum/component/cultivator_dantian)
 	//TODO: Cultivator Organ
+
+// Returns TRUE if any active Cultivator or Psyker power is active on the target.
+/datum/action/cooldown/power/resonant_meditate/proc/user_has_active_power(mob/living/user)
+	if(!user || !user.powers)
+		return FALSE
+	for(var/datum/power/power in user.powers)
+		if(power.path != POWER_PATH_CULTIVATOR && power.path != POWER_PATH_PSYKER)
+			continue
+		var/datum/action/cooldown/power/action = power.action_path
+		if(action && action.active)
+			return TRUE
+	return FALSE
 
 // I wish I could just change the color on spotlights but no we have to make it special.
 /datum/status_effect/spotlight_light/psyker

@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/cultivator
 	name = "abstract cultivator power action - ahelp this"
-	background_icon_state = "bg_star"
-	overlay_icon_state = "ab_goldborder"
+	background_icon_state = "bg_revenant"
+	overlay_icon_state = "bg_spell_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
 	// The organ that processes most of the Psyker Powers. Mostly all functions here communicate with this.

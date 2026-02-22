@@ -17,3 +17,19 @@
 	// Passes along meditation.
 	grant_action(/datum/action/cooldown/power/resonant_meditate)
 	. = ..()
+
+/datum/power/cultivator_root/remove()
+	. = ..()
+	if(!power_holder)
+		return
+
+	// We check for other roots of our type, in the event that admin shenanigangs gave multiple roots. Don't want to throw out the whole component when other things are still in use.
+	var/has_other_root = FALSE
+	for(var/datum/power/power as anything in power_holder.powers)
+		if(istype(power, /datum/power/cultivator_root))
+			has_other_root = TRUE
+			break
+
+	if(!has_other_root)
+		var/tobedel = power_holder.GetComponent(/datum/component/cultivator_dantian)
+		QDELL_NULL(tobedel)

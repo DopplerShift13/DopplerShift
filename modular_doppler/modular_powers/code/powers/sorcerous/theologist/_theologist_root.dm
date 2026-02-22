@@ -15,3 +15,19 @@
 	// We pass along the piety component to actually handle most of the piety stuff.
 	power_holder.AddComponent(/datum/component/theologist_piety, power_holder)
 	. = ..()
+
+/datum/power/theologist_root/remove()
+	. = ..()
+	if(!power_holder)
+		return
+
+	// We check for other roots of our type, in the event that admin shenanigangs gave multiple roots. Don't want to throw out the whole component when other things are still in use.
+	var/has_other_root = FALSE
+	for(var/datum/power/power as anything in power_holder.powers)
+		if(istype(power, /datum/power/theologist_root))
+			has_other_root = TRUE
+			break
+
+	if(!has_other_root)
+		var/tobedel = power_holder.GetComponent(/datum/component/theologist_piety)
+		QDELL_NULL(tobedel)
