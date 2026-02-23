@@ -142,7 +142,7 @@
 	new /obj/item/melee/tajaran_sword(src)
 	update_appearance()
 
-/datum/storage/kitten_belt
+/datum/storage/tajaran_sheath
 	max_slots = 1
 	do_rustle = TRUE
 	max_specific_storage = WEIGHT_CLASS_BULKY
