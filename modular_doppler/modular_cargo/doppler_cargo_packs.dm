@@ -23,3 +23,14 @@
 	)
 	crate_name = "thermophytic seeds crate"
 	crate_type = /obj/structure/closet/crate/hydroponics
+
+/datum/supply_pack/imports/tajaran_sword
+	name = "Imported Tajaran Duelist Sword"
+	desc = "Fresh off the finest Coalition smithies. Possibly folded thousands of times. Great hand \
+	protection. Vibrational enhancement features not included."
+	contraband = TRUE
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list(
+	/obj/item/storage/belt/tajaran_sheath
+	)
+	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
