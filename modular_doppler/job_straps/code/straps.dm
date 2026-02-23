@@ -45,7 +45,10 @@
 		return ITEM_INTERACT_BLOCKING
 
 	var/obj/item/clothing/suit/targeted_suit = interacting_with
-	targeted_suit.allowed |= things_to_allow
+	var/list/new_suit_allowed_list = list()
+	new_suit_allowed_list = targeted_suit.allowed.Copy()
+	new_suit_allowed_list |= things_to_allow
+	targeted_suit.allowed = new_suit_allowed_list
 	playsound(src, 'sound/items/equip/toolbelt_equip.ogg', 50, TRUE)
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
