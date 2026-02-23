@@ -43,3 +43,39 @@
 	. = ..()
 	user.remove_traits(list(TRAIT_RESISTLOWPRESSURE, TRAIT_RESISTCOLD), src)
 
+/datum/action/cooldown/power/cultivator/alignment/astral_touched/aura_farm()
+	var/total = 0
+	var/mob/living/owner_mob = owner
+	if(!owner_mob)
+		return total
+
+	var/space_value = CULTIVATOR_AURA_FARM_MINOR * 0.6 // the real thing
+	var/glass_value = CULTIVATOR_AURA_FARM_MINOR * 0.3 // not as cool but its something
+	var/fake_space_value = CULTIVATOR_AURA_FARM_MINOR * 0.4 // looks pretty real.
+	var/space_cube_value = CULTIVATOR_AURA_FARM_MINOR * 0.5 // Praise the space cube poster.
+	var/in_space_value = CULTIVATOR_AURA_FARM_MAJOR // Being out in space basically guarantees 50% charge.
+
+	// Do we see space turfs?
+	for(var/turf/T in view(owner_mob))
+		if(istype(T, /turf/open/space))
+			total += space_value
+			continue
+		if(istype(T, /turf/open/floor/glass)) // Note, we check if you can see space on the z-level below. If you can or there's no z-level you get the space bonus.
+			var/turf/below = locate(T.x, T.y, T.z - 1)
+			if(!below || istype(below, /turf/open/space))
+				total += glass_value
+			continue
+		if(istype(T, /turf/open/floor/fakespace))
+			total += fake_space_value
+			continue
+
+	// PRAISE THE CUBE POSTER. IT HAS SPACE ON IT - THAT COUNTS!
+	for(var/obj/structure/sign/poster/contraband/space_cube/cube in view(owner_mob))
+		total += space_cube_value
+
+	// Are we in space?
+	var/turf/owner_turf = get_turf(owner_mob)
+	if(istype(owner_turf, /turf/open/space))
+		total += in_space_value
+
+	return total

@@ -60,3 +60,118 @@
 	melee = 30
 	wound = 30
 
+
+/datum/action/cooldown/power/cultivator/alignment/flame_soul/aura_farm()
+	var/total = 0
+	var/mob/living/owner_mob = owner
+	if(!owner_mob)
+		return total
+
+	var/object_on_fire_value = CULTIVATOR_AURA_FARM_MINOR * 0.3 // stuff that is on fire that shouldnt be e.g a paper stack
+	var/natural_fire_object_value = CULTIVATOR_AURA_FARM_MINOR * 0.5 // exposed flames that are intended e.g candles
+	var/big_natural_fire_object_value = CULTIVATOR_AURA_FARM_MODERATE // exposed flames that are intended and big e.g bonfires
+	var/fire_turf_value = CULTIVATOR_AURA_FARM_MINOR // turfs being on fire e.g plasma fire
+	var/smoking_value = CULTIVATOR_AURA_FARM_MODERATE // smoking is cool and good for aura.
+
+	var/others_on_fire_value = CULTIVATOR_AURA_FARM_MODERATE // someone else is on fire
+	var/user_on_fire_value = CULTIVATOR_AURA_FARM_MAJOR // we're on fire
+
+	// Big ol list of objects that are meant to be onfire.
+	var/static/list/natural_fire_typecache = typecacheof(list(
+		/obj/item/flashlight/flare,
+		/obj/item/flashlight/flare/candle,
+		/obj/item/match,
+		/obj/item/lighter,
+		/obj/item/oxygen_candle,
+		/obj/item/sparkler,
+		/obj/structure/wall_torch
+	))
+
+
+	// Big ol list of big objects that are meant to be on fire.
+	var/static/list/big_natural_fire_typecache = typecacheof(list(
+		/obj/structure/bonfire,
+		/obj/structure/fireplace,
+		/obj/structure/firepit
+	))
+
+	// Checks for hotspots aka is the engine on fire and does that let us aura farm?
+	for(var/turf/open/open_turf in view(owner_mob))
+		if(open_turf.active_hotspot)
+			total += fire_turf_value
+
+	// Check if there is anyone on fire nearby.
+	for(var/mob/living/burning_mob in view(owner_mob))
+		if(burning_mob == owner_mob) // we check this separetely.
+			continue
+		if(burning_mob.on_fire)
+			total += others_on_fire_value
+
+	// Check if we are on fire.
+	if(owner_mob.on_fire)
+		total += user_on_fire_value
+
+	// Check if we are smoking something in our mask slot.
+	var/obj/item/mask_item = owner_mob.get_item_by_slot(ITEM_SLOT_MASK)
+	if(istype(mask_item, /obj/item/cigarette))
+		var/obj/item/cigarette/smoking_item = mask_item
+		if(smoking_item.lit)
+			total += smoking_value
+
+	// Goes through all the objects in view.
+	for(var/obj/scene_object in view(owner_mob))
+		// List that goes through all the big items and checks if they are on fire.
+		if(is_type_in_typecache(scene_object, big_natural_fire_typecache))
+			if(istype(scene_object, /obj/structure/bonfire))
+				var/obj/structure/bonfire/bonfire_object = scene_object
+				if(bonfire_object.burning)
+					total += big_natural_fire_object_value
+				continue
+			if(istype(scene_object, /obj/structure/fireplace))
+				var/obj/structure/fireplace/fireplace_object = scene_object
+				if(fireplace_object.lit)
+					total += big_natural_fire_object_value
+				continue
+			if(istype(scene_object, /obj/structure/firepit))
+				var/obj/structure/firepit/firepit_object = scene_object
+				if(firepit_object.active)
+					total += big_natural_fire_object_value
+				continue
+		// List that goes through all the smaller scene objects and check if they are on fire.
+		if(is_type_in_typecache(scene_object, natural_fire_typecache))
+			if(istype(scene_object, /obj/item/flashlight/flare))
+				var/obj/item/flashlight/flare/flare_object = scene_object
+				if(flare_object.light_on)
+					total += natural_fire_object_value
+				continue
+			if(istype(scene_object, /obj/structure/wall_torch))
+				var/obj/structure/wall_torch/wall_torch_object = scene_object
+				if(wall_torch_object.burning)
+					total += natural_fire_object_value
+				continue
+			if(istype(scene_object, /obj/item/oxygen_candle))
+				var/obj/item/oxygen_candle/oxygen_candle_object = scene_object
+				if(oxygen_candle_object.processing)
+					total += natural_fire_object_value
+				continue
+			if(istype(scene_object, /obj/item/match))
+				var/obj/item/match/match_object = scene_object
+				if(match_object.lit)
+					total += natural_fire_object_value
+				continue
+			if(istype(scene_object, /obj/item/lighter))
+				var/obj/item/lighter/lighter_object = scene_object
+				if(lighter_object.lit)
+					total += natural_fire_object_value
+				continue
+			if(istype(scene_object, /obj/item/sparkler))
+				var/obj/item/sparkler/sparkler_object = scene_object
+				if(sparkler_object.lit)
+					total += natural_fire_object_value
+				continue
+
+		// Checks if the item is on fire when its nto meant to be on fire.
+		if(scene_object.resistance_flags & ON_FIRE)
+			total += object_on_fire_value
+
+	return total

@@ -13,9 +13,19 @@ Reduces stress for psykers and restores Dantian for cultivators
 	var/obj/item/organ/resonant/psyker/psyker_organ
 	var/datum/component/cultivator_dantian/cultivator_dantian
 
+	// used for the do while loop
+	var/keep_going
+// Makes it end meditation by clicking it again.
+/datum/action/cooldown/power/resonant_meditate/Trigger(mob/clicker, trigger_flags, atom/target)
+	if(active)
+		keep_going = FALSE
+	else
+		. = ..()
+	return TRUE
+
 /datum/action/cooldown/power/resonant_meditate/use_action()
 	. = ..()
-	var/keep_going = TRUE
+	keep_going = TRUE
 	var/mob/living/spotlighttarget = owner // cause we need to call it on a mob/living
 
 	to_chat(owner, span_notice("You start meditating."))
@@ -27,7 +37,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 	do
 		active = TRUE
 		if(do_after(owner, 25, target = owner))
-			if(user_has_active_power(target))
+			if(user_has_active_power(owner))
 				to_chat(owner, span_notice("You have active abilities draining your resources!"))
 				keep_going = FALSE
 				break
@@ -69,7 +79,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 
 // Returns TRUE if any active Cultivator or Psyker power is active on the target.
 /datum/action/cooldown/power/resonant_meditate/proc/user_has_active_power(mob/living/user)
-	if(!user || !user.powers)
+	if(!istype(user, /mob/living) || !user.powers)
 		return FALSE
 	for(var/datum/power/power in user.powers)
 		if(power.path != POWER_PATH_CULTIVATOR && power.path != POWER_PATH_PSYKER)

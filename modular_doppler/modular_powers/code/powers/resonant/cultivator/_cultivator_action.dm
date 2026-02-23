@@ -13,9 +13,17 @@
 	// Cost in Dantian to use
 	var/cost
 
+	// Does this power get called by _cultivator_dantian.dm when we check for aura farming? Used for potential future powers that allow you to aura farm in other ways.
+	var/contributes_to_aura_farming = FALSE
+
 /datum/action/cooldown/power/cultivator/New()
 	. = ..()
 	ValidateDantianComponent()
+
+// Feng Shui / Aura farming mechanics; get stuff in the environment, increase dantian based on it
+// The func should be responsible for checking all the environmental stuff, calculating it and then returning it to the dantian system.
+/datum/action/cooldown/power/cultivator/proc/aura_farm()
+	return 0
 
 // Since Cultivator has multiple roots and a persistent resource system, we use a component for handling Dantian
 /datum/action/cooldown/power/cultivator/proc/ValidateDantianComponent()

@@ -1,5 +1,5 @@
 /// Helper to format the text that gets thrown onto the dantian hud element.
-#define FORMAT_DANTIAN_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#66c5dd'>[round(charges)]</font></div>")
+#define FORMAT_DANTIAN_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#66c5dd'>[floor(charges)]</font></div>")
 
 /datum/component/cultivator_dantian
 	dupe_mode = COMPONENT_DUPE_UNIQUE
@@ -19,8 +19,8 @@
 	if(!isliving(parent))
 		return COMPONENT_INCOMPATIBLE
 	attached_mob = parent
-
 	RegisterWithParent()
+	START_PROCESSING(SSfastprocess, src)
 
 /datum/component/cultivator_dantian/RegisterWithParent()
 	. = ..()
@@ -37,6 +37,7 @@
 
 /datum/component/cultivator_dantian/Destroy()
 	UnregisterFromParent()
+	STOP_PROCESSING(SSfastprocess, src)
 
 	if(!attached_mob)
 		return
@@ -48,6 +49,23 @@
 
 	attached_mob = null
 	return ..()
+
+// Processing is responsible for most of the aura farming / 'passive dantian gain'.
+/datum/component/cultivator_dantian/process(seconds_per_tick)
+	if(!attached_mob)
+		return
+	if(HAS_TRAIT(attached_mob, TRAIT_RESONANCE_SILENCED)) // no aura farming when silenced
+		return
+	// Just for the sake of future proofing, you can have multiple sources of aura farming.
+	var/total = 0
+	for(var/datum/action/cooldown/power/cultivator/power in attached_mob.actions)
+		if(power.contributes_to_aura_farming && !power.active) // needs to have the contributing flag and not be active
+			total += power.aura_farm()
+
+	total = clamp(total, CULTIVATOR_MIN_CULTIVATION_BONUS, CULTIVATOR_MAX_CULTIVATION_BONUS)
+	total *= seconds_per_tick // I love spess game time-based maths
+
+	adjust_dantian(total)
 
 /datum/component/cultivator_dantian/proc/on_hud_created(datum/source)
 	SIGNAL_HANDLER

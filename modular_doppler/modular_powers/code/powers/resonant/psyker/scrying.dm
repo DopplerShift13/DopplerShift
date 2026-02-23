@@ -339,7 +339,7 @@
 	var/datum/weakref/eye_ref
 	var/datum/weakref/action_ref
 
-	// mob -> list(hide_image)
+	// mob -> mask_image
 	var/list/masked_mobs = list()
 
 /datum/scrying_immunity_mask/New(datum/action/cooldown/power/psyker/scrying/action, mob/living/viewer, mob/eye/psyker_scry/eye)
@@ -403,53 +403,39 @@
 
 // makes the silhouettes directional
 /datum/scrying_immunity_mask/proc/update_silhouette_dir(mob/living/target_mob)
-	var/list/entry = masked_mobs[target_mob]
-	if(!entry)
+	var/image/mask_image = masked_mobs[target_mob]
+	if(!mask_image)
 		return
-	var/image/silhouette_image = entry[2]
-	if(silhouette_image)
-		silhouette_image.dir = target_mob.dir
+	mask_image.dir = target_mob.dir
 
 /datum/scrying_immunity_mask/proc/mask_mob(mob/living/viewer, mob/living/target_mob)
 	if(!viewer?.client || QDELETED(target_mob))
 		return
 
-	// Hide the mob for THIS client only (visual override)
-	var/image/hide_image = image(loc = target_mob)
-	hide_image.appearance = target_mob.appearance
-	hide_image.override = TRUE
-	hide_image.alpha = 0
+	// Delusion-style override: a client-only mask image that owns the click/name.
+	var/image/mask_image = image(loc = target_mob)
+	mask_image.appearance = target_mob.appearance
+	mask_image.override = TRUE
+	mask_image.name = "Unknown"
+	mask_image.color = "#000000"
+	mask_image.alpha = 180
+	mask_image.dir = target_mob.dir
+	SET_PLANE_EXPLICIT(mask_image, ABOVE_GAME_PLANE, target_mob)
 
-	// Silhouette marker, anchored to the mob so it follows movement
-	var/image/silhouette_image = image('icons/effects/effects.dmi', target_mob, "blank")
-	silhouette_image.override = FALSE
-	silhouette_image.layer = ABOVE_MOB_LAYER
-	silhouette_image.plane = GAME_PLANE
-	silhouette_image.appearance_flags = RESET_ALPHA | RESET_COLOR | RESET_TRANSFORM
-	silhouette_image.dir = target_mob.dir
-
-	viewer.client.images += hide_image
-	viewer.client.images += silhouette_image
-
-	masked_mobs[target_mob] = list(hide_image, silhouette_image)
+	viewer.client.images += mask_image
+	masked_mobs[target_mob] = mask_image
 
 	// Keep your existing “don’t leak info” hooks
 	RegisterSignal(target_mob, COMSIG_ATOM_EXAMINE, PROC_REF(on_target_examine))
 	hide_data_huds(viewer, target_mob)
 
 /datum/scrying_immunity_mask/proc/unmask_mob(mob/living/viewer, mob/living/target_mob)
-	var/list/entry = masked_mobs[target_mob]
-	if(!entry)
+	var/image/mask_image = masked_mobs[target_mob]
+	if(!mask_image)
 		return
 
-	var/image/hide_image = entry[1]
-	var/image/silhouette_image = entry[2]
-
 	if(viewer?.client)
-		if(hide_image)
-			viewer.client.images -= hide_image
-		if(silhouette_image)
-			viewer.client.images -= silhouette_image
+		viewer.client.images -= mask_image
 
 	UnregisterSignal(target_mob, COMSIG_ATOM_EXAMINE)
 	unhide_data_huds(viewer, target_mob)

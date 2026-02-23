@@ -33,7 +33,7 @@
 	var/alignment_damage_bonus = CULTIVATOR_ALIGNMENT_DAMAGE_BONUS
 
 	cooldown_time = 5 // to prevent spam-clicking it off
-
+	contributes_to_aura_farming = TRUE // needs to be always be on or you won't get aura from alignment
 // Removes stray listeners.
 /datum/action/cooldown/power/cultivator/alignment/Destroy()
 	. = ..()
