@@ -34,3 +34,5 @@
 	/obj/item/storage/belt/tajaran_sheath
 	)
 	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
+	crate_name = "Finest Tajaran Imports"
+	crate_type = /obj/structure/closet/crate/wooden
