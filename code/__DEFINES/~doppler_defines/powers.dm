@@ -156,7 +156,7 @@
 #define CULTIVATOR_DANTIAN_MAX 1000
 
 // How much dantian we get from meditation every 2.5 seconds
-#define CULTIVATOR_DANTIAN_MEDITATION_POWER 2
+#define CULTIVATOR_DANTIAN_MEDITATION_POWER 3
 
 // UI location of the Cultivator element
 #define CULTIVATOR_UI_SCREEN_LOC "WEST,CENTER-2:15"
@@ -167,7 +167,7 @@
 // The max amount of Dantian we give from aura farming per second
 #define CULTIVATOR_MAX_CULTIVATION_BONUS 3
 // The min amount of Dantian we give from aura farming per second
-#define CULTIVATOR_MIN_CULTIVATION_BONUS 0.15
+#define CULTIVATOR_MIN_CULTIVATION_BONUS 0
 
 // Standard Dantian cost defines for Cultivators. Since it scales funny it has a 1/1000 called paltry.
 #define CULTIVATOR_DANTIAN_PALTRY (CULTIVATOR_DANTIAN_MAX / 1000)

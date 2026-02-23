@@ -76,8 +76,8 @@
 			playsound(living_atom, 'sound/items/lead_pipe_hit.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE) // I am not sorry for this choice in sound effect
 
 			// logging
-			living_atom.log_message("was punted by an object from [thrower] for [damage] damage.")
-			thrower.log_message("punted an object at [living_atom] for [damage] damage.")
+			living_atom.log_message("was punted by an object from [thrower] for [damage] damage.", LOG_VICTIM)
+			thrower.log_message("punted an object at [living_atom] for [damage] damage.", LOG_ATTACK)
 
 			if(!thrower || get_dist(thrower, hit_atom) >= 12) //if you hit someone offscreen, which can't be done without legendary.
 				thrower.playsound_local(thrower, 'sound/items/weapons/homerun.ogg', 75)

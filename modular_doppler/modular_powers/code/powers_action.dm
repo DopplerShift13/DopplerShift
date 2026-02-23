@@ -118,6 +118,30 @@
 // Cost systems for archetypes to name an example.
 /datum/action/cooldown/power/proc/on_action_success(mob/living/user, atom/target)
 	return
+
+// Applies damage to a living target, automatically applying an armor check.
+// Returns the amount of damage dealt (as per apply_damage).
+/datum/action/cooldown/power/proc/apply_damage_with_armor(
+	mob/living/target,
+	damage,
+	damage_type = BRUTE,
+	attack_flag = MELEE,
+	def_zone = null,
+	armour_penetration = 0,
+	weak_against_armour = FALSE,
+	silent = TRUE,
+)
+	if(!target)
+		return 0
+
+	var/armor_block = target.run_armor_check(
+		def_zone = def_zone,
+		attack_flag = attack_flag,
+		armour_penetration = armour_penetration,
+		weak_against_armour = weak_against_armour,
+		silent = silent,
+	)
+	return target.apply_damage(damage, damage_type, def_zone, armor_block)
 /*
 Handles all the logic involved in using a targeted, click-based action.
 - First press: enables click intercept (targeting mode)

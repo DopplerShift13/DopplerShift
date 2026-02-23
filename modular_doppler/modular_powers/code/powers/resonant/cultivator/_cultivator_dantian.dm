@@ -14,6 +14,10 @@
 	// The UI itself
 	var/atom/movable/screen/cultivator_dantian/cultivator_ui
 
+	// min and max values for aurafarming
+	var/aura_min = CULTIVATOR_MIN_CULTIVATION_BONUS
+	var/aura_max = CULTIVATOR_MAX_CULTIVATION_BONUS
+
 /datum/component/cultivator_dantian/Initialize()
 	. = ..()
 	if(!isliving(parent))
@@ -62,7 +66,7 @@
 		if(power.contributes_to_aura_farming && !power.active) // needs to have the contributing flag and not be active
 			total += power.aura_farm()
 
-	total = clamp(total, CULTIVATOR_MIN_CULTIVATION_BONUS, CULTIVATOR_MAX_CULTIVATION_BONUS)
+	total = clamp(total, aura_min, aura_max)
 	total *= seconds_per_tick // I love spess game time-based maths
 
 	adjust_dantian(total)

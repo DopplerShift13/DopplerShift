@@ -209,5 +209,5 @@
 	if(!active)
 		return NONE
 	examine_list.Cut()
-	examine_list += span_notice("It's too shrouded in shadow to make out any details.")
+	examine_list += span_warning("It's too shrouded in shadow to make out any details.")
 	return NONE

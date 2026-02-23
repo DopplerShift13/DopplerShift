@@ -72,6 +72,7 @@
 	var/big_natural_fire_object_value = CULTIVATOR_AURA_FARM_MODERATE // exposed flames that are intended and big e.g bonfires
 	var/fire_turf_value = CULTIVATOR_AURA_FARM_MINOR // turfs being on fire e.g plasma fire
 	var/smoking_value = CULTIVATOR_AURA_FARM_MODERATE // smoking is cool and good for aura.
+	var/lava_value = CULTIVATOR_AURA_FARM_MINOR // lava turfs: hot shit.
 
 	var/others_on_fire_value = CULTIVATOR_AURA_FARM_MODERATE // someone else is on fire
 	var/user_on_fire_value = CULTIVATOR_AURA_FARM_MAJOR // we're on fire
@@ -95,8 +96,10 @@
 		/obj/structure/firepit
 	))
 
-	// Checks for hotspots aka is the engine on fire and does that let us aura farm?
+	// Checks for hotspots aka is the engine on fire and does that let us aura farm? Also checks for lava
 	for(var/turf/open/open_turf in view(owner_mob))
+		if(istype(open_turf, /turf/open/lava))
+			total += lava_value
 		if(open_turf.active_hotspot)
 			total += fire_turf_value
 

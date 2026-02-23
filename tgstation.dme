@@ -7472,6 +7472,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\_cultivator_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\astraltouched_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\flamesoul_root.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\cultivator\many_stars.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\shadowwalker_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_action.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_organ.dm"
