@@ -129,6 +129,10 @@
 	name = "Tizirian Chopping Sword Sheath"
 	item_path = /obj/item/storage/belt/lizard_sabre
 
+/datum/loadout_item/belts/sheath/lizard_sword
+	name = "Tajaran Duelist's Blade Sheath"
+	item_path = /obj/item/storage/belt/tajaran_sheath
+
 /**
  * KITS
  */
