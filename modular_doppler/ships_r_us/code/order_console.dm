@@ -7,7 +7,7 @@
 	name = "Personal Shuttle Order Console"
 	desc = "A console giving you access to only the sleaziest of shuttle sales services."
 	id = "personal_shuttle_console"
-	build_path = /obj/item/circuitboard/computer/personal_shuttle_order
+	build_path = /obj/item/circuitboard/computer/personal_shuttle_order/station
 	category = list(
 		RND_CATEGORY_COMPUTER + RND_SUBCATEGORY_COMPUTER_CARGO
 	)
@@ -111,7 +111,7 @@
 #define PERSONAL_SHUTTLE_CONSOLE_PURCHASE_SHUTTLE "Purchase"
 #define PERSONAL_SHUTTLE_CONSOLE_CLEAR_SELECTION "Clear Selection"
 
-/obj/machinery/computer/personal_shuttle_order/ui_interact(mob/user, datum/tgui/ui)
+/obj/machinery/computer/personal_shuttle_order/interact(mob/user)
 	. = ..()
 	if(!can_interact(user))
 		return
