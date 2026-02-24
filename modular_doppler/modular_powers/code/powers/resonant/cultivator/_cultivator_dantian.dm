@@ -58,6 +58,16 @@
 /datum/component/cultivator_dantian/process(seconds_per_tick)
 	if(!attached_mob)
 		return
+
+	// Handles upkeep for alignment powers.
+	for(var/datum/action/cooldown/power/cultivator/alignment/power in attached_mob.actions)
+		if(power.active)
+			adjust_dantian(-(power.alignment_upkeep_cost * seconds_per_tick))
+			if(dantian <= 0) // disable if we're out of dantian
+				to_chat(attached_mob, span_boldwarning("You've ran out of Dantian!"))
+				power.disable_alignment(attached_mob)
+
+	// Aura farming code below
 	if(HAS_TRAIT(attached_mob, TRAIT_RESONANCE_SILENCED)) // no aura farming when silenced
 		return
 	// Just for the sake of future proofing, you can have multiple sources of aura farming.

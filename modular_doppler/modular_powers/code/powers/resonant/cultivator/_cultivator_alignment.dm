@@ -31,9 +31,13 @@
 	var/alignment_damage_type = BRUTE
 	// The bonus damage for the alignment
 	var/alignment_damage_bonus = CULTIVATOR_ALIGNMENT_DAMAGE_BONUS
+	// The upkeep cost of the alignment
+	var/alignment_upkeep_cost = CULTIVATOR_ALIGNMENT_UPKEEP_COST
 
 	cooldown_time = 5 // to prevent spam-clicking it off
 	contributes_to_aura_farming = TRUE // needs to be always be on or you won't get aura from alignment
+	cost = CULTIVATOR_ALIGNMENT_ACTIVATION_COST
+
 // Removes stray listeners.
 /datum/action/cooldown/power/cultivator/alignment/Destroy()
 	. = ..()
@@ -47,17 +51,15 @@
 	if(!active)
 		return
 	if(alignment_damage_bonus)
-		apply_damage_with_armor(target, alignment_damage_bonus, alignment_damage_type, affecting, armor_block, sharpness = limb_sharpness, attack_flag = MELEE)
+		apply_damage_with_armor(target, alignment_damage_bonus, alignment_damage_type, affecting, armor_block, attack_flag = MELEE)
 
 // Basically handles active state and activation fx. Override as needed; but please make sure to get the essentials.
 /datum/action/cooldown/power/cultivator/alignment/use_action(mob/living/carbon/user)
 	if(!active) // If inactive, we activate (if we can pay the cost)
 		enable_alignment(user)
-		active = TRUE
 		return TRUE
 	if(active) // If active, we disable.
 		disable_alignment(user)
-		active = FALSE
 		return TRUE
 	return FALSE
 
@@ -92,15 +94,20 @@
 
 // Everything that needs to happen when enabling alignment
 /datum/action/cooldown/power/cultivator/alignment/proc/enable_alignment(mob/living/carbon/user)
+	active = TRUE
+	bypass_cost = TRUE // makes it so we don't check for cost next time.
 	activation_fx(user)
 	RegisterSignal(user, COMSIG_HUMAN_UNARMED_HIT, PROC_REF(on_unarmed_hit))
 	RegisterSignal(user, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equipment_changed))
 	RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(on_equipment_changed))
 	recompute_alignment_armor(user)
+	SEND_SIGNAL(user, COMSIG_CULTIVATOR_ALIGNMENT_ENABLED, src)
 	return TRUE
 
 // Everything that needs to happen when disabling alignment
 /datum/action/cooldown/power/cultivator/alignment/proc/disable_alignment(mob/living/carbon/user)
+	active = FALSE
+	bypass_cost = FALSE
 	if(alignment_overlay)
 		user.cut_overlay(alignment_overlay)
 		QDEL_NULL(alignment_overlay)
@@ -108,7 +115,15 @@
 	user.remove_filter(filter_id)
 	remove_alignment_armor()
 	QDEL_NULL(alignment_light)
+	SEND_SIGNAL(user, COMSIG_CULTIVATOR_ALIGNMENT_DISABLED, src)
 	return TRUE
+
+// Deactivating the power doesn't cost anything so we skip the cost component.
+/datum/action/cooldown/power/cultivator/alignment/on_action_success(mob/living/carbon/user)
+	if(!active)
+		return
+	else
+		. = ..()
 
 /*
 	Below is the big scary block of 'how to maths out other armor'

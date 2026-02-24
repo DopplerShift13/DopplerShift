@@ -43,6 +43,9 @@
 // Trait for when you are immune to resonant powers that reveal any information about you.
 #define TRAIT_ANTIRESONANCE_SCRYING "TRAIT_ANTIRESONANCE_SCRYING"
 
+// How much anti resonant stuff should cost by default
+#define ANTIRESONANCE_BASE_CHARGE_COST 1
+
 // Listener for dispelling
 #define COMSIG_ATOM_DISPEL "atom_dispel"
 
@@ -156,7 +159,7 @@
 #define CULTIVATOR_DANTIAN_MAX 1000
 
 // How much dantian we get from meditation every 2.5 seconds
-#define CULTIVATOR_DANTIAN_MEDITATION_POWER 3
+#define CULTIVATOR_DANTIAN_MEDITATION_POWER 5
 
 // UI location of the Cultivator element
 #define CULTIVATOR_UI_SCREEN_LOC "WEST,CENTER-2:15"
@@ -169,8 +172,13 @@
 // The min amount of Dantian we give from aura farming per second
 #define CULTIVATOR_MIN_CULTIVATION_BONUS 0
 
-// Standard Dantian cost defines for Cultivators. Since it scales funny it has a 1/1000 called paltry.
-#define CULTIVATOR_DANTIAN_PALTRY (CULTIVATOR_DANTIAN_MAX / 1000)
+// How much does activating the alignment cost
+#define CULTIVATOR_ALIGNMENT_ACTIVATION_COST 200
+
+// How much does sustaining the alignment cost
+#define CULTIVATOR_ALIGNMENT_UPKEEP_COST 3
+
+// Standard Dantian cost defines for Cultivators.
 #define CULTIVATOR_DANTIAN_TRIVIAL (CULTIVATOR_DANTIAN_MAX / 100)
 #define CULTIVATOR_DANTIAN_MINOR (CULTIVATOR_DANTIAN_MAX / 10)
 #define CULTIVATOR_DANTIAN_MODERATE (CULTIVATOR_DANTIAN_MAX / 5)
@@ -183,6 +191,13 @@
 #define CULTIVATOR_AURA_FARM_MODERATE (CULTIVATOR_MAX_CULTIVATION_BONUS / 5)
 #define CULTIVATOR_AURA_FARM_MAJOR (CULTIVATOR_MAX_CULTIVATION_BONUS / 2)
 #define CULTIVATOR_AURA_FARM_CRUSHING (CULTIVATOR_MAX_CULTIVATION_BONUS)
+
+// Cultivator alignment activion/deactivation signals
+#define COMSIG_CULTIVATOR_ALIGNMENT_ENABLED "cultivator_alignment_enabled"
+#define COMSIG_CULTIVATOR_ALIGNMENT_DISABLED "cultivator_alignment_disabled"
+
+// The trait for Astral Touched's flight upgrades (using AddElementTrait)
+#define TRAIT_ASTRAL_TOUCHED_FLIGHT "astral_touched_flight"
 
 /**
  * RESONANT: PSYKER
@@ -217,7 +232,10 @@
 #define PSYKER_EVENT_RARITY_VERYRARE 10
 
 // Standard messages for Psyker Events
-#define PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE "<b>As you strain your psychic powers past the breaking point, you are suddenly hit with a strange sense of clarity; as well as a feeling that something is very wrong.</b>"
+#define PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE "As you strain your psychic powers past the breaking point, you are suddenly hit with a strange sense of clarity; as well as a feeling that something is very wrong."
+
+// The trait for Psyker's Levitate power.
+#define TRAIT_PSYKER_LEVITATE_FLIGHT "psyker_levitate_flight"
 
 /**MORTAL DEFINES
 * I'm literally just using this to define Breacher Knuckle right now

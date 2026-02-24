@@ -6,13 +6,12 @@
 	Exploding the stars consumes Dantian per star. No cooldown."
 
 	value = 5
-	priority = POWER_PRIORITY_BASIC
 	required_powers = list(/datum/power/cultivator_root/astral_touched)
 	action_path = /datum/action/cooldown/power/cultivator/many_stars
 
 /datum/action/cooldown/power/cultivator/many_stars
 	name = "The Many Stars that Dot the Endless Sky"
-	desc = "Activating the ability sends forth a little star, which stops when it reaches it's destination (or hits an object) passively glowing in an area as a light source for 60 seconds. \
+	desc = "Activating the ability sends forth a little star, which stops when it reaches it's destination (or hits an object) passively glowing in an area as a light source for 5 minutes. \
 	ou can have up to 8 of these active. \
 	While in alignment, you can right click with this ability to explode all active stars that are not in motion dealing 20 burn damage to all creatures in a 3x3 area centered on it. \
 	Exploding the stars consumes Dantian per star. No cooldown."
@@ -26,12 +25,12 @@
 	// icon & state
 	var/star_icon = 'icons/effects/eldritch.dmi'
 	var/star_state = "ring_leader_effect"
-	var/star_color = "#66c5dd"
+	var/star_color = "#c1effa"
 
 	// how big are the stars
 	var/star_size = 0.7
 	// how long do the stars last
-	var/star_duration = 60 SECONDS
+	var/star_duration = 300 SECONDS
 	// the light range
 	var/star_light_range = 5
 	// the light's power (how strong of al ight)
@@ -46,14 +45,15 @@
 	var/star_shot_delay = 3
 
 	// how much damage does the star do on explosion
-	var/star_explosion_damage = 20
-	// the explosion effect icon
-	var/star_explosion_icon = 'icons/effects/effects.dmi'
-	var/star_explosion_state = "ion_fade"
+	var/star_explosion_damage = 25
 	// the explosion effect range
 	var/star_explosion_range = 1
 	// the explosion sound
 	var/star_explosion_sound = 'sound/effects/magic/wandodeath.ogg'
+	// the dantian cost for exploding the stars
+	var/star_explosion_cost = CULTIVATOR_DANTIAN_TRIVIAL * 2
+	// the dantian cost per star
+	var/star_explosion_cost_per_star = CULTIVATOR_DANTIAN_TRIVIAL
 
 	// Cached alignment action for gating effects.
 	var/datum/action/cooldown/power/cultivator/alignment/astral_touched/astral_alignment
@@ -111,10 +111,13 @@
 		return
 	if(!active_stars || !length(active_stars))
 		return
+	if(dantian_component.dantian < star_explosion_cost)
+		user.balloon_alert(user, "needs more dantian!")
 	if(user)
 		user.log_message("detonated their Many Stars.", LOG_GAME)
 
 	var/list/stars_to_explode = active_stars.Copy()
+	adjust_dantian(-star_explosion_cost) // removes the base cost
 	for(var/obj/effect/many_stars_star/star as anything in stars_to_explode)
 		if(QDELETED(star))
 			continue
@@ -124,15 +127,27 @@
 		playsound(star_turf, star_explosion_sound, 75, TRUE)
 		star_turf.visible_message(span_bolddanger("The star explodes in a wave of energy!"))
 		// applies damage, does cool effects, does logging.
-		new /obj/effect/temp_visual/circle_wave/many_stars(star_turf)
+		var/obj/effect/temp_visual/circle_wave/explosion_fx = new /obj/effect/temp_visual/circle_wave/many_stars(star_turf)
+		explosion_fx.color = star_color
 		for(var/turf/effect_turf in range(star_explosion_range, star_turf))
 			for(var/mob/living/target in effect_turf)
+				// We skip this whole thing if the mob is immune to resonance
+				if(target.can_block_resonance(ANTIRESONANCE_BASE_CHARGE_COST) || target.can_block_magic(MAGIC_RESISTANCE, ANTIRESONANCE_BASE_CHARGE_COST))
+					continue
 				var/dam_dealt = apply_damage_with_armor(target,	star_explosion_damage, damage_type = astral_alignment?.alignment_damage_type || BURN, attack_flag = BOMB)
 				target.log_message("was hit by a Many Stars detonation from [user] for [dam_dealt] damage.", LOG_VICTIM, color="blue")
 				if(user)
 					user.log_message("detonated Many Stars against [target] for [dam_dealt] damage.", LOG_ATTACK, color="red")
 				to_chat(target, span_userdanger("You are hit by an explosive blast of energy!"))
 		qdel(star)
+
+		// Removes cost per star; if we end up at 0, explode no more stars and shut off their power.
+		adjust_dantian(-star_explosion_cost_per_star)
+		if(dantian_component.dantian <= 0)
+			user.balloon_alert(user, "no more dantian!")
+			if(astral_alignment.active)
+				astral_alignment.disable_alignment(user)
+			break
 
 // Gets & sets astral allignment. We only really reference it in the explosion.
 /datum/action/cooldown/power/cultivator/many_stars/proc/is_astral_alignment_active(mob/living/user)
@@ -269,7 +284,7 @@
 	light_power = 1
 	light_color = "#66c5dd"
 	var/star_size = 0.5
-	var/lifespan = 60 SECONDS
+	var/lifespan = 300 SECONDS
 	var/datum/action/cooldown/power/cultivator/many_stars/owner_power
 
 // Adds expiration timer and size modifier.

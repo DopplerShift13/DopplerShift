@@ -11,7 +11,7 @@
 	// We have to play coy with the existing magic resistance system, for checking against resonance use victim.can_block_resonance(antimagic_charge_cost)
 	var/antimagic_flags = MAGIC_RESISTANCE
 	/// determines the drain cost on the antimagic item
-	var/antimagic_charge_cost = 1
+	var/antimagic_charge_cost = ANTIRESONANCE_BASE_CHARGE_COST
 
 	// The power that made the projectile.
 	var/datum/action/cooldown/power/creating_power

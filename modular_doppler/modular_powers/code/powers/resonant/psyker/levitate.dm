@@ -20,8 +20,8 @@
 /datum/action/cooldown/power/psyker/levitate/use_action()
 	. = ..()
 	if(!active)
-		owner.AddElement(/datum/element/forced_gravity, 0)
-		owner.AddElement(/datum/element/simple_flying)
+		owner.AddElementTrait(TRAIT_PSYKER_LEVITATE_FLIGHT, REF(src), /datum/element/forced_gravity, 0)
+		owner.AddElementTrait(TRAIT_PSYKER_LEVITATE_FLIGHT, REF(src), /datum/element/simple_flying)
 		to_chat(owner, span_boldnotice("Your body gently floats in the air!"))
 		START_PROCESSING(SSfastprocess, src)
 		active = TRUE
@@ -36,8 +36,7 @@
 		owner.add_overlay(caster_effect)
 		playsound(owner, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	else
-		owner.RemoveElement(/datum/element/forced_gravity, 0)
-		owner.RemoveElement(/datum/element/simple_flying)
+		REMOVE_TRAIT(owner, TRAIT_PSYKER_LEVITATE_FLIGHT, REF(src))
 		to_chat(owner, span_boldnotice("You let yourself gently drop the ground."))
 		STOP_PROCESSING(SSfastprocess, src)
 		active = FALSE
@@ -80,8 +79,7 @@
 
 	var/mob/living/carbon/human/victim = owner
 	if(active)
-		owner.RemoveElement(/datum/element/forced_gravity, 0)
-		owner.RemoveElement(/datum/element/simple_flying)
+		REMOVE_TRAIT(owner, TRAIT_PSYKER_LEVITATE_FLIGHT, REF(src))
 		STOP_PROCESSING(SSfastprocess, src)
 		active = FALSE
 		// visual fx

@@ -12,7 +12,8 @@
 
 	// Cost in Dantian to use
 	var/cost
-
+	// Bypasses the cost check while active. On_action_success still subtracts it as normal.
+	var/bypass_cost
 	// Does this power get called by _cultivator_dantian.dm when we check for aura farming? Used for potential future powers that allow you to aura farm in other ways.
 	var/contributes_to_aura_farming = FALSE
 
@@ -47,7 +48,7 @@
 	if(!ValidateDantianComponent())
 		owner.balloon_alert(owner, "Yell at the coders; you're missing your dantian system!")
 		return FALSE
-	if(dantian_component.dantian < cost)
+	if(dantian_component.dantian < cost && !bypass_cost)
 		user.balloon_alert(user, "needs [cost] dantian!")
 		return FALSE
 	. = .. ()

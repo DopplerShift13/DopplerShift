@@ -28,7 +28,7 @@
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "teleport"
 
-	alignment_outline_color = "#66c5dd"
+	alignment_outline_color = "#c1effa"
 	alignment_activation_sound = 'sound/effects/magic/cosmic_energy.ogg'
 	alignment_overlay_state = "shieldsparkles"
 
