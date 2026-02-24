@@ -1,6 +1,6 @@
 /datum/power/cultivator_root/flame_soul
 	name = "Flame Soul Alignment"
-	desc = "You gain your Dantian's aura by being able to see exposed fires (bonfires, plasma fires, etc.) or if you are on fire yourself. Activating it gives you a burning hot aura, causing your punches to do 10 extra burn damage.\
+	desc = "You gain your Dantian's aura by being able to see exposed fires (bonfires, plasma fires, etc.) or if you are on fire yourself. Activating it gives you a burning hot aura, causing your punches to do extra burn damage.\
 	Passively, your high temprature threshold is increased by 30C regardless of species. Activating the alignment makes you completely immune to fire (but does not extinguish them).\
 	You gain armor III (with laser VI) across your whole body. Has diminishing effects with your worn armor."
 	action_path = /datum/action/cooldown/power/cultivator/alignment/flame_soul

@@ -16,8 +16,8 @@
 	ou can have up to 8 of these active. \
 	While in alignment, you can right click with this ability to explode all active stars that are not in motion dealing 20 burn damage to all creatures in a 3x3 area centered on it. \
 	Exploding the stars consumes Dantian per star. No cooldown."
-	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
-	button_icon_state = "beam_up"
+	button_icon = 'icons/effects/eldritch.dmi'
+	button_icon_state = "ring_leader_effect"
 
 	click_to_activate = TRUE
 	unset_after_click = FALSE
@@ -122,18 +122,15 @@
 		if(!star_turf)
 			continue
 		playsound(star_turf, star_explosion_sound, 75, TRUE)
-		star_turf.visible_message(span_bolddanger("The star explodes in a shower of light!"))
+		star_turf.visible_message(span_bolddanger("The star explodes in a wave of energy!"))
 		// applies damage, does cool effects, does logging.
+		new /obj/effect/temp_visual/circle_wave/many_stars(star_turf)
 		for(var/turf/effect_turf in range(star_explosion_range, star_turf))
-			var/obj/effect/temp_visual/dir_setting/speedbike_trail/effect = new(effect_turf)
-			effect.icon = star_explosion_icon
-			effect.icon_state = star_explosion_state
-
 			for(var/mob/living/target in effect_turf)
 				var/dam_dealt = apply_damage_with_armor(target,	star_explosion_damage, damage_type = astral_alignment?.alignment_damage_type || BURN, attack_flag = BOMB)
-				target.log_message("was hit by a Many Stars detonation from [user] for [dam_dealt] damage.", LOG_VICTIM)
+				target.log_message("was hit by a Many Stars detonation from [user] for [dam_dealt] damage.", LOG_VICTIM, color="blue")
 				if(user)
-					user.log_message("detonated Many Stars against [target] for [dam_dealt] damage.", LOG_ATTACK)
+					user.log_message("detonated Many Stars against [target] for [dam_dealt] damage.", LOG_ATTACK, color="red")
 				to_chat(target, span_userdanger("You are hit by an explosive blast of energy!"))
 		qdel(star)
 
@@ -314,3 +311,9 @@
 	var/matrix/scale_matrix = matrix()
 	scale_matrix.Scale(star_size, star_size)
 	transform = scale_matrix
+
+// The aoe explosion circle from many_stars
+/obj/effect/temp_visual/circle_wave/many_stars
+	color = COLOR_CYAN
+	duration = 0.5 SECONDS
+	amount_to_scale = 1.5

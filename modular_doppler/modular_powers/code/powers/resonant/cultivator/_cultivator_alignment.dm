@@ -47,7 +47,7 @@
 	if(!active)
 		return
 	if(alignment_damage_bonus)
-		target.apply_damage(alignment_damage_bonus, alignment_damage_type, affecting, armor_block, sharpness = limb_sharpness)
+		apply_damage_with_armor(target, alignment_damage_bonus, alignment_damage_type, affecting, armor_block, sharpness = limb_sharpness, attack_flag = MELEE)
 
 // Basically handles active state and activation fx. Override as needed; but please make sure to get the essentials.
 /datum/action/cooldown/power/cultivator/alignment/use_action(mob/living/carbon/user)

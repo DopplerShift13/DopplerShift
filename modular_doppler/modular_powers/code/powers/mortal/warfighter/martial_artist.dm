@@ -22,5 +22,5 @@
 	SIGNAL_HANDLER
 	if(!target || bonus_damage <= 0)
 		return
-	target.apply_damage(bonus_damage, BRUTE, affecting, armor_block, sharpness = limb_sharpness)
+	apply_damage_with_armor(target, bonus_damage, BRUTE, affecting, armor_block, sharpness = limb_sharpness, attack_flag = MELEE)
 

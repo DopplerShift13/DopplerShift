@@ -121,16 +121,7 @@
 
 // Applies damage to a living target, automatically applying an armor check.
 // Returns the amount of damage dealt (as per apply_damage).
-/datum/action/cooldown/power/proc/apply_damage_with_armor(
-	mob/living/target,
-	damage,
-	damage_type = BRUTE,
-	attack_flag = MELEE,
-	def_zone = null,
-	armour_penetration = 0,
-	weak_against_armour = FALSE,
-	silent = TRUE,
-)
+/datum/action/cooldown/power/proc/apply_damage_with_armor(mob/living/target, damage, damage_type = BRUTE, attack_flag = MELEE, def_zone = null, armour_penetration = 0,	weak_against_armour = FALSE, silent = TRUE)
 	if(!target)
 		return 0
 

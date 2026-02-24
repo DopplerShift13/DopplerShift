@@ -161,8 +161,8 @@
 // UI location of the Cultivator element
 #define CULTIVATOR_UI_SCREEN_LOC "WEST,CENTER-2:15"
 
-// Bonus damage on strikes done by alignment
-#define CULTIVATOR_ALIGNMENT_DAMAGE_BONUS 10
+// Bonus damage on strikes done while in alignment. Balancing notes: punches have a base 20% miss chance, and this does not stack with martial arts.
+#define CULTIVATOR_ALIGNMENT_DAMAGE_BONUS 15
 
 // The max amount of Dantian we give from aura farming per second
 #define CULTIVATOR_MAX_CULTIVATION_BONUS 3
