@@ -106,7 +106,7 @@
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = UNIQUE_RENAME
 	interaction_flags_click = parent_type::interaction_flags_click | NEED_DEXTERITY | NEED_HANDS
-	storage_type = /datum/storage/kitten_belt
+	storage_type = /datum/storage/tajaran_sheath
 
 /obj/item/storage/belt/tajaran_sheath/Initialize(mapload)
 	. = ..()
