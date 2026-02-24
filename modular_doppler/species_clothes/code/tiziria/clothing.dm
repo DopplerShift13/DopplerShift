@@ -142,8 +142,8 @@
 	inhand_icon_state = null
 
 /obj/item/clothing/neck/lizard_cape/med
-	name = "scaler's cape"
-	desc = "A deeply purple dyed shoulder cape to denote the wearer is a scaler, Tiziria's own medical corps, \
+	name = "scale's cape"
+	desc = "A deeply purple dyed shoulder cape to denote the wearer is a scale, Tiziria's own medical corps, \
 		and only sometimes not shot at on the battlefield."
 	icon_state = "cape_med"
 	worn_icon_state = "cape_med"
@@ -170,6 +170,7 @@
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
 	supported_bodyshapes = null
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 
 /obj/item/clothing/suit/lizard_halftop/white
 	name = "white halftop"
