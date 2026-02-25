@@ -77,6 +77,13 @@
 		return FALSE
 	return .
 
+/datum/action/cooldown/power/cultivator/many_stars/proc/dispel(atom/target, atom/dispeller)
+	var/list/stars_to_del = active_stars.Copy()
+	if(stars_to_del)
+		to_chat(target, span_boldwarning("Your stars suddenly vanish!"))
+	for(var/obj/effect/many_stars_star/star as anything in stars_to_del)
+		qdel(star)
+
 // Checks where to place the star
 /datum/action/cooldown/power/cultivator/many_stars/proc/can_place_star(turf/target_turf)
 	if(!target_turf || !isopenturf(target_turf))
@@ -110,6 +117,8 @@
 			user.balloon_alert(user, "alignment required!")
 		return
 	if(!active_stars || !length(active_stars))
+		return
+	if(!can_use(user, target)) // we need to revalidate can_use since right click normally doesnt have that.
 		return
 	if(dantian_component.dantian < star_explosion_cost)
 		user.balloon_alert(user, "needs more dantian!")

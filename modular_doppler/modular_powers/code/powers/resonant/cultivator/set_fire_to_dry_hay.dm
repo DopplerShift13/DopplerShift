@@ -28,14 +28,14 @@
 	// icon, state and scale of flameblast
 	var/flameblast_icon = null
 	var/flameblast_icon_state = "fireball"
-	var/flameblast_scale = 0.5
+	var/flameblast_scale = 0.7
 	// light range, power and color of flameblast
 	var/flameblast_light_range = 3
 	var/flameblast_light_power = 1
 	var/flameblast_light_color = "#e99a3f"
 	// damage & firestacks of flameblast
 	var/flameblast_damage = 10
-	var/flameblast_firestacks = 0.7
+	var/flameblast_firestacks = 0.1
 	// the sound of flameblast impacting
 	var/flameblast_impact_sound = 'sound/effects/fire_puff.ogg'
 	// Cached alignment action for gating right click effects.
@@ -91,6 +91,8 @@
 /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay/proc/shoot_flameblast(mob/living/user, atom/target)
 	if(!is_flame_soul_alignment_active(user))
 		user.balloon_alert(user, "alignment required!")
+		return FALSE
+	if(!can_use(user, target)) // we need to revalidate can_use since right click normally doesnt have that.
 		return FALSE
 	if(world.time < next_projectile_time)
 		return FALSE

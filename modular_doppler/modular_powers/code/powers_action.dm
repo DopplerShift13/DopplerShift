@@ -53,7 +53,7 @@
 	if(!can_use(user, target))
 		return FALSE
 	// Checking for anti-resonance/anti-magic below which really is a pain.
-	if(anti_magic_on_target && resonant && ismob(target) && target != user) // If the spell does check for antimagic on click, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
+	if(anti_magic_on_target && resonant && ismob(target) && target != user) // If the spell does check for antimagic on the target, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
 		var/mob/mob_target = target
 		if(mob_target.can_block_resonance(1)) // Runs the special can_block_resonance function which also handles the anti-magic part.
 			// I would like to deduct resources on spell fail, but that is going to be so utterly complex. TODO for the future chap who wants this.

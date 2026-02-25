@@ -1,11 +1,13 @@
 /datum/power/cultivator_root/flame_soul
 	name = "Flame Soul Alignment"
 	desc = "You gain your Dantian's aura by being able to see exposed fires (bonfires, plasma fires, etc.) or if you are on fire yourself. Activating it gives you a burning hot aura, causing your punches to do extra burn damage.\
-	Passively, your high temprature threshold is increased by 30C regardless of species. Activating the alignment makes you completely immune to fire (but does not extinguish them).\
+	Passively, your high temprature threshold is increased by 60K regardless of species. Activating the alignment makes you completely immune to fire (but does not extinguish them).\
 	You gain armor III (with laser VI) across your whole body. Has diminishing effects with your worn armor."
 	action_path = /datum/action/cooldown/power/cultivator/alignment/flame_soul
-
 	value = 6
+
+	// bonus to heat tolerance
+	var/heat_tolerance_bonus = 60
 
 // Gives innate resistance to heat.
 /datum/power/cultivator_root/flame_soul/post_add()
@@ -13,14 +15,14 @@
 	if(!iscarbon(power_holder))
 		return
 	var/mob/living/carbon/owner = power_holder
-	owner.dna.species.bodytemp_heat_damage_limit += 30
+	owner.dna.species.bodytemp_heat_damage_limit += heat_tolerance_bonus
 
 /datum/power/cultivator_root/flame_soul/remove()
 	. = ..()
 	if(!iscarbon(power_holder))
 		return
 	var/mob/living/carbon/owner = power_holder
-	owner.dna.species.bodytemp_heat_damage_limit -= 30
+	owner.dna.species.bodytemp_heat_damage_limit -= heat_tolerance_bonus
 
 /datum/action/cooldown/power/cultivator/alignment/flame_soul
 	name = "Flame Soul Alignment"
