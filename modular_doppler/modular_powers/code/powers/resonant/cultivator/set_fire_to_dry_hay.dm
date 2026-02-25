@@ -125,7 +125,7 @@
 /obj/item/cultivator_virtual_lighter
 	parent_type = /obj/item/lighter
 	name = "\improper cultivator flame"
-	desc = "A conjured spark of cultivated flame."
+	desc = "A conjured spark of flame."
 	fancy = TRUE
 	lit = TRUE
 	heat_while_on = HIGH_TEMPERATURE_REQUIRED - 100
@@ -141,9 +141,6 @@
 	if(get_temperature())
 		return span_infoplain(span_rose("[user] touches the tip of [A] with [user.p_their()] finger and it ignites. Badass!"))
 	return ""
-
-/obj/item/cultivator_virtual_lighter/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
-	. = ..()
 
 // The fire projectile
 /obj/projectile/resonant/fire_to_dry_hay
