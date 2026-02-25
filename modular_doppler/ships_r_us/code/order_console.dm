@@ -62,7 +62,7 @@
 	. = ..()
 	if(our_docking_port)
 		return
-	. += span_danger("This shuttle wasn't constructed close enough to a suitable shuttle dock, and will not work.")
+	. += span_danger("This console wasn't constructed close enough to a suitable shuttle dock, and will not work.")
 
 /// Asks SSshuttle if our set docking port id is around and in range
 /obj/machinery/computer/personal_shuttle_order/proc/try_and_find_a_dock()
