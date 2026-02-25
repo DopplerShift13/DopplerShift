@@ -19,7 +19,7 @@
 
 	required_affinity = 3
 	prep_cost = 5
-	anti_magic_on_click_target = FALSE
+	anti_magic_on_target = FALSE
 
 	// The projectile we fire
 	var/obj/projectile/projectile_path = /obj/projectile/resonant/magic_barrage

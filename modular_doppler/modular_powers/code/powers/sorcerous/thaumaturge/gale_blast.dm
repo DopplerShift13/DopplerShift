@@ -23,7 +23,7 @@
 	required_affinity = 3
 	prep_cost = 3
 	click_to_activate = TRUE
-	anti_magic_on_click_target = FALSE
+	anti_magic_on_target = FALSE
 
 /datum/action/cooldown/power/thaumaturge/gale_blast/use_action(mob/living/user, atom/target)
 	if(fire_projectile(user, target, /obj/projectile/resonant/gale_blast))

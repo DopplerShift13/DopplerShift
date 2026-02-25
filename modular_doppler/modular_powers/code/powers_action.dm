@@ -11,7 +11,7 @@
 	overlay_icon_state = "bg_revenant_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 	active_overlay_icon_state = "bg_spell_border_active_red"
-	ranged_mousepointer = 'icons/effects/mouse_pointers/supplypod_target.dmi'
+	ranged_mousepointer = 'icons/effects/mouse_pointers/weapon_pointer.dmi'
 
 	/// Maximum state of consciousness before the ability is blocked.
 	/// For example, `UNCONSCIOUS` prevents it from being used when in hard crit or dead,
@@ -43,8 +43,8 @@
 	var/target_range
 	/// If set, clicked target MUST be of this type (or subtype).
 	var/target_type
-	/// Do we check for anti magic on the target when we click them? Basically if your action targets but doesn't do anything directly magical to them immediately (like projectiles), this should be false.
-	var/anti_magic_on_click_target = TRUE
+	/// Do we check for anti magic on the target when we target them? Basically if your action targets but doesn't do anything directly magical to them immediately (like projectiles), this should be false.
+	var/anti_magic_on_target = TRUE
 
 // When you press the button
 // Attempts to actively use the action
@@ -53,7 +53,7 @@
 	if(!can_use(user, target))
 		return FALSE
 	// Checking for anti-resonance/anti-magic below which really is a pain.
-	if(anti_magic_on_click_target && resonant && ismob(target) && target != user) // If the spell does check for antimagic on click, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
+	if(anti_magic_on_target && resonant && ismob(target) && target != user) // If the spell does check for antimagic on click, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
 		var/mob/mob_target = target
 		if(mob_target.can_block_resonance(1)) // Runs the special can_block_resonance function which also handles the anti-magic part.
 			// I would like to deduct resources on spell fail, but that is going to be so utterly complex. TODO for the future chap who wants this.
@@ -156,9 +156,11 @@ Handles all the logic involved in using a targeted, click-based action.
 	StartCooldown()
 	return TRUE
 
-// Intercepts client owner clicks to activate the ability.
-// Called by the base click intercept system on left click.
-// Whilst /datum/action/cooldown does have click support, it doesn't support range-detecting and target filtering, so we are overriding that with our own.
+/** Intercepts client owner clicks to activate the ability.
+ * Called by the base click intercept system on left click.
+ * Whilst /datum/action/cooldown does have click support, it doesn't support range-detecting and target filtering, so we are overriding that with our own.
+ * Returning only tells the game if we consume the normal click behavior (if true) or not (if false)
+ */
 /datum/action/cooldown/power/InterceptClickOn(mob/living/clicker, params, atom/target)
 	if(!IsAvailable(feedback = TRUE))
 		return FALSE

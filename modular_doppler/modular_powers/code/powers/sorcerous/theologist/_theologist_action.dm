@@ -14,9 +14,10 @@
 	// THIS IS NOT IN EVERY POWER DATUM, ONLY ONES THAT HAVE RESOURCE SPENDING MECHANICS.
 	var/cost
 
-/datum/action/cooldown/power/theologist/New()
+/datum/action/cooldown/power/theologist/Grant(mob/grant_to)
 	. = ..()
 	ValidatePietyComponent()
+	return .
 
 // Since Theologist has both 3 roots and a persistent resource system, we use a component for handling Piety
 /datum/action/cooldown/power/theologist/proc/ValidatePietyComponent()

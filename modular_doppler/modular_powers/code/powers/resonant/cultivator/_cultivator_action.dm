@@ -17,9 +17,11 @@
 	// Does this power get called by _cultivator_dantian.dm when we check for aura farming? Used for potential future powers that allow you to aura farm in other ways.
 	var/contributes_to_aura_farming = FALSE
 
-/datum/action/cooldown/power/cultivator/New()
+
+/datum/action/cooldown/power/cultivator/Grant(mob/grant_to)
 	. = ..()
 	ValidateDantianComponent()
+	return .
 
 // Feng Shui / Aura farming mechanics; get stuff in the environment, increase dantian based on it
 // The func should be responsible for checking all the environmental stuff, calculating it and then returning it to the dantian system.
@@ -58,4 +60,3 @@
 	if(cost)
 		adjust_dantian(-cost)
 	return
-

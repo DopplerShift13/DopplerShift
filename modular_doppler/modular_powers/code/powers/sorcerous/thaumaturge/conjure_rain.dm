@@ -19,7 +19,7 @@
 	required_affinity = 3
 	prep_cost = 4
 	click_to_activate = TRUE
-	anti_magic_on_click_target = FALSE
+	anti_magic_on_target = FALSE
 
 	use_time_overlay_type = /obj/effect/temp_visual/conjure_rain
 	use_time = 5

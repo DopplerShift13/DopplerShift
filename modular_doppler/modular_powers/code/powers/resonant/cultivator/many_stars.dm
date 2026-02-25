@@ -20,7 +20,7 @@
 
 	click_to_activate = TRUE
 	unset_after_click = FALSE
-	anti_magic_on_click_target = FALSE
+	anti_magic_on_target = FALSE
 
 	// icon & state
 	var/star_icon = 'icons/effects/eldritch.dmi'
