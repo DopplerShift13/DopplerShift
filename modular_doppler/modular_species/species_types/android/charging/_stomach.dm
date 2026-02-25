@@ -64,6 +64,9 @@
 		return
 	run_emp_effects(severity)
 
+/obj/item/organ/stomach/charging/get_cell()
+	return internal_cell
+
 /// Adjust our charge, handle subsequent charge effects.
 /obj/item/organ/stomach/charging/proc/adjust_charge(amount)
 	internal_cell.change(amount)
@@ -140,7 +143,7 @@
 
 /// Handles the oversized quirk's interaction with synth charge
 /obj/item/organ/stomach/charging/proc/become_oversized()
-	internal_cell.maxcharge *= 2
+	internal_cell.maxcharge *= 2.5 // 5 MJ
 	name = "large [name]"
 	desc += " It has been constructed for a much larger frame than is standard."
 

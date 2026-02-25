@@ -5,7 +5,7 @@
  */
 
 /// The default maximum energy for a charging stomach.
-#define CHARGING_STOMACH_CHARGE_FULL (5 MEGA JOULES)
+#define CHARGING_STOMACH_CHARGE_FULL (2 MEGA JOULES)
 /// The default energy level at which a charging stomach starts.
 #define CHARGING_STOMACH_CHARGE_START CHARGING_STOMACH_CHARGE_FULL
 /// The default energy level below which a charging stomach considers itself low on charge.
