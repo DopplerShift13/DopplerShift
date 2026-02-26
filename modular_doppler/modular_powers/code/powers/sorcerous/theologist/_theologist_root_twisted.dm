@@ -71,7 +71,7 @@
 				keep_going = FALSE
 			if(target.health < target.maxHealth)
 				new /obj/effect/temp_visual/heal(get_turf(target), "#cf2525")
-				playsound(owner, 'sound/effects/magic/cosmic_expansion.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
+				playsound(owner, 'sound/effects/magic/cosmic_expansion.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 				var/healtodmgcap = heal_random_damage(target)
 				deal_random_damage(target, (healtodmgcap / 2))
 			if(healing_done >= healing_max)

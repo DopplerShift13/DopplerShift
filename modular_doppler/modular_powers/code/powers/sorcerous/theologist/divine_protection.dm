@@ -49,7 +49,7 @@
 		return
 	blocking_user.visible_message(
 		span_danger("[attack_text] bounces harmlessly off of [blocking_user]!"),
-		span_userdanger("Your Divine Protection protects you from [attack_text]!"),
+		span_userdanger("[attack_text] is blocked by your Divine Protection!"),
 	)
 	// don't trigger the fx more than 1 second to prevent taking ear damage from being shotgunned.
 	if(world.time < last_block_effect + 10)
