@@ -134,7 +134,7 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_HOOF, BODYSHAPE_TAUR_PAW)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi',
-		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania-digi.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi',
 		BODYSHAPE_TAUR_SNAKE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_snake.dmi',
 		BODYSHAPE_TAUR_HOOF_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_hoof.dmi',
 		BODYSHAPE_TAUR_PAW_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_paw.dmi',
@@ -142,17 +142,21 @@
 	can_adjust = FALSE
 	obj_flags = parent_type::obj_flags | INFINITE_RESKIN
 	unique_reskin = list(
-						"Masculine" = "latexsuit",
-						"Feminine" = "latexsuit_d",
-						"Masculine Half-suit" = "halflatexsuit",
-						"Feminine Half-suit" = "halflatexsuit_d"
+						"Old Masculine" = "latexsuit",
+						"Old Feminine" = "latexsuit_d",
+						"Old Masculine Half-suit" = "halflatexsuit",
+						"Old Feminine Half-suit" = "halflatexsuit_d",
+						"New Masculine" = "latexsuit_j",
+						"New Feminine" = "latexsuit_d_j",
+						"New Masculine Half-suit" = "halflatexsuit_j",
+						"New Feminine Half-suit" = "halflatexsuit_d_j",
 						)
 
 //This makes the player have to sit through a 6 Second do_after when taking off the latex suit
 /obj/item/clothing/under/latexsuit/allow_attack_hand_drop(mob/user)
-    if(!iscarbon(src.loc))
+    if(!iscarbon(loc))
         return TRUE
-    var/mob/living/carbon/human/wearer = src.loc
+    var/mob/living/carbon/human/wearer = loc
     if(wearer.w_uniform != src)
         return TRUE
 
