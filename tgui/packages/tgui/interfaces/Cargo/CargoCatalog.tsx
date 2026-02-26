@@ -198,6 +198,10 @@ function CatalogList(props: CatalogListProps) {
         }
 
         const privateBuy = (self_paid && !pack.goody) || app_cost;
+        const unavailable = pack.shortagemult === -1;
+        const shortageString = unavailable
+          ? 'UNAVAILABLE!'
+          : `${pack.shortagemult}x cost`;
         const tooltipIcon = (content: string, icon: string, color: string) => (
           <Stack.Item>
             <Tooltip content={content}>
@@ -214,7 +218,9 @@ function CatalogList(props: CatalogListProps) {
             dmIconState={pack.first_item_icon_state}
             imageSize={32}
             color={color}
-            disabled={(amount_by_name[pack.name] || 0) >= max_order}
+            disabled={
+              (amount_by_name[pack.name] || 0) >= max_order || unavailable
+            }
             buttonsAlt={
               <Button
                 color="transparent"
@@ -232,6 +238,11 @@ function CatalogList(props: CatalogListProps) {
               <Stack.Item grow textAlign="left">
                 {pack.name}
               </Stack.Item>
+              {pack.shortagemult !== 1 && (
+                <Stack.Item color="red" grow italic bold fontSize={0.7}>
+                  Shortages: {shortageString}
+                </Stack.Item>
+              )}
               {(!!pack.small_item || !!pack.access || !!pack.contraband) && (
                 <Stack.Item>
                   <Stack reverse>

@@ -8,6 +8,7 @@
 		/obj/structure/closet/crate/large,
 		/obj/structure/closet/crate/mail,
 		/obj/structure/closet/crate/wooden,
+		/obj/structure/closet/crate/donation, // DOPPLER EDIT ADDITION
 		)
 
 /datum/export/large/crate/total_printout(datum/export_report/ex, notes = TRUE) // That's why a goddamn metal crate costs that much.

@@ -189,6 +189,7 @@
 		packs += list(list(
 			"name" = pack.name,
 			"cost" = pack.get_cost() * get_discount(),
+			"shortagemult" = pack.get_shortage_price_mult(), // DOPPLER EDIT ADDITION - SUPPLY_SHORTAGE STORY MODULE
 			"id" = pack_id,
 			"desc" = pack.desc || pack.name, // If there is a description, use it. Otherwise use the pack's name.
 			"first_item_icon" = first_item?.icon,
