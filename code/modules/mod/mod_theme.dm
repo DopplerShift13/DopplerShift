@@ -165,6 +165,7 @@
 	for(var/obj/item/part as anything in parts + mod)
 		part.icon = used_skin[MOD_ICON_OVERRIDE] || 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 		part.worn_icon = used_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
+		part.bodyshape_icon_files[BODYSHAPE_HUMANOID_T] = used_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
 		part.icon_state = "[skin]-[part.base_icon_state][mod.get_part_datum(part).sealed ? "-sealed" : ""]"
 		mod.wearer?.update_clothing(part.slot_flags)
 	mod.wearer?.refresh_obscured()
