@@ -7348,7 +7348,6 @@
 #include "modular_doppler\modular_items\code\invisible_gear.dm"
 #include "modular_doppler\modular_items\code\pda_reskins.dm"
 #include "modular_doppler\modular_items\code\shelf.dm"
-#include "modular_doppler\modular_items\code\shipchem_overrides.dm"
 #include "modular_doppler\modular_items\code\signature_beacon.dm"
 #include "modular_doppler\modular_items\code\summon_beacon.dm"
 #include "modular_doppler\modular_items\hyposprays\code\autolathe_designs.dm"

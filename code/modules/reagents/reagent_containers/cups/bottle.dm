@@ -501,7 +501,7 @@
 	amount_per_transfer_from_this = 5
 	spillable = FALSE
 	/// Do we currently have our pump cap on?
-	//var/cap_on = TRUE /// DOPPLER SHIFT REMOVAL
+	var/cap_on = TRUE
 
 /obj/item/reagent_containers/cup/bottle/syrup_bottle/Initialize(mapload)
 	. = ..()
@@ -561,8 +561,7 @@
 	update_appearance()
 	return ITEM_INTERACT_SUCCESS
 
-/// DOPPLER SHIFT REMOVAL BEGIN
-/*obj/item/reagent_containers/cup/bottle/syrup_bottle/click_alt(mob/user)
+obj/item/reagent_containers/cup/bottle/syrup_bottle/click_alt(mob/user)
 	cap_on = !cap_on
 	if(cap_on)
 		icon_state = "syrup"
@@ -574,8 +573,7 @@
 		balloon_alert(user, "removed pump cap")
 
 	update_icon_state()
-	return CLICK_ACTION_SUCCESS*/
-/// DOPPLER SHIFT REMOVAL END
+	return CLICK_ACTION_SUCCESS
 
 //types of syrups
 
