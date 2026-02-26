@@ -1,7 +1,7 @@
 /datum/power/cultivator_root/astral_touched
 	name = "Astral Touched Alignment"
 	desc = "You gain your Dantian's aura by being able to view space (or space adjacent things), proportional to distance. Activating it gives you a radiant, blue aura causing your punches to do extra burn damage.\
-	Passively, your cold temprature tolerance is increased by 40K; activating the alignment makes you immune to cold and pressure, allowing you to navigate space unharmed (though you still need to breathe).\
+	Passively, your cold temprature tolerance is increased by 40C; activating the alignment makes you immune to cold and pressure, allowing you to navigate space unharmed (though you still need to breathe).\
 	You gain armor IV across your whole body. Has diminishing effects with your worn armor."
 	action_path = /datum/action/cooldown/power/cultivator/alignment/astral_touched
 

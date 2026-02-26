@@ -7477,6 +7477,8 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\many_stars.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\set_fire_to_dry_hay.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\shadowwalker_root.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\cultivator\travel_under_the_veil_of_night.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\cultivator\vanish_unseen_into_shadow.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_action.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_organ.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_power.dm"

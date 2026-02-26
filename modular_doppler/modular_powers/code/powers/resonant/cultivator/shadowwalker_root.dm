@@ -6,7 +6,7 @@
 	You gain armor IV across your whole body. Has diminishing effects with your worn armor."
 	action_path = /datum/action/cooldown/power/cultivator/alignment/shadow_walker
 
-	value = 6
+	value = 5
 
 // Lets you see in the dark.
 /datum/power/cultivator_root/shadow_walker/post_add()
@@ -44,6 +44,9 @@
 	if(!shadowwalker_identity)
 		shadowwalker_identity = new(user)
 	refresh_echo_overlay(user)
+	//extra spooky 4 clown
+	if(is_clown_job(user.mind?.assigned_role))
+		playsound(user, 'sound/misc/scary_horn.ogg', 60, TRUE)
 
 /datum/action/cooldown/power/cultivator/alignment/shadow_walker/disable_alignment(mob/living/carbon/user)
 	. = ..()

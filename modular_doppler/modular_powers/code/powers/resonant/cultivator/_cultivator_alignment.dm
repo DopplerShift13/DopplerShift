@@ -42,7 +42,7 @@
 /datum/action/cooldown/power/cultivator/alignment/Destroy()
 	. = ..()
 	if(owner)
-		UnregisterSignal(owner, list(COMSIG_HUMAN_UNARMED_HIT, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM))
+		UnregisterSignal(owner, list(COMSIG_HUMAN_UNARMED_HIT, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM, COMSIG_ATOM_DISPEL))
 		remove_alignment_armor()
 
 // The proc for onhit. Override as desired.
@@ -100,6 +100,7 @@
 	RegisterSignal(user, COMSIG_HUMAN_UNARMED_HIT, PROC_REF(on_unarmed_hit))
 	RegisterSignal(user, COMSIG_MOB_EQUIPPED_ITEM, PROC_REF(on_equipment_changed))
 	RegisterSignal(user, COMSIG_MOB_UNEQUIPPED_ITEM, PROC_REF(on_equipment_changed))
+	RegisterSignal(user, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	recompute_alignment_armor(user)
 	SEND_SIGNAL(user, COMSIG_CULTIVATOR_ALIGNMENT_ENABLED, src)
 	return TRUE
@@ -111,12 +112,21 @@
 	if(alignment_overlay)
 		user.cut_overlay(alignment_overlay)
 		QDEL_NULL(alignment_overlay)
-	UnregisterSignal(user, list(COMSIG_HUMAN_UNARMED_HIT, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM))
+	UnregisterSignal(user, list(COMSIG_HUMAN_UNARMED_HIT, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM, COMSIG_ATOM_DISPEL))
 	user.remove_filter(filter_id)
 	remove_alignment_armor()
 	QDEL_NULL(alignment_light)
 	SEND_SIGNAL(user, COMSIG_CULTIVATOR_ALIGNMENT_DISABLED, src)
 	return TRUE
+
+// Dispel handler: drains Dantian if alignment is active.
+/datum/action/cooldown/power/cultivator/alignment/proc/on_dispel(mob/owner, atom/dispeller)
+	SIGNAL_HANDLER
+	if(!active)
+		return NONE
+	if(ValidateDantianComponent())
+		adjust_dantian(-CULTIVATOR_DANTIAN_MODERATE)
+	return DISPEL_RESULT_DISPELLED
 
 // Deactivating the power doesn't cost anything so we skip the cost component.
 /datum/action/cooldown/power/cultivator/alignment/on_action_success(mob/living/carbon/user)
@@ -202,4 +212,3 @@
 	fire = 40
 	melee = 40
 	wound = 40
-

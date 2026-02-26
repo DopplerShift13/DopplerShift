@@ -3,15 +3,16 @@
 */
 /datum/power/cultivator/from_friction_comes_flame
 	name = "From Friction Comes Flame"
-	desc = "Your punches while in alignment cause the target to heat up. Once they reach 100C (373K), your strikes also combust the target."
+	desc = "Your punches while in alignment cause the target to heat up. Once they reach 80C, your strikes also combust the target."
 	value = 3
+	required_powers = list(/datum/power/cultivator_root/flame_soul)
 
 	// how much we BRING THE HEAT on our punches
-	var/bonus_heat = 35
+	var/bonus_heat = 20
 	// the flame stacks we apply per punch
 	var/bonus_flame_stacks = 0.15
 	// the threshold on setting targets on fire in KELVIN (basically celcius but +273)
-	var/temperature_threshold = 373
+	var/temperature_threshold = 353
 	// reference to flame soul alignment
 	var/datum/action/cooldown/power/cultivator/alignment/flame_soul/flame_soul_alignment
 
