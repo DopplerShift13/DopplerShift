@@ -88,6 +88,9 @@
 	var/list/skin_parts = list()
 	for(var/variant in variants)
 		skin_parts += list(assoc_to_keys(variants[variant]))
+	for(var/skin_icon_override in skin_parts) // DOPPLER ADDITION - MODULAR MODSUIT ICONS FAIL TESTS OTHERWISE
+		skin_icon_override -= MOD_ICON_OVERRIDE // DOPPLER ADDITION
+		skin_icon_override -= MOD_WORN_ICON_OVERRIDE // DOPPLER ADDITION END
 	for(var/skin in skin_parts)
 		for(var/compared_skin in skin_parts)
 			if(skin ~! compared_skin)
