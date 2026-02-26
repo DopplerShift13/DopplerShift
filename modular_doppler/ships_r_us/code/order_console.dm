@@ -113,32 +113,30 @@
 
 /obj/machinery/computer/personal_shuttle_order/interact(mob/user)
 	. = ..()
-	if(!can_interact(user))
-		return
 	if(!our_docking_port)
 		balloon_alert(user, "no linked docking port")
-		return
+		return FALSE
 	if(!length(shopping_list))
 		balloon_alert(user, "no ships available")
-		return
+		return FALSE
 
 	var/menu_option = tgui_alert(user, , "Personal Shuttle Order Console", list(PERSONAL_SHUTTLE_CONSOLE_SHOPPING_LIST, PERSONAL_SHUTTLE_CONSOLE_SELECTION_DETAILS))
 	if(!menu_option)
 		balloon_alert(user, "no selection made")
-		return
+		return FALSE
 
 	switch(menu_option)
 		if(PERSONAL_SHUTTLE_CONSOLE_SHOPPING_LIST)
 			var/new_template = tgui_input_list(user, "Choose Shuttle Template", "Personal Shuttle Order Console", shopping_list)
 			if(!new_template)
 				balloon_alert(user, "no selection made")
-				return
+				return FALSE
 			selected_template = shopping_list[new_template]
 			balloon_alert_to_viewers("new shuttle selection made")
 		if(PERSONAL_SHUTTLE_CONSOLE_SELECTION_DETAILS)
 			if(!selected_template)
 				balloon_alert(user, "no selected shuttle")
-				return
+				return FALSE
 			/// Temporarily holds what the selected template was at the time of the menu opening, to prevent accidental baits and switches
 			var/datum/map_template/shuttle/personal_buyable/cached_selected_template = selected_template
 			var/shuttle_details_option = tgui_alert( \
@@ -149,15 +147,14 @@
 			)
 			if(!shuttle_details_option)
 				balloon_alert(user, "no selection made")
-				return
+				return FALSE
 
 			switch(shuttle_details_option)
 				if(PERSONAL_SHUTTLE_CONSOLE_PURCHASE_SHUTTLE)
 					// Just to be safe, again
 					if(!cached_selected_template)
 						balloon_alert(user, "no selected shuttle")
-						return
-
+						return FALSE
 					try_and_buy_that_shuttle(user, cached_selected_template)
 				if(PERSONAL_SHUTTLE_CONSOLE_CLEAR_SELECTION)
 					balloon_alert(user, "selection cleared")
