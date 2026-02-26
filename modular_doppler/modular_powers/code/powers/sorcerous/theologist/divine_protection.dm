@@ -36,7 +36,7 @@
 	if(block_chance <= 0 || !prob(block_chance))
 		return NONE
 
-	block_effect(blocking_user, attack_text)
+	block_effect(blocking_user, attack_text, hitby, attack_type)
 	// We only allow piety loss once per 0.4 seconds so you don't get your piety nuked by a shotgun.
 	if(world.time >= last_piety_drain + 4)
 		piety_component.adjust_piety(-THEOLOGIST_PIETY_MINOR)
@@ -44,13 +44,19 @@
 	return SUCCESSFUL_BLOCK
 
 // Special block effect
-/datum/power/theologist/divine_protection/proc/block_effect(mob/living/blocking_user, attack_text)
+/datum/power/theologist/divine_protection/proc/block_effect(mob/living/blocking_user, attack_text, atom/movable/hitby, attack_type)
 	if(!blocking_user)
 		return
 	blocking_user.visible_message(
 		span_danger("[attack_text] bounces harmlessly off of [blocking_user]!"),
 		span_userdanger("[attack_text] is blocked by your Divine Protection!"),
 	)
+	var/mob/living/attacker = GET_ASSAILANT(hitby)
+	if(attacker && (attack_type == MELEE_ATTACK || attack_type == UNARMED_ATTACK || attack_type == LEAP_ATTACK || attack_type == OVERWHELMING_ATTACK))
+		if(istype(hitby, /obj/item))
+			attacker.do_attack_animation(blocking_user, used_item = hitby)
+		else
+			attacker.do_attack_animation(blocking_user)
 	// don't trigger the fx more than 1 second to prevent taking ear damage from being shotgunned.
 	if(world.time < last_block_effect + 10)
 		return

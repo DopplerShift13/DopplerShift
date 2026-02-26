@@ -330,14 +330,16 @@
 
 // Purifying constructs invokes you a curse. You have to pay the bloodtithe; all of your blood. Payed in installments.
 /datum/status_effect/debt_to_the_geometer
-	id = "burden_revered"
+	id = "debt_to_the_geometer"
 	alert_type = /atom/movable/screen/alert/status_effect/debt_to_the_geometer
 	/// Total blood required to pay off the debt.
 	var/debt_goal = 600
 	/// Blood paid so far.
 	var/debt_paid = 0
 	/// Blood lost per second while the effect is active.
-	var/bleed_per_second = 3
+	var/bleed_per_second = 5
+	// The curse is starting to tithe blood.
+	var/curse_has_started = FALSE
 
 /datum/status_effect/debt_to_the_geometer/on_apply()
 	. = ..()
@@ -349,6 +351,15 @@
 /datum/status_effect/debt_to_the_geometer/tick(seconds_between_ticks)
 	if(!owner)
 		return
+
+	// We give a bit of an unpredictable buffer before we start bleeding the person. A bit of space to have them RP.
+	if(!curse_has_started)
+		if(prob(0.5))
+			curse_has_started = TRUE
+			to_chat(owner, span_cult_bold("Blood is starting to ooze from every part of your body!"))
+		else
+			return
+
 	// You pissed off the Geometer herself. If Nar'Sie exists, ensure we are her current target.
 	if(GLOB.cult_narsie)
 		var/turf/owner_turf = get_turf(owner)
