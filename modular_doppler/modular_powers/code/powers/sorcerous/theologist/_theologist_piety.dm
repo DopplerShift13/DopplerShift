@@ -9,7 +9,7 @@
 
 	// current piety & max piety
 	var/piety = 0
-	var/max_piety = THEOLOGIAN_PIETY_MAX
+	var/max_piety = THEOLOGIST_PIETY_MAX
 
 	// The UI itself
 	var/atom/movable/screen/theologist_piety/theologist_ui

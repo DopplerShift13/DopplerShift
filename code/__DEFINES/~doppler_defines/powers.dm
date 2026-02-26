@@ -125,13 +125,13 @@
  */
 
 // How much root abilities should heal (max), if they heal.
-#define THEOLOGIAN_ROOT_HEALING 30
+#define THEOLOGIST_ROOT_HEALING 30
 
 // Healing equates to this much piety.
-#define THEOLOGIAN_PIETY_HEALING_COEFFICIENT 0.2
+#define THEOLOGIST_PIETY_HEALING_COEFFICIENT 0.2
 
-// Maximum amount of Piety
-#define THEOLOGIAN_PIETY_MAX 50
+// Maximum amount of Piety (chaplain gets double this amount)
+#define THEOLOGIST_PIETY_MAX 50
 
 // UI location of the Piety element
 #define THEOLOGIST_UI_SCREEN_LOC "WEST,CENTER-2:15"
@@ -141,6 +141,13 @@
 
 // Trait made as to prevent duplicate smites.
 #define TRAIT_HAS_SMITING_STRIKE "has_smiting_strike"
+
+// Standard Theologian costs
+#define THEOLOGIST_PIETY_TRIVIAL (CULTIVATOR_DANTIAN_MAX / 100)
+#define THEOLOGIST_PIETY_MINOR (CULTIVATOR_DANTIAN_MAX / 10)
+#define THEOLOGIST_PIETY_MODERATE (CULTIVATOR_DANTIAN_MAX / 5)
+#define THEOLOGIST_PIETY_MAJOR (CULTIVATOR_DANTIAN_MAX / 2)
+#define THEOLOGIST_PIETY_CRUSHING (CULTIVATOR_DANTIAN_MAX)
 
 /**
  * RESONANT

@@ -7527,6 +7527,7 @@
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_root_revered.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_root_shared.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_root_twisted.dm"
+#include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\divine_protection.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\entropic_mending.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\pious_prayer.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\theologist\smiting_strike.dm"

@@ -64,7 +64,7 @@
 	// Have we been a good boy?
 	if(piety_buildup >= 1)
 		piety_buildup -= 1
-		adjust_piety(1)
+		adjust_piety(THEOLOGIST_PIETY_TRIVIAL)
 		to_chat(owner, span_notice("Taking on the burdens of others has gained you piety!"))
 	// Have we been a bad boy?
 	else if (piety_buildup <= -1)
@@ -75,10 +75,10 @@
 			if(ishuman(owner))
 				var/mob/living/carbon/human/sinner = owner
 				sinner.Paralyze(100)
-			to_chat(owner, span_userdanger("Divine forces have punished you for your lack of piety!"), confidential = TRUE)
+			to_chat(owner, span_userdanger("You have been punished for your lack of piety!"), confidential = TRUE)
 			clear_link()
 			return
-		adjust_piety(-1)
+		adjust_piety(-THEOLOGIST_PIETY_TRIVIAL)
 		to_chat(owner, span_warning("The transfer of your burdens onto others lost you piety!"))
 
 
@@ -266,9 +266,9 @@
 	// Piety buildup increases/deductions
 	// you can't gain piety from taking burdens from a ckey-less creature (sorry pets), but you can lose piety from dumping onto a ckey-less creature.
 	if(taker == owner && giver.ckey)
-		piety_buildup += amount * THEOLOGIAN_PIETY_HEALING_COEFFICIENT
+		piety_buildup += amount * THEOLOGIST_PIETY_HEALING_COEFFICIENT
 	else if(giver == owner)
-		piety_buildup -= amount * THEOLOGIAN_PIETY_HEALING_COEFFICIENT
+		piety_buildup -= amount * THEOLOGIST_PIETY_HEALING_COEFFICIENT
 
 	return
 

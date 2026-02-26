@@ -25,7 +25,7 @@
 	unset_after_click = TRUE
 
 	//How much we can heal max with twisted per use.
-	var/healing_max = THEOLOGIAN_ROOT_HEALING
+	var/healing_max = THEOLOGIST_ROOT_HEALING
 	//Tracks how much healing we did throughout the proccess.
 	var/healing_done = 0
 
@@ -91,7 +91,7 @@
 	UnregisterSignal(owner, COMSIG_ATOM_DISPEL)
 
 	// Handles piety gain
-	var/piety_gained = max(0, floor(healing_done * THEOLOGIAN_PIETY_HEALING_COEFFICIENT))
+	var/piety_gained = max(0, floor(healing_done * THEOLOGIST_PIETY_HEALING_COEFFICIENT))
 	// resets for next time
 	healing_done = 0
 	damage_done = 0

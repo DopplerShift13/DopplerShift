@@ -31,10 +31,6 @@
 	// Increase prayer cap based on various factors.
 	// Are you the Chaplain?
 	if(is_chaplain_job(usr.mind?.assigned_role))
-		prayer_cap = 15
-		return
-	// Do you have the religious quirk?
-	if(HAS_TRAIT(usr, TRAIT_SPIRITUAL))
 		prayer_cap = 10
 		return
 
@@ -58,7 +54,7 @@
 			else if(istype(area, /area/station/service/chapel) || prob(check_how_religious(user))) // If you're in the chapel or if fate aligns.
 				if(cap_warning_given)
 					continue
-				adjust_piety(1)
+				adjust_piety(THEOLOGIST_PIETY_TRIVIAL)
 				to_chat(user, span_notice("You feel more pious after your prayer."))
 		else
 			keep_going = FALSE
@@ -82,7 +78,7 @@
 		total_chance += 5
 	// Do you carry the bible on your person?
 	if(has_bible(user))
-		total_chance += 5
+		total_chance += 10
 	// Are you standing on a blessed tile? (Blessed with holy water).
 	if(locate(/obj/effect/blessing) in user.loc)
 		total_chance += 15
