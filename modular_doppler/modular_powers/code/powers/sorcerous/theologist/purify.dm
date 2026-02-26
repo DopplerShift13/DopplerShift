@@ -253,6 +253,7 @@
 	// Fallback for the constructs that dont have a purified version e.g proteons
 	if(!typepath)
 		convert_construct_in_place(construct_target, user)
+		post_conversion(user, construct_target)
 		return TRUE
 
 	var/mob/living/basic/construct/new_construct = new typepath(construct_target.loc)
@@ -263,16 +264,20 @@
 	else
 		enable_construct_ghost_control(new_construct)
 
-	user.visible_message(span_notice("[user] purifies [construct_target]!"))
+	post_conversion(user, new_construct)
+	qdel(construct_target)
+	return TRUE
+
+// Applies post conversion fluff + curse.
+/datum/action/cooldown/power/theologist/purify/proc/post_conversion(mob/living/user, mob/living/target)
+	user.visible_message(span_notice("[user] purifies [target]!"))
 	playsound(user, 'sound/effects/his_grace/his_grace_ascend.ogg', 50, TRUE)
 	// Special feedback to the construct
-	to_chat(new_construct, span_blue("<b>The Geometer's presence in your mind fades, what was once your own freewill slips back into the forefront. You look down at your body; and while it is still the dark steel that adorns your body, you can move it of your own free will. Your freedom is returned; but still tethered forevermore to this body.</b>"))
+	to_chat(target, span_blue("<b>The Geometer's presence in your mind fades, what was once your own freewill slips back into the forefront. You look down at your body; and while it is still the dark steel that adorns your body, you can move it of your own free will. Your freedom is returned; but still tethered forevermore to this body.</b>"))
 	// Special feedback to the caster
 	to_chat(user, span_blue("<b>As you have shown yourself to be pious, to take on the burdens of others; you now take on the greatest burden of another. Whoever the vile entity responsible may be, you take it away from this enslaved tool, and bury the energy responsible deep inside you. You have freed it; but this darkness seems to be eating away at you.</b>"))
 	user.apply_status_effect(/datum/status_effect/debt_to_the_geometer, src)
 	to_chat(user, span_cult_bold("<b>You have been cursed; your actions carry a price, and you shall be made to pay it.</b>"))
-	qdel(construct_target)
-	return TRUE
 
 // Are we a chaplain or deacon (chaplain sect convertee)?
 /datum/action/cooldown/power/theologist/purify/proc/are_we_a_holy_man(mob/living/user)
@@ -306,6 +311,12 @@
 	target.theme = THEME_HOLY
 	target.faction = list(FACTION_HOLY)
 	ADD_TRAIT(target, TRAIT_ANGELIC, INNATE_TRAIT)
+	// Neutralize hostile AI (e.g., lavaland proteons).
+	if(target.ai_controller)
+		target.ai_controller = null
+	var/datum/component/ai_retaliate_advanced/retaliate = target.GetComponent(/datum/component/ai_retaliate_advanced)
+	if(retaliate)
+		qdel(retaliate)
 	if(target.icon_state)
 		target.cut_overlay("glow_[target.icon_state]_[old_theme]")
 		target.add_overlay("glow_[target.icon_state]_[target.theme]")
@@ -394,8 +405,8 @@
 	if(center)
 		for(var/turf/T in range(1, center))
 			owner.add_splatter_floor(T, FALSE)
-	user.visible_message(span_boldwarning("[owner]'s body bursts open, showering blood everywhere!"))
-	playsound(user, 'sound/effects/wounds/splatter.ogg', 50, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
+	owner.visible_message(span_boldwarning("[owner]'s body bursts open, showering blood everywhere!"))
+	playsound(owner, 'sound/effects/wounds/splatter.ogg', 50, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	qdel(src)
 
 /atom/movable/screen/alert/status_effect/debt_to_the_geometer
