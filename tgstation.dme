@@ -7466,6 +7466,8 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\_aberrant_root_anomalous.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\_aberrant_root_beastial.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\resonant_immune.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange_wolf.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\_cultivator_action.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\_cultivator_alignment.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\_cultivator_dantian.dm"

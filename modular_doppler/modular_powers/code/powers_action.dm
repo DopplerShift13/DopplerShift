@@ -90,6 +90,7 @@
 	if(QDELETED(user))
 		return FALSE
 	if(!ishuman(user) && human_only)
+		owner.balloon_alert(user, "not a human!")
 		return FALSE
 	return TRUE
 
