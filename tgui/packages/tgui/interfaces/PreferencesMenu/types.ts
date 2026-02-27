@@ -112,6 +112,8 @@ export type Power = {
   color: string;
   powertype: (string | null)[];
   rootpower: (string | null)[];
+  customizable?: boolean;
+  customization_options?: string[];
   augment?: {
     location?: string | null;
     is_arm?: boolean;

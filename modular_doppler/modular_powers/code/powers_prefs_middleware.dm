@@ -85,6 +85,8 @@
 				color = "1"
 
 		var/augment_info = build_augment_ui_info(power_type, preferences)
+		var/datum/power_constant_data/constant_data = GLOB.all_power_constant_data[power_type]
+		var/list/customization_options = constant_data?.get_customization_data()
 
 		var/final_list = list(list(
 				"description" = power_type.desc,
@@ -97,6 +99,8 @@
 				"powertype" = powertype,
 				"rootpower" = rootpower,
 				"augment" = augment_info,
+				"customizable" = constant_data?.is_customizable(),
+				"customization_options" = customization_options,
 			))
 
 		switch(power_type.path)
