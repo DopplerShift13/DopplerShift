@@ -154,6 +154,16 @@
 			return /mob/living/basic/pet/dog/corgi
 		if("Mouse")
 			return /mob/living/basic/mouse
+		if("Lizard")
+			return /mob/living/basic/lizard
+		if("Snake")
+			return /mob/living/basic/snake
+		if("Cockroach")
+			return /mob/living/basic/cockroach
+		if("Duct Spider")
+			return /mob/living/basic/spider/maintenance
+		if("Butterfly")
+			return /mob/living/basic/butterfly
 	return /mob/living/basic/parrot
 
 //Shapechange status effect for aberrant power. We make our own to prevent gibbed RR.
@@ -249,7 +259,7 @@
 	return "Parrot"
 
 /datum/preference/choiced/shapechange_form/init_possible_values()
-	return list("Parrot", "Penguin", "Stoat", "Fox", "Cat", "Corgi", "Mouse")
+	return list("Parrot", "Penguin", "Stoat", "Fox", "Cat", "Corgi", "Mouse", "Lizard", "Snake", "Cockroach", "Duct Spider", "Butterfly")
 
 /datum/preference/choiced/shapechange_form/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))

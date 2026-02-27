@@ -1,5 +1,4 @@
-/** Inside you are two wolves. This one's an example of how to override the shapechange with special mobs.
-**/
+// Inside you are two wolves. This one's an example of how to override the shapechange with special mobs.
 /datum/power/aberrant/shapechange_wolf
 	name = "Shapechange: Wolf"
 	desc = "Overrides your chosen Shapechange form with a Wolf; a sturdy creature with a strong bite attack."
