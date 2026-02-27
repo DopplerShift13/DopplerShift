@@ -157,6 +157,7 @@
 /// Trait held by all under the resonant archetype.
 #define TRAIT_ARCHETYPE_RESONANT "archetype_resonant"
 
+
 /**
  * RESONANT: CULTIVATOR
  * All defines related to the cultivator powers.

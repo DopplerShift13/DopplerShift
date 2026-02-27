@@ -52,7 +52,7 @@ ARMS
 	desc = "When implanted, this cybernetic implant will enhance the muscles of the arm to deliver more power-per-action. Install one in each arm \
 		to pry open doors with your bare hands!"
 
-	value = 8
+	value = 10 // door forcing + unarmed stacking with cultivator make this a potential balance hazard.
 	augment = /obj/item/organ/cyberimp/arm/strongarm
 
 /*
@@ -83,7 +83,7 @@ Keep in mind these are HUDS. Not actual eye replacements.
 	name = "Medical HUD Implant"
 	desc = "These cybernetic eye implants will display a medical HUD over everything you see."
 
-	value = 5
+	value = 4
 	augment = /obj/item/organ/cyberimp/eyes/hud/medical
 	disable_if_prisoner = FALSE
 

@@ -34,6 +34,25 @@
 	// The chosen animal form.
 	var/animal_form
 
+// Register dispel listener on the owner
+/datum/action/cooldown/power/aberrant/shapechange/Grant(mob/granted_to)
+	. = ..()
+	RegisterSignal(granted_to, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+
+/datum/action/cooldown/power/aberrant/shapechange/Remove(mob/removed_from)
+	. = ..()
+	UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
+
+/datum/action/cooldown/power/aberrant/shapechange/proc/on_dispel(mob/living/user, atom/dispeller)
+	SIGNAL_HANDLER
+	if(user?.has_status_effect(/datum/status_effect/shapechange_mob/aberrant))
+		user.remove_status_effect(/datum/status_effect/shapechange_mob/aberrant)
+		active = FALSE
+		to_chat(user, span_userdanger("You have been forced out of your shapeshifted form!"))
+		StartCooldown(300)
+		return DISPEL_RESULT_DISPELLED
+	return NONE
+
 // Special checks to do with hunger.
 /datum/action/cooldown/power/aberrant/shapechange/can_use(mob/living/user, atom/target)
 	. = ..()
@@ -140,32 +159,10 @@
 	// defaults to parrot incase something is wrong so we don't runtime everything.
 	if(isnull(choice))
 		choice = "Parrot"
-	switch(choice)
-		if("Parrot")
-			return /mob/living/basic/parrot
-		if("Penguin")
-			return /mob/living/basic/pet/penguin/emperor
-		if("Stoat")
-			return /mob/living/basic/stoat
-		if("Fox")
-			return /mob/living/basic/pet/fox
-		if("Cat")
-			return /mob/living/basic/pet/cat
-		if("Corgi")
-			return /mob/living/basic/pet/dog/corgi
-		if("Mouse")
-			return /mob/living/basic/mouse
-		if("Lizard")
-			return /mob/living/basic/lizard
-		if("Snake")
-			return /mob/living/basic/snake
-		if("Cockroach")
-			return /mob/living/basic/cockroach
-		if("Duct Spider")
-			return /mob/living/basic/spider/maintenance
-		if("Butterfly")
-			return /mob/living/basic/butterfly
-	return /mob/living/basic/parrot
+	var/shape_type = GLOB.shapechange_form_types[choice]
+	if(ispath(shape_type))
+		return shape_type
+	return GLOB.shapechange_form_types["Parrot"]
 
 //Shapechange status effect for aberrant power. We make our own to prevent gibbed RR.
 /datum/status_effect/shapechange_mob/aberrant
@@ -265,7 +262,10 @@
 	return "Parrot"
 
 /datum/preference/choiced/shapechange_form/init_possible_values()
-	return list("Parrot", "Penguin", "Stoat", "Fox", "Cat", "Corgi", "Mouse", "Lizard", "Snake", "Cockroach", "Duct Spider", "Butterfly")
+	var/list/values = list()
+	for(var/choice in GLOB.shapechange_form_types)
+		values += choice
+	return values
 
 /datum/preference/choiced/shapechange_form/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))

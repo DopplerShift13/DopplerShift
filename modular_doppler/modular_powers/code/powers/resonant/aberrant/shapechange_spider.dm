@@ -36,14 +36,10 @@
 	var/choice = power_holder?.client?.prefs?.read_preference(/datum/preference/choiced/shapechange_spider_form)
 	if(isnull(choice))
 		choice = "Guard"
-	switch(choice)
-		if("Hunter")
-			return /mob/living/basic/spider/giant/hunter
-		if("Ambush")
-			return /mob/living/basic/spider/giant/ambush
-		if("Guard")
-			return /mob/living/basic/spider/giant/guard
-	return /mob/living/basic/spider/giant/guard
+	var/spider_type = GLOB.shapechange_spider_form_types[choice]
+	if(ispath(spider_type))
+		return spider_type
+	return GLOB.shapechange_spider_form_types["Guard"]
 
 // Preference choice for Shapechange spider form selection.
 /datum/preference/choiced/shapechange_spider_form
@@ -55,7 +51,10 @@
 	return "Guard"
 
 /datum/preference/choiced/shapechange_spider_form/init_possible_values()
-	return list("Hunter", "Guard", "Ambush")
+	var/list/values = list()
+	for(var/choice in GLOB.shapechange_spider_form_types)
+		values += choice
+	return values
 
 /datum/preference/choiced/shapechange_spider_form/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
