@@ -1,5 +1,5 @@
 /** Lets us shapeshift into other mobs!
- * Health damage carries over.
+ * Health damage carries over; halved if transforming back manually.
  * Prones on exit
 **/
 /datum/power/aberrant/shapechange
@@ -7,7 +7,7 @@
 	desc = "You can adjust your body to turn into a specific type of animal (chosen in the power).\
 	\n Activating the ability transforms you into the chosen animal. It does not have your name or any other identifying traits, but the number is always the same when you use it (and the security record for this power elaborates on what creature and numbers). \
 	\n Using the ability makes you hungry, and cannot be used while you're starving.\
-	\n If the creature dies or the effect ends, you are reverted to your normal form (prone on the ground), and all damage taken is transfered to your original form."
+	\n If the creature dies or the effect ends, you are reverted to your normal form (prone on the ground), and all damage taken is transfered to your original form (halved if reverting back manually)."
 	value = 5
 
 	required_powers = list(/datum/power/aberrant_root/beastial)
@@ -53,6 +53,7 @@
 /datum/action/cooldown/power/aberrant/shapechange/use_action(mob/living/user, atom/target)
 	var/datum/status_effect/shapechange_mob/aberrant/shapechange = user.has_status_effect(/datum/status_effect/shapechange_mob/aberrant)
 	if(shapechange) // we don't check for active since that doesn't carry over.
+		shapechange.manual_revert = TRUE
 		user.remove_status_effect(/datum/status_effect/shapechange_mob/aberrant)
 		active = FALSE
 		return TRUE
@@ -173,6 +174,8 @@
 	var/datum/weakref/source_weakref
 	/// Whether the shifted body was gibbed when it died
 	var/last_gibbed = FALSE
+	/// Whether the revert was manually triggered.
+	var/manual_revert = FALSE
 
 /datum/status_effect/shapechange_mob/aberrant/on_creation(mob/living/new_owner, mob/living/caster, datum/action/cooldown/power/aberrant/shapechange/source_action)
 	if(!istype(source_action))
@@ -205,6 +208,7 @@
 
 /datum/status_effect/shapechange_mob/aberrant/on_shape_death(datum/source, gibbed)
 	last_gibbed = gibbed
+	manual_revert = FALSE
 	if(QDELETED(owner))
 		return
 	restore_caster()
@@ -219,10 +223,11 @@
 	caster_mob.transform = matrix()
 
 	// Transfer damage from the shifted body back to the caster.
-	var/brute = owner.getBruteLoss()
-	var/burn = owner.getFireLoss()
-	var/tox = owner.getToxLoss()
-	var/oxy = owner.getOxyLoss()
+	var/damage_mult = manual_revert ? 0.5 : 1
+	var/brute = owner.getBruteLoss() * damage_mult
+	var/burn = owner.getFireLoss() * damage_mult
+	var/tox = owner.getToxLoss() * damage_mult
+	var/oxy = owner.getOxyLoss() * damage_mult
 	if(brute)
 		caster_mob.apply_damage(brute, BRUTE, forced = TRUE)
 	if(burn)
@@ -248,6 +253,7 @@
 		else
 			caster_mob.apply_damage(150, BRUTE, forced = TRUE)
 		last_gibbed = FALSE
+	manual_revert = FALSE
 
 // Preference choice for Shapechange form selection.
 /datum/preference/choiced/shapechange_form
