@@ -240,6 +240,7 @@
 	var/datum/beam/link = user.Beam(construct_target, icon_state = "kinesis", override_target_pixel_x = 0)
 	construct_target.SetStun(15 SECONDS, ignore_canstun = TRUE)
 	// normally you don't use userdanger for this but its a hype moment.
+	playsound(user, 'sound/effects/magic/forcewall.ogg', 50, TRUE)
 	user.visible_message(span_userdanger("[user] channels a beam of holy energy, attempting to purify any and all unholy qualities of [construct_target]!"))
 	var/channel_success = do_after(user, 15 SECONDS, target = construct_target)
 	construct_target.SetStun(0, ignore_canstun = TRUE)
