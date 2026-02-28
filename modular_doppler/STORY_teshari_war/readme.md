@@ -1,6 +1,6 @@
-## Title: Supply shortage
+## Title: Teshari/Tizira war
 
-MODULE ID: SUPPLY_SHORTAGE
+MODULE ID: TESHARI_WAR
 
 ### Description:
 
@@ -19,7 +19,7 @@ config/config.txt - L6
 
 ### Defines:
 
-N/A
+code\_\_DEFINES\~doppler_defines\TESHARI_WAR_defines.dm
 
 ### Master file additions
 
@@ -28,6 +28,7 @@ N/A
 ### Included files that are not contained in this module:
 
 config/doppler/STORY_SUPPLY_SHORTAGE.txt
+tgui\packages\tgui\interfaces\PreferencesMenu\preferences\features\dopplershift_preferences\war_faction.tsx
 
 ### Credits:
 

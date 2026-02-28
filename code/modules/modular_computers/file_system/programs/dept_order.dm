@@ -85,7 +85,7 @@ GLOBAL_VAR(department_cd_override)
 		if(!islist(supply_data[pack.group]) || !can_see_pack(pack))
 			continue
 
-		// DOPPLER EDIT ADDITION BEGIN - SUPPLY_SHORTAGE STORY MODULE
+		// DOPPLER EDIT ADDITION BEGIN - TESHARI_WAR STORY MODULE
 		var/shortage_text = ""
 		if (pack.is_unavailable())
 			shortage_text = " (Shortages: Unavailable!)"
@@ -95,8 +95,8 @@ GLOBAL_VAR(department_cd_override)
 		UNTYPED_LIST_ADD(supply_data[pack.group], list(
 			"name" = pack.name,
 			"cost" = pack.get_cost(),
-			"unavailable" = pack.is_unavailable(), // DOPPLER EDIT ADDITION - SUPPLY_SHORTAGE STORY MODULE
-			"shortage_text" = shortage_text, // DOPPLER EDIT ADDITION - SUPPLY_SHORTAGE STORY MODULE
+			"unavailable" = pack.is_unavailable(), // DOPPLER EDIT ADDITION - TESHARI_WAR STORY MODULE
+			"shortage_text" = shortage_text, // DOPPLER EDIT ADDITION - TESHARI_WAR STORY MODULE
 			"id" = pack.id,
 			"desc" = pack.desc || pack.name, // If there is a description, use it. Otherwise use the pack's name.
 		))
