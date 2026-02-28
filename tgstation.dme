@@ -7468,6 +7468,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\_aberrant_root_beastial.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\bioluminescence.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\bloodhound.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\aberrant\cocoon.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\resonant_immune.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange_spider.dm"
