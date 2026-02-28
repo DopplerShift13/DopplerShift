@@ -20,3 +20,10 @@ GLOBAL_LIST_INIT(shapechange_spider_form_types, list(
 	"Guard" = /mob/living/basic/spider/giant/guard,
 	"Ambush" = /mob/living/basic/spider/giant/ambush,
 ))
+
+// Light sizes for bioluminescene
+GLOBAL_LIST_INIT(bioluminescence_sizes, list(
+	"Small" = 2,
+	"Medium" = 3,
+	"Large" = 4,
+))

@@ -14,12 +14,14 @@
 	if(!shape_action)
 		return
 	previous_form = shape_action.animal_form
-	shape_action.animal_form = /mob/living/basic/mining/wolf
+	shape_action.animal_form = /mob/living/basic/mining/wolf/shapechange
 
 /datum/power/aberrant/shapechange_wolf/remove()
 	var/datum/action/cooldown/power/aberrant/shapechange/shape_action = get_shapechange_action()
 	if(shape_action)
 		shape_action.animal_form = previous_form
+		shape_action.melee_damage_lower = initial(shape_action.melee_damage_lower)
+		shape_action.melee_damage_upper = initial(shape_action.melee_damage_upper)
 	previous_form = null
 	return ..()
 
@@ -31,3 +33,8 @@
 		if(istype(shape_action))
 			return shape_action
 	return null
+
+// Wolves are pack animals and only deal 7dmg wich is SAD. We have a special verison
+/mob/living/basic/mining/wolf/shapechange
+	melee_damage_lower = 10
+	melee_damage_upper = 20

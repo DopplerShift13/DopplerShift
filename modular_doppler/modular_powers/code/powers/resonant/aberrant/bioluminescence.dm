@@ -53,15 +53,11 @@
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/apply_biolum_size_settings()
 	if(isnull(biolum_size_choice))
 		biolum_size_choice = "Medium"
-	switch(biolum_size_choice)
-		if("Small")
-			biolum_range = 2
-		if("Medium")
-			biolum_range = 3
-		if("Large")
-			biolum_range = 4
-		else
-			biolum_range = 3
+	var/size_range = GLOB.bioluminescence_sizes[biolum_size_choice]
+	if(isnum(size_range))
+		biolum_range = size_range
+	else
+		biolum_range = GLOB.bioluminescence_sizes["Medium"]
 
 // Gets the size and color and applies it to the mob.
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/init_biolum_settings_from_prefs()
@@ -150,7 +146,10 @@
 	return "Medium"
 
 /datum/preference/choiced/bioluminescence_size/init_possible_values()
-	return list("Small", "Medium", "Large")
+	var/list/values = list()
+	for(var/choice in GLOB.bioluminescence_sizes)
+		values += choice
+	return values
 
 /datum/preference/choiced/bioluminescence_size/is_accessible(datum/preferences/preferences)
 	if (!..(preferences))
