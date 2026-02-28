@@ -17,7 +17,7 @@
 /obj/structure/closet/crate/donation/examine(mob/user)
 	. = ..()
 
-	. += span_smallnotice("When closed, you can <b>right click</b> with an item to place it in the box, if able.")
+	. += span_smallnotice("When closed, you can [EXAMINE_HINT("Right-Click")] with an item to place it in the box, if able.")
 
 /obj/structure/closet/crate/donation/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if (opened)
@@ -26,7 +26,6 @@
 		return NONE
 	if (!LAZYACCESS(modifiers, RIGHT_CLICK))
 		return NONE
-
 	if (!insertion_allowed(tool))
 		balloon_alert(user, "can't fit it in!")
 		return NONE

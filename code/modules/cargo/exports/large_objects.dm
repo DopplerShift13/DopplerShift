@@ -8,7 +8,7 @@
 		/obj/structure/closet/crate/large,
 		/obj/structure/closet/crate/mail,
 		/obj/structure/closet/crate/wooden,
-		/obj/structure/closet/crate/donation, // DOPPLER EDIT ADDITION
+		/obj/structure/closet/crate/donation, // DOPPLER EDIT ADDITION - Dono crates are in loadout and are craftable... do not want infinite money glitch
 		)
 
 /datum/export/large/crate/total_printout(datum/export_report/ex, notes = TRUE) // That's why a goddamn metal crate costs that much.

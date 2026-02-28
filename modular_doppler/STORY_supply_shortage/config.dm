@@ -7,6 +7,5 @@
 	var/type = text2path(key)
 	if (type in get_usable_supply_packs())
 		return key
-
 	log_config("ERROR: [key] is not a valid supply pack typepath.")
 	return null
