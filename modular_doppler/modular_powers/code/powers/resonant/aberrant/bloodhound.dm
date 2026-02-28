@@ -16,6 +16,8 @@
 	click_to_activate = TRUE
 	target_range = 1
 
+	// How much hunger does tracking someone take?
+	var/hunger_cost = 20
 	// How long you can keep a mob's scent.
 	var/scent_duration = 2 MINUTES
 
@@ -42,6 +44,7 @@
 
 	user.emote("sniff")
 	to_chat(user, span_notice("You catch someone's scent!"))
+	user.adjust_nutrition(hunger_cost)
 	return TRUE
 
 // Checks if the target can be affected by bloodhound tracking. Basically magic resistance + scrying immunity.
