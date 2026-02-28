@@ -21,6 +21,11 @@
 	icon_state = "explorer1"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
 	worn_icon_state = "explorer1"
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/belt.dmi'
+	)
 
 /obj/item/storage/belt/mining/alt
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
