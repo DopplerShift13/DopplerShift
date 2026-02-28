@@ -46,9 +46,9 @@
 
 // Checks if the target can be affected by bloodhound tracking. Basically magic resistance + scrying immunity.
 /datum/action/cooldown/power/aberrant/bloodhound/proc/can_affect_bloodhound(mob/living/target)
-	if(target.can_block_magic(MAGIC_RESISTANCE))
-		return FALSE
 	if(target.can_block_resonance())
+		return FALSE
+	if(target.can_block_magic(MAGIC_RESISTANCE))
 		return FALSE
 	if(HAS_TRAIT(target, TRAIT_ANTIRESONANCE_SCRYING))
 		return FALSE

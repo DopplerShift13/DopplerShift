@@ -5,6 +5,7 @@
 	\nIf you are undersized, you can crawl in vents while wearing your normal equipment. Does not work on oversized mobs."
 	value = 5
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
+	required_powers = list(/datum/power/aberrant_root/beastial)
 
 /datum/power/aberrant/vent_crawl/add(client/client_source)
 	. = ..()

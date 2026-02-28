@@ -20,8 +20,6 @@
 	var/datum/action/cooldown/power/aberrant/shapechange/shape_action = get_shapechange_action()
 	if(shape_action)
 		shape_action.animal_form = previous_form
-		shape_action.melee_damage_lower = initial(shape_action.melee_damage_lower)
-		shape_action.melee_damage_upper = initial(shape_action.melee_damage_upper)
 	previous_form = null
 	return ..()
 
