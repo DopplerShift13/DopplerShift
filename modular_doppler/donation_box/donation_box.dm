@@ -48,13 +48,10 @@
 
 /obj/item/donation_box_kit/attack_self(mob/user, modifiers)
 	user.balloon_alert_to_viewers("deploying...")
-
 	if (!do_after(user, 3 SECONDS, src))
 		return FALSE
-
 	var/obj/structure/closet/crate/donation/secure/box = new /obj/structure/closet/crate/donation/secure(get_turf(user))
 	new /obj/item/hand_labeler(box)
-
 	playsound(src, 'sound/machines/terminal/terminal_eject.ogg', 70, TRUE)
 	qdel(src)
 
