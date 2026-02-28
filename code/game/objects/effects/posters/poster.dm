@@ -155,7 +155,6 @@
 	poster_item_desc = initial(selected.poster_item_desc)
 	poster_item_icon_state = initial(selected.poster_item_icon_state)
 	ruined = initial(selected.ruined)
-	randomise_further(selected) // DOPPLER EDIT ADDITIION - War posters
 	if(length(GLOB.holidays) && prob(30)) // its the holidays! lets get festive
 		apply_holiday()
 	update_appearance()

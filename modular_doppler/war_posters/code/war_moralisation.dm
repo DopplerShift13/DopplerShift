@@ -65,9 +65,10 @@
 	if (isnull(mood))
 		return
 	viewer.add_mood_event(mood_category, mood)
-	var/reaction = faction_reactions[target_faction]
-	if (isnull(reaction))
+	var/list/reactions = faction_reactions[target_faction]
+	if (isnull(reactions))
 		return
+	var/reaction = pick_weight(reactions)
 	to_chat(viewer, span_notice(reaction))
 
 /**
