@@ -34,6 +34,8 @@
 	var/datum/radial_menu_choice/choice = new()
 	choice.name = display_name
 	choice.image = image(icon = icon, icon_state = icon_state)
+	if(desc)
+		choice.info = "[desc]"
 	return choice
 
 /datum/web_craft_entry/proc/can_place(mob/living/user, turf/target_turf)

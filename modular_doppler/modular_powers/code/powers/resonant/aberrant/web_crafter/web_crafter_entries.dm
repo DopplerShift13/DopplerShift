@@ -11,17 +11,26 @@
 	icon = 'icons/effects/web.dmi'
 	icon_state = "webpassage"
 
-// Snare Crafter
+// Binding Webs
 /datum/web_craft_entry/web_bola
+	desc = "Sticky bola. Others can't use it without risking snaring themselves."
 	spawn_type = /obj/item/restraints/legcuffs/bola/web
 	hunger_cost = 10
 
 /datum/web_craft_entry/web_restraints
+	desc = "Sticky zipties. Destroyed after use; others can't use it without risking binding themselves."
 	spawn_type = /obj/item/restraints/handcuffs/cable/zipties/web
+	hunger_cost = 10
+
+// Snare Webs
+/datum/web_craft_entry/web_snare
+	desc = "Creates a barely visible web snare that traps the legs of any mob that walk through it."
+	spawn_type = /obj/structure/spider/web_snare
 	hunger_cost = 10
 
 // Tripwire Webs
 /datum/web_craft_entry/tripwire_web
+	desc = "Creates a barely visible tripwire snare that silently tells you if a mob walk throughs it."
 	spawn_type = /obj/structure/spider/tripwire_web
 	hunger_cost = 5
 

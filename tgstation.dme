@@ -7475,6 +7475,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange_wolf.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\vent_crawl.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\_web_craft_datum.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\binding_webs.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\snare_webs.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\tripwire_webs.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\web_crafter.dm"

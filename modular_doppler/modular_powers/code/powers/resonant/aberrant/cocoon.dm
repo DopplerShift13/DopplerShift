@@ -4,7 +4,8 @@
 	desc = "Allows you to cocoon objects and people after a delay. You can destroy cocoons by interacting with them.\
 	\n Targeting a space without a creature bundles all items on that space up in a container; this has the size and storage capacity of about two backpacks, and can only be opened by destroying it.\
 	\n Targeting a prone creature that you have aggressively grabbed bundles them up. The creature is buckled inside the cocoon and can't interact with the world or escape without struggling. \
-	Creature cocoons can be dragged around with less slow down commpared to normal."
+	Creature cocoons can be dragged around with less slow down commpared to normal.\
+	\n Costs hunger to use, and cannot be used while starving."
 	value = 3
 
 	required_powers = list(/datum/power/aberrant/web_crafter)
@@ -21,53 +22,70 @@
 	target_self = FALSE // why would you
 	click_to_activate = TRUE
 	use_time = 5 SECONDS
+	// Used to determine the cost
+	var/last_cocoon_was_mob = FALSE
 
 /datum/action/cooldown/power/aberrant/cocoon/InterceptClickOn(mob/living/clicker, params, atom/target)
 	..()
 	// Always consume the click to avoid normal click interactions.
 	return TRUE
 
-/datum/action/cooldown/power/aberrant/cocoon/use_action(mob/living/user, atom/target)
-	var/atom/resolved_target = resolve_cocoon_target(target)
-	// Living targets get wrapped.
-	if(isliving(resolved_target))
-		if(!can_cocoon_mob(user, resolved_target))
-			return FALSE
-		return cocoon_mob(user, resolved_target)
-	// Because misclicking will also start a progress bar, it can kinda suck to realize you're cocooning the wrong thing. A soft auto-aim where if therés a mob on the turf, it always has presedence.
-	var/turf/target_turf = get_turf(target)
-	if(target_turf)
-		for(var/mob/living/occupant in target_turf)
-			return cocoon_mob(user, occupant)
-	// Cocoon objects in the space if we don't have other targets.
-	return cocoon_object(user, target)
+// Block use while starving.
+/datum/action/cooldown/power/aberrant/cocoon/can_use(mob/living/user, atom/target)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(user.nutrition <= NUTRITION_LEVEL_STARVING)
+		owner.balloon_alert(user, "too hungry!")
+		return FALSE
+	return TRUE
 
-// Both cast time and visual effects are resolved into that.
+/datum/action/cooldown/power/aberrant/cocoon/use_action(mob/living/user, atom/target)
+	// Living targets get wrapped.
+	if(isliving(target))
+		if(!can_cocoon_mob(user, target))
+			return FALSE
+		if(cocoon_mob(user, target))
+			last_cocoon_was_mob = TRUE
+			return TRUE
+		return FALSE
+	// Cocoon objects in the space if we don't have other targets.
+	if(cocoon_object(user, target))
+		last_cocoon_was_mob = FALSE
+		return TRUE
+	return FALSE
+
+/datum/action/cooldown/power/aberrant/cocoon/on_action_success(mob/living/user, atom/target)
+	if(!user)
+		return
+	user.adjust_nutrition(last_cocoon_was_mob ? -40 : -15)
+	return
+
+// Both cast time and visual effects are resolved in this.
 /datum/action/cooldown/power/aberrant/cocoon/do_use_time(mob/living/user, atom/target)
 	// Woooow I worked hard on this and you just var-edit it away BAKA.
 	if(use_time <= 0)
 		return TRUE
-	var/atom/use_target = resolve_cocoon_target(target)
-	if(!use_target)
+	if(!target)
 		return FALSE
-	var/turf/target_turf = get_turf(use_target)
+	var/turf/target_turf = get_turf(target)
 	if(!target_turf)
-		return do_after(user, use_time, target = use_target, timed_action_flags = use_time_flags)
+		return do_after(user, use_time, target = target, timed_action_flags = use_time_flags)
 	playsound(user, 'sound/items/handling/surgery/organ1.ogg', 50, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	// Applies a visual effect similar to chiseling away at stone
 	var/obj/effect/temp_visual/cocoon_progress/progress_visual = new /obj/effect/temp_visual/cocoon_progress(target_turf)
-	progress_visual.apply_cocoon_appearance(use_target)
-	progress_visual.pixel_x = use_target.pixel_x
-	progress_visual.pixel_y = use_target.pixel_y
+	progress_visual.apply_cocoon_appearance(target)
+	progress_visual.pixel_x = target.pixel_x
+	progress_visual.pixel_y = target.pixel_y
 	// If we having a living target, we assing it here.
 	var/mob/living/target_mob
-	if(isliving(use_target))
-		target_mob = use_target
+	if(isliving(target))
+		target_mob = target
 		// Align the sprite with the animation
 		target_mob.set_lying_angle(LYING_ANGLE_EAST)
 		progress_visual.setDir(EAST)
 	else
-		progress_visual.setDir(use_target.dir)
+		progress_visual.setDir(target.dir)
 	progress_visual.set_completion(0)
 
 	// spin!
@@ -75,18 +93,18 @@
 		target_mob.spin(spintime = use_time, speed = 2)
 
 	// Do_after loop and a progress bar for the user.
-	var/datum/progressbar/total_progress_bar = new(user, use_time, use_target)
+	var/datum/progressbar/total_progress_bar = new(user, use_time, target)
 	var/use_time_period = max(1, round(use_time / ICON_SIZE_Y))
 	var/remaining_time = use_time
 	var/interrupted = FALSE
 	if(target_mob)
 		target_mob.remove_filter("cocoon_hide") // removes existing filter if its there.
 	while(remaining_time > 0 && !interrupted)
-		if(target_mob && !can_cocoon_mob(user, use_target))
+		if(target_mob && !can_cocoon_mob(user, target))
 			interrupted = TRUE
 			break
 		// We update the progress bar as well as the visual effects for the cocoon.
-		if(do_after(user, use_time_period, target = use_target, timed_action_flags = use_time_flags, progress = FALSE))
+		if(do_after(user, use_time_period, target = target, timed_action_flags = use_time_flags, progress = FALSE))
 			remaining_time -= use_time_period
 			total_progress_bar.update(use_time - remaining_time)
 			var/progress = (use_time - remaining_time) / use_time
@@ -104,16 +122,6 @@
 	if(target_mob)
 		target_mob.remove_filter("cocoon_hide")
 	return !interrupted
-
-// Because misclicking will also start a progress bar, it can kinda suck to realize you're cocooning the wrong thing. A soft auto-aim where if there's a mob on the turf, it always has presedence.
-/datum/action/cooldown/power/aberrant/cocoon/proc/resolve_cocoon_target(atom/target)
-	if(isliving(target))
-		return target
-	var/turf/target_turf = get_turf(target)
-	if(target_turf)
-		for(var/mob/living/occupant in target_turf)
-			return occupant
-	return target
 
 /datum/action/cooldown/power/aberrant/cocoon/proc/cocoon_mob(mob/living/user, mob/living/target)
 	if(!target || QDELETED(target))
@@ -133,6 +141,8 @@
 /datum/action/cooldown/power/aberrant/cocoon/proc/can_cocoon_mob(mob/living/user, mob/living/target)
 	if(!user || !target)
 		user.balloon_alert(user, "No target!")
+		return FALSE
+	if(!can_use(user, target))
 		return FALSE
 	if(QDELETED(user) || QDELETED(target))
 		user.balloon_alert(user, "No target!")

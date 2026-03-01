@@ -44,7 +44,7 @@
 		user.balloon_alert(user, "no web crafts!")
 		return FALSE
 
-	var/picked_key = show_radial_menu(user, user, radial_options)
+	var/picked_key = show_radial_menu(user, user, radial_options, tooltips = TRUE)
 
 	if(!picked_key)
 		return FALSE
