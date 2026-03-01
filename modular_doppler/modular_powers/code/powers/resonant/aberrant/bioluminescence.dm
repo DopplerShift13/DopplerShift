@@ -4,7 +4,8 @@
 	desc = "You can glow! You passively emit the chosen light color; which can be toggled on or off at will. Very slightly increases passive hunger when enabling or disabling the light."
 	value = 1
 
-	required_powers = list(/datum/power/aberrant_root/beastial)
+	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
+	required_allow_any = TRUE
 	action_path = /datum/action/cooldown/power/aberrant/bioluminescence
 
 /datum/action/cooldown/power/aberrant/bioluminescence

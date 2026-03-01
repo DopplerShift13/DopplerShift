@@ -2,8 +2,7 @@
 /datum/power/aberrant/vent_crawl
 	name = "Vent Crawl"
 	desc = "Your anatomy is capable of fitting in tight spaces. You can crawl into vents if you are not wearing anything in your back slot, helmet slot or suit slot. \
-	\nIf you are undersized, you can crawl in vents while wearing your normal equipment. Does not work on oversized mobs.\
-	\n(Available to both Beastial and Monstrous Root)"
+	\nIf you are undersized, you can crawl in vents while wearing your normal equipment. Does not work on oversized mobs."
 	value = 5
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
 	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
