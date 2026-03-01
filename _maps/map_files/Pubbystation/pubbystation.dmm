@@ -50767,7 +50767,8 @@
 /area/station/construction/mining/aux_base)
 "upV" = (
 /obj/machinery/atmospherics/components/trinary/filter/critical{
-	dir = 1
+	dir = 1;
+	filter_type = list(/datum/gas/nitrogen)
 	},
 /obj/structure/cable,
 /turf/open/floor/engine,

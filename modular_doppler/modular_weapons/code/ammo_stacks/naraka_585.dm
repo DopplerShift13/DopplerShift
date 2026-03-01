@@ -5,7 +5,7 @@
 	caliber = CALIBER_585NARAKA
 	ammo_type = /obj/item/ammo_casing/c585naraka
 	casing_phrasing = "casing"
-	max_ammo = 6
+	max_ammo = 4
 	casing_w_spacing = 3
 	casing_z_padding = 9
 
