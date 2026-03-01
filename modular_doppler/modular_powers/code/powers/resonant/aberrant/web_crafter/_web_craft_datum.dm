@@ -4,6 +4,8 @@
 	var/obj/spawn_type
 	/// Hunger cost to craft
 	var/hunger_cost = 0
+	/// Time to craft (do_after). 0 for instant.
+	var/craft_time = 0
 	/// Display name for the radial
 	var/display_name
 	/// Description shown in tooltip
@@ -34,8 +36,13 @@
 	var/datum/radial_menu_choice/choice = new()
 	choice.name = display_name
 	choice.image = image(icon = icon, icon_state = icon_state)
+	var/list/info_bits = list()
 	if(desc)
-		choice.info = "[desc]"
+		info_bits += desc
+	info_bits += "Cost: [hunger_cost] hunger"
+	if(craft_time > 0)
+		info_bits += "Time: [craft_time/10]s"
+	choice.info = jointext(info_bits, "<br>")
 	return choice
 
 /datum/web_craft_entry/proc/can_place(mob/living/user, turf/target_turf)

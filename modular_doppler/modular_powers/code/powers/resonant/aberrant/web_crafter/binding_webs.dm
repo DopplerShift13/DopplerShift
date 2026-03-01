@@ -63,6 +63,8 @@
 	desc = "A bola made out of a sticky material. Throwing this will definetly get at least one involved party stuck."
 	breakouttime = 6 SECONDS // sticky = better
 	icon = 'modular_doppler/modular_powers/icons/items/restraints.dmi'
+	/// Tracks if this was actually used as legcuffs so we can delete on uncuff only.
+	var/was_cuffed = FALSE
 
 // Just like webcuffs, chance of ensnaring yourself instead
 /obj/item/restraints/legcuffs/bola/web/throw_at(atom/target, range, speed, mob/thrower, spin=1, diagonals_first = 0, datum/callback/callback, gentle = FALSE, quickstart = TRUE, throw_type_path = /datum/thrownthing)
@@ -71,3 +73,14 @@
 		ensnare(thrower)
 		return
 	return ..()
+
+/obj/item/restraints/legcuffs/bola/web/equipped(mob/living/user, slot)
+	. = ..()
+	if(slot == ITEM_SLOT_LEGCUFFED)
+		was_cuffed = TRUE
+		RegisterSignal(src, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_uncuffed))
+
+/obj/item/restraints/legcuffs/bola/web/proc/on_uncuffed(datum/source, force, atom/newloc, no_move, invdrop, silent)
+	SIGNAL_HANDLER
+	if(was_cuffed)
+		qdel(src)

@@ -23,7 +23,7 @@
 	button_icon = 'icons/effects/web.dmi'
 	button_icon_state = "webpassage"
 
-	cooldown_time = 10
+	cooldown_time = 5
 
 	/// Entries shown in the radial menu. Other powers can append to this.
 	/// Accepts /datum/web_craft_entry instances or typepaths of that datum.
@@ -55,6 +55,11 @@
 
 	if(!can_craft_entry(user, entry))
 		return FALSE
+
+	// Small craft time so its a tad more defensive.
+	if(entry.craft_time > 0)
+		if(!do_after(user, entry.craft_time, target = user))
+			return FALSE
 
 	if(!create_obj(user, entry))
 		return FALSE
