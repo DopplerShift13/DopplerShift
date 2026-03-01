@@ -54,9 +54,9 @@ GLOBAL_LIST_INIT(heavy_pirate_gangs, init_pirate_gangs(is_heavy = TRUE))
 
 /datum/pirate_gang/New()
 	. = ..()
-	//BEGIN DOPPLER EDIT - points us towards a modular ship naming file
+	// DOPPLER EDIT CHANGE START - points us towards a modular ship naming file
 	ship_name = pick(strings(DOPPLER_PIRATE_NAMES_FILE, ship_name_pool))	// originally: ship_name = pick(strings(PIRATE_NAMES_FILE, ship_name_pool))
-	//END DOPPLER EDIT
+	// DOPPLER EDIT CHANGE END
 
 ///whether this pirate gang can roll today. this is called when the global list initializes, so
 ///returning FALSE means it cannot show up at all for the entire round.

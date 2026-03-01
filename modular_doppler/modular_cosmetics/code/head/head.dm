@@ -122,8 +122,10 @@
 	worn_icon_state = "tiziran_raider"
 	visor_dirt = "lizard_dirt"
 	armor_type = /datum/armor/space_pirate
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/head/helmet.dmi',	//it only has a snouted variation, so we just make snoutless people wear a big silly helmet
-		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/head/helmet.dmi')
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/head/helmet.dmi',	//it only has a snouted variation, so we just make snoutless people wear a big silly helmet
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/head/helmet.dmi',
+		)
 
 /obj/item/clothing/head/helmet/space/pirate/tiziran_raider/red
 	icon_state = "tiziran_raider_red"

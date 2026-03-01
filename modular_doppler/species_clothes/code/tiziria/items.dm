@@ -133,7 +133,7 @@
 /obj/item/melee/tizirian_sword/megachoppa	// a special variant for the raider captain, thus it's roughly one esword in strength
 	name = "\improper Tizirian great sword"
 	desc = "A rare variation of the utilitarian Tiziran sabre, this design relies on the cutting edge of bronze metallurgy \
-	to achieve such a lengthy blade. Exotic amendments to its constiuent alloys allow for keener edge and help alleviate a rare \
+	to achieve such a lengthy blade. Exotic amendments to its constituent alloys allow for keener edge and help alleviate a rare \
 	phenomena where clashed blades in near vacuum can contact weld to one another."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear48x.dmi'
 	icon_state = "megachoppa"

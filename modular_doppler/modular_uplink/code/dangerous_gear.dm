@@ -6,3 +6,20 @@
 	item = /obj/item/gun/ballistic/bolt_thrower
 	cost = 13
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_category/ammo/bolt_shot
+	name = "machined slugs"
+	desc = "Solid lathe turned slugs of ferrous alloy, ready to be shunted through a hot coil wrap and deep into something or \
+	someone unfortunate."
+	item = /obj/item/ammo_box/magazine/ammo_stack/bolt_slug/full
+	cost = 1
+	purchasable_from = ~UPLINK_SERIOUS_OPS
+
+/datum/uplink_item/dangerous/megachoppa
+	name = "\improper Tizirian great sword"
+	desc = "A rare variation of the utilitarian Tiziran sabre, this design relies on the cutting edge of bronze metallurgy \
+	to achieve such a lengthy blade. Exotic amendments to its constituent alloys allow for keener edge and help alleviate a rare \
+	phenomena where clashed blades in near vacuum can contact weld to one another."
+	item = /obj/item/melee/tizirian_sword/megachoppa
+	cost = 6
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)

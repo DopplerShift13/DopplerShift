@@ -21,7 +21,7 @@
 	display_internal_magazine = TRUE
 	mag_display = TRUE
 	mag_display_ammo = TRUE
-	fire_delay = 10
+	fire_delay = 1 SECONDS
 	fire_sound = 'modular_doppler/modular_sounds/sound/items/bolt_thrower.ogg'
 	weapon_weight = WEAPON_HEAVY
 	cartridge_wording = "slug"
