@@ -41,7 +41,7 @@
 		"dolphin",
 	)
 	/// The base type from which we pick subtypes to spawn.
-	var/spawned_sticker_basetype
+	var/spawned_sticker_basetype = /obj/item/sticker/doppler
 
 ///the parent item populates its illustration var from the aforementioned static list, so we override it
 /obj/item/storage/box/stickers/doppler/Initialize(mapload)
@@ -75,7 +75,6 @@
 
 /obj/item/storage/box/stickers/doppler/local
 	name = "local sector sticker pack"
-	spawned_sticker_basetype = /obj/item/sticker/doppler
 
 ///rhinestones! starting with a parent item for the same purpose as above
 /obj/item/sticker/rhinestone
