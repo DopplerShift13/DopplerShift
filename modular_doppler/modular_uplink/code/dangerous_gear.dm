@@ -7,7 +7,7 @@
 	cost = 13
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
-/datum/uplink_category/ammo/bolt_shot
+/datum/uplink_item/ammo/bolt_shot
 	name = "machined slugs"
 	desc = "Solid lathe turned slugs of ferrous alloy, ready to be shunted through a hot coil wrap and deep into something or \
 	someone unfortunate."
