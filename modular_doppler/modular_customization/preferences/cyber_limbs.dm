@@ -21,6 +21,7 @@ GLOBAL_LIST_INIT(frame_types, list(
 	"zhenkovdark",
 	"shard_alpha",
 	"polytronic",
+	"teshari",
 	"empty",
 	))
 
@@ -47,6 +48,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 	"zhenkovdark" = "Zhenkov & Co. Foundries - At Night",
 	"shard_alpha" = "Shard Alpha Raptoral",
 	"polytronic" = "Polytronic Modular Doll",
+	"teshari" = "Synthetic Teshari",
 	"empty" = "Missing limb",
 	))
 /obj/item/bodypart/head/robot/android/empty

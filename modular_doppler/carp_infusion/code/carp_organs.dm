@@ -12,6 +12,17 @@
 /obj/item/organ/brain/carp
 	cooldown_time = 60 MINUTES // to allow for scenes w/o moodlet grief
 
+/obj/item/organ/brain/carp/on_mob_insert(mob/living/carbon/receiver)
+	. = ..()
+	receiver.grant_language(/datum/language/carptongue, ALL, source = type)
+	to_chat(receiver, span_boldnotice("You gain a new understanding of [/datum/language/carptongue::name]."))
+
+/obj/item/organ/brain/carp/on_mob_remove(mob/living/carbon/owner)
+	. = ..()
+	if(QDELING(owner))
+		return
+	owner.remove_language(/datum/language/carptongue, ALL, source = type)
+
 // only try to bite people if we're not wearing a mask
 /obj/item/organ/brain/carp/get_attacking_limb(mob/living/carbon/human/target)
 	. = ..()
