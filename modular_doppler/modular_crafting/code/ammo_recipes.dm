@@ -1,7 +1,7 @@
 /datum/crafting_recipe/bolt_slug
 	name = "Bolt Slug"
 	result = /obj/item/ammo_casing/bolt_slug
-	reqs = (
+	reqs = list(
 		/obj/item/stack/rods = 5,
 		/obj/item/stack/sheet/mineral/uranium = 1,
 	)
