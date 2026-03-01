@@ -16,6 +16,8 @@
 			RESKIN_WORN_ICON_STATE = "evilwebbing"
 		)
 	)
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 //preloaded variant for a security loadout package
 /obj/item/storage/belt/military/pouches/security_gunner_package

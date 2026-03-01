@@ -116,6 +116,11 @@
 
 	gained.name = "oversized " + gained.name
 
+/datum/quirk/oversized/is_species_appropriate(datum/species/mob_species)
+	if(mob_species == /datum/species/teshari)
+		return FALSE
+	return ..()
+
 /datum/movespeed_modifier/oversized
 	multiplicative_slowdown = OVERSIZED_SPEED_SLOWDOWN
 

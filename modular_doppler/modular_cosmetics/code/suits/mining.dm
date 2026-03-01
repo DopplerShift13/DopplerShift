@@ -4,6 +4,11 @@
 	icon_state = "explorer"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/working.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/suit/working.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/working.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
 	inhand_icon_state = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
@@ -19,6 +24,12 @@
 	desc = "An armoured hood for exploring harsh environments."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/mining.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/mining.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/head/mining.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/head.dmi'
+	)
+
 	icon_state = "explorer"
 
 /obj/item/clothing/head/hooded/explorer/syndicate
@@ -41,6 +52,8 @@
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
 	dog_fashion = null
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/suit/armor/vest/miningjacket/Initialize(mapload)
 	. = ..()

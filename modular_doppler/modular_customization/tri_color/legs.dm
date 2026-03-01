@@ -12,7 +12,7 @@
 /datum/preference/toggle/default_legs_color/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	return TRUE
 
