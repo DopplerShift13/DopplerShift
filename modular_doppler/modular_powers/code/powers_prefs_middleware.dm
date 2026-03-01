@@ -54,7 +54,7 @@
 			if(get_requiring_power(power_type))
 				locked_in = TRUE
 		else
-			if(get_incompatible_power(power_type) || get_required_power(power_type) || would_exceed_path_limit(power_type))
+			if(get_incompatible_power(power_type) || length(get_required_power(power_type)) || would_exceed_path_limit(power_type))
 				locked_in = TRUE
 
 		var/state
@@ -204,9 +204,15 @@
 			return FALSE
 
 	// Make sure we have the required powers.
-	var/datum/power/required_power_type = get_required_power(power_type)
-	if(required_power_type)
-		to_chat(user, span_boldwarning("[power_name] is missing [required_power_type.name]!"))
+	var/list/missing_required_powers = get_required_power(power_type)
+	if(length(missing_required_powers))
+		var/list/required_names = list()
+		for(var/datum/power/required_option as anything in missing_required_powers)
+			required_names += required_option.name
+		if(power_type.required_allow_any)
+			to_chat(user, span_boldwarning("[power_name] requires any of: [english_list(required_names)]!"))
+		else
+			to_chat(user, span_boldwarning("[power_name] requires: [english_list(required_names)]!"))
 		return FALSE
 
 	// Make sure we don't select an incompatible power.
@@ -363,23 +369,30 @@
 	return TRUE
 
 /**
- * Checks whether we are missing at least one required power for a given power type,
- * and returns the first one encountered if so.
+ * Checks whether we are missing required powers for a given power type.
+ * Returns a list of missing requirements (empty if satisfied).
+ * If required_allow_any is TRUE, the list contains all valid options when none are satisfied.
  */
 /datum/preference_middleware/powers/proc/get_required_power(datum/power/power_type)
 	var/list/required_powers = GLOB.powers_requirements_list[power_type]
 	if(!length(required_powers))
-		return
+		return list()
+
+	var/allow_any = power_type.required_allow_any
+	var/allow_subtypes = power_type.required_allow_subtypes
+	var/list/missing_required = list()
 
 	for(var/datum/power/required_power_type as anything in required_powers)
 		var/required_power_name = required_power_type.name
 
-		// Exact requirement satisfied (current behaviour)
+		// Exact requirement satisfied
 		if(required_power_name in preferences.all_powers)
+			if(allow_any)
+				return list()
 			continue
 
 		// Optional: allow subtypes, decided by the power we're trying to learn
-		if(power_type.required_allow_subtypes)
+		if(allow_subtypes)
 			var/required_typepath = ispath(required_power_type) ? required_power_type : required_power_type.type
 			var/found_subtype = FALSE
 
@@ -393,9 +406,17 @@
 					break
 
 			if(found_subtype)
+				if(allow_any)
+					return list()
 				continue
 
-		return required_power_type
+		if(!allow_any)
+			missing_required += required_power_type
+
+	if(allow_any)
+		return required_powers
+
+	return missing_required
 
 
 /**

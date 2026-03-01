@@ -41,6 +41,8 @@
 	var/list/required_powers
 	/// Allow subtypes to count for requirements.
 	var/required_allow_subtypes
+	/// Any one of the required powers satisfies the requirement list.
+	var/required_allow_any
 
 	// The path, if applicable, to the action.
 	var/datum/action/cooldown/power/action_path

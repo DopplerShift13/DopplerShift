@@ -1,11 +1,14 @@
 // Lets you see in the dark. Duh.
 /datum/power/aberrant/darkvision
 	name = "Darkvision"
-	desc = "Your eyes see perfectly in the dark; but your vision gains a blue-ish hue to it."
+	desc = "Your eyes see perfectly in the dark; but your vision gains a blue-ish hue to it.\
+	\n(Available to both Beastial and Monstrous Root)"
 	mob_trait = TRAIT_TRUE_NIGHT_VISION
 
 	value = 3
-	required_powers = list(/datum/power/aberrant_root/beastial)
+	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
+	required_allow_any = TRUE
+
 	var/eye_color_cutoffs_applied = FALSE
 
 /datum/power/aberrant/darkvision/add()
