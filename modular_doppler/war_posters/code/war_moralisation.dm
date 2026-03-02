@@ -1,10 +1,12 @@
+// Mostly stolen from demoraliser.dm.
 /datum/proximity_monitor/advanced/war_demoraliser
 	/// The faction, using defines from TESHARI_WAR_defines.dm. Do NOT use neutral.
 	var/faction
 	/// Mood category to apply to moods
 	var/mood_category
-	/// Assoc list of (WAR_FACTION -> list(/datum/war_demoralisation_reaction, chance)). Used in pickweight to determine what people think when they see the poster, depending on
+	/// Assoc list of (WAR_FACTION -> list(string, chance)). Used in pickweight to determine what people think when they see the poster, depending on
 	var/list/faction_reactions = list()
+	/// Assoc list of (WAR_FACTION -> /datum/mood_event). Used to determine the actual mood event given.
 	var/list/faction_moods = list()
 	/// For literacy checks
 	var/reading_requirements = READING_CHECK_LIGHT

@@ -21,6 +21,7 @@ GLOBAL_LIST_INIT(teshari_war_factions, list(
 	RegisterSignal(target, COMSIG_MOB_MIND_INITIALIZED, PROC_REF(apply_mind_variable), override = TRUE)
 	return
 
+/// Signal handler that waits for mind to init and then sets the war faction variable.
 /datum/preference/choiced/doppler_war_faction/proc/apply_mind_variable(mob/living/carbon/human/target, datum/mind/new_mind)
 	SIGNAL_HANDLER
 
