@@ -7488,6 +7488,7 @@
 #include "modular_doppler\modular_scryers\code\neck_scryer_changes.dm"
 #include "modular_doppler\modular_silicons\ai\ai_brain.dm"
 #include "modular_doppler\modular_silicons\ai\eye.dm"
+#include "modular_doppler\modular_silicons\ai\hologram_dir.dm"
 #include "modular_doppler\modular_silicons\modlink_scryers\ai_scryers.dm"
 #include "modular_doppler\modular_silicons\modlink_scryers\robot_scryers.dm"
 #include "modular_doppler\modular_silicons\move_pulled\attack_robot_overrides.dm"
