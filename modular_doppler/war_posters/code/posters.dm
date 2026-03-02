@@ -31,7 +31,7 @@
 		if (subtype.abstract_type == subtype)
 			valid_subtypes -= subtype
 	if (!valid_subtypes.len)
-		return
+		return ..()
 	var/obj/structure/sign/poster/picked = pick(valid_subtypes)
 	new_poster_structure = new picked(src)
 
