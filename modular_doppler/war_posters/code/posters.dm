@@ -145,7 +145,7 @@
 	name = "random tiziran poster"
 	poster_basetype = /obj/structure/sign/poster/doppler_war/tiziran
 	icon = 'modular_doppler/war_posters/icons/posters.dmi'
-	icon_state = "rolled_tiziran"
+	icon_state = "rolled_tizira"
 
 /obj/item/storage/box/doppler_war_posters/tiziran
 	poster_path = /obj/item/poster/doppler_random/random_tiziran
