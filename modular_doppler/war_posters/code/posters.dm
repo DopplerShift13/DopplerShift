@@ -26,6 +26,8 @@
 	var/obj/structure/sign/poster/poster_basetype
 
 /obj/item/poster/doppler_random/Initialize(mapload, obj/structure/sign/poster/new_poster_structure)
+	. = ..()
+
 	var/list/valid_subtypes = subtypesof(poster_basetype)
 	for (var/datum/subtype as anything in valid_subtypes)
 		if (subtype.abstract_type == subtype)
@@ -34,7 +36,6 @@
 		return
 	var/obj/structure/sign/poster/picked = pick(valid_subtypes)
 	new_poster_structure = new picked(src)
-	return ..()
 
 /obj/item/storage/box/doppler_war_posters
 	name = "propaganda poster box"
