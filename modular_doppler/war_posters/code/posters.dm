@@ -43,6 +43,9 @@
 /obj/item/storage/box/doppler_war_posters/PopulateContents()
 	. = ..()
 
+	if (isnull(poster_path))
+		return // sanity
+
 	var/i = 0
 	while (i++ < 7)
 		new poster_path(src)
