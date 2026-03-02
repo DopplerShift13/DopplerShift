@@ -7522,6 +7522,7 @@
 #include "modular_doppler\modular_species\species_types\hemophage\hemophage_status_effects.dm"
 #include "modular_doppler\modular_species\species_types\hemophage\hemophage_tumor.dm"
 #include "modular_doppler\modular_species\species_types\hemophage\tumor_corruption.dm"
+#include "modular_doppler\modular_species\species_types\hominin\humans.dm"
 #include "modular_doppler\modular_species\species_types\insectoid\insectoid.dm"
 #include "modular_doppler\modular_species\species_types\insectoid\insectoid_bodyparts.dm"
 #include "modular_doppler\modular_species\species_types\lizardpeople\lizardpeople.dm"
