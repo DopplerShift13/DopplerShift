@@ -7798,6 +7798,7 @@
 #include "modular_doppler\verbs\code\preferences.dm"
 #include "modular_doppler\verbs\code\say.dm"
 #include "modular_doppler\verbs\code\subtle.dm"
+#include "modular_doppler\war_posters\code\cargo.dm"
 #include "modular_doppler\war_posters\code\loadout.dm"
 #include "modular_doppler\war_posters\code\mood.dm"
 #include "modular_doppler\war_posters\code\posters.dm"
