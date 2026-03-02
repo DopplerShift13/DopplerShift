@@ -18,7 +18,7 @@ GLOBAL_LIST_INIT(teshari_war_factions, list(
 	return WAR_FACTION_NEUTRAL
 
 /datum/preference/choiced/doppler_war_faction/apply_to_human(mob/living/carbon/human/target, value)
-	RegisterSignal(target, COMSIG_MOB_MIND_INITIALIZED, PROC_REF(apply_mind_variable))
+	RegisterSignal(target, COMSIG_MOB_MIND_INITIALIZED, PROC_REF(apply_mind_variable), override = TRUE)
 	return
 
 /datum/preference/choiced/doppler_war_faction/proc/apply_mind_variable(mob/living/carbon/human/target, datum/mind/new_mind)
