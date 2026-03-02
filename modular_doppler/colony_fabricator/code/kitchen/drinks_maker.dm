@@ -42,6 +42,16 @@
 		/datum/reagent/consumable/mushroom_tea,
 		/datum/reagent/consumable/vanilla,
 	)
+	upgrade_reagents = list(
+		/datum/reagent/consumable/aloejuice,
+		/datum/reagent/consumable/ethanol/gin,
+		/datum/reagent/consumable/ethanol/kortara,
+		/datum/reagent/consumable/ethanol/beer,
+		/datum/reagent/consumable/ethanol/ale,
+		/datum/reagent/consumable/limejuice,
+		/datum/reagent/consumable/tonic,
+		/datum/reagent/consumable/sodawater,
+	)
 
 /obj/machinery/chem_dispenser/big_drink_machine/display_beaker()
 	var/mutable_appearance/overlayed_beaker = beaker_overlay || mutable_appearance(icon, "disp_beaker")

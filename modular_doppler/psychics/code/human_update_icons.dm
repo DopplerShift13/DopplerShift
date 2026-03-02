@@ -1,7 +1,6 @@
-// DOPPLER EDIT START
 /obj/effect/abstract/held_tk_effect
 	name = "held_tk_effect"
-	icon = 'modular_doppler/psychicshit/icons/effects/tele_effects.dmi'
+	icon = 'modular_doppler/psychics/icons/tele_effects.dmi'
 	icon_state = "holder"
 	layer = HANDS_LAYER
 	vis_flags = VIS_INHERIT_DIR | VIS_INHERIT_PLANE | VIS_INHERIT_ID
@@ -53,4 +52,3 @@
 
 /obj/effect/abstract/held_tk_effect/left
 	is_right = FALSE
-// DOPPLER EDIT END

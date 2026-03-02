@@ -57,6 +57,7 @@
 		"ballistic_shield",
 		"handcuffs_s",
 		"bola_energy",
+		"platillo", // DOPPLER EDIT ADDITION - makes shield gauntlets recipe accessible
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SECURITY)

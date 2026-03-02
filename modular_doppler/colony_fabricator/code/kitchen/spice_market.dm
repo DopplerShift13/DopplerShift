@@ -64,6 +64,12 @@
 		/datum/reagent/consumable/grounding_solution,
 		/datum/reagent/medicine/salglu_solution, // You cook with this just believe me here
 	)
+	upgrade_reagents = list(
+		/datum/reagent/consumable/olivepaste,
+		/datum/reagent/consumable/nutriment/soup/dashi,
+		/datum/reagent/consumable/nutriment/soup/teriyaki,
+		/datum/reagent/consumable/nutriment/soup/curry_sauce,
+	)
 
 /obj/machinery/chem_dispenser/spice_machine/display_beaker()
 	var/mutable_appearance/overlayed_beaker = beaker_overlay || mutable_appearance(icon, "spice_beaker")

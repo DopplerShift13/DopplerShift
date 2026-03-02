@@ -130,6 +130,7 @@
 				/obj/item/clothing/under/misc/gear_harness = 5,
 				/obj/item/clothing/under/misc/gear_harness/visible = 5,
 				/obj/item/clothing/under/bodysuit = 5,
+				/obj/item/clothing/under/latexsuit = 5,
 				/obj/item/clothing/under/athletas_bodysuit = 5,
 			)
 		)
