@@ -1,3 +1,4 @@
+/* DOPPLER EDIT - IN MODULAR LOADOUT
 /datum/loadout_category/suits
 	category_name = "Suits"
 	category_ui_icon = FA_ICON_USER_SECRET
@@ -40,3 +41,4 @@
 		/datum/job/paramedic = "#28324b",
 		/datum/job/prisoner = "#ff8b00",
 	)
+*/

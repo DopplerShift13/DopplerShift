@@ -68,7 +68,7 @@
 
 /datum/loadout_item/shoes/boots/aerostatic
 	name = "Aerostatic Boots"
-	item_path = /obj/item/clothing/shoes/kim
+	item_path = /obj/item/clothing/shoes/jackboots/kim
 
 /datum/loadout_item/shoes/boots/workboots
 	name = "Work Boots"

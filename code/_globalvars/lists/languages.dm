@@ -15,6 +15,7 @@ GLOBAL_LIST_INIT(most_common_words, init_common_words())
 			continue
 
 		lang_list[lang_type] = new lang_type()
+	randomize_crusoes_local(lang_list) // DOPPLER EDIT ADDITION - Randomize Crusoe's Locals' Pidgins
 	return lang_list
 
 /proc/init_all_languages()
