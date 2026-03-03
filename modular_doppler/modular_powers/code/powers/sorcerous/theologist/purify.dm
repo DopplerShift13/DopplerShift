@@ -9,7 +9,7 @@
 /datum/power/theologist/purify
 	name = "Purify"
 	desc = "Cleanses impurity from objects and creatures in melee range. The chosen target is immediately dispelled and purified of all poisons. \
-	If the target is an object with a holy equivelant, it turns it into that (e.g water into holy water). Has varying purity costs, but usually defaults to 5."
+	If the target is an object with a holy equivelant, it turns it into that (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
 	action_path = /datum/action/cooldown/power/theologist/purify
 	value = 5
 
@@ -18,7 +18,7 @@
 /datum/action/cooldown/power/theologist/purify
 	name = "Purify"
 	desc = "Cleanses impurity from objects and creatures in melee range. The chosen target is immediately dispelled and purified of all poisons. \
-	If the target is an object with a holy equivelant, it turns it into that (e.g water into holy water). Has varying purity costs, but usually defaults to 5."
+	If the target is an object with a holy equivelant, it turns it into that (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
 	button_icon = 'icons/obj/mining_zones/artefacts.dmi'
 	button_icon_state = "purified_soulstone"
 	cooldown_time = 60

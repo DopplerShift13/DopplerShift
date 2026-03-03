@@ -127,7 +127,7 @@
 	to_chat(owner, span_userdanger("Your burdens are no longer shared!"))
 	to_chat(current_target, span_userdanger("Your burdens are no longer shared!"))
 	clear_link()
-	StartCooldownSelf(150) // Just so you don't immediately reapply it.
+	StartCooldownSelf() // Just so you don't immediately reapply it.
 	return DISPEL_RESULT_DISPELLED
 
 /**

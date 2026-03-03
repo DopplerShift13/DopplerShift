@@ -1,9 +1,9 @@
 // Snares on the ground! Its like a beartrap but it doesnt hurt and destroys itself after.
 /datum/power/aberrant/snare_webs
 	name = "Snare Webs"
-	desc = " Allows you to craft snares. These are placed on the ground and are hard to see; but can be disarmed.\
+	desc = "Allows you to craft snares. These are placed on the ground and are hard to see; but can be disarmed.\
 	\n Mobs without the ability to walk through webs will be legcuffed if they walk through it.\
-	\n Simple mobs instead receive a slowing status effect for 10 seconds."
+	\n Simple mobs instead receive a slowing status effect for 8 seconds."
 	value = 3
 
 	required_powers = list(/datum/action/cooldown/power/aberrant/web_crafter)
@@ -36,7 +36,7 @@
 	icon_state = "sticky_overlay"
 	armed = TRUE
 	trap_damage = 0
-	breakouttime = 15 SECONDS
+	breakouttime = 8 SECONDS
 	item_flags = DROPDEL
 	/// Tracks if this was actually used as legcuffs so we can delete on uncuff only.
 	var/was_cuffed = FALSE

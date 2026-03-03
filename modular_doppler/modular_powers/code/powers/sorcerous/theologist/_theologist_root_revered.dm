@@ -102,7 +102,7 @@
 	to_chat(owner, span_userdanger("Your [burden_power.name] deactives prematurely!"))
 	if(!owner == burden_power.owner)
 		to_chat(burden_power.owner, span_warning("Your [burden_power.name] has been dispelled!"))
-	burden_power.StartCooldownSelf(150) // Just so you don't immediately reapply it.
+	burden_power.StartCooldownSelf()
 	expire()
 	return DISPEL_RESULT_DISPELLED
 

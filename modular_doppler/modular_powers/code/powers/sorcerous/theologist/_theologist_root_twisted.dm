@@ -6,10 +6,6 @@
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/twisted
 
 	value = 5
-	mob_trait = TRAIT_ARCHETYPE_SORCEROUS
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THEOLOGIST
-	priority = POWER_PRIORITY_ROOT
 
 /datum/action/cooldown/power/theologist/theologist_root/twisted
 	name = "A Burden Twisted"
@@ -17,7 +13,7 @@
 	Gives Piety proportional to the amount of damage twisted."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "hand"
-	cooldown_time = 300
+	cooldown_time = 200
 	target_range = 1
 	target_type = /mob/living
 	click_to_activate = TRUE
@@ -194,5 +190,5 @@
 		return NONE
 	keep_going = FALSE
 	owner.visible_message(span_warning("The resonant link between [owner.get_visible_name()] and [current_target.get_visible_name()] is broken!!"), span_notice("Your [name] is dispelled!"))
-	StartCooldownSelf(300)
+	StartCooldownSelf()
 	return DISPEL_RESULT_DISPELLED
