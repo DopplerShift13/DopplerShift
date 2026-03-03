@@ -34,7 +34,7 @@
 
 /obj/item/organ/cyberimp/on_bodypart_insert(obj/item/bodypart/limb)
 	. = ..()
-	if (bodypart_aug)
+	if (bodypart_aug && !(limb.bodyshape & BODYSHAPE_TESHARI)) // DOPPLER EDIT CHANGE - originally: if (bodypart_aug) - Cyber implant overlays do NOT work on tesh
 		limb.add_bodypart_overlay(bodypart_aug)
 
 /obj/item/organ/cyberimp/on_bodypart_remove(obj/item/bodypart/limb)

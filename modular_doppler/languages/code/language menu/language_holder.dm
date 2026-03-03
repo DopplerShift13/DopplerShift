@@ -92,6 +92,7 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 		/datum/language/terrum = list(LANGUAGE_ATOM),
 		/datum/language/sylvan = list(LANGUAGE_ATOM),
 		/datum/language/nambuni = list(LANGUAGE_ATOM),
+		/datum/language/schechi = list(LANGUAGE_ATOM),
 	)
 	spoken_languages = list(
 		/datum/language/common = list(LANGUAGE_ATOM),
@@ -114,4 +115,32 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 		/datum/language/terrum = list(LANGUAGE_ATOM),
 		/datum/language/sylvan = list(LANGUAGE_ATOM),
 		/datum/language/nambuni = list(LANGUAGE_ATOM),
+		/datum/language/schechi = list(LANGUAGE_ATOM),
+	)
+
+// SPECIES OVERRIDES
+
+/datum/language_holder/golem
+	understood_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+	)
+	spoken_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+	)
+
+// Sorry, whimsical inexplicable skeleton language.
+/datum/language_holder/skeleton
+	understood_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+	)
+	spoken_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+	)
+
+/datum/language_holder/jelly
+	understood_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
+	)
+	spoken_languages = list(
+		/datum/language/common = list(LANGUAGE_ATOM),
 	)
