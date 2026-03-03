@@ -199,7 +199,7 @@
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/powered)
 "es" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/sign/poster/contraband/babel_device/directional/north,
 /obj/structure/sign/poster/contraband/kss13/directional/west,
@@ -1162,7 +1162,7 @@
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/powered)
 "vV" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/suppressor{
 	pixel_y = 10
 	},
@@ -1312,7 +1312,7 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "yE" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light/dim/directional/south,
@@ -1339,7 +1339,7 @@
 /turf/template_noop,
 /area/space)
 "yV" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/gun/energy/e_gun/old{
 	pixel_y = 8;
 	pixel_x = -1
@@ -1446,7 +1446,7 @@
 /area/ruin/space/has_grav/powered)
 "Bd" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/climbing_hook/syndicate,
 /obj/item/knife/combat/survival{
 	pixel_x = 3;
@@ -1532,7 +1532,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "CB" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/weldingtool/hugetank{
 	pixel_x = 2;
 	pixel_y = 5
@@ -1603,7 +1603,7 @@
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "Eu" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/sign/poster/contraband/gorlex_recruitment/directional/north,
 /obj/item/storage/box/syndie_kit/cowboy{
@@ -2454,7 +2454,7 @@
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/powered)
 "Ws" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/clothing/shoes/combat{
 	pixel_y = -2;
 	pixel_x = 4
@@ -2486,7 +2486,7 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "WX" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/storage/toolbox/syndicate{
 	pixel_y = -4
 	},
