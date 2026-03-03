@@ -14,8 +14,11 @@
 # /sound/
 # /strings/
 
-# Maptainers
+# Head Maptainers
 /_maps/ @dawsonkeyes @kannthus
+
+# Maptainer - Pubbystation
+_maps/map_files/Pubbystation/ @Exo-212
 
 # Spritetainers (real)
 # /icons/
