@@ -47,6 +47,10 @@
 	var/datum/action/cooldown/spell/adjust_sprite_size/action = new(src)
 	action.Grant(human_holder)
 
+	var/obj/item/organ/stomach/charging/potential_charger = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(istype(potential_charger))
+		potential_charger.become_oversized()
+
 /datum/quirk/oversized/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
 	human_holder.mob_size = MOB_SIZE_HUMAN
@@ -99,6 +103,10 @@
 
 	var/datum/component/seethrough_mob/component = human_holder.GetComponent(/datum/component/seethrough_mob)
 	qdel(component)
+
+	var/obj/item/organ/stomach/charging/potential_charger = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(istype(potential_charger))
+		potential_charger.remove_oversized()
 
 /datum/quirk/oversized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
 	SIGNAL_HANDLER
