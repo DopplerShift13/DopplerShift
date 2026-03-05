@@ -31,10 +31,20 @@
 
 	// Saved glow effects on UI elements
 	var/list/ui_filters = list()
+	// Whitelist of types allowed to be manipulated.
+	var/static/list/target_whitelist = typecacheof(list(
+		/obj/machinery,
+		/obj/structure,
+		/obj/item/radio/intercom,
+	))
+	// UI blacklist for targets that should never open a UI via Manipulate.
+	var/static/list/ui_blacklist = typecacheof(list(
+		/obj/machinery/door/airlock,
+	))
 
 // We're manipulating click-on to A distnguish between obj machinery and obj structure and B to distinguish between left and right hand clicks.
 /datum/action/cooldown/power/psyker/manipulate/InterceptClickOn(mob/living/clicker, params, atom/target)
-	if(!istype(target, /obj/machinery) && !istype(target, /obj/structure))
+	if(!is_type_in_typecache(target, target_whitelist))
 		return FALSE
 
 	var/list/mods = params2list(params)
@@ -45,24 +55,26 @@
 
 // We use TRAIT_REMOTE_INTERACT (temporarily) as to bypass /mob/living/can_perform_action
 /datum/action/cooldown/power/psyker/manipulate/use_action(mob/living/user, atom/target)
-	ADD_TRAIT(user, TRAIT_REMOTE_INTERACT, src) // this is specifically for allowing us to bypass the interaction gate.
+	ADD_TRAIT(user, TRAIT_REMOTE_INTERACT, src) // this is specifically for allowing us to bypass the range interaction gate.
 	new /obj/effect/temp_visual/telekinesis(get_turf(target))
 	if(right_click) // rmb
 		target.attack_hand_secondary(user)
 	else // lmb
 		target.attack_hand(user)
 
-	// interact with UI if present.
-	if(target.interaction_flags_atom & INTERACT_ATOM_UI_INTERACT)
+	// interact with UI if present and not blacklisted.
+	if((target.interaction_flags_atom & INTERACT_ATOM_UI_INTERACT) && !is_type_in_typecache(target, ui_blacklist))
 		target.ui_interact(user)
 
-		// We save the ui so we can add a filter
+		// We save the ui so we can add a filter to show it is being interacted with.
 		var/datum/tgui/ui = SStgui.get_open_ui(user, target)
 		if(ui)
 			var/filter_id = "manipulate_glow"
 			target.add_filter(filter_id, 1,	list(type = "outline", color = "#ff66cc", size = 2))
-			animate(filter, alpha = 110, time = 1.5 SECONDS, loop = -1)
-			animate(alpha = 40, time = 2.5 SECONDS)
+			var/filter = target.get_filter(filter_id)
+			if(filter)
+				animate(filter, alpha = 110, time = 1.5 SECONDS, loop = -1)
+				animate(alpha = 40, time = 2.5 SECONDS)
 			ui_filters[ui] = list(target, filter_id)
 
 			RegisterSignal(ui, COMSIG_QDELETING, PROC_REF(on_ui_closed))
