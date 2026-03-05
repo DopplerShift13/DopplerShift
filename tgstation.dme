@@ -7502,6 +7502,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_power.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\levitate.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\psyker\manipulate.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\scrying.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\telekinesis.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\_psyker_event.dm"

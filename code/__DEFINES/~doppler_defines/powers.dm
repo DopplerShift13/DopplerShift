@@ -59,6 +59,12 @@
 // Bitflags for how dispel should behave
 #define DISPEL_CASCADE_CARRIED (1<<0)
 
+// Trait defining that someone can interact remotely with objects. Used by Manipulate and is overall used to bypass range checks on can_interact
+#define TRAIT_REMOTE_INTERACT "remote_interact"
+
+// Trait that allows a mob to keep UIs open beyond their normal range.
+#define TRAIT_NO_UI_DISTANCE "no_ui_distance"
+
 /**
  * SORCEROUS
  * All defines related to the sorcerous archetype.

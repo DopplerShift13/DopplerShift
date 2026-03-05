@@ -47,13 +47,14 @@ ARMS
 	value = 4
 	augment = /obj/item/organ/cyberimp/arm/toolkit/mining_drill
 
+/* I'm not including this one baseline because its just too fkn stron for unarmed stacking.
 /datum/power/augmented/strong_arm
 	name = "Strong Arm Implant"
 	desc = "When implanted, this cybernetic implant will enhance the muscles of the arm to deliver more power-per-action. Install one in each arm \
 		to pry open doors with your bare hands!"
 
 	value = 10 // door forcing + unarmed stacking with cultivator make this a potential balance hazard.
-	augment = /obj/item/organ/cyberimp/arm/strongarm
+	augment = /obj/item/organ/cyberimp/arm/strongarm*/
 
 /*
 CHEST
@@ -66,13 +67,6 @@ The game sometimes calls this spine.
 
 	value = 3
 	augment = /obj/item/organ/cyberimp/chest/spine
-
-/datum/power/augmented/spinal_implant/atlas
-	name = "Atlas Gravitonic Spinal Implant"
-	desc = "The upgraded version of the Herculean Gravitronic Spinal Implant. Allows for easier lifting, as well as remaining grounded even in low gravity."
-
-	value = 7
-	augment = /obj/item/organ/cyberimp/chest/spine/atlas
 
 /*
 EYE HUDS.
