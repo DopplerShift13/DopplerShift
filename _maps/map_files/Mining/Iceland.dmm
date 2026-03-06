@@ -2243,6 +2243,7 @@
 /obj/structure/railing/corner{
 	dir = 4
 	},
+/obj/machinery/holopad,
 /turf/open/floor/iron/colony/bolts,
 /area/mine/production)
 "ol" = (
@@ -2713,6 +2714,7 @@
 /area/icemoon/surface/outdoors/nospawn)
 "rv" = (
 /obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/machinery/holopad,
 /turf/open/floor/iron/colony,
 /area/mine/production)
 "rw" = (
@@ -3641,6 +3643,12 @@
 /obj/machinery/vending/coffee,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /turf/open/floor/iron/colony/white,
+/area/mine/cafeteria)
+"xK" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/holopad,
+/turf/open/floor/iron/colony,
 /area/mine/cafeteria)
 "xM" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5480,7 +5488,9 @@
 /turf/open/floor/plating,
 /area/mine/laborcamp/production)
 "JZ" = (
-/obj/structure/displaycase,
+/obj/machinery/holopad{
+	pixel_y = -16
+	},
 /turf/open/floor/iron/colony/white,
 /area/mine/lounge)
 "Ka" = (
@@ -6879,6 +6889,7 @@
 /area/mine/lounge)
 "St" = (
 /obj/effect/turf_decal/trimline/red/filled/line,
+/obj/machinery/holopad,
 /turf/open/floor/iron/colony,
 /area/mine/laborcamp/security)
 "Sz" = (
@@ -7342,6 +7353,7 @@
 /area/mine/production)
 "Vy" = (
 /obj/structure/cable,
+/obj/machinery/holopad,
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production/middle)
 "Vz" = (
@@ -169181,7 +169193,7 @@ tX
 ut
 uk
 Zh
-Zh
+xK
 DW
 Ia
 db
@@ -172795,7 +172807,7 @@ cF
 ib
 od
 JZ
-JZ
+ib
 PR
 ib
 os
