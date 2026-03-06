@@ -167,7 +167,7 @@
 
 /obj/structure/sign/poster/doppler_war/tiziran/pride
 	name = "Tizira. (Tizira.)"
-	desc = "A depiction of the Tiziran flag. Three moon dieties - Atra'Kor, Atra'Kal, and Atra'Neff, topped and nurtured by the sun-god Atra'Asl. \
+	desc = "A depiction of the Tiziran flag. Three moon dieties - Atra'Kor, Atra'Kal, and Atra'Neff, crowned and nurtured by the sun-god Atra'Asl. \
 	Explained beneath, the wings depict the tiziran peoples' shared faith and unity. This is what we fight for, the poster suggests. What we defend."
 	icon_state = "tizira_pride"
 	faction_reactions = list(
@@ -177,7 +177,7 @@
 		),
 		WAR_FACTION_TIZIRA = list(
 			"The tiziran flag. A reminder of what we are fighting for." = 10,
-			"May the moon gods watch over Tizira's soldiers." = 10
+			"May the gods watch over Tizira's soldiers." = 10
 		),
 	)
 	faction_moods = list(
