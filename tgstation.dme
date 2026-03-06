@@ -7440,6 +7440,7 @@
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\heavy_lifter.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\master_surgeon.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\obfuscate_voice.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\expert\omnilingual.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\punt.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\rich.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\strider.dm"
