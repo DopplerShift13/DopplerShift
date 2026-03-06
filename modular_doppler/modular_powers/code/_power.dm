@@ -225,7 +225,7 @@ GLOBAL_LIST_INIT_TYPED(all_power_constant_data, /datum/power_constant_data, gene
 
 /// A singleton datum representing constant data and procs used by powers.
 /datum/power_constant_data
-	var/abstract_type = /datum/power_constant_data
+	abstract_type = /datum/power_constant_data
 
 	/// The typepath of the power we will be associated with in the global list.
 	var/datum/power/associated_typepath

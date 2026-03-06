@@ -42,15 +42,11 @@ Hides your voice as unknown while active. Act out the machivalean you always wan
 	source_action = passed_action
 
 /datum/status_effect/power/obfuscate_voice/on_apply()
-	var/mob/living/carbon/human/H = owner
-	if(istype(H))
-		H.SetSpecialVoice("Unknown")
+	ADD_TRAIT(owner, TRAIT_UNKNOWN_VOICE, TRAIT_STATUS_EFFECT(id))
 	return TRUE
 
 /datum/status_effect/power/obfuscate_voice/on_remove()
-	var/mob/living/carbon/human/H = owner
-	if(istype(H))
-		H.UnsetSpecialVoice()
+	REMOVE_TRAIT(owner, TRAIT_UNKNOWN_VOICE, TRAIT_STATUS_EFFECT(id))
 	return
 
 /atom/movable/screen/alert/status_effect/obfuscate_voice
