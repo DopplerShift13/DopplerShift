@@ -12,8 +12,8 @@
 	name = "A Burden Revered"
 	desc = "Nullifies pain and slowly heals the targeted creature over a prolonged period of time. This may be yourself. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again."
-	button_icon = 'icons/mob/actions/actions_spells.dmi'
-	button_icon_state = "transformslime"
+	button_icon = 'icons/obj/weapons/guns/magic.dmi'
+	button_icon_state = "revivewand" // I need something better
 	cooldown_time = 50
 	target_range = 1
 	target_type = /mob/living
@@ -27,7 +27,6 @@
 	var/healing_self = FALSE
 
 /datum/action/cooldown/power/theologist/theologist_root/revered/use_action(mob/living/user, mob/living/target)
-	to_chat(owner, span_boldnotice("Placeholder"))
 	if(active_effect)
 		qdel(active_effect)
 	active_effect = target.apply_status_effect(/datum/status_effect/power/burden_revered, src)
@@ -42,8 +41,8 @@
 
 /datum/action/cooldown/power/theologist/theologist_root/revered/proc/effect_expired(mob/living/target, amount)
 	if(target.ckey) // Don't get piety from healing nobodies.
-		adjust_piety(amount)
 		if(amount >= 1 && !healing_self)
+			adjust_piety(amount)
 			to_chat(owner, span_notice("Your previous Burden Revered has expired! You gained [amount] piety!"))
 			owner.playsound_local(owner, 'sound/effects/pray.ogg', 50, FALSE)
 		else
@@ -172,4 +171,5 @@
 /atom/movable/screen/alert/status_effect/burden_revered
 	name = "A Burden Revered"
 	desc = "You passively heal damage, and are immune to pain for it's duration."
-	icon_state = "designated_target" // Placeholder
+	icon = 'icons/obj/weapons/guns/magic.dmi'
+	icon_state = "revivewand"
