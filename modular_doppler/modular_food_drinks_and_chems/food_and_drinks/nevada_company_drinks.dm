@@ -9,18 +9,20 @@
 	list_reagents = list(/datum/reagent/consumable/icetea = 50, /datum/reagent/consumable/honey = 5)
 	custom_price = PAYCHECK_LOWER
 
-/obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/bottle
+/obj/item/reagent_containers/cup/glass/waterbottle/nevada_tea
 	name = "\improper Nevada green tea bottle"
 	desc = "A resealable version of the venerable Nevada drink can. The convenience doesn't totally cancel out \
 	the fact that this one is smaller and costs more."
+	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = "nevada_bottle"
 	volume = 45
 	list_reagents = list(/datum/reagent/consumable/icetea = 40, /datum/reagent/consumable/honey = 5)
 	custom_price = PAYCHECK_LOWER * 1.1
 
-/obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/jug
+/obj/item/reagent_containers/cup/glass/waterbottle/nevada_tea_jug
 	name = "\improper Nevada green tea jug"
 	desc = "Your favorite Nevada flavor, now with 385 grams of sugar!"
+	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = "jug"
 	fill_icon = "modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi"
 	volume = 300
@@ -49,9 +51,10 @@
 	icon_state = "nevada_lemonade"
 	list_reagents = list(/datum/reagent/consumable/lemonade = 50, /datum/reagent/consumable/honey = 5)
 
-/obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/lemonade/bottle //sorry for this path right here
+/obj/item/reagent_containers/cup/glass/waterbottle/nevada_lemonade
 	name = "\improper Nevada Lemonade bottle"
 	desc = "A resealable bottle filled with refreshing Nevada lemonade."
+	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = "nevada_lemonade_bottle"
 	volume = 45
 	list_reagents = list(/datum/reagent/consumable/lemonade = 40, /datum/reagent/consumable/honey = 5)
