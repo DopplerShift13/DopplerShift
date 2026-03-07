@@ -190,7 +190,7 @@
 			render_list += "<span class='alert ml-1'>Fatigue level: [target.getStaminaLoss()]%.</span><br>"
 		else
 			render_list += "<span class='alert ml-1'>Subject appears to be suffering from fatigue.</span><br>"
-	
+
 	// Check for brain - both organic (carbon) and synthetic (cyborg MMI)
 	var/has_brain = FALSE
 	if(target.get_organ_slot(ORGAN_SLOT_BRAIN))
@@ -199,7 +199,7 @@
 		var/mob/living/silicon/robot/cyborg_target = target
 		if(cyborg_target.mmi?.brain)
 			has_brain = TRUE
-	
+
 	if(!has_brain) // kept exclusively for soul purposes
 		render_list += "<span class='alert ml-1'>Subject lacks a brain.</span><br>"
 
@@ -339,7 +339,14 @@
 		var/list/cyberimps
 		for(var/obj/item/organ/target_organ as anything in humantarget.organs)
 			if(IS_ROBOTIC_ORGAN(target_organ) && !(target_organ.organ_flags & ORGAN_HIDDEN))
-				LAZYADD(cyberimps, target_organ.examine_title(user))
+				// DOPPLER ADDITION START - Shows quality for special augments from Powers
+				var/line = target_organ.examine_title(user)
+				if(istype(target_organ, /obj/item/organ/cyberimp))
+					var/obj/item/organ/cyberimp/cy = target_organ
+					if(cy.premium)
+						line = "[line] (quality: [round(cy.premium.quality)]%)"
+				LAZYADD(cyberimps, line)
+				// DOPPLER ADDITION END
 			if(target_organ.organ_flags & ORGAN_MUTANT)
 				mutant = TRUE
 		if(LAZYLEN(cyberimps))
@@ -347,7 +354,6 @@
 				render_list += "<hr>"
 			render_list += "<span class='notice ml-1'>Detected cybernetic modifications:</span><br>"
 			render_list += "<span class='notice ml-2'>[english_list(cyberimps, and_text = ", and ")]</span><br>"
-
 		render_list += "<hr>"
 
 		//Genetic stability

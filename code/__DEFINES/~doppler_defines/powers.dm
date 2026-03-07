@@ -285,5 +285,28 @@
  * All defines related to the augmented powers.
  */
 
+// Max quality on augments
+#define AUGMENTED_PREMIUM_QUALITY_MAX 100
+
+// The quality you start with at roundstart
+#define AUGMENTED_PREMIUM_QUALITY_START 75
+
+// How often augments will normally lose quality, and how much.
+#define AUGMENTED_DECAY_INTERVAL 5 MINUTES
+#define AUGMENTED_DECAY_AMOUNT 1
+
+// Thresholds for Premium Quality tiers. As long as it is above the number = all is good
+#define AUGMENTED_PREMIUM_QUALITY_OPTIMAL (AUGMENTED_PREMIUM_QUALITY_MAX * 0.75)
+#define AUGMENTED_PREMIUM_QUALITY_HIGH (AUGMENTED_PREMIUM_QUALITY_MAX * 0.50)
+#define AUGMENTED_PREMIUM_QUALITY_MEDIUM (AUGMENTED_PREMIUM_QUALITY_MAX * 0.25)
+#define AUGMENTED_PREMIUM_QUALITY_LOW (AUGMENTED_PREMIUM_QUALITY_MAX * 0)
+
+// The amount of performance from each. We expect high to be the norm, so that is our 1, instead of optimal.
+#define AUGMENTED_PREMIUM_EFFICIENCY_OPTIMAL 1.2
+#define AUGMENTED_PREMIUM_EFFICIENCY_HIGH 1
+#define AUGMENTED_PREMIUM_EFFICIENCY_MEDIUM 0.85
+#define AUGMENTED_PREMIUM_EFFICIENCY_LOW 0.6
+#define AUGMENTED_PREMIUM_EFFICIENCY_BROKEN 0
+
 // Used for the prefs to shorthand tell there's nothing in the right or left arm augment slot.
 #define AUGMENTED_NO_AUGMENT "None"
