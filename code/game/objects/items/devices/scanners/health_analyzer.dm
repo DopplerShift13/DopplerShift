@@ -343,8 +343,8 @@
 				var/line = target_organ.examine_title(user)
 				if(istype(target_organ, /obj/item/organ/cyberimp))
 					var/obj/item/organ/cyberimp/cy = target_organ
-					if(cy.premium)
-						line = "[line] (quality: [round(cy.premium.quality)]%)"
+					if(cy.premium_component)
+						line = "[line] (quality: [round(cy.premium_component.quality)]%)"
 				LAZYADD(cyberimps, line)
 				// DOPPLER ADDITION END
 			if(target_organ.organ_flags & ORGAN_MUTANT)

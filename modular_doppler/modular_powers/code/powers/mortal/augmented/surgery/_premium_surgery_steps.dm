@@ -134,7 +134,7 @@
 		to_chat(user, span_warning("[target] has no premium augments there to service!"))
 		return ..()
 
-	target_implant.premium.apply_premium_maintenance(AUGMENTED_PREMIUM_QUALITY_START)
+	target_implant.premium_component?.apply_premium_maintenance(AUGMENTED_PREMIUM_QUALITY_START)
 
 	if(target_zone == BODY_ZONE_PRECISE_EYES || target_zone == BODY_ZONE_PRECISE_MOUTH)
 		target_zone = check_zone(target_zone)

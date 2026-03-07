@@ -18,7 +18,7 @@
 	icon_state = "brain_implant_connector"
 	slot = ORGAN_SLOT_BRAIN_CNS
 	actions_types = list(/datum/action/item_action/organ_action/premium/use)
-
+	premium = TRUE
 	var/enabled = TRUE
 
 	// the factor with which we multiply the final cost of anti-mental
@@ -26,9 +26,8 @@
 
 /obj/item/organ/cyberimp/brain/mental_shielding/Initialize(mapload)
 	. = ..()
-	if(!premium)
-		premium = new /datum/premium_augment(src)
-		premium.refurb_parts = list(
+	if(premium_component)
+		premium_component.refurb_parts = list(
 			/obj/item/stack/sheet/iron = 3,
 			/obj/item/stack/cable_coil = 2)
 
@@ -49,20 +48,20 @@
 // Direct hook for antimagic signals, avoids component deletion behavior.
 /obj/item/organ/cyberimp/brain/mental_shielding/proc/on_receive_magic(mob/living/carbon/source, casted_magic_flags, charge_cost, list/antimagic_sources)
 	SIGNAL_HANDLER
-	if(!enabled || !premium?.can_function())
+	if(!enabled || !premium_component?.can_function())
 		return NONE
 	if(!(casted_magic_flags & MAGIC_RESISTANCE_MIND))
 		return NONE
 	antimagic_sources += src
 	var/adjusted_cost = process_quality_cost(max(1, charge_cost))
-	premium.adjust_quality(-adjusted_cost)
+	premium_component.adjust_quality(-adjusted_cost)
 	return COMPONENT_MAGIC_BLOCKED
 
 /// Convert an antimagic charge cost into a quality cost.
 /obj/item/organ/cyberimp/brain/mental_shielding/proc/process_quality_cost(raw_cost)
-	if(raw_cost <= 0 || !premium)
+	if(raw_cost <= 0 || !premium_component)
 		return 0
-	var/efficiency = premium?.get_efficiency() || 0
+	var/efficiency = premium_component.get_efficiency() || 0
 	if(efficiency <= 0)
 		return 0
 	var/mult = (AUGMENTED_PREMIUM_EFFICIENCY_HIGH / efficiency) * mental_mult

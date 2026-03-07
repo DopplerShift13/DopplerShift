@@ -1,6 +1,6 @@
-//
 // Responsible for handling most of the premium augment interactions away from the base cyberimplant.
-/datum/premium_augment
+/datum/component/premium_augment
+	dupe_mode = COMPONENT_DUPE_UNIQUE
 	/// Host implant that owns this premium augment logic.
 	var/obj/item/organ/cyberimp/host
 	/// Current quality percentage (0..100)
@@ -27,23 +27,27 @@
 	)
 	var/list/refurb_parts_remaining
 
-/datum/premium_augment/New(obj/item/organ/cyberimp/_host)
-	host = _host
+/datum/component/premium_augment/Initialize()
+	if(!istype(parent, /obj/item/organ/cyberimp))
+		return COMPONENT_INCOMPATIBLE
+	host = parent
+	if(!host.premium_component)
+		host.premium_component = src
 	last_decay_time = world.time
 	START_PROCESSING(SSfastprocess, src)
 
-/datum/premium_augment/Destroy()
+/datum/component/premium_augment/Destroy()
 	STOP_PROCESSING(SSfastprocess, src)
 	premium_actions = null
 	host = null
 	return ..()
 
 /// Whether the premium augment can function at all.
-/datum/premium_augment/proc/can_function()
+/datum/component/premium_augment/proc/can_function()
 	return quality > 0
 
 /// Returns a tier label for UI or logic.
-/datum/premium_augment/proc/quality_tier()
+/datum/component/premium_augment/proc/quality_tier()
 	if(quality > AUGMENTED_PREMIUM_QUALITY_OPTIMAL)
 		return "optimal"
 	if(quality > AUGMENTED_PREMIUM_QUALITY_HIGH)
@@ -55,11 +59,11 @@
 	return "broken"
 
 /// Performance multiplier based purely on quality tiers.
-/datum/premium_augment/proc/perf_mult()
+/datum/component/premium_augment/proc/perf_mult()
 	return get_efficiency()
 
 /// Returns the efficiency value based on quality tiers.
-/datum/premium_augment/proc/get_efficiency()
+/datum/component/premium_augment/proc/get_efficiency()
 	if(quality > AUGMENTED_PREMIUM_QUALITY_OPTIMAL)
 		return AUGMENTED_PREMIUM_EFFICIENCY_OPTIMAL
 	if(quality > AUGMENTED_PREMIUM_QUALITY_HIGH)
@@ -71,7 +75,7 @@
 	return AUGMENTED_PREMIUM_EFFICIENCY_BROKEN
 
 /// Adjust quality by amount, clamped to [0..AUGMENTED_PREMIUM_QUALITY_MAX] (or override).
-/datum/premium_augment/proc/adjust_quality(amount, override_cap)
+/datum/component/premium_augment/proc/adjust_quality(amount, override_cap)
 	if(!isnum(amount))
 		return
 	var/cap_to = isnum(override_cap) ? override_cap : AUGMENTED_PREMIUM_QUALITY_MAX
@@ -79,7 +83,7 @@
 	update_quality_actions()
 
 /// Passive decay processing.
-/datum/premium_augment/process(seconds_per_tick)
+/datum/component/premium_augment/process(seconds_per_tick)
 	if(decay_amount <= 0 || decay_interval <= 0)
 		return
 	if(world.time - last_decay_time < decay_interval)
@@ -88,20 +92,20 @@
 	last_decay_time = world.time
 
 /// Register an action that should display the quality bar.
-/datum/premium_augment/proc/register_quality_action(datum/action/item_action/organ_action/premium/action)
+/datum/component/premium_augment/proc/register_quality_action(datum/action/item_action/organ_action/premium/action)
 	if(!action)
 		return
 	LAZYADD(premium_actions, action)
 	action.update_quality_overlay()
 
 /// Unregister a quality bar action.
-/datum/premium_augment/proc/unregister_quality_action(datum/action/item_action/organ_action/premium/action)
+/datum/component/premium_augment/proc/unregister_quality_action(datum/action/item_action/organ_action/premium/action)
 	if(!premium_actions || !action)
 		return
 	premium_actions -= action
 
 /// Update all registered action quality bars.
-/datum/premium_augment/proc/update_quality_actions()
+/datum/component/premium_augment/proc/update_quality_actions()
 	if(!LAZYLEN(premium_actions))
 		return
 	for(var/datum/action/item_action/organ_action/premium/action as anything in premium_actions)
@@ -111,19 +115,19 @@
 		action.update_quality_overlay()
 
 /// Premium maintenance: restores quality up to 75%.
-/datum/premium_augment/proc/apply_premium_maintenance(amount)
+/datum/component/premium_augment/proc/apply_premium_maintenance(amount)
 	if(amount <= 0)
 		return
 	adjust_quality(amount, AUGMENTED_PREMIUM_QUALITY_START)
 
 /// Refurbish: restores quality up to 100%.
-/datum/premium_augment/proc/refurbish(amount)
+/datum/component/premium_augment/proc/refurbish(amount)
 	if(amount <= 0)
 		return
 	adjust_quality(amount, AUGMENTED_PREMIUM_QUALITY_MAX)
 
 /// Handle refurbish interactions while the implant is out of the body.
-/datum/premium_augment/proc/handle_refurbish_interaction(mob/user, obj/item/tool, obj/item/organ/cyberimp/implant)
+/datum/component/premium_augment/proc/handle_refurbish_interaction(mob/user, obj/item/tool, obj/item/organ/cyberimp/implant)
 	if(!user || !tool || !implant)
 		return FALSE
 	if(implant.owner)
@@ -148,7 +152,7 @@
 				to_chat(user, span_warning("You need spare parts to refurbish [implant]."))
 				return TRUE
 			var/obj/item/stack/stack = tool
-			var/typepath = stack.type
+			var/typepath = stack.merge_type ? stack.merge_type : stack.type
 			var/needed = refurb_parts_remaining[typepath]
 			if(!needed)
 				to_chat(user, span_warning("[stack] doesn't fit [implant]'s parts."))
@@ -190,23 +194,56 @@
 
 	return FALSE
 
-/datum/premium_augment/proc/get_refurb_step()
+/// Returns lines to show when examining a premium augment for refurbishing.
+/datum/component/premium_augment/proc/get_refurb_examine_lines(obj/item/organ/cyberimp/implant)
+	var/list/lines = list()
+	if(!implant)
+		return lines
+	lines += span_notice("Premium quality: [round(quality)]%.")
+	if(implant.owner)
+		lines += span_warning("Remove [implant] before refurbishing it.")
+		return lines
+
+	var/step = get_refurb_step()
+	if(!step)
+		return lines
+
+	switch(step)
+		if(AUGMENTED_REFURBISH_OPEN)
+			lines += span_notice("Refurbish step: Open the casing with a screwdriver.")
+		if(AUGMENTED_REFURBISH_PARTS)
+			ensure_refurb_parts()
+			if(!LAZYLEN(refurb_parts_remaining))
+				lines += span_notice("Refurbish step: Parts replaced. This isn't meant to show! Why is it not telling you to use a multitool?! PANIC!")
+			else
+				lines += span_notice("Refurbish step: Replace worn parts.")
+				for(var/typepath in refurb_parts_remaining)
+					var/amount = refurb_parts_remaining[typepath]
+					var/display_name = initial(typepath:name)
+					lines += span_notice(" - [display_name] x[amount]")
+		if(AUGMENTED_REFURBISH_CALIBRATE)
+			lines += span_notice("Refurbish step: Calibrate diagnostics with a multitool.")
+		if(AUGMENTED_REFURBISH_CLOSE)
+			lines += span_notice("Refurbish step: Close the casing with a screwdriver to finish.")
+	return lines
+
+/datum/component/premium_augment/proc/get_refurb_step()
 	if(!LAZYLEN(refurb_sequence))
 		return null
 	refurb_stage = clamp(refurb_stage, 1, refurb_sequence.len)
 	return refurb_sequence[refurb_stage]
 
-/datum/premium_augment/proc/advance_refurb_step()
+/datum/component/premium_augment/proc/advance_refurb_step()
 	refurb_stage++
 	refurb_parts_remaining = null
 	if(refurb_stage > refurb_sequence.len)
 		refurb_stage = refurb_sequence.len
 
-/datum/premium_augment/proc/reset_refurb()
+/datum/component/premium_augment/proc/reset_refurb()
 	refurb_stage = 1
 	refurb_parts_remaining = null
 
-/datum/premium_augment/proc/ensure_refurb_parts()
+/datum/component/premium_augment/proc/ensure_refurb_parts()
 	if(refurb_parts_remaining)
 		return
 	refurb_parts_remaining = list()
