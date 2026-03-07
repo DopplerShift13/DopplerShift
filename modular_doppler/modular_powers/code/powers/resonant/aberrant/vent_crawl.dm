@@ -12,8 +12,6 @@
 	. = ..()
 	if(!power_holder)
 		return
-	if(!can_use_ventcrawl(power_holder, provide_feedback = FALSE))
-		return
 	ADD_TRAIT(power_holder, TRAIT_VENTCRAWLER_ALWAYS, src)
 	RegisterSignal(power_holder, COMSIG_MOB_ALTCLICKON, PROC_REF(on_altclick))
 
@@ -68,11 +66,12 @@
 	to_chat(source, span_warning("You need to remove your backpack, helmet, and suit to ventcrawl!"))
 	return COMSIG_MOB_CANCEL_CLICKON
 
-// Are you TOO FUKKEN BIG?
-/datum/power/aberrant/vent_crawl/proc/can_use_ventcrawl(mob/living/source, provide_feedback = TRUE)
+// Are you TOO FUKKEN BIG? or are you SILENCED?
+/datum/power/aberrant/vent_crawl/proc/can_use_ventcrawl(mob/living/source)
+	if(HAS_TRAIT(source, TRAIT_RESONANCE_SILENCED))
+		source.balloon_alert(source, "Silenced!")
 	if(HAS_TRAIT(source, TRAIT_OVERSIZED))
-		if(provide_feedback)
-			to_chat(source, span_warning("You're too large to fit into the ventilation ducts!"))
+		source.balloon_alert(source, "You're too big to fit!")
 		return FALSE
 	return TRUE
 
