@@ -59,6 +59,11 @@
 	desc = "A simple, inconspicuous harness replacement for a jumpsuit."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+	)
 	icon_state = "gear_harness"
 	body_parts_covered = NONE
 	attachment_slot_override = CHEST
@@ -115,6 +120,58 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	can_adjust = TRUE
 	alt_covers_chest = TRUE
+
+/obj/item/clothing/under/latexsuit
+	name = "latex bodysuit"
+	desc = "A form-fitting bodysuit made of a shiny latex polymer. Ages ago, it would've been a pain in the ass \
+	to get into, but centuries of clothing technology have made wearing it easier than ever before. \
+	Still, it takes longer to take off than an equivalent cloth garment."
+	icon_state = "latexsuit"
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+	equip_sound = 'modular_doppler/modular_sounds/sound/items/latex.ogg'
+	inhand_icon_state = "latexsuit"
+	lefthand_file = 'modular_doppler/modular_cosmetics/icons/mob/inhands/miscellania_left.dmi'
+	righthand_file = 'modular_doppler/modular_cosmetics/icons/mob/inhands/miscellania_right.dmi'
+	strip_delay = 8 SECONDS
+	body_parts_covered = CHEST|GROIN|LEGS|ARMS
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_HOOF, BODYSHAPE_TAUR_PAW)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi',
+		BODYSHAPE_TAUR_SNAKE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_snake.dmi',
+		BODYSHAPE_TAUR_HOOF_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_hoof.dmi',
+		BODYSHAPE_TAUR_PAW_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_paw.dmi',
+	)
+	can_adjust = FALSE
+	obj_flags = parent_type::obj_flags | INFINITE_RESKIN
+	unique_reskin = list(
+						"Old Masculine" = "latexsuit",
+						"Old Feminine" = "latexsuit_d",
+						"Old Masculine Half-suit" = "halflatexsuit",
+						"Old Feminine Half-suit" = "halflatexsuit_d",
+						"New Masculine" = "latexsuit_j",
+						"New Feminine" = "latexsuit_d_j",
+						"New Masculine Half-suit" = "halflatexsuit_j",
+						"New Feminine Half-suit" = "halflatexsuit_d_j",
+						)
+
+//This makes the player have to sit through a 6 Second do_after when taking off the latex suit
+/obj/item/clothing/under/latexsuit/allow_attack_hand_drop(mob/user)
+    if(!iscarbon(loc))
+        return TRUE
+    var/mob/living/carbon/human/wearer = loc
+    if(wearer.w_uniform != src)
+        return TRUE
+
+    if(!do_after(user, 6 SECONDS, target = src))
+        return FALSE
+    return TRUE
+
+//Stops a player from click-dragging the latex suit into their hand, since we'd like them to take the latex suit off with a simple left-click and have to do the do_after
+/obj/item/clothing/under/latexsuit/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
+    return
 
 /obj/item/clothing/under/nevada_uniform
 	name = "\improper Nevada Beverage Co. uniform"

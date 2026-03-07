@@ -81,11 +81,11 @@
 	final_icon = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_chest_f", SOUTH)
 
 	if (!isnull(sprite_accessory))
-		if(icon_exists(sprite_accessory.icon, "m_breasts_[sprite_accessory.icon_state]_ADJ"))
-			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_breasts_[sprite_accessory.icon_state]_ADJ", SOUTH)
+		if(icon_exists(sprite_accessory.icon, "m_breasts_[sprite_accessory.icon_state]_FRONT_UNDER"))
+			var/datum/universal_icon/accessory_icon = uni_icon(sprite_accessory.icon, "m_breasts_[sprite_accessory.icon_state]_FRONT_UNDER", SOUTH)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
-		if(icon_exists(sprite_accessory.icon, "m_breasts_[sprite_accessory.icon_state]_ADJ_2"))
-			var/datum/universal_icon/accessory_icon_2 = uni_icon(sprite_accessory.icon, "m_breasts_[sprite_accessory.icon_state]_ADJ_2", SOUTH)
+		if(icon_exists(sprite_accessory.icon, "m_breasts_[sprite_accessory.icon_state]_FRONT_UNDER_2"))
+			var/datum/universal_icon/accessory_icon_2 = uni_icon(sprite_accessory.icon, "m_breasts_[sprite_accessory.icon_state]_FRONT_UNDER_2", SOUTH)
 			accessory_icon_2.blend_color(COLOR_LIGHT_GRAYISH_RED, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon_2, ICON_OVERLAY)
 
