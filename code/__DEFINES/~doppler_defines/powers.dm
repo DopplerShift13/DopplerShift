@@ -308,5 +308,11 @@
 #define AUGMENTED_PREMIUM_EFFICIENCY_LOW 0.6
 #define AUGMENTED_PREMIUM_EFFICIENCY_BROKEN 0
 
+// Refurbish steps
+#define AUGMENTED_REFURBISH_OPEN "open"
+#define AUGMENTED_REFURBISH_PARTS "parts"
+#define AUGMENTED_REFURBISH_CALIBRATE "calibrate"
+#define AUGMENTED_REFURBISH_CLOSE "close"
+
 // Used for the prefs to shorthand tell there's nothing in the right or left arm augment slot.
 #define AUGMENTED_NO_AUGMENT "None"

@@ -1,12 +1,5 @@
-// Package this along with cyberimps
-/obj/item/organ/cyberimp
-	// The datum for premium augments that handle all the quality fuckery.
-	var/datum/premium_augment/premium
-
-/// Default premium action hook. Override per implant.
-/obj/item/organ/cyberimp/proc/use_action()
-	return FALSE
-
+//
+// Responsible for handling most of the premium augment interactions away from the base cyberimplant.
 /datum/premium_augment
 	/// Host implant that owns this premium augment logic.
 	var/obj/item/organ/cyberimp/host
@@ -18,6 +11,21 @@
 	var/last_decay_time = 0
 	/// Actions that render the quality bar.
 	var/list/premium_actions
+	/// Refurbish flow state.
+	var/refurb_stage = 1
+	/// Sequence of refurb steps. Override per-augment for customization.
+	var/list/refurb_sequence = list(
+		AUGMENTED_REFURBISH_OPEN,
+		AUGMENTED_REFURBISH_PARTS,
+		AUGMENTED_REFURBISH_CALIBRATE,
+		AUGMENTED_REFURBISH_CLOSE,
+	)
+	/// Parts required during refurb. Override per-augment for customization.
+	var/list/refurb_parts = list(
+		/obj/item/stack/sheet/iron = 2,
+		/obj/item/stack/cable_coil = 1,
+	)
+	var/list/refurb_parts_remaining
 
 /datum/premium_augment/New(obj/item/organ/cyberimp/_host)
 	host = _host
@@ -113,3 +121,94 @@
 	if(amount <= 0)
 		return
 	adjust_quality(amount, AUGMENTED_PREMIUM_QUALITY_MAX)
+
+/// Handle refurbish interactions while the implant is out of the body.
+/datum/premium_augment/proc/handle_refurbish_interaction(mob/user, obj/item/tool, obj/item/organ/cyberimp/implant)
+	if(!user || !tool || !implant)
+		return FALSE
+	if(implant.owner)
+		to_chat(user, span_warning("You need to remove [implant] before refurbishing it."))
+		return TRUE
+	var/step = get_refurb_step()
+	if(!step)
+		return FALSE
+
+	switch(step)
+		if(AUGMENTED_REFURBISH_OPEN)
+			if(tool.tool_behaviour != TOOL_SCREWDRIVER)
+				to_chat(user, span_warning("You need a screwdriver to open [implant]'s casing."))
+				return TRUE
+			to_chat(user, span_notice("You open [implant]'s casing."))
+			advance_refurb_step()
+			return TRUE
+
+		if(AUGMENTED_REFURBISH_PARTS)
+			ensure_refurb_parts()
+			if(!istype(tool, /obj/item/stack))
+				to_chat(user, span_warning("You need spare parts to refurbish [implant]."))
+				return TRUE
+			var/obj/item/stack/stack = tool
+			var/typepath = stack.type
+			var/needed = refurb_parts_remaining[typepath]
+			if(!needed)
+				to_chat(user, span_warning("[stack] doesn't fit [implant]'s parts."))
+				return TRUE
+			var/available = stack.amount
+			if(available <= 0)
+				to_chat(user, span_warning("[stack] doesn't have anything left to use."))
+				return TRUE
+			var/use_amount = min(needed, available)
+			if(!stack.use(use_amount))
+				to_chat(user, span_warning("You need more [stack] to continue."))
+				return TRUE
+			needed -= use_amount
+			if(needed <= 0)
+				refurb_parts_remaining -= typepath
+			else
+				refurb_parts_remaining[typepath] = needed
+			to_chat(user, span_notice("You replace worn parts inside [implant]."))
+			if(!LAZYLEN(refurb_parts_remaining))
+				advance_refurb_step()
+			return TRUE
+
+		if(AUGMENTED_REFURBISH_CALIBRATE)
+			if(tool.tool_behaviour != TOOL_MULTITOOL)
+				to_chat(user, span_warning("You need a multitool to calibrate [implant]."))
+				return TRUE
+			to_chat(user, span_notice("You calibrate [implant]'s diagnostics."))
+			advance_refurb_step()
+			return TRUE
+
+		if(AUGMENTED_REFURBISH_CLOSE)
+			if(tool.tool_behaviour != TOOL_SCREWDRIVER)
+				to_chat(user, span_warning("You need a screwdriver to close [implant]'s casing."))
+				return TRUE
+			refurbish(AUGMENTED_PREMIUM_QUALITY_MAX)
+			reset_refurb()
+			to_chat(user, span_notice("You finish refurbishing [implant]. It looks factory-new."))
+			return TRUE
+
+	return FALSE
+
+/datum/premium_augment/proc/get_refurb_step()
+	if(!LAZYLEN(refurb_sequence))
+		return null
+	refurb_stage = clamp(refurb_stage, 1, refurb_sequence.len)
+	return refurb_sequence[refurb_stage]
+
+/datum/premium_augment/proc/advance_refurb_step()
+	refurb_stage++
+	refurb_parts_remaining = null
+	if(refurb_stage > refurb_sequence.len)
+		refurb_stage = refurb_sequence.len
+
+/datum/premium_augment/proc/reset_refurb()
+	refurb_stage = 1
+	refurb_parts_remaining = null
+
+/datum/premium_augment/proc/ensure_refurb_parts()
+	if(refurb_parts_remaining)
+		return
+	refurb_parts_remaining = list()
+	for(var/typepath in refurb_parts)
+		refurb_parts_remaining[typepath] = refurb_parts[typepath]

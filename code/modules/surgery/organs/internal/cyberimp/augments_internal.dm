@@ -14,6 +14,7 @@
 	/// Bodypart overlay we're going to apply to whoever we're implanted into
 	var/datum/bodypart_overlay/augment/bodypart_aug = null
 
+	var/datum/premium_augment/premium // DOPPLER EDIT ADDITION - Allows Premium augments to hook into cyberimp and still be semi-modular
 /obj/item/organ/cyberimp/Initialize(mapload)
 	. = ..()
 	if (aug_overlay)
@@ -22,6 +23,17 @@
 /obj/item/organ/cyberimp/Destroy()
 	QDEL_NULL(bodypart_aug)
 	return ..()
+
+// DOPPLER ADDITION START - Handles powers related additions
+/// Default premium action hook. Override per implant.
+/obj/item/organ/cyberimp/proc/use_action()
+	return FALSE
+// Handles refurbishing
+/obj/item/organ/cyberimp/attackby(obj/item/tool, mob/user, params)
+	if(premium && premium.handle_refurbish_interaction(user, tool, src))
+		return
+	return ..()
+// DOPPLER ADDITION END
 
 /obj/item/organ/cyberimp/proc/get_overlay_state()
 	return aug_overlay

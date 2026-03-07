@@ -28,6 +28,9 @@
 	. = ..()
 	if(!premium)
 		premium = new /datum/premium_augment(src)
+		premium.refurb_parts = list(
+			/obj/item/stack/sheet/iron = 3,
+			/obj/item/stack/cable_coil = 2)
 
 // Registers antimagic signals
 /obj/item/organ/cyberimp/brain/mental_shielding/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
