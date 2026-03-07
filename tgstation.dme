@@ -7485,6 +7485,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange_spider.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange_wolf.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\aberrant\summonable.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\vent_crawl.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\_web_craft_datum.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\_web_crafter_entries.dm"
