@@ -25,7 +25,7 @@
 	if(!docking_port)
 		. += span_notice("Interact with the clamp to set it up for docking, otherwise it will not function.")
 		. += span_notice("The clamp requires a large space in front of it, indicated by holograms on setup.")
-		. += span_notice("This space is [EXAMINE_HINT("15")] tiles to either side of the clamp, and [EXAMINE_HINT("18")] tiles straight out.")
+		. += span_notice("This space is [EXAMINE_HINT(floor(/obj/docking_port/stationary/salvage_dock::width / 2))] tiles to either side of the clamp, and [EXAMINE_HINT(/obj/docking_port/stationary/salvage_dock::height)] tiles straight out.")
 
 /obj/machinery/docking_clamp/multitool_act(mob/living/user, obj/item/multitool/the_tool)
 	the_tool.set_buffer(src)
@@ -72,11 +72,9 @@
 /obj/docking_port/stationary/salvage_dock
 	name = "Salvage Dock"
 	width = 31
-	height = 18
-	dwidth = 17
+	height = 19
+	dwidth = 15
 
 /obj/docking_port/stationary/salvage_dock/Initialize(mapload, dock_direction)
-	message_admins("dock dir before = [dir]")
 	setDir(dock_direction)
-	message_admins("dock_dir_after = [dir]")
 	. = ..()

@@ -5,6 +5,18 @@
 /obj/machinery/meter/layer4,
 /turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
+"ce" = (
+/obj/structure/marker_beacon/bronze,
+/obj/effect/mapping_helpers/salvage_anchor/end/five,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/salvaged_shuttle)
+"dD" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/five,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
 "ez" = (
 /obj/effect/turf_decal/bot_white,
 /turf/open/floor/iron/dark/smooth_large,
@@ -31,6 +43,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /turf/open/floor/plating,
+/area/shuttle/salvaged_shuttle)
+"kZ" = (
+/obj/effect/mapping_helpers/salvage_anchor/end/four,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/salvaged_shuttle)
 "mH" = (
 /obj/machinery/light/cold/directional/north,
@@ -110,11 +126,25 @@
 /obj/structure/window/reinforced/plasma/spawner/directional/east,
 /turf/open/floor/plating/airless,
 /area/shuttle/salvaged_shuttle)
+"uk" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/seven,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
 "uM" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
+/area/shuttle/salvaged_shuttle)
+"vE" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/two,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
 "xp" = (
 /obj/structure/closet/crate/cardboard/mothic,
@@ -131,6 +161,19 @@
 /area/shuttle/salvaged_shuttle)
 "yi" = (
 /turf/open/floor/plating,
+/area/shuttle/salvaged_shuttle)
+"ym" = (
+/obj/effect/turf_decal/delivery/white,
+/obj/machinery/door/airlock/external,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/structure/fans/tiny,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/salvaged_shuttle)
+"yx" = (
+/obj/effect/mapping_helpers/salvage_anchor/end/seven,
+/turf/closed/wall/mineral/plastitanium,
 /area/shuttle/salvaged_shuttle)
 "yR" = (
 /obj/structure/marker_beacon/olive,
@@ -192,6 +235,13 @@
 "CU" = (
 /turf/closed/wall/mineral/plastitanium/nodiagonal,
 /area/shuttle/salvaged_shuttle)
+"Dm" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/six,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
 "Dp" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -208,17 +258,22 @@
 /turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
 "Em" = (
-/obj/structure/marker_beacon/bronze,
-/turf/closed/wall/mineral/titanium,
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/three,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
 "Ev" = (
-/obj/item/tether_anchor{
-	anchored = 1
-	},
-/turf/closed/wall/mineral/titanium/nodiagonal,
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/four,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
 "Ew" = (
 /obj/structure/marker_beacon/olive,
+/obj/effect/mapping_helpers/salvage_anchor/end/one,
 /turf/closed/wall/mineral/plastitanium,
 /area/shuttle/salvaged_shuttle)
 "ER" = (
@@ -246,14 +301,17 @@
 /turf/open/floor/iron/smooth,
 /area/shuttle/salvaged_shuttle)
 "HR" = (
-/obj/effect/turf_decal/delivery/white,
-/obj/machinery/door/airlock/external,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
-/obj/structure/fans/tiny,
-/obj/docking_port/mobile/salvage,
-/turf/open/floor/iron/dark/smooth_large,
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/yellow,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
+"Ii" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/one,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
 "Im" = (
 /obj/machinery/modular_computer/preset/engineering{
@@ -341,8 +399,11 @@
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/salvaged_shuttle)
 "LJ" = (
-/obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/plastitanium,
+/obj/item/tether_anchor{
+	anchored = 1
+	},
+/obj/effect/mapping_helpers/salvage_anchor/end/three,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/salvaged_shuttle)
 "LK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -353,10 +414,15 @@
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/salvaged_shuttle)
 "LV" = (
-/turf/closed/wall/mineral/plastitanium,
+/obj/item/tether_anchor{
+	anchored = 1
+	},
+/obj/effect/mapping_helpers/salvage_anchor/end/six,
+/turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/salvaged_shuttle)
 "Md" = (
-/turf/closed/wall/mineral/titanium,
+/obj/effect/mapping_helpers/salvage_anchor/end/two,
+/turf/closed/wall/mineral/plastitanium,
 /area/shuttle/salvaged_shuttle)
 "MS" = (
 /obj/structure/cable,
@@ -365,6 +431,13 @@
 	},
 /obj/machinery/wall_healer/free/directional/west,
 /turf/open/floor/iron/smooth,
+/area/shuttle/salvaged_shuttle)
+"MV" = (
+/obj/docking_port/mobile/salvage,
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/marker_beacon/yellow,
+/turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
 "Ow" = (
 /obj/effect/turf_decal/bot_white,
@@ -413,6 +486,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/salvaged_shuttle)
+"Sv" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/eight,
+/obj/structure/marker_beacon/jade,
+/turf/open/floor/engine/anchor_jack,
+/area/shuttle/salvaged_shuttle)
 "Ti" = (
 /obj/machinery/light/cold/directional/north,
 /turf/open/floor/plating,
@@ -422,6 +502,11 @@
 /obj/machinery/recharger,
 /obj/structure/secure_safe/directional/north,
 /turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/salvaged_shuttle)
+"UU" = (
+/obj/structure/marker_beacon/burgundy,
+/obj/effect/mapping_helpers/salvage_anchor/end/eight,
+/turf/closed/wall/mineral/plastitanium,
 /area/shuttle/salvaged_shuttle)
 "Wb" = (
 /obj/machinery/power/apc/auto_name/directional/west,
@@ -466,7 +551,180 @@
 /area/shuttle/salvaged_shuttle)
 
 (1,1,1) = {"
-LJ
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(2,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(3,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(4,1,1) = {"
+YC
+Sv
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+Ii
+YC
+"}
+(5,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(6,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(7,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(8,1,1) = {"
+YC
+HR
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+HR
+YC
+"}
+(9,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+UU
 Wi
 CU
 YC
@@ -475,8 +733,18 @@ YC
 CU
 nP
 Ew
+YC
+YC
+YC
+YC
+YC
 "}
-(2,1,1) = {"
+(10,1,1) = {"
+YC
+YC
+YC
+YC
+YC
 CU
 Kv
 CU
@@ -486,8 +754,18 @@ nP
 CU
 RM
 CU
+YC
+YC
+YC
+YC
+YC
 "}
-(3,1,1) = {"
+(11,1,1) = {"
+YC
+YC
+YC
+YC
+YC
 zd
 pH
 CU
@@ -497,8 +775,18 @@ tG
 CU
 yZ
 jv
+YC
+YC
+YC
+YC
+YC
 "}
-(4,1,1) = {"
+(12,1,1) = {"
+uk
+YC
+YC
+YC
+YC
 Xs
 nw
 tC
@@ -508,9 +796,19 @@ bv
 PY
 Gm
 Xs
+YC
+YC
+YC
+YC
+vE
 "}
-(5,1,1) = {"
-LV
+(13,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+yx
 Ow
 CU
 mH
@@ -518,9 +816,19 @@ KN
 yi
 CU
 Fo
-LV
+Md
+YC
+YC
+YC
+YC
+YC
 "}
-(6,1,1) = {"
+(14,1,1) = {"
+YC
+YC
+YC
+YC
+YC
 Du
 Pp
 Pp
@@ -530,8 +838,18 @@ yi
 Pp
 Pp
 KV
+YC
+YC
+YC
+YC
+YC
 "}
-(7,1,1) = {"
+(15,1,1) = {"
+YC
+YC
+YC
+YC
+YC
 Pp
 BW
 Wb
@@ -541,8 +859,18 @@ PX
 Pp
 fI
 LH
+YC
+YC
+YC
+YC
+YC
 "}
-(8,1,1) = {"
+(16,1,1) = {"
+HR
+YC
+YC
+YC
+YC
 QT
 tE
 kO
@@ -551,9 +879,19 @@ BV
 Ef
 IP
 IM
-HR
+ym
+YC
+YC
+YC
+YC
+MV
 "}
-(9,1,1) = {"
+(17,1,1) = {"
+YC
+YC
+YC
+YC
+YC
 Du
 Pp
 zm
@@ -563,8 +901,18 @@ Pp
 Pp
 Pp
 KV
+YC
+YC
+YC
+YC
+YC
 "}
-(10,1,1) = {"
+(18,1,1) = {"
+YC
+YC
+YC
+YC
+YC
 Pp
 eM
 uM
@@ -574,9 +922,19 @@ Im
 MS
 ER
 Pp
+YC
+YC
+YC
+YC
+YC
 "}
-(11,1,1) = {"
-Ev
+(19,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+LV
 Ti
 uM
 uM
@@ -584,9 +942,19 @@ LK
 Dp
 In
 Jd
-Ev
+LJ
+YC
+YC
+YC
+YC
+YC
 "}
-(12,1,1) = {"
+(20,1,1) = {"
+Dm
+YC
+YC
+YC
+YC
 Pp
 yi
 Yj
@@ -596,8 +964,18 @@ TJ
 IH
 ez
 YR
+YC
+YC
+YC
+YC
+Em
 "}
-(13,1,1) = {"
+(21,1,1) = {"
+YC
+YC
+YC
+YC
+YC
 Pp
 Pp
 Pp
@@ -607,9 +985,19 @@ Pp
 Av
 ez
 YR
+YC
+YC
+YC
+YC
+YC
 "}
-(14,1,1) = {"
-Em
+(22,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+ce
 Du
 YC
 YC
@@ -618,8 +1006,18 @@ YR
 RS
 Pp
 yR
+YC
+YC
+YC
+YC
+YC
 "}
-(15,1,1) = {"
+(23,1,1) = {"
+YC
+YC
+YC
+YC
+YC
 YC
 YC
 YC
@@ -627,6 +1025,179 @@ YC
 YC
 Pp
 YR
-Md
+kZ
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(24,1,1) = {"
+YC
+HR
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+HR
+YC
+"}
+(25,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(26,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(27,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(28,1,1) = {"
+YC
+dD
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+Ev
+YC
+"}
+(29,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(30,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+"}
+(31,1,1) = {"
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
+YC
 YC
 "}

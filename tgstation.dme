@@ -7685,6 +7685,7 @@
 #include "modular_doppler\ship_captain\code\preferences.dm"
 #include "modular_doppler\ship_captain\code\ship_captain.dm"
 #include "modular_doppler\shipbreaking\code\docking_clamp.dm"
+#include "modular_doppler\shipbreaking\code\salvage_bay_decoration.dm"
 #include "modular_doppler\shipbreaking\code\salvage_computer.dm"
 #include "modular_doppler\shipbreaking\code\salvage_shuttle_base.dm"
 #include "modular_doppler\shipbreaking\code\salvage_shuttles\example.dm"

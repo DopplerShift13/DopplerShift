@@ -1,13 +1,33 @@
+#define SALVAGE_SHUTTLE_STRINGS "~doppler/salvage_shuttle.json"
+
 /datum/map_template/shuttle/salvage_scrap
 	name = "DEBUG: Salvage Shuttle Basetype"
 	description = "Surely there would be a ship here."
 	shuttle_id = "shuttle_salvage_scrap"
 	port_id = "salvage"
 	prefix = "_maps/shuttles/~doppler_shuttles/salvage/"
-	credit_cost = CARGO_CRATE_VALUE * 10
 	who_can_purchase = null
 	width = 35
 	height = 24
+	/// The name of the ship before it got abandoned, randomized if null
+	var/prior_name = null
+	/// A general ship class, similarly shaped ships should have the same class to help players
+	var/ship_class = "UNKNOWN"
+	/// What the ship was doing before it got abandoned, tells players what to expect inside the ship
+	var/prior_usage = "BEING BROKEN"
+	/// Who owned the ship before it was salvage, randomized if null
+	var/prior_owner = null
+	/// Operation date, "(year) to (year)", randomized if empty
+	var/prior_date = null
+
+/datum/map_template/shuttle/salvage_scrap/New()
+	. = ..()
+	if(!prior_name)
+		prior_name = strings(SALVAGE_SHUTTLE_STRINGS, "ship_name")
+	if(!prior_owner)
+		prior_owner = strings(SALVAGE_SHUTTLE_STRINGS, "ship_companies")
+	if(!prior_date)
+		prior_date = "[rand(2490, 2504)] to [rand(2504, 2525)]"
 
 /obj/docking_port/mobile/salvage
 	name = "salvaged shuttle"
