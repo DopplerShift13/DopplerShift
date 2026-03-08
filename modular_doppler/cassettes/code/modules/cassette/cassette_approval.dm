@@ -42,7 +42,7 @@ GLOBAL_ALIST_EMPTY(cassette_reviews)
 			var/mob/living/carbon/submitter_carbon = submitter_mob
 			var/static/list/slots = list(
 				"hands" = ITEM_SLOT_HANDS,
-				"backpack" = ITEM_SLOT_BACKPACK,
+				"backpack" = ITEM_SLOT_BACK,
 				"right pocket" = ITEM_SLOT_RPOCKET,
 				"left pocket" = ITEM_SLOT_LPOCKET,
 			)
@@ -104,13 +104,6 @@ GLOBAL_ALIST_EMPTY(cassette_reviews)
 			var/datum/persistent_client/original_submitter = GLOB.persistent_clients_by_ckey[submitter_ckey]
 			if(original_submitter)
 				to_chat(original_submitter.mob, span_big(span_notice("You feel a wave of disappointment wash over you, the Space Board of Music has <b>rejected</b> your cassette: [cassette_data.name].")))
-				original_submitter.client?.prefs?.adjust_metacoins(
-					submitter_ckey,
-					amount = 5000,
-					reason = "Cassette Tape Rejected",
-					announces = TRUE,
-					donator_multiplier = FALSE,
-				)
 			qdel(src)
 
 /datum/cassette_review/proc/operator""()
@@ -127,7 +120,7 @@ GLOBAL_ALIST_EMPTY(cassette_reviews)
 
 	var/datum/cassette_review/new_review = new(user, tape)
 
-	SEND_NOTFIED_ADMIN_MESSAGE('sound/items/bikehorn.ogg', "[span_big(span_admin("[span_prefix("MUSIC APPROVAL:")] <EM>[key_name(user)]</EM> [ADMIN_OPEN_REVIEW(new_review.review_id)] \
+	SEND_NOTIFIED_ADMIN_MESSAGE('sound/items/bikehorn.ogg', "[span_big(span_admin("[span_prefix("MUSIC APPROVAL:")] <EM>[key_name(user)]</EM> [ADMIN_OPEN_REVIEW(new_review.review_id)] \
 															has requested a review on their cassette."))]")
 	to_chat(user, span_big(span_notice("Your Cassette has been sent to the Space Board of Music for review, you will be notified when an outcome has been made.")))
 	tape.moveToNullspace()
@@ -135,7 +128,7 @@ GLOBAL_ALIST_EMPTY(cassette_reviews)
 #undef ADMIN_OPEN_REVIEW
 
 ADMIN_VERB(cassette_reviews, R_ADMIN, "Cassette Reviews", "Review submitted cassettes", ADMIN_CATEGORY_GAME)
- 	if(!length(GLOB.cassette_reviews))
+	if(!length(GLOB.cassette_reviews))
 		to_chat(user, span_warning("No cassettes are currently pending for review!"), type = MESSAGE_TYPE_ADMINLOG)
 		return
 	var/list/options = list()
