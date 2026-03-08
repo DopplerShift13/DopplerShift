@@ -42,30 +42,31 @@
 	if(!do_after(user, 2 SECONDS, src))
 		return ..()
 	var/turf/dock_location = get_step(src, dir)
-	docking_port = new(dock_location)
-	var/list/docking_turfs = docking_port.return_turfs()
-	var/list/dock_bounds = docking_port.return_coords()
+	var/obj/docking_port/stationary/salvage_dock/temp_docking_port = new(dock_location, dir)
+	var/list/docking_turfs = temp_docking_port.return_turfs()
+	var/list/dock_bounds = temp_docking_port.return_coords()
 	var/list/overlappers = SSshuttle.get_dock_overlap(dock_bounds[1], dock_bounds[2], dock_bounds[3], dock_bounds[4], z)
-	if(length(overlappers))
-		balloon_alert(user, "intersecting nearby dock")
-		docking_port.Destroy()
-		docking_port = null
-		return ..()
+	if(length(overlappers)) // Overlappers list contains ourself as well
+		for(var/dock as anything in overlappers)
+			if(dock == temp_docking_port)
+				continue
+			balloon_alert(user, "intersecting nearby dock")
+			temp_docking_port.Destroy(TRUE)
+			return ..()
 	for(var/turf/checked_turf as anything in docking_turfs)
 		if(checked_turf.x <= 10 || checked_turf.y <= 10 || checked_turf.x >= world.maxx - 10 || checked_turf.y >= world.maxy - 10)
 			balloon_alert(user, "cannot place here")
 			new /obj/effect/temp_visual/telegraphing/long_duration(checked_turf)
-			docking_port.Destroy()
-			docking_port = null
+			temp_docking_port.Destroy(TRUE)
 			return ..()
 		var/area/turf_area = get_area(checked_turf)
-		if(!is_space_or_openspace(turf_area) || checked_turf.is_blocked_turf(TRUE))
+		if(!is_space_or_openspace(checked_turf) || checked_turf.is_blocked_turf(TRUE) || !is_area_nearby_station(turf_area))
 			balloon_alert(user, "dock not clear")
 			new /obj/effect/temp_visual/telegraphing/long_duration(checked_turf)
-			docking_port.Destroy()
-			docking_port = null
+			temp_docking_port.Destroy(TRUE)
 			return ..()
 		new /obj/effect/temp_visual/medical_holosign(checked_turf)
+	docking_port = temp_docking_port
 	return ..()
 
 /obj/docking_port/stationary/salvage_dock
@@ -73,3 +74,9 @@
 	width = 31
 	height = 18
 	dwidth = 17
+
+/obj/docking_port/stationary/salvage_dock/Initialize(mapload, dock_direction)
+	message_admins("dock dir before = [dir]")
+	setDir(dock_direction)
+	message_admins("dock_dir_after = [dir]")
+	. = ..()

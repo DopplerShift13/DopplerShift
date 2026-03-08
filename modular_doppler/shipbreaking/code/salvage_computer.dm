@@ -67,10 +67,7 @@
 		message_admins("For some reason, [src] already had a filled valid_shuttle_templates_subtypes, this may or may not be a bug.")
 		return
 	for(var/datum/template as anything in valid_shuttle_templates)
-		var/list/subtypes_of_template = subtypesof(template)
-		for(var/datum/sub_template as anything in subtypes_of_template)
-			var/datum/map_template/shuttle/new_shuttle_template = new sub_template()
-			valid_shuttle_templates_subtypes.Add(new_shuttle_template)
+		valid_shuttle_templates_subtypes.Add(template) // This makes the var a lie bog off
 
 /// Not used yet, provides detail about the currently docked shuttle for a little lore
 #define SALVAGE_CONSOLE_BAY_INFO "Bay Info"
@@ -85,6 +82,7 @@
 		return
 	if(!clamp)
 		say("No linked docking clamp detected, re-link and try again later.")
+		return
 	if(!clamp?.docking_port)
 		say("Linked salvage clamp currently inactive, please engage before operation.")
 		return
@@ -126,6 +124,7 @@
 				say("Bay already occupied, or currently retrieving salvage, please wait.")
 				return
 			bay_occupied = TRUE
+			salvage_template = new salvage_template()
 			var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(salvage_template, clamp.docking_port, FALSE)
 			if(loaded_port)
 				say("Salvage clamps retrieving ship now, please stand clear of the work bay.")
