@@ -5488,9 +5488,7 @@
 /turf/open/floor/plating,
 /area/mine/laborcamp/production)
 "JZ" = (
-/obj/machinery/holopad{
-	pixel_y = -16
-	},
+/obj/machinery/holopad,
 /turf/open/floor/iron/colony/white,
 /area/mine/lounge)
 "Ka" = (
@@ -172806,8 +172804,8 @@ SP
 cF
 ib
 od
-JZ
 ib
+JZ
 PR
 ib
 os
