@@ -179,6 +179,10 @@
 	name = "Moto Pants"
 	item_path = /obj/item/clothing/under/pants/moto_leggings
 
+/datum/loadout_item/undersuit/pants/tech_nyne_bottomwear
+	name = "Tech Nyne Bottomwear"
+	item_path = /obj/item/clothing/under/pants/tech_nyne_bottomwear
+
 /datum/loadout_item/undersuit/pants/track
 	name = "Track Pants"
 	item_path = /obj/item/clothing/under/pants/track
@@ -187,9 +191,17 @@
 	name = "Camo Pants"
 	item_path = /obj/item/clothing/under/pants/camo
 
-/datum/loadout_item/undersuit/pants/big_pants
-	name = "JUNCO Megacargo Pants (Cargo)"
-	item_path = /obj/item/clothing/under/pants/big_pants
+/datum/loadout_item/undersuit/pants/megacargo_pants
+	name = "JUNCO Megacargo Pants"
+	item_path = /obj/item/clothing/under/pants/megacargo_pants
+
+/datum/loadout_item/undersuit/pants/megajeans
+	name = "JUNCO Megajeans"
+	item_path = /obj/item/clothing/under/pants/megajeans
+
+/datum/loadout_item/undersuit/pants/megashorts
+	name = "JUNCO Megashorts"
+	item_path = /obj/item/clothing/under/pants/megashorts
 
 /datum/loadout_item/undersuit/pants/shortalls
 	name = "Short Overalls"
