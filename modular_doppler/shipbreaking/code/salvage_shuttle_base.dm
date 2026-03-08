@@ -48,7 +48,7 @@
 		for (var/list/zlevel_turfs as anything in shuttle_area.get_zlevel_turf_lists())
 			for(var/turf/shuttle_turf as anything in zlevel_turfs)
 				for(var/atom/passenger in shuttle_turf.get_all_contents())
-					if((is_type_in_typecache(passenger, GLOB.blacklisted_cargo_types) || HAS_TRAIT(passenger, TRAIT_BANNED_FROM_CARGO_SHUTTLE)) && !istype(passenger, /obj/docking_port))
+					if((is_type_in_typecache(passenger, GLOB.blacklisted_salvage_removal_types) || HAS_TRAIT(passenger, TRAIT_BANNED_FROM_CARGO_SHUTTLE)) && !istype(passenger, /obj/docking_port))
 						return FALSE
 	return TRUE
 

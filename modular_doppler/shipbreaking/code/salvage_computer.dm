@@ -1,3 +1,15 @@
+GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
+		/mob/living,
+		/obj/effect/mob_spawn,
+		/obj/item/disk/nuclear,
+		/obj/item/hilbertshotel,
+		/obj/machinery/nuclearbomb,
+		/obj/narsie,
+		/obj/structure/blob,
+		/obj/structure/guardian_beacon,
+		/obj/tear_in_reality,
+	)))
+
 /obj/machinery/computer/salvage_bay_controller
 	name = "salvage bay control console"
 	desc = "A bulky and old looking terminal that looks like it was dug straight out of the bottom of the ship's \
@@ -24,9 +36,8 @@
 	var/datum/map_template/shuttle/personal_buyable/selected_template
 	/// Message when the shuttle can't be cleared due to an illegal item being present
 	var/blacklist_hit_message = "To prevent equipment loss and accidents: live organisms, human remains, \
-		classified nuclear weaponry, mail, homing beacons, unstable eigenstates, fax machines, \
-		or machinery housing any form of artificial intelligence cannot be present when \
-		salvage is discarded."
+		classified nuclear weaponry, unstable eigenstates, or machinery housing any form of \
+		artificial intelligence cannot be present when salvage is discarded."
 
 /obj/machinery/computer/salvage_bay_controller/post_machine_initialize()
 	. = ..()
