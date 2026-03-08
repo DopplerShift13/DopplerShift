@@ -781,6 +781,8 @@
 /datum/config_entry/flag/allow_tracy_queue
 	protection = CONFIG_ENTRY_LOCKED
 
+/datum/config_entry/flag/cassettes_in_db
+
 /**
  * Tgui ui_act payloads larger than 2kb are split into chunks a maximum of 1kb in size.
  * This flag represents the maximum chunk count the server is willing to receive.

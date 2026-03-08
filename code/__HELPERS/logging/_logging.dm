@@ -266,3 +266,6 @@ GLOBAL_LIST_INIT(testing_global_profiler, list("_PROFILE_NAME" = "Global"))
 		return "([AREACOORD(T)])"
 	else if(A.loc)
 		return "(UNKNOWN (?, ?, ?))"
+
+/proc/log_music(text, list/data)
+	logger.Log(LOG_CATEGORY_MUSIC, text, data)

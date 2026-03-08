@@ -69,6 +69,7 @@
 	var/static/list/traits_to_apply = list(
 		TRAIT_ADVANCEDTOOLUSER,
 		TRAIT_ASHSTORM_IMMUNE,
+		TRAIT_CAN_HEAR_MUSIC, // Doppler addition, allows silicon mobs to hear music and have it show up on their hud
 		TRAIT_LITERATE,
 		TRAIT_MADNESS_IMMUNE,
 		TRAIT_MARTIAL_ARTS_IMMUNE,

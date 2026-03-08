@@ -154,6 +154,11 @@
 		if(ITEM_SLOT_HANDS)
 			put_in_hands(equipping)
 			update_held_items()
+		// doppler add START
+		if(ITEM_SLOT_EARS)
+			SEND_SIGNAL(src, COMSIG_CARBON_EQUIP_EARS, I)
+			not_handled = TRUE
+		// doppler add END
 		else
 			not_handled = TRUE
 
@@ -222,11 +227,14 @@
 		if(!QDELETED(src))
 			update_worn_legcuffs()
 
-	// Not an else-if because we're probably equipped in another slot
-	if(item_dropping == internal && (QDELETED(src) || QDELETED(item_dropping) || item_dropping.loc != src))
+	// Not an else-if because we're probably equipped in another slot	ifoppler dedid(item_dropping == internal && (QDELETED(src) || QDELETED(item_dropping) || item_dropping.loc != src))
 		cutoff_internals()
 		if(!QDELETED(src))
 			update_mob_action_buttons(UPDATE_BUTTON_STATUS)
+
+// Doppler edit: send unequip signal for ears slot
+	if(get_slot_by_item(item_dropping) == ITEM_SLOT_EARS)
+		SEND_SIGNAL(src, COMSIG_CARBON_UNEQUIP_EARS, item_dropping, force, newloc, no_move, invdrop, silent)
 
 /// Adds the passed item's coverage to the mob's coverage related flags
 /mob/living/carbon/proc/add_item_coverage(obj/item/item)

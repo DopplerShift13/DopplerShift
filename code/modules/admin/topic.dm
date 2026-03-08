@@ -1438,3 +1438,12 @@
 
 	else if(href_list["debug_z_levels"])
 		return SSadmin_verbs.dynamic_invoke_verb(usr, /datum/admin_verb/debug_z_levels)
+
+	// doppler add START
+		var/id = text2num(href_list["open_music_review"])
+		var/datum/cassette_review/cassette_review = GLOB.cassette_reviews[id]
+		if(cassette_review)
+			cassette_review.ui_interact(usr)
+		else
+			to_chat(usr, span_warning("Cassette review not found!"), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
+	// doppler add END

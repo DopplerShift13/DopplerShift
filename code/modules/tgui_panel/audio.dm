@@ -22,7 +22,7 @@
 /datum/tgui_panel/proc/play_music(url, extra_data)
 	if(!is_ready())
 		return
-	if(!findtext(url, GLOB.is_http_protocol))
+	if(!is_ready() || !is_http_protocol(url)) // Doppler edit - if(!findtext(url, GLOB.is_http_protocol))
 		return
 	var/list/payload = list()
 	if(length(extra_data) > 0)

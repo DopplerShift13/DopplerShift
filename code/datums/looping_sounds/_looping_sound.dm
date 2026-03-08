@@ -42,6 +42,7 @@
 	var/use_reverb = TRUE
 	/// Are we ignoring walls? Defaults to TRUE.
 	var/ignore_walls = TRUE
+	var/channel // Dopplerstation addition: The sound channel to play on, random if not provided. If using this, you should probably also set direct to TRUE.
 
 	// State stuff
 	/// The source of the sound, or the recipient of the sound.

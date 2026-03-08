@@ -98,6 +98,7 @@
 #define LOG_CATEGORY_FILTER "filter"
 #define LOG_CATEGORY_MANIFEST "manifest"
 #define LOG_CATEGORY_MECHA "mecha"
+#define LOG_CATEGORY_MUSIC "music" // DopplerShift add
 #define LOG_CATEGORY_PAPER "paper"
 #define LOG_CATEGORY_QDEL "qdel"
 #define LOG_CATEGORY_RUNTIME "runtime"

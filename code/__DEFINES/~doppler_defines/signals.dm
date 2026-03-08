@@ -27,3 +27,40 @@
 #define COMSIG_SOULCATCHER_UPDATE_JOINABILITY "soulcatcher_update_joinability"
 /// For modifying a mob holder based on what it's holding
 #define COMSIG_ADDING_MOB_HOLDER_SPECIALS "adding_mob_holder_specials"
+
+/*
+
+CARBON SIGNALS
+
+*/
+#define COMSIG_CARBON_EQUIP_EARS "carbon_ears_equip"
+#define COMSIG_CARBON_UNEQUIP_EARS "carbon_ears_unequip"
+
+/*
+
+GLOBAL SIGNALS
+
+*/
+
+/// Sent whenever a mob becomes capable of hearing DJ music: (mob/listener)
+#define COMSIG_GLOB_ADD_MUSIC_LISTENER "!add_music_listener"
+/// Sent whenever a mob becomes no longer capable of hearing DJ music: (mob/listener)
+#define COMSIG_GLOB_REMOVE_MUSIC_LISTENER "!remove_music_listener"
+
+/*
+
+STORAGE SIGNALS
+
+*/
+
+/// Sent after dumping out the contents: (atom/dest_object, mob/user)
+#define COMSIG_STORAGE_DUMP_ONTO_POST_TRANSFER "storage_dump_onto_post_transfer"
+
+/*
+
+TGUI SIGNALS
+
+*/
+
+/// TGUI panel is ready. Sent to both client and mob.
+#define COMSIG_TGUI_PANEL_READY "tgui_panel_ready"

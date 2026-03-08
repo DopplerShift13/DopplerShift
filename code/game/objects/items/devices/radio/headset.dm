@@ -12,6 +12,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	RADIO_CHANNEL_SERVICE = RADIO_TOKEN_SERVICE,
 	MODE_BINARY = MODE_TOKEN_BINARY,
 	RADIO_CHANNEL_AI_PRIVATE = RADIO_TOKEN_AI_PRIVATE,
+	RADIO_CHANNEL_RADIO = RADIO_KEY_RADIO,
 	RADIO_CHANNEL_ENTERTAINMENT = RADIO_TOKEN_ENTERTAINMENT,
 ))
 
@@ -141,10 +142,12 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	if(!(slot_flags & slot))
 		return
 
+	ADD_TRAIT(user, TRAIT_CAN_HEAR_MUSIC, REF(src))
 	grant_headset_languages(user)
 
 /obj/item/radio/headset/dropped(mob/user, silent)
 	. = ..()
+	REMOVE_TRAIT(user, TRAIT_CAN_HEAR_MUSIC, REF(src))
 	remove_headset_languages(user)
 
 // Headsets do not become hearing sensitive as broadcasting instead controls their talk_into capabilities

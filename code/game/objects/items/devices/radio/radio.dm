@@ -89,6 +89,18 @@
 	/// If TRUE, will set the icon in initializations.
 	VAR_PRIVATE/should_update_icon = FALSE
 
+	// Doppler add START
+
+	/// radio host frequency handle: if TRUE, the radio can receive and broadcast on the radio host frequency
+	var/radio_host = FALSE
+
+	/// If TRUE, then this message will always be received intact, regardless of exospheric anomalies / processor issues.
+	var/lossless = FALSE
+	/// If TRUE, then this radio will always use universal_transmission, bypassing tcomms servers, allowing everyone on connected z-levels to hear it.
+	/// Implies `lossless = TRUE` too.
+	var/universal = FALSE
+	// Doppler add END
+
 	/// A very brief cooldown to prevent regular radio sounds from overlapping.
 	COOLDOWN_DECLARE(audio_cooldown)
 	/// A very brief cooldown to prevent "important" radio sounds from overlapping.
@@ -172,6 +184,7 @@
 		add_radio(src, GLOB.default_radio_channels[channel_name])
 
 	add_radio(src, frequency)
+	add_radio(src, FREQ_RADIO) // doppler add: radio host frequency
 
 /obj/item/radio/proc/make_syndie() // Turns normal radios into Syndicate radios!
 	qdel(keyslot)
@@ -299,6 +312,10 @@
 	if(!talking_movable.try_speak(message, ignore_spam = TRUE, filterproof = TRUE))
 		return
 
+	// doppler add: radio host frequency handle
+	if(channel == FREQ_RADIO && !radio_host)
+		return
+
 	if(use_command)
 		spans |= SPAN_COMMAND
 
@@ -420,6 +437,10 @@
 	// allow checks: are we listening on that frequency?
 	if (input_frequency == frequency)
 		return TRUE
+	// doppler add: radio host frequency
+	if (input_frequency == FREQ_RADIO)
+		return TRUE
+
 	for(var/ch_name in channels)
 		if(channels[ch_name] & FREQ_LISTENING)
 			if(GLOB.default_radio_channels[ch_name] == text2num(input_frequency) || special_channels & RADIO_SPECIAL_SYNDIE)

@@ -1,8 +1,3 @@
-//world/proc/shelleo
-#define SHELLEO_ERRORLEVEL 1
-#define SHELLEO_STDOUT 2
-#define SHELLEO_STDERR 3
-
 ADMIN_VERB(play_sound, R_SOUND, "Play Global Sound", "Play a sound to all connected players.", ADMIN_CATEGORY_FUN, sound as sound)
 	var/freq = 1
 	var/vol = tgui_input_number(user, "What volume would you like the sound to play at?", max_value = 100)
@@ -66,9 +61,8 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 /proc/web_sound(mob/user, input, credit)
 	if(!check_rights(R_SOUND))
 		return
-	var/ytdl = CONFIG_GET(string/invoke_youtubedl)
-	if(!ytdl)
-		to_chat(user, span_boldwarning("yt-dlp was not configured, action unavailable"), confidential = TRUE) //Check config.txt for the INVOKE_YOUTUBEDL value
+	if(!CONFIG_GET(string/floxy_url))
+		to_chat(user, span_boldwarning("Floxy was not configured, action unavailable."), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE) //Check config.txt for the INVOKE_YOUTUBEDL value
 		return
 	var/web_sound_url = ""
 	var/stop_web_sounds = FALSE
@@ -76,65 +70,74 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 	var/duration = 0
 	if(istext(input))
 		var/shell_scrubbed_input = shell_url_scrub(input)
-		var/list/output = world.shelleo("[ytdl] --geo-bypass --format \"bestaudio\[ext=mp3]/best\[ext=mp4]\[height <= 360]/bestaudio\[ext=m4a]/bestaudio\[ext=aac]\" --dump-single-json --no-playlist -- \"[shell_scrubbed_input]\"")
-		var/errorlevel = output[SHELLEO_ERRORLEVEL]
-		var/stdout = output[SHELLEO_STDOUT]
-		var/stderr = output[SHELLEO_STDERR]
-		if(errorlevel)
-			to_chat(user, span_boldwarning("yt-dlp URL retrieval FAILED:"), confidential = TRUE)
-			to_chat(user, span_warning("[stderr]"), confidential = TRUE)
+		var/list/info = SSfloxy.download_and_wait(input, timeout = 30 SECONDS, discard_failed = TRUE)
+		if(!info)
+			to_chat(user, span_boldwarning("Failed to fetch [input]"), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
 			return
-		var/list/data
-		try
-			data = json_decode(stdout)
-		catch(var/exception/e)
-			to_chat(user, span_boldwarning("yt-dlp JSON parsing FAILED:"), confidential = TRUE)
-			to_chat(user, span_warning("[e]: [stdout]"), confidential = TRUE)
+		/*
+		else if(info["status"] != FLOXY_STATUS_COMPLETED)
+			to_chat(user, span_boldwarning("Floxy returned status '[info["status"]]' while trying to fetch [input]"), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
+		*/
 			return
-		if (data["url"])
-			web_sound_url = data["url"]
-		var/title = "[data["title"]]"
-		var/webpage_url = title
-		if (data["webpage_url"])
-			webpage_url = "<a href=\"[data["webpage_url"]]\">[title]</a>"
-		music_extra_data["duration"] = DisplayTimeText(data["duration"] * 1 SECONDS)
-		music_extra_data["link"] = data["webpage_url"]
-		music_extra_data["artist"] = data["artist"]
-		music_extra_data["upload_date"] = data["upload_date"]
-		music_extra_data["album"] = data["album"]
-		duration = data["duration"] * 1 SECONDS
+		if(length(info["endpoints"]))
+			web_sound_url = info["endpoints"][1]
+		else
+			log_floxy("Floxy did not return a music endpoint for [input]")
+			to_chat(user, span_boldwarning("Floxy did not return an endpoint for [input]! That's weird!"), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
+			return
+		var/list/metadata = info["metadata"]
+		var/webpage_url = info["url"]
+		var/title = webpage_url
+		if(metadata)
+			if(metadata["title"])
+				title = metadata["title"]
+			if(metadata["url"])
+				webpage_url = "<a href=\"[metadata["url"]]\">[title]</a>"
+			if(metadata["duration"])
+				duration = metadata["duration"] * 1 SECONDS
+				music_extra_data["duration"] = DisplayTimeText(duration)
+			if(metadata["artist"])
+				music_extra_data["artist"] = metadata["artist"]
+			if(metadata["album"])
+				music_extra_data["album"] = metadata["album"]
 		if (duration > 10 MINUTES)
 			if((tgui_alert(user, "This song is over 10 minutes long. Are you sure you want to play it?", "Length Warning!", list("No", "Yes", "Cancel")) != "Yes"))
 				return
 		var/res = tgui_alert(user, "Show the title of and link to this song to the players?\n[title]", "Show Info?", list("Yes", "No", "Cancel"))
 		switch(res)
 			if("Yes")
-				music_extra_data["title"] = data["title"]
+				music_extra_data["title"] = title
+				music_extra_data["link"] = info["url"]
 			if("No")
 				music_extra_data["link"] = "Song Link Hidden"
 				music_extra_data["title"] = "Song Title Hidden"
 				music_extra_data["artist"] = "Song Artist Hidden"
-				music_extra_data["upload_date"] = "Song Upload Date Hidden"
 				music_extra_data["album"] = "Song Album Hidden"
+			if("Custom Title")
+				var/custom_title = tgui_input_text(user, "Enter the title to show to players", "Custom sound info", null)
+				if (!length(custom_title))
+					tgui_alert(user, "No title specified, using default.", "Custom sound info", list("Okay"))
+				else
+					music_extra_data["title"] = custom_title
 			if("Cancel", null)
 				return
 		var/anon = tgui_alert(user, "Display who played the song?", "Credit Yourself?", list("Yes", "No", "Cancel"))
 		switch(anon)
 			if("Yes")
 				if(res == "Yes")
-					to_chat(world, span_boldannounce("[user.key] played: [webpage_url]"), confidential = TRUE)
+					to_chat(world, span_boldannounce("[user.key] played: [webpage_url]"), type = MESSAGE_TYPE_OOC, confidential = TRUE)
 				else
-					to_chat(world, span_boldannounce("[user.key] played a sound"), confidential = TRUE)
+					to_chat(world, span_boldannounce("[user.key] played a sound"), type = MESSAGE_TYPE_OOC, confidential = TRUE)
 			if("No")
 				if(res == "Yes")
-					to_chat(world, span_boldannounce("An admin played: [webpage_url]"), confidential = TRUE)
+					to_chat(world, span_boldannounce("An admin played: [webpage_url]"), type = MESSAGE_TYPE_OOC, confidential = TRUE)
 			if("Cancel", null)
 				return
 		if(credit)
 			to_chat(world, span_boldannounce(credit), confidential = TRUE)
 		SSblackbox.record_feedback("nested tally", "played_url", 1, list("[user.ckey]", "[input]"))
 		log_admin("[key_name(user)] played web sound: [input]")
-		message_admins("[key_name(user)] played web sound: [input]")
+		message_admins("[key_name(user)] played web sound: [webpage_url]")
 	else
 		//pressed ok with blank
 		log_admin("[key_name(user)] stopped web sounds.")
@@ -142,9 +145,9 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 		message_admins("[key_name(user)] stopped web sounds.")
 		web_sound_url = null
 		stop_web_sounds = TRUE
-	if(web_sound_url && !findtext(web_sound_url, GLOB.is_http_protocol))
+	if(web_sound_url && !is_http_protocol(web_sound_url))
 		tgui_alert(user, "The media provider returned a content URL that isn't using the HTTP or HTTPS protocol. This is a security risk and the sound will not be played.", "Security Risk", list("OK"))
-		to_chat(user, span_boldwarning("BLOCKED: Content URL not using HTTP(S) Protocol!"), confidential = TRUE)
+		to_chat(user, span_boldwarning("BLOCKED: Content URL not using HTTP(S) Protocol!"), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
 
 		return
 	if(web_sound_url || stop_web_sounds)
@@ -165,7 +168,7 @@ GLOBAL_VAR_INIT(web_sound_cooldown, 0)
 	BLACKBOX_LOG_ADMIN_VERB("Play Internet Sound")
 
 ADMIN_VERB_CUSTOM_EXIST_CHECK(play_web_sound)
-	return !!CONFIG_GET(string/invoke_youtubedl)
+	return !!CONFIG_GET(string/floxy_url)
 
 ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given internet sound to all players.", ADMIN_CATEGORY_FUN)
 	if(!CLIENT_COOLDOWN_FINISHED(GLOB, web_sound_cooldown))
@@ -177,9 +180,9 @@ ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given interne
 
 	if(length(web_sound_input))
 		web_sound_input = trim(web_sound_input)
-		if(findtext(web_sound_input, ":") && !findtext(web_sound_input, GLOB.is_http_protocol))
-			to_chat(user, span_boldwarning("Non-http(s) URIs are not allowed."), confidential = TRUE)
-			to_chat(user, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full URL from the website."), confidential = TRUE)
+		if(findtext(web_sound_input, ":") && !is_http_protocol(web_sound_input))
+			to_chat(user, span_boldwarning("Non-http(s) URIs are not allowed."), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
+			to_chat(user, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full URL from the website."), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
 			return
 		web_sound(user.mob, web_sound_input)
 	else
@@ -206,8 +209,3 @@ ADMIN_VERB(stop_sounds, R_NONE, "Stop All Playing Sounds", "Stops all playing so
 
 	CLIENT_COOLDOWN_RESET(GLOB, web_sound_cooldown)
 	BLACKBOX_LOG_ADMIN_VERB("Stop All Playing Sounds")
-
-//world/proc/shelleo
-#undef SHELLEO_ERRORLEVEL
-#undef SHELLEO_STDOUT
-#undef SHELLEO_STDERR

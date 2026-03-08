@@ -22,3 +22,11 @@
 // makes it so held items float by their head
 #define TRAIT_FLOATING_HELD "held_items_float"
 
+/// This mob can hear the music from the DJ station.
+#define TRAIT_CAN_HEAR_MUSIC "can_hear_radio"
+
+/// This mob is currently listening to a walkman.
+#define TRAIT_LISTENING_TO_WALKMAN "listening_to_walkman"
+
+/// Prevents the affected object from opening a loot window via alt click. See atom/AltClick()
+#define TRAIT_ALT_CLICK_BLOCKER "no_alt_click"
