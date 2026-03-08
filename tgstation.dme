@@ -7434,6 +7434,7 @@
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\_premium_action.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\_premium_augment.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\mental_shielding.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\augmented\pneumatic_arm.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\simple_augments.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\surgery\_premium_surgery.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\surgery\_premium_surgery_steps.dm"

@@ -48,13 +48,13 @@
 
 /// Returns a tier label for UI or logic.
 /datum/component/premium_augment/proc/quality_tier()
-	if(quality > AUGMENTED_PREMIUM_QUALITY_OPTIMAL)
+	if(quality > AUGMENTED_PREMIUM_THRESHOLD_OPTIMAL)
 		return "optimal"
-	if(quality > AUGMENTED_PREMIUM_QUALITY_HIGH)
+	if(quality > AUGMENTED_PREMIUM_THRESHOLD_HIGH)
 		return "standard"
-	if(quality > AUGMENTED_PREMIUM_QUALITY_MEDIUM)
+	if(quality > AUGMENTED_PREMIUM_THRESHOLD_MEDIUM)
 		return "compromised"
-	if(quality > AUGMENTED_PREMIUM_QUALITY_LOW)
+	if(quality > AUGMENTED_PREMIUM_THRESHOLD_LOW)
 		return "failing"
 	return "broken"
 
@@ -64,13 +64,13 @@
 
 /// Returns the efficiency value based on quality tiers.
 /datum/component/premium_augment/proc/get_efficiency()
-	if(quality > AUGMENTED_PREMIUM_QUALITY_OPTIMAL)
+	if(quality > AUGMENTED_PREMIUM_THRESHOLD_OPTIMAL)
 		return AUGMENTED_PREMIUM_EFFICIENCY_OPTIMAL
-	if(quality > AUGMENTED_PREMIUM_QUALITY_HIGH)
+	if(quality > AUGMENTED_PREMIUM_THRESHOLD_HIGH)
 		return AUGMENTED_PREMIUM_EFFICIENCY_HIGH
-	if(quality > AUGMENTED_PREMIUM_QUALITY_MEDIUM)
+	if(quality > AUGMENTED_PREMIUM_THRESHOLD_MEDIUM)
 		return AUGMENTED_PREMIUM_EFFICIENCY_MEDIUM
-	if(quality > AUGMENTED_PREMIUM_QUALITY_LOW)
+	if(quality > AUGMENTED_PREMIUM_THRESHOLD_LOW)
 		return AUGMENTED_PREMIUM_EFFICIENCY_LOW
 	return AUGMENTED_PREMIUM_EFFICIENCY_BROKEN
 

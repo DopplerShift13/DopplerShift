@@ -2,12 +2,20 @@
 /datum/action/item_action/organ_action/premium
 	name = "Premium Augment"
 	check_flags = AB_CHECK_CONSCIOUS
+	background_icon_state = "bg_default"
+	overlay_icon_state = "bg_mod_border"
+	var/base_overlay_icon_state
+	var/active_overlay_icon_state = "bg_spell_border_active_blue"
 
 	var/datum/component/premium_augment/premium_component
 	var/mutable_appearance/quality_overlay
+	/// Defers action button creation until hud exists.
+	var/pending_hud_grant = FALSE
 
 /datum/action/item_action/organ_action/premium/New(Target)
 	..()
+	if(active_overlay_icon_state)
+		base_overlay_icon_state ||= overlay_icon_state
 	var/obj/item/organ/cyberimp/organ_target = target
 	premium_component = organ_target?.premium_component
 	premium_component?.register_quality_action(src)
@@ -22,7 +30,40 @@
 	if(!premium_component)
 		var/obj/item/organ/cyberimp/organ_target = target
 		premium_component = organ_target?.premium_component
+	premium_component?.register_quality_action(src)
+	update_arm_label()
 	addtimer(CALLBACK(src, PROC_REF(update_quality_overlay)), 1) // Adresses a bug that the percentage is not visible at round start.
+
+// We have to delay giving the action because we communicate with the button, and this causes runtimes at roundstart. We use signalers to delay it until the huds there.
+/datum/action/item_action/organ_action/premium/GiveAction(mob/viewer)
+	if(!viewer || !viewer.hud_used)
+		if(viewer && !pending_hud_grant)
+			pending_hud_grant = TRUE
+			RegisterSignal(viewer, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created), override = TRUE)
+		return
+	if(pending_hud_grant)
+		pending_hud_grant = FALSE
+		UnregisterSignal(viewer, COMSIG_MOB_HUD_CREATED)
+	return ..()
+
+/datum/action/item_action/organ_action/premium/proc/on_hud_created(mob/source)
+	SIGNAL_HANDLER
+	GiveAction(source)
+
+/datum/action/item_action/organ_action/premium/proc/update_arm_label()
+	if(!istype(src, /datum/action/item_action/organ_action/premium/use))
+		return
+	var/obj/item/organ/organ_target = target
+	if(!organ_target)
+		return
+	name = "Toggle [organ_target.name][arm_side_suffix(organ_target)]"
+	build_all_button_icons(UPDATE_BUTTON_NAME | UPDATE_BUTTON_ICON | UPDATE_BUTTON_OVERLAY)
+
+/datum/action/item_action/organ_action/premium/Remove(mob/remove_from)
+	if(remove_from)
+		UnregisterSignal(remove_from, COMSIG_MOB_HUD_CREATED)
+	pending_hud_grant = FALSE
+	return ..()
 
 /datum/action/item_action/organ_action/premium/IsAvailable(feedback = FALSE)
 	. = ..()
@@ -31,20 +72,21 @@
 		premium_component = organ_target?.premium_component
 	return .
 
+// Applies the maptext on the button indicating quality.
 /datum/action/item_action/organ_action/premium/proc/update_quality_overlay()
 	var/atom/movable/ui_element = get_atom_moveable()
 	if(!ui_element || !premium_component)
 		return
-	ui_element.cut_overlay(quality_overlay)
-	quality_overlay = new/mutable_appearance
-	quality_overlay.maptext_width = 32
-	quality_overlay.maptext_height = 16
-	quality_overlay.maptext_x = 4
-	quality_overlay.maptext_y = 0
+	if(!quality_overlay)
+		quality_overlay = new/mutable_appearance
+		quality_overlay.plane = ABOVE_HUD_PLANE
+		quality_overlay.maptext_width = 32
+		quality_overlay.maptext_height = 16
+		quality_overlay.maptext_x = 4
+		quality_overlay.maptext_y = 0
 	var/percent = clamp(round(premium_component.quality), 0, 100)
 	quality_overlay.maptext = MAPTEXT("<span style='text-align:left; color:#ffffff;'>[percent]%</span>")
-	ui_element.add_overlay(quality_overlay)
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	build_all_button_icons(UPDATE_BUTTON_OVERLAY | UPDATE_BUTTON_STATUS)
 
 /datum/action/item_action/organ_action/premium/proc/get_atom_moveable()
 	for(var/datum/hud/hud_instance as anything in viewers)
@@ -52,17 +94,48 @@
 		if(istype(action_button_instance, /atom/movable/screen/movable/action_button))
 			return action_button_instance
 
+/datum/action/item_action/organ_action/premium/apply_button_overlay(atom/movable/screen/movable/action_button/current_button, force = FALSE)
+	if(active_overlay_icon_state)
+		overlay_icon_state = is_action_active(current_button) ? active_overlay_icon_state : base_overlay_icon_state
+	. = ..()
+	if(!quality_overlay || !current_button)
+		return .
+	current_button.cut_overlay(quality_overlay)
+	current_button.add_overlay(quality_overlay)
+	return .
+
+// This is specifically to flip right-side arm augments to look visually distinct from the other button (since you can have 2 arm augments).
+
+/datum/action/item_action/organ_action/premium/is_action_active(atom/movable/screen/movable/action_button/current_button)
+	var/obj/item/organ/cyberimp/organ_target = target
+	return organ_target?.is_action_active() || FALSE
+
 /datum/action/item_action/organ_action/premium/use
 	name = "Toggle Premium Augment"
 
 /datum/action/item_action/organ_action/premium/use/New(Target)
 	..()
 	var/obj/item/organ/organ_target = target
-	name = "Toggle [organ_target.name]"
+	name = "Toggle [organ_target.name][arm_side_suffix(organ_target)]"
+
+// Adds a suffix to left and right arm actions since you can have two actions and it might get confusing.
+/datum/action/item_action/organ_action/premium/proc/arm_side_suffix(obj/item/organ/organ_target)
+	if(!istype(organ_target, /obj/item/organ/cyberimp/arm))
+		return ""
+	if(organ_target.zone == BODY_ZONE_L_ARM)
+		return " (Left)"
+	if(organ_target.zone == BODY_ZONE_R_ARM)
+		return " (Right)"
+	return ""
 
 /datum/action/item_action/organ_action/premium/use/do_effect(trigger_flags)
 	var/obj/item/organ/cyberimp/organ_target = target
 	if(!organ_target)
 		return FALSE
 	organ_target.use_action()
+	build_all_button_icons(UPDATE_BUTTON_OVERLAY | UPDATE_BUTTON_STATUS)
 	return TRUE
+
+// Premium augments can override this to report their "on" state for button overlays.
+/obj/item/organ/cyberimp/proc/is_action_active()
+	return FALSE

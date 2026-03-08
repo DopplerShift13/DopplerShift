@@ -28,8 +28,10 @@
 	. = ..()
 	if(premium_component)
 		premium_component.refurb_parts = list(
-			/obj/item/stack/sheet/iron = 3,
-			/obj/item/stack/cable_coil = 2)
+			/obj/item/stack/sheet/iron = 1,
+			/obj/item/stack/sheet/mineral/uranium = 1,
+			/obj/item/stack/cable_coil = 2,
+			/obj/item/stock_parts/scanning_module/triphasic = 1)
 
 // Registers antimagic signals
 /obj/item/organ/cyberimp/brain/mental_shielding/on_mob_insert(mob/living/carbon/receiver, special, movement_flags)
@@ -64,7 +66,7 @@
 	var/efficiency = premium_component.get_efficiency() || 0
 	if(efficiency <= 0)
 		return 0
-	var/mult = (AUGMENTED_PREMIUM_EFFICIENCY_HIGH / efficiency) * mental_mult
+	var/mult = AUGMENTED_PREMIUM_QUALITY_MINOR * (1 / efficiency)
 	return max(1, round(raw_cost * mult))
 
 /obj/item/organ/cyberimp/brain/mental_shielding/use_action()
@@ -73,8 +75,11 @@
 	enabled = !enabled
 	if(enabled)
 		ADD_TRAIT(owner, TRAIT_ANTIRESONANCE_SCRYING, IMPLANT_TRAIT)
-		to_chat(owner, span_notice("Your [name] hums as it activates."))
+		to_chat(owner, span_notice("Your [name] is toggled on; it will now block any mental effects targeting you."))
 	else
 		REMOVE_TRAIT(owner, TRAIT_ANTIRESONANCE_SCRYING, IMPLANT_TRAIT)
-		to_chat(owner, span_notice("Your [name] powers down."))
+		to_chat(owner, span_notice("Your [name] is toggled off!"))
+	return enabled
+
+/obj/item/organ/cyberimp/brain/mental_shielding/is_action_active()
 	return enabled
