@@ -9,7 +9,7 @@
 	circuit = /obj/item/circuitboard/computer/personal_shuttle_order
 	light_color = COLOR_BRIGHT_ORANGE
 	/// Are we currently spawning a shuttle? Prevents multiple shuttles trying to spawn and land on each other at once
-	var/bay_occupied
+	var/bay_occupied = null
 	/// The docking clamp machine we are linked to
 	var/obj/machinery/docking_clamp/clamp
 	/// The types of shuttle templates we can call
@@ -85,7 +85,7 @@
 		return
 	if(!clamp)
 		say("No linked docking clamp detected, re-link and try again later.")
-	if(!clamp.docking_port)
+	if(!clamp?.docking_port)
 		say("Linked salvage clamp currently inactive, please engage before operation.")
 		return
 	if(!length(valid_shuttle_templates_subtypes))

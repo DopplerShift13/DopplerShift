@@ -25,7 +25,7 @@
 	if(!docking_port)
 		. += span_notice("Interact with the clamp to set it up for docking, otherwise it will not function.")
 		. += span_notice("The clamp requires a large space in front of it, indicated by holograms on setup.")
-		. += span_notice("This space is [EXAMINE_HINT("17")] tiles to either side of the clamp, and [EXAMINE_HINT("24")] tiles straight out.")
+		. += span_notice("This space is [EXAMINE_HINT("15")] tiles to either side of the clamp, and [EXAMINE_HINT("18")] tiles straight out.")
 
 /obj/machinery/docking_clamp/multitool_act(mob/living/user, obj/item/multitool/the_tool)
 	the_tool.set_buffer(src)
@@ -48,25 +48,28 @@
 	var/list/overlappers = SSshuttle.get_dock_overlap(dock_bounds[1], dock_bounds[2], dock_bounds[3], dock_bounds[4], z)
 	if(length(overlappers))
 		balloon_alert(user, "intersecting nearby dock")
-		QDEL_NULL(docking_port)
+		docking_port.Destroy()
+		docking_port = null
 		return ..()
 	for(var/turf/checked_turf as anything in docking_turfs)
 		if(checked_turf.x <= 10 || checked_turf.y <= 10 || checked_turf.x >= world.maxx - 10 || checked_turf.y >= world.maxy - 10)
 			balloon_alert(user, "cannot place here")
 			new /obj/effect/temp_visual/telegraphing/long_duration(checked_turf)
-			QDEL_NULL(docking_port)
+			docking_port.Destroy()
+			docking_port = null
 			return ..()
 		var/area/turf_area = get_area(checked_turf)
 		if(!is_space_or_openspace(turf_area) || checked_turf.is_blocked_turf(TRUE))
 			balloon_alert(user, "dock not clear")
 			new /obj/effect/temp_visual/telegraphing/long_duration(checked_turf)
-			QDEL_NULL(docking_port)
+			docking_port.Destroy()
+			docking_port = null
 			return ..()
 		new /obj/effect/temp_visual/medical_holosign(checked_turf)
 	return ..()
 
 /obj/docking_port/stationary/salvage_dock
 	name = "Salvage Dock"
-	width = 35
-	height = 24
+	width = 31
+	height = 18
 	dwidth = 17
