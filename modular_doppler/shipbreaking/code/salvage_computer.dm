@@ -14,7 +14,7 @@
 	var/obj/machinery/docking_clamp/clamp
 	/// The types of shuttle templates we can call
 	var/list/valid_shuttle_templates = list(
-		/datum/map_template/shuttle/personal_buyable/ferries,
+		/datum/map_template/shuttle/salvage_scrap/scrappie,
 	)
 	/// List of the subtypes for map templates we can buy, DO NOT SET DIRECTLY, USE VALID SHUTTLE TEMPLATES FOR DIFFERENT SELECTIONS
 	var/list/valid_shuttle_templates_subtypes = list()
@@ -22,10 +22,28 @@
 	var/list/scrap_list = list()
 	/// The currently selected shuttle map template
 	var/datum/map_template/shuttle/personal_buyable/selected_template
+	/// Message when the shuttle can't be cleared due to an illegal item being present
+	var/blacklist_hit_message = "To prevent equipment loss and accidents: live organisms, human remains, \
+		classified nuclear weaponry, mail, homing beacons, unstable eigenstates, fax machines, \
+		or machinery housing any form of artificial intelligence cannot be present when \
+		salvage is discarded."
 
 /obj/machinery/computer/salvage_bay_controller/post_machine_initialize()
 	. = ..()
 	try_and_fill_shopping_list()
+
+/obj/machinery/computer/salvage_bay_controller/examine(mob/user)
+	. = ..()
+	if(!clamp)
+		. += span_notice("Connect to a [EXAMINE_HINT("salvage clamp")] by using a [EXAMINE_HINT("multitool")] \
+			on the clamp then connecting it to this console.")
+
+/obj/machinery/computer/salvage_bay_controller/multitool_act(mob/living/user, obj/item/multitool/the_tool)
+	if(!the_tool.buffer)
+		return ITEM_INTERACT_FAILURE
+	link_docking_clamp(the_tool.buffer)
+	balloon_alert(user, "linked to clamp")
+	return ITEM_INTERACT_SUCCESS
 
 /// Links a docking clamp to this console
 /obj/machinery/computer/salvage_bay_controller/proc/link_docking_clamp(new_clamp)
@@ -53,111 +71,69 @@
 		for(var/datum/sub_template as anything in subtypes_of_template)
 			var/datum/map_template/shuttle/new_shuttle_template = new sub_template()
 			valid_shuttle_templates_subtypes.Add(new_shuttle_template)
-	// If there's no ships, going through the rest of this stuff is pointless
-	if(!length(valid_shuttle_templates_subtypes))
-		message_admins("HEY!!! [src] has nothing in its valid_shuttle_templates_subtypes list, this is either wrong or you just spawned the basetype of the console!!")
-		return
-	// If we already have a shopping list, we don't need to worry about it
-	if(length(shopping_list))
-		return
-	for(var/datum/map_template/shuttle/personal_buyable/shuttle_template as anything in valid_shuttle_templates_subtypes)
-		if(!shuttle_template.personal_shuttle_type || !shuttle_template.name || !shuttle_template.personal_shuttle_size || !shuttle_template.credit_cost)
-			message_admins("HEY!!! [src] just tried to add a personal shuttle template to its shopping list that was missing information! Template in question: [shuttle_template.type]")
-			continue
-		var/final_shuttle_name = "[shuttle_template.personal_shuttle_type] - [shuttle_template.name] - [shuttle_template.personal_shuttle_size] - COST: [shuttle_template.credit_cost]cr"
-		shopping_list[final_shuttle_name] = shuttle_template
-	if(!length(shopping_list))
-		message_admins("HEY!!! [src] has nothing in its shuttle shopping list, this is either wrong or you just spawned the basetype of the console!!")
-		return
-	sort_list(shopping_list)
 
-#define PERSONAL_SHUTTLE_CONSOLE_SHOPPING_LIST "Shopping List"
-#define PERSONAL_SHUTTLE_CONSOLE_SELECTION_DETAILS "Selection Details"
-
-#define PERSONAL_SHUTTLE_CONSOLE_PURCHASE_SHUTTLE "Purchase"
-#define PERSONAL_SHUTTLE_CONSOLE_CLEAR_SELECTION "Clear Selection"
+/// Not used yet, provides detail about the currently docked shuttle for a little lore
+#define SALVAGE_CONSOLE_BAY_INFO "Bay Info"
+/// Loads a new shuttle into the linked salvage bay if the bay is clear
+#define SALVAGE_CONSOLE_NEW_SHUTTLE "New Shuttle"
+/// Clears the bay of any shuttle currently inside of it
+#define SALVAGE_CONSOLE_CLEAR_BAY "Clear Bay"
 
 /obj/machinery/computer/salvage_bay_controller/interact(mob/user)
 	. = ..()
 	if(!can_interact(user))
 		return
-	if(!our_docking_port)
-		balloon_alert(user, "no linked docking port")
+	if(!clamp)
+		say("No linked docking clamp detected, re-link and try again later.")
+	if(!clamp.docking_port)
+		say("Linked salvage clamp currently inactive, please engage before operation.")
 		return
-	if(!length(shopping_list))
-		balloon_alert(user, "no ships available")
+	if(!length(valid_shuttle_templates_subtypes))
+		say("No salvageable ships are available, please reference your local administrator.")
 		return
 
-	var/menu_option = tgui_alert(user, , "Personal Shuttle Order Console", list(PERSONAL_SHUTTLE_CONSOLE_SHOPPING_LIST, PERSONAL_SHUTTLE_CONSOLE_SELECTION_DETAILS))
+	var/menu_option = tgui_input_list(user, "Salvage Bay Action", "Salvage Bay Control Console", list(SALVAGE_CONSOLE_NEW_SHUTTLE, SALVAGE_CONSOLE_CLEAR_BAY))
 	if(!menu_option)
-		balloon_alert(user, "no selection made")
+		balloon_alert(user, "no selection")
 		return
 
 	switch(menu_option)
-		if(PERSONAL_SHUTTLE_CONSOLE_SHOPPING_LIST)
-			var/new_template = tgui_input_list(user, "Choose Shuttle Template", "Personal Shuttle Order Console", shopping_list)
-			if(!new_template)
-				balloon_alert(user, "no selection made")
+		if(SALVAGE_CONSOLE_CLEAR_BAY)
+			if(!bay_occupied)
+				say("No salvage to clear, dock already empty.")
 				return
-			selected_template = shopping_list[new_template]
-			balloon_alert_to_viewers("new shuttle selection made")
-		if(PERSONAL_SHUTTLE_CONSOLE_SELECTION_DETAILS)
-			if(!selected_template)
-				balloon_alert(user, "no selected shuttle")
+			say("You are about to release savage clamps and clear the bay, proceed?")
+			var/clear_bay_confirm = tgui_alert(user, "Bay cannot be cleared if critical equipment or personnel are present, confirm?", "Salvage Bay Clear Confirmation", list("Confirm", "Cancel"))
+			if(!clear_bay_confirm || clear_bay_confirm == "Cancel")
+				say("Cancelling release of salvage clamps, proceed with work.")
 				return
-			/// Temporarily holds what the selected template was at the time of the menu opening, to prevent accidental baits and switches
-			var/datum/map_template/shuttle/personal_buyable/cached_selected_template = selected_template
-			var/shuttle_details_option = tgui_alert( \
-				user, \
-				"[cached_selected_template.name] - COST: [cached_selected_template.credit_cost]cr - [cached_selected_template.description]", \
-				"Personal Shuttle Order Console", \
-				list(PERSONAL_SHUTTLE_CONSOLE_PURCHASE_SHUTTLE, PERSONAL_SHUTTLE_CONSOLE_CLEAR_SELECTION) \
-			)
-			if(!shuttle_details_option)
-				balloon_alert(user, "no selection made")
+			var/obj/docking_port/mobile/salvage/docked_salvage = clamp.docking_port.get_docked()
+			if(!docked_salvage.check_blacklist())
+				say(blacklist_hit_message)
 				return
+			docked_salvage.jumpToNullSpace()
+			say("Dock clearing, keep clear of moving clamps to prevent injury.")
+			bay_occupied = FALSE
+		if(SALVAGE_CONSOLE_NEW_SHUTTLE)
+			if(!clamp?.docking_port)
+				say("Connection to salvage clamp lost, please check equipment and try again later.")
+				return
+			var/datum/map_template/shuttle/salvage_template = pick(valid_shuttle_templates_subtypes)
+			if(!salvage_template)
+				say("No salvageable ships are available, please reference your local administrator.")
+				return
+			if(bay_occupied)
+				say("Bay already occupied, or currently retrieving salvage, please wait.")
+				return
+			bay_occupied = TRUE
+			var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(salvage_template, clamp.docking_port, FALSE)
+			if(loaded_port)
+				say("Salvage clamps retrieving ship now, please stand clear of the work bay.")
+			else
+				message_admins("[user] tried to load a salvage template ([salvage_template]) but it failed for some reason, this should not happen!")
+				say("Failed to retrieve ship for salvage, please try again later.")
+				bay_occupied = FALSE
 
-			switch(shuttle_details_option)
-				if(PERSONAL_SHUTTLE_CONSOLE_PURCHASE_SHUTTLE)
-					// Just to be safe, again
-					if(!cached_selected_template)
-						balloon_alert(user, "no selected shuttle")
-						return
-
-					try_and_buy_that_shuttle(user, cached_selected_template)
-				if(PERSONAL_SHUTTLE_CONSOLE_CLEAR_SELECTION)
-					balloon_alert(user, "selection cleared")
-					selected_template = null
-
-#undef PERSONAL_SHUTTLE_CONSOLE_SHOPPING_LIST
-#undef PERSONAL_SHUTTLE_CONSOLE_SELECTION_DETAILS
-
-#undef PERSONAL_SHUTTLE_CONSOLE_PURCHASE_SHUTTLE
-#undef PERSONAL_SHUTTLE_CONSOLE_CLEAR_SELECTION
-
-/// Tries to buy the given shuttle template using the given user's money, if so, spawns the shuttle and sends it to our linked dock
-/obj/machinery/computer/salvage_bay_controller/proc/try_and_buy_that_shuttle(mob/living/carbon/user, datum/map_template/shuttle/personal_buyable/selected_ship_template)
-	if(!our_docking_port)
-		balloon_alert(user, "no linked docking port")
-		return
-	if(our_docking_port.get_docked())
-		balloon_alert(user, "docking port blocked")
-		return
-	if(spawning_shuttle)
-		balloon_alert(user, "shuttle en route")
-		return
-	if(attempt_charge(src, user, selected_ship_template.credit_cost) & COMPONENT_OBJ_CANCEL_CHARGE)
-		balloon_alert(user, "payment failed")
-		return
-	playsound(src, 'sound/effects/cashregister.ogg', 40, TRUE)
-	spawning_shuttle = TRUE
-	// If successful, returns the mobile docking port
-	var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(selected_ship_template, our_docking_port, FALSE)
-	if(loaded_port)
-		message_admins("[user] loaded [loaded_port] with a shuttle order console.")
-		say("Shuttle purchase successful.")
-	else
-		message_admins("[user] tried to load a ship template ([selected_ship_template]) but it failed for some reason, they should have been refunded the cost")
-		say("Shuttle purchase failed, cost of ship refunded.")
-		new /obj/item/holochip(drop_location(src), selected_ship_template.credit_cost)
-	spawning_shuttle = FALSE
+#undef SALVAGE_CONSOLE_BAY_INFO
+#undef SALVAGE_CONSOLE_NEW_SHUTTLE
+#undef SALVAGE_CONSOLE_CLEAR_BAY

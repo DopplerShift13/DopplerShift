@@ -7686,6 +7686,8 @@
 #include "modular_doppler\ship_captain\code\ship_captain.dm"
 #include "modular_doppler\shipbreaking\code\docking_clamp.dm"
 #include "modular_doppler\shipbreaking\code\salvage_computer.dm"
+#include "modular_doppler\shipbreaking\code\salvage_shuttle_base.dm"
+#include "modular_doppler\shipbreaking\code\salvage_shuttles\example.dm"
 #include "modular_doppler\ships_r_us\code\buyable_shuttle_template.dm"
 #include "modular_doppler\ships_r_us\code\machine_flatpacks.dm"
 #include "modular_doppler\ships_r_us\code\micro_reactor.dm"

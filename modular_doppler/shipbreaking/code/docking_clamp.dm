@@ -1,13 +1,13 @@
 /obj/effect/temp_visual/telegraphing/long_duration
-	duration = 10 SECONDS
+	duration = 15 SECONDS
 
 /obj/machinery/docking_clamp
-	name = "docking clamp"
+	name = "salvage clamp"
 	desc = "A large clamp for holding shuttles in place without using their own power."
 	icon = 'icons/obj/machines/floor.dmi'
 	icon_state = "mass_driver"
 	/// The docking port we use to connect ships with
-	var/obj/docking_port/stationary/docking_port
+	var/obj/docking_port/stationary/salvage_dock/docking_port
 	/// The computer the clamp is linked to
 	var/obj/machinery/computer/salvage_bay_controller/controller
 
@@ -18,6 +18,19 @@
 		QDEL_NULL(docking_port)
 	return ..()
 
+/obj/machinery/docking_clamp/examine(mob/user)
+	. = ..()
+	. += span_notice("Use a [EXAMINE_HINT("multitool")] to connect this to a [EXAMINE_HINT("salvage bay control console")] before use.")
+	if(!docking_port)
+		. += span_notice("Interact with the clamp to set it up for docking, otherwise it will not function.")
+		. += span_notice("The clamp requires a large space in front of it, indicated by holograms on setup.")
+		. += span_notice("This space is [EXAMINE_HINT("17")] tiles to either side of the clamp, and [EXAMINE_HINT("24")] tiles straight out.")
+
+/obj/machinery/docking_clamp/multitool_act(mob/living/user, obj/item/multitool/the_tool)
+	the_tool.set_buffer(src)
+	balloon_alert(user, "saved to multitool buffer")
+	return ITEM_INTERACT_SUCCESS
+
 /obj/machinery/docking_clamp/interact(mob/user)
 	. = ..()
 	if(!can_interact(user))
@@ -25,13 +38,13 @@
 	if(docking_port)
 		balloon_alert(user, "already set!")
 		return
-	ballon_alert(user, "setting clamp")
+	balloon_alert(user, "setting clamp")
 	if(!do_after(user, 2 SECONDS, src))
 		return
 	var/turf/dock_location = get_step(src, dir)
 	docking_port = new(dock_location)
-	var/list/docking_turfs = docking_port.return_turfs
-	var/list/dock_bounds = docking_port.return_coords
+	var/list/docking_turfs = docking_port.return_turfs()
+	var/list/dock_bounds = docking_port.return_coords()
 	var/list/overlappers = SSshuttle.get_dock_overlap(dock_bounds[1], dock_bounds[2], dock_bounds[3], dock_bounds[4], z)
 	if(length(overlappers))
 		balloon_alert("intersecting nearby dock")
@@ -50,3 +63,9 @@
 			QDEL_NULL(docking_port)
 			return
 		new /obj/effect/temp_visual/medical_holosign(checked_turf)
+
+/obj/docking_port/stationary/salvage_dock
+	name = "Salvage Dock"
+	width = 35
+	height = 24
+	dwidth = 17
