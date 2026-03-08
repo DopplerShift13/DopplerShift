@@ -111,6 +111,11 @@
 			target_zone = check_zone(target_zone)
 		to_chat(user, span_warning("You can't find any premium augments to service in [target]'s [target.parse_zone_with_bodypart(target_zone)]."))
 		return SURGERY_STEP_FAIL
+	if(target_implant.premium_component && target_implant.premium_component.quality <= 0)
+		if(target_zone == BODY_ZONE_PRECISE_EYES || target_zone == BODY_ZONE_PRECISE_MOUTH)
+			target_zone = check_zone(target_zone)
+		to_chat(user, span_warning("[target]'s [target_implant.name] in [target.parse_zone_with_bodypart(target_zone)] is broken and needs refurbishing first."))
+		return SURGERY_STEP_FAIL
 
 	if(target_zone == BODY_ZONE_PRECISE_EYES || target_zone == BODY_ZONE_PRECISE_MOUTH)
 		target_zone = check_zone(target_zone)

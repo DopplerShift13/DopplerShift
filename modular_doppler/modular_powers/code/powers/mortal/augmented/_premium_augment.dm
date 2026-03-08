@@ -130,7 +130,7 @@
 /datum/component/premium_augment/proc/handle_refurbish_interaction(mob/user, obj/item/tool, obj/item/organ/cyberimp/implant)
 	if(!user || !tool || !implant)
 		return FALSE
-	if(implant.owner)
+	if(implant.owner) // I don't even know how you would do this; the manual says to take it out first >:C
 		to_chat(user, span_warning("You need to remove [implant] before refurbishing it."))
 		return TRUE
 	var/step = get_refurb_step()
@@ -143,34 +143,55 @@
 				to_chat(user, span_warning("You need a screwdriver to open [implant]'s casing."))
 				return TRUE
 			to_chat(user, span_notice("You open [implant]'s casing."))
+			tool.play_tool_sound(implant)
 			advance_refurb_step()
 			return TRUE
 
 		if(AUGMENTED_REFURBISH_PARTS)
 			ensure_refurb_parts()
-			if(!istype(tool, /obj/item/stack))
-				to_chat(user, span_warning("You need spare parts to refurbish [implant]."))
-				return TRUE
-			var/obj/item/stack/stack = tool
-			var/typepath = stack.merge_type ? stack.merge_type : stack.type
-			var/needed = refurb_parts_remaining[typepath]
-			if(!needed)
-				to_chat(user, span_warning("[stack] doesn't fit [implant]'s parts."))
-				return TRUE
-			var/available = stack.amount
-			if(available <= 0)
-				to_chat(user, span_warning("[stack] doesn't have anything left to use."))
-				return TRUE
-			var/use_amount = min(needed, available)
-			if(!stack.use(use_amount))
-				to_chat(user, span_warning("You need more [stack] to continue."))
-				return TRUE
+
+			// Saves typepath, amount needed and how much was used to pass on to later in the function.
+			var/typepath
+			var/needed
+			var/use_amount
+
+			// Stack-specific interactions
+			if(istype(tool, /obj/item/stack))
+				var/obj/item/stack/stack = tool
+				typepath = stack.merge_type ? stack.merge_type : stack.type
+				needed = refurb_parts_remaining[typepath]
+
+				// Wrong item, right subtype.
+				if(!needed)
+					to_chat(user, span_warning("[stack] doesn't fit [implant]'s parts."))
+					return TRUE
+
+				// Not enough in a stack
+				var/available = stack.amount
+				use_amount = min(needed, available)
+				if(use_amount <= 0 || !stack.use(use_amount))
+					to_chat(user, span_warning("You need more [stack] to continue."))
+					return TRUE
+			// Non-stack parts.
+			else
+				typepath = tool.type
+				needed = refurb_parts_remaining[typepath]
+
+				// Wrong item
+				if(!needed)
+					to_chat(user, span_warning("[tool] doesn't fit [implant]'s parts."))
+					return TRUE
+
+				qdel(tool)
+
+			// Succesful use interaction
 			needed -= use_amount
 			if(needed <= 0)
 				refurb_parts_remaining -= typepath
 			else
 				refurb_parts_remaining[typepath] = needed
 			to_chat(user, span_notice("You replace worn parts inside [implant]."))
+			tool.play_tool_sound(implant)
 			if(!LAZYLEN(refurb_parts_remaining))
 				advance_refurb_step()
 			return TRUE
@@ -180,6 +201,7 @@
 				to_chat(user, span_warning("You need a multitool to calibrate [implant]."))
 				return TRUE
 			to_chat(user, span_notice("You calibrate [implant]'s diagnostics."))
+			tool.play_tool_sound(implant)
 			advance_refurb_step()
 			return TRUE
 
@@ -188,8 +210,9 @@
 				to_chat(user, span_warning("You need a screwdriver to close [implant]'s casing."))
 				return TRUE
 			refurbish(AUGMENTED_PREMIUM_QUALITY_MAX)
+			tool.play_tool_sound(implant)
 			reset_refurb()
-			to_chat(user, span_notice("You finish refurbishing [implant]. It looks factory-new."))
+			to_chat(user, span_notice("You finish refurbishing [implant]. Looks about as new as it can get."))
 			return TRUE
 
 	return FALSE
