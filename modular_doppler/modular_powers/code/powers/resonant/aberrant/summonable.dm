@@ -56,7 +56,7 @@
 	var/rune_fade_time = 6
 	var/rune_color = "#ff2a2a"
 
-	// These below are there to allow us to be dispelled and end the teleporation without brekaing everything. It is so EXCEEDINGLY MESSY.
+	// These below are there to allow us to be dispelled and end the teleporation without brekaing everything.
 	var/summoning = FALSE
 	var/beaming_up = FALSE
 	var/list/obj/effect/summonable_rune_orbiter/current_runes
@@ -111,6 +111,7 @@
 	ADD_TRAIT(summoned, TRAIT_MOVE_FLOATING, "summonable_apport")
 
 	// Depart: float up and fade out at the origin.
+	summoned.visible_message(span_warning("[summoned] leaves the ground, and begins to vanish into thin air!"))
 	animate(summoned, alpha = 0, pixel_y = old_pixel_y + 32, time = float_time)
 	addtimer(CALLBACK(src, PROC_REF(clear_origin_spotlight), origin_spotlight), float_time)
 
@@ -150,13 +151,15 @@
 	beaming_up = FALSE
 
 	var/obj/effect/temp_visual/spotlight/summonable/spotlight = new(target_turf, rune_color)
-	playsound(target_turf, 'sound/effects/magic/voidblink.ogg', 50, TRUE)
 	fade_and_clear_runes(runes)
 
 	summoned.forceMove(target_turf)
 	summoned.alpha = 0
 	summoned.pixel_y = 32
 	animate(summoned, alpha = old_alpha, pixel_y = old_pixel_y, time = float_time)
+
+	playsound(summoned, 'sound/effects/magic/voidblink.ogg', 50, TRUE)
+	summoned.visible_message(span_warning("[summoned] appears out of thin air!"))
 
 	addtimer(CALLBACK(src, PROC_REF(finish_summon), summoned, target_turf, old_alpha, old_pixel_y, spotlight), float_time)
 
@@ -203,6 +206,17 @@
 	if(!beaming_up || !summoning)
 		return NONE
 	cancel_summon(target)
+	if(ishuman(target))
+		var/mob/living/carbon/human/failed_summon = target
+		// Do you have anything to brace your fall? Or do you possibly manage to get lucky?
+		var/obj/item/organ/wings/gliders = failed_summon.get_organ_by_type(/obj/item/organ/wings)
+		if(HAS_TRAIT(failed_summon, TRAIT_FREERUNNING) || gliders?.can_soften_fall() || prob(20))
+			failed_summon.visible_message(span_warning("[failed_summon] suddenly reappears and lands back on the ground!"), span_warning("You drop to the ground, but manage to catch yourself!"))
+		else
+			failed_summon.visible_message(span_warning("[failed_summon] suddenly reappears and falls face-first onto the ground!"), span_userdanger("You suddenly fall face-first onto the ground!"))
+			playsound(failed_summon, 'sound/effects/desecration/desecration-02.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
+			failed_summon.adjustBruteLoss(5)
+			failed_summon.Knockdown(3 SECONDS)
 	return DISPEL_RESULT_DISPELLED
 
 /datum/component/beetlejuice/summonable/proc/cancel_summon(atom/movable/summoned)
