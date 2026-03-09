@@ -155,16 +155,16 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 	var/obj/item/paper/paperslip/new_ticket = new(drop_location())
 	new_ticket.name = "salvage receipt - [template.prior_name]"
 	// Makes the actual text on the paper
-	var/list/ticket_contents = list()
+	var/list/ticket_contents
 	ticket_contents += "<h1><table bgcolor=\"darkgoldenrod\" width=\"100%\"><th><div align=\"center\"><font color=\"white\">Salvage Ticket</font></div></th></table></h1>"
 	ticket_contents += "<hr />"
 	ticket_contents += "<p><strong>Ship details:</strong></p>"
-	ticket_contents += "<p>Designation - [template.prior_name]"
-	ticket_contents += "Prior Owner - [template.prior_owner]"
-	ticket_contents += "Operation History - [template.prior_date]:"
+	ticket_contents += "<p>Designation - [template.prior_name]<br>"
+	ticket_contents += "Prior Owner - [template.prior_owner]<br>"
+	ticket_contents += "Operation History from [template.prior_date]:<br>"
 	ticket_contents += "[template.prior_usage]</p>"
 	ticket_contents += "<hr />"
-	ticket_contents += "<p>Ship Class - [template.ship_class]"
+	ticket_contents += "<p>Ship Class - [template.ship_class]<br>"
 	ticket_contents += "[template.ship_hazards]</p>"
 	ticket_contents += "<hr />"
 	ticket_contents += "<p><font color=\"grey\">Signature or stamp confirms receipt of salvage ownership, and that any and all contents of the salvage are the direct responsibility of all signees.</font></p>"
