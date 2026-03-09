@@ -292,7 +292,7 @@
 #define AUGMENTED_PREMIUM_QUALITY_START 75
 
 // How often augments will normally lose quality, and how much.
-#define AUGMENTED_DECAY_INTERVAL 5 MINUTES
+#define AUGMENTED_DECAY_INTERVAL 4 MINUTES
 #define AUGMENTED_DECAY_AMOUNT 1
 
 // Thresholds for Premium Quality tiers. As long as it is above the number = all is good

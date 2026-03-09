@@ -7,12 +7,12 @@
 	\n In addition, it allows you actively 'overcharge' the arm, making your next punch knockback someoneone 2 spaces (potentially stunning them on walls) and dealing an additional 15 brute damage in exchange for a hefty quality cost.\
 	\n Quality decreases from using the pneumatic arm's active ability. Quality affects damage (passive and active)."
 
-	value = 5 // balance around 2 arms.
+	value = 4 // balance around 2 arms.
 	augment = /obj/item/organ/cyberimp/arm/pneumatic_arm
 
 /obj/item/organ/cyberimp/arm/pneumatic_arm
-	name = "Premium DSTR Pneumatic Arm"
-	desc = "A popular choice for the augmented bodyguards, given it turns your arms into weapons; ideal for places that don't allow weapons. Passively increases your punch damage by +5 with thar arm. \
+	name = "DSTR Pneumatic Arm"
+	desc = "A popular choice for the augmented bodyguards, given it turns your arms into weapons; ideal for places that don't allow weapons. Passively increases your punch damage by +5 with that arm. \
 	\n In addition, it allows you actively 'overcharge' the arm, making your next punch knockback someoneone 2 spaces (potentially stunning them on walls) and dealing an additional 15 brute damage in exchange for a hefty quality cost.\
 	\n Quality decreases from using the pneumatic arm's active ability. Quality affects damage (passive and active)."
 	icon_state = "toolkit_generic"
@@ -32,6 +32,9 @@
 	// Is the throw 'throw'? False means it can cause wallstuns and such.
 	var/gentle_throw = FALSE
 
+	// EMP cooldown
+	COOLDOWN_DECLARE(emp_reenable_cooldown)
+	var/emp_cooldown = 30 SECONDS
 
 /obj/item/organ/cyberimp/arm/pneumatic_arm/Initialize(mapload)
 	. = ..()
@@ -50,9 +53,25 @@
 	. = ..()
 	UnregisterSignal(arm_owner, COMSIG_HUMAN_UNARMED_HIT)
 
+// On EMP
+/obj/item/organ/cyberimp/arm/pneumatic_arm/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(premium_component)
+		premium_component.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MINOR)
+	overcharged = FALSE
+	COOLDOWN_START(src, emp_reenable_cooldown, emp_cooldown)
+	premium_component?.update_quality_actions()
+	to_chat(owner, span_warning("Your [name] becomes disabled!"))
+
 /obj/item/organ/cyberimp/arm/pneumatic_arm/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_accuracy, limb_sharpness)
 	SIGNAL_HANDLER
 	if(!target || !premium_component?.can_function())
+		return
+
+	// No bonus damage if EMP'd
+	if(!COOLDOWN_FINISHED(src, emp_reenable_cooldown))
 		return
 
 	// Only applies bonus damage when the arm is the active arm.
@@ -86,6 +105,9 @@
 
 /obj/item/organ/cyberimp/arm/pneumatic_arm/use_action()
 	if(!owner)
+		return FALSE
+	if(!overcharged && !COOLDOWN_FINISHED(src, emp_reenable_cooldown))
+		to_chat(owner, span_warning("Your [name] is temporarily disabled from EMP interference."))
 		return FALSE
 	if(!premium_component?.can_function())
 		to_chat(owner, span_warning("Your [name] fails to respond; it seems broken!"))

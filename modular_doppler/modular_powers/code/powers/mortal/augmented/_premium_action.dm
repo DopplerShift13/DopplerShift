@@ -1,7 +1,7 @@
 // Custom actions for premium augments, meant to show the progress bar with quality wear.
 /datum/action/item_action/organ_action/premium
 	name = "Premium Augment"
-	check_flags = AB_CHECK_CONSCIOUS
+	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
 	background_icon_state = "bg_default"
 	overlay_icon_state = "bg_mod_border"
 	var/base_overlay_icon_state
@@ -77,16 +77,17 @@
 	var/atom/movable/ui_element = get_atom_moveable()
 	if(!ui_element || !premium_component)
 		return
-	if(!quality_overlay)
-		quality_overlay = new/mutable_appearance
-		quality_overlay.plane = ABOVE_HUD_PLANE
-		quality_overlay.maptext_width = 32
-		quality_overlay.maptext_height = 16
-		quality_overlay.maptext_x = 4
-		quality_overlay.maptext_y = 0
+	ui_element.cut_overlay(quality_overlay)
+	quality_overlay = new/mutable_appearance
+	quality_overlay.plane = ABOVE_HUD_PLANE
+	quality_overlay.maptext_width = 32
+	quality_overlay.maptext_height = 16
+	quality_overlay.maptext_x = 4
+	quality_overlay.maptext_y = 0
 	var/percent = clamp(round(premium_component.quality), 0, 100)
 	quality_overlay.maptext = MAPTEXT("<span style='text-align:left; color:#ffffff;'>[percent]%</span>")
-	build_all_button_icons(UPDATE_BUTTON_OVERLAY | UPDATE_BUTTON_STATUS)
+	ui_element.add_overlay(quality_overlay)
+	build_all_button_icons(UPDATE_BUTTON_STATUS)
 
 /datum/action/item_action/organ_action/premium/proc/get_atom_moveable()
 	for(var/datum/hud/hud_instance as anything in viewers)
@@ -98,10 +99,6 @@
 	if(active_overlay_icon_state)
 		overlay_icon_state = is_action_active(current_button) ? active_overlay_icon_state : base_overlay_icon_state
 	. = ..()
-	if(!quality_overlay || !current_button)
-		return .
-	current_button.cut_overlay(quality_overlay)
-	current_button.add_overlay(quality_overlay)
 	return .
 
 // This is specifically to flip right-side arm augments to look visually distinct from the other button (since you can have 2 arm augments).

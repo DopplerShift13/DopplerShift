@@ -24,6 +24,10 @@
 	// the factor with which we multiply the final cost of anti-mental
 	var/mental_mult = 5
 
+	// EMP cooldown
+	COOLDOWN_DECLARE(emp_reenable_cooldown)
+	var/emp_cooldown = 30 SECONDS
+
 /obj/item/organ/cyberimp/brain/mental_shielding/Initialize(mapload)
 	. = ..()
 	if(premium_component)
@@ -45,6 +49,18 @@
 	. = ..()
 	UnregisterSignal(owner, COMSIG_MOB_RECEIVE_MAGIC)
 	REMOVE_TRAIT(owner, TRAIT_ANTIRESONANCE_SCRYING, IMPLANT_TRAIT)
+
+// When we get EMP'd.
+/obj/item/organ/cyberimp/brain/mental_shielding/emp_act(severity)
+	. = ..()
+	if(. & EMP_PROTECT_SELF)
+		return
+	if(premium_component)
+		premium_component.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MINOR)
+	enabled = FALSE
+	COOLDOWN_START(src, emp_reenable_cooldown, emp_cooldown)
+	premium_component?.update_quality_actions()
+	to_chat(owner, span_warning("Your [name] becomes disabled!"))
 
 // Listener to check if it can block. Basically we just check if the quality is not 0.
 // Direct hook for antimagic signals, avoids component deletion behavior.
@@ -71,6 +87,9 @@
 
 /obj/item/organ/cyberimp/brain/mental_shielding/use_action()
 	if(!owner)
+		return FALSE
+	if(!enabled && !COOLDOWN_FINISHED(src, emp_reenable_cooldown))
+		to_chat(owner, span_warning("Your [name] is temporarily disabled from EMP interference."))
 		return FALSE
 	enabled = !enabled
 	if(enabled)
