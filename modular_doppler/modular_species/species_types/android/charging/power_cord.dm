@@ -84,6 +84,8 @@
 		/obj/item/stock_parts/power_store,
 		/obj/machinery/power/apc,
 	))
+	/// Cooldown for requesting to charge from another mob
+	COOLDOWN_DECLARE(charge_request_cooldown)
 
 // Attempt to charge from an object by using them on the power cord.
 /obj/item/hand_item/power_cord/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
@@ -98,6 +100,13 @@
 		return NONE
 	try_power_draw(interacting_with, user)
 	return ITEM_INTERACT_SUCCESS
+
+/obj/item/hand_item/power_cord/attack(mob/living/target_mob, mob/living/user)
+	if(ishuman(target_mob))
+		try_mob_power_draw(target_mob, user)
+		return
+
+	return ..()
 
 /// Returns TRUE or FALSE depending on if the target object can be used as a power source.
 /obj/item/hand_item/power_cord/proc/can_power_draw(obj/target, mob/user)
@@ -118,6 +127,46 @@
 
 	user.visible_message(span_notice("[user] inserts a power connector into [target]."), span_notice("You begin to draw power from [target]."))
 	do_power_draw(target, user, charging_stomach)
+
+	if(QDELETED(user) || QDELETED(target))
+		return
+
+	user.visible_message(span_notice("[user] unplugs from [target]."), span_notice("You unplug from [target]."))
+
+/// Attempts to use another mob as a power source.
+/obj/item/hand_item/power_cord/proc/try_mob_power_draw(mob/living/carbon/human/target, mob/living/carbon/human/user)
+	var/obj/item/organ/stomach/charging/power_cord/our_stomach = user.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(!istype(our_stomach))
+		return
+
+	if(!istype(target))
+		return
+
+	var/obj/item/organ/stomach/charging/target_stomach = target.get_organ_slot(ORGAN_SLOT_STOMACH)
+	if(!istype(target_stomach))
+		balloon_alert(user, "no connector!")
+		return
+
+	if(our_stomach.internal_cell.used_charge() <= 0)
+		balloon_alert(user, "fully charged!")
+		return
+
+	if(!our_stomach.can_currently_drain())
+		balloon_alert(user, "too soon!")
+		return
+
+	if(!COOLDOWN_FINISHED(src, charge_request_cooldown))
+		balloon_alert(user, "wait before asking again!")
+		return
+
+	var/target_permission = tgui_alert(target, "Allow [user] to charge from your cell?", "Allow charging?", list("Yes", "No"))
+	if(target_permission == "No")
+		balloon_alert(user, "refused!")
+		COOLDOWN_START(src, charge_request_cooldown, 5 SECONDS)
+		return
+
+	user.visible_message(span_notice("[user] inserts a power connector into [target]. Is that allowed in public..?"), span_notice("You begin to draw power from [target]."))
+	do_power_draw(target_stomach.get_cell(), user, our_stomach)
 
 	if(QDELETED(user) || QDELETED(target))
 		return
@@ -147,7 +196,7 @@
 		return
 
 	var/obj/item/stock_parts/power_store/stomach_cell = charging_stomach.internal_cell
-	while(do_after(user, POWER_CORD_CHARGE_DELAY, target = target))
+	while(do_after(user, POWER_CORD_CHARGE_DELAY, user))
 		if(isnull(charging_stomach) || (charging_stomach != user.get_organ_slot(ORGAN_SLOT_STOMACH)))
 			balloon_alert(user, "stomach removed!?")
 			return
