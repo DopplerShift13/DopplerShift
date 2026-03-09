@@ -5,7 +5,7 @@
 	name = "abstract war poster"
 	desc = "Surely, if this was coded correctly, you would be angry."
 	abstract_type = /obj/structure/sign/poster/doppler_war
-	icon = 'modular_doppler/war_posters/icons/posters.dmi'
+	icon = 'modular_doppler/STORY_teshari_war/war_posters/icons/posters.dmi'
 	icon_state = "tesh_unity"
 
 	/// Those of our aligned faction recieve a small mood buff when seeing this poster - other factions get a debuff. Neutral doesn't care at all.
@@ -21,11 +21,14 @@
 	demoraliser = new(src, WAR_POSTER_RANGE, TRUE, aligned_faction, WAR_POSTER_MOOD, faction_reactions, faction_moods, READING_CHECK_LIGHT)
 	return ..()
 
-/obj/item/poster/doppler_random
-	abstract_type = /obj/item/poster/doppler_random
+// A poster subtype exclusively for random posters.
+// This subtype is only necessary to use if your poster has special behavior that cant be randomised by base-TG posters.
+// Things like list vars cant be found via initial, so thats one use-case.
+/obj/item/poster/random
+	abstract_type = /obj/item/poster/random
 	var/obj/structure/sign/poster/poster_basetype
 
-/obj/item/poster/doppler_random/Initialize(mapload, obj/structure/sign/poster/new_poster_structure)
+/obj/item/poster/random/Initialize(mapload, obj/structure/sign/poster/new_poster_structure)
 	var/list/valid_subtypes = subtypesof(poster_basetype)
 	for (var/datum/subtype as anything in valid_subtypes)
 		if (subtype.abstract_type == subtype)
@@ -50,17 +53,17 @@
 		return // sanity
 
 	var/i = 0
-	while (i++ < 7)
+	for	(i = 0, i < 7, i++)
 		new poster_path(src)
 
-/obj/item/poster/doppler_random/random_teshari
+/obj/item/poster/random/random_teshari
 	name = "random teshari poster"
 	poster_basetype = /obj/structure/sign/poster/doppler_war/teshari
-	icon = 'modular_doppler/war_posters/icons/posters.dmi'
+	icon = 'modular_doppler/STORY_teshari_war/war_posters/icons/posters.dmi'
 	icon_state = "rolled_tesh"
 
 /obj/item/storage/box/doppler_war_posters/teshari
-	poster_path = /obj/item/poster/doppler_random/random_teshari
+	poster_path = /obj/item/poster/random/random_teshari
 
 /obj/structure/sign/poster/doppler_war/teshari
 	name = "teshari war poster"
@@ -147,14 +150,14 @@
 		WAR_FACTION_TIZIRA = /datum/mood_event/war_poster_wrong,
 	)
 
-/obj/item/poster/doppler_random/random_tiziran
+/obj/item/poster/random/random_tiziran
 	name = "random tiziran poster"
 	poster_basetype = /obj/structure/sign/poster/doppler_war/tiziran
-	icon = 'modular_doppler/war_posters/icons/posters.dmi'
+	icon = 'modular_doppler/STORY_teshari_war/war_posters/icons/posters.dmi'
 	icon_state = "rolled_tizira"
 
 /obj/item/storage/box/doppler_war_posters/tiziran
-	poster_path = /obj/item/poster/doppler_random/random_tiziran
+	poster_path = /obj/item/poster/random/random_tiziran
 
 /obj/structure/sign/poster/doppler_war/tiziran
 	name = "tiziran war poster"
@@ -243,21 +246,21 @@
 		WAR_FACTION_TIZIRA = /datum/mood_event/war_poster_sympathy,
 	)
 
-/obj/item/poster/doppler_random/random_isolationist
+/obj/item/poster/random/random_isolationist
 	name = "random isolationist poster"
 	poster_basetype = /obj/structure/sign/poster/isolationist
-	icon = 'modular_doppler/war_posters/icons/posters.dmi'
+	icon = 'modular_doppler/STORY_teshari_war/war_posters/icons/posters.dmi'
 	icon_state = "rolled_iso"
 
 /obj/item/storage/box/doppler_war_posters/isolationist
-	poster_path = /obj/item/poster/doppler_random/random_isolationist
+	poster_path = /obj/item/poster/random/random_isolationist
 
 /obj/structure/sign/poster/isolationist
 	name = "isolationist war poster"
 	poster_item_name = "isolationist war poster"
 	poster_item_desc = "An isolationist propaganda poster, condemning the 4CA for its attempted involvement in the tizira/teshari war."
 	poster_item_icon_state = "rolled_iso"
-	icon = 'modular_doppler/war_posters/icons/posters.dmi'
+	icon = 'modular_doppler/STORY_teshari_war/war_posters/icons/posters.dmi'
 	abstract_type = /obj/structure/sign/poster/isolationist
 
 /obj/structure/sign/poster/isolationist/bigbrother
