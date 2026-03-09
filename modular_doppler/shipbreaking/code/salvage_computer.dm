@@ -139,6 +139,7 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 			var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(salvage_template, clamp.docking_port, FALSE)
 			if(loaded_port)
 				say("Salvage clamps retrieving ship now, please stand clear of the work bay.")
+				make_salvage_ticket(salvage_template)
 			else
 				message_admins("[user] tried to load a salvage template ([salvage_template]) but it failed for some reason, this should not happen!")
 				say("Failed to retrieve ship for salvage, please try again later.")
@@ -147,3 +148,31 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 #undef SALVAGE_CONSOLE_BAY_INFO
 #undef SALVAGE_CONSOLE_NEW_SHUTTLE
 #undef SALVAGE_CONSOLE_CLEAR_BAY
+
+/// Makes a little half-sheet ticket with information about the ship that just got pulled in, scoreboard, scoreboard!
+/obj/machinery/computer/salvage_bay_controller/proc/make_salvage_ticket(datum/map_template/shuttle/salvage_scrap/template)
+	playsound(src, 'sound/machines/printer.ogg', 50, vary = FALSE)
+	var/obj/item/paper/paperslip/new_ticket = new(drop_location())
+	new_ticket.name = "salvage receipt - [template.prior_name]"
+	// Makes the actual text on the paper
+	var/list/ticket_contents = list()
+	ticket_contents += "<h1><table bgcolor=\"darkgoldenrod\" width=\"100%\"><th><div align=\"center\"><font color=\"white\">Salvage Ticket</font></div></th></table></h1>"
+	ticket_contents += "<hr />"
+	ticket_contents += "<p><strong>Ship details:</strong></p>"
+	ticket_contents += "<p>Designation - [template.prior_name]"
+	ticket_contents += "Prior Owner - [template.prior_owner]"
+	ticket_contents += "Operation History - [template.prior_date]:"
+	ticket_contents += "[template.prior_usage]</p>"
+	ticket_contents += "<hr />"
+	ticket_contents += "<p>Ship Class - [template.ship_class]"
+	ticket_contents += "[template.ship_hazards]</p>"
+	ticket_contents += "<hr />"
+	ticket_contents += "<p><font color=\"grey\">Signature or stamp confirms receipt of salvage ownership, and that any and all contents of the salvage are the direct responsibility of all signees.</font></p>"
+	ticket_contents += "<p>\[___________________________________\]</p>"
+	ticket_contents += "<p>\[___________________________________\]</p>"
+	ticket_contents += "<p>\[___________________________________\]</p>"
+	// Just to break it up a little
+	new_ticket.color = COLOR_BEIGE
+	new_ticket.add_raw_text(ticket_contents)
+	new_ticket.update_appearance()
+

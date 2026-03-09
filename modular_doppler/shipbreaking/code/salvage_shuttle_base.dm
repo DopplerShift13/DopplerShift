@@ -19,6 +19,8 @@
 	var/prior_owner = null
 	/// Operation date, "(year) to (year)", randomized if empty
 	var/prior_date = null
+	/// What kind of hazards the crews could expect to be in the ship, unknown by default
+	var/ship_hazards = "Unknown present hazards -- Proceed with caution"
 
 /datum/map_template/shuttle/salvage_scrap/New()
 	. = ..()
