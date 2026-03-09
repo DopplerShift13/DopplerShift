@@ -4,14 +4,14 @@ GLOBAL_DATUM(dj_booth, /obj/machinery/dj_station)
 	name = "Cassette Player"
 	desc = "Plays Space Music Board approved cassettes for anyone in the station to listen to."
 
-	icon = 'icons/obj/cassettes/radio_station.dmi'
+	icon = 'modular_doppler/cassettes/icons/radio_station.dmi'
 	icon_state = "cassette_player"
 
 	use_power = NO_POWER_USE
 	processing_flags = NONE
 
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | UNACIDABLE | ACID_PROOF
-	interaction_flags_machine = INTERACT_MACHINE_SET_MACHINE
+	interaction_flags_machine = INTERACT_MACHINE_REQUIRES_LITERACY
 
 	anchored = TRUE
 	density = TRUE

@@ -58,11 +58,15 @@
 	if(isnull(mixer_channel))
 		return volume
 	var/client/client = CLIENT_FROM_VAR(target)
-	var/list/channel_volume = client?.prefs?.channel_volume
-	if("[CHANNEL_MASTER_VOLUME]" in channel_volume)
-		. *= (channel_volume["[CHANNEL_MASTER_VOLUME]"] / 100)
-	if(mixer_channel in channel_volume)
-		. *= (channel_volume[mixer_channel] / 100)
+	var/list/music_volume = client?.prefs?.music_volume
+	if("[CHANNEL_MASTER_VOLUME]" in music_volume)
+		. *= (music_volume["[CHANNEL_MASTER_VOLUME]"] / 100)
+	if(mixer_channel in music_volume)
+		. *= (music_volume[mixer_channel] / 100)
+
+var/music_volume = prefs.read_preference(/datum/preference/numeric/volume/sound_lobby_volume) * volume_multiplier
+	if((prefs && music_volume) && !CONFIG_GET(flag/disallow_title_music))
+		SEND_SOUND(src, sound(SSticker.login_music, repeat = 0, wait = 0, volume = music_volume, channel = CHANNEL_LOBBYMUSIC)) // MAD JAMS
 
 /datum/media_source/proc/get_balance(mob/target)
 	return 0

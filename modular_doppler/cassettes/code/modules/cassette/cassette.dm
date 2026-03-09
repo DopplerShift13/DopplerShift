@@ -17,7 +17,7 @@ GLOBAL_LIST_INIT(cassette_icons, list(
 /obj/item/cassette_tape
 	name = "blank cassette tape"
 	desc = "A blank cassette tape, waiting for music to be added."
-	icon = 'icons/obj/cassettes/walkman.dmi'
+	icon = 'modular_doppler/cassettes/icons/walkman.dmi'
 	icon_state = "cassette_flip"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NOBLUDGEON

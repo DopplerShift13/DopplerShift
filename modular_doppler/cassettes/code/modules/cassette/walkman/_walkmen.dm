@@ -251,7 +251,7 @@
 */
 
 /datum/action/item_action/walkman
-	button_icon = 'icons/obj/cassettes/walkman.dmi'
+	button_icon = 'modular_doppler/cassettes/icons/walkman.dmi'
 	background_icon_state = "bg_tech_blue"
 
 /datum/action/item_action/walkman/play_pause
