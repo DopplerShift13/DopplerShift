@@ -466,3 +466,46 @@
 	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
 	var/list/new_hoodie_colors = hoodie_colors.Copy(1,2)
 	hood.set_greyscale(new_hoodie_colors)
+
+/// a tripartite sweater-jacket-accessory thing that share some base sprites between each other
+
+/obj/item/clothing/suit/jacket/doppler/technyne_sweatshirt
+	name = "\improper TechNyne sweatshirt"
+	desc = "Hydroponically grown Egyptian cotton fibres were ringspun by Marsian artisans into the sweatshirt \
+	fleece that this was sewn from. They laid the stitching down with some Union Special coverlocks from the 22nd \
+	century. Don't ask why that matters, just know that it costs a lot of money to look this normal."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	icon_state = "/obj/item/clothing/suit/technyne_sweatshirt"
+	post_init_icon_state = "tech_sweatshirt"
+	greyscale_config = /datum/greyscale_config/technyne_sweatshirt
+	greyscale_config_worn = /datum/greyscale_config/technyne_sweatshirt/worn
+	greyscale_colors = "#5d6161#5d6161"
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	pocket_storage_type = null
+
+/obj/item/clothing/suit/jacket/doppler/technyne_overlay_hoodie
+	name = "\improper TechNyne overlay hoodie"
+	desc = "Artisanal ringspun sweatshirt fleece and hydrophobic tech-textiles blend in a deconstructed ensemble piece \
+	that's proven durably popular with Marsian apparel designers."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	icon_state = "/obj/item/clothing/suit/jacket/doppler/technyne_overlay_hoodie"
+	post_init_icon_state = "tech_overlay_hoodie"
+	greyscale_config = /datum/greyscale_config/technyne_overlay_hoodie
+	greyscale_config_worn = /datum/greyscale_config/technyne_overlay_hoodie/worn
+	greyscale_colors = "#5d6161#5d6161#5d6161#5d6161"
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
+/obj/item/clothing/suit/jacket/doppler/technnyne_overlay
+	name = "\improper TechNyne overlay"
+	desc = "This textile is hydrophobic from the face and wicking from the inside, allowing "
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	icon_state = "/obj/item/clothing/suit/jacket/doppler/technnyne_overlay"
+	post_init_icon_state = "tech_sweatshirt_overlay"
+	greyscale_config = /datum/greyscale_config/technyne_overlay
+	greyscale_config_worn = /datum/greyscale_config/technyne_overlay/worn
+	greyscale_colors = "#5d6161"
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	pocket_storage_type = null

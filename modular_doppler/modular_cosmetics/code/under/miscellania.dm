@@ -37,7 +37,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	can_adjust = FALSE
 
-/obj/item/clothing/under/pants/tech_nyne_bottomwear
+/obj/item/clothing/under/pants/technyne_bottomwear
 	name = "\improper TechNyne bottomwear ensemble"
 	desc = "A pair of baggy shorts with a contoured waistband and weather-repellant fabrication. A pair of fitted kneepads \
 	and knit baselayer leggings are included. The trio is surprisingly practical, except that it leaves the wearer with three \
@@ -73,7 +73,7 @@
 	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 		now and then. This pair has generous onboard storage."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	icon_state = "/obj/item/clothing/under/pants/megacargo_pants"
 	post_init_icon_state = "megacargos"
 	supported_bodyshapes = null
@@ -92,7 +92,7 @@
 	name = "\improper JUNCO megajeans"
 	desc = "An ocean of denim for total encapsulation of the wearer's legs. The pockets are roomy beyond any sense \
 	of practicality."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	icon_state = "/obj/item/clothing/under/pants/megajeans"
 	post_init_icon_state = "megajeans"
 	supported_bodyshapes = null
