@@ -5,6 +5,6 @@
 	suffix = "scrappie"
 	prior_name = "Scrappie"
 	ship_class = "Training Ship"
-	prior_usage = "Training other shipbreakers"
+	prior_usage = "Unknown history"
 	prior_owner = "Pallas Cat Authority"
 	prior_date = "2520 to Present"

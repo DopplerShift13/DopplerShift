@@ -25,9 +25,9 @@
 /datum/map_template/shuttle/salvage_scrap/New()
 	. = ..()
 	if(!prior_name)
-		prior_name = strings(SALVAGE_SHUTTLE_STRINGS, "ship_name")
+		prior_name = pick_list_replacements(SALVAGE_SHUTTLE_STRINGS, "ship_name")
 	if(!prior_owner)
-		prior_owner = strings(SALVAGE_SHUTTLE_STRINGS, "ship_companies")
+		prior_owner = pick_list_replacements(SALVAGE_SHUTTLE_STRINGS, "ship_companies")
 	if(!prior_date)
 		prior_date = "[rand(2490, 2504)] to [rand(2504, 2525)]"
 

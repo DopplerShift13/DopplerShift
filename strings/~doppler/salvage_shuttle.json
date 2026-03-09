@@ -14,11 +14,17 @@
 		"Cybersun-Osaka Industries",
 		"Exagon-Ichikawa Orbital Resourcing",
 		"Osaka Medical Systems",
-		"Associato Petrochimico dell'Adriatico",
+		"Associato Petrochimico dell'Adriatico"
 	],
+
 	"ship_name": [
-		"@pick(designation) @pick(name_breaker)"
+		"@pick(designation) @pick(name_word) @pick(digit)",
+		"@pick(designation) @pick(name_word) @pick(name_word)",
+		"@pick(designation) @pick(name_word) @pick(name_word) @pick(digit)",
+		"@pick(designation) @pick(name_word)-@pick(name_word)",
+		"@pick(designation) @pick(name_word)-@pick(name_word) @pick(digit)"
 	],
+
 	"designation": [
 		"4CA",
 		"4CAV",
@@ -30,13 +36,7 @@
 		"3CARS",
 		"(Independent)"
 	],
-	"name_breaker": [
-		"@pick(name_word) @pick(digit)",
-		"@pick(name_word) @pick(name_word)",
-		"@pick(name_word) @pick(name_word) @pick(digit)",
-		"@pick(name_word)-@pick(name_word)",
-		"@pick(name_word)-@pick(name_word) @pick(digit)"
-	],
+
 	"name_word": [
 		"Spring",
 		"Summer",
@@ -104,6 +104,7 @@
 		"Extract",
 		"Company"
 	],
+
 	"digit": [
 		"I",
 		"II",
