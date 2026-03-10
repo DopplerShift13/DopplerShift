@@ -76,6 +76,13 @@
 	/// The maximum cells we can spawn
 	var/cells_maximum = 0
 
+	// DOPPLER ADDITION START - Adds Premium augment support to organs.
+	/// Whether this organ supports premium augment quality mechanics.
+	var/premium = FALSE
+	/// Component for premium augment quality mechanics.
+	var/datum/component/premium_augment/premium_component
+	// DOPPLER ADDITION END
+
 // Players can look at prefs before atoms SS init, and without this
 // they would not be able to see external organs, such as moth wings.
 // This is also necessary because assets SS is before atoms, and so
@@ -100,6 +107,11 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 
 	if(cell_line && (organ_flags & ORGAN_ORGANIC))
 		AddElement(/datum/element/swabable, cell_line, cell_line_amount = rand(cells_minimum, cells_maximum))
+
+	// DOPPLER ADDITION START - Adds Premium augment support to organs.
+	if(premium && !premium_component)
+		premium_component = AddComponent(/datum/component/premium_augment)
+	// DOPPLER ADDITION END
 
 	START_PROCESSING(SSobj, src)
 
@@ -196,6 +208,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	. = ..()
 
 	. += zones_tip()
+	// DOPPLER ADDITION START - Adds Premium augment support to organs.
+	if(premium_component)
+		. += premium_component.get_refurb_examine_lines(src)
+	// DOPPLER ADDITION END
 
 	if(HAS_MIND_TRAIT(user, TRAIT_ENTRAILS_READER) || isobserver(user))
 		if(HAS_TRAIT(src, TRAIT_CLIENT_STARTING_ORGAN))
@@ -210,6 +226,21 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 			. += span_warning("[src] seems to be malfunctioning.")
 			return
 		. += span_warning("[src] is starting to look discolored.")
+
+// DOPPLER ADDITION START - Adds Premium augment support to organs.
+/obj/item/organ/attackby(obj/item/tool, mob/user, params)
+	if(premium_component && premium_component.handle_refurbish_interaction(user, tool, src))
+		return
+	return ..()
+
+/// Default premium action hook. Override per organ.
+/obj/item/organ/proc/use_action()
+	return FALSE
+
+/// Premium augments can override this to report their "on" state for button overlays.
+/obj/item/organ/proc/is_action_active()
+	return FALSE
+// DOPPLER ADDITION END
 
 /// Returns a line to be displayed regarding valid insertion zones
 /obj/item/organ/proc/zones_tip()

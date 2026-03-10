@@ -16,7 +16,7 @@
 	..()
 	if(active_overlay_icon_state)
 		base_overlay_icon_state ||= overlay_icon_state
-	var/obj/item/organ/cyberimp/organ_target = target
+	var/obj/item/organ/organ_target = target
 	premium_component = organ_target?.premium_component
 	premium_component?.register_quality_action(src)
 	update_quality_overlay()
@@ -28,7 +28,7 @@
 /datum/action/item_action/organ_action/premium/Grant(mob/grant_to)
 	. = ..()
 	if(!premium_component)
-		var/obj/item/organ/cyberimp/organ_target = target
+		var/obj/item/organ/organ_target = target
 		premium_component = organ_target?.premium_component
 	premium_component?.register_quality_action(src)
 	update_arm_label()
@@ -68,7 +68,7 @@
 /datum/action/item_action/organ_action/premium/IsAvailable(feedback = FALSE)
 	. = ..()
 	if(!premium_component)
-		var/obj/item/organ/cyberimp/organ_target = target
+		var/obj/item/organ/organ_target = target
 		premium_component = organ_target?.premium_component
 	return .
 
@@ -104,7 +104,7 @@
 // This is specifically to flip right-side arm augments to look visually distinct from the other button (since you can have 2 arm augments).
 
 /datum/action/item_action/organ_action/premium/is_action_active(atom/movable/screen/movable/action_button/current_button)
-	var/obj/item/organ/cyberimp/organ_target = target
+	var/obj/item/organ/organ_target = target
 	return organ_target?.is_action_active() || FALSE
 
 /datum/action/item_action/organ_action/premium/use
@@ -126,13 +126,9 @@
 	return ""
 
 /datum/action/item_action/organ_action/premium/use/do_effect(trigger_flags)
-	var/obj/item/organ/cyberimp/organ_target = target
+	var/obj/item/organ/organ_target = target
 	if(!organ_target)
 		return FALSE
 	organ_target.use_action()
 	build_all_button_icons(UPDATE_BUTTON_OVERLAY | UPDATE_BUTTON_STATUS)
 	return TRUE
-
-// Premium augments can override this to report their "on" state for button overlays.
-/obj/item/organ/cyberimp/proc/is_action_active()
-	return FALSE

@@ -19,13 +19,12 @@
 	var/list/organs = target.get_organs_for_zone(target_zone)
 	var/list/premium_augments = list()
 	for(var/obj/item/organ/organ as anything in organs)
-		var/obj/item/organ/cyberimp/implant = organ
-		if(istype(implant) && implant.premium)
-			premium_augments += implant
+		if(organ.premium)
+			premium_augments += organ
 	return premium_augments
 
 /datum/surgery_step/premium_augment_access/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	var/obj/item/organ/cyberimp/target_implant
+	var/obj/item/organ/target_implant
 	var/datum/surgery/premium_augment_maintenance/premium_surgery = surgery
 	if(istype(premium_surgery))
 		target_implant = premium_surgery.get_selected_premium(user, target, target_zone, tool)
@@ -52,7 +51,7 @@
 	display_pain(target, "You feel a sharp, uncomfortable pressure in your [target.parse_zone_with_bodypart(target_zone)]!")
 
 /datum/surgery_step/premium_augment_access/success(mob/living/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	var/obj/item/organ/cyberimp/target_implant
+	var/obj/item/organ/target_implant
 	var/datum/surgery/premium_augment_maintenance/premium_surgery = surgery
 	if(istype(premium_surgery))
 		target_implant = premium_surgery.selected_premium
@@ -91,13 +90,12 @@
 	var/list/organs = target.get_organs_for_zone(target_zone)
 	var/list/premium_augments = list()
 	for(var/obj/item/organ/organ as anything in organs)
-		var/obj/item/organ/cyberimp/implant = organ
-		if(istype(implant) && implant.premium)
-			premium_augments += implant
+		if(organ.premium)
+			premium_augments += organ
 	return premium_augments
 
 /datum/surgery_step/premium_augment_maintenance/preop(mob/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery)
-	var/obj/item/organ/cyberimp/target_implant
+	var/obj/item/organ/target_implant
 	var/datum/surgery/premium_augment_maintenance/premium_surgery = surgery
 	if(istype(premium_surgery))
 		target_implant = premium_surgery.get_selected_premium(user, target, target_zone, tool)
@@ -129,7 +127,7 @@
 	display_pain(target, "You feel a sharp, uncomfortable pressure in your [target.parse_zone_with_bodypart(target_zone)]!")
 
 /datum/surgery_step/premium_augment_maintenance/success(mob/living/user, mob/living/carbon/target, target_zone, obj/item/tool, datum/surgery/surgery, default_display_results = FALSE)
-	var/obj/item/organ/cyberimp/target_implant
+	var/obj/item/organ/target_implant
 	var/datum/surgery/premium_augment_maintenance/premium_surgery = surgery
 	if(istype(premium_surgery))
 		target_implant = premium_surgery.selected_premium

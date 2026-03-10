@@ -87,7 +87,7 @@
 		return
 	if(!COOLDOWN_FINISHED(src, teleport_cooldown))
 		return
-	if(owner.reagents?.has_reagent(/datum/reagent/medicine/epinephrine))
+	if(owner.reagents?.has_reagent(/datum/reagent/medicine/epinephrine) || owner.reagents?.has_reagent(/datum/reagent/medicine/atropine))
 		return
 	if(owner.stat >= SOFT_CRIT && owner.stat != DEAD)
 		start_teleport()
@@ -152,7 +152,7 @@
 		return FALSE
 	if(owner.stat < SOFT_CRIT)
 		return TRUE
-	if(owner.reagents?.has_reagent(/datum/reagent/medicine/epinephrine))
+	if(owner.reagents?.has_reagent(/datum/reagent/medicine/epinephrine) || owner.reagents?.has_reagent(/datum/reagent/medicine/atropine))
 		return TRUE
 	return FALSE
 

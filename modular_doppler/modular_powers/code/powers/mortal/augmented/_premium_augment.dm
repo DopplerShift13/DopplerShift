@@ -1,8 +1,8 @@
 // Responsible for handling most of the premium augment interactions away from the base cyberimplant.
 /datum/component/premium_augment
 	dupe_mode = COMPONENT_DUPE_UNIQUE
-	/// Host implant that owns this premium augment logic.
-	var/obj/item/organ/cyberimp/host
+	/// Host organ that owns this premium augment logic.
+	var/obj/item/organ/host
 	/// Current quality percentage (0..100)
 	var/quality = AUGMENTED_PREMIUM_QUALITY_START
 	/// Passive decay configuration.
@@ -28,7 +28,7 @@
 	var/list/refurb_parts_remaining
 
 /datum/component/premium_augment/Initialize()
-	if(!istype(parent, /obj/item/organ/cyberimp))
+	if(!istype(parent, /obj/item/organ))
 		return COMPONENT_INCOMPATIBLE
 	host = parent
 	if(!host.premium_component)
@@ -127,11 +127,11 @@
 	adjust_quality(amount, AUGMENTED_PREMIUM_QUALITY_MAX)
 
 /// Handle refurbish interactions while the implant is out of the body.
-/datum/component/premium_augment/proc/handle_refurbish_interaction(mob/user, obj/item/tool, obj/item/organ/cyberimp/implant)
-	if(!user || !tool || !implant)
+/datum/component/premium_augment/proc/handle_refurbish_interaction(mob/user, obj/item/tool, obj/item/organ/augment)
+	if(!user || !tool || !augment)
 		return FALSE
-	if(implant.owner) // I don't even know how you would do this; the manual says to take it out first >:C
-		to_chat(user, span_warning("You need to remove [implant] before refurbishing it."))
+	if(augment.owner) // I don't even know how you would do this; the manual says to take it out first >:C
+		to_chat(user, span_warning("You need to remove [augment] before refurbishing it."))
 		return TRUE
 	var/step = get_refurb_step()
 	if(!step)
@@ -140,10 +140,10 @@
 	switch(step)
 		if(AUGMENTED_REFURBISH_OPEN)
 			if(tool.tool_behaviour != TOOL_SCREWDRIVER)
-				to_chat(user, span_warning("You need a screwdriver to open [implant]'s casing."))
+				to_chat(user, span_warning("You need a screwdriver to open [augment]'s casing."))
 				return TRUE
-			to_chat(user, span_notice("You open [implant]'s casing."))
-			tool.play_tool_sound(implant)
+			to_chat(user, span_notice("You open [augment]'s casing."))
+			tool.play_tool_sound(augment)
 			advance_refurb_step()
 			return TRUE
 
@@ -163,7 +163,7 @@
 
 				// Wrong item, right subtype.
 				if(!needed)
-					to_chat(user, span_warning("[stack] doesn't fit [implant]'s parts."))
+					to_chat(user, span_warning("[stack] doesn't fit [augment]'s parts."))
 					return TRUE
 
 				// Not enough in a stack
@@ -179,7 +179,7 @@
 
 				// Wrong item
 				if(!needed)
-					to_chat(user, span_warning("[tool] doesn't fit [implant]'s parts."))
+					to_chat(user, span_warning("[tool] doesn't fit [augment]'s parts."))
 					return TRUE
 
 				qdel(tool)
@@ -190,41 +190,41 @@
 				refurb_parts_remaining -= typepath
 			else
 				refurb_parts_remaining[typepath] = needed
-			to_chat(user, span_notice("You replace worn parts inside [implant]."))
-			tool.play_tool_sound(implant)
+			to_chat(user, span_notice("You replace worn parts inside [augment]."))
+			tool.play_tool_sound(augment)
 			if(!LAZYLEN(refurb_parts_remaining))
 				advance_refurb_step()
 			return TRUE
 
 		if(AUGMENTED_REFURBISH_CALIBRATE)
 			if(tool.tool_behaviour != TOOL_MULTITOOL)
-				to_chat(user, span_warning("You need a multitool to calibrate [implant]."))
+				to_chat(user, span_warning("You need a multitool to calibrate [augment]."))
 				return TRUE
-			to_chat(user, span_notice("You calibrate [implant]'s diagnostics."))
-			tool.play_tool_sound(implant)
+			to_chat(user, span_notice("You calibrate [augment]'s diagnostics."))
+			tool.play_tool_sound(augment)
 			advance_refurb_step()
 			return TRUE
 
 		if(AUGMENTED_REFURBISH_CLOSE)
 			if(tool.tool_behaviour != TOOL_SCREWDRIVER)
-				to_chat(user, span_warning("You need a screwdriver to close [implant]'s casing."))
+				to_chat(user, span_warning("You need a screwdriver to close [augment]'s casing."))
 				return TRUE
 			refurbish(AUGMENTED_PREMIUM_QUALITY_MAX)
-			tool.play_tool_sound(implant)
+			tool.play_tool_sound(augment)
 			reset_refurb()
-			to_chat(user, span_notice("You finish refurbishing [implant]. Looks about as new as it can get."))
+			to_chat(user, span_notice("You finish refurbishing [augment]. Looks about as new as it can get."))
 			return TRUE
 
 	return FALSE
 
 /// Returns lines to show when examining a premium augment for refurbishing.
-/datum/component/premium_augment/proc/get_refurb_examine_lines(obj/item/organ/cyberimp/implant)
+/datum/component/premium_augment/proc/get_refurb_examine_lines(obj/item/organ/augment)
 	var/list/lines = list()
-	if(!implant)
+	if(!augment)
 		return lines
 	lines += span_notice("Premium quality: [round(quality)]%.")
-	if(implant.owner)
-		lines += span_warning("Remove [implant] before refurbishing it.")
+	if(augment.owner)
+		lines += span_warning("Remove [augment] before refurbishing it.")
 		return lines
 
 	var/step = get_refurb_step()

@@ -130,10 +130,11 @@
 		return
 	premium_component.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_TRIVIAL * 2)
 
+
 // The chem sprayer specifically designed for the augment.
 /obj/item/reagent_containers/spray/chemsprayer/reagent_cannon
 	name = "Premium SPRY Reagent Cannon"
-	desc = "A chem sprayer integrated into a premium arm augment. Really its a miracle you even have an operable hand with the size of this thing."
+	desc = "A chem sprayer integrated into a premium arm augment. Really its a miracle you even have an operable hand with the size of this thing. Comes with a 'focused' mode which tightens the spread of the cannon."
 	var/obj/item/organ/cyberimp/arm/toolkit/reagent_cannon/host_implant
 	/// 0 = spray wide, 1 = stream wide, 2 = spray focused, 3 = stream focused
 	var/mode = 0
