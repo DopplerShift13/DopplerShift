@@ -3,7 +3,7 @@
 */
 /datum/power/augmented/pneumatic_arm
 	name = "Premium DSTR Pneumatic Arm"
-	desc = "A popular choice for the augmented bodyguards, given it turns your arms into weapons; ideal for places that don't allow weapons. Passively increases your punch damage by +5 with that arm. \
+	desc = "A popular choice for the augmented bodyguards and manufactured by Praetor Dynamics. Passively increases your punch damage by +5 with that arm. \
 	\n In addition, it allows you actively 'overcharge' the arm, making your next punch knockback someoneone 2 spaces (potentially stunning them on walls) and dealing an additional 15 brute damage in exchange for a hefty quality cost.\
 	\n Quality decreases from using the pneumatic arm's active ability. Quality affects damage (passive and active)."
 
@@ -12,7 +12,7 @@
 
 /obj/item/organ/cyberimp/arm/pneumatic_arm
 	name = "DSTR Pneumatic Arm"
-	desc = "A popular choice for the augmented bodyguards, given it turns your arms into weapons; ideal for places that don't allow weapons. Passively increases your punch damage by +5 with that arm. \
+	desc = "A popular choice for the augmented bodyguards and manufactured by Praetor Dynamics. Passively increases your punch damage by +5 with that arm. \
 	\n In addition, it allows you actively 'overcharge' the arm, making your next punch knockback someoneone 2 spaces (potentially stunning them on walls) and dealing an additional 15 brute damage in exchange for a hefty quality cost.\
 	\n Quality decreases from using the pneumatic arm's active ability. Quality affects damage (passive and active)."
 	icon_state = "toolkit_generic"

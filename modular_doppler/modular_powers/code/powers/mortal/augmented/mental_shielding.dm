@@ -3,7 +3,7 @@
 */
 /datum/power/augmented/mental_shielding
 	name = "Premium TNFL Mental Shielding Implant"
-	desc = " Based on the nullifying effects that tinfoil has on certain magical phenomena, this dermal implant creates a protective coating around your brain.\
+	desc = " Based on the nullifying effects that tinfoil has on certain magical phenomena, this dermal implant created by Oracle Neuro-Systems creates a protective coating around your brain.\
 	\n Creates a barrier that blocks resonant based scrying, as well as mental abilities used on you (including magic stronger than Resonant).\
 	\n Blocking mental abilities consumes quality, increasing consumption rate the lower the quality is."
 
@@ -12,7 +12,7 @@
 
 /obj/item/organ/cyberimp/brain/mental_shielding
 	name = "TNFL Mental Shielding Implant"
-	desc = "Based on the nullifying effects that tinfoil has on certain magical phenomena, this dermal implant creates a protective coating around your brain. \
+	desc = "Based on the nullifying effects that tinfoil has on certain magical phenomena, this dermal implant created by Oracle Neuro-Systems creates a protective coating around your brain. \
 		Creates a barrier that blocks resonant based scrying, as well as mental abilities used on you (including magic stronger than Resonant). \
 		Blocking mental abilities consumes quality, increasing consumption rate the lower the quality is."
 	icon_state = "brain_implant_connector"

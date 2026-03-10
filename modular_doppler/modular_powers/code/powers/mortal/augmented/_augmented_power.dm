@@ -42,13 +42,14 @@
 			right_implant.slot = ORGAN_SLOT_RIGHT_ARM_AUG
 			right_implant.Insert(carbon_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return
-		var/arm_zone = get_assigned_arm_zone(client_source)
-		if(arm_zone == BODY_ZONE_L_ARM)
+		else if(left_match)
 			implant.zone = BODY_ZONE_L_ARM
 			implant.slot = ORGAN_SLOT_LEFT_ARM_AUG
-		else if(arm_zone == BODY_ZONE_R_ARM)
+		else if(right_match)
 			implant.zone = BODY_ZONE_R_ARM
 			implant.slot = ORGAN_SLOT_RIGHT_ARM_AUG
+		else
+			return
 	implant.Insert(carbon_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 	return
 
@@ -119,18 +120,6 @@ GLOBAL_LIST_INIT(arm_augment_values, generate_arm_augment_values())
 		if(zone in GLOB.arm_zones)
 			values += initial(power_type.name)
 	return values
-
-// This gets the /datum/preference/choiced for left and right augments telling us which arm is where.
-/datum/power/augmented/proc/get_assigned_arm_zone(client/client_source)
-	if(!client_source)
-		return null
-	var/augment_left = client_source.prefs?.read_preference(/datum/preference/choiced/augment_left)
-	var/augment_right = client_source.prefs?.read_preference(/datum/preference/choiced/augment_right)
-	if(augment_left && augment_left != AUGMENTED_NO_AUGMENT && augment_matches_pref(augment_left))
-		return BODY_ZONE_L_ARM
-	if(augment_right && augment_right != AUGMENTED_NO_AUGMENT && augment_matches_pref(augment_right))
-		return BODY_ZONE_R_ARM
-	return null
 
 // Bit of validation to make sure the augment is in fact in the user's prefs.
 /datum/power/augmented/proc/augment_matches_pref(value)

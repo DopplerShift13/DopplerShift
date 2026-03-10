@@ -8,7 +8,7 @@
 	Once it fires, a warning message is issued over the radio. The teleportation sets the quality to 0%, and can be interupted by Epinephrine in the bloodstream, EMP, or healing you above the critical threshold; after which it loses 25% quality and enters a several minute cooldown period.\
 	\n Decreases in quality twice as fast. Lower quality decreases the speed of the teleport."
 
-	value = 5
+	value = 6
 	augment = /obj/item/organ/cyberimp/chest/auto_retriever
 
 /obj/item/organ/cyberimp/chest/auto_retriever
