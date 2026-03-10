@@ -4,7 +4,7 @@
 /datum/power/augmented/reagent_cannon
 	name = "Premium SPRY Reagent Cannon"
 	desc = "Usually included in various company contracts, those who work in mega-scale botanics and cleaning need to push for optimal efficiency. Manufcatured by Nex-Zephyr, this beauty will be your lifelong replacement of a spray bottle.\
-	\n When activated, transform your arm into a chemsprayer, allowing you to deploy chemicals rapidly in a large area. Capable of containing up to 300 chemicals. \
+	\n When activated, transform your arm into a chemsprayer, allowing you to deploy chemicals rapidly in a large area. Capable of containing up to 600 chemicals. \
 	\n Because this is an incredibly invasive augment, this requires a cybernetic arm to wield effectively. Your arm will be replaced with a synthetic variant at roundstart to facilitate this."
 
 	value = 5
@@ -40,7 +40,7 @@
 /obj/item/organ/cyberimp/arm/toolkit/reagent_cannon
 	name = "Premium SPRY Reagent Cannon"
 	desc = "Usually included in various company contracts, those who work in mega-scale botanics and cleaning need to push for optimal efficiency. Manufcatured by Nex-Zephyr, this beauty will be your lifelong replacement of a spray bottle.\
-	\n When activated, transform your arm into a chemsprayer, allowing you to deploy chemicals rapidly in a large area. Capable of containing up to 300 chemicals. \
+	\n When activated, transform your arm into a chemsprayer, allowing you to deploy chemicals rapidly in a large area. Capable of containing up to 600 chemicals. \
 	\n Because this is an incredibly invasive augment, this requires a cybernetic arm to wield effectively."
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
 	icon_state = "chemsprayer"

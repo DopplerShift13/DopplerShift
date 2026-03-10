@@ -4,7 +4,7 @@
 /datum/power/augmented/precognition_eyes
 	name = "Premium PRCG Precognitive Scanners"
 	desc = "Though some market it as being able to see the future, this invention by Oracle Neuro-Systems is instead a specialized AI recognition model hooked into a BULLET DODGER skillchip, allowing you to automatically dodge any incoming projectiles.\
-	\n This doesn't come without drawbacks, as the visual load is exhausting and suffers from the same drawbacks as the skillchip by tiring you out, causing more exhaustion than usual.\
+	\n This doesn't come without drawbacks, as the visual load is exhausting and suffers from the same drawbacks as the skillchip by tiring you out, causing more exhaustion than usual. This has no safeguard, meaning you can be stamina-critted by any projectiles.\
 	\n Requires a BULLET DODGER Skillchip to function; comes pre-packaged with one at roundstart."
 
 	value = 8
@@ -13,7 +13,7 @@
 /obj/item/organ/eyes/robotic/precognition_eyes
 	name = "Premium PRCG Precognitive Scanners"
 	desc = "Though some market it as being able to see the future, this invention by Oracle Neuro-Systems is instead a specialized AI recognition model hooked into a BULLET DODGER skillchip, allowing you to automatically dodge any incoming projectiles.\
-	\n This doesn't come without drawbacks, as the visual load is exhausting and suffers from the same drawbacks as the skillchip by tiring you out, causing more exhaustion than usual.\
+	\n This doesn't come without drawbacks, as the visual load is exhausting and suffers from the same drawbacks as the skillchip by tiring you out, causing more exhaustion than usual. This has no safeguard, meaning you can be stamina-critted by any projectiles.\
 	\n Requires a BULLET DODGER Skillchip to function."
 	icon_state = "eyes_cyber_xray"
 
