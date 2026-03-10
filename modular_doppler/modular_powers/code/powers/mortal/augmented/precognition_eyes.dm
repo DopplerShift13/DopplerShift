@@ -143,5 +143,5 @@
 	premium_component?.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MINOR)
 	source.visible_message(span_warning("[source] dodges the [proj] with little effort!"), span_danger("You automatically dodge the [proj]!"))
 
-	addtimer(TRAIT_CALLBACK_REMOVE(source, TRAIT_UNHITTABLE_BY_PROJECTILES, AUGMENTATION_TRAIT), TAUNT_EMOTE_DURATION * 1.5)
+	addtimer(TRAIT_CALLBACK_REMOVE(source, TRAIT_UNHITTABLE_BY_PROJECTILES, AUGMENTATION_TRAIT), 0.3 SECONDS)
 	return PROJECTILE_INTERRUPT_HIT
