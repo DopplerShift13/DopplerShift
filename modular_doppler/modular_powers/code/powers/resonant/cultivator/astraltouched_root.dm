@@ -55,7 +55,7 @@
 	var/space_value = CULTIVATOR_AURA_FARM_MINOR * 0.6 // the real thing
 	var/glass_value = CULTIVATOR_AURA_FARM_MINOR * 0.3 // not as cool but its something
 	var/fake_space_value = CULTIVATOR_AURA_FARM_MINOR * 0.4 // looks pretty real.
-	var/space_cube_value = CULTIVATOR_AURA_FARM_MINOR * 0.5 // Praise the space cube poster.
+	var/space_cube_value = CULTIVATOR_AURA_FARM_MINOR * 0.5 // Praise the space cube.
 	var/in_space_value = CULTIVATOR_AURA_FARM_MAJOR // Being out in space basically guarantees 50% charge.
 
 	// Do we see space turfs?
@@ -72,8 +72,10 @@
 			total += fake_space_value
 			continue
 
-	// PRAISE THE CUBE POSTER. IT HAS SPACE ON IT - THAT COUNTS!
+	// PRAISE THE SPACE CUBE. IT HAS SPACE ON IT - THAT COUNTS!
 	for(var/obj/structure/sign/poster/contraband/space_cube/cube in view(owner_mob))
+		total += space_cube_value
+	for(var/obj/item/dice/d6/space/cube in view(owner_mob))
 		total += space_cube_value
 
 	// Are we in space?

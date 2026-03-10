@@ -48,36 +48,37 @@
 	var/turf/current_turf = get_turf(src)
 	if(!current_turf)
 		return
+	var/turf/old_turf = get_turf(old_loc)
 
 	// Handless moving objects along with it.
-	drag_along_movables(current_turf, dir)
+	drag_along_movables(old_turf, current_turf)
 	// Extinguishes hotspots. Doesn't mess with atmos.
 	extinguish_hotspots_on_turf(current_turf)
 
-/obj/projectile/resonant/gale_blast/proc/drag_along_movables(turf/current_turf, travel_dir)
-	if(!current_turf || !travel_dir)
+/obj/projectile/resonant/gale_blast/proc/drag_along_movables(turf/from_turf, turf/to_turf)
+	if(!from_turf || !to_turf)
 		return
 
-	var/turf/next_turf = get_step(current_turf, travel_dir)
-	if(!next_turf)
+	var/travel_dir = get_dir(from_turf, to_turf)
+	if(!travel_dir)
 		return
 
 	var/pushed_atoms = 0
 
 	// Checks if we're allowed to drag it and if the space can be passed through.
-	for(var/atom/movable/movable_instance as anything in current_turf)
+	for(var/atom/movable/movable_instance as anything in from_turf)
 		// We cap the amount of items that can be moved similar to push brooms to prevent you from casting LAGIMUS MAXIMUS.
 		if(pushed_atoms >= THAUMATURGE_GALE_BLAST_PUSH_LIMIT)
 			break
 
-		if(!can_wind_drag(movable_instance, current_turf))
+		if(!can_wind_drag(movable_instance, from_turf))
 			continue
 
-		if(!movable_instance.CanPass(movable_instance, next_turf, travel_dir))
+		if(!movable_instance.CanPass(movable_instance, to_turf, travel_dir))
 			continue
 
 		// Drags along the object.
-		movable_instance.Move(next_turf)
+		movable_instance.Move(to_turf)
 		// Also extinguishes it.
 		movable_instance.extinguish()
 		pushed_atoms++
