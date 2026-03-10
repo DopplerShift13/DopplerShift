@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ce" = (
-/obj/machinery/portable_atmospherics/canister/freon,
+/obj/machinery/portable_atmospherics/canister/air,
 /turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
 "dD" = (
@@ -11,50 +11,47 @@
 /turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
 "ez" = (
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 8
-	},
-/turf/open/floor/plating,
+/turf/closed/wall/mineral/nanocarbon/yellow,
 /area/shuttle/salvaged_shuttle)
 "fI" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/obj/machinery/light/cold/directional/south,
-/turf/open/floor/iron/colony/bolts,
+/obj/structure/marker_beacon/burgundy,
+/turf/closed/wall/mineral/nanocarbon/yellow,
+/area/shuttle/salvaged_shuttle)
+"jv" = (
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "kO" = (
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/shuttle/salvaged_shuttle)
 "kZ" = (
-/obj/structure/lattice,
-/turf/template_noop,
+/obj/structure/marker_beacon/burgundy,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/salvaged_shuttle)
 "mH" = (
 /turf/open/floor/iron/colony,
 /area/shuttle/salvaged_shuttle)
 "nw" = (
-/obj/structure/railing/eva_handhold/directional/south,
-/obj/effect/mapping_helpers/salvage_anchor/end/one,
-/turf/closed/wall/mineral/nanocarbon/black,
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
 "nP" = (
 /obj/structure/mineral_door/manual_colony_door,
 /turf/open/floor/iron/colony/texture,
 /area/shuttle/salvaged_shuttle)
-"oO" = (
-/obj/machinery/light/cold/directional/north,
-/turf/open/floor/iron/colony/bolts,
+"oM" = (
+/obj/structure/marker_beacon/jade,
+/turf/closed/wall/mineral/nanocarbon/yellow,
 /area/shuttle/salvaged_shuttle)
 "pH" = (
-/obj/machinery/computer/old{
-	dir = 8
-	},
-/turf/open/floor/iron/colony,
+/obj/machinery/light/cold/dim/directional/west,
+/turf/open/floor/catwalk_floor/colony_fabricator,
 /area/shuttle/salvaged_shuttle)
-"tE" = (
-/obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+"tC" = (
+/obj/structure/girder/reinforced,
+/turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
 "uk" = (
 /obj/structure/railing/eva_handhold/directional/south,
@@ -70,9 +67,6 @@
 /obj/structure/marker_beacon/jade,
 /turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
-"xp" = (
-/turf/open/floor/iron/colony/bolts,
-/area/shuttle/salvaged_shuttle)
 "yi" = (
 /turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
@@ -85,31 +79,37 @@
 /obj/effect/mapping_helpers/salvage_anchor/end/seven,
 /turf/closed/wall/mineral/nanocarbon/yellow,
 /area/shuttle/salvaged_shuttle)
-"yR" = (
-/obj/structure/marker_beacon/jade,
-/turf/closed/wall/mineral/nanocarbon/yellow,
-/area/shuttle/salvaged_shuttle)
 "yZ" = (
 /obj/machinery/portable_atmospherics/canister/plasma,
 /turf/open/floor/plating,
+/area/shuttle/salvaged_shuttle)
+"zd" = (
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "zm" = (
 /obj/structure/mineral_door/manual_colony_door,
 /turf/open/floor/iron/colony/white/texture,
 /area/shuttle/salvaged_shuttle)
 "Av" = (
-/obj/machinery/portable_atmospherics/canister/air,
-/turf/open/floor/plating,
+/obj/effect/mapping_helpers/salvage_anchor/end/four,
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "BV" = (
 /turf/open/floor/iron/colony/texture,
+/area/shuttle/salvaged_shuttle)
+"BW" = (
+/obj/machinery/light/blacklight/directional/south,
+/turf/open/floor/iron/colony,
+/area/shuttle/salvaged_shuttle)
+"CC" = (
+/turf/open/floor/iron/colony/bolts,
 /area/shuttle/salvaged_shuttle)
 "CO" = (
 /obj/structure/reagent_dispensers/fueltank/large,
 /turf/open/floor/iron/colony/bolts,
 /area/shuttle/salvaged_shuttle)
 "CU" = (
-/obj/structure/marker_beacon/jade,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/salvaged_shuttle)
 "Dm" = (
@@ -120,19 +120,12 @@
 /turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
 "Dp" = (
-/obj/effect/mapping_helpers/salvage_anchor/end/four,
-/turf/closed/wall/mineral/nanocarbon/black,
+/obj/effect/mapping_helpers/salvage_anchor/end/five,
+/turf/closed/wall/mineral/nanocarbon/yellow,
 /area/shuttle/salvaged_shuttle)
 "Du" = (
-/obj/structure/railing/eva_handhold/directional/north,
-/turf/closed/wall/mineral/nanocarbon/black,
-/area/shuttle/salvaged_shuttle)
-"Ef" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/obj/machinery/light/cold/directional/north,
-/turf/open/floor/iron/colony/bolts,
+/obj/structure/lattice,
+/turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "Em" = (
 /obj/structure/railing/eva_handhold/directional/south,
@@ -148,14 +141,9 @@
 /obj/structure/marker_beacon/jade,
 /turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
-"ER" = (
-/obj/machinery/light/blacklight/directional/north,
-/turf/open/floor/iron/colony,
-/area/shuttle/salvaged_shuttle)
-"Fo" = (
-/obj/structure/railing/eva_handhold/directional/north,
-/obj/effect/mapping_helpers/salvage_anchor/end/eight,
-/turf/closed/wall/mineral/nanocarbon/black,
+"Ew" = (
+/obj/structure/marker_beacon/jade,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/salvaged_shuttle)
 "HR" = (
 /obj/structure/railing/eva_handhold/directional/south,
@@ -174,9 +162,19 @@
 /obj/machinery/light/cold/directional/south,
 /turf/open/floor/iron/colony/bolts,
 /area/shuttle/salvaged_shuttle)
-"IH" = (
-/obj/machinery/power/micro_reactor,
+"IG" = (
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/salvaged_shuttle)
+"IM" = (
+/obj/structure/grille,
 /turf/open/floor/plating,
+/area/shuttle/salvaged_shuttle)
+"IP" = (
+/obj/machinery/computer/old{
+	dir = 8
+	},
+/turf/open/floor/iron/colony,
 /area/shuttle/salvaged_shuttle)
 "IZ" = (
 /obj/structure/reagent_dispensers/fueltank/large,
@@ -184,24 +182,32 @@
 /turf/open/floor/iron/colony/bolts,
 /area/shuttle/salvaged_shuttle)
 "Jd" = (
-/obj/structure/grille,
+/obj/structure/marker_beacon/jade,
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/shuttle/salvaged_shuttle)
+"Kv" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
 "KV" = (
 /obj/structure/railing/eva_handhold/directional/south,
+/obj/effect/mapping_helpers/salvage_anchor/end/one,
 /turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "LH" = (
-/obj/effect/mapping_helpers/salvage_anchor/end/five,
-/turf/closed/wall/mineral/nanocarbon/yellow,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/effect/mapping_helpers/salvage_anchor/end/eight,
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "LJ" = (
 /obj/effect/mapping_helpers/salvage_anchor/end/three,
 /turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "LK" = (
-/obj/structure/marker_beacon/jade,
-/turf/closed/wall/mineral/nanocarbon/black,
+/obj/machinery/power/micro_reactor,
+/turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
 "LV" = (
 /obj/effect/mapping_helpers/salvage_anchor/end/six,
@@ -220,22 +226,28 @@
 /turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
 "Ow" = (
-/obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/nanocarbon/black,
+/obj/machinery/light/blacklight/directional/north,
+/turf/open/floor/iron/colony,
 /area/shuttle/salvaged_shuttle)
 "Pp" = (
-/obj/machinery/light/cold/dim/directional/west,
-/turf/open/floor/catwalk_floor/colony_fabricator,
-/area/shuttle/salvaged_shuttle)
-"PY" = (
-/obj/structure/girder/reinforced,
-/turf/open/floor/plating,
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/cold/directional/south,
+/turf/open/floor/iron/colony/bolts,
 /area/shuttle/salvaged_shuttle)
 "QT" = (
 /obj/structure/railing/eva_handhold/directional/north,
 /turf/closed/wall/mineral/nanocarbon/yellow,
 /area/shuttle/salvaged_shuttle)
 "RM" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/cold/directional/north,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/salvaged_shuttle)
+"RS" = (
 /turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "Sv" = (
@@ -245,28 +257,19 @@
 /obj/structure/marker_beacon/jade,
 /turf/open/floor/engine/anchor_jack,
 /area/shuttle/salvaged_shuttle)
-"Ti" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 8
-	},
-/turf/open/floor/plating,
-/area/shuttle/salvaged_shuttle)
-"TJ" = (
-/obj/machinery/light/blacklight/directional/south,
-/turf/open/floor/iron/colony,
-/area/shuttle/salvaged_shuttle)
-"Wb" = (
+"UU" = (
 /turf/closed/wall/mineral/aluminum,
 /area/shuttle/salvaged_shuttle)
-"Xs" = (
-/turf/closed/wall/mineral/nanocarbon/yellow,
+"Yj" = (
+/obj/machinery/portable_atmospherics/canister/freon,
+/turf/open/floor/plating,
 /area/shuttle/salvaged_shuttle)
 "YC" = (
 /turf/template_noop,
 /area/template_noop)
 "YR" = (
 /obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/nanocarbon/yellow,
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 
 (1,1,1) = {"
@@ -403,11 +406,11 @@ YC
 YC
 YC
 YC
-LK
-RM
-Ti
-RM
-Ow
+Jd
+RS
+Kv
+RS
+YR
 YC
 YC
 YC
@@ -422,15 +425,15 @@ HR
 YC
 YC
 YC
-Wb
+UU
 YC
-Fo
-mH
-ez
+LH
 mH
 nw
+mH
+KV
 YC
-Wb
+UU
 YC
 YC
 YC
@@ -443,15 +446,15 @@ YC
 YC
 YC
 YC
-Wb
+UU
 YC
-RM
-ER
-IH
-TJ
-RM
+RS
+Ow
+LK
+BW
+RS
 YC
-Wb
+UU
 YC
 YC
 YC
@@ -464,15 +467,15 @@ YC
 YC
 YC
 YC
+Ew
+RS
 CU
-RM
-RM
-Wb
+UU
 nP
-Wb
-RM
-RM
-tE
+UU
+CU
+RS
+kZ
 YC
 YC
 YC
@@ -485,15 +488,15 @@ YC
 YC
 YC
 YC
-Du
+zd
 yZ
-Wb
-oO
+UU
+IG
 kO
 Im
-Wb
+UU
 yZ
-KV
+jv
 YC
 YC
 YC
@@ -506,15 +509,15 @@ YC
 YC
 YC
 YC
-Xs
+ez
 yi
-PY
+tC
 CO
 kO
-xp
-PY
+CC
+tC
 yi
-Xs
+ez
 YC
 YC
 YC
@@ -529,11 +532,11 @@ YC
 YC
 yx
 yi
-PY
+tC
 mH
-xp
+CC
 mH
-PY
+tC
 yi
 Md
 YC
@@ -548,15 +551,15 @@ YC
 YC
 YC
 YC
-Du
-Av
-PY
-xp
+zd
+ce
+tC
+CC
 kO
-xp
-PY
+CC
+tC
 yi
-KV
+jv
 YC
 YC
 YC
@@ -569,15 +572,15 @@ YC
 YC
 YC
 YC
-RM
+RS
 yi
-Wb
+UU
 IZ
 kO
 Im
-Wb
+UU
 yi
-RM
+RS
 YC
 YC
 YC
@@ -591,13 +594,13 @@ YC
 YC
 YC
 QT
-Wb
-Wb
-Wb
+UU
+UU
+UU
 BV
-Wb
-Wb
-Jd
+UU
+UU
+IM
 ym
 YC
 YC
@@ -612,14 +615,14 @@ YC
 YC
 YC
 zm
-Pp
+pH
 zm
-xp
+CC
 kO
-xp
-Wb
+CC
+UU
 yi
-Xs
+ez
 YC
 YC
 YC
@@ -632,15 +635,15 @@ YC
 YC
 YC
 YC
-Du
-Wb
-Wb
-oO
+zd
+UU
+UU
+IG
 kO
 Im
-Wb
+UU
 yi
-KV
+jv
 YC
 YC
 YC
@@ -655,12 +658,12 @@ YC
 YC
 LV
 yi
-Wb
-Wb
+UU
+UU
 nP
-Wb
-Wb
-Jd
+UU
+UU
+IM
 LJ
 YC
 YC
@@ -675,12 +678,12 @@ YC
 YC
 YC
 QT
-ce
-Wb
-xp
+Yj
+UU
+CC
 kO
-xp
-Wb
+CC
+UU
 yi
 ym
 YC
@@ -695,15 +698,15 @@ YC
 YC
 YC
 YC
-yR
-Xs
+oM
+ez
+CU
 RM
-Ef
 kO
+Pp
+CU
+ez
 fI
-RM
-Xs
-YR
 YC
 YC
 YC
@@ -717,13 +720,13 @@ YC
 YC
 YC
 YC
-kZ
-RM
-pH
-xp
-pH
-RM
-kZ
+Du
+RS
+IP
+CC
+IP
+RS
+Du
 YC
 YC
 YC
@@ -737,15 +740,15 @@ YC
 YC
 YC
 YC
-Xs
-kZ
-LK
-RM
-PY
-RM
-Ow
-kZ
-RM
+ez
+Du
+Jd
+RS
+tC
+RS
+YR
+Du
+RS
 YC
 YC
 YC
@@ -758,15 +761,15 @@ HR
 YC
 YC
 YC
-LH
-kZ
-YC
-YC
-YC
-YC
-YC
-kZ
 Dp
+Du
+YC
+YC
+YC
+YC
+YC
+Du
+Av
 YC
 YC
 YC
@@ -779,15 +782,15 @@ YC
 YC
 YC
 YC
-Xs
-Xs
+ez
+ez
 YC
 YC
 YC
 YC
 YC
-RM
-RM
+RS
+RS
 YC
 YC
 YC
