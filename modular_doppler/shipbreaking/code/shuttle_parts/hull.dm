@@ -29,7 +29,6 @@
 		if(isliving(atom_target))
 			crushed = TRUE
 			var/mob/living/carbon/living_target = atom_target
-			var/was_alive = living_target.stat != DEAD
 			var/blocked = living_target.run_armor_check(attack_flag = MELEE)
 			if(iscarbon(living_target))
 				var/mob/living/carbon/carbon_target = living_target
@@ -107,6 +106,8 @@
 		/datum/material/nanocarbon = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	rust_resistance = RUST_RESISTANCE_TITANIUM
+	/// How many shards of nanocarbon the wall will make when exploded, maximum
+	var/number_of_shards = 6
 
 /turf/closed/wall/mineral/nanocarbon/break_wall()
 	var/obj/new_plating = new /obj/structure/hull_plating/nanocarbon(src)
@@ -115,13 +116,14 @@
 		return new girder_type(src)
 
 /turf/closed/wall/mineral/nanocarbon/devastate_wall()
-	for(var/iteration in 1 to number_of_shards)
-		var/obj/item/shard = new /obj/item/nanocarbon_shard(drop_location())
+	var/random_shards = rand(2, number_of_shards)
+	for(var/iteration in 1 to random_shards)
+		var/obj/item/shard = new /obj/item/nanocarbon_shard(src)
 		shard.pixel_x = rand(-6, 6)
 		shard.pixel_y = rand(-6, 6)
 		shard.color = color
 	if(girder_type)
-		new /obj/item/stack/sheet/iron(src)
+		return new girder_type(src)
 
 /turf/closed/wall/mineral/nanocarbon/nodiagonal
 	icon = MAP_SWITCH('modular_doppler/shipbreaking/icons/turfs/nanocarbon_wall.dmi', 'modular_doppler/shipbreaking/icons/turfs/walls_misc.dmi')
