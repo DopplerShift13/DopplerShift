@@ -29,13 +29,40 @@
 		. += span_notice("This space is [EXAMINE_HINT("[floor(/obj/docking_port/stationary/salvage_dock::width / 2)]")] tiles to either side of the clamp, and [EXAMINE_HINT("[/obj/docking_port/stationary/salvage_dock::height]")] tiles straight out.")
 
 /obj/machinery/docking_clamp/multitool_act(mob/living/user, obj/item/multitool/the_tool)
+	if(!panel_open)
+		balloon_alert(user, "panel closed!")
+		return ITEM_INTERACT_BLOCKING
 	the_tool.set_buffer(src)
 	balloon_alert(user, "saved to multitool buffer")
+	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/docking_clamp/wrench_act(mob/living/user, obj/item/tool)
+	if(!panel_open)
+		balloon_alert(user, "panel closed!")
+		return ITEM_INTERACT_BLOCKING
+	if(!default_unfasten_wrench(user, tool, 4 SECONDS))
+		return ITEM_INTERACT_BLOCKING
+	if(!anchored)
+		QDEL_NULL(docking_port)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/docking_clamp/screwdriver_act(mob/user, obj/item/tool)
+	if(!default_deconstruction_screwdriver(user, icon_state, icon_state, tool))
+		return ITEM_INTERACT_BLOCKING
+	update_appearance()
+	return ITEM_INTERACT_SUCCESS
+
+/obj/machinery/docking_clamp/crowbar_act(mob/user, obj/item/tool)
+	if(!default_deconstruction_crowbar(tool))
+		return ITEM_INTERACT_BLOCKING
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/docking_clamp/interact(mob/user)
 	if(!can_interact(user))
 		return
+	if(!anchored)
+		balloon_alert(user, "not secured!")
+		return ..()
 	if(docking_port)
 		balloon_alert(user, "already set!")
 		return ..()
