@@ -63,7 +63,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 	. = ..()
 	if(target.dna.features["frame_list"] && !(type in GLOB.species_blacklist_no_humanoid))
 		//head
-		if(target.dna.features["frame_list"][BODY_ZONE_HEAD] && istype(src, /datum/species/android))
+		if(target.dna.features["frame_list"][BODY_ZONE_HEAD])
 			var/obj/item/bodypart/head/old_limb = target.get_bodypart(BODY_ZONE_HEAD)
 			if(old_limb)
 				old_limb.drop_limb(TRUE, FALSE, FALSE)
@@ -142,9 +142,9 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 /datum/preference/choiced/head_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(ispath(species, /datum/species/android)) // lifting this restriction would require code for the head's internal organs to become cybernetic too
-		return TRUE
-	return FALSE
+	if(species in GLOB.species_blacklist_no_humanoid)
+		return FALSE
+	return TRUE
 
 // Chest
 /datum/preference/choiced/chest_type
