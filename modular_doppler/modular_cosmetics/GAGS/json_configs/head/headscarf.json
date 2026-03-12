@@ -1,0 +1,10 @@
+{
+	"headscarf": [
+		{
+			"type": "icon_state",
+			"icon_state": "headscarf",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

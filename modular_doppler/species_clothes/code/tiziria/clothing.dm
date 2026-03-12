@@ -37,6 +37,8 @@
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
 	flags_cover = GLASSESCOVERSEYES
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/glasses/lizard_hud/Initialize(mapload)
 	. = ..()
