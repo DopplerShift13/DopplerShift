@@ -106,6 +106,7 @@
 		/datum/material/nanocarbon = SHEET_MATERIAL_AMOUNT * 3,
 	)
 	rust_resistance = RUST_RESISTANCE_TITANIUM
+	baseturfs = /turf/baseturf_bottom
 	/// How many shards of nanocarbon the wall will make when exploded, maximum
 	var/number_of_shards = 6
 
