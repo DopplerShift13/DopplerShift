@@ -55,6 +55,10 @@
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	autogen_clothing_config = null
+	supported_bodyshapes = list(
+		BODYSHAPE_HUMANOID,
+		BODYSHAPE_TESHARI
+	)
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/fancy_labcoat/worn,
 		BODYSHAPE_TESHARI_T = /datum/greyscale_config/fancy_labcoat/worn/teshari
@@ -71,32 +75,32 @@
 	allowed += /obj/item/storage/bag/xeno
 
 /obj/item/clothing/suit/toggle/labcoat/fancy/rd
-	name = "research directors labcoat"
+	name = "research director's high-neck labcoat"
 	desc = "A somewhat premium labcoat for certified Research Directors. It has an extra plastic-latex lining on the outside for more protection from chemical and viral hazards."
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/rd"
 	greyscale_colors = "#620B73#EEEEEE"
 	armor_type = /datum/armor/jacket_research_director
 
 /obj/item/clothing/suit/toggle/labcoat/fancy/regular
-	name = "doctor's labcoat"
-	desc = "A somewhat premium labcoat for doctors and researchers."
+	name = "doctor's high-neck labcoat"
+	desc = "A somewhat premium labcoat for doctors and researchers, featuring a raised collar."
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/regular"
 	greyscale_colors = "#EEEEEE#1D7D09"
 
 /obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist
-	name = "pharmacist's labcoat"
+	name = "pharmacist's high-neck labcoat"
 	desc = "A somewhat premium labcoat for chemistry which protects the wearer from acid spills."
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist"
 	greyscale_colors = "#EEEEEE#E6935C"
 
 /obj/item/clothing/suit/toggle/labcoat/fancy/geneticist
-	name = "geneticist's labcoat"
-	desc = "A somewhat premium labcoat for geneticists."
+	name = "geneticist's high-neck labcoat"
+	desc = "A somewhat premium labcoat for geneticists, featuring a raised collar."
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/geneticist"
 	greyscale_colors = "#EEEEEE#7497C0"
 
 /obj/item/clothing/suit/toggle/labcoat/fancy/roboticist
-	name = "roboticist's labcoat"
-	desc = "A somewhat premium labcoat for roboticists."
+	name = "roboticist's high-neck labcoat"
+	desc = "A somewhat premium labcoat for roboticists, featuring a raised collar."
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/roboticist"
 	greyscale_colors = "#2F2E31#A52F29"
