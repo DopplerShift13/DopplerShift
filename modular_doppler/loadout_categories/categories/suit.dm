@@ -383,6 +383,22 @@
 	name = "High-Vis Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/high_vis
 
+/datum/loadout_item/suit/lab/fancy_doctor
+	name = "High-neck Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/regular
+
+/datum/loadout_item/suit/lab/fancy_genetics
+	name = "High-neck Labcoat (Genetics)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/geneticist
+
+/datum/loadout_item/suit/lab/fancy_robotics
+	name = "High-neck Labcoat (Robotics)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/roboticist
+
+/datum/loadout_item/suit/lab/fancy_pharmacist
+	name = "High-neck Labcoat (Chemistry)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist
+
 /**
  * TOPS
  */
