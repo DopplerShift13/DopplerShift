@@ -15,6 +15,8 @@
 	the fact that this one is smaller and costs more."
 	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = "nevada_bottle"
+	cap_icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
+	cap_icon_state = "nevada_bottle_cap"
 	volume = 45
 	list_reagents = list(/datum/reagent/consumable/icetea = 40, /datum/reagent/consumable/honey = 5)
 	custom_price = PAYCHECK_LOWER * 1.1
@@ -24,9 +26,10 @@
 	desc = "Your favorite Nevada flavor, now with 385 grams of sugar!"
 	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = "jug"
-	fill_icon = "modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi"
+	fill_icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
+	cap_icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
+	cap_icon_state = "jug_cap"
 	volume = 300
-	fill_icon_thresholds = list(0, 30, 60, 120, 180, 240, 300)
 	possible_transfer_amounts = list(5, 10, 15, 30, 50, 100, 200, 300)
 	list_reagents = list(/datum/reagent/consumable/icetea = 250, /datum/reagent/consumable/honey = 50)
 	custom_price = PAYCHECK_LOWER * 3.5
@@ -41,27 +44,29 @@
 /obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/raspberry
 	name = "\improper Nevada Raspberry Rampage™"
 	desc = "Red raspberry emblazoned art promises a rush of red 40 and artificial flavoring."
-	icon_state = "nevada_blueberry"
-	list_reagents = list(/datum/reagent/consumable/berryjuice = 50, /datum/reagent/consumable/honey = 5)
+	icon_state = "nevada_raspberry"
+	list_reagents = list(/datum/reagent/consumable/berryjuice/raspberry = 50, /datum/reagent/consumable/honey = 5)
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/lemonade
 	name = "\improper Nevada Lemonade can"
 	desc = "Technically this has a celebrity endorsement, but the man on the can is a stranger to anyone born after \
 	2375."
 	icon_state = "nevada_lemonade"
-	list_reagents = list(/datum/reagent/consumable/lemonade = 50, /datum/reagent/consumable/honey = 5)
+	list_reagents = list(/datum/reagent/consumable/lemonade/nevada = 50, /datum/reagent/consumable/honey = 5)
 
 /obj/item/reagent_containers/cup/glass/waterbottle/nevada_lemonade
 	name = "\improper Nevada Lemonade bottle"
 	desc = "A resealable bottle filled with refreshing Nevada lemonade."
 	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = "nevada_lemonade_bottle"
+	cap_icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
+	cap_icon_state = "nevada_lemonade_bottle_cap"
 	volume = 45
-	list_reagents = list(/datum/reagent/consumable/lemonade = 40, /datum/reagent/consumable/honey = 5)
+	list_reagents = list(/datum/reagent/consumable/lemonade/nevada = 40, /datum/reagent/consumable/honey = 5)
 	custom_price = PAYCHECK_LOWER * 1.1
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/preworkout
-	name = "\improper Nevada 'Sweet-Tooth' pre-Workout shake"
+	name = "\improper Nevada PowerClown pre-workout blend"
 	desc = "How something of this viscosity fits through the mouth of a beverage can is the subject of heated debate."
 	icon_state = "clown_preworkout"
-	list_reagents = list(/datum/reagent/consumable/nutriment/protein = 20, /datum/reagent/consumable/milk = 30, /datum/reagent/consumable/honey = 5)
+	list_reagents = list(/datum/reagent/consumable/ethanol/protein_blend/clown_preworkout = 55)

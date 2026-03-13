@@ -180,5 +180,11 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	icon_state = "nevada_uniform"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi',
+	)
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
 	can_adjust = FALSE
