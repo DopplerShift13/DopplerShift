@@ -166,6 +166,10 @@
 #define LOADOUT_FLAG_ALLOW_NAMING (1<<3)
 /// Allows the item to be reskinned by the player. Only applicable to items with unique_reskin defined.
 #define LOADOUT_FLAG_ALLOW_RESKIN (1<<4)
+// DOPPLER EDIT ADDITION START - Allow remaking the description of items
+// Allows the item to be redescribed by the player
+#define LOADOUT_FLAG_ALLOW_DESCRIPTION (1<<5)
+// DOPPLER EDIT ADDITION END
 
 // Loadout item info keys
 // Changing these will break existing loadouts

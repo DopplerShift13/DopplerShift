@@ -158,7 +158,7 @@
 						)
 
 //This makes the player have to sit through a 6 Second do_after when taking off the latex suit
-/obj/item/clothing/under/latexsuit/allow_attack_hand_drop(mob/user)
+/obj/item/clothing/under/latexsuit/can_mob_unequip(mob/user)
     if(!iscarbon(loc))
         return TRUE
     var/mob/living/carbon/human/wearer = loc

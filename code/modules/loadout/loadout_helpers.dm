@@ -58,11 +58,11 @@
 		// Equip the outfit loadout items included
 		if(!equipped_outfit.equip(src, visuals_only))
 			return FALSE
-		new_contents = get_all_gear()
+		new_contents = get_all_gear(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT|INCLUDE_ACCESSORIES)
 
 	// Handle any snowflake on_equips
 	// DOPPLER EDIT END
-	var/list/new_contents = get_all_gear(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT|INCLUDE_ACCESSORIES)
+	// DOPPLER EDIT REMOVAL - SEE ABOVE - var/list/new_contents = get_all_gear(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT|INCLUDE_ACCESSORIES)
 	var/update = NONE
 	for(var/datum/loadout_item/item as anything in loadout_datums)
 		update |= item.on_equip_item(

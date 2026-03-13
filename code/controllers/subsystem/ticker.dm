@@ -558,13 +558,13 @@ SUBSYSTEM_DEF(ticker)
 					SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
 			else // clear any personalities the prefs added since our job clearly does not want them
 				new_player_living.clear_personalities()
-			// DOPPLER EDIT ADDITION
+			// DOPPLER EDIT ADDITION START - Restricted loadout items
 			var/list/loadout = loadout_list_to_datums(new_player_mob.client?.prefs?.read_preference(/datum/preference/loadout))
 			for(var/datum/loadout_item/item as anything in loadout)
-				if (item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
+				if(item.restricted_roles && length(item.restricted_roles) && !(player_assigned_role.title in item.restricted_roles))
 					continue
 				item.post_equip_item(new_player_mob.client?.prefs, new_player_living)
-			// DOPPLER EDIT END
+			// DOPPLER EDIT ADDITION END
 			SEND_SIGNAL(new_player_living, COMSIG_HUMAN_CHARACTER_SETUP_FINISHED)
 		CHECK_TICK
 

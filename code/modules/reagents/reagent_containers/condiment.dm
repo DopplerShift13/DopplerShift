@@ -64,8 +64,8 @@
 			span_warning("[user] fed you from [src]."),
 		)
 		log_combat(user, target, "fed", reagents.get_reagent_log_string())
+	SEND_SIGNAL(target, COMSIG_GLASS_DRANK, src, user) // DOPPLER EDIT ADDITION - Hemophages can't casually drink what's not going to regenerate their blood
 	reagents.trans_to(target, 10, transferred_by = user, methods = INGEST)
-	SEND_SIGNAL(M, COMSIG_GLASS_DRANK, src, user) // DOPPLER EDIT ADDITION - Hemophages can't casually drink what's not going to regenerate their blood
 	playsound(target, 'sound/items/drink.ogg', rand(10, 50), TRUE)
 	return ITEM_INTERACT_SUCCESS
 
