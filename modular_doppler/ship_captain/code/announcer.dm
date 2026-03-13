@@ -1,6 +1,6 @@
 // stupid hacky solution to send something over command comms
 /obj/item/radio/one_shot_broadcaster
-	name = "NLP-NAV-TC"
+	name = "9LP-NAV-TC"
 	desc = "You should never ever see this."
 	freqlock = RADIO_FREQENCY_LOCKED
 	invisibility = 30
