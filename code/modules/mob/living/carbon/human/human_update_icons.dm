@@ -915,7 +915,7 @@ generate/load female uniform sprites matching all previously decided variables
 		)
 	/// DOPPLER EDIT ADDITION BEGIN - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0
-	if (istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)
+	if (!isinhands && istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)
 		if (!using_taur_variant)
 			if (gets_cropped_on_taurs)
 				var/cropping_state = DEFAULT_TAUR_CLIPPING_MASK
