@@ -560,6 +560,14 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
 	)
 
+/obj/item/clothing/mask/surgical
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
 /obj/item/cigarette
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
 	bodyshape_icon_files = list(
