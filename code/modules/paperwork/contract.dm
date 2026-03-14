@@ -14,9 +14,9 @@
 	. = ..()
 	employee_name = new_employee_name
 	name = "paper- [employee_name] employment contract"
-	//DOPPLER EDIT BEGIN - Changes the Employment Contract text.
+	//DOPPLER EDIT BEGIN - Changing the Employment Contract
 
-	/*
+	/*DOPPLER EDIT ORIGINAL:
 	add_raw_text("<center>Conditions of Employment</center>\
 	<BR><BR><BR><BR>\
 	This Agreement is made and entered into as of the date of last signature below, by and between [employee_name] (hereafter referred to as SLAVE), \
@@ -30,7 +30,6 @@
 	<BR>Signed,<BR><i>[employee_name]</i>")
 	*/
 
-	//DOPPLER EDIT ORIGINAL ABOVE
 	add_raw_text("<center>Conditions of Employment</center>\
 	<BR>\
 	<p>This Agreement is made and entered into as of the date of last signature below, by and between [employee_name] (hereafter referred to as Pallas Aspiring Worker, or PAW), \
