@@ -77,4 +77,10 @@
 /area/shuttle/salvaged_shuttle
 	name = "Shuttle Salvage"
 	requires_power = TRUE
+	always_unpowered = TRUE
+	power_equip = FALSE
+	power_light = FALSE
+	power_environ = FALSE
+	power_apc_charge = FALSE
+	default_gravity = ZERO_GRAVITY
 	area_limited_icon_smoothing = /area/shuttle/salvaged_shuttle
