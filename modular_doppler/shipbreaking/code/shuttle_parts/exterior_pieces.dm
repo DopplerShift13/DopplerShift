@@ -5,6 +5,7 @@
 	icon = 'modular_doppler/shipbreaking/icons/exterior.dmi'
 	icon_state = null
 	circuit = null
+	layer = LOW_ITEM_LAYER
 
 /obj/machinery/exoscanner/shuttle_part/Initialize(mapload)
 	. = ..()
@@ -12,6 +13,10 @@
 
 /obj/machinery/exoscanner/shuttle_part/screwdriver_act(mob/user, obj/item/tool)
 	return
+
+/obj/machinery/exoscanner/shuttle_part/update_icon_state()
+	. = ..()
+	icon_state = base_icon_state
 
 /// Disconnects the part from the wall its mounted on
 /obj/machinery/exoscanner/shuttle_part/proc/knock_down()
@@ -21,6 +26,7 @@
 	name = "radar panel"
 	desc = "A radar panel, made to be mounted flat to the walls of ships for directional scanning."
 	icon_state = "radar_panel"
+	base_icon_state = "radar_panel"
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 7,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
@@ -36,6 +42,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radar_panel, 
 	desc = "A tightly-packed sensors blister holding all manner of receiving and transmitting equipment in a protective \
 		housing. This one was left closed."
 	icon_state = "blister_closed"
+	base_icon_state = "blister_closed"
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
@@ -55,6 +62,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/sensors_blist
 	desc = "A tightly-packed sensors blister holding all manner of receiving and transmitting equipment in a protective \
 		housing. This one was left open."
 	icon_state = "blister_open"
+	base_icon_state = "blister_open"
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 10,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 5,
@@ -73,6 +81,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/open_sensors_
 	name = "radio dish"
 	desc = "A directional radio dish, for extremely long range communication and sensing."
 	icon_state = "dish"
+	base_icon_state = "dish"
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 4,
 		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2,
@@ -94,6 +103,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
 	armor_type = /datum/armor/structure_railing
 	max_integrity = 75
+	layer = LOW_ITEM_LAYER
 	/// How long to either unwrench or unweld
 	var/unfasten_time = 1 SECONDS
 	/// Does this need to be welded off the wall instead
@@ -129,7 +139,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
 		return TRUE
-	balloon_alert(user, "cut free!")
 	set_anchored(FALSE)
 	return TRUE
 
@@ -171,6 +180,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/ladder_black, 5)
 	name = "\improper EVA catwalk"
 	desc = "A narrow catwalk for use on EVA."
 	icon_state = "catwalk"
+	layer = CATWALK_LAYER
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
@@ -306,6 +316,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/aux_engine, 10)
 	requires_welder = TRUE
 	/// What type of hull plate object do we spawn when cut off the wall
 	var/obj/structure/hull_plating/cut_plating = /obj/structure/hull_plating
+	/// Do we transfer our color to the cut_plating
+	var/keep_color = FALSE
 
 /obj/structure/shuttle_decoration/wall_plate/knock_down()
 	new cut_plating(get_turf(src))
@@ -320,7 +332,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/aux_engine, 10)
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
 		return TRUE
 	balloon_alert(user, "cut free!")
-	new cut_plating(get_turf(src))
+	var/obj/new_plating = new cut_plating(get_turf(src))
+	if(keep_color)
+		new_plating.color = color
 	qdel(src)
 	return TRUE
 
@@ -347,6 +361,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/aux_engine, 10)
 	desc = "A standoff screen of nanocarbon used typically for in atmosphere aerodynamics, or layered protection."
 	icon_state = "nanocarbon"
 	cut_plating = /obj/structure/hull_plating/nanocarbon/floor
+	keep_color = TRUE
 
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal
 	icon_state = "nanocarbon_diag"

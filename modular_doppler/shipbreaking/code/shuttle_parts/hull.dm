@@ -268,9 +268,8 @@
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
 		return TRUE
-	balloon_alert(user, "cut free!")
 	new cut_plating(get_turf(src))
-	qdel(src)
+	ScrapeAway()
 	return TRUE
 
 /turf/open/floor/plating/aluminum
@@ -294,9 +293,8 @@
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
 		return TRUE
-	balloon_alert(user, "cut free!")
 	new cut_plating(get_turf(src))
-	qdel(src)
+	ScrapeAway()
 	return TRUE
 
 /obj/effect/baseturf_helper/salvage_shuttle
