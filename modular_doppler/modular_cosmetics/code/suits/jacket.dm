@@ -484,7 +484,7 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	pocket_storage_type = null
 
-/obj/item/clothing/suit/jacket/doppler/technyne_overlay_hoodie
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie
 	name = "\improper TechNyne overlay hoodie"
 	desc = "Artisanal ringspun sweatshirt fleece and hydrophobic tech-textiles blend in a deconstructed ensemble piece \
 	that's proven durably popular with Marsian apparel designers."
@@ -496,16 +496,34 @@
 	greyscale_colors = "#5d6161#5d6161#5d6161#5d6161"
 	cold_protection = CHEST|GROIN|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	hoodtype = /obj/item/clothing/head/hooded/technyne_hood
 
-/obj/item/clothing/suit/jacket/doppler/technnyne_overlay
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay
 	name = "\improper TechNyne overlay"
 	desc = "This textile is hydrophobic from the face and wicking from the inside, allowing "
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
-	icon_state = "/obj/item/clothing/suit/jacket/doppler/technnyne_overlay"
+	icon_state = "/obj/item/clothing/suit/jacket/doppler/technyne_overlay"
 	post_init_icon_state = "tech_sweatshirt_overlay"
 	greyscale_config = /datum/greyscale_config/technyne_overlay
 	greyscale_config_worn = /datum/greyscale_config/technyne_overlay/worn
-	greyscale_colors = "#5d6161"
+	greyscale_colors = "#b68929"
 	cold_protection = CHEST|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	pocket_storage_type = null
+	hoodtype = /obj/item/clothing/head/hooded/technyne_hood
+
+/obj/item/clothing/head/hooded/technyne_hood
+	name = "winter hood"
+	desc = "A cozy winter hood attached to a heavy winter jacket."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/technyne_hood"
+	post_init_icon_state = "technyne_hood"
+	//worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	hair_mask = /datum/hair_mask/winterhood
+	armor_type = /datum/armor/hooded_winterhood
+	greyscale_config = /datum/greyscale_config/technyne_hood/worn
+	greyscale_config_worn = /datum/greyscale_config/technyne_hood/worn
+	greyscale_colors = "#b68929"

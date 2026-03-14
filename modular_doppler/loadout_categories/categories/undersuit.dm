@@ -181,7 +181,7 @@
 
 /datum/loadout_item/undersuit/pants/tech_nyne_bottomwear
 	name = "Tech Nyne Bottomwear"
-	item_path = /obj/item/clothing/under/pants/tech_nyne_bottomwear
+	item_path = /obj/item/clothing/under/pants/technyne_bottomwear
 
 /datum/loadout_item/undersuit/pants/track
 	name = "Track Pants"
