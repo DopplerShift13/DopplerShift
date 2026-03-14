@@ -11,7 +11,7 @@
 	taste_description = "blueberries"
 
 /datum/reagent/consumable/berryjuice/raspberry
-	name = "Blueberry Juice"
+	name = "Raspberry Juice"
 	description = "A delicious juicing of one particular kind of berry."
 	color = "#921b35"
 	taste_description = "raspberries"
