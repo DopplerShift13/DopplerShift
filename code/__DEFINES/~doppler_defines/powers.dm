@@ -34,6 +34,15 @@
 /// This power is has a visual aspect in that it changes how the player looks. Used in generating dummies.
 #define POWER_CHANGES_APPEARANCE (1<<2)
 
+/// Security record categories for powers.
+#define CAT_POWER_ALL 0
+#define CAT_POWER_MINOR_THREAT 1
+#define CAT_POWER_MAJOR_THREAT 2
+
+/// Threat level tags used by /datum/power.security_threat
+#define POWER_THREAT_MINOR "minor"
+#define POWER_THREAT_MAJOR "major"
+
 // Trait for when you are unable to use resonant powers
 #define TRAIT_RESONANCE_SILENCED "RESONANCE_SILENCED"
 

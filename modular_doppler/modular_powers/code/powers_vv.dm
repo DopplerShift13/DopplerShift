@@ -29,7 +29,8 @@
 				if(has_power(chosen))
 					remove_power(chosen)
 				else
-					add_power(chosen)
+					var/include_in_security_records = (alert(usr, "Also include this power in security records?", "Power Mod", "No", "Yes") == "Yes")
+					add_power(chosen, include_in_security_records = include_in_security_records)
 
 // Checks if a power is on the selected target
 /mob/living/carbon/proc/has_power(powertype)
@@ -39,16 +40,18 @@
 	return FALSE
 
 // Adds a power by calling the power subsystem.
-/mob/living/carbon/proc/add_power(datum/power/powertype, power_transfer = FALSE, client/override_client, unique = TRUE)
+/mob/living/carbon/proc/add_power(datum/power/powertype, power_transfer = FALSE, client/override_client, unique = TRUE, include_in_security_records = TRUE)
 	if(has_power(powertype))
 		return FALSE
 	var/pname = initial(powertype.name)
 	if(!SSpowers || !SSpowers.powers[pname])
 		return FALSE
 	var/datum/power/power = new powertype()
+	power.include_in_security_records = include_in_security_records
 	if(!power.add_to_holder(new_holder = src, power_transfer = power_transfer, client_source = override_client, unique = unique))
 		qdel(power)
 		return FALSE
+	refresh_security_power_records()
 	return TRUE
 
 // Removes a power.
@@ -57,5 +60,6 @@
 		if(power.type != powertype)
 			continue
 		qdel(power)
+		refresh_security_power_records()
 		return TRUE
 	return FALSE

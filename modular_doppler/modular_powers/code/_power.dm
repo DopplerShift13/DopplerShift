@@ -43,6 +43,12 @@
 	var/required_allow_subtypes
 	/// Any one of the required powers satisfies the requirement list.
 	var/required_allow_any
+	/// The text in security records for this power.
+	var/security_record_text
+	/// Security threat classification used for records output.
+	var/security_threat = POWER_THREAT_MINOR
+	/// If FALSE, this specific power instance is hidden from security record power listings.
+	var/include_in_security_records = TRUE
 
 	// The path, if applicable, to the action.
 	var/datum/action/cooldown/power/action_path
@@ -139,6 +145,9 @@
 
 	remove()
 
+	if(!QDELETED(power_holder))
+		power_holder.refresh_security_power_records()
+
 	power_holder = null
 
 /**
@@ -157,6 +166,10 @@
 /// Any effect that should be applied every single time the power is added to any mob, even when transferred.
 /datum/power/proc/add(client/client_source)
 	return
+
+/// Returns the text this power should contribute to security records.
+/datum/power/proc/get_security_record_text()
+	return security_record_text
 
 /// Any effects from the proc that should not be done multiple times if the power is transferred between mobs.
 /// Put stuff like spawning items in here.
@@ -187,6 +200,7 @@
 		to_chat(power_holder, chat_string)
 
 	where_items_spawned = null
+	power_holder?.refresh_security_power_records() // ensures that post_add features are included in the records.
 	return
 
 // Adds activateable power buttons.

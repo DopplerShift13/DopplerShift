@@ -29,6 +29,9 @@ export type SecurityRecord = {
   wanted_status: string;
   voice: string;
   // DOPPLER EDIT START - records & flavor text
+  power_notes: string;
+  power_notes_minor: string;
+  power_notes_major: string;
   past_general_records: string;
   past_security_records: string;
   // DOPPLER EDIT END

@@ -55,6 +55,61 @@
 			return power
 	return null
 
+/**
+ * get_power_string() is used to get a printable string of all powers this mob has.
+ *
+ * Arguments:
+ * * security - If TRUE, uses each power's security record text. If FALSE, uses the power names.
+ * * category - Which threat categories of powers should be included.
+ * * include_empty_text - If FALSE, returns an empty string when no entries match.
+ */
+/mob/living/proc/get_power_string(security = FALSE, category = CAT_POWER_ALL, include_empty_text = TRUE)
+	var/list/dat = list()
+	for(var/datum/power/candidate as anything in powers)
+		if(security && !candidate.include_in_security_records)
+			continue
+
+		switch(category)
+			if(CAT_POWER_MINOR_THREAT)
+				if(candidate.security_threat != POWER_THREAT_MINOR)
+					continue
+			if(CAT_POWER_MAJOR_THREAT)
+				if(candidate.security_threat != POWER_THREAT_MAJOR)
+					continue
+
+		if(security)
+			var/security_text = candidate.get_security_record_text()
+			if(!isnull(security_text) && security_text != "")
+				dat += security_text
+		else
+			dat += candidate.name
+
+	if(!length(dat))
+		if(!include_empty_text)
+			return ""
+		return security ? "No powers declared." : "None"
+
+	return security ? dat.Join("<br>") : dat.Join(", ")
+
+/// Compatibility helper for security record formatting.
+/mob/living/proc/get_sec_power_string(category = CAT_POWER_ALL, include_empty_text = TRUE)
+	return get_power_string(TRUE, category, include_empty_text)
+
+// Refreshes the sec records when powers are added/removed.
+/mob/living/proc/refresh_security_power_records()
+	var/lookup_name = name
+	if(ishuman(src))
+		var/mob/living/carbon/human/human_self = src
+		lookup_name = human_self.real_name
+
+	var/datum/record/crew/target = find_record(lookup_name)
+	if(!target)
+		return
+
+	target.power_notes = get_sec_power_string(CAT_POWER_ALL)
+	target.power_notes_minor = get_sec_power_string(CAT_POWER_MINOR_THREAT, include_empty_text = FALSE)
+	target.power_notes_major = get_sec_power_string(CAT_POWER_MAJOR_THREAT, include_empty_text = FALSE)
+
 /mob/living/proc/cleanse_power_datums()
 	QDEL_LIST(powers)
 

@@ -131,6 +131,9 @@
 			trim = target.trim,
 			wanted_status = target.wanted_status,
 			// DOPPLER EDIT BEGIN - records & flavor text
+			power_notes = target.power_notes,
+			power_notes_minor = target.power_notes_minor,
+			power_notes_major = target.power_notes_major,
 			past_general_records = target.past_general_records,
 			past_security_records = target.past_security_records,
 			age_chronological = target.age_chronological,
