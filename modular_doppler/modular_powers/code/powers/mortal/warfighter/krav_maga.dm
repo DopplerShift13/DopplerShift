@@ -5,6 +5,8 @@
 	name = "Krav Maga"
 	desc = "Trained in various disarming moves, you can wield the martial arts of Krav Maga without any external assistance.\
 	(Powers that give you access to Martial Arts override your unarmed attacks and thusly do not stack with any modifier that affect your punches)"
+	security_record_text = "Subject has studied Martial Arts and understands Krav Maga."
+	security_threat = POWER_THREAT_MAJOR
 	value = 8
 	required_powers = list(/datum/power/warfighter/martial_artist)
 	/// Mindbound martial art component so the style follows mind transfers

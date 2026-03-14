@@ -6,7 +6,7 @@
 	name = "Rich"
 	desc = "Whether through good savings, connections or just nepotism; you have way more spendable cash on hand than your peers. You start the shift with 2500 extra credits in your account."
 	value = 5
-
+	security_record_text = "Subject has access to a high amount of wealth and resources."
 	// how rich are we?
 	var/riches = 2500
 

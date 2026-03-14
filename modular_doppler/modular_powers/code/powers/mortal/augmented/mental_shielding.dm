@@ -6,7 +6,8 @@
 	desc = " Based on the nullifying effects that tinfoil has on certain magical phenomena, this dermal implant created by Oracle Neuro-Systems creates a protective coating around your brain.\
 	\n Creates a barrier that blocks resonant based scrying, as well as mental abilities used on you (including magic stronger than Resonant).\
 	\n Blocking mental abilities consumes quality, increasing consumption rate the lower the quality is."
-
+	security_record_text = "Subject has a TNFL Mental Shielding Implant and is immune to scrying and mental-based resonance."
+	security_threat = POWER_THREAT_MAJOR
 	value = 6
 	augment = /obj/item/organ/cyberimp/brain/mental_shielding
 

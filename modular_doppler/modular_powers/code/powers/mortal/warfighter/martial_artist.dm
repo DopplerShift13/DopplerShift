@@ -4,6 +4,8 @@
 /datum/power/warfighter/martial_artist
 	name = "Martial Artist"
 	desc = "Trained in specialized combat maneuvers, you know where to best strike your opponents. Your punches deal extra damage."
+	security_record_text = "Subject is trained in hand-to-hand combat and throws stronger punches."
+	security_threat = POWER_THREAT_MAJOR
 	value = 2
 
 	power_flags = POWER_HUMAN_ONLY

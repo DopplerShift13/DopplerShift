@@ -3,7 +3,8 @@
 */
 /datum/power/aberrant/miasmic_conversion
 	name = "Miasmic Conversion"
-	desc = "Your body mends itself disturbingly well, but creates toxic backlash in your system. You passively convert 1 brute or burn damage per second to toxins damage, at a 70% ratio. You also passively heal 0.1 toxins damage per second."
+	desc = "Your body mends itself disturbingly well, but creates toxic backlash in your system. You passively convert 1 brute or burn damage per second to toxins damage, at a 90% ratio. You also passively heal 0.1 toxins damage per second."
+	security_record_text = "Subject extremely rapidly regenerates, but experiences toxic backlash when they do."
 	value = 4
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
 
@@ -14,7 +15,7 @@
 	// how much we heal per second
 	var/healing = 1
 	// the ratio at which we convert.
-	var/conversion_rate = 0.70
+	var/conversion_rate = 0.90
 
 /datum/power/aberrant/miasmic_conversion/process(seconds_per_tick)
 	// Does not work if you're in crit

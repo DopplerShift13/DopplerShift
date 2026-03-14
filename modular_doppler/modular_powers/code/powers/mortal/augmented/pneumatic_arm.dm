@@ -6,6 +6,8 @@
 	desc = "A popular choice for the augmented bodyguards and manufactured by Praetor Dynamics. Passively increases your punch damage by +5 with that arm. \
 	\n In addition, it allows you actively 'overcharge' the arm, making your next punch knockback someoneone 2 spaces (potentially stunning them on walls) and dealing an additional 15 brute damage in exchange for a hefty quality cost.\
 	\n Quality decreases from using the pneumatic arm's active ability. Quality affects damage (passive and active)."
+	security_record_text = "Subject has a DSTR Pneumatic Arm, increasing their lethality with unarmed strikes."
+	security_threat = POWER_THREAT_MAJOR
 
 	value = 4 // balance around 2 arms.
 	augment = /obj/item/organ/cyberimp/arm/pneumatic_arm

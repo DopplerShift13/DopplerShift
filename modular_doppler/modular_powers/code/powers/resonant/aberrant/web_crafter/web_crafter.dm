@@ -3,6 +3,7 @@
 	name = "Web Crafter"
 	desc = "Threads of spidery silk crafted at your leisure. You gain the Web Crafting ability. You can use it to make passive webs in an area (which do not slow you down); or you can use it to make cloth.\
 	\n Creating anything using web crafter makes you hungry, and you cannot use it if you are starving."
+	security_record_text = "Subject can craft spider-like silk from their body."
 	value = 3
 
 	required_powers = list(/datum/power/aberrant_root/beastial)

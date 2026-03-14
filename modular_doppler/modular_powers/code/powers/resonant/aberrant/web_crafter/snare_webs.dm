@@ -4,6 +4,8 @@
 	desc = "Allows you to craft snares. These are placed on the ground and are hard to see; but can be disarmed.\
 	\n Mobs without the ability to walk through webs will be legcuffed if they walk through it.\
 	\n Simple mobs instead receive a slowing status effect for 8 seconds."
+	security_record_text = "Subject can craft leg snaring traps from their spider silk."
+	security_threat = POWER_THREAT_MAJOR
 	value = 3
 
 	required_powers = list(/datum/action/cooldown/power/aberrant/web_crafter)

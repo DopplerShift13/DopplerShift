@@ -2,10 +2,14 @@
 /datum/power/expert/omnilingual
 	name = "Omnilingual"
 	desc = "You speak an absurd amount of languages; you are able to understand and speak every language at full proficiency. Does not apply to languages not available to your character at character selection."
-
 	value = 4
 	// Saved list of languages that were given by this power to remove when the power is removed.
 	var/list/given_languages_list = list()
+
+/datum/power/expert/omnilingual/get_security_record_text()
+	var/datum/language_holder/holder = power_holder?.get_language_holder()
+	var/total_languages = LAZYLEN(holder?.spoken_languages)
+	return "Subject has fluency in [total_languages] languages."
 
 // Iterate through the language prefs list. If they have it, skip, otherwise, give it to them and add it to given_languages_list.
 /datum/power/expert/omnilingual/add()

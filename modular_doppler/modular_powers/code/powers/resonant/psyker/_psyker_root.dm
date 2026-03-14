@@ -4,7 +4,7 @@
 	desc = "An organ found only in the central nervous system of Psykers \
 	grown by prolonged exposure to certain types of Resonance. \
 	The catalyst for psychic abilities; but beware overexerting it."
-
+	security_record_text = "Subjects has a Paracausal Gland and wields psionic abilities."
 	value = 2
 	power_flags = POWER_HUMAN_ONLY
 	mob_trait = TRAIT_ARCHETYPE_RESONANT

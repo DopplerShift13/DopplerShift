@@ -4,6 +4,7 @@
 /datum/power/aberrant/healing_factor
 	name = "Healing Factor"
 	desc = "Your physical injuries heal without assistance. You heal 0.2 damage per second, randomly split between brute and burn damage while not in critical condition. Wounds such as bleeding still require medical treatment."
+	security_record_text = "Subject passively regenerates any injuries they sustain."
 	value = 4
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
 

@@ -4,6 +4,8 @@
 /datum/power/cultivator/from_friction_comes_flame
 	name = "From Friction Comes Flame"
 	desc = "Your punches while in alignment cause the target to heat up. Once they reach 80C, your strikes also combust the target."
+	security_record_text = "Subject heats up and ignites targets with their punches while in their heightened state."
+	security_threat = POWER_THREAT_MAJOR
 	value = 3
 	required_powers = list(/datum/power/cultivator_root/flame_soul)
 

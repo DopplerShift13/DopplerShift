@@ -12,6 +12,8 @@
 /datum/power/warfighter/dual_wielder
 	name = "Dual Wielder"
 	desc = "You can toggle a dual-wield stance. While active, striking with a melee weapon immediately follows with an off-hand strike. Both strikes have a 30% chance to miss."
+	security_record_text = "Subject knows how to efficiently fight with two melee weapons at once."
+	security_threat = POWER_THREAT_MAJOR
 	value = 5
 
 	required_powers = list(/datum/power/warfighter/quick_draw)

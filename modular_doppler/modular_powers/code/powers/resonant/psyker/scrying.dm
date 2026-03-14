@@ -7,9 +7,8 @@
 	desc = "Using a sample of a creature's blood, you can see the world through their eyes remotely. Creatures will be vague and hard to distinguish, but their environment will appear clear. \
 	In this state, you use their sight instead of your own; but you cannot target creatures that are immune to magic, scrying; or lack the brain activity required to be detectable (dumb). \
 	Passively builds up stress. The target sometimes gets preminations to indicate they are watched."
-
+	security_record_text = "Subject can psychically observe people's locations based on blood samples from extreme distances."
 	value = 10
-	priority = POWER_PRIORITY_BASIC
 	action_path = /datum/action/cooldown/power/psyker/scrying
 
 /datum/action/cooldown/power/psyker/scrying

@@ -4,7 +4,8 @@
 	ou can have up to 8 of these active. \
 	While in alignment, you can right click with this ability to explode all active stars that are not in motion dealing 20 burn damage to all creatures in a 3x3 area centered on it. \
 	Exploding the stars consumes Dantian per star. No cooldown."
-
+	security_record_text = "Subject can shoot lights to illuminate an area, which can be detonated while in a heightened state to explode and damage those around it."
+	security_threat = POWER_THREAT_MAJOR
 	value = 5
 	required_powers = list(/datum/power/cultivator_root/astral_touched)
 	action_path = /datum/action/cooldown/power/cultivator/many_stars

@@ -7,6 +7,8 @@
 /datum/power/cultivator/travel_under_the_veil_of_night
 	name = "Travel Under the Veil of Night"
 	desc = "Whilst your alignment is active, you can spend 2 seconds channeling in a space of darkness to teleport to another space of darkness within line of sight. Has a Dantian cost; no cooldown."
+	security_record_text = "Subject can teleport in darkness while in their heightened state."
+	security_threat = POWER_THREAT_MAJOR
 	value = 5
 	required_powers = list(/datum/power/cultivator_root/shadow_walker)
 	action_path = /datum/action/cooldown/power/cultivator/travel_under_the_veil_of_night

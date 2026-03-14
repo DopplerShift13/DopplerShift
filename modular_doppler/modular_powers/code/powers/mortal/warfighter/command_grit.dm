@@ -4,7 +4,8 @@
 /datum/power/warfighter/command_grit
 	name = "Command: Grit"
 	desc = "Whilst active, the target ignores pain for 15 seconds, as well as slowdown from damage and stamina loss. Has a long cooldown. Increased effect lenghtens duration."
-
+	security_record_text = "Subject has an unusual charisma and can motivate others to grit through any pain or injury without slowing down."
+	security_threat = POWER_THREAT_MAJOR // you dont want this guy supporting your takedown target
 	value = 5
 	required_powers
 	action_path = /datum/action/cooldown/power/warfighter/command/grit

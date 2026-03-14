@@ -7,6 +7,8 @@
 	The power itself grants you the 'Quick Draw' ability, letting you 'acclimate' with an item of your choice. \
 	Whilst acclimated, you can use the power to instantly draw that type of item to your hand, as long as it is anywhere on your person, or within melee range of you. \
 	You can even use this to snag it back from your enemies."
+	security_record_text = "Subject has a high amount of manual dexterity and is hard to disarm."
+	security_threat = POWER_THREAT_MAJOR
 	value = 3
 	action_path = /datum/action/cooldown/power/warfighter/quick_draw
 

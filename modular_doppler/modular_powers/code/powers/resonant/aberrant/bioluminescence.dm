@@ -3,6 +3,7 @@
 	name = "Bioluminescence"
 	desc = "You can glow! You passively emit the chosen light color; which can be toggled on or off at will. Very slightly increases passive hunger when enabling or disabling the light."
 	value = 1
+	security_record_text = "Subject has been observed to glow through bioluminescence."
 
 	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
 	required_allow_any = TRUE

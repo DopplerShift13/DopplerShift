@@ -6,6 +6,7 @@
 	name = "Strider"
 	desc = "Your strength is herculean. You ignore all slowdowns from held & worn items. \
 	You also start out at Master proficiency athletics."
+	security_record_text = "Subject has an incredibly strong physique and carry heavy equipment without issue."
 	value = 6
 	required_powers = list(/datum/power/expert/heavy_lifter)
 

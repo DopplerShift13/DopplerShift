@@ -5,6 +5,8 @@
 /datum/power/warfighter/tackler
 	name = "Tackler"
 	desc = "You know how to throw a well-trained tackle. Allows you to perform tackles without assistive items and allows you to perform them better."
+	security_record_text = "Subject is trained in using tackles for takedowns."
+	security_threat = POWER_THREAT_MAJOR
 	value = 4
 
 	required_powers = list(/datum/power/warfighter/martial_artist)

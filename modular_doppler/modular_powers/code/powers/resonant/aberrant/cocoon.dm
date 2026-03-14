@@ -6,6 +6,8 @@
 	\n Targeting a prone creature that you have aggressively grabbed bundles them up. The creature is buckled inside the cocoon and can't interact with the world or escape without struggling. \
 	Creature cocoons can be dragged around with less slow down commpared to normal.\
 	\n Costs hunger to use, and cannot be used while starving."
+	security_record_text = "Subject can produce enough silk to fully cocoon creatures and objects in webs."
+	security_threat = POWER_THREAT_MAJOR
 	value = 3
 
 	required_powers = list(/datum/power/aberrant/web_crafter)

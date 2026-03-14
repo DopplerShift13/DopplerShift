@@ -2,6 +2,8 @@
 	name = "Focused Block"
 	desc = "Using what you have on you, you raise your block chance by 50 for 1.5 seconds, as long as you are holding a bulky-sized item or an item with a block chance. \
 	This stacks on-top of any existing block you may have, guaranteeing blocks with most shields. Has a short cooldown."
+	security_record_text = "Subject can block attacks with extreme efficiency while wielding a shield or large object."
+	security_threat = POWER_THREAT_MAJOR
 	value = 6
 
 	action_path = /datum/action/cooldown/power/warfighter/focused_block

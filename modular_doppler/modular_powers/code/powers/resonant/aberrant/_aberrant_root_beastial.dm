@@ -4,6 +4,14 @@
 	\nHerbivore: Vegetables, Fruit & Nuts. \
 	\nCarnivore: Raw, Gore, Meat, Bugs & Seafood."
 	value = 2
+	/// Saved preference value used for security records snapshotting.
+	var/chosen_diet = "None"
+
+/datum/power/aberrant_root/beastial/get_security_record_text()
+	switch(chosen_diet)
+		if("Herbivore", "Carnivore")
+			return "Subject has a [LOWER_TEXT(chosen_diet)] dietary adaptation."
+	return ""
 
 /datum/power/aberrant_root/beastial/add(client/client_source)
 	var/obj/item/organ/tongue/tongue = power_holder.get_organ_slot(ORGAN_SLOT_TONGUE)
@@ -12,6 +20,7 @@
 	var/diet_choice = client_source?.prefs?.read_preference(/datum/preference/choiced/beastial_diet)
 	if(isnull(diet_choice))
 		diet_choice = "None"
+	chosen_diet = diet_choice
 
 	switch(diet_choice)
 		if("Herbivore")

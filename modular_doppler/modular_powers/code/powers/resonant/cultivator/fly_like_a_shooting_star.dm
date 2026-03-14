@@ -2,7 +2,7 @@
 	name = "Fly Like A Shooting Star"
 	desc = "Whilst your alignment is active, you can fly. You can propel yourself through the air and space as if wearing a jetpack. \
 	If you aren't able to use your legs, you're able to move around with this ability, regardless of the current gravity."
-
+	security_record_text = "Subject can fly regardless of gravitational environment whilst in their heightened state."
 	value = 3
 	required_powers = list(/datum/power/cultivator_root/astral_touched)
 

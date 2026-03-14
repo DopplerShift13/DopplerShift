@@ -4,6 +4,7 @@
 /datum/power/aberrant/radiosyntehsis
 	name = "Radiosynthesis"
 	desc = "Rather than the molecular degredation you experience from radioactivity, your body instead uses it as an energy source to rapidly heal your body. Radioactivity heals you instead of damaging you. Because this healing is anomalous, it heals synthetic and biological bodyparts."
+	security_record_text = "Subject's body regenerates instead of degenerate from exposure to radiation."
 	value = 3
 	mob_trait = TRAIT_HALT_RADIATION_EFFECTS // we don't give radimmune cause we want to ENCOURAGE people to get irradiated.
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES

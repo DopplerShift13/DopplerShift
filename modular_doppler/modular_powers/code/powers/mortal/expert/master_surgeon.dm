@@ -6,6 +6,7 @@
 /datum/power/expert/master_surgeon
 	name = "Master Surgeon"
 	desc = " Surgery takes composure and skill which you have aplenty. Increases your success rate and action speed with surgery by a factor of 1.5x."
+	security_record_text = "Subject has an unusual skill in surgery."
 	value = 4
 	/// 1.5x faster => multiply time by 1/1.5
 	var/surgery_speed_mult = 1 / 1.5

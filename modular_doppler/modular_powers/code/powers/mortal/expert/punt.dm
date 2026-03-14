@@ -8,6 +8,7 @@
 	name = "Punt"
 	desc = "Using your foot or some other part of your body, you send an object barreling down a long distance away from you. If someone is hit by the object and it is solid, they are knocked down and take damage. \
 	Distance (and damage) scale with your Athletics skill. Double distance on crates and non-bulky objects! Requires Heavy Lifter."
+	security_record_text = "Subject has expertise in punting objects across large distances."
 	value = 3
 	required_powers = list(/datum/power/expert/heavy_lifter)
 	action_path = /datum/action/cooldown/power/expert/punt

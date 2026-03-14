@@ -14,6 +14,17 @@
 	// Should the augment be disabled if they're a prisoner.
 	var/disable_if_prisoner = TRUE
 
+// default text for augments
+/datum/power/augmented/get_security_record_text()
+	if(security_record_text)
+		return security_record_text
+	if(!augment)
+		return ""
+
+	var/obj/item/organ/augment_path = augment
+	var/augment_name = initial(augment_path.name)
+	return "Subject has a [augment_name]."
+
 // Responsible for adding augments
 /datum/power/augmented/add_unique(client/client_source)
 	var/mob/living/carbon/carbon_holder = power_holder

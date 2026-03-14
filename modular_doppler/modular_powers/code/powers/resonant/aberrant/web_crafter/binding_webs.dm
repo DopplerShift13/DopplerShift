@@ -2,6 +2,8 @@
 /datum/power/aberrant/binding_webs
 	name = "Binding Webs"
 	desc = " Allows you to craft web restraints and web bolas using web crafter. Web restraints are functionally similar to zipties. Web Bolas can be thrown just like regular bolas."
+	security_record_text = "Subject can craft bolas and restraints from their spider silk."
+	security_threat = POWER_THREAT_MAJOR
 	value = 3
 
 	required_powers = list(/datum/action/cooldown/power/aberrant/web_crafter)

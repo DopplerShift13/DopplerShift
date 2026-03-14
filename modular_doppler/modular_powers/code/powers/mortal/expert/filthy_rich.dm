@@ -6,6 +6,7 @@
 /datum/power/expert/filthy_rich
 	name = "Filthy Rich"
 	desc = "With this much disposable money it's even a question as to why you even work anymore. You start with 10000 extra credits (includes the amount from being Rich already). And probably tons more in off-shore savings accounts."
+	security_record_text = "Subject has an exorbant amount of wealth and resources at their disposal."
 	value = 8
 	required_powers = list(/datum/power/expert/rich)
 

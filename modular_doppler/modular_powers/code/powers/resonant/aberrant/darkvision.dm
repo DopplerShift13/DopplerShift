@@ -2,6 +2,7 @@
 /datum/power/aberrant/darkvision
 	name = "Darkvision"
 	desc = "Your eyes see perfectly in the dark; but your vision gains a blue-ish hue to it."
+	security_record_text = "Subject sees perfectly in the dark."
 	mob_trait = TRAIT_TRUE_NIGHT_VISION
 
 	value = 3

@@ -1,9 +1,8 @@
 /datum/power/psyker_power/levitate
 	name = "Levitate"
 	desc = "Grants the ability to levitate yourself above surfaces and letting you propel yourself in zero-gravity. Passively drains stress while in use."
-
+	security_record_text = "Subject can levitate their body regardless of the current gravity."
 	value = 4
-	priority = POWER_PRIORITY_BASIC
 	required_powers = list(/datum/power/psyker_root)
 	action_path = /datum/action/cooldown/power/psyker/levitate
 

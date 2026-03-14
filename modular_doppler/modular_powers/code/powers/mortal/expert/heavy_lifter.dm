@@ -6,6 +6,7 @@
 	name = "Heavy Lifter"
 	desc = "A strong back does a lot when it comes to carrying closets. You ignore the slowdown from dragging objects and having creatures grabbed/ and/or carried. You also start off as a Journeyman in the Athletics skill. \
 	All other slowdowns such as stamina, items, damage, etc. still apply as normal."
+	security_record_text = "Subject possesses a high degree of strength and is capable of hauling objects without being slowed down."
 	value = 5
 	// how much xp we start with on average.
 	var/starting_xp_base = SKILL_EXP_JOURNEYMAN

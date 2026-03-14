@@ -1,7 +1,7 @@
 /datum/power/expert/creature_tamer
 	name = "Creature Tamer"
 	desc = "You're always met with success when taming creatures. Grants you the 'Tame Creature' ability, allowing you to automatically tame any normally tameable creatures. Now you too can have your very own space carp pet."
-
+	security_record_text = "Subject has an affinity for taming creatures."
 	value = 2
 	required_powers = list(/datum/power/expert/zoologist)
 	action_path = /datum/action/cooldown/power/expert/creature_tamer

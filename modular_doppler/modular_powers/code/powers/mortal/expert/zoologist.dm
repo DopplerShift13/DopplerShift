@@ -5,6 +5,7 @@
 	name = "Zoologist"
 	desc = "You are capable of befriending just about any creature, given the opportunity. You gain the 'Befriend Creature' ability; using it on a mob in melee range will befriend it and any of it's other nearby cousins. \
 	This doesn't prevent them from turning hostile on other creatures. You can befriend just about any creature that can also be revived with a Lazurs Injector. There's no limit to how many creatures you can befriend."
+	security_record_text = "Subject has an unusual ability to befriend any and all animals."
 	value = 4
 
 	action_path = /datum/action/cooldown/power/expert/zoologist

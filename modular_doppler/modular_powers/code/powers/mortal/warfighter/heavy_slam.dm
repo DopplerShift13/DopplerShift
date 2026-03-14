@@ -6,6 +6,8 @@
 	name = "Heavy Slam"
 	desc = "You perform a massive, arcing strike that hits a large area. You strike the 2x3 area adjacent to you in the target direction, hitting everyone in the area (and everything, if in combat mode). \
 	A creature can only be hit once by this power, but large creatures take double damage. Requires you to actively be wielding a two-handed weapon."
+	security_record_text = "Subject can swing two-handed weapons in an enormous area."
+	security_threat = POWER_THREAT_MAJOR
 	value = 4
 
 	action_path = /datum/action/cooldown/power/warfighter/heavy_slam

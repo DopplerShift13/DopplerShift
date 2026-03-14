@@ -10,7 +10,8 @@
 /datum/power/psyker_power/manipulate
 	name = "Manipulate"
 	desc = "Allows you to interact with machinery and various other structures within line of sight as if it were next to you."
-
+	security_record_text = "Subject can psychically interact with objects from a distance."
+	security_threat = POWER_THREAT_MAJOR
 	value = 2
 	action_path = /datum/action/cooldown/power/psyker/manipulate
 	mob_trait = TRAIT_NO_UI_DISTANCE

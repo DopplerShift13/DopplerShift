@@ -7,6 +7,8 @@
 	\n Once you reach critical condition or when manually activated, you begin a slow (and obvious) 10 second teleport towards your station's medbay lobby (regardless of Z-level).\
 	Once it fires, a warning message is issued over the radio. The teleportation sets the quality to 0%, and can be interupted by Epinephrine in the bloodstream, EMP, or healing you above the critical threshold; after which it loses 25% quality and enters a several minute cooldown period.\
 	\n Decreases in quality twice as fast. Lower quality decreases the speed of the teleport."
+	security_record_text = "Subject has a ANGL Auto Retriever and will teleport to medbay if critically injured."
+	security_threat = POWER_THREAT_MAJOR
 
 	value = 6
 	augment = /obj/item/organ/cyberimp/chest/auto_retriever

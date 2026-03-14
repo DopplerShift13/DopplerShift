@@ -3,6 +3,8 @@
 	name = "Armblade"
 	desc = "Allows you to transform your arm into a deadly blade. The weapon itself has high damage, pierces armor and can destroy tables that block your way.\
 	\n Requires an empty hand to use."
+	security_record_text = "Subject can manifest a sharp-edged blade from their arm."
+	security_threat = POWER_THREAT_MAJOR
 	value = 4
 	required_powers = list(/datum/power/aberrant_root/monstrous)
 	action_path = /datum/action/cooldown/power/aberrant/armblade

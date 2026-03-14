@@ -5,6 +5,7 @@
 /datum/power/aberrant_root/anomalous
 	name = "Anomalous Origin"
 	desc = "Things just don't add up with you. You can interact with anomalies to close them, as if you were using an anomaly neutralizer."
+	security_record_text = "Subject has unusual properties when interacting with anomalies."
 	value = 1
 
 /datum/power/aberrant_root/anomalous/add(client/client_source)

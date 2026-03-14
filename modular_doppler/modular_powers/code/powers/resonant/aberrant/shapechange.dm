@@ -8,11 +8,43 @@
 	\n Activating the ability transforms you into the chosen animal. It does not have your name or any other identifying traits, but the number is always the same when you use it (and the security record for this power elaborates on what creature and numbers). \
 	\n Using the ability makes you hungry, and cannot be used while you're starving.\
 	\n If the creature dies or the effect ends, you are reverted to your normal form (prone on the ground), and all damage taken is transfered to your original form (halved if reverting back manually)."
+	security_threat = POWER_THREAT_MAJOR
 	value = 5
 
 	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
 	required_allow_any = TRUE
 	action_path = /datum/action/cooldown/power/aberrant/shapechange
+
+/datum/power/aberrant/shapechange/get_security_record_text()
+	var/datum/action/cooldown/power/aberrant/shapechange/shape_action = action_path
+	if(!istype(shape_action))
+		return ""
+
+	// Resolve from the action itself so overrides (wolf/spider) are reflected in records.
+	if(!ispath(shape_action.animal_form))
+		shape_action.animal_form = shape_action.get_shapechange_type(power_holder?.client)
+
+	var/animal_name = "animal" // if we don't get anything good
+	if(ispath(shape_action.animal_form, /mob/living))
+		var/mob/living/animal_type = shape_action.animal_form
+		animal_name = initial(animal_type.name)
+
+	if(!shape_action.shape_identifier)
+		return ""
+	return "Subject can shapechange into a [animal_name] with persistent identifier #[shape_action.shape_identifier]."
+
+// Sets a persistent number identifier for the mob used in both sec records and the mob.
+/datum/power/aberrant/shapechange/post_add()
+	. = ..()
+	var/datum/action/cooldown/power/aberrant/shapechange/shape_action = action_path
+	if(!istype(shape_action))
+		return
+	if(!shape_action.shape_identifier)
+		shape_action.shape_identifier = rand(1, 999)
+	if(!ispath(shape_action.animal_form))
+		shape_action.animal_form = shape_action.get_shapechange_type(power_holder?.client)
+
+	power_holder?.refresh_security_power_records()
 
 /datum/action/cooldown/power/aberrant/shapechange
 	name = "Shapechange"

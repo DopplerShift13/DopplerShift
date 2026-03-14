@@ -3,7 +3,8 @@
 	desc = "You can set fire onto anything you touch. This works similary to a ligher in terms of functionality. \
 	While in Alignment, you can right click shoot a flameblast that ignite everything in the area where it lands. \
 	Using the alignment version consumes Dantian. No cooldown."
-
+	security_record_text = "Subject can set fire to any object in melee range. While in a heightened state, they can shoot motes of flame to ignite anything hit as well."
+	security_threat = POWER_THREAT_MAJOR
 	value = 5
 	required_powers = list(/datum/power/cultivator_root/flame_soul)
 	action_path = /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay

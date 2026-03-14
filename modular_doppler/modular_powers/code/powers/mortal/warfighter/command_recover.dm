@@ -8,7 +8,7 @@
 	You gain the 'Command: Recover' ability. Using it on someone will cause them to recover from stuns faster (as if shook on help intent). Has a moderate cooldown. \
 	For any and all command abilities in this category, the effect is increased if you are in the same department as the target, and even further if you are a head of staff (regardless of department). \
 	Command abilities can never be used on yourself, and require the target to be able to see or hear you."
-
+	security_record_text = "Subject has an unusual charisma and can motivate others to recover from incapacitating effects faster."
 	value = 4
 	action_path = /datum/action/cooldown/power/warfighter/command/recover
 

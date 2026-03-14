@@ -6,12 +6,23 @@
 	desc = "By speaking a specific name or word, you appear next to the speaker after a short delay. The summoning takes time, you are stunned throughout, is entirely involuntary and can only be stopped by being buckled or dispelled.\
 	\n After being succesfuly summoned, you are unable to be summoned again for 1 minute. \
 	\n The chosen word is a partial secret; the Security Records on your powers contain the word as well. It cannot contain any special characters, only standard letters and numbers."
+	security_threat = POWER_THREAT_MAJOR
 	value = 7
 
 	required_powers = list(/datum/power/aberrant_root/anomalous)
 
 	var/datum/component/beetlejuice/summonable/summon_component
 	var/owns_summon_component = FALSE
+
+// Lists the word in sec records.
+/datum/power/aberrant/summonable/get_security_record_text()
+	var/keyword = summon_component?.keyword
+	if(!keyword)
+		keyword = power_holder?.client?.prefs?.read_preference(/datum/preference/text/summonable_keyword)
+	if(!keyword)
+		var/datum/preference/text/summonable_keyword/pref_entry = GLOB.preference_entries[/datum/preference/text/summonable_keyword]
+		keyword = pref_entry?.create_default_value() || "Beetlejuice"
+	return "Subject is summonable via keyword \"[keyword]\"."
 
 // Adds the custom beetlejuice component and sets the beetlejuiec word.
 /datum/power/aberrant/summonable/post_add()
