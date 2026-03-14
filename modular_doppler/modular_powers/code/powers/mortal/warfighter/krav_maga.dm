@@ -3,11 +3,10 @@
 */
 /datum/power/warfighter/krav_maga
 	name = "Krav Maga"
-	desc = "Trained in various disarming moves, you can wield the martial arts of Krav Maga without any external assistance.\
-	(Powers that give you access to Martial Arts override your unarmed attacks and thusly do not stack with any modifier that affect your punches)"
-	security_record_text = "Subject has studied Martial Arts and understands Krav Maga."
+	desc = "Trained in various disarming moves, you can wield the martial arts of Krav Maga without any external assistance."
+	security_record_text = "Subject can wield Krav Maga in unarmed combat."
 	security_threat = POWER_THREAT_MAJOR
-	value = 8
+	value = 10
 	required_powers = list(/datum/power/warfighter/martial_artist)
 	/// Mindbound martial art component so the style follows mind transfers
 	var/datum/component/mindbound_martial_arts/krav_component
