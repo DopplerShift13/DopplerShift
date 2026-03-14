@@ -65,6 +65,21 @@
 	)
 	crush_damage = 50
 
+/obj/structure/hull_plating/nanocarbon/ex_act(severity, target)
+	. = ..()
+	if(severity >= EXPLODE_HEAVY)
+		nanocarbon_nuke()
+	return TRUE
+
+/// Makes shards of nanocarbon
+/obj/structure/hull_plating/nanocarbon/proc/nanocarbon_nuke()
+	var/random_shards = 2
+	for(var/iteration in 1 to random_shards)
+		var/obj/item/shard = new /obj/item/nanocarbon_shard(src)
+		shard.pixel_x = rand(-6, 6)
+		shard.pixel_y = rand(-6, 6)
+		shard.color = color
+
 /obj/structure/hull_plating/nanocarbon/floor
 	name = "nanocarbon panel"
 	desc = "A section of nanocarbon hull that has been cut free, and has considerable mass."
@@ -72,6 +87,52 @@
 	custom_materials = list(
 		/datum/material/nanocarbon = SHEET_MATERIAL_AMOUNT * 1,
 	)
+
+/obj/structure/hull_plating/gold_foil
+	name = "roll of gold foil"
+	desc = "An industrial scale roll of gold foil, presumably peeled off the nearest ship."
+	icon_state = "gold_foil"
+	custom_materials = list(
+		/datum/material/gold = SHEET_MATERIAL_AMOUNT * 3,
+	)
+
+/obj/structure/hull_plating/silver_foil
+	name = "roll of silver foil"
+	desc = "An industrial scale roll of silver foil, presumably peeled off the nearest ship."
+	icon_state = "silver_foil"
+	custom_materials = list(
+		/datum/material/silver = SHEET_MATERIAL_AMOUNT * 3,
+	)
+
+/obj/structure/hull_plating/plastamic_sheets
+	name = "plastimic panels"
+	desc = "Panels of a complicated plastic compound used to clad the interiors of ships."
+	icon_state = "plastic_1"
+	base_icon_state = "plastic"
+	custom_materials = list(
+		/datum/material/plastic = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 1,
+	)
+
+/obj/structure/hull_plating/plastamic_sheets/Initialize(mapload)
+	. = ..()
+	icon_state = "[base_icon_state]_[rand(1, 3)]"
+	update_appearance()
+
+/obj/structure/hull_plating/armor_panels
+	name = "armor panels"
+	desc = "High grade armor panels used to protect the exteriors of ships from anything between asteroid impacts \
+		to gunfire."
+	icon_state = "armor_1"
+	base_icon_state = "armor"
+	custom_materials = list(
+		/datum/material/alloy/plastitanium = SHEET_MATERIAL_AMOUNT * 3,
+	)
+
+/obj/structure/hull_plating/armor_panels/Initialize(mapload)
+	. = ..()
+	icon_state = "[base_icon_state]_[rand(1, 3)]"
+	update_appearance()
 
 /obj/structure/hull_plating/aluminum
 	name = "aluminum panels"
@@ -188,3 +249,59 @@
 	new_plating.color = color
 	if(girder_type)
 		return new girder_type(src)
+
+/turf/open/floor/plating/nanocarbon
+	name = "nanocarbon hull"
+	desc = "A durable nanocarbon-metal alloy hull used commonly in high endurance ships."
+	icon = 'modular_doppler/shipbreaking/icons/turfs/floors.dmi'
+	icon_state = "nanocarbon"
+	base_icon_state = "nanocarbon"
+	attachment_holes = FALSE
+	upgradable = FALSE
+	rust_resistance = RUST_RESISTANCE_TITANIUM
+	/// What kind of plating we make when cut apart
+	var/obj/cut_plating = /obj/structure/hull_plating/nanocarbon/floor
+
+/turf/open/floor/plating/nanocarbon/welder_act(mob/living/user, obj/item/tool)
+	if(user.combat_mode)
+		return
+	balloon_alert(user, "cutting...")
+	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
+		return TRUE
+	balloon_alert(user, "cut free!")
+	new cut_plating(get_turf(src))
+	qdel(src)
+	return TRUE
+
+/turf/open/floor/plating/aluminum
+	name = "aluminum hull"
+	desc = "Thin aluminum hull, commonly used to plate the cargo bays of ships."
+	icon = 'modular_doppler/shipbreaking/icons/turfs/aluminum.dmi'
+	icon_state = "aluminum-0"
+	base_icon_state = "aluminum"
+	attachment_holes = FALSE
+	upgradable = FALSE
+	rust_resistance = RUST_RESISTANCE_TITANIUM
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = SMOOTH_GROUP_TURF_CHASM
+	canSmoothWith = SMOOTH_GROUP_TURF_CHASM
+	/// What kind of plating we make when cut apart
+	var/obj/cut_plating = /obj/structure/hull_plating/aluminum/floor
+
+/turf/open/floor/plating/aluminum/welder_act(mob/living/user, obj/item/tool)
+	if(user.combat_mode)
+		return
+	balloon_alert(user, "cutting...")
+	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
+		return TRUE
+	balloon_alert(user, "cut free!")
+	new cut_plating(get_turf(src))
+	qdel(src)
+	return TRUE
+
+/obj/effect/baseturf_helper/salvage_shuttle
+	name = "salvage shuttle baseturf replacer"
+	baseturf_to_replace = list(
+		/turf/open/floor/plating,
+	)
+	baseturf = /turf/open/floor/plating/nanocarbon
