@@ -1,5 +1,5 @@
 
-/datum/power/enigmatist_spell/lodestone_legends
+/*/datum/power/enigmatist_spell/lodestone_legends
 	name = "Lodestone Legends"
 	desc = "Activate with any type of Chalk in hand to be told your GPS \
 	position. Causes minor damage to the Chalk"
@@ -24,4 +24,4 @@
 	if(!damage_chalk(used_chalk, user, ENIGMATIST_CHALK_MINOR_DAMAGE))
 		return
 	var/turf/current_turf = get_turf(used_chalk)
-	to_chat(user, span_notice("Your current coordinates are... [current_turf.x]x, [current_turf.y]y, [current_turf.z]z..."))
+	to_chat(user, span_notice("Your current coordinates are... [current_turf.x]x, [current_turf.y]y, [current_turf.z]z..."))*/

@@ -8,6 +8,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "chuuni"
 	// Both Cultivator and Psyker can benefit from meditate.
+	var/psyker_spotlight_color = "#ba2cc9"
 
 	// The components responsible for meditation.
 	var/obj/item/organ/resonant/psyker/psyker_organ
@@ -32,8 +33,8 @@ Reduces stress for psykers and restores Dantian for cultivators
 	// Gets the owner's psyker organ & cultivator component
 	update_components()
 	// Adds visual effects
-	var/datum/status_effect/spotlight_light/light = get_spotlight_color()
-	spotlighttarget.apply_status_effect(light, 3000)
+	var/list/spotlight_config = get_meditation_spotlight_config(owner)
+	spotlighttarget.apply_status_effect(/datum/status_effect/spotlight_light/meditation, 3000, null, spotlight_config["color"], spotlight_config["emit_light"])
 	do
 		active = TRUE
 		if(do_after(owner, 25, target = owner))
@@ -58,24 +59,48 @@ Reduces stress for psykers and restores Dantian for cultivators
 
 	to_chat(owner, "You stop meditating.")
 	active = FALSE
-	spotlighttarget.remove_status_effect(light)
+	spotlighttarget.remove_status_effect(/datum/status_effect/spotlight_light/meditation)
 	return
 
-/datum/action/cooldown/power/resonant_meditate/proc/get_spotlight_color()
-	if(psyker_organ && cultivator_dantian)
-		return /datum/status_effect/spotlight_light/resonant
-	else if(psyker_organ)
-		return /datum/status_effect/spotlight_light/psyker
-	else if(cultivator_dantian)
-		return /datum/status_effect/spotlight_light/cultivator
-	else
-		return /datum/status_effect/spotlight_light
+// Changes the colors on meditate to whatever matches alignment.
+/datum/action/cooldown/power/resonant_meditate/proc/get_meditation_spotlight_config(mob/living/user)
+	var/list/config = list(
+		"color" = null,
+		"emit_light" = TRUE,
+	)
+	var/datum/action/cooldown/power/cultivator/alignment/alignment_action = get_alignment_action(user)
+	if(alignment_action)
+		config["color"] = alignment_action.alignment_outline_color
+		config["emit_light"] = should_alignment_spotlight_emit_light(alignment_action)
+		return config
+	if(psyker_organ) // alignment color gets priority over psyker.
+		config["color"] = psyker_spotlight_color
+	return config
+
+/datum/action/cooldown/power/resonant_meditate/proc/get_alignment_action(mob/living/user)
+	if(!user)
+		return null
+	var/datum/action/cooldown/power/cultivator/alignment/first_alignment
+	for(var/datum/action/cooldown/power/cultivator/alignment/alignment_action in user.actions)
+		if(!first_alignment)
+			first_alignment = alignment_action
+		if(alignment_action.active)
+			return alignment_action
+	return first_alignment
+
+/datum/action/cooldown/power/resonant_meditate/proc/should_alignment_spotlight_emit_light(datum/action/cooldown/power/cultivator/alignment/alignment_action)
+	if(!alignment_action)
+		return TRUE
+	var/alignment_color = alignment_action.alignment_outline_color
+	// Dark colors should not emit a light source.
+	if(alignment_color && is_color_dark(alignment_color))
+		return FALSE
+	return TRUE
 
 // gets the psyker organ and the cultivator component
 /datum/action/cooldown/power/resonant_meditate/proc/update_components()
 	psyker_organ = owner.get_organ_slot(ORGAN_SLOT_PSYKER)
 	cultivator_dantian = owner.GetComponent(/datum/component/cultivator_dantian)
-	//TODO: Cultivator Organ
 
 // Returns TRUE if any active Cultivator or Psyker power is active on the target.
 /datum/action/cooldown/power/resonant_meditate/proc/user_has_active_power(mob/living/user)
@@ -89,13 +114,40 @@ Reduces stress for psykers and restores Dantian for cultivators
 			return TRUE
 	return FALSE
 
-// I wish I could just change the color on spotlights but no we have to make it special.
-/datum/status_effect/spotlight_light/psyker
-	id = "psyker_spotlight"
-	spotlight_color = "#ba2cc9"
-/datum/status_effect/spotlight_light/cultivator
-	id = "cultivator_spotlight"
-	spotlight_color = "#66c5dd"
-/datum/status_effect/spotlight_light/resonant // if you somehow have both
+// Meditation spotlight with runtime color/light config.
+/datum/status_effect/spotlight_light/meditation
+	id = "meditation_spotlight"
+	var/emit_light = TRUE
+
+/datum/status_effect/spotlight_light/meditation/on_creation(mob/living/new_owner, duration, additional_overlay, custom_spotlight_color, custom_emit_light)
+	if(!isnull(custom_spotlight_color))
+		spotlight_color = custom_spotlight_color
+	if(!isnull(custom_emit_light))
+		emit_light = custom_emit_light
+	. = ..()
+
+/datum/status_effect/spotlight_light/meditation/on_apply()
+	if(emit_light)
+		return ..()
+
+	beam_from_above_a = new /obj/effect/overlay/spotlight
+	beam_from_above_a.color = spotlight_color
+	beam_from_above_a.alpha = 62
+	owner.vis_contents += beam_from_above_a
+	beam_from_above_a.layer = BELOW_MOB_LAYER
+
+	beam_from_above_b = new /obj/effect/overlay/spotlight
+	beam_from_above_b.color = spotlight_color
+	beam_from_above_b.alpha = 62
+	beam_from_above_b.layer = ABOVE_MOB_LAYER
+	beam_from_above_b.pixel_y = -2 // Slight vertical offset for an illusion of volume.
+	owner.vis_contents += beam_from_above_b
+
+	if(additional_overlay)
+		owner.add_overlay(additional_overlay)
+	return TRUE
+
+// Legacy subtype for other powers still referencing this path.
+/datum/status_effect/spotlight_light/resonant
 	id = "resonant_spotlight"
 	spotlight_color = "#cf2525"

@@ -3,7 +3,7 @@
 */
 /datum/power/aberrant/summonable
 	name = "Summonable"
-	desc = "By speaking a specific name or word, you appear next to the speaker after a short delay. The summoning takes time, you are stunned throughout, is entirely involuntary and can only be stopped by being buckled or dispelled.\
+	desc = "By speaking a specific name or word, you appear next to the speaker after a short delay. The summoning takes time, you are stunned throughout, is entirely involuntary and can only be stopped by being silenced, buckled or dispelled.\
 	\n After being succesfuly summoned, you are unable to be summoned again for 1 minute. \
 	\n The chosen word is a partial secret; the Security Records on your powers contain the word as well. It cannot contain any special characters, only standard letters and numbers."
 	security_threat = POWER_THREAT_MAJOR
@@ -77,7 +77,7 @@
 	var/atom/movable/summoned = parent
 	if(ismob(summoned))
 		var/mob/living/living_summoned = summoned
-		if(living_summoned.buckled)
+		if(living_summoned.buckled || HAS_TRAIT(living_summoned, TRAIT_RESONANCE_SILENCED))
 			return
 	var/turf/target_turf = get_adjacent_open_turf(target)
 	if(QDELETED(summoned) || !target_turf)
@@ -106,6 +106,10 @@
 /datum/component/beetlejuice/summonable/proc/begin_summon(atom/movable/summoned, turf/target_turf)
 	if(QDELETED(summoned) || QDELETED(target_turf))
 		return
+	if(isliving(summoned))
+		var/mob/living/living_summoned = summoned
+		if(HAS_TRAIT(living_summoned, TRAIT_RESONANCE_SILENCED))
+			return
 	summoning = TRUE
 	beaming_up = TRUE
 	// Start departure immediately while runes are appearing.

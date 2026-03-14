@@ -17,10 +17,16 @@
 /datum/power/psyker_root/add(client/client_source)
 	psyker_organ = new /obj/item/organ/resonant/psyker
 	psyker_organ.Insert(power_holder, special = TRUE)
-	grant_action(/datum/action/cooldown/power/resonant_meditate)
+	if(power_holder)
+		var/has_meditate = FALSE
+		for(var/datum/action/action as anything in power_holder.actions)
+			if(istype(action, /datum/action/cooldown/power/resonant_meditate))
+				has_meditate = TRUE
+				break
+		if(!has_meditate)
+			grant_action(/datum/action/cooldown/power/resonant_meditate)
 
 /datum/power/psyker_root/remove(client/client_source)
 
 	if(psyker_organ)
 		qdel(psyker_organ)
-

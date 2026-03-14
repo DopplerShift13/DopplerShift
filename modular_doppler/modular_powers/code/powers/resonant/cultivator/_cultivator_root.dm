@@ -15,7 +15,13 @@
 	// We pass along the piety component to actually handle most of the piety stuff.
 	power_holder.AddComponent(/datum/component/cultivator_dantian, power_holder)
 	// Passes along meditation.
-	grant_action(/datum/action/cooldown/power/resonant_meditate)
+	var/has_meditate = FALSE
+	for(var/datum/action/action as anything in power_holder.actions)
+		if(istype(action, /datum/action/cooldown/power/resonant_meditate))
+			has_meditate = TRUE
+			break
+	if(!has_meditate)
+		grant_action(/datum/action/cooldown/power/resonant_meditate)
 	. = ..()
 
 /datum/power/cultivator_root/remove()

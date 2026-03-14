@@ -1,11 +1,9 @@
 
 /datum/power/enigmatist_root
-	name = "Produce Resonant Chalk"
-	desc = "Learn how to produce Resonant Chalk with any crayon \
-	and a sheet of plasma or Resonant Chalk Remnants. \
-	This is mutually exclusive with Spell Preparation."
+	name = "Coming Soon!"
+	desc = "Only time will tell."
 
-	value = 2
+	value = 999
 	mob_trait = TRAIT_ARCHETYPE_SORCEROUS
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_ENIGMATIST

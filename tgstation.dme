@@ -7541,7 +7541,6 @@
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_enigmatist_root.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_enigmatist_spell.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\lodestone_legends.dm"
-#include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\test_powerthatrequirespower.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_action.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_power.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\_thaumaturge_preperation.dm"
