@@ -6,7 +6,7 @@
 	yet begging the question why."
 	icon_state = "nevada_can"
 	volume = 55
-	list_reagents = list(/datum/reagent/consumable/icetea = 50, /datum/reagent/consumable/honey = 5)
+	list_reagents = list(/datum/reagent/consumable/icetea/nevada = 50, /datum/reagent/consumable/honey = 5)
 	custom_price = PAYCHECK_LOWER
 
 /obj/item/reagent_containers/cup/glass/waterbottle/nevada_tea
@@ -18,7 +18,7 @@
 	cap_icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	cap_icon_state = "nevada_bottle_cap"
 	volume = 45
-	list_reagents = list(/datum/reagent/consumable/icetea = 40, /datum/reagent/consumable/honey = 5)
+	list_reagents = list(/datum/reagent/consumable/icetea/nevada = 40, /datum/reagent/consumable/honey = 5)
 	custom_price = PAYCHECK_LOWER * 1.1
 
 /obj/item/reagent_containers/cup/glass/waterbottle/nevada_tea_jug
@@ -31,7 +31,7 @@
 	cap_icon_state = "jug_cap"
 	volume = 300
 	possible_transfer_amounts = list(5, 10, 15, 30, 50, 100, 200, 300)
-	list_reagents = list(/datum/reagent/consumable/icetea = 250, /datum/reagent/consumable/honey = 50)
+	list_reagents = list(/datum/reagent/consumable/icetea/nevada = 250, /datum/reagent/consumable/honey = 50)
 	custom_price = PAYCHECK_LOWER * 3.5
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/blueberry
