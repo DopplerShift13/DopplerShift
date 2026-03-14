@@ -42,7 +42,7 @@
 	list_reagents = list(/datum/reagent/consumable/berryjuice/blueberry = 50, /datum/reagent/consumable/honey = 5)
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/raspberry
-	name = "\improper Nevada Raspberry Rampage™"
+	name = "\improper Nevada Rizzberry Rampage™"
 	desc = "Red raspberry emblazoned art promises a rush of red 40 and artificial flavoring."
 	icon_state = "nevada_raspberry"
 	list_reagents = list(/datum/reagent/consumable/berryjuice/raspberry = 50, /datum/reagent/consumable/honey = 5)
@@ -69,4 +69,4 @@
 	name = "\improper Nevada PowerClown pre-workout blend"
 	desc = "How something of this viscosity fits through the mouth of a beverage can is the subject of heated debate."
 	icon_state = "clown_preworkout"
-	list_reagents = list(/datum/reagent/consumable/ethanol/protein_blend/clown_preworkout = 55)
+	list_reagents = list(/datum/reagent/consumable/nutriment/clown_preworkout = 55)

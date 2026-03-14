@@ -1,6 +1,7 @@
 /datum/reagent/consumable/icetea/nevada
 	name = "Nevada Iced Tea"
-	description = "Patent Pending"
+	description = "A patent pending concotion of the leaf dust left on the floor of a tea processing plant \
+	and sweetener blends."
 	color = "#755c2e"
 	taste_description = "sweet green tea"
 
@@ -22,8 +23,16 @@
 	color = "#FFE978"
 	taste_description = "sunshine and summertime"
 
-/datum/reagent/consumable/ethanol/protein_blend/clown_preworkout
+/datum/reagent/consumable/nutriment/clown_preworkout
 	name = "Nevada PowerClown Pre-Workout Blend"
+	description = "A vile blend of protein, pure grain alcohol, korta flour, and blood. Useful for bulking up, if you can keep it down."
+	color = "#f17d86"
+	quality = DRINK_NICE
+	taste_description = "powdered chalk and oat milk"
+	brute_heal = 0.6
+	nutriment_factor = 6 // watered down
+	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
+	default_container = /obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/preworkout
 
 /datum/reagent/consumable/ethanol/gin_goblin
 	name = "Gin Goblin"
@@ -57,9 +66,9 @@
 /datum/chemical_reaction/drink/clown_cream
 	results = list(/datum/reagent/consumable/ethanol/clown_cream = 15)
 	required_reagents = list(
-		/datum/reagent/consumable/ethanol/protein_blend/clown_preworkout = 5,
-		 /datum/reagent/consumable/cream = 3,
-		 /datum/reagent/consumable/eggyolk = 2,
-		 /datum/reagent/consumable/ethanol/hooch = 5,
+		/datum/reagent/consumable/nutriment/clown_preworkout = 5,
+		/datum/reagent/consumable/cream = 3,
+		/datum/reagent/consumable/eggyolk = 2,
+		/datum/reagent/consumable/ethanol/hooch = 5,
 	)
 	reaction_tags = REACTION_TAG_DRINK | REACTION_TAG_EASY | REACTION_TAG_OTHER
