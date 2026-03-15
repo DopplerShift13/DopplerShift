@@ -12,7 +12,7 @@
 			"type": "icon_state",
 			"icon_state": "tech_sweatshirt_overlay_t",
 			"blend_mode": "overlay",
-			"color_ids": [2]
+			"color_ids": [1]
 		}
 	]
 }
