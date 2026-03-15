@@ -39,6 +39,9 @@ GLOBAL_LIST_INIT(typecache_elevated_structures, typecacheof(list(
 	/obj/machinery/stasis,
 	/obj/machinery/chem_master, // Pills may catch germs
 	/obj/machinery/plumbing/pill_press,
+	// DOPPLER EDIT ADDITION START - Doppler food germ protectors
+	/obj/structure/shelf,
+	// DOPPLER EDIT ADDITION END
 )))
 
 /// A typecache of objects that player controlled, easily accessible, hostile mobs should not be able to attack

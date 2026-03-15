@@ -88,6 +88,11 @@
 	var/list/skin_parts = list()
 	for(var/variant in variants)
 		skin_parts += list(assoc_to_keys(variants[variant]))
+	// DOPPLER ADDITION START - MODULAR MODSUIT ICONS FAIL TESTS OTHERWISE
+	for(var/skin_icon_override in skin_parts)
+		skin_icon_override -= MOD_ICON_OVERRIDE
+		skin_icon_override -= MOD_WORN_ICON_OVERRIDE
+	// DOPPLER ADDITION END
 	for(var/skin in skin_parts)
 		for(var/compared_skin in skin_parts)
 			if(skin ~! compared_skin)
@@ -165,6 +170,10 @@
 	for(var/obj/item/part as anything in parts + mod)
 		part.icon = used_skin[MOD_ICON_OVERRIDE] || 'icons/obj/clothing/modsuit/mod_clothing.dmi'
 		part.worn_icon = used_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
+		// DOPPLER ADDITION START - Icon override bodyshape rendering will not work right without this
+		if(length(part.bodyshape_icon_files))
+			part.bodyshape_icon_files[BODYSHAPE_HUMANOID_T] = used_skin[MOD_WORN_ICON_OVERRIDE] || 'icons/mob/clothing/modsuit/mod_clothing.dmi'
+		// DOPPLER ADDITION END
 		part.icon_state = "[skin]-[part.base_icon_state][mod.get_part_datum(part).sealed ? "-sealed" : ""]"
 		mod.wearer?.update_clothing(part.slot_flags)
 	mod.wearer?.refresh_obscured()

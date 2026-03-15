@@ -3164,7 +3164,7 @@
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 1
 	},
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet/security,
 /turf/open/floor/iron/dark,
 /area/station/command/heads_quarters/hos)
 "anT" = (
@@ -4119,7 +4119,6 @@
 /obj/machinery/light/directional/north,
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/dark_green/full,
-/obj/item/storage/medkit,
 /turf/open/floor/iron/white/smooth_large,
 /area/station/command/bridge)
 "arL" = (
@@ -6655,9 +6654,8 @@
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "aBF" = (
-/obj/structure/bed/dogbed/ian,
-/mob/living/basic/pet/dog/corgi/ian,
 /obj/machinery/status_display/evac/directional/north,
+/obj/structure/filingcabinet/employment,
 /turf/open/floor/wood/large,
 /area/station/command/heads_quarters/hop)
 "aBG" = (
@@ -7292,6 +7290,8 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/structure/bed/dogbed/ian,
+/mob/living/basic/pet/dog/corgi/ian,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/hop)
 "aEb" = (
@@ -15659,6 +15659,7 @@
 /obj/effect/turf_decal/trimline/pine_green/line{
 	dir = 1
 	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/white/smooth_corner{
 	dir = 8
 	},
@@ -18143,8 +18144,8 @@
 /obj/effect/turf_decal/tile/pine_green{
 	dir = 8
 	},
-/obj/machinery/pdapainter/medbay,
 /obj/machinery/camera/autoname/motion/directional/south,
+/obj/structure/filingcabinet/medical,
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/cmo)
 "bCi" = (
@@ -29253,6 +29254,9 @@
 	dir = 8
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/chair/office{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/cmo)
 "dZj" = (
@@ -43199,10 +43203,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/structure/chair/office{
-	dir = 1
-	},
 /obj/machinery/light/directional/east,
+/obj/machinery/pdapainter/medbay,
 /turf/open/floor/iron/white,
 /area/station/command/heads_quarters/cmo)
 "oXR" = (
@@ -43219,7 +43221,9 @@
 /obj/effect/turf_decal/trimline/pine_green/line{
 	dir = 1
 	},
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/sink{
+	pixel_y = 17
+	},
 /turf/open/floor/iron/white/smooth_half,
 /area/station/medical/medbay/central)
 "oXV" = (
