@@ -245,6 +245,7 @@
 		/datum/material/aluminum = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	rust_resistance = RUST_RESISTANCE_TITANIUM
+	baseturfs = /turf/open/floor/plating/nanocarbon
 
 /turf/closed/wall/mineral/aluminum/break_wall()
 	var/obj/new_plating = new /obj/structure/hull_plating/aluminum(src)
@@ -298,10 +299,3 @@
 	new cut_plating(get_turf(src))
 	ScrapeAway()
 	return TRUE
-
-/obj/effect/baseturf_helper/salvage_shuttle
-	name = "salvage shuttle baseturf replacer"
-	baseturf_to_replace = list(
-		/turf/open/floor/plating,
-	)
-	baseturf = /turf/open/floor/plating/nanocarbon

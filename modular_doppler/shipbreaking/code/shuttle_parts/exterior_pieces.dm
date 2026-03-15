@@ -15,7 +15,7 @@
 	/// How long to unweld
 	var/unfasten_time = 1 SECONDS
 
-/obj/structure/engine_covers/border_only/Initialize(mapload)
+/obj/structure/engine_covers/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
 	var/static/list/loc_connections = list(

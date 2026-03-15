@@ -5,8 +5,10 @@
 	icon_state = "shuttle_window-0"
 	base_icon_state = "shuttle_window"
 	fulltile = TRUE
+	smoothing_groups = SMOOTH_GROUP_TITANIUM_WALLS + SMOOTH_GROUP_PLASTITANIUM_WALLS + SMOOTH_GROUP_WINDOW_FULLTILE
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_CLOSED_TURFS
 	max_integrity = 200
-	glass_type = /obj/item/stack/sheet/plastic_wall_panel
+	glass_type = /obj/structure/hull_plating/window
 	glass_amount = 1
 
 /obj/structure/window/fulltile/salvage_shuttle/examine(mob/user)

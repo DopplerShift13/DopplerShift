@@ -7687,6 +7687,7 @@
 #include "modular_doppler\shipbreaking\code\salvage_bay_decoration.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\airlocks.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\exterior_pieces.dm"
+#include "modular_doppler\shipbreaking\code\shuttle_parts\floors.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\hull.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\materials.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\windows.dm"
