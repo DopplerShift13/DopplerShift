@@ -502,7 +502,8 @@
 
 /obj/item/clothing/suit/hooded/doppler/technyne_overlay
 	name = "\improper TechNyne overlay"
-	desc = "This textile is hydrophobic from the face and wicking from the inside, allowing "
+	desc = "This textile is hydrophobic from the face and wicking from the inside, allowing the wearer to stay dry from \
+	rain and from their own sweat."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/technyne_overlay"
 	post_init_icon_state = "tech_sweatshirt_overlay"
@@ -517,7 +518,7 @@
 
 /obj/item/clothing/head/hooded/technyne_hood
 	name = "\improper TechNyne Hood"
-	desc = "A cozy winter hood attached to a heavy winter jacket."
+	desc = "A hydrophobic tech hood."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/technyne_hood"
 	post_init_icon_state = "technyne_hood"
