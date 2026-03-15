@@ -3,6 +3,7 @@
 	icon = 'modular_doppler/shipbreaking/icons/turfs/walls_misc.dmi'
 	density = TRUE
 	anchored = FALSE
+	drag_slowdown = 1.5
 	/// How much damage we do when we fall on or crash into someone
 	var/crush_damage = 40
 
@@ -160,7 +161,7 @@
 	flags_ricochet = RICOCHET_SHINY | RICOCHET_HARD
 	sheet_type = /obj/item/stack/sheet/nanocarbon
 	hardness = 20
-	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_DIAGONAL_CORNERS | SMOOTH_OBJ
 	smoothing_groups = SMOOTH_GROUP_PLASTITANIUM_WALLS + SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
 	canSmoothWith = SMOOTH_GROUP_SHUTTLE_PARTS + SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_PLASTITANIUM_WALLS
 	custom_materials = list(
@@ -237,6 +238,7 @@
 	sheet_type = /obj/item/stack/sheet/aluminum
 	hardness = 50
 	explosive_resistance = 0
+	smoothing_flags = SMOOTH_BITMASK | SMOOTH_OBJ
 	smoothing_groups = SMOOTH_GROUP_TITANIUM_WALLS + SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
 	canSmoothWith = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_PLASTITANIUM_WALLS + SMOOTH_GROUP_TITANIUM_WALLS
 	custom_materials = list(

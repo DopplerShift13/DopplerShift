@@ -1,3 +1,84 @@
+// Shuttle engine covers
+
+/obj/structure/engine_covers
+	abstract_type = /obj/structure/engine_covers
+	icon = 'modular_doppler/shipbreaking/icons/exterior.dmi'
+	icon_state = null
+	flags_1 = ON_BORDER_1
+	obj_flags = CAN_BE_HIT | IGNORE_DENSITY
+	density = FALSE
+	anchored = TRUE
+	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
+	armor_type = /datum/armor/anything_nanocarbon
+	max_integrity = 150
+	layer = ABOVE_OBJ_LAYER
+	/// How long to unweld
+	var/unfasten_time = 1 SECONDS
+
+/obj/structure/engine_covers/border_only/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
+	var/static/list/loc_connections = list(
+		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
+	)
+	AddElement(/datum/element/connect_loc, loc_connections)
+
+/obj/structure/engine_covers/examine(mob/user)
+	. = ..()
+	. += span_notice("You can [anchored ? "unsecure" : "secure"] it with a welding tool.")
+
+/obj/structure/engine_covers/welder_act(mob/living/user, obj/item/tool)
+	if(user.combat_mode)
+		return
+	balloon_alert(user, anchored ? "cutting..." : "securing...")
+	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
+		return TRUE
+	set_anchored(!anchored)
+	return TRUE
+
+/// Determines what to do when something is leaving our turf
+/obj/structure/engine_covers/proc/on_exit(datum/source, atom/movable/leaving, direction)
+	SIGNAL_HANDLER
+	if(leaving == src)
+		return // Let's not block ourselves.
+	if(!(direction & dir))
+		return
+	if (!density)
+		return
+	if (leaving.movement_type & (PHASING))
+		return
+	if (leaving.move_force >= MOVE_FORCE_EXTREMELY_STRONG)
+		return
+	leaving.Bump(src)
+	return COMPONENT_ATOM_BLOCK_EXIT
+
+/obj/structure/engine_covers/CanAllowThrough(atom/movable/mover, border_dir)
+	. = ..()
+	if(!(border_dir == dir))
+		return TRUE
+
+/obj/structure/engine_covers/CanPass(atom/movable/mover, border_dir)
+	return border_dir & dir ? ..() : TRUE
+
+/obj/structure/engine_covers/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
+	return !density || (dir != to_dir)
+
+/obj/structure/engine_covers/can_atmos_pass(turf/the_turf, vertical = FALSE)
+	if(get_dir(loc, the_turf) == dir)
+		return !density
+	else
+		return TRUE
+
+/obj/structure/engine_covers/thruster_nozzle
+	name = "thruster nozzle"
+	desc = "A protective nozzle for shuttle engines, to keep debris from getting inside the combustion chamber."
+	icon_state = "nozzle"
+
+/obj/structure/engine_covers/heater_cover
+	name = "engine cover"
+	desc = "A protective cover for engine components, as well as a barrier to prevent atmosphere escape."
+	icon_state = "engine_plate"
+
 // Anything that uses an existing machine for function
 
 /obj/machinery/exoscanner/shuttle_part
@@ -111,6 +192,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 
 /obj/structure/shuttle_decoration/Initialize(mapload)
 	. = ..()
+	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
 	find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
 
 /obj/structure/shuttle_decoration/examine(mob/user)
@@ -136,10 +218,12 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 		return
 	if(!requires_welder)
 		return
-	balloon_alert(user, "cutting...")
+	balloon_alert(user, anchored ? "cutting..." : "securing...")
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
 		return TRUE
-	set_anchored(FALSE)
+	set_anchored(!anchored)
+	if(anchored)
+		find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
 	return TRUE
 
 /obj/structure/shuttle_decoration/rcs

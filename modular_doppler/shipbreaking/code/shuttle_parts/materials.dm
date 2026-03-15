@@ -86,6 +86,15 @@
 	victim.apply_damage(10, BRUTE, BODY_ZONE_HEAD, wound_bonus = 5)
 	return TRUE
 
+/datum/armor/nanocarbon_anything
+	melee = 50
+	bullet = 40
+	laser = 20
+	energy = 20
+	bomb = 25
+	fire = 100
+	acid = 100
+
 /obj/item/nanocarbon_shard
 	name = "nanocarbon shard"
 	desc = "A wicked looking shard of fractured nanocarbon, number one cause of suit punctures in orbit today."
@@ -94,6 +103,8 @@
 	base_icon_state = "nanoshard"
 	hitsound = 'sound/items/weapons/bladeslice.ogg'
 	w_class = WEIGHT_CLASS_SMALL
+	max_integrity = 150
+	armor_type = /datum/armor/nanocarbon_anything
 	force = 5
 	throwforce = 10
 	sharpness = SHARP_EDGED

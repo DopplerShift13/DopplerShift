@@ -7689,6 +7689,7 @@
 #include "modular_doppler\shipbreaking\code\salvage_computer.dm"
 #include "modular_doppler\shipbreaking\code\salvage_shuttle_base.dm"
 #include "modular_doppler\shipbreaking\code\salvage_shuttles\example.dm"
+#include "modular_doppler\shipbreaking\code\shuttle_parts\airlocks.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\exterior_pieces.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\hull.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\materials.dm"
