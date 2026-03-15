@@ -415,7 +415,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/aux_engine, 10)
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
 		return TRUE
-	balloon_alert(user, "cut free!")
 	var/obj/new_plating = new cut_plating(get_turf(src))
 	if(keep_color)
 		new_plating.color = color

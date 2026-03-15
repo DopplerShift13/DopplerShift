@@ -1,0 +1,35 @@
+/obj/structure/window/fulltile/salvage_shuttle
+	name = "shuttle window"
+	desc = "A high-strength shuttle window to allow visibility outside of every ship too cheap for cameras."
+	icon = 'modular_doppler/shipbreaking/icons/smooth/shuttle_window.dmi'
+	icon_state = "shuttle_window-0"
+	base_icon_state = "shuttle_window"
+	fulltile = TRUE
+	max_integrity = 200
+	glass_type = /obj/item/stack/sheet/plastic_wall_panel
+	glass_amount = 1
+
+/obj/structure/window/fulltile/salvage_shuttle/examine(mob/user)
+	. = ..()
+	. += span_notice("It can be cut out of frame with a welding tool of some kind and [EXAMINE_HINT("Right-Click")].")
+
+/obj/structure/window/fulltile/salvage_shuttle/welder_act_secondary(mob/living/user, obj/item/tool)
+	if(user.combat_mode)
+		return
+	balloon_alert(user, "cutting...")
+	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
+		return TRUE
+	new glass_type(get_turf(src))
+	qdel(src)
+	return TRUE
+
+/obj/structure/hull_plating/window
+	name = "cut shuttle window"
+	desc = "The glass of a shuttle window, cut out of its frame."
+	icon = 'modular_doppler/shipbreaking/icons/smooth/smooth_misc.dmi'
+	icon_state = "window"
+	armor_type = /datum/armor/structure_window
+	custom_materials = list(
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 4,
+		/datum/material/titanium = SHEET_MATERIAL_AMOUNT,
+	)
