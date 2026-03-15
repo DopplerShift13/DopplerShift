@@ -1,10 +1,18 @@
 {
-	"tech_sweatshirt": [
+	"tech_sweatshirt_overlay": [
 		{
 			"type": "icon_state",
 			"icon_state": "tech_sweatshirt_overlay",
 			"blend_mode": "overlay",
 			"color_ids": [1]
+		}
+	],
+	"tech_sweatshirt_overlay_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "tech_sweatshirt_overlay_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
 		}
 	]
 }

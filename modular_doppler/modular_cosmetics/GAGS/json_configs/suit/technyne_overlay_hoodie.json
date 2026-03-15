@@ -1,5 +1,5 @@
 {
-	"tech_sweatshirt": [
+	"tech_overlay_hoodie": [
 		{
 			"type": "icon_state",
 			"icon_state": "tech_sweatshirt",
@@ -21,6 +21,32 @@
 		{
 			"type": "icon_state",
 			"icon_state": "tech_sweatshirt_overlay",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	],
+	"tech_overlay_hoodie_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "tech_sweatshirt",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "tech_sweatshirt_cuffs",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "tech_sweatshirt_pocket",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "tech_sweatshirt_overlay_t",
 			"blend_mode": "overlay",
 			"color_ids": [4]
 		}

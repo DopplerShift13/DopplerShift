@@ -151,13 +151,13 @@
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
 /datum/greyscale_config/technyne_overlay
-	name = "TechNyne Overlay Hoodie"
+	name = "TechNyne Overlay"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
 	json_config = "modular_doppler/modular_cosmetics/GAGS/json_configs/suit/technyne_overlay.json"
 
 /datum/greyscale_config/technyne_overlay/worn
-	name = "TechNyne Overlay Hoodie (Worn)"
-	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	name = "TechNyne Overlay (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
 /datum/greyscale_config/technyne_hood
 	name = "Technyne Hood"

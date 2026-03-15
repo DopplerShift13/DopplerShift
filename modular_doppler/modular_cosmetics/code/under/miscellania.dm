@@ -76,8 +76,6 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	icon_state = "/obj/item/clothing/under/pants/megacargo_pants"
 	post_init_icon_state = "megacargos"
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
 	greyscale_config = /datum/greyscale_config/megacargo_pants
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/megacargo_pants/worn,
@@ -95,8 +93,6 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	icon_state = "/obj/item/clothing/under/pants/megajeans"
 	post_init_icon_state = "megajeans"
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
 	greyscale_config = /datum/greyscale_config/megajeans
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/megajeans/worn,
