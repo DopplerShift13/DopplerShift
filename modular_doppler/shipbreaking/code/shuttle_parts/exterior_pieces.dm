@@ -9,7 +9,7 @@
 	density = FALSE
 	anchored = TRUE
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
-	armor_type = /datum/armor/anything_nanocarbon
+	armor_type = /datum/armor/nanocarbon_anything
 	max_integrity = 150
 	layer = ABOVE_OBJ_LAYER
 	/// How long to unweld
