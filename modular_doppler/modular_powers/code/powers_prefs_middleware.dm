@@ -217,7 +217,6 @@
 
 	// Make sure we don't select an incompatible power.
 	var/datum/power/incompatible_power_type = get_incompatible_power(power_type)
-	message_admins("giver_power BLACKLIST -<br>incompatible_power_type: [incompatible_power_type]")
 	if(incompatible_power_type)
 		to_chat(user, span_boldwarning("[power_name] is incompatible with [incompatible_power_type.name]!"))
 		return FALSE

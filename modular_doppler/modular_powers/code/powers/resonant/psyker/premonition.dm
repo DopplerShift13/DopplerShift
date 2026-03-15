@@ -28,7 +28,7 @@
 	var/keyword = holder.client?.prefs?.read_preference(/datum/preference/text/premonition_keyword)
 	if(!keyword)
 		var/datum/preference/text/premonition_keyword/pref_entry = GLOB.preference_entries[/datum/preference/text/premonition_keyword]
-		keyword = pref_entry?.create_default_value() || "Premonition"
+		keyword = pref_entry?.create_default_value() || "Beetlejuice"
 
 	component.keyword = keyword
 	component.update_regex()
@@ -73,7 +73,7 @@
 	maximum_value_length = 32
 
 /datum/preference/text/premonition_keyword/create_default_value()
-	return "Premonition"
+	return "Beetlejuice"
 
 /datum/preference/text/premonition_keyword/is_valid(value)
 	if(!istext(value))

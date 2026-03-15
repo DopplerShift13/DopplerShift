@@ -108,22 +108,14 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 			continue
 		LAZYADDASSOCLIST(powers_by_priority, power_type.priority, power_type)
 
-	message_admins("assign_powers FIRST -<br>powers_by_priority: [powers_by_priority]<br>bad_power: [bad_power]")
-
 	if(bad_power)
 		applied_client.prefs.save_character()
 
-	message_admins("assign_powers SECOND -<br>power_priorities: [power_priorities]")
-
 	for(var/power_priority in power_priorities)
 		var/list/priority_powers = powers_by_priority[power_priority]
-		message_admins("assign_powers THIRD(LOOP) -<br>power_priority: [power_priority]<br>priority_powers: [priority_powers]")
 		if(isnull(priority_powers))
 			continue
-		for(var/whatever in priority_powers)
-			message_admins("assign_powers 3-4(LOOP) -<br>whatever: [whatever]")
 		for(var/datum/power/power_type as anything in priority_powers)
-			message_admins("assign_powers FOURTH(LOOP) -<br>power_type: [power_type]<br>priority_powers: [priority_powers]")
 			if(!user.add_archetype_power(power_type, override_client = applied_client))
 				continue
 			SSblackbox.record_feedback("tally", "powers_taken", 1, "[power_type.name]")
