@@ -31,7 +31,6 @@
 	mat_rust_resistance = RUST_RESISTANCE_TITANIUM
 	mineral_rarity = 0
 	points_per_unit = 1 / SHEET_MATERIAL_AMOUNT
-	minimum_value_override = 0
 	tradable = TRUE
 	tradable_base_quantity = MATERIAL_QUANTITY_UNCOMMON
 	fish_weight_modifier = 1.1
@@ -75,9 +74,8 @@
 	mat_rust_resistance = RUST_RESISTANCE_TITANIUM
 	mineral_rarity = 0
 	points_per_unit = 1 / SHEET_MATERIAL_AMOUNT
-	minimum_value_override = 0
 	tradable = TRUE
-	tradable_base_quantity = MATERIAL_QUANTITY_RARE
+	tradable_base_quantity = MATERIAL_QUANTITY_UNCOMMON
 	fish_weight_modifier = 0.8
 	strength_modifier = 1.5
 	integrity_modifier = 0.8 // it shatters instead of denting
