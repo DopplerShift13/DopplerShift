@@ -29,8 +29,8 @@
 	save_data["languages"] = languages
 	save_data["alt_job_titles"] = alt_job_titles
 	save_data["all_powers"] = all_powers
-	// load_character will sanitize any bad data, so assume up-to-date.
-	save_data["version"] = DOPPLER_SAVEFILE_VERSION_MAX
+	// Track Doppler-specific savefile version separately from core prefs.
+	save_data["doppler_version"] = DOPPLER_SAVEFILE_VERSION_MAX
 
 #undef DOPPLER_SAVEFILE_VERSION_MAX
 #undef VERSION_NEW_POWERS
