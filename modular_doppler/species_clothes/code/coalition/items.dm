@@ -95,7 +95,7 @@
 
 /obj/item/storage/belt/tajaran_sheath
 	name = "duelist's sheath"
-	desc = "A decorated sheath for the thing dueling swords favored by Tajaran swashbucklers."
+	desc = "A decorated sheath for the thin dueling swords favored by Tajaran swashbucklers."
 	icon = 'modular_doppler/species_clothes/icons/tajara/gear.dmi'
 	icon_state = "sheath"
 	worn_icon = 'modular_doppler/species_clothes/icons/tajara/gear_worn.dmi'
