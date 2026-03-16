@@ -6,7 +6,7 @@
 	base_icon_state = "shuttle_window"
 	fulltile = TRUE
 	smoothing_groups = SMOOTH_GROUP_TITANIUM_WALLS + SMOOTH_GROUP_PLASTITANIUM_WALLS + SMOOTH_GROUP_WINDOW_FULLTILE
-	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_CLOSED_TURFS
+	canSmoothWith = SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_AIRLOCK
 	max_integrity = 200
 	glass_type = /obj/structure/hull_plating/window
 	glass_amount = 1

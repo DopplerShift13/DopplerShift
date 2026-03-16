@@ -3,6 +3,7 @@
 	desc = "A manually operated airlock for the exteriors of ships, sized just enough to crawl through in zero gravity."
 	icon = 'modular_doppler/shipbreaking/icons/doors.dmi'
 	icon_state = "exterior"
+	pass_flags_self = PASSDOORS
 	armor_type = /datum/armor/machinery_door
 	disassembled_type = /obj/structure/hull_plating/airlock
 
@@ -70,6 +71,7 @@
 	anchored = TRUE
 	opacity = TRUE
 	density = TRUE
+	pass_flags_self = PASSDOORS
 	max_integrity = 150
 	armor_type = /datum/armor/machinery_door
 	/// What does this unweld into
