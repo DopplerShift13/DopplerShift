@@ -399,6 +399,10 @@
 	name = "High-neck Labcoat (Chemistry)"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist
 
+/datum/loadout_item/suit/lab/fancy_scientist
+	name = "High-neck Labcoat (Science)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/scientist
+
 /**
  * TOPS
  */

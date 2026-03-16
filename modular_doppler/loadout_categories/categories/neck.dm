@@ -98,7 +98,7 @@
 	item_path = /obj/item/clothing/neck/mantle/recolorable
 
 /datum/loadout_item/neck/cape/teshari_mantle
-	name = "Teshari Mantle"
+	name = "Mantle (Teshari)"
 	item_path = /obj/item/clothing/neck/tesharian_mantle
 
 /**

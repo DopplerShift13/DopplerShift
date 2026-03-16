@@ -114,6 +114,7 @@
 /obj/machinery/vending/wardrobe/science_wardrobe
 	products_doppler = list(
 		/obj/item/clothing/under/misc/doppler_uniform/science = 5,
+		/obj/item/clothing/suit/toggle/labcoat/fancy/scientist = 3,
 		/obj/item/clothing/suit/jacket/doppler/departmental_jacket/sci = 3,
 	)
 

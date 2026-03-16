@@ -29,7 +29,7 @@
 	new /obj/item/clothing/neck/doppler_mantle/science(src)
 	new /obj/item/clothing/head/beret/doppler_command/science(src)
 	new /obj/item/clothing/head/utility/hardhat/welding/doppler_command/science(src)
-	new /obj/item/clothing/suit/toggle/labcoat/fancy/rd(src)
+	new /obj/item/clothing/suit/toggle/labcoat/fancy/scientist/rd(src)
 
 /obj/item/storage/bag/garment/chief_medical/PopulateContents()
 	new /obj/item/clothing/neck/doppler_mantle/medical(src)

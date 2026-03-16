@@ -70,14 +70,20 @@
 	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/toggle/labcoat/fancy/Initialize(mapload)
+/obj/item/clothing/suit/toggle/labcoat/fancy/scientist
+	name = "scientist's high-neck labcoat"
+	desc = "A somewhat premium labcoat for researchers, featuring a raised collar."
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/scientist"
+	greyscale_colors = "#EEEEEE#620B73"
+
+/obj/item/clothing/suit/toggle/labcoat/fancy/scientist/Initialize(mapload)
 	. = ..()
 	allowed += /obj/item/storage/bag/xeno
 
-/obj/item/clothing/suit/toggle/labcoat/fancy/rd
+/obj/item/clothing/suit/toggle/labcoat/fancy/scientist/rd
 	name = "research director's high-neck labcoat"
 	desc = "A somewhat premium labcoat for certified Research Directors. It has an extra plastic-latex lining on the outside for more protection from chemical and viral hazards."
-	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/rd"
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/scientist/rd"
 	greyscale_colors = "#620B73#EEEEEE"
 	armor_type = /datum/armor/jacket_research_director
 
@@ -93,11 +99,19 @@
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist"
 	greyscale_colors = "#EEEEEE#E6935C"
 
+/obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/storage/bag/chemistry
+
 /obj/item/clothing/suit/toggle/labcoat/fancy/geneticist
 	name = "geneticist's high-neck labcoat"
 	desc = "A somewhat premium labcoat for geneticists, featuring a raised collar."
 	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy/geneticist"
 	greyscale_colors = "#EEEEEE#7497C0"
+
+/obj/item/clothing/suit/toggle/labcoat/fancy/geneticist/Initialize(mapload)
+	. = ..()
+	allowed += /obj/item/sequence_scanner
 
 /obj/item/clothing/suit/toggle/labcoat/fancy/roboticist
 	name = "roboticist's high-neck labcoat"
