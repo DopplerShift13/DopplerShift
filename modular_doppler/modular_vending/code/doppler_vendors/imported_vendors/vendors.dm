@@ -1,21 +1,21 @@
 /obj/effect/spawner/random/vending/snackvend
 	loot = list(
-		/obj/machinery/vending/imported/nt,
-		/obj/machinery/vending/imported/mothic,
-		/obj/machinery/vending/imported/tiziran,
-		/obj/machinery/vending/imported/marsian,
-		/obj/machinery/vending/deforest_medvend,
-		/obj/machinery/vending/imported/nevada_iced_tea,
+		/obj/machinery/vending/imported/nt = 3,
+		/obj/machinery/vending/imported/mothic = 3,
+		/obj/machinery/vending/imported/tiziran = 3,
+		/obj/machinery/vending/imported/marsian = 3,
+		/obj/machinery/vending/deforest_medvend = 3,
+		/obj/machinery/vending/imported/nevada_iced_tea = 1,
 	)
 
 /obj/effect/spawner/random/vending/colavend //These can serve both snacks AND drinks so it's kinda both of them?
 	loot = list(
-		/obj/machinery/vending/imported/nt,
-		/obj/machinery/vending/imported/mothic,
-		/obj/machinery/vending/imported/tiziran,
-		/obj/machinery/vending/imported/marsian,
-		/obj/machinery/vending/deforest_medvend,
-		/obj/machinery/vending/imported/nevada_iced_tea,
+		/obj/machinery/vending/imported/nt = 3,
+		/obj/machinery/vending/imported/mothic = 3,
+		/obj/machinery/vending/imported/tiziran = 3,
+		/obj/machinery/vending/imported/marsian = 3,
+		/obj/machinery/vending/deforest_medvend = 3,
+		/obj/machinery/vending/imported/nevada_iced_tea = 1,
 	)
 
 /datum/supply_pack/vending/imported/fill(obj/structure/closet/crate/target_crate)

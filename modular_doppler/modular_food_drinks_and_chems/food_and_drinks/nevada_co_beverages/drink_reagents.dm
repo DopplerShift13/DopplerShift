@@ -25,7 +25,7 @@
 
 /datum/reagent/consumable/nutriment/clown_preworkout
 	name = "Nevada PowerClown Pre-Workout Blend"
-	description = "A vile blend of protein, pure grain alcohol, korta flour, and blood. Useful for bulking up, if you can keep it down."
+	description = "A vile blend of protein. Useful for bulking up, if you can keep it down."
 	color = "#f17d86"
 	quality = DRINK_NICE
 	taste_description = "powdered chalk and oat milk"
