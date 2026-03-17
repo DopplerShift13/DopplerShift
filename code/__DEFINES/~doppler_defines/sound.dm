@@ -7,10 +7,6 @@
 #define SFX_JINGLEBELL "jingle_bell"
 #define SFX_SKATER "skater"
 
-#define CHANNEL_WALKMAN 1007
-
-#define CHANNEL_HIGHEST_AVAILABLE 1001
-
 #define SFX_DJSTATION_OPENTAKEOUT "djstation_opentakeout"
 #define SFX_DJSTATION_PUTINANDCLOSE "djstation_putinandclose"
 #define SFX_DJSTATION_OPENPUTINANDCLOSE "djstation_openputinandclose"

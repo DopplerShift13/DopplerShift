@@ -1,8 +1,5 @@
 #define MUTE_LOOC (1<<6)
 
-/// Define for the admin verb that allows them to review submitted cassettes.
-#define ADMIN_OPEN_REVIEW(id) "(<A href='?_src_=holder;[HrefToken(forceGlobal = TRUE)];open_music_review=[id]'>Open Review</a>)"
-
 /// Sends all admins the chosen sound
 #define SEND_ADMINS_NOTIFICATION_SOUND(sound_to_play) for(var/client/X in GLOB.admins){X.mob.playsound_local(null, sound_to_play, 100, vary = FALSE, channel = CHANNEL_ADMIN_SOUNDS, pressure_affected = FALSE, use_reverb = FALSE);}
 

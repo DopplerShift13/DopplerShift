@@ -4,6 +4,3 @@
 
 /proc/log_floxy(text, list/data)
 	logger.Log(LOG_CATEGORY_FLOXY, text, data)
-
-/proc/log_music(text, list/data)
-	logger.Log(LOG_CATEGORY_MUSIC, text, data)

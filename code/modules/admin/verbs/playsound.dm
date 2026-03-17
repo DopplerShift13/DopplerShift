@@ -176,6 +176,20 @@ ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given interne
 		Would you like to override?", "Musicalis Interruptus", list("No","Yes")) != "Yes")
 			return
 
+	if(GLOB.dj_booth?.broadcasting)
+		var/prompt = tgui_alert(
+			user,
+			message = "The on-station cassette player is currently broadcasting, please be courteous of others when playing music over them, as they have a cooldown, and admins do not. \
+				Do you still want to play a sound?",
+			title = "Heads up!",
+			buttons = list("Yes", "No", "Stop Music")
+		)
+		if(prompt == "Stop Music")
+			web_sound(user, null)
+			return
+		if(prompt != "Yes")
+			return
+
 	var/web_sound_input = tgui_input_text(user, "Enter content URL (supported sites only, leave blank to stop playing)", "Play Internet Sound", null)
 
 	if(length(web_sound_input))
@@ -184,9 +198,10 @@ ADMIN_VERB(play_web_sound, R_SOUND, "Play Internet Sound", "Play a given interne
 			to_chat(user, span_boldwarning("Non-http(s) URIs are not allowed."), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
 			to_chat(user, span_warning("For youtube-dl shortcuts like ytsearch: please use the appropriate full URL from the website."), type = MESSAGE_TYPE_ADMINLOG, confidential = TRUE)
 			return
-		web_sound(user.mob, web_sound_input)
+		var/shell_scrubbed_input = shell_url_scrub(web_sound_input)
+		web_sound(user, shell_scrubbed_input)
 	else
-		web_sound(user.mob, null)
+		web_sound(user, null)
 
 ADMIN_VERB(set_round_end_sound, R_SOUND, "Set Round End Sound", "Set the sound that plays on round end.", ADMIN_CATEGORY_FUN, sound as sound)
 	var/volume = tgui_input_number(user, "What volume would you like this sound to play at?", max_value = 100)
