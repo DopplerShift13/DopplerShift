@@ -44,7 +44,7 @@
 	var/success = FALSE
 
 	// General dispel on target
-	if(dispel(target, user))
+	if(target.dispel(user))
 		success = TRUE
 
 	// Remove poison from a creature's bloodstream or an object's reagents.

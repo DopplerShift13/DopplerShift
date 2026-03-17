@@ -53,7 +53,7 @@
 		return
 	//Faceplant if you get KO'd
 	if(HAS_TRAIT(owner, TRAIT_INCAPACITATED))
-		dispel()
+		on_dispel(owner, src)
 	// Passive stress cost
 	if(active)
 		var/mob/living/carbon/human/psyker = owner

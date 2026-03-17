@@ -57,7 +57,7 @@
 		// Check if we do stress backlash after stress reduction.
 		if(stress >= (stress_threshold * 2)) // Catastrophic event.
 			stress_backlash(PSYKER_EVENT_TIER_CATASTROPHIC)
-			dispel(owner, src) // ends most effects
+			owner.dispel(src) // ends most effects
 			stress = 0 // No CD, just a hard reset and the consequences of your actions.
 			CDstressMild = 0
 			CDstressSevere = 0

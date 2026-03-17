@@ -6,7 +6,7 @@
 	lose_text = span_notice("You begin to feel your Resonant Powers returning.")
 
 /datum/brain_trauma/magic/resonance_silenced/on_gain()
-	dispel(owner, src)
+	owner.dispel(src)
 	ADD_TRAIT(owner, TRAIT_RESONANCE_SILENCED, TRAUMA_TRAIT)
 	. = ..()
 

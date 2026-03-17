@@ -46,29 +46,29 @@
 Dispel proc handler
 */
 
-/proc/dispel(atom/target, atom/dispeller, dispel_flags = 0)
-	if(!target)
-		return FALSE
-
-	var/signal_result = SEND_SIGNAL(target, COMSIG_ATOM_DISPEL, dispeller)
-	var/was_dispersed = (signal_result & DISPEL_RESULT_DISPELLED)
-
-	// Only cascade if explicitly requested AND target is a mob
-	if((dispel_flags & DISPEL_CASCADE_CARRIED) && ismob(target))
-		var/mob/living/target_mob = target
-
-		for(var/obj/item/held_item in target_mob.held_items)
-			if(dispel(held_item, dispeller))
-				was_dispersed = TRUE
-
-		for(var/obj/item/worn_item in target_mob.get_equipped_items())
-			if(dispel(worn_item, dispeller))
-				was_dispersed = TRUE
-
+/atom/proc/dispel(atom/dispeller, dispel_flags = 0)
+	var/signal_result = handle_dispel(dispeller, dispel_flags)
 	// SFX that a dispel occurred.
-	if(was_dispersed)
-		playsound(target, 'sound/effects/magic/smoke.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
-	return was_dispersed
+	if(signal_result)
+		playsound(src, 'sound/effects/magic/smoke.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
+	return signal_result
+
+/atom/proc/handle_dispel(atom/dispeller, dispel_flags = 0)
+	var/signal_result = SEND_SIGNAL(src, COMSIG_ATOM_DISPEL, dispeller)
+	return signal_result
+
+/mob/living/handle_dispel(atom/dispeller, dispel_flags = 0)
+	var/signal_result = SEND_SIGNAL(src, COMSIG_ATOM_DISPEL, dispeller)
+	// Only cascade if explicitly requested.
+	if(dispel_flags & DISPEL_CASCADE_CARRIED)
+		for(var/obj/item/held_item in held_items)
+			if(held_item.dispel(dispeller))
+				signal_result = TRUE
+
+		for(var/obj/item/worn_item in get_equipped_items())
+			if(worn_item.dispel(dispeller))
+				signal_result = TRUE
+	return signal_result
 
 /*
 	Adds dispel on hit for the null rod.
@@ -101,7 +101,7 @@ Dispel proc handler
 
 /datum/element/resonant_dispel_hit/proc/dispel_on_hit(datum/source, atom/attacker, atom/damage_target, hit_zone, throw_hit)
 	SIGNAL_HANDLER
-	dispel(damage_target, attacker, cascade_dispels ? DISPEL_CASCADE_CARRIED : null)
+	damage_target.dispel(attacker, cascade_dispels ? DISPEL_CASCADE_CARRIED : null)
 
 /*
 	Very simple wiz spell to test dispel functionality, plus for admeme purposes.
@@ -131,5 +131,5 @@ Dispel proc handler
 			to_chat(owner, span_warning("Your dispel failed to work!"))
 			return FALSE
 
-	dispel(cast_on, owner, DISPEL_CASCADE_CARRIED)
+	cast_on.dispel(owner, DISPEL_CASCADE_CARRIED)
 	return TRUE

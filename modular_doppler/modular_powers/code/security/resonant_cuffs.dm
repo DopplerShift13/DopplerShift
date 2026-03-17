@@ -16,7 +16,7 @@
 	. = ..()
 	if(slot == ITEM_SLOT_HANDCUFFED)
 		to_chat(user, span_warning("A shudder goes down your spine; [name] seem to suppress resonant powers!"))
-		dispel(user, src)
+		user.dispel(src)
 		ADD_TRAIT(user, TRAIT_RESONANCE_SILENCED, src)
 		RegisterSignal(src, COMSIG_ITEM_PRE_UNEQUIP, PROC_REF(on_uncuff)) // Surely there is an unequip proc I am just missing?
 

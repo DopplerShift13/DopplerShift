@@ -7430,6 +7430,7 @@
 #include "modular_doppler\modular_powers\code\powers_prefs_middleware.dm"
 #include "modular_doppler\modular_powers\code\powers_subsystem.dm"
 #include "modular_doppler\modular_powers\code\powers_vv.dm"
+#include "modular_doppler\modular_powers\code\reality_anchor.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\_augmented_power.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\_premium_action.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\augmented\_premium_augment.dm"
