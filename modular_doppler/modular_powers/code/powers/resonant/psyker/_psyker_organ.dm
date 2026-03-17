@@ -51,12 +51,13 @@
 		stress_to_recover = max(stress_to_recover, 0)
 
 		// Apply recovery, don't let it send stress into the negatives.
-		stress = max(stress - stress_to_recover * seconds_per_tick, 0)
+		stress = max(stress - (stress_to_recover * seconds_per_tick), 0)
 
 
 		// Check if we do stress backlash after stress reduction.
 		if(stress >= (stress_threshold * 2)) // Catastrophic event.
 			stress_backlash(PSYKER_EVENT_TIER_CATASTROPHIC)
+			dispel(owner, src) // ends most effects
 			stress = 0 // No CD, just a hard reset and the consequences of your actions.
 			CDstressMild = 0
 			CDstressSevere = 0

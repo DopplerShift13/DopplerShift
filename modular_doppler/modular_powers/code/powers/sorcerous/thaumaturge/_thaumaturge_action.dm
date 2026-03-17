@@ -67,12 +67,11 @@
 	for(var/obj/item/equipped_item as anything in equipped_items)
 		if(!equipped_item)
 			continue
-		if(!istype(equipped_item, /obj/item/clothing))
+		if(!istype(equipped_item, /obj/item/clothing) || equipped_item.affinity_worn_override)
 			continue
 
-		var/obj/item/clothing/equipped_clothing = equipped_item
-		if(equipped_clothing.affinity > highest_affinity)
-			highest_affinity = equipped_clothing.affinity
+		if(equipped_item.affinity > highest_affinity)
+			highest_affinity = equipped_item.affinity
 
 	// Checks if you're holding items with affinity.
 	for(var/obj/item/held_item as anything in user.held_items)

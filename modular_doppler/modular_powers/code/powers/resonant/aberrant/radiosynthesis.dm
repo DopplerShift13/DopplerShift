@@ -34,6 +34,6 @@
 
 	// Heal toxins if we didn't heal any other damage, but never remove the last point (keeps irradiation).
 	var/tox_loss = power_holder.getToxLoss()
-	if(tox_loss > 1 && heal_amt > tox_loss) // We don't want to heal all of a person's radiation, just as to preserve their radioactiv
+	if(tox_loss > 1 && heal_amt < tox_loss) // We don't want to heal all of a person's radiation, just as to preserve their radioactiv
 		var/tox_heal = min(heal_amt, tox_loss - 1)
 		power_holder.adjustToxLoss(-tox_heal)

@@ -72,6 +72,8 @@
 	var/list/bodyshape_icon_files
 	// Used for the affinity system in the Powers system, by Thaumaturge.
 	var/affinity = 0
+	// Item gets affinity from being worn; useful for items that can be worn but arent obj/item/clothing
+	var/affinity_worn_override
 	/// DOPPLER SHIFT ADDITION END
 
 	/* !!!!!!!!!!!!!!! IMPORTANT !!!!!!!!!!!!!!
@@ -493,6 +495,11 @@
 		.["insulated"] = "It is made from a robust electrical insulator and will block any electricity passing through it!"
 	else if (siemens_coefficient <= 0.5)
 		.["partially insulated"] = "It is made from a poor insulator that will dampen (but not fully block) electric shocks passing through it."
+
+	// DOPPLER EDIT START: Thaumaturges can examine items for affinity stat
+	if(affinity && (HAS_TRAIT(user, TRAIT_ARCHETYPE_SORCEROUS) || isobserver(user)))
+		.["affinity [affinity]"] = "Provides affinity [affinity] for thaumaturgic powers."
+	// DOPPLER EDIT END
 
 /obj/item/examine_descriptor(mob/user)
 	return "item"
