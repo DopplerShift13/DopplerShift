@@ -3,7 +3,6 @@
 	desc = "The fragments of a broken down reality anchor, reassembled. Crude machinery is managing to keep it docile; but when enabled, it will start enforcing normality back in a large area around it."
 	icon = 'icons/obj/antags/cult/structures.dmi'
 	icon_state = "pylon_off"
-	anchored = TRUE
 	density = TRUE
 
 	// Is it on/off
@@ -46,12 +45,13 @@
 /obj/structure/reality_anchor/proc/toggle_anchor(mob/user)
 	active = !active
 	if(active)
+		anchored = TRUE
 		icon_state = on_icon_state
 		pulse()
 		next_pulse_time = world.time + pulse_interval
 		START_PROCESSING(SSobj, src)
 		return
-
+	anchored = FALSE
 	icon_state = off_icon_state
 	STOP_PROCESSING(SSobj, src)
 

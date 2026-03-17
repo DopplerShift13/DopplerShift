@@ -16,6 +16,7 @@
 		/obj/item/food/donut/jelly/berry = 1,
 		/obj/item/food/donut/jelly/apple = 1,
 		/obj/item/food/donut/jelly/choco = 1,
+		/obj/item/restraints/handcuffs/antiresonant = 6,
 	)
 	premium_doppler = list(
 		/obj/item/gun/ballistic/automatic/schiebenmaschine = 30,
