@@ -421,18 +421,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/aux_engine, 10)
 	qdel(src)
 
 /obj/structure/shuttle_decoration/wall_plate/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	if(!requires_welder)
-		return
+		return NONE
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	var/obj/new_plating = new cut_plating(get_turf(src))
 	if(keep_color)
 		new_plating.color = color
 	qdel(src)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/wall_plate/gold_foil
 	name = "gold foil wrapping"
