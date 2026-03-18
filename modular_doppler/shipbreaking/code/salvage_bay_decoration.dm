@@ -27,8 +27,10 @@ GLOBAL_LIST_EMPTY(shipbreaking_anchors)
 	if(starting_anchor)
 		GLOB.shipbreaking_anchors += src
 
+// Mapping helpers need to be set to late init or theyw ill delete themselves, which we don't want to happen here
+// Because lateShuttleMove handles everything we need to do
 /obj/effect/mapping_helpers/salvage_anchor/LateInitialize()
-	return // epic troll
+	return
 
 /obj/effect/mapping_helpers/salvage_anchor/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(id_tag)

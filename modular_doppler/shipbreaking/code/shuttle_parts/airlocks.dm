@@ -7,15 +7,23 @@
 	armor_type = /datum/armor/machinery_door
 	disassembled_type = /obj/structure/hull_plating/airlock
 
+/obj/structure/mineral_door/manual_colony_door/shuttle/Initialize(mapload)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+ 		TOOL_WELDER = list(
+ 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+ 		),
+ 	)
+ 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /obj/structure/mineral_door/manual_colony_door/shuttle/welder_act(mob/living/user, obj/item/tool) //override if the door is supposed to be flammable.
-	if(user.combat_mode)
-		return
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
+/// Overridden because only welders should be unsecuring the door, we don't deconstruct like normal
 /obj/structure/mineral_door/manual_colony_door/shuttle/wrench_act(mob/living/user, obj/item/tool)
 	return
 
@@ -36,13 +44,20 @@
 	/// What kind of thing do we make when welded back down
 	var/obj/reconnect_type = /obj/structure/mineral_door/manual_colony_door/shuttle
 
+/obj/structure/hull_plating/airlock/Initialize(mapload)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+ 		TOOL_WELDER = list(
+ 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+ 		),
+ 	)
+ 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /obj/structure/hull_plating/airlock/examine(mob/user)
 	. = ..()
 	. += span_notice("You can secure this again with a welding tool of some kind.")
 
 /obj/structure/hull_plating/airlock/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, "securing...")
 	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
 		return TRUE
@@ -77,9 +92,16 @@
 	/// What does this unweld into
 	var/obj/disassembled_type = /obj/structure/hull_plating/airlock/access_panel
 
+/obj/structure/shuttle_access_panel/Initialize(mapload)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+ 		TOOL_WELDER = list(
+ 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+ 		),
+ 	)
+ 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /obj/structure/shuttle_access_panel/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
 		return TRUE

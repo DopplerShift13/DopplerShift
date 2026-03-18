@@ -24,8 +24,6 @@
 	for(var/atom/atom_target in (target_turf.contents) + osha_nonworker)
 		if(isarea(atom_target))
 			continue
-		if(SEND_SIGNAL(atom_target, COMSIG_PRE_TILT_AND_CRUSH, src) & COMPONENT_IMMUNE_TO_TILT_AND_CRUSH)
-			continue
 		var/crushed
 		if(isliving(atom_target))
 			crushed = TRUE
@@ -52,7 +50,6 @@
 			crushed = TRUE
 		if(crushed)
 			atom_target.visible_message(span_danger("[atom_target] is crushed by [src]!"), span_userdanger("You are crushed by [src]!"))
-			SEND_SIGNAL(atom_target, COMSIG_POST_TILT_AND_CRUSH, src)
 			playsound(src, 'sound/effects/bang.ogg', 40)
 			visible_message(span_danger("[src] crashes into [atom_target]!"))
 	Move(osha_nonworker, get_dir(src, osha_nonworker))
@@ -265,9 +262,16 @@
 	/// What kind of plating we make when cut apart
 	var/obj/cut_plating = /obj/structure/hull_plating/nanocarbon/floor
 
+/turf/open/floor/plating/nanocarbon/Initialize(mapload)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+ 		TOOL_WELDER = list(
+ 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+ 		),
+ 	)
+ 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /turf/open/floor/plating/nanocarbon/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
 		return TRUE
@@ -290,9 +294,16 @@
 	/// What kind of plating we make when cut apart
 	var/obj/cut_plating = /obj/structure/hull_plating/aluminum/floor
 
+/turf/open/floor/plating/aluminum/Initialize(mapload)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+ 		TOOL_WELDER = list(
+ 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+ 		),
+ 	)
+ 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /turf/open/floor/plating/aluminum/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
 		return TRUE

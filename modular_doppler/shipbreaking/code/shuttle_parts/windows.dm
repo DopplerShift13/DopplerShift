@@ -16,8 +16,6 @@
 	. += span_notice("It can be cut out of its frame by [EXAMINE_HINT("Right-Clicking")] with a welding tool of some kind.")
 
 /obj/structure/window/fulltile/salvage_shuttle/welder_act_secondary(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
 		return TRUE
