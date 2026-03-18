@@ -58,7 +58,7 @@
 	name = "\improper JUNCO megashorts"
 	desc = "A broad pair of ripstop shorts that have remained popular within Marsian skate culture for decades."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
-	icon_state = "/obj/item/clothing/under/pants/big_shorts"
+	icon_state = "/obj/item/clothing/under/pants/megashorts"
 	post_init_icon_state = "megashorts"
 	greyscale_config = /datum/greyscale_config/megashorts
 	greyscale_config_worn_bodyshapes = list(
@@ -69,7 +69,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	can_adjust = FALSE
 
-/obj/item/clothing/under/pants/megacargo_pants
+/obj/item/clothing/under/pants/big_pants
 	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 		now and then. This pair has generous onboard storage."

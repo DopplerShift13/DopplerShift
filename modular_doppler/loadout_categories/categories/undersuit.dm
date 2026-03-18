@@ -193,7 +193,7 @@
 
 /datum/loadout_item/undersuit/pants/megacargo_pants
 	name = "JUNCO Megacargo Pants"
-	item_path = /obj/item/clothing/under/pants/megacargo_pants
+	item_path = /obj/item/clothing/under/pants/big_pants
 
 /datum/loadout_item/undersuit/pants/megajeans
 	name = "JUNCO Megajeans"

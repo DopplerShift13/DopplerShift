@@ -47,7 +47,7 @@
 			"products" = list(
 				/obj/item/clothing/under/pants/jeans/ripped = 5,
 				/obj/item/clothing/under/pants/moto_leggings = 5,
-				/obj/item/clothing/under/pants/megacargo_pants = 5,
+				/obj/item/clothing/under/pants/big_pants = 5,
 				/obj/item/clothing/under/pants/megajeans = 5,
 				/obj/item/clothing/under/pants/megashorts = 5,
 				/obj/item/clothing/under/shorts/shorter = 5,
