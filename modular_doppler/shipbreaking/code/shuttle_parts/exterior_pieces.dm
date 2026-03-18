@@ -235,17 +235,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	if(!requires_welder)
-		return
+		return NONE
 	balloon_alert(user, anchored ? "cutting..." : "securing...")
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
 	if(anchored)
 		find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/rcs
 	name = "reaction control thruster"
