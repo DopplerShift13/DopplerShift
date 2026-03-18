@@ -11,6 +11,7 @@ GLOBAL_LIST_INIT(shapechange_form_types, list(
 	"Snake" = /mob/living/basic/snake,
 	"Cockroach" = /mob/living/basic/cockroach,
 	"Duct Spider" = /mob/living/basic/spider/maintenance,
+	"Bat" = /mob/living/basic/bat,
 	"Butterfly" = /mob/living/basic/butterfly,
 ))
 

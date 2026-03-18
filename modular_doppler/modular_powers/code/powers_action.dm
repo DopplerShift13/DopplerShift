@@ -110,6 +110,8 @@
 		use_overlay = new /mutable_appearance(overlay_obj)
 		qdel(overlay_obj)
 		user.add_overlay(use_overlay)
+	if(click_to_activate && unset_after_click) // unsets the mouse on use time.
+		unset_click_ability(user)
 	var/success = do_after(user, use_time, target = use_target, timed_action_flags = use_time_flags)
 	if(use_overlay && !QDELETED(user))
 		user.cut_overlay(use_overlay)
@@ -188,7 +190,7 @@ Handles all the logic involved in using a targeted, click-based action.
 	// If the power can't be used, refuse the click and keep intercept state as-is.
 	if(!try_use(clicker, target))
 		// fixes the overlay from cast time getting stuck.
-		if(clicker?.click_intercept == src)
+		if(clicker?.click_intercept == src && unset_after_click)
 			unset_click_ability(clicker, refund_cooldown = TRUE)
 		return FALSE
 	StartCooldown()

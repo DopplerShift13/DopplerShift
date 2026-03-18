@@ -48,7 +48,14 @@
 	var/rain_color
 	var/obj/item/reagent_containers/held_container = user.get_active_held_item()
 	if(istype(held_container) && held_container.reagents?.reagent_list?.len)
-		rain_color = mix_color_from_reagents(held_container.reagents.reagent_list)
+		// We need to make sure that the chems are synthesizable so that people aren't surprised that they can't blood rain
+		var/list/datum/reagent/synth_reagents = list()
+		for(var/datum/reagent/reagent in held_container.reagents.reagent_list)
+			if(reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED)
+				synth_reagents += reagent
+		// If all succeeds, mix the rain color.
+		if(length(synth_reagents))
+			rain_color = mix_color_from_reagents(synth_reagents)
 	else // no reagent container, default to rain_chem
 		rain_color = initial(rain_chem.color)
 
@@ -79,6 +86,8 @@
 			var/chem_ratio = base_chem_ratio
 			var/part = drain_amount / synth_volume
 			for(var/datum/reagent/reagent as anything in held_container.reagents.reagent_list)
+				if(!(reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED))
+					continue
 				var/transfer_amount = reagent.volume * part
 				if(transfer_amount > 0)
 					held_container.reagents.trans_to(buffer.reagents, transfer_amount, chem_ratio, target_id = reagent.type, transferred_by = user)
