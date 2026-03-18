@@ -1,8 +1,8 @@
 {
-	"big_pants": [
+	"": [
 		{
 			"type": "icon_state",
-			"icon_state": "big_pants",
+			"icon_state": "armor",
 			"blend_mode": "overlay",
 			"color_ids": [ 1 ]
 		}

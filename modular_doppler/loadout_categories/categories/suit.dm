@@ -355,6 +355,18 @@
 	name = "Deckers Hoodie"
 	item_path = /obj/item/clothing/suit/costume/deckers
 
+/datum/loadout_item/suit/hoodies/technyne_sweatshirt
+	name = "TechNyne Sweatshirt"
+	item_path = /obj/item/clothing/suit/jacket/doppler/technyne_sweatshirt
+
+/datum/loadout_item/suit/hoodies/technyne_overlay_hoodie
+	name = "TechNyne Overlay Hoodie"
+	item_path = /obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie
+
+/datum/loadout_item/suit/hoodies/technyne_overlay
+	name = "TechNyne Overlay"
+	item_path = /obj/item/clothing/suit/hooded/doppler/technyne_overlay
+
 
 /**
  * LABCOATS

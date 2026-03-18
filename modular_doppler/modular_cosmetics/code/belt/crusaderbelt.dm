@@ -9,6 +9,8 @@
 	w_class = WEIGHT_CLASS_BULKY // Can't fit a sheath in your bag.
 	interaction_flags_click = NEED_DEXTERITY
 	storage_type = /datum/storage/belt/crusader
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/belt/crusader/Initialize(mapload)
 	. = ..()

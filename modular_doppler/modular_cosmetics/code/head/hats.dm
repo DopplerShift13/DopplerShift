@@ -52,3 +52,10 @@
 	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
 	greyscale_colors = "#C5D4F3#ECF1F8"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/nevada_cap
+	name = "\improper Nevada Beverage Co. cap"
+	desc = "A branded fitted cap, bearing the emblazoned logo of Nevada Beverage Co."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/hats.dmi'
+	icon_state = "nevada_hat"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/hats.dmi'

@@ -13,6 +13,7 @@
 	var/list/ears_list_humanoid
 	var/list/ears_list_synthetic
 	var/list/ears_list_alien
+	var/list/ears_list_teshari
 
 /datum/controller/subsystem/accessories/setup_lists()
 	. = ..()
@@ -29,6 +30,7 @@
 	ears_list_humanoid = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_more/humanoid)["default_sprites"]
 	ears_list_synthetic = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_more/cybernetic)["default_sprites"]
 	ears_list_alien = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_more/alien)["default_sprites"]
+	ears_list_teshari = init_sprite_accessory_subtypes(/datum/sprite_accessory/ears_more/teshari)["default_sprites"]
 
 /datum/dna
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
@@ -36,7 +38,7 @@
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
-	if(target.dna.features[FEATURE_EARS] && !(type in GLOB.species_blacklist_no_mutant))
+	if(target.dna.features[FEATURE_EARS] && can_regenerate_mutant_feature(FEATURE_EARS))
 		if(target.dna.ear_type == NO_VARIATION)
 			return .
 		else if(target.dna.features[FEATURE_EARS] != /datum/sprite_accessory/ears/none::name && target.dna.features[FEATURE_EARS] != /datum/sprite_accessory/blank::name)
@@ -66,9 +68,7 @@
 /datum/preference/choiced/ear_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species in GLOB.species_blacklist_no_mutant)
-		return FALSE
-	return TRUE
+	return species_can_access_mutant_customization(species)
 
 ///	All current ear types to choose from
 //	Cat
@@ -81,8 +81,9 @@
 /datum/preference/choiced/felinid_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
+
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == CAT)
 		return TRUE
@@ -115,7 +116,7 @@
 /datum/preference/choiced/lizard_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == LIZARD)
@@ -148,7 +149,7 @@
 /datum/preference/choiced/fox_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == FOX)
@@ -181,7 +182,7 @@
 /datum/preference/choiced/dog_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == DOG)
@@ -214,7 +215,7 @@
 /datum/preference/choiced/bunny_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == BUNNY)
@@ -247,7 +248,7 @@
 /datum/preference/choiced/bird_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == BIRD)
@@ -280,7 +281,7 @@
 /datum/preference/choiced/mouse_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == MOUSE)
@@ -313,7 +314,7 @@
 /datum/preference/choiced/monkey_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == MONKEY)
@@ -346,7 +347,7 @@
 /datum/preference/choiced/deer_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == DEER)
@@ -379,7 +380,7 @@
 /datum/preference/choiced/fish_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == FISH)
@@ -412,7 +413,7 @@
 /datum/preference/choiced/bug_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == BUG)
@@ -445,7 +446,7 @@
 /datum/preference/choiced/humanoid_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == HUMANOID)
@@ -478,7 +479,7 @@
 /datum/preference/choiced/synthetic_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == CYBERNETIC)
@@ -511,7 +512,7 @@
 /datum/preference/choiced/alien_ears/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
-	if(species.type in GLOB.species_blacklist_no_mutant)
+	if (!species_can_access_mutant_customization(species))
 		return FALSE
 	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/ear_variation)
 	if(chosen_variation == ALIEN)
@@ -529,13 +530,73 @@
 	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_alien[value]
 	return generate_ears_icon(chosen_ears)
 
+// Teshari
+// Only available to teshari, and their only choice, because of how they work on sprites
+/datum/preference/choiced/teshari_ears
+	savefile_key = "feature_teshari_ears"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_CLOTHING
+	relevant_external_organ = null
+	should_generate_icons = TRUE
+	main_feature_name = "Ears"
+	priority = PREFERENCE_PRIORITY_SPECIES + 0.1 // ears are only applied if the human is a tesh, so we have to wait for species
+
+/datum/preference/choiced/teshari_ears/init_possible_values()
+	return assoc_to_keys_features(SSaccessories.ears_list_teshari)
+
+/datum/preference/choiced/teshari_ears/is_accessible(datum/preferences/preferences)
+	. = ..()
+
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if (!ispath(species, /datum/species/teshari))
+		return FALSE
+
+	return TRUE
+
+/datum/preference/choiced/teshari_ears/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/teshari))
+		return TRUE
+	return ..()
+
+/datum/preference/choiced/teshari_ears/create_default_value()
+	return /datum/sprite_accessory/ears_more/teshari/none::name
+
+/datum/preference/choiced/teshari_ears/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.dna.ear_type == TESHARI)
+		target.dna.features[FEATURE_EARS] = value
+		target.regenerate_organs()
+
+/datum/preference/choiced/teshari_ears/icon_for(value)
+	var/datum/sprite_accessory/chosen_ears = SSaccessories.ears_list_teshari[value]
+	return generate_ears_icon(chosen_ears)
+
+GLOBAL_VAR(generic_uni_icon_ears)
+GLOBAL_VAR(generic_uni_icon_ears_tesh)
+
+/datum/preference/choiced/proc/gen_uni_icon_ears()
+	var/icon = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_head_f")
+	GLOB.generic_uni_icon_ears = icon
+	return icon
+
+/datum/preference/choiced/teshari_ears/gen_uni_icon_ears()
+	var/icon = uni_icon('modular_doppler/modular_species/species_types/teshari/icons/teshari_parts_greyscale.dmi', "teshari_head_f")
+	GLOB.generic_uni_icon_ears_tesh = icon
+	return icon
+
+/datum/preference/choiced/proc/get_uni_icon_ears_cached()
+	RETURN_TYPE(/datum/universal_icon)
+
+	return GLOB.generic_uni_icon_ears
+
+/datum/preference/choiced/teshari_ears/get_uni_icon_ears_cached()
+	return GLOB.generic_uni_icon_ears_tesh
 
 /// Proc to gen that icon
 //	We don't wanna copy paste this
 /datum/preference/choiced/proc/generate_ears_icon(datum/sprite_accessory/sprite_accessory)
-	var/static/datum/universal_icon/body
+	var/datum/universal_icon/body = get_uni_icon_ears_cached()
 	if (isnull(body))
-		body = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_head_f")
+		body = gen_uni_icon_ears()
 	var/datum/universal_icon/final_icon = body.copy()
 
 	if(sprite_accessory.icon_state != "none")
@@ -571,10 +632,17 @@
 			accessory_icon.blend_color(COLOR_BLUE, ICON_MULTIPLY)
 			final_icon.blend_icon(accessory_icon, ICON_OVERLAY)
 
+	shift_ears_icon(final_icon)
 	final_icon.crop(11, 20, 23, 32)
 	final_icon.scale(32, 32)
 
 	return final_icon
+
+/datum/preference/choiced/proc/shift_ears_icon(var/datum/universal_icon/icon)
+	return
+
+/datum/preference/choiced/teshari_ears/shift_ears_icon(var/datum/universal_icon/icon)
+	icon.shift(NORTH, 5)
 
 /// Overwrite lives here
 //	This is for the triple color channel
