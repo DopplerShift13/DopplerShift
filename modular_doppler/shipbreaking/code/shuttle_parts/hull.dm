@@ -306,7 +306,7 @@
 /turf/open/floor/plating/aluminum/welder_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	new cut_plating(get_turf(src))
 	ScrapeAway()
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
