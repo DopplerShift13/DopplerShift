@@ -60,10 +60,10 @@
 /obj/structure/hull_plating/airlock/welder_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "securing...")
 	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	new reconnect_type(get_turf(src))
 	qdel(src)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/mineral_door/manual_colony_door/shuttle/interior
 	name = "manual interior airlock"
