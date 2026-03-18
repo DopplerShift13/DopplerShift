@@ -74,7 +74,7 @@
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 		now and then. This pair has generous onboard storage."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
-	icon_state = "/obj/item/clothing/under/pants/megacargo_pants"
+	icon_state = "/obj/item/clothing/under/pants/big_pants"
 	post_init_icon_state = "megacargos"
 	greyscale_config = /datum/greyscale_config/megacargo_pants
 	greyscale_config_worn_bodyshapes = list(
