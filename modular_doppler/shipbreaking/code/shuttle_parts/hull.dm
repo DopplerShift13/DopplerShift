@@ -266,7 +266,7 @@
 	. = ..()
 	var/static/list/tool_behaviors = list(
 		TOOL_WELDER = list(
-			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+			SCREENTIP_CONTEXT_LMB = "Cut Hull",
 		),
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
@@ -298,7 +298,7 @@
 	. = ..()
 	var/static/list/tool_behaviors = list(
 		TOOL_WELDER = list(
-			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+			SCREENTIP_CONTEXT_LMB = "Cut Plating",
 		),
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
