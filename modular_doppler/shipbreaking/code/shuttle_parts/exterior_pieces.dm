@@ -194,7 +194,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 	layer = LOW_ITEM_LAYER
 	/// How long to either unwrench or unweld
 	var/unfasten_time = 1 SECONDS
-	/// Does this need to be welded off the wall instead
+	/// Does this need to be welded off the wall, instead of using a wrench
 	var/requires_welder = FALSE
 
 /obj/structure/shuttle_decoration/Initialize(mapload)
