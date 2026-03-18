@@ -61,7 +61,7 @@
 
 /obj/structure/engine_covers/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	if(!(border_dir == dir))
+	if(border_dir != dir)
 		return TRUE
 
 /obj/structure/engine_covers/CanPass(atom/movable/mover, border_dir)
