@@ -4,7 +4,7 @@ We have to apply this retroactively to existing items, which is what this file i
 
 /*
 A lot of Affinity asignments are vibe-based depending on looks, visibility and rarirty, but the rule of thumb I tend to use is;
-- T1: If it goes in a weird slot (neck, mask, undersuit, shoes, gloves) OR if it has some mystical qualities (e.g bedsheet as a cape) and isn't traditionally part of a classical caster archetype (Bard, Druid, Cleric, Wizard) it goes here.
+- T1: If it goes in a weird slot (neck, mask, undersuit, shoes, gloves) OR if it has some association with 'magic' or pretending to be magical (e.g short capes) and isn't traditionally part of a classical caster archetype (Bard, Druid, Cleric, Wizard) it goes here.
 - T2: Magical headwear with bonus stats (armor). Handheld affinity items that fit in pockets+. T1 equipment that covers a lot of the sprite (capes, full-head masks, etc.)
 - T3: Magical headwear with NO bonus stats, Magical Bodywear with bonus stats. Rare magic-looking items in weird slots. Handheld affinity items that don't fit in pockets but do fit in the backpack.
 - T4: Magical bodywear with NO bonus stats. Handheld affinity items that don't fit in pocket or backpack but allow suit slots/belt slot.
@@ -170,6 +170,10 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/codex_cicatrix
 	affinity = 4
 
+// Did you know the perceptomatrix lets you cast spells?
+/obj/item/clothing/head/helmet/perceptomatrix
+	affinity = 4
+
 /*
 	Tier 4: Wizrobes specifically.
 */
@@ -177,28 +181,22 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 // Wizrobes (Fakes)
 /obj/item/clothing/suit/wizrobe/fake
 	affinity = 4
-
 /obj/item/clothing/suit/wizrobe/marisa/fake
 	affinity = 4
-
 /obj/item/clothing/suit/wizrobe/tape/fake
 	affinity = 4
 
 // Wizrobe hats (Fakes)
 /obj/item/clothing/head/wizard/fake
 	affinity = 4
-
 /obj/item/clothing/head/costume/witchwig
-
+	affinity = 4
 /obj/item/clothing/head/collectable/wizard
 	affinity = 4
-
 /obj/item/clothing/head/wizard/marisa/fake
 	affinity = 4
-
 /obj/item/clothing/head/wizard/tape/fake
 	affinity = 4
-
 /obj/item/clothing/head/wizard/chanterelle
 	affinity = 4
 
@@ -230,10 +228,13 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 
 // Real Wizrobes (antag only)
 /obj/item/clothing/head/wizard
-	affinity = 7
-
+	affinity = 6
 /obj/item/clothing/suit/wizrobe
 	affinity = 7
-
 /obj/item/clothing/suit/wizrobe/paper // this ones a bit special since its space loot but rare space loot.
 	affinity = 6
+
+// This is the actual magnum opus of Wizardy; unless a Wizard item is made to delibaretely interact with thaumaturge, there shouldn't be anything exceeding this.
+/obj/item/mod/control/pre_equipped/enchanted
+	affinity = 8
+	affinity_worn_override = TRUE

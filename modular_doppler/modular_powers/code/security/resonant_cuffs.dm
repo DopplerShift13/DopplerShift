@@ -1,7 +1,7 @@
 // Antiresonant cuffs. They're like normal cuffs but slightly worse and put a dampener on resonant folk.
 /obj/item/restraints/handcuffs/antiresonant
 	name = "resonant suppressant handcuffs"
-	desc = "Handcuffs laced with a smooth, dark material similar to vulcanice, harvested from a reality anchor. Capable of suppressing resonant powers."
+	desc = "Handcuffs laced with a smooth, dark material similar to magnetite, harvested from a reality anchor. Capable of suppressing resonant powers."
 	icon_state = "handcuffAlien"
 	color = "#ee3d3d" // til we get a proper sprite for these things.
 	breakouttime = 50 SECONDS

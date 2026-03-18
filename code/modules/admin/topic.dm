@@ -421,6 +421,7 @@
 		if(!target.client)
 			to_chat(usr, "[target] has no client!", confidential = TRUE)
 			return
+		SSpowers.assign_powers(target, target.client)	// DOPPLER ADDITION - Rolls adding powers into game panel.
 		SSquirks.AssignQuirks(target, target.client)
 		log_admin("[key_name(usr)] applied client quirks to [key_name(target)].")
 		message_admins(span_adminnotice("[key_name_admin(usr)] applied client quirks to [key_name_admin(target)]."))

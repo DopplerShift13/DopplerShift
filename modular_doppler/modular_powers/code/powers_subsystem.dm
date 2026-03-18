@@ -204,10 +204,40 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		if(!length(required))
 			continue
 
+		var/allow_any = power_type.required_allow_any
+		var/allow_subtypes = power_type.required_allow_subtypes
+		var/any_satisfied = FALSE
+
 		for(var/datum/power/req_type as anything in required)
-			if(!selected_types[req_type])
+			// Exact requirement satisfied
+			if(selected_types[req_type])
+				any_satisfied = TRUE
+				if(allow_any)  // check to end early if any requirements are validated and allow_any is true.
+					break
+				continue
+
+			// Optional: allow subtypes
+			if(allow_subtypes)
+				var/required_typepath = ispath(req_type) ? req_type : req_type.type
+				for(var/datum/power/selected_type as anything in selected_types)
+					if(ispath(selected_type, required_typepath))
+						any_satisfied = TRUE
+						break
+
+				if(any_satisfied) // check to end early if any requirements are validated and allow_any is true.
+					if(allow_any)
+						break
+					continue
+
+			// If we require all, any missing invalidates.
+			if(!allow_any)
 				LAZYADD(powers_removed, "[power_name]\" requires [req_type], which was not present.")
 				return list()
+
+		// If we require one and we don't have any.
+		if(allow_any && !any_satisfied)
+			LAZYADD(powers_removed, "[power_name]\" requires any of [required], none were present.")
+			return list()
 
 	// Everything is fine = return as normal
 	if(intermediary_powers.len == powers_to_check.len)

@@ -141,7 +141,7 @@ ADMIN_VERB_ONLY_CONTEXT_MENU(show_player_panel, R_ADMIN, "Show Player Panel", mo
 		body += "<br>"
 		if(!isnewplayer(player))
 			body += "<A href='byond://?_src_=holder;[HrefToken()];forcespeech=[REF(player)]'>Forcesay</A> | "
-			body += "<A href='byond://?_src_=holder;[HrefToken()];applyquirks=[REF(player)]'>Apply Client Quirks</A> | "
+			body += "<A href='byond://?_src_=holder;[HrefToken()];applyquirks=[REF(player)]'>Apply Client Quirks & Powers</A> | " // DOPPLER EDIT: Rolls powers into apply client quirks.
 			body += "<A href='byond://?_src_=holder;[HrefToken()];tdome1=[REF(player)]'>Thunderdome 1</A> | "
 			body += "<A href='byond://?_src_=holder;[HrefToken()];tdome2=[REF(player)]'>Thunderdome 2</A> | "
 			body += "<A href='byond://?_src_=holder;[HrefToken()];tdomeadmin=[REF(player)]'>Thunderdome Admin</A> | "
