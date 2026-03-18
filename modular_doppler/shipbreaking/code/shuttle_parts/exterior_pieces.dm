@@ -34,13 +34,11 @@
 	. += span_notice("You can [anchored ? "unsecure" : "secure"] it with a welding tool.")
 
 /obj/structure/engine_covers/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, anchored ? "cutting..." : "securing...")
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /// Determines what to do when something is leaving our turf
 /obj/structure/engine_covers/proc/on_exit(datum/source, atom/movable/leaving, direction)
