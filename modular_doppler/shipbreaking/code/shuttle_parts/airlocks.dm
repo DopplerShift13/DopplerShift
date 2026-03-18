@@ -104,10 +104,10 @@
 /obj/structure/shuttle_access_panel/welder_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	new disassembled_type(get_turf(src))
 	qdel(src)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/hull_plating/airlock/access_panel
 	name = "disconnected maintenance panel"
