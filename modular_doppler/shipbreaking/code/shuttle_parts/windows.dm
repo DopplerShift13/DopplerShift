@@ -13,7 +13,7 @@
 
 /obj/structure/window/fulltile/salvage_shuttle/examine(mob/user)
 	. = ..()
-	. += span_notice("It can be cut out of frame with a welding tool of some kind and [EXAMINE_HINT("Right-Click")].")
+	. += span_notice("It can be cut out of its frame by [EXAMINE_HINT("Right-Clicking")] with a welding tool of some kind.")
 
 /obj/structure/window/fulltile/salvage_shuttle/welder_act_secondary(mob/living/user, obj/item/tool)
 	if(user.combat_mode)
