@@ -117,3 +117,4 @@
 	. = ..()
 	AddComponent(/datum/component/caltrop, min_damage = force, paralyze_duration = 2 SECONDS, soundfile = hitsound)
 	icon_state = "[base_icon_state]_[rand(1, variants)]"
+	update_appearance(UPDATE_ICON_STATE)
