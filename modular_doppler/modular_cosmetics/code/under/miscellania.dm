@@ -221,3 +221,19 @@
 //Stops a player from click-dragging the latex suit into their hand, since we'd like them to take the latex suit off with a simple left-click and have to do the do_after
 /obj/item/clothing/under/latexsuit/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
     return
+
+/obj/item/clothing/under/nevada_uniform
+	name = "\improper Nevada Beverage Co. uniform"
+	desc = "A comfortable paired set of a branded ThermoWick™ fabric henley and relaxed khaki joggers. For Nevada employees, \
+	and Nevada diehards."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon_state = "nevada_uniform"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi',
+	)
+	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
+	can_adjust = FALSE
