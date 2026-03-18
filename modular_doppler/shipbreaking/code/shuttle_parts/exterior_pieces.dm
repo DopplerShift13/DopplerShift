@@ -62,7 +62,7 @@
 		return TRUE
 
 /obj/structure/engine_covers/CanPass(atom/movable/mover, border_dir)
-	return border_dir & dir ? ..() : TRUE
+	return (border_dir & dir) ? ..() : TRUE
 
 /obj/structure/engine_covers/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
 	return !density || (dir != to_dir)
