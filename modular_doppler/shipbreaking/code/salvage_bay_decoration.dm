@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_anchors)
 	initial_gas_mix = AIRLESS_ATMOS
 	temperature = TCMB
 
-/turf/open/floor/engine/anchor_jack/wrench_act(mob/living/user, obj/item/I)
+/turf/open/floor/engine/anchor_jack/wrench_act(mob/living/user, obj/item/tool)
 	user.balloon_alert(user, "can't reach bolts!")
 	return
 
