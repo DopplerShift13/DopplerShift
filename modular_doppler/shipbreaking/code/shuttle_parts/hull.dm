@@ -265,11 +265,11 @@
 /turf/open/floor/plating/nanocarbon/Initialize(mapload)
 	. = ..()
 	var/static/list/tool_behaviors = list(
- 		TOOL_WELDER = list(
- 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
- 		),
- 	)
- 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /turf/open/floor/plating/nanocarbon/welder_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "cutting...")
@@ -297,11 +297,11 @@
 /turf/open/floor/plating/aluminum/Initialize(mapload)
 	. = ..()
 	var/static/list/tool_behaviors = list(
- 		TOOL_WELDER = list(
- 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
- 		),
- 	)
- 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /turf/open/floor/plating/aluminum/welder_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "cutting...")

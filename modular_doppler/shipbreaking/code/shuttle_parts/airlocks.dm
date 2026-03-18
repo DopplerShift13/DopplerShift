@@ -10,11 +10,11 @@
 /obj/structure/mineral_door/manual_colony_door/shuttle/Initialize(mapload)
 	. = ..()
 	var/static/list/tool_behaviors = list(
- 		TOOL_WELDER = list(
- 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
- 		),
- 	)
- 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/structure/mineral_door/manual_colony_door/shuttle/welder_act(mob/living/user, obj/item/tool) //override if the door is supposed to be flammable.
 	balloon_alert(user, "cutting...")
@@ -47,11 +47,11 @@
 /obj/structure/hull_plating/airlock/Initialize(mapload)
 	. = ..()
 	var/static/list/tool_behaviors = list(
- 		TOOL_WELDER = list(
- 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
- 		),
- 	)
- 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/structure/hull_plating/airlock/examine(mob/user)
 	. = ..()
@@ -95,11 +95,11 @@
 /obj/structure/shuttle_access_panel/Initialize(mapload)
 	. = ..()
 	var/static/list/tool_behaviors = list(
- 		TOOL_WELDER = list(
- 			SCREENTIP_CONTEXT_LMB = "Cut Apart",
- 		),
- 	)
- 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Cut Apart",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/structure/shuttle_access_panel/welder_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "cutting...")

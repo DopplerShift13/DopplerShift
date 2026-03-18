@@ -23,11 +23,11 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 	var/static/list/tool_behaviors = list(
- 		TOOL_WELDER = list(
- 			SCREENTIP_CONTEXT_LMB = "Secure/Unsecure",
- 		),
- 	)
- 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Secure/Unsecure",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/structure/engine_covers/examine(mob/user)
 	. = ..()
@@ -200,17 +200,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
 	find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
-	/Initialize(mapload)
-	. = ..()
 	var/static/list/tool_behaviors = list(
- 		TOOL_WELDER = list(
- 			SCREENTIP_CONTEXT_LMB = "Secure/Unsecure",
- 		),
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Secure/Unsecure",
+		),
 		TOOL_WRENCH = list(
 			SCREENTIP_CONTEXT_LMB = "Secure/Unsecure",
 		),
- 	)
- 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/structure/shuttle_decoration/examine(mob/user)
 	. = ..()
