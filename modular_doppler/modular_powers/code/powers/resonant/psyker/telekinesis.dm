@@ -1,7 +1,11 @@
-/* This leviathan of spaghetti is based off of the MODsuit modules.
-It is a lazy port to the current acitons powers system from the spells system and has a lot wonkiness as a consequence, including not using use_action.
-TODO: FIX THAT
+/*
+ Telekinesis. This is one of the earliest made powers and is a port of how the grab module from MODs do it. It's a bit messy as a consequence; even after this was cleaned up later in production.
 */
+
+#define TK_CLICK_NONE 0
+#define TK_CLICK_TRIGGER 1
+#define TK_CLICK_MIDDLE 2
+#define TK_CLICK_RIGHT 3
 
 /datum/power/psyker_power/telekinesis
 	name = "Telekinesis"
@@ -41,12 +45,12 @@ TODO: FIX THAT
 
 	// Mouse tracker overlay (telekinesis-specific)
 	var/atom/movable/screen/fullscreen/cursor_catcher/kinesis/psyker_tk/kinesis_catcher
+	// Which mouse click is used in use_action
+	var/tk_click_type = TK_CLICK_NONE
 
+// Auto-clear the grab if we disable the power + a bit of UI feedback.
 /datum/action/cooldown/power/psyker/telekinesis/Trigger(mob/clicker, trigger_flags, atom/target)
 	. = ..()
-	// We run this here cause telekinesis doesn't use use_action because we need click intercepts.
-	ValidateOrgan()
-
 	if(grabbed_atom)
 		clear_grab(playsound = FALSE)
 		to_chat(owner, span_notice("You relax your telekinetic powers."))
@@ -54,53 +58,77 @@ TODO: FIX THAT
 		to_chat(owner, span_notice("You focus your telekinetic powers...<br><B>Middle-click</B>: Grab/Punt<B> | Right-click</B>: Drop<B> | Move mouse</B>: to drag"))
 	return TRUE
 
+// We need to disseminate which mouse-press is done for our effects.
 /datum/action/cooldown/power/psyker/telekinesis/InterceptClickOn(mob/living/clicker, params, atom/target)
-	.=..()
-	if(clicker != owner)
-		return FALSE
-
 	var/list/mods = params2list(params)
-
-	// Right click: drop if holding. Doesn't need target or range checks.
 	if(LAZYACCESS(mods, RIGHT_CLICK))
-		if(grabbed_atom)
-			clear_grab()
+		tk_click_type = TK_CLICK_RIGHT
+	else if(LAZYACCESS(mods, MIDDLE_CLICK))
+		tk_click_type = TK_CLICK_MIDDLE
+	else
+		return FALSE // do not consume the click on lefties.
+
+	. = ..()
+	if(!.)
+		tk_click_type = TK_CLICK_NONE
+	return TRUE // always return true in right and middle clicks.
+
+/datum/action/cooldown/power/psyker/telekinesis/use_action(mob/living/user, atom/target)
+	// gets the mouseclick and saves it; reverts for the next.
+	var/click_type = tk_click_type
+	tk_click_type = TK_CLICK_NONE
+
+	// Change effects depending on right and middel click.
+	switch(click_type)
+		// Drops the item.
+		if(TK_CLICK_RIGHT)
+			if(grabbed_atom)
+				clear_grab()
+				return TRUE
+			return FALSE
+
+		// Grabs if empty, or punts if holding.
+		if(TK_CLICK_MIDDLE)
+			if(INCAPACITATED_IGNORING(user, INCAPABLE_GRAB))
+				owner.balloon_alert(user, span_warning("Cannot grab target!"))
+				return FALSE
+			// Attempt to grab if we aren't holding anything.
+			if(!grabbed_atom)
+				if(!target)
+					owner.balloon_alert(user, span_warning("No target!"))
+					return FALSE
+				if(!range_check(user, target))
+					owner.balloon_alert(user, span_warning("Too far!"))
+					return FALSE
+				if(!can_grab(user, target))
+					owner.balloon_alert(user, span_warning("Cannot grab target!"))
+					return FALSE
+
+				grab_atom(target)
+				return TRUE
+			// Punt if we are holding something.
+			punt_held(user, target)
 			return TRUE
-		return FALSE
 
-	if(INCAPACITATED_IGNORING(clicker, INCAPABLE_GRAB))
-		owner.balloon_alert(clicker, span_warning("Cannot grab target!"))
-		return FALSE
+	return FALSE
 
-	// Middle click: grab if empty, punt if holding
-	if(LAZYACCESS(mods, MIDDLE_CLICK))
-		if(!grabbed_atom)
-			if(!target)
-				owner.balloon_alert(clicker, span_warning("No target!"))
-				return TRUE
+/datum/action/cooldown/power/psyker/telekinesis/Grant(mob/granted_to)
+	. = ..()
+	if(resonant)
+		RegisterSignal(granted_to, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
-			if(!range_check(clicker, target))
-				owner.balloon_alert(clicker, span_warning("Too far!"))
-				return TRUE
+/datum/action/cooldown/power/psyker/telekinesis/Remove(mob/removed_from)
+	. = ..()
+	if(resonant)
+		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
-			if(!can_grab(clicker, target))
-				owner.balloon_alert(clicker, span_warning("Cannot grab target!"))
-				return TRUE
-
-			grab_atom(target)
-			return TRUE
-
-		// Holding something: punt
-		punt_held(clicker, target, params)
-		return TRUE
-
-// You shouldn't get as stressed from picking up a pen as a closet.
+// Calculates the stres cost of vairous interactions.
 /datum/action/cooldown/power/psyker/telekinesis/proc/get_stress_cost_for_atom(atom/target)
 	var/cost
-
+	// You shouldn't get as stressed from picking up a pen as a closet.
 	if(isitem(target))
-		var/obj/item/I = target
-		switch(I.w_class)
+		var/obj/item/tk_item = target
+		switch(tk_item.w_class)
 			if(WEIGHT_CLASS_TINY)
 				cost = PSYKER_STRESS_TRIVIAL
 			if(WEIGHT_CLASS_SMALL)
@@ -114,6 +142,7 @@ TODO: FIX THAT
 
 	return cost
 
+// Important note; because we use the action's proccess, we override cooldown processing.
 /datum/action/cooldown/power/psyker/telekinesis/process(seconds_per_tick)
 	var/mob/living/user = owner
 	if(!grabbed_atom || !user?.client)
@@ -138,8 +167,7 @@ TODO: FIX THAT
 	if(!target_turf)
 		return
 
-	// Dragging along hte floor
-
+	// Dragging along the floor
 	if(grabbed_atom.loc != target_turf)
 		var/turf/next_turf = get_step_towards(grabbed_atom, target_turf)
 
@@ -156,16 +184,15 @@ TODO: FIX THAT
 	modify_stress(PSYKER_STRESS_TRIVIAL * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
 
 // The fun part, punting shit.
-/datum/action/cooldown/power/psyker/telekinesis/proc/punt_held(mob/living/user, atom/target, params)
+/datum/action/cooldown/power/psyker/telekinesis/proc/punt_held(mob/living/user, atom/target)
 	if(!grabbed_atom)
 		return
 
 	// Where are we throwing it?
 	var/turf/throw_turf = target ? get_turf(target) : null
 
-	// If target didn't resolve (common on middle click), derive turf from click params via catcher
+	// If target didn't resolve (common on middle click), derive turf from cursor catcher
 	if(!throw_turf && kinesis_catcher)
-		kinesis_catcher.mouse_params = params
 		kinesis_catcher.calculate_params()
 		throw_turf = kinesis_catcher.given_turf
 
@@ -195,9 +222,7 @@ TODO: FIX THAT
 		return FALSE
 	if(ismovable(target) && !isturf(target.loc))
 		return FALSE
-	if(!can_see(user, target, grab_range))
-		return FALSE
-	return TRUE
+	return (target in view(grab_range, user))
 
 // Can we ACTUALLY grab it or will it just fizz out?
 /datum/action/cooldown/power/psyker/telekinesis/proc/can_grab(mob/living/user, atom/target)
@@ -238,6 +263,7 @@ TODO: FIX THAT
 	if(grabbed_atom)
 		clear_grab(playsound = FALSE)
 	grabbed_atom = target
+	active = TRUE
 
 	// Mob handling like module_kinesis
 	if(isliving(grabbed_atom))
@@ -246,9 +272,9 @@ TODO: FIX THAT
 
 	ADD_TRAIT(grabbed_atom, TRAIT_NO_FLOATING_ANIM, REF(src))
 	RegisterSignal(grabbed_atom, COMSIG_MOVABLE_SET_ANCHORED, PROC_REF(on_setanchored))
+	RegisterSignal(grabbed_atom, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 	playsound(grabbed_atom, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-
 	kinesis_icon = mutable_appearance(
 		icon = 'icons/effects/effects.dmi',
 		icon_state = "psychic",
@@ -275,6 +301,7 @@ TODO: FIX THAT
 	START_PROCESSING(SSfastprocess, src)
 
 /datum/action/cooldown/power/psyker/telekinesis/proc/clear_grab(playsound = TRUE)
+	active = FALSE
 	if(!grabbed_atom)
 		// Still ensure the fullscreen overlay is gone if we somehow desynced
 		if(owner)
@@ -293,7 +320,7 @@ TODO: FIX THAT
 
 	STOP_PROCESSING(SSfastprocess, src)
 
-	UnregisterSignal(held, list(COMSIG_MOB_STATCHANGE, COMSIG_MOVABLE_SET_ANCHORED))
+	UnregisterSignal(held, list(COMSIG_MOB_STATCHANGE, COMSIG_MOVABLE_SET_ANCHORED, COMSIG_ATOM_DISPEL))
 
 	// Remove overlay BEFORE deleting vars
 	if(kinesis_icon)
@@ -323,6 +350,14 @@ TODO: FIX THAT
 	if(grabbed_atom_ref.anchored)
 		clear_grab()
 
+// On dispel, drop the thing.
+/datum/action/cooldown/power/psyker/telekinesis/proc/on_dispel(atom/source, atom/dispeller)
+	SIGNAL_HANDLER
+	if(grabbed_atom)
+		clear_grab()
+		return DISPEL_RESULT_DISPELLED
+	return NONE
+
 
 /* ------------------------------------------------------------
 // Telekinesis-only screen edge
@@ -333,3 +368,8 @@ TODO: FIX THAT
 	alpha = 180
 	color = "#8A2BE2"
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
+
+#undef TK_CLICK_NONE
+#undef TK_CLICK_TRIGGER
+#undef TK_CLICK_MIDDLE
+#undef TK_CLICK_RIGHT
