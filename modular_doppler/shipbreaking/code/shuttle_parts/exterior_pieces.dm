@@ -327,8 +327,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/radiator, 4)
 		. += span_notice("The gauge on the control panel shows the tanks are empty, it must be used up.")
 
 /obj/structure/shuttle_decoration/extinguisher/interact(mob/user)
-	if(!can_interact(user))
-		return
 	if(!anchored)
 		return
 	if(used_up)
