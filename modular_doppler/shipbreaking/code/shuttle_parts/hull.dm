@@ -118,7 +118,7 @@
 /obj/structure/hull_plating/plastamic_sheets/Initialize(mapload)
 	. = ..()
 	icon_state = "[base_icon_state]_[rand(1, 3)]"
-	update_appearance()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/hull_plating/armor_panels
 	name = "armor panels"
