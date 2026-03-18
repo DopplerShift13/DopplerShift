@@ -27,10 +27,10 @@
 /obj/structure/window/fulltile/salvage_shuttle/welder_act_secondary(mob/living/user, obj/item/tool)
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	new glass_type(get_turf(src))
 	qdel(src)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/hull_plating/window
 	name = "cut shuttle window"
