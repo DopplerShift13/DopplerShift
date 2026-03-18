@@ -23,11 +23,11 @@
 		/obj/item/stack/sheet/bronze = 2,
 		/obj/item/stack/sheet/runed_metal = 1,
 		/obj/item/stack/sheet/titaniumglass = 2,
-		exotic_material = 2, // DOPPLER EDIT - THEY FORGOT THE COMMA!! - exotic_material = 2 // this needs to be refactored properly
+		exotic_material = 2, // DOPPLER EDIT CHANGE - THEY FORGOT THE COMMA!! - original: exotic_material = 2 // this needs to be refactored properly
 		// DOPPLER EDIT ADDITION START - Stops shipbreakers making infinite resources
 		/obj/item/stack/sheet/aluminum = 2,
 		/obj/item/stack/sheet/nanocarbon = 3,
-		// DOPPLER EDIT END
+		// DOPPLER EDIT ADDITION END
 	)
 
 /obj/structure/girder/examine(mob/user)
