@@ -230,7 +230,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 /obj/structure/shuttle_decoration/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(requires_welder)
-		return ITEM_INTERACT_SKIP_TO_ATTACK
+		return NONE
 	default_unfasten_wrench(user, tool, time = unfasten_time)
 	return ITEM_INTERACT_SUCCESS
 
