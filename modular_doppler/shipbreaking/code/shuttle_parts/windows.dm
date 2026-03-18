@@ -11,6 +11,15 @@
 	glass_type = /obj/structure/hull_plating/window
 	glass_amount = 1
 
+/obj/structure/window/fulltile/salvage_shuttle/Initialize(mapload, direct)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_RMB = "Cut Apart",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /obj/structure/window/fulltile/salvage_shuttle/examine(mob/user)
 	. = ..()
 	. += span_notice("It can be cut out of its frame by [EXAMINE_HINT("Right-Clicking")] with a welding tool of some kind.")
