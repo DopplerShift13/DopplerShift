@@ -163,7 +163,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/open_sensors_
 
 // The north facing one has to be special due to the antennae
 /obj/machinery/exoscanner/shuttle_part/open_sensors_blister/directional/north
-	pixel_y = 26
+	SET_BASE_PIXEL(0, 26)
 
 /obj/machinery/exoscanner/shuttle_part/radio_dish
 	name = "radio dish"
