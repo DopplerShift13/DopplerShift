@@ -42,10 +42,15 @@
 	list_reagents = list(/datum/reagent/consumable/berryjuice/blueberry = 50, /datum/reagent/consumable/honey = 5)
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/raspberry
-	name = "\improper Nevada Rizzberry Rampage™"
+	name = "\improper Nevada Razzberry Rampage™"
 	desc = "Red raspberry emblazoned art promises a rush of red 40 and artificial flavoring."
 	icon_state = "nevada_raspberry"
 	list_reagents = list(/datum/reagent/consumable/berryjuice/raspberry = 50, /datum/reagent/consumable/honey = 5)
+
+/obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/raspberry/examine_more(mob/user)
+	. = ..()
+	. += span_notice("The label seems to be stickered over. What the original said is a mystery, but it can't be \
+	too different than 'Razberry', could it?")
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/nevada_tea/lemonade
 	name = "\improper Nevada Lemonade can"
