@@ -5,7 +5,7 @@
 		gakster's wagon when you're not looking."
 	icon = 'modular_doppler/shipbreaking/icons/stacks.dmi'
 	icon_state = "aluminum"
-	inhand_icon_state = "aluminum"
+	inhand_icon_state = "sheet-titanium"
 	mats_per_unit = list(
 		/datum/material/aluminum = SHEET_MATERIAL_AMOUNT,
 	)
@@ -48,7 +48,7 @@
 		properties require specialist tools to form and make permanent repairs to."
 	icon = 'modular_doppler/shipbreaking/icons/stacks.dmi'
 	icon_state = "nanocarbon"
-	inhand_icon_state = "nanocarbon"
+	inhand_icon_state = "sheet-plastitanium"
 	mats_per_unit = list(
 		/datum/material/nanocarbon = SHEET_MATERIAL_AMOUNT,
 	)
