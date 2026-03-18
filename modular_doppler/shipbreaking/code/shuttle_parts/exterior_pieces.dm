@@ -201,15 +201,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
 	find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
-	var/static/list/tool_behaviors = list(
-		TOOL_WELDER = list(
-			SCREENTIP_CONTEXT_LMB = "Secure/Unsecure",
-		),
-		TOOL_WRENCH = list(
-			SCREENTIP_CONTEXT_LMB = "Secure/Unsecure",
-		),
-	)
-	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+	register_context()
+
+/obj/structure/shuttle_decoration/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(isnull(held_item))
+		return NONE
+	if(requires_welder)
+		if(held_item.tool_behaviour == TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_LMB] = anchored ? "Unsecure" : "Secure"
+			return CONTEXTUAL_SCREENTIP_SET
+	else
+		if(held_item.tool_behaviour == TOOL_WRENCH)
+			context[SCREENTIP_CONTEXT_LMB] = anchored ? "Unsecure" : "Secure"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/shuttle_decoration/examine(mob/user)
 	. = ..()
