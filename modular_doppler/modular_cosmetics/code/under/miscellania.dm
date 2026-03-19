@@ -168,7 +168,3 @@
     if(!do_after(user, 6 SECONDS, target = src))
         return FALSE
     return TRUE
-
-//Stops a player from click-dragging the latex suit into their hand, since we'd like them to take the latex suit off with a simple left-click and have to do the do_after
-/obj/item/clothing/under/latexsuit/mouse_drop_dragged(atom/over, mob/user, src_location, over_location, params)
-    return

@@ -1033,7 +1033,10 @@ generate/load female uniform sprites matching all previously decided variables
 		if(bra_accessory)
 			var/mutable_appearance/bra_overlay
 			var/icon_state = bra_accessory.icon_state
-			bra_overlay = mutable_appearance(bra_accessory.icon, icon_state, -BRA_SOCKS_LAYER)
+			if(dna.species.sexes && physique == FEMALE)
+				working_shirt = mutable_appearance(wear_female_version(bra_accessory.icon_state, bra_accessory.icon), layer = -BRA_SOCKS_LAYER)
+			else
+				bra_overlay = mutable_appearance(bra_accessory.icon, icon_state, -BRA_SOCKS_LAYER)
 			if(!bra_accessory.use_static)
 				bra_overlay.color = bra_color
 			standing += bra_overlay
@@ -1089,9 +1092,7 @@ generate/load female uniform sprites matching all previously decided variables
 		overlays_standing[EYES_LAYER] = eye_organ.generate_body_overlay(src)
 		// DOPPLER ADDITION START - Makes sneeple work
 		if(istype(eye_organ, /obj/item/organ/eyes/snail))
-			var/list/eye_overlays = overlays_standing[EYES_LAYER]
-			for(var/mutable_appearance/overlay as anything in eye_overlays)
-				overlay.layer = ABOVE_BODY_FRONT_HEAD_LAYER
+
 		// DOPPLER ADDITION END
 		apply_overlay(EYES_LAYER)
 
