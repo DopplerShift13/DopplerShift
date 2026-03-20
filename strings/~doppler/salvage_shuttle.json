@@ -1,22 +1,4 @@
 {
-	"ship_companies": [
-		"Void Corps Xth Expeditionary",
-		"Crusoe's Intermodal",
-		"Solar Geological Survey",
-		"Unknown Affiliation",
-		"Crusoe's Rest Settlement Oversight",
-		"4CA Terraforming Coalition",
-		"Amundsen-Scott Mineral Prospecting",
-		"Conarex Aeronautics",
-		"Great Northern Frontier Agriculture",
-		"Kahraman Heavy Industry",
-		"Sunda Galaksi Near Orbital",
-		"Cybersun-Osaka Industries",
-		"Exagon-Ichikawa Orbital Resourcing",
-		"Osaka Medical Systems",
-		"Associato Petrochimico dell'Adriatico"
-	],
-
 	"ship_name": [
 		"@pick(designation) @pick(name_word) @pick(digit)",
 		"@pick(designation) @pick(name_word) @pick(name_word)",

@@ -1,16 +1,46 @@
 /obj/effect/temp_visual/telegraphing/long_duration
 	duration = 15 SECONDS
 
+// Circuit and RND
+
+/obj/item/circuitboard/machine/docking_clamp
+	name = "Salvage Clamp"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/docking_clamp
+
+/datum/design/board/salvage_docking_clamp
+	name = "Salvage Clamp"
+	desc = "A large clamp for holding shuttles in place without using their own power."
+	id = "salvage_docking_clamp"
+	build_path = /obj/item/circuitboard/machine/docking_clamp
+	category = list(
+		RND_CATEGORY_COMPUTER + RND_SUBCATEGORY_COMPUTER_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
+
+/datum/techweb_node/mining/New()
+	design_ids += list(
+		"salvage_docking_clamp",
+	)
+	return ..()
+
+// Everything else
+
 /obj/machinery/docking_clamp
 	name = "salvage clamp"
 	desc = "A large clamp for holding shuttles in place without using their own power."
 	icon = 'icons/obj/machines/floor.dmi'
 	icon_state = "mass_driver"
 	use_power = NO_POWER_USE
+	circuit = /obj/item/circuitboard/machine/docking_clamp
 	/// The docking port we use to connect ships with
 	var/obj/docking_port/stationary/salvage_dock/docking_port
 	/// The computer the clamp is linked to
 	var/obj/machinery/computer/salvage_bay_controller/controller
+
+/obj/machinery/docking_clamp/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/simple_rotation)
 
 /obj/machinery/docking_clamp/Destroy(force)
 	if(controller)
@@ -64,7 +94,10 @@
 		balloon_alert(user, "not secured!")
 		return ..()
 	if(docking_port)
-		balloon_alert(user, "already set!")
+		balloon_alert(user, "unsetting...")
+		if(!do_after(user, 3 SECONDS, src))
+			return ..()
+		QDEL_NULL(docking_port)
 		return ..()
 	balloon_alert(user, "setting clamp")
 	if(!do_after(user, 2 SECONDS, src))
@@ -96,6 +129,16 @@
 		new /obj/effect/temp_visual/medical_holosign(checked_turf)
 	docking_port = temp_docking_port
 	return ..()
+
+/// Scans the docking port area for if living mobs are present inside, TRUE means a mob is in the way (or we have no port?)
+/obj/machinery/docking_clamp/proc/check_for_clear_bay()
+	if(!docking_port)
+		return TRUE // what ?? No
+	var/list/docking_turfs = docking_port.return_turfs()
+	for(var/turf/checked_turf as anything in docking_turfs)
+		for(var/mob/living/living_mob in checked_turf.contents)
+			return TRUE
+	return FALSE
 
 /obj/docking_port/stationary/salvage_dock
 	name = "Salvage Dock"

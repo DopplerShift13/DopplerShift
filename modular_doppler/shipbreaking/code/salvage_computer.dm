@@ -10,13 +10,38 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 		/obj/tear_in_reality,
 	)))
 
+// Circuit and RND
+
+/obj/item/circuitboard/computer/salvage_computer
+	name = "Salvage Bay Controller"
+	greyscale_colors = CIRCUIT_COLOR_ENGINEERING
+	build_path = /obj/machinery/computer/salvage_bay_controller
+
+/datum/design/board/salvage_computer
+	name = "Salvage Bay Controller"
+	desc = "A bulky and old looking terminal that looks like it was dug straight out of the bottom of the ship's \
+		databanks. Likely to be from the very early concept stages of the Dark Locations type ships, where resources \
+		would be obtained through recycling the many old pioneer vessels scattered through the system."
+	id = "salvage_computer"
+	build_path = /obj/machinery/computer/salvage_bay_controller
+	category = list(
+		RND_CATEGORY_COMPUTER + RND_SUBCATEGORY_COMPUTER_ENGINEERING
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING
+
+/datum/techweb_node/mining/New()
+	design_ids += list(
+		"salvage_computer",
+	)
+	return ..()
+
+// Everything else
+
 /obj/machinery/computer/salvage_bay_controller
 	name = "salvage bay control console"
 	desc = "A bulky and old looking terminal that looks like it was dug straight out of the bottom of the ship's \
 		databanks. Likely to be from the very early concept stages of the Dark Locations type ships, where resources \
-		would be obtained through recycling the many old pioneer vessels scattered through the system. While planetary \
-		extraction was deemed easier, the designs and systems still work, and the system is still filled with old ships \
-		sitting mothballed in orbits all over."
+		would be obtained through recycling the many old pioneer vessels scattered through the system."
 	icon_screen = "supply"
 	circuit = /obj/item/circuitboard/computer/personal_shuttle_order
 	light_color = COLOR_BRIGHT_ORANGE
@@ -25,9 +50,7 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 	/// The docking clamp machine we are linked to
 	var/obj/machinery/docking_clamp/clamp
 	/// The types of shuttle templates we can call
-	var/list/valid_shuttle_templates = list(
-		/datum/map_template/shuttle/salvage_scrap/scrappie,
-	)
+	var/list/valid_shuttle_templates = list()
 	/// List of the subtypes for map templates we can buy, DO NOT SET DIRECTLY, USE VALID SHUTTLE TEMPLATES FOR DIFFERENT SELECTIONS
 	var/list/valid_shuttle_templates_subtypes = list()
 	/// Assoc list of every shuttle that can be purchased from the choice list, includes name and price and whatnot, filled on init of the console
@@ -72,18 +95,19 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 /// Fills the shopping list with names and templates
 /obj/machinery/computer/salvage_bay_controller/proc/try_and_fill_shopping_list()
 	if(!length(valid_shuttle_templates))
-		message_admins("HEY!!! [src] had nothing in its valid shuttle templates list, this is wrong or you just spawned the basetype!!")
-		return
+		valid_shuttle_templates = subtypesof(/datum/map_template/shuttle/salvage_scrap)
 	if(length(valid_shuttle_templates_subtypes))
 		message_admins("For some reason, [src] already had a filled valid_shuttle_templates_subtypes, this may or may not be a bug.")
 		return
-	for(var/datum/template as anything in valid_shuttle_templates)
+	for(var/datum/map_template/shuttle/salvage_scrap/template as anything in valid_shuttle_templates)
+		if(!template.shows_up_as_salvage)
+			continue
 		valid_shuttle_templates_subtypes.Add(template) // This makes the var a lie bog off
 
-/// Not used yet, provides detail about the currently docked shuttle for a little lore
-#define SALVAGE_CONSOLE_BAY_INFO "Bay Info"
+/// Loads specifically "Scrappie" the training shuttle
+#define SALVAGE_CONSOLE_TRAINING "Training Ship"
 /// Loads a new shuttle into the linked salvage bay if the bay is clear
-#define SALVAGE_CONSOLE_NEW_SHUTTLE "New Shuttle"
+#define SALVAGE_CONSOLE_NEW_SHUTTLE "New Salvage"
 /// Clears the bay of any shuttle currently inside of it
 #define SALVAGE_CONSOLE_CLEAR_BAY "Clear Bay"
 
@@ -123,16 +147,23 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 			docked_salvage.jumpToNullSpace()
 			say("Dock clearing, keep clear of moving clamps to prevent injury.")
 			bay_occupied = FALSE
-		if(SALVAGE_CONSOLE_NEW_SHUTTLE)
+		if(SALVAGE_CONSOLE_NEW_SHUTTLE, SALVAGE_CONSOLE_TRAINING)
 			if(!clamp?.docking_port)
 				say("Connection to salvage clamp lost, please check equipment and try again later.")
 				return
-			var/datum/map_template/shuttle/salvage_template = pick(valid_shuttle_templates_subtypes)
+			var/datum/map_template/shuttle/salvage_template
+			if(menu_option == SALVAGE_CONSOLE_NEW_SHUTTLE)
+				salvage_template = pick(valid_shuttle_templates_subtypes)
+			else
+				salvage_template = /datum/map_template/shuttle/salvage_scrap/scrappie
 			if(!salvage_template)
 				say("No salvageable ships are available, please reference your local administrator.")
 				return
 			if(bay_occupied)
 				say("Bay already occupied, or currently retrieving salvage, please wait.")
+				return
+			if(clamp.check_for_clear_bay())
+				say("Please ensure salvage bay is clear of work crew before collecting salvage.")
 				return
 			bay_occupied = TRUE
 			salvage_template = new salvage_template()
@@ -145,7 +176,7 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 				say("Failed to retrieve ship for salvage, please try again later.")
 				bay_occupied = FALSE
 
-#undef SALVAGE_CONSOLE_BAY_INFO
+#undef SALVAGE_CONSOLE_TRAINING
 #undef SALVAGE_CONSOLE_NEW_SHUTTLE
 #undef SALVAGE_CONSOLE_CLEAR_BAY
 
@@ -160,12 +191,17 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 	ticket_contents += "<hr />"
 	ticket_contents += "<p><strong>Ship details:</strong></p>"
 	ticket_contents += "<p>Designation - [template.prior_name]<br>"
-	ticket_contents += "Prior Owner - [template.prior_owner]<br>"
+	ticket_contents += "Prior Owner - [template.prior_owner_datum.owner_name]<br>"
 	ticket_contents += "Operation History from [template.prior_date]:<br>"
 	ticket_contents += "[template.prior_usage]</p>"
 	ticket_contents += "<hr />"
-	ticket_contents += "<p>Ship Class - [template.ship_class]<br>"
-	ticket_contents += "[template.ship_hazards]</p>"
+	ticket_contents += "<p>Ship Class - [template.ship_class]</p><br>"
+	ticket_contents += "<p>Detected Hazards:</p>"
+	if(!length(template.ship_hazards))
+		ticket_contents += "No hazards were detected, continue with caution.<br>"
+	else
+		for(var/hazard as anything in template.ship_hazards)
+			ticket_contents += "- [hazard]<br>"
 	ticket_contents += "<hr />"
 	ticket_contents += "<p><font color=\"grey\">Signature or stamp confirms receipt of salvage ownership, and that any and all contents of the salvage are the direct responsibility of all signees.</font></p>"
 	ticket_contents += "<p>\[___________________________________\]</p>"

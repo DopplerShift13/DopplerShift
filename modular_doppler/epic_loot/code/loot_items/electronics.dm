@@ -1,5 +1,5 @@
 /datum/export/epic_loot_electronics
-	cost = PAYCHECK_COMMAND
+	cost = 50
 	unit_name = "electronic salvage"
 	export_types = list(
 		/obj/item/epic_loot/device_fan,
@@ -10,7 +10,7 @@
 	)
 
 /datum/export/epic_loot_electronics_super
-	cost = PAYCHECK_COMMAND * 2
+	cost = 75
 	unit_name = "high value electronic salvage"
 	export_types = list(
 		/obj/item/epic_loot/display,

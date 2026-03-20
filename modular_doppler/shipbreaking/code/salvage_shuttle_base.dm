@@ -9,27 +9,43 @@
 	who_can_purchase = null
 	width = 35
 	height = 24
+	/// Is this ship going to show up in the random ships from the salvage controller?
+	var/shows_up_as_salvage = TRUE
 	/// The name of the ship before it got abandoned, randomized if null
 	var/prior_name = null
 	/// A general ship class, similarly shaped ships should have the same class to help players
 	var/ship_class = "UNKNOWN"
 	/// What the ship was doing before it got abandoned, tells players what to expect inside the ship
 	var/prior_usage = "BEING BROKEN"
+	/// DO NOT SET PRIOR_OWNER_DATUM IF YOU SET ANYTHING IN HERE, list of datum owner types this ship will pick from
+	var/list/prior_owner_random_list = list()
 	/// Who owned the ship before it was salvage, randomized if null
-	var/prior_owner = null
+	var/datum/shipbreaking_owner/prior_owner_datum = null
 	/// Operation date, "(year) to (year)", randomized if empty
 	var/prior_date = null
 	/// What kind of hazards the crews could expect to be in the ship, unknown by default
-	var/ship_hazards = "Unknown present hazards -- Proceed with caution"
+	var/list/ship_hazards = list()
 
 /datum/map_template/shuttle/salvage_scrap/New()
 	. = ..()
 	if(!prior_name)
 		prior_name = pick_list_replacements(SALVAGE_SHUTTLE_STRINGS, "ship_name")
-	if(!prior_owner)
-		prior_owner = pick_list_replacements(SALVAGE_SHUTTLE_STRINGS, "ship_companies")
+	if(!prior_owner_datum)
+		var/list/random_owner_subtypes = list()
+		for(var/datum/shipbreaking_owner/past_owner_type as anything in prior_owner_random_list)
+			random_owner_subtypes += subtypesof(past_owner_type)
+		prior_owner_datum = pick(random_owner_subtypes)
 	if(!prior_date)
 		prior_date = "[rand(2490, 2504)] to [rand(2504, 2525)]"
+
+/datum/map_template/shuttle/salvage_scrap/post_load(obj/docking_port/mobile/shuttle_port)
+	. = ..()
+	var/area/shuttle_area = get_area(shuttle_port)
+	for(var/atom/recolorable_thing as anything in shuttle_area.contents)
+		if(HAS_TRAIT(recolorable_thing, TRAIT_SHIP_PRIMARY_COLOUR))
+			recolorable_thing.color = prior_owner_datum.ship_primary_colour
+		else if(HAS_TRAIT(recolorable_thing, TRAIT_SHIP_SECONDARY_COLOUR))
+			recolorable_thing.color = prior_owner_datum.ship_secondary_colour
 
 /obj/docking_port/mobile/salvage
 	name = "salvaged shuttle"
@@ -77,10 +93,10 @@
 /area/shuttle/salvaged_shuttle
 	name = "Shuttle Salvage"
 	requires_power = TRUE
-	always_unpowered = TRUE
+	always_unpowered = FALSE
 	power_equip = FALSE
 	power_light = FALSE
-	power_environ = FALSE
+	power_environ = TRUE
 	power_apc_charge = FALSE
 	default_gravity = ZERO_GRAVITY
 	area_limited_icon_smoothing = /area/shuttle/salvaged_shuttle

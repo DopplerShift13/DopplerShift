@@ -4,6 +4,7 @@
 	icon = 'modular_doppler/shipbreaking/icons/doors.dmi'
 	icon_state = "exterior"
 	pass_flags_self = PASSDOORS
+	smoothing_groups = SMOOTH_GROUP_AIRLOCK
 	armor_type = /datum/armor/machinery_door
 	disassembled_type = /obj/structure/hull_plating/airlock
 
@@ -87,6 +88,7 @@
 	opacity = TRUE
 	density = TRUE
 	pass_flags_self = PASSDOORS
+	smoothing_groups = SMOOTH_GROUP_AIRLOCK + SMOOTH_GROUP_WALLS
 	max_integrity = 150
 	armor_type = /datum/armor/machinery_door
 	/// What does this unweld into
@@ -113,4 +115,4 @@
 	name = "disconnected maintenance panel"
 	desc = "A maintenance panel used for access to crawlspaces and engines in ships, this one has been cut from the frame."
 	icon_state = "access_free"
-	reconnect_type = /obj/structure/mineral_door/manual_colony_door/shuttle/interior
+	reconnect_type = /obj/structure/shuttle_access_panel

@@ -1,5 +1,5 @@
 /datum/export/epic_loot_valuables
-	cost = PAYCHECK_COMMAND * 3
+	cost = 150
 	unit_name = "recovered valuables"
 	export_types = list(
 		/obj/item/epic_loot/press_pass,
@@ -10,7 +10,7 @@
 	)
 
 /datum/export/epic_loot_valuables_super
-	cost = PAYCHECK_COMMAND * 4
+	cost = 200
 	unit_name = "recovered high valuables"
 	export_types = list(
 		/obj/item/epic_loot/ssd,
