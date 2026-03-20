@@ -48,6 +48,8 @@
 				/obj/item/clothing/under/pants/jeans/ripped = 5,
 				/obj/item/clothing/under/pants/moto_leggings = 5,
 				/obj/item/clothing/under/pants/big_pants = 5,
+				/obj/item/clothing/under/pants/megajeans = 5,
+				/obj/item/clothing/under/pants/megashorts = 5,
 				/obj/item/clothing/under/shorts/shorter = 5,
 				/obj/item/clothing/under/shorts/shorter/jeans = 5,
 				/obj/item/clothing/under/shorts/shorter/shortest = 5,
@@ -141,4 +143,8 @@
 		/obj/item/clothing/gloves/lalune_long = 3,
 		/obj/item/clothing/suit/jacket/doppler/bad_for_school = 3,
 		/obj/item/clothing/shoes/geowpn = 3,
+		/obj/item/clothing/suit/jacket/doppler/technyne_sweatshirt = 3,
+		/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie = 3,
+		/obj/item/clothing/suit/hooded/doppler/technyne_overlay = 3,
+		/obj/item/clothing/under/pants/technyne_bottomwear = 3,
 	)
