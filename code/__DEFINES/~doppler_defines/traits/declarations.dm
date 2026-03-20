@@ -22,3 +22,6 @@
 // makes it so held items float by their head
 #define TRAIT_FLOATING_HELD "held_items_float"
 
+// Do non-items still get recycled for their custom materials
+#define TRAIT_RECYCLE_LIKE_ITEM "recycle_like_an_item"
+
