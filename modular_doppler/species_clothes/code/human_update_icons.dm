@@ -15,16 +15,18 @@
 	RETURN_TYPE(/mutable_appearance)
 
 	var/found_special_sprite = FALSE
-	for(var/shape in clothing.supported_bodyshapes)
-		if(!(bodyshape & shape))
-			continue
-		var/potential_file = clothing.bodyshape_icon_files["[shape]"]
-		if (icon_exists(potential_file, clothing.icon_state))
-			icon_file = clothing.bodyshape_icon_files["[shape]"]
-			if (shape == BODYSHAPE_HUMANOID) // EVERYTHING has this
+	// bodyshape_icon_files can be null with supported_bodyshapes because of GAGS
+	if (istype(clothing.bodyshape_icon_files))
+		for(var/shape in clothing.supported_bodyshapes)
+			if(!(bodyshape & shape))
 				continue
-			found_special_sprite = TRUE
-			break
+			var/potential_file = clothing.bodyshape_icon_files["[shape]"]
+			if (icon_exists(potential_file, clothing.icon_state))
+				icon_file = clothing.bodyshape_icon_files["[shape]"]
+				if (shape == BODYSHAPE_HUMANOID) // EVERYTHING has this
+					continue
+				found_special_sprite = TRUE
+				break
 
 	var/autogen_override = FALSE
 	if(!found_special_sprite)
