@@ -454,6 +454,7 @@
 /obj/structure/railing/corner{
 	dir = 1
 	},
+/obj/effect/landmark/mining_center,
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/surface/outdoors/nospawn)
 "cV" = (
@@ -5352,6 +5353,7 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
 	},
+/obj/effect/landmark/mining_center,
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production/lower)
 "Jw" = (
@@ -7352,6 +7354,7 @@
 "Vy" = (
 /obj/structure/cable,
 /obj/machinery/holopad,
+/obj/effect/landmark/mining_center,
 /turf/open/floor/iron/dark/textured_large,
 /area/mine/production/middle)
 "Vz" = (

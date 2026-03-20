@@ -1011,7 +1011,7 @@ generate/load female uniform sprites matching all previously decided variables
 		return
 	// Underwear, Undershirts & Socks
 	var/list/standing = list()
-	if(underwear)
+	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // DOPPLER EDIT CHANGE - original: if(underwear)
 		var/datum/sprite_accessory/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
 		var/mutable_appearance/underwear_overlay
 		if(undie_accessory)
@@ -1021,56 +1021,57 @@ generate/load female uniform sprites matching all previously decided variables
 				underwear_icon_state += "_d"
 			// DOPPLER EDIT ADDITION END
 			if(dna.species.sexes && physique == FEMALE && (undie_accessory.gender == MALE))
-				underwear_overlay = mutable_appearance(wear_female_version(underwear_icon_state, undie_accessory.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER) // DOPPLER EDIT - underwear_overlay = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER)
+				underwear_overlay = mutable_appearance(wear_female_version(underwear_icon_state, undie_accessory.icon, FEMALE_UNIFORM_FULL), layer = -UNDERWEAR_UNDERSHIRT) // DOPPLER EDIT - underwear_overlay = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER)
 			else
-				underwear_overlay = mutable_appearance(undie_accessory.icon, underwear_icon_state, -BODY_LAYER) // DOPPLER EDIT - underwear_overlay = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
+				underwear_overlay = mutable_appearance(undie_accessory.icon, underwear_icon_state, -UNDERWEAR_UNDERSHIRT) // DOPPLER EDIT - underwear_overlay = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
 			if(!undie_accessory.use_static)
 				underwear_overlay.color = underwear_color
 			standing += underwear_overlay
 	// DOPPLER EDIT ADDITION - Bra
-	if(bra)
+	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
 		var/datum/sprite_accessory/bra/bra_accessory = SSaccessories.bra_list[bra]
 		if(bra_accessory)
 			var/mutable_appearance/bra_overlay
 			var/icon_state = bra_accessory.icon_state
 			if(dna.species.sexes && physique == FEMALE)
-				working_shirt = mutable_appearance(wear_female_version(bra_accessory.icon_state, bra_accessory.icon), layer = -BRA_SOCKS_LAYER)
+				bra_overlay = mutable_appearance(wear_female_version(bra_accessory.icon_state, bra_accessory.icon), layer = -BRA_SOCKS_LAYER)
 			else
 				bra_overlay = mutable_appearance(bra_accessory.icon, icon_state, -BRA_SOCKS_LAYER)
 			if(!bra_accessory.use_static)
 				bra_overlay.color = bra_color
 			standing += bra_overlay
 	// DOPPLER EDIT ADDITION END
-	if(undershirt)
+	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // DOPPLER EDIT CHANGE - original:  if(undershirt)
 		var/datum/sprite_accessory/undershirt/undie_accessory = SSaccessories.undershirt_list[undershirt]
 		if(undie_accessory)
 			var/mutable_appearance/working_shirt
 			if(dna.species.sexes && physique == FEMALE)
-				working_shirt = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon), layer = -BODY_LAYER)
+				working_shirt = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon), layer = -UNDERWEAR_UNDERSHIRT) // DOPPLER EDIT CHANGE - layer = -BODY_LAYER
 			else
-				working_shirt = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, layer = -BODY_LAYER)
+				working_shirt = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, layer = -UNDERWEAR_UNDERSHIRT) // DOPPLER EDIT CHANGE - layer = -BODY_LAYER
 			// DOPPLER EDIT ADDITION START - Colorable undershirts
 			if(!undie_accessory.use_static)
 				working_shirt.color = undershirt_color
 			// DOPPLER EDIT ADDITION END
 			standing += working_shirt
 
-	if(socks && num_legs >= 2) // DOPPLER EDIT - if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
+	if(socks && (num_legs >= 2) && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS)) // DOPPLER EDIT CHANGE - original: if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
 		var/datum/sprite_accessory/socks/undie_accessory = SSaccessories.socks_list[socks]
 		// DOPPLER EDIT ADDITION START - Digitgrade socks
-		if(!undie_accessory)
-			return
-		var/underwear_icon_state = undie_accessory.icon_state
-		if(bodyshape & BODYSHAPE_DIGITIGRADE)
-			underwear_icon_state += "_d"
+		var/underwear_icon_state
+		if(undie_accessory)
+			underwear_icon_state = undie_accessory.icon_state
+			if(bodyshape & BODYSHAPE_DIGITIGRADE)
+				underwear_icon_state += "_d"
 		/* ORIGINAL CODE:
 		if(undie_accessory)
 			standing += mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
 		*/
 		if(undie_accessory)
-			var/mutable_appearance/the_overlay = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
+			var/mutable_appearance/the_overlay = mutable_appearance(undie_accessory.icon, underwear_icon_state, -BRA_SOCKS_LAYER)
 			if(!undie_accessory.use_static)
 				the_overlay.color = socks_color
+			standing += the_overlay
 		// DOPPLER EDIT ADDITION END
 
 	if(standing.len)
@@ -1090,10 +1091,6 @@ generate/load female uniform sprites matching all previously decided variables
 	if(eye_organ)
 		eye_organ.refresh(call_update = FALSE)
 		overlays_standing[EYES_LAYER] = eye_organ.generate_body_overlay(src)
-		// DOPPLER ADDITION START - Makes sneeple work
-		if(istype(eye_organ, /obj/item/organ/eyes/snail))
-
-		// DOPPLER ADDITION END
 		apply_overlay(EYES_LAYER)
 
 /// Updates face (as of now, only eye) offsets

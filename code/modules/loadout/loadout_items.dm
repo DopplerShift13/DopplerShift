@@ -64,6 +64,10 @@ GLOBAL_LIST_INIT(all_loadout_categories, init_loadout_categories())
 	if(!(loadout_flags & LOADOUT_FLAG_BLOCK_GREYSCALING) && is_greyscale_item())
 		loadout_flags |= LOADOUT_FLAG_GREYSCALING_ALLOWED
 
+	// DOPPLER EDIT ADDITION START - ALL LOADOUT ITEMS RENAMABLE
+	if(!(loadout_flags & LOADOUT_FLAG_ALLOW_NAMING))
+		loadout_flags |= LOADOUT_FLAG_ALLOW_NAMING
+	// DOPPLER EDIT ADDITION END
 	if(loadout_flags & LOADOUT_FLAG_JOB_GREYSCALING)
 		var/default_colors = SSgreyscale.ParseColorString(item_path::greyscale_colors)
 		var/list/final_palette = LAZYLISTDUPLICATE(job_greyscale_palettes)
