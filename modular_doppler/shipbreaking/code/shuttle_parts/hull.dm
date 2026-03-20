@@ -24,8 +24,6 @@
 	for(var/atom/atom_target in (target_turf.contents) + osha_nonworker)
 		if(isarea(atom_target))
 			continue
-		if(SEND_SIGNAL(atom_target, COMSIG_PRE_TILT_AND_CRUSH, src) & COMPONENT_IMMUNE_TO_TILT_AND_CRUSH)
-			continue
 		var/crushed
 		if(isliving(atom_target))
 			crushed = TRUE
@@ -52,7 +50,6 @@
 			crushed = TRUE
 		if(crushed)
 			atom_target.visible_message(span_danger("[atom_target] is crushed by [src]!"), span_userdanger("You are crushed by [src]!"))
-			SEND_SIGNAL(atom_target, COMSIG_POST_TILT_AND_CRUSH, src)
 			playsound(src, 'sound/effects/bang.ogg', 40)
 			visible_message(span_danger("[src] crashes into [atom_target]!"))
 	Move(osha_nonworker, get_dir(src, osha_nonworker))
@@ -118,7 +115,7 @@
 /obj/structure/hull_plating/plastamic_sheets/Initialize(mapload)
 	. = ..()
 	icon_state = "[base_icon_state]_[rand(1, 3)]"
-	update_appearance()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/hull_plating/armor_panels
 	name = "armor panels"
@@ -133,7 +130,7 @@
 /obj/structure/hull_plating/armor_panels/Initialize(mapload)
 	. = ..()
 	icon_state = "[base_icon_state]_[rand(1, 3)]"
-	update_appearance()
+	update_appearance(UPDATE_ICON_STATE)
 
 /obj/structure/hull_plating/aluminum
 	name = "aluminum panels"
@@ -245,6 +242,7 @@
 		/datum/material/aluminum = SHEET_MATERIAL_AMOUNT * 2,
 	)
 	rust_resistance = RUST_RESISTANCE_TITANIUM
+	baseturfs = /turf/open/floor/plating/nanocarbon
 
 /turf/closed/wall/mineral/aluminum/break_wall()
 	var/obj/new_plating = new /obj/structure/hull_plating/aluminum(src)
@@ -264,15 +262,22 @@
 	/// What kind of plating we make when cut apart
 	var/obj/cut_plating = /obj/structure/hull_plating/nanocarbon/floor
 
+/turf/open/floor/plating/nanocarbon/Initialize(mapload)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Cut Hull",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /turf/open/floor/plating/nanocarbon/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	new cut_plating(get_turf(src))
 	ScrapeAway()
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /turf/open/floor/plating/aluminum
 	name = "aluminum hull"
@@ -289,19 +294,19 @@
 	/// What kind of plating we make when cut apart
 	var/obj/cut_plating = /obj/structure/hull_plating/aluminum/floor
 
+/turf/open/floor/plating/aluminum/Initialize(mapload)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+		TOOL_WELDER = list(
+			SCREENTIP_CONTEXT_LMB = "Cut Plating",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /turf/open/floor/plating/aluminum/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	new cut_plating(get_turf(src))
 	ScrapeAway()
-	return TRUE
-
-/obj/effect/baseturf_helper/salvage_shuttle
-	name = "salvage shuttle baseturf replacer"
-	baseturf_to_replace = list(
-		/turf/open/floor/plating,
-	)
-	baseturf = /turf/open/floor/plating/nanocarbon
+	return ITEM_INTERACT_SUCCESS

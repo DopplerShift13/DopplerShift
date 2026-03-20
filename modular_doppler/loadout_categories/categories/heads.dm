@@ -535,6 +535,10 @@
 	name = "Flowing Headband"
 	item_path = /obj/item/clothing/head/flowing_headband
 
+/datum/loadout_item/head/misc/headscarf
+	name = "Headscarf (Tizirian)"
+	item_path = /obj/item/clothing/head/lizard_headscarf
+
 /datum/loadout_item/head/misc/bear_pelt
 	name = "Bear Pelt"
 	item_path = /obj/item/clothing/head/costume/bearpelt

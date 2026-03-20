@@ -9,32 +9,39 @@
 	density = FALSE
 	anchored = TRUE
 	pass_flags_self = LETPASSTHROW|PASSSTRUCTURE
-	armor_type = /datum/armor/anything_nanocarbon
+	armor_type = /datum/armor/nanocarbon_anything
 	max_integrity = 150
 	layer = ABOVE_OBJ_LAYER
 	/// How long to unweld
 	var/unfasten_time = 1 SECONDS
 
-/obj/structure/engine_covers/border_only/Initialize(mapload)
+/obj/structure/engine_covers/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
+	register_context()
+
+/obj/structure/engine_covers/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(isnull(held_item))
+		return NONE
+	if(held_item.tool_behaviour == TOOL_WELDER)
+		context[SCREENTIP_CONTEXT_LMB] = anchored ? "Unsecure" : "Secure"
+		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/engine_covers/examine(mob/user)
 	. = ..()
 	. += span_notice("You can [anchored ? "unsecure" : "secure"] it with a welding tool.")
 
 /obj/structure/engine_covers/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	balloon_alert(user, anchored ? "cutting..." : "securing...")
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /// Determines what to do when something is leaving our turf
 /obj/structure/engine_covers/proc/on_exit(datum/source, atom/movable/leaving, direction)
@@ -54,11 +61,11 @@
 
 /obj/structure/engine_covers/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	if(!(border_dir == dir))
+	if(border_dir != dir)
 		return TRUE
 
 /obj/structure/engine_covers/CanPass(atom/movable/mover, border_dir)
-	return border_dir & dir ? ..() : TRUE
+	return (border_dir & dir) ? ..() : TRUE
 
 /obj/structure/engine_covers/CanAStarPass(to_dir, datum/can_pass_info/pass_info)
 	return !density || (dir != to_dir)
@@ -136,7 +143,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/sensors_blist
 
 // The north facing one has to be special due to the antennae
 /obj/machinery/exoscanner/shuttle_part/sensors_blister/directional/north
-	pixel_y = 26
+	SET_BASE_PIXEL(0, 26)
 
 /obj/machinery/exoscanner/shuttle_part/open_sensors_blister
 	name = "sensors blister"
@@ -156,7 +163,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/open_sensors_
 
 // The north facing one has to be special due to the antennae
 /obj/machinery/exoscanner/shuttle_part/open_sensors_blister/directional/north
-	pixel_y = 26
+	SET_BASE_PIXEL(0, 26)
 
 /obj/machinery/exoscanner/shuttle_part/radio_dish
 	name = "radio dish"
@@ -187,13 +194,27 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 	layer = LOW_ITEM_LAYER
 	/// How long to either unwrench or unweld
 	var/unfasten_time = 1 SECONDS
-	/// Does this need to be welded off the wall instead
+	/// Does this need to be welded off the wall, instead of using a wrench
 	var/requires_welder = FALSE
 
 /obj/structure/shuttle_decoration/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
 	find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
+	register_context()
+
+/obj/structure/shuttle_decoration/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(isnull(held_item))
+		return NONE
+	if(requires_welder)
+		if(held_item.tool_behaviour == TOOL_WELDER)
+			context[SCREENTIP_CONTEXT_LMB] = anchored ? "Unsecure" : "Secure"
+			return CONTEXTUAL_SCREENTIP_SET
+	else
+		if(held_item.tool_behaviour == TOOL_WRENCH)
+			context[SCREENTIP_CONTEXT_LMB] = anchored ? "Unsecure" : "Secure"
+			return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/shuttle_decoration/examine(mob/user)
 	. = ..()
@@ -209,22 +230,20 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 /obj/structure/shuttle_decoration/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(requires_welder)
-		return ITEM_INTERACT_SKIP_TO_ATTACK
+		return NONE
 	default_unfasten_wrench(user, tool, time = unfasten_time)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	if(!requires_welder)
-		return
+		return NONE
 	balloon_alert(user, anchored ? "cutting..." : "securing...")
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
-		return TRUE
+		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
 	if(anchored)
 		find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/rcs
 	name = "reaction control thruster"
@@ -308,8 +327,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/radiator, 4)
 		. += span_notice("The gauge on the control panel shows the tanks are empty, it must be used up.")
 
 /obj/structure/shuttle_decoration/extinguisher/interact(mob/user)
-	if(!can_interact(user))
-		return
 	if(!anchored)
 		return
 	if(used_up)
@@ -408,19 +425,16 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/aux_engine, 10)
 	qdel(src)
 
 /obj/structure/shuttle_decoration/wall_plate/welder_act(mob/living/user, obj/item/tool)
-	if(user.combat_mode)
-		return
 	if(!requires_welder)
-		return
+		return NONE
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
-		return TRUE
-	balloon_alert(user, "cut free!")
+		return ITEM_INTERACT_BLOCKING
 	var/obj/new_plating = new cut_plating(get_turf(src))
 	if(keep_color)
 		new_plating.color = color
 	qdel(src)
-	return TRUE
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/wall_plate/gold_foil
 	name = "gold foil wrapping"

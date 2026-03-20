@@ -249,7 +249,7 @@
 	)
 
 /datum/design/colony_manual_door
-	name = "Manaul Airlock"
+	name = "Manual Airlock"
 	id = "colony_manual_door"
 	build_type = COLONY_FABRICATOR
 	materials = /obj/item/flatpacked_machine/airlock_kit_manual::custom_materials

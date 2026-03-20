@@ -9,7 +9,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_anchors)
 	initial_gas_mix = AIRLESS_ATMOS
 	temperature = TCMB
 
-/turf/open/floor/engine/anchor_jack/wrench_act(mob/living/user, obj/item/I)
+/turf/open/floor/engine/anchor_jack/wrench_act(mob/living/user, obj/item/tool)
 	user.balloon_alert(user, "can't reach bolts!")
 	return
 
@@ -27,8 +27,10 @@ GLOBAL_LIST_EMPTY(shipbreaking_anchors)
 	if(starting_anchor)
 		GLOB.shipbreaking_anchors += src
 
+// Mapping helpers need to be set to late init or theyw ill delete themselves, which we don't want to happen here
+// Because lateShuttleMove handles everything we need to do
 /obj/effect/mapping_helpers/salvage_anchor/LateInitialize()
-	return // epic troll
+	return
 
 /obj/effect/mapping_helpers/salvage_anchor/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(id_tag)

@@ -5,7 +5,7 @@
 		gakster's wagon when you're not looking."
 	icon = 'modular_doppler/shipbreaking/icons/stacks.dmi'
 	icon_state = "aluminum"
-	inhand_icon_state = "aluminum"
+	inhand_icon_state = "sheet-titanium"
 	mats_per_unit = list(
 		/datum/material/aluminum = SHEET_MATERIAL_AMOUNT,
 	)
@@ -31,7 +31,6 @@
 	mat_rust_resistance = RUST_RESISTANCE_TITANIUM
 	mineral_rarity = 0
 	points_per_unit = 1 / SHEET_MATERIAL_AMOUNT
-	minimum_value_override = 0
 	tradable = TRUE
 	tradable_base_quantity = MATERIAL_QUANTITY_UNCOMMON
 	fish_weight_modifier = 1.1
@@ -49,7 +48,7 @@
 		properties require specialist tools to form and make permanent repairs to."
 	icon = 'modular_doppler/shipbreaking/icons/stacks.dmi'
 	icon_state = "nanocarbon"
-	inhand_icon_state = "nanocarbon"
+	inhand_icon_state = "sheet-plastitanium"
 	mats_per_unit = list(
 		/datum/material/nanocarbon = SHEET_MATERIAL_AMOUNT,
 	)
@@ -75,9 +74,8 @@
 	mat_rust_resistance = RUST_RESISTANCE_TITANIUM
 	mineral_rarity = 0
 	points_per_unit = 1 / SHEET_MATERIAL_AMOUNT
-	minimum_value_override = 0
 	tradable = TRUE
-	tradable_base_quantity = MATERIAL_QUANTITY_RARE
+	tradable_base_quantity = MATERIAL_QUANTITY_UNCOMMON
 	fish_weight_modifier = 0.8
 	strength_modifier = 1.5
 	integrity_modifier = 0.8 // it shatters instead of denting
@@ -119,3 +117,4 @@
 	. = ..()
 	AddComponent(/datum/component/caltrop, min_damage = force, paralyze_duration = 2 SECONDS, soundfile = hitsound)
 	icon_state = "[base_icon_state]_[rand(1, variants)]"
+	update_appearance(UPDATE_ICON_STATE)
