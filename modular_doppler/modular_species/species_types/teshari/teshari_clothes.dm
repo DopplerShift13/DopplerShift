@@ -537,6 +537,13 @@
 		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
 	)
 
+/obj/item/clothing/mask/gas/sechailer
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_SNOUTED)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
+	)
+
 /obj/item/clothing/mask/joy
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
 	bodyshape_icon_files = list(
@@ -546,6 +553,14 @@
 	)
 
 /obj/item/clothing/mask/breath
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
+/obj/item/clothing/mask/surgical
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',

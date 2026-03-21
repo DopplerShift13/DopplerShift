@@ -882,7 +882,7 @@ generate/load female uniform sprites matching all previously decided variables
 	/// IMPORTANT NOTE: Keep the humie var!
 	var/chosen_worn_icon = worn_icon
 	var/using_taur_variant = FALSE
-	if(ishuman(humie))
+	if(ishuman(humie) && bodyshape_icon_files) // bodyshape_icon_files can be null with supported_bodyshapes due to gags
 		for(var/shape in supported_bodyshapes)
 			if(shape == BODYSHAPE_HUMANOID)
 				continue
@@ -915,7 +915,7 @@ generate/load female uniform sprites matching all previously decided variables
 		)
 	/// DOPPLER EDIT ADDITION BEGIN - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0
-	if (istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)
+	if (!isinhands && istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR) // This could should never run on inhands
 		if (!using_taur_variant)
 			if (gets_cropped_on_taurs)
 				var/cropping_state = DEFAULT_TAUR_CLIPPING_MASK
