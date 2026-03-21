@@ -43,7 +43,7 @@
 	// Because we have a do_while, it won't get to the usual unset_click_ability() until after the efffect resolves, so we have to run it here.
 	unset_click_ability(owner, FALSE)
 	keep_going = TRUE
-	owner.visible_message(span_warning("[owner.get_visible_name()] lays a hand on [target.get_visible_name()], twisting their injurioes into other, smaller injuries!"), span_notice("You twist [target.get_visible_name()]'s injuries!"))
+	owner.visible_message(span_warning("[owner.get_visible_name()] lays a hand on [target.get_visible_name()], twisting their injuries into other, smaller injuries!"), span_notice("You twist [target.get_visible_name()]'s injuries!"))
 	// Listeners for dispelling.
 	RegisterSignal(user, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))

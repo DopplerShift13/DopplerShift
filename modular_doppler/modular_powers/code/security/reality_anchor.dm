@@ -1,8 +1,8 @@
 /obj/structure/reality_anchor
-	name = "reassembled reality anchor"
-	desc = "The fragments of a broken down reality anchor, reassembled. Crude machinery is managing to keep it docile; but when enabled, it will start enforcing normality back in a large area around it."
-	icon = 'icons/obj/antags/cult/structures.dmi'
-	icon_state = "pylon_off"
+	name = "miniature reality anchor"
+	desc = "The chiseled out parts of a broken down reality anchor. Crude machinery is managing to keep it docile; but when enabled, it will start enforcing normality back in a large area around it."
+	icon = 'modular_doppler/modular_powers/icons/items/reality_anchor.dmi'
+	icon_state = "reality_anchor"
 	density = TRUE
 
 	// Is it on/off
@@ -15,12 +15,12 @@
 	// Range in turfs
 	var/pulse_range = 6
 
-	// on and off icon states.
-	var/on_icon_state = "pylon"
-	var/off_icon_state = "pylon_off"
+	// Ripple filter while active.
+	var/ripple_filter_id = "reality_anchor_ripple"
 
 /obj/structure/reality_anchor/Destroy()
 	STOP_PROCESSING(SSobj, src)
+	apply_ripple_filter(FALSE)
 	. = ..()
 
 // Turns the thing on or off after the do_after.
@@ -29,6 +29,7 @@
 	if(.)
 		return
 	var/action_word = active ? "deactivate" : "activate"
+	var/action_word_past_tense = active ? "deactivating" : "activating"
 	user.visible_message(
 		span_warning("[user] begins to [action_word] the reality anchor..."),
 		span_warning("You begin to [action_word] the reality anchor...")
@@ -36,8 +37,8 @@
 	if(!do_after(user, 3 SECONDS, target = src))
 		return
 	user.visible_message(
-		span_warning("[user] finishes [action_word]ing the reality anchor."),
-		span_warning("You finish [action_word]ing the reality anchor.")
+		span_warning("[user] finishes [action_word_past_tense] the reality anchor."),
+		span_warning("You finish [action_word_past_tense] the reality anchor.")
 	)
 	toggle_anchor(user)
 
@@ -46,13 +47,14 @@
 	active = !active
 	if(active)
 		anchored = TRUE
-		icon_state = on_icon_state
+		apply_ripple_filter(TRUE)
+		playsound(launched, 'sound/effects/magic/repulse.ogg', 75, TRUE)
 		pulse()
 		next_pulse_time = world.time + pulse_interval
 		START_PROCESSING(SSobj, src)
 		return
 	anchored = FALSE
-	icon_state = off_icon_state
+	apply_ripple_filter(FALSE)
 	STOP_PROCESSING(SSobj, src)
 
 // Countdown til dispel pulse.
@@ -80,6 +82,17 @@
 		else if(isobj(target))
 			target.dispel(src)
 
+// Applies a rippling effect.
+/obj/structure/reality_anchor/proc/apply_ripple_filter(active_state)
+	if(active_state)
+		add_filter(ripple_filter_id, 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
+		var/filter = get_filter(ripple_filter_id)
+		if(filter)
+			animate(filter, radius = 0, time = 0.2 SECONDS, size = 2, easing = JUMP_EASING, loop = -1, flags = ANIMATION_PARALLEL)
+			animate(radius = 32, time = 1.5 SECONDS, size = 0)
+		return
+	remove_filter(ripple_filter_id)
+
 // Status effect responsible for silencing.
 /datum/status_effect/power/reality_anchor_silenced
 	id = "reality_anchor_silenced"
@@ -100,8 +113,8 @@
 /atom/movable/screen/alert/status_effect/reality_anchor_silenced
 	name = "Silenced"
 	desc = "Resonant powers are periodically dispelled and supressed around the reality anchor!"
-	icon = 'icons/obj/antags/cult/structures.dmi'
-	icon_state = "pylon"
+	icon = 'modular_doppler/modular_powers/icons/items/reality_anchor.dmi'
+	icon_state = "reality_anchor"
 
 // The effect from reality anchors
 /obj/effect/temp_visual/circle_wave/reality_anchor
@@ -109,3 +122,6 @@
 	max_alpha = 20
 	duration = 0.5 SECONDS
 	amount_to_scale = 6
+
+/obj/structure/reality_anchor/update_overlays()
+	. = ..()

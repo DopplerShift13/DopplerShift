@@ -5,8 +5,8 @@
 	name = "Sanguine Absorption"
 	desc = "You draw nearby blood into the target. This draws up to 100u of blood from adjacent floor/wall splatters, containers and other mobs (in that order). It then tranfers that blood to the target and converts it to universally accepted blood.\
 	\nAny excess blood in the target creature beyond 100% is transformed into healing, at a 10u per 4 damage ratio. This can only heal organic bodyparts and does not heal any damage-types besides Brute or Burn. This also does not affect creatures with non-blood bloodtypes such as Ethereals or Slimepeople. \
-	\nRequires Affinity 3. Affinity increases the healing ratio by 0.5 per point"
-	value = 4
+	\nRequires Affinity 3. Additional affinity increases the healing ratio by 0.5 per point"
+	value = 5
 
 	action_path = /datum/action/cooldown/power/thaumaturge/sanguine_absorption
 	required_powers = list(/datum/power/thaumaturge_root)
@@ -19,7 +19,7 @@
 	button_icon_state = "bubblegumfoot"
 
 	required_affinity = 3
-	prep_cost = 4
+	prep_cost = 5
 	target_range = 4
 
 	use_time = 3 SECONDS
@@ -144,7 +144,7 @@
 	target_mob.blood_volume += harvested
 
 	// We set the healing ratio and attempt to heal the target.
-	var/ratio = healing_ratio + (isnum(affinity) ? affinity * affinity_healing_ratio_bonus : 0)
+	var/ratio = healing_ratio + (isnum(affinity) ? max(affinity - required_affinity, 0) * affinity_healing_ratio_bonus : 0)
 	if(ratio > 0)
 		var/excess_blood = max(target_mob.blood_volume - BLOOD_VOLUME_NORMAL, 0)
 		if(excess_blood > 0 && iscarbon(target_mob))
