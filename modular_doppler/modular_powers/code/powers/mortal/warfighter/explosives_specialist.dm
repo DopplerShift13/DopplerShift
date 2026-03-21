@@ -8,4 +8,3 @@
 	mob_trait = TRAIT_POWER_EXPLOSIVES_SPECIALIST
 
 // See modular_doppler\modular_powers\code\powers\mortal\warfighter\components\grenade_components.dm for how we add the timers
-// TODO: Make it work with c4 as well.

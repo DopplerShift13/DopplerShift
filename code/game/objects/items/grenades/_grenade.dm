@@ -62,8 +62,8 @@
 /obj/item/grenade/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_ODD_CUSTOMIZABLE_FOOD_INGREDIENT, type)
-	AddComponent(/datum/component/grenade_timer_hud) // DOPPLER ADDITION - Display timers for Explosives Specialists (and ghosts)
-	AddComponent(/datum/component/grenade_timer_registry) // DOPPLER ADDITION - Register grenades for global specialist view
+	AddComponent(/datum/component/grenade_timer_hud) // DOPPLER ADDITION - Display timers in hand for Explosive Specialist
+	AddComponent(/datum/component/grenade_timer_ground) // DOPPLER ADDITION - Display timers on ground for Observers & Explosives Specialist
 	RegisterSignal(src, COMSIG_ITEM_USED_AS_INGREDIENT, PROC_REF(on_used_as_ingredient))
 
 /obj/item/grenade/suicide_act(mob/living/carbon/user)

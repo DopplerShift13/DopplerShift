@@ -1,6 +1,8 @@
 /**
  * Shows a live detonation countdown on the grenade's hand HUD icon.
  * Visible to explosives specialists and to observers watching the holder.
+ * Spread into two parts: grenade_timer_hud is the inhand timer, grenade_timer_ground is the ground timer.
+ * The global manager centralizes countdown math; components handle their own visuals.
  */
 /datum/component/grenade_timer_hud
 	var/obj/item/grenade/parent_grenade
@@ -136,6 +138,20 @@
 			M?.client?.screen -= timer_hud
 	current_viewers = list()
 	QDEL_NULL(timer_hud)
+
+/**
+ * Registers armed grenades with the global timer manager.
+ */
+/datum/component/grenade_timer_ground
+/datum/component/grenade_timer_ground/RegisterWithParent()
+	RegisterSignal(parent, COMSIG_GRENADE_ARMED, PROC_REF(on_armed))
+
+/datum/component/grenade_timer_ground/UnregisterFromParent()
+	UnregisterSignal(parent, COMSIG_GRENADE_ARMED)
+
+/datum/component/grenade_timer_ground/proc/on_armed(datum/source, det_time, delayoverride)
+	SIGNAL_HANDLER
+	GLOB.grenade_timer_manager.register_grenade(source, det_time, delayoverride)
 
 
 /**
@@ -275,17 +291,3 @@ GLOBAL_DATUM_INIT(grenade_timer_manager, /datum/grenade_timer_manager, new)
 	for(var/mob/M in viewer_images)
 		remove_image(M, G)
 
-
-/**
- * Registers armed grenades with the global timer manager.
- */
-/datum/component/grenade_timer_registry
-/datum/component/grenade_timer_registry/RegisterWithParent()
-	RegisterSignal(parent, COMSIG_GRENADE_ARMED, PROC_REF(on_armed))
-
-/datum/component/grenade_timer_registry/UnregisterFromParent()
-	UnregisterSignal(parent, COMSIG_GRENADE_ARMED)
-
-/datum/component/grenade_timer_registry/proc/on_armed(datum/source, det_time, delayoverride)
-	SIGNAL_HANDLER
-	GLOB.grenade_timer_manager.register_grenade(source, det_time, delayoverride)
