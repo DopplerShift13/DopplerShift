@@ -13,7 +13,6 @@
 
 /datum/power/thaumaturge_root/add_unique(client/client_source)
 	var/obj/item/spell_focus/spell_focus = new(get_turf(power_holder))
-	spell_focus.name = "[power_holder.real_name]'s spell focus"
 	give_item_to_holder(spell_focus, list(LOCATION_BACKPACK, LOCATION_HANDS))
 
 /datum/power/thaumaturge_root/post_add()
@@ -26,8 +25,8 @@
 /datum/action/cooldown/power/thaumaturge/thaumaturge_root
 	name = "Spell Preperation"
 	desc = "Adjust the amount of charges your spells have! Requires sleeping with a Spell Focus on your person to apply (except the first time in a round)."
-	button_icon = 'icons/obj/storage/book.dmi'
-	button_icon_state = "ithaqua"
+	button_icon = 'icons/obj/service/library.dmi'
+	button_icon_state = "bookcharge"
 
 	// Makes it not interact with the charges system.
 	max_charges = null

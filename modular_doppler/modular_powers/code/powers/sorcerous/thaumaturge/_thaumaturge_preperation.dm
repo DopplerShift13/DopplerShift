@@ -51,9 +51,9 @@
 	// Do we have queqed changes and is the flag that it passed validation on?
 	if(applied_prepared_charges && recharge_when_sleep)
 		//Do we have the focus on our person?
-		for(var/obj/item/spell_focus/focus_item in attached_mob.get_all_contents())
-			apply_spell_charges()
-			to_chat(attached_mob, span_notice("Your mind focuses on your spells, and through your dreams, you feel your Thaumaturge powers recharge!"))
+		if(locate(/obj/item/spell_focus) in attached_mob.get_all_contents())
+			// apply the status effect which handles replenishment.
+			attached_mob.apply_status_effect(/datum/status_effect/power/thaumaturgic_sleep, src)
 			return
 		to_chat(attached_mob, span_warning("You cannot recharge your spells without a Spell Focus on your person!"))
 
@@ -302,3 +302,40 @@
 		return TRUE
 
 	return FALSE
+
+// Status effect used for validating sleep
+/datum/status_effect/power/thaumaturgic_sleep
+	id = "thaumaturgic_sleep"
+	duration = THAUMATURGE_SLEEP_TIME // required amount of sleepytime
+	tick_interval = 1 SECONDS
+	show_duration = TRUE
+	alert_type = /atom/movable/screen/alert/status_effect/thaumaturgic_sleep
+	var/ends_early = FALSE
+	var/datum/component/thaumaturge_preparation/prep_component
+
+/datum/status_effect/power/thaumaturgic_sleep/on_creation(mob/living/new_owner, datum/component/thaumaturge_preparation/thaum_component)
+	prep_component = thaum_component
+	return ..()
+
+// Ticks every second, checks for focus and if we are asleep
+/datum/status_effect/power/thaumaturgic_sleep/tick(seconds_between_ticks)
+	var/has_focus = locate(/obj/item/spell_focus) in owner.get_all_contents()
+
+	if(!owner.IsSleeping() || !has_focus)
+		ends_early = TRUE
+		qdel(src)
+
+/datum/status_effect/power/thaumaturgic_sleep/on_remove()
+	// YOU GET NOTHING, YOU LOSE.
+	if(ends_early || QDELETED(owner))
+		return
+	if(!prep_component)
+		return
+	prep_component.apply_spell_charges()
+	to_chat(owner, span_notice("Your mind focuses on your spells, and through your dreams, you feel your Thaumaturge powers recharge!"))
+
+/atom/movable/screen/alert/status_effect/thaumaturgic_sleep
+	name = "Thaumaturgic Sleep"
+	desc = "You are manifesting your thaumaturgic power through your dreams; if you are asleep with your spell focus when this effect expires, you will recharge your spells. Waking up early yields nothing!"
+	icon = 'icons/obj/weapons/guns/projectiles.dmi'
+	icon_state = "ice_1"

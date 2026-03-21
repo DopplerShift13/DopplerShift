@@ -69,6 +69,10 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/staff // the base item is small
 	affinity = 2
 
+// Nullrods come in a lot of shapes and forms; by default we give it affinity 2 unless it fucks with slots and is clearly magical.
+/obj/item/nullrod
+	affinity = 2
+
 // Animal masks that arent small
 /obj/item/clothing/mask/animal
 	affinity = 2
@@ -109,6 +113,10 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 
 // You can teleport with it but given its megafauna loot we can be a bit lax
 /obj/item/hierophant_club
+	affinity = 3
+
+// Its the bible! Given we allow tomes, I'm sure some people will want to larp a cleric or otherwise have some magic religion. Print more bibles!
+/obj/item/book/bible
 	affinity = 3
 
 /*
@@ -204,8 +212,18 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 	Tier 5+
 */
 
-// Chaplain nullrod staves
+// Nullrods that are bulky and clearly magical
 /obj/item/nullrod/staff
+	affinity = 5
+/obj/item/nullrod/vibro/spellblade
+	affinity = 5
+/obj/item/vorpalscythe
+	affinity = 5
+/obj/item/nullrod/claymore/darkblade // its a cult sword and it glows thats good enough
+	affinity = 5
+/obj/item/nullrod/pitchfork
+	affinity = 5
+/obj/item/nullrod/pride_hammer
 	affinity = 5
 
 // Haunted blade, the heretic sword that gives you cool shit.

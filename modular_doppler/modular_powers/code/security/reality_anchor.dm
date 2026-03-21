@@ -48,7 +48,7 @@
 	if(active)
 		anchored = TRUE
 		apply_ripple_filter(TRUE)
-		playsound(launched, 'sound/effects/magic/repulse.ogg', 75, TRUE)
+		playsound(src, 'sound/effects/magic/repulse.ogg', 75, TRUE)
 		pulse()
 		next_pulse_time = world.time + pulse_interval
 		START_PROCESSING(SSobj, src)

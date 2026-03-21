@@ -103,6 +103,9 @@
 // hard cap on refund powers.
 #define THAUMATURGE_REFUND_MAX 75
 
+// How long a thaumaturge has to sleep to get their charges. Please make sure that this is BELOW the normal sleep verb's time.
+#define THAUMATURGE_SLEEP_TIME 30 SECONDS
+
 /**
  * SORCEROUS: ENIGMATIST
  * All defines related to the enigmatist powers.
