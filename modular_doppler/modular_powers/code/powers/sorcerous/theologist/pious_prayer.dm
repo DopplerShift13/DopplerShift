@@ -54,7 +54,7 @@
 			else if(istype(area, /area/station/service/chapel) || prob(check_how_religious(user))) // If you're in the chapel or if fate aligns.
 				if(cap_warning_given)
 					continue
-				adjust_piety(THEOLOGIST_PIETY_TRIVIAL)
+				adjust_piety(1)
 				to_chat(user, span_notice("You feel more pious after your prayer."))
 		else
 			keep_going = FALSE

@@ -4,7 +4,7 @@
 
 /datum/power/expert/heavy_lifter
 	name = "Heavy Lifter"
-	desc = "A strong back does a lot when it comes to carrying closets. You ignore the slowdown from dragging objects and having creatures grabbed/ and/or carried. You also start off as a Journeyman in the Athletics skill. \
+	desc = "A strong back does a lot when it comes to carrying closets. You ignore the slowdown from dragging objects and having creatures grabbed and/or carried. You also start off as a Journeyman in the Athletics skill. \
 	All other slowdowns such as stamina, items, damage, etc. still apply as normal."
 	security_record_text = "Subject possesses a high degree of strength and is capable of hauling objects without being slowed down."
 	value = 5
@@ -13,7 +13,8 @@
 	// tracks how much was given for removal later.
 	var/xp_given = 0
 
-/datum/power/expert/heavy_lifter/add()
+/datum/power/expert/heavy_lifter/post_add()
+	..()
 	// Grab slowdowns all share the same movespeed id.
 	power_holder.add_movespeed_mod_immunities(src, MOVESPEED_ID_MOB_GRAB_STATE)
 	power_holder.add_movespeed_mod_immunities(src, /datum/movespeed_modifier/bulky_drag)

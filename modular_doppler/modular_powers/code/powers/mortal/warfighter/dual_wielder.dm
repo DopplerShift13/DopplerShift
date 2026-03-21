@@ -23,16 +23,37 @@
 	name = "Dual Wield"
 	desc = "Toggle dual-wielding. While active, melee attacks immediately follow with an off-hand strike (each strike has a 30% miss chance)."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
-	button_icon_state = "equip"
+	button_icon_state = "dagger"
 
 	// Chance that we miss a swing
 	var/dual_wield_miss_chance = 30
+	/// Overlay for mirrored icon when active.
+	var/mutable_appearance/dual_wield_overlay
 
 /datum/action/cooldown/power/warfighter/dual_wielder/use_action(mob/living/user, atom/target)
 	active = !active
 	user.balloon_alert(user, active ? "dual wield on" : "dual wield off")
-	build_all_button_icons(UPDATE_BUTTON_STATUS)
+	build_all_button_icons(UPDATE_BUTTON_OVERLAY | UPDATE_BUTTON_STATUS)
 	return TRUE
+
+// Adds a mirrored overlay to the power button when dual wield is active.
+/datum/action/cooldown/power/warfighter/dual_wielder/apply_button_overlay(atom/movable/screen/movable/action_button/current_button, force = FALSE)
+	..()
+
+	if(!active || !button_icon || !button_icon_state)
+		if(dual_wield_overlay)
+			current_button.cut_overlay(dual_wield_overlay)
+			dual_wield_overlay = null
+		return
+
+	if(dual_wield_overlay)
+		current_button.cut_overlay(dual_wield_overlay)
+
+	dual_wield_overlay = mutable_appearance(icon = button_icon, icon_state = button_icon_state)
+	var/matrix/flip_matrix = matrix()
+	flip_matrix.Scale(-1, 1)
+	dual_wield_overlay.transform = flip_matrix
+	current_button.add_overlay(dual_wield_overlay)
 
 /datum/action/cooldown/power/warfighter/dual_wielder/Grant(mob/granted_to)
 	. = ..()

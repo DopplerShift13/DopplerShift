@@ -160,19 +160,14 @@
 
 // Allows us to basically toggle between 1x or 3x spray.
 /obj/item/reagent_containers/spray/chemsprayer/reagent_cannon/spray(atom/A, mob/user)
-	var/turf/T = get_turf(A)
+	if(!premium_component?.can_function())
+		to_chat(owner, span_warning("Your [name] fails to respond; it seems broken!"))
+		return FALSE
+	var/turf/target_turf = get_turf(A)
 	if(focused_mode)
-		call(src, /obj/item/reagent_containers/spray/proc/spray)(T, user) // only way we can get a 1x1 spray because the chemsprayer is our parent.
+		call(src, /obj/item/reagent_containers/spray/proc/spray)(target_turf, user) // only way we can get a 1x1 spray because the chemsprayer is our parent and that overrides standard spray rules.
 		return
-	var/direction = get_dir(src, A)
-	var/turf/T1 = get_step(T, turn(direction, 90))
-	var/turf/T2 = get_step(T, turn(direction, -90))
-	var/list/the_targets = list(T, T1, T2)
-
-	for(var/i in 1 to 3) // intialize sprays
-		if(reagents.total_volume < 1)
-			return
-		..(the_targets[i], user)
+	..()
 
 // Allows us to switch between focused (1x wide) or unfocused (3x wide)
 /obj/item/reagent_containers/spray/chemsprayer/reagent_cannon/toggle_stream_mode(mob/user)

@@ -152,8 +152,8 @@
 
 	if(!isliving(target))
 		return
-	on_hit(target, user, get_dir(source, target))
-	Detach(source)
+	if(on_hit(target, user, get_dir(source, target)))
+		Detach(source)
 
 
 /// triggered after a projectile hits something
@@ -162,16 +162,20 @@
 
 	if(!isliving(target))
 		return
-	on_hit(target, null, angle2dir(Angle))
-	Detach(fired_from)
+	if(on_hit(target, null, angle2dir(Angle)))
+		Detach(fired_from)
 
 // The on hit effect
 /datum/element/theologist_smite/proc/on_hit(mob/living/target, mob/thrower, throw_dir)
 	//Knockback code
 	if(!ismovable(target) || throw_dir == null)
-		return
+		return FALSE
 	if(target.anchored && !throw_anchored)
-		return
+		return FALSE
+	// Magic immune
+	if(target.can_block_resonance(1))
+		// deliberately eats your smite.
+		return TRUE
 	if(throw_distance < 0)
 		throw_dir = REVERSE_DIR(throw_dir)
 		throw_distance *= -1
@@ -181,6 +185,7 @@
 	playsound(target, 'sound/effects/magic/magic_block_holy.ogg', 75, TRUE)
 	target.adjustFireLoss(smite_damage)
 	to_chat(target, span_userdanger("You are knocked back by a burning, resonant energy!"))
+	return TRUE
 
 // The on dispel effect
 /datum/element/theologist_smite/proc/on_dispel(atom/source, atom/dispeller)

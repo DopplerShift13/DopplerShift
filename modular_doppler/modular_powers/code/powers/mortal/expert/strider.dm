@@ -13,7 +13,8 @@
 	// how much xp we start with on average. Since the prerequisite skill gives journeyman, we subtract that.
 	var/starting_xp_base = SKILL_EXP_MASTER - SKILL_EXP_JOURNEYMAN
 
-/datum/power/expert/strider/add()
+/datum/power/expert/strider/post_add()
+	..()
 	power_holder.add_movespeed_mod_immunities(src, /datum/movespeed_modifier/equipment_speedmod)
 	power_holder.mind?.adjust_experience(/datum/skill/athletics, starting_xp_base)
 

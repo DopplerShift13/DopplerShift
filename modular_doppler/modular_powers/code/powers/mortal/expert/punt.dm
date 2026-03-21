@@ -80,7 +80,7 @@
 			living_atom.log_message("was punted by an object from [thrower] for [damage] damage.", LOG_VICTIM)
 			thrower.log_message("punted an object at [living_atom] for [damage] damage.", LOG_ATTACK)
 
-			if(!thrower || get_dist(thrower, hit_atom) >= 12) //if you hit someone offscreen, which can't be done without legendary.
+			if(!thrower || get_dist(thrower, hit_atom) >= 12) //if you hit someone offscreen, which can't be done without legendary or backpedaling.
 				thrower.playsound_local(thrower, 'sound/items/weapons/homerun.ogg', 75)
 				to_chat(thrower, span_boldnotice("You can't see it, but you've got a hunch you just hit a fantastic shot."))
 		else if(hit_atom.uses_integrity) // sorry about the window ma'am
