@@ -90,7 +90,7 @@
 	. = ..()
 	if(.)
 		return
-	if(!edit_by_hand && !user.is_holding_item_of_type(/obj/item/pen))
+	if(!edit_by_hand && !is_holding_pen(user))
 		balloon_alert(user, "need a pen!")
 		return TRUE
 	if(try_set_text(user))
@@ -132,7 +132,7 @@
 	. = ..()
 	if(!sign_text || !can_interact(user) || !user.can_perform_action(src, NEED_DEXTERITY))
 		return
-	if(!edit_by_hand && !user.is_holding_item_of_type(/obj/item/pen))
+	if(!edit_by_hand && !is_holding_pen(user))
 		balloon_alert(user, "need a pen!")
 		return
 	if(check_locked(user))
@@ -200,6 +200,12 @@
 	sign_text = trim(new_text, max_length)
 	update_text()
 	update_appearance()
+
+/obj/structure/signboard/proc/is_holding_pen(mob/living/user)
+	for(var/obj/item/item in user.held_items)
+		if(IS_WRITING_UTENSIL(item))
+			return TRUE
+	return FALSE
 
 /obj/effect/abstract/signboard_holder
 	name = ""
