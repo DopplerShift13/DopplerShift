@@ -500,6 +500,21 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	hoodtype = /obj/item/clothing/head/hooded/technyne_hood
 
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+
 /obj/item/clothing/suit/hooded/doppler/technyne_overlay
 	name = "\improper TechNyne overlay"
 	desc = "This textile is hydrophobic from the face and wicking from the inside, allowing the wearer to stay dry from \
@@ -515,6 +530,21 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	pocket_storage_type = null
 	hoodtype = /obj/item/clothing/head/hooded/technyne_hood
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
 
 /obj/item/clothing/head/hooded/technyne_hood
 	name = "\improper TechNyne Hood"
