@@ -47,7 +47,7 @@
 
 	var/atom/effective_parent = use_parent_turf ? get_turf(parent) : parent // DOPPLER EDIT ADDITION - SIGNBOARDS
 	for(var/list/coordinates as anything in relative_turf_coords)
-		var/turf/target = TURF_FROM_COORDS_LIST(list(effective_parent.x + coordinates[1], effective_parent.y + coordinates[2], effective_parent.z + coordinates[3])) // DOPPLER EDIT ADDITION - SIGNBOARDS - ORIGINAL: var/turf/target = TURF_FROM_COORDS_LIST(list(parent.x + coordinates[1], parent.y + coordinates[2], parent.z + coordinates[3]))
+		var/turf/target = TURF_FROM_COORDS_LIST(list(effective_parent.x + coordinates[1], effective_parent.y + coordinates[2], effective_parent.z + coordinates[3])) // DOPPLER EDIT CHANGE - SIGNBOARDS - ORIGINAL: var/turf/target = TURF_FROM_COORDS_LIST(list(parent.x + coordinates[1], parent.y + coordinates[2], parent.z + coordinates[3]))
 
 		if(isnull(target))
 			continue
