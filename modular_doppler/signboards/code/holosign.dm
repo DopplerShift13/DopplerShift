@@ -142,20 +142,16 @@
 	update_appearance()
 
 /obj/structure/signboard/holosign/proc/sanitize_color(color)
-	testing("before sanitizing: [color]")
 	. = sanitize_hexcolor(color)
-	testing("sanitized color: [. || "(null)"]")
 	if(!. || . == "#000000")
 		return null
 
 /obj/structure/signboard/holosign/proc/set_color(new_color)
 	new_color = sanitize_color(new_color)
 	if(!new_color)
-		testing("signboard color invalid or null, removing")
 		current_color = null
 		remove_atom_colour(FIXED_COLOUR_PRIORITY)
 	else
-		testing("signboard color valid, adding")
 		current_color = new_color
 		add_atom_colour(new_color, FIXED_COLOUR_PRIORITY)
 	set_light(l_color = current_color || src::light_color)
@@ -228,7 +224,6 @@
 	blue.set_value(clamp(blue.value, 0, 255))
 	green.set_value(clamp(green.value, 0, 255))
 	var/signboard_color = rgb(red.value, green.value, blue.value)
-	testing("color_recieved: signboard color: [signboard_color]")
 	if(signboard_color && signboard_color != rgb(0, 0, 0) && is_color_dark_with_saturation(signboard_color, 25))
 		fail_reason.set_output("Color too dark to display.")
 		on_fail.set_output(COMPONENT_SIGNAL)
