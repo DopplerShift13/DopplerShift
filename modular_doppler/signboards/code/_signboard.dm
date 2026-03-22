@@ -46,7 +46,7 @@
 		if(held_item?.tool_behaviour == TOOL_WRENCH)
 			context[SCREENTIP_CONTEXT_LMB] = anchored ? "Unsecure" : "Secure"
 			return CONTEXTUAL_SCREENTIP_SET
-		if((edit_by_hand || istype(held_item, /obj/item/pen)) && (anchored || show_while_unanchored))
+		if((edit_by_hand || IS_WRITING_UTENSIL(held_item)) && (anchored || show_while_unanchored))
 			context[SCREENTIP_CONTEXT_LMB] = "Set Displayed Text"
 			if(sign_text)
 				context[SCREENTIP_CONTEXT_ALT_RMB] = "Clear Sign"
@@ -78,10 +78,13 @@
 		return TRUE
 	return ..()
 
-/obj/structure/signboard/attackby(obj/item/item, mob/user, params)
-	if(!istype(item, /obj/item/pen))
-		return ..()
-	try_set_text(user)
+/obj/structure/signboard/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(!IS_WRITING_UTENSIL(tool))
+		return NONE
+	if(try_set_text(user))
+		return ITEM_INTERACT_SUCCESS
+	else
+		return ITEM_INTERACT_BLOCKING
 
 /obj/structure/signboard/attack_hand(mob/living/user, list/modifiers)
 	. = ..()

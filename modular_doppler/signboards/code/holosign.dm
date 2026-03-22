@@ -67,17 +67,17 @@
 		return TRUE
 	return ..()
 
-/obj/structure/signboard/holosign/attackby(obj/item/item, mob/user, params)
-	var/obj/item/card/id/id = item?.GetID()
-	if(!istype(id) || !can_interact(user) || !user.can_perform_action(src, NEED_DEXTERITY))
+/obj/structure/signboard/holosign/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	var/obj/item/card/id/id = tool?.GetID()
+	if(!istype(id))
 		return ..()
 	var/trimmed_id_name = trimtext(id.registered_name)
 	if(!trimmed_id_name)
 		balloon_alert(user, "no name on id!")
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(obj_flags & EMAGGED)
 		balloon_alert(user, "lock shorted out!")
-		return
+		return ITEM_INTERACT_BLOCKING
 	if(registered_owner)
 		if(!check_locked(user))
 			registered_owner = null
@@ -88,6 +88,7 @@
 		balloon_alert(user, "locked to id")
 		investigate_log("([key_name(user)]) added id lock for \"[registered_owner]\"", INVESTIGATE_SIGNBOARD)
 	update_appearance()
+	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/signboard/holosign/is_locked(mob/living/user)
 	. = ..()
