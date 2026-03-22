@@ -505,14 +505,14 @@
 	if(!hood)
 		return
 	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
-	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(4)
 	hood.set_greyscale(new_hoodie_colors)
 	hood.update_slot_icon()
 
 /obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie/on_hood_created(obj/item/clothing/head/hooded/hood)
 	. = ..()
 	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
-	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(4)
 	hood.set_greyscale(new_hoodie_colors)
 
 /obj/item/clothing/suit/hooded/doppler/technyne_overlay
