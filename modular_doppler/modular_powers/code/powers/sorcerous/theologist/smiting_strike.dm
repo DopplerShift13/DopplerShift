@@ -2,6 +2,8 @@
 	name = "Smiting Strike"
 	desc = "Channel energy into the item you are currently holding. Your next attack that hits with it against a creature deals 15 additional burn damage and sends them flying backwards 4 spaces. \
 	This knockback cannot stun or damage on impact. Costs 5 Piety to use. This effect ends if the item leaves your hands."
+	security_record_text = "Subject can bless their own weapons to knock back foes and sear their bodies."
+	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/smiting_strike
 	value = 4
 

@@ -9,6 +9,8 @@
 /datum/power/thaumaturge/gale_blast
 	name = "Gale Blast"
 	desc = "Shoots forth a blast of wind. The blast keeps traveling until it hits a solid structure, extinguishing any fires and dragging along any items with it. If it hits a creature, it knocks them back 3 spaces and extinguishes them. Requires Affinity 3. Extra affinity gives a chance to knockback further."
+	security_record_text = "Subject can create and shoot out strong, violent gusts of wind."
+	security_threat = POWER_THREAT_MAJOR
 	value = 3
 
 	action_path = /datum/action/cooldown/power/thaumaturge/gale_blast

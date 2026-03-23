@@ -4,6 +4,8 @@
 /datum/power/thaumaturge/phantasmal_tool
 	name = "Phantasmal Tool"
 	desc = "Summons a basic tool of your choice in your hand, that disappears after a duration, or if it is dropped/used to attack a person. Requires Affinity 1 to cast. Affinity gives a chance to not consume charges on cast."
+	security_record_text = "Subject can conjure ephemeral tools out of thin air."
+	security_threat = POWER_THREAT_MAJOR
 	value = 3
 
 	action_path = /datum/action/cooldown/power/thaumaturge/phantasmal_tool

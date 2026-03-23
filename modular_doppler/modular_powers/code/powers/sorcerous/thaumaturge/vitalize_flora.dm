@@ -5,6 +5,7 @@
 	name = "Vitalize Flora"
 	desc = "Breathes life into the plants around you. This heals any and all plants (including plant creatures), makes them grow if they're still in the growth phase, and speeds up the time until the next harvest. \
 	Requires Affinity 1. Affinity gives a chance to not consume charges."
+	security_record_text = "Subject can magically heal and grow plantlife around it."
 	value = 2
 
 	action_path = /datum/action/cooldown/power/thaumaturge/vitalize_flora

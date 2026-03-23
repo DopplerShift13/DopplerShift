@@ -4,6 +4,8 @@
 	desc = "Nullifies pain and slowly heals the targeted creature over a prolonged period of time. This may be yourself. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. \
 	This is mutually exclusive with the other 'A Burden...' powers."
+	security_record_text = "Subject can magically mend their own wounds and the wounds of others slowly over a long duration."
+	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/revered
 
 	value = 5

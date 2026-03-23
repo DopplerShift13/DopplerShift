@@ -2,7 +2,7 @@
 /datum/power/thaumaturge_root
 	name = "Spell Preparation"
 	desc = "Grants you a Spell Focus, an unique item that allows you to charge your Thaumaturge spells while sleeping, and enhance them by holding it. Use the Spell Focus in your hand to change it's form."
-
+	security_record_text = "Subject is capable of performing feats of thaumaturgic magic while in possession of a spell focus."
 	action_path = /datum/action/cooldown/power/thaumaturge/thaumaturge_root
 
 	value = 3

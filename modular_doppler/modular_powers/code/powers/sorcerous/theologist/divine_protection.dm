@@ -5,6 +5,8 @@
 /datum/power/theologist/divine_protection
 	name = "Divine Protection"
 	desc = "You gain a block chance (separate from all other block chance) equal to half your piety; reduce Piety by 5 when this triggers."
+	security_record_text = "Subject tends to unpredictably and miraculously avoid harm."
+	security_threat = POWER_THREAT_MAJOR
 	value = 4
 
 	required_powers = list(/datum/power/theologist_root/)

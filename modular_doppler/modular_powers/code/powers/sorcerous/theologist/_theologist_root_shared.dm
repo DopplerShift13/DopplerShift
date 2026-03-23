@@ -3,6 +3,8 @@
 	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. \
 	The beam requires continous line of sight to function, and neither you or your target can be incapacitated. Generates Piety if you are transfering damage to yourself. \
 	This is mutually exclusive with the other 'A Burden...' powers."
+	security_record_text = "Subject can transfer the injuries of a target onto themselves, or visa versa."
+	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/shared
 
 	value = 5

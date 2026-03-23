@@ -6,6 +6,7 @@
 	desc = "You draw nearby blood into the target. This draws up to 100u of blood from adjacent floor/wall splatters, containers and other mobs (in that order). It then tranfers that blood to the target and converts it to universally accepted blood.\
 	\nAny excess blood in the target creature beyond 100% is transformed into healing, at a 10u per 4 damage ratio. This can only heal organic bodyparts and does not heal any damage-types besides Brute or Burn. This also does not affect creatures with non-blood bloodtypes such as Ethereals or Slimepeople. \
 	\nRequires Affinity 3. Additional affinity increases the healing ratio by 0.5 per point"
+	security_record_text = "Subject can draw blood from varying sources (including humanoids) and transmute it into universal blood, potentially healing the target."
 	value = 5
 
 	action_path = /datum/action/cooldown/power/thaumaturge/sanguine_absorption

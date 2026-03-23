@@ -3,6 +3,8 @@
 	desc = "Channel chaotic energies into another creature next to you. The target is healed over time in random amounts up to the maximum, then damaged for half that amount in random damage types. \
 	Gives Piety proportional to the amount of damage twisted. \
 	This is mutually exclusive with the other 'A Burden...' powers."
+	security_record_text = "Subject can rapidly transmute the wounds of a target into smaller, insubstantial wounds."
+	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/twisted
 
 	value = 5
