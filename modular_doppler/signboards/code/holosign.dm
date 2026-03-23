@@ -29,18 +29,17 @@
 
 /obj/structure/signboard/holosign/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
-	var/locked = is_locked(user)
 	if(istype(held_item, /obj/item/card/emag))
 		context[SCREENTIP_CONTEXT_LMB] = "Short Out Locking Mechanisms"
 		. = CONTEXTUAL_SCREENTIP_SET
-	else if(!locked && istype(held_item?.GetID(), /obj/item/usb_cable))
+	if(is_locked(user))
+		return
+	if(istype(held_item, /obj/item/usb_cable))
 		context[SCREENTIP_CONTEXT_LMB] = "Connect USB Cable"
-	else if(!locked && istype(held_item?.GetID(), /obj/item/card/id))
+	else if(istype(held_item?.GetID(), /obj/item/card/id))
 		context[SCREENTIP_CONTEXT_LMB] = registered_owner ? "Remove ID Lock" : "Lock To ID"
-		. = CONTEXTUAL_SCREENTIP_SET
-	if(!locked)
-		context[SCREENTIP_CONTEXT_RMB] = "Set Sign Color"
-		. = CONTEXTUAL_SCREENTIP_SET
+	context[SCREENTIP_CONTEXT_RMB] = "Set Sign Color"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/signboard/holosign/update_icon_state()
 	base_icon_state = current_color ? "[initial(base_icon_state)]_greyscale" : initial(base_icon_state)
