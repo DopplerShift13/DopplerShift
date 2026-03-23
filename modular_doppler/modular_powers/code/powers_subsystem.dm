@@ -125,6 +125,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 /// If no changes need to be made, will return the same list.
 /// Expects all power names to be unique, but makes no other expectations.
 /datum/controller/subsystem/processing/powers/proc/filter_invalid_powers(list/powers_to_check)
+	powers_removed = list()
 	var/current_balance = 0
 	var/current_archetype
 	var/list/intermediary_powers = list()

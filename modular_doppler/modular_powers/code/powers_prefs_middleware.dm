@@ -36,6 +36,9 @@
 	var/current_points = 0
 	for(var/power_name in preferences.all_powers)
 		var/datum/power/power_type = SSpowers.powers[power_name]
+		if(!ispath(power_type)) // Something is here that shouldn't be here.
+			preferences.nuke_powers_prefs("Invalid power entry detected while building powers UI: [power_name]")
+			return data
 		current_points += power_type.value
 
 	for(var/power_name in SSpowers.powers)

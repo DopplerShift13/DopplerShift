@@ -3,6 +3,7 @@
 /datum/power/theologist/pious_prayer
 	name = "Pious Prayer"
 	desc = "Focus yourself into prayer. If you are in the Chapel, this grants you Piety unless you have 5 or more Piety. Performing prayers elsewhere only has a small chance to grant Piety. Being religious increases the efficiency of this skill."
+	security_record_text = "Subject fuels their powers with visits to the Chapel."
 	value = 3
 
 	archetype = POWER_ARCHETYPE_SORCEROUS
@@ -20,7 +21,6 @@
 /datum/action/cooldown/power/theologist/pious_prayer
 	name = "Pious Prayer"
 	desc = "Perform a small prayer. If you are in the Chapel, this grants you Piety unless you have 5 or more Piety. Performing prayers elsewhere only has a small chance to grant Piety. Being religious increases the efficiency of this skill."
-	security_record_text = "Subject fuels their powers with visits to the Chapel."
 	button_icon = 'icons/obj/antags/cult/structures.dmi'
 	button_icon_state = "tomealtar"
 	cooldown_time = 5

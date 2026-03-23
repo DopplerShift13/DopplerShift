@@ -7525,6 +7525,8 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\premonition.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\scrying.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\telekinesis.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\psyker\telepathy.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\psyker\telepathy_area.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\ward_mind.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\_psyker_event.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\catastrophic\brain_trauma.dm"

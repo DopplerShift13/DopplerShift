@@ -1,11 +1,12 @@
-
+/*
+	Doesn't do much besides give you a grumpy organ. I prefer it gave a ribbon or at least some sort of positive, but I suppose the path of a psyker is to suffer.
+*/
 /datum/power/psyker_root
 	name = "Paracausal Gland"
-	desc = "An organ found only in the central nervous system of Psykers \
-	grown by prolonged exposure to certain types of Resonance. \
-	The catalyst for psychic abilities; but beware overexerting it."
+	desc = "An organ found only in the central nervous system of Psykers, grown by prolonged exposure to certain types of Resonance. \
+	\nThe catalyst for psychic abilities; but beware overexerting it."
 	security_record_text = "Subjects has a Paracausal Gland and wields psionic abilities."
-	value = 2
+	value = 1
 	power_flags = POWER_HUMAN_ONLY
 	mob_trait = TRAIT_ARCHETYPE_RESONANT
 	archetype = POWER_ARCHETYPE_RESONANT
@@ -27,6 +28,5 @@
 			grant_action(/datum/action/cooldown/power/resonant_meditate)
 
 /datum/power/psyker_root/remove(client/client_source)
-
 	if(psyker_organ)
 		qdel(psyker_organ)
