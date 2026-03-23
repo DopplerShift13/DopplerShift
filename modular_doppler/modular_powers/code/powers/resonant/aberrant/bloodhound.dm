@@ -160,6 +160,10 @@
 	var/turf/here = get_turf(owner)
 	var/turf/there = get_turf(target)
 	if(!here || !there || here.z != there.z)
+		if(linked_alert)
+			linked_alert.icon = 'icons/effects/landmarks_static.dmi'
+			linked_alert.icon_state = "x"
+			linked_alert.dir = SOUTH
 		return
 
 	var/dir_to_target = get_dir(here, there)

@@ -92,7 +92,10 @@
 	// gets rid of the beam
 	if(current_beam)
 		UnregisterSignal(current_beam, COMSIG_QDELETING)
-		QDEL_NULL(current_beam)
+		if(!QDELETED(current_beam)) // prevents a qdel loop because clear_link from walking away also deletes it
+			QDEL_NULL(current_beam)
+		else
+			current_beam = null
 	// gets rid of the target's glow
 	if(target_glow)
 		current_target.cut_overlay(target_glow)
@@ -115,6 +118,7 @@
  */
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/beam_died()
 	SIGNAL_HANDLER
+	current_beam = null
 	clear_link()
 
 /**

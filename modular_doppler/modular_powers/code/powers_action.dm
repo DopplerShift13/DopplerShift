@@ -43,6 +43,8 @@
 	var/target_range
 	/// If set, clicked target MUST be of this type (or subtype).
 	var/target_type
+	/// If aim assist is used for click targeting. Disable to disable.
+	var/aim_assist = TRUE
 	/// Do we check for anti magic on the target when we target them? Basically if your action targets but doesn't do anything directly magical to them immediately (like projectiles), this should be false.
 	var/anti_magic_on_target = TRUE
 
@@ -169,6 +171,10 @@ Handles all the logic involved in using a targeted, click-based action.
 		return FALSE
 	if(!target)
 		return FALSE
+	if(aim_assist)
+		var/atom/aim_assist_target = aim_assist(clicker, target, target_type)
+		if(aim_assist_target)
+			target = aim_assist_target
 
 	// Checks if we are allowed to actually target that type.
 	if(target_type && !istype(target, target_type))
@@ -201,6 +207,18 @@ Handles all the logic involved in using a targeted, click-based action.
 
 	clicker.next_click = world.time + click_cd_override
 	return TRUE
+
+// Optional aim assist for click targeting. Override for custom behavior.
+/datum/action/cooldown/power/proc/aim_assist(mob/living/clicker, atom/target, target_type_path)
+	if(!isturf(target))
+		return
+
+	// If we have a specific type we're targeting, we're targeting that instead.
+	if(target_type_path)
+		return locate(target_type_path) in target
+
+	// Otherwise, find any human, or if that fails, any living target
+	return locate(/mob/living/carbon/human) in target || locate(/mob/living) in target
 
 // We override the click abilities to fix an issue with the active_overlay_icon_state not appearing when it should.
 /datum/action/cooldown/power/set_click_ability(mob/on_who)

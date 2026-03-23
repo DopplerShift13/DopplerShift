@@ -97,6 +97,11 @@
 	// Allow reverting even if starving.
 	if(user.has_status_effect(/datum/status_effect/shapechange_mob/aberrant))
 		return TRUE
+	// We shouldn't have any active powers because it will make this power 10x more glitchy. This checks against it.
+	var/datum/action/cooldown/power/blocking_power = get_blocking_active_power(user)
+	if(blocking_power)
+		owner.balloon_alert(user, "active: [blocking_power.name]")
+		return FALSE
 	if(user.nutrition <= NUTRITION_LEVEL_STARVING)
 		owner.balloon_alert(user, "too hungry!")
 		return FALSE
@@ -158,6 +163,9 @@
 		animate(user, transform = matrix(), time = 0, easing = SINE_EASING)
 		user.transform = old_transform
 		return FALSE
+	// Restore the original transform after the animation sequence completes.
+	animate(user, transform = old_transform, time = 0, easing = SINE_EASING)
+	user.transform = old_transform
 	user.visible_message(span_warning("[user]'s body rearranges itself with a horrible crunching sound!"))
 	playsound(user, 'sound/effects/magic/demon_consume.ogg', 50, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	return TRUE
@@ -174,6 +182,8 @@
 	if(!ispath(shape_type))
 		return null
 	var/mob/living/new_shape = new shape_type(user.loc)
+	// Ensure the new form inherits the caster's languages while keeping its existing ones.
+	new_shape.get_language_holder().copy_languages(user.get_language_holder())
 	apply_shape_identifier(new_shape)
 	return new_shape
 
@@ -197,11 +207,27 @@
 		return shape_type
 	return GLOB.shapechange_form_types["Parrot"]
 
+// Returns the first active power action that should block shapechanging.
+/datum/action/cooldown/power/aberrant/shapechange/proc/get_blocking_active_power(mob/living/user)
+	if(!user || !user.powers)
+		return null
+	for(var/datum/power/power as anything in user.powers)
+		var/datum/action/cooldown/power/power_action = power.action_path
+		if(!istype(power_action))
+			continue
+		if(power_action == src)
+			continue
+		if(power_action.active)
+			return power_action
+	return null
+
 //Shapechange status effect for aberrant power. We make our own to prevent gibbed RR.
 /datum/status_effect/shapechange_mob/aberrant
 	id = "shapechange_aberrant"
 	/// The power action that caused the change
 	var/datum/weakref/source_weakref
+	/// Cached transform of the caster so we can restore non-default scaling (e.g. undersized/oversized).
+	var/matrix/caster_transform
 	/// Whether the shifted body was gibbed when it died
 	var/last_gibbed = FALSE
 	/// Whether the revert was manually triggered.
@@ -220,6 +246,8 @@
 	var/datum/action/cooldown/power/aberrant/shapechange/source_action = source_weakref.resolve()
 	if(!QDELETED(source_action) && source_action.owner == caster_mob)
 		source_action.Grant(owner)
+	if(caster_mob)
+		caster_transform = matrix(caster_mob.transform)
 	return ..()
 
 /datum/status_effect/shapechange_mob/aberrant/restore_caster(kill_caster_after)
@@ -250,7 +278,7 @@
 		return
 
 	// Ensure any transform scaling from the shift animation is cleared.
-	caster_mob.transform = matrix()
+	caster_mob.transform = caster_transform ? caster_transform : matrix()
 
 	// Transfer damage from the shifted body back to the caster.
 	var/damage_mult = manual_revert ? 0.5 : 1

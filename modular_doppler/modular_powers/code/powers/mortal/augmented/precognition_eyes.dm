@@ -145,5 +145,6 @@
 	premium_component?.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MINOR)
 	source.visible_message(span_warning("[source] dodges the [proj] with little effort!"), span_danger("You automatically dodge the [proj]!"))
 
-	addtimer(TRAIT_CALLBACK_REMOVE(source, TRAIT_UNHITTABLE_BY_PROJECTILES, AUGMENTATION_TRAIT), 0.2 SECONDS)
-	return PROJECTILE_INTERRUPT_HIT
+	addtimer(TRAIT_CALLBACK_REMOVE(source, TRAIT_UNHITTABLE_BY_PROJECTILES, AUGMENTATION_TRAIT), 0.1 SECONDS)
+	source.block_projectile_effects() // does all the vfx
+	return PROJECTILE_INTERRUPT_HIT_PHASE

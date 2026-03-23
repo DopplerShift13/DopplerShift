@@ -160,8 +160,8 @@
 
 // Allows us to basically toggle between 1x or 3x spray.
 /obj/item/reagent_containers/spray/chemsprayer/reagent_cannon/spray(atom/A, mob/user)
-	if(!premium_component?.can_function())
-		to_chat(owner, span_warning("Your [name] fails to respond; it seems broken!"))
+	if(!host_implant?.premium_component.can_function())
+		to_chat(user, span_warning("Your [name] fails to respond; it seems broken!"))
 		return FALSE
 	var/turf/target_turf = get_turf(A)
 	if(focused_mode)

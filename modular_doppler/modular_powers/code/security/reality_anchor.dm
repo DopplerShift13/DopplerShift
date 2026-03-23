@@ -72,7 +72,7 @@
 	if(!center)
 		return
 	var/obj/effect/temp_visual/circle_wave/reality_anchor/pulse_fx = new(center)
-	pulse_fx.amount_to_scale = pulse_range + 1 // falls short without the +1
+	pulse_fx.amount_to_scale = pulse_range + 2 // falls short without the +1
 	// We get EVERYTHING in range and dispel it. This shouldn't be too much of a lag-machine (hopefully)
 	for(var/atom/movable/target in range(pulse_range, center))
 		if(ismob(target))
@@ -121,7 +121,7 @@
 	color = COLOR_SILVER
 	max_alpha = 20
 	duration = 0.5 SECONDS
-	amount_to_scale = 6
+	amount_to_scale = 7
 
 /obj/structure/reality_anchor/update_overlays()
 	. = ..()
