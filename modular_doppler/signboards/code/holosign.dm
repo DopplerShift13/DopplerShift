@@ -22,7 +22,7 @@
 	. = ..()
 	text_holder.appearance_flags &= ~RESET_COLOR // allow the text holoder to inherit our color
 	if(current_color)
-		INVOKE_ASYNC(src, PROC_REF(set_color), current_color)
+		set_color(current_color)
 	AddComponent(/datum/component/usb_port, list(
 		/obj/item/circuit_component/holo_signboard,
 	))
@@ -61,7 +61,7 @@
 
 /obj/structure/signboard/holosign/vv_edit_var(var_name, var_value)
 	if(var_name == NAMEOF(src, color) || var_name == NAMEOF(src, current_color))
-		INVOKE_ASYNC(src, PROC_REF(set_color), var_value)
+		set_color(var_value)
 		datum_flags |= DF_VAR_EDITED
 		return TRUE
 	return ..()
@@ -122,7 +122,7 @@
 		return
 	if(check_locked(user))
 		return
-	INVOKE_ASYNC(src, PROC_REF(set_color), new_color)
+	set_color(new_color)
 	if(new_color)
 		balloon_alert(user, "set color to [new_color]")
 		investigate_log("([key_name(user)]) set the color to [new_color || "(none)"]", INVESTIGATE_SIGNBOARD)
