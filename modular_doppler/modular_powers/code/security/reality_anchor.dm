@@ -4,6 +4,7 @@
 	icon = 'modular_doppler/modular_powers/icons/items/reality_anchor.dmi'
 	icon_state = "reality_anchor"
 	density = TRUE
+	max_integrity = 600 // tonky
 
 	// Is it on/off
 	var/active = FALSE

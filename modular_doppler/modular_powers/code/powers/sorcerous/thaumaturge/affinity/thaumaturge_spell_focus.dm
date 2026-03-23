@@ -34,7 +34,6 @@
 /obj/item/spell_focus/proc/on_spell_focus_picked(obj/item/spell_focus/new_focus, mob/living/picker)
 	if(!istype(new_focus))
 		return
-
 	new_focus.on_selected(src, picker)
 
 /obj/item/spell_focus/proc/on_selected(obj/item/spell_focus/old_focus, mob/living/picker)
