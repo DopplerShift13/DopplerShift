@@ -142,6 +142,12 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		if(!ispath(power_type))
 			continue
 
+		// Checks if the power exceeds the max.
+		current_balance += power_type.value
+		if(current_balance > maximum_balance)
+			LAZYADD(powers_removed, "Power point limit exceeded.")
+			return list()
+
 		// Make sure we only have up to two distinct paths.
 		if(!(power_type.path in unique_paths))
 			if(length(unique_paths) >= 2)
