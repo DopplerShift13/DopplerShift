@@ -172,20 +172,19 @@
 				if(use_amount <= 0 || !stack.use(use_amount))
 					to_chat(user, span_warning("You need more [stack] to continue."))
 					return TRUE
+				needed -= use_amount
 			// Non-stack parts.
 			else
 				typepath = tool.type
 				needed = refurb_parts_remaining[typepath]
-
 				// Wrong item
 				if(!needed)
 					to_chat(user, span_warning("[tool] doesn't fit [augment]'s parts."))
 					return TRUE
-
+				needed -= 1
 				qdel(tool)
 
 			// Succesful use interaction
-			needed -= use_amount
 			if(needed <= 0)
 				refurb_parts_remaining -= typepath
 			else

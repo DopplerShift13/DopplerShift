@@ -127,10 +127,8 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 /datum/controller/subsystem/processing/powers/proc/filter_invalid_powers(list/powers_to_check)
 	powers_removed = list()
 	var/current_balance = 0
-	var/current_archetype
-	var/list/intermediary_powers = list()
-
 	var/maximum_balance = MAXIMUM_POWER_POINTS
+	var/list/intermediary_powers = list()
 	var/list/all_powers = get_powers()
 
 	// Track distinct paths we accept while filtering this batch
@@ -139,25 +137,6 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	// Track distinct roots we accept.
 	var/list/root_by_path = list()
 
-	// TODO: work out how to filter powers missing their requirements.
-	// This could be higher priorities, but could also be at the same priority level.
-	// TODO: work out how to filter for going over the balance cap without introducing major issues.
-	// Like ideally we remove the advanced ones first.
-	// Maybe we just make a web of requirements at init?
-	// Maybe we can substitute priorities with this web...?
-
-	// Validate whether directed graph is connected!
-	// Construct https://www.geeksforgeeks.org/dsa/check-if-a-directed-graph-is-connected-or-not/
-	// pick a random power, then do depth first search both ways
-	// Do the same thing when picking a thing to remove for balance stuff
-	// Fuck we can have multiple root powers.
-
-	// Okay so, collect root powers on our first go through.
-	// THEN depth first search from each root power.
-	// Then copy over all the seen ones that have their requirements.
-	// FUCK what if there's a power that depends on two root powers.
-
-	// First discard multiple base paths and incompatible powers
 	for(var/power_name in powers_to_check)
 		var/datum/power/power_type = all_powers[power_name]
 		if(!ispath(power_type))
@@ -244,34 +223,3 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	if(intermediary_powers.len == powers_to_check.len)
 		return powers_to_check
 	return intermediary_powers
-
-
-	/** TODO: ALL THE REST OF THIS
-
-		var/value = initial(power_type.value)
-		if(value > 0)
-			if (max_positive_quirks >= 0 && positive_quirks.len == max_positive_quirks)
-				continue
-
-			positive_quirks[quirk_name] = value
-
-		current_balance += value
-		new_powers += quirk_name
-
-	if (points_enabled && balance > 0)
-		var/balance_left_to_remove = balance
-
-		for (var/positive_quirk in positive_quirks)
-			var/value = positive_quirks[positive_quirk]
-			balance_left_to_remove -= value
-			new_quirks -= positive_quirk
-
-			if (balance_left_to_remove <= 0)
-				break
-
-	// It is guaranteed that if no quirks are invalid, you can simply check through `==`
-	if (new_quirks.len == quirks.len)
-		return quirks
-
-	return new_quirks
-	 */

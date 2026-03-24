@@ -335,3 +335,9 @@
 
 // Used for the prefs to shorthand tell there's nothing in the right or left arm augment slot.
 #define AUGMENTED_NO_AUGMENT "None"
+
+// Arm selection overrides for augmented powers.
+#define AUGMENTED_ARM_USE_PREFS 0
+#define AUGMENTED_ARM_LEFT 1
+#define AUGMENTED_ARM_RIGHT 2
+#define AUGMENTED_ARM_BOTH 3

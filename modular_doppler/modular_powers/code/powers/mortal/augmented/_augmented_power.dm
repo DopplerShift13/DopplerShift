@@ -14,6 +14,9 @@
 	// Should the augment be disabled if they're a prisoner.
 	var/disable_if_prisoner = TRUE
 
+	// Override for arm selection (VV/admin or other callers). Defaults to user prefs.
+	var/arm_override = AUGMENTED_ARM_USE_PREFS
+
 // default text for augments
 /datum/power/augmented/get_security_record_text()
 	if(security_record_text)
@@ -35,13 +38,22 @@
 		return
 
 	// All checks passed, time to actually give the item.
-	// Yes. We do all this. Just to get people's arms. Having two is infinitely more difficult.
 	var/obj/item/organ/implant = new augment()
+
+	// Yes. We do all this. Just to get people's arms. Having two is infinitely more difficult
+	// In essence we check if the arm is given through VV; if so we skip most pref checking and use arm_override instead. Otherwise we use the prefs as normal.
 	if(implant.zone in GLOB.arm_zones)
-		var/augment_left = client_source?.prefs?.read_preference(/datum/preference/choiced/augment_left)
-		var/augment_right = client_source?.prefs?.read_preference(/datum/preference/choiced/augment_right)
-		var/left_match = augment_matches_pref(augment_left)
-		var/right_match = augment_matches_pref(augment_right)
+		var/left_match
+		var/right_match
+		if(arm_override == AUGMENTED_ARM_USE_PREFS) // Version that uses prefs
+			var/augment_left = client_source?.prefs?.read_preference(/datum/preference/choiced/augment_left)
+			var/augment_right = client_source?.prefs?.read_preference(/datum/preference/choiced/augment_right)
+			left_match = augment_matches_pref(augment_left)
+			right_match = augment_matches_pref(augment_right)
+		else // VV version that uses override.
+			left_match = (arm_override == AUGMENTED_ARM_LEFT || arm_override == AUGMENTED_ARM_BOTH)
+			right_match = (arm_override == AUGMENTED_ARM_RIGHT || arm_override == AUGMENTED_ARM_BOTH)
+
 		if(left_match && right_match)
 			var/obj/item/organ/left_implant = new augment()
 			left_implant.zone = BODY_ZONE_L_ARM
@@ -62,6 +74,36 @@
 		else
 			return
 	implant.Insert(carbon_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
+	return
+
+/// Removes any augments spawned by this power.
+/datum/power/augmented/remove()
+	if(!augment || !power_holder)
+		return
+	var/mob/living/carbon/carbon_holder = power_holder
+	var/obj/item/organ/augment_path = augment
+	var/zone = initial(augment_path.zone)
+
+	// We don't need to dance with preferences here, just throw out the augment if its on the person.
+	if(zone in GLOB.arm_zones)
+		var/obj/item/organ/left_implant = carbon_holder.get_organ_slot(ORGAN_SLOT_LEFT_ARM_AUG)
+		if(istype(left_implant, augment_path))
+			left_implant.Remove(carbon_holder, special = TRUE)
+			qdel(left_implant)
+
+		var/obj/item/organ/right_implant = carbon_holder.get_organ_slot(ORGAN_SLOT_RIGHT_ARM_AUG)
+		if(istype(right_implant, augment_path))
+			right_implant.Remove(carbon_holder, special = TRUE)
+			qdel(right_implant)
+		return
+
+	var/slot = initial(augment_path.slot)
+	if(!slot)
+		return
+	var/obj/item/organ/implant = carbon_holder.get_organ_slot(slot)
+	if(istype(implant, augment_path))
+		implant.Remove(carbon_holder, special = TRUE)
+		qdel(implant)
 	return
 
 // Used to get the location zones for augment_location_label
