@@ -227,7 +227,7 @@
 
 /**
  * RESONANT: PSYKER
- * All defines related to the enigmatist powers.
+ * All defines related to the psyker powers.
  */
 
 // Standard stress threshold value for the Psyker's organ.
@@ -262,6 +262,14 @@
 
 // The trait for Psyker's Levitate power.
 #define TRAIT_PSYKER_LEVITATE_FLIGHT "psyker_levitate_flight"
+
+/**
+ * RESONANT: ABERRANT
+ * All defines related to the aberrant powers.
+ */
+
+// Trait that lets you use the riftwalker mechanic.
+#define TRAIT_ABERRANT_RIFTWALKER "riftwalker"
 
 /**MORTAL DEFINES
 * I'm literally just using this to define Breacher Knuckle right now

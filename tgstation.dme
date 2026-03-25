@@ -7496,6 +7496,8 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\summonable.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\tail_sweep.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\vent_crawl.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\aberrant\riftwalker\_riftwalker_datum.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\aberrant\riftwalker\riftwalker.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\_web_craft_datum.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\_web_crafter_entries.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\web_crafter\binding_webs.dm"
