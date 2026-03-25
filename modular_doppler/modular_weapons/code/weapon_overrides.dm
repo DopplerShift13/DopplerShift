@@ -41,3 +41,12 @@
 		var/mob/living/carbon/C = user
 		C.visible_message(span_warning("[C] is thrown down by the force of the cannon!"), span_userdanger("[src] slams into your shoulder, knocking you down!"))
 		C.Paralyze(60)
+
+
+/obj/item/pneumatic_cannon/security
+	name = "Araña pneumatic cannon" //It means spider.
+	desc = "A gas-powered, object-firing cannon. Nominally intended to launch bolas or nets at low speeds, you're pretty sure you can cram just about anything down into its maw."
+	maxWeightClass = 12 //Ever so slightly higher than the pneumatic cannon you can handcraft. This is just enough to load 3 bulky items or 4 normals. The primary advantage this has over the improvised version is a lower gasPerThrow.
+	slot_flags = ITEM_SLOT_BACK //Seccie Strap comes with the kit and lets you wear it in your suit slot. No belt because it's fuckhuge.
+	worn_icon = 'icons/mob/clothing/back.dmi'
+	worn_icon_state = "bulldog" //did you know the cannon shares an inhand with the bulldog? why?
