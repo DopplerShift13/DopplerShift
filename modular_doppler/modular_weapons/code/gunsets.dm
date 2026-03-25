@@ -112,3 +112,10 @@
 	new /obj/item/gun/ballistic/alacran(src)
 	new /obj/item/storage/box/alacran_dart(src)
 	new /obj/item/storage/belt/security/webbing/full(src)
+
+// Salty Dan's Surplus Cannons
+/obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_cannoneer_package/PopulateContents()
+	new /obj/item/pneumatic_cannon(src)
+	new /obj/item/storage/belt/security/webbing/full(src)
+	new /obj/item/book/granter/tactical_cannoneer(src)
+	new /obj/item/job_equipment_strap/security (src)

@@ -11,6 +11,12 @@
 	icon_state = "avispa"
 	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunnery_package
 
+/datum/signature_equipment/security_equipment_package/gunnery_kit
+	name = "Cannoneer Kit"
+	icon = 'icons/obj/weapons/cannons.dmi'
+	icon_state = "falconet_patina"
+	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_cannoneer_package/
+
 /datum/signature_equipment/security_equipment_package/support_kit
 	name = "Support Kit"
 	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
@@ -55,3 +61,37 @@
 	..()
 	to_chat(user, span_notice("You can throw guns really well! That's something!"))
 	user.add_traits(list(TRAIT_TOSS_GUN_HARD), INNATE_TRAIT)
+
+//Begin Cannon Loadout Stuff
+
+//Acquired from a loadout kit, prevents you from being knocked down when you use pneumatic cannons at high settings
+#define TRAIT_CANNONEER
+
+/obj/item/book/granter/tactical_cannoneer
+	name = "sketchy pamphlet from a toy store"
+	desc = "A guide to making the most of pneumatic cannons. Strange, you figured this would be about siege weapons."
+	icon = 'icons/obj/service/bureaucracy.dmi'
+	icon_state = "pamphlet"
+	remarks = list(
+		"Wealth, fame, power... How is this supposed to get you any of those?",
+		"In the back is a glossary of useful terms like pressure, stress, and sublimation...",
+		"Steady hands, hold your breath...",
+		"Sponsored by DonkCo...",
+		"Remember the basics of Close Quarters Cannon.",
+
+/obj/item/book/granter/tactical_cannoneer/Initialize()
+	name = pick(list(
+		"A Seaman's Guide To Shootin' Scallywags",
+		"Salty Dan's Cannoneer Compendium",
+		"Blastin' Boys 2: Boys on Pluto",
+		"Incredibly Gassy: A Guide To Launching Things",
+		"Pneumatic Pnowledge",
+		"The One Piece: The only one you'll ever need",
+	))
+	. = ..()
+
+/obj/item/book/granter/tactical_cannoneer/on_reading_finished(mob/living/user)
+	..()
+	to_chat(user, span_notice("You're pretty sure you now know how to use a pneumatic cannon without knocking yourself flat, and how to speak like a pirate."))
+	user.add_traits(list(TRAIT_CANNONEER), INNATE_TRAIT)
+	user.grant_language(/datum/language/piratespeak)
