@@ -71,20 +71,20 @@
 	icon_state = "pamphlet"
 	remarks = list(
 		"Wealth, fame, power... How is this supposed to get you any of those?",
-		"In the back is a glossary of useful terms like pressure, stress, and sublimation...",
-		"Steady hands, hold your breath...",
-		"Sponsored by DonkCo...",
-		"Remember the basics of Close Quarters Cannon.",
+		"In the back is a glossary of useful terms like stress, sublimation, and scurvy...",
+		"Steady hands, a firm stance...",
+		"Shoot from the heart, not from the hip...",
+		"Light the fuse and recite a prayer...",
+		"What's a sea dog anyway?",
 	)
 
 /obj/item/book/granter/tactical_cannoneer/Initialize()
 	name = pick(list(
-		"A Seaman's Guide To Shootin' Scallywags",
+		"A Seadog's Guide To Shootin'",
 		"Salty Dan's Cannoneer Compendium",
 		"Blastin' Boys 2: Boys on Pluto",
-		"Incredibly Gassy: A Guide To Launching Things",
+		"Crusoe's Cannons",
 		"Pneumatic Pnowledge",
-		"The One Piece: The only one you'll ever need",
 	))
 	. = ..()
 
