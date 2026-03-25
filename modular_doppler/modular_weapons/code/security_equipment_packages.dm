@@ -65,31 +65,30 @@
 //Begin Cannon Loadout Stuff
 
 /obj/item/book/granter/tactical_cannoneer
-	name = "sketchy pamphlet from a toy store"
-	desc = "A guide to making the most of pneumatic cannons. Strange, you figured this would be about siege weapons."
+	name = "Arane Instructional Manual"
+	desc = "A guide to making the most of handheld pneumatic cannons. Strange, you figured this would be about siege weapons."
 	icon = 'icons/obj/service/bureaucracy.dmi'
 	icon_state = "pamphlet"
 	remarks = list(
 		"Wealth, fame, power... How is this supposed to get you any of those?",
-		"In the back is a glossary of useful terms like stress, sublimation, and scurvy...",
+		"In the back is a glossary of useful terms like stress, sublimation, and subduction...",
 		"Steady hands, a firm stance...",
 		"Shoot from the heart, not from the hip...",
-		"Light the fuse and recite a prayer...",
-		"What's a sea dog anyway?",
+		"Just wear heavier boots...",
+		"Why is unloading this thing so complicated?",
 	)
 
 /obj/item/book/granter/tactical_cannoneer/Initialize()
 	name = pick(list(
-		"A Seadog's Guide To Shootin'",
-		"Salty Dan's Cannoneer Compendium",
-		"Blastin' Boys 2: Boys on Pluto",
-		"Crusoe's Cannons",
+		"Stances for the Stanceless",
+		"Melville's Moby Dick: Abridged",
+		"Your Air Cannon & You",
+		"The Pneumatic Primer",
 		"Pneumatic Pnowledge",
 	))
 	. = ..()
 
 /obj/item/book/granter/tactical_cannoneer/on_reading_finished(mob/living/user)
 	..()
-	to_chat(user, span_notice("You're pretty sure you now know how to use a pneumatic cannon without knocking yourself flat, and how to speak like a pirate."))
+	to_chat(user, span_notice("You're pretty sure you now know how to use a pneumatic cannon without knocking yourself flat."))
 	user.add_traits(list(TRAIT_CANNONEER), INNATE_TRAIT)
-	user.grant_language(/datum/language/piratespeak)
