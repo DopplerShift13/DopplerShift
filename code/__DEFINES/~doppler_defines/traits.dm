@@ -73,6 +73,9 @@
 // Items
 ////
 
+///Acquired from a loadout kit, checked when you fire a pneumatic cannon at high settings and prevents you from getting knocked on your ass.
+#define TRAIT_CANNONEER "trait_cannoneer"
+
 #define TRAIT_WORN_EXAMINE "worn_examine"
 /// Trait given to a brain that is able to accept souls from a RSD
 #define TRAIT_RSD_COMPATIBLE "rsd_compatible"

@@ -64,9 +64,6 @@
 
 //Begin Cannon Loadout Stuff
 
-//Acquired from a loadout kit, prevents you from being knocked down when you use pneumatic cannons at high settings
-#define TRAIT_CANNONEER
-
 /obj/item/book/granter/tactical_cannoneer
 	name = "sketchy pamphlet from a toy store"
 	desc = "A guide to making the most of pneumatic cannons. Strange, you figured this would be about siege weapons."
@@ -78,6 +75,7 @@
 		"Steady hands, hold your breath...",
 		"Sponsored by DonkCo...",
 		"Remember the basics of Close Quarters Cannon.",
+	)
 
 /obj/item/book/granter/tactical_cannoneer/Initialize()
 	name = pick(list(

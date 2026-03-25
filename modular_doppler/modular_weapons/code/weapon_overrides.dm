@@ -2,7 +2,7 @@
 	obj_flags = CONDUCTS_ELECTRICITY | UNIQUE_RENAME
 
 //In Which Reginold Copies The Entire Code For Firing A Pneumatic Cannon So We Can Check If Someone Has A Trait Instead Of Not Doing That
-/obj/item/pneumatic_cannon/proc/Fire(mob/living/user, atom/target)
+/obj/item/pneumatic_cannon/Fire(mob/living/user, atom/target)
 	if(!istype(user) && !target)
 		return
 	var/discharge = 0
@@ -37,7 +37,7 @@
 	var/turf/T = get_target(target, get_turf(src))
 	playsound(src, fire_sound, 50, TRUE)
 	fire_items(T, user)
-	if(pressure_setting >= 3 && iscarbon(user)) && !HAS_TRAIT(user, TRAIT_CANNONEER))
+	if(pressure_setting >= 3 && iscarbon(user) && !HAS_TRAIT(user, TRAIT_CANNONEER))
 		var/mob/living/carbon/C = user
 		C.visible_message(span_warning("[C] is thrown down by the force of the cannon!"), span_userdanger("[src] slams into your shoulder, knocking you down!"))
 		C.Paralyze(60)
