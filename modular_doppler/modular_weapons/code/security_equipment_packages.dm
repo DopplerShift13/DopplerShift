@@ -11,7 +11,7 @@
 	icon_state = "avispa"
 	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunnery_package
 
-/datum/signature_equipment/security_equipment_package/gunnery_kit
+/datum/signature_equipment/security_equipment_package/cannoneer_kit
 	name = "Cannoneer Kit"
 	icon = 'icons/obj/weapons/cannons.dmi'
 	icon_state = "falconet_patina"
