@@ -97,6 +97,10 @@
 	name = "Mantle (Colorable)"
 	item_path = /obj/item/clothing/neck/mantle/recolorable
 
+/datum/loadout_item/neck/cape/teshari_mantle
+	name = "Mantle (Teshari)"
+	item_path = /obj/item/clothing/neck/tesharian_mantle
+
 /**
  * SCARVES
  */

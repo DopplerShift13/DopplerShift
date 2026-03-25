@@ -56,7 +56,7 @@
 	name = "mailcap"
 	desc = "<i>'Right-on-time'</i> mail service head wear- with new colors!"
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
-	icon_state = "/obj/item/clothing/head/colorable_mailcap"
+	icon_state = "/obj/item/clothing/head/costume/mailman/colorable_mailcap"
 	post_init_icon_state = "colorable_mailcap"
 	greyscale_colors = "#cfd1d4#D5D5B9"
 	greyscale_config = /datum/greyscale_config/colorable_mailcap

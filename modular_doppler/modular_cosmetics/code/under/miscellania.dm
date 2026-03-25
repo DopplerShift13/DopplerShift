@@ -35,21 +35,70 @@
 	)
 	greyscale_colors = "#872c2c#780a0a"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	body_parts_covered = GROIN|LEGS
+	can_adjust = FALSE
+
+/obj/item/clothing/under/pants/technyne_bottomwear
+	name = "\improper TechNyne bottomwear ensemble"
+	desc = "A pair of baggy shorts with a contoured waistband and weather-repellant fabrication. A pair of fitted kneepads \
+	and knit baselayer leggings are included. The trio is surprisingly practical, except that it leaves the wearer with three \
+	things to take off at the end of the day."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon_state = "/obj/item/clothing/under/pants/tech_nyne_bottomwear"
+	post_init_icon_state = "tech_nyne_bottomwear"
+	greyscale_config = /datum/greyscale_config/tech_nyne_bottomwear
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/tech_nyne_bottomwear/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/tech_nyne_bottomwear/worn/digi,
+	)
+	greyscale_colors = "#111111#5f5f5f#492222"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = FALSE
+
+/obj/item/clothing/under/pants/megashorts
+	name = "\improper JUNCO megashorts"
+	desc = "A broad pair of ripstop shorts that have remained popular within Marsian skate culture for decades."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon_state = "/obj/item/clothing/under/pants/megashorts"
+	post_init_icon_state = "megashorts"
+	greyscale_config = /datum/greyscale_config/megashorts
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/megashorts/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/megashorts/worn/digi,
+	)
+	greyscale_colors = "#5f5f5f"
+	flags_1 = IS_PLAYER_COLORABLE_1
 	can_adjust = FALSE
 
 /obj/item/clothing/under/pants/big_pants
 	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 		now and then. This pair has generous onboard storage."
-	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	icon_state = "/obj/item/clothing/under/pants/big_pants"
-	post_init_icon_state = "big_pants"
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
-	greyscale_config = /datum/greyscale_config/big_pants
-	greyscale_config_worn = /datum/greyscale_config/big_pants/worn
-	greyscale_colors = "#874f16"
+	post_init_icon_state = "megacargos"
+	greyscale_config = /datum/greyscale_config/megacargo_pants
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/megacargo_pants/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/megacargo_pants/worn/digi,
+	)
+	greyscale_colors = "#874f16#874f16"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	alternate_worn_layer = LOW_FACEMASK_LAYER
+	female_sprite_flags = NO_FEMALE_UNIFORM
+
+/obj/item/clothing/under/pants/megajeans
+	name = "\improper JUNCO megajeans"
+	desc = "An ocean of denim for total encapsulation of the wearer's legs. The pockets are roomy beyond any sense \
+	of practicality."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon_state = "/obj/item/clothing/under/pants/megajeans"
+	post_init_icon_state = "megajeans"
+	greyscale_config = /datum/greyscale_config/megajeans
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/megajeans/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/megajeans/worn/digi,
+	)
+	greyscale_colors = "#2d59ac"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	alternate_worn_layer = LOW_FACEMASK_LAYER
 	female_sprite_flags = NO_FEMALE_UNIFORM
@@ -98,7 +147,7 @@
 	alt_covers_chest = FALSE
 
 /obj/item/clothing/under/athletas_bodysuit
-	name = "ATHLETAS bodysuit"
+	name = "\improper ATHLETAS bodysuit"
 	desc = "Hairfine threads of extruded silver-protein slurry ride from spindle to needle on a single production chain. \
 	The fine jersey wicks and breathes while resisting microbial colonization."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'

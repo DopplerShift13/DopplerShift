@@ -1,0 +1,10 @@
+{
+	"megashorts": [
+		{
+			"type": "icon_state",
+			"icon_state": "tech_nyne_shorts",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}
