@@ -76,6 +76,6 @@
 
 /atom/movable/screen/alert/status_effect/vanish_unseen_into_shadow
 	name = "Vanish Unseen Into Shadow"
-	desc = "You are undetectable and are unaffected by slowdowns."
+	desc = "You are undetectable through scrying and are unaffected by slowdowns."
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "blank"

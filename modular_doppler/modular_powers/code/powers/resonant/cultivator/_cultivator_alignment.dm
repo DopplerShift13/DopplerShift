@@ -119,13 +119,13 @@
 	SEND_SIGNAL(user, COMSIG_CULTIVATOR_ALIGNMENT_DISABLED, src)
 	return TRUE
 
-// Dispel handler: drains Dantian if alignment is active.
+// Dispel handler: drains Energy if alignment is active.
 /datum/action/cooldown/power/cultivator/alignment/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	if(!active)
 		return NONE
-	if(ValidateDantianComponent())
-		adjust_dantian(-CULTIVATOR_DANTIAN_MODERATE)
+	if(ValidateEnergyComponent())
+		adjust_energy(-CULTIVATOR_ENERGY_MODERATE)
 	return DISPEL_RESULT_DISPELLED
 
 // Deactivating the power doesn't cost anything so we skip the cost component.

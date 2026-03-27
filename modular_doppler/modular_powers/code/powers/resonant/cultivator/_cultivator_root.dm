@@ -13,7 +13,7 @@
 	if(!power_holder) // So it doesn't runtime at init
 		return
 	// We pass along the piety component to actually handle most of the piety stuff.
-	power_holder.AddComponent(/datum/component/cultivator_dantian, power_holder)
+	power_holder.AddComponent(/datum/component/cultivator_energy, power_holder)
 	// Passes along meditation.
 	var/has_meditate = FALSE
 	for(var/datum/action/action as anything in power_holder.actions)
@@ -38,5 +38,5 @@
 			break
 
 	if(!has_other_root)
-		var/tobedel = holder.GetComponent(/datum/component/cultivator_dantian)
+		var/tobedel = holder.GetComponent(/datum/component/cultivator_energy)
 		QDEL_NULL(tobedel)

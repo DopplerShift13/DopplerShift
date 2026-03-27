@@ -1,5 +1,5 @@
 /* Since this is used by two different archetypes there will be a bit of snowflaking.
-Reduces stress for psykers and restores Dantian for cultivators
+Reduces stress for psykers and restores Energy for cultivators
 */
 
 /datum/action/cooldown/power/resonant_meditate
@@ -12,7 +12,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 
 	// The components responsible for meditation.
 	var/obj/item/organ/resonant/psyker/psyker_organ
-	var/datum/component/cultivator_dantian/cultivator_dantian
+	var/datum/component/cultivator_energy/cultivator_energy
 
 	// used for the do while loop
 	var/keep_going
@@ -42,16 +42,16 @@ Reduces stress for psykers and restores Dantian for cultivators
 				to_chat(owner, span_notice("You have active abilities draining your resources!"))
 				keep_going = FALSE
 				break
-			if(!psyker_organ && !cultivator_dantian)
+			if(!psyker_organ && !cultivator_energy)
 				to_chat(owner, span_notice("I have nothing to meditate on!"))
 			if(psyker_organ)
 				psyker_organ.modify_stress(-PSYKER_STRESS_MEDITATION_POWER)
 				if(psyker_organ.stress <= 0)
 					to_chat(owner, span_notice("I no longer feel any stress"))
-			if(cultivator_dantian)
-				cultivator_dantian.adjust_dantian(CULTIVATOR_DANTIAN_MEDITATION_POWER)
-				if(cultivator_dantian.dantian >= CULTIVATOR_DANTIAN_MAX)
-					to_chat(owner, span_notice("My Dantian is fully charged."))
+			if(cultivator_energy)
+				cultivator_energy.adjust_energy(CULTIVATOR_ENERGY_MEDITATION_POWER)
+				if(cultivator_energy.energy >= CULTIVATOR_ENERGY_MAX)
+					to_chat(owner, span_notice("My Energy is fully charged."))
 		else
 			keep_going = FALSE
 			break
@@ -100,7 +100,7 @@ Reduces stress for psykers and restores Dantian for cultivators
 // gets the psyker organ and the cultivator component
 /datum/action/cooldown/power/resonant_meditate/proc/update_components()
 	psyker_organ = owner.get_organ_slot(ORGAN_SLOT_PSYKER)
-	cultivator_dantian = owner.GetComponent(/datum/component/cultivator_dantian)
+	cultivator_energy = owner.GetComponent(/datum/component/cultivator_energy)
 
 // Returns TRUE if any active Cultivator or Psyker power is active on the target.
 /datum/action/cooldown/power/resonant_meditate/proc/user_has_active_power(mob/living/user)

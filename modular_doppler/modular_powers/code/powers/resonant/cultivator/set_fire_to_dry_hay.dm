@@ -2,7 +2,7 @@
 	name = "Set Fire to Dry Hay"
 	desc = "You can set fire onto anything you touch. This works similary to a ligher in terms of functionality. \
 	While in Alignment, you can right click shoot a flameblast that ignite everything in the area where it lands. \
-	Using the alignment version consumes Dantian. No cooldown."
+	Using the alignment version consumes Energy. No cooldown."
 	security_record_text = "Subject can set fire to any object in melee range. While in a heightened state, they can shoot motes of flame to ignite anything hit as well."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
@@ -13,7 +13,7 @@
 	name = "Set Fire to Dry Hay"
 	desc = "You can set fire onto anything you touch. This works similary to a lighter in terms of functionality. \
 	While in Alignment, you can right click to shoot a flameblast that ignite everything in the area where it lands. \
-	Using the alignment version consumes Dantian. No cooldown."
+	Using the alignment version consumes Energy. No cooldown."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "fireball"
 
@@ -100,7 +100,7 @@
 	next_projectile_time = world.time + projectile_delay
 	fire_projectile(user, target, /obj/projectile/resonant/fire_to_dry_hay)
 	playsound(user, 'sound/effects/fire_puff.ogg', 60, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
-	adjust_dantian(-flameblast_cost)
+	adjust_energy(-flameblast_cost)
 	return TRUE
 
 // Applies projectile customization here.

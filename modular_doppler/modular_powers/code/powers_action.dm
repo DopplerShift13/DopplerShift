@@ -210,7 +210,7 @@ Handles all the logic involved in using a targeted, click-based action.
 
 // Optional aim assist for click targeting. Override for custom behavior.
 /datum/action/cooldown/power/proc/aim_assist(mob/living/clicker, atom/target, target_type_path)
-	if(!isturf(target))
+	if(!isturf(target) && !istype(target_type, /turf)) // only auto aims if you click turfs; or if the auto-aim type is a turf.
 		return
 
 	// If we have a specific type we're targeting, we're targeting that instead.

@@ -1,6 +1,6 @@
 /datum/power/cultivator_root/shadow_walker
 	name = "Shadow Walker Alignment"
-	desc = "You gain your Dantian's aura through dark rooms and environments. Activating it wraps you in an aura of shadow.\
+	desc = "You gain your Energy's aura through dark rooms and environments. Activating it wraps you in an aura of shadow.\
 	You are entirely unrecognizeable in this state and your punches do extra brute damage.\
 	Passively, you have enhanced darkvision, and gain full on night vision while your alignment is activated.\
 	You gain armor IV across your whole body. Has diminishing effects with your worn armor."

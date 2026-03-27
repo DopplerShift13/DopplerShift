@@ -3,7 +3,7 @@
 	desc = "An active ability. Activating it sends forth a little star, which stops when it reaches it's destination (or hits an object) passively glowing in an area as a light source for 60 seconds. \
 	ou can have up to 8 of these active. \
 	While in alignment, you can right click with this ability to explode all active stars that are not in motion dealing 20 burn damage to all creatures in a 3x3 area centered on it. \
-	Exploding the stars consumes Dantian per star. No cooldown."
+	Exploding the stars consumes Energy per star. No cooldown."
 	security_record_text = "Subject can shoot lights to illuminate an area, which can be detonated while in a heightened state to explode and damage those around it."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
@@ -15,7 +15,7 @@
 	desc = "Activating the ability sends forth a little star, which stops when it reaches it's destination (or hits an object) passively glowing in an area as a light source for 5 minutes. \
 	ou can have up to 8 of these active. \
 	While in alignment, you can right click with this ability to explode all active stars that are not in motion dealing 20 burn damage to all creatures in a 3x3 area centered on it. \
-	Exploding the stars consumes Dantian per star. No cooldown."
+	Exploding the stars consumes Energy per star. No cooldown."
 	button_icon = 'icons/effects/eldritch.dmi'
 	button_icon_state = "ring_leader_effect"
 
@@ -51,10 +51,10 @@
 	var/star_explosion_range = 1
 	// the explosion sound
 	var/star_explosion_sound = 'sound/effects/magic/wandodeath.ogg'
-	// the dantian cost for exploding the stars
-	var/star_explosion_cost = CULTIVATOR_DANTIAN_TRIVIAL * 2
-	// the dantian cost per star
-	var/star_explosion_cost_per_star = CULTIVATOR_DANTIAN_TRIVIAL
+	// the energy cost for exploding the stars
+	var/star_explosion_cost = CULTIVATOR_ENERGY_TRIVIAL * 2
+	// the energy cost per star
+	var/star_explosion_cost_per_star = CULTIVATOR_ENERGY_TRIVIAL
 
 	// Cached alignment action for gating effects.
 	var/datum/action/cooldown/power/cultivator/alignment/astral_touched/astral_alignment
@@ -121,13 +121,13 @@
 		return
 	if(!can_use(user, target)) // we need to revalidate can_use since right click normally doesnt have that.
 		return
-	if(dantian_component.dantian < star_explosion_cost)
-		user.balloon_alert(user, "needs more dantian!")
+	if(energy_component.energy < star_explosion_cost)
+		user.balloon_alert(user, "needs more energy!")
 	if(user)
 		user.log_message("detonated their Many Stars.", LOG_GAME)
 
 	var/list/stars_to_explode = active_stars.Copy()
-	adjust_dantian(-star_explosion_cost) // removes the base cost
+	adjust_energy(-star_explosion_cost) // removes the base cost
 	for(var/obj/effect/many_stars_star/star as anything in stars_to_explode)
 		if(QDELETED(star))
 			continue
@@ -152,9 +152,9 @@
 		qdel(star)
 
 		// Removes cost per star; if we end up at 0, explode no more stars and shut off their power.
-		adjust_dantian(-star_explosion_cost_per_star)
-		if(dantian_component.dantian <= 0)
-			user.balloon_alert(user, "no more dantian!")
+		adjust_energy(-star_explosion_cost_per_star)
+		if(energy_component.energy <= 0)
+			user.balloon_alert(user, "no more energy!")
 			if(astral_alignment.active)
 				astral_alignment.disable_alignment(user)
 			break

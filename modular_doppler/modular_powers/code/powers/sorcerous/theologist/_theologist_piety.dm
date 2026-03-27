@@ -68,8 +68,8 @@
 
 	var/datum/hud/hud_used = living_holder.hud_used
 	theologist_ui = new /atom/movable/screen/theologist_piety(null, hud_used)
-	// If the cultivator dantian UI is present, use the alternate screen loc to avoid overlap.
-	if(living_holder.GetComponent(/datum/component/cultivator_dantian))
+	// If the cultivator energy UI is present, use the alternate screen loc to avoid overlap.
+	if(living_holder.GetComponent(/datum/component/cultivator_energy))
 		theologist_ui.screen_loc = THEOLOGIST_ALT_UI_SCREEN_LOC
 	hud_used.infodisplay += theologist_ui
 

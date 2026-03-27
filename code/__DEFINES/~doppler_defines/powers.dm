@@ -181,11 +181,11 @@
  * All defines related to the cultivator powers.
  */
 
-// Maximum amount of Dantian we can have.
-#define CULTIVATOR_DANTIAN_MAX 1000
+// Maximum amount of Energy we can have.
+#define CULTIVATOR_ENERGY_MAX 1000
 
-// How much dantian we get from meditation every 2.5 seconds
-#define CULTIVATOR_DANTIAN_MEDITATION_POWER 5
+// How much energy we get from meditation every 2.5 seconds
+#define CULTIVATOR_ENERGY_MEDITATION_POWER 5
 
 // UI location of the Cultivator element
 #define CULTIVATOR_UI_SCREEN_LOC "WEST,CENTER-2:15"
@@ -193,9 +193,9 @@
 // Bonus damage on strikes done while in alignment. Balancing notes: punches have a base 20% miss chance, and this does not stack with martial arts.
 #define CULTIVATOR_ALIGNMENT_DAMAGE_BONUS 15
 
-// The max amount of Dantian we give from aura farming per second
+// The max amount of Energy we give from aura farming per second
 #define CULTIVATOR_MAX_CULTIVATION_BONUS 3
-// The min amount of Dantian we give from aura farming per second
+// The min amount of Energy we give from aura farming per second
 #define CULTIVATOR_MIN_CULTIVATION_BONUS 0
 
 // How much does activating the alignment cost
@@ -204,12 +204,12 @@
 // How much does sustaining the alignment cost
 #define CULTIVATOR_ALIGNMENT_UPKEEP_COST 3
 
-// Standard Dantian cost defines for Cultivators.
-#define CULTIVATOR_DANTIAN_TRIVIAL (CULTIVATOR_DANTIAN_MAX / 100)
-#define CULTIVATOR_DANTIAN_MINOR (CULTIVATOR_DANTIAN_MAX / 10)
-#define CULTIVATOR_DANTIAN_MODERATE (CULTIVATOR_DANTIAN_MAX / 5)
-#define CULTIVATOR_DANTIAN_MAJOR (CULTIVATOR_DANTIAN_MAX / 2)
-#define CULTIVATOR_DANTIAN_CRUSHING (CULTIVATOR_DANTIAN_MAX)
+// Standard Energy cost defines for Cultivators.
+#define CULTIVATOR_ENERGY_TRIVIAL (CULTIVATOR_ENERGY_MAX / 100)
+#define CULTIVATOR_ENERGY_MINOR (CULTIVATOR_ENERGY_MAX / 10)
+#define CULTIVATOR_ENERGY_MODERATE (CULTIVATOR_ENERGY_MAX / 5)
+#define CULTIVATOR_ENERGY_MAJOR (CULTIVATOR_ENERGY_MAX / 2)
+#define CULTIVATOR_ENERGY_CRUSHING (CULTIVATOR_ENERGY_MAX)
 
 // Defines SPECIFICALLY for auro farming amounts
 #define CULTIVATOR_AURA_FARM_TRIVIAL (CULTIVATOR_MAX_CULTIVATION_BONUS / 100)
