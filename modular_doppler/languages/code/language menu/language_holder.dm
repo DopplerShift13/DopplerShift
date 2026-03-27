@@ -25,7 +25,7 @@ GLOBAL_DATUM_INIT(language_holder_adjustor, /datum/language_holder_adjustor, new
 
 /datum/language_holder_adjustor/Destroy()
 	..()
-	UnregisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED)
+	UnregisterSignal(SSdcs, COMSIG_GLOB_CREWMEMBER_JOINED, COMSIG_GLOB_MOB_LOGGED_IN)
 
 /datum/language_holder/proc/adjust_languages_to_prefs(datum/preferences/preferences)
 	// no prefs? then don't remove any languages
