@@ -35,7 +35,6 @@
 	name = "web ties"
 	desc = "Sticky strings meant for binding pesky hands. Be careful not to get yourself stuck!"
 	breakouttime = 60 SECONDS // sticky = better
-	trashtype = null
 	/// Tracks if this was actually used as cuffs so we can delete on uncuff only.
 	var/was_cuffed = FALSE
 
@@ -54,8 +53,8 @@
 		RegisterSignal(src, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_uncuffed))
 
 // why do we not have an uncuff proc on cuffs hello?!?!?!
-/obj/item/restraints/handcuffs/cable/zipties/web/proc/on_uncuffed(datum/source, force, atom/newloc, no_move, invdrop, silent)
-	SIGNAL_HANDLER
+/obj/item/restraints/handcuffs/cable/zipties/web/on_uncuffed(datum/source, mob/living/wearer)
+	..()
 	if(was_cuffed)
 		qdel(src)
 

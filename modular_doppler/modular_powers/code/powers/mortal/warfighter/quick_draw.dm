@@ -153,7 +153,7 @@
 		return null
 
 	var/list/equipped_items = user.get_equipped_items(INCLUDE_POCKETS | INCLUDE_HELD | INCLUDE_ACCESSORIES)
-	var/list/gear_items = user.get_all_gear(accessories = TRUE, recursive = TRUE)
+	var/list/gear_items = user.get_all_gear(recursive = TRUE)
 
 	for(var/obj/item/candidate_item in gear_items)
 		if(!istype(candidate_item, bonded_type))

@@ -43,6 +43,6 @@
 	handcuff_time = 6 SECONDS
 	color = null // only til we get a proper sprite for the base cuffs, which are currrently colored red.
 
-/obj/item/restraints/handcuffs/antiresonant/brazen/on_uncuff(datum/source, mob/equipper, slot)
+/obj/item/restraints/handcuffs/antiresonant/brazen/on_uncuffed(datum/source, mob/living/wearer)
 	. = ..()
 	qdel(src)

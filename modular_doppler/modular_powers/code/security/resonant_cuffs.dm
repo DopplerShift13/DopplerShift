@@ -22,14 +22,12 @@
 		user.dispel(src)
 		ADD_TRAIT(user, TRAIT_RESONANCE_SILENCED, src)
 		cuffed_mob = user
-		RegisterSignal(src, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_uncuff)) // why do we just not have an uncuff proc for cuffs I dont understand
 
-/obj/item/restraints/handcuffs/antiresonant/proc/on_uncuff(datum/source, force, atom/newloc, no_move, invdrop, silent)
-	SIGNAL_HANDLER
+/obj/item/restraints/handcuffs/antiresonant/on_uncuffed(datum/source, mob/living/wearer)
+	..()
 	if(cuffed_mob)
 		REMOVE_TRAIT(cuffed_mob, TRAIT_RESONANCE_SILENCED, src)
 		cuffed_mob = null
-	UnregisterSignal(src, COMSIG_ITEM_POST_UNEQUIP)
 
 /obj/item/restraints/handcuffs/antiresonant/Destroy(force)
 	if(cuffed_mob)
