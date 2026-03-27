@@ -7760,6 +7760,7 @@
 #include "modular_doppler\shipbreaking\code\shuttle_parts\hull.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\hull_turfs.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\materials.dm"
+#include "modular_doppler\shipbreaking\code\shuttle_parts\munitions.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\wall_plating.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\windows.dm"
 #include "modular_doppler\ships_r_us\code\buyable_shuttle_template.dm"
