@@ -195,7 +195,7 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 	ticket_contents += "Operation History from [template.prior_date]:<br>"
 	ticket_contents += "[template.prior_usage]</p>"
 	ticket_contents += "<hr />"
-	ticket_contents += "<p>Ship Class - [template.ship_class]</p><br>"
+	ticket_contents += "<p>Ship Class - [template.ship_class]</p>"
 	ticket_contents += "<p>Detected Hazards:</p>"
 	if(!length(template.ship_hazards))
 		ticket_contents += "No hazards were detected, continue with caution.<br>"
