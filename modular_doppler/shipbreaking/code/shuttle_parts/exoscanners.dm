@@ -8,7 +8,7 @@
 /obj/machinery/exoscanner/shuttle_part/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
-	find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
+	find_and_hang_on_wall()
 
 /obj/machinery/exoscanner/shuttle_part/screwdriver_act(mob/user, obj/item/tool)
 	return
@@ -16,10 +16,6 @@
 /obj/machinery/exoscanner/shuttle_part/update_icon_state()
 	. = ..()
 	icon_state = base_icon_state
-
-/// Disconnects the part from the wall its mounted on
-/obj/machinery/exoscanner/shuttle_part/proc/knock_down()
-	set_anchored(FALSE)
 
 /obj/machinery/exoscanner/shuttle_part/radar_panel
 	name = "radar panel"

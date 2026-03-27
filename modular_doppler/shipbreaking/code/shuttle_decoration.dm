@@ -17,7 +17,7 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
-	find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
+	find_and_hang_on_wall()
 	register_context()
 
 /obj/structure/shuttle_decoration/add_context(atom/source, list/context, obj/item/held_item, mob/user)
@@ -40,10 +40,6 @@
 	else
 		. += span_notice("Can be removed by unfastening it.")
 
-/// Disconnects the part from the wall its mounted on
-/obj/structure/shuttle_decoration/proc/knock_down()
-	set_anchored(FALSE)
-
 /obj/structure/shuttle_decoration/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(requires_welder)
@@ -59,5 +55,5 @@
 		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
 	if(anchored)
-		find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
+		find_and_hang_on_wall()
 	return ITEM_INTERACT_SUCCESS

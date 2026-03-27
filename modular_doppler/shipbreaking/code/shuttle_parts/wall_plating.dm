@@ -21,10 +21,6 @@
 	)
 	AddElement(/datum/element/connect_loc, loc_connections)
 
-/obj/structure/shuttle_decoration/wall_plate/knock_down()
-	new cut_plating(get_turf(src))
-	qdel(src)
-
 /obj/structure/shuttle_decoration/wall_plate/welder_act(mob/living/user, obj/item/tool)
 	if(!requires_welder)
 		return NONE
