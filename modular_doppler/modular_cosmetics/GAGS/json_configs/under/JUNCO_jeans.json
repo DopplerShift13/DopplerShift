@@ -1,0 +1,10 @@
+{
+	"megajeans": [
+		{
+			"type": "icon_state",
+			"icon_state": "megacargo_pants",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

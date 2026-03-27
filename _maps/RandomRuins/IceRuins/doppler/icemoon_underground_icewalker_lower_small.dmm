@@ -58,7 +58,7 @@
 /turf/open/misc/sandy_dirt/icemoon,
 /area/ruin/unpowered/primitive_genemod_den)
 "k" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/pickaxe{
 	pixel_x = -5
 	},
@@ -150,7 +150,7 @@
 /obj/machinery/chem_dispenser/spice_rack{
 	pixel_y = 32
 	},
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/knife/hunting{
 	pixel_y = 5
 	},
