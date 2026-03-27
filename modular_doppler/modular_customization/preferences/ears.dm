@@ -74,7 +74,6 @@
 //	Cat
 /datum/preference/choiced/felinid_ears
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -106,7 +105,6 @@
 	savefile_key = "feature_lizard_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -139,7 +137,6 @@
 	savefile_key = "feature_fox_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -172,7 +169,6 @@
 	savefile_key = "feature_dog_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -205,7 +201,6 @@
 	savefile_key = "feature_bunny_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -238,7 +233,6 @@
 	savefile_key = "feature_bird_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -271,7 +265,6 @@
 	savefile_key = "feature_mouse_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -304,7 +297,6 @@
 	savefile_key = "feature_monkey_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -337,7 +329,6 @@
 	savefile_key = "feature_deer_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -370,7 +361,6 @@
 	savefile_key = "feature_fish_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -403,7 +393,6 @@
 	savefile_key = "feature_bug_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -436,7 +425,6 @@
 	savefile_key = "feature_humanoid_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -469,7 +457,6 @@
 	savefile_key = "feature_synth_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -502,7 +489,6 @@
 	savefile_key = "feature_alien_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 
@@ -536,7 +522,6 @@
 	savefile_key = "feature_teshari_ears"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
-	relevant_external_organ = null
 	should_generate_icons = TRUE
 	main_feature_name = "Ears"
 	priority = PREFERENCE_PRIORITY_SPECIES + 0.1 // ears are only applied if the human is a tesh, so we have to wait for species
