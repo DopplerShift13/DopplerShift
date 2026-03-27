@@ -18,7 +18,7 @@
 	cooldown_time = 5
 
 /datum/action/cooldown/power/expert/creature_tamer/use_action(mob/living/user, mob/living/target)
-	if (target.stat == DEAD)
+	if(target.stat == DEAD)
 		user.balloon_alert(user, "they're dead, they won't make for good friends like this!")
 		return FALSE
 

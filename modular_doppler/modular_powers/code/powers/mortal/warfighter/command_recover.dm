@@ -22,7 +22,7 @@
 	action_symbol = "move"
 
 /datum/action/cooldown/power/warfighter/command/recover/use_action(mob/living/user, mob/living/carbon/target)
-	. = ..()
+	..()
 	// Basically the same amounts as shaking up twice multiplied by commander modifiers.
 	target.AdjustStun(-6 SECONDS * (commander_modifier + 1))
 	target.AdjustKnockdown(-6 SECONDS * (commander_modifier + 1))

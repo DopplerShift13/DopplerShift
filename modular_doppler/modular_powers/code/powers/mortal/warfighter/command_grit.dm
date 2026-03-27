@@ -21,7 +21,7 @@
 	action_symbol = "guard"
 
 /datum/action/cooldown/power/warfighter/command/grit/use_action(mob/living/user, mob/living/carbon/target)
-	. = ..()
+	..()
 	target.apply_status_effect(/datum/status_effect/power/command_grit, commander_modifier)
 
 // Status effect that Burden Revered applies
