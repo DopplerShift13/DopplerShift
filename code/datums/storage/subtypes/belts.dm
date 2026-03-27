@@ -79,6 +79,7 @@
 		/obj/item/flesh_shears,
 		/obj/item/blood_scanner,
 		/obj/item/reflexhammer,
+		/obj/item/crowbar/power/paramedic,
 	))
 
 ///Security belt
