@@ -7662,6 +7662,7 @@
 #include "modular_doppler\modular_weapons\code\ammo\nb_34.dm"
 #include "modular_doppler\modular_weapons\code\ammo\sportsco_3mm.dm"
 #include "modular_doppler\modular_weapons\code\ammo\stingballs.dm"
+#include "modular_doppler\modular_weapons\code\ammo_stacks\357.dm"
 #include "modular_doppler\modular_weapons\code\ammo_stacks\ammo_stack_base.dm"
 #include "modular_doppler\modular_weapons\code\ammo_stacks\europa_25.dm"
 #include "modular_doppler\modular_weapons\code\ammo_stacks\gibraltar.dm"
