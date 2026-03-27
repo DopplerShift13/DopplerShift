@@ -21,6 +21,8 @@
 	var/dash_step_delay = 0.05 SECONDS
 	// Max amount of spaces we can dash.
 	var/dash_max_distance = 30
+	// max amounts of steps you can take with the dash
+	var/dash_max_steps = 50
 
 // Extra movement gating.
 /datum/action/cooldown/power/cultivator/energy_dash/can_use(mob/living/user, atom/target)
@@ -81,8 +83,11 @@
 
 /datum/action/cooldown/power/cultivator/energy_dash/proc/dash_along_path(mob/living/user, list/path, alignment_color)
 	ADD_TRAIT(user, TRAIT_IMMOBILIZED, src) // we don't want em moving.
+	var/steps = 0
 	// for loop that creates afterimages, moves us to the next space and repeats til we're at our destination.
 	for(var/turf/next_turf as anything in path)
+		if(steps >= dash_max_steps)
+			break
 		if(QDELETED(user) || user.stat >= DEAD)
 			break
 		var/dir_to_next = get_dir(user, next_turf)
@@ -91,6 +96,7 @@
 		user.Move(next_turf, get_dir(user, next_turf), FALSE, TRUE)
 		if(old_loc == user.loc)
 			break
+		steps++
 		SLEEP_CHECK_DEATH(dash_step_delay, user)
 	REMOVE_TRAIT(user, TRAIT_IMMOBILIZED, src)
 	active = FALSE
@@ -99,7 +105,7 @@
 /datum/action/cooldown/power/cultivator/energy_dash/proc/is_valid_destination(mob/living/user, turf/target_turf)
 	if(!target_turf || !isopenturf(target_turf))
 		return FALSE
-	return !target_turf.is_blocked_turf(exclude_mobs = TRUE, source_atom = user)
+	return TRUE
 
 // Returns an active cultivator alignment action, or the first one found.
 /datum/action/cooldown/power/cultivator/energy_dash/proc/get_alignment_action(mob/living/user)
