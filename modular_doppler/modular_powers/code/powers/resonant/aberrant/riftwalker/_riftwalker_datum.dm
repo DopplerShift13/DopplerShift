@@ -33,7 +33,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 		var/obj/effect/riftwalker_rift/beacon_rift = new(beacon_turf)
 		beacon_rift.pair_id = next_pair_id
 		var/turf/partner_turf
-		if(prob(100)) // 25% chance it is adjacent to a teleporter.
+		if(prob(25)) // 25% chance it is adjacent to a teleporter.
 			var/turf/teleporter_adjacent = pick_adjacent_teleporter_turf()
 			if(teleporter_adjacent)
 				partner_turf = teleporter_adjacent
@@ -204,7 +204,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 		user.visible_message(span_warning("[user] [slip_out_message]."), span_notice("...and find your way to the other side."))
 		if(pulled)
 			user.start_pulling(pulled)
-	else\
+	else
 		user.visible_message(span_warning("[user] [slip_out_message], ending up exactly where they left."), span_notice("...and find yourself where you started?"))
 
 	return TRUE
