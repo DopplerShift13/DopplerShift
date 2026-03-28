@@ -97,7 +97,7 @@
 
 /obj/machinery/exoscanner/shuttle_part/Initialize(mapload)
 	. = ..()
-	find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
+	find_and_hang_on_wall()
 
 /obj/machinery/exoscanner/shuttle_part/screwdriver_act(mob/user, obj/item/tool)
 	return
@@ -105,10 +105,6 @@
 /obj/machinery/exoscanner/shuttle_part/update_icon_state()
 	. = ..()
 	icon_state = base_icon_state
-
-/// Disconnects the part from the wall its mounted on
-/obj/machinery/exoscanner/shuttle_part/proc/knock_down()
-	set_anchored(FALSE)
 
 /obj/machinery/exoscanner/shuttle_part/radar_panel
 	name = "radar panel"
@@ -200,7 +196,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 /obj/structure/shuttle_decoration/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
-	find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
+	find_and_hang_on_wall()
 	register_context()
 
 /obj/structure/shuttle_decoration/add_context(atom/source, list/context, obj/item/held_item, mob/user)
@@ -223,10 +219,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 	else
 		. += span_notice("Can be removed by unfastening it.")
 
-/// Disconnects the part from the wall its mounted on
-/obj/structure/shuttle_decoration/proc/knock_down()
-	set_anchored(FALSE)
-
 /obj/structure/shuttle_decoration/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
 	if(requires_welder)
@@ -242,7 +234,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/exoscanner/shuttle_part/radio_dish, 1
 		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
 	if(anchored)
-		find_and_hang_on_wall(custom_drop_callback = CALLBACK(src, PROC_REF(knock_down)))
+		find_and_hang_on_wall()
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/rcs
@@ -419,10 +411,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/shuttle_decoration/aux_engine, 10)
 	var/obj/structure/hull_plating/cut_plating = /obj/structure/hull_plating
 	/// Do we transfer our color to the cut_plating
 	var/keep_color = FALSE
-
-/obj/structure/shuttle_decoration/wall_plate/knock_down()
-	new cut_plating(get_turf(src))
-	qdel(src)
 
 /obj/structure/shuttle_decoration/wall_plate/welder_act(mob/living/user, obj/item/tool)
 	if(!requires_welder)

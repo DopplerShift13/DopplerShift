@@ -35,10 +35,3 @@
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
-
-/datum/techweb_node/basic_arms/New()
-	design_ids |= list(
-		"c585naraka",
-		"c25euro",
-	)
-	return ..()

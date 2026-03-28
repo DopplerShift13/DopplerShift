@@ -1,6 +1,6 @@
 /obj/machinery/vending/imported/nevada_iced_tea
-	name = "\improper Nevada Lifetyle Vendor"
-	desc = "More than just the cheapest beverage at the konbeni, Nevada Beverage Limited has branched \
+	name = "\improper Nevada Lifestyle Vendor"
+	desc = "More than just the cheapest beverage at the konbini, Nevada Beverage Limited has branched \
 	out into a totalizing lifestyle brand. Caps, shirts, pants, shoes, and yes, even beverages can be \
 	purchased at this machine."
 	icon_state = "nevada_vendor"
