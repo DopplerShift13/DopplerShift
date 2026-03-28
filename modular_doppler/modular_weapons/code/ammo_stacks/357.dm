@@ -1,7 +1,7 @@
 /obj/item/ammo_box/magazine/ammo_stack/c357
 	name = ".357 casings"
 	desc = "A stack of .357 casings."
-	caliber = CALIBER_25EUROPA
+	caliber = CALIBER_357
 	ammo_type = /obj/item/ammo_casing/c357
 	max_ammo = 5	// to make it worse than a speedloader, it's slightly mismatched to the cylinder size
 	casing_w_spacing = 2
