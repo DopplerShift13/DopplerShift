@@ -4,7 +4,7 @@
 /datum/power/thaumaturge/blend_for_me
 	name = "Blend For Me"
 	desc = "Grinds the item in your hand as if it were inserted in a grinder, then conjures a glass to hold it (if you're grinding). Right-hand for grinding, left-hand for juicing. Can be used on people using an aggressive grab to inflict brute damage and bleeding. \
-	Requires Affinity 1. Affinity gives a chance to not consume charges."
+	\nRequires Affinity 1. Affinity gives a chance to not consume charges."
 	security_record_text = "Subject can magically blend drinks, objects and people with their bare hands."
 	value = 2
 

@@ -4,7 +4,8 @@
 
 /datum/power/thaumaturge/brazen_bindings
 	name = "Brazen Bindings"
-	desc = "Summons a set of manacles made from brass, capable of dispelling and disabling Resonant powers on the bound target. The magic that made them is fragile, causing them to break once someone escapes. Requires Affinity 1. Additional affinity increases the time it takes to break out."
+	desc = "Summons a set of manacles made from brass, capable of dispelling and disabling Resonant powers on the bound target. The magic that made them is fragile, causing them to break once someone escapes. \
+	\nRequires Affinity 1. Additional affinity increases the time it takes to break out."
 	security_record_text = "Subject can conjure anti-resonant manacles out of thin air."
 	security_threat = POWER_THREAT_MAJOR
 	value = 3

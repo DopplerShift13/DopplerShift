@@ -1,8 +1,8 @@
 /datum/power/cultivator_root/flame_soul
 	name = "Flame Soul Alignment"
-	desc = "You gain your Energy's aura by being able to see exposed fires (bonfires, plasma fires, etc.) or if you are on fire yourself. Activating it gives you a burning hot aura, causing your punches to do extra burn damage.\
-	Passively, your high temprature threshold is increased by 60C regardless of species. Activating the alignment makes you completely immune to fire (but does not extinguish them).\
-	You gain armor III (with laser VI and fire X) across your whole body. Has diminishing effects with your worn armor."
+	desc = "You gain Energy through Aura by being able to see exposed fires (bonfires, plasma fires, etc.) or if you are on fire yourself. Activating it gives you a burning hot aura, causing your punches to do extra burn damage.\
+	\nPassively, your high temprature threshold is increased by 60C regardless of species. Activating the alignment makes you completely immune to fire (but does not extinguish them).\
+	\nYou gain armor III (with laser VI and fire X) across your whole body. Has diminishing effects with your worn armor."
 	security_record_text = "Subject is capable of entering a heightened state by observing fires, granting them resistance to damage (especially lasers & fire), deadlier punches and the ability to ignore hot tempratures and fire."
 	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/cultivator/alignment/flame_soul

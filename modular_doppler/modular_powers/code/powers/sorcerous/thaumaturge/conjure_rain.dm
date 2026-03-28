@@ -2,8 +2,8 @@
 /datum/power/thaumaturge/conjure_rain
 	name = "Conjure Rain"
 	desc = "Coats a 3x3 area at the chosen location in rain. Everything in the area becomes wet, and any reagent containers are filled with 20u water, up to a maximum of 60u spread out across all containers. Mobs are splashed with the same amount and don't count towards this limit. \
-	\n Holding a reagent container in hand will consume the chemical and replaces that much of the water with the held reagent (only works with chemicals that can be synthesized). Replacing all the water in a cast will prevent slippery tiles. \
-	\n Requires Affinity 3. Higher affinity increases the max amount of spreadable reagents by 20u."
+	\nHolding a reagent container in hand will consume the chemical and replaces that much of the water with the held reagent (only works with chemicals that can be synthesized). Replacing all the water in a cast will prevent slippery tiles. \
+	\nRequires Affinity 3. Higher affinity increases the max amount of spreadable reagents by 20u."
 	security_record_text = "Subject can conjure rains with varying chemical properties."
 	security_threat = POWER_THREAT_MAJOR
 	value = 4
@@ -14,7 +14,7 @@
 /datum/action/cooldown/power/thaumaturge/conjure_rain
 	name = "Conjure Rain"
 	desc = "Coats a 3x3 area at the chosen location in rain. Everything in the area becomes wet, and any reagent containers are filled with 20u water, up to a maximum of 60u spread out across all containers. Mobs are splashed with the same amount and don't count towards this limit. \
-	\n Holding a reagent container in hand will consume the chemical and replaces that much of the water with the held reagent (only works with chemicals that can be synthesized). Replacing all the water in a cast will prevent slippery tiles. \ "
+	Holding a reagent container in hand will consume the chemical and replaces that much of the water with the held reagent (only works with chemicals that can be synthesized). Replacing all the water in a cast will prevent slippery tiles. \ "
 	button_icon = 'icons/effects/weather_effects.dmi'
 	button_icon_state = "rain_low"
 

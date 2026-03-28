@@ -5,7 +5,8 @@
 
 /datum/power/thaumaturge/magical_barrage
 	name = "Magical Barrage"
-	desc = "Shoots a volley of magic projectiles equal to your Affinity + 2. You can either fire single shots with a short delay between shots, or shoot all your remaining shots in a barrage. Requires Affinity 3."
+	desc = "Shoots a volley of magic projectiles equal to your Affinity + 2. You can either fire single shots with a short delay between shots, or shoot all your remaining shots in a barrage. \
+	\nRequires Affinity 3."
 	security_record_text = "Subject can conjure and shoot a volley of magical lasers."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
