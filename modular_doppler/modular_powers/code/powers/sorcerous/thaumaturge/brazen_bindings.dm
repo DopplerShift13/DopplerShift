@@ -38,6 +38,7 @@
 /obj/item/restraints/handcuffs/antiresonant/brazen/
 	name = "brazen manacles"
 	desc = "Bulky, enchanted and resonant manacles made out of brass and laden with (cheap) gemstones. They're held together using a sliver of resonant power, causing them to break into an unuseable mess once removed."
+	icon = 'icons/obj/weapons/restraints.dmi'
 	icon_state = "brass_manacles"
 	w_class = WEIGHT_CLASS_NORMAL
 	breakouttime = 30 SECONDS // default for 1affinity. For comparison, zipties are 30seconds and normal cuffs are 1min.

@@ -1,6 +1,6 @@
 /obj/structure/reality_anchor
 	name = "miniature reality anchor"
-	desc = "The chiseled out parts of a broken down reality anchor. Crude machinery is managing to keep it docile; but when enabled, it will start enforcing normality back in a large area around it."
+	desc = "The chiseled out Eschatite remains of an anchor, smoothed and cobbled together. Crude machinery is managing to keep it docile; but when enabled, it will start enforcing normality back in a large area around it."
 	icon = 'modular_doppler/modular_powers/icons/items/reality_anchor.dmi'
 	icon_state = "reality_anchor"
 	density = TRUE

@@ -1,12 +1,12 @@
 // Antiresonant cuffs. They're like normal cuffs but slightly worse and put a dampener on resonant folk.
 /obj/item/restraints/handcuffs/antiresonant
-	name = "resonant suppressant handcuffs"
-	desc = "Handcuffs laced with a smooth, dark material similar to magnetite, harvested from a reality anchor. Capable of suppressing resonant powers."
-	icon_state = "handcuffAlien"
-	color = "#ee3d3d" // til we get a proper sprite for these things.
+	name = "eschatite handcuffs"
+	desc = "Handcuffs laced with a smooth, dark material similar to magnetite called Eschatite, harvested from a reality anchor. Capable of suppressing resonant powers on whoever is made to wear them. Slightly less sturdy than regular handcuffs."
+	icon = 'modular_doppler/modular_powers/icons/items/restraints.dmi'
+	icon_state = "anti_resonant_cuffs"
 	breakouttime = 50 SECONDS
 	handcuff_time = 4.5 SECONDS
-	custom_price = PAYCHECK_COMMAND * 0.6
+	custom_price = PAYCHECK_COMMAND
 
 	// we save the mob so we don't end up orphaning the silence remover
 	var/mob/living/cuffed_mob
