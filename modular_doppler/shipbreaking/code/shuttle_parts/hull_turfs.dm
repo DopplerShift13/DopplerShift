@@ -175,6 +175,9 @@
 		var/atom/throw_target = get_edge_target_turf(shard, pick(GLOB.alldirs))
 		shard.throw_at(throw_target, 6, 6)
 
+/turf/open/floor/plating/nanocarbon/airless
+	initial_gas_mix = AIRLESS_ATMOS
+
 /turf/open/floor/plating/nanocarbon/exterior
 	icon_state = "nanocarbon_outside"
 	initial_gas_mix = AIRLESS_ATMOS
@@ -242,3 +245,6 @@
 	new cut_plating(get_turf(src))
 	ScrapeAway()
 	return ITEM_INTERACT_SUCCESS
+
+/turf/open/floor/plating/aluminum/airless
+	initial_gas_mix = AIRLESS_ATMOS
