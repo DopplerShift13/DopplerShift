@@ -305,10 +305,11 @@
 // Spawners
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner
-	abstract_type = /obj/effect/spawner/random/salvage/salvaged_gun
+	abstract_type = /obj/effect/spawner/random/salvage/crate_loot_spawner
 	name = "crate contents spawner"
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/bedding
+	name = "crate contents spawner (bedding)"
 	loot = list(
 		/obj/effect/spawner/random/bedsheet = 2,
 		/obj/effect/spawner/random/bedsheet/double = 1,
@@ -318,6 +319,7 @@
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/bedding)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/garbage_day
+	name = "crate contents spawner (garbage)"
 	loot = list(
 		/obj/effect/spawner/random/trash/deluxe_garbage/no_mobs_ever,
 		/obj/effect/spawner/random/maintenance/no_decals,
@@ -326,6 +328,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/garbage_day)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/food
+	name = "crate contents spawner (food)"
 	loot = list(
 		/obj/effect/spawner/random/food_or_drink/any_snack_or_beverage,
 		/obj/effect/spawner/random/epic_loot/random_provisions,
@@ -334,6 +337,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/food)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/produce
+	name = "crate contents spawner (produce)"
 	loot = list(
 		/obj/effect/spawner/random/food_or_drink/plant_produce/one,
 	)
@@ -341,6 +345,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/produce)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/seeds
+	name = "crate contents spawner (seeds)"
 	loot = list(
 		/obj/effect/spawner/random/food_or_drink/seed_rare/one = 1,
 		/obj/effect/spawner/random/food_or_drink/seed/one = 3,
@@ -350,6 +355,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/seeds)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/booze
+	name = "crate contents spawner (booze)"
 	loot = list(
 		/obj/effect/spawner/random/food_or_drink/booze,
 	)
@@ -357,6 +363,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/booze)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/components
+	name = "crate contents spawner (components)"
 	loot = list(
 		/obj/effect/spawner/random/epic_loot/random_components,
 		/obj/effect/spawner/random/epic_loot/random_computer_parts,
@@ -366,6 +373,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/components)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/engineering
+	name = "crate contents spawner (engineering)"
 	loot = list(
 		/obj/effect/spawner/random/epic_loot/random_engineering,
 	)
@@ -373,6 +381,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/engineering)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/military
+	name = "crate contents spawner (military)"
 	loot = list(
 		/obj/effect/spawner/random/epic_loot/random_other_military_loot = 4,
 		/obj/effect/spawner/random/epic_loot/random_documents = 1,
@@ -381,6 +390,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/military)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/safe_loot
+	name = "crate contents spawner (strongbox)"
 	loot = list(
 		/obj/effect/spawner/random/epic_loot/random_strongbox_loot,
 	)
@@ -388,6 +398,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/safe_loot)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/money
+	name = "crate contents spawner (money)"
 	loot = list(
 		/obj/effect/spawner/random/entertainment/money_small = 2,
 		/obj/effect/spawner/random/entertainment/money = 1,
@@ -396,6 +407,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/money)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/medical_anything
+	name = "crate contents spawner (medical, anything)"
 	loot = list(
 		/obj/effect/spawner/random/epic_loot/medical_everything,
 	)
@@ -403,6 +415,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/medical_anything)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/chemicals
+	name = "crate contents spawner (chemicals)"
 	loot = list(
 		/obj/effect/spawner/random/epic_loot/chemical = 2,
 		/obj/effect/spawner/random/epic_loot/medpens = 2,
@@ -412,6 +425,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/chemicals)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/medical_bulk
+	name = "crate contents spawner (medical, bulk)"
 	loot = list(
 		/obj/effect/spawner/random/medical/minor_healing = 4,
 		/obj/effect/spawner/random/medical/supplies = 3,
@@ -422,6 +436,7 @@ SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner
 SALVAGE_CRATE_LOOT_SPAWNER(/obj/effect/spawner/random/salvage/crate_loot_spawner/medical_bulk)
 
 /obj/effect/spawner/random/salvage/crate_loot_spawner/five_hundred_cigarettes
+	name = "crate contents spawner (cigarettes)"
 	loot = list(
 		/obj/effect/spawner/random/entertainment/cigarette_pack,
 	)

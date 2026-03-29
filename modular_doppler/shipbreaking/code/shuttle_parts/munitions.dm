@@ -25,7 +25,7 @@
 	else
 		. += span_warning("It looks old and unstable, and might go off if handled improperly.")
 
-/// Determines if the weapon should go off or not when non-catastrophic accidents occur to it
+/// Determines if the weapon should go off or not when non-catastrophic accidents occur to it, sets it off if so
 /obj/structure/shuttle_decoration/munition/proc/set_off()
 	if(needs_to_be_armed && !armed_and_dangerous)
 		return FALSE
@@ -37,6 +37,7 @@
 	if(currently_cooking_off)
 		return // We're already exploding, have some patience
 	currently_cooking_off = TRUE
+	update_appearance(UPDATE_OVERLAYS)
 	visible_message(span_boldwarning("[src] sparks into a violent jet of flame!"), blind_message = span_boldwarning("You hear a violent burning jet of fire!"))
 	playsound(src, 'sound/effects/fuse.ogg', 50, TRUE)
 	set_light(3, 2, LIGHT_COLOR_ELECTRIC_CYAN, l_on = TRUE)
@@ -48,12 +49,14 @@
 
 /obj/structure/shuttle_decoration/munition/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
-	if(!armed_and_dangerous && needs_to_be_armed && prob(chance_to_arm))
+	if(!prob(chance_to_arm))
+		return
+	if(!needs_to_be_armed || armed_and_dangerous)
+		subtle_foreshadowing()
+	else
 		armed_and_dangerous = TRUE
 		playsound(src, 'sound/items/timer.ogg', 50, TRUE)
 		visible_message(span_warning("[src] makes an ominous beep!"), blind_message = span_warning("You hear an ominous beep!"))
-	else if(!needs_to_be_armed && prob(chance_to_arm))
-		subtle_foreshadowing()
 
 /obj/structure/shuttle_decoration/munition/update_overlays()
 	. = ..()
@@ -84,7 +87,7 @@
 
 /obj/structure/shuttle_decoration/munition/welder_act(mob/living/user, obj/item/tool)
 	if(!set_off())
-		return ITEM_INTERACT_SUCCESS
+		return ITEM_INTERACT_FAILURE
 	user.visible_message(span_danger("[user] cuts into [src]!"))
 	log_bomber(user, "set off", src, "via [tool.name]")
 	return ITEM_INTERACT_SUCCESS

@@ -1,4 +1,5 @@
 /datum/shipbreaking_owner/medical
+	abstract_type = /datum/shipbreaking_owner/medical
 
 /datum/shipbreaking_owner/medical/cybersun
 	owner_name = "Cybersun-Osaka Industries"
@@ -11,7 +12,7 @@
 	ship_secondary_colour = "#5fcde4"
 
 /datum/shipbreaking_owner/medical/deforest
-	owner_name = "Deforest Far Field Team"
+	owner_name = "DeForest Far Field Team"
 	ship_primary_colour = "#5fcde4"
 	ship_secondary_colour = "#5b975a"
 

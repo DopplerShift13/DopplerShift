@@ -14,6 +14,36 @@
 /obj/structure/shuttle_decoration/liquid_tank/proc/rupture_tank()
 	return
 
+/obj/structure/shuttle_decoration/liquid_tank/blob_act(obj/structure/blob/blob_bit)
+	rupture_tank()
+
+/obj/structure/shuttle_decoration/liquid_tank/ex_act()
+	rupture_tank()
+	return TRUE
+
+/obj/structure/shuttle_decoration/liquid_tank/fire_act(exposed_temperature, exposed_volume)
+	rupture_tank()
+
+/obj/structure/shuttle_decoration/liquid_tank/zap_act(power, zap_flags)
+	. = ..()
+	if(ZAP_OBJ_DAMAGE & zap_flags)
+		rupture_tank()
+
+/obj/structure/shuttle_decoration/liquid_tank/bullet_act(obj/projectile/hitting_projectile)
+	if(hitting_projectile.damage > 0 && ((hitting_projectile.damage_type == BURN) || (hitting_projectile.damage_type == BRUTE)))
+		log_bomber(hitting_projectile.firer, "ruptured", src, "via projectile")
+		rupture_tank()
+		return hitting_projectile.on_hit(src, 0)
+	return ..()
+
+/obj/structure/shuttle_decoration/liquid_tank/welder_act(mob/living/user, obj/item/tool)
+	user.visible_message(
+		span_danger("[user] cuts into [src]!"),
+		span_userdanger("Is [src] supposed to make that sound?"))
+	log_bomber(user, "ruptured", src, "via [tool.name]")
+	rupture_tank()
+	return ITEM_INTERACT_SUCCESS
+
 /obj/structure/shuttle_decoration/liquid_tank/battery
 	name = "ship battery"
 	desc = "A large ship's battery for long term storage of power, extremely dangerous when damaged."
@@ -53,7 +83,7 @@
 	. = ..()
 	if(has_soulcatcher)
 		var/datum/component/soulcatcher/shipmind = AddComponent(/datum/component/soulcatcher/shipmind_core)
-		shipmind.create_room(target_name = "Shipmind Corespace", target_desc = "An environment of constantly flowing information, data, controls, you should be in control of a ship, and yet your contacts have worn and senses dulled.")
+		shipmind.create_room(target_name = "Shipmind Corespace", target_desc = "An environment of constantly flowing information, data, and controls. You should be in control of a ship, and yet your contacts have worn and your senses have dulled.")
 
 /obj/structure/shuttle_decoration/liquid_tank/battery/shipmind/inert
 	has_soulcatcher = FALSE
@@ -229,33 +259,3 @@
 	goonchem_vortex(get_turf(src), FALSE, 13)
 	explosion(src, heavy_impact_range = 5, light_impact_range = 10, flame_range = 15, flash_range = 34, silent = TRUE, smoke = TRUE)
 	Destroy()
-
-/obj/structure/shuttle_decoration/liquid_tank/blob_act(obj/structure/blob/blob_bit)
-	rupture_tank()
-
-/obj/structure/shuttle_decoration/liquid_tank/ex_act()
-	rupture_tank()
-	return TRUE
-
-/obj/structure/shuttle_decoration/liquid_tank/fire_act(exposed_temperature, exposed_volume)
-	rupture_tank()
-
-/obj/structure/shuttle_decoration/liquid_tank/zap_act(power, zap_flags)
-	. = ..()
-	if(ZAP_OBJ_DAMAGE & zap_flags)
-		rupture_tank()
-
-/obj/structure/shuttle_decoration/liquid_tank/bullet_act(obj/projectile/hitting_projectile)
-	if(hitting_projectile.damage > 0 && ((hitting_projectile.damage_type == BURN) || (hitting_projectile.damage_type == BRUTE)))
-		log_bomber(hitting_projectile.firer, "ruptured", src, "via projectile")
-		rupture_tank()
-		return hitting_projectile.on_hit(src, 0)
-	return ..()
-
-/obj/structure/shuttle_decoration/liquid_tank/welder_act(mob/living/user, obj/item/tool)
-	user.visible_message(
-		span_danger("[user] cuts into [src]!"),
-		span_userdanger("Is [src] supposed to make that sound?"))
-	log_bomber(user, "ruptured", src, "via [tool.name]")
-	rupture_tank()
-	return ITEM_INTERACT_SUCCESS

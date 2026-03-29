@@ -81,18 +81,23 @@
 	)
 
 /obj/effect/spawner/random/salvage/shuttle_maintenance/random_offset
+	name = "randomly offset shuttle maintenance items"
 	spawn_random_offset = TRUE
 
 /obj/effect/spawner/random/food_or_drink/seed_rare/one
+	name = "singular rare seed"
 	spawn_loot_count = 1
 
 /obj/effect/spawner/random/food_or_drink/plant_produce/one
+	name = "singular plant produce"
 	spawn_loot_count = 1
 
 /obj/effect/spawner/random/food_or_drink/seed/one
+	name = "singular seed"
 	spawn_loot_count = 1
 
 /obj/effect/spawner/random/food_or_drink/seed_flowers/one
+	name = "singular flower seed"
 	spawn_all_loot = FALSE
 
 /obj/effect/spawner/random/salvage/cargo_machine
@@ -134,6 +139,7 @@
 	)
 
 /obj/effect/spawner/random/salvage/cargo_machine/medical_or_research
+	name = "random medical or research machine"
 	loot = list(
 		/obj/machinery/power/port_gen/pacman/solid_fuel,
 		/obj/machinery/power/rtg/portable,
@@ -153,6 +159,7 @@
 	)
 
 /obj/effect/spawner/random/salvage/cargo_machine/construction
+	name = "random construction machine"
 	loot = list(
 		/obj/machinery/portable_atmospherics/pump,
 		/obj/machinery/portable_atmospherics/scrubber,
@@ -171,6 +178,7 @@
 	)
 
 /obj/effect/spawner/random/salvage/civilian_supply
+	name = "random civilian machine"
 	loot = list(
 		/obj/machinery/portable_atmospherics/pump,
 		/obj/machinery/portable_atmospherics/scrubber,
@@ -194,6 +202,7 @@
 	)
 
 /obj/effect/spawner/random/salvage/cargo_machine/military
+	name = "random military machine"
 	loot = list(
 		/obj/machinery/power/port_gen/pacman/solid_fuel = 1,
 		/obj/machinery/power/rtg/portable = 1,
@@ -203,6 +212,7 @@
 	)
 
 /obj/effect/spawner/random/salvage/cargo_machine/scrap
+	name = "random scrap machine"
 	loot = list(
 		/obj/structure/hull_plating/airlock,
 		/obj/structure/hull_plating/airlock/interior,
@@ -233,6 +243,7 @@
 	)
 
 /obj/effect/spawner/random/engineering/canister/lots_of_them
+	name = "shipbreaking low value gas canister spawner"
 	loot = list(
 		/obj/machinery/portable_atmospherics/canister/air,
 		/obj/machinery/portable_atmospherics/canister/anesthetic_mix,
@@ -249,6 +260,7 @@
 	)
 
 /obj/effect/spawner/random/trash/deluxe_garbage/no_mobs_ever
+	name = "deluxe garbage with no mobs spawner"
 
 /obj/effect/spawner/random/trash/deluxe_garbage/no_mobs_ever/Initialize(mapload)
 	loot -= /mob/living/basic/mouse

@@ -1,4 +1,5 @@
 /datum/shipbreaking_owner/mining
+	abstract_type = /datum/shipbreaking_owner/mining
 
 /datum/shipbreaking_owner/mining/amundsen
 	owner_name = "Amundsen-Scott Mineral Prospecting"

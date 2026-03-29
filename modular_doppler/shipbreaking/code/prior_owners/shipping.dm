@@ -1,4 +1,5 @@
 /datum/shipbreaking_owner/shipping
+	abstract_type = /datum/shipbreaking_owner/shipping
 
 /datum/shipbreaking_owner/shipping/four_winds
 	owner_name = "Four Winds Freighting Caravan"

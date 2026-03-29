@@ -1,5 +1,5 @@
 /datum/export/epic_loot_electronics
-	cost = 50
+	cost = CARGO_CRATE_VALUE * 0.25
 	unit_name = "electronic salvage"
 	export_types = list(
 		/obj/item/epic_loot/device_fan,
@@ -10,7 +10,7 @@
 	)
 
 /datum/export/epic_loot_electronics_super
-	cost = 75
+	cost = CARGO_CRATE_VALUE * 0.375
 	unit_name = "high value electronic salvage"
 	export_types = list(
 		/obj/item/epic_loot/display,

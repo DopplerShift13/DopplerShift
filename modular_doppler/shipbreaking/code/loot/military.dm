@@ -13,4 +13,5 @@
 	)
 
 /obj/effect/spawner/random/salvage/salvaged_gun/random_offset
+	name = "randomly offset salvage shuttle gun"
 	spawn_random_offset = TRUE

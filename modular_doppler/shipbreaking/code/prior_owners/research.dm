@@ -1,4 +1,5 @@
 /datum/shipbreaking_owner/research
+	abstract_type = /datum/shipbreaking_owner/research
 
 /datum/shipbreaking_owner/research/solar_exogeological
 	owner_name = "Solar Exogeological Survey"

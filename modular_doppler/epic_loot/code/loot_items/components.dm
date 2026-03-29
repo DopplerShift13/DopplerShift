@@ -1,5 +1,5 @@
 /datum/export/epic_loot_components
-	cost = 50
+	cost = CARGO_CRATE_VALUE * 0.25
 	unit_name = "low value salvage"
 	export_types = list(
 		/obj/item/epic_loot/grenade_fuze,
@@ -10,7 +10,7 @@
 	)
 
 /datum/export/epic_loot_components_super
-	cost = 75
+	cost = CARGO_CRATE_VALUE * 0.375
 	unit_name = "salvage"
 	export_types = list(
 		/obj/item/epic_loot/water_filter,
@@ -20,7 +20,7 @@
 	)
 
 /datum/export/epic_loot_components_super_super
-	cost = 125
+	cost = CARGO_CRATE_VALUE * 0.625
 	unit_name = "high value salvage"
 	export_types = list(
 		/obj/item/epic_loot/thermal_camera,

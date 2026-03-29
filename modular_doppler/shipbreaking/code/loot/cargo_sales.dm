@@ -1,15 +1,15 @@
 /datum/export/material/aluminum
-	cost = 35
+	cost = CARGO_CRATE_VALUE * 0.175
 	material_id = /datum/material/aluminum
 	message = "cm3 of aluminum"
 
 /datum/export/material/nanocarbon
-	cost = 55
+	cost = CARGO_CRATE_VALUE * 0.275
 	material_id = /datum/material/nanocarbon
 	message = "cm3 of nanocarbon"
 
 /datum/export/salvage_generic
-	cost = 75
+	cost = CARGO_CRATE_VALUE * 0.375
 	unit_name = "general salvage"
 	export_types = list(
 		/obj/structure/engine_covers/thruster_nozzle,
@@ -28,14 +28,14 @@
 	)
 
 /datum/export/shipping_containers
-	cost = 300
+	cost = CARGO_CRATE_VALUE * 1.5
 	unit_name = "salvaged shipping containers"
 	export_types = list(
 		/obj/structure/closet/shipping_container,
 	)
 
 /datum/export/salvage_scanners
-	cost = 200
+	cost = CARGO_CRATE_VALUE
 	unit_name = "salvaged sensor equipment"
 	export_types = list(
 		/obj/machinery/exoscanner/shuttle_part/radar_panel,
@@ -45,28 +45,28 @@
 	)
 
 /datum/export/salvage_shipmind
-	cost = 600
+	cost = CARGO_CRATE_VALUE * 3
 	unit_name = "recovered shipmind"
 	export_types = list(
 		/obj/structure/shuttle_decoration/liquid_tank/battery/shipmind,
 	)
 
 /datum/export/salvage_reactor
-	cost = 1000
+	cost = CARGO_CRATE_VALUE * 5
 	unit_name = "salvaged bloom reactor"
 	export_types = list(
 		/obj/structure/shuttle_decoration/liquid_tank/reactor,
 	)
 
 /datum/export/salvage_reactor
-	cost = 1500
+	cost = CARGO_CRATE_VALUE * 7.5
 	unit_name = "salvaged large bloom reactor"
 	export_types = list(
 		/obj/structure/shuttle_decoration/liquid_tank/reactor/super,
 	)
 
 /datum/export/salvage_engines
-	cost = 300
+	cost = CARGO_CRATE_VALUE * 1.5
 	unit_name = "salvaged engines"
 	export_types = list(
 		/obj/machinery/power/shuttle_engine/propulsion/salvage,
@@ -75,7 +75,7 @@
 	)
 
 /datum/export/salvage_hazard
-	cost = 200
+	cost = CARGO_CRATE_VALUE
 	unit_name = "hazardous salvage"
 	export_types = list(
 		/obj/structure/shuttle_decoration/liquid_tank/battery,
@@ -83,7 +83,7 @@
 	)
 
 /datum/export/salvage_munitions
-	cost = 250
+	cost = CARGO_CRATE_VALUE * 1.25
 	unit_name = "salvaged munitions"
 	export_types = list(
 		/obj/structure/shuttle_decoration/munition/missile,
@@ -95,7 +95,7 @@
 	)
 
 /datum/export/salvage_fuel
-	cost = 200
+	cost = CARGO_CRATE_VALUE
 	unit_name = "salvaged fuel tanks"
 	export_types = list(
 		/obj/structure/shuttle_decoration/liquid_tank/explosive,
@@ -104,7 +104,7 @@
 	)
 
 /datum/export/salvage_fuel_big
-	cost = 400
+	cost = CARGO_CRATE_VALUE * 2
 	unit_name = "salvaged large tanks"
 	export_types = list(
 		/obj/structure/shuttle_decoration/liquid_tank/explosive/industrial,
@@ -113,7 +113,7 @@
 	)
 
 /datum/export/salvage_crates
-	cost = 150
+	cost = CARGO_CRATE_VALUE * 0.75
 	unit_name = "salvaged shipping crates"
 	export_types = list(
 		/obj/structure/closet/crate/shuttle,
@@ -122,7 +122,7 @@
 	)
 
 /datum/export/salvage_airlocks
-	cost = 100
+	cost = CARGO_CRATE_VALUE * 0.5
 	unit_name = "salvaged airlocks"
 	export_types = list(
 		/obj/structure/hull_plating/airlock,

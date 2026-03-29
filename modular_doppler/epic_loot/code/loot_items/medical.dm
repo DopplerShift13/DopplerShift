@@ -1,5 +1,5 @@
 /datum/export/epic_loot_super_med_tools
-	cost = 250
+	cost = CARGO_CRATE_VALUE * 1.25
 	unit_name = "high value medical salvage"
 	export_types = list(
 		/obj/item/epic_loot/vein_finder,

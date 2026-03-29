@@ -1,4 +1,5 @@
 /datum/shipbreaking_owner/military
+	abstract_type = /datum/shipbreaking_owner/military
 
 /datum/shipbreaking_owner/military/void_corps
 	owner_name = "Void Corps Xth Expeditionary"
