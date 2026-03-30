@@ -38,8 +38,8 @@
 
 /datum/outfit/changing_room
 	name = "Changing Room"
-	uniform = /obj/item/clothing/under/color/random
-	shoes = /obj/item/clothing/shoes/sneakers/black
+	uniform = /obj/item/clothing/under/chameleon
+	shoes = /obj/item/clothing/shoes/chameleon
 	back = /obj/item/storage/backpack/chameleon
 	backpack_contents = list(/obj/item/storage/box/syndie_kit/chameleon/changing_room = 1)
 
@@ -66,11 +66,11 @@
 	max_total_storage = 50 // To actually acommodate the stuff being added.
 
 
-/obj/item/storage/box/syndie_kit/chameleon/changing_room/PopulateContents() // Doesn't contain a PDA, for isolation reasons.
-	new /obj/item/clothing/under/chameleon(src)
+// The cham gear that you don't already spawn with.
+// Doesn't contain a PDA, for isolation reasons.
+/obj/item/storage/box/syndie_kit/chameleon/changing_room/PopulateContents()
 	new /obj/item/clothing/suit/chameleon(src)
 	new /obj/item/clothing/gloves/chameleon(src)
-	new /obj/item/clothing/shoes/chameleon(src)
 	new /obj/item/clothing/glasses/chameleon(src)
 	new /obj/item/clothing/head/chameleon(src)
 	new /obj/item/clothing/mask/chameleon(src)
