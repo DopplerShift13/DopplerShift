@@ -22,3 +22,11 @@
 // makes it so held items float by their head
 #define TRAIT_FLOATING_HELD "held_items_float"
 
+// Can ghost and return freely with this trait
+#define TRAIT_FREE_GHOST "free_ghost"
+
+
+/*
+ *	TRAIT SOURCES
+*/
+#define TRAIT_GHOSTROLE "ghostrole"
