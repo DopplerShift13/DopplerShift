@@ -16,10 +16,13 @@
 		"TTV",
 		"UNKN",
 		"3CARS",
-		"(Independent)"
+		"SSV",
+		"ARV",
+		"THS"
 	],
 
 	"name_word": [
+		"Orient",
 		"Rising",
 		"Principal",
 		"Spring",
@@ -86,7 +89,11 @@
 		"Volume",
 		"Embark",
 		"Extract",
-		"Company"
+		"Company",
+		"Northern",
+		"Southern",
+		"Western",
+		"Eastern"
 	],
 
 	"digit": [

@@ -7755,6 +7755,7 @@
 #include "modular_doppler\ship_captain\code\globals.dm"
 #include "modular_doppler\ship_captain\code\preferences.dm"
 #include "modular_doppler\ship_captain\code\ship_captain.dm"
+#include "modular_doppler\shipbreaking\code\areas.dm"
 #include "modular_doppler\shipbreaking\code\docking_clamp.dm"
 #include "modular_doppler\shipbreaking\code\prior_owners_base.dm"
 #include "modular_doppler\shipbreaking\code\salvage_bay_decoration.dm"

@@ -18,6 +18,13 @@ required_map = "MetaStation.dmm"
 coordinates = [133, 182, 1]
 trait_name = "Station"
 
+# Metastation Shipbreaking
+map_files = ["metastation_shipbreaking.dmm"]
+directory = "_maps/doppler/automapper/templates/metastation/"
+required_map = "MetaStation.dmm"
+coordinates = [12, 155, 1]
+trait_name = "Station"
+
 # DELTASTATION MAP EDITS
 # Deltastation Cryo
 [templates.deltastation_cryo]
