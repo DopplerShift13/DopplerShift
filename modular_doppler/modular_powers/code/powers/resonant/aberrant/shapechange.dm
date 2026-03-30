@@ -10,6 +10,7 @@
 	\n If the creature dies or the effect ends, you are reverted to your normal form (prone on the ground), and all damage taken is transfered to your original form (halved if reverting back manually)."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
+	species_blacklist = list(/datum/species/android/holosynth) // there are SO MANY BUGS with holosynths I'd rather just NOT.
 
 	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
 	required_allow_any = TRUE

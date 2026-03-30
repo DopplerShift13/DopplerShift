@@ -41,10 +41,13 @@
 			return data
 		current_points += power_type.value
 
+	var/datum/species/mob_species = preferences.read_preference(/datum/preference/choiced/species)
+
 	for(var/power_name in SSpowers.powers)
 		var/datum/power/power_type = SSpowers.powers[power_name]
 
 		var/has_given_power = (power_name in preferences.all_powers)
+		var/species_allowed = is_species_appropriate(power_type, mob_species)
 
 		// TODO: GRAY OUT powers you:
 		// Don't have the requirements for.
@@ -57,7 +60,7 @@
 			if(get_requiring_power(power_type))
 				locked_in = TRUE
 		else
-			if(get_incompatible_power(power_type) || length(get_required_power(power_type)) || would_exceed_path_limit(power_type))
+			if(!species_allowed || get_incompatible_power(power_type) || length(get_required_power(power_type)) || would_exceed_path_limit(power_type))
 				locked_in = TRUE
 
 		var/state
@@ -192,6 +195,12 @@
 	if(power_name in preferences.all_powers)
 		return FALSE // Already have this power.
 
+	// Cehcks against the species blacklist.
+	var/datum/species/mob_species = preferences.read_preference(/datum/preference/choiced/species)
+	if(!is_species_appropriate(power_type, mob_species))
+		to_chat(user, span_boldwarning("[power_name] is not available to your species!"))
+		return FALSE
+
 	// Make sure we don't exceed 2 distinct paths.
 	if(length(preferences.all_powers))
 		var/list/unique_paths = list()
@@ -239,6 +248,25 @@
 
 	preferences.all_powers += power_name
 	return TRUE
+
+/// If a power is able to be selected for the mob's species.
+/datum/preference_middleware/powers/proc/is_species_appropriate(datum/power/power_type, datum/species/mob_species)
+	if(isnull(mob_species))
+		return TRUE
+	// Gets the power from the power_species_restriction global list if its in there.
+	var/list/species_restrictions = GLOB.powers_species_restrictions[power_type]
+	if(!islist(species_restrictions)) // not in there? cool skip this step.
+		return TRUE
+	var/list/species_blacklist = species_restrictions["list"]
+	var/is_whitelist = species_restrictions["whitelist"]
+	if(!islist(species_blacklist) || !species_blacklist.len)
+		return TRUE
+	var/is_listed = (mob_species in species_blacklist)
+	// whitelist inverts
+	if(is_whitelist)
+		return is_listed
+	// if its in there, yes/no.
+	return !is_listed
 
 // A lot of validation specifically for augmented, given they're very snowflakey in their restrictions.
 /datum/preference_middleware/powers/proc/validate_augment(datum/power/power_type, power_name, mob/user)

@@ -8,6 +8,8 @@ GLOBAL_LIST_INIT(powers_requirements_list, generate_powers_requirements_list())
 
 GLOBAL_LIST_INIT(powers_inverse_requirements_list, generate_powers_inverse_requirements_list())
 
+GLOBAL_LIST_INIT(powers_species_restrictions, generate_powers_species_restrictions())
+
 /proc/generate_powers_requirements_list()
 	var/list/requirements_list = list()
 	var/list/all_powers_list = subtypesof(/datum/power)
@@ -39,6 +41,21 @@ GLOBAL_LIST_INIT(powers_inverse_requirements_list, generate_powers_inverse_requi
 		qdel(power_instance)
 
 	return inverse_requirements_list
+
+// Gets all the powers that have a blacklist.
+/proc/generate_powers_species_restrictions()
+	var/list/restrictions = list()
+	for(var/datum/power/power_type as anything in subtypesof(/datum/power))
+		if(initial(power_type.abstract_parent_type) == power_type)
+			continue
+		var/datum/power/power_instance = new power_type
+		if(islist(power_instance.species_blacklist) && power_instance.species_blacklist.len)
+			restrictions[power_type] = list(
+				"list" = power_instance.species_blacklist,
+				"whitelist" = power_instance.species_blacklist_is_whitelist,
+			)
+		qdel(power_instance)
+	return restrictions
 
 
 //Used to process and handle roundstart powers
@@ -124,12 +141,13 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 /// and returns a new list of powers that would be valid.
 /// If no changes need to be made, will return the same list.
 /// Expects all power names to be unique, but makes no other expectations.
-/datum/controller/subsystem/processing/powers/proc/filter_invalid_powers(list/powers_to_check)
+/datum/controller/subsystem/processing/powers/proc/filter_invalid_powers(list/powers_to_check, client/applied_client)
 	powers_removed = list()
 	var/current_balance = 0
 	var/maximum_balance = MAXIMUM_POWER_POINTS
 	var/list/intermediary_powers = list()
 	var/list/all_powers = get_powers()
+	var/datum/species/mob_species = applied_client?.prefs?.read_preference(/datum/preference/choiced/species)
 
 	// Track distinct paths we accept while filtering this batch
 	var/list/unique_paths = list()
@@ -140,6 +158,11 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	for(var/power_name in powers_to_check)
 		var/datum/power/power_type = all_powers[power_name]
 		if(!ispath(power_type))
+			continue
+
+		// Checks against hte power's species blacklist.
+		if(!isnull(mob_species) && !is_species_appropriate(power_type, mob_species))
+			LAZYADD(powers_removed, "[power_name] is not available to your species.")
 			continue
 
 		// Checks if the power exceeds the max.
@@ -229,3 +252,22 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	if(intermediary_powers.len == powers_to_check.len)
 		return powers_to_check
 	return intermediary_powers
+
+/// If a power is able to be selected for the mob's species.
+/datum/controller/subsystem/processing/powers/proc/is_species_appropriate(datum/power/power_type, datum/species/mob_species)
+	if(isnull(mob_species))
+		return TRUE
+	// Gets the power from the power_species_restriction global list if its in there.
+	var/list/species_restrictions = GLOB.powers_species_restrictions[power_type]
+	if(!islist(species_restrictions)) // not in there? cool skip this step.
+		return TRUE
+	var/list/species_blacklist = species_restrictions["list"]
+	var/is_whitelist = species_restrictions["whitelist"]
+	if(!islist(species_blacklist) || !species_blacklist.len)
+		return TRUE
+	var/is_listed = (mob_species in species_blacklist)
+	// whitelist inverts
+	if(is_whitelist)
+		return is_listed
+	// if its in there, yes/no.
+	return !is_listed

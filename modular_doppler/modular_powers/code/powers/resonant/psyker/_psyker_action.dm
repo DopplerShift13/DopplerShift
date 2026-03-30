@@ -4,6 +4,9 @@
 	overlay_icon_state = "bg_hive_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
+	// We're a psychic we don't need hands.
+	need_hands_free = FALSE
+
 	// The organ that processes most of the Psyker Powers. Mostly all functions here communicate with this.
 	var/obj/item/organ/resonant/psyker/psyker_organ
 

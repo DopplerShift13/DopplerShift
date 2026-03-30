@@ -38,7 +38,7 @@
 
 
 /datum/preferences/proc/sanitize_powers()
-	var/list/new_powers = SSpowers.filter_invalid_powers(all_powers)
+	var/list/new_powers = SSpowers.filter_invalid_powers(all_powers, parent)
 	var/list/powers_removed = SSpowers.powers_removed
 	var/invalid_reason = null
 

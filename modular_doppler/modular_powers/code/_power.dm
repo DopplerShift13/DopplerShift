@@ -13,6 +13,10 @@
 	var/mob/living/power_holder
 	/// if applicable, apply and remove this mob trait
 	var/mob_trait
+	/// Species that cannot pick this power. If species_blacklist_is_whitelist is TRUE, only these species can.
+	var/list/species_blacklist
+	/// If TRUE, species_blacklist becomes a whitelist.
+	var/species_blacklist_is_whitelist = FALSE
 	/// Amount of points this trait is worth towards the hardcore character mode.
 	/// Minus points implies a positive power, positive means its hard.
 	/// This is used to pick the powers assigned to a hardcore character.
@@ -315,11 +319,6 @@ GLOBAL_LIST_INIT_TYPED(all_power_constant_data, /datum/power_constant_data, gene
 	SIGNAL_HANDLER
 	update_process()
 
-/// If a power is able to be selected for the mob's species
-/datum/power/proc/is_species_appropriate(datum/species/mob_species)
-	if(mob_trait in GLOB.species_prototypes[mob_species].inherent_traits)
-		return FALSE
-	return TRUE
 
 /**
  * Handles inserting an item in any of the valid slots provided, then allows for post_add notification.
