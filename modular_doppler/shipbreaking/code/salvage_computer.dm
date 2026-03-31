@@ -125,7 +125,7 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 		say("No salvageable ships are available, please reference your local administrator.")
 		return
 
-	var/menu_option = tgui_input_list(user, "Salvage Bay Action", "Salvage Bay Control Console", list(SALVAGE_CONSOLE_NEW_SHUTTLE, SALVAGE_CONSOLE_CLEAR_BAY))
+	var/menu_option = tgui_input_list(user, "Salvage Bay Action", "Salvage Bay Control Console", list(SALVAGE_CONSOLE_NEW_SHUTTLE, SALVAGE_CONSOLE_TRAINING, SALVAGE_CONSOLE_CLEAR_BAY))
 	if(!menu_option)
 		balloon_alert(user, "no selection")
 		return

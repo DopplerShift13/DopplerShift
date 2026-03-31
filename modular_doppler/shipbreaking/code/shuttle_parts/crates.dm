@@ -19,6 +19,7 @@
 	contents_thermal_insulation = 1
 	material_drop = /obj/item/stack/sheet/plasteel
 	material_drop_amount = 5
+	air_volume = CELL_VOLUME * 0.2
 	custom_materials = list(
 		/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 5,
 	)
