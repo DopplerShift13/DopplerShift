@@ -126,3 +126,11 @@ directory = "_maps/doppler/automapper/templates/nebulastation/"
 required_map = "NebulaStation.dmm"
 coordinates = [117, 137, 2]
 trait_name = "Station"
+
+# Nebulastation Shipbreaking
+[templates.nebulastation_shipbreaking]
+map_files = ["nebulastation_shipbreaking.dmm"]
+directory = "_maps/doppler/automapper/templates/nebulastation/"
+required_map = "NebulaStation.dmm"
+coordinates = [145, 181, 2]
+trait_name = "Station"

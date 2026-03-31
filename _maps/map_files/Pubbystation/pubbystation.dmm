@@ -31672,6 +31672,7 @@
 	dir = 4;
 	id = "SalvageProcess"
 	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "fLV" = (
@@ -32147,6 +32148,7 @@
 /area/station/service/library)
 "gjp" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "gjq" = (
@@ -33479,6 +33481,7 @@
 	pixel_y = 4;
 	pixel_x = -3
 	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "hmL" = (
@@ -37231,6 +37234,8 @@
 "klo" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /obj/machinery/airalarm/directional/north,
+/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/holopad,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "klp" = (
@@ -46535,6 +46540,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/firealarm/directional/north,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "rie" = (
@@ -50365,6 +50371,7 @@
 	dir = 8;
 	id = "SalvageProcess"
 	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "tFt" = (

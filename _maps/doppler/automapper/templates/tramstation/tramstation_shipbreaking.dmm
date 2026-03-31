@@ -10,6 +10,7 @@
 "ap" = (
 /obj/structure/closet/secure_closet/engineering_welding,
 /obj/structure/sign/semiotic/airlock/directional/east,
+/obj/machinery/camera/autoname/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "aD" = (
@@ -25,6 +26,13 @@
 /area/space/nearstation)
 "aV" = (
 /obj/effect/turf_decal/sand/plating,
+/turf/open/floor/plating,
+/area/station/salvage_bay)
+"bL" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "cn" = (
@@ -188,6 +196,7 @@
 	dir = 1;
 	id = "SalvageProcess"
 	},
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "ji" = (
@@ -277,9 +286,14 @@
 	},
 /turf/open/floor/plating,
 /area/station/salvage_bay)
+"oA" = (
+/obj/machinery/holopad,
+/turf/open/floor/iron/grimy,
+/area/station/salvage_bay)
 "oH" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/machinery/light/dim/directional/east,
+/obj/machinery/light_switch/directional/east,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "oL" = (
@@ -317,6 +331,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
+/obj/machinery/camera/autoname/directional/south,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "qp" = (
@@ -377,6 +392,7 @@
 /area/station/hallway/secondary/exit)
 "tS" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "ui" = (
@@ -690,6 +706,7 @@
 	id = "SalvageProcess"
 	},
 /obj/machinery/light/small/red/directional/west,
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "KC" = (
@@ -764,6 +781,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/salvage_bay)
+"Pg" = (
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/misc/asteroid,
+/area/station/salvage_bay)
 "Pp" = (
 /obj/structure/railing{
 	dir = 8
@@ -786,6 +807,13 @@
 "QV" = (
 /obj/effect/turf_decal/sand,
 /turf/open/floor/iron,
+/area/station/salvage_bay)
+"Rp" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/sand,
+/obj/machinery/camera/autoname/directional/west,
+/turf/open/floor/plating,
 /area/station/salvage_bay)
 "RQ" = (
 /obj/machinery/suit_storage_unit/engine,
@@ -1071,7 +1099,7 @@ us
 jA
 Yq
 mP
-mP
+bL
 us
 mq
 eP
@@ -1171,7 +1199,7 @@ EP
 mq
 Fb
 Om
-us
+Pg
 eP
 eP
 eP
@@ -1242,7 +1270,7 @@ ul
 Pp
 Vg
 dP
-wE
+Rp
 wE
 fI
 fI
@@ -1373,7 +1401,7 @@ hl
 ui
 hx
 nG
-ll
+oA
 nj
 eP
 eP

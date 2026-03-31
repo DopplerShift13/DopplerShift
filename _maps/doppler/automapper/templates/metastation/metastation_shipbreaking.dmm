@@ -167,6 +167,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/tank_holder/extinguisher/advanced,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "iE" = (
@@ -217,6 +218,7 @@
 	pixel_x = -3
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/smooth,
 /area/station/salvage_bay)
 "kE" = (
@@ -327,6 +329,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/holopad,
 /turf/open/floor/iron/grimy,
 /area/station/salvage_bay)
 "pT" = (
@@ -417,6 +420,7 @@
 /area/station/salvage_bay)
 "wu" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_switch/directional/north,
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "xc" = (
@@ -700,6 +704,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "Ng" = (
@@ -748,6 +753,7 @@
 /obj/structure/filingcabinet/chestdrawer,
 /obj/machinery/airalarm/directional/north,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "QK" = (
@@ -768,6 +774,7 @@
 /area/station/salvage_bay)
 "QQ" = (
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "Rj" = (
@@ -800,6 +807,7 @@
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron/smooth,
 /area/station/salvage_bay)
 "Tu" = (

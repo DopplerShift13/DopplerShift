@@ -47,6 +47,7 @@
 	dir = 1
 	},
 /obj/machinery/computer/mech_bay_power_console,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "db" = (
@@ -92,6 +93,14 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/station/salvage_bay)
+"il" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "SalvageProcess"
+	},
+/obj/machinery/camera/autoname/directional/north,
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "iA" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -133,6 +142,12 @@
 "mL" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/salvage,
 /turf/open/floor/plating/aluminum,
+/area/station/salvage_bay)
+"mM" = (
+/obj/structure/railing,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/iron,
 /area/station/salvage_bay)
 "nM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -229,6 +244,7 @@
 	id = "SalvageProcess"
 	},
 /obj/machinery/light/small/red/directional/north,
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "ul" = (
@@ -375,6 +391,7 @@
 	pixel_y = 4;
 	pixel_x = -3
 	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "Dy" = (
@@ -665,6 +682,8 @@
 "Zd" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/broken_floor,
+/obj/machinery/camera/autoname/directional/north,
+/obj/machinery/holopad,
 /turf/open/floor/iron/grimy,
 /area/station/salvage_bay)
 "ZB" = (
@@ -1036,7 +1055,7 @@ xB
 xB
 Er
 GU
-Pb
+il
 nZ
 yB
 yB
@@ -1245,7 +1264,7 @@ yB
 kU
 KL
 cw
-FS
+mM
 gW
 iA
 iA
