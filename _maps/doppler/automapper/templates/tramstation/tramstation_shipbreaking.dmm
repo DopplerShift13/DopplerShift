@@ -193,12 +193,12 @@
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "ji" = (
-/obj/machinery/suit_storage_unit/engine,
 /obj/item/mod/paint{
 	pixel_y = 20;
 	pixel_x = -3
 	},
 /obj/effect/turf_decal/bot,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "jA" = (
@@ -817,8 +817,8 @@
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "RQ" = (
-/obj/machinery/suit_storage_unit/engine,
 /obj/effect/turf_decal/bot,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "Sl" = (

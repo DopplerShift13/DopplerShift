@@ -528,11 +528,11 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "FT" = (
-/obj/machinery/suit_storage_unit/engine,
 /obj/item/mod/paint{
 	pixel_y = 20;
 	pixel_x = -3
 	},
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "Gr" = (
@@ -573,8 +573,8 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "IL" = (
-/obj/machinery/suit_storage_unit/engine,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "Je" = (

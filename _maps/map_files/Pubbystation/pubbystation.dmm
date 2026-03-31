@@ -23395,11 +23395,11 @@
 /area/station/maintenance/department/engine)
 "cab" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/suit_storage_unit/engine,
 /obj/item/mod/paint{
 	pixel_y = 20;
 	pixel_x = 4
 	},
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "cad" = (
@@ -38037,7 +38037,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 1
 	},
-/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/structure/tank_dispenser/oxygen,
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "kRL" = (
@@ -40433,6 +40433,7 @@
 /obj/structure/cable,
 /obj/machinery/light/dim/directional/west,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/engineering_welding,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "mJe" = (
@@ -43055,7 +43056,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/directional/south,
 /obj/machinery/airalarm/directional/west,
-/obj/structure/closet/secure_closet/engineering_welding,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "oFO" = (
@@ -45038,6 +45039,7 @@
 "qdj" = (
 /obj/structure/disposalpipe/segment,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/closet/secure_closet/engineering_electrical,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "qdk" = (

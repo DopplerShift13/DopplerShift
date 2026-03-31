@@ -345,11 +345,11 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/suit_storage_unit/engine,
 /obj/item/mod/paint{
 	pixel_y = 20;
 	pixel_x = -3
 	},
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "BG" = (
@@ -562,8 +562,8 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/suit_storage_unit/engine,
 /obj/machinery/light/dim/directional/west,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "Qy" = (
