@@ -28,13 +28,6 @@
 /obj/effect/turf_decal/sand/plating,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
-"bL" = (
-/obj/effect/turf_decal/sand/plating,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/camera/autoname/directional/west,
-/turf/open/floor/plating,
-/area/station/salvage_bay)
 "cn" = (
 /obj/machinery/conveyor{
 	id = "SalvageProcess"
@@ -285,10 +278,6 @@
 	id = "SalvageProcess"
 	},
 /turf/open/floor/plating,
-/area/station/salvage_bay)
-"oA" = (
-/obj/machinery/holopad,
-/turf/open/floor/iron/grimy,
 /area/station/salvage_bay)
 "oH" = (
 /obj/structure/closet/secure_closet/engineering_electrical,
@@ -685,6 +674,15 @@
 	},
 /turf/open/floor/iron,
 /area/station/salvage_bay)
+"Jc" = (
+/obj/effect/turf_decal/sand,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/landmark/navigate_destination{
+	location = "Salvage Bay"
+	},
+/turf/open/floor/iron,
+/area/station/salvage_bay)
 "Jl" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
@@ -781,19 +779,29 @@
 	},
 /turf/open/floor/iron,
 /area/station/salvage_bay)
-"Pg" = (
-/obj/machinery/camera/autoname/directional/south,
-/turf/open/misc/asteroid,
-/area/station/salvage_bay)
 "Pp" = (
 /obj/structure/railing{
 	dir = 8
 	},
 /turf/open/floor/iron,
 /area/station/salvage_bay)
+"PW" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/sand,
+/obj/machinery/camera/autoname/directional/west,
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "PZ" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/turf/open/floor/plating,
+/area/station/salvage_bay)
+"Qb" = (
+/obj/effect/turf_decal/sand/plating,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/camera/autoname/directional/west,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "Qi" = (
@@ -807,13 +815,6 @@
 "QV" = (
 /obj/effect/turf_decal/sand,
 /turf/open/floor/iron,
-/area/station/salvage_bay)
-"Rp" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/turf_decal/sand,
-/obj/machinery/camera/autoname/directional/west,
-/turf/open/floor/plating,
 /area/station/salvage_bay)
 "RQ" = (
 /obj/machinery/suit_storage_unit/engine,
@@ -851,6 +852,10 @@
 	dir = 1
 	},
 /area/station/salvage_bay)
+"TN" = (
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/misc/asteroid,
+/area/station/salvage_bay)
 "TY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -866,6 +871,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/hallway/secondary/exit)
+"US" = (
+/obj/machinery/holopad,
+/turf/open/floor/iron/grimy,
+/area/station/salvage_bay)
 "UW" = (
 /obj/effect/turf_decal/sand,
 /turf/open/floor/plating,
@@ -1099,7 +1108,7 @@ us
 jA
 Yq
 mP
-bL
+Qb
 us
 mq
 eP
@@ -1199,7 +1208,7 @@ EP
 mq
 Fb
 Om
-Pg
+TN
 eP
 eP
 eP
@@ -1270,7 +1279,7 @@ ul
 Pp
 Vg
 dP
-Rp
+PW
 wE
 fI
 fI
@@ -1385,7 +1394,7 @@ us
 rb
 Hi
 Kl
-qu
+Jc
 TY
 TY
 uE
@@ -1401,7 +1410,7 @@ hl
 ui
 hx
 nG
-oA
+US
 nj
 eP
 eP

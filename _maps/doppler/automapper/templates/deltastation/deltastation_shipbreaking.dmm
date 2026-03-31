@@ -14,6 +14,12 @@
 /obj/structure/sign/semiotic/airlock/directional/south,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
+"bc" = (
+/obj/structure/railing,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/light_switch/directional/east,
+/turf/open/floor/iron,
+/area/station/salvage_bay)
 "cb" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
@@ -93,14 +99,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark,
 /area/station/salvage_bay)
-"il" = (
-/obj/machinery/conveyor{
-	dir = 8;
-	id = "SalvageProcess"
-	},
-/obj/machinery/camera/autoname/directional/north,
-/turf/open/floor/plating,
-/area/station/salvage_bay)
 "iA" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -142,12 +140,6 @@
 "mL" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/salvage,
 /turf/open/floor/plating/aluminum,
-/area/station/salvage_bay)
-"mM" = (
-/obj/structure/railing,
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/light_switch/directional/east,
-/turf/open/floor/iron,
 /area/station/salvage_bay)
 "nM" = (
 /obj/effect/decal/cleanable/dirt,
@@ -481,6 +473,17 @@
 /obj/structure/marker_beacon/yellow,
 /turf/open/floor/engine/anchor_jack,
 /area/space/nearstation)
+"MU" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/tile/blue/half/contrasted,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/navigate_destination{
+	location = "Salvage Bay"
+	},
+/turf/open/floor/iron,
+/area/station/salvage_bay)
 "MW" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/eva_handhold/directional/east,
@@ -666,6 +669,14 @@
 /obj/machinery/mech_bay_recharge_port{
 	dir = 4
 	},
+/turf/open/floor/plating,
+/area/station/salvage_bay)
+"YA" = (
+/obj/machinery/conveyor{
+	dir = 8;
+	id = "SalvageProcess"
+	},
+/obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "YJ" = (
@@ -1055,7 +1066,7 @@ xB
 xB
 Er
 GU
-il
+YA
 nZ
 yB
 yB
@@ -1220,7 +1231,7 @@ wA
 (13,1,1) = {"
 kU
 Vr
-Nd
+MU
 Ii
 gC
 OG
@@ -1264,7 +1275,7 @@ yB
 kU
 KL
 cw
-mM
+bc
 gW
 iA
 iA

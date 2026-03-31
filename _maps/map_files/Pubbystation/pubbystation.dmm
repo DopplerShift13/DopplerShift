@@ -51912,6 +51912,9 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/landmark/navigate_destination{
+	location = "Salvage Bay"
+	},
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "uNc" = (
