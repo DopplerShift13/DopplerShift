@@ -31971,6 +31971,13 @@
 /obj/effect/mapping_helpers/airlock/access/any/service/hydroponics,
 /turf/open/floor/iron,
 /area/station/service/kitchen)
+"gaK" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "shipbreaking";
+	name = "Salvage Bay Shutters"
+	},
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "gbi" = (
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 1
@@ -40230,6 +40237,18 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/science/genetics)
+"mzA" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/machinery/door/poddoor/shutters{
+	id = "shipbreaking";
+	name = "Salvage Bay Shutters"
+	},
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "mzK" = (
 /obj/machinery/camera/directional/east{
 	c_tag = "Bridge Port Entrance"
@@ -81284,7 +81303,7 @@ hVx
 bXU
 fSx
 jUF
-bZs
+mzA
 eWl
 uMt
 shU
@@ -81541,7 +81560,7 @@ ftp
 iyC
 yeV
 bNK
-frq
+gaK
 seI
 wfO
 rle

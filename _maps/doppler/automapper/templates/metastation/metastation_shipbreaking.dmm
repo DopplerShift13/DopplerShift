@@ -786,7 +786,6 @@
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "QK" = (
-/obj/machinery/door/firedoor,
 /obj/machinery/door/poddoor/shutters{
 	id = "shipbreaking_outer";
 	name = "Salvage Bay Shutters"
