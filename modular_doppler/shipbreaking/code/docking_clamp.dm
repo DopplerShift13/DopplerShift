@@ -36,15 +36,22 @@
 	/// The docking port we use to connect ships with
 	var/obj/docking_port/stationary/salvage_dock/docking_port
 	/// The computer the clamp is linked to
-	var/obj/machinery/computer/salvage_bay_controller/controller
+	var/datum/weakref/controller
 
 /obj/machinery/docking_clamp/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/simple_rotation)
+	var/static/list/tool_behaviors = list(
+		TOOL_MULTITOOL = list(
+			SCREENTIP_CONTEXT_LMB = "Link Clamp",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/machinery/docking_clamp/Destroy(force)
-	if(controller)
-		controller.delink_clamp()
+	var/obj/machinery/computer/salvage_bay_controller/control_console = controller.resolve()
+	if(control_console)
+		control_console.delink_clamp()
 	if(docking_port)
 		QDEL_NULL(docking_port)
 	return ..()
@@ -88,20 +95,19 @@
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/docking_clamp/interact(mob/user)
-	if(!can_interact(user))
-		return
+	. = ..()
 	if(!anchored)
 		balloon_alert(user, "not secured!")
-		return ..()
+		return
 	if(docking_port)
 		balloon_alert(user, "unsetting...")
 		if(!do_after(user, 3 SECONDS, src))
-			return ..()
+			return
 		QDEL_NULL(docking_port)
-		return ..()
-	balloon_alert(user, "setting clamp")
+		return
+	balloon_alert(user, "setting clamp...")
 	if(!do_after(user, 2 SECONDS, src))
-		return ..()
+		return
 	var/turf/dock_location = get_step(src, dir)
 	var/obj/docking_port/stationary/salvage_dock/temp_docking_port = new(dock_location, dir)
 	var/list/docking_turfs = temp_docking_port.return_turfs()
@@ -111,24 +117,23 @@
 		for(var/dock as anything in overlappers)
 			if(dock == temp_docking_port)
 				continue
-			balloon_alert(user, "intersecting nearby dock")
+			balloon_alert(user, "intersecting nearby dock!")
 			temp_docking_port.Destroy(TRUE)
-			return ..()
+			return
 	for(var/turf/checked_turf as anything in docking_turfs)
 		if(checked_turf.x <= 10 || checked_turf.y <= 10 || checked_turf.x >= world.maxx - 10 || checked_turf.y >= world.maxy - 10)
-			balloon_alert(user, "cannot place here")
+			balloon_alert(user, "cannot place here!")
 			new /obj/effect/temp_visual/telegraphing/long_duration(checked_turf)
 			temp_docking_port.Destroy(TRUE)
-			return ..()
+			return
 		var/area/turf_area = get_area(checked_turf)
 		if(!is_space_or_openspace(checked_turf) || checked_turf.is_blocked_turf(TRUE) || !is_area_nearby_station(turf_area))
-			balloon_alert(user, "dock not clear")
+			balloon_alert(user, "dock not clear!")
 			new /obj/effect/temp_visual/telegraphing/long_duration(checked_turf)
 			temp_docking_port.Destroy(TRUE)
-			return ..()
+			return
 		new /obj/effect/temp_visual/medical_holosign(checked_turf)
 	docking_port = temp_docking_port
-	return ..()
 
 /// Scans the docking port area for if living mobs are present inside, TRUE means a mob is in the way (or we have no port?)
 /obj/machinery/docking_clamp/proc/check_for_clear_bay()

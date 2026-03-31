@@ -8,7 +8,7 @@
 		SALVAGE_HAZARD_SHIPMIND,
 		SALVAGE_HAZARD_COOLANT,
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/research,
 	)
 
@@ -23,6 +23,6 @@
 		SALVAGE_HAZARD_COOLANT,
 		SALVAGE_HAZARD_FUEL,
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/mining,
 	)

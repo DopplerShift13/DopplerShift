@@ -8,7 +8,7 @@
 		SALVAGE_HAZARD_FUEL,
 		SALVAGE_HAZARD_REACTOR,
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/shipping,
 		/datum/shipbreaking_owner/medical,
 		/datum/shipbreaking_owner/mining,

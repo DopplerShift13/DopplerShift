@@ -9,6 +9,6 @@
 		SALVAGE_HAZARD_REACTOR,
 		SALVAGE_HAZARD_WEAPONS
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/military,
 	)

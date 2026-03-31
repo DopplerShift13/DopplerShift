@@ -10,6 +10,8 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 		/obj/tear_in_reality,
 	)))
 
+GLOBAL_LIST_EMPTY(shipbreaking_templates)
+
 // Circuit and RND
 
 /obj/item/circuitboard/computer/salvage_computer
@@ -41,18 +43,14 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 	name = "salvage bay control console"
 	desc = "A bulky and old looking terminal that looks like it was dug straight out of the bottom of the ship's \
 		databanks. Likely to be from the very early concept stages of the Dark Locations type ships, where resources \
-		would be obtained through recycling the many old pioneer vessels scattered through the system."
+		would be obtained through recycling the many old pioneer vessels scattered throughout the system."
 	icon_screen = "supply"
 	circuit = /obj/item/circuitboard/computer/personal_shuttle_order
 	light_color = COLOR_BRIGHT_ORANGE
 	/// Are we currently spawning a shuttle? Prevents multiple shuttles trying to spawn and land on each other at once
-	var/bay_occupied = null
+	var/bay_occupied = FALSE
 	/// The docking clamp machine we are linked to
-	var/obj/machinery/docking_clamp/clamp
-	/// The types of shuttle templates we can call
-	var/list/valid_shuttle_templates = list()
-	/// List of the subtypes for map templates we can buy, DO NOT SET DIRECTLY, USE VALID SHUTTLE TEMPLATES FOR DIFFERENT SELECTIONS
-	var/list/valid_shuttle_templates_subtypes = list()
+	var/datum/weakref/clamp
 	/// Assoc list of every shuttle that can be purchased from the choice list, includes name and price and whatnot, filled on init of the console
 	var/list/scrap_list = list()
 	/// The currently selected shuttle map template
@@ -62,15 +60,30 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 		classified nuclear weaponry, unstable eigenstates, or machinery housing any form of \
 		artificial intelligence cannot be present when salvage is discarded."
 
+/obj/machinery/computer/salvage_bay_controller/Initialize(mapload, obj/item/circuitboard/C)
+	. = ..()
+	var/static/list/tool_behaviors = list(
+		TOOL_MULTITOOL = list(
+			SCREENTIP_CONTEXT_LMB = "Link Clamp",
+		),
+	)
+	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
+
 /obj/machinery/computer/salvage_bay_controller/post_machine_initialize()
 	. = ..()
-	try_and_fill_shopping_list()
+	if(!length(GLOB.shipbreaking_templates))
+		fill_shipbreaking_templates()
 
 /obj/machinery/computer/salvage_bay_controller/examine(mob/user)
 	. = ..()
 	if(!clamp)
 		. += span_notice("Connect to a [EXAMINE_HINT("salvage clamp")] by using a [EXAMINE_HINT("multitool")] \
 			on the clamp then connecting it to this console.")
+
+/obj/machinery/computer/salvage_bay_controller/Destroy(force)
+	if(clamp)
+		clamp = null
+	return ..()
 
 /obj/machinery/computer/salvage_bay_controller/multitool_act(mob/living/user, obj/item/multitool/the_tool)
 	if(!the_tool.buffer)
@@ -80,29 +93,27 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 	return ITEM_INTERACT_SUCCESS
 
 /// Links a docking clamp to this console
-/obj/machinery/computer/salvage_bay_controller/proc/link_docking_clamp(new_clamp)
-	if(clamp)
-		clamp.controller = null
-	clamp = new_clamp
-	clamp.controller = src
+/obj/machinery/computer/salvage_bay_controller/proc/link_docking_clamp(obj/machinery/docking_clamp/new_clamp)
+	var/obj/machinery/docking_clamp/old_clamp = clamp?.resolve()
+	if(old_clamp)
+		old_clamp.controller = null
+	clamp = WEAKREF(new_clamp)
+	new_clamp.controller = WEAKREF(src)
 
-/// Delinks ourselves from the clamp we're linked to
+/// A linked docking clamp has given us a polite hint that they're gone or done for
 /obj/machinery/computer/salvage_bay_controller/proc/delink_clamp()
-	if(!clamp)
-		return // ?? how
 	clamp = null
 
-/// Fills the shopping list with names and templates
-/obj/machinery/computer/salvage_bay_controller/proc/try_and_fill_shopping_list()
-	if(!length(valid_shuttle_templates))
-		valid_shuttle_templates = subtypesof(/datum/map_template/shuttle/salvage_scrap)
-	if(length(valid_shuttle_templates_subtypes))
-		message_admins("For some reason, [src] already had a filled valid_shuttle_templates_subtypes, this may or may not be a bug.")
+/// Fills the global shuttle templates list if its empty
+/obj/machinery/computer/salvage_bay_controller/proc/fill_shipbreaking_templates()
+	if(length(GLOB.shipbreaking_templates))
+		message_admins("[src] attempted to fill the shipbreaking templates list, but it was already full, this is wrong!")
 		return
+	var/list/valid_shuttle_templates = valid_subtypesof(/datum/map_template/shuttle/salvage_scrap)
 	for(var/datum/map_template/shuttle/salvage_scrap/template as anything in valid_shuttle_templates)
 		if(!template.shows_up_as_salvage)
 			continue
-		valid_shuttle_templates_subtypes.Add(template) // This makes the var a lie bog off
+		GLOB.shipbreaking_templates.Add(template)
 
 /// Loads specifically "Scrappie" the training shuttle
 #define SALVAGE_CONSOLE_TRAINING "Training Ship"
@@ -113,22 +124,23 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 
 /obj/machinery/computer/salvage_bay_controller/interact(mob/user)
 	. = ..()
-	if(!can_interact(user))
-		return
-	if(!clamp)
+	var/obj/machinery/docking_clamp/docking_clamp = clamp?.resolve()
+	if(!docking_clamp)
 		say("No linked docking clamp detected, re-link and try again later.")
 		return
-	if(!clamp?.docking_port)
+	if(!docking_clamp.docking_port)
 		say("Linked salvage clamp currently inactive, please engage before operation.")
 		return
-	if(!length(valid_shuttle_templates_subtypes))
+	if(!length(GLOB.shipbreaking_templates))
 		say("No salvageable ships are available, please reference your local administrator.")
 		return
 
 	var/menu_option = tgui_input_list(user, "Salvage Bay Action", "Salvage Bay Control Console", list(SALVAGE_CONSOLE_NEW_SHUTTLE, SALVAGE_CONSOLE_TRAINING, SALVAGE_CONSOLE_CLEAR_BAY))
 	if(!menu_option)
-		balloon_alert(user, "no selection")
+		balloon_alert(user, "no selection!")
 		return
+	if(!can_interact(user))
+		return // No sneaking away
 
 	switch(menu_option)
 		if(SALVAGE_CONSOLE_CLEAR_BAY)
@@ -137,10 +149,10 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 				return
 			say("You are about to release savage clamps and clear the bay, proceed?")
 			var/clear_bay_confirm = tgui_alert(user, "Bay cannot be cleared if critical equipment or personnel are present, confirm?", "Salvage Bay Clear Confirmation", list("Confirm", "Cancel"))
-			if(!clear_bay_confirm || clear_bay_confirm == "Cancel")
+			if(!clear_bay_confirm || clear_bay_confirm == "Cancel" || !can_interact(user))
 				say("Cancelling release of salvage clamps, proceed with work.")
 				return
-			var/obj/docking_port/mobile/salvage/docked_salvage = clamp.docking_port.get_docked()
+			var/obj/docking_port/mobile/salvage/docked_salvage = docking_clamp.docking_port.get_docked()
 			if(!docked_salvage.check_blacklist())
 				say(blacklist_hit_message)
 				return
@@ -158,23 +170,24 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 
 /// Spawns a new salvage ship with the template given to it, if there is no template, it will pick a random one
 /obj/machinery/computer/salvage_bay_controller/proc/make_salvage_ship(mob/user, datum/map_template/shuttle/salvage_scrap/salvage_template)
-	if(!clamp?.docking_port)
+	var/obj/machinery/docking_clamp/docking_clamp = clamp?.resolve()
+	if(!docking_clamp?.docking_port)
 		say("Connection to salvage clamp lost, please check equipment and try again later.")
 		return
 	if(isnull(salvage_template))
-		salvage_template = pick(valid_shuttle_templates_subtypes)
-	if(!salvage_template)
+		salvage_template = pick(GLOB.shipbreaking_templates)
+	if(isnull(salvage_template))
 		say("No salvageable ships are available, please reference your local administrator.")
 		return
 	if(bay_occupied)
 		say("Bay already occupied, or currently retrieving salvage, please wait.")
 		return
-	if(clamp.check_for_clear_bay())
+	if(docking_clamp.check_for_clear_bay())
 		say("Please ensure salvage bay is clear of work crew before collecting salvage.")
 		return
 	bay_occupied = TRUE
 	salvage_template = new salvage_template()
-	var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(salvage_template, clamp.docking_port, FALSE)
+	var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(salvage_template, docking_clamp.docking_port, FALSE)
 	if(loaded_port)
 		say("Salvage clamps retrieving ship now, please stand clear of the work bay.")
 		make_salvage_ticket(salvage_template)
@@ -195,7 +208,8 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 	ticket_contents += "<p><strong>Ship details:</strong></p>"
 	ticket_contents += "<p>Designation - [template.prior_name]<br>"
 	ticket_contents += "Prior Owner - [template.prior_owner_datum.owner_name]<br>"
-	ticket_contents += "Operation History from [template.prior_date]:<br>"
+	ticket_contents += "Operation History:<br>"
+	ticket_contents += "[template.prior_date]<br>"
 	ticket_contents += "[template.prior_usage]</p>"
 	ticket_contents += "<hr />"
 	ticket_contents += "<p>Ship Class - [template.ship_class]</p>"

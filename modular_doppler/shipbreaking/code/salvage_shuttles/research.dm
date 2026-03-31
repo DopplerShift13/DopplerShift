@@ -9,7 +9,7 @@
 		SALVAGE_HAZARD_REACTOR,
 		SALVAGE_HAZARD_CARGO,
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/research,
 		/datum/shipbreaking_owner/medical,
 	)

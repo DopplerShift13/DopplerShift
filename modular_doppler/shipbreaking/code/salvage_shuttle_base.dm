@@ -1,5 +1,9 @@
 #define SALVAGE_SHUTTLE_STRINGS "~doppler/salvage_shuttle.json"
 
+#define SALVAGE_SHUTTLE_OLDEST_PRODUCED (1990 + STATION_YEAR_OFFSET)
+#define SALVAGE_SHUTTLE_NEWEST_PRODUCED (2004 + STATION_YEAR_OFFSET)
+#define SALVAGE_SHUTTLE_LATEST_USED (2025 + STATION_YEAR_OFFSET)
+
 /datum/map_template/shuttle/salvage_scrap
 	name = "DEBUG: Salvage Shuttle Basetype"
 	description = "Surely there would be a ship here."
@@ -17,8 +21,8 @@
 	var/ship_class = "UNKNOWN"
 	/// What the ship was doing before it got abandoned, tells players what to expect inside the ship
 	var/prior_usage = "BEING BROKEN"
-	/// DO NOT SET PRIOR_OWNER_DATUM IF YOU SET ANYTHING IN HERE, list of datum owner types this ship will pick from
-	var/list/prior_owner_random_list = list()
+	/// Overridden by prior_owner_datum if set, subtypes of datums in this list will be picked randomly for a shuttle owner
+	var/list/random_owner_types = list()
 	/// Who owned the ship before it was salvage, randomized if null
 	var/datum/shipbreaking_owner/prior_owner_datum = null
 	/// Operation date, "(year) to (year)", randomized if empty
@@ -32,11 +36,11 @@
 		prior_name = pick_list_replacements(SALVAGE_SHUTTLE_STRINGS, "ship_name")
 	if(!prior_owner_datum)
 		var/list/random_owner_subtypes = list()
-		for(var/datum/shipbreaking_owner/past_owner_type as anything in prior_owner_random_list)
+		for(var/datum/shipbreaking_owner/past_owner_type as anything in random_owner_types)
 			random_owner_subtypes += subtypesof(past_owner_type)
 		prior_owner_datum = pick(random_owner_subtypes)
 	if(!prior_date)
-		prior_date = "[rand(2490, 2504)] to [rand(2504, 2525)]"
+		prior_date = "[rand(SALVAGE_SHUTTLE_OLDEST_PRODUCED, SALVAGE_SHUTTLE_NEWEST_PRODUCED)] to [rand(SALVAGE_SHUTTLE_NEWEST_PRODUCED, SALVAGE_SHUTTLE_LATEST_USED)]"
 
 /datum/map_template/shuttle/salvage_scrap/post_load(obj/docking_port/mobile/shuttle_port)
 	. = ..()
@@ -100,3 +104,7 @@
 	power_apc_charge = FALSE
 	default_gravity = ZERO_GRAVITY
 	area_limited_icon_smoothing = /area/shuttle/salvaged_shuttle
+
+#undef SALVAGE_SHUTTLE_OLDEST_PRODUCED
+#undef SALVAGE_SHUTTLE_NEWEST_PRODUCED
+#undef SALVAGE_SHUTTLE_LATEST_USED

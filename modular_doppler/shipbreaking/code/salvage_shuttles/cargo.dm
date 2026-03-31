@@ -9,7 +9,7 @@
 		SALVAGE_HAZARD_REACTOR,
 		SALVAGE_HAZARD_CARGO,
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/shipping,
 		/datum/shipbreaking_owner/mining,
 	)
@@ -26,7 +26,7 @@
 		SALVAGE_HAZARD_FUEL,
 		SALVAGE_HAZARD_REACTOR,
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/shipping,
 	)
 
@@ -42,7 +42,7 @@
 		SALVAGE_HAZARD_FUEL,
 		SALVAGE_HAZARD_REACTOR,
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/shipping,
 		/datum/shipbreaking_owner/mining,
 		/datum/shipbreaking_owner/military,
@@ -60,6 +60,6 @@
 		SALVAGE_HAZARD_FUEL,
 		SALVAGE_HAZARD_REACTOR,
 	)
-	prior_owner_random_list = list(
+	random_owner_types = list(
 		/datum/shipbreaking_owner/shipping,
 	)
