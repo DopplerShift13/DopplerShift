@@ -43,13 +43,13 @@
 	AddComponent(/datum/component/simple_rotation)
 	var/static/list/tool_behaviors = list(
 		TOOL_MULTITOOL = list(
-			SCREENTIP_CONTEXT_LMB = "Link Clamp",
+			SCREENTIP_CONTEXT_LMB = "Get Link",
 		),
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/machinery/docking_clamp/Destroy(force)
-	var/obj/machinery/computer/salvage_bay_controller/control_console = controller.resolve()
+	var/obj/machinery/computer/salvage_bay_controller/control_console = controller?.resolve()
 	if(control_console)
 		control_console.delink_clamp()
 	if(docking_port)
