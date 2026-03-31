@@ -34,6 +34,14 @@ required_map = "DeltaStation2.dmm"
 coordinates = [216, 93, 1]
 trait_name = "Station"
 
+# Deltastation Shipbreaking
+[templates.deltastation_cryo]
+map_files = ["deltastation_shipbreaking.dmm"]
+directory = "_maps/doppler/automapper/templates/deltastation/"
+required_map = "DeltaStation2.dmm"
+coordinates = [111, 14, 1]
+trait_name = "Station"
+
 # ICEBOX MAP EDITS
 # Icebox Cryo
 [templates.icebox_cryo]

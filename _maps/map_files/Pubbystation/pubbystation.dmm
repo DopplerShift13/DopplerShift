@@ -542,6 +542,7 @@
 	dir = 8;
 	id = "SalvageProcess"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "acP" = (
@@ -1446,6 +1447,7 @@
 	dir = 4;
 	id = "SalvageProcess"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "ahp" = (
@@ -20232,6 +20234,7 @@
 "bNr" = (
 /obj/machinery/firealarm/directional/east,
 /obj/structure/table/reinforced,
+/obj/item/radio,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "bNs" = (
@@ -20369,12 +20372,14 @@
 /area/station/maintenance/department/engine)
 "bNS" = (
 /obj/effect/spawner/random/structure/grille,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "bNU" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "bNV" = (
@@ -26238,6 +26243,7 @@
 	id = "SalvageProcess"
 	},
 /obj/structure/sign/semiotic/exhaust/directional/south,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "crn" = (
@@ -28190,6 +28196,7 @@
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "dfd" = (
@@ -28698,6 +28705,7 @@
 /area/station/hallway/primary/central/aft)
 "dym" = (
 /obj/structure/girder/reinforced,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "dyo" = (
@@ -28903,6 +28911,7 @@
 	dir = 10
 	},
 /obj/effect/spawner/random/trash/crushed_can,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "dIj" = (
@@ -29019,6 +29028,7 @@
 	id = "SalvageProcess"
 	},
 /obj/structure/sign/semiotic/vacuum_ahead/directional/south,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "dNA" = (
@@ -29139,6 +29149,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/medbay/lobby)
 "dSr" = (
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "dSx" = (
@@ -29220,6 +29231,7 @@
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "dWk" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "dWo" = (
@@ -30988,6 +31000,15 @@
 	dir = 8
 	},
 /area/station/medical/break_room)
+"flD" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "flQ" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -31003,6 +31024,7 @@
 /area/station/security/brig)
 "fmh" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/salvage,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/aluminum,
 /area/station/salvage_bay)
 "fms" = (
@@ -34508,6 +34530,8 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/tank_holder/extinguisher,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "idH" = (
@@ -34643,6 +34667,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/landmark/atmospheric_sanity/ignore_area,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "ihM" = (
@@ -34677,6 +34702,7 @@
 /obj/machinery/docking_clamp{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "ijG" = (
@@ -34919,7 +34945,8 @@
 /obj/machinery/computer/salvage_bay_controller{
 	dir = 8
 	},
-/obj/machinery/light/dim/directional/east,
+/obj/item/radio/intercom/directional/east,
+/obj/machinery/light/red/dim/directional/east,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "ivy" = (
@@ -35128,6 +35155,7 @@
 	dir = 4
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "iDT" = (
@@ -36730,6 +36758,7 @@
 /area/station/hallway/secondary/exit)
 "jSx" = (
 /obj/effect/mapping_helpers/broken_floor,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/aluminum,
 /area/station/salvage_bay)
 "jSA" = (
@@ -37228,6 +37257,7 @@
 /obj/structure/railing{
 	dir = 5
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "kmn" = (
@@ -37705,6 +37735,7 @@
 /area/station/medical/treatment_center)
 "kDY" = (
 /obj/effect/spawner/random/trash/crushed_can,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "kEb" = (
@@ -37732,6 +37763,7 @@
 /obj/machinery/computer/mech_bay_power_console{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "kFm" = (
@@ -40109,6 +40141,7 @@
 /obj/structure/railing{
 	dir = 10
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "muE" = (
@@ -40378,6 +40411,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "mHK" = (
@@ -40394,6 +40428,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/light/dim/directional/west,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "mJe" = (
@@ -41772,6 +41807,10 @@
 /obj/machinery/mech_bay_recharge_port{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "nPm" = (
@@ -42054,6 +42093,7 @@
 	pixel_x = -8;
 	pixel_y = 1
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "nZw" = (
@@ -42593,6 +42633,7 @@
 	dir = 4
 	},
 /obj/item/storage/cans/sixbeer,
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "ost" = (
@@ -44796,6 +44837,7 @@
 	dir = 4
 	},
 /obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "pWb" = (
@@ -44994,6 +45036,7 @@
 /area/station/maintenance/solars/starboard/fore)
 "qdj" = (
 /obj/structure/disposalpipe/segment,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "qdk" = (
@@ -46423,6 +46466,7 @@
 /area/station/service/hydroponics)
 "reH" = (
 /obj/structure/railing,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "reR" = (
@@ -46490,6 +46534,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/firealarm/directional/north,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "rie" = (
@@ -46786,6 +46831,7 @@
 "rse" = (
 /obj/machinery/power/smes/engineering,
 /obj/structure/cable,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "rsy" = (
@@ -46963,6 +47009,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "rxQ" = (
@@ -47426,6 +47473,10 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/primary/central/aft)
+"rLV" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/turf/open/floor/plating/airless,
+/area/space/nearstation)
 "rMn" = (
 /obj/effect/spawner/structure/window,
 /obj/structure/disposalpipe/segment{
@@ -47603,6 +47654,7 @@
 /turf/open/space/basic,
 /area/space/nearstation)
 "rSH" = (
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/aluminum,
 /area/station/salvage_bay)
 "rSJ" = (
@@ -48048,6 +48100,7 @@
 	pixel_x = -10;
 	pixel_y = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "sip" = (
@@ -48094,6 +48147,14 @@
 /obj/machinery/atmospherics/pipe/layer_manifold/cyan/visible,
 /turf/closed/wall,
 /area/station/maintenance/department/security/brig)
+"skz" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "skS" = (
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -48348,6 +48409,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "suh" = (
@@ -48782,6 +48844,7 @@
 	dir = 8;
 	id = "SalvageProcess"
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "sIq" = (
@@ -48893,6 +48956,7 @@
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "sOB" = (
@@ -49119,6 +49183,7 @@
 	dir = 1
 	},
 /obj/structure/sign/warning/deathsposal/directional/west,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "sXx" = (
@@ -49840,6 +49905,7 @@
 /obj/structure/chair/plastic{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "tta" = (
@@ -50402,6 +50468,7 @@
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "tLk" = (
@@ -51759,6 +51826,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "uIv" = (
@@ -53690,6 +53758,7 @@
 /obj/structure/railing{
 	dir = 8
 	},
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "weS" = (
@@ -53933,6 +54002,7 @@
 /obj/structure/railing{
 	dir = 9
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "wmv" = (
@@ -54153,6 +54223,7 @@
 /obj/structure/chair/plastic{
 	dir = 1
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "wux" = (
@@ -54410,6 +54481,7 @@
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 4
 	},
+/obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/airless,
 /area/space/nearstation)
 "wEc" = (
@@ -56396,6 +56468,7 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/railing,
+/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "xSs" = (
@@ -56678,10 +56751,9 @@
 /area/station/hallway/primary/aft)
 "ydf" = (
 /obj/machinery/newscaster/directional/east,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 8
-	},
 /obj/machinery/light/dim/directional/east,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/recharge,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "ydu" = (
@@ -56841,6 +56913,14 @@
 /mob/living/basic/butterfly,
 /turf/open/floor/grass,
 /area/station/service/hydroponics/garden/monastery)
+"yjv" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "SalvageProcess"
+	},
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "yjF" = (
 /obj/structure/table,
 /obj/item/gps,
@@ -77128,33 +77208,33 @@ wEb
 dym
 wEb
 sOm
-mVM
+rLV
 sOm
 wEb
 wEb
 wEb
 sOm
-mVM
+rLV
 sOm
 wEb
 wEb
 wEb
 sOm
-mVM
+rLV
 sOm
 wEb
 wEb
 wEb
 sOm
-mVM
+rLV
 sOm
 wEb
 wEb
 wEb
 sOm
-mVM
-mVM
-mVM
+rLV
+rLV
+rLV
 nVU
 bUD
 bPy
@@ -80456,8 +80536,8 @@ hSC
 stQ
 bNU
 dWk
-eTg
-eTg
+yjv
+yjv
 dNr
 abI
 qos
@@ -81224,12 +81304,12 @@ eWl
 uMt
 shU
 fef
-shU
+flD
 rSH
 rSH
 fmh
 ihj
-wfO
+skz
 abI
 rxk
 weL
@@ -81481,7 +81561,7 @@ seI
 wfO
 rle
 frq
-wfO
+skz
 rSH
 rSH
 rSH
@@ -81995,10 +82075,10 @@ klo
 bSv
 new
 bSZ
-wfO
-wfO
-wfO
-wfO
+skz
+skz
+skz
+skz
 xRJ
 crm
 abI
@@ -83296,13 +83376,13 @@ tKY
 dym
 tKY
 dey
-mVM
+rLV
 dey
 tKY
 tKY
 tKY
 dey
-mVM
+rLV
 dey
 tKY
 tKY
@@ -83314,15 +83394,15 @@ tKY
 tKY
 tKY
 dey
-mVM
+rLV
 dey
 tKY
 tKY
 tKY
 dey
-mVM
-mVM
-mVM
+rLV
+rLV
+rLV
 nVU
 aaa
 aaa
