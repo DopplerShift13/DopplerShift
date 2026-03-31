@@ -228,6 +228,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/machinery/firealarm/directional/east,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "tR" = (
@@ -337,7 +338,6 @@
 	name = "Salvage Bay"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
-/obj/machinery/door/firedoor,
 /turf/open/floor/iron/dark/textured_large,
 /area/station/salvage_bay)
 "AE" = (
