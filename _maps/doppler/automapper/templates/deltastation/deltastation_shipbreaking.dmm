@@ -319,7 +319,6 @@
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "yg" = (
-/obj/machinery/airalarm/directional/north,
 /obj/structure/closet/secure_closet/engineering_electrical,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
