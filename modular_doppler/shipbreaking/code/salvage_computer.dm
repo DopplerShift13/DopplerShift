@@ -147,38 +147,41 @@ GLOBAL_LIST_INIT(blacklisted_salvage_removal_types, typecacheof(list(
 			docked_salvage.jumpToNullSpace()
 			say("Dock clearing, keep clear of moving clamps to prevent injury.")
 			bay_occupied = FALSE
-		if(SALVAGE_CONSOLE_NEW_SHUTTLE, SALVAGE_CONSOLE_TRAINING)
-			if(!clamp?.docking_port)
-				say("Connection to salvage clamp lost, please check equipment and try again later.")
-				return
-			var/datum/map_template/shuttle/salvage_template
-			if(menu_option == SALVAGE_CONSOLE_NEW_SHUTTLE)
-				salvage_template = pick(valid_shuttle_templates_subtypes)
-			else
-				salvage_template = /datum/map_template/shuttle/salvage_scrap/scrappie
-			if(!salvage_template)
-				say("No salvageable ships are available, please reference your local administrator.")
-				return
-			if(bay_occupied)
-				say("Bay already occupied, or currently retrieving salvage, please wait.")
-				return
-			if(clamp.check_for_clear_bay())
-				say("Please ensure salvage bay is clear of work crew before collecting salvage.")
-				return
-			bay_occupied = TRUE
-			salvage_template = new salvage_template()
-			var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(salvage_template, clamp.docking_port, FALSE)
-			if(loaded_port)
-				say("Salvage clamps retrieving ship now, please stand clear of the work bay.")
-				make_salvage_ticket(salvage_template)
-			else
-				message_admins("[user] tried to load a salvage template ([salvage_template]) but it failed for some reason, this should not happen!")
-				say("Failed to retrieve ship for salvage, please try again later.")
-				bay_occupied = FALSE
+		if(SALVAGE_CONSOLE_NEW_SHUTTLE)
+			make_salvage_ship(user)
+		if(SALVAGE_CONSOLE_TRAINING)
+			make_salvage_ship(user, /datum/map_template/shuttle/salvage_scrap/scrappie)
 
 #undef SALVAGE_CONSOLE_TRAINING
 #undef SALVAGE_CONSOLE_NEW_SHUTTLE
 #undef SALVAGE_CONSOLE_CLEAR_BAY
+
+/// Spawns a new salvage ship with the template given to it, if there is no template, it will pick a random one
+/obj/machinery/computer/salvage_bay_controller/proc/make_salvage_ship(mob/user, datum/map_template/shuttle/salvage_scrap/salvage_template)
+	if(!clamp?.docking_port)
+		say("Connection to salvage clamp lost, please check equipment and try again later.")
+		return
+	if(isnull(salvage_template))
+		salvage_template = pick(valid_shuttle_templates_subtypes)
+	if(!salvage_template)
+		say("No salvageable ships are available, please reference your local administrator.")
+		return
+	if(bay_occupied)
+		say("Bay already occupied, or currently retrieving salvage, please wait.")
+		return
+	if(clamp.check_for_clear_bay())
+		say("Please ensure salvage bay is clear of work crew before collecting salvage.")
+		return
+	bay_occupied = TRUE
+	salvage_template = new salvage_template()
+	var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(salvage_template, clamp.docking_port, FALSE)
+	if(loaded_port)
+		say("Salvage clamps retrieving ship now, please stand clear of the work bay.")
+		make_salvage_ticket(salvage_template)
+	else
+		message_admins("[user] tried to load a salvage template ([salvage_template]) but it failed for some reason, this should not happen!")
+		say("Failed to retrieve ship for salvage, please try again later.")
+		bay_occupied = FALSE
 
 /// Makes a little half-sheet ticket with information about the ship that just got pulled in, scoreboard, scoreboard!
 /obj/machinery/computer/salvage_bay_controller/proc/make_salvage_ticket(datum/map_template/shuttle/salvage_scrap/template)
