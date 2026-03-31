@@ -237,6 +237,7 @@
 	},
 /obj/machinery/light/small/red/directional/north,
 /obj/machinery/camera/autoname/directional/north,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "ul" = (
@@ -454,6 +455,7 @@
 	id = "SalvageProcess"
 	},
 /obj/machinery/light/small/blacklight/directional/north,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "LX" = (
@@ -517,7 +519,6 @@
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "NR" = (
-/obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},

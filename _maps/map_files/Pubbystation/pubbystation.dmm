@@ -32211,9 +32211,6 @@
 /obj/machinery/door/airlock/grunge{
 	name = "Storage"
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 4
-	},
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 8
 	},
@@ -34027,7 +34024,6 @@
 /area/station/cargo/lobby)
 "hIV" = (
 /obj/effect/mapping_helpers/airlock/unres,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge{
@@ -42389,9 +42385,6 @@
 "olc" = (
 /obj/machinery/door/airlock/grunge{
 	name = "Salvage Oversight"
-	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
 	},
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 4
@@ -52960,9 +52953,6 @@
 	name = "Salvage Bay"
 	},
 /obj/effect/mapping_helpers/airlock/unres,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,

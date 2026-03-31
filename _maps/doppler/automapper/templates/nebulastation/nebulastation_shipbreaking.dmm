@@ -198,6 +198,7 @@
 	id = "SalvageProcess"
 	},
 /obj/machinery/camera/autoname/directional/south,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "iQ" = (
@@ -468,6 +469,7 @@
 	id = "SalvageProcess"
 	},
 /obj/machinery/light/small/red/directional/east,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "BC" = (
@@ -625,7 +627,6 @@
 /obj/machinery/door/airlock/atmos{
 	name = "Salvage Bay"
 	},
-/obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/engineering/maintenance,
 /obj/structure/cable,
 /turf/open/floor/iron/dark/textured_large,
