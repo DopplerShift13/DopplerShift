@@ -638,6 +638,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
 /turf/open/floor/plating,
 /area/station/maintenance/port/fore)
 "Ji" = (
@@ -725,7 +726,7 @@
 /obj/effect/turf_decal/loading_area/red,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
-/area/station/salvage_bay)
+/area/space/nearstation)
 "OO" = (
 /obj/structure/shuttle_decoration/headlight/directional/west,
 /turf/closed/wall/r_wall,
@@ -787,7 +788,7 @@
 /obj/effect/turf_decal/loading_area/white,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/plating/reinforced/airless,
-/area/station/salvage_bay)
+/area/space/nearstation)
 "RY" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
