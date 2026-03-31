@@ -34009,7 +34009,6 @@
 "hIV" = (
 /obj/effect/mapping_helpers/airlock/unres,
 /obj/effect/mapping_helpers/airlock/access/any/engineering/maintenance,
-/obj/machinery/door/firedoor,
 /obj/machinery/door/airlock/grunge{
 	name = "Salvage Bay"
 	},
@@ -53744,6 +53743,7 @@
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/firealarm_sanity,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "weS" = (
