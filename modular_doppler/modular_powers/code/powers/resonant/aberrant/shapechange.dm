@@ -87,7 +87,7 @@
 		return DISPEL_RESULT_DISPELLED
 	return NONE
 
-// Special checks to do with hunger.
+// Special checks because changing mobs like this is apparently quite janky.
 /datum/action/cooldown/power/aberrant/shapechange/can_use(mob/living/user, atom/target)
 	. = ..()
 	if(!.)
@@ -95,15 +95,21 @@
 	if(user.IsStun() || user.IsKnockdown())
 		owner.balloon_alert(user, "stunned!")
 		return FALSE
-	// Allow reverting even if starving.
-	if(user.has_status_effect(/datum/status_effect/shapechange_mob/aberrant))
-		return TRUE
+	// Can't shift while being held as an item (e.g. undersized in-hand).
+	if(istype(user.loc, /obj/item/mob_holder))
+		owner.balloon_alert(user, "can't while held!")
+		return FALSE
+	// Can't shift while ventcrawling; it breaks transfer into the new mob.
+	if(user.movement_type & VENTCRAWLING)
+		owner.balloon_alert(user, "can't while ventcrawling!")
+		return FALSE
 	// We shouldn't have any active powers because it will make this power 10x more glitchy. This checks against it.
 	var/datum/action/cooldown/power/blocking_power = get_blocking_active_power(user)
 	if(blocking_power)
 		owner.balloon_alert(user, "active: [blocking_power.name]")
 		return FALSE
-	if(user.nutrition <= NUTRITION_LEVEL_STARVING)
+	// Can't shapeshift while starving unless it is to turn back.
+	if(!user.has_status_effect(/datum/status_effect/shapechange_mob/aberrant) && user.nutrition <= NUTRITION_LEVEL_STARVING)
 		owner.balloon_alert(user, "too hungry!")
 		return FALSE
 	return TRUE

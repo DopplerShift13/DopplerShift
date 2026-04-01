@@ -19,15 +19,19 @@
 		/obj/item/clothing/head/wizard/marisa/fake,
 		/obj/item/clothing/head/wizard/tape/fake,
 		/obj/item/clothing/head/wizard/chanterelle,
+		/obj/item/clothing/head/wizard/secwiz,
+		/obj/item/clothing/head/wizard/viszard
 	)
 	var/list/robe_pool = list(
 		/obj/item/clothing/suit/wizrobe/fake,
 		/obj/item/clothing/suit/wizrobe/marisa/fake,
 		/obj/item/clothing/suit/wizrobe/tape/fake,
+		/obj/item/clothing/suit/wizrobe/secwiz,
+		/obj/item/clothing/suit/wizrobe/viszard
 	)
 
 	// There's a small chance that we manage to sneak in real wizard robes.
-	var/real_robe_set_chance = 3
+	var/real_robe_set_chance = 5
 	var/list/real_robe_sets = list(
 		list(
 			/obj/item/clothing/suit/wizrobe/magusblue,
@@ -35,7 +39,7 @@
 		),
 		list(
 			/obj/item/clothing/head/wizard/magus,
-			/obj/item/clothing/suit/wizrobe/magusblue,
+			/obj/item/clothing/suit/wizrobe/magusred,
 		),
 		list(
 			/obj/item/clothing/head/wizard/black,
