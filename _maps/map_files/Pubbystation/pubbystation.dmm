@@ -8407,9 +8407,11 @@
 /area/station/maintenance/department/cargo)
 "aIr" = (
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/floor/grass,
+/obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
+	dir = 1
+	},
+/obj/structure/table/reinforced/rglass,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "aIX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -15730,18 +15732,14 @@
 /turf/open/floor/iron/white/textured,
 /area/station/medical/pharmacy)
 "brl" = (
-/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
-	dir = 1
-	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "brm" = (
 /obj/structure/cable,
-/obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
+/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 4
 	},
-/obj/structure/table/reinforced/rglass,
-/obj/item/storage/medkit/combat_surgeon/stocked,
+/obj/structure/extinguisher_cabinet/directional/east,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "bro" = (
@@ -16038,7 +16036,9 @@
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 4
 	},
-/obj/effect/landmark/start/paramedic,
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "bsR" = (
@@ -17671,11 +17671,10 @@
 /area/station/hallway/primary/aft)
 "bzZ" = (
 /obj/machinery/airalarm/directional/west,
-/obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
-	dir = 1
+/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
+	dir = 8
 	},
-/obj/structure/table/reinforced/rglass,
-/obj/item/storage/backpack/duffelbag/deforest_medkit/stocked,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "bAe" = (
@@ -18064,15 +18063,14 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/medical/morgue)
 "bBZ" = (
-/obj/machinery/suit_storage_unit/medical,
 /obj/effect/turf_decal/tile/pine_green/half/contrasted,
-/obj/structure/sign/semiotic/storage/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "bCa" = (
 /obj/machinery/rnd/production/techfab/department/medical,
 /obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/pine_green/half/contrasted,
+/obj/structure/sign/semiotic/storage/directional/south,
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "bCb" = (
@@ -18188,14 +18186,12 @@
 /turf/open/floor/plating,
 /area/station/medical/chemistry)
 "bCr" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
-	dir = 1
-	},
-/obj/machinery/light/directional/south,
 /obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
 	dir = 8
 	},
-/obj/structure/extinguisher_cabinet/directional/west,
+/obj/structure/fireaxecabinet/jawsofrecovery/directional/south,
+/obj/item/surgicaldrill,
+/obj/structure/table/reinforced/rglass,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "bCv" = (
@@ -18755,7 +18751,8 @@
 /area/station/science/ordnance/freezerchamber)
 "bFl" = (
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted,
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/machinery/suit_storage_unit/medical,
+/obj/machinery/light/directional/south,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "bFq" = (
@@ -20311,11 +20308,11 @@
 /turf/open/floor/iron/white/small,
 /area/station/medical/virology)
 "bNO" = (
-/obj/machinery/suit_storage_unit/medical,
 /obj/machinery/light/no_nightlight/directional/east,
 /obj/effect/turf_decal/tile/pine_green/half/contrasted{
 	dir = 4
 	},
+/obj/structure/closet/secure_closet/paramedic,
 /turf/open/floor/iron/dark,
 /area/station/medical/coldroom)
 "bNP" = (
@@ -30755,10 +30752,10 @@
 /turf/open/floor/plating,
 /area/station/construction/mining/aux_base)
 "fgs" = (
-/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
+/obj/structure/chair/comfy/black{
 	dir = 1
 	},
-/obj/machinery/computer/crew,
+/obj/effect/landmark/start/paramedic,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "fgv" = (
@@ -33229,14 +33226,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/commons/fitness/recreation)
-"hjy" = (
-/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
-	dir = 1
-	},
-/obj/structure/table/reinforced/rglass,
-/obj/machinery/computer/records/medical/laptop,
-/turf/open/floor/iron/dark/smooth_large,
-/area/station/medical/paramedic)
 "hjW" = (
 /obj/machinery/portable_atmospherics/canister/air,
 /obj/structure/railing{
@@ -34720,7 +34709,7 @@
 	},
 /obj/structure/sign/semiotic/refrigeration/directional/south,
 /turf/open/floor/wood/tile,
-/area/station/medical/medbay/central)
+/area/station/medical/break_room)
 "isF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/brown/visible/layer2,
 /turf/open/floor/plating,
@@ -41590,11 +41579,7 @@
 /area/station/science/ordnance/storage)
 "nSe" = (
 /obj/structure/cable,
-/obj/effect/landmark/start/paramedic,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/chair/comfy/black{
-	dir = 1
-	},
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "nSz" = (
@@ -42329,7 +42314,7 @@
 /obj/machinery/door/airlock/command/glass{
 	name = "Paramedic Dispatch Room"
 	},
-/obj/effect/mapping_helpers/airlock/access/all/medical/general,
+/obj/effect/mapping_helpers/airlock/access/all/medical/paramedic,
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/medical/paramedic)
@@ -43229,9 +43214,12 @@
 "oXV" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/west,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/flora/bush/flowers_br/style_random,
-/turf/open/floor/grass,
+/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
+	dir = 1
+	},
+/obj/structure/table/reinforced/rglass,
+/obj/machinery/computer/records/medical/laptop,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "oYc" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
@@ -45078,7 +45066,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/effect/mapping_helpers/airlock/access/all/medical/general,
+/obj/effect/mapping_helpers/airlock/access/all/medical/paramedic,
 /turf/open/floor/iron/white/side{
 	dir = 8
 	},
@@ -46287,9 +46275,12 @@
 /area/station/construction)
 "rlh" = (
 /obj/structure/window/reinforced/spawner/directional/north,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/flora/bush/flowers_pp/style_random,
-/turf/open/floor/grass,
+/obj/effect/turf_decal/tile/dark_blue/anticorner/contrasted{
+	dir = 4
+	},
+/obj/structure/table/reinforced/rglass,
+/obj/item/toy/figure/paramedic,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "rli" = (
 /obj/structure/sink{
@@ -47890,9 +47881,11 @@
 "sor" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/east,
-/obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/flora/bush/flowers_yw/style_random,
-/turf/open/floor/grass,
+/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
+	dir = 1
+	},
+/obj/machinery/computer/crew,
+/turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "soA" = (
 /obj/structure/sign/directions/dorms/directional/east,
@@ -51490,8 +51483,8 @@
 /turf/open/floor/iron/white/textured_large,
 /area/station/medical/surgery)
 "uOA" = (
-/obj/machinery/suit_storage_unit/medical,
 /obj/effect/turf_decal/tile/pine_green/anticorner/contrasted,
+/obj/structure/closet/secure_closet/paramedic,
 /turf/open/floor/iron/dark,
 /area/station/medical/coldroom)
 "uPz" = (
@@ -55133,12 +55126,15 @@
 /turf/open/floor/plating,
 /area/station/engineering/supermatter/room)
 "xmg" = (
-/obj/structure/cable,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/chair/comfy/black{
+/obj/machinery/door/airlock/command/glass{
+	name = "Paramedic Dispatch Room"
+	},
+/obj/effect/mapping_helpers/airlock/access/all/medical/paramedic,
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/tile/dark_blue/half/contrasted{
 	dir = 1
 	},
-/turf/open/floor/iron/dark/smooth_large,
+/turf/open/floor/plating,
 /area/station/medical/paramedic)
 "xmj" = (
 /obj/machinery/computer/security/telescreen/entertainment,
@@ -55300,10 +55296,8 @@
 /area/station/maintenance/department/science/xenobiology)
 "xsT" = (
 /obj/effect/turf_decal/tile/dark_blue/half/contrasted,
-/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
-	dir = 1
-	},
 /obj/machinery/firealarm/directional/south,
+/obj/machinery/suit_storage_unit/medical,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "xsZ" = (
@@ -85887,7 +85881,7 @@ oSa
 gfH
 sor
 fgs
-xmg
+nSe
 buk
 qwJ
 clN
@@ -86142,7 +86136,7 @@ frX
 dRU
 gzG
 brh
-orK
+xmg
 brl
 bsL
 bFl
@@ -86400,7 +86394,7 @@ blo
 crd
 gfH
 oXV
-hjy
+fgs
 nSe
 xsT
 qwJ
