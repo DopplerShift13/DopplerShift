@@ -103,6 +103,7 @@
 	power_environ = TRUE
 	power_apc_charge = FALSE
 	default_gravity = ZERO_GRAVITY
+	area_flags = NO_GRAVITY
 	area_limited_icon_smoothing = /area/shuttle/salvaged_shuttle
 
 #undef SALVAGE_SHUTTLE_OLDEST_PRODUCED
