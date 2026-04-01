@@ -158,6 +158,10 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 				return
 			docked_salvage.jumpToNullSpace()
 			say("Dock clearing, keep clear of moving clamps to prevent injury.")
+			if(docking_clamp.docking_port.get_docked())
+				message_admins("[src] just tried to clear its shuttle but it still has something docked, this is not supposed to happen.")
+				say("Failed to clear dock, please try again and contact your local system administrator.")
+				return
 			bay_occupied = FALSE
 		if(SALVAGE_CONSOLE_NEW_SHUTTLE)
 			make_salvage_ship(user)
@@ -188,7 +192,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 	bay_occupied = TRUE
 	salvage_template = new salvage_template()
 	var/obj/docking_port/mobile/loaded_port = SSshuttle.action_load(salvage_template, docking_clamp.docking_port, FALSE)
-	if(loaded_port)
+	if(loaded_port && (docking_clamp.docking_port.get_docked() == loaded_port))
 		say("Salvage clamps retrieving ship now, please stand clear of the work bay.")
 		make_salvage_ticket(salvage_template)
 	else
