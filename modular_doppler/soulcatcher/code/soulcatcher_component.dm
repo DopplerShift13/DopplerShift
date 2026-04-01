@@ -324,8 +324,8 @@ GLOBAL_LIST_EMPTY(soulcatchers)
 		if(!master_resolved)
 			return FALSE
 		var/datum/component/soulcatcher/parent_soulcatcher = master_resolved
-		var/obj/item/parent_object = parent_soulcatcher.parent
-		if(!istype(parent_object))
+		var/obj/parent_object = parent_soulcatcher.parent
+		if(!isobj(parent_object))
 			return FALSE
 
 		var/temp_name = parent_object.name
