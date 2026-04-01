@@ -53,6 +53,7 @@
 	if(control_console)
 		control_console.delink_clamp()
 	if(docking_port)
+		SSshuttle.stationary_docking_ports -= docking_port
 		QDEL_NULL(docking_port)
 	return ..()
 
@@ -80,6 +81,7 @@
 	if(!default_unfasten_wrench(user, tool, 4 SECONDS))
 		return ITEM_INTERACT_BLOCKING
 	if(!anchored)
+		SSshuttle.stationary_docking_ports -= docking_port
 		QDEL_NULL(docking_port)
 	return ITEM_INTERACT_SUCCESS
 
@@ -103,6 +105,7 @@
 		balloon_alert(user, "unsetting...")
 		if(!do_after(user, 3 SECONDS, src))
 			return
+		SSshuttle.stationary_docking_ports -= docking_port
 		QDEL_NULL(docking_port)
 		return
 	balloon_alert(user, "setting clamp...")
