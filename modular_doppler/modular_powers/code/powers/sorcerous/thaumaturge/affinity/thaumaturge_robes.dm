@@ -32,7 +32,7 @@
 // Secrobe; affinity 3 armor. Has the stats of a secjacket and covers the legs, and also has affinity, but also has a slight amount of slowdown.
 /obj/item/clothing/suit/wizrobe/secwiz
 	name = "security thaumaturge robe"
-	desc = "The garments of a security-contracted Thaumaturge. The robes have been reinforced and provide a high amount of protection across a large degree of the body, at the cost of being bulkier. The proportion of armor to robe has been fine-tuned for the most optimal results; it seems that armored wizards isn't particularly popular in the zeitgeist, reducing the impact of armor on robes."
+	desc = "The garments of a security-contracted Thaumaturge. The robes have been reinforced and provide a high amount of protection across a large degree of the body, at the cost of being bulkier to move in. The proportion of armor to robe has been fine-tuned for the most optimal results; it seems that armored wizards aren't particularly popular in the worldly zeitgeist, reducing the impact of armor on robes."
 	icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	worn_icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	icon_state = "secrobemob"
@@ -51,7 +51,7 @@
 // Secrobe; affinity 3 head, no bonus perks besides not being flammable.
 /obj/item/clothing/head/wizard/secwiz
 	name = "security thaumaturge hat"
-	desc = "A wizard's hat, painted in the colors of the security department. Jokingly referred to as the Magic Police, Thaumaturges experience an unique skillset that is very useful by Security Officer. Given their requirements to dress \
+	desc = "A wizard's hat, painted in the colors of the security department. Jokingly referred to as the Magic Police, Thaumaturges experience an unique skillset that is very useful to have as a Security Officer. Given their requirements to dress \
 	for their powers, security has commissioned these special hats."
 	icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	worn_icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
