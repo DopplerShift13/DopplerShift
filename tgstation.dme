@@ -7981,7 +7981,6 @@
 #include "modular_doppler\taurs\code\taur_mechanics\taur_clothing_offset.dm"
 #include "modular_doppler\taurs\code\taur_sprites\suits.dm"
 #include "modular_doppler\telepathy_qol\telepathy_action.dm"
-#include "modular_doppler\telepathy_qol\telepathy_quirk.dm"
 #include "modular_doppler\telepathy_qol\telepathy_reply_emote.dm"
 #include "modular_doppler\temporary_flavor_text\temp_flavor_text.dm"
 #include "modular_doppler\the-business\code\twitch.dm"
