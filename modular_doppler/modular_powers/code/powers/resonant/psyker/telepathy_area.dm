@@ -11,7 +11,7 @@
 	var/datum/action/cooldown/power/psyker/telepathy/telepathy_action = telepathy_power?.action_path
 	if(telepathy_action)
 		telepathy_action.aoe_enabled = TRUE
-		telepathy_action.desc = "Allows you to mentally communicate messages to the target. Left click to send the message to one target, right click to all targets in view."
+		telepathy_action.desc = "Allows you to mentally communicate messages to the target. Left click to send the message to one target, right click to all targets in view, middle click to toggle speech-bubble while typing. ."
 
 /datum/power/psyker_power/telepathy_area/remove()
 	. = ..()
