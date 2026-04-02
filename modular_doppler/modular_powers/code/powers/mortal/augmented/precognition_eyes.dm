@@ -23,6 +23,8 @@
 	premium = TRUE
 	var/enabled = TRUE
 
+	/// How much quality do we lose on trigger?
+	var/quality_loss = AUGMENTED_PREMIUM_QUALITY_MINOR / 2
 	/// Skillchip installed by this augment.
 	var/obj/item/skillchip/installed_chip
 	/// Did we add an extra skillchip slot?
@@ -97,7 +99,7 @@
 	if(. & EMP_PROTECT_SELF)
 		return
 	if(premium_component)
-		premium_component.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MINOR)
+		premium_component.adjust_quality(-quality_loss)
 	enabled = FALSE
 	COOLDOWN_START(src, emp_reenable_cooldown, emp_cooldown)
 	premium_component?.update_quality_actions()

@@ -1,8 +1,8 @@
 
 /datum/power/theologist_root/revered
 	name = "A Burden Revered"
-	desc = "Nullifies pain and slowly heals the targeted creature over a prolonged period of time. This may be yourself. \
-	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. \
+	desc = "Nullifies pain and slowly heals the targeted creature's burn and brute damage over a prolonged period of time. This may be yourself. \
+	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. Does not work on synthetic bodyparts. \
 	This is mutually exclusive with the other 'A Burden...' powers."
 	security_record_text = "Subject can magically mend their own wounds and the wounds of others slowly over a long duration."
 	security_threat = POWER_THREAT_MAJOR
@@ -12,8 +12,8 @@
 
 /datum/action/cooldown/power/theologist/theologist_root/revered
 	name = "A Burden Revered"
-	desc = "Nullifies pain and slowly heals the targeted creature over a prolonged period of time. This may be yourself. \
-	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again."
+	desc = "Nullifies pain and slowly heals the targeted creature's burn and brute damage over a prolonged period of time. This may be yourself. \
+	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. Does not work on synthetic bodyparts."
 	button_icon = 'icons/obj/weapons/guns/magic.dmi'
 	button_icon_state = "revivewand" // I need something better
 	cooldown_time = 50
@@ -114,53 +114,31 @@
 	var/healing_amount = (base_healing_amount * seconds_between_ticks)
 	new /obj/effect/temp_visual/heal(get_turf(owner), "#ddd166")
 
-	// Expire if at full health.
-	if(owner && owner.health >= owner.maxHealth)
-		expire()
-		return
 	// Expire if we've reached the max.
 	if(healing_done >= healing_max)
 		expire()
 		return
 
-	// Only include damage types that actually need healing
-	var/list/damage_choices = list()
-	var/brute_damage = owner.getBruteLoss()
-	var/burn_damage = owner.getFireLoss()
-	var/tox_damage = owner.getToxLoss()
-	var/oxy_damage = owner.getOxyLoss()
-
-	if(brute_damage > 0) damage_choices += "brute"
-	if(burn_damage > 0) damage_choices += "burn"
-	if(tox_damage > 0) damage_choices += "tox"
-	if(oxy_damage > 0) damage_choices += "oxy"
-
-	// Nothing to heal
-	if(!damage_choices.len)
+	// Limb-based healing: only organic bodyparts.
+	if(!istype(owner, /mob/living/carbon))
+		expire()
 		return
 
-	var/damage_choice = pick(damage_choices)
-
-	switch(damage_choice)
-		if("brute")
-			var/heal_done = min(healing_amount, brute_damage)
-			owner.adjustBruteLoss(-heal_done)
+	var/mob/living/carbon/mob = owner
+	var/healed_any = FALSE
+	// gets random bodypart, heals it, bam.
+	for(var/obj/item/bodypart/bodypart in mob.get_damaged_bodyparts(1, 1, BODYTYPE_ORGANIC))
+		var/heal_done = bodypart.heal_damage(healing_amount, healing_amount, required_bodytype = BODYTYPE_ORGANIC)
+		if(heal_done)
+			mob.update_damage_overlays()
 			healing_done += heal_done
+		healed_any = TRUE
+		break
 
-		if("burn")
-			var/heal_done = min(healing_amount, burn_damage)
-			owner.adjustFireLoss(-heal_done)
-			healing_done += heal_done
-
-		if("tox")
-			var/heal_done = min(healing_amount, tox_damage)
-			owner.adjustToxLoss(-heal_done)
-			healing_done += heal_done
-
-		if("oxy")
-			var/heal_done = min(healing_amount, oxy_damage)
-			owner.adjustOxyLoss(-heal_done)
-			healing_done += heal_done
+	// Expire if there's nothing left to heal.
+	if(!healed_any)
+		expire()
+		return
 
 // QDEL destroys burden_power
 /datum/status_effect/power/burden_revered/proc/expire()

@@ -66,6 +66,7 @@
 
 	// Causes it to act immediately.
 	new_mirage.FindTarget()
+	new_mirage.taunt_nearest_hostile(5)
 
 	modify_stress(stress_cost)
 	playsound(new_mirage, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
@@ -112,6 +113,7 @@
 	attack_verb_continuous = "attacks"
 	attack_verb_simple = "attack"
 
+// imposes the caster onto the mob
 /mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/set_action_ref(datum/action/cooldown/power/psyker/mirage/action)
 	action_ref = WEAKREF(action)
 	if(!alt_appearance_key)
@@ -131,6 +133,41 @@
 	var/desired = max(0.1, owner.cached_multiplicative_slowdown)
 	move_to_delay = desired
 	set_varspeed(desired)
+
+// Draw a nearby hostile's aggro to sell the illusion.
+/mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/taunt_nearest_hostile(range_limit = 5)
+	var/datum/action/cooldown/power/psyker/mirage/action = action_ref?.resolve()
+	var/mob/living/nearest_mob
+	var/nearest_dist
+
+	for(var/mob/living/living_mob in range(range_limit, src))
+		if(living_mob == src || QDELETED(living_mob)) // no self taunting
+			continue
+		if(istype(living_mob, /mob/living/simple_animal/hostile/illusion)) // no taunting other illusions
+			continue
+		if(living_mob.mind) // no sentient taunting
+			continue
+		if(!islist(living_mob.faction) || (!(FACTION_HOSTILE in living_mob.faction) && !(FACTION_MINING in living_mob.faction))) // has to be in the hostile mob faction or the mining faction
+			continue
+		if(FACTION_BOSS in living_mob.faction) // "There is no aggro reset. (...) There is some shit about an aggro reset when people don't know how to manage their aggro."
+			continue
+		if(action && !action.can_affect_mental(living_mob)) // can't be immune to mental shit
+			continue
+		if(!istype(living_mob, /mob/living/simple_animal/hostile) && !living_mob.ai_controller) // either a hostile mob or has to have an ai controler
+			continue
+		var/distance = get_dist(src, living_mob)
+		if(isnull(nearest_dist) || distance < nearest_dist) // get the nearest mob in range
+			nearest_mob = living_mob
+			nearest_dist = distance
+	if(nearest_mob)
+		if(istype(nearest_mob, /mob/living/simple_animal/hostile)) // hostile mobs forced target
+			var/mob/living/simple_animal/hostile/hostile_mob = nearest_mob
+			hostile_mob.GiveTarget(src)
+		else if(nearest_mob.ai_controller) // otherwise we just force the blackboard to use a different target.
+			nearest_mob.ai_controller.CancelActions()
+			nearest_mob.ai_controller.clear_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET)
+			nearest_mob.ai_controller.set_blackboard_key(BB_BASIC_MOB_CURRENT_TARGET, src)
+			nearest_mob.ai_controller.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, src)
 
 // Applies the selection AI mode. Have your illusions act as you please :D
 /mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/apply_mode(new_mode)

@@ -4,7 +4,6 @@
 	Gives Piety proportional to the amount of damage twisted. \
 	This is mutually exclusive with the other 'A Burden...' powers."
 	security_record_text = "Subject can rapidly transmute the wounds of a target into smaller, insubstantial wounds."
-	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/twisted
 
 	value = 5
@@ -15,7 +14,7 @@
 	Gives Piety proportional to the amount of damage twisted."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "hand"
-	cooldown_time = 200
+	cooldown_time = 150
 	target_range = 1
 	target_type = /mob/living
 	click_to_activate = TRUE

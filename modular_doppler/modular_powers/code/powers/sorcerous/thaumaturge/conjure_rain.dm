@@ -25,7 +25,6 @@
 
 	use_time_overlay_type = /obj/effect/temp_visual/conjure_rain
 	use_time = 1 SECONDS
-	use_time_flags = IGNORE_USER_LOC_CHANGE
 
 	// the chem that the base rain uses
 	var/datum/reagent/rain_chem = /datum/reagent/water
@@ -37,6 +36,21 @@
 	var/max_reagents_dupe = 60
 	// bonus to max reagents per affinity above 3.
 	var/affinity_max_reagents = 20
+	// Max units of reagent to expose per turf when splashing on the ground.
+	var/ground_expose_cap = 10
+	// If TRUE, only allow chems that can be synthesized (unless bypassed below).
+	var/require_synthesizable = TRUE
+	// Chems that bypass synthesizable check.
+	var/list/synth_bypass_chems = list(/datum/reagent/blood) // blood is cool and has synergy iwth sanguine absorption
+
+/datum/action/cooldown/power/thaumaturge/conjure_rain/proc/is_allowed_rain_reagent(datum/reagent/reagent)
+	if(!reagent)
+		return FALSE
+	if(reagent.type in synth_bypass_chems)
+		return TRUE
+	if(!require_synthesizable)
+		return TRUE
+	return (reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED)
 
 // We piggyback into do_use_time to add a telegraph of the rain.
 /datum/action/cooldown/power/thaumaturge/conjure_rain/do_use_time(mob/living/user, atom/target)
@@ -53,7 +67,7 @@
 		// We need to make sure that the chems are synthesizable so that people aren't surprised that they can't blood rain
 		var/list/datum/reagent/synth_reagents = list()
 		for(var/datum/reagent/reagent in held_container.reagents.reagent_list)
-			if(reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED)
+			if(is_allowed_rain_reagent(reagent))
 				synth_reagents += reagent
 		// If all succeeds, mix the rain color.
 		if(length(synth_reagents))
@@ -80,7 +94,7 @@
 	if(istype(held_container) && held_container.reagents?.total_volume)
 		var/synth_volume = 0
 		for(var/datum/reagent/reagent as anything in held_container.reagents.reagent_list)
-			if(reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED)// Prevents us from duping SPECIAL CHEMS.
+			if(is_allowed_rain_reagent(reagent))// Prevents us from duping SPECIAL CHEMS (unless bypassed).
 				synth_volume += reagent.volume
 		var/drain_amount = min(buffer.buffer_volume, synth_volume)
 		if(drain_amount > 0)
@@ -88,7 +102,7 @@
 			var/chem_ratio = base_chem_ratio
 			var/part = drain_amount / synth_volume
 			for(var/datum/reagent/reagent as anything in held_container.reagents.reagent_list)
-				if(!(reagent.chemical_flags & REAGENT_CAN_BE_SYNTHESIZED))
+				if(!is_allowed_rain_reagent(reagent))
 					continue
 				var/transfer_amount = reagent.volume * part
 				if(transfer_amount > 0)
@@ -107,6 +121,9 @@
 	var/bonus_affinity = max(0, affinity - 3)
 	var/max_spread = max_reagents_dupe + (bonus_affinity * affinity_max_reagents)
 	var/per_container = 0
+	var/ground_expose_modifier = 1
+	if(buffer.reagents.total_volume > 0)
+		ground_expose_modifier = min(1, ground_expose_cap / buffer.reagents.total_volume)
 
 	// Get every reagent container in range and calculate how we spread the rain.
 	if(length(area_containers))
@@ -114,8 +131,13 @@
 
 	// every tile in range...
 	for(var/turf/area_turf in range(1, target_turf))
-		// splash it onto the space.
-		buffer.reagents.expose(area_turf, TOUCH)
+		var/has_container = FALSE
+		for(var/obj/item/reagent_containers/target_container in area_turf)
+			has_container = TRUE
+			break
+		// splash it onto the space (skip if we're filling a container on that turf).
+		if(!has_container)
+			buffer.reagents.expose(area_turf, TOUCH, ground_expose_modifier)
 		// splashes it onto every mob in the area
 		for(var/mob/living/area_mob in area_turf)
 			buffer.reagents.expose(area_mob, TOUCH)
