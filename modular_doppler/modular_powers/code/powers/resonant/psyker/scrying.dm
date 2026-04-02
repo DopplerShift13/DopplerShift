@@ -395,30 +395,49 @@
 	// Apply masks for newly seen mobs (baseline: everyone)
 	for(var/mob/living/seen_mob as anything in current_mobs)
 		if(masked_mobs[seen_mob])
-			update_silhouette_dir(seen_mob)
+			sync_mask_image(seen_mob)
 			continue
 
 		mask_mob(viewer, seen_mob)
 
-// makes the silhouettes directional
-/datum/scrying_immunity_mask/proc/update_silhouette_dir(mob/living/target_mob)
+// Keep silhouettes aligned with the target's current appearance (transform/pixel offsets/dir).
+/datum/scrying_immunity_mask/proc/sync_mask_image(mob/living/target_mob)
 	var/image/mask_image = masked_mobs[target_mob]
 	if(!mask_image)
 		return
+	// Copy the full appearance so transforms and pixel offsets stay in sync.
+	mask_image.appearance = target_mob.appearance
+	mask_image.override = TRUE
+	mask_image.name = "Unknown"
+	mask_image.color = "#000000"
+	mask_image.alpha = 180
+	mask_image.appearance_flags |= RESET_TRANSFORM
 	mask_image.dir = target_mob.dir
+	// Avoid double-applying mob pixel offsets; the image is already anchored to the mob.
+	mask_image.pixel_w = 0
+	mask_image.pixel_x = 0
+	mask_image.pixel_y = 0
+	mask_image.pixel_z = 0
+	SET_PLANE_EXPLICIT(mask_image, ABOVE_GAME_PLANE, target_mob)
 
 /datum/scrying_immunity_mask/proc/mask_mob(mob/living/viewer, mob/living/target_mob)
 	if(!viewer?.client || QDELETED(target_mob))
 		return
 
-	// Delusion-style override: a client-only mask image that owns the click/name.
+	// Delusion-style hallucination override: a client-only mask image that owns the click/name.
 	var/image/mask_image = image(loc = target_mob)
 	mask_image.appearance = target_mob.appearance
 	mask_image.override = TRUE
 	mask_image.name = "Unknown"
 	mask_image.color = "#000000"
 	mask_image.alpha = 180
+	mask_image.appearance_flags |= RESET_TRANSFORM
 	mask_image.dir = target_mob.dir
+	// Avoid double-applying mob pixel offsets; the image is already anchored to the mob.
+	mask_image.pixel_w = 0
+	mask_image.pixel_x = 0
+	mask_image.pixel_y = 0
+	mask_image.pixel_z = 0
 	SET_PLANE_EXPLICIT(mask_image, ABOVE_GAME_PLANE, target_mob)
 
 	viewer.client.images += mask_image

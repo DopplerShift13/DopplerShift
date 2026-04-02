@@ -48,6 +48,7 @@
 			clicker.balloon_alert(clicker, "Typing bubble enabled")
 		else
 			clicker.balloon_alert(clicker, "Typing bubble disabled")
+			stop_telepathy_typing_overlay(clicker, FALSE) // turns it off instantly if needed
 		return TRUE
 	if(LAZYACCESS(mods, RIGHT_CLICK))
 		if(!aoe_enabled)
