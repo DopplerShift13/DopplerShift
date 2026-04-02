@@ -443,7 +443,7 @@
 	viewer.client.images += mask_image
 	masked_mobs[target_mob] = mask_image
 
-	// Keep your existing “don’t leak info” hooks
+	// Hides data about the mob with vague examines + no huds.
 	RegisterSignal(target_mob, COMSIG_ATOM_EXAMINE, PROC_REF(on_target_examine))
 	hide_data_huds(viewer, target_mob)
 
