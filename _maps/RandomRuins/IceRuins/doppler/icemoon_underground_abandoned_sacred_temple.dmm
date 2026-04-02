@@ -583,7 +583,7 @@
 	},
 /area/ruin/unpowered/abandoned_sacred_temple)
 "GT" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/plate/ceramic{
 	pixel_y = 6;
 	pixel_x = -2
@@ -647,7 +647,7 @@
 	},
 /area/ruin/unpowered/abandoned_sacred_temple)
 "IL" = (
-/obj/structure/rack/wooden,
+/obj/structure/shelf/wooden,
 /obj/item/reagent_containers/cup/glass/bottle/wine/unlabeled{
 	pixel_y = 14;
 	pixel_x = -6

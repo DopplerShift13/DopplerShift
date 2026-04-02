@@ -14,7 +14,7 @@
 /* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
 
 /datum/loadout_item/shoes/sneakers
-	name = "Sneakers (Colourable)"
+	name = "Sneakers"
 	item_path = /obj/item/clothing/shoes/sneakers
 
 /datum/loadout_item/shoes/sandals_laced

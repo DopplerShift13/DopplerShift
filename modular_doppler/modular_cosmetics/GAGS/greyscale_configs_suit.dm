@@ -132,6 +132,42 @@
 	name = "Bad for School Jacket (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
+/datum/greyscale_config/technyne_sweatshirt
+	name = "TechNyne Sweatshirt"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = "modular_doppler/modular_cosmetics/GAGS/json_configs/suit/technyne_sweatshirt.json"
+
+/datum/greyscale_config/technyne_sweatshirt/worn
+	name = "TechNyne Sweatshirt (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/technyne_overlay_hoodie
+	name = "TechNyne Overlay Hoodie"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = "modular_doppler/modular_cosmetics/GAGS/json_configs/suit/technyne_overlay_hoodie.json"
+
+/datum/greyscale_config/technyne_overlay_hoodie/worn
+	name = "TechNyne Overlay Hoodie (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/technyne_overlay
+	name = "TechNyne Overlay"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = "modular_doppler/modular_cosmetics/GAGS/json_configs/suit/technyne_overlay.json"
+
+/datum/greyscale_config/technyne_overlay/worn
+	name = "TechNyne Overlay (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/technyne_hood
+	name = "Technyne Hood"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
+	json_config = "modular_doppler/modular_cosmetics/GAGS/json_configs/suit/technyne_hood.json"
+
+/datum/greyscale_config/technyne_hood/worn
+	name = "Technyne Hood (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
+
 // Apron
 
 /datum/greyscale_config/apron
@@ -143,3 +179,20 @@
 	name = "Apron (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/suit.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/apron_worn.json'
+
+// Fancy labcoat
+
+/datum/greyscale_config/fancy_labcoat
+	name = "Fancy Suit"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/suit.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/fancy_labcoat.json'
+
+/datum/greyscale_config/fancy_labcoat/worn
+	name = "Fancy Suit (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/suit.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/fancy_labcoat_worn.json'
+
+/datum/greyscale_config/fancy_labcoat/worn/teshari
+	name = "Fancy Suit (Worn, Teshari)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/suit.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/fancy_labcoat_tesh_worn.json'

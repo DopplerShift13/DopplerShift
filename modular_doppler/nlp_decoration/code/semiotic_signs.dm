@@ -10,12 +10,16 @@
 	icon_state = "pressure"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/pressure, 32)
+
 /obj/structure/sign/semiotic/gravity
 	name = "gravity label"
 	sign_change_name = "Semiotic Label - Gravity"
 	desc = "Indicates the space beyond has artificial gravity."
 	icon_state = "gravity"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/gravity, 32)
 
 /obj/structure/sign/semiotic/no_gravity
 	name = "no gravity label"
@@ -24,12 +28,16 @@
 	icon_state = "no_gravity"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/no_gravity, 32)
+
 /obj/structure/sign/semiotic/cryo
 	name = "cryogenic storage label"
 	sign_change_name = "Semiotic Label - Cryogenic Storage"
 	desc = "Indicates the space beyond contains cryogenic storage."
 	icon_state = "cryo"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/cryo, 32)
 
 /obj/structure/sign/semiotic/radiation_shelter
 	name = "radiation shelter label"
@@ -38,12 +46,16 @@
 	icon_state = "radiation_shelter"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/radiation_shelter, 32)
+
 /obj/structure/sign/semiotic/low_radiation
 	name = "low radiation label"
 	sign_change_name = "Semiotic Label - Low Radiation"
 	desc = "Indicates the space beyond is lightly radioactive."
 	icon_state = "low_radiation"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/low_radiation, 32)
 
 /obj/structure/sign/semiotic/high_radiation
 	name = "high radiation label"
@@ -52,12 +64,16 @@
 	icon_state = "high_radiation"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/high_radiation, 32)
+
 /obj/structure/sign/semiotic/airlock
 	name = "airlock label"
 	sign_change_name = "Semiotic Label - Airlock"
 	desc = "Indicates the space beyond is an airlock."
 	icon_state = "airlock"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/airlock, 32)
 
 /obj/structure/sign/semiotic/bulkhead
 	name = "bulkhead label"
@@ -66,12 +82,16 @@
 	icon_state = "bulkhead"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/bulkhead, 32)
+
 /obj/structure/sign/semiotic/vacuum_ahead
 	name = "vacuum label"
 	sign_change_name = "Semiotic Label - Vacuum"
 	desc = "Indicates the space beyond is not pressurized."
 	icon_state = "vacuum_ahead"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/vacuum_ahead, 32)
 
 /obj/structure/sign/semiotic/warning
 	name = "warning label"
@@ -80,12 +100,16 @@
 	icon_state = "warning"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/warning, 32)
+
 /obj/structure/sign/semiotic/exhaust
 	name = "exhaust label"
 	sign_change_name = "Semiotic Label - Exhaust"
 	desc = "Indicates the space beyond is an exhaust port."
 	icon_state = "exhaust"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/exhaust, 32)
 
 /obj/structure/sign/semiotic/refrigeration
 	name = "refrigeration label"
@@ -94,12 +118,16 @@
 	icon_state = "refrigeration"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/refrigeration, 32)
+
 /obj/structure/sign/semiotic/galley
 	name = "galley label"
 	sign_change_name = "Semiotic Label - Galley"
 	desc = "Indicates the space beyond is a galley, otherwise known as a cafeteria."
 	icon_state = "galley"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/galley, 32)
 
 /obj/structure/sign/semiotic/arrow
 	name = "arrow label"
@@ -108,12 +136,16 @@
 	icon_state = "arrow"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/arrow, 32)
+
 /obj/structure/sign/semiotic/bridge
 	name = "bridge label"
 	sign_change_name = "Semiotic Label - Bridge"
 	desc = "Indicates the space beyond is the bridge of the vessel."
 	icon_state = "bridge"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/bridge, 32)
 
 /obj/structure/sign/semiotic/medical
 	name = "medical label"
@@ -122,12 +154,16 @@
 	icon_state = "medical"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/medical, 32)
+
 /obj/structure/sign/semiotic/maintenance
 	name = "maintenance label"
 	sign_change_name = "Semiotic Label - Maintenance"
 	desc = "Indicates the space beyond is for maintenance."
 	icon_state = "maintenance"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/maintenance, 32)
 
 /obj/structure/sign/semiotic/ladderwell
 	name = "ladderwell label"
@@ -136,12 +172,16 @@
 	icon_state = "ladderwell"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/ladderwell, 32)
+
 /obj/structure/sign/semiotic/radio
 	name = "radio label"
 	sign_change_name = "Semiotic Label - Radio"
 	desc = "Indicates the space beyond contains radio equipment."
 	icon_state = "radio"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/radio, 32)
 
 /obj/structure/sign/semiotic/storage
 	name = "storage label"
@@ -150,6 +190,8 @@
 	icon_state = "storage"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/storage, 32)
+
 /obj/structure/sign/semiotic/food_storage
 	name = "food storage label"
 	sign_change_name = "Semiotic Label - Food Storage"
@@ -157,9 +199,13 @@
 	icon_state = "food_storage"
 	is_editable = TRUE
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/food_storage, 32)
+
 /obj/structure/sign/semiotic/cold_food_storage
 	name = "cold food storage label"
 	sign_change_name = "Semiotic Label - Cold Food Storage"
 	desc = "Indicates the space beyond is for cold food storage."
 	icon_state = "cold_food_storage"
 	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/cold_food_storage, 32)
