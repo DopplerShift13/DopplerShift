@@ -6,9 +6,11 @@
 		letting them move objects objects at a limited range. \
 		Oddly enough, it doesn't seem to work on living creatures."
 	grab_range = 3
-	can_launch = FALSE
 	coreless = TRUE
 	prebuilt = TRUE
+
+/obj/item/mod/module/anomaly_locked/kinesis/weak/launch(atom/movable/launched_object)
+	return // Does nothing
 
 /datum/design/module/mod_kinesis/weak
 	materials = list(
