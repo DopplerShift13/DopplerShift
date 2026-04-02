@@ -58,7 +58,6 @@
 /area/station/salvage_bay)
 "db" = (
 /obj/effect/mapping_helpers/broken_floor,
-/obj/machinery/newscaster/directional/west,
 /obj/machinery/light/red/dim/directional/west,
 /turf/open/floor/iron/grimy,
 /area/station/salvage_bay)
@@ -90,14 +89,14 @@
 /turf/open/floor/iron/dark,
 /area/station/salvage_bay)
 "gW" = (
+/obj/machinery/conveyor{
+	dir = 1;
+	id = "SalvageProcess"
+	},
 /obj/machinery/mineral/stacking_unit_console{
 	pixel_x = 32
 	},
-/obj/effect/turf_decal/tile/dark/half/contrasted{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/iron/dark,
+/turf/open/floor/plating,
 /area/station/salvage_bay)
 "iA" = (
 /obj/machinery/conveyor{
@@ -367,6 +366,7 @@
 /area/station/salvage_bay)
 "Cp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/newscaster/directional/west,
 /turf/open/floor/iron/grimy,
 /area/station/salvage_bay)
 "Cy" = (
@@ -1275,8 +1275,8 @@ kU
 KL
 cw
 bc
+gC
 gW
-iA
 iA
 GU
 GU

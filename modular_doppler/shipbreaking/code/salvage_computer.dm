@@ -232,4 +232,3 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 	new_ticket.color = COLOR_BEIGE
 	new_ticket.add_raw_text(ticket_contents)
 	new_ticket.update_appearance()
-

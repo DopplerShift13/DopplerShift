@@ -134,7 +134,7 @@
 /area/station/salvage_bay)
 "hl" = (
 /obj/machinery/mineral/stacking_machine{
-	input_dir = 2
+	input_dir = 1
 	},
 /obj/effect/turf_decal/sand,
 /turf/open/floor/plating,
