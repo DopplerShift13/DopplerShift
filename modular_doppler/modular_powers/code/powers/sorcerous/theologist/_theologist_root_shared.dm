@@ -157,14 +157,10 @@
 	RegisterSignal(user, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
-	target_glow = mutable_appearance(
-		icon = 'icons/effects/effects.dmi',
-		icon_state = "shield-yellow",
-		layer = current_target.layer - 0.1,
-		appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART
-	)
+	target_glow = mutable_appearance('icons/mob/effects/genetics.dmi', "servitude", -MUTATIONS_LAYER)
 	current_target.add_overlay(target_glow)
 	active_effect = current_target.apply_status_effect(/datum/status_effect/power/burden_shared)
+	playsound(target, 'sound/effects/magic/staff_healing.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 
 	return TRUE
 

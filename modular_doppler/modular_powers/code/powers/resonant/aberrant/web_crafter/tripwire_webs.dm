@@ -6,7 +6,7 @@
 	security_record_text = "Subject can craft tripwires from their spider silk."
 	value = 3
 
-	required_powers = list(/datum/action/cooldown/power/aberrant/web_crafter)
+	required_powers = list(/datum/power/aberrant/web_crafter)
 
 /datum/power/aberrant/tripwire_webs/post_add(client/client_source)
 	. = ..()

@@ -8,7 +8,7 @@
 	security_threat = POWER_THREAT_MAJOR
 	value = 3
 
-	required_powers = list(/datum/action/cooldown/power/aberrant/web_crafter)
+	required_powers = list(/datum/power/aberrant/web_crafter)
 
 /datum/power/aberrant/snare_webs/post_add(client/client_source)
 	..()

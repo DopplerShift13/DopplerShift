@@ -35,6 +35,7 @@
 	active = TRUE
 	if(active_effect && target == owner)
 		healing_self = TRUE
+	playsound(target, 'sound/effects/magic/staff_healing.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	return TRUE
 
 /datum/action/cooldown/power/theologist/theologist_root/revered/set_click_ability(mob/on_who)
