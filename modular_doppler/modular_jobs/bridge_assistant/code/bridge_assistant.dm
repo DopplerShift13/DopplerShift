@@ -1,6 +1,7 @@
 /datum/job/bridge_assistant
 	title = JOB_BRIDGE_ASSISTANT
-	description = "Watch over the Bridge, act as the Captain's right-hand, assist the rest of Command. Spend your days brewing coffee for higher-ups."
+	description = "Watch over the Bridge, act as the Captain's right-hand, assist the rest of Command. \
+		Spend your days brewing coffee for higher-ups, handling their paperwork, and relaying messages on their behalf."
 	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = FACTION_STATION
 	total_positions = 1

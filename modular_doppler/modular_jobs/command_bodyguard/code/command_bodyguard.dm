@@ -1,6 +1,7 @@
 /datum/job/command_bodyguard
 	title = JOB_COMMAND_BODYGUARD
-	description = "Protect heads of staff, stick to them like their shadow, look great while doing so."
+	description = "Protect heads of staff, stick to them like their shadow, look great while doing so. \
+		Hone your martial arts, hold spars in your downtime, train in the background."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	department_head = list(JOB_HEAD_OF_SECURITY)
 	faction = FACTION_STATION

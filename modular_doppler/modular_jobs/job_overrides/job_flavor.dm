@@ -8,20 +8,19 @@
 /**
  * SECURITY
  * There is no Space Law, there is no SOP.
- * The primary point of security is to mediate conflicts,
- * each of the different sub-roles have different priorities.
- * - Officers engage.
- * - Wardens hold the fort.
- * - Detectives investigate.
+ * The primary point of security is to mediate conflicts.
  */
 
+/datum/job/head_of_security
+	description = "Coordinate the volunteer security force as their first in command, be the person that knows better. \
+		Ensure they are not corrupt, dispatch them to mediate, make sure every department is protected. \
+		Keep their skills honed through group exercises, interpersonal and physical."
+
 /datum/job/warden
-	description = "Watch over the Brig and Prison Wing, release prisoners when \
-		their time is up, issue equipment to security, be a security officer when \
-		they all eventually die."
-	description = "Watch over the Brig, maintain the drunk tank. \
-		Issue equipment, stop officers from raiding the armory unnecessarily, \
-		and keep them accountable. Assist in mediating as needed."
+	description = "The de-facto second in command for the volunteer security force. \
+		Sit in your chair, watch the drunk tank and the officers, act on the commander's behalf. 
+		Make sure the armory is stocked, do the paperwork, keep the officers accountable for what they carry. \
+		Be prepared not to be thanked for everything the Security Commander doesn't want to do."
 
 /datum/job/security_officer
 	// As (almost) straight from the wiki.
@@ -30,25 +29,25 @@
 		Hold a karaoke night in the office. Break a leg, it doesn't have to be yours. \
 		Follow orders from people that know better than you."
 
-/datum/job/detective // TODO: make refer to officer, like an officer but with different priorities.
-	description = "Investigate crimes, gather evidence, perform interrogations, \
-		look badass, smoke cigarettes."
-	description = "Investigate problems, gather evidence, find those responsible. \
-		Look badass."
-	description = "The investigative component of the officers. \
-		Help find out the who, how, and why of things."
+/datum/job/detective
+	description = "Security officers with extra strings attached. \
+		Goof around, look badass, but most importantly, ask 'why' an infuriating amount. \
+		Get to the 'why' of conflicts, help prevent the 'why' from happening again, \
+		make sure the security team knows the ins and outs of 'why' they were bombed."
 
 /datum/job/lawyer
-	description = "Assist in mediating conflicts, negotiate for better outcomes. \
-		Help parolees rehabilitate. \
-		Keep records, hold Security and Command accountable."
+	description = "Assist in mediating conflicts, negotiate for better outcomes, help parolees rehabilitate. \
+		Keep records, handle complaints, hold Security and Command accountable."
 
 
 /**
  * SILICONS
  * Cyborgs are each full people who aren't necessarily slaved to an AI.
+ * 'Cyborgs' is a misnomer, and cyborgs can be standard robots.
  */
 
+/datum/job/ai
+	description = "Assist the crew, follow your laws, coordinate with the other silicons."
+
 /datum/job/cyborg
-	description = "Assist the crew, follow your laws, \
-		coordinate with your AI."
+	description = "Assist the crew, follow your laws, coordinate with the AI."

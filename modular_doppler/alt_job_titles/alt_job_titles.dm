@@ -272,11 +272,11 @@
 		"Lawyer",
 		"Barrister",
 		"Defense Attorney",
-		"Human Resources Agent",
+		"Sophont Resources Agent",
 		"Internal Affairs Agent",
 		"Legal Clerk",
-		"Prosecutor",
 		"Public Defender",
+		"Negotiator",
 	)
 
 /datum/job/mime
@@ -404,6 +404,5 @@
 		"Brig Sergeant",
 		"Brig Governor",
 		"Dispatch Officer",
-		"Jailer",
 		"Lieutenant",
 	)
