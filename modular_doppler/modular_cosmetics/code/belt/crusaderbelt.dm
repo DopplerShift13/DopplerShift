@@ -9,6 +9,8 @@
 	w_class = WEIGHT_CLASS_BULKY // Can't fit a sheath in your bag.
 	interaction_flags_click = NEED_DEXTERITY
 	storage_type = /datum/storage/belt/crusader
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/belt/crusader/Initialize(mapload)
 	. = ..()
@@ -95,7 +97,6 @@
 		),
 		cant_hold_list = list(	// - - - except the second list's items (no fedora in the sheath)
 			/obj/item/nullrod/armblade,
-			/obj/item/nullrod/carp,
 			/obj/item/nullrod/chainsaw,
 			/obj/item/nullrod/bostaff,
 			/obj/item/nullrod/hammer,

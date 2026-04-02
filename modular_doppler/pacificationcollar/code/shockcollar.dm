@@ -31,11 +31,10 @@
 	time = 5 SECONDS
 	category = CAT_EQUIPMENT
 
-/obj/item/electropack/shockcollar/allow_attack_hand_drop(mob/user)
+/obj/item/electropack/shockcollar/can_mob_unequip(mob/user)
 	if(user.get_item_by_slot(ITEM_SLOT_NECK) == src)
 		to_chat(user, span_warning("The collar is fastened tight! You'll need help if you want to take it off!"))
 		return FALSE
-	return ..()
 
 /obj/item/electropack/shockcollar/receive_signal(datum/signal/signal)
 	if(!signal || signal.data["code"] != code)

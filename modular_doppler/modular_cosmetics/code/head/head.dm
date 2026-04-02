@@ -56,7 +56,7 @@
 	name = "mailcap"
 	desc = "<i>'Right-on-time'</i> mail service head wear- with new colors!"
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
-	icon_state = "/obj/item/clothing/head/colorable_mailcap"
+	icon_state = "/obj/item/clothing/head/costume/mailman/colorable_mailcap"
 	post_init_icon_state = "colorable_mailcap"
 	greyscale_colors = "#cfd1d4#D5D5B9"
 	greyscale_config = /datum/greyscale_config/colorable_mailcap
@@ -111,3 +111,26 @@
 		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		balloon_alert(user, "mouth covered")
 	return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/head/helmet/space/pirate/tiziran_raider
+	name = "Tiziran EVA helmet"
+	desc = "An EVA-rated helmet specially suited to Tiziran physiology. Originally developed for special operations, time and surplusing \
+	have diffused this style of helmet across Tiziran-controlled space."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/helmet.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/helmet.dmi'
+	icon_state = "tiziran_raider"
+	worn_icon_state = "tiziran_raider"
+	visor_dirt = "lizard_dirt"
+	armor_type = /datum/armor/space_pirate
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/head/helmet.dmi',	//it only has a snouted variation, so we just make snoutless people wear a big silly helmet
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/head/helmet.dmi',
+		)
+
+/obj/item/clothing/head/helmet/space/pirate/tiziran_raider/red
+	icon_state = "tiziran_raider_red"
+	worn_icon_state = "tiziran_raider_red"
+
+/obj/item/clothing/head/helmet/space/pirate/tiziran_raider/yellow
+	icon_state = "tiziran_raider_yellow"
+	worn_icon_state = "tiziran_raider_yellow"

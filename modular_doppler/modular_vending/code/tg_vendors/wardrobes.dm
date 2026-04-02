@@ -7,6 +7,7 @@
 		/obj/item/clothing/suit/jacket/doppler/departmental_jacket/med = 2,
 		/obj/item/clothing/suit/toggle/labcoat/medical = 6,
 		/obj/item/clothing/suit/toggle/labcoat/high_vis = 6,
+		/obj/item/clothing/suit/toggle/labcoat/fancy/regular = 5,
 		/obj/item/clothing/shoes/medical = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt/green = 6,
@@ -93,6 +94,7 @@
 
 /obj/machinery/vending/wardrobe/robo_wardrobe
 	products_doppler = list(
+		/obj/item/clothing/suit/toggle/labcoat/fancy/roboticist = 2,
 		/obj/item/clothing/head/beret/science/fancy/robo = 2,
 		/obj/item/tank/internals/anesthetic = 2,
 		/obj/item/clothing/mask/breath = 2,
@@ -112,6 +114,7 @@
 /obj/machinery/vending/wardrobe/science_wardrobe
 	products_doppler = list(
 		/obj/item/clothing/under/misc/doppler_uniform/science = 5,
+		/obj/item/clothing/suit/toggle/labcoat/fancy/scientist = 3,
 		/obj/item/clothing/suit/jacket/doppler/departmental_jacket/sci = 3,
 	)
 
@@ -164,11 +167,17 @@
 		/obj/item/clothing/under/rank/medical/chemist/pharmacologist = 2,
 		/obj/item/clothing/under/rank/medical/chemist/pharmacologist/skirt = 2,
 		/obj/item/clothing/head/beret/medical/chemist = 2,
+		/obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist = 2,
 	)
 
 /obj/machinery/vending/wardrobe/viro_wardrobe
 	products_doppler = list(
 		/obj/item/clothing/head/beret/medical/virologist = 2,
+	)
+
+/obj/machinery/vending/wardrobe/gene_wardrobe
+	products_doppler = list(
+		/obj/item/clothing/suit/toggle/labcoat/fancy/geneticist = 2,
 	)
 
 /obj/machinery/vending/wardrobe/det_wardrobe
