@@ -78,7 +78,7 @@
 /datum/job/command_bodyguard
 	alt_titles = list(
 		"Command Bodyguard",
-		"Secreterial Officer",
+		"Secretarial Officer",
 		"Command Guardian",
 		"Command Protector",
 	)

@@ -5,7 +5,6 @@
 	desc = "A set of four long rabbit-like ears, a Teshari's main tool while hunting. Naturally extremely sensitive to loud sounds."
 	damage_multiplier = 1.5
 	actions_types = list(/datum/action/cooldown/teshari_hearing)
-	preference = "feature_teshari_ears"
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/teshari
 
 /obj/item/organ/ears/teshari/on_mob_remove(mob/living/carbon/ear_owner)
@@ -86,7 +85,6 @@
 /obj/item/organ/tail/teshari
 	name = "teshari tail"
 	desc = "A long, sinuous tail typically found in teshari. Whoever lost it probably isn't very pleased."
-	preference = "feature_teshari_tail"
 	dna_block = null
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/teshari
 
