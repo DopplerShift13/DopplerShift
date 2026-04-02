@@ -57,7 +57,7 @@ Reduces stress for psykers and restores Energy for cultivators
 			break
 	while (keep_going)
 
-	to_chat(owner, "You stop meditating.")
+	to_chat(owner, span_notice("You stop meditating."))
 	active = FALSE
 	spotlighttarget.remove_status_effect(/datum/status_effect/spotlight_light/meditation)
 	return
