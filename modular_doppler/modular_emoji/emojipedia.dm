@@ -1,7 +1,4 @@
-/datum/emojipedia_addition
-	New()
+/datum/computer_file/program/emojipedia/New()
 		. = ..()
-		var/list/extra = icon_states(icon('modular_doppler/modular_emoji/emoji.dmi'))
-		/datum/computer_file/program/emojipedia::emoji_list |= extra
-
-var/global/datum/emojipedia_addition/_emojipedia_addition = new
+		var/list/extra = icon_states(icon(MODULAR_EMOJI_SET))
+		emoji_list |= extra

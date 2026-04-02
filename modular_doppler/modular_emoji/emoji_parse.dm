@@ -1,5 +1,3 @@
-#define MODULAR_EMOJI_SET 'modular_doppler/modular_emoji/emoji.dmi'
-
 /proc/emoji_parse_modular(text)
 	if(!text || !CONFIG_GET(flag/emojis))
 		return text
