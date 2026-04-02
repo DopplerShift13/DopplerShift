@@ -376,7 +376,6 @@
 /obj/machinery/conveyor{
 	id = "SalvageProcess"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
@@ -619,7 +618,6 @@
 	dir = 4;
 	id = "SalvageProcess"
 	},
-/obj/machinery/door/firedoor,
 /obj/structure/plasticflaps,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
