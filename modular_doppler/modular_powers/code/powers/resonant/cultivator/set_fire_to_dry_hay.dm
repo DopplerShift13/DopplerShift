@@ -9,6 +9,10 @@
 	required_powers = list(/datum/power/cultivator_root/flame_soul)
 	action_path = /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay
 
+#define FIRE_CLICK_NONE 0
+#define FIRE_CLICK_LEFT 1
+#define FIRE_CLICK_RIGHT 2
+
 /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay
 	name = "Set Fire to Dry Hay"
 	desc = "You can set fire onto anything you touch. This works similary to a lighter in terms of functionality. \
@@ -19,6 +23,7 @@
 
 	click_to_activate = TRUE
 	unset_after_click = FALSE
+	click_cd_override = 5 // matches cooldown between shots
 
 	// Cooldown for right click projectile, in deciseconds.
 	var/projectile_delay = 5
@@ -41,8 +46,25 @@
 	var/flameblast_impact_sound = 'sound/effects/fire_puff.ogg'
 	// Cached alignment action for gating right click effects.
 	var/datum/action/cooldown/power/cultivator/alignment/flame_soul/flame_soul_alignment
+	/// Which mouse click is used in use_action
+	var/fire_click_type = FIRE_CLICK_NONE
+
+// We use both left and right mouse button.
+/datum/action/cooldown/power/cultivator/set_fire_to_dry_hay/InterceptClickOn(mob/living/clicker, params, atom/target)
+	var/list/modifiers = params2list(params)
+	if(LAZYACCESS(modifiers, RIGHT_CLICK))
+		fire_click_type = FIRE_CLICK_RIGHT
+	else
+		fire_click_type = FIRE_CLICK_LEFT
+	. = ..()
+	if(!.)
+		fire_click_type = FIRE_CLICK_NONE
+	return TRUE // Always consume the click to avoid normal click interactions.
 
 /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay/use_action(mob/living/user, atom/target)
+	// Sets the click type.
+	if(fire_click_type == FIRE_CLICK_RIGHT) // shoots flameblasts instead of lighting cigs.
+		return shoot_flameblast(user, target)
 	if(!target)
 		return FALSE
 	// Lighter version only works in melee range.
@@ -58,6 +80,12 @@
 		lighter.attack(target_mob, user, list(), list())
 		qdel(lighter)
 		return TRUE
+	// Allow lighting loose cigarettes directly.
+	if(istype(target, /obj/item/cigarette))
+		var/obj/item/cigarette/cig = target
+		cig.attackby(lighter, user, list(), list())
+		qdel(lighter)
+		return TRUE
 
 	// Only ignite flammable targets.
 	if((target.resistance_flags & FLAMMABLE) && !(target.resistance_flags & FIRE_PROOF))
@@ -65,17 +93,6 @@
 	qdel(lighter)
 	playsound(user, 'sound/effects/fire_puff.ogg', 60, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	// Always return TRUE to keep the click ability active.
-	return TRUE
-
-// We use both left and right mouse button.
-/datum/action/cooldown/power/cultivator/set_fire_to_dry_hay/InterceptClickOn(mob/living/clicker, params, atom/target)
-	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		if(!shoot_flameblast(clicker, target))
-			return FALSE
-		return TRUE
-	..()
-	// Always consume the click to avoid normal click interactions.
 	return TRUE
 
 // Gets & caches flame soul alignment for gating the right click.
@@ -92,8 +109,6 @@
 /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay/proc/shoot_flameblast(mob/living/user, atom/target)
 	if(!is_flame_soul_alignment_active(user))
 		user.balloon_alert(user, "alignment required!")
-		return FALSE
-	if(!can_use(user, target)) // we need to revalidate can_use since right click normally doesnt have that.
 		return FALSE
 	if(world.time < next_projectile_time)
 		return FALSE
@@ -130,11 +145,11 @@
 	name = "\improper cultivator flame"
 	desc = "A conjured spark of flame."
 	fancy = TRUE
-	lit = TRUE
 	heat_while_on = HIGH_TEMPERATURE_REQUIRED - 100
 
 /obj/item/cultivator_virtual_lighter/Initialize(mapload)
 	. = ..()
+	lit = FALSE // so we have to make sure its unlit before we light it or it won't work. I love it here.
 	set_lit(TRUE)
 
 /obj/item/cultivator_virtual_lighter/get_fuel()
@@ -172,3 +187,7 @@
 		if(ignite_target.resistance_flags & FIRE_PROOF)
 			continue
 		ignite_target.fire_act(500)
+
+#undef FIRE_CLICK_NONE
+#undef FIRE_CLICK_LEFT
+#undef FIRE_CLICK_RIGHT

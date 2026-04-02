@@ -65,10 +65,11 @@
 
 // Both cast time and visual effects are resolved in this.
 /datum/action/cooldown/power/aberrant/cocoon/do_use_time(mob/living/user, atom/target)
-	// Woooow I worked hard on this and you just var-edit it away BAKA.
-	if(use_time <= 0)
+	if(use_time <= 0)// Woooow I worked hard on this and you just var-edit it away BAKA.
 		return TRUE
 	if(!target)
+		return FALSE
+	if(isliving(target) && !can_cocoon_mob(user, target)) // I'd put this in can_use but can_cooon_mob also checks can_use so it will create a recursive loop.
 		return FALSE
 	var/turf/target_turf = get_turf(target)
 	if(!target_turf)
@@ -152,7 +153,7 @@
 	if(user.pulling != target || user.grab_state < GRAB_AGGRESSIVE)
 		user.balloon_alert(user, "You must aggressively grab the target!")
 		return FALSE
-	if(target.body_position != LYING_DOWN)
+	if(target.body_position != LYING_DOWN || !HAS_TRAIT(target, TRAIT_FLOORED))
 		user.balloon_alert(user, "Target must be prone!")
 		return FALSE
 	return TRUE

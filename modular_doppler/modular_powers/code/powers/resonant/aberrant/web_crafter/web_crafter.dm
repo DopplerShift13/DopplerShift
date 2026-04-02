@@ -2,29 +2,27 @@
 /datum/power/aberrant/web_crafter
 	name = "Web Crafter"
 	desc = "Threads of spidery silk crafted at your leisure. You gain the Web Crafting ability. You can use it to make passive webs in an area (which do not slow you down); or you can use it to make cloth.\
-	\n Creating anything using web crafter makes you hungry, and you cannot use it if you are starving."
-	security_record_text = "Subject can craft spider-like silk from their body."
+	\n Creating anything using web crafter makes you hungry, and you cannot use it if you are starving.\
+	\n Double-tap to quickly create the last item you crafted."
+	mob_trait = TRAIT_WEB_SURFER // lets us walk on webs
+	security_record_text = "Subject can create spider-like silk from their body."
 	value = 3
 
 	required_powers = list(/datum/power/aberrant_root/beastial)
 	action_path = /datum/action/cooldown/power/aberrant/web_crafter
 
-// Lets us walk on webs
-/datum/power/aberrant/web_crafter/add(client/client_source)
-	if(power_holder)
-		ADD_TRAIT(power_holder, TRAIT_WEB_SURFER, REF(src))
-
-/datum/power/aberrant/web_crafter/remove()
-	if(power_holder)
-		REMOVE_TRAIT(power_holder, TRAIT_WEB_SURFER, REF(src))
-
 /datum/action/cooldown/power/aberrant/web_crafter
 	name = "Web Crafter"
-	desc = "Spend some of your satiation to craft web-like objects!"
+	desc = "Spend some of your satiation to craft web-like objects! Double-tap to quickly create the last item you crafted."
 	button_icon = 'icons/effects/web.dmi'
 	button_icon_state = "webpassage"
 
-	cooldown_time = 5
+	/// Double-tap window to quick-craft the last made item.
+	var/double_tap_window = 0.8 SECONDS
+	/// World time of the last menu tap.
+	var/last_menu_tap_time = 0
+	/// Most recently crafted entry, if any.
+	var/datum/web_craft_entry/last_crafted_entry
 
 	/// Entries shown in the radial menu. Other powers can append to this.
 	/// Accepts /datum/web_craft_entry instances or typepaths of that datum.
@@ -34,6 +32,32 @@
 	)
 
 /datum/action/cooldown/power/aberrant/web_crafter/use_action(mob/living/user, atom/target)
+	var/current_time = world.time
+	var/radial_uniqueid = get_radial_uniqueid(user)
+	var/datum/radial_menu/menu = GLOB.radial_menus[radial_uniqueid]
+	// Doublet-tap interaction to quickly make last item
+	if(menu && current_time <= last_menu_tap_time + double_tap_window)
+		if(menu)
+			menu.finished = TRUE
+		if(!last_crafted_entry)
+			user.balloon_alert(user, "no recent craft!")
+			return FALSE
+		if(!can_craft_entry(user, last_crafted_entry))
+			return FALSE
+		if(!do_after(user, last_crafted_entry.craft_time, target = user))
+			return FALSE
+		// Craft the item.
+		if(!create_obj(user, last_crafted_entry))
+			return FALSE
+		last_menu_tap_time = current_time
+		return TRUE
+	else if(menu) // if you're too slow, activating the action again will just close it if the menu is open
+		menu.finished = TRUE
+		last_menu_tap_time = current_time
+		return FALSE
+
+	// stores last tap so we know if its a double-time
+	last_menu_tap_time = current_time
 	var/list/entries = get_web_craft_entries()
 	if(!length(entries))
 		user.balloon_alert(user, "no web crafts!")
@@ -45,7 +69,7 @@
 		user.balloon_alert(user, "no web crafts!")
 		return FALSE
 
-	var/picked_key = show_radial_menu(user, user, radial_options, tooltips = TRUE)
+	var/picked_key = show_radial_menu(user, user, radial_options, uniqueid = radial_uniqueid, tooltips = TRUE)
 
 	if(!picked_key)
 		return FALSE
@@ -64,10 +88,13 @@
 
 	if(!create_obj(user, entry))
 		return FALSE
-
-	if(!HAS_TRAIT(user, TRAIT_NOHUNGER))
-		user.adjust_nutrition(-entry.hunger_cost)
+	last_crafted_entry = entry
 	return TRUE
+
+/datum/action/cooldown/power/aberrant/web_crafter/on_action_success(mob/living/user, atom/target)
+	. = ..()
+	if(!HAS_TRAIT(user, TRAIT_NOHUNGER))
+		user.adjust_nutrition(-last_crafted_entry.hunger_cost)
 
 /datum/action/cooldown/power/aberrant/web_crafter/can_use(mob/living/user, atom/target)
 	. = ..()
@@ -108,6 +135,10 @@
 		options[key] = choice
 		key_to_entry[key] = entry
 	return options
+
+// Unique radial menu id for this action and user.
+/datum/action/cooldown/power/aberrant/web_crafter/proc/get_radial_uniqueid(mob/living/user)
+	return "web_crafter_[REF(user)]"
 
 // Check before crafting.
 /datum/action/cooldown/power/aberrant/web_crafter/proc/can_craft_entry(mob/living/user, datum/web_craft_entry/entry)

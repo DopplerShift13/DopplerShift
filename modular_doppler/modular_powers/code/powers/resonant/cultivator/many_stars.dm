@@ -10,6 +10,10 @@
 	required_powers = list(/datum/power/cultivator_root/astral_touched)
 	action_path = /datum/action/cooldown/power/cultivator/many_stars
 
+#define STARS_CLICK_NONE 0
+#define STARS_CLICK_LEFT 1
+#define STARS_CLICK_RIGHT 2
+
 /datum/action/cooldown/power/cultivator/many_stars
 	name = "The Many Stars that Dot the Endless Sky"
 	desc = "Activating the ability sends forth a little star, which stops when it reaches it's destination (or hits an object) passively glowing in an area as a light source for 5 minutes. \
@@ -22,6 +26,7 @@
 	click_to_activate = TRUE
 	unset_after_click = FALSE
 	anti_magic_on_target = FALSE
+	click_cd_override = 3 // matches cooldown between shots
 
 	// icon & state
 	var/star_icon = 'icons/effects/eldritch.dmi'
@@ -58,25 +63,31 @@
 
 	// Cached alignment action for gating effects.
 	var/datum/action/cooldown/power/cultivator/alignment/astral_touched/astral_alignment
+	/// Which mouse click is used in use_action
+	var/stars_click_type = STARS_CLICK_NONE
+
+/datum/action/cooldown/power/cultivator/many_stars/InterceptClickOn(mob/living/clicker, params, atom/target)
+	var/list/modifiers = params2list(params)
+	if(LAZYACCESS(modifiers, RIGHT_CLICK)) // EXPLOSION
+		stars_click_type = STARS_CLICK_RIGHT
+	else
+		stars_click_type = STARS_CLICK_LEFT
+	. = ..()
+	if(!.)
+		stars_click_type = STARS_CLICK_NONE
+	return TRUE
 
 /datum/action/cooldown/power/cultivator/many_stars/use_action(mob/living/user, atom/target)
-	if(world.time < next_star_shot_time)
+	// Sets the click type.
+	if(stars_click_type == STARS_CLICK_RIGHT) // if right click, explode
+		return explode_active_stars(user)
+	if(world.time < next_star_shot_time) // otherwise, we shoot stars.
 		return FALSE
 	next_star_shot_time = world.time + star_shot_delay
 	if(fire_projectile(user, target, /obj/projectile/resonant/many_stars))
 		playsound(user, 'sound/effects/magic/cosmic_energy.ogg', 60, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 		return TRUE
 	return FALSE
-
-/datum/action/cooldown/power/cultivator/many_stars/InterceptClickOn(mob/living/clicker, params, atom/target)
-	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, RIGHT_CLICK)) // EXPLOSION
-		explode_active_stars(clicker)
-		return TRUE
-	. = ..()
-	if(clicker != owner)
-		return FALSE
-	return .
 
 /datum/action/cooldown/power/cultivator/many_stars/proc/dispel(atom/target, atom/dispeller)
 	var/list/stars_to_del = active_stars.Copy()
@@ -118,8 +129,6 @@
 			user.balloon_alert(user, "alignment required!")
 		return
 	if(!active_stars || !length(active_stars))
-		return
-	if(!can_use(user, target)) // we need to revalidate can_use since right click normally doesnt have that.
 		return
 	if(energy_component.energy < star_explosion_cost)
 		user.balloon_alert(user, "needs more energy!")
@@ -342,3 +351,7 @@
 	color = COLOR_CYAN
 	duration = 0.5 SECONDS
 	amount_to_scale = 1.5
+
+#undef STARS_CLICK_NONE
+#undef STARS_CLICK_LEFT
+#undef STARS_CLICK_RIGHT
