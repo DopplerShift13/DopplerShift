@@ -487,7 +487,7 @@
 
 /obj/item/mod/module/anomaly_locked/examine(mob/user)
 	. = ..()
-	if(!length(accepted_anomalies) || coreless) /// DOPPLER EDIT - Support for anomalock modules without a core - ORIGINAL: if(!length(accepted_anomalies))
+	if(!length(accepted_anomalies) || coreless) /// DOPPLER EDIT CHANGE - Support for anomalock modules without a core - ORIGINAL: if(!length(accepted_anomalies))
 		return
 	if(core)
 		. += span_notice("There is a [core.name] installed in it. [core_removable ? "You could remove it with a <b>screwdriver</b>..." : "Unfortunately, due to a design quirk, it's unremovable."]")
@@ -501,7 +501,7 @@
 			. += span_notice("Due to some design quirk, once a core is inserted, it won't be removable.")
 
 /obj/item/mod/module/anomaly_locked/on_select()
-	if(!core && !coreless) /// DOPPLER EDIT - Support for anomalock modules without a core - ORIGINAL: if(!core)
+	if(!core && !coreless) /// DOPPLER EDIT CHANGE - Support for anomalock modules without a core - ORIGINAL: if(!core)
 		balloon_alert(mod.wearer, "no core!")
 		return
 	return ..()
@@ -520,7 +520,7 @@
 	/// DOPPLER EDIT ADDITION START - Support for anomalock modules without a core
 	if(coreless)
 		return ..()
-	/// DOPPLER EDIT END
+	/// DOPPLER EDIT ADDITION END
 	if(item.type in accepted_anomalies)
 		if(core)
 			balloon_alert(user, "core already in!")
@@ -539,7 +539,7 @@
 	/// DOPPLER EDIT ADDITION START - Support for anomalock modules without a core
 	if(coreless)
 		return
-	/// DOPPLER EDIT END
+	/// DOPPLER EDIT ADDITION END
 	if(!core)
 		balloon_alert(user, "no core!")
 		return

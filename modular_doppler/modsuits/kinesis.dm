@@ -3,7 +3,7 @@
 	name = "MOD magnalock module"
 	desc = "A modular plug-in to the forearm, an experimental unit used for handling cargo and heavy objects. \
 		This piece of technology allows the user to generate precise magnetic fields, \
-		letting them move objects objects at a limited range. \
+		letting them move objects at a limited range. \
 		Oddly enough, it doesn't seem to work on living creatures."
 	grab_range = 3
 	coreless = TRUE
@@ -15,8 +15,8 @@
 /datum/design/module/mod_kinesis/weak
 	materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1.25,
-		/datum/material/glass =SHEET_MATERIAL_AMOUNT,
-		/datum/material/uranium =SHEET_MATERIAL_AMOUNT,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT,
+		/datum/material/uranium = SHEET_MATERIAL_AMOUNT,
 	)
 	name = "Magnalock Module"
 	id = "mod_kinesis_weak"
