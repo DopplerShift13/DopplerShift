@@ -18,7 +18,7 @@
 
 /datum/job/warden
 	description = "The de-facto second in command for the volunteer security force. \
-		Sit in your chair, watch the drunk tank and the officers, act on the commander's behalf. 
+		Sit in your chair, watch the drunk tank and the officers, act on the commander's behalf. \
 		Make sure the armory is stocked, do the paperwork, keep the officers accountable for what they carry. \
 		Be prepared not to be thanked for everything the Security Commander doesn't want to do."
 
@@ -47,7 +47,7 @@
  */
 
 /datum/job/ai
-	description = "Assist the crew, follow your laws, coordinate with the other silicons."
+	description = "Assist the crew, follow your laws, coordinate with other system-integrated units."
 
 /datum/job/cyborg
 	description = "Assist the crew, follow your laws, coordinate with the AI."

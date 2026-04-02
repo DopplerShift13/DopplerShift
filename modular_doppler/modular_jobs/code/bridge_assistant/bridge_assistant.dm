@@ -59,10 +59,10 @@
 	l_pocket = /obj/item/clipboard
 
 /obj/item/pen/edagger/bridge_assistant
-	icon = 'modular_doppler/modular_jobs/bridge_assistant/icons/edagger.dmi'
-	dart_insert_icon = 'modular_doppler/modular_jobs/bridge_assistant/icons/edagger.dmi'
-	lefthand_icon = 'modular_doppler/modular_jobs/bridge_assistant/icons/edagger_lefthand.dmi'
-	righthand_icon = 'modular_doppler/modular_jobs/bridge_assistant/icons/edagger_righthand.dmi'
+	icon = 'modular_doppler/modular_jobs/icons/edagger.dmi'
+	dart_insert_icon = 'modular_doppler/modular_jobs/icons/edagger.dmi'
+	lefthand_icon = 'modular_doppler/modular_jobs/icons/edagger_lefthand.dmi'
+	righthand_icon = 'modular_doppler/modular_jobs/icons/edagger_righthand.dmi'
 	light_color = "#82fa8c"
 
 /datum/id_trim/job/bridge_assistant
