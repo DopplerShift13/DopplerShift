@@ -2,32 +2,20 @@
 	<img src="https://github.com/user-attachments/assets/3e399ff0-3040-4feb-a02d-c74489b779d7">
 </p>
 
-## Doppler Shift, a Fork of the /tg/station codebase
+## Doppler Shift, a [Science Fantasy](https://en.wikipedia.org/wiki/Science_fantasy) fork of [/tg/station](https://github.com/tgstation/tgstation) for SS13 
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)
 
 | Website                   | Link                                           |
 |---------------------------|------------------------------------------------|
 | Website                   | [https://dopplershift13.com](https://dopplershift13.com)          |
-| Forums										| [https://forum.dopplershift13.com](https://forum.dopplershift13.com)			|
+| Discord										| [discord.gg/doppler](discord.gg/doppler)			|
 | Wiki                      | [https://wiki.dopplershift13.com/wiki/Main_Page](https://wiki.dopplershift13.com/wiki/Main_Page)   |
 
 
-This is the codebase forked from the /tg/station flavoured fork of SpaceStation 13.
+This is the codebase forked from the [/tg/station](https://github.com/tgstation/tgstation) flavoured fork of SpaceStation 13.
 
-Space Station 13 is a paranoia-laden round-based roleplaying game set against the backdrop of a nonsensical, metal death trap masquerading as a space station, with charming spritework designed to represent the sci-fi setting and its dangerous undertones. Have fun, and survive!
-
-_All github inquiries (such as moderation actions) may be handled via the /tg/station discord [#coding-general](https://discord.com/channels/326822144233439242/326831214667235328). Simply ping the `@Maintainer` role, following the guide on asking questions located in the channel description, with your issue!_
-
-## DOWNLOADING
-
-[Downloading](.github/guides/DOWNLOADING.md)
-
-[Running a server](.github/guides/RUNNING_A_SERVER.md)
-
-[Maps and Away Missions](.github/guides/MAPS_AND_AWAY_MISSIONS.md)
-
-## Compilation
+## Compiling Locally
 
 **The quick way**. Find `bin/server.cmd` in this folder and double click it to automatically build and host the server on port 1337.
 
@@ -37,15 +25,6 @@ _All github inquiries (such as moderation actions) may be handled via the /tg/st
 
 **[How to compile in VSCode and other build options](tools/build/README.md).**
 
-## Getting started
-
-For contribution guidelines refer to the [Guides for Contributors](.github/CONTRIBUTING.md).
-
-For getting started (dev env, compilation) see the HackMD document [here](https://hackmd.io/@tgstation/HJ8OdjNBc#tgstation-Development-Guide).
-
-For overall design documentation see [HackMD](https://hackmd.io/@tgstation).
-
-For lore, [see Common Core](https://github.com/tgstation/common_core).
 
 ## LICENSE
 

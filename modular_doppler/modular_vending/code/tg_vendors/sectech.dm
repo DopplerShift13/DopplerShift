@@ -16,14 +16,6 @@
 		/obj/item/food/donut/jelly/berry = 1,
 		/obj/item/food/donut/jelly/apple = 1,
 		/obj/item/food/donut/jelly/choco = 1,
-	)
-	premium_doppler = list(
-		/obj/item/restraints/handcuffs/antiresonant = 6, // anti powers cuffs
-		/obj/item/gun/ballistic/automatic/schiebenmaschine = 30,
-		/obj/item/gun/ballistic/avispa_stingball_shooter = 5,
-		/obj/item/knife/combat/survival = 3,
-		/obj/item/reagent_containers/cup/soda_cans/monkey_energy = 5,
-		/obj/item/reagent_containers/cup/soda_cans/grey_bull = 5,
 		/obj/item/ammo_casing/alacran_dart/adrenaline = 4,
 		/obj/item/ammo_casing/alacran_dart/krotozine = 4,
 		/obj/item/ammo_casing/alacran_dart/adrenaline/piercing = 4,
@@ -32,4 +24,12 @@
 		/obj/item/ammo_casing/alacran_dart/rootbeer = 3,
 		/obj/item/storage/box/alacran_dart = 3,
 		/obj/item/storage/box/alacran_dart/piercing = 3,
+	)
+	premium_doppler = list(
+    /obj/item/restraints/handcuffs/antiresonant = 6, // anti powers cuffs
+		/obj/item/gun/ballistic/automatic/schiebenmaschine = 30,
+		/obj/item/gun/ballistic/avispa_stingball_shooter = 5,
+		/obj/item/knife/combat/survival = 3,
+		/obj/item/reagent_containers/cup/soda_cans/monkey_energy = 5,
+		/obj/item/reagent_containers/cup/soda_cans/grey_bull = 5,
 	)
