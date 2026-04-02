@@ -7,8 +7,6 @@
 	action_path = /datum/action/cooldown/power/theologist/smiting_strike
 	value = 4
 
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THEOLOGIST
 	required_powers = list(/datum/power/theologist_root/revered)
 
 /datum/action/cooldown/power/theologist/smiting_strike

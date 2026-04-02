@@ -11,8 +11,6 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	action_path = /datum/action/cooldown/power/theologist/entropic_mending
 	value = 6
 
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THEOLOGIST
 	required_powers = list(/datum/power/theologist_root/twisted)
 
 /datum/action/cooldown/power/theologist/entropic_mending

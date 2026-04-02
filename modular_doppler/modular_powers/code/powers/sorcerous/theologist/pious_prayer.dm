@@ -6,8 +6,6 @@
 	security_record_text = "Subject fuels their powers with visits to the Chapel."
 	value = 3
 
-	archetype = POWER_ARCHETYPE_SORCEROUS
-	path = POWER_PATH_THEOLOGIST
 	action_path = /datum/action/cooldown/power/theologist/pious_prayer
 	required_powers = list(/datum/power/theologist_root)
 	required_allow_subtypes = TRUE
@@ -74,9 +72,9 @@
 	// Are you the chaplain?
 	if(is_chaplain_job(user.mind?.assigned_role))
 		total_chance += 20
-	// Do you have the religious quirk?
+	// Do you have the spiritual personality trait?
 	if(HAS_TRAIT(user, TRAIT_SPIRITUAL))
-		total_chance += 5
+		total_chance += 15
 	// Do you carry the bible on your person?
 	if(has_bible(user))
 		total_chance += 10
