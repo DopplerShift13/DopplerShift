@@ -31,7 +31,7 @@
 	// Mirage behavior mode
 	var/mode = MIRAGE_MODE_STATIONARY
 	// Stress cost
-	var/stress_cost = PSYKER_STRESS_MODERATE * 1.5
+	var/stress_cost = PSYKER_STRESS_MODERATE
 
 // WE get the right click behavior to cycle behavior.
 /datum/action/cooldown/power/psyker/mirage/InterceptClickOn(mob/living/clicker, params, atom/target)
@@ -57,7 +57,7 @@
 		return FALSE
 
 	// Creates a new instance of the mirrage
-	var/mob/living/simple_animal/hostile/illusion/mirage/resonant/new_mirage = new(spawn_turf)
+	var/mob/living/basic/resonant_mirage/new_mirage = new(spawn_turf)
 	new_mirage.Copy_Parent(owner, 20 SECONDS, 1, 0)
 	new_mirage.set_action_ref(src)
 	new_mirage.apply_mode(mode)
@@ -65,8 +65,8 @@
 	active_mirages += new_mirage
 
 	// Causes it to act immediately.
-	new_mirage.FindTarget()
 	new_mirage.taunt_nearest_hostile(5)
+	new_mirage.kick_ai()
 
 	modify_stress(stress_cost)
 	playsound(new_mirage, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
@@ -87,34 +87,71 @@
 
 /datum/action/cooldown/power/psyker/mirage/Remove(mob/removed_from)
 	. = ..()
-	for(var/mob/living/simple_animal/hostile/illusion/mirage/resonant/mirage as anything in active_mirages)
+	for(var/mob/living/basic/resonant_mirage/mirage as anything in active_mirages)
 		if(!QDELETED(mirage))
 			qdel(mirage)
 	active_mirages.Cut()
 
 /datum/action/cooldown/power/psyker/mirage/proc/cleanup_mirages()
-	for(var/mob/living/simple_animal/hostile/illusion/mirage/resonant/mirage as anything in active_mirages.Copy())
+	for(var/mob/living/basic/resonant_mirage/mirage as anything in active_mirages.Copy())
 		if(QDELETED(mirage))
 			active_mirages -= mirage
 
 
 /*
-	Mirage mob: simple animal used for aggro, but with per-viewer masking.
+	Mirage mob: basic mob used for aggro, but with per-viewer masking.
 */
-/mob/living/simple_animal/hostile/illusion/mirage/resonant
+/mob/living/basic/resonant_mirage
+	name = "illusion"
+	desc = "It's a fake!"
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "static"
+	icon_living = "static"
+	icon_dead = "null"
+	gender = NEUTER
+	mob_biotypes = NONE
+	faction = list(FACTION_ILLUSION)
+	basic_mob_flags = DEL_ON_DEATH
+	death_message = "vanishes into thin air! It was a fake!"
+	/// Weakref to what we're copying
+	var/datum/weakref/parent_mob_ref
+
+/mob/living/basic/resonant_mirage/proc/Copy_Parent(mob/living/original, life = 5 SECONDS, hp = 100, damage = 0)
+	appearance = original.appearance
+	parent_mob_ref = WEAKREF(original)
+	setDir(original.dir)
+	maxHealth = hp
+	updatehealth() // re-cap health to new value
+	melee_damage_type = BRUTE
+	wound_bonus = CANT_WOUND
+	exposed_wound_bonus = 0
+	sharpness = NONE
+	armour_penetration = 0
+	obj_damage = 0
+	environment_smash = ENVIRONMENT_SMASH_NONE
+	transform = initial(transform)
+	pixel_x = base_pixel_x
+	pixel_y = base_pixel_y
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/mob/living, death)), life)
+
+/mob/living/basic/resonant_mirage/examine(mob/user)
+	var/mob/living/parent_mob = parent_mob_ref?.resolve()
+	if(parent_mob)
+		return parent_mob.examine(user)
+	return ..()
+
+/mob/living/basic/resonant_mirage
 	var/datum/weakref/action_ref
 	var/last_mode = MIRAGE_MODE_STATIONARY
 	var/alt_appearance_key
 	density = TRUE
-	melee_damage_lower = 0
-	melee_damage_upper = 0
 	obj_damage = 0
 	environment_smash = ENVIRONMENT_SMASH_NONE
 	attack_verb_continuous = "attacks"
 	attack_verb_simple = "attack"
 
 // imposes the caster onto the mob
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/set_action_ref(datum/action/cooldown/power/psyker/mirage/action)
+/mob/living/basic/resonant_mirage/proc/set_action_ref(datum/action/cooldown/power/psyker/mirage/action)
 	action_ref = WEAKREF(action)
 	if(!alt_appearance_key)
 		alt_appearance_key = "mirage_alpha_[REF(src)]"
@@ -125,17 +162,11 @@
 		RegisterSignal(src, COMSIG_ATOM_DIR_CHANGE, PROC_REF(on_mirage_dir_change))
 	RegisterSignal(src, COMSIG_ATOM_DISPEL, PROC_REF(on_mirage_dispel))
 
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/match_owner_speed(mob/living/owner)
-	if(!owner)
-		return
-	if(!isnum(owner.cached_multiplicative_slowdown))
-		return
-	var/desired = max(0.1, owner.cached_multiplicative_slowdown)
-	move_to_delay = desired
-	set_varspeed(desired)
+/mob/living/basic/resonant_mirage/proc/match_owner_speed(mob/living/owner)
+	set_varspeed(1) // this was more complex when it was a simple mob to match the owner, but I had to change it.
 
 // Draw a nearby hostile's aggro to sell the illusion.
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/taunt_nearest_hostile(range_limit = 5)
+/mob/living/basic/resonant_mirage/proc/taunt_nearest_hostile(range_limit = 5)
 	var/datum/action/cooldown/power/psyker/mirage/action = action_ref?.resolve()
 	var/mob/living/nearest_mob
 	var/nearest_dist
@@ -143,7 +174,7 @@
 	for(var/mob/living/living_mob in range(range_limit, src))
 		if(living_mob == src || QDELETED(living_mob)) // no self taunting
 			continue
-		if(istype(living_mob, /mob/living/simple_animal/hostile/illusion)) // no taunting other illusions
+		if(istype(living_mob, /mob/living/simple_animal/hostile/illusion) || istype(living_mob, /mob/living/basic/resonant_mirage)) // no taunting other illusions
 			continue
 		if(living_mob.mind) // no sentient taunting
 			continue
@@ -170,25 +201,39 @@
 			nearest_mob.ai_controller.insert_blackboard_key_lazylist(BB_BASIC_MOB_RETALIATE_LIST, src)
 
 // Applies the selection AI mode. Have your illusions act as you please :D
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/apply_mode(new_mode)
+/mob/living/basic/resonant_mirage/proc/apply_mode(new_mode)
 	last_mode = new_mode
 
 	switch(new_mode)
 		if(MIRAGE_MODE_STATIONARY)
-			stop_automated_movement = TRUE
-			toggle_ai(AI_IDLE)
+			set_ai_controller_type(null)
 		if(MIRAGE_MODE_AGGRESSIVE)
-			stop_automated_movement = FALSE
-			retreat_distance = 0
-			minimum_distance = 0
-			toggle_ai(AI_ON)
+			set_ai_controller_type(/datum/ai_controller/basic_controller/simple/simple_hostile)
 		if(MIRAGE_MODE_FLEE)
-			stop_automated_movement = FALSE
-			retreat_distance = 10
-			minimum_distance = 10
-			toggle_ai(AI_ON)
+			set_ai_controller_type(/datum/ai_controller/basic_controller/simple/simple_fearful)
 
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/Destroy()
+/mob/living/basic/resonant_mirage/proc/set_ai_controller_type(controller_type)
+	if(isnull(controller_type))
+		QDEL_NULL(ai_controller)
+		return
+	if(istype(ai_controller, controller_type))
+		ai_controller.reset_ai_status()
+		ai_controller.set_blackboard_key(BB_TARGETING_STRATEGY, /datum/targeting_strategy/basic/mirage)
+		return
+	QDEL_NULL(ai_controller)
+	ai_controller = new controller_type(src)
+	ai_controller.set_blackboard_key(BB_TARGETING_STRATEGY, /datum/targeting_strategy/basic/mirage)
+
+// we kick it to make it work. When this was a simple animal this wasn't as big of a problem, but /basic/ mobs are just more sluggish.
+/mob/living/basic/resonant_mirage/proc/kick_ai()
+	if(!ai_controller)
+		return
+	ai_controller.set_ai_status(AI_STATUS_ON)
+	ai_controller.SelectBehaviors(0.1)
+	for(var/datum/ai_behavior/current_behavior as anything in ai_controller.current_behaviors)
+		ai_controller.ProcessBehavior(0.1, current_behavior)
+
+/mob/living/basic/resonant_mirage/Destroy()
 	if(alt_appearance_key)
 		remove_alt_appearance(alt_appearance_key)
 		alt_appearance_key = null
@@ -197,32 +242,26 @@
 	action_ref = null
 	return ..()
 
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/on_mirage_dispel(datum/source, atom/dispeller)
+/mob/living/basic/resonant_mirage/proc/on_mirage_dispel(datum/source, atom/dispeller)
 	SIGNAL_HANDLER
 	qdel(src)
 	return DISPEL_RESULT_DISPELLED
 
 // We need to tell the alt appearance variant to turn.
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/on_mirage_dir_change(datum/source, old_dir, new_dir)
+/mob/living/basic/resonant_mirage/proc/on_mirage_dir_change(datum/source, old_dir, new_dir)
 	SIGNAL_HANDLER
 	var/image/appearance_image = hud_list?[alt_appearance_key]
 	if(appearance_image)
 		appearance_image.dir = new_dir
 
 // If you have disbelieved the illusion (immune to mental) you can just walk through them.
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/CanAllowThrough(atom/movable/mover, border_dir)
+/mob/living/basic/resonant_mirage/CanAllowThrough(atom/movable/mover, border_dir)
 	if(should_ignore_target(mover))
 		return TRUE
 	return ..()
 
-// We don't aggro our owner,
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/CanAttack(atom/the_target)
-	if(should_ignore_target(the_target))
-		return FALSE
-	return ..()
-
 // Basically we check if they're our owner, are affected by mental or are an illusion of the same mob.
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/proc/should_ignore_target(atom/target)
+/mob/living/basic/resonant_mirage/proc/should_ignore_target(atom/target)
 	var/datum/action/cooldown/power/psyker/mirage/action = action_ref?.resolve()
 	if(!action || !ismob(target) || !isliving(target))
 		return FALSE
@@ -236,14 +275,22 @@
 		var/mob/living/simple_animal/hostile/illusion/illusion_target = living_target
 		if(illusion_target.parent_mob_ref?.resolve() == owner)
 			return TRUE
+	if(istype(living_target, /mob/living/basic/resonant_mirage))
+		var/mob/living/basic/resonant_mirage/illusion_target = living_target
+		if(illusion_target.parent_mob_ref?.resolve() == owner)
+			return TRUE
 	return FALSE
 
 // We basically do a fake attack to sell the 'illusion'. We don't want it to actually deal damage, or people will have hissyfit arguments that these are 'harmful' and should be 'illegal'
-/mob/living/simple_animal/hostile/illusion/mirage/resonant/AttackingTarget(atom/attacked_target)
-	if(!isliving(attacked_target))
+/mob/living/basic/resonant_mirage/melee_attack(atom/target, list/modifiers, ignore_cooldown = FALSE)
+	if(!isliving(target))
+		return FALSE
+	if(should_ignore_target(target))
+		return FALSE
+	if(!early_melee_attack(target, modifiers, ignore_cooldown))
 		return FALSE
 
-	var/mob/living/living_target = attacked_target
+	var/mob/living/living_target = target
 	do_attack_animation(living_target, ATTACK_EFFECT_PUNCH)
 
 	var/verb_continuous = attack_verb_continuous || "attacks"
@@ -261,6 +308,19 @@
 	if(attacked_sound)
 		playsound(loc, attacked_sound, 25, TRUE, -1)
 
+	SEND_SIGNAL(src, COMSIG_HOSTILE_POST_ATTACKINGTARGET, target, TRUE)
+	return TRUE
+
+// Targeting strategy: never pick targets the mirage should ignore.
+/datum/targeting_strategy/basic/mirage/can_attack(mob/living/living_mob, atom/target, vision_range)
+	. = ..()
+	if(!.)
+		return FALSE
+	if(!istype(living_mob, /mob/living/basic/resonant_mirage))
+		return .
+	var/mob/living/basic/resonant_mirage/mirage = living_mob
+	if(mirage.should_ignore_target(target))
+		return FALSE
 	return TRUE
 
 

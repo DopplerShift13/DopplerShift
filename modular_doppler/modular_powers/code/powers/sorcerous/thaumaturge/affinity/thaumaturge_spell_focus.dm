@@ -3,14 +3,14 @@
 	desc = "An orb of raw thaumaturgic resonance, adjustable to take on any form of your choosing, one-time only. Needed to restore thaumaturgic powers."
 	icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	icon_state = "ice_1"
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = NONE
 	w_class = WEIGHT_CLASS_TINY
 	obj_flags = UNIQUE_RENAME
 	affinity = 2 // check thaumaturge_affinity.dm if you ever wonder what deserves what affinity
 	/// If FALSE, suppress belt sprite entirely (prevents missing belt sprites).
 	var/shows_on_belt = FALSE
 	/// Short description of what this item is capable of, for radial menu uses.
-	var/menu_description = "An orb of energy. Fits in pockets. Can be worn on the belt. Very convenient, gives affinity 2 and is not visible in your hands, but doesn't do much more than that."
+	var/menu_description = "An orb of energy. Fits in pockets. Very convenient, gives affinity 2 and is not visible in your hands, but doesn't do much more than that."
 
 /obj/item/spell_focus/Initialize(mapload)
 	. = ..()
@@ -24,12 +24,6 @@
 		focuses[focus_type] = initial(focus_type.menu_description)
 
 	AddComponent(/datum/component/subtype_picker, focuses, CALLBACK(src, PROC_REF(on_spell_focus_picked)))
-
-// Supresses belt sprites if unwanted whilst still allowing the slot to be used.
-/obj/item/spell_focus/get_belt_overlay()
-	if(!shows_on_belt)
-		return null
-	return ..()
 
 /obj/item/spell_focus/proc/on_spell_focus_picked(obj/item/spell_focus/new_focus, mob/living/picker)
 	if(!istype(new_focus))
@@ -51,15 +45,15 @@
 	inhand_icon_state = "kojiki" // they have no inhands but affinity3 needs inhands so we borrow another blue book instead
 	throw_speed = 1
 	throw_range = 5
-	slot_flags = ITEM_SLOT_BELT
-	shows_on_belt = TRUE
+	slot_flags = NONE
+	shows_on_belt = FALSE
 	w_class = WEIGHT_CLASS_NORMAL
 	attack_verb_continuous = list("bashes", "whacks", "educates")
 	attack_verb_simple = list("bash", "whack", "educate")
 	drop_sound = 'sound/items/handling/book_drop.ogg'
 	pickup_sound = 'sound/items/handling/book_pickup.ogg'
 	affinity = 3
-	menu_description = "An arcane tome. Fits in your backpack and on your belt, and provides affinity 3; but does not fit in the pockets and is fairly conspicuous."
+	menu_description = "An arcane tome. Fits in your backpack, and provides affinity 3; but does not fit in the pockets and is fairly conspicuous."
 
 /obj/item/spell_focus/wand
 	name = "thaumaturge's wand"
@@ -69,10 +63,10 @@
 	inhand_icon_state = "wand"
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
-	slot_flags = ITEM_SLOT_BELT
+	slot_flags = NONE
 	w_class = WEIGHT_CLASS_NORMAL
 	affinity = 3
-	menu_description = "A classical magic wand. Fits in your backpack and on your belt, and provides affinity 3; but does not fit in any pockets and is clearly visible when held."
+	menu_description = "A classical magic wand. Fits in your backpack, and provides affinity 3; but does not fit in any pockets and is clearly visible when held."
 
 /obj/item/spell_focus/staff
 	name = "thaumaturge's staff"
