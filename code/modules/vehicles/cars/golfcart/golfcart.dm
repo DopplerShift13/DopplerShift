@@ -44,6 +44,9 @@
 		/obj/structure/flatpack_cart,
 		/obj/machinery,
 		/obj/item/kirbyplants,
+		/obj/structure/shuttle_decoration, // DOPPLER EDIT ADDITION
+		/obj/structure/hull_plating, // DOPPLER EDIT ADDITION
+		/obj/structure/closet/shipping_container, // DOPPLER EDIT ADDITION
 	))
 	///Each movement requires this much energy to be drawn from the internal cell
 	var/charge_per_move = STANDARD_CELL_CHARGE / 300
