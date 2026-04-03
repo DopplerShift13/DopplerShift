@@ -376,7 +376,7 @@
 			heating = 15
 		if(35 to INFINITY)
 			heating = 20
-	affected_mob.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT * REM * seconds_per_tick)
+	affected_mob.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT * REM * seconds_per_tick, max_temp = BODYTEMP_HEAT_LAVALAND_SAFE - 5) // DOPPLER EDIT CHANGE - MAKES SPICE NOT KILL LIZARDS - ORIGINAL: affected_mob.adjust_bodytemperature(heating * TEMPERATURE_DAMAGE_COEFFICIENT * REM * seconds_per_tick)
 
 /datum/reagent/consumable/frostoil
 	name = "Frost Oil"
