@@ -16,6 +16,16 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
 
+/obj/machinery/power/shuttle_engine/heater/salvage/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+	if(!port)
+		return FALSE
+	connected_ship = port
+	connected_ship.engine_list |= src
+	if(mapload)
+		connected_ship.initial_engine_power += engine_power
+	if(engine_state == ENGINE_WELDED)
+		alter_engine_power(engine_power)
+
 // Don't want people accidentally deconstructing these and losing all the resources
 /obj/machinery/power/shuttle_engine/heater/salvage/crowbar_act(mob/living/user, obj/item/tool)
 	return
@@ -38,6 +48,16 @@
 /obj/machinery/power/shuttle_engine/propulsion/salvage/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
+
+/obj/machinery/power/shuttle_engine/propulsion/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+	if(!port)
+		return FALSE
+	connected_ship = port
+	connected_ship.engine_list |= src
+	if(mapload)
+		connected_ship.initial_engine_power += engine_power
+	if(engine_state == ENGINE_WELDED)
+		alter_engine_power(engine_power)
 
 // Don't want people accidentally deconstructing these and losing all the resources
 /obj/machinery/power/shuttle_engine/propulsion/salvage/crowbar_act(mob/living/user, obj/item/tool)

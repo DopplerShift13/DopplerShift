@@ -8,7 +8,8 @@
 	unfasten_time = 3 SECONDS
 	drag_slowdown = 3
 	inertia_force_weight = 2
-	SET_BASE_PIXEL(-16, 0)
+	SET_BASE_PIXEL(-16, -16)
+	shuttles_wont_pixelshift = TRUE
 	/// Has the weapon been armed by mistake?
 	var/armed_and_dangerous = FALSE
 	/// Do we even need to be armed to do our problem effect?

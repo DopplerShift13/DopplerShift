@@ -12,6 +12,8 @@
 	var/unfasten_time = 1 SECONDS
 	/// Does this need to be welded off the wall, instead of using a wrench
 	var/requires_welder = FALSE
+	/// If this shuttle piece is large and pixel shifted and shouldn't be destroyed by shuttlerotate
+	var/shuttles_wont_pixelshift = FALSE
 
 /obj/structure/shuttle_decoration/Initialize(mapload)
 	. = ..()
@@ -19,6 +21,11 @@
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
 	find_and_hang_on_wall()
 	register_context()
+
+/obj/structure/shuttle_decoration/shuttleRotate(rotation, params)
+	if(shuttles_wont_pixelshift)
+		params &= ~ROTATE_OFFSET
+	return ..()
 
 /obj/structure/shuttle_decoration/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
