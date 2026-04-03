@@ -6832,7 +6832,6 @@
 #include "interface\fonts\spess_font.dm"
 #include "interface\fonts\tiny_unicode.dm"
 #include "interface\fonts\vcr_osd_mono.dm"
-#include "modular_doppler\z_lore_rename.dm"
 #include "modular_doppler\_HELPERS\preferences.dm"
 #include "modular_doppler\accent_toggle\code\accent_toggle.dm"
 #include "modular_doppler\accessable_storage\accessable_storage.dm"
@@ -7856,4 +7855,6 @@
 #include "modular_doppler\wargaming\code\game_kit.dm"
 #include "modular_doppler\wargaming\code\holograms.dm"
 #include "modular_doppler\wargaming\code\projectors.dm"
+#include "modular_doppler\z_lore_rename\pa_4ca.dm"
+#include "modular_doppler\z_lore_rename\syndicate_removal.dm"
 // END_INCLUDE
