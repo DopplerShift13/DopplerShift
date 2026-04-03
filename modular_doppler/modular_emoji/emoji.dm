@@ -7,3 +7,8 @@
 /datum/asset/spritesheet_batched/emojipedia/create_spritesheets()
 	. = ..()
 	insert_all_icons("", MODULAR_EMOJI_SET)
+
+/datum/computer_file/program/emojipedia/New()
+		. = ..()
+		var/list/extra = icon_states(icon(MODULAR_EMOJI_SET))
+		emoji_list |= extra
