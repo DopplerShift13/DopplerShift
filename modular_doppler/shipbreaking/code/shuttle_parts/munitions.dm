@@ -87,6 +87,8 @@
 	return ..()
 
 /obj/structure/shuttle_decoration/munition/welder_act(mob/living/user, obj/item/tool)
+	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return ITEM_INTERACT_FAILURE
 	if(!set_off())
 		return ITEM_INTERACT_FAILURE
 	user.visible_message(span_danger("[user] cuts into [src]!"))

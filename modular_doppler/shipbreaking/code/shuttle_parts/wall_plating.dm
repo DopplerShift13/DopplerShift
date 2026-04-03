@@ -24,6 +24,8 @@
 /obj/structure/shuttle_decoration/wall_plate/welder_act(mob/living/user, obj/item/tool)
 	if(!requires_welder)
 		return NONE
+	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return ITEM_INTERACT_FAILURE
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 4 SECONDS, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING

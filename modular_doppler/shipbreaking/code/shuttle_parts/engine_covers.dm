@@ -37,6 +37,8 @@
 	. += span_notice("You can [anchored ? "unsecure" : "secure"] it with a welding tool.")
 
 /obj/structure/engine_covers/welder_act(mob/living/user, obj/item/tool)
+	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return ITEM_INTERACT_FAILURE
 	balloon_alert(user, anchored ? "cutting..." : "securing...")
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING

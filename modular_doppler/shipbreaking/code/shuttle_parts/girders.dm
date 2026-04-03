@@ -34,6 +34,8 @@
 	. += span_notice("Can be removed by cutting it off.")
 
 /obj/structure/titanium_structure/welder_act(mob/living/user, obj/item/tool)
+	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return ITEM_INTERACT_FAILURE
 	balloon_alert(user, anchored ? "cutting..." : "securing...")
 	if(!tool.use_tool(src, user, 2 SECONDS, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING

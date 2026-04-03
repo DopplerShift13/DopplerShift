@@ -18,6 +18,8 @@
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/structure/mineral_door/manual_colony_door/shuttle/welder_act(mob/living/user, obj/item/tool) //override if the door is supposed to be flammable.
+	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return ITEM_INTERACT_FAILURE
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING
@@ -59,6 +61,8 @@
 	. += span_notice("You can secure this again with a welding tool of some kind.")
 
 /obj/structure/hull_plating/airlock/welder_act(mob/living/user, obj/item/tool)
+	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return ITEM_INTERACT_FAILURE
 	balloon_alert(user, "securing...")
 	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING
@@ -104,6 +108,8 @@
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/structure/shuttle_access_panel/welder_act(mob/living/user, obj/item/tool)
+	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return ITEM_INTERACT_FAILURE
 	balloon_alert(user, "cutting...")
 	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING
