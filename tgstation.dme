@@ -7588,7 +7588,6 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\severe\hallucinate.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_events\severe\vomit.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\_resonant_projectile.dm"
-#include "modular_doppler\modular_powers\code\powers\sorcerous\prestidigitation.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_chalks.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_enigmatist_root.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_enigmatist_spell.dm"

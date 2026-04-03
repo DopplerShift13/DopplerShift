@@ -325,7 +325,7 @@
 /datum/status_effect/power/burden_shared
 	id = "burden_shared"
 	duration = 5 MINUTES // If somehow it overestays its welcome
-	tick_interval = -1 SECONDS // This one's just cosmetic
+	tick_interval = STATUS_EFFECT_NO_TICK
 	alert_type = /atom/movable/screen/alert/status_effect/burden_shared
 
 /atom/movable/screen/alert/status_effect/burden_shared

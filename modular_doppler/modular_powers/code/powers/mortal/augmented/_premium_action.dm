@@ -36,8 +36,12 @@
 
 // We have to delay giving the action because we communicate with the button, and this causes runtimes at roundstart. We use signalers to delay it until the huds there.
 /datum/action/item_action/organ_action/premium/GiveAction(mob/viewer)
-	if(!viewer || !viewer.hud_used)
-		if(viewer && !pending_hud_grant)
+	if(!viewer)
+		return
+	if(!viewer.hud_used)
+		// Still grant the action even without a HUD so unit tests and headless mobs pass.
+		LAZYOR(viewer.actions, src)
+		if(!pending_hud_grant)
 			pending_hud_grant = TRUE
 			RegisterSignal(viewer, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created), override = TRUE)
 		return

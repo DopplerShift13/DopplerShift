@@ -73,9 +73,6 @@
 	. = ..()
 	if(!has_robotic_arm())
 		to_chat(arm_owner, span_warning("Your [name] does not fit in a non-cybernetic arm!"))
-		Remove(arm_owner, special = TRUE)
-		if(arm_owner?.loc)
-			forceMove(get_turf(arm_owner))
 		return
 
 // On EMP

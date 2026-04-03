@@ -7,7 +7,6 @@
 	icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	worn_icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	icon_state = "hivizmob"
-	inhand_icon_state = "hivizobj"
 	armor_type = /datum/armor/none
 	cold_protection = CHEST|GROIN|ARMS|HANDS|LEGS
 	heat_protection = CHEST|GROIN|ARMS|HANDS|LEGS
@@ -24,7 +23,6 @@
 	icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	worn_icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	icon_state = "hivizhat"
-	inhand_icon_state = "hivizhatobj"
 	armor_type = /datum/armor/none
 	fishing_modifier = -5 // high vishing
 	affinity = 3
@@ -36,7 +34,6 @@
 	icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	worn_icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	icon_state = "secrobemob"
-	inhand_icon_state = "secrobesobj"
 	armor_type = /datum/armor/armor_secjacket
 	cold_protection = CHEST|GROIN|ARMS|HANDS|LEGS
 	heat_protection = CHEST|GROIN|ARMS|HANDS|LEGS
@@ -56,9 +53,7 @@
 	icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	worn_icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	icon_state = "sechat"
-	inhand_icon_state = "sechatobj"
 	armor_type = /datum/armor/none
 	fishing_modifier = -2
 	resistance_flags = FLAMMABLE
 	affinity = 3
-

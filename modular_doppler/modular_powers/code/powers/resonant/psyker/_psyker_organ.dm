@@ -149,7 +149,7 @@
 // Warning message for high stress
 /datum/status_effect/power/stress_warning
 	id = "stress_warning"
-	tick_interval = -1 SECONDS // This one's just a warning
+	tick_interval = STATUS_EFFECT_NO_TICK // This one's just a warning
 	alert_type = /atom/movable/screen/alert/status_effect/stress_warning
 
 /atom/movable/screen/alert/status_effect/stress_warning
