@@ -1,3 +1,8 @@
+// All of these copied from shuttle_engines.dm
+#define ENGINE_UNWRENCHED 0
+#define ENGINE_WRENCHED 1
+#define ENGINE_WELDED 2
+
 /obj/machinery/power/shuttle_engine/heater/salvage
 	name = "combustion chamber"
 	desc = "Large tanks, turbopumps, valves, pipes, everything you need to combine chemical fuels into just the right \
@@ -62,3 +67,7 @@
 // Don't want people accidentally deconstructing these and losing all the resources
 /obj/machinery/power/shuttle_engine/propulsion/salvage/crowbar_act(mob/living/user, obj/item/tool)
 	return
+
+#undef ENGINE_UNWRENCHED
+#undef ENGINE_WRENCHED
+#undef ENGINE_WELDED
