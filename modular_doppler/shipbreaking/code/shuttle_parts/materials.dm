@@ -110,6 +110,7 @@
 	custom_materials = list(
 		/datum/material/nanocarbon = HALF_SHEET_MATERIAL_AMOUNT
 	)
+	color = COLOR_SILVER
 	/// How many variants of shard there are
 	var/variants = 5
 
