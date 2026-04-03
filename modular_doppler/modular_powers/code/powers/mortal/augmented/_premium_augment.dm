@@ -39,6 +39,8 @@
 /datum/component/premium_augment/Destroy()
 	STOP_PROCESSING(SSfastprocess, src)
 	premium_actions = null
+	if(host && host.premium_component == src) // null ref datum before destruction
+		host.premium_component = null
 	host = null
 	return ..()
 
