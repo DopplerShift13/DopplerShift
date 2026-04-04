@@ -62,7 +62,9 @@
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
-	SET_BASE_PIXEL(0, 0)
 	if(anchored)
 		find_and_hang_on_wall()
+		SET_BASE_PIXEL(initial(base_pixel_x), initial(base_pixel_y))
+	else
+		SET_BASE_PIXEL(0, 0)
 	return ITEM_INTERACT_SUCCESS

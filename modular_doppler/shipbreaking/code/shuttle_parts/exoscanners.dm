@@ -11,7 +11,11 @@
 	find_and_hang_on_wall()
 
 /obj/machinery/exoscanner/shuttle_part/wrench_act(mob/living/user, obj/item/tool)
-	if(. = ITEM_INTERACT_SUCCESS)
+	if(. != ITEM_INTERACT_SUCCESS)
+		return
+	if(anchored)
+		SET_BASE_PIXEL(initial(base_pixel_x), initial(base_pixel_y))
+	else
 		SET_BASE_PIXEL(0, 0)
 
 /obj/machinery/exoscanner/shuttle_part/screwdriver_act(mob/user, obj/item/tool)
