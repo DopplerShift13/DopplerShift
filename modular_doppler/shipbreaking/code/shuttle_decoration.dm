@@ -52,6 +52,7 @@
 	if(requires_welder)
 		return NONE
 	default_unfasten_wrench(user, tool, time = unfasten_time)
+	SET_BASE_PIXEL(0, 0)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/welder_act(mob/living/user, obj/item/tool)
@@ -61,6 +62,7 @@
 	if(!tool.use_tool(src, user, unfasten_time, amount = 1, volume=50))
 		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
+	SET_BASE_PIXEL(0, 0)
 	if(anchored)
 		find_and_hang_on_wall()
 	return ITEM_INTERACT_SUCCESS
