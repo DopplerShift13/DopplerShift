@@ -17,3 +17,42 @@
 		is_light_removable = FALSE, \
 		light_overlay = "light", \
 	)
+
+/obj/item/clothing/head/soft/frontier_colonist
+	name = "frontier cap"
+	desc = "It's a robust baseball hat in a rugged green color."
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
+	icon_state = "cap"
+	soft_type = "cap"
+	soft_suffix = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
+	)
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
+	worn_icon_state = "cap"
+
+/obj/item/clothing/head/soft/frontier_colonist/medic
+	name = "frontier medical cap"
+	desc = "It's a robust baseball hat in a stylish red color. Has a white diamond to denote that its wearer might be able to provide medical assistance."
+	icon_state = "cap_medical"
+	soft_type = "cap_medical"
+	worn_icon_state = "cap_medical"
+
+/obj/item/clothing/head/frontier_colonist_helmet
+	name = "frontier soft helmet"
+	desc = "A unusual piece of headwear somewhere between a proper helmet and a normal cap."
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
+	icon_state = "tanker"
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
+	worn_icon_state = "tanker"
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
+	)
+	armor_type = /datum/armor/colonist_armor
+	resistance_flags = NONE
+	flags_inv = 0
+	clothing_flags = SNUG_FIT | STACKABLE_HELMET_EXEMPT

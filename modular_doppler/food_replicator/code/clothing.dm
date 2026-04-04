@@ -8,16 +8,6 @@
 	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/food_replicator/icons/clothing_worn.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/food_replicator/icons/clothing_digi.dmi')
 
-/obj/item/clothing/shoes/jackboots/colonial
-	name = "colonial half-boots"
-	desc = "Good old laceless boots, with a sturdy plastic toe to, theoretically, keep your toes uncrushed."
-	icon_state = "boots_colonial"
-	icon = 'modular_doppler/food_replicator/icons/clothing.dmi'
-	worn_icon = 'modular_doppler/food_replicator/icons/clothing_worn.dmi'
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/food_replicator/icons/clothing_worn.dmi',
-		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/food_replicator/icons/clothing_digi.dmi')
-
 /obj/item/clothing/neck/cloak/colonial
 	name = "colonial cloak"
 	desc = "A cloak made from heavy tarpaulin. Nigh wind- and waterproof thanks to its design."
