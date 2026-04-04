@@ -14,6 +14,8 @@
 	var/requires_welder = FALSE
 	/// If this shuttle piece is large and pixel shifted and shouldn't be destroyed by shuttlerotate
 	var/shuttles_wont_pixelshift = FALSE
+	/// Will this reset its pixel shifting when unanchored
+	var/resets_pixelshifting = TRUE
 
 /obj/structure/shuttle_decoration/Initialize(mapload)
 	. = ..()
@@ -52,7 +54,8 @@
 	if(requires_welder)
 		return NONE
 	default_unfasten_wrench(user, tool, time = unfasten_time)
-	SET_BASE_PIXEL(0, 0)
+	if(resets_pixelshifting)
+		SET_BASE_PIXEL(0, 0)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/structure/shuttle_decoration/welder_act(mob/living/user, obj/item/tool)
@@ -64,7 +67,8 @@
 	set_anchored(!anchored)
 	if(anchored)
 		find_and_hang_on_wall()
-		SET_BASE_PIXEL(initial(base_pixel_x), initial(base_pixel_y))
-	else
+		if(resets_pixelshifting)
+			SET_BASE_PIXEL(initial(base_pixel_x), initial(base_pixel_y))
+	else if(resets_pixelshifting)
 		SET_BASE_PIXEL(0, 0)
 	return ITEM_INTERACT_SUCCESS

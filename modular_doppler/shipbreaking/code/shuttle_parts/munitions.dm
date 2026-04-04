@@ -10,6 +10,7 @@
 	inertia_force_weight = 2
 	SET_BASE_PIXEL(-16, -16)
 	shuttles_wont_pixelshift = TRUE
+	resets_pixelshifting = FALSE
 	/// Has the weapon been armed by mistake?
 	var/armed_and_dangerous = FALSE
 	/// Do we even need to be armed to do our problem effect?
