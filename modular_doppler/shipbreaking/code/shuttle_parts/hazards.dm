@@ -230,7 +230,7 @@
 	rupture_range = 14
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/rupture_tank()
-	playsound(src, 'modular_doppler/shipbreaking/sound/plasma_bomb.ogg', 100, FALSE, 70, pressure_affected = FALSE, ignore_walls = TRUE)
+	playsound(src, 'modular_doppler/shipbreaking/sound/plasma_bomb.ogg', 100, FALSE, 70, 1, pressure_affected = FALSE, ignore_walls = TRUE)
 	radiation_pulse(src, max_range = rupture_range, threshold = RAD_EXTREME_INSULATION, chance = 100)
 	var/vaporize_that_guy = rand(2, 4)
 	for(var/iterator in 1 to vaporize_that_guy)
@@ -253,7 +253,7 @@
 	rupture_range = 25
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/super/rupture_tank()
-	playsound(src, 'modular_doppler/shipbreaking/sound/plasma_bomb.ogg', 100, FALSE, 100, pressure_affected = FALSE, ignore_walls = TRUE)
+	playsound(src, 'modular_doppler/shipbreaking/sound/plasma_bomb.ogg', 100, FALSE, 100, 1, pressure_affected = FALSE, ignore_walls = TRUE)
 	radiation_pulse(src, max_range = 25, threshold = RAD_EXTREME_INSULATION, chance = 100)
 	var/vaporize_that_guy = rand(3, 6)
 	for(var/iterator in 1 to vaporize_that_guy)
