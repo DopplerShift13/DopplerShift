@@ -20,7 +20,7 @@
 
 /obj/item/clothing/suit/jacket/frontier_colonist/Initialize(mapload)
 	. = ..()
-	allowed |= GLOB.colonist_suit_allowed
+	allowed += GLOB.colonist_suit_allowed
 
 /obj/item/clothing/suit/jacket/frontier_colonist/short
 	name = "frontier jacket"
@@ -66,7 +66,7 @@
 
 /obj/item/clothing/suit/frontier_colonist_flak/Initialize(mapload)
 	. = ..()
-	allowed |= GLOB.colonist_suit_allowed
+	allowed += GLOB.colonist_suit_allowed
 
 /obj/item/clothing/suit/jacket/frontier_colonist/casual
 	name = "frontier casual raincloak"
