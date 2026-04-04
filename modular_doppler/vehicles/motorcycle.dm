@@ -1,8 +1,12 @@
 // did you know we have motorcycle pants and a motorcycle jacket? now you can stop larping
 
+///Fuel limit when you will recieve an alert for low fuel message
+#define LOW_FUEL_LEFT_MESSAGE 100
+
 /obj/vehicle/ridden/motorcycle
-	name = "motorcycle"
-	desc = ""
+	name = "racing motorcycle"
+	desc = "A minimalist racing motorcycle that trades its fairings for a low key look. Nevertheless, the 1200 \
+	cubic centimeters of displacement between the rider's legs make it plenty fast and perfectly dangerous."
 	icon = 'modular_doppler/vehicles/icons/32x_vehicles.dmi'
 	icon_state = "motorcycle"
 	max_integrity = 300
@@ -11,10 +15,12 @@
 	key_type = null
 	var/mutable_appearance/motorcycle_cover
 
-	/// reference to the attached sidecar, if present
-	var/obj/item/sidecar/attached_sidecar
 	/// The looping sound that plays when the bike is not moving
 	var/datum/looping_sound/bike_idle/idle_sound
+	///max fuel that this bike can hold
+	var/max_fuel = 1000
+	///do we start with fuel?
+	var/starting_fuel = TRUE
 	/// Which sound is played when the bike is unbuckled from
 	var/dismount_sound = 'modular_doppler/modular_sounds/sound/vehicles/bikedismount.ogg'
 	/// A list of potential sounds played when the bike is revved via AltClick
@@ -35,6 +41,15 @@
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle)
 	if(!motorcycle_cover)
 		motorcycle_cover = mutable_appearance(icon, "motorcycle_cover", MOB_LAYER + 0.1)
+	create_reagents(max_fuel)
+	if(starting_fuel)
+		reagents.add_reagent(/datum/reagent/fuel, max_fuel)
+
+/obj/vehicle/ridden/motorcycle/examine(mob/user)
+	. = ..()
+	if(!ishuman(user))
+		return
+	. += "It contains [get_fuel()] unit\s of fuel out of [max_fuel]."
 
 /obj/vehicle/ridden/motorcycle/post_buckle_mob(mob/living/M)
 	add_overlay(motorcycle_cover)
@@ -47,14 +62,19 @@
 	idle_sound.stop(src)
 	return ..()
 
+// revs the engine and spends a little fuel
 /obj/vehicle/ridden/motorcycle/click_alt_secondary(mob/user)
 	if(!is_occupant(user))
 		return FALSE
 	if(!COOLDOWN_FINISHED(src, rev_cooldown))
 		return FALSE
+	if(get_fuel < 5)
+		to_chat(user, span_notice("The [src]'s engine sputters!."))
+		return FALSE
 	COOLDOWN_START(src, rev_cooldown, 3 SECONDS)
 	to_chat(user, span_notice("You rev the [src]'s engine."))
 	playsound(src, pick(rev_sounds), 50, TRUE)
+	fuel_count -= 5
 	return TRUE
 
 /obj/vehicle/ridden/motorcycle/welder_act(mob/living/user, obj/item/W)
@@ -84,109 +104,71 @@
 	else
 		user.balloon_alert_to_viewers("stopped welding [src]", "interrupted the repair!")
 
+/obj/vehicle/ridden/motorcycle/proc/get_fuel()
+	return reagents.get_reagent_amount(/datum/reagent/fuel) + reagents.get_reagent_amount(/datum/reagent/toxin/plasma)
+
+/obj/vehicle/ridden/motorcycle/relaymove(mob/living/user, direction)
+	if(get_fuel = 0)
+		idle_sound.stop(src)
+		return FALSE
+	return ..()
+
 /obj/vehicle/ridden/motorcycle/Move(newloc, dir)
 	. = ..()
 	if(!LAZYLEN(buckled_mobs))
 		return
+	fuel_count--
+	if(fuel_count == LOW_FUEL_LEFT_MESSAGE)
+		for(var/mob/rider in buckled_mobs)
+			balloon_alert(rider, "[fuel_count/fuel_max*100]% fuel left")
 
-/obj/vehicle/ridden/motorcycle/attackby(obj/item/I, mob/user, list/modifiers, list/attack_modifiers)
-	if(istype(I, /obj/item/sidecar))
-		if(DOING_INTERACTION_WITH_TARGET(user, src))
-			balloon_alert(user, "Already busy!")
-			return FALSE
-		if(LAZYLEN(buckled_mobs))
-			balloon_alert("There is a rider already!")
-			return TRUE
-		balloon_alert(user, "You start attaching the sidecar...")
-		if(!do_after(user, 3 SECONDS, NONE, src))
-			return TRUE
-		user.temporarilyRemoveItemFromInventory(I)
-		I.forceMove(src)
-		attached_sidecar = I
-		cut_overlay(motorcycle_cover)
-		motorcycle_cover.icon_state = "sidecar_cover"
-		motorcycle_cover.icon = 'icons/obj/motorcycle_sidecar.dmi'
-		motorcycle_cover.pixel_x = -9
-		sidecar_dir_change(newdir = dir)
-		RegisterSignal(src, COMSIG_ATOM_DIR_CHANGE, PROC_REF(sidecar_dir_change))
-		add_overlay(motorcycle_cover)
-		RemoveElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle)
-		AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle/sidecar)
-		max_buckled_mobs = 2
-		max_occupants = 2
-		return TRUE
-	return ..()
+/obj/vehicle/ridden/motorcycle/attackby(obj/item/I, mob/user, params)
+	if(istype(I, /obj/item/reagent_containers/jerrycan))
+		var/obj/item/reagent_containers/jerrycan/gascan = I
+		if(gascan.reagents.total_volume == 0)
+			balloon_alert(user, "Out of fuel!")
+			return
+		if(fuel_count >= fuel_max)
+			balloon_alert(user, "Already full!")
+			return
 
-/obj/vehicle/ridden/motorcycle/proc/sidecar_dir_change(datum/source, dir, newdir)
-	SIGNAL_HANDLER
-	switch(newdir)
-		if(NORTH)
-			pixel_x = 9
-		if(SOUTH)
-			pixel_x = -9
-		if(EAST, WEST)
-			pixel_x = 0
+		var/fuel_transfer_amount = min(gascan.fuel_usage*2, gascan.reagents.total_volume)
+		gascan.reagents.remove_reagent(/datum/reagent/fuel, fuel_transfer_amount)
+		fuel_count = min(fuel_count + FUEL_PER_CAN_POUR, fuel_max)
+		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
+		balloon_alert(user, "[fuel_count/fuel_max*100]%")
+		return TRUE
 
-/obj/vehicle/ridden/motorcycle/wrench_act(mob/living/user, obj/item/I)
-	if(!attached_sidecar)
-		balloon_alert(user, "No sidecar attached!")
-		return TRUE
-	if(LAZYLEN(buckled_mobs))
-		balloon_alert(user, "Someone is riding this!")
-		return TRUE
-	if(user.do_actions)
-		balloon_alert(user, "Already busy!")
-		return FALSE
-	if(!do_after(user, 3 SECONDS, NONE, src))
-		return TRUE
-	attached_sidecar.forceMove(get_turf(src))
-	attached_sidecar = null
-	RemoveElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle/sidecar)
-	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle)
-	max_buckled_mobs = 1
-	max_occupants = 1
-	cut_overlay(motorcycle_cover)
-	motorcycle_cover.icon_state = "motorcycle_cover"
-	motorcycle_cover.icon = 'icons/obj/vehicles.dmi'
-	motorcycle_cover.pixel_x = 0
-	pixel_x = initial(pixel_x)
-	add_overlay(motorcycle_cover)
-	UnregisterSignal(src, COMSIG_ATOM_DIR_CHANGE)
-	balloon_alert(user, "You dettach the sidecar!")
-	return TRUE
-
-/obj/vehicle/ridden/golfcart/atom_break()
+/obj/vehicle/ridden/motorcycle/atom_break()
 	. = ..()
 	if (smoke)
 		return
 	smoke = new(src, /particles/smoke/ash)
 
-/obj/vehicle/ridden/golfcart/atom_fix()
+/obj/vehicle/ridden/motorcycle/atom_fix()
 	. = ..()
 	if (smoke)
 		QDEL_NULL(smoke)
 
-//internal storage
-/obj/item/vehicle_module/storage/motorcycle
-	name = "internal storage"
-	desc = "A set of handy compartments to store things in."
-	storage_type = /datum/storage/internal/motorcycle_pack
+/*
+* vehicle component datums. gee, motorcycle, how come you have so many vehicle datums? because we use a proc above
+* to swap gears, which makes us go faster and live shorter.
+*/
 
-/**
- * Sidecar that when attached lets you put two people on the bike
- */
-/obj/item/sidecar
-	name = "motorcycle sidecar"
-	desc = "A detached sidecar for TGMC motorcycles, which can be attached to them, allowing a second passenger. Use a wrench to dettach the sidecar."
-	icon = 'icons/obj/vehicles.dmi'
-	icon_state = "sidecar"
-
-// vehicle component datums
-
+// first gear is just below running speed. Bumping things won't hurt anyone.
 /datum/component/riding/vehicle/motorcycle
 	keytype = null
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
 	vehicle_move_delay = 1.25
+
+// second gear is pretty fast. bumping things may cause damage.
+/datum/component/riding/vehicle/motorcycle/second_gear
+	vehicle_move_delay = 1.25
+
+// third gear is extremely fast. crashing may be fatal.
+
+/datum/component/riding/vehicle/motorcycle/third_gear
+	vehicle_move_delay = 1.15
 
 /datum/component/riding/vehicle/motorcycle/get_rider_offsets_and_layers(pass_index, mob/offsetter)
 	return list(
