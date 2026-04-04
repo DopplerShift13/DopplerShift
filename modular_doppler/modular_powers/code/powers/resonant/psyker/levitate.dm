@@ -57,9 +57,9 @@
 	// Passive stress cost
 	if(active)
 		var/mob/living/carbon/human/psyker = owner
-		var/cost = PSYKER_STRESS_TRIVIAL * 2
-		if(psyker.get_quirk(/datum/quirk/paraplegic)) // There'll probably be several that'd like to do this. Effecively puts you just below the rate at which regen will keep up.
-			cost = PSYKER_STRESS_TRIVIAL
+		var/cost = PSYKER_STRESS_TRIVIAL * 1.5
+		if(psyker.get_quirk(/datum/quirk/paraplegic)) // paraplegic gets it better
+			cost = PSYKER_STRESS_TRIVIAL * 0.5
 		modify_stress(cost * seconds_per_tick)
 
 // Dispel function; basically off-switch and possibly comedic faceplant
