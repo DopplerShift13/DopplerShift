@@ -112,7 +112,7 @@
 	AddElement(/datum/element/noisy_movement)
 
 /obj/structure/shuttle_decoration/munition/missile/disaster_effects()
-	explosion(src, heavy_impact_range = 1, light_impact_range = 2, flame_range = 4, flash_range = 5, smoke = TRUE)
+	explosion(src, devastation_range = 1, heavy_impact_range = 2, light_impact_range = 4, flame_range = 4, flash_range = 5, smoke = TRUE)
 	Destroy()
 
 /obj/structure/shuttle_decoration/munition/missile/orbital
@@ -136,7 +136,10 @@
 	)
 
 /obj/structure/shuttle_decoration/munition/ciws/disaster_effects()
-	explosion(src, heavy_impact_range = 0, light_impact_range = 0, flame_range = 1, flash_range = 2, smoke = TRUE)
+	explosion(src, heavy_impact_range = 1, light_impact_range = 3, flame_range = 3, flash_range = 5, smoke = TRUE)
+	var/obj/item/grenade/shrapnel_maker = new /obj/item/grenade/c980payload(get_turf(src))
+	shrapnel_maker.detonate()
+	qdel(shrapnel_maker)
 	Destroy()
 
 /obj/structure/shuttle_decoration/munition/autocannon
@@ -156,8 +159,8 @@
 	AddElement(/datum/element/noisy_movement)
 
 /obj/structure/shuttle_decoration/munition/autocannon/disaster_effects()
-	explosion(src, heavy_impact_range = 0, light_impact_range = 1, flame_range = 2, flash_range = 5, smoke = TRUE)
-	var/obj/item/grenade/shrapnel_maker = new /obj/item/grenade/c980payload(get_turf(src))
+	explosion(src, heavy_impact_range = 2, light_impact_range = 4, flame_range = 4, flash_range = 5, smoke = TRUE)
+	var/obj/item/grenade/shrapnel_maker = new /obj/item/grenade/c980payload/long_range_shrapnel(get_turf(src))
 	shrapnel_maker.detonate()
 	qdel(shrapnel_maker)
 	Destroy()
@@ -179,7 +182,7 @@
 	AddElement(/datum/element/noisy_movement)
 
 /obj/structure/shuttle_decoration/munition/chaff_flares/disaster_effects()
-	explosion(src, heavy_impact_range = 0, light_impact_range = 1, flame_range = 2, flash_range = 5, smoke = TRUE)
+	explosion(src, heavy_impact_range = 2, light_impact_range = 4, flame_range = 4, flash_range = 5, smoke = TRUE)
 	var/datum/effect_system/fluid_spread/smoke/ecm/smoke = new
 	smoke.set_up(5, holder = src, location = src)
 	smoke.start()
