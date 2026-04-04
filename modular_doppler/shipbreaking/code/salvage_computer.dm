@@ -50,7 +50,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 	/// Are we currently spawning a shuttle? Prevents multiple shuttles trying to spawn and land on each other at once
 	var/bay_occupied = FALSE
 	/// The docking clamp machine we are linked to
-	var/datum/weakref/clamp
+	var/datum/weakref/clamp_ref
 	/// Assoc list of every shuttle that can be purchased from the choice list, includes name and price and whatnot, filled on init of the console
 	var/list/scrap_list = list()
 	/// The currently selected shuttle map template
@@ -76,13 +76,13 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 
 /obj/machinery/computer/salvage_bay_controller/examine(mob/user)
 	. = ..()
-	if(!clamp)
+	if(!clamp_ref?.resolve())
 		. += span_notice("Connect to a [EXAMINE_HINT("salvage clamp")] by using a [EXAMINE_HINT("multitool")] \
 			on the clamp then connecting it to this console.")
 
 /obj/machinery/computer/salvage_bay_controller/Destroy(force)
-	if(clamp)
-		clamp = null
+	if(clamp_ref)
+		clamp_ref = null
 	return ..()
 
 /obj/machinery/computer/salvage_bay_controller/multitool_act(mob/living/user, obj/item/multitool/the_tool)
@@ -94,15 +94,15 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 
 /// Links a docking clamp to this console
 /obj/machinery/computer/salvage_bay_controller/proc/link_docking_clamp(obj/machinery/docking_clamp/new_clamp)
-	var/obj/machinery/docking_clamp/old_clamp = clamp?.resolve()
+	var/obj/machinery/docking_clamp/old_clamp = clamp_ref?.resolve()
 	if(old_clamp)
-		old_clamp.controller = null
-	clamp = WEAKREF(new_clamp)
-	new_clamp.controller = WEAKREF(src)
+		old_clamp.controller_ref = null
+	clamp_ref = WEAKREF(new_clamp)
+	new_clamp.controller_ref = WEAKREF(src)
 
 /// A linked docking clamp has given us a polite hint that they're gone or done for
 /obj/machinery/computer/salvage_bay_controller/proc/delink_clamp()
-	clamp = null
+	clamp_ref = null
 
 /// Fills the global shuttle templates list if its empty
 /obj/machinery/computer/salvage_bay_controller/proc/fill_shipbreaking_templates()
@@ -124,7 +124,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 
 /obj/machinery/computer/salvage_bay_controller/interact(mob/user)
 	. = ..()
-	var/obj/machinery/docking_clamp/docking_clamp = clamp?.resolve()
+	var/obj/machinery/docking_clamp/docking_clamp = clamp_ref?.resolve()
 	if(!docking_clamp)
 		say("No linked docking clamp detected, re-link and try again later.")
 		return
@@ -174,7 +174,7 @@ GLOBAL_LIST_EMPTY(shipbreaking_templates)
 
 /// Spawns a new salvage ship with the template given to it, if there is no template, it will pick a random one
 /obj/machinery/computer/salvage_bay_controller/proc/make_salvage_ship(mob/user, datum/map_template/shuttle/salvage_scrap/salvage_template)
-	var/obj/machinery/docking_clamp/docking_clamp = clamp?.resolve()
+	var/obj/machinery/docking_clamp/docking_clamp = clamp_ref?.resolve()
 	if(!docking_clamp?.docking_port)
 		say("Connection to salvage clamp lost, please check equipment and try again later.")
 		return

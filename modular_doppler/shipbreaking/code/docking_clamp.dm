@@ -36,7 +36,7 @@
 	/// The docking port we use to connect ships with
 	var/obj/docking_port/stationary/salvage_dock/docking_port
 	/// The computer the clamp is linked to
-	var/datum/weakref/controller
+	var/datum/weakref/controller_ref
 
 /obj/machinery/docking_clamp/Initialize(mapload)
 	. = ..()
@@ -49,9 +49,10 @@
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
 /obj/machinery/docking_clamp/Destroy(force)
-	var/obj/machinery/computer/salvage_bay_controller/control_console = controller?.resolve()
+	var/obj/machinery/computer/salvage_bay_controller/control_console = controller_ref?.resolve()
 	if(control_console)
 		control_console.delink_clamp()
+		controller_ref = null
 	if(docking_port)
 		SSshuttle.stationary_docking_ports -= docking_port
 		QDEL_NULL(docking_port)
@@ -59,7 +60,7 @@
 
 /obj/machinery/docking_clamp/examine(mob/user)
 	. = ..()
-	if(!controller)
+	if(!controller_ref?.resolve())
 		. += span_notice("Use a [EXAMINE_HINT("multitool")] to connect this to a [EXAMINE_HINT("salvage bay control console")] before use.")
 	if(!docking_port)
 		. += span_notice("Interact with the clamp to set it up for docking, otherwise it will not function.")
