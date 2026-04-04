@@ -67,3 +67,14 @@
 /obj/item/clothing/suit/frontier_colonist_flak/Initialize(mapload)
 	. = ..()
 	allowed |= GLOB.colonist_suit_allowed
+
+/obj/item/clothing/suit/jacket/frontier_colonist/casual
+	name = "frontier casual raincloak"
+	desc = "A lightweight raincloak with a reflective stripe around the chest for wear when not doing heavy work."
+	icon_state = "raincloak"
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+	)

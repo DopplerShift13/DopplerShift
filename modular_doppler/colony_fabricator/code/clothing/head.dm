@@ -56,3 +56,11 @@
 	resistance_flags = NONE
 	flags_inv = 0
 	clothing_flags = SNUG_FIT | STACKABLE_HELMET_EXEMPT
+
+/obj/item/clothing/head/frontier_headscarf
+	name = "frontier headscarf"
+	desc = "A casual wrapping of fabric to keep the sunlight off your head, or just for style."
+	icon_state = "colony_headscarf"
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
+	inhand_icon_state = null

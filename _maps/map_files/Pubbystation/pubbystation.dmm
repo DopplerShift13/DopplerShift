@@ -9444,8 +9444,8 @@
 /obj/item/clothing/suit/frontier_colonist_flak,
 /obj/item/gun/energy/e_gun/mini,
 /obj/item/gun/energy/e_gun/mini,
-/obj/item/clothing/under/colonial,
-/obj/item/clothing/under/colonial,
+/obj/item/clothing/under/frontier_colonist/casual,
+/obj/item/clothing/under/frontier_colonist/casual,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)
 "aOE" = (
@@ -9726,8 +9726,8 @@
 /obj/item/clothing/suit/frontier_colonist_flak,
 /obj/item/gun/energy/e_gun/mini,
 /obj/item/gun/energy/e_gun/mini,
-/obj/item/clothing/under/colonial,
-/obj/item/clothing/under/colonial,
+/obj/item/clothing/under/frontier_colonist/casual,
+/obj/item/clothing/under/frontier_colonist/casual,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)
 "aPM" = (
@@ -10065,8 +10065,8 @@
 /obj/item/clothing/head/frontier_colonist_helmet,
 /obj/item/clothing/suit/frontier_colonist_flak,
 /obj/item/gun/energy/e_gun/mini,
-/obj/item/clothing/under/colonial,
-/obj/item/clothing/under/colonial,
+/obj/item/clothing/under/frontier_colonist/casual,
+/obj/item/clothing/under/frontier_colonist/casual,
 /obj/machinery/wall_healer/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/ai_monitored/command/storage/eva)

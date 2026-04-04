@@ -451,6 +451,10 @@
 	name = "Frontier Jumpsuit"
 	item_path = /obj/item/clothing/under/frontier_colonist
 
+/datum/loadout_item/undersuit/fullbody/frontier_casual
+	name = "Frontier Casualwear"
+	item_path = /obj/item/clothing/under/frontier_colonist/casual
+
 /datum/loadout_item/undersuit/fullbody/osi
 	name = "OSI Jumpsuit"
 	item_path = /obj/item/clothing/under/costume/osi
