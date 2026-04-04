@@ -21,6 +21,9 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
 
+// Identical to connect_to_shuttle on regular engines, but engine_list += src is changed to |=
+// This is because of a bug where engines will double register with their shuttle due to how shipbreaking loads them
+// Which results in the ability to softlock that shipbreaking dock for the rest of the round
 /obj/machinery/power/shuttle_engine/heater/salvage/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(!port)
 		return FALSE
@@ -54,7 +57,10 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
 
-/obj/machinery/power/shuttle_engine/propulsion/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
+// Identical to connect_to_shuttle on regular engines, but engine_list += src is changed to |=
+// This is because of a bug where engines will double register with their shuttle due to how shipbreaking loads them
+// Which results in the ability to softlock that shipbreaking dock for the rest of the round
+/obj/machinery/power/shuttle_engine/propulsion/salvage/connect_to_shuttle(mapload, obj/docking_port/mobile/port, obj/docking_port/stationary/dock)
 	if(!port)
 		return FALSE
 	connected_ship = port

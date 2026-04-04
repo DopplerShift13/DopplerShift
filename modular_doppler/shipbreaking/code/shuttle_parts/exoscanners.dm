@@ -11,6 +11,7 @@
 	find_and_hang_on_wall()
 
 /obj/machinery/exoscanner/shuttle_part/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
 	if(. != ITEM_INTERACT_SUCCESS)
 		return
 	if(anchored)
