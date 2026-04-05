@@ -64,3 +64,4 @@
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	inhand_icon_state = null
+	hair_mask = /datum/hair_mask/standard_hat_middle

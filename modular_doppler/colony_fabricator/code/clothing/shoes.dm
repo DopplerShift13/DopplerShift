@@ -19,6 +19,7 @@
 	name = "frontier casual shoes"
 	desc = "Casual laceless shoes, non-flammable yet comfortable for everyday life."
 	icon_state = "boots_casual"
+	worn_icon_state = "boots_casual"
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',

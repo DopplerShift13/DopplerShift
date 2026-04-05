@@ -72,6 +72,7 @@
 	name = "frontier casual raincloak"
 	desc = "A lightweight raincloak with a reflective stripe around the chest for wear when not doing heavy work."
 	icon_state = "raincloak"
+	worn_icon_state = "raincloak"
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
