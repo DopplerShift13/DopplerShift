@@ -25,6 +25,7 @@
 		/obj/structure/shuttle_decoration/landing_engine,
 		/obj/structure/shuttle_decoration/aux_engine,
 		/obj/structure/shuttle_decoration/junction_box,
+		/obj/structure/shuttle_decoration/console,
 	)
 
 /datum/export/shipping_containers
