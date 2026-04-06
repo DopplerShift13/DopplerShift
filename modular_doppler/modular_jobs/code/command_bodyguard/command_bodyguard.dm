@@ -1,6 +1,7 @@
 /datum/job/command_bodyguard
 	title = JOB_COMMAND_BODYGUARD
-	description = "Protect heads of staff, look great while doing so."
+	description = "Protect heads of staff, stick to them like their shadow, look great while doing so. \
+		Hone your martial arts, hold spars in your downtime, train in the background."
 	auto_deadmin_role_flags = DEADMIN_POSITION_SECURITY
 	department_head = list(JOB_HEAD_OF_SECURITY)
 	faction = FACTION_STATION
@@ -65,7 +66,7 @@
 
 /datum/id_trim/job/security_officer/command_bodyguard
 	assignment = "Command Bodyguard"
-	trim_icon = 'modular_doppler/modular_jobs/command_bodyguard/icons/card.dmi'
+	trim_icon = 'modular_doppler/modular_jobs/icons/card.dmi'
 	trim_state = "trim_bodyguard"
 	subdepartment_color = COLOR_COMMAND_BLUE
 	sechud_icon_state = "hudbodyguard"

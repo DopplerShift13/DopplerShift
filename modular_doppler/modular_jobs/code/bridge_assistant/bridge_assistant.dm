@@ -1,6 +1,7 @@
 /datum/job/bridge_assistant
 	title = JOB_BRIDGE_ASSISTANT
-	description = "Watch over the Bridge, command its consoles, and spend your days brewing coffee for higher-ups."
+	description = "Watch over the Bridge, act as the Captain's right-hand, assist the rest of Command. \
+		Spend your days brewing coffee for higher-ups, handling their paperwork, and relaying messages on their behalf."
 	department_head = list(JOB_HEAD_OF_PERSONNEL)
 	faction = FACTION_STATION
 	total_positions = 1
@@ -58,10 +59,10 @@
 	l_pocket = /obj/item/clipboard
 
 /obj/item/pen/edagger/bridge_assistant
-	icon = 'modular_doppler/modular_jobs/bridge_assistant/icons/edagger.dmi'
-	dart_insert_icon = 'modular_doppler/modular_jobs/bridge_assistant/icons/edagger.dmi'
-	lefthand_icon = 'modular_doppler/modular_jobs/bridge_assistant/icons/edagger_lefthand.dmi'
-	righthand_icon = 'modular_doppler/modular_jobs/bridge_assistant/icons/edagger_righthand.dmi'
+	icon = 'modular_doppler/modular_jobs/icons/edagger.dmi'
+	dart_insert_icon = 'modular_doppler/modular_jobs/icons/edagger.dmi'
+	lefthand_icon = 'modular_doppler/modular_jobs/icons/edagger_lefthand.dmi'
+	righthand_icon = 'modular_doppler/modular_jobs/icons/edagger_righthand.dmi'
 	light_color = "#82fa8c"
 
 /datum/id_trim/job/bridge_assistant
