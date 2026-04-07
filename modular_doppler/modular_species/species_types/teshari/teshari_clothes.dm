@@ -52,11 +52,15 @@
 	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
 	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
 
-/obj/item/clothing/neck/doppler_mantle
+/obj/item/clothing/neck/tajaran_cape
 	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
 	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
 
 /obj/item/clothing/neck/vulp_cloak
+	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
+
+/obj/item/clothing/neck/doppler_mantle
 	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
 	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
 
