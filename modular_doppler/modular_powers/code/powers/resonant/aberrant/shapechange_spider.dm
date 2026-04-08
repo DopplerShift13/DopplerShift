@@ -1,4 +1,4 @@
-// Shapechange spider override.
+/// Shapechange spider override.
 /datum/power/aberrant/shapechange_spider
 	name = "Shapechange: Spider"
 	desc = "Overrides your chosen Shapechange form with a spider variant. \n Hunters are fast but fragile, guards are slow and sturdy and ambush spiders are very slow, but have strong grabs, hard-hitting attacks and invisiblity in webs."
@@ -15,11 +15,13 @@
 		return
 	previous_form = shape_action.animal_form
 	shape_action.animal_form = get_spider_form()
+	power_holder?.refresh_security_power_records()
 
 /datum/power/aberrant/shapechange_spider/remove()
 	var/datum/action/cooldown/power/aberrant/shapechange/shape_action = get_shapechange_action()
 	if(shape_action)
 		shape_action.animal_form = previous_form
+		power_holder?.refresh_security_power_records()
 	previous_form = null
 	return ..()
 
@@ -41,7 +43,7 @@
 		return spider_type
 	return GLOB.shapechange_spider_form_types["Guard"]
 
-// Preference choice for Shapechange spider form selection.
+/// Preference choice for Shapechange spider form selection.
 /datum/preference/choiced/shapechange_spider_form
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "shapechange_spider_form"
