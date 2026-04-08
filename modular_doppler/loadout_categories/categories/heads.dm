@@ -562,3 +562,7 @@
 /datum/loadout_item/head/misc/nightcap_red
 	name = "Nightcap (Red)"
 	item_path = /obj/item/clothing/head/costume/nightcap/red
+
+/datum/loadout_item/head/misc/primitive_genemod_ferroniere
+	name = "Ferroniere (Hearthkin)"
+	item_path = /obj/item/clothing/head/primitive_genemod_ferroniere
