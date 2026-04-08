@@ -1,6 +1,6 @@
 /obj/item/clothing/suit/jacket/frontier_colonist
 	name = "frontier trenchcoat"
-	desc = "A knee length coat with a water-resistant exterior and relatively comfortable interior. \
+	desc = "A knee-length coat with a water-resistant exterior and relatively comfortable interior. \
 		In between? Just enough protective material to stop the odd sharp thing getting through, \
 		though don't expect miracles."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
@@ -15,12 +15,12 @@
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = NONE
-	allowed = null
+	allowed = list()
 	pocket_storage_type = /datum/storage/pockets/jacket/jumbo
 
 /obj/item/clothing/suit/jacket/frontier_colonist/Initialize(mapload)
 	. = ..()
-	allowed += GLOB.colonist_suit_allowed
+	allowed = GLOB.colonist_suit_allowed
 
 /obj/item/clothing/suit/jacket/frontier_colonist/short
 	name = "frontier jacket"
@@ -62,11 +62,11 @@
 	max_heat_protection_temperature = ARMOR_MAX_TEMP_PROTECT
 	armor_type = /datum/armor/colonist_armor
 	resistance_flags = NONE
-	allowed = null
+	allowed = list()
 
 /obj/item/clothing/suit/frontier_colonist_flak/Initialize(mapload)
 	. = ..()
-	allowed += GLOB.colonist_suit_allowed
+	allowed = GLOB.colonist_suit_allowed
 
 /obj/item/clothing/suit/jacket/frontier_colonist/casual
 	name = "frontier casual raincloak"

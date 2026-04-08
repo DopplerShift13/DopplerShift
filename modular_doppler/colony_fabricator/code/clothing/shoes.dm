@@ -1,7 +1,7 @@
 /obj/item/clothing/shoes/jackboots/frontier_colonist
 	name = "heavy frontier boots"
 	desc = "A well built pair of tall boots usually seen on the feet of explorers, first wave colonists, \
-		and LARPers across the galaxy."
+		and cosplayers all across the galaxy."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "boots"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
