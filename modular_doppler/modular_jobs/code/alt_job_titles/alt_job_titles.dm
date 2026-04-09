@@ -251,7 +251,7 @@
 	alt_titles = list(
 		"Security Chief",
 		"Chief Guard",
-		"Head of Security"
+		"Head of Security",
 	)
 
 /datum/job/janitor
