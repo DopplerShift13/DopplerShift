@@ -565,9 +565,6 @@
 		/obj/item/food/cheese/firm_cheese = 1,
 		/obj/item/food/chocolatebar = 2,
 		/obj/item/food/cnds/random = 3,
-		/obj/item/food/colonial_course/pljeskavica = 1,
-		/obj/item/food/colonial_course/nachos = 1,
-		/obj/item/food/colonial_course/blins = 1,
 		/obj/item/food/cornchips/random = 2,
 		/obj/item/food/peanuts/random = 2,
 		/obj/item/food/ready_donk = 1,
@@ -619,7 +616,6 @@
 		/obj/item/storage/box/spaceman_ration/plants/lizard = 2,
 		/obj/item/storage/box/spaceman_ration/plants/mothic = 2,
 		/obj/item/storage/box/papersack/ration_bread_slice = 1,
-		/obj/item/storage/box/colonial_rations = 1,
 		// Da cooler
 		/obj/item/storage/epic_loot_cooler = 2,
 		//This is what happens when crates are left abandoned in maints :(
