@@ -1,7 +1,10 @@
 // did you know we have motorcycle pants and a motorcycle jacket? now you can stop larping
 
-///Fuel limit when you will recieve an alert for low fuel message
-#define LOW_FUEL_LEFT_MESSAGE 100
+/// when we receive a low fuel message
+#define LOW_FUEL_LEFT_MESSAGE 20
+/// how often we burn a little gas, in seconds. with 200 max fuel this is just over thirty minutes of motorcycle time
+#define BIKE_FUEL_BURN_INTERVAL 10
+
 
 /obj/vehicle/ridden/motorcycle
 	name = "racing motorcycle"
@@ -15,15 +18,16 @@
 	key_type = null
 	var/mutable_appearance/motorcycle_cover
 
-	/// The looping sound that plays when the bike is not moving
-	var/datum/looping_sound/bike_idle/idle_sound
-	///max fuel that this bike can hold
-	var/max_fuel = 1000
-	///do we start with fuel?
+	/// looping engine noise
+	var/datum/looping_sound/motorcycle_engine/engine_sound
+	/// max fuel that this bike can hold
+	var/max_fuel = 200
+	/// do we start with fuel?
 	var/starting_fuel = TRUE
-	/// Which sound is played when the bike is unbuckled from
+	/// when fuel was last removed
+	var/last_fuel_burn = 0
+	var/headlights_toggle = FALSE
 	var/dismount_sound = 'modular_doppler/modular_sounds/sound/vehicles/bikedismount.ogg'
-	/// A list of potential sounds played when the bike is revved via AltClick
 	var/list/rev_sounds = list(
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-1.ogg',
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-2.ogg',
@@ -37,13 +41,26 @@
 
 /obj/vehicle/ridden/motorcycle/Initialize(mapload)
 	. = ..()
-	idle_sound = new()
+	engine_sound = new()
 	AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle)
 	if(!motorcycle_cover)
 		motorcycle_cover = mutable_appearance(icon, "motorcycle_cover", MOB_LAYER + 0.1)
-	create_reagents(max_fuel)
+	create_reagents(max_fuel, REFILLABLE)
 	if(starting_fuel)
 		reagents.add_reagent(/datum/reagent/fuel, max_fuel)
+	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/first_gear)
+	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/second_gear)
+	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/third_gear)
+
+/obj/vehicle/ridden/motorcycle/process(seconds_per_tick)
+	// we assume a reasonable spaceman turns off their motorcycle when they dismount, so only a ridden motorcycle burns fuel
+	if(length(occupants))
+		last_fuel_burn += seconds_per_tick
+		if(last_fuel_burn >= BIKE_FUEL_BURN_INTERVAL)
+			burn_fuel(1)
+
+		var/turf/where_we_spawn_air = get_turf(src)
+		where_we_spawn_air.atmos_spawn_air("[GAS_CO2]=5;[TURF_TEMPERATURE(T20C)]")	// technically motorcycle exhaust is more like 600k at the pipe and rapidly cools but we're just gonna cook the station trying to do that
 
 /obj/vehicle/ridden/motorcycle/examine(mob/user)
 	. = ..()
@@ -53,13 +70,14 @@
 
 /obj/vehicle/ridden/motorcycle/post_buckle_mob(mob/living/M)
 	add_overlay(motorcycle_cover)
-	idle_sound.start(src)
+	engine_sound.start(src)
+	START_PROCESSING(SSobj, src)
 	return ..()
 
 /obj/vehicle/ridden/motorcycle/post_unbuckle_mob(mob/living/M)
 	if(!has_buckled_mobs())
 		cut_overlay(motorcycle_cover)
-	idle_sound.stop(src)
+	engine_sound.stop(src)
 	return ..()
 
 // revs the engine and spends a little fuel
@@ -68,13 +86,12 @@
 		return FALSE
 	if(!COOLDOWN_FINISHED(src, rev_cooldown))
 		return FALSE
-	if(get_fuel < 5)
+	if(get_fuel() < 5)
 		to_chat(user, span_notice("The [src]'s engine sputters!."))
 		return FALSE
 	COOLDOWN_START(src, rev_cooldown, 3 SECONDS)
 	to_chat(user, span_notice("You rev the [src]'s engine."))
 	playsound(src, pick(rev_sounds), 50, TRUE)
-	fuel_count -= 5
 	return TRUE
 
 /obj/vehicle/ridden/motorcycle/welder_act(mob/living/user, obj/item/W)
@@ -104,40 +121,40 @@
 	else
 		user.balloon_alert_to_viewers("stopped welding [src]", "interrupted the repair!")
 
+// returns our fuel level
 /obj/vehicle/ridden/motorcycle/proc/get_fuel()
-	return reagents.get_reagent_amount(/datum/reagent/fuel) + reagents.get_reagent_amount(/datum/reagent/toxin/plasma)
+	return reagents.get_reagent_amount(/datum/reagent/fuel)
+
+// burns some fuel
+/obj/vehicle/ridden/motorcycle/proc/burn_fuel(burnt = 0)
+	if(!occupant_amount() || get_fuel() <= 0)
+		return FALSE
+	if(burnt > 0)
+		last_fuel_burn = 0
+	if(get_fuel() >= burnt)
+		reagents.remove_reagent(/datum/reagent/fuel, burnt)
+		check_fuel()
+		return TRUE
+	else
+		return FALSE
+
+// checks to see if there's any fuel left, turns off the engine sound and immobilizes the bike if the tank is try.
+/obj/vehicle/ridden/motorcycle/proc/check_fuel(mob/user)
+	if(get_fuel() <= 0)
+		for(var/mob/rider in buckled_mobs)
+			balloon_alert(rider, "out of fuel!")
+		return FALSE
+	if(get_fuel() == LOW_FUEL_LEFT_MESSAGE)
+		for(var/mob/rider in buckled_mobs)
+			balloon_alert(rider, "low fuel!")
+	else
+		return
 
 /obj/vehicle/ridden/motorcycle/relaymove(mob/living/user, direction)
-	if(get_fuel = 0)
-		idle_sound.stop(src)
+	if(get_fuel() <= 0)
+		engine_sound.stop(src)
 		return FALSE
 	return ..()
-
-/obj/vehicle/ridden/motorcycle/Move(newloc, dir)
-	. = ..()
-	if(!LAZYLEN(buckled_mobs))
-		return
-	fuel_count--
-	if(fuel_count == LOW_FUEL_LEFT_MESSAGE)
-		for(var/mob/rider in buckled_mobs)
-			balloon_alert(rider, "[fuel_count/fuel_max*100]% fuel left")
-
-/obj/vehicle/ridden/motorcycle/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/reagent_containers/jerrycan))
-		var/obj/item/reagent_containers/jerrycan/gascan = I
-		if(gascan.reagents.total_volume == 0)
-			balloon_alert(user, "Out of fuel!")
-			return
-		if(fuel_count >= fuel_max)
-			balloon_alert(user, "Already full!")
-			return
-
-		var/fuel_transfer_amount = min(gascan.fuel_usage*2, gascan.reagents.total_volume)
-		gascan.reagents.remove_reagent(/datum/reagent/fuel, fuel_transfer_amount)
-		fuel_count = min(fuel_count + FUEL_PER_CAN_POUR, fuel_max)
-		playsound(loc, 'sound/effects/refill.ogg', 25, 1, 3)
-		balloon_alert(user, "[fuel_count/fuel_max*100]%")
-		return TRUE
 
 /obj/vehicle/ridden/motorcycle/atom_break()
 	. = ..()
@@ -150,8 +167,62 @@
 	if (smoke)
 		QDEL_NULL(smoke)
 
+/obj/vehicle/ridden/motorcycle/atom_destruction(damage_flag)
+	explosion(src, light_impact_range = 1, flame_range = 2)
+	return ..()
+
 /*
-* vehicle component datums. gee, motorcycle, how come you have so many vehicle datums? because we use a proc above
+* action datums for turning on our headlight and changing gears
+*/
+
+/datum/action/vehicle/ridden/motorcycle/toggle_light
+	name = "Toggle Headlights"
+	desc = "Turn on your brights!"
+	button_icon = 'modular_doppler/vehicles/icons/vehicle_actions.dmi'
+	button_icon_state = "headlights"
+
+/*/datum/action/vehicle/ridden/motorcycle/toggle_light/Trigger(mob/clicker, trigger_flags)
+	to_chat(owner, span_notice("You flip the switch for the vehicle's headlights."))
+	vehicle_ridden_target.headlights_toggle = !vehicle_ridden_target.headlights_toggle
+	vehicle_ridden_target.set_light_on(vehicle_ridden_target.headlights_toggle)
+	vehicle_ridden_target.update_appearance()
+	playsound(owner, vehicle_ridden_target.headlights_toggle ? 'sound/items/weapons/magin.ogg' : 'sound/items/weapons/magout.ogg', 40, TRUE)*/
+
+/datum/action/vehicle/ridden/motorcycle/first_gear
+	name = "Shift Into First"
+	desc = "Shift into low gear."
+	button_icon = 'modular_doppler/vehicles/icons/vehicle_actions.dmi'
+	button_icon_state = "first_gear"
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
+
+/datum/action/vehicle/ridden/motorcycle/first_gear/Trigger(mob/clicker, trigger_flags)
+	vehicle_ridden_target.RemoveElement(/datum/element/ridable)
+	vehicle_ridden_target.AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle)
+
+/datum/action/vehicle/ridden/motorcycle/second_gear
+	name = "Shift Into Second"
+	desc = "Shift into middle gear."
+	button_icon = 'modular_doppler/vehicles/icons/vehicle_actions.dmi'
+	button_icon_state = "second_gear"
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
+
+/datum/action/vehicle/ridden/motorcycle/second_gear/Trigger(mob/clicker, trigger_flags)
+	vehicle_ridden_target.RemoveElement(/datum/element/ridable)
+	vehicle_ridden_target.AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle/second_gear)
+
+/datum/action/vehicle/ridden/motorcycle/third_gear
+	name = "Shift Into Third"
+	desc = "Shift into high gear!"
+	button_icon = 'modular_doppler/vehicles/icons/vehicle_actions.dmi'
+	button_icon_state = "third_gear"
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
+
+/datum/action/vehicle/ridden/motorcycle/third_gear/Trigger(mob/clicker, trigger_flags)
+	vehicle_ridden_target.RemoveElement(/datum/element/ridable)
+	vehicle_ridden_target.AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle/third_gear)
+
+/*
+* vehicle component datums. gee, motorcycle, how come you have so many vehicle datums? because we use the action datums above
 * to swap gears, which makes us go faster and live shorter.
 */
 
@@ -159,23 +230,23 @@
 /datum/component/riding/vehicle/motorcycle
 	keytype = null
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
-	vehicle_move_delay = 1.25
+	vehicle_move_delay = 1.5
 
 // second gear is pretty fast. bumping things may cause damage.
 /datum/component/riding/vehicle/motorcycle/second_gear
-	vehicle_move_delay = 1.25
+	vehicle_move_delay = 1
 
 // third gear is extremely fast. crashing may be fatal.
 
 /datum/component/riding/vehicle/motorcycle/third_gear
-	vehicle_move_delay = 1.15
+	vehicle_move_delay = 0.5
 
 /datum/component/riding/vehicle/motorcycle/get_rider_offsets_and_layers(pass_index, mob/offsetter)
 	return list(
-		TEXT_NORTH = list(0, 4),
-		TEXT_SOUTH = list(0, 4),
-		TEXT_EAST =  list(0, 4),
-		TEXT_WEST =  list(0, 4),
+		TEXT_NORTH = list(0, 5),
+		TEXT_SOUTH = list(0, 5),
+		TEXT_EAST =  list(-2, 5),
+		TEXT_WEST =  list(2, 5),
 	)
 
 /datum/component/riding/vehicle/motorcycle/get_parent_offsets_and_layers()
@@ -186,9 +257,9 @@
 		TEXT_WEST =  list(0, 0, OBJ_LAYER),
 	)
 
-// our looping idle sound
+// our looping engine sound
 
-/datum/looping_sound/bike_idle
+/datum/looping_sound/motorcycle_engine
 	mid_sounds = list(
 		'modular_doppler/modular_sounds/sound/vehicles/bikeidle-1.ogg'=1,
 		'modular_doppler/modular_sounds/sound/vehicles/bikeidle-2.ogg'=1,
