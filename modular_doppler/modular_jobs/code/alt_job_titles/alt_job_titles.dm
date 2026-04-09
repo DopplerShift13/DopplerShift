@@ -395,6 +395,5 @@
 	alt_titles = list(
 		"Dispatcher",
 		"Dispatch Guard",
-		"Guard Armourer",
 		"Armoury Keeper",
 	)
