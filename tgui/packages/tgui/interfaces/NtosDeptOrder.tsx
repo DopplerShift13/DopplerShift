@@ -28,8 +28,6 @@ type typePath = string;
 type Pack = {
   name: string;
   desc: string;
-  unavailable: BooleanLike;
-  shortage_text: string;
   cost: number;
   id: typePath;
 };
@@ -208,9 +206,6 @@ const DepartmentCatalog = () => {
                       </Box>
                     </Tooltip>
                   </Stack.Item>
-                  <Stack.Item color="red" textAlign="center" italic bold>
-                    {pack.shortage_text}
-                  </Stack.Item>
                   <Stack.Item>
                     <CooldownEstimate cost={pack.cost} />
                     &ensp;
@@ -220,7 +215,6 @@ const DepartmentCatalog = () => {
                           id: pack.id,
                         })
                       }
-                      disabled={pack.unavailable}
                     >
                       Order
                     </Button>

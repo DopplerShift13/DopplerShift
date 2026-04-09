@@ -3,7 +3,6 @@
 $include game_options.txt
 $include dbconfig.txt
 $include doppler/config_doppler.txt
-$include doppler/STORY_SUPPLY_SHORTAGE.txt
 $include comms.txt
 $include logging.txt
 $include resources.txt
