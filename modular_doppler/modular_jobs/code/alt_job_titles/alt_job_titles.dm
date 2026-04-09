@@ -249,11 +249,9 @@
 
 /datum/job/head_of_security
 	alt_titles = list(
-		"Head of Security",
-		"Chief Constable",
-		"Chief of Security",
-		"Security Commander",
-		"Sheriff",
+		"Security Chief",
+		"Chief Guard",
+		"Head of Security"
 	)
 
 /datum/job/janitor
@@ -269,13 +267,9 @@
 
 /datum/job/lawyer
 	alt_titles = list(
-		"Lawyer",
-		"Barrister",
-		"Defense Attorney",
 		"Sophont Resources Agent",
 		"Internal Affairs Agent",
-		"Legal Clerk",
-		"Public Defender",
+		"Crew Liaison",
 		"Negotiator",
 	)
 
@@ -361,10 +355,9 @@
 
 /datum/job/security_officer
 	alt_titles = list(
-		"Security Officer",
-		"Peacekeeper",
-		"Security Operative",
-		"Security Cadet",
+		"Security Guard",
+		"Volunteer Guard",
+		"Cadet Guard",
 	)
 
 /datum/job/shaft_miner
@@ -400,9 +393,8 @@
 
 /datum/job/warden
 	alt_titles = list(
-		"Warden",
-		"Brig Sergeant",
-		"Brig Governor",
-		"Dispatch Officer",
-		"Lieutenant",
+		"Dispatcher",
+		"Dispatch Guard",
+		"Guard Armourer",
+		"Armoury Keeper",
 	)
