@@ -374,7 +374,6 @@
 		/obj/item/multitool = 2,
 		/obj/item/multitool/ai_detect = 1,
 		// Rapid whatever tools
-		/obj/item/pipe_dispenser = 1,
 		/obj/item/construction/rcd = 1,
 		/obj/item/construction/rtd = 1,
 		// Misc tools and related items
@@ -385,7 +384,6 @@
 		/obj/item/geiger_counter = 2,
 		/obj/item/analyzer = 2,
 		// Various methods of insulation
-		/obj/item/clothing/gloves/color/yellow = 2,
 		/obj/item/clothing/gloves/chief_engineer = 1,
 		/obj/item/clothing/gloves/atmos = 1,
 		// Misc utility clothing
