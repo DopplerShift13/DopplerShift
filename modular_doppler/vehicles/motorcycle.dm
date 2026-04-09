@@ -4,7 +4,12 @@
 #define LOW_FUEL_LEFT_MESSAGE 20
 /// how often we burn a little gas, in seconds. with 200 max fuel this is just over thirty minutes of motorcycle time
 #define BIKE_FUEL_BURN_INTERVAL 10
-
+/// our effective vehicle_move_delay in first gear
+#define FIRST_GEAR 1.5
+/// vehicle_move_delay in second gear
+#define SECOND_GEAR 1
+/// vehicle_move_delay in third gear
+#define THIRD_GEAR 0.5
 
 /obj/vehicle/ridden/motorcycle
 	name = "racing motorcycle"
@@ -26,6 +31,9 @@
 	var/starting_fuel = TRUE
 	/// when fuel was last removed
 	var/last_fuel_burn = 0
+	/// our current setting on the gear shifter, the values in the defines above (FIRST_GEAR, SECOND_GEAR, THIRD_GEAR) are applied to vehicle_movespeed_delay
+	var/selected_gear = FIRST_GEAR
+
 	var/headlights_toggle = FALSE
 	var/dismount_sound = 'modular_doppler/modular_sounds/sound/vehicles/bikedismount.ogg'
 	var/list/rev_sounds = list(
@@ -34,9 +42,7 @@
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-3.ogg',
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-4.ogg',
 	)
-	/// Cooldown for revving the bike, to prevent spamming
 	COOLDOWN_DECLARE(rev_cooldown)
-	///Particle holder for low integrity smoking
 	var/obj/effect/abstract/particle_holder/smoke = null
 
 /obj/vehicle/ridden/motorcycle/Initialize(mapload)
@@ -60,7 +66,7 @@
 			burn_fuel(1)
 
 		var/turf/where_we_spawn_air = get_turf(src)
-		where_we_spawn_air.atmos_spawn_air("[GAS_CO2]=5;[TURF_TEMPERATURE(T20C)]")	// technically motorcycle exhaust is more like 600k at the pipe and rapidly cools but we're just gonna cook the station trying to do that
+		where_we_spawn_air.atmos_spawn_air("[GAS_CO2]=10;[TURF_TEMPERATURE(T20C)]")	// technically motorcycle exhaust is more like 600k at the pipe and rapidly cools but we're just gonna cook the station trying to do that
 
 /obj/vehicle/ridden/motorcycle/examine(mob/user)
 	. = ..()
@@ -80,7 +86,7 @@
 	engine_sound.stop(src)
 	return ..()
 
-// revs the engine and spends a little fuel
+// revs the engine
 /obj/vehicle/ridden/motorcycle/click_alt_secondary(mob/user)
 	if(!is_occupant(user))
 		return FALSE
@@ -150,11 +156,63 @@
 	else
 		return
 
+// changes our selected_gear var for a simple simulation of a manual transmission
+/obj/vehicle/ridden/motorcycle/proc/gear_shift(newly_selected_gear)
+	selected_gear = newly_selected_gear
+	for(var/mob/rider in buckled_mobs)
+		balloon_alert(rider, "shifted gear!")
+
+// turns off the engine and immobilizes the motorcycle if the tank is empty
 /obj/vehicle/ridden/motorcycle/relaymove(mob/living/user, direction)
 	if(get_fuel() <= 0)
 		engine_sound.stop(src)
 		return FALSE
 	return ..()
+
+// dumps the rider if they bump things in second or third gear. uses similar code from the skateboard.
+/obj/vehicle/ridden/motorcycle/Bump(atom/bumped_thing)
+	. = ..()
+	if(!bumped_thing.density || !has_buckled_mobs())
+		return
+	if(selected_gear == FIRST_GEAR)
+		return
+
+	var/mob/living/rider = buckled_mobs[1]
+	rider.adjustStaminaLoss(50 / selected_gear)
+	playsound(src, 'sound/effects/bang.ogg', 40, TRUE)
+	if(!iscarbon(rider) || rider.getStaminaLoss() >= 100 || iscarbon(bumped_thing))
+		var/atom/throw_target = get_edge_target_turf(rider, pick(GLOB.cardinals))
+		unbuckle_mob(rider)
+		if((istype(bumped_thing, /obj/machinery/disposal/bin)))
+			rider.Paralyze(8 SECONDS)
+			rider.forceMove(bumped_thing)
+			forceMove(bumped_thing)
+			visible_message(span_danger("[src] crashes into [bumped_thing], and gets dumped straight into it!"))
+			return
+		if(selected_gear == SECOND_GEAR)
+			rider.throw_at(throw_target, 7, 5)
+		if(selected_gear == THIRD_GEAR)
+			rider.throw_at(throw_target, 12, 7)
+		var/head_slot = rider.get_item_by_slot(ITEM_SLOT_HEAD)
+		if(!head_slot || !(istype(head_slot,/obj/item/clothing/head/helmet) || istype(head_slot,/obj/item/clothing/head/utility/hardhat)))
+			if(selected_gear == SECOND_GEAR)
+				rider.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
+				rider.apply_damage(10 / selected_gear)
+				rider.updatehealth()
+			if(selected_gear == THIRD_GEAR)
+				rider.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15)
+				rider.apply_damage(20 / selected_gear)
+				rider.updatehealth()
+		visible_message(span_danger("[src] crashes into [bumped_thing], sending [rider] flying!"))
+		rider.Paralyze(8 SECONDS)
+		if(iscarbon(bumped_thing))
+			var/mob/living/carbon/victim = bumped_thing
+			victim.apply_damage(10 / selected_gear)
+			victim.updatehealth()
+			victim.Knockdown(4 / selected_gear SECONDS)
+	else
+		var/backdir = REVERSE_DIR(dir)
+		step(src, backdir)
 
 /obj/vehicle/ridden/motorcycle/atom_break()
 	. = ..()
@@ -181,12 +239,13 @@
 	button_icon = 'modular_doppler/vehicles/icons/vehicle_actions.dmi'
 	button_icon_state = "headlights"
 
-/*/datum/action/vehicle/ridden/motorcycle/toggle_light/Trigger(mob/clicker, trigger_flags)
-	to_chat(owner, span_notice("You flip the switch for the vehicle's headlights."))
-	vehicle_ridden_target.headlights_toggle = !vehicle_ridden_target.headlights_toggle
-	vehicle_ridden_target.set_light_on(vehicle_ridden_target.headlights_toggle)
-	vehicle_ridden_target.update_appearance()
-	playsound(owner, vehicle_ridden_target.headlights_toggle ? 'sound/items/weapons/magin.ogg' : 'sound/items/weapons/magout.ogg', 40, TRUE)*/
+/datum/action/vehicle/ridden/motorcycle/toggle_light/Trigger(mob/clicker, trigger_flags)
+	var/obj/vehicle/ridden/motorcycle/our_motorcycle = vehicle_ridden_target
+	to_chat(owner, span_notice("Headlights toggled!"))
+	our_motorcycle.headlights_toggle = !our_motorcycle.headlights_toggle
+	our_motorcycle.set_light_on(our_motorcycle.headlights_toggle)
+	our_motorcycle.update_appearance()
+	playsound(owner, our_motorcycle.headlights_toggle ? 'sound/items/weapons/magin.ogg' : 'sound/items/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/vehicle/ridden/motorcycle/first_gear
 	name = "Shift Into First"
@@ -196,8 +255,8 @@
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
 
 /datum/action/vehicle/ridden/motorcycle/first_gear/Trigger(mob/clicker, trigger_flags)
-	vehicle_ridden_target.RemoveElement(/datum/element/ridable)
-	vehicle_ridden_target.AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle)
+	var/obj/vehicle/ridden/motorcycle/our_motorcycle = vehicle_ridden_target
+	our_motorcycle.gear_shift(FIRST_GEAR)
 
 /datum/action/vehicle/ridden/motorcycle/second_gear
 	name = "Shift Into Second"
@@ -207,8 +266,9 @@
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
 
 /datum/action/vehicle/ridden/motorcycle/second_gear/Trigger(mob/clicker, trigger_flags)
-	vehicle_ridden_target.RemoveElement(/datum/element/ridable)
-	vehicle_ridden_target.AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle/second_gear)
+	var/obj/vehicle/ridden/motorcycle/our_motorcycle = vehicle_ridden_target
+	our_motorcycle.gear_shift(SECOND_GEAR)
+
 
 /datum/action/vehicle/ridden/motorcycle/third_gear
 	name = "Shift Into Third"
@@ -218,8 +278,9 @@
 	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
 
 /datum/action/vehicle/ridden/motorcycle/third_gear/Trigger(mob/clicker, trigger_flags)
-	vehicle_ridden_target.RemoveElement(/datum/element/ridable)
-	vehicle_ridden_target.AddElement(/datum/element/ridable, /datum/component/riding/vehicle/motorcycle/third_gear)
+	var/obj/vehicle/ridden/motorcycle/our_motorcycle = vehicle_ridden_target
+	our_motorcycle.gear_shift(THIRD_GEAR)
+
 
 /*
 * vehicle component datums. gee, motorcycle, how come you have so many vehicle datums? because we use the action datums above
@@ -232,14 +293,10 @@
 	ride_check_flags = RIDER_NEEDS_LEGS | RIDER_NEEDS_ARMS | UNBUCKLE_DISABLED_RIDER
 	vehicle_move_delay = 1.5
 
-// second gear is pretty fast. bumping things may cause damage.
-/datum/component/riding/vehicle/motorcycle/second_gear
-	vehicle_move_delay = 1
-
-// third gear is extremely fast. crashing may be fatal.
-
-/datum/component/riding/vehicle/motorcycle/third_gear
-	vehicle_move_delay = 0.5
+/datum/component/riding/vehicle/motorcycle/driver_move(obj/vehicle/vehicle_parent, mob/living/user, direction)
+	var/obj/vehicle/ridden/motorcycle/our_motorcycle = vehicle_parent
+	vehicle_move_delay = our_motorcycle.selected_gear
+	return ..()
 
 /datum/component/riding/vehicle/motorcycle/get_rider_offsets_and_layers(pass_index, mob/offsetter)
 	return list(
