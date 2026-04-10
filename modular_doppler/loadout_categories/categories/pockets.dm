@@ -83,6 +83,10 @@
 	name = "Equipment Strap (Security)"
 	item_path = /obj/item/job_equipment_strap/security
 
+/datum/loadout_item/pocket_items/equipment/copporcitite_axe
+	name = "Copporcitite Axe (Hearthkin)"
+	item_path = /obj/item/forging/reagent_weapon/axe/fake_copper
+
 /**
  * STORAGE
  */

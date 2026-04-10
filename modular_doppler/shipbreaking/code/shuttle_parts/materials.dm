@@ -27,11 +27,11 @@
 	sheet_type = /obj/item/stack/sheet/aluminum
 	ore_type = null
 	value_per_unit = 30 / SHEET_MATERIAL_AMOUNT
-	minimum_value_override = 20
+	minimum_value_override = 10
 	mat_rust_resistance = RUST_RESISTANCE_TITANIUM
 	mineral_rarity = 0
 	points_per_unit = 1 / SHEET_MATERIAL_AMOUNT
-	tradable = TRUE
+	tradable = FALSE
 	tradable_base_quantity = MATERIAL_QUANTITY_UNCOMMON
 	fish_weight_modifier = 1.1
 	strength_modifier = 0.8
@@ -70,11 +70,11 @@
 	sheet_type = /obj/item/stack/sheet/nanocarbon
 	ore_type = null
 	value_per_unit = 50 / SHEET_MATERIAL_AMOUNT
-	minimum_value_override = 40
+	minimum_value_override = 25
 	mat_rust_resistance = RUST_RESISTANCE_TITANIUM
 	mineral_rarity = 0
 	points_per_unit = 1 / SHEET_MATERIAL_AMOUNT
-	tradable = TRUE
+	tradable = FALSE
 	tradable_base_quantity = MATERIAL_QUANTITY_UNCOMMON
 	fish_weight_modifier = 0.8
 	strength_modifier = 1.5
@@ -110,6 +110,7 @@
 	custom_materials = list(
 		/datum/material/nanocarbon = HALF_SHEET_MATERIAL_AMOUNT
 	)
+	color = COLOR_SILVER
 	/// How many variants of shard there are
 	var/variants = 5
 
