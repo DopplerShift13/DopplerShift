@@ -221,8 +221,8 @@
 	item_path = /obj/item/clothing/head/soft/rainbow
 
 /datum/loadout_item/head/caps/colonial_cap
-	name = "Colonial Cap"
-	item_path = /obj/item/clothing/head/hats/colonial
+	name = "Frontier Headscarf"
+	item_path = /obj/item/clothing/head/frontier_headscarf
 
 /datum/loadout_item/head/caps/security_colonial_cap
 	name = "Colonial Security Cap"
