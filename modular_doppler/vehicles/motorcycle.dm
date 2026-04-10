@@ -57,6 +57,7 @@
 	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/first_gear)
 	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/second_gear)
 	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/third_gear)
+	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/toggle_light)
 
 /obj/vehicle/ridden/motorcycle/process(seconds_per_tick)
 	// we assume a reasonable spaceman turns off their motorcycle when they dismount, so only a ridden motorcycle burns fuel

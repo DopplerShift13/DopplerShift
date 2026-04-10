@@ -115,3 +115,60 @@
 	belt = /obj/item/storage/belt/secsword/deathmatch
 	implants_to_add = list()
 	bodyparts_to_replace = list()
+
+/*
+*	MURDERDROME loadouts
+*/
+
+/datum/outfit/deathmatch_loadout/murderdrome/pre_equip(mob/living/carbon/human/user, visuals_only)
+	. = ..()
+	var/turf/our_feet = get_turf(user)
+	var/obj/vehicle/ridden/motorcycle/our_bike = /obj/vehicle/ridden/motorcycle
+	if(our_feet)
+		new our_bike(our_feet)
+		our_bike.buckle_mob(user)
+
+/datum/outfit/deathmatch_loadout/murderdrome/berserker
+	name = "Kamikrazee Samurai"
+	desc = "Take up your sword, samurai."
+	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	uniform = /obj/item/clothing/under/pants/moto_leggings
+	suit = /obj/item/clothing/suit/jacket/doppler/bad_for_school
+	gloves = /obj/item/clothing/gloves/doppler_cargo/fingerless
+	glasses = /obj/item/clothing/glasses/techno_visor
+	belt = /obj/item/katana
+
+/datum/outfit/deathmatch_loadout/murderdrome/freek
+	name = "Freek Gunner"
+	desc = "Fistfuls of schiebenmaschines. Make 'em eat lead!"
+	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	uniform = /obj/item/clothing/under/pants/jeans/ripped
+	suit = /obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie
+	gloves = /obj/item/clothing/gloves/doppler_cargo
+	glasses = /obj/item/clothing/glasses/techno_visor
+	belt = /obj/item/gun/ballistic/automatic/schiebenmaschine
+	back = /obj/item/storage/backpack
+	backpack_contents = list(
+		/obj/item/gun/ballistic/automatic/schiebenmaschine = 5
+	)
+
+/datum/outfit/deathmatch_loadout/murderdrome/mad_maxwell
+	name = "Mad Maxwell"
+	desc = "A shotty and a stylish jacket await."
+	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	uniform = /obj/item/clothing/under/pants/jeans/ripped
+	suit = /obj/item/clothing/suit/jacket/leather
+	gloves = /obj/item/clothing/gloves/doppler_cargo
+	glasses = /obj/item/clothing/glasses/hud/ar/aviator
+	back = /obj/item/gun/ballistic/shotgun/doublebarrel/slugs
+	belt = /obj/item/storage/belt/bandolier/full_of_slugs
+
+/datum/outfit/deathmatch_loadout/murderdrome/lord_hugemongus
+	name = "Lord Hugemongus"
+	desc = "One easy piece and a wheelgun, for a waster that knows what they want."
+	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	uniform = /obj/item/clothing/under/misc/gear_harness/visible
+	gloves = /obj/item/clothing/gloves/doppler_cargo
+	glasses = /obj/item/clothing/glasses/hud/ar/aviator
+	belt = /obj/item/storage/belt/holster/nukie/cowboy
+	mask = /obj/item/clothing/mask/gas
