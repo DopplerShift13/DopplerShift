@@ -10,7 +10,7 @@
 	var/mirage_lifetime = 20 SECONDS
 
 /datum/psyker_event/catastrophic/mirage_gangup/execute(mob/living/carbon/human/psyker)
-	to_chat(psyker, span_userdanger(PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE))
+	to_chat(psyker, span_userdanger("Your Resonant powers send your mind spiraling; everyone is looking like you, and at you!"))
 	psyker.cause_hallucination(/datum/hallucination/delusion/psyker_gangup, "psyker mirage gangup", duration = mirage_lifetime, psyker_owner = psyker)
 
 	// Spawn a large semblence of illusions to heckle and harass us.
