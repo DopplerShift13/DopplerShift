@@ -239,6 +239,7 @@
 	desc = "Turn on your brights!"
 	button_icon = 'modular_doppler/vehicles/icons/vehicle_actions.dmi'
 	button_icon_state = "headlights"
+	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
 
 /datum/action/vehicle/ridden/motorcycle/toggle_light/Trigger(mob/clicker, trigger_flags)
 	var/obj/vehicle/ridden/motorcycle/our_motorcycle = vehicle_ridden_target
