@@ -19,13 +19,7 @@
 	abstract_type = /datum/loadout_item/modlink
 	has_modlink_label = TRUE
 
-/datum/loadout_item/modlink/on_equip_item(
-	obj/item/equipped_item,
-	datum/preferences/preference_source,
-	list/preference_list,
-	mob/living/carbon/human/equipper,
-	visuals_only = FALSE,
-)
+/datum/loadout_item/modlink/on_equip_item(obj/item/equipped_item, list/item_details, mob/living/carbon/human/equipper, datum/outfit/outfit, visuals_only = FALSE)
 	// Backpack items aren't created if it's a visual equipping, so don't do any on equip stuff. It doesn't exist.
 	if(visuals_only)
 		return NONE
@@ -57,19 +51,12 @@
 	item_path = /obj/item/brick_phone_scryer/loaded/crew
 	has_modlink_label = TRUE
 
-/datum/loadout_item/modlink/phone/brick_scryerphone/on_equip_item(
-	obj/item/equipped_item,
-	datum/preferences/preference_source,
-	list/preference_list,
-	mob/living/carbon/human/equipper,
-	visuals_only = FALSE,
-)
+/datum/loadout_item/modlink/phone/brick_scryerphone/on_equip_item(obj/item/equipped_item, list/item_details, mob/living/carbon/human/equipper, datum/outfit/outfit, visuals_only = FALSE)
 	. = ..()
 	if(visuals_only)
 		return
 
 	var/obj/item/brick_phone_scryer/our_phone = equipped_item
-	var/list/item_details = preference_list[item_path]
 	var/prefs_label = item_details?[INFO_MODLINK_LABEL]
 	our_phone.set_label(prefs_label ? html_decode(prefs_label) : equipper.real_name)
 
@@ -80,18 +67,11 @@
 	name = "MODlink Scryer"
 	item_path = /obj/item/clothing/neck/link_scryer/loaded
 
-/datum/loadout_item/modlink/worn/link_scryer/on_equip_item(
-	obj/item/equipped_item,
-	datum/preferences/preference_source,
-	list/preference_list,
-	mob/living/carbon/human/equipper,
-	visuals_only = FALSE,
-)
+/datum/loadout_item/modlink/worn/link_scryer/on_equip_item(obj/item/equipped_item, list/item_details, mob/living/carbon/human/equipper, datum/outfit/outfit, visuals_only = FALSE)
 	. = ..()
 	if(visuals_only)
 		return
 
 	var/obj/item/clothing/neck/link_scryer/loaded/our_scryer = equipped_item
-	var/list/item_details = preference_list[item_path]
 	var/prefs_label = item_details?[INFO_MODLINK_LABEL]
 	our_scryer.set_label(prefs_label ? html_decode(prefs_label) : equipper.real_name)
