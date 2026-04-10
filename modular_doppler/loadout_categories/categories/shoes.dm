@@ -110,6 +110,10 @@
 	name = "Magboots"
 	item_path = /obj/item/clothing/shoes/magboots
 
+/datum/loadout_item/shoes/boots/primitive_genemod_boots
+	name = "Ice Hiking Boots (Hearthkin)"
+	item_path = /obj/item/clothing/shoes/winterboots/ice_boots/primitive_genemod_boots
+
 /**
  * OTHER SHOES
  */
