@@ -1,6 +1,6 @@
 // Gives a special deep-rooted trauma that silences Resonance powers all-together.
 /datum/psyker_event/catastrophic/silence_trauma
-	weight = PSYKER_EVENT_RARITY_UNCOMMON
+	weight = PSYKER_EVENT_RARITY_RARE
 
 /datum/psyker_event/catastrophic/silence_trauma/execute(mob/living/carbon/human/psyker)
 	var/datum/brain_trauma/magic/trauma = new /datum/brain_trauma/magic/resonance_silenced
