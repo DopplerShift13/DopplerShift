@@ -122,14 +122,12 @@
 
 /datum/outfit/deathmatch_loadout/murderdrome/pre_equip(mob/living/carbon/human/user, visuals_only)
 	. = ..()
-	var/turf/our_feet = get_turf(user)
-	var/obj/vehicle/ridden/motorcycle/our_bike = /obj/vehicle/ridden/motorcycle
-	if(our_feet)
-		new our_bike(our_feet)
-		our_bike.buckle_mob(user)
+	var/obj/vehicle/ridden/motorcycle/our_bike = new /obj/vehicle/ridden/motorcycle(get_turf(user))
+	our_bike.buckle_mob(user)
 
-/datum/outfit/deathmatch_loadout/murderdrome/berserker
-	name = "Kamikrazee Samurai"
+/datum/outfit/deathmatch_loadout/murderdrome/samurai
+	name = "DM: Kamikrazee Samurai"
+	display_name = "Kamikrazee Samurai"
 	desc = "Take up your sword, samurai."
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	uniform = /obj/item/clothing/under/pants/moto_leggings
@@ -139,11 +137,12 @@
 	belt = /obj/item/katana
 
 /datum/outfit/deathmatch_loadout/murderdrome/freek
-	name = "Freek Gunner"
+	name = "DM: Freek Gunner"
+	display_name = "Freek Gunner"
 	desc = "Fistfuls of schiebenmaschines. Make 'em eat lead!"
-	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	shoes = /obj/item/clothing/shoes/workboots/mining
 	uniform = /obj/item/clothing/under/pants/jeans/ripped
-	suit = /obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie
+	suit = /obj/item/clothing/suit/jacket/oversized
 	gloves = /obj/item/clothing/gloves/doppler_cargo
 	glasses = /obj/item/clothing/glasses/techno_visor
 	belt = /obj/item/gun/ballistic/automatic/schiebenmaschine
@@ -153,22 +152,36 @@
 	)
 
 /datum/outfit/deathmatch_loadout/murderdrome/mad_maxwell
-	name = "Mad Maxwell"
+	name = "DM: Mad Maxwell"
+	display_name = "Mad Maxwell"
 	desc = "A shotty and a stylish jacket await."
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	uniform = /obj/item/clothing/under/pants/jeans/ripped
-	suit = /obj/item/clothing/suit/jacket/leather
+	suit = /obj/item/clothing/suit/jacket/leather/biker
 	gloves = /obj/item/clothing/gloves/doppler_cargo
 	glasses = /obj/item/clothing/glasses/hud/ar/aviator
 	back = /obj/item/gun/ballistic/shotgun/doublebarrel/slugs
 	belt = /obj/item/storage/belt/bandolier/full_of_slugs
 
 /datum/outfit/deathmatch_loadout/murderdrome/lord_hugemongus
-	name = "Lord Hugemongus"
+	name = "DM: Lord Hugemongus"
+	display_name = "Lord Hugemongus"
 	desc = "One easy piece and a wheelgun, for a waster that knows what they want."
-	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	shoes = /obj/item/clothing/shoes/workboots/mining
 	uniform = /obj/item/clothing/under/misc/gear_harness/visible
 	gloves = /obj/item/clothing/gloves/doppler_cargo
 	glasses = /obj/item/clothing/glasses/hud/ar/aviator
 	belt = /obj/item/storage/belt/holster/nukie/cowboy
 	mask = /obj/item/clothing/mask/gas
+
+/datum/outfit/deathmatch_loadout/murderdrome/rock_it
+	name = "DM: Rock-it Boi"
+	display_name = "Rock-it Boi"
+	desc = "Rock on with the rock-it launcher!"
+	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	uniform = /obj/item/clothing/under/pants/jeans/ripped
+	suit = /obj/item/clothing/suit/jacket/miljacket
+	gloves = /obj/item/clothing/gloves/doppler_cargo
+	glasses = /obj/item/clothing/glasses/techno_visor
+	belt = /obj/item/knife/butcher
+	back = /obj/item/gun/ballistic/rocketlauncher/unrestricted
