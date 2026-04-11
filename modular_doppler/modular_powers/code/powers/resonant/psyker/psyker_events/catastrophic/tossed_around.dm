@@ -14,7 +14,7 @@
 	var/list/special_object_types = list(
 		/turf/open/chasm, // this one's evil
 		/turf/open/space,
-		/turf/open/lava/plasma/ice_moon, // how cooked do you want your spaceman
+		/turf/open/lava, // how cooked do you want your spaceman
 		/turf/open/floor/tram/plate, // THE TRAM CALLS
 		/obj/structure/table/glass,
 		/obj/structure/window,

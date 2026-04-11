@@ -113,6 +113,9 @@ export type Power = {
   color: string;
   powertype: (string | null)[];
   rootpower: (string | null)[];
+  required_powers?: string[];
+  required_allow_any?: boolean;
+  required_allow_subtypes?: boolean;
   customizable?: boolean;
   customization_options?: string[];
   augment?: {

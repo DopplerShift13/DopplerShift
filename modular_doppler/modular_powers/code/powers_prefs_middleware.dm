@@ -94,6 +94,20 @@
 		var/datum/power_constant_data/constant_data = GLOB.all_power_constant_data[power_type]
 		var/list/customization_options = constant_data?.get_customization_data()
 
+		// Gets the powers required per power and adds their names, to display when hovered over.
+		var/list/required_power_types = GLOB.powers_requirements_list[power_type]
+		var/list/required_power_names = list()
+		if(length(required_power_types))
+			for(var/datum/power/required_power_type as anything in required_power_types)
+				var/required_power_name = required_power_type.name
+				// Trims abstract from abstract roots.
+				if(length(required_power_name) >= 9 && lowertext(copytext(required_power_name, 1, 10)) == "abstract ")
+					required_power_name = copytext(required_power_name, 10)
+				required_power_names += required_power_name
+		// Gets special requirements such as allow any and allow subtypes
+		var/required_allow_any = power_type.required_allow_any
+		var/required_allow_subtypes = power_type.required_allow_subtypes
+
 		var/final_list = list(list(
 				"description" = power_type.desc,
 				"name" = power_type.name,
@@ -104,6 +118,9 @@
 				"color" = color,
 				"powertype" = powertype,
 				"rootpower" = rootpower,
+				"required_powers" = required_power_names,
+				"required_allow_any" = required_allow_any,
+				"required_allow_subtypes" = required_allow_subtypes,
 				"augment" = augment_info,
 				"customizable" = constant_data?.is_customizable(),
 				"customization_options" = customization_options,

@@ -70,7 +70,17 @@ export const Powers = (props) => {
           <Button
             icon={props.power.powertype}
             color={props.power.state}
-            tooltip={props.power.rootpower}
+            tooltip={
+              props.power.required_powers?.length
+                ? `${
+                    props.power.required_allow_subtypes
+                      ? 'Requires any type of:'
+                      : props.power.required_allow_any
+                        ? 'Requires any of:'
+                        : 'Requires:'
+                  } ${props.power.required_powers.join(', ')}`
+                : null
+            }
             tooltipPosition="right"
             onClick={() => {
               if (props.power.state === 'bad') {
