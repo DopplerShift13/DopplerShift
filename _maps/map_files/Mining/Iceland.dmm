@@ -1423,9 +1423,6 @@
 /obj/effect/spawner/random/food_or_drink/dinner,
 /turf/open/floor/iron/colony,
 /area/mine/cafeteria)
-"iL" = (
-/turf/open/genturf/blue,
-/area/icemoon/underground/explored)
 "iN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -2644,9 +2641,6 @@
 /obj/machinery/door/airlock/titanium,
 /turf/open/floor/iron/colony/white/texture,
 /area/mine/living_quarters)
-"qJ" = (
-/turf/open/openspace/icemoon/keep_below,
-/area/icemoon/underground/unexplored/rivers/deep/shoreline)
 "qN" = (
 /obj/effect/spawner/structure/window/reinforced,
 /obj/structure/disposalpipe/segment,
@@ -25800,7 +25794,7 @@ IN
 IN
 IN
 IN
-IN
+ZM
 ZM
 ZM
 ZM
@@ -90305,9 +90299,9 @@ Nr
 Nr
 Nr
 Nr
-qJ
-qJ
-qJ
+NL
+NL
+NL
 NL
 NL
 NL
@@ -90562,9 +90556,9 @@ Nr
 Nr
 Nr
 Nr
-qJ
-qJ
-qJ
+NL
+NL
+NL
 NL
 NL
 NL
@@ -90819,9 +90813,9 @@ Nr
 Nr
 Nr
 Nr
-qJ
-qJ
-qJ
+NL
+NL
+NL
 NL
 NL
 NL
@@ -91077,8 +91071,8 @@ Nr
 Nr
 Nr
 ty
-qJ
-qJ
+NL
+NL
 NL
 NL
 NL
@@ -91334,8 +91328,8 @@ Nr
 Nr
 Nr
 Ab
-qJ
-qJ
+NL
+NL
 NL
 NL
 NL
@@ -91591,7 +91585,7 @@ Nr
 Nr
 ty
 Uy
-qJ
+NL
 NL
 NL
 NL
@@ -91848,7 +91842,7 @@ Nr
 Nr
 Uy
 Uy
-qJ
+NL
 NL
 NL
 NL
@@ -92620,7 +92614,7 @@ Nr
 ty
 ty
 ty
-pU
+ty
 NL
 NL
 NL
@@ -92877,7 +92871,7 @@ Nr
 ty
 vT
 ty
-pU
+ty
 NL
 NL
 NL
@@ -94162,7 +94156,7 @@ Nr
 Nr
 Nr
 Nr
-iL
+Nr
 pU
 Wr
 pU
@@ -94419,7 +94413,7 @@ Nr
 Nr
 Nr
 Nr
-iL
+Nr
 Wr
 pU
 pU
@@ -94675,7 +94669,7 @@ Nr
 Nr
 Nr
 Nr
-iL
+Nr
 Wr
 Wr
 pU
@@ -94932,7 +94926,7 @@ Nr
 Nr
 Nr
 Nr
-iL
+Nr
 pU
 Wr
 pU
