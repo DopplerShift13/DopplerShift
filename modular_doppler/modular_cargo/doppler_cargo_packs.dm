@@ -39,7 +39,7 @@
 
 /datum/supply_pack/imports/motorcycle
 	name = "Racing Motorcycle"
-	desc = "A classic streetbike that's racetrack ready. Ride Smart! Where a helmet!"
+	desc = "A classic streetbike that's racetrack ready. Ride Smart! Wear a helmet!"
 	cost = CARGO_CRATE_VALUE * 6
 	contains = list(
 		/obj/vehicle/ridden/motorcycle,
