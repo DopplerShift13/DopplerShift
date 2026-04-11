@@ -178,7 +178,7 @@
 	greyscale_colors = "#594032#364660"
 
 /obj/item/clothing/head/primitive_genemod_ferroniere
-	name = "Ferroniere"
+	name = "ferroniere"
 	desc = "A style of headband that encircles the wearer's forehead, with a small jewel suspended in the centre."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	worn_icon = 'modular_doppler/hearthkin/primitive_genemod/icons/clothing_greyscale.dmi'
