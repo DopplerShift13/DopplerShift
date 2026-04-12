@@ -34,7 +34,6 @@
 	/// our current setting on the gear shifter, the values in the defines above (FIRST_GEAR, SECOND_GEAR, THIRD_GEAR) are applied to vehicle_movespeed_delay
 	var/selected_gear = FIRST_GEAR
 
-	var/headlights_toggle = FALSE
 	var/dismount_sound = 'modular_doppler/modular_sounds/sound/vehicles/bikedismount.ogg'
 	var/list/rev_sounds = list(
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-1.ogg',
@@ -57,7 +56,6 @@
 	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/first_gear)
 	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/second_gear)
 	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/third_gear)
-	initialize_passenger_action_type(/datum/action/vehicle/ridden/motorcycle/toggle_light)
 
 /obj/vehicle/ridden/motorcycle/process(seconds_per_tick)
 	// we assume a reasonable spaceman turns off their motorcycle when they dismount, so only a ridden motorcycle burns fuel
@@ -231,23 +229,8 @@
 	return ..()
 
 /*
-* action datums for turning on our headlight and changing gears
+* action datums for changing gears
 */
-
-/datum/action/vehicle/ridden/motorcycle/toggle_light
-	name = "Toggle Headlights"
-	desc = "Turn on your brights!"
-	button_icon = 'modular_doppler/vehicles/icons/vehicle_actions.dmi'
-	button_icon_state = "headlights"
-	check_flags = AB_CHECK_CONSCIOUS|AB_CHECK_INCAPACITATED
-
-/datum/action/vehicle/ridden/motorcycle/toggle_light/Trigger(mob/clicker, trigger_flags)
-	var/obj/vehicle/ridden/motorcycle/our_motorcycle = vehicle_ridden_target
-	to_chat(owner, span_notice("Headlights toggled!"))
-	our_motorcycle.headlights_toggle = !our_motorcycle.headlights_toggle
-	our_motorcycle.set_light_on(our_motorcycle.headlights_toggle)
-	our_motorcycle.update_appearance()
-	playsound(owner, our_motorcycle.headlights_toggle ? 'sound/items/weapons/magin.ogg' : 'sound/items/weapons/magout.ogg', 40, TRUE)
 
 /datum/action/vehicle/ridden/motorcycle/first_gear
 	name = "Shift Into First"
