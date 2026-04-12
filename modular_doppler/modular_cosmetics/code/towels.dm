@@ -29,6 +29,11 @@
 	desc = "Everyone knows what a towel is. Use it to dry yourself, or wear it around your chest, your waist or even your head!"
 	icon = TOWEL_OBJ_ICON
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/suit/towel.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/suit/towel.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/suit.dmi'
+	)
 	icon_state = "towel"
 	base_icon_state = "towel"
 	lefthand_file = 'modular_doppler/modular_cosmetics/icons/mob/inhands/towel_lefthand.dmi'

@@ -60,7 +60,7 @@
 #define FEATURE_MUTANT_COLOR "mcolor"
 #define FEATURE_ETHEREAL_COLOR "ethcolor"
 #define FEATURE_EARS "ears"
-#define FEATURE_TAIL "tail_cat"
+#define FEATURE_TAIL_CAT "tail_cat"
 #define FEATURE_TAIL_LIZARD "tail_lizard"
 #define FEATURE_TAIL_FISH "fish_tail"
 #define FEATURE_SNOUT "snout"
@@ -91,6 +91,7 @@
 #define FEATURE_FLUFF "fluff"
 #define FEATURE_FLUFF_COLORS "fluff_colors"
 #define FEATURE_POD_HAIR_COLORS "pod_hair_colors"
+#define FEATURE_SYNTHETIC_CHARGING_METHOD "synthetic_charging_method"
 // DOPPLER FEATURES END
 
 // Other

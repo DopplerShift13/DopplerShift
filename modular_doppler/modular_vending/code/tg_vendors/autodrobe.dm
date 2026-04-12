@@ -33,6 +33,7 @@
 				/obj/item/clothing/under/misc/doppler_uniform/standard/overalls = 5,
 				/obj/item/clothing/under/misc/doppler_uniform/standard/cozy/overalls = 5,
 				/obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls = 5,
+				/obj/item/clothing/under/underlayer/white = 5,
 			),
 		),
 	)

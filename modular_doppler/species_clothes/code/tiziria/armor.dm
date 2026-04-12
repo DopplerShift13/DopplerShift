@@ -67,6 +67,12 @@
 		)
 	)
 
+/obj/item/clothing/suit/armor/lizard/Initialize(mapload)
+	. = ..()
+	var/list/allowed_two = allowed.Copy()
+	allowed_two += /obj/item/storage/belt/lizard_sabre
+	allowed = allowed_two
+
 // leg armor
 
 /obj/item/clothing/shoes/lizard_shins
@@ -105,3 +111,5 @@
 	inhand_icon_state = null
 	body_parts_covered = HANDS|ARMS
 	armor_type = /datum/armor/colonist_armor
+
+// EVA suit for the pirates

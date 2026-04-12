@@ -7,9 +7,6 @@
 			"name" = "Head",
 			"icon" = "hat-cowboy",
 			"products" = list(
-				/obj/item/clothing/head/fedora= 5,
-				/obj/item/clothing/head/fedora/beige = 5,
-				/obj/item/clothing/head/fedora/white = 5,
 				/obj/item/clothing/head/standalone_hood = 5,
 				/obj/item/clothing/head/bow = 5,
 				/obj/item/clothing/head/bow/small = 5,
@@ -51,12 +48,15 @@
 				/obj/item/clothing/under/pants/jeans/ripped = 5,
 				/obj/item/clothing/under/pants/moto_leggings = 5,
 				/obj/item/clothing/under/pants/big_pants = 5,
+				/obj/item/clothing/under/pants/megajeans = 5,
+				/obj/item/clothing/under/pants/megashorts = 5,
 				/obj/item/clothing/under/shorts/shorter = 5,
 				/obj/item/clothing/under/shorts/shorter/jeans = 5,
 				/obj/item/clothing/under/shorts/shorter/shortest = 5,
 				/obj/item/clothing/under/shorts/shorter/jeans/shortest = 5,
 				/obj/item/clothing/under/cowl_neck_shirt = 5,
 				/obj/item/clothing/under/collared_shirt = 5,
+				/obj/item/clothing/under/shortalls = 5,
 			),
 		),
 
@@ -130,7 +130,9 @@
 				/obj/item/clothing/under/costume/kimono/greyscale = 5,
 				/obj/item/clothing/under/costume/yukata/greyscale = 5,
 				/obj/item/clothing/under/misc/gear_harness = 5,
+				/obj/item/clothing/under/misc/gear_harness/visible = 5,
 				/obj/item/clothing/under/bodysuit = 5,
+				/obj/item/clothing/under/latexsuit = 5,
 				/obj/item/clothing/under/athletas_bodysuit = 5,
 			)
 		)
@@ -139,4 +141,10 @@
 	premium_doppler = list( //being here means you're artificially rare, congratulations
 		/obj/item/clothing/suit/toggle/labcoat/lalunevest = 3,
 		/obj/item/clothing/gloves/lalune_long = 3,
+		/obj/item/clothing/suit/jacket/doppler/bad_for_school = 3,
+		/obj/item/clothing/shoes/geowpn = 3,
+		/obj/item/clothing/suit/jacket/doppler/technyne_sweatshirt = 3,
+		/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie = 3,
+		/obj/item/clothing/suit/hooded/doppler/technyne_overlay = 3,
+		/obj/item/clothing/under/pants/technyne_bottomwear = 3,
 	)

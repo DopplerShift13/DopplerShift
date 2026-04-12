@@ -6,8 +6,10 @@
 	digitigrade_greyscale_config_worn = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
-	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/doppler_uniforms.dmi',
-	BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/doppler_uniforms_digi.dmi')
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/doppler_uniforms.dmi',
+		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/doppler_uniforms_digi.dmi',
+	)
 	icon_state = ""
 	can_adjust = TRUE
 
@@ -69,15 +71,12 @@
 	worn_icon_state = "doppler_uniform"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/doppler_undersuit/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/doppler_undersuit/worn/digi,
+	)
 	greyscale_colors = "#333333#AAAAAA"
 	flags_1 = IS_PLAYER_COLORABLE_1
-
-/obj/item/clothing/under/misc/doppler_uniform/standard/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes = list()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/doppler_undersuit/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/doppler_undersuit/worn/digi
-	set_greyscale(colors = greyscale_colors)
 
 /obj/item/clothing/under/misc/doppler_uniform/standard/cozy
 	name = "doppler cozy uniform"
@@ -87,13 +86,11 @@
 	worn_icon_state = "doppler_cozy"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/cozy
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/cozy/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/doppler_undersuit/cozy/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/doppler_undersuit/cozy/worn/digi,
+	)
 	greyscale_colors = "#333333#AA0000"
-
-/obj/item/clothing/under/misc/doppler_uniform/standard/cozy/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/doppler_undersuit/cozy/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/doppler_undersuit/cozy/worn/digi
-	set_greyscale(colors = greyscale_colors)
 
 /obj/item/clothing/under/misc/doppler_uniform/standard/suit
 	name = "doppler fancy uniform"
@@ -103,13 +100,11 @@
 	worn_icon_state = "doppler_suit"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/fancysuit
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/fancysuit/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/doppler_undersuit/fancysuit/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/doppler_undersuit/fancysuit/worn/digi,
+	)
 	greyscale_colors = "#333333#AAAAAA#AA0000#FFFFFF"
-
-/obj/item/clothing/under/misc/doppler_uniform/standard/suit/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/doppler_undersuit/fancysuit/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/doppler_undersuit/fancysuit/worn/digi
-	set_greyscale(colors = greyscale_colors)
 
 // Overall versions
 /obj/item/clothing/under/misc/doppler_uniform/standard/overalls
@@ -120,12 +115,10 @@
 	worn_icon_state = "doppler_uniform_overalls"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/overalls
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/overalls/worn
-
-/obj/item/clothing/under/misc/doppler_uniform/standard/overalls/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/doppler_undersuit/overalls/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/doppler_undersuit/overalls/worn/digi
-	set_greyscale(colors = greyscale_colors)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/doppler_undersuit/overalls/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/doppler_undersuit/overalls/worn/digi,
+	)
 
 /obj/item/clothing/under/misc/doppler_uniform/standard/cozy/overalls
 	name = "doppler cozy uniform w/ overalls"
@@ -135,12 +128,10 @@
 	worn_icon_state = "doppler_cozy_overalls"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/cozy/overalls
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/cozy/overalls/worn
-
-/obj/item/clothing/under/misc/doppler_uniform/standard/cozy/overalls/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/doppler_undersuit/cozy/overalls/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/doppler_undersuit/cozy/overalls/worn/digi
-	set_greyscale(colors = greyscale_colors)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/doppler_undersuit/cozy/overalls/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/doppler_undersuit/cozy/overalls/worn/digi,
+	)
 
 /obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls
 	name = "doppler fancy uniform w/ overalls"
@@ -150,12 +141,10 @@
 	worn_icon_state = "doppler_suit_overalls"
 	greyscale_config = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls
 	greyscale_config_worn = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls/worn
-
-/obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls/Initialize(mapload)
-	. = ..()
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_HUMANOID]"] = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls/worn
-	greyscale_config_worn_bodyshapes["[BODYSHAPE_DIGITIGRADE]"] = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls/worn/digi
-	set_greyscale(colors = greyscale_colors)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/doppler_undersuit/fancysuit/overalls/worn/digi,
+	)
 
 /obj/item/clothing/under/misc/doppler_uniform/standard/suit/overalls/colored
 	flags_1 = parent_type::flags_1 | NO_NEW_GAGS_PREVIEW_1 // This entire subtype is a randomized broken mess

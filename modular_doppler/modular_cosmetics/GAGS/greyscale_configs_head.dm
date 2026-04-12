@@ -114,3 +114,23 @@
 /datum/greyscale_config/cowboy_cattleman_wide/worn
 	name = "Wide cattleman hat (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/cowboy.dmi'
+
+//HATS
+
+/datum/greyscale_config/colorable_mailcap
+	name = "Colorable mailcap"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/hats/colorable_mailcap.json'
+
+/datum/greyscale_config/colorable_mailcap/worn
+	name = "Colorable mailcap (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
+
+/datum/greyscale_config/lizard_headscarf
+	name = "Tizirian headscarf"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/headscarf.json'
+
+/datum/greyscale_config/lizard_headscarf/worn
+	name = "Tizirian headscarf (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'

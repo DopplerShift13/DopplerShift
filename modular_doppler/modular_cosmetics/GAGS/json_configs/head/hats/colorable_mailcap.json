@@ -1,0 +1,16 @@
+{
+	"colorable_mailcap": [
+		{
+			"type": "icon_state",
+			"icon_state": "colorable_mailcap",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "colorable_mailcap_trim",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

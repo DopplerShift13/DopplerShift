@@ -99,15 +99,31 @@
 //PANTS//
 /////////
 
-/datum/greyscale_config/big_pants
-	name = "'JUNCO' megacargo pants"
-	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/under.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/big_pants.json'
+/datum/greyscale_config/megacargo_pants
+	name = "'JUNCO' Megacargo Pants"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/JUNCO_megacargo.json'
 
-/datum/greyscale_config/big_pants/worn
-	name = "'JUNCO' megacargo pants (Worn)"
-	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/under.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/big_pants_worn.json'
+/datum/greyscale_config/megacargo_pants/worn
+	name = "'JUNCO' Megacargo Pants (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/megacargo_pants/worn/digi
+	name = "'JUNCO' Megacargo Pants (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'
+
+/datum/greyscale_config/megajeans
+	name = "'JUNCO' Megajeans"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/JUNCO_jeans.json'
+
+/datum/greyscale_config/megajeans/worn
+	name = "'JUNCO' Megajeans (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/megajeans/worn/digi
+	name = "'JUNCO' Megajeans (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'
 
 ///////////
 //DRESSES//
@@ -238,6 +254,32 @@
 	name = "Shorts (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
 
+/datum/greyscale_config/shortalls
+	name = "Shortalls"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/pants.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/shortalls.json'
+
+/datum/greyscale_config/shortalls/worn
+	name = "Shortalls (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants.dmi'
+
+/datum/greyscale_config/shortalls/worn/digi
+	name = "Shortalls (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
+
+/datum/greyscale_config/megashorts
+	name = "JUNCO Megashorts"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/JUNCO_megashorts.json'
+
+/datum/greyscale_config/megashorts/worn
+	name = "JUNCO Megashorts (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/megashorts/worn/digi
+	name = "JUNCO Megashorts (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'
+
 
 //these two jeans configs are loadbearing. they are overrides of existing tg configs, and if you remove them absolutely nothing will change in the game
 // itself, but the antag screenshot unit test will fail consistently.
@@ -283,6 +325,32 @@
 /datum/greyscale_config/camo_pants/worn/digi
 	name = "Camo Pants (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
+
+/datum/greyscale_config/moto_leggings
+	name = "Moto Leggings"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/moto_leggings.json'
+
+/datum/greyscale_config/moto_leggings/worn
+	name = "Moto Leggings (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/moto_leggings/worn/digi
+	name = "Moto Leggings (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/pants_digi.dmi'
+
+/datum/greyscale_config/tech_nyne_bottomwear
+	name = "Tech Nyne Bottomwear"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/tech_nyne_bottomwear.json'
+
+/datum/greyscale_config/tech_nyne_bottomwear/worn
+	name = "Tech Nyne Bottomwear (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/tech_nyne_bottomwear/worn/digi
+	name = "Tech Nyne Bottomwear (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'
 
 /datum/greyscale_config/track_pants
 	name = "Track Pants"
@@ -400,4 +468,13 @@
 
 /datum/greyscale_config/athletas_bodysuit/worn
 	name = "ATHLETAS bodysuit (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/gear_harness_visible
+	name = "Gear Harness, Visible"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/gear_harness_visible.json'
+
+/datum/greyscale_config/gear_harness_visible/worn
+	name = "Gear Harness, Visible (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'

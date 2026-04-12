@@ -1,0 +1,10 @@
+{
+	"gear_harness_visible": [
+		{
+			"type": "icon_state",
+			"icon_state": "gear_harness_visible",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

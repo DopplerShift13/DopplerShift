@@ -20,6 +20,12 @@
 		"cybernetic_liver",
 		"cybernetic_heart",
 		// DOPPLER ADDITION START
+		"teshari_cyber_chest",
+		"teshari_cyber_l_arm",
+		"teshari_cyber_r_arm",
+		"teshari_cyber_l_leg",
+		"teshari_cyber_r_leg",
+		"teshari_cyber_head",
 		"android_chest",
 		"android_head",
 		"android_l_arm",
@@ -228,6 +234,10 @@
 		"cybernetic_stomach_tier2",
 		"cybernetic_liver_tier2",
 		"cybernetic_heart_tier2",
+		// DOPPLER ADDITION START - Synthetic Charging Organs
+		"cybernetic_stomach_power_cord",
+		"cybernetic_stomach_windup_key",
+		// DOPPLER ADDITION END
 	)
 	research_costs = list(TECHWEB_POINT_TYPE_GENERIC = TECHWEB_TIER_2_POINTS)
 	announce_channels = list(RADIO_CHANNEL_SCIENCE, RADIO_CHANNEL_MEDICAL)
@@ -243,6 +253,7 @@
 		"ci-gloweyes-moth",
 		"ci-welding-moth",
 		"cybernetic_ears_whisper",
+		"cybernetic_ears_volume",
 		"cybernetic_lungs_tier3",
 		"cybernetic_stomach_tier3",
 		"cybernetic_liver_tier3",

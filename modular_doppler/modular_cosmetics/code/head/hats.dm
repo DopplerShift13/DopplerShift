@@ -43,3 +43,19 @@
 	desc = "A sleek black beret designed with high-durability nano-mesh fiber - or so the roboticists claim."
 	icon_state = "/obj/item/clothing/head/beret/science/fancy/robo"
 	greyscale_colors = "#3E3E48#88242D"
+
+/obj/item/clothing/head/beret/colorable_badge
+	desc = "A badged beret, for all your beret needs."
+	icon_state = "/obj/item/clothing/head/beret/durathread"
+	post_init_icon_state = "beret_badge"
+	greyscale_config = /datum/greyscale_config/beret_badge
+	greyscale_config_worn = /datum/greyscale_config/beret_badge/worn
+	greyscale_colors = "#C5D4F3#ECF1F8"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/head/nevada_cap
+	name = "\improper Nevada Beverage Co. cap"
+	desc = "A branded fitted cap, bearing the emblazoned logo of Nevada Beverage Co."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/hats.dmi'
+	icon_state = "nevada_hat"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/hats.dmi'

@@ -24,6 +24,8 @@
 	greyscale_config_worn = /datum/greyscale_config/armwraps/worn
 	greyscale_colors = "#FFFFFF"
 	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/gloves/doppler_mining
 	name = "mining gloves"
@@ -40,3 +42,5 @@
 	max_heat_protection_temperature = GLOVES_MAX_TEMP_PROTECT
 	resistance_flags = FIRE_PROOF
 	clothing_traits = list(TRAIT_QUICK_CARRY)
+
+

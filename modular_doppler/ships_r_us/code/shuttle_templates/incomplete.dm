@@ -28,7 +28,7 @@
 	credit_cost = CARGO_CRATE_VALUE * 10
 	suffix = "diy_medium"
 	width = 15
-	height = 11
+	height = 9
 	personal_shuttle_size = PERSONAL_SHIP_MEDIUM
 
 /area/shuttle/personally_bought/do_it_yourself_medium

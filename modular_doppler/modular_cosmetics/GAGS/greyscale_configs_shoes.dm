@@ -39,6 +39,19 @@
 	name = "Casual Shoes (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/shoes/casual_digi.dmi'
 
+/datum/greyscale_config/geowpn
+	name = "GEOWPNS"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/shoes/casual.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/shoes/geowpns.json'
+
+/datum/greyscale_config/geowpn/worn
+	name = "GEOWPNS (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/shoes/casual.dmi'
+
+/datum/greyscale_config/geowpn/digi
+	name = "GEOWPNS (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/shoes/casual_digi.dmi'
+
 // FANCY BOOTS
 
 /datum/greyscale_config/boots

@@ -31,7 +31,7 @@
 	cost_per_order = 100
 
 /datum/orderable_item/grey_market_chemicals/bagged_tempomyocin
-	name = "Temopmyocin"
+	name = "Tempomyocin"
 	purchase_path = /obj/item/reagent_containers/chem_pack/spawns_sealed/tempomyocin
 	cost_per_order = 100
 

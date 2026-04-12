@@ -374,7 +374,6 @@
 		/obj/item/multitool = 2,
 		/obj/item/multitool/ai_detect = 1,
 		// Rapid whatever tools
-		/obj/item/pipe_dispenser = 1,
 		/obj/item/construction/rcd = 1,
 		/obj/item/construction/rtd = 1,
 		// Misc tools and related items
@@ -385,7 +384,6 @@
 		/obj/item/geiger_counter = 2,
 		/obj/item/analyzer = 2,
 		// Various methods of insulation
-		/obj/item/clothing/gloves/color/yellow = 2,
 		/obj/item/clothing/gloves/chief_engineer = 1,
 		/obj/item/clothing/gloves/atmos = 1,
 		// Misc utility clothing
@@ -436,31 +434,12 @@
 		/obj/item/stack/sheet/mineral/plasma/five = 2,
 		// Flatpack machines
 		/obj/item/flatpacked_machine = 1,
-		/obj/item/flatpacked_machine/airlock_kit = 2,
 		/obj/item/flatpacked_machine/airlock_kit_manual = 2,
-		/obj/item/flatpacked_machine/arc_furnace = 1,
-		/obj/item/flatpacked_machine/co2_cracker = 2,
-		/obj/item/flatpacked_machine/frontier_griddle = 1,
-		/obj/item/flatpacked_machine/frontier_range = 1,
-		/obj/item/flatpacked_machine/fuel_generator = 1,
 		/obj/item/flatpacked_machine/gps_beacon = 2,
 		/obj/item/flatpacked_machine/hydro_synth = 1,
-		/obj/item/flatpacked_machine/large_station_battery = 1,
-		/obj/item/flatpacked_machine/macrowave = 1,
-		/obj/item/flatpacked_machine/ore_thumper = 1,
-		/obj/item/flatpacked_machine/organics_printer = 2,
-		/obj/item/flatpacked_machine/organics_ration_printer = 2,
-		/obj/item/flatpacked_machine/recycler = 2,
-		/obj/item/flatpacked_machine/rtg = 2,
-		/obj/item/flatpacked_machine/shutter_kit = 1,
-		/obj/item/flatpacked_machine/station_battery = 1,
-		/obj/item/flatpacked_machine/stirling_generator = 1,
-		/obj/item/flatpacked_machine/sustenance_machine = 2,
 		/obj/item/flatpacked_machine/water_synth = 2,
-		/obj/item/flatpacked_machine/wind_turbine = 2,
 		/obj/item/folded_navigation_gigabeacon = 1,
 		/obj/item/wallframe/cell_charger_multi = 2,
-		/obj/item/wallframe/wall_heater = 2,
 		/obj/item/wallframe/digital_clock = 1,
 		// Other things
 		/obj/item/door_seal = 2,
@@ -586,9 +565,6 @@
 		/obj/item/food/cheese/firm_cheese = 1,
 		/obj/item/food/chocolatebar = 2,
 		/obj/item/food/cnds/random = 3,
-		/obj/item/food/colonial_course/pljeskavica = 1,
-		/obj/item/food/colonial_course/nachos = 1,
-		/obj/item/food/colonial_course/blins = 1,
 		/obj/item/food/cornchips/random = 2,
 		/obj/item/food/peanuts/random = 2,
 		/obj/item/food/ready_donk = 1,
@@ -640,9 +616,12 @@
 		/obj/item/storage/box/spaceman_ration/plants/lizard = 2,
 		/obj/item/storage/box/spaceman_ration/plants/mothic = 2,
 		/obj/item/storage/box/papersack/ration_bread_slice = 1,
-		/obj/item/storage/box/colonial_rations = 1,
 		// Da cooler
 		/obj/item/storage/epic_loot_cooler = 2,
+		//This is what happens when crates are left abandoned in maints :(
+		/obj/item/food/grown/mushroom/odious_puffball = 1,
+		/obj/item/food/badrecipe/moldy/bacteria = 1,
+		/obj/item/food/deadmouse/moldy = 1,
 	)
 
 // Da money

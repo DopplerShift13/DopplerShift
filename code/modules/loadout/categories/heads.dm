@@ -22,6 +22,7 @@
 			outfit.head = item_path
 		// DOPPLER EDIT END
 
+/* // DOPPLER EDIT REMOVAL START - Custom Loadout Organization
 /datum/loadout_item/head/beanie
 	name = "Beanie (Colorable)"
 	item_path = /obj/item/clothing/head/beanie
@@ -78,9 +79,9 @@
 	name = "Cap (Yellow)"
 	item_path = /obj/item/clothing/head/soft/yellow
 
-/* /datum/loadout_item/head/flatcap // DOPPLER EDIT REMOVAL
+/datum/loadout_item/head/flatcap
 	name = "Cap (Flat)"
-	item_path = /obj/item/clothing/head/flatcap */
+	item_path = /obj/item/clothing/head/flatcap
 
 /datum/loadout_item/head/beige_fedora
 	name = "Fedora (Beige)"
@@ -161,3 +162,4 @@
 /datum/loadout_item/head/wig
 	name = "Natural Wig"
 	item_path = /obj/item/clothing/head/wig/natural
+*/ // DOPPLER EDIT REMOVAL END

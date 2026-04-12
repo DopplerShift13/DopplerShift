@@ -7,10 +7,13 @@
 		/obj/item/clothing/suit/jacket/doppler/departmental_jacket/med = 2,
 		/obj/item/clothing/suit/toggle/labcoat/medical = 6,
 		/obj/item/clothing/suit/toggle/labcoat/high_vis = 6,
+		/obj/item/clothing/suit/toggle/labcoat/fancy/regular = 5,
 		/obj/item/clothing/shoes/medical = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt/green = 6,
 		/obj/item/clothing/under/rank/medical/scrubs/skirt/purple = 6,
+		/obj/item/storage/backpack/duffelbag/paramed = 5,
+		/obj/item/storage/belt/medical/empty/paramedic = 5,
 	)
 	excluded_products = list(
 		/obj/item/clothing/shoes/sneakers/blue = 4,
@@ -51,7 +54,21 @@
 /obj/machinery/vending/wardrobe/cargo_wardrobe
 	products_doppler = list(
 		/obj/item/clothing/suit/jacket/doppler/departmental_jacket/supply = 3,
+		/obj/item/clothing/suit/jacket/cargo_coat/high_vis = 5,
+		/obj/item/clothing/under/rank/doppler_cargo/tech = 5,
+		/obj/item/clothing/under/rank/doppler_cargo/tech/skirt = 5,
+		/obj/item/clothing/under/rank/doppler_cargo/tech/alt = 5,
+		/obj/item/clothing/under/rank/doppler_cargo/tech/skirt/alt = 5,
+		/obj/item/clothing/under/rank/doppler_cargo/tech/turtleneck = 3,
+		/obj/item/clothing/under/rank/doppler_cargo/tech/turtleskirt = 3,
+		/obj/item/clothing/under/rank/doppler_cargo/tech/rough = 4,
+		/obj/item/clothing/under/rank/doppler_cargo/tech/rough_skirt = 4,
 		/obj/item/clothing/under/misc/doppler_uniform/cargo = 5,
+		/obj/item/clothing/gloves/doppler_cargo = 3,
+		/obj/item/clothing/gloves/doppler_cargo/work_gloves = 3,
+		/obj/item/clothing/gloves/doppler_cargo/gauntlets = 3,
+		/obj/item/clothing/gloves/doppler_cargo/colorblock_gauntlets = 3,
+		/obj/item/clothing/gloves/doppler_cargo/fingerless = 5,
 		/obj/item/clothing/under/rank/cargo/miner = 3,
 		/obj/item/clothing/under/rank/cargo/miner/lavaland = 3,
 		/obj/item/clothing/suit/armor/vest/miningjacket = 3,
@@ -65,9 +82,19 @@
 		/obj/item/clothing/gloves/doppler_mining = 3,
 		/obj/item/clothing/glasses/mining_meson = 3,
 	)
+	premium_doppler = list(
+		/obj/item/clothing/under/rank/doppler_cargo/tech/fancy = 2,
+		/obj/item/clothing/under/rank/doppler_cargo/tech/fancy_skirt = 2,
+		/obj/item/clothing/suit/jacket/cargo_coat = 3,
+		/obj/item/clothing/suit/jacket/cargo_coat/fancy = 2,
+		/obj/item/clothing/suit/jacket/cargo_coat/chore = 3,
+		/obj/item/clothing/suit/jacket/cargo_coat/cargo_shearling = 3,
+		/obj/item/clothing/suit/jacket/cargo_coat/cargo_greatcoat = 3,
+	)
 
 /obj/machinery/vending/wardrobe/robo_wardrobe
 	products_doppler = list(
+		/obj/item/clothing/suit/toggle/labcoat/fancy/roboticist = 2,
 		/obj/item/clothing/head/beret/science/fancy/robo = 2,
 		/obj/item/tank/internals/anesthetic = 2,
 		/obj/item/clothing/mask/breath = 2,
@@ -87,6 +114,7 @@
 /obj/machinery/vending/wardrobe/science_wardrobe
 	products_doppler = list(
 		/obj/item/clothing/under/misc/doppler_uniform/science = 5,
+		/obj/item/clothing/suit/toggle/labcoat/fancy/scientist = 3,
 		/obj/item/clothing/suit/jacket/doppler/departmental_jacket/sci = 3,
 	)
 
@@ -139,11 +167,17 @@
 		/obj/item/clothing/under/rank/medical/chemist/pharmacologist = 2,
 		/obj/item/clothing/under/rank/medical/chemist/pharmacologist/skirt = 2,
 		/obj/item/clothing/head/beret/medical/chemist = 2,
+		/obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist = 2,
 	)
 
 /obj/machinery/vending/wardrobe/viro_wardrobe
 	products_doppler = list(
 		/obj/item/clothing/head/beret/medical/virologist = 2,
+	)
+
+/obj/machinery/vending/wardrobe/gene_wardrobe
+	products_doppler = list(
+		/obj/item/clothing/suit/toggle/labcoat/fancy/geneticist = 2,
 	)
 
 /obj/machinery/vending/wardrobe/det_wardrobe

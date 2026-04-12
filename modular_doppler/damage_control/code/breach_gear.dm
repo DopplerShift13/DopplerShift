@@ -1,10 +1,3 @@
-// Yellow tank but empty, for the printer
-
-/obj/item/tank/internals/oxygen/yellow/empty
-
-/obj/item/tank/internals/oxygen/yellow/empty/populate_gas()
-	return
-
 // Breach helmet, its a hardhat but cooler
 
 /obj/item/clothing/head/utility/hardhat/welding/doppler_dc
@@ -136,10 +129,6 @@
 	new /obj/item/crowbar/large/emergency(src)
 	new /obj/item/emergency_bed(src)
 
-	if(prob(30))
-		new /obj/item/flatpacked_machine/damage_lathe(src)
-		new /obj/item/flatpacked_machine/rtg(src)
-
 /obj/structure/closet/firecloset/full/PopulateContents()
 	new /obj/item/storage/bag/breach_bag(src)
 	new /obj/item/storage/bag/breach_bag(src)
@@ -152,9 +141,6 @@
 	new /obj/item/door_seal(src)
 	new /obj/item/door_seal(src)
 	new /obj/item/stack/sheet/iron/ten(src)
-
-	if(prob(50))
-		new /obj/item/flatpacked_machine/damage_lathe(src)
 
 // Emergency closets get a little lovin too
 

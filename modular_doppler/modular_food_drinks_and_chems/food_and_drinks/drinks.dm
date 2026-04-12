@@ -7,6 +7,8 @@
 	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = null
 
+/// overrides a couple of can procs so it produces a modular trash item
+/// for smashing it on our head
 /obj/item/reagent_containers/cup/soda_cans/doppler/attack(mob/M, mob/living/user)
 	if(istype(M, /mob/living/carbon) && !reagents.total_volume && user.combat_mode && user.zone_selected == BODY_ZONE_HEAD)
 		if(M == user)
@@ -20,6 +22,7 @@
 		return TRUE
 	. = ..()
 
+/// for shooting it
 /obj/item/reagent_containers/cup/soda_cans/doppler/bullet_act(obj/projectile/hitting_projectile, def_zone, piercing_hit = FALSE)
 	. = ..()
 
@@ -34,14 +37,7 @@
 		qdel(src)
 		return
 
-/**
- * Burst the soda open on someone. Fun! Opens and empties the soda can, but does not crush it.
- *
- * Arguments:
- * * target - Who's getting covered in soda
- * * hide_message - Stops the generic fizzing message, so you can do your own
- */
-
+/// for throwing it at people
 /obj/item/reagent_containers/cup/soda_cans/doppler/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
 	. = ..()
 	if(. || spillable || !reagents.total_volume) // if it was caught, already opened, or has nothing in it
@@ -59,7 +55,7 @@
 	QDEL_IN(src, 1 SECONDS) // give it a second so it can still be logged for the throw impact
 
 /obj/item/trash/can/doppler
-	icon = 'modular_doppler/clutter objects/icons/janitor.dmi'
+	icon = 'modular_doppler/clutter_objects/icons/janitor.dmi'
 	icon_state = "lemonade"
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/lubricola

@@ -8,8 +8,6 @@
 	slot = ORGAN_SLOT_EXTERNAL_BREASTS
 	zone = BODY_ZONE_CHEST
 
-	preference = "feature_breasts"
-
 	dna_block = /datum/dna_block/feature/breasts
 	restyle_flags = EXTERNAL_RESTYLE_FLESH
 
@@ -35,7 +33,7 @@
 
 /datum/bodypart_overlay/mutant/breasts
 	feature_key = FEATURE_BREASTS
-	layers = EXTERNAL_ADJACENT | EXTERNAL_BEHIND
+	layers = EXTERNAL_BODY_FRONT_UNDER_CLOTHES | EXTERNAL_BEHIND
 
 	var/visibility = ORGAN_VISIBILITY_MODE_NORMAL
 
