@@ -33,36 +33,36 @@
 	user.setDir(dir)
 	switch(dir)
 		if(NORTH)
-			layer = BELOW_MOB_LAYER
+			layer = ABOVE_MOB_LAYER
 			user.pixel_x = 7
 			user.pixel_y = 3
 		if(NORTHEAST)
-			layer = BELOW_MOB_LAYER
-			user.pixel_x = 7
+			layer = ABOVE_MOB_LAYER
+			user.pixel_x = -7
 			user.pixel_y = 3
 		if(EAST)
 			layer = ABOVE_MOB_LAYER
 			user.pixel_x = -7
 			user.pixel_y = 3
 		if(SOUTHEAST)
-			layer = BELOW_MOB_LAYER
+			layer = ABOVE_MOB_LAYER
 			user.pixel_x = -7
 			user.pixel_y = 3
 		if(SOUTH)
-			layer = ABOVE_MOB_LAYER
+			layer = BELOW_MOB_LAYER
 			user.pixel_x = -5
 			user.pixel_y = 12
 		if(SOUTHWEST)
-			layer = BELOW_MOB_LAYER
-			user.pixel_x = -5
-			user.pixel_y = 12
+			layer = ABOVE_MOB_LAYER
+			user.pixel_x = 11
+			user.pixel_y = 3
 		if(WEST)
 			layer = ABOVE_MOB_LAYER
-			user.pixel_x = 9
+			user.pixel_x = 11
 			user.pixel_y = 3
 		if(NORTHWEST)
-			layer = BELOW_MOB_LAYER
-			user.pixel_x = 9
+			layer = ABOVE_MOB_LAYER
+			user.pixel_x = 11
 			user.pixel_y = 3
 
 /obj/projectile/energy/snub_particle_cannon_bolt	//approximately one skeleton pirate cannonball, sans passthru mechanics
