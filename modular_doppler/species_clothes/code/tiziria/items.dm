@@ -136,8 +136,10 @@
 	to achieve such a lengthy blade. Exotic amendments to its constituent alloys allow for keener edge and help alleviate a rare \
 	phenomena where clashed blades in near vacuum can contact weld to one another."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear48x.dmi'
-	icon_state = "megachoppa0"
+	icon_state = "megachoppa"
 	base_icon_state = "megachoppa"
+	worn_icon_state = "megachoppa"
+	inhand_icon_state = "megachoppa"
 	force = 20
 	throwforce = 20
 	armour_penetration = 35
@@ -147,8 +149,4 @@
 
 /obj/item/melee/tizirian_sword/megachoppa/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/two_handed, wieldsound = 'sound/items/equip/glove_equip.ogg', force_wielded = 30, force_unwielded = 20, icon_wielded = "[base_icon_state]1")
-
-/obj/item/melee/tizirian_sword/megachoppa/update_icon_state()
-	icon_state = "[base_icon_state]0"
-	return ..()
+	AddComponent(/datum/component/two_handed, wieldsound = 'sound/items/equip/glove_equip.ogg', force_wielded = 30, force_unwielded = 20, icon_wielded = "megachoppa1")
