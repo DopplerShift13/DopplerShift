@@ -174,7 +174,7 @@
 	icon = 'icons/mob/simple/hivebot.dmi';
 	icon_state = "def_radar-off";
 	name = "CAS 'Guppy'";
-	desc = "A large dome-shaped structure that contains all the vital components to safely pilot an automated transport shuttle. Contains a simple-minded drone AI and a blackbox."s"
+	desc = "A large dome-shaped structure that contains all the vital components needed to safely pilot an automated transport shuttle. Contains a simple-minded drone AI and a blackbox."
 	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/arrival)
