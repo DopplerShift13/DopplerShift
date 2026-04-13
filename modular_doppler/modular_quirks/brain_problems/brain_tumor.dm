@@ -1,10 +1,14 @@
 	#define BRAIN_TUMOR_DAMAGE_COEFF 0.066
-
 	//The Original TG value would be 0.2
 	// A doppler round lasts about triple that of a TG round.
 
+//We check if we process synthetic reagents rather than for individual species.
+/datum/quirk/item_quirk/brainproblems/proc/processes_synth_reagents(mob/living/carbon/human/quirk_human)
+	if(quirk_human.dna.species.reagent_flags & PROCESS_SYNTHETIC)
+		return TRUE
+
 /datum/quirk/item_quirk/brainproblems/add_unique(client/client_source)
-	if(isandroid(quirk_holder))
+	if(processes_synth_reagents(quirk_holder))
 		give_item_to_holder(
 			/obj/item/storage/pill_bottle/liquid_solder/braintumor,
 			list(
