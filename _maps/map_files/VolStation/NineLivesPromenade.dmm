@@ -6783,7 +6783,7 @@
 /area/station/engineering/supermatter/room)
 "Ea" = (
 /turf/closed/wall/mineral/aluminum{
-	desc = "A thin aluminum wall, commonly used to plate the interior of ships."s"
+	desc = "A thin aluminum wall, commonly used to plate the interior of ships."
 	},
 /area/space)
 "Eb" = (
@@ -11005,7 +11005,7 @@
 /area/station/engineering/engine_smes)
 "WR" = (
 /obj/structure/plaque/static_plaque/golden/commission/ks13{
-	desc = "Crusoe's Last Stand Frontier\n'CAS Nine Lives Promenade' Trade Freighter \nCommissioned 13/04/2522\n'Better Someday'"
+	desc = "Crusoe's Last Stand Frontier \nCAS 'Nine Lives Promenade' Trade Freighter \nRefurbished 15/05/2525\n'Better Someday'"
 	},
 /turf/open/floor/plating,
 /area/space)
