@@ -30,4 +30,4 @@
 	name = "bolt thrower internal magazine"
 	ammo_type = /obj/item/ammo_casing/bolt_slug
 	caliber = CALIBER_BOLT_THROWER
-	max_ammo = 5
+	max_ammo = 10
