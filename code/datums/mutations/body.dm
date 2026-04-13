@@ -217,10 +217,10 @@
 /datum/mutation/tourettes/on_life(seconds_per_tick, times_fired)
 	if(SPT_PROB(5 * GET_MUTATION_SYNCHRONIZER(src), seconds_per_tick) && owner.stat == CONSCIOUS && !owner.IsStun())
 		switch(rand(1, 3))
-			if(1)
+			if(1 to 2) //DOPPLER EDIT: 1 > 1 to 2
 				owner.emote("twitch")
-			if(2 to 3)
-				owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
+			if(3) //DOPPLER EDIT: 2 to 3 > 3
+				owner.say("[pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name) //DOPPLER EDIT ORIGINAL: owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
 		var/w_offset =  rand(-2, 2)
 		var/z_offset = rand(-1, 1)
 		animate(owner, pixel_w = w_offset, pixel_z = z_offset, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
