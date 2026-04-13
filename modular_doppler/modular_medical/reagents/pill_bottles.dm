@@ -8,7 +8,7 @@
 // Contains 4 liquid_solder pills instead of 7, and 10u pills instead of 50u.
 // 50u pills heal 375 brain damage, 10u pills heal 75.
 /obj/item/storage/pill_bottle/liquid_solder/braintumor
-	desc = "Contains diluted pills used to treat synthetic brain damage symptoms. Take one when feeling lightheaded."
+	desc = "Contains clever pills used to treat synthetic OS Fragmentation. Take one when experiencing unexpected errors."
 	spawn_type = /obj/item/reagent_containers/applicator/pill/liquid_solder/braintumor
 	spawn_count = 4
 
