@@ -68,16 +68,11 @@
 	if(crossing_living.movement_type & MOVETYPES_NOT_TOUCHING_GROUND)
 		return
 
-	// If they're a pacifist, they won't harm us.
+	// If they're a pacifist, they can't harm us.
 	if(HAS_TRAIT(crossing_living, TRAIT_PACIFISM))
-		crossing_living.visible_message(span_notice("[crossing_living] carefully steps over [parent_as_living]."), span_notice("You carefully step over [parent_as_living] to avoid hurting it."))
 		return
-	// If you're on Combat intent, you will always squash. If you walk, you will avoid squashing.
-	if(crossing_living.move_intent == MOVE_INTENT_WALK && crossing_living.combat_mode == FALSE)
-		crossing_living.visible_message(span_notice("[crossing_living] carefully walks around [parent_as_living]."), span_notice("You carefully walk around [parent_as_living] to avoid hurting it."))
-		return
-	// Tiny flying creatures are only squashed if the squasher is explicitly on combat mode.
-	if(parent_as_living.movement_type & MOVETYPES_NOT_TOUCHING_GROUND && crossing_living.combat_mode == FALSE)
+	// If you're not on Combat intent, don't squash
+	if(crossing_living.combat_mode == FALSE)
 		return
 
 	if(!should_squash)
