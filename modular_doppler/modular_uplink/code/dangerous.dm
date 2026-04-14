@@ -50,7 +50,7 @@
 	name = "Shrink Ray"
 	desc = "This is a piece of frightening Grey tech that enhances the magnetic pull of atoms in a localized space to temporarily make an object shrink. Great for break-ins, or cutting a foe down to size. "
 	item = /obj/item/gun/energy/shrink_ray/thinktank
-	cost = 6
+	cost = 18 // free instant passage through walls & makes an opponent drop literally all of their stuff when hit
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/dangerous/spikeroach_nade
