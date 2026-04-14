@@ -196,10 +196,6 @@
 	can_adjust = FALSE
 	obj_flags = parent_type::obj_flags | INFINITE_RESKIN
 	unique_reskin = list(
-						"Old Masculine" = "latexsuit",
-						"Old Feminine" = "latexsuit_d",
-						"Old Masculine Half-suit" = "halflatexsuit",
-						"Old Feminine Half-suit" = "halflatexsuit_d",
 						"New Masculine" = "latexsuit_j",
 						"New Feminine" = "latexsuit_d_j",
 						"New Masculine Half-suit" = "halflatexsuit_j",
