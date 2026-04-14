@@ -1,8 +1,7 @@
 /datum/power/theologist_root/shared
 	name = "A Burden Shared"
-	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. \
-	The beam requires continous line of sight to function, and neither you or your target can be incapacitated. Generates Piety if you are transfering damage to yourself. \
-	This is mutually exclusive with the other 'A Burden...' powers."
+	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. The beam requires continous line of sight to function, and neither you or your target can be incapacitated.\
+	\nGenerates Piety if you are transfering damage to yourself. Works on synthetic bodyparts"
 	security_record_text = "Subject can transfer the injuries of a target onto themselves, or visa versa."
 	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/shared
@@ -12,21 +11,18 @@
 /datum/action/cooldown/power/theologist/theologist_root/shared
 	name = "A Burden Shared"
 	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. \
-	The beam requires continous line of sight to function, and neither you or your target can be incapacitated. Generates Piety if you are transfering damage to yourself."
+	The beam requires continous line of sight to function, and neither you or your target can be incapacitated. Generates Piety if you are transfering damage to yourself. Works on synthetic bodyparts"
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "swap"
 	cooldown_time = 150
 	click_to_activate = TRUE
 
-	// Targeting rules:
-	// - Click a living target to start/retarget the beam between you and them.
-	// - While active, pressing the action again (manual deactivation) should end the beam.
 	target_range = 10 // 2 space beyond screen width if purely vertical/horizontal
 	target_type = /mob/living
 	target_self = FALSE
 	unset_after_click = TRUE
 
-	// The piety build-up. Gets exchanged at exchange_build() if its either positive or negative.
+	/// The piety build-up. Gets exchanged at exchange_build() if its either positive or negative.
 	var/piety_buildup
 
 	/// Who we're currently linked to.
@@ -42,9 +38,16 @@
 	var/check_delay = 10
 	var/last_check = 0
 
-	// Current instance of the status effect
+	/// Current instance of the status effect
 	var/datum/status_effect/power/burden_revered/active_effect
 
+	/// healing values
+	/// How much we divide HP by to determine our healing
+	var/heal_division_factor = 20
+	/// How much we heal at the minimum per tick
+	var/heal_min = 0.5
+	/// How much we heal at the maximum per tick
+	var/heal_max = 3
 
 /datum/action/cooldown/power/theologist/theologist_root/shared/Destroy()
 	clear_link(manual = TRUE)
@@ -246,22 +249,22 @@
 	// To summarize; heals the target by the amount (which is capped at 5)
 	switch(damage_type)
 		if("brute")
-			amount = clamp((giver.getBruteLoss() - taker.getBruteLoss()) / 20, 0.5, 3)
+			amount = clamp((giver.getBruteLoss() - taker.getBruteLoss()) / heal_division_factor, heal_min, heal_max)
 			giver.adjustBruteLoss(-amount)
 			taker.adjustBruteLoss(amount)
 
 		if("burn")
-			amount = clamp((giver.getFireLoss() - taker.getFireLoss()) / 20, 0.5 , 3)
+			amount = clamp((giver.getFireLoss() - taker.getFireLoss()) / heal_division_factor, heal_min, heal_max)
 			giver.adjustFireLoss(-amount)
 			taker.adjustFireLoss(amount)
 
 		if("tox")
-			amount = clamp((giver.getToxLoss() - taker.getToxLoss()) / 20, 0.5 , 3)
-			giver.adjustToxLoss(-amount)
-			taker.adjustToxLoss(amount)
+			amount = clamp((giver.getToxLoss() - taker.getToxLoss()) / heal_division_factor, heal_min, heal_max)
+			adjust_tox_noinvert(giver, -amount)
+			adjust_tox_noinvert(taker, amount)
 
 		if("oxy")
-			amount = clamp((giver.getOxyLoss() - taker.getOxyLoss()) / 20, 0.5 , 3)
+			amount = clamp((giver.getOxyLoss() - taker.getOxyLoss()) / heal_division_factor, heal_min, heal_max)
 			giver.adjustOxyLoss(-amount)
 			taker.adjustOxyLoss(amount)
 
@@ -280,21 +283,17 @@
 	var/user_missingHP = user.maxHealth - user.health
 	var/target_missingHP = target.maxHealth - target.health
 
-	// Boooo, hurting the animals!
-	// Way less effective on simple mobs
-	// TODO: Piety loss for animal murder?
-
 	/*
 	This section is really ugly. Due for a do-over.
 	*/
 	if(user_missingHP > target_missingHP)
-		var/bruteloss = clamp((user.getBruteLoss() - target.bruteloss) / 20, 0.2, 1.5)
-		var/fireloss = clamp((user.getFireLoss() - target.fireloss) / 20, 0.2, 1.5)
-		var/toxloss = clamp((user.getToxLoss() - target.toxloss) / 20, 0.2, 1.5)
-		var/oxyloss = clamp((user.getOxyLoss() - target.oxyloss) / 20, 0.2, 1.5)
+		var/bruteloss = clamp((user.getBruteLoss() - target.bruteloss) / heal_division_factor, heal_min, heal_max)
+		var/fireloss = clamp((user.getFireLoss() - target.fireloss) / heal_division_factor, heal_min, heal_max)
+		var/toxloss = clamp((user.getToxLoss() - target.toxloss) / heal_division_factor, heal_min, heal_max)
+		var/oxyloss = clamp((user.getOxyLoss() - target.oxyloss) / heal_division_factor, heal_min, heal_max)
 		user.adjustBruteLoss(-bruteloss)
 		user.adjustFireLoss(-fireloss)
-		user.adjustToxLoss(-toxloss)
+		adjust_tox_noinvert(user, -toxloss)
 		user.adjustOxyLoss(-oxyloss)
 		target.bruteloss -= bruteloss
 		target.fireloss -= fireloss
@@ -305,13 +304,13 @@
 
 	// Yaaay, healing the animals :)
 	if(user_missingHP < target_missingHP)
-		var/bruteloss = clamp((target.bruteloss - user.getBruteLoss()) / 20, 0.2, 1.5)
-		var/fireloss = clamp((target.fireloss - user.getFireLoss()) / 20, 0.2, 1.5)
-		var/toxloss = clamp((target.toxloss - user.getToxLoss()) / 20, 0.2, 1.5)
-		var/oxyloss = clamp((target.oxyloss - user.getOxyLoss()) / 20, 0.2, 1.5)
+		var/bruteloss = clamp((target.bruteloss - user.getBruteLoss()) / heal_division_factor, heal_min, heal_max)
+		var/fireloss = clamp((target.fireloss - user.getFireLoss()) / heal_division_factor, heal_min, heal_max)
+		var/toxloss = clamp((target.toxloss - user.getToxLoss()) / heal_division_factor, heal_min, heal_max)
+		var/oxyloss = clamp((target.oxyloss - user.getOxyLoss()) / heal_division_factor, heal_min, heal_max)
 		user.adjustBruteLoss(bruteloss)
 		user.adjustFireLoss(fireloss)
-		user.adjustToxLoss(toxloss)
+		adjust_tox_noinvert(user, toxloss)
 		user.adjustOxyLoss(oxyloss)
 		target.bruteloss += bruteloss
 		target.fireloss += fireloss
@@ -331,4 +330,5 @@
 /atom/movable/screen/alert/status_effect/burden_shared
 	name = "A Burden Shared"
 	desc = "Damage is being equalized between you and the caster!"
-	icon_state = "lightningorb" // Placeholder
+	icon = 'icons/mob/actions/actions_spells.dmi'
+	icon_state = "swap"

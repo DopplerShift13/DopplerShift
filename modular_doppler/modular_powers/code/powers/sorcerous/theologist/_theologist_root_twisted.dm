@@ -1,8 +1,7 @@
 /datum/power/theologist_root/twisted
 	name = "A Burden Twisted"
 	desc = "Channel chaotic energies into another creature next to you. The target is healed over time in random amounts up to the maximum, then damaged for half that amount in random damage types. \
-	Gives Piety proportional to the amount of damage twisted. \
-	This is mutually exclusive with the other 'A Burden...' powers."
+	\nGives Piety proportional to the net-positive amount of damage healed. Works on synthetic bodyparts."
 	security_record_text = "Subject can rapidly transmute the wounds of a target into smaller, insubstantial wounds."
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/twisted
 
@@ -11,7 +10,7 @@
 /datum/action/cooldown/power/theologist/theologist_root/twisted
 	name = "A Burden Twisted"
 	desc = "Channel chaotic energies into another creature next to you. The target is healed over time in random amounts up to the maximum, then damaged for half that amount in random damage types. \
-	Gives Piety proportional to the amount of damage twisted."
+	Gives Piety proportional to the net-positive amount of damage healed. Works on synthetic bodyparts"
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "hand"
 	cooldown_time = 150
@@ -49,13 +48,13 @@
 	RegisterSignal(user, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
-	// Does the healing and damage
+	active = TRUE
+	// I am going to shamelessly steal the red meditation spotlight for a moment.
+	target.apply_status_effect(/datum/status_effect/spotlight_light/resonant, 1200)
+	current_beam = owner.Beam(target, icon_state = "light_beam", time = 120 SECONDS, maxdistance = target_range, beam_type = /obj/effect/ebeam/medical, beam_color = "#cf2525")
 
+	// Does the healing and damage
 	do
-		active = TRUE
-		// I am going to shamelessly steal the red meditation spotlight for a moment.
-		target.apply_status_effect(/datum/status_effect/spotlight_light/resonant, 1200)
-		current_beam = owner.Beam(target, icon_state = "light_beam", time = 120 SECONDS, maxdistance = target_range, beam_type = /obj/effect/ebeam/medical, beam_color = "#cf2525")
 		if(do_after(owner, 25, target = target))
 			if(target_range)
 				var/turf/owner_turf = get_turf(owner)
@@ -143,7 +142,7 @@
 			healing_done += heal_done
 		if("tox")
 			rand_cap = min(healing_max - healing_done, tox_damage)
-			heal_done = target.adjustToxLoss(-rand(1, rand_cap))
+			heal_done = adjust_tox_noinvert(target, (-rand(1, rand_cap)))
 			healing_done += heal_done
 		if("oxy")
 			rand_cap = min(healing_max - healing_done, oxy_damage)
@@ -175,11 +174,13 @@
 			if("burn")
 				target.adjustFireLoss(dam_done)
 			if("tox")
-				target.adjustToxLoss(dam_done)
+				adjust_tox_noinvert(target, dam_done)
 			// The jackpot
 			if("oxy")
 				target.adjustOxyLoss(dam_done)
 		damage_done += dam_done
+		// Keep the net healing at the standard for roots by subtracting damage from total healing done.
+		healing_done = max(0, healing_done - dam_done)
 
 	no_more_damaging = FALSE
 	return TRUE
