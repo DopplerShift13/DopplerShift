@@ -17,3 +17,4 @@
 	desc = "On testing-lease from the CI Weapons Institute: concealable high-energy melee weapons designed to slot into an arm."
 	item = /obj/item/autosurgeon/imp_energy_blades
 	cost = 12
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)

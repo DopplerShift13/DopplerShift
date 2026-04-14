@@ -18,3 +18,4 @@
 	desc = "A relatively affordable suit originally issued to Imperial Tiziran forces. The wide availability \
 	of surplus units has led to their broad adoption by irregular Tiziran forces and even criminal enterprise."
 	item = /obj/item/clothing/suit/space/pirate/tiziran
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
