@@ -36,4 +36,6 @@
 	var/tox_loss = power_holder.getToxLoss()
 	if(tox_loss > 1 && heal_amt < tox_loss) // We don't want to heal all of a person's radiation, just as to preserve their radioactiv
 		var/tox_heal = min(heal_amt, tox_loss - 1)
+		// Invert for toxins-healing sepcies
+		tox_heal = HAS_TRAIT(power_holder, TRAIT_TOXINLOVER) ? -tox_heal : tox_heal
 		power_holder.adjustToxLoss(-tox_heal)
