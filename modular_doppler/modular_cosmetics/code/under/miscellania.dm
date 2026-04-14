@@ -218,19 +218,10 @@
         return FALSE
     return TRUE
 
-/obj/item/clothing/under/gags_latexsuit
-	name = "latex bodysuit"
+/obj/item/clothing/under/latexsuit/gags_latexsuit
 	desc = "A form-fitting bodysuit made of a multichromatic latex polymer. Ages ago, it would've been a pain in the ass \
 	to get into, but centuries of clothing technology have made wearing it easier than ever before. \
 	Still, it takes longer to take off than an equivalent cloth garment."
-	icon_state = "gags_latexsuit"
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
-	equip_sound = 'modular_doppler/modular_sounds/sound/items/latex.ogg'
-	inhand_icon_state = "gags_latexsuit"
-	lefthand_file = 'modular_doppler/modular_cosmetics/icons/mob/inhands/miscellania_left.dmi'
-	righthand_file = 'modular_doppler/modular_cosmetics/icons/mob/inhands/miscellania_right.dmi'
-	strip_delay = 8 SECONDS
-	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	greyscale_config = /datum/greyscale_config/gags_latexsuit
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/gags_latexsuit/worn/digi,
@@ -238,27 +229,12 @@
 	)
 	greyscale_colors = "#636369"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	can_adjust = FALSE
-	obj_flags = parent_type::obj_flags | INFINITE_RESKIN
 	unique_reskin = list(
 						"Masculine" = "gags_latexsuit",
 						"Feminine" = "gags_latexsuit_d",
 						"Masculine Half-suit" = "gags_halflatexsuit",
 						"Feminine Half-suit" = "gags_halflatexsuit_d",
 						)
-
-//This same thing as the latex suit, just copied over for the re-colorable one
-/obj/item/clothing/under/gags_latexsuit/can_mob_unequip(mob/user)
-    if(!iscarbon(loc))
-        return TRUE
-    var/mob/living/carbon/human/wearer = loc
-    if(wearer.w_uniform != src)
-        return TRUE
-
-    if(!do_after(user, 6 SECONDS, target = src))
-        return FALSE
-    return TRUE
-
 
 /obj/item/clothing/under/nevada_uniform
 	name = "\improper Nevada Beverage Co. uniform"

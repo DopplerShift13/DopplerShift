@@ -441,7 +441,7 @@
 
 /datum/loadout_item/undersuit/fullbody/gags_latexsuit
 	name = "Bodysuit (Latex, recolorable)"
-	item_path = /obj/item/clothing/under/gags_latexsuit
+	item_path = /obj/item/clothing/under/latexsuit/gags_latexsuit
 
 /datum/loadout_item/undersuit/fullbody/jumpsuit
 	name = "Colorable Jumpsuit"

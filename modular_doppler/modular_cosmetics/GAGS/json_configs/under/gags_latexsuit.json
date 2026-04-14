@@ -2,9 +2,9 @@
 	"latexsuit": [
 		{
 			"type": "icon_state",
-			"icon_state": "latexsuit",
+			"icon_state": "gags_latexsuit",
 			"blend_mode": "overlay",
-			"color_ids": [ 1 ]
+			"color_ids": [1]
 		}
 	]
 }

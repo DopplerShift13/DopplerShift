@@ -480,14 +480,14 @@
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
 
 /datum/greyscale_config/gags_latexsuit
-	name = "Latex bodysuit"
+	name = "Colorable latex bodysuit"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/gags_latexsuit.json'
 
 /datum/greyscale_config/gags_latexsuit/worn
-	name = "Latex bodysuit (Worn)"
+	name = "Colorable latex bodysuit (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
 
 /datum/greyscale_config/gags_latexsuit/worn/digi
-	name = "Latex bodysuit (Worn, Digi)"
+	name = "Colorable latex bodysuit (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'
