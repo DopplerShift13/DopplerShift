@@ -41,7 +41,7 @@
 
 /datum/uplink_item/dangerous/baseball
 	name = "Ablative Bat"
-	desc = "Specially forged by the highest ranking artisan clans, this bat was given to some of the Zar'Khet to act as vanguards. Used to dispel laser fire more commonly used in hostile lands it gave a sense of courage and pride to those in the ranks."
+	desc = "Specially forged by the highest ranking artisan clans, this bat was given to some of the Zar'Khet to act as vanguards. Used to dispel laser fire more commonly used in hostile lands, it gave a sense of courage and pride to those in the ranks."
 	item = /obj/item/melee/baseball_bat/ablative
 	cost = 6
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
