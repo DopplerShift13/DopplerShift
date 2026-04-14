@@ -3,7 +3,7 @@
 */
 /datum/power/augmented/reagent_cannon
 	name = "Premium SPRY Reagent Cannon"
-	desc = "Usually included in various company contracts, those who work in mega-scale botanics and cleaning need to push for optimal efficiency. Manufcatured by Nex-Zephyr, this beauty will be your lifelong replacement of a spray bottle.\
+	desc = "Usually included in various company contracts, those who work in mega-scale botanics and cleaning need to push for optimal efficiency. Manufactured by Nex-Zephyr, this beauty will be your lifelong replacement of a spray bottle.\
 	\n When activated, transform your arm into a chemsprayer, allowing you to deploy chemicals rapidly in a large area. Capable of containing up to 600 chemicals. \
 	\n Because this is an incredibly invasive augment, this requires a cybernetic arm to wield effectively. Your arm will be replaced with a synthetic variant at roundstart to facilitate this."
 	security_record_text = "Subject has an industrial SRPY Reagent cannon embedded in their arm."
@@ -41,7 +41,7 @@
 
 /obj/item/organ/cyberimp/arm/toolkit/reagent_cannon
 	name = "Premium SPRY Reagent Cannon"
-	desc = "Usually included in various company contracts, those who work in mega-scale botanics and cleaning need to push for optimal efficiency. Manufcatured by Nex-Zephyr, this beauty will be your lifelong replacement of a spray bottle.\
+	desc = "Usually included in various company contracts, those who work in mega-scale botanics and cleaning need to push for optimal efficiency. Manufactured by Nex-Zephyr, this beauty will be your lifelong replacement of a spray bottle.\
 	\n When activated, transform your arm into a chemsprayer, allowing you to deploy chemicals rapidly in a large area. Capable of containing up to 600 chemicals. \
 	\n Because this is an incredibly invasive augment, this requires a cybernetic arm to wield effectively."
 	icon = 'icons/obj/weapons/guns/ballistic.dmi'
@@ -133,7 +133,7 @@
 // The chem sprayer specifically designed for the augment.
 /obj/item/reagent_containers/spray/chemsprayer/reagent_cannon
 	name = "Premium SPRY Reagent Cannon"
-	desc = "A chem sprayer integrated into a premium arm augment. Really its a miracle you even have an operable hand with the size of this thing. Comes with a 'focused' mode which tightens the spread of the cannon."
+	desc = "A chem sprayer integrated into a premium arm augment. Really it's a miracle you even have an operable hand with the size of this thing. Comes with a 'focused' mode which tightens the spread of the cannon."
 	var/obj/item/organ/cyberimp/arm/toolkit/reagent_cannon/host_implant
 	/// 0 = spray wide, 1 = stream wide, 2 = spray focused, 3 = stream focused
 	var/mode = 0

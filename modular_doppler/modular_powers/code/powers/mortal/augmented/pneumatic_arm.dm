@@ -115,7 +115,7 @@
 		to_chat(owner, span_warning("Your [name] fails to respond; it seems broken!"))
 		return FALSE
 	if(overcharged)
-		to_chat(owner, span_notice("You return your [name] to it's standard settings."))
+		to_chat(owner, span_notice("You return your [name] to its standard settings."))
 		overcharged = FALSE
 		return TRUE
 	overcharged = TRUE
