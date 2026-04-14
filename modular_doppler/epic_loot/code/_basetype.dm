@@ -51,7 +51,7 @@
 
 /obj/structure/maintenance_loot_structure/welder_act(mob/living/user, obj/item/tool)
 	balloon_alert(user, "removing...")
-	if(!tool.use_tool(src, user, removal_time, amount = 1, volume=50))
+	if(!tool.use_tool(src, user, removal_time, amount = 1, volume = 50))
 		return ITEM_INTERACT_BLOCKING
 	Destroy()
 	return ITEM_INTERACT_SUCCESS
