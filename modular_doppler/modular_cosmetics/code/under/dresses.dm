@@ -39,6 +39,7 @@
 	female_sprite_flags = NO_FEMALE_UNIFORM
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK|ITEM_SLOT_ICLOTHING
 
 /obj/item/clothing/under/dress/doppler/flower
 	name = "flower dress"
@@ -74,6 +75,7 @@
 	greyscale_config_worn = /datum/greyscale_config/sweaterdress/worn
 	greyscale_colors = COLOR_VERY_LIGHT_GRAY
 	flags_1 = IS_PLAYER_COLORABLE_1
+	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_ICLOTHING
 
 /*
 *	LUNAR AND JAPANESE CLOTHES
