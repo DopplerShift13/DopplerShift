@@ -5,6 +5,10 @@
 /datum/job/cantina_bartender
 	title = "Undisclosed Location bartender"
 
+/datum/job/cantina_guest
+	title = "Undisclosed Location guest"
+	// Guests are more narrative/story focused ghost roles, ones that do not get antag equipment or TC.
+
 /datum/antagonist/traitor/cantina_regular
 	name = "\improper Cantina Regular"
 	show_in_roundend = FALSE
@@ -51,3 +55,16 @@
 	backpack_contents = list(
 		/obj/item/stack/spacecash/c1000 = 10,
 		)
+
+/datum/outfit/cantina_guest
+	name = "Cantina Visitor"
+	uniform = /obj/item/clothing/under/costume/buttondown/slacks
+	shoes = /obj/item/clothing/shoes/laceup
+	back = /obj/item/storage/backpack/industrial/frontier_colonist
+	l_pocket = /obj/item/modular_computer/pda/chameleon
+	id = /obj/item/card/id/advanced/chameleon
+	box = /obj/item/storage/box/survival
+	backpack_contents = list(
+		/obj/item/stack/spacecash/c1000 = 10,
+		/obj/item/storage/box/syndie_kit/chameleon = 1,
+	)

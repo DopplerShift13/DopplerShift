@@ -852,15 +852,13 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "pp" = (
-/obj/structure/toilet{
-	dir = 8
-	},
 /obj/machinery/light/dim/directional/east,
 /obj/machinery/button/door/directional/north{
 	normaldoorcontrol = 1;
 	specialfunctions = 4;
 	id = "evilass2"
 	},
+/obj/effect/mob_spawn/ghost_role/human/cantina_guest,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/powered)
 "ps" = (
@@ -1501,15 +1499,13 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "Cb" = (
-/obj/structure/toilet{
-	dir = 8
-	},
 /obj/machinery/light/dim/directional/east,
 /obj/machinery/button/door/directional/north{
 	normaldoorcontrol = 1;
 	specialfunctions = 4;
 	id = "evilass1"
 	},
+/obj/effect/mob_spawn/ghost_role/human/cantina_guest,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/powered)
 "Ci" = (
@@ -1960,9 +1956,6 @@
 /turf/open/floor/wood/parquet,
 /area/ruin/space/has_grav/powered)
 "KZ" = (
-/obj/structure/toilet{
-	dir = 8
-	},
 /obj/machinery/light/dim/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/button/door/directional/north{
@@ -1970,6 +1963,7 @@
 	specialfunctions = 4;
 	id = "evilass3"
 	},
+/obj/effect/mob_spawn/ghost_role/human/cantina_guest,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/powered)
 "Li" = (
