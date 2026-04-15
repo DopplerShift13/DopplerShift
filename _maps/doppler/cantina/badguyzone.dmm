@@ -27,11 +27,6 @@
 /obj/effect/turf_decal/siding/wood,
 /turf/open/floor/carpet/royalblack,
 /area/ruin/space/has_grav/powered)
-"aE" = (
-/obj/effect/decal/cleanable/dirt,
-/obj/machinery/chem_dispenser/kitchenaid_stand,
-/turf/open/floor/iron/dark,
-/area/ruin/space/has_grav/powered)
 "aT" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/syndie_kit/space{
@@ -74,9 +69,6 @@
 /area/ruin/space/has_grav/powered)
 "bP" = (
 /obj/structure/table,
-/obj/machinery/biogenerator/foodricator{
-	anchored = 1
-	},
 /obj/machinery/light/dim/directional/south,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -173,8 +165,7 @@
 /area/ruin/space/has_grav/powered)
 "eg" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/structure/table/reinforced,
-/obj/item/toy/figure/bartender,
+/obj/machinery/vending/boozeomat/syndicate,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "ei" = (
@@ -478,6 +469,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/item/toy/figure/bartender{
+	pixel_x = -6;
+	pixel_y = 16
+	},
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "iq" = (
@@ -735,6 +730,7 @@
 "nf" = (
 /obj/machinery/light/dim/directional/north,
 /obj/machinery/smartfridge/drying,
+/obj/item/radio/intercom/cantina/directional/north,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "ng" = (
@@ -796,8 +792,7 @@
 /turf/template_noop,
 /area/space)
 "nT" = (
-/obj/machinery/griddle,
-/obj/item/radio/intercom/cantina/directional/north,
+/obj/machinery/smartfridge/food,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "oo" = (
@@ -812,7 +807,7 @@
 /area/ruin/space/has_grav/powered)
 "ou" = (
 /obj/structure/table,
-/obj/machinery/reagentgrinder,
+/obj/machinery/griddle/frontier_tabletop,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "oC" = (
@@ -844,14 +839,7 @@
 "oY" = (
 /obj/structure/table/reinforced,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/reagent_containers/cup/glass/shaker{
-	pixel_x = 6;
-	pixel_y = 7
-	},
-/obj/item/reagent_containers/dropper{
-	pixel_x = -2;
-	pixel_y = 8
-	},
+/obj/machinery/reagentgrinder,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "pi" = (
@@ -1284,7 +1272,7 @@
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/powered)
 "yf" = (
-/obj/machinery/vending/boozeomat/syndicate,
+/obj/machinery/chem_dispenser/big_drink_machine,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "yq" = (
@@ -2213,8 +2201,8 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "QW" = (
-/obj/machinery/vending/dinnerware,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/chem_dispenser/spice_machine,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered)
 "QZ" = (
@@ -2451,6 +2439,7 @@
 /area/ruin/space/has_grav/powered)
 "Wq" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/vending/dinnerware,
 /turf/open/floor/iron/freezer,
 /area/ruin/space/has_grav/powered)
 "Ws" = (
@@ -2579,6 +2568,14 @@
 /obj/structure/window/spawner/directional/south,
 /obj/machinery/chem_dispenser/drinks/fullupgrade{
 	dir = 1
+	},
+/obj/item/reagent_containers/cup/glass/shaker{
+	pixel_x = 9;
+	pixel_y = 17
+	},
+/obj/item/reagent_containers/dropper{
+	pixel_x = -4;
+	pixel_y = 10
 	},
 /turf/open/floor/iron/dark/smooth_corner{
 	dir = 1
@@ -3284,7 +3281,7 @@ QW
 Bz
 yf
 gN
-aE
+KE
 kq
 zg
 Mw
