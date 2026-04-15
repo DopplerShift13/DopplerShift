@@ -225,7 +225,7 @@
 			*/ // DOPPLER EDIT CHANGE - Make tourettes less offensive 
 			if(1 to 2)
 				owner.emote("[prob(50) ? "twitch" : "twitch_s"]")
-			if(3) //DOPPLER EDIT - ORIGINAL: if(2 to 3)
+			if(3)
 				owner.say("[prob(50) ? "#" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name) //DOPPLER EDIT - ORIGINAL: owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
 		var/w_offset =  rand(-2, 2)
 		var/z_offset = rand(-1, 1)
