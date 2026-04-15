@@ -77,6 +77,10 @@
 /obj/effect/turf_decal/siding,
 /turf/open/floor/asphalt,
 /area/deathmatch)
+"s" = (
+/obj/structure/mystery_box/tdome,
+/turf/open/floor/asphalt,
+/area/deathmatch)
 "u" = (
 /obj/effect/turf_decal/siding,
 /obj/structure/prop_vehicle,
@@ -97,6 +101,11 @@
 /obj/structure/prop_vehicle/taxi,
 /obj/effect/turf_decal/siding,
 /turf/open/floor/asphalt,
+/area/deathmatch)
+"y" = (
+/obj/structure/lattice,
+/obj/structure/mystery_box/tdome,
+/turf/open/chasm,
 /area/deathmatch)
 "z" = (
 /obj/vehicle/ridden/motorcycle{
@@ -154,6 +163,7 @@
 /area/deathmatch)
 "L" = (
 /obj/effect/spawner/random/maintenance/dumpster,
+/obj/structure/mystery_box/tdome,
 /turf/open/misc/sandy_dirt,
 /area/deathmatch)
 "M" = (
@@ -199,6 +209,10 @@
 "V" = (
 /obj/structure/reagent_dispensers/fueltank/large,
 /turf/open/floor/asphalt,
+/area/deathmatch)
+"W" = (
+/obj/structure/mystery_box/tdome,
+/turf/open/misc/sandy_dirt,
 /area/deathmatch)
 "X" = (
 /obj/effect/turf_decal/siding,
@@ -502,7 +516,7 @@ B
 B
 B
 B
-B
+s
 v
 v
 X
@@ -581,7 +595,7 @@ B
 I
 B
 V
-v
+y
 v
 B
 X
@@ -645,7 +659,7 @@ B
 B
 B
 B
-l
+B
 B
 "}
 (17,1,1) = {"
@@ -830,7 +844,7 @@ B
 B
 B
 B
-B
+s
 B
 B
 B
@@ -838,7 +852,7 @@ B
 f
 "}
 (24,1,1) = {"
-E
+W
 k
 e
 f
@@ -882,7 +896,7 @@ B
 B
 B
 B
-B
+s
 N
 B
 B
