@@ -217,7 +217,13 @@
 /datum/mutation/tourettes/on_life(seconds_per_tick, times_fired)
 	if(SPT_PROB(5 * GET_MUTATION_SYNCHRONIZER(src), seconds_per_tick) && owner.stat == CONSCIOUS && !owner.IsStun())
 		switch(rand(1, 3))
-			if(1 to 2) //DOPPLER EDIT - ORIGINAL: if(1)
+			/* DOPPLER EDIT BEGIN - ORIGINAL:
+			if(1)
+				owner.emote("twitch")
+			if(2 to 3)
+				owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
+			*/ // DOPPLER EDIT CHANGE - Make tourettes less offensive 
+			if(1 to 2)
 				owner.emote("[prob(50) ? "twitch" : "twitch_s"]") //DOPPLER EDIT - ORIGINAL: owner.emote("twitch")
 			if(3) //DOPPLER EDIT - ORIGINAL: if(2 to 3)
 				owner.say("[prob(50) ? "#" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name) //DOPPLER EDIT - ORIGINAL: owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
