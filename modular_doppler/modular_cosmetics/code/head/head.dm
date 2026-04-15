@@ -8,7 +8,8 @@
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS
+	hair_mask = /datum/hair_mask/winterhood
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#4e4a43#F1F1F1"
 	greyscale_config = /datum/greyscale_config/standalone_hood
