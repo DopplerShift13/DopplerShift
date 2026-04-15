@@ -69,3 +69,4 @@
 	greyscale_config_worn = /datum/greyscale_config/colony_headscarf/worn
 	inhand_icon_state = null
 	hair_mask = /datum/hair_mask/standard_hat_middle
+	flags_1 = IS_PLAYER_COLORABLE_1
