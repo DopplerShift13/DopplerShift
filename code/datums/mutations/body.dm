@@ -227,7 +227,7 @@
 				owner.emote("[prob(50) ? "twitch" : "twitch_s"]")
 			if(3)
 				owner.say("[prob(50) ? "#" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name) 
-				// DOPPLER EDIT END
+			// DOPPLER EDIT END
 		var/w_offset =  rand(-2, 2)
 		var/z_offset = rand(-1, 1)
 		animate(owner, pixel_w = w_offset, pixel_z = z_offset, time = 0.1 SECONDS, flags = ANIMATION_RELATIVE|ANIMATION_PARALLEL)
