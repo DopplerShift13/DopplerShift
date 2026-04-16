@@ -882,7 +882,7 @@ generate/load female uniform sprites matching all previously decided variables
 	/// IMPORTANT NOTE: Keep the humie var!
 	var/chosen_worn_icon = worn_icon
 	var/using_taur_variant = FALSE
-	if(ishuman(humie))
+	if(ishuman(humie) && bodyshape_icon_files) // bodyshape_icon_files can be null with supported_bodyshapes due to gags
 		for(var/shape in supported_bodyshapes)
 			if(shape == BODYSHAPE_HUMANOID)
 				continue
@@ -915,7 +915,7 @@ generate/load female uniform sprites matching all previously decided variables
 		)
 	/// DOPPLER EDIT ADDITION BEGIN - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0
-	if (istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR)
+	if (!isinhands && istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR) // This could should never run on inhands
 		if (!using_taur_variant)
 			if (gets_cropped_on_taurs)
 				var/cropping_state = DEFAULT_TAUR_CLIPPING_MASK
@@ -1000,6 +1000,118 @@ generate/load female uniform sprites matching all previously decided variables
 					observers = null
 					break
 
+/mob/living/carbon/human/update_body(is_creating = FALSE)
+	update_eyes()
+	update_underwear()
+	return ..()
+
+/mob/living/carbon/human/proc/update_underwear()
+	remove_overlay(BODY_LAYER)
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		return
+	// Underwear, Undershirts & Socks
+	var/list/standing = list()
+	if(underwear && !(underwear_visibility & UNDERWEAR_HIDE_UNDIES)) // DOPPLER EDIT CHANGE - original: if(underwear)
+		var/datum/sprite_accessory/underwear/undie_accessory = SSaccessories.underwear_list[underwear]
+		var/mutable_appearance/underwear_overlay
+		if(undie_accessory)
+			// DOPPLER EDIT ADDITION START - Digitgrade underwear
+			var/underwear_icon_state = undie_accessory.icon_state
+			if(undie_accessory.has_digitigrade && (bodyshape & BODYSHAPE_DIGITIGRADE))
+				underwear_icon_state += "_d"
+			// DOPPLER EDIT ADDITION END
+			if(dna.species.sexes && physique == FEMALE && (undie_accessory.gender == MALE))
+				underwear_overlay = mutable_appearance(wear_female_version(underwear_icon_state, undie_accessory.icon, FEMALE_UNIFORM_FULL), layer = -UNDERWEAR_UNDERSHIRT) // DOPPLER EDIT - underwear_overlay = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon, FEMALE_UNIFORM_FULL), layer = -BODY_LAYER)
+			else
+				underwear_overlay = mutable_appearance(undie_accessory.icon, underwear_icon_state, -UNDERWEAR_UNDERSHIRT) // DOPPLER EDIT - underwear_overlay = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
+			if(!undie_accessory.use_static)
+				underwear_overlay.color = underwear_color
+			standing += underwear_overlay
+	// DOPPLER EDIT ADDITION - Bra
+	if(bra && !(underwear_visibility & UNDERWEAR_HIDE_BRA))
+		var/datum/sprite_accessory/bra/bra_accessory = SSaccessories.bra_list[bra]
+		if(bra_accessory)
+			var/mutable_appearance/bra_overlay
+			var/icon_state = bra_accessory.icon_state
+			if(dna.species.sexes && physique == FEMALE)
+				bra_overlay = mutable_appearance(wear_female_version(bra_accessory.icon_state, bra_accessory.icon), layer = -BRA_SOCKS_LAYER)
+			else
+				bra_overlay = mutable_appearance(bra_accessory.icon, icon_state, -BRA_SOCKS_LAYER)
+			if(!bra_accessory.use_static)
+				bra_overlay.color = bra_color
+			standing += bra_overlay
+	// DOPPLER EDIT ADDITION END
+	if(undershirt && !(underwear_visibility & UNDERWEAR_HIDE_SHIRT)) // DOPPLER EDIT CHANGE - original:  if(undershirt)
+		var/datum/sprite_accessory/undershirt/undie_accessory = SSaccessories.undershirt_list[undershirt]
+		if(undie_accessory)
+			var/mutable_appearance/working_shirt
+			if(dna.species.sexes && physique == FEMALE)
+				working_shirt = mutable_appearance(wear_female_version(undie_accessory.icon_state, undie_accessory.icon), layer = -UNDERWEAR_UNDERSHIRT) // DOPPLER EDIT CHANGE - layer = -BODY_LAYER
+			else
+				working_shirt = mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, layer = -UNDERWEAR_UNDERSHIRT) // DOPPLER EDIT CHANGE - layer = -BODY_LAYER
+			// DOPPLER EDIT ADDITION START - Colorable undershirts
+			if(!undie_accessory.use_static)
+				working_shirt.color = undershirt_color
+			// DOPPLER EDIT ADDITION END
+			standing += working_shirt
+
+	if(socks && (num_legs >= 2) && !(underwear_visibility & UNDERWEAR_HIDE_SOCKS)) // DOPPLER EDIT CHANGE - original: if(socks && num_legs >= 2 && !(bodyshape & BODYSHAPE_DIGITIGRADE))
+		var/datum/sprite_accessory/socks/undie_accessory = SSaccessories.socks_list[socks]
+		// DOPPLER EDIT ADDITION START - Digitgrade socks
+		var/underwear_icon_state
+		if(undie_accessory)
+			underwear_icon_state = undie_accessory.icon_state
+			if(bodyshape & BODYSHAPE_DIGITIGRADE)
+				underwear_icon_state += "_d"
+		/* ORIGINAL CODE:
+		if(undie_accessory)
+			standing += mutable_appearance(undie_accessory.icon, undie_accessory.icon_state, -BODY_LAYER)
+		*/
+		if(undie_accessory)
+			var/mutable_appearance/the_overlay = mutable_appearance(undie_accessory.icon, underwear_icon_state, -BRA_SOCKS_LAYER)
+			if(!undie_accessory.use_static)
+				the_overlay.color = socks_color
+			standing += the_overlay
+		// DOPPLER EDIT ADDITION END
+
+	if(standing.len)
+		overlays_standing[BODY_LAYER] = standing
+
+	apply_overlay(BODY_LAYER)
+
+/mob/living/carbon/human/proc/update_eyes()
+	remove_overlay(EYES_LAYER)
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+		return
+	var/obj/item/bodypart/head/noggin = get_bodypart(BODY_ZONE_HEAD)
+	if(!(noggin?.head_flags & HEAD_EYESPRITES))
+		return
+	// eyes (missing eye sprites get handled by the head itself, but sadly we have to do this stupid shit here, for now)
+	var/obj/item/organ/eyes/eye_organ = get_organ_slot(ORGAN_SLOT_EYES)
+	if(eye_organ)
+		eye_organ.refresh(call_update = FALSE)
+		overlays_standing[EYES_LAYER] = eye_organ.generate_body_overlay(src)
+		apply_overlay(EYES_LAYER)
+
+/// Updates face (as of now, only eye) offsets
+/mob/living/carbon/human/update_face_offset()
+	var/list/eye_overlays = overlays_standing[EYES_LAYER]
+
+	if(HAS_TRAIT(src, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(src, TRAIT_HUSK) || !length(eye_overlays))
+		return
+
+	remove_overlay(EYES_LAYER)
+
+	var/obj/item/bodypart/head/noggin = get_bodypart(BODY_ZONE_HEAD)
+	for (var/mutable_appearance/overlay as anything in eye_overlays)
+		overlay.pixel_w = 0
+		overlay.pixel_z = 0
+		noggin.worn_face_offset.apply_offset(overlay)
+
+	overlays_standing[EYES_LAYER] = eye_overlays
+	apply_overlay(EYES_LAYER)
+
+
 // Only renders the head of the human
 /mob/living/carbon/human/proc/update_body_parts_head_only(update_limb_data)
 	if(!dna?.species)
@@ -1048,7 +1160,7 @@ generate/load female uniform sprites matching all previously decided variables
 	// hardcoding this here until bodypart updating is more sane
 	// we need to update clothing items that may have been affected by bodyshape updates
 	if(check_shapes & BODYSHAPE_DIGITIGRADE)
-		for(var/obj/item/thing as anything in get_equipped_items())
+		for(var/obj/item/thing as anything in get_equipped_items(INCLUDE_PROSTHETICS|INCLUDE_ABSTRACT))
 			if(thing.slot_flags & ignore_slots)
 				continue
 			if(thing.supports_variations_flags & DIGITIGRADE_VARIATIONS)

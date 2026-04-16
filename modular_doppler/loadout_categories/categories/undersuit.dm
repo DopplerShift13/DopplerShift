@@ -179,6 +179,10 @@
 	name = "Moto Pants"
 	item_path = /obj/item/clothing/under/pants/moto_leggings
 
+/datum/loadout_item/undersuit/pants/tech_nyne_bottomwear
+	name = "TechNyne Bottomwear"
+	item_path = /obj/item/clothing/under/pants/technyne_bottomwear
+
 /datum/loadout_item/undersuit/pants/track
 	name = "Track Pants"
 	item_path = /obj/item/clothing/under/pants/track
@@ -187,9 +191,17 @@
 	name = "Camo Pants"
 	item_path = /obj/item/clothing/under/pants/camo
 
-/datum/loadout_item/undersuit/pants/big_pants
-	name = "JUNCO Megacargo Pants (Cargo)"
+/datum/loadout_item/undersuit/pants/megacargo_pants
+	name = "JUNCO Megacargo Pants"
 	item_path = /obj/item/clothing/under/pants/big_pants
+
+/datum/loadout_item/undersuit/pants/megajeans
+	name = "JUNCO Megajeans"
+	item_path = /obj/item/clothing/under/pants/megajeans
+
+/datum/loadout_item/undersuit/pants/megashorts
+	name = "JUNCO Megashorts"
+	item_path = /obj/item/clothing/under/pants/megashorts
 
 /datum/loadout_item/undersuit/pants/shortalls
 	name = "Short Overalls"
@@ -392,6 +404,10 @@
 	name = "Qipao (Custom Trim)"
 	item_path = /obj/item/clothing/under/dress/doppler/qipao/customtrim
 
+/datum/loadout_item/undersuit/dress/primitive_genemod_tailored_dress
+	name = "Tailored Dress (Hearthkin)"
+	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tailored_dress
+
 /**
  * FULLBODY
  */
@@ -439,6 +455,10 @@
 	name = "Frontier Jumpsuit"
 	item_path = /obj/item/clothing/under/frontier_colonist
 
+/datum/loadout_item/undersuit/fullbody/frontier_casual
+	name = "Frontier Casualwear"
+	item_path = /obj/item/clothing/under/frontier_colonist/casual
+
 /datum/loadout_item/undersuit/fullbody/osi
 	name = "OSI Jumpsuit"
 	item_path = /obj/item/clothing/under/costume/osi
@@ -447,6 +467,9 @@
 	name = "ATHLETAS Bodysuit"
 	item_path = /obj/item/clothing/under/athletas_bodysuit
 
+/datum/loadout_item/undersuit/fullbody/primitive_genemod_tunic
+	name = "Hearthkin Tunic"
+	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tunic
 /**
  * MISCELLANEOUS
  */
@@ -481,3 +504,7 @@
 /datum/loadout_item/undersuit/misc/biosuit_alt
 	name = "Biosuit (White)"
 	item_path = /obj/item/clothing/under/underlayer/white
+
+/datum/loadout_item/undersuit/misc/primitive_genemod_body_wraps
+	name = "Hearthkin Body Wraps"
+	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_body_wraps

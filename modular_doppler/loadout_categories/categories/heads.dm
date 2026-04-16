@@ -221,8 +221,8 @@
 	item_path = /obj/item/clothing/head/soft/rainbow
 
 /datum/loadout_item/head/caps/colonial_cap
-	name = "Colonial Cap"
-	item_path = /obj/item/clothing/head/hats/colonial
+	name = "Frontier Headscarf"
+	item_path = /obj/item/clothing/head/frontier_headscarf
 
 /datum/loadout_item/head/caps/security_colonial_cap
 	name = "Colonial Security Cap"
@@ -562,3 +562,7 @@
 /datum/loadout_item/head/misc/nightcap_red
 	name = "Nightcap (Red)"
 	item_path = /obj/item/clothing/head/costume/nightcap/red
+
+/datum/loadout_item/head/misc/primitive_genemod_ferroniere
+	name = "Ferroniere (Hearthkin)"
+	item_path = /obj/item/clothing/head/primitive_genemod_ferroniere

@@ -185,7 +185,9 @@
 	name = "Great Coat (Cargo)"
 	item_path = /obj/item/clothing/suit/jacket/cargo_coat/cargo_greatcoat
 
-
+/datum/loadout_item/suit/coat/primitive_genemod_coat
+	name = "Hearthkin Fur Coat"
+	item_path = /obj/item/clothing/suit/jacket/primitive_genemod_coat
 /**
  * SUIT JACKETS
  */
@@ -355,6 +357,18 @@
 	name = "Deckers Hoodie"
 	item_path = /obj/item/clothing/suit/costume/deckers
 
+/datum/loadout_item/suit/hoodies/technyne_sweatshirt
+	name = "TechNyne Sweatshirt"
+	item_path = /obj/item/clothing/suit/jacket/doppler/technyne_sweatshirt
+
+/datum/loadout_item/suit/hoodies/technyne_overlay_hoodie
+	name = "TechNyne Overlay Hoodie"
+	item_path = /obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie
+
+/datum/loadout_item/suit/hoodies/technyne_overlay
+	name = "TechNyne Overlay"
+	item_path = /obj/item/clothing/suit/hooded/doppler/technyne_overlay
+
 
 /**
  * LABCOATS
@@ -382,6 +396,26 @@
 /datum/loadout_item/suit/lab/high_vis_labcoat
 	name = "High-Vis Labcoat"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/high_vis
+
+/datum/loadout_item/suit/lab/fancy_doctor
+	name = "High-neck Labcoat"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/regular
+
+/datum/loadout_item/suit/lab/fancy_genetics
+	name = "High-neck Labcoat (Genetics)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/geneticist
+
+/datum/loadout_item/suit/lab/fancy_robotics
+	name = "High-neck Labcoat (Robotics)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/roboticist
+
+/datum/loadout_item/suit/lab/fancy_pharmacist
+	name = "High-neck Labcoat (Chemistry)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/pharmacist
+
+/datum/loadout_item/suit/lab/fancy_scientist
+	name = "High-neck Labcoat (Science)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/scientist
 
 /**
  * TOPS

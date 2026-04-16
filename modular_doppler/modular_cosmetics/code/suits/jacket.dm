@@ -466,3 +466,98 @@
 	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
 	var/list/new_hoodie_colors = hoodie_colors.Copy(1,2)
 	hood.set_greyscale(new_hoodie_colors)
+
+/// a tripartite sweater-jacket-accessory thing that share some base sprites between each other
+
+/obj/item/clothing/suit/jacket/doppler/technyne_sweatshirt
+	name = "\improper TechNyne sweatshirt"
+	desc = "Hydroponically grown Egyptian cotton fibres were ringspun by Marsian artisans into the sweatshirt \
+	fleece that this was sewn from. They laid the stitching down with some Union Special coverlocks from the 22nd \
+	century. Don't ask why that matters, just know that it costs a lot of money to look this normal."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/technyne_sweatshirt"
+	post_init_icon_state = "tech_sweatshirt"
+	greyscale_config = /datum/greyscale_config/technyne_sweatshirt
+	greyscale_config_worn = /datum/greyscale_config/technyne_sweatshirt/worn
+	greyscale_colors = "#5d6161#5d6161"
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags_1 = IS_PLAYER_COLORABLE_1
+	pocket_storage_type = null
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie
+	name = "\improper TechNyne overlay hoodie"
+	desc = "Artisanal ringspun sweatshirt fleece and hydrophobic tech-textiles blend in a deconstructed ensemble piece \
+	that's proven durably popular with Marsian apparel designers."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie"
+	post_init_icon_state = "tech_overlay_hoodie"
+	greyscale_config = /datum/greyscale_config/technyne_overlay_hoodie
+	greyscale_config_worn = /datum/greyscale_config/technyne_overlay_hoodie/worn
+	greyscale_colors = "#5d6161#b66029#b66029#b66029"
+	cold_protection = CHEST|GROIN|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags_1 = IS_PLAYER_COLORABLE_1
+	hoodtype = /obj/item/clothing/head/hooded/technyne_hood
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(4)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(4)
+	hood.set_greyscale(new_hoodie_colors)
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay
+	name = "\improper TechNyne overlay"
+	desc = "This textile is hydrophobic from the face and wicking from the inside, allowing the wearer to stay dry from \
+	rain and from their own sweat."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/technyne_overlay"
+	post_init_icon_state = "tech_sweatshirt_overlay"
+	greyscale_config = /datum/greyscale_config/technyne_overlay
+	greyscale_config_worn = /datum/greyscale_config/technyne_overlay/worn
+	greyscale_colors = "#b66029"
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags_1 = IS_PLAYER_COLORABLE_1
+	pocket_storage_type = null
+	hoodtype = /obj/item/clothing/head/hooded/technyne_hood
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/technyne_overlay/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+
+/obj/item/clothing/head/hooded/technyne_hood
+	name = "\improper TechNyne Hood"
+	desc = "A hydrophobic tech hood."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/technyne_hood"
+	post_init_icon_state = "technyne_hood"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags_1 = IS_PLAYER_COLORABLE_1
+	hair_mask = /datum/hair_mask/winterhood
+	armor_type = /datum/armor/hooded_winterhood
+	greyscale_config = /datum/greyscale_config/technyne_hood/worn
+	greyscale_config_worn = /datum/greyscale_config/technyne_hood/worn
+	greyscale_colors = "#b66029"

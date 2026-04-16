@@ -1,0 +1,10 @@
+## Instructions - write SUPPLY_SHORTAGES, followed by this format: SUPPLYPACKTYPEPATH,MULT to change the price of
+## a supply pack.
+## 1 has no effect.
+## -1 will make the item completely unavailable.
+## Mults below 1, including 0, are possible, but highly inadvisable.
+
+## Examples:
+#SUPPLY_SHORTAGES /datum/supply_pack/goody/laser_single,1.5
+#SUPPLY_SHORTAGES /datum/supply_pack/security/armory/laser,-1
+#SUPPLY_SHORTAGES /datum/supply_pack/security/stingpack,4

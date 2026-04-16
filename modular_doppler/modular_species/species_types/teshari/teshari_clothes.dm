@@ -20,7 +20,47 @@
 	autogen_clothing_color_coords = list(list(CLOAK_COLORPIXEL_X_1, CLOAK_COLORPIXEL_Y_1), list(CLOAK_COLORPIXEL_X_2, CLOAK_COLORPIXEL_Y_2))
 	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/cloak)
 
+/obj/item/clothing/neck/long_cape
+	autogen_clothing_color_coords = list(list(CLOAK_COLORPIXEL_X_1, CLOAK_COLORPIXEL_Y_1), list(CLOAK_COLORPIXEL_X_2, CLOAK_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/cloak)
+
+/obj/item/clothing/neck/robe_cape
+	autogen_clothing_color_coords = list(list(CLOAK_COLORPIXEL_X_1, CLOAK_COLORPIXEL_Y_1), list(CLOAK_COLORPIXEL_X_2, CLOAK_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/cloak)
+
+/obj/item/clothing/neck/wide_cape
+	autogen_clothing_color_coords = list(list(CLOAK_COLORPIXEL_X_1, CLOAK_COLORPIXEL_Y_1), list(CLOAK_COLORPIXEL_X_2, CLOAK_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/cloak)
+
+/obj/item/clothing/neck/vulp_cape
+	autogen_clothing_color_coords = list(list(CLOAK_COLORPIXEL_X_1, CLOAK_COLORPIXEL_Y_1), list(CLOAK_COLORPIXEL_X_2, CLOAK_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/cloak)
+
 /obj/item/clothing/neck/mantle
+	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
+
+/obj/item/clothing/neck/half_cape
+	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
+
+/obj/item/clothing/neck/capelet
+	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
+
+/obj/item/clothing/neck/lizard_cape
+	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
+
+/obj/item/clothing/neck/tajaran_cape
+	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
+
+/obj/item/clothing/neck/vulp_cloak
+	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
+	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
+
+/obj/item/clothing/neck/doppler_mantle
 	autogen_clothing_color_coords = list(list(MANTLE_COLORPIXEL_X_1, MANTLE_COLORPIXEL_Y_1), list(MANTLE_COLORPIXEL_X_2, MANTLE_COLORPIXEL_Y_2))
 	autogen_clothing_config = list(BODYSHAPE_TESHARI_T = /datum/greyscale_config/teshari/mantle)
 
@@ -537,6 +577,13 @@
 		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
 	)
 
+/obj/item/clothing/mask/gas/sechailer
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_SNOUTED)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
+	)
+
 /obj/item/clothing/mask/joy
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
 	bodyshape_icon_files = list(
@@ -546,6 +593,14 @@
 	)
 
 /obj/item/clothing/mask/breath
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',
+		BODYSHAPE_SNOUTED_T = 'modular_doppler/modular_cosmetics/icons/mob/face/basemask_muzzled.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/mask.dmi'
+	)
+
+/obj/item/clothing/mask/surgical
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI, BODYSHAPE_SNOUTED)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/mask.dmi',

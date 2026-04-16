@@ -8,7 +8,8 @@
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	flags_inv = HIDEEARS|HIDEHAIR
+	flags_inv = HIDEEARS
+	hair_mask = /datum/hair_mask/winterhood
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#4e4a43#F1F1F1"
 	greyscale_config = /datum/greyscale_config/standalone_hood
@@ -56,7 +57,7 @@
 	name = "mailcap"
 	desc = "<i>'Right-on-time'</i> mail service head wear- with new colors!"
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
-	icon_state = "/obj/item/clothing/head/colorable_mailcap"
+	icon_state = "/obj/item/clothing/head/costume/mailman/colorable_mailcap"
 	post_init_icon_state = "colorable_mailcap"
 	greyscale_colors = "#cfd1d4#D5D5B9"
 	greyscale_config = /datum/greyscale_config/colorable_mailcap

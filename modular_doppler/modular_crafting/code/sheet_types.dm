@@ -25,6 +25,7 @@ GLOBAL_LIST_INIT(doppler_metal_recipes, list(
 	new/datum/stack_recipe("forge", /obj/structure/reagent_forge, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("throwing wheel", /obj/structure/throwing_wheel, 10, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_TOOLS),
 	new/datum/stack_recipe("metal shelf", /obj/structure/shelf, 1, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE),
+	new/datum/stack_recipe("donation box", /obj/structure/closet/crate/donation, 10, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_CONTAINERS),
 ))
 
 GLOBAL_LIST_INIT(doppler_metal_airlock_recipes, list(
@@ -99,6 +100,7 @@ GLOBAL_LIST_INIT(doppler_cloth_recipes, list(
 	new/datum/stack_recipe("towel", /obj/item/towel, 2, category = CAT_CLOTHING),
 	new/datum/stack_recipe("eyepatch wrap", /obj/item/clothing/glasses/eyepatch/wrap, 2, category = CAT_CLOTHING),
 	new/datum/stack_recipe("eyepatch", /obj/item/clothing/glasses/eyepatch, 2, category = CAT_CLOTHING),
+	new/datum/stack_recipe("mantle (teshari)", /obj/item/clothing/neck/tesharian_mantle, 3, category = CAT_CLOTHING),
 	new/datum/stack_recipe("saddlebags", /obj/item/storage/backpack/saddlebags, 5, category = CAT_CONTAINERS),
 ))
 
