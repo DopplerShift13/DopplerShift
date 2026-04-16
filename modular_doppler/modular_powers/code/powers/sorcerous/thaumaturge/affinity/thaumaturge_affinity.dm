@@ -1,3 +1,9 @@
+/obj/item
+	/// Used for the affinity system in the Powers system by Thaumaturge to determine their magical strengh.
+	var/affinity = 0
+	/// Item gets affinity from being worn instead of being held; useful for items that can be worn but arent obj/item/clothing
+	var/affinity_worn_override
+
 /* So, affinity is a system that applies a value to objects; and the amount of affinity is based on the item.
 We have to apply this retroactively to existing items, which is what this file is for. If you make something new, include it as a var instead.
 */

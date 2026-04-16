@@ -87,12 +87,6 @@
 	///Photo used for records, which we store here so we don't have to constantly make more of.
 	var/list/obj/item/photo/record_photos
 
-	// DOPPLER ADDITION START - Security facing power notes
-	var/power_notes
-	var/power_notes_minor
-	var/power_notes_major
-	// DOPPLER ADDITION END
-
 /datum/record/crew/New(
 	age = 18,
 	blood_type = "?",

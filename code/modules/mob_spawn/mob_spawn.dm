@@ -108,7 +108,7 @@
 		if(allow_prefs && spawned_human.client)
 			spawned_human.client?.prefs.safe_transfer_prefs_to(spawned_human)
 			SSquirks.AssignQuirks(spawned_human, spawned_human.client)
-			SSpowers.assign_powers(spawned_human, spawned_human.client)
+			SSpowers.assign_powers(spawned_human, spawned_human.client) // DOPPLER EDIT ADDITION - Assign mobs their powers
 			if(allow_loadout)
 				spawned_human.equip_outfit_and_loadout(outfit, spawned_human.client?.prefs)
 			else
@@ -119,7 +119,7 @@
 		var/mob/living/carbon/human/spawned_human = spawned_mob
 		spawned_human.client?.prefs.safe_transfer_prefs_to(spawned_human)
 		SSquirks.AssignQuirks(spawned_human, spawned_human.client)
-		SSpowers.assign_powers(spawned_human, spawned_human.client)
+		SSpowers.assign_powers(spawned_human, spawned_human.client) // DOPPLER EDIT ADDITION - Assign mobs their powers
 		if(allow_loadout)
 			spawned_human.equip_outfit_and_loadout(new /datum/outfit(), spawned_human.client?.prefs)
 		/// DOPPLER SHIFT ADDITION END

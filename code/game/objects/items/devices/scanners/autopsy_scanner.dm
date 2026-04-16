@@ -171,7 +171,6 @@
 		if(LAZYLEN(cyberimps))
 			autopsy_information += "<b>Detected cybernetic modifications:</b></br>"
 			autopsy_information += "[english_list(cyberimps, and_text = ", and ")]</br>"
-
 		autopsy_information += "<hr>"
 
 		// Genetic Stability, Species, and Body Temperature

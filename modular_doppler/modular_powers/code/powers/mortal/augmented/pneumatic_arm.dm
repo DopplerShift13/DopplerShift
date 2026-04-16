@@ -102,7 +102,6 @@
 				target.throw_at(throw_target, knockback, 2, user, gentle = gentle_throw)
 		to_chat(target, span_userdanger("[user]'s punch sends you flying!"))
 		playsound(target, 'sound/items/weapons/resonator_blast.ogg', 75, TRUE)
-		overcharged = FALSE
 		premium_component.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MINOR)
 
 /obj/item/organ/cyberimp/arm/pneumatic_arm/use_action()
