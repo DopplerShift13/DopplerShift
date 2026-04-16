@@ -40,18 +40,18 @@
 	click_to_activate = TRUE
 	target_range = 12
 
-	// Saves if its a right click so that all click interactions are routed through use_action.
+	/// Saves if its a right click so that all click interactions are routed through use_action.
 	var/right_click
 
-	// Saved glow effects on UI elements
+	/// Saved glow effects on UI elements
 	var/list/ui_filters = list()
-	// Whitelist of types allowed to be manipulated.
+	/// Whitelist of types allowed to be manipulated.
 	var/static/list/target_whitelist = typecacheof(list(
 		/obj/machinery,
 		/obj/structure,
 		/obj/item/radio/intercom,
 	))
-	// UI blacklist for targets that should never open a UI via Manipulate.
+	/// UI blacklist for targets that should never open a UI via Manipulate.
 	var/static/list/ui_blacklist = typecacheof(list(
 		/obj/machinery/door/airlock,
 	))
@@ -109,6 +109,7 @@
 	modify_stress(PSYKER_STRESS_TRIVIAL * 2)
 	return TRUE
 
+/// Ends the ongoing glow effect when the UI is closed.
 /datum/action/cooldown/power/psyker/manipulate/proc/on_ui_closed(datum/tgui/ui)
 	SIGNAL_HANDLER
 	var/list/entry = ui_filters[ui]
@@ -119,7 +120,7 @@
 		ui_filters -= ui
 		UnregisterSignal(target, COMSIG_ATOM_DISPEL)
 
-// Closes any open UIs on a manipulated object.
+/// Closes any open UIs on a manipulated object.
 /datum/action/cooldown/power/psyker/manipulate/proc/on_dispel(atom/source, atom/dispeller)
 	SIGNAL_HANDLER
 	var/list/uis_to_close = list()

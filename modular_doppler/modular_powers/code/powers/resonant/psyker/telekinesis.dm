@@ -29,23 +29,23 @@
 
 	mental = FALSE // We are lifting them with the mind but it doesn't affect the target's mind
 
-	// Range of the kinesis grab.
+	/// Range of the kinesis grab.
 	var/grab_range = 8
 
-	// Stat required for us to grab a mob.
+	/// Stat required for us to grab a mob.
 	var/stat_required = DEAD
 
-	// Atom we grabbed with kinesis.
+	/// Atom we grabbed with kinesis.
 	var/atom/movable/grabbed_atom
 
-	// Overlay we add to each grabbed atom.
+	/// Overlay we add to each grabbed atom.
 	var/mutable_appearance/kinesis_icon
-	// Overlay we add to the player when using this power.
+	/// Overlay we add to the player when using this power.
 	var/mutable_appearance/player_icon
 
-	// Mouse tracker overlay (telekinesis-specific)
+	/// Mouse tracker overlay (telekinesis-specific)
 	var/atom/movable/screen/fullscreen/cursor_catcher/kinesis/psyker_tk/kinesis_catcher
-	// Which mouse click is used in use_action
+	/// Which mouse click is used in use_action
 	var/tk_click_type = TK_CLICK_NONE
 
 // Auto-clear the grab if we disable the power + a bit of UI feedback.
@@ -122,7 +122,7 @@
 	if(resonant)
 		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
-// Calculates the stres cost of vairous interactions.
+/// Calculates the stres cost of vairous interactions.
 /datum/action/cooldown/power/psyker/telekinesis/proc/get_stress_cost_for_atom(atom/target)
 	var/cost
 	// You shouldn't get as stressed from picking up a pen as a closet.
@@ -183,7 +183,7 @@
 
 	modify_stress(PSYKER_STRESS_TRIVIAL * seconds_per_tick) // As long as you don't do anything fancy and aren't stressed already, you can do this forever.
 
-// The fun part, punting shit.
+/// The fun part, punting shit.
 /datum/action/cooldown/power/psyker/telekinesis/proc/punt_held(mob/living/user, atom/target)
 	if(!grabbed_atom)
 		return
@@ -216,7 +216,7 @@
 		spin = isitem(launched)
 	)
 
-// The proverbial leash.
+/// The proverbial leash.
 /datum/action/cooldown/power/psyker/telekinesis/proc/range_check(mob/living/user, atom/target)
 	if(!user || !isturf(user.loc))
 		return FALSE
@@ -224,7 +224,7 @@
 		return FALSE
 	return (target in view(grab_range, user))
 
-// Can we ACTUALLY grab it or will it just fizz out?
+/// Can we ACTUALLY grab it or will it just fizz out?
 /datum/action/cooldown/power/psyker/telekinesis/proc/can_grab(mob/living/user, atom/target)
 	if(user == target)
 		return FALSE
@@ -258,6 +258,7 @@
 
 	return TRUE
 
+/// Attempts to grab a target atom
 /datum/action/cooldown/power/psyker/telekinesis/proc/grab_atom(atom/movable/target)
 	// If anything was already held, clear it first
 	if(grabbed_atom)
@@ -300,6 +301,7 @@
 
 	START_PROCESSING(SSfastprocess, src)
 
+/// Ends the currently ongoing grab on a target.
 /datum/action/cooldown/power/psyker/telekinesis/proc/clear_grab(playsound = TRUE)
 	active = FALSE
 	if(!grabbed_atom)
@@ -340,17 +342,19 @@
 		owner.clear_fullscreen("psyker_tk")
 	kinesis_catcher = null
 
+/// Tells the grab that the mob's state has changed and ends the grab if it becomes invalid.
 /datum/action/cooldown/power/psyker/telekinesis/proc/on_statchange(mob/grabbed_mob, new_stat)
 	SIGNAL_HANDLER
 	if(new_stat < stat_required)
 		clear_grab()
 
+/// Tells the grab that the target has become anchored and to tend the grab
 /datum/action/cooldown/power/psyker/telekinesis/proc/on_setanchored(atom/movable/grabbed_atom_ref, anchorvalue)
 	SIGNAL_HANDLER
 	if(grabbed_atom_ref.anchored)
 		clear_grab()
 
-// On dispel, drop the thing.
+/// On dispel, drop the thing.
 /datum/action/cooldown/power/psyker/telekinesis/proc/on_dispel(atom/source, atom/dispeller)
 	SIGNAL_HANDLER
 	if(grabbed_atom)

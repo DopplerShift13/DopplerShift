@@ -98,7 +98,7 @@
 	modify_stress(PSYKER_STRESS_TRIVIAL)
 	return ..()
 
-// Picks a valid mob in view to satisfy target checks for area telepathy; doubles as a check to see if we even have anyone to telepathy to.
+/// Picks a valid mob in view to satisfy target checks for area telepathy; doubles as a check to see if we even have anyone to telepathy to.
 /datum/action/cooldown/power/psyker/telepathy/proc/get_aoe_dummy_target(mob/living/user)
 	var/list/targets = list()
 	for(var/mob/living/target in view(user))
@@ -112,7 +112,7 @@
 		return null
 	return pick(targets)
 
-// Singular transmission
+/// Singular transmission
 /datum/action/cooldown/power/psyker/telepathy/proc/send_thought(mob/living/caster, mob/living/target, message, disable_feedback = FALSE)
 	log_directed_talk(caster, target, message, LOG_SAY, name)
 
@@ -125,7 +125,7 @@
 		send_ghost_message(caster, target, formatted_message)
 
 
-// AoE transmission
+/// AoE transmission
 /datum/action/cooldown/power/psyker/telepathy/proc/send_area_thought(mob/living/user)
 	if(show_typing_bubble)
 		start_telepathy_typing_overlay(user)
@@ -161,7 +161,7 @@
 	stop_telepathy_typing_overlay(user, TRUE)
 	return TRUE
 
-// Tells the ghosts that telepathy talk is happening.
+/// Tells the ghosts that telepathy talk is happening.
 /datum/action/cooldown/power/psyker/telepathy/proc/send_ghost_message(mob/living/caster, mob/living/target, formatted_message, area_broadcast = FALSE)
 	for(var/mob/dead/ghost as anything in GLOB.dead_mob_list)
 		if(!isobserver(ghost))

@@ -20,7 +20,7 @@
 	. = ..()
 	ValidateOrgan()
 
-// Actually checks if our Psyker Organ is there. We really want to check this every use.
+/// Actually checks if our Psyker Organ is there. We really want to check this every use.
 /datum/action/cooldown/power/psyker/proc/ValidateOrgan()
 	if(owner) // Prevents runtiming on start
 		psyker_organ =  owner.get_organ_slot(ORGAN_SLOT_PSYKER)
@@ -28,8 +28,7 @@
 		return FALSE
 	return TRUE
 
-// This doesn't actually add the stress itself; it merely tells the organ to add the stress.
-// Validation is handled on the organ side.
+/// This doesn't actually add the stress itself; it merely tells the organ to add the stress. Validation is handled on the organ side.
 /datum/action/cooldown/power/psyker/proc/modify_stress(amount, override_cap)
 	psyker_organ.modify_stress(amount, override_cap)
 
@@ -46,7 +45,7 @@
 		return FALSE
 	. = .. ()
 
-// Checks if the target can be affected by mental based psyker stuff, since it has its own litle list of unique immunities. Returns TRUE if the target has nothing that affects mental.
+/// Checks if the target can be affected by mental based psyker stuff, since it has its own litle list of unique immunities. Returns TRUE if the target has nothing that affects mental.
 /datum/action/cooldown/power/psyker/proc/can_affect_mental(mob/living/target, charge_cost)
 	if(!charge_cost)
 		charge_cost = antimagic_charge_cost
@@ -60,7 +59,7 @@
 		return FALSE
 	return TRUE
 
-// Checks if the target can be affected by specifically psyker's scrying
+/// Checks if the target can be affected by specifically psyker's scrying
 /datum/action/cooldown/power/psyker/proc/can_affect_scrying(mob/living/target, charge_cost = 0)
 	if(!charge_cost)
 		charge_cost = antimagic_charge_cost

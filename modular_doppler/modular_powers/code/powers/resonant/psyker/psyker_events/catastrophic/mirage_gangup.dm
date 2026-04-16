@@ -19,6 +19,7 @@
 
 	return TRUE
 
+/// Creates a mirrage specific to gang-up, copies the parent mob and tells it to GO GET THE FUKKEN PSYKER
 /datum/psyker_event/catastrophic/mirage_gangup/proc/_spawn_gangup_mirage(mob/living/carbon/human/psyker)
 	if(!psyker || QDELETED(psyker))
 		return
@@ -31,6 +32,7 @@
 	new_mirage.Copy_Parent(psyker, mirage_lifetime)
 	new_mirage.aggro_on(psyker)
 
+/// Find an appropriate space to create our mirrages
 /datum/psyker_event/catastrophic/mirage_gangup/proc/pick_spawn_turf(mob/living/psyker)
 	var/list/valid_turfs = list()
 	for(var/turf/turf_candidate in view(spawn_range, psyker))
@@ -116,11 +118,13 @@
 	UnregisterSignal(src, COMSIG_ATOM_DISPEL)
 	return ..()
 
+/// Poofs the mob on dispel
 /mob/living/basic/mirage_gangup/proc/on_mirage_dispel(datum/source, atom/dispeller)
 	SIGNAL_HANDLER
 	qdel(src)
 	return DISPEL_RESULT_DISPELLED
 
+/// Actually makes mirage sprites rotate.
 /mob/living/basic/mirage_gangup/proc/on_mirage_dir_change(datum/source, old_dir, new_dir)
 	SIGNAL_HANDLER
 	var/image/appearance_image = hud_list?[alt_appearance_key]

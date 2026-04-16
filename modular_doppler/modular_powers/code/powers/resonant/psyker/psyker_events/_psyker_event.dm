@@ -10,22 +10,22 @@
 	// For events that continue for a while, this skips the qdel step. MAKE SURE YOU QDEL IT YOURSELF LATER INSIDE THE CODE.
 	var/lingering = FALSE
 
-// Are there any special prerequisites?
+/// Are there any special prerequisites?
 /datum/psyker_event/proc/can_execute(mob/living/carbon/human/psyker)
 		return TRUE
 
-// Return TRUE if the event actually happens, FALSE if it should be skipped
+/// Return TRUE if the event actually happens, FALSE if it doesnt and should be skipped
 /datum/psyker_event/proc/execute(mob/living/carbon/human/psyker)
 		return FALSE
 
-// Milds generally want to not take you out of the flow but be noticeable enough that someone paying attention will notice they're pushing the line.
+/// Milds generally want to not take you out of the flow but be noticeable enough that someone paying attention will notice they're pushing the line.
 /datum/psyker_event/mild
 	abstract_type = /datum/psyker_event/mild
 
-// Severe are the very clear warning to stop. These should be obvious and detrimental, with a clear goal of making it so that you stop and meditate or face the consequences.
+/// Severe are the very clear warning to stop. These should be obvious and detrimental, with a clear goal of making it so that you stop and meditate or face the consequences.
 /datum/psyker_event/severe
 	abstract_type = /datum/psyker_event/severe
 
-// The consequences of your actions. Usually things that demand an immediate medbay visit or leave lingering consequences for the Psyker.
+/// The consequences of your actions. Usually things that demand an immediate medbay visit or leave lingering consequences for the Psyker.
 /datum/psyker_event/catastrophic
 	abstract_type = /datum/psyker_event/catastrophic

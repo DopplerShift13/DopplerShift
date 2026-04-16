@@ -26,11 +26,11 @@
 	click_to_activate = TRUE
 	unset_after_click = FALSE
 
-	// Active mirage instances
+	/// Active mirage instances
 	var/list/active_mirages = list()
-	// Mirage behavior mode
+	/// Mirage behavior mode
 	var/mode = MIRAGE_MODE_STATIONARY
-	// Stress cost
+	/// Stress cost
 	var/stress_cost = PSYKER_STRESS_MODERATE * 1.5
 
 // WE get the right click behavior to cycle behavior.
@@ -72,7 +72,7 @@
 
 	return TRUE
 
-// Changes behavior of the sapawned illusion.
+/// Changes behavior of the spawned illusion.
 /datum/action/cooldown/power/psyker/mirage/proc/cycle_mode()
 	if(mode == MIRAGE_MODE_STATIONARY)
 		mode = MIRAGE_MODE_AGGRESSIVE
@@ -91,6 +91,7 @@
 			qdel(mirage)
 	active_mirages.Cut()
 
+/// Removes all active mirages.
 /datum/action/cooldown/power/psyker/mirage/proc/cleanup_mirages()
 	for(var/mob/living/basic/resonant_mirage/mirage as anything in active_mirages.Copy())
 		if(QDELETED(mirage))
@@ -118,6 +119,7 @@
 
 	/// Weakref to what we're copying
 	var/datum/weakref/parent_mob_ref
+	/// Weakref to the power action
 	var/datum/weakref/action_ref
 	/// the mode that was used to summon this creature
 	var/last_mode = MIRAGE_MODE_STATIONARY
@@ -233,6 +235,7 @@
 	action_ref = null
 	return ..()
 
+/// On dispel, poofs the mirrage.
 /mob/living/basic/resonant_mirage/proc/on_mirage_dispel(datum/source, atom/dispeller)
 	SIGNAL_HANDLER
 	qdel(src)
@@ -313,8 +316,11 @@
 
 /// Alternate appearance for mirage: semi-transparent for owner and mental-immune viewers.
 /datum/atom_hud/alternate_appearance/basic/mirage_alpha
+	/// Reference to the power action
 	var/datum/weakref/action_ref
+	/// Reference to the power action owner
 	var/datum/weakref/owner_ref
+	/// Alpha percentage on the mob alt appearance
 	var/alpha_override = 80
 
 /datum/atom_hud/alternate_appearance/basic/mirage_alpha/New(key, image/appearance_image, datum/action/cooldown/power/psyker/mirage/action, mob/living/owner, options = AA_TARGET_SEE_APPEARANCE)

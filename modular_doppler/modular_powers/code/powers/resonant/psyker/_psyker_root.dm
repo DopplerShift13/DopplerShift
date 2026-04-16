@@ -13,6 +13,7 @@
 	path = POWER_PATH_PSYKER
 	priority = POWER_PRIORITY_ROOT
 
+	/// Reference to the psyker's paracausal gland organ.
 	var/obj/item/organ/resonant/psyker/psyker_organ
 
 /datum/power/psyker_root/add(client/client_source)

@@ -19,6 +19,7 @@
 
 	return TRUE
 
+/// Every tick we do horrible things to the mob; then check if we should do another tick.
 /datum/psyker_event/catastrophic/telekinetic_backlash/proc/_backlash_tick(mob/living/carbon/human/psyker, tick_count)
 	if(!psyker || QDELETED(psyker))
 		qdel(src)

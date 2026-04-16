@@ -13,7 +13,7 @@
 	button_icon_state = "beam_up"
 
 	mental = FALSE
-	// Overlay we add to the caster
+	/// Overlay we add to the caster
 	var/mutable_appearance/caster_effect
 
 /datum/action/cooldown/power/psyker/levitate/use_action()
@@ -73,6 +73,7 @@
 	if(resonant)
 		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
+/// Ends the effect; makes them splat if they can't catch themselves.
 /datum/action/cooldown/power/psyker/levitate/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 
@@ -93,7 +94,7 @@
 			to_chat(owner, span_warning("You drop to the ground, but manage to catch yourself!"))
 		else
 			to_chat(owner, span_userdanger("You drop to the ground!"))
-			playsound(owner, 'sound/effects/desecration/desecration-02.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+			playsound(owner, 'sound/effects/desecration/desecration-02.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE) // Research (vibes) shows desecration-02 is the best "hit the ground"-type splat; so we're using it instead of a random desecration.
 			victim.adjustBruteLoss(5)
 			victim.Knockdown(3 SECONDS)
 		return DISPEL_RESULT_DISPELLED

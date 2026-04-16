@@ -8,23 +8,24 @@
 	slot = ORGAN_SLOT_PSYKER
 	zone = BODY_ZONE_CHEST
 
-	// The psyker organ handles most of the stress to do with psyker abilities. Without this organ, you can't use these abilities.
-	// Stress is not correlated to organ damage, but organ damage does affect this gland.
+	/// The psyker organ handles most of the stress to do with psyker abilities; which is their central currecny. Without this organ, you can't use psyker abilities.
+	/// Stress is not correlated to organ damage, but organ damage does affect this gland.
 	var/stress = 0
-	// Stress threshold is how much the psyker organ can handle before the bad events start befalling the user.
-	// Usually, 1x is the minor events, 1.5x are the major events, and 2x are the catastrophic events.
+	/// Stress threshold is how much the psyker organ can handle before the bad events start befalling the user.
+	/// Usually, 1x is the minor events, 1.5x are the major events, and 2x are the catastrophic events.
 	var/stress_threshold = PSYKER_STRESS_STANDARD_THRESHOLD
-	// Base recovery per second
+	/// Base recovery per second
 	var/recovery_per_second = PSYKER_STRESS_RECOVERY
 
-	//Cooldowns for the stress events
+	///Cooldown for mild stress events
 	var/CDstressMild = 0
+	///Cooldown for major stress events
 	var/CDstressSevere = 0
 
-	//The stress warning message
+	///The stress warning message
 	var/datum/status_effect/power/stress_warning
 
-// Call to modify stress. Don't adjust directly.
+/// Call to modify stress. Don't adjust directly.
 /obj/item/organ/resonant/psyker/proc/modify_stress(amount, override_cap)
 	if(!isnum(amount))
 		return
@@ -88,7 +89,7 @@
 		owner.apply_damage(damage * 0.1, TOX)
 
 // "The psyker is exploding and probably about to summon extradimensional demons."
-// When psyker stress gets too high, it triggers bad events, this chooses said bad events.
+/// When psyker stress gets too high, it triggers bad events, this chooses said bad events.
 /obj/item/organ/resonant/psyker/proc/stress_backlash(degree)
 	var/mob/living/carbon/human/human = owner
 	if(!istype(human))
@@ -108,7 +109,7 @@
 	pick_psyker_event(base_type, human)
 	return TRUE
 
-// Picks the backlash event
+/// Picks the backlash event after a stress breakdown
 /obj/item/organ/resonant/psyker/proc/pick_psyker_event(base_type, mob/living/carbon/human/human)
 	var/list/candidates = list()
 

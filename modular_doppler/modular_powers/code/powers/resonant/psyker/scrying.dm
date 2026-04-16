@@ -19,16 +19,17 @@
 	click_to_activate = TRUE
 	target_range = 1
 
+	/// The target we are currently scrying
 	var/atom/movable/scry_target
 
 	// This thing is a MESS. We have split functionality into three datums.
-	// Scrying Camera which handles imparting the sight of the target
+	/// Scrying Camera which handles imparting the sight of the target
 	var/datum/scrying_camera/scry_camera
-	// Scrying Vision which handles vision traits on the user.
+	/// Scrying Vision which handles vision traits on the user.
 	var/datum/scrying_vision/scry_vision
-	// Scrying Immunity Mask which hides people into indistinct overlays.
+	/// Scrying Immunity Mask which hides people into indistinct overlays.
 	var/datum/scrying_immunity_mask/immunity_mask
-	// and Scrying Tracker which basically handles any and all things related to stress gain.
+	/// and Scrying Tracker which basically handles any and all things related to stress gain.
 	var/datum/psyker_scry_tracker/tracker
 
 /datum/action/cooldown/power/psyker/scrying/Trigger(mob/clicker, trigger_flags, atom/target)
@@ -62,7 +63,7 @@
 	active = TRUE
 
 	scry_target = chosen_target
-	// We create the new datums which will immedaitely handle their effects.
+	// We create the new datums which will immediately handle their effects.
 	scry_camera = new(user, scry_target, src)
 	scry_vision = new(user)
 	tracker = new(src, user)
@@ -78,7 +79,7 @@
 	RegisterSignal(scry_target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	return TRUE
 
-// Dispel functionality
+// Dispel signalers
 /datum/action/cooldown/power/psyker/scrying/Grant(mob/granted_to)
 	. = ..()
 	if(resonant)
@@ -90,13 +91,14 @@
 		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 	end_scrying()
 
+/// Dispel proc ends the scrying
 /datum/action/cooldown/power/psyker/scrying/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	if(active)
 		to_chat(owner, span_warning("Your scrying link was cut off!"))
 		end_scrying()
 
-// Gets DNA from blood
+/// Gets DNA from blood
 /datum/action/cooldown/power/psyker/scrying/proc/get_blood_dna_list_from_target(atom/target)
 	if(isnull(target))
 		return null
@@ -135,7 +137,7 @@
 
 	return dna_list
 
-// Checks the blood for a dna match.
+///	 Checks the blood for a dna match.
 /datum/action/cooldown/power/psyker/scrying/proc/find_scry_target_from_dna(selected_dna)
 	if(!selected_dna)
 		return null
@@ -148,7 +150,7 @@
 			return target
 	return null
 
-// called by everything that eneds scrying; removes all the datums and left over signalers.
+/// called by everything that ends scrying; removes all the datums and left over signalers.
 /datum/action/cooldown/power/psyker/scrying/proc/end_scrying()
 	if(!active)
 		return
@@ -172,8 +174,9 @@
 	Handles the removal of vision traits and the application of the overlay.
 */
 /datum/scrying_vision
-	// Used to remove/re-add quirk blindness safely.
+	/// Used to remove/re-add quirk blindness safely.
 	var/had_blind_quirk = FALSE
+	/// Weakref to the viewer mob
 	var/datum/weakref/viewer_ref
 
 /datum/scrying_vision/New(mob/living/viewer)
@@ -186,6 +189,7 @@
 	viewer_ref = null
 	return ..()
 
+/// Applies vision modifiers such as removing blindness quirk vision, as well as adding thecurse overlay.
 /datum/scrying_vision/proc/apply()
 	var/mob/living/viewer = viewer_ref?.resolve()
 	if(!istype(viewer))
@@ -202,6 +206,7 @@
 	viewer.overlay_fullscreen("curse", /atom/movable/screen/fullscreen/curse, 1)
 	viewer.update_sight()
 
+/// Removes the things applied in apply()
 /datum/scrying_vision/proc/clear()
 	var/mob/living/viewer = viewer_ref?.resolve()
 	if(!istype(viewer))
@@ -222,9 +227,13 @@
 	This sets the player's perspective to a scry eye that follows the target.
 */
 /datum/scrying_camera
+	/// Weakref to the viewer mob
 	var/datum/weakref/viewer_ref
+	/// Weakref to the target mob
 	var/datum/weakref/target_ref
+	/// Weakref to the power action
 	var/datum/weakref/action_ref
+	/// Weakref to the mob/eye that handles the vision
 	var/mob/eye/psyker_scry/scry_eye
 
 
@@ -258,6 +267,7 @@
 	target_ref = null
 	return ..()
 
+/// Called by the moved and qdeleted signaler, updating the scrying eye's location or removing it if qdeled
 /datum/scrying_camera/proc/on_target_event(datum/source)
 	SIGNAL_HANDLER
 
@@ -282,7 +292,9 @@
 	Tracker just adds stress and handles proccessing.
 */
 /datum/psyker_scry_tracker
+	/// Weakref to the power action
 	var/datum/weakref/action_ref
+	/// Weakref to the power's owner
 	var/datum/weakref/owner_ref
 
 /datum/psyker_scry_tracker/New(datum/action/cooldown/power/psyker/scrying/action, mob/living/owner)
@@ -334,11 +346,14 @@
 	Used to mask mobs from the scrying eye.
 */
 /datum/scrying_immunity_mask
+	/// Weakref to the viewer mob
 	var/datum/weakref/viewer_ref
+	/// Weakref to the mob eye
 	var/datum/weakref/eye_ref
+	/// Weakref to the power action
 	var/datum/weakref/action_ref
 
-	// mob -> mask_image
+	/// mob -> mask_image
 	var/list/masked_mobs = list()
 
 /datum/scrying_immunity_mask/New(datum/action/cooldown/power/psyker/scrying/action, mob/living/viewer, mob/eye/psyker_scry/eye)
@@ -373,6 +388,7 @@
 
 	update_masks(viewer, eye, action)
 
+/// Proc that signals update_masks() and forces a refresh of all the masks
 /datum/scrying_immunity_mask/proc/refresh_now()
 	var/datum/action/cooldown/power/psyker/scrying/action = action_ref?.resolve()
 	var/mob/living/viewer = viewer_ref?.resolve()
@@ -382,6 +398,7 @@
 
 	update_masks(viewer, eye, action)
 
+/// Gets every mob in view and applies an alpha'd mask to all mobs.
 /datum/scrying_immunity_mask/proc/update_masks(mob/living/viewer, mob/eye/psyker_scry/eye, datum/action/cooldown/power/psyker/scrying/action)
 	var/list/current_mobs = list()
 	for(var/mob/living/seen_mob in view(viewer.client.view, eye))
@@ -400,7 +417,7 @@
 
 		mask_mob(viewer, seen_mob)
 
-// Keep silhouettes aligned with the target's current appearance (transform/pixel offsets/dir).
+/// Keep silhouettes aligned with the target's current appearance (transform/pixel offsets/dir).
 /datum/scrying_immunity_mask/proc/sync_mask_image(mob/living/target_mob)
 	var/image/mask_image = masked_mobs[target_mob]
 	if(!mask_image)
@@ -420,6 +437,7 @@
 	mask_image.pixel_z = 0
 	SET_PLANE_EXPLICIT(mask_image, ABOVE_GAME_PLANE, target_mob)
 
+/// Applies the alpha mob mask, turning them into a see-trhrough silhouette
 /datum/scrying_immunity_mask/proc/mask_mob(mob/living/viewer, mob/living/target_mob)
 	if(!viewer?.client || QDELETED(target_mob))
 		return
@@ -447,6 +465,7 @@
 	RegisterSignal(target_mob, COMSIG_ATOM_EXAMINE, PROC_REF(on_target_examine))
 	hide_data_huds(viewer, target_mob)
 
+/// Removes mob masking from a target
 /datum/scrying_immunity_mask/proc/unmask_mob(mob/living/viewer, mob/living/target_mob)
 	var/image/mask_image = masked_mobs[target_mob]
 	if(!mask_image)
@@ -459,6 +478,7 @@
 	unhide_data_huds(viewer, target_mob)
 	masked_mobs -= target_mob
 
+/// Clears all mob masks on the target
 /datum/scrying_immunity_mask/proc/clear_all()
 	var/mob/living/viewer = viewer_ref?.resolve()
 	if(!viewer?.client)
@@ -468,6 +488,7 @@
 	for(var/mob/living/masked_mob as anything in masked_mobs.Copy())
 		unmask_mob(viewer, masked_mob)
 
+/// Overrides the examine text of the target to be vague.
 /datum/scrying_immunity_mask/proc/on_target_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 
@@ -482,18 +503,21 @@
 	examine_list += span_notice("It's too hazy to make out details.")
 	return NONE
 
+/// Hides all glasses HUDs from the target mob.
 /datum/scrying_immunity_mask/proc/hide_data_huds(mob/living/viewer, mob/living/target_mob)
 	if(!viewer || !target_mob)
 		return
 	for(var/datum/atom_hud/hud as anything in GLOB.huds)
 		hud.hide_single_atomhud_from(viewer, target_mob)
 
+/// Unhides all glasses HUDs from the target mob
 /datum/scrying_immunity_mask/proc/unhide_data_huds(mob/living/viewer, mob/living/target_mob)
 	if(!viewer || !target_mob)
 		return
 	for(var/datum/atom_hud/hud as anything in GLOB.huds)
 		hud.unhide_single_atomhud_from(viewer, target_mob)
 
+/// Forcefully overrides the examine name of the target.
 /datum/scrying_immunity_mask/proc/examine_name_override(datum/source, mob/living/examined, visible_name, list/name_override)
 	SIGNAL_HANDLER
 
@@ -503,6 +527,7 @@
 	name_override[1] = "Unknown"
 	return COMPONENT_EXAMINE_NAME_OVERRIDEN
 
+/// Forcefully overrides the top portion screentip of the mob's name.
 /datum/scrying_immunity_mask/proc/screentip_name_override(datum/source, list/returned_name, obj/item/held_item, atom/hovered)
 	SIGNAL_HANDLER
 
@@ -518,13 +543,16 @@
 */
 /mob/eye/psyker_scry
 	name = "scrying eye"
+	/// Weakref to the user that's seeing through the mob eye
 	var/datum/weakref/user_ref
+	/// Weakref to the target we're following
 	var/datum/weakref/target_ref
 
 /mob/eye/psyker_scry/Destroy()
 	assign_user(null)
 	return ..()
 
+/// Assigns the mob we're following.
 /mob/eye/psyker_scry/proc/assign_user(mob/living/new_user)
 	var/mob/living/old_user = user_ref?.resolve()
 	if(old_user)
@@ -537,9 +565,11 @@
 		new_user.reset_perspective(src)
 		name = "Scrying Eye ([new_user.name])"
 
+/// Sets our target weakref
 /mob/eye/psyker_scry/proc/set_target(atom/movable/target)
 	target_ref = WEAKREF(target)
 
+/// Updates the location of the mob eye.
 /mob/eye/psyker_scry/proc/setLoc(turf/destination, force_update = FALSE)
 	if(destination)
 		forceMove(destination)

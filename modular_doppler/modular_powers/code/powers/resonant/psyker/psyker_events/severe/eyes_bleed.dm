@@ -21,6 +21,7 @@
 	addtimer(CALLBACK(src, PROC_REF(_remove_blind), psyker), 6 SECONDS)
 	return TRUE
 
+/// Callback that removes the red eyeblind
 /datum/psyker_event/severe/eyes_bleed/proc/_remove_blind(mob/living/carbon/human/psyker)
 	// remove visual effects
 	psyker.cure_nearsighted(src)

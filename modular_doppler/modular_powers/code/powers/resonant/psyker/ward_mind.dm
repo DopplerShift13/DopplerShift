@@ -15,7 +15,7 @@
 	button_icon_state = "magic_box"
 	cooldown_time = 15 SECONDS
 
-	// The status effect on the caster.
+	/// The status effect on the caster.
 	var/datum/status_effect/power/ward_mind/active_effect
 
 /datum/action/cooldown/power/psyker/ward_mind/Remove(mob/removed_from)
@@ -45,11 +45,11 @@
 	tick_interval = 1 SECONDS
 	processing_speed = STATUS_EFFECT_FAST_PROCESS
 
-	// Stress per blocked antimagic charge.
+	/// Stress per blocked antimagic charge.
 	var/stress_per_charge = PSYKER_STRESS_MODERATE
-	// Per-second upkeep while active.
+	/// Per-second upkeep while active.
 	var/stress_per_second = PSYKER_STRESS_TRIVIAL * 1.5
-
+	/// Reference to the ward mind action.
 	var/datum/action/cooldown/power/psyker/ward_mind/source_action
 
 /atom/movable/screen/alert/status_effect/ward_mind
@@ -86,6 +86,7 @@
 		source_action.build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return
 
+/// When any magical effect attempts to interact with us, attempt to block it if its mental.
 /datum/status_effect/power/ward_mind/proc/on_receive_magic(mob/living/carbon/source, casted_magic_flags, charge_cost, list/antimagic_sources)
 	SIGNAL_HANDLER
 	if(!(casted_magic_flags & MAGIC_RESISTANCE_MIND))
@@ -99,11 +100,13 @@
 	antimagic_sources += owner
 	return COMPONENT_MAGIC_BLOCKED
 
+/// Stresses out the psyker based on what we blocked and its charge cost.
 /datum/status_effect/power/ward_mind/proc/adjust_stress_from_block(obj/item/organ/resonant/psyker/psyker_organ, charge_cost)
 	if(!isnum(charge_cost) || charge_cost <= 0)
 		return
 	psyker_organ.modify_stress(charge_cost * stress_per_charge)
 
+/// On dispel, end the status effect.
 /datum/status_effect/power/ward_mind/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	qdel(src)

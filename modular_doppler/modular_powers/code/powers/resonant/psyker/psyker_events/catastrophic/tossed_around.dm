@@ -41,6 +41,7 @@
 	addtimer(CALLBACK(src, PROC_REF(_toss_tick), psyker, 0), 1 SECONDS)
 	return TRUE
 
+/// Every tick, we try to fling the mob at dangerous things; or in random directs, and then determine if we want to do it AGAIN
 /datum/psyker_event/catastrophic/tossed_around/proc/_toss_tick(mob/living/carbon/human/psyker, tick_count)
 	if(!psyker || QDELETED(psyker))
 		qdel(src)
@@ -83,12 +84,14 @@
 
 	addtimer(CALLBACK(src, PROC_REF(_toss_tick), psyker, tick_count + 1), 1 SECONDS)
 
+/// Forcefully flushes disposals on impact
 /datum/psyker_event/catastrophic/tossed_around/proc/flush_disposal(mob/living/carbon/human/psyker, obj/machinery/disposal/target_disposal)
 	if(!psyker || QDELETED(psyker) || !target_disposal || QDELETED(target_disposal))
 		return
 	target_disposal.flush()
 	return
 
+/// Runs a variety of on-hit effects when tossed into a surface.
 /datum/psyker_event/catastrophic/tossed_around/proc/on_toss_impact(atom/movable/source, atom/hit_atom, datum/thrownthing/throwingdatum)
 	SIGNAL_HANDLER
 

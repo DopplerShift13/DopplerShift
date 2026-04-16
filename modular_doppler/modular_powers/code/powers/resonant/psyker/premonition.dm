@@ -8,7 +8,7 @@
 	security_record_text = "Subject has strange bodily reactions whenever a certain keyphrase is mentioned."
 	value = 2
 
-	// Trakcs the component
+	/// Trakcs the component
 	var/datum/component/beetlejuice/premonition/premonition_component
 
 // Adds the special beetlejuice component, gets the prefernece components.
@@ -115,6 +115,7 @@
 /datum/preference/choiced/premonition_emote/apply_to_human(mob/living/carbon/human/target, value)
 	return
 
+/// Gets the list of emotes available for preminition using the global emote list.
 /datum/preference/choiced/premonition_emote/proc/get_premonition_emote_choices()
 	var/list/choices = list()
 	for(var/key in GLOB.emote_list)
@@ -126,6 +127,7 @@
 		return list("sneeze")
 	return sort_list(choices)
 
+/// Makes sure that the chosen emote is actually in the emote list and not just some random-thing you made up.
 /datum/preference/choiced/premonition_emote/proc/validate_premonition_emote_choice(value)
 	if(!istext(value))
 		value = null
