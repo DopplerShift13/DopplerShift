@@ -67,7 +67,7 @@
 	premium_component?.update_quality_actions()
 	to_chat(owner, span_warning("Your [name] becomes disabled!"))
 
-/obj/item/organ/cyberimp/arm/pneumatic_arm/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_accuracy, limb_sharpness)
+/obj/item/organ/cyberimp/arm/pneumatic_arm/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 	SIGNAL_HANDLER
 	if(!target || !premium_component?.can_function())
 		return

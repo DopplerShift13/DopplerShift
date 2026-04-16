@@ -34,6 +34,10 @@
 	)
 	to_chat(user, span_danger("You [response_harm_simple] [src]!"))
 	playsound(loc, attacked_sound, 25, TRUE, -1)
+	/// DOPPLER ADDITION START - Sends unarmed hit signalers for unarmed powers such as martial artist, cultivator, etc.
+	var/limb_sharpness = active_arm?.unarmed_sharpness
+	SEND_SIGNAL(user, COMSIG_HUMAN_UNARMED_HIT, src, null, damage, 0, limb_sharpness)
+	/// DOPPLER ADDITION END
 	apply_damage(damage)
 	log_combat(user, src, "attacked")
 	updatehealth()

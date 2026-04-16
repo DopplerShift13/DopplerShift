@@ -26,7 +26,7 @@
 
 // Sends a signal to the new signaler for unarmed punches.
 // Will probably be used a lot more with cultivator.
-/datum/power/cultivator/from_friction_comes_flame/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_accuracy, limb_sharpness)
+/datum/power/cultivator/from_friction_comes_flame/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 	SIGNAL_HANDLER
 	if(!target || !is_flame_soul_alignment_active(user))
 		return

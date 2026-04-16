@@ -46,7 +46,7 @@
 		remove_alignment_armor()
 
 // The proc for onhit. Override as desired.
-/datum/action/cooldown/power/cultivator/alignment/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_accuracy, limb_sharpness)
+/datum/action/cooldown/power/cultivator/alignment/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 	SIGNAL_HANDLER
 	if(!active)
 		return

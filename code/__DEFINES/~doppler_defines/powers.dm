@@ -59,7 +59,7 @@
 #define COMSIG_ATOM_DISPEL "atom_dispel"
 
 /// Fired after a successful unarmed hit (i.e. not missed/blocked), right before damage is applied.
-/// Args: (mob/living/carbon/attacker, mob/living/carbon/target, obj/item/bodypart/affecting, damage, armor_block, limb_accuracy, limb_sharpness)
+/// Args: (mob/living/carbon/attacker, mob/living/carbon/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 #define COMSIG_HUMAN_UNARMED_HIT "living_unarmed_hit"
 
 // Bitflag return value(s) from handlers:

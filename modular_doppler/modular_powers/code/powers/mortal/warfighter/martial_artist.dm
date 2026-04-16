@@ -20,9 +20,8 @@
 
 // Sends a signal to the new signaler for unarmed punches.
 // Will probably be used a lot more with cultivator.
-/datum/power/warfighter/martial_artist/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_accuracy, limb_sharpness)
+/datum/power/warfighter/martial_artist/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 	SIGNAL_HANDLER
 	if(!target || bonus_damage <= 0)
 		return
 	target.apply_damage(bonus_damage, BRUTE, affecting, armor_block, sharpness = limb_sharpness)
-

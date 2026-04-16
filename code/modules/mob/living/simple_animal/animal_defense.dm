@@ -27,6 +27,11 @@
 		playsound(loc, attacked_sound, 25, TRUE, -1)
 		apply_damage(harm_intent_damage)
 		log_combat(user, src, "attacked")
+		/// DOPPLER ADDITION START - Sends unarmed hit signalers for unarmed powers such as martial artist, cultivator, etc.
+		var/obj/item/bodypart/arm/active_arm = user.get_active_hand()
+		var/limb_sharpness = active_arm?.unarmed_sharpness
+		SEND_SIGNAL(user, COMSIG_HUMAN_UNARMED_HIT, src, null, harm_intent_damage, 0, limb_sharpness)
+		// DOPPLER ADDITION END
 		return TRUE
 
 /mob/living/simple_animal/get_shoving_message(mob/living/shover, obj/item/weapon, shove_flags)

@@ -32,6 +32,11 @@
 		var/obj/item/bodypart/affecting = get_bodypart(get_random_valid_zone(user.zone_selected))
 		apply_damage(damage, BRUTE, affecting)
 		log_combat(user, src, "attacked")
+		/// DOPPLER ADDITION START - Sends unarmed hit signalers for unarmed powers such as martial artist, cultivator, etc.
+		var/obj/item/bodypart/arm/active_arm = user.get_active_hand()
+		var/limb_sharpness = active_arm?.unarmed_sharpness
+		SEND_SIGNAL(user, COMSIG_HUMAN_UNARMED_HIT, src, affecting, damage, 0, limb_sharpness)
+		/// DOPPLER ADDITION END
 	else
 		playsound(loc, 'sound/items/weapons/punchmiss.ogg', 25, TRUE, -1)
 		visible_message(span_danger("[user]'s punch misses [src]!"), \

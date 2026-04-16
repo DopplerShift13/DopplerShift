@@ -16,6 +16,5 @@
 		var/mob/living/carbon/human/human_attacker = attacker
 		attacking_limb = human_attacker.get_active_hand()
 
-	var/limb_accuracy = attacking_limb?.unarmed_effectiveness || 0
 	var/limb_sharpness = attacking_limb?.unarmed_sharpness
-	SEND_SIGNAL(attacker, COMSIG_HUMAN_UNARMED_HIT, defender, affecting, 0, armor_block, limb_accuracy, limb_sharpness)
+	SEND_SIGNAL(attacker, COMSIG_HUMAN_UNARMED_HIT, defender, affecting, 0, armor_block, limb_sharpness)
