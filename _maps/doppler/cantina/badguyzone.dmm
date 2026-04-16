@@ -867,6 +867,10 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/powered)
+"pG" = (
+/obj/machinery/computer/cryopod/directional/east,
+/turf/open/floor/iron/white,
+/area/ruin/space/has_grav/powered)
 "pN" = (
 /obj/structure/sink/directional/east,
 /obj/structure/mirror/directional/west,
@@ -3474,7 +3478,7 @@ ng
 Vv
 YI
 Bw
-YI
+pG
 sS
 kW
 Bw
