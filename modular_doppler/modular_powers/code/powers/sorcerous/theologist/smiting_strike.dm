@@ -1,6 +1,6 @@
 /datum/power/theologist/smiting_strike
 	name = "Smiting Strike"
-	desc = "Channel energy into the item you are currently holding. Your next attack that hits with it against a creature deals 15 additional burn damage and sends them flying backwards 4 spaces. \
+	desc = "Channel energy into the item you are currently holding. Your next attack that hits with it against a creature deals 15 additional burn damage and sends them flying backwards 4 spaces. This deals extra damage to unholy creatures. \
 	This knockback cannot stun or damage on impact. Costs 5 Piety to use. This effect ends if the item leaves your hands."
 	security_record_text = "Subject can bless their own weapons to knock back foes and sear their bodies."
 	security_threat = POWER_THREAT_MAJOR
@@ -11,7 +11,7 @@
 
 /datum/action/cooldown/power/theologist/smiting_strike
 	name = "Smiting Strike"
-	desc = "Channel energy into the item you are currently holding. Your next attack that hits with it against a creature deals 15 additional burn damage and sends them flying backwards 4 spaces. \
+	desc = "Channel energy into the item you are currently holding. Your next attack that hits with it against a creature deals 15 additional burn damage and sends them flying backwards 4 spaces. This deals extra damage to unholy creatures. \
 	This knockback cannot stun or damage on impact. Costs 5 Piety to use. This effect ends if the item leaves your hands."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "sword_fling"
@@ -22,6 +22,8 @@
 	var/smite_damage = 15
 	/// How much distance the smite element will knock back
 	var/smite_knockback = 4
+	/// How much bonus damage does it do to unholy targets.
+	var/unholy_smite_bonus = 10
 	///If the upgrade to imbue multiple items is unlocked.
 	var/can_imbue_multiples
 	///If it singular, which one is the one currently imbued?
@@ -78,6 +80,8 @@
 	argument_hash_start_idx = 2
 	/// extra damage the smite does
 	var/smite_damage
+	/// extra damage to unholy targets
+	var/unholy_smite_bonus
 	/// distance the atom will be thrown
 	var/throw_distance
 	/// whether this can throw anchored targets (tables, etc)
@@ -93,7 +97,7 @@
 
 
 // This is basically the knockback code but hybridized. Sue me.
-/datum/element/theologist_smite/Attach(atom/target, smite_damage = 1, throw_distance = 1, throw_anchored = FALSE, throw_gentle = FALSE, self_terminate_on_drop = FALSE)
+/datum/element/theologist_smite/Attach(atom/target, smite_damage = 1, unholy_smite_bonus = 1, throw_distance = 1, throw_anchored = FALSE, throw_gentle = FALSE, self_terminate_on_drop = FALSE)
 // While the balancer inside me suggests we restrict this to melee hits... I kind of want to see the fun of ranged smites.
 // For the future person to balance this; really just remove projectile_hit() and the first if in this sequence if you want to axe ranged.
 	. = ..()
@@ -106,6 +110,7 @@
 
 	ADD_TRAIT(target, TRAIT_HAS_SMITING_STRIKE, src)
 	src.smite_damage = smite_damage
+	src.unholy_smite_bonus = unholy_smite_bonus
 	src.throw_distance = throw_distance
 	src.throw_anchored = throw_anchored
 	src.throw_gentle = throw_gentle
@@ -186,7 +191,11 @@
 	target.safe_throw_at(throw_target, throw_distance, 1, thrower, gentle = throw_gentle)
 	new /obj/effect/temp_visual/electricity(get_turf(target), "#ddd166")
 	playsound(target, 'sound/effects/magic/magic_block_holy.ogg', 75, TRUE)
-	target.adjustFireLoss(smite_damage)
+	//If the mob is in the unholy mob typecache, they take more damage from smite.
+	if(is_type_in_typecache(target, GLOB.unholy_mobs))
+		target.adjustFireLoss(smite_damage + unholy_smite_bonus)
+	else
+		target.adjustFireLoss(smite_damage)
 	to_chat(target, span_userdanger("You are knocked back by a burning, resonant energy!"))
 	return TRUE
 

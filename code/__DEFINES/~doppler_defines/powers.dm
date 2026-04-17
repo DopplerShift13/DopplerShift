@@ -62,6 +62,10 @@
 /// Args: (mob/living/carbon/attacker, mob/living/carbon/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 #define COMSIG_HUMAN_UNARMED_HIT "living_unarmed_hit"
 
+/// Fired after a succesful block in /mob/living/proc/check_block().
+/// Args: (atom/hit_by, damage, attack_text, attack_type, armour_penetration, damage_type)
+#define COMSIG_LIVING_SUCCESSFUL_BLOCK "living_succesful_block"
+
 // Bitflag return value(s) from handlers:
 #define DISPEL_RESULT_DISPELLED (1<<0)
 
