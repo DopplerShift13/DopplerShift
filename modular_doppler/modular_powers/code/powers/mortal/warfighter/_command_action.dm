@@ -11,23 +11,25 @@
 	// silicons I hate to break it to you but you aren't included.
 	target_type = /mob/living/carbon
 
-	// is the user a command staff
+	/// is the user a command staff
 	var/command_bonus = FALSE
-	// is the target part of the user's department?
+	/// is the target part of the user's department?
 	var/department_bonus = FALSE
 
-	// the total effectiveness modifier for commander powers
+	/// the total effectiveness modifier for commander powers
 	var/commander_modifier = WARFIGHTER_COMMANDER_BASE_MULT
 
-	// the symbol displayed over the target's head when using the action
+	/// the symbol displayed over the target's head when using the action
 	var/action_symbol = "point"
 
+/// Is the user a member of the command department.
 /datum/action/cooldown/power/warfighter/command/proc/is_command_staff(mob/living/user)
 	var/datum/job/assigned = user?.mind?.assigned_role
 	if(!assigned)
 		return FALSE
 	return (assigned.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND) || (assigned.job_flags & JOB_HEAD_OF_STAFF)
 
+/// Are the user and target of the same department?
 /datum/action/cooldown/power/warfighter/command/proc/is_same_department(mob/living/user, mob/living/target)
 	var/datum/job/user_job = user?.mind?.assigned_role
 	var/datum/job/target_job = target?.mind?.assigned_role
@@ -72,7 +74,7 @@
 	user.flick_overlay_static(user_symbol, 2 SECONDS)
 	target.flick_overlay_static(target_symbol, 2 SECONDS)
 
-	// plays the sound to only the target and the user given that it's kind-of obnoxious.
+	/// plays the sound to only the target and the user given that it's kind-of obnoxious.
 	var/turf/origin = get_turf(user)
 	var/sound_file = 'sound/items/whistle/whistle.ogg'
 	user.playsound_local(origin, sound_file, 40, TRUE)
@@ -81,7 +83,7 @@
 	// starts the gcd
 	start_command_gcd(user)
 
-// starts a gcd for all warifghter  poewrs.
+// starts a gcd for all warfighter powers to prevent SPAM.
 /datum/action/cooldown/power/warfighter/command/proc/start_command_gcd(mob/living/user)
 	for(var/datum/action/A as anything in user.actions)
 		if(!istype(A, /datum/action/cooldown/power/warfighter/command))

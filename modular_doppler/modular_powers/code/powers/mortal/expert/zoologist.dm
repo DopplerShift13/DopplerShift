@@ -31,7 +31,7 @@
 		user.balloon_alert(user, "they're dead, they won't make for good friends like this!")
 		return
 
-	// sets the range which is basically screen width
+	/// sets the range which is basically screen width
 	var/range_tiles = world.view
 
 	for(var/mob/living/friendshiptarget in view(range_tiles, target))

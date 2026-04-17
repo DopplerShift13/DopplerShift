@@ -29,6 +29,7 @@
 
 	return custom_record
 
+/// Gets the false powers settings from the user's preference.
 /datum/power/expert/false_power/proc/apply_false_power_prefs(client/client_source)
 	if(!client_source)
 		security_threat = POWER_THREAT_MINOR

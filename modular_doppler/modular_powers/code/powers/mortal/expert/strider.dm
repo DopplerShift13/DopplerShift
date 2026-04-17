@@ -10,7 +10,7 @@
 	value = 6
 	required_powers = list(/datum/power/expert/heavy_lifter)
 
-	// how much xp we start with on average. Since the prerequisite skill gives journeyman, we subtract that.
+	/// how much xp we start with on average. Since the prerequisite skill gives journeyman, we subtract that.
 	var/starting_xp_base = SKILL_EXP_MASTER - SKILL_EXP_JOURNEYMAN
 
 /datum/power/expert/strider/post_add()

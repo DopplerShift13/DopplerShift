@@ -27,7 +27,7 @@
 
 	// starts on
 	active = TRUE
-	// Chance that we miss a swing
+	/// Chance that we miss a swing
 	var/dual_wield_miss_chance = 30
 	/// Overlay for mirrored icon when active.
 	var/mutable_appearance/dual_wield_overlay
@@ -47,6 +47,7 @@
 	. = ..()
 	UnregisterSignal(removed_from, COMSIG_MOB_ITEM_ATTACK)
 
+/// Listener for when we ATTEMPT a strike on a mob; at which point we handle our melee attack logic.
 /datum/action/cooldown/power/warfighter/dual_wielder/proc/on_melee_attack(mob/living/source, atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
 	SIGNAL_HANDLER
 
@@ -87,6 +88,7 @@
 		target.visible_message(span_warning("[user] lands a hit with both weapons!"), span_userdanger("<b>You were hit by both of [user]'s weapons!</b>"))
 		playsound(owner, 'sound/items/weapons/etherealhit.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
+/// Validation proc to check if an item is valid to use for melee attacks.
 /datum/action/cooldown/power/warfighter/dual_wielder/proc/is_valid_melee_item(obj/item/item)
 	if(!item)
 		return FALSE
@@ -100,6 +102,7 @@
 		return FALSE
 	return TRUE
 
+/// Attempts an off-hand attack if it passes the vlaidation pipeline.
 /datum/action/cooldown/power/warfighter/dual_wielder/proc/try_offhand_attack(mob/living/source, atom/target, list/modifiers, offhand_miss)
 	var/obj/item/offhand = source.get_inactive_held_item()
 	if(!is_valid_melee_item(offhand))

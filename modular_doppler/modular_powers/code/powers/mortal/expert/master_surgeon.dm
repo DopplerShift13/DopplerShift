@@ -19,6 +19,7 @@
 /datum/power/expert/master_surgeon/remove()
 	UnregisterSignal(power_holder, COMSIG_LIVING_INITIATE_SURGERY_STEP)
 
+/// Applies the modifiers to surgery when we perform a step.
 /datum/power/expert/master_surgeon/proc/apply_surgery_bonuses(mob/living/_source, mob/living/user, mob/living/target, target_zone, obj/item/tool, datum/surgery/surgery, datum/surgery_step/step, list/modifiers)
 	SIGNAL_HANDLER
 	modifiers[FAIL_PROB_INDEX] -= surgery_fail_reduction

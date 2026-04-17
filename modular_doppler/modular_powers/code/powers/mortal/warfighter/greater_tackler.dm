@@ -10,11 +10,11 @@
 
 	required_powers = list(/datum/power/warfighter/tackler)
 
-	// bonuses to success chance
+	/// bonuses to success chance
 	var/skill_mod_bonus = 3
-	// bonuses to range
+	/// bonuses to range
 	var/tackle_range_bonus = 2
-	// bonuses to knockdown duration
+	/// bonuses to knockdown duration
 	var/knockdown_bonus = 0.5 SECONDS
 
 /datum/power/warfighter/tackler/greater_tackler/post_add()

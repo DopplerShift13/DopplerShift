@@ -9,7 +9,7 @@
 	value = 2
 
 	power_flags = POWER_HUMAN_ONLY
-	// how much EEEEXTRA DEEEAAMEEEEG we do with our punches.
+	/// how much EEEEXTRA DEEEAAMEEEEG we do with our punches.
 	var/bonus_damage = 5
 
 /datum/power/warfighter/martial_artist/add()
@@ -18,8 +18,7 @@
 /datum/power/warfighter/martial_artist/remove()
 	UnregisterSignal(power_holder, COMSIG_HUMAN_UNARMED_HIT)
 
-// Sends a signal to the new signaler for unarmed punches.
-// Will probably be used a lot more with cultivator.
+/// Sends a signal to the new signaler for unarmed punches.
 /datum/power/warfighter/martial_artist/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 	SIGNAL_HANDLER
 	if(!target || bonus_damage <= 0)

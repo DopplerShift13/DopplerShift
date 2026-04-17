@@ -16,7 +16,7 @@ Hides your voice as unknown while active. Act out the machivalean you always wan
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bci_say"
 
-	// The current in use status effect
+	/// The current in use status effect
 	var/datum/status_effect/power/obfuscate_voice/active_effect
 
 

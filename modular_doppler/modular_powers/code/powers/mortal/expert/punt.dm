@@ -25,9 +25,9 @@
 	click_to_activate = TRUE
 	cooldown_time = 10
 
-	// The base distance we punt. Keep in mind this is without the athletics bonus (they'll at least be journeyman so +2)
+	/// The base distance we punt. Keep in mind this is without the athletics bonus (they'll at least be journeyman so +2)
 	var/base_range = 1
-	// how much damage punt impact does if its a solid object.
+	/// how much damage punt impact does if its a solid object.
 	var/base_damage = 5
 
 /datum/action/cooldown/power/expert/punt/use_action(mob/living/user, obj/target)
@@ -60,6 +60,7 @@
 	target.throw_at(target_turf, range = range, speed = target.density ? 3 : 4, thrower = user, spin = isitem(target))
 	return TRUE
 
+/// Listener that handles on impact effect such as damage, knock down and other feedback.
 /datum/action/cooldown/power/expert/punt/proc/punt_impact(atom/movable/source, atom/hit_atom, datum/thrownthing/thrownthing)
 	SIGNAL_HANDLER
 	UnregisterSignal(source, COMSIG_MOVABLE_IMPACT)

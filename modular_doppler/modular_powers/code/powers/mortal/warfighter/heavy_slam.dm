@@ -111,7 +111,7 @@
 	melee_cooldown_time = active_item.attack_speed
 	return TRUE
 
-// Handles the aoe row by row. Basically gets the left and right turfs of the direction.
+/// Handles the aoe row by row. Basically gets the left and right turfs of the direction.
 /datum/action/cooldown/power/warfighter/heavy_slam/proc/add_slam_row(list/strike_turfs, turf/row_turf, dir_left, dir_right)
 	if(!row_turf)
 		return
@@ -126,7 +126,7 @@
 	if(right_turf && !(right_turf in strike_turfs))
 		strike_turfs += right_turf
 
-// We check if we can smash through the first row.
+/// We check if we can smash through the first row.
 /datum/action/cooldown/power/warfighter/heavy_slam/proc/is_blocked_turf(turf/row_turf)
 	if(!row_turf)
 		return TRUE
@@ -137,7 +137,7 @@
 			return TRUE
 	return FALSE
 
-// Okay look it sounds menacing but this basically just gets the direction that we're swinging towards based on where we click.
+/// Okay look it sounds menacing but this basically just gets the direction that we're swinging towards based on where we click.
 /datum/action/cooldown/power/warfighter/heavy_slam/proc/get_cardinal_dir(mob/living/user, atom/target)
 	if(!user)
 		return 0
@@ -153,8 +153,8 @@
 			dir_to_use = (dy >= 0) ? NORTH : SOUTH
 	return dir_to_use
 
-// This is a pretty crigne way of doing it but uhh I am out of ideas on how to do this better.
-// Prevents everyone in the area from being visible struck by the weapon.
+/// This is a pretty cringe way of doing it but uhh I am out of ideas on how to do this better.
+/// Prevents everyone in the area from being visible struck by the weapon.
 /datum/action/cooldown/power/warfighter/heavy_slam/proc/suppress_attack_animation(obj/item/source, atom/movable/attacker, atom/attacked_atom, animation_type, list/image_override, list/animation_override, list/angle_override)
 	SIGNAL_HANDLER
 	image_override += image(icon = 'icons/effects/effects.dmi', icon_state = "nothing")

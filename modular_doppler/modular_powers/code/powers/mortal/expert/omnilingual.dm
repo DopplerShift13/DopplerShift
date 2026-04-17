@@ -3,7 +3,7 @@
 	name = "Omnilingual"
 	desc = "You speak an absurd amount of languages; you are able to understand and speak every language at full proficiency. Does not apply to languages not available to your character at character selection."
 	value = 4
-	// Saved list of languages that were given by this power to remove when the power is removed.
+	/// Saved list of languages that were given by this power to remove when the power is removed.
 	var/list/given_languages_list = list()
 
 /datum/power/expert/omnilingual/get_security_record_text()

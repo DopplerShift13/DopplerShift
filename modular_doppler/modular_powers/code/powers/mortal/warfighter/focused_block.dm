@@ -55,7 +55,7 @@
 	if(owner)
 		UnregisterSignal(owner, COMSIG_LIVING_CHECK_BLOCK)
 
-// We use the COMSIG_LIVING_CHECK_BLOCK signal to check artifically for block.
+/// We use the COMSIG_LIVING_CHECK_BLOCK signal to check artifically for block.
 /datum/status_effect/power/focused_block/proc/check_block(mob/living/blocking_user, atom/movable/hitby, damage, attack_text, attack_type, armour_penetration, damage_type)
 	SIGNAL_HANDLER
 
@@ -87,7 +87,7 @@
 	block_effect(blocking_user, attack_text)
 	return SUCCESSFUL_BLOCK
 
-// we have to mimmick the block effects cause they're not baked into COMSIG_LIVING_CHECK_BLOCK by default.
+/// we have to mimmick the block effects cause they're not baked into COMSIG_LIVING_CHECK_BLOCK by default.
 /datum/status_effect/power/focused_block/proc/block_effect(mob/living/blocking_user, attack_text)
 	blocking_user.visible_message(
 		span_danger("[blocking_user] blocks [attack_text]!"),

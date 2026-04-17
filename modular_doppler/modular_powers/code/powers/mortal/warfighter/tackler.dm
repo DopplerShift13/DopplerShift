@@ -11,7 +11,7 @@
 
 	required_powers = list(/datum/power/warfighter/martial_artist)
 
-	// the datum that the tackle system is in
+	/// the datum that the tackle system is in
 	var/datum/component/tackler
 
 /datum/power/warfighter/tackler/add()
