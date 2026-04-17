@@ -15,8 +15,8 @@
 			SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 			SPECIES_PERK_ICON = FA_ICON_DROPLET_SLASH,
 			SPECIES_PERK_NAME = "Heamocyanin",
-			SPECIES_PERK_DESC = "Lizardfolk use copper based Haemocyanin as blood, which bleeds at 80% \
-				the rate of humans and is regenerated using copper, instead of iron.",
+			SPECIES_PERK_DESC = "Reptilians use copper based Haemocyanin as blood, which bleeds at 80% \
+				the rate of hominin and is regenerated using copper, instead of iron.",
 		),
 	)
 
@@ -32,7 +32,7 @@
 
 		"Shortened Description:",
 
-		"Tiziran, also commonly known as lizardpeople or "Kin" to one another, are a species of humanoid reptiles native to the world of Tizira. \
+		"Tiziran, also commonly known as lizardpeople or \"Kin\" to one another, are a species of humanoid reptiles native to the world of Tizira. \
 		Highly community-driven and family-oriented, they are often defined by their loyalty to the bonds they forge with the group as a whole. \
 		The bulk of their population lies in and around the systems of their homeworld, Tizira, under the jurisdiction of the Talunan Empire: \
 		A polity wholly independent from the rule of the 4CA.",
