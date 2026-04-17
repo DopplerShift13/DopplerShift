@@ -6,17 +6,18 @@
 	density = TRUE
 	max_integrity = 600 // tonky
 
-	// Is it on/off
+	/// Is it on/off
 	var/active = FALSE
 
-	// Pulse interval
+	/// Pulse interval
 	var/pulse_interval = 6 SECONDS
+	/// Time until the next pulse
 	var/next_pulse_time = 0
 
-	// Range in turfs
+	/// Range in turfs
 	var/pulse_range = 6
 
-	// Ripple filter while active.
+	/// Ripple filter while active.
 	var/ripple_filter_id = "reality_anchor_ripple"
 
 /obj/structure/reality_anchor/Destroy()
@@ -43,7 +44,7 @@
 	)
 	toggle_anchor(user)
 
-// Switches it on or off.
+/// Switches it on or off.
 /obj/structure/reality_anchor/proc/toggle_anchor(mob/user)
 	active = !active
 	if(active)
@@ -67,7 +68,7 @@
 	pulse()
 	next_pulse_time = world.time + pulse_interval
 
-// Dispel pulse.
+/// Dispel AoE effect.
 /obj/structure/reality_anchor/proc/pulse()
 	var/turf/center = get_turf(src)
 	if(!center)
@@ -83,7 +84,7 @@
 		else if(isobj(target))
 			target.dispel(src)
 
-// Applies a rippling effect.
+/// Applies a rippling effect.
 /obj/structure/reality_anchor/proc/apply_ripple_filter(active_state)
 	if(active_state)
 		add_filter(ripple_filter_id, 2, list("type" = "ripple", "flags" = WAVE_BOUNDED, "radius" = 0, "size" = 2))
@@ -113,7 +114,7 @@
 
 /atom/movable/screen/alert/status_effect/reality_anchor_silenced
 	name = "Silenced"
-	desc = "Resonant powers are periodically dispelled and supressed around the reality anchor!"
+	desc = "Resonant powers are supressed around the reality anchor!"
 	icon = 'modular_doppler/modular_powers/icons/items/reality_anchor.dmi'
 	icon_state = "reality_anchor"
 

@@ -8,7 +8,7 @@
 	handcuff_time = 4.5 SECONDS
 	custom_price = PAYCHECK_COMMAND
 
-	// we save the mob so we don't end up orphaning the silence remover
+	/// we save the mob so we don't end up orphaning the silence remover
 	var/mob/living/cuffed_mob
 
 /obj/item/restraints/handcuffs/antiresonant/attempt_to_cuff(mob/living/carbon/victim, mob/living/user)
