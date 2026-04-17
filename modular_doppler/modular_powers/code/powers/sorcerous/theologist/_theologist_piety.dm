@@ -4,14 +4,15 @@
 /datum/component/theologist_piety
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-	// The mob we’re attached to is always `parent`.
+	/// The mob we’re attached to is always `parent`.
 	var/mob/living/attached_mob
 
-	// current piety & max piety
+	/// current piety
 	var/piety = 0
+	/// max piety
 	var/max_piety = THEOLOGIST_PIETY_MAX
 
-	// The UI itself
+	/// The UI itself
 	var/atom/movable/screen/theologist_piety/theologist_ui
 
 /datum/component/theologist_piety/Initialize()
@@ -53,6 +54,7 @@
 	attached_mob = null
 	return ..()
 
+/// Signal handler when the base hud has finished initializing.
 /datum/component/theologist_piety/proc/on_hud_created(datum/source)
 	SIGNAL_HANDLER
 
@@ -62,6 +64,7 @@
 
 	install_piety_hud(living_holder)
 
+/// Applies the piety hud to the mob's UI.
 /datum/component/theologist_piety/proc/install_piety_hud(mob/living/living_holder)
 	if(theologist_ui) // already installed
 		return
@@ -78,6 +81,7 @@
 
 	hud_used.show_hud(hud_used.hud_version)
 
+/// Handler for adjusting piety.
 /datum/component/theologist_piety/proc/adjust_piety(amount, override_cap)
 	if(!isnum(amount))
 		return

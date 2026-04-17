@@ -4,14 +4,13 @@
 	overlay_icon_state = "bg_clock_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
-	// The organ that processes most of the Psyker Powers. Mostly all functions here communicate with this.
+	/// The component that handles most piety components.
 	var/datum/component/theologist_piety/piety_component
 
-	// The UI used for piety.alist
+	/// Reference to the theologist UI component
 	var/atom/movable/screen/theologist_piety/theologist_ui
 
-	// Cost in Piety to use.
-	// THIS IS NOT IN EVERY POWER DATUM, ONLY ONES THAT HAVE RESOURCE SPENDING MECHANICS.
+	/// Cost in Piety to use.
 	var/cost
 
 /datum/action/cooldown/power/theologist/Grant(mob/grant_to)
@@ -19,7 +18,7 @@
 	ValidatePietyComponent()
 	return .
 
-// Since Theologist has both 3 roots and a persistent resource system, we use a component for handling Piety
+/// Since Theologist has both 3 roots and a persistent resource system, we use a component for handling Piety
 /datum/action/cooldown/power/theologist/proc/ValidatePietyComponent()
 	if(owner) // Prevents runtiming on start
 		var/mob/living/carrier = owner
@@ -28,11 +27,11 @@
 		return FALSE
 	return TRUE
 
-// Validation handled in the piety component.
+/// Validation handled in the piety component.
 /datum/action/cooldown/power/theologist/proc/adjust_piety(amount, override_cap)
 	piety_component.adjust_piety(amount, override_cap)
 
-//Easy access to piety
+/// Gets the current piety of the mob.
 /datum/action/cooldown/power/theologist/proc/get_piety()
 	return piety_component.piety
 
@@ -52,7 +51,7 @@
 		adjust_piety(-cost)
 	return
 
-// Applies tox changes whilst respecting toxinlover as a trait
+/// Applies tox changes whilst respecting toxinlover as a trait
 /datum/action/cooldown/power/theologist/proc/adjust_tox_noinvert(mob/living/target, amount, updating_health = TRUE, required_biotype = ALL)
 	if(HAS_TRAIT(target, TRAIT_TOXINLOVER))
 		amount = -amount

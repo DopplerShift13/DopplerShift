@@ -24,6 +24,7 @@
 /datum/power/theologist/divine_protection/remove()
 	UnregisterSignal(power_holder, COMSIG_LIVING_CHECK_BLOCK)
 
+/// When calling the block signaler, we do a custom check for people's block.
 /datum/power/theologist/divine_protection/proc/check_block(mob/living/blocking_user, atom/movable/hitby, damage, attack_text, attack_type, armour_penetration, damage_type)
 	SIGNAL_HANDLER
 
@@ -45,7 +46,7 @@
 		last_piety_drain = world.time
 	return SUCCESSFUL_BLOCK
 
-// Special block effect
+/// Special effects + feedback for the block.
 /datum/power/theologist/divine_protection/proc/block_effect(mob/living/blocking_user, attack_text, atom/movable/hitby, attack_type)
 	if(!blocking_user)
 		return
@@ -69,6 +70,7 @@
 	addtimer(CALLBACK(blocking_user, TYPE_PROC_REF(/atom, cut_overlay), holy_glow), 1 SECONDS)
 	playsound(blocking_user, 'sound/effects/magic/magic_block_holy.ogg', 50, TRUE)
 
+/// Removes the glow effect afterwards
 /datum/power/theologist/divine_protection/proc/remove_holy_glow(mob/living/blocking_user, image/holy_glow_image)
 	if(!blocking_user || !holy_glow_image)
 		return

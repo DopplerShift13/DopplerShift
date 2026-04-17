@@ -20,21 +20,21 @@
 	target_self = FALSE
 	unset_after_click = TRUE
 
-	//How much we can heal max with twisted per use.
+	/// How much we can heal max with twisted per use.
 	var/healing_max = THEOLOGIST_ROOT_HEALING
-	//Tracks how much healing we did throughout the proccess.
+	/// Tracks how much healing we did throughout the proccess.
 	var/healing_done = 0
 
-	//Tracks how much damage we did throughout the process.
+	/// Tracks how much damage we did throughout the process.
 	var/damage_done = 0
 
-	//The beam effect when channeling
+	/// The beam effect when channeling
 	var/datum/beam/current_beam
 
-	// The current target of the effect
+	/// The current target of the effect
 	var/mob/living/current_target
 
-	//Tells the do_while loop to keep_going
+	/// Tells the do_while loop to keep_going
 	var/keep_going
 
 /datum/action/cooldown/power/theologist/theologist_root/twisted/use_action(mob/living/user, mob/living/target)
@@ -106,7 +106,7 @@
 	. = ..()
 	to_chat(owner, span_notice("You ready yourself to twist the burden of others!<br><B>Left-click</B> a creature next to you to target them!"))
 
-// Does the given amount of healing, entirely randomly. Very chaotic, very random.
+/// Does the given amount of healing, entirely randomly. Very chaotic, very random.
 /datum/action/cooldown/power/theologist/theologist_root/twisted/proc/heal_random_damage(mob/living/target)
 	// Cap for how much our random healing can do.
 	var/rand_cap
@@ -150,7 +150,7 @@
 			healing_done += heal_done
 	return heal_done
 
-// Pretty similar to heal_random_damage but we're just hurting them.
+/// Pretty similar to heal_random_damage but we're just hurting them.
 /datum/action/cooldown/power/theologist/theologist_root/twisted/proc/deal_random_damage(mob/living/target, damage_max)
 	// Tells the while loop to stop
 	var/no_more_damaging = FALSE
@@ -185,7 +185,7 @@
 	no_more_damaging = FALSE
 	return TRUE
 
-// Dispel effect
+/// Dispel effect
 /datum/action/cooldown/power/theologist/theologist_root/twisted/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	if(!active)

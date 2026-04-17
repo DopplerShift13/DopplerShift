@@ -28,7 +28,7 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	unset_after_click = TRUE
 	cost = 5
 
-	// Current instance of the status effect
+	/// Current instance of the status effect
 	var/datum/status_effect/power/entropic_mending/active_effect
 
 /datum/action/cooldown/power/theologist/entropic_mending/use_action(mob/living/user, mob/living/target)
@@ -43,6 +43,7 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	. = ..()
 	to_chat(owner, span_notice("You channel entropic energies into your hand!<br><B>Left-click</B> a creature next to you to target them!"))
 
+/// Callback from the status effect that updates the active state
 /datum/action/cooldown/power/theologist/entropic_mending/proc/effect_expired(amount)
 	//Always reset this after use.
 	active = FALSE
@@ -55,21 +56,21 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	tick_interval = 1 SECONDS
 	alert_type = /atom/movable/screen/alert/status_effect/entropic_mending
 
-	// The power responsible for this.
+	/// The power responsible for this.
 	var/datum/action/cooldown/power/theologist/entropic_mending/entropic_mending
 
-	// Because a lot of things here require static types.
+	/// Because a lot of things here require static types.
 	var/mob/living/carbon/human/victim
 
-	// How much we speed up blood regen with
+	/// How much we speed up blood regen with
 	var/blood_regen_rate = 3
-	// How much we speed up metabolism with
+	/// How much we speed up metabolism with
 	var/metabolic_boost = 3
-	// How much we speed up hunger gain with
+	/// How much we speed up hunger gain with
 	var/hunger_rate = 3
-	/// Tracks if we've modified the physiology of the owner
+	//// Tracks if we've modified the physiology of the owner
 	VAR_PRIVATE/physiology_modified = FALSE
-	// Tracks how many wounds were healed by this.
+	/// Tracks how many wounds were healed by this.
 	var/wounds_treated = 0
 
 
@@ -117,7 +118,7 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 
 	return TRUE
 
-// Just there to quickly handle wound-healing.
+/// Just there to quickly handle wound-healing + return values.
 /datum/status_effect/power/entropic_mending/proc/handle_wound_heal_success(caster, mob/living/victim, datum/wound/wound)
 	new /obj/effect/temp_visual/heal(get_turf(victim), "#cf2525")
 	wound.remove_wound()
@@ -147,6 +148,7 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	victim.overeatduration = max(victim.overeatduration - 4 SECONDS, 0)
 	victim.adjust_nutrition(-hunger_rate * HUNGER_FACTOR) //Hunger depletes at 3x the normal speed
 
+/// Communicates back to the power that the effect has ended.
 /datum/status_effect/power/entropic_mending/proc/expire()
 	// Report back BEFORE deletion starts
 	if(entropic_mending)

@@ -23,7 +23,7 @@
 	button_icon_state = "tomealtar"
 	cooldown_time = 5
 
-	// The maximum amount of piety you can get from praying
+	/// The maximum amount of piety you can get from praying
 	var/prayer_cap = 5
 
 /datum/action/cooldown/power/theologist/pious_prayer/New()
@@ -34,11 +34,11 @@
 		return
 
 /datum/action/cooldown/power/theologist/pious_prayer/use_action(mob/living/user, atom/target)
-	//Tells the do_while loop to keep_going
+	///Tells the do_while loop to keep_going
 	var/keep_going = TRUE
-	// One time message for the prayer cap so we don't clog the chat.
+	/// One time message for the prayer cap so we don't clog the chat.
 	var/cap_warning_given
-	// The area we're praying in.
+	/// The area we're praying in.
 	var/area/area = get_area(user)
 
 	user.visible_message(span_warning("[user] begins to pray!"), span_notice("You begin to pray!"))
@@ -64,7 +64,7 @@
 	active = FALSE
 	user.remove_status_effect(/datum/status_effect/spotlight_light/divine)
 
-// As the name implies, we take various factors that suggest a target's devotion, as well as a few misc. factors
+/// As the name implies, we take various factors that suggest a target's devotion, as well as a few misc. factors
 /datum/action/cooldown/power/theologist/pious_prayer/proc/check_how_religious(mob/living/user)
 	// Combined total chance.
 	var/total_chance = 10
@@ -84,7 +84,7 @@
 
 	return total_chance
 
-// Most people don't but it'd be cool if they did.
+/// Most people don't but it'd be cool if they did.
 /datum/action/cooldown/power/theologist/pious_prayer/proc/has_bible(mob/living/user)
 	if(!user)
 		return FALSE

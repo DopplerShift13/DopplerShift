@@ -21,14 +21,14 @@
 	click_to_activate = TRUE
 	target_self = TRUE
 
-	// Current instance of the status effect
+	/// Current instance of the status effect
 	var/datum/status_effect/power/burden_revered/active_effect
 
-	// Keeps track if we are targeting ourselves, as to ensure we don't give ourselves piety by repeatedly healing ourselves, which isn't very pious (according to MOST religions).
+	/// Keeps track if we are targeting ourselves, as to ensure we don't give ourselves piety by repeatedly healing ourselves, which isn't very pious (according to MOST religions).
 	var/healing_self = FALSE
-	// The maximum amount we will heal.
+	/// The maximum amount we will heal.
 	var/healing_max = THEOLOGIST_ROOT_HEALING
-	// The amount we heal per tick
+	/// The amount we heal per tick
 	var/healing_amount = 1
 
 /datum/action/cooldown/power/theologist/theologist_root/revered/use_action(mob/living/user, mob/living/target)
@@ -43,6 +43,7 @@
 	to_chat(user, span_notice("You lay your hand on [target]'s shoulder, revering their burdens."))
 	return TRUE
 
+/// Callback communication from the status effect on expiration that handles piety gain and feedbackk.
 /datum/action/cooldown/power/theologist/theologist_root/revered/proc/effect_expired(mob/living/target, amount)
 	if(target.ckey) // Don't get piety from healing nobodies.
 		if(amount >= 1 && !healing_self)
@@ -66,15 +67,15 @@
 	duration = 2 MINUTES // If somehow it overestays its welcome
 	tick_interval = 1 SECONDS
 	alert_type = /atom/movable/screen/alert/status_effect/burden_revered
-	// The power responsible for this, so we can make sure it properly gives piety to the caster
+	/// The power responsible for this, so we can make sure it properly gives piety to the caster
 	var/datum/action/cooldown/power/theologist/theologist_root/revered/burden_power
-	// The maximum amount we will heal
+	/// The maximum amount we will heal
 	var/healing_max = THEOLOGIST_ROOT_HEALING
-	// How much we have healed already
+	/// How much we have healed already
 	var/healing_done = 0
-	// How much we heal per tick.
+	/// How much we heal per tick.
 	var/base_healing_amount = 1
-	// Has the thing already expired?
+	/// Has the thing already expired?
 	var/already_expired
 
 /datum/status_effect/power/burden_revered/on_apply()
@@ -102,7 +103,7 @@
 	REMOVE_TRAIT(owner, TRAIT_ANALGESIA, type)
 	return
 
-// Dispel functionality
+/// Dispel functionality
 /datum/status_effect/power/burden_revered/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	to_chat(owner, span_userdanger("Your [burden_power.name] deactives prematurely!"))
@@ -143,9 +144,9 @@
 		expire()
 		return
 
-// QDEL destroys burden_power
+/// QDEL destroys burden_power so we can handle this b4 destroy. Passes piety back.
 /datum/status_effect/power/burden_revered/proc/expire()
-	var/piety_gained = max(0, floor(healing_done * THEOLOGIST_PIETY_HEALING_COEFFICIENT)) // TODO: defines
+	var/piety_gained = max(0, floor(healing_done * THEOLOGIST_PIETY_HEALING_COEFFICIENT))
 	// Report back BEFORE deletion starts
 	if(burden_power)
 		burden_power.effect_expired(owner, piety_gained)

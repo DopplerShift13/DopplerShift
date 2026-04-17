@@ -18,13 +18,13 @@
 	cooldown_time = 60
 	cost = 5
 
-	// How much damage the smite element will do
+	/// How much damage the smite element will do
 	var/smite_damage = 15
-	// How much distance the smite element will knock back
+	/// How much distance the smite element will knock back
 	var/smite_knockback = 4
-	//If the upgrade to imbue multiple items is unlocked.
+	///If the upgrade to imbue multiple items is unlocked.
 	var/can_imbue_multiples
-	// If it singular, which one is the one currently imbued?
+	///If it singular, which one is the one currently imbued?
 	var/obj/currently_imbued
 
 /datum/action/cooldown/power/theologist/smiting_strike/use_action(mob/living/user, atom/target)
@@ -55,6 +55,7 @@
 		imbue_global(potential_smite)
 	return TRUE
 
+/// Applies the element to the item and removes it from any other actively imbued item.
 /datum/action/cooldown/power/theologist/smiting_strike/proc/imbue_singular(obj/to_imbue)
 	if(currently_imbued)
 		var/thingholdingimbued = currently_imbued.loc
@@ -66,6 +67,7 @@
 	currently_imbued.AddElement(/datum/element/theologist_smite, smite_damage, smite_knockback, FALSE, TRUE, TRUE)
 	to_chat(owner, span_notice("You infuse smiting energies into [currently_imbued]"))
 
+/// Applies the element and does not remove any existing ones.
 /datum/action/cooldown/power/theologist/smiting_strike/proc/imbue_global(obj/to_imbue)
 	to_imbue.AddElement(/datum/element/theologist_smite, smite_damage, smite_knockback, FALSE, TRUE, FALSE)
 	to_chat(owner, span_notice("You infuse smiting energies into [to_imbue]"))
@@ -84,9 +86,9 @@
 	var/throw_gentle
 	/// whether dropping this item ends the element
 	var/self_terminate_on_drop
-	// The person assigned to be the holder of the object.
+	/// The person assigned to be the holder of the object.
 	var/mob/living/holder
-	// the bless effect
+	/// the bless effect
 	var/image/bless_overlay
 
 
@@ -121,13 +123,14 @@
 	RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 
-// Checks if the item is no longer in our hands. If so, remove this element.
+/// Checks if the item is no longer in our hands. If so, remove this element.
 /datum/element/theologist_smite/proc/on_item_dropped(datum/source, mob/user)
 	SIGNAL_HANDLER
 	if(self_terminate_on_drop)
 		Detach(source)
 	return
 
+/// Applies the overlay effect
 /datum/element/theologist_smite/proc/apply_bless_overlay(atom/parent_atom, list/overlays)
 	SIGNAL_HANDLER
 
@@ -165,7 +168,7 @@
 	if(on_hit(target, null, angle2dir(Angle)))
 		Detach(fired_from)
 
-// The on hit effect
+/// The on hit effect
 /datum/element/theologist_smite/proc/on_hit(mob/living/target, mob/thrower, throw_dir)
 	//Knockback code
 	if(!ismovable(target) || throw_dir == null)
@@ -187,7 +190,7 @@
 	to_chat(target, span_userdanger("You are knocked back by a burning, resonant energy!"))
 	return TRUE
 
-// The on dispel effect
+/// The on dispel effect
 /datum/element/theologist_smite/proc/on_dispel(atom/source, atom/dispeller)
 	SIGNAL_HANDLER
 	Detach(source)

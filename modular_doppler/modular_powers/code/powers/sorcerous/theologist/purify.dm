@@ -68,6 +68,7 @@
 		user.balloon_alert(user, "nothing to be purified!")
 	return success
 
+/// Adds and processes the variable cost of the interaction.
 /datum/action/cooldown/power/theologist/purify/proc/try_add_cost(mob/living/user, cost)
 	if(cost <= 0)
 		return TRUE
@@ -84,6 +85,7 @@
 	pending_piety_cost = 0
 	return
 
+/// Deletes the old item and creates a new item in its place.
 /datum/action/cooldown/power/theologist/purify/proc/replace_target(atom/target, typepath, mob/living/user)
 	if(!target || !typepath)
 		return null
@@ -105,6 +107,7 @@
 	qdel(old_obj)
 	return new_obj
 
+/// Copies the attributes of seeds to be passed along.
 /datum/action/cooldown/power/theologist/purify/proc/copy_seed_stats(obj/item/seeds/from_seed, obj/item/seeds/to_seed)
 	if(!from_seed || !to_seed)
 		return
@@ -118,6 +121,7 @@
 	to_seed.weed_rate = from_seed.weed_rate
 	to_seed.weed_chance = from_seed.weed_chance
 
+/// Converts reagents in different types.
 /datum/action/cooldown/power/theologist/purify/proc/convert_reagents(mob/living/user, atom/target)
 	if(!target?.reagents)
 		return FALSE
@@ -150,6 +154,7 @@
 
 	return converted
 
+/// Converts objects into other objects!
 /datum/action/cooldown/power/theologist/purify/proc/convert_objects(mob/living/user, atom/target)
 	// Melon -> Holy Melon
 	if(istype(target, /obj/item/food/grown/watermelon) && !istype(target, /obj/item/food/grown/holymelon))
@@ -271,7 +276,7 @@
 	qdel(construct_target)
 	return TRUE
 
-// Applies post conversion fluff + curse.
+/// Applies post conversion fluff + curse.
 /datum/action/cooldown/power/theologist/purify/proc/post_conversion(mob/living/user, mob/living/target)
 	user.visible_message(span_notice("[user] purifies [target]!"))
 	playsound(user, 'sound/effects/his_grace/his_grace_ascend.ogg', 50, TRUE)
@@ -282,13 +287,13 @@
 	user.apply_status_effect(/datum/status_effect/debt_to_the_geometer, src)
 	to_chat(user, span_cult_bold("<b>You have been cursed; your actions carry a price, and you shall be made to pay it.</b>"))
 
-// Are we a chaplain or deacon (chaplain sect convertee)?
+/// Are we a chaplain or deacon (chaplain sect convertee)?
 /datum/action/cooldown/power/theologist/purify/proc/are_we_a_holy_man(mob/living/user)
 	if(is_chaplain_job(user.mind?.assigned_role))
 		return TRUE
 	return user.mind?.holy_role == HOLY_ROLE_DEACON
 
-// Matches the purified construct type
+/// Matches the purified construct type
 /datum/action/cooldown/power/theologist/purify/proc/get_purified_construct_type(mob/living/basic/construct/target)
 	if(istype(target, /mob/living/basic/construct/artificer))
 		return /mob/living/basic/construct/artificer/angelic
@@ -298,6 +303,7 @@
 		return /mob/living/basic/construct/juggernaut/angelic
 	return null
 
+/// Adds the ghost control component, allowing someone to play a purified construct.
 /datum/action/cooldown/power/theologist/purify/proc/enable_construct_ghost_control(mob/living/basic/construct/target)
 	target.AddComponent(\
 		/datum/component/ghost_direct_control,\
@@ -308,7 +314,7 @@
 		assumed_control_message = "You are a purified construct, freed from the Geometer's influence. Your will is now your own.",\
 	)
 
-// In the event that its a construct without a purified equivelant e.g protean, we do this instead.
+/// In the event that its a construct without a purified equivelant e.g protean, we do this instead.
 /datum/action/cooldown/power/theologist/purify/proc/convert_construct_in_place(mob/living/basic/construct/target, mob/living/user)
 	var/old_theme = target.theme
 	target.theme = THEME_HOLY
@@ -387,6 +393,7 @@
 		qdel(src)
 		return
 
+/// Creates a blood splatter of varying sizes.
 /datum/status_effect/debt_to_the_geometer/proc/spawn_blood_splatter()
 	var/turf/bleed_turf = get_turf(owner)
 	if(!bleed_turf)
@@ -407,6 +414,7 @@
 		to_chat(owner, span_cult_bold("The Geometer's notice is no longer upon you."))
 	return ..()
 
+/// When the owner dies, spray them out like a juicebox.
 /datum/status_effect/debt_to_the_geometer/proc/on_owner_death(datum/source, gibbed)
 	SIGNAL_HANDLER
 	if(!owner)

@@ -64,7 +64,7 @@
 
 	. = ..()
 
-// Currency exchange for piety.
+/// Currency exchange for piety.
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/exchange_buildup()
 	// Have we been a good boy?
 	if(piety_buildup >= 1)
@@ -212,7 +212,7 @@
 		exchange_buildup()
 
 
- // Maths out who needs to receive the healing and who needs to receive the damage.
+/// Maths out who needs to receive the healing and who needs to receive the damage.
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/on_beam_tick(mob/living/carbon/user, mob/living/target)
 	// Non carbons get their own equalization.
 	if(!iscarbon(target))
@@ -233,7 +233,7 @@
 			continue
 	return
 
-// Gets the damage of the affected creature.
+/// Gets the damage of the affected creature.
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/get_damage_snapshot(mob/living/carbon/subject)
 	return list(
 		"brute" = subject.getBruteLoss(),
@@ -242,7 +242,7 @@
 		"oxy"   = subject.getOxyLoss(),
 	)
 
-//Actually calls the proper health adjustments
+/// Actually calls the proper health adjustments
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/equalize(mob/living/carbon/giver, mob/living/carbon/taker, damage_type as text)
 // Given we have already determined who has more and who has less in on_beam_tick, we can always assume that giver has more than taker, and thus make the comparison sum using that.
 	var/amount
@@ -277,7 +277,7 @@
 
 	return
 
-// Special version for when targeting non-carbon living creatures (usually simple_creatures)
+/// Special version for when targeting non-carbon living creatures (usually simple_creatures)
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/equalize_simple(mob/living/carbon/user, mob/living/target)
 	// Since we are comparing living vs carbon, we are doing health on our target and brute on our guy.
 	var/user_missingHP = user.maxHealth - user.health
