@@ -8,12 +8,12 @@
 	armour_penetration = 100
 	armor_flag = NONE
 	/// determines what type of antimagic can block the spell projectile.
-	// We have to play coy with the existing magic resistance system, for checking against resonance use victim.can_block_resonance(antimagic_charge_cost)
+	/// We have to play coy with the existing magic resistance system, for checking against resonance use victim.can_block_resonance(antimagic_charge_cost)
 	var/antimagic_flags = MAGIC_RESISTANCE
 	/// determines the drain cost on the antimagic item
 	var/antimagic_charge_cost = ANTIRESONANCE_BASE_CHARGE_COST
 
-	// The power that made the projectile.
+	/// The power that made the projectile.
 	var/datum/action/cooldown/power/creating_power
 
 // TODO: actually uhh, add resonant anti-magic to this lmao.
@@ -45,7 +45,7 @@
 	. = ..()
 	UnregisterSignal(src, COMSIG_ATOM_DISPEL)
 
-// todo: test
+/// Vanishes the projectile when it is dispelled.
 /obj/projectile/resonant/proc/on_dispel(obj/projectile/projectile, atom/dispeller)
 	SIGNAL_HANDLER
 	if(dispeller)
