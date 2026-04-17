@@ -28,6 +28,7 @@
 		replace_arm_with_robot(human_holder, BODY_ZONE_R_ARM)
 	return ..()
 
+/// Swaps your arm with a robotic one because feeble human arms aren't good enough for this.
 /datum/power/augmented/reagent_cannon/proc/replace_arm_with_robot(mob/living/carbon/human/human_holder, arm_zone)
 	if(!human_holder)
 		return
@@ -52,11 +53,12 @@
 
 	items_to_create = list(/obj/item/reagent_containers/spray/chemsprayer/reagent_cannon)
 
-	// Chance not to consume quality
+	/// Base chance not to consume quality on spray, scaling with amount sprayed and quality.
 	var/quality_chance = 40
 
-	// EMP cooldown
+	/// EMP cooldown declaration
 	COOLDOWN_DECLARE(emp_reenable_cooldown)
+	/// EMP cooldown duration
 	var/emp_cooldown = 30 SECONDS
 
 /obj/item/organ/cyberimp/arm/toolkit/reagent_cannon/Initialize(mapload)
@@ -110,14 +112,14 @@
 /obj/item/organ/cyberimp/arm/toolkit/reagent_cannon/is_action_active()
 	return active_item && !(active_item in src)
 
-// All around check if theres a robotic arm.
+/// All around check if theres a robotic arm.
 /obj/item/organ/cyberimp/arm/toolkit/reagent_cannon/proc/has_robotic_arm()
 	var/obj/item/bodypart/arm_part = hand
 	if(!arm_part)
 		return FALSE
 	return (arm_part.bodytype & BODYTYPE_ROBOTIC)
 
-// Chance to deduct quality based on amount used.
+/// Chance to deduct quality based on amount used.
 /obj/item/organ/cyberimp/arm/toolkit/reagent_cannon/proc/on_spray_used(reagents_used)
 	if(!premium_component)
 		return

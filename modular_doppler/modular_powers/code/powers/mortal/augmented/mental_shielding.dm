@@ -20,13 +20,15 @@
 	slot = ORGAN_SLOT_BRAIN_CNS
 	actions_types = list(/datum/action/item_action/organ_action/premium/use)
 	premium = TRUE
+	/// On or off state of the implant
 	var/enabled = TRUE
 
-	// the factor with which we multiply the final cost of anti-mental
+	/// the factor with which we multiply the final cost of anti-mental effects
 	var/mental_mult = 5
 
-	// EMP cooldown
+	// EMP cooldown decleration
 	COOLDOWN_DECLARE(emp_reenable_cooldown)
+	/// EMP cooldown time
 	var/emp_cooldown = 30 SECONDS
 
 /obj/item/organ/cyberimp/brain/mental_shielding/Initialize(mapload)
@@ -63,8 +65,7 @@
 	premium_component?.update_quality_actions()
 	to_chat(owner, span_warning("Your [name] becomes disabled!"))
 
-// Listener to check if it can block. Basically we just check if the quality is not 0.
-// Direct hook for antimagic signals, avoids component deletion behavior.
+/// Listener to check if it can block antimental. Basically we just check if the quality is not 0.
 /obj/item/organ/cyberimp/brain/mental_shielding/proc/on_receive_magic(mob/living/carbon/source, casted_magic_flags, charge_cost, list/antimagic_sources)
 	SIGNAL_HANDLER
 	if(!enabled || !premium_component?.can_function())

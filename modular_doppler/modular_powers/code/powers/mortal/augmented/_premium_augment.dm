@@ -5,9 +5,11 @@
 	var/obj/item/organ/host
 	/// Current quality percentage (0..100)
 	var/quality = AUGMENTED_PREMIUM_QUALITY_START
-	/// Passive decay configuration.
+	/// How often augments should tick down their decay.
 	var/decay_interval = AUGMENTED_DECAY_INTERVAL
+	/// How much augments should decay when the decay tick does occur.
 	var/decay_amount = AUGMENTED_DECAY_AMOUNT
+	/// Round-time for when we last decayed.
 	var/last_decay_time = 0
 	/// Actions that render the quality bar.
 	var/list/premium_actions
@@ -25,6 +27,7 @@
 		/obj/item/stack/sheet/iron = 2,
 		/obj/item/stack/cable_coil = 1,
 	)
+	/// What parts are left that need to be added to a refurbish in progress.
 	var/list/refurb_parts_remaining
 
 /datum/component/premium_augment/Initialize()
@@ -251,22 +254,26 @@
 			lines += span_notice("Refurbish step: Close the casing with a screwdriver to finish.")
 	return lines
 
+/// Gets the current step we're on in the refurbish process.
 /datum/component/premium_augment/proc/get_refurb_step()
 	if(!LAZYLEN(refurb_sequence))
 		return null
 	refurb_stage = clamp(refurb_stage, 1, refurb_sequence.len)
 	return refurb_sequence[refurb_stage]
 
+/// Moves us up to the next refurbish phase.
 /datum/component/premium_augment/proc/advance_refurb_step()
 	refurb_stage++
 	refurb_parts_remaining = null
 	if(refurb_stage > refurb_sequence.len)
 		refurb_stage = refurb_sequence.len
 
+/// Resets refurbishing back to the first stage which is opening it.
 /datum/component/premium_augment/proc/reset_refurb()
 	refurb_stage = 1
 	refurb_parts_remaining = null
 
+/// Gets all the required refurb parts and adds them to refurb parts remaining.
 /datum/component/premium_augment/proc/ensure_refurb_parts()
 	if(refurb_parts_remaining)
 		return

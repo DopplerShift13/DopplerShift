@@ -10,8 +10,11 @@
 	crate_name = "thaumaturge crate"
 	crate_type = /obj/structure/closet/crate/wooden
 
+	/// Amount of hats in the crate (not including the random chance for real robes).
 	var/num_hats = 3
+	/// Amount of robes in the crate (not including the random chance for real robes).
 	var/num_robes = 3
+	/// Pool of hats that the crate can come with
 	var/list/hat_pool = list(
 		/obj/item/clothing/head/wizard/fake,
 		/obj/item/clothing/head/costume/witchwig,
@@ -22,6 +25,7 @@
 		/obj/item/clothing/head/wizard/secwiz,
 		/obj/item/clothing/head/wizard/viszard
 	)
+	/// Pool of robes that the crate can come with
 	var/list/robe_pool = list(
 		/obj/item/clothing/suit/wizrobe/fake,
 		/obj/item/clothing/suit/wizrobe/marisa/fake,
@@ -30,8 +34,9 @@
 		/obj/item/clothing/suit/wizrobe/viszard
 	)
 
-	// There's a small chance that we manage to sneak in real wizard robes.
+	/// There's a small chance that we manage to sneak in real wizard robes, in percentages.
 	var/real_robe_set_chance = 5
+	/// List of robe combos that can be sneaked in.
 	var/list/real_robe_sets = list(
 		list(
 			/obj/item/clothing/suit/wizrobe/magusblue,

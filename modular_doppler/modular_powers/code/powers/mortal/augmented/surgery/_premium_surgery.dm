@@ -39,6 +39,7 @@
 	var/list/premium_augments = get_premium_augments_for_zone(target, user.zone_selected)
 	return LAZYLEN(premium_augments)
 
+/// Gets any premium augments that are in the selected zone
 /datum/surgery/premium_augment_maintenance/proc/get_premium_augments_for_zone(mob/living/carbon/target, target_zone)
 	if(!target)
 		return null
@@ -50,6 +51,7 @@
 			premium_augments += implant
 	return premium_augments
 
+/// Gets which premium augment is chosen in the selected zone.
 /datum/surgery/premium_augment_maintenance/proc/get_selected_premium(mob/user, mob/living/carbon/target, target_zone, obj/item/tool)
 	if(!target)
 		return null

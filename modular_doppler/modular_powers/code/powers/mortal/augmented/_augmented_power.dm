@@ -8,13 +8,13 @@
 	priority = POWER_PRIORITY_BASIC
 	abstract_parent_type = /datum/power/augmented
 
-	// The augment added in the quirk.
+	/// The augment added in the quirk.
 	var/augment
 
-	// Should the augment be disabled if they're a prisoner.
+	/// Should the augment be disabled if they're a prisoner.
 	var/disable_if_prisoner = TRUE
 
-	// Override for arm selection (VV/admin or other callers). Defaults to user prefs.
+	/// Override for arm selection (VV/admin or other callers). Defaults to user prefs.
 	var/arm_override = AUGMENTED_ARM_USE_PREFS
 
 // default text for augments
@@ -106,7 +106,7 @@
 		qdel(implant)
 	return
 
-// Used to get the location zones for augment_location_label
+/// Used to get the location zones for augment_location_label
 /datum/power/augmented/proc/get_augment_location_label()
 	if(!augment)
 		return null
@@ -160,7 +160,7 @@ GLOBAL_LIST_INIT(organ_slot_labels, list(
 // ALL THIS EFFORT JUST FOR SOME ARMS.
 GLOBAL_LIST_INIT(arm_augment_values, generate_arm_augment_values())
 
-// This is to populate the global list above. It only adds augments in powers, so you can't cheat to give yourself an esword arm.
+/// This is to populate the global list above. It only adds augments in powers, so you can't cheat to give yourself an esword arm.
 /proc/generate_arm_augment_values()
 	var/list/values = list()
 	for(var/datum/power/augmented/power_type as anything in subtypesof(/datum/power/augmented))
@@ -174,7 +174,7 @@ GLOBAL_LIST_INIT(arm_augment_values, generate_arm_augment_values())
 			values += initial(power_type.name)
 	return values
 
-// Bit of validation to make sure the augment is in fact in the user's prefs.
+/// Bit of validation to make sure the augment is in fact in the user's prefs.
 /datum/power/augmented/proc/augment_matches_pref(value)
 	if(isnull(value) || value == AUGMENTED_NO_AUGMENT || !augment)
 		return FALSE
@@ -184,7 +184,7 @@ GLOBAL_LIST_INIT(arm_augment_values, generate_arm_augment_values())
 		return TRUE
 	return FALSE
 
-// Global arm loadout: left/right slots store the chosen augment for each arm.
+/// Global arm loadout: left/right slots store the chosen augment for each arm.
 /datum/preference/choiced/augment_left
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "augment_left"

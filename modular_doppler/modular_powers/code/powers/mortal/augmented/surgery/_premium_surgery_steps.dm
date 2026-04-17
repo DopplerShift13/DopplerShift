@@ -13,6 +13,7 @@
 	success_sound = 'sound/items/tools/screwdriver2.ogg'
 	surgery_effects_mood = TRUE
 
+/// Gets the premium augments that exist in the selected zone.
 /datum/surgery_step/premium_augment_access/proc/get_premium_augments_for_zone(mob/living/carbon/target, target_zone)
 	if(!target)
 		return null
@@ -84,6 +85,7 @@
 	success_sound = 'sound/machines/airlock/doorclick.ogg'
 	surgery_effects_mood = TRUE
 
+/// Yes you aren't seeing double. Gets the premium augments in the selected zone. They're two seperate surgries.
 /datum/surgery_step/premium_augment_maintenance/proc/get_premium_augments_for_zone(mob/living/carbon/target, target_zone)
 	if(!target)
 		return null

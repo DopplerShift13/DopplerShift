@@ -24,33 +24,47 @@
 
 	actions_types = list(/datum/action/item_action/organ_action/premium/use)
 	premium = TRUE
+	/// On or off state.
 	var/enabled = TRUE
 
-	// Are we in the process of teleporting
+	/// Are we in the process of teleporting
 	var/teleporting = FALSE
+	/// Reference ID for the timer proc.
 	var/teleport_timer_id
-	// Spool up time.
+	/// Time it takes to spool up the teleport.
 	var/teleport_spool_time = 10 SECONDS
+	/// The sound that plays while spooling up.
 	var/teleport_charge_sound = 'sound/effects/magic/lightning_chargeup.ogg'
 
-	// Used to store the caps of the sound frequency when speeding up/slowing down the charge sound.
+	// Frequencies are used to indicate that a teleporter is going faster or slower, since it both increases pace and pitch.
+	/// The standard sound frequency used at 75%
 	var/teleport_sound_base_frequency = 44000
+	/// The lowest sound frequency used at the lowest tier
 	var/teleport_sound_min_frequency = 32000
+	/// The highest sound frequency used at the highest tier
 	var/teleport_sound_max_frequency = 55000
 
-	// Cooldowns for TP and EMPs.
-	COOLDOWN_DECLARE(teleport_cooldown)
+	/// Cooldowns for TP
 	var/tp_cooldown = 3 MINUTES
-	COOLDOWN_DECLARE(emp_reenable_cooldown)
-	var/emp_cooldown = 30 SECONDS
+	/// Cooldown deceleration for TP
+	COOLDOWN_DECLARE(teleport_cooldown)
 
-	// Internal radio used for relaying to medbay.
+	/// Cooldowns for EMP
+	var/emp_cooldown = 30 SECONDS
+	/// Cooldown decleration for EMP
+	COOLDOWN_DECLARE(emp_reenable_cooldown)
+
+
+	/// Internal radio used for relaying to medbay.
 	var/obj/item/radio/internal_radio
 
-	// Ref for the sparking overlay.
+	/// Ref for the sparking overlay.
 	var/mutable_appearance/teleport_spark_overlay
+	/// Icon of the sparks on TP
 	var/teleport_spark_icon = 'icons/effects/effects.dmi'
+	/// Icon state of the sparks on TP
 	var/teleport_spark_state = "lightning"
+	/// Layer of the sparks on TP
 	var/teleport_spark_layer = ABOVE_MOB_LAYER
 
 /obj/item/organ/cyberimp/chest/auto_retriever/Initialize(mapload)
@@ -94,7 +108,7 @@
 	if(owner.stat >= SOFT_CRIT && owner.stat != DEAD)
 		start_teleport()
 
-// Starts spooling up and notifying literally everoyne they are going to poof.
+/// Starts spooling up and notifying literally everyone they are going to poof.
 /obj/item/organ/cyberimp/chest/auto_retriever/proc/start_teleport()
 	if(!owner)
 		return
@@ -119,7 +133,7 @@
 	owner.playsound_local(owner, teleport_charge_sound, 75, TRUE, frequency = sound_frequency)
 	teleport_timer_id = addtimer(CALLBACK(src, PROC_REF(finish_teleport)), spool_time, TIMER_STOPPABLE)
 
-// We go POOF, away.
+/// We go POOF, away.
 /obj/item/organ/cyberimp/chest/auto_retriever/proc/finish_teleport()
 	if(!teleporting)
 		return
@@ -148,7 +162,7 @@
 	if(premium_component)
 		premium_component.adjust_quality(-premium_component.quality)
 
-// Cancel if stabilized, epinephrine applied, or EMP'd.
+/// Cancel if stabilized, epinephrine applied, or EMP'd.
 /obj/item/organ/cyberimp/chest/auto_retriever/proc/should_cancel_teleport()
 	if(!owner)
 		return FALSE
@@ -158,7 +172,7 @@
 		return TRUE
 	return FALSE
 
-// Stops a teleport that is in progress.
+/// Stops a teleport that is in progress.
 /obj/item/organ/cyberimp/chest/auto_retriever/proc/cancel_teleport()
 	if(!teleporting)
 		return
@@ -172,7 +186,7 @@
 	if(premium_component)
 		premium_component.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MODERATE)
 
-// When we get EMP'd.
+/// When we get EMP'd.
 /obj/item/organ/cyberimp/chest/auto_retriever/emp_act(severity)
 	. = ..()
 	if(. & EMP_PROTECT_SELF)
@@ -185,7 +199,7 @@
 	to_chat(owner, span_warning("Your [name] becomes disabled!"))
 	cancel_teleport()
 
-// Makes the augment speak, either locally or through the radio.
+/// Makes the augment speak, either locally or through the radio.
 /obj/item/organ/cyberimp/chest/auto_retriever/proc/augment_speak(message, channel)
 	if(!message)
 		return
@@ -213,7 +227,7 @@
 /obj/item/organ/cyberimp/chest/auto_retriever/is_action_active()
 	return enabled
 
-// Apply the sparking visual effect + jitter.
+/// Apply the sparking visual effect + jitter.
 /obj/item/organ/cyberimp/chest/auto_retriever/proc/apply_teleport_effects(spool_time)
 	if(!owner)
 		return
@@ -223,12 +237,13 @@
 	teleport_spark_overlay.appearance_flags |= KEEP_APART
 	owner.add_overlay(teleport_spark_overlay)
 
+/// Removes the active sparking overlay on the mob.
 /obj/item/organ/cyberimp/chest/auto_retriever/proc/clear_teleport_effects()
 	if(!owner || !teleport_spark_overlay)
 		return
 	owner.cut_overlay(teleport_spark_overlay)
 
-// Finds an open space to teleport to.
+/// Finds an open space to teleport to.
 /obj/item/organ/cyberimp/chest/auto_retriever/proc/pick_open_turf_from_area(area_type, subtypes = FALSE)
 	var/list/turfs = get_area_turfs(area_type, subtypes = subtypes)
 	if(!LAZYLEN(turfs))

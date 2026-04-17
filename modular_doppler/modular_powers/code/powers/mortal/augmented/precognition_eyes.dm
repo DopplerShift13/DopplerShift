@@ -21,6 +21,7 @@
 
 	actions_types = list(/datum/action/item_action/organ_action/premium/use)
 	premium = TRUE
+	/// On or off state of the implant
 	var/enabled = TRUE
 
 	/// How much quality do we lose on trigger?
@@ -29,10 +30,11 @@
 	var/obj/item/skillchip/installed_chip
 	/// Did we add an extra skillchip slot?
 	var/added_skillchip_slot = FALSE
-	// The minimum stamloss gained from this. Normally it is the projectile's damage * efficiency.
+	/// The minimum stamloss gained from this. Normally it is the projectile's damage * efficiency.
 	var/dodge_stamloss = 30 // higher than normal taunting. Git gud.
-	// EMP cooldown
+	/// EMP cooldown decleration
 	COOLDOWN_DECLARE(emp_reenable_cooldown)
+	/// EMP cooldown duration
 	var/emp_cooldown = 30 SECONDS
 
 
@@ -56,7 +58,7 @@
 		UnregisterSignal(owner_mob, COMSIG_PROJECTILE_PREHIT)
 	remove_matrix_taunt(owner_mob)
 
-// Grants the skillchip
+/// Grants the skillchip that's required to use it
 /obj/item/organ/eyes/robotic/precognition_eyes/proc/grant_matrix_taunt(mob/living/carbon/owner_mob)
 	if(!owner_mob || installed_chip)
 		return
@@ -71,7 +73,7 @@
 	owner_mob.implant_skillchip(installed_chip, force = TRUE)
 	installed_chip.try_activate_skillchip(silent = TRUE, force = TRUE)
 
-// Removes the skillchip
+/// Removes the skillchip; you don't get to keep it without the augment.
 /obj/item/organ/eyes/robotic/precognition_eyes/proc/remove_matrix_taunt(mob/living/carbon/owner_mob)
 	if(!owner_mob)
 		return
@@ -84,7 +86,7 @@
 		owner_mob.remove_skillchip(installed_chip, silent = TRUE)
 		QDEL_NULL(installed_chip)
 
-// Checks if we have the skillchip.
+/// Checks if we have the required skillchip.
 /obj/item/organ/eyes/robotic/precognition_eyes/proc/has_matrix_taunt(obj/item/organ/brain/brain)
 	if(!brain || !length(brain.skillchips))
 		return FALSE
@@ -122,7 +124,7 @@
 /obj/item/organ/eyes/robotic/precognition_eyes/is_action_active()
 	return enabled
 
-// Applies the dodge effect prehit.
+/// Applies the dodge effects on pre-hit.
 /obj/item/organ/eyes/robotic/precognition_eyes/proc/on_projectile_prehit(mob/living/source, obj/projectile/proj)
 	SIGNAL_HANDLER
 	if(source != owner)

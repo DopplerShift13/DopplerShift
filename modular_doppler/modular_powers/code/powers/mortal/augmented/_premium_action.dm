@@ -4,10 +4,15 @@
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED
 	background_icon_state = "bg_default"
 	overlay_icon_state = "bg_mod_border"
+
+	/// The border overlay. This is declared seperately so active_overlay can swap with it.
 	var/base_overlay_icon_state
+	/// The special border overlay if the abiltiy is in an 'active' state
 	var/active_overlay_icon_state = "bg_spell_border_active_blue"
 
+	/// Reference to the premium component datum
 	var/datum/component/premium_augment/premium_component
+	/// Overlay that shows the % of quality ontop of the action button.
 	var/mutable_appearance/quality_overlay
 	/// Defers action button creation until hud exists.
 	var/pending_hud_grant = FALSE
@@ -50,10 +55,12 @@
 		UnregisterSignal(viewer, COMSIG_MOB_HUD_CREATED)
 	return ..()
 
+/// Waits until the HUD is created to then give the action, largely to properly render the percentage overlay.
 /datum/action/item_action/organ_action/premium/proc/on_hud_created(mob/source)
 	SIGNAL_HANDLER
 	GiveAction(source)
 
+/// Updates the text label to differentiate between left and right arm.
 /datum/action/item_action/organ_action/premium/proc/update_arm_label()
 	if(!istype(src, /datum/action/item_action/organ_action/premium/use))
 		return
@@ -76,7 +83,7 @@
 		premium_component = organ_target?.premium_component
 	return .
 
-// Applies the maptext on the button indicating quality.
+/// Applies the maptext on the button indicating quality.
 /datum/action/item_action/organ_action/premium/proc/update_quality_overlay()
 	var/atom/movable/ui_element = get_atom_moveable()
 	if(!ui_element || !premium_component)
@@ -93,6 +100,7 @@
 	ui_element.add_overlay(quality_overlay)
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 
+/// Gets the button that is tied to the action.
 /datum/action/item_action/organ_action/premium/proc/get_atom_moveable()
 	for(var/datum/hud/hud_instance as anything in viewers)
 		var/atom/movable/screen/movable/action_button/action_button_instance = viewers[hud_instance]
@@ -105,8 +113,7 @@
 	. = ..()
 	return .
 
-// This is specifically to flip right-side arm augments to look visually distinct from the other button (since you can have 2 arm augments).
-
+// Override to determine if an augment is currently active or not.
 /datum/action/item_action/organ_action/premium/is_action_active(atom/movable/screen/movable/action_button/current_button)
 	var/obj/item/organ/organ_target = target
 	return organ_target?.is_action_active() || FALSE
@@ -119,7 +126,7 @@
 	var/obj/item/organ/organ_target = target
 	name = "Toggle [organ_target.name][arm_side_suffix(organ_target)]"
 
-// Adds a suffix to left and right arm actions since you can have two actions and it might get confusing.
+/// Adds a suffix to left and right arm actions since you can have two actions and it might get confusing.
 /datum/action/item_action/organ_action/premium/proc/arm_side_suffix(obj/item/organ/organ_target)
 	if(!istype(organ_target, /obj/item/organ/cyberimp/arm))
 		return ""

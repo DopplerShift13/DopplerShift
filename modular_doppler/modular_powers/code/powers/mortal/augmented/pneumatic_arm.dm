@@ -22,20 +22,22 @@
 	actions_types = list(/datum/action/item_action/organ_action/premium/use)
 	premium = TRUE
 
-	// Going to deal the extra damage + knockback on the next punch
+	/// Going to deal the extra damage + knockback when punching
 	var/overcharged = FALSE
 
-	// Bonus damage
+	/// Bonus damage while not active
 	var/bonus_passive_damage = 5
+	/// Bonus damage while active
 	var/bonus_active_damage = 15
 
-	// Knockback on punch
+	/// Knockback on punch while active
 	var/knockback = 1
-	// Is the throw 'throw'? False means it can cause wallstuns and such.
+	/// Is the throw 'safe'? False means it can cause wallstuns and such.
 	var/gentle_throw = FALSE
 
-	// EMP cooldown
+	/// EMP cooldown decleration
 	COOLDOWN_DECLARE(emp_reenable_cooldown)
+	/// EMP cooldown time
 	var/emp_cooldown = 30 SECONDS
 
 /obj/item/organ/cyberimp/arm/pneumatic_arm/Initialize(mapload)
@@ -67,6 +69,7 @@
 	premium_component?.update_quality_actions()
 	to_chat(owner, span_warning("Your [name] becomes disabled!"))
 
+/// Triggers the on-hit with punch effects, either pasive or active.
 /obj/item/organ/cyberimp/arm/pneumatic_arm/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 	SIGNAL_HANDLER
 	if(!target || !premium_component?.can_function())
