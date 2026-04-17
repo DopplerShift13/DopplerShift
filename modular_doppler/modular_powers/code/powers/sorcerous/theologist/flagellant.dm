@@ -1,19 +1,19 @@
 /// Grants Piety based on getting smacked.
 /datum/power/theologist/flagellant
 	name = "Flagellant Piety"
-	desc = "You suffer so others may live. You gain Piety from being hurt by creatures. The damage taken must be directly caused by a creature; some indirect methods of damaging such as throwing explosives or using a flamethrower may not grant piety.\
-	\nThe Piety gained is based on the pre-mitigation damage (block, armor etc): if the source is yourself, it is instead based on the total damage you took. Caps at 20 piety."
+	desc = "You suffer so others may live. You gain Piety from being hurt by creatures. The damage taken must be directly caused by a creature; some indirect methods of damaging you such as throwing explosives or using area-of-effect magics may not grant piety.\
+	\nThe Piety gained is based on the pre-mitigation damage (block, armor etc): if the source is yourself, it is instead based on the total damage you took."
 	security_record_text = "Subject fuels their powers by being hurt by others."
-	value = 3
+	value = 4
 	required_powers = list(/datum/power/theologist_root)
 	required_allow_subtypes = TRUE
 
 	/// Reference to the holder's piety component.
 	var/datum/component/theologist_piety/piety_component
 	/// Total damage needed to gain 1 piety.
-	var/damage_per_piety = 20
-	/// Cap on how much piety can be reached
-	var/piety_cap = 20
+	var/damage_per_piety = 15
+	/// Cap on how much piety can be reached. I originally designed this as a balancing factor but being smacked by someone else is kinda balanced already.
+	var/piety_cap = 100
 
 /datum/power/theologist/flagellant/post_add(client/client_source)
 	..()
