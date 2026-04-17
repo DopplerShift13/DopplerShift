@@ -11,7 +11,7 @@
 	/// Reference to the holder's piety component.
 	var/datum/component/theologist_piety/piety_component
 	/// Total damage needed to gain 1 piety.
-	var/damage_per_piety = 15
+	var/damage_per_piety = 20
 	/// Cap on how much piety can be reached
 	var/piety_cap = 20
 
