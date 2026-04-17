@@ -1,15 +1,20 @@
 
-// Both of these lists are shifted to glob so they are generated at world start instead of risking players doing preference stuff before the subsystem inits.
+// These lists are shifted to glob so they are generated at world start instead of risking players doing preference stuff before the subsystem inits.
+/// Glob Blacklist that blocks specific combinations of powers.
 GLOBAL_LIST_INIT_TYPED(powers_blacklist, /list/datum/power, list(
 	list(/datum/power/aberrant/shapechange_spider, /datum/power/aberrant/shapechange_wolf),
 ))
 
+/// Glob list of what powers require what other powers. Format is power -> required power
 GLOBAL_LIST_INIT(powers_requirements_list, generate_powers_requirements_list())
 
+/// Glob list of the parent power that is required by certain powers. Format is required power -> power
 GLOBAL_LIST_INIT(powers_inverse_requirements_list, generate_powers_inverse_requirements_list())
 
+/// Glob list of powers that have species restrictions.
 GLOBAL_LIST_INIT(powers_species_restrictions, generate_powers_species_restrictions())
 
+/// Gets a power and all their requirements and adds it to the requirements list.
 /proc/generate_powers_requirements_list()
 	var/list/requirements_list = list()
 	var/list/all_powers_list = subtypesof(/datum/power)
@@ -26,6 +31,8 @@ GLOBAL_LIST_INIT(powers_species_restrictions, generate_powers_species_restrictio
 
 	return requirements_list
 
+/// Gets a power and all their requirements and adds it to the inverted requirements list.
+/// The inverted list is in essence the same table as powers_requirements_list, just with the columns inverted.
 /proc/generate_powers_inverse_requirements_list()
 	var/list/inverse_requirements_list = list()
 	var/list/all_powers_list = subtypesof(/datum/power)
@@ -42,7 +49,7 @@ GLOBAL_LIST_INIT(powers_species_restrictions, generate_powers_species_restrictio
 
 	return inverse_requirements_list
 
-// Gets all the powers that have a blacklist.
+/// Gets all the powers that have a species blacklist.
 /proc/generate_powers_species_restrictions()
 	var/list/restrictions = list()
 	for(var/datum/power/power_type as anything in subtypesof(/datum/power))
@@ -85,6 +92,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		POWER_ARCHETYPE_RESONANT = list(),
 		POWER_ARCHETYPE_MORTAL = list(),
 	)
+	/// List of powers removed from players by the powers sanitization.
 	var/list/powers_removed
 
 /datum/controller/subsystem/processing/powers/Initialize()
@@ -99,6 +107,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 
 	return powers
 
+/// Calls the sorting alghorithm and sorts powers alphabetically.
 /datum/controller/subsystem/processing/powers/proc/setup_powers()
 	// Sort by priority from Root to Advanced, and then by name
 	var/list/powers_list = sort_list(subtypesof(/datum/power), GLOBAL_PROC_REF(cmp_powers_asc))
@@ -108,6 +117,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 			continue
 		powers[initial(power_type.name)] = power_type
 
+/// Assigns all powers in the player's preferences onto the mob.
 /datum/controller/subsystem/processing/powers/proc/assign_powers(mob/living/user, client/applied_client)
 	var/bad_power = FALSE
 	var/list/powers_by_priority = list()

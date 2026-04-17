@@ -28,6 +28,14 @@
 	qdel(new_power)
 	return FALSE
 
+/**
+ * Removes the passed power from the mob
+ *
+ * Arguments
+ * * power_type - Power typepath to remove from to the mob
+ *
+ * Returns TRUE on success, FALSE on failure (power isnt there)
+ */
 /mob/living/proc/remove_archetype_power(power_type)
 	for(var/datum/power/power in powers)
 		if(power.type == power_type)
@@ -35,6 +43,14 @@
 			return TRUE
 	return FALSE
 
+/**
+ * Checks the existence of a power on a mob.
+ *
+ * Arguments
+ * * power_type - Power typepath to check on the mob
+ *
+ * Returns TRUE if its there, FALSE if not.
+ */
 /mob/living/proc/has_archetype_power(power_type)
 	for(var/datum/power/power in powers)
 		if(power.type == power_type)
@@ -95,7 +111,7 @@
 /mob/living/proc/get_sec_power_string(category = CAT_POWER_ALL, include_empty_text = TRUE)
 	return get_power_string(TRUE, category, include_empty_text)
 
-// Refreshes the sec records when powers are added/removed.
+/// Refreshes the sec records when powers are added/removed.
 /mob/living/proc/refresh_security_power_records()
 	var/lookup_name = name
 	if(ishuman(src))
@@ -110,9 +126,11 @@
 	target.power_notes_minor = get_sec_power_string(CAT_POWER_MINOR_THREAT, include_empty_text = FALSE)
 	target.power_notes_major = get_sec_power_string(CAT_POWER_MAJOR_THREAT, include_empty_text = FALSE)
 
+/// Removes all powers from the mob.
 /mob/living/proc/cleanse_power_datums()
 	QDEL_LIST(powers)
 
+/// Removes all powers from a mob and transfers them to the new target instead.
 /mob/living/proc/transfer_power_datums(mob/living/to_mob)
 	// We could be done before the client was moved or after the client was moved
 	var/datum/preferences/to_pass = client || to_mob.client

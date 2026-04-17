@@ -29,7 +29,7 @@
 	var/human_only = TRUE
 	/// Can we target ourselves?
 	var/target_self = TRUE
-	// Do we need our hands free?
+	/// Do we need our hands free?
 	var/need_hands_free = TRUE
 
 	/// If set, we must wait this long before use_action executes. Cast time basically.
@@ -48,8 +48,7 @@
 	/// Do we check for anti magic on the target when we target them? Basically if your action targets but doesn't do anything directly magical to them immediately (like projectiles), this should be false.
 	var/anti_magic_on_target = TRUE
 
-// When you press the button
-// Attempts to actively use the action
+/// Attempts to actively use the action by pathing through validation, antimagic, do_use_time and finally use_action
 /datum/action/cooldown/power/proc/try_use(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_use(user, target))
@@ -67,7 +66,8 @@
 		return TRUE
 	return FALSE
 
-// Validates the action can be used.
+/// Validates the action can be used at all.
+/// All validation should exist in here. If your action or path has custom validation, override the proc and add it to can_use()
 /datum/action/cooldown/power/proc/can_use(mob/living/user, atom/target)
 	SHOULD_CALL_PARENT(TRUE)
 	if(!can_be_used_by(user)) // Runs can_be_used_by below
@@ -86,7 +86,7 @@
 		return FALSE
 	return TRUE
 
-// Checks if we exist (wow) and are human.
+/// Checks if we exist (wow) and are human.
 /datum/action/cooldown/power/proc/can_be_used_by(mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
 	if(QDELETED(user))
@@ -96,12 +96,13 @@
 		return FALSE
 	return TRUE
 
-// Now we do THINGS!
-// Make sure you return TRUE or FALSE to tell the power that it has succesfully (or unsuccesfully) been used and trigger on_action_success.
+/// This is where ALL THE MAGIC HAPPENS. An action should ALWAYS route through here for its primary mechanics, even if you use multiple different inputs.
+/// Make sure you return TRUE or FALSE to tell the power that it has succesfully (or unsuccesfully) been used and trigger on_action_success.
 /datum/action/cooldown/power/proc/use_action(mob/living/user, atom/target)
 	return TRUE
 
-// Handles optional channel time before the action goes off.
+/// Handles optional channel time before the action goes off, defined by use_time.
+/// If use_time_overlay_type is defined, it also puts an overlay on the mob.
 /datum/action/cooldown/power/proc/do_use_time(mob/living/user, atom/target)
 	if(use_time <= 0)
 		return TRUE
@@ -119,13 +120,13 @@
 		user.cut_overlay(use_overlay)
 	return success
 
-// Anything that should happen as a result of use_action returning TRUE.
-// Cost systems for archetypes to name an example.
+/// Anything that should happen as a result of use_action returning TRUE.
+/// Cost systems for archetypes to name an example.
 /datum/action/cooldown/power/proc/on_action_success(mob/living/user, atom/target)
 	return
 
-// Applies damage to a living target, automatically applying an armor check.
-// Returns the amount of damage dealt (as per apply_damage).
+/// Applies damage to a living target, automatically applying an armor check.
+/// Returns the amount of damage dealt (as per apply_damage).
 /datum/action/cooldown/power/proc/apply_damage_with_armor(mob/living/target, damage, damage_type = BRUTE, attack_flag = MELEE, def_zone = null, armour_penetration = 0,	weak_against_armour = FALSE, silent = TRUE)
 	if(!target)
 		return 0
@@ -138,16 +139,11 @@
 		silent = silent,
 	)
 	return target.apply_damage(damage, damage_type, def_zone, armor_block)
-/*
-Handles all the logic involved in using a targeted, click-based action.
-- First press: enables click intercept (targeting mode)
-- Second press (while already active): disables click intercept
-- While active: a left click calls InterceptClickOn() and passes the clicked atom as target
-*/
 
 /**
- * Non-click_to_activate actions run through the cooldown framework:
- * Trigger() -> PreActivate(owner) -> Activate(owner)
+ * Actions run through the following pipeline:
+ * Trigger() -> PreActivate(owner) -> Activate(owner) -> try_use(user, target)
+ * Click-activated powers DO NOT route through this; they use InterceptClickOn below.
  */
 /datum/action/cooldown/power/Activate(atom/target)
 	var/mob/living/user = owner
@@ -208,7 +204,7 @@ Handles all the logic involved in using a targeted, click-based action.
 	clicker.next_click = world.time + click_cd_override
 	return TRUE
 
-// Optional aim assist for click targeting. Override for custom behavior.
+/// Optional aim assist for click targeting. Override for custom behavior.
 /datum/action/cooldown/power/proc/aim_assist(mob/living/clicker, atom/target, target_type_path)
 	if(!isturf(target) && !istype(target_type, /turf)) // only auto aims if you click turfs; or if the auto-aim type is a turf.
 		return
@@ -244,9 +240,9 @@ Handles all the logic involved in using a targeted, click-based action.
 Projectile action code down below
 */
 
-// Fires the configured or given projectile at the clicked target.
-// This assumes you are shooting just one projectile. Override if you need multi-shot, spread, special spawn logic, etc.
-// Requires click_to_activate = TRUE to do mouse based targeting.
+/// Fires the configured or given projectile at the clicked target.
+/// This assumes you are shooting just one projectile. Override if you need multi-shot, spread, special spawn logic, etc.
+/// Requires click_to_activate = TRUE to do mouse based targeting.
 /datum/action/cooldown/power/proc/fire_projectile(mob/living/user, atom/target,	obj/projectile/projectile)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -281,8 +277,8 @@ Projectile action code down below
 	projectile_instance.fire()
 	return TRUE
 
-// Sets up a projectile for firing.
-// Mirrors cooldown/spell/pointed/projectile
+/// Sets up a projectile for firing.
+/// Mirrors cooldown/spell/pointed/projectile
 /datum/action/cooldown/power/proc/ready_projectile(obj/projectile/projectile_instance, atom/target, mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -302,13 +298,13 @@ Projectile action code down below
 	// If you want “on hit” logic for your power, hook it here.
 	RegisterSignal(projectile_instance, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_power_projectile_hit))
 
-// Signal handler for projectile hits; relays into an overridable proc.
+/// Signal handler for projectile hits; relays into an overridable proc.
 /datum/action/cooldown/power/proc/on_power_projectile_hit(datum/source, mob/firer, atom/target, angle, hit_limb)
 	SIGNAL_HANDLER
 
 	on_projectile_hit(source, firer, target, angle, hit_limb)
 
 // Override in specific powers if you want “on hit” effects that connect back to the spell, e.g some-sort of ongoing effect.
-// Anything that should otherwise happen normally on projectile hit should preferably be handled in /obj/projectile/.../on_hit
+/// Anything that should otherwise happen normally on projectile hit should preferably be handled in /obj/projectile/.../on_hit
 /datum/action/cooldown/power/proc/on_projectile_hit(datum/source, mob/firer, atom/target, angle, hit_limb)
 	return

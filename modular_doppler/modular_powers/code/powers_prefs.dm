@@ -36,7 +36,8 @@
 	save_character()
 	return TRUE
 
-
+/// Runs sanitization for powers by going through filter_invalid_poewrs() and also authentication that the save entry is proper.
+/// If sanitization fails, removes all the player's power prefs and returns a message as to why.
 /datum/preferences/proc/sanitize_powers()
 	var/list/new_powers = SSpowers.filter_invalid_powers(all_powers, parent)
 	var/list/powers_removed = SSpowers.powers_removed

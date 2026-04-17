@@ -32,7 +32,7 @@
 	/// A list of traits that should stop this power from processing.
 	/// Signals for adding and removing this trait will automatically be added to `process_update_signals`.
 	var/list/no_process_traits
-	// Is it not available in the preference menu?
+	/// Is it not available in the preference menu?
 	var/available_in_prefs = TRUE
 
 	/// The overarching archetype this belongs to.
@@ -54,10 +54,10 @@
 	/// If FALSE, this specific power instance is hidden from security record power listings.
 	var/include_in_security_records = TRUE
 
-	// The path, if applicable, to the action.
+	/// The path, if applicable, to the action.
 	var/datum/action/cooldown/power/action_path
 
-	// Where items were spawned for the power, if any.
+	/// Where items were spawned for the power, if any.
 	var/list/where_items_spawned
 	/// If true, the backpack automatically opens on post_add(). Usually set to TRUE when an item is equipped inside the player's backpack.
 	var/open_backpack = FALSE
@@ -207,7 +207,7 @@
 	power_holder?.refresh_security_power_records() // ensures that post_add features are included in the records.
 	return
 
-// Adds activateable power buttons.
+/// Adds activateable power buttons.
 /datum/power/proc/grant_action(datum/action/cooldown/power/power_path)
 	if(!ispath(power_path) || !power_holder)
 		return FALSE

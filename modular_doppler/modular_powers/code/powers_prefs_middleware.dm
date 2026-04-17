@@ -161,6 +161,7 @@
 
 	return data
 
+/// Snowflake proc to allow Augments to have their own selectable arm section in the UI.
 /datum/preference_middleware/powers/proc/build_augment_ui_info(
 	datum/power/power_type,
 	datum/preferences/preferences
@@ -285,7 +286,7 @@
 	// if its in there, yes/no.
 	return !is_listed
 
-// A lot of validation specifically for augmented, given they're very snowflakey in their restrictions.
+/// A lot of validation specifically for augmented, given they're very snowflakey in their restrictions.
 /datum/preference_middleware/powers/proc/validate_augment(datum/power/power_type, power_name, mob/user)
 	if(!ispath(power_type, /datum/power/augmented))
 		return TRUE

@@ -3,6 +3,9 @@
 
 */
 
+/// Proc that cheks if a mob can block any resonance-based magic.
+/// This checks against both resonant antimagic and normal antimagic.
+/// This does NOT check against special antimagics like unholy and mental and must be checked against seperately.
 /mob/proc/can_block_resonance(charge_cost = 1)
 	var/list/antimagic_sources = list()
 	var/is_resonance_blocked = FALSE
@@ -18,7 +21,7 @@
 		on_block_resonance_effects(antimagic_sources)
 	return is_resonance_blocked
 
-// Called when we succesfully block a resonant effect..
+/// Called when we succesfully block a resonant effect..
 /mob/proc/on_block_resonance_effects()
 	return
 
@@ -46,6 +49,7 @@
 Dispel proc handler
 */
 
+/// Dispel proc that signals the handler, and plays a sound if the handlers returns a success.
 /atom/proc/dispel(atom/dispeller, dispel_flags = 0)
 	var/signal_result = handle_dispel(dispeller, dispel_flags)
 	// SFX that a dispel occurred.
@@ -53,10 +57,12 @@ Dispel proc handler
 		playsound(src, 'sound/effects/magic/smoke.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	return signal_result
 
+/// Global handler that sends the dispel signal to the item. If the signal returns DISPEL_RESULT_DISPELLED, it will return TRUE. Otherwise not.
 /atom/proc/handle_dispel(atom/dispeller, dispel_flags = 0)
 	var/signal_result = SEND_SIGNAL(src, COMSIG_ATOM_DISPEL, dispeller)
 	return signal_result
 
+/// Mob specific version of handle dispel, with the ability to have a cascade that checks all the mob's personal items.
 /mob/living/handle_dispel(atom/dispeller, dispel_flags = 0)
 	var/signal_result = SEND_SIGNAL(src, COMSIG_ATOM_DISPEL, dispeller)
 	// Only cascade if explicitly requested.
@@ -99,6 +105,7 @@ Dispel proc handler
 	REMOVE_TRAIT(source, TRAIT_ON_HIT_EFFECT, REF(src))
 	return ..()
 
+/// Sends out the dispel signal onto the target hit by the item.
 /datum/element/resonant_dispel_hit/proc/dispel_on_hit(datum/source, atom/attacker, atom/damage_target, hit_zone, throw_hit)
 	SIGNAL_HANDLER
 	damage_target.dispel(attacker, cascade_dispels ? DISPEL_CASCADE_CARRIED : null)
@@ -117,7 +124,7 @@ Dispel proc handler
 	cooldown_time = 10 SECONDS
 	cooldown_reduction_per_rank = 2 SECONDS
 
-	invocation = "WE AK." // I am glad I did not add invocations to Thaumaturge because my creativity with these would ruin server prop.
+	invocation = "WE-AK." // I am glad I did not add invocations to Thaumaturge because my creativity with these would ruin server prop.
 	invocation_type = INVOCATION_SHOUT
 	spell_requirements = SPELL_REQUIRES_NO_ANTIMAGIC
 

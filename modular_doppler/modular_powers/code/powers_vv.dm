@@ -53,14 +53,14 @@
 					var/include_in_security_records = (alert(usr, "Also include this power in security records?", "Power Mod", "No", "Yes") == "Yes")
 					add_power(chosen, include_in_security_records = include_in_security_records, power_init_vars = power_init_vars)
 
-// Checks if a power is on the selected target
+/// Checks if a power is on the selected target
 /mob/living/carbon/proc/has_power(powertype)
 	for(var/datum/power/power in powers)
 		if(power.type == powertype)
 			return TRUE
 	return FALSE
 
-// Adds a power by calling the power subsystem.
+/// Adds a power by calling the power subsystem.
 /mob/living/carbon/proc/add_power(datum/power/powertype, power_transfer = FALSE, client/override_client, unique = TRUE, include_in_security_records = TRUE, list/power_init_vars)
 	if(has_power(powertype))
 		return FALSE
@@ -79,7 +79,7 @@
 	refresh_security_power_records()
 	return TRUE
 
-// Removes a power.
+/// Removes a power.
 /mob/living/carbon/proc/remove_power(powertype)
 	for(var/datum/power/power in powers)
 		if(power.type != powertype)
