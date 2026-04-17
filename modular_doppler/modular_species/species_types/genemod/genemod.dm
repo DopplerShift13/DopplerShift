@@ -2,7 +2,7 @@
 	race = /datum/species/human/genemod
 
 /datum/species/human/genemod
-	name = "Gene-Mod"
+	name = "Splicer"
 	id = SPECIES_GENEMOD
 	preview_outfit = /datum/outfit/genemod_preview
 	examine_limb_id = SPECIES_HUMAN
@@ -27,11 +27,11 @@
 	return "N/a."
 
 /datum/species/human/genemod/get_species_description()
-	return "N/a."
+	return "Not quite a species, these are those who had their genetics spliced with other creatures to a significant degree, most commonly Hominin."
 
 /datum/species/human/genemod/get_species_lore()
 	return list(
-		"N/a.",
+		"=== TO BE DETERMINED ===",
 	)
 
 /datum/species/human/genemod/on_species_gain(mob/living/carbon/human/target, datum/species/old_species, pref_load, regenerate_icons)

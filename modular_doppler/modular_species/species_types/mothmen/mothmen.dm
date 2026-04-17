@@ -1,8 +1,28 @@
 /datum/species/moth
+	name = "Lepidopteran"
 	preview_outfit = /datum/outfit/moth_preview
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 	)
+
+/datum/species/moth/get_species_description()
+	return "An insectoid species with hairy exoskeletal bodies strongly adapted to a lifetime of space travel. \
+		They're easily identified by their highly sensitive compound eyes, weak wings only useful in microgravity, \
+		and their faces' dexterous palps and proboscis."
+
+/datum/species/moth/get_species_lore()
+	return list(
+		"=== SEE WIKI ARTICLE: Veniri ===",
+
+		"Shortened Description:",
+
+		"Veniri are space-faring nomads, traversing the world in a massive fleet comprised of some of the largest ships in Known Space, \
+		most of them meticulously cobbled-together from what they can recycle or otherwise make use of.",
+
+		"An intensely collectivist culture within their Grand Nomad Fleet, the Veniri are intensely focused on shared resources and effort-- \
+		preferring to think of things in terms of ‘we’ rather than ‘I.’",
+	)
+
 
 /datum/outfit/moth_preview
 	name = "Moth (Species Preview)"

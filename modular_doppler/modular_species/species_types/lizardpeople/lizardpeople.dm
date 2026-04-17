@@ -1,4 +1,5 @@
 /datum/species/lizard
+	name = "Reptilian"
 	preview_outfit = /datum/outfit/lizard_preview
 	damage_modifier = 15 // 15% less damage thanks to their beautiful scales
 
@@ -6,7 +7,7 @@
 	. = ..()
 	target.physiology.bleed_mod = 0.8 // Haemocyanin flows thicker
 
-/datum/species/ramatan/create_pref_unique_perks()
+/datum/species/lizard/create_pref_unique_perks()
 	var/list/to_add = list()
 
 	to_add += list(
@@ -20,6 +21,23 @@
 	)
 
 	return to_add
+
+/datum/species/lizard/get_species_description()
+	return "A species of cold-blooded bipedal reptiles native to the world of Tizira, \
+		often seen with some combination of horns, crests, or frills."
+
+/datum/species/lizard/get_species_lore()
+	return list(
+		"=== SEE WIKI ARTICLE: Tiziran ===",
+
+		"Shortened Description:",
+
+		"Tiziran, also commonly known as lizardpeople or "Kin" to one another, are a species of humanoid reptiles native to the world of Tizira. \
+		Highly community-driven and family-oriented, they are often defined by their loyalty to the bonds they forge with the group as a whole. \
+		The bulk of their population lies in and around the systems of their homeworld, Tizira, under the jurisdiction of the Talunan Empire: \
+		A polity wholly independent from the rule of the 4CA.",
+	)
+
 
 /datum/outfit/lizard_preview
 	name = "Lizardperson (Species Preview)"
