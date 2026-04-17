@@ -126,6 +126,7 @@
 		target_mob.remove_filter("cocoon_hide")
 	return !interrupted
 
+/// Physically stuffs the mob in the cocoon.
 /datum/action/cooldown/power/aberrant/cocoon/proc/cocoon_mob(mob/living/user, mob/living/target)
 	if(!target || QDELETED(target))
 		return FALSE
@@ -141,6 +142,7 @@
 		return FALSE
 	return TRUE
 
+/// Checks if a mob is cocoonable.
 /datum/action/cooldown/power/aberrant/cocoon/proc/can_cocoon_mob(mob/living/user, mob/living/target)
 	if(!user || !target)
 		user.balloon_alert(user, "No target!")
@@ -158,7 +160,7 @@
 		return FALSE
 	return TRUE
 
-// We get the space we're on and bundle up all the items on the space; as much as possible.
+/// We get the space we're on and bundle up all the items on the space; as much as possible.
 /datum/action/cooldown/power/aberrant/cocoon/proc/cocoon_object(mob/living/user, atom/target)
 	var/turf/target_turf = get_turf(target)
 	if(!target_turf)
@@ -210,6 +212,7 @@
 /obj/item/storage/cocoon_item/attack_self(mob/user, modifiers)
 	return attempt_unwrap(user)
 
+/// Attempts to tear open and destroy the cocoon.
 /obj/item/storage/cocoon_item/proc/attempt_unwrap(mob/living/user)
 	if(!user)
 		return FALSE
@@ -238,6 +241,8 @@
 	breakout_time = 2 MINUTES
 	mob_storage_capacity = 1
 	drag_slowdown = 0.5
+
+	/// How long it takes to tear open the cocoon
 	var/open_time = 5 SECONDS
 
 /obj/structure/closet/body_bag/cocoon/can_open(mob/living/user, force = FALSE)
@@ -269,6 +274,7 @@
 			return
 		qdel(src)
 
+/// Starts tearing the mob cocoon open
 /obj/structure/closet/body_bag/cocoon/proc/tear_open(mob/living/user)
 	if(open_time > 0)
 		to_chat(user, span_notice("You start tearing open [src]..."))
@@ -293,7 +299,7 @@
 	duration = 1 MINUTES
 	var/completion = 0
 
-// Takes the icon and state from the associated cocoon
+/// Takes the icon and state from the associated cocoon
 /obj/effect/temp_visual/cocoon_progress/proc/apply_cocoon_appearance(atom/target)
 	if(isliving(target))
 		var/obj/structure/closet/body_bag/cocoon/reference = /obj/structure/closet/body_bag/cocoon
@@ -304,6 +310,7 @@
 		icon = initial(reference.icon)
 		icon_state = initial(reference.icon_state)
 
+/// Makes the mob whiter as the wrap goes on.
 /obj/effect/temp_visual/cocoon_progress/proc/set_completion(value)
 	completion = clamp(value, 0, 1)
 	var/static/icon/white = icon('icons/effects/alphacolors.dmi', "white")

@@ -23,6 +23,7 @@
 		return
 	action.web_craft_entries -= /datum/web_craft_entry/web_snare
 
+/// Gets the approrpiate web crafter action
 /datum/power/aberrant/snare_webs/proc/get_web_crafter_action()
 	if(!power_holder)
 		return null
@@ -62,6 +63,7 @@
 		was_cuffed = TRUE
 		RegisterSignal(src, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_uncuffed))
 
+/// When the cuffs are removed, destroy em.
 /obj/item/restraints/legcuffs/beartrap/web_snare/proc/on_uncuffed(datum/source, force, atom/newloc, no_move, invdrop, silent)
 	SIGNAL_HANDLER
 	if(was_cuffed)
@@ -91,13 +93,14 @@
 	trigger_snare(target)
 	return TRUE
 
+/// When the snare is triggered.
 /obj/structure/spider/web_snare/proc/trigger_snare(mob/living/target)
 	if(!iscarbon(target))
 		trigger_snare_noncarbon(target)
 		return
 	trigger_snare_carbon(target)
 
-// Applies the snare legtrap to the target.
+/// Applies the snare legtrap to the target.
 /obj/structure/spider/web_snare/proc/trigger_snare_carbon(mob/living/target)
 	var/mob/living/carbon/carbon_target = target
 	if(carbon_target.legcuffed || carbon_target.num_legs < 2) // no legs to cuff
@@ -109,7 +112,7 @@
 	target.visible_message(span_danger("\The [src] ensnares [target]!"), span_userdanger("\The [src] ensnares you!"))
 	qdel(src)
 
-// Non-carbons get a passive slowdown instead for 10sec.
+/// Non-carbons get a passive slowdown instead for 10sec.
 /obj/structure/spider/web_snare/proc/trigger_snare_noncarbon(mob/living/target)
 	target.add_movespeed_modifier(/datum/movespeed_modifier/web_snare, update = TRUE)
 	playsound(src, 'sound/effects/snap.ogg', 50, TRUE)

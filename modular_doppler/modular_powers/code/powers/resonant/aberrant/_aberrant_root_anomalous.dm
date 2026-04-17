@@ -14,6 +14,7 @@
 /datum/power/aberrant_root/anomalous/remove()
 	UnregisterSignal(power_holder, COMSIG_LIVING_UNARMED_ATTACK)
 
+/// Listener for hitting anomalies.
 /datum/power/aberrant_root/anomalous/proc/on_unarmed_attack(mob/living/source, atom/target, proximity, modifiers)
 	SIGNAL_HANDLER
 

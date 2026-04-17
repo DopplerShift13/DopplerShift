@@ -9,6 +9,7 @@
 	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
 	required_allow_any = TRUE
 
+	/// Saves if we apply the cutoffs for darkvision.
 	var/eye_color_cutoffs_applied = FALSE
 
 /datum/power/aberrant/darkvision/add()

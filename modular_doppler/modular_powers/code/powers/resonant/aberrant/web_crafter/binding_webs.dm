@@ -23,6 +23,7 @@
 	action.web_craft_entries -= /datum/web_craft_entry/web_restraints
 	action.web_craft_entries -= /datum/web_craft_entry/web_bola
 
+/// Gets the approrpiate web crafter action
 /datum/power/aberrant/binding_webs/proc/get_web_crafter_action()
 	if(!power_holder)
 		return null
@@ -81,6 +82,7 @@
 		was_cuffed = TRUE
 		RegisterSignal(src, COMSIG_ITEM_POST_UNEQUIP, PROC_REF(on_uncuffed))
 
+/// When uncuffed, destroy item.
 /obj/item/restraints/legcuffs/bola/web/proc/on_uncuffed(datum/source, force, atom/newloc, no_move, invdrop, silent)
 	SIGNAL_HANDLER
 	if(was_cuffed)

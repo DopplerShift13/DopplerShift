@@ -19,17 +19,17 @@
 	button_icon_state = "tailsweep"
 	cooldown_time = 6 SECONDS
 
-	// Base range.
+	/// Base range.
 	var/range = 1
-	// Throw distance
+	/// Throw distance
 	var/throw_dist = 2
-	// Hunger cost of the power
+	/// Hunger cost of the power
 	var/hunger_cost = 10
-	// How much brute damage it deals
+	/// How much brute damage it deals
 	var/damage = 20
-	// How much stam damage it deals
+	/// How much stam damage it deals
 	var/stam_damage = 30
-	// Path of the effect that appears when you get smacked by the tail
+	/// Path of the effect that appears when you get smacked by the tail
 	var/on_hit_vfx = /obj/effect/temp_visual/dir_setting/tailsweep
 
 /datum/action/cooldown/power/aberrant/tailsweep/can_use(mob/living/user, atom/target)

@@ -6,13 +6,13 @@
 	security_record_text = "Subject's body contains and regenerates more blood."
 	value = 3
 
-	// Target blood level while this power is active.
+	/// Target blood level while this power is active.
 	var/target_blood_volume
-	// Tracks if we applied our regen multiplier so we can undo safely.
+	/// Tracks if we applied our regen multiplier so we can undo safely.
 	var/regen_multiplier_applied
-	// How much extra blood capacity we have.
+	/// How much extra blood capacity we have.
 	var/extra_blood_mult = 1.25
-	// How much faster our blood regenerates.
+	/// How much faster our blood regenerates.
 	var/extra_blood_regen_mult = 1.25
 
 /datum/power/aberrant_root/monstrous/add()
@@ -45,7 +45,7 @@
 
 	target_blood_volume = 0
 
-// So its hardcoded that blood caps out at BLOOD_VOLUME_NORMAL so we have to handle blood regen in our own way here.
+/// So its hardcoded that blood caps out at BLOOD_VOLUME_NORMAL so we have to handle blood regen in our own way here.
 /datum/power/aberrant_root/monstrous/proc/handle_extra_blood_regen(datum/source, seconds_per_tick, times_fired)
 	SIGNAL_HANDLER
 

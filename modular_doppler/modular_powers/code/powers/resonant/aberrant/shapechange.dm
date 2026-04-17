@@ -65,7 +65,7 @@
 	var/just_shifted = FALSE
 	/// Persistent identifier used for the shapeshifted form.
 	var/shape_identifier = 0
-	// The chosen animal form.
+	/// The chosen animal form.
 	var/animal_form
 
 // Register dispel listener on the owner
@@ -77,6 +77,7 @@
 	. = ..()
 	UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
+/// On dispel forces you out of the mob form.
 /datum/action/cooldown/power/aberrant/shapechange/proc/on_dispel(mob/living/user, atom/dispeller)
 	SIGNAL_HANDLER
 	if(user?.has_status_effect(/datum/status_effect/shapechange_mob/aberrant))
@@ -184,6 +185,7 @@
 		user.adjust_nutrition(-hunger_cost)
 	just_shifted = FALSE
 
+/// Creates the relevant mob for shapeshift.
 /datum/action/cooldown/power/aberrant/shapechange/proc/create_shapechange_mob(mob/living/user)
 	var/shape_type = animal_form
 	if(!ispath(shape_type))
@@ -194,7 +196,7 @@
 	apply_shape_identifier(new_shape)
 	return new_shape
 
-// Creates the persistent random number for the shapechanger.
+/// Creates the persistent random number for the shapechanger.
 /datum/action/cooldown/power/aberrant/shapechange/proc/apply_shape_identifier(mob/living/shape)
 	if(!shape)
 		return
@@ -204,6 +206,7 @@
 	shape.name = initial(shape.name)
 	shape.set_name()
 
+/// Gets the chosen mob from preferend choices.
 /datum/action/cooldown/power/aberrant/shapechange/proc/get_shapechange_type(client/client_source)
 	var/choice = client_source?.prefs?.read_preference(/datum/preference/choiced/shapechange_form)
 	// defaults to parrot incase something is wrong so we don't runtime everything.
@@ -214,7 +217,7 @@
 		return shape_type
 	return GLOB.shapechange_form_types["Parrot"]
 
-// Returns the first active power action that should block shapechanging.
+/// Returns the first active power action that should block shapechanging.
 /datum/action/cooldown/power/aberrant/shapechange/proc/get_blocking_active_power(mob/living/user)
 	if(!user || !user.powers)
 		return null

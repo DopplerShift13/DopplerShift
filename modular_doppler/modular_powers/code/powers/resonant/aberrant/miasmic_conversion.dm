@@ -10,11 +10,11 @@
 
 	required_powers = list(/datum/power/aberrant_root/monstrous)
 
-	// how much we passively heal tox
+	/// how much we passively heal tox
 	var/passive_tox_healing = 0.05
-	// how much we heal/convert per second
+	/// how much we heal/convert per second
 	var/healing = 1
-	// the ratio at which we convert.
+	/// the ratio at which we convert.
 	var/conversion_rate = 0.90
 
 /datum/power/aberrant/miasmic_conversion/process(seconds_per_tick)

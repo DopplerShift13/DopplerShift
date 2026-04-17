@@ -11,7 +11,7 @@
 
 	required_powers = list(/datum/power/aberrant_root/anomalous)
 
-	// how much we heal per second
+	/// how much we heal per second
 	var/healing = 1
 
 /datum/power/aberrant/radiosyntehsis/process(seconds_per_tick)

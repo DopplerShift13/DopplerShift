@@ -30,6 +30,7 @@
 		if(!icon_state)
 			icon_state = spawn_type.icon_state
 
+/// Populates the list of radial menu choices.
 /datum/web_craft_entry/proc/get_radial_choice()
 	if(!display_name || !icon || !icon_state)
 		return null
@@ -45,18 +46,21 @@
 	choice.info = jointext(info_bits, "<br>")
 	return choice
 
+/// Checks if the related web entry can be placed.
 /datum/web_craft_entry/proc/can_place(mob/living/user, turf/target_turf)
 	return TRUE
 
-// In the event we need to pass data to the object, e.g tripwire webs or do other fancy stuff on spawn
+/// In the event we need to pass data to the object, e.g tripwire webs or do other fancy stuff on spawn
 /datum/web_craft_entry/proc/spawn_entry(mob/living/user, turf/target_turf)
 	if(is_structure)
 		return spawn_structure(user, target_turf)
 	return spawn_item(user)
 
+/// Spawns the appropriate item
 /datum/web_craft_entry/proc/spawn_item(mob/living/user)
 	return new spawn_type(user)
 
+/// Spawns physical structures
 /datum/web_craft_entry/proc/spawn_structure(mob/living/user, turf/target_turf)
 	return new spawn_type(target_turf)
 

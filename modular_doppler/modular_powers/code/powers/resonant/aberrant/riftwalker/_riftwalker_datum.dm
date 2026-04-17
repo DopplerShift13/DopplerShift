@@ -17,7 +17,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 	QDEL_LIST(rifts)
 	return ..()
 
-// Generates the rifts.
+/// Generates the rifts.
 /datum/riftwalker_network_tracker/proc/generate_rifts()
 	if(length(rifts))
 		return
@@ -59,7 +59,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 	log_game("Riftwalker generate_rifts: [world.timeofday - start_time] ds, attempts=[debug_attempts], rifts=[length(rifts)], pairs=[pair_count], iterations=[max_iterations]")
 	return
 
-// Generates a new pair of rifts.
+/// Generates a new pair of rifts.
 /datum/riftwalker_network_tracker/proc/spawn_pair()
 	var/turf/first_turf = find_random_rift_turf()
 	if(!first_turf)
@@ -78,7 +78,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 	second_rift.pair_id = next_pair_id
 	return TRUE
 
-// Main logic that gets the actual turf
+/// Main logic that gets the actual turf
 /datum/riftwalker_network_tracker/proc/find_random_rift_turf()
 	var/tries = 0
 	while(tries < 50)
@@ -89,7 +89,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 		tries++
 	return null
 
-// Checks if a space is a valid space for a rift. Basically blocks space and prevents them from being ontop of eachother.
+/// Checks if a space is a valid space for a rift. Basically blocks space and prevents them from being ontop of eachother.
 /datum/riftwalker_network_tracker/proc/is_valid_rift_location(turf/target_turf)
 	if(!isturf(target_turf) || !is_station_level(target_turf.z) || isopenspaceturf(target_turf) || isgroundlessturf(target_turf))
 		return FALSE
@@ -102,7 +102,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 
 	return TRUE
 
-// Specifically gets a turf next to a teleporter.
+/// Specifically gets a turf next to a teleporter.
 /datum/riftwalker_network_tracker/proc/pick_adjacent_teleporter_turf()
 	var/list/turf/candidates = list()
 	for(var/obj/machinery/teleport/hub/tele as anything in SSmachines.get_machines_by_type_and_subtypes(/obj/machinery/teleport/hub)) // I'm trying this instead of world and seeing how it goes.
@@ -120,7 +120,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 		return null
 	return pick(candidates)
 
-// Specifically gets a turf next to a beacon
+/// Specifically gets a turf next to a beacon
 /datum/riftwalker_network_tracker/proc/pick_valid_beacon_turf()
 	for(var/obj/item/beacon/beacon as anything in GLOB.teleportbeacons)
 		var/turf/beacon_turf = get_turf(beacon)
@@ -160,6 +160,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 	. = ..()
 	. += span_notice("Only riftwalkers can traverse these rifts.")
 
+/// Checks if a mob can see the rifts
 /obj/effect/riftwalker_rift/proc/verify_user_can_see(mob/user)
 	return HAS_TRAIT(user, TRAIT_ABERRANT_RIFTWALKER)
 
@@ -215,7 +216,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 		return ..()
 	user.abstract_move(get_turf(linked_rift))
 
-// On dispel, closes that pair of rifts, and create a new pair somewhere else.
+/// On dispel, closes that pair of rifts, and create a new pair somewhere else.
 /obj/effect/riftwalker_rift/proc/on_dispel(datum/source, atom/dispeller)
 	SIGNAL_HANDLER
 
@@ -228,7 +229,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 	GLOB.riftwalker_network.spawn_pair() // new pair
 	return DISPEL_RESULT_DISPELLED
 
-// Gets the sibling rift of a rift.
+/// Gets the sibling rift of a rift.
 /obj/effect/riftwalker_rift/proc/get_paired_rift()
 	if(!pair_id)
 		return null

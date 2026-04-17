@@ -20,11 +20,15 @@
 	active = TRUE
 
 	var/obj/effect/dummy/lighting_obj/moblight/biolum_light
-	// Choiced components
+	/// Range of the light
 	var/biolum_range = 3
+	/// Strength of the light
 	var/biolum_power = 1
+	/// Color of the light
 	var/biolum_color = "#66c5dd"
+	/// Extra range of the light caused by being shaked
 	var/biolum_bonus_range = 0
+	/// Choiced option for the size of the light (from prefs)
 	var/biolum_size_choice
 
 /datum/action/cooldown/power/aberrant/bioluminescence/Grant(mob/granted_to)
@@ -51,7 +55,7 @@
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return TRUE
 
-// Applies the appropriate size from the choiced component.
+/// Applies the appropriate size from the choiced component.
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/apply_biolum_size_settings()
 	if(isnull(biolum_size_choice))
 		biolum_size_choice = "Medium"
@@ -61,7 +65,7 @@
 	else
 		biolum_range = GLOB.bioluminescence_sizes["Medium"]
 
-// Gets the size and color and applies it to the mob.
+/// Gets the size and color and applies it to the mob.
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/init_biolum_settings_from_prefs()
 	if(!owner)
 		return
@@ -77,7 +81,7 @@
 		biolum_color = "#[biolum_color]"
 	apply_biolum_size_settings()
 
-// We turn the light on.
+/// We turn the light on.
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/enable_bioluminescence()
 	if(!owner || !isliving(owner))
 		return
@@ -89,10 +93,11 @@
 		color = biolum_color
 	)
 
-// We turn the light off.
+/// We turn the light off.
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/disable_bioluminescence()
 	QDEL_NULL(biolum_light)
 
+/// On dispel, turn the lights off.
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	if(!active)
@@ -102,7 +107,7 @@
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return DISPEL_RESULT_DISPELLED
 
-// You can shake em like glowsticks to make em glow MORE.
+/// You can shake em like glowsticks to make em glow MORE.
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/on_help_act(mob/living/carbon/source, mob/living/carbon/helper)
 	SIGNAL_HANDLER
 	if(!active || !owner || source != owner)
@@ -113,6 +118,7 @@
 	enable_bioluminescence()
 	addtimer(CALLBACK(src, PROC_REF(decay_biolum_bonus)), 60 SECONDS)
 
+/// Undoes the bonus light from being shaked.
 /datum/action/cooldown/power/aberrant/bioluminescence/proc/decay_biolum_bonus()
 	if(biolum_bonus_range <= 0)
 		return

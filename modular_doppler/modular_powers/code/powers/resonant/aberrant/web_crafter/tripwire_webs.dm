@@ -21,6 +21,7 @@
 		return
 	action.web_craft_entries -= /datum/web_craft_entry/tripwire_web
 
+/// Returns the web crafter action.
 /datum/power/aberrant/tripwire_webs/proc/get_web_crafter_action()
 	if(!power_holder)
 		return null
@@ -72,6 +73,7 @@
 	triggered(mover)
 	return TRUE
 
+/// When the tripwire is triggered.
 /obj/structure/spider/tripwire_web/proc/triggered(mob/living/triggerer)
 	var/mob/living/maker = maker_ref?.resolve()
 	if(!should_notify_maker(maker, triggerer))
@@ -83,7 +85,7 @@
 		to_chat(maker, span_warning("Your tripwire in [area_name] was triggered!"))
 	qdel(src)
 
-// We do not notify the maker under certain circumstances.
+/// We do not notify the maker under certain circumstances.
 /obj/structure/spider/tripwire_web/proc/should_notify_maker(mob/living/maker, mob/living/triggerer)
 	// DO WE EXIST?
 	if(!maker)

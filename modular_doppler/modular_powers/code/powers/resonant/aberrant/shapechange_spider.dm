@@ -25,6 +25,7 @@
 	previous_form = null
 	return ..()
 
+/// Gets and returns the shapeshift action responsible
 /datum/power/aberrant/shapechange_spider/proc/get_shapechange_action()
 	if(!power_holder?.powers)
 		return null
@@ -34,6 +35,7 @@
 			return shape_action
 	return null
 
+/// Gets the preference choiced options for the spider form
 /datum/power/aberrant/shapechange_spider/proc/get_spider_form()
 	var/choice = power_holder?.client?.prefs?.read_preference(/datum/preference/choiced/shapechange_spider_form)
 	if(isnull(choice))

@@ -51,6 +51,7 @@
 	active = TRUE
 	return TRUE
 
+/// When dispelled, arm pops back in.
 /datum/action/cooldown/power/aberrant/armblade/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	if(!active)

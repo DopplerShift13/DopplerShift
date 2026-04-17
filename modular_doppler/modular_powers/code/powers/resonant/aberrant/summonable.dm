@@ -11,8 +11,8 @@
 
 	required_powers = list(/datum/power/aberrant_root/anomalous)
 
+	/// Reference to the beetlejuice component
 	var/datum/component/beetlejuice/summonable/summon_component
-	var/owns_summon_component = FALSE
 
 // Lists the word in sec records.
 /datum/power/aberrant/summonable/get_security_record_text()
@@ -33,7 +33,6 @@
 	var/datum/component/beetlejuice/summonable/component = holder.GetComponent(/datum/component/beetlejuice/summonable)
 	if(!component)
 		component = holder.AddComponent(/datum/component/beetlejuice/summonable)
-		owns_summon_component = TRUE
 
 	summon_component = component
 
@@ -50,26 +49,35 @@
 
 /datum/power/aberrant/summonable/remove()
 	. = ..()
-	if(owns_summon_component && summon_component)
+	if(summon_component)
 		QDEL_NULL(summon_component)
-		owns_summon_component = FALSE
 
 // Custom beetlejuice component for Summonable.
 /datum/component/beetlejuice/summonable
 	min_count = 1
 	cooldown = 60 SECONDS // for the love of god don't make this shorter than 10 seconds you will break things.
+	/// Delay after your name being mentioned before the summoning begins
 	var/summon_delay = 1 SECONDS
+	/// How long it takes for you to fully float up
 	var/float_time = 3.5 SECONDS
+	/// Radius for orbiting runes
 	var/rune_orbit_radius = 30
+	/// Rotation speed for orbiting runes
 	var/rune_rotation_speed = 30
+	/// Amount of runes that orbit
 	var/rune_count = 8
+	/// Duration between each rune being sapwned
 	var/rune_spawn_interval = 3.4
+	/// Time for runes to fade in
 	var/rune_fade_time = 6
+	/// Color of the runes
 	var/rune_color = "#ff2a2a"
 
-	// These below are there to allow us to be dispelled and end the teleporation without brekaing everything.
+	/// Are we currently being summoned? (mostly used for dispels)
 	var/summoning = FALSE
+	/// Are we currently being beamed up? (mostly used for dispels)
 	var/beaming_up = FALSE
+	/// List of currnet active runes orbiting the mob.
 	var/list/obj/effect/summonable_rune_orbiter/current_runes
 
 // Custom apport because frankly put its cooler this way.
@@ -86,7 +94,7 @@
 	addtimer(VARSET_CALLBACK(src, active, TRUE), cooldown)
 	addtimer(CALLBACK(src, PROC_REF(begin_summon), summoned, target_turf), summon_delay)
 
-// Gets a valid nearby turf within the mob's area.
+/// Gets a valid nearby turf within the mob's area.
 /datum/component/beetlejuice/summonable/proc/get_adjacent_open_turf(atom/target)
 	var/turf/center = get_turf(target)
 	if(!center)
@@ -102,7 +110,7 @@
 		return null
 	return pick(candidates)
 
-// Starts the timers and starts manifesting effects.
+/// Starts the timers and starts manifesting effects.
 /datum/component/beetlejuice/summonable/proc/begin_summon(atom/movable/summoned, turf/target_turf)
 	if(QDELETED(summoned) || QDELETED(target_turf))
 		return
@@ -134,10 +142,11 @@
 	current_runes = runes
 	addtimer(CALLBACK(src, PROC_REF(spawn_rune_sequence), summoned, target_turf, runes, 1, old_alpha, old_pixel_y), 0)
 
+/// Removes the spotlight
 /datum/component/beetlejuice/summonable/proc/clear_origin_spotlight(obj/effect/temp_visual/spotlight/summonable/origin_spotlight)
 	QDEL_NULL(origin_spotlight)
 
-// Creates the cool floaty runes
+/// Creates the cool floaty runes
 /datum/component/beetlejuice/summonable/proc/spawn_rune_sequence(atom/movable/summoned, turf/target_turf, list/obj/effect/summonable_rune_orbiter/runes, rune_index, old_alpha, old_pixel_y)
 	if(!summoning)
 		QDEL_LIST(runes)
@@ -155,7 +164,7 @@
 
 	addtimer(CALLBACK(src, PROC_REF(spawn_rune_sequence), summoned, target_turf, runes, rune_index + 1, old_alpha, old_pixel_y), rune_spawn_interval)
 
-// BEGINS THE RAPTURE
+/// BEGINS THE RAPTURE
 /datum/component/beetlejuice/summonable/proc/begin_arrival(atom/movable/summoned, turf/target_turf, list/obj/effect/summonable_rune_orbiter/runes, old_alpha, old_pixel_y)
 	if(!summoning)
 		QDEL_LIST(runes)
@@ -178,16 +187,17 @@
 
 	addtimer(CALLBACK(src, PROC_REF(finish_summon), summoned, target_turf, old_alpha, old_pixel_y, spotlight), float_time)
 
-// Fade and clear the runes.
+/// Fade and clear the runes.
 /datum/component/beetlejuice/summonable/proc/fade_and_clear_runes(list/obj/effect/summonable_rune_orbiter/runes)
 	for(var/obj/effect/summonable_rune_orbiter/rune in runes)
 		animate(rune, alpha = 0, time = rune_fade_time)
 	addtimer(CALLBACK(src, PROC_REF(clear_runes), runes), rune_fade_time)
 
+/// Removes all active runes.
 /datum/component/beetlejuice/summonable/proc/clear_runes(list/obj/effect/summonable_rune_orbiter/runes)
 	QDEL_LIST(runes)
 
-// Alright, shows over, he's here now. Tiem to pack up and go.
+/// Alright, shows over, he's here now. Time to pack up and go.
 /datum/component/beetlejuice/summonable/proc/finish_summon(atom/movable/summoned, turf/target_turf, old_alpha, old_pixel_y, obj/effect/temp_visual/spotlight/summonable/spotlight)
 	if(QDELETED(summoned))
 		QDEL_NULL(spotlight)
@@ -215,6 +225,7 @@
 	active = FALSE
 	addtimer(VARSET_CALLBACK(src, active, TRUE), cooldown)
 
+/// Ends summon at certain stages.
 /datum/component/beetlejuice/summonable/proc/on_dispel(atom/movable/target, atom/dispeller)
 	SIGNAL_HANDLER
 	// Only cancel if they're currently being beamed up.
@@ -234,6 +245,7 @@
 			failed_summon.Knockdown(3 SECONDS)
 	return DISPEL_RESULT_DISPELLED
 
+/// Ends the summoning right there and now.
 /datum/component/beetlejuice/summonable/proc/cancel_summon(atom/movable/summoned)
 	if(summoned)
 		summoned.alpha = initial(summoned.alpha)

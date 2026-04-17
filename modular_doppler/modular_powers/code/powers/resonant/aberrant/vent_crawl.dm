@@ -51,7 +51,7 @@
 	else
 		REMOVE_TRAIT(power_holder, TRAIT_IMMOBILIZED, src)
 
-// Alt clicking on vents. Prevent them from venting if they're wearing too much crap.
+/// Alt clicking on vents. Prevent them from venting if they're wearing too much crap.
 /datum/power/aberrant/vent_crawl/proc/on_altclick(mob/living/source, atom/target)
 	SIGNAL_HANDLER
 	if(!can_use_ventcrawl(source))
@@ -68,7 +68,7 @@
 	to_chat(source, span_warning("You need to remove your backpack, helmet, and suit to ventcrawl!"))
 	return COMSIG_MOB_CANCEL_CLICKON
 
-// Are you TOO FUKKEN BIG? or are you SILENCED?
+/// Are you TOO FUKKEN BIG? or are you SILENCED?
 /datum/power/aberrant/vent_crawl/proc/can_use_ventcrawl(mob/living/source)
 	if(HAS_TRAIT(source, TRAIT_RESONANCE_SILENCED))
 		source.balloon_alert(source, "Silenced!")
@@ -77,7 +77,7 @@
 		return FALSE
 	return TRUE
 
-// Checks for back slot, head slot and suit slot
+/// Checks for back slot, head slot and suit slot
 /datum/power/aberrant/vent_crawl/proc/has_restricted_gear(mob/living/source)
 	var/mob/living/carbon/carbon_source = source
 	return carbon_source.get_item_by_slot(ITEM_SLOT_BACK) || carbon_source.get_item_by_slot(ITEM_SLOT_HEAD) || carbon_source.get_item_by_slot(ITEM_SLOT_OCLOTHING)

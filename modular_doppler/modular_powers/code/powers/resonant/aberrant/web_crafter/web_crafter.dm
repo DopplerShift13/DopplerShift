@@ -106,7 +106,7 @@
 		return FALSE
 	return TRUE
 
-// Populates the list of web entries
+/// Populates the list of web entries
 /datum/action/cooldown/power/aberrant/web_crafter/proc/get_web_craft_entries()
 	// Normalize any typepaths to instances.
 	for(var/i in 1 to length(web_craft_entries))
@@ -115,7 +115,7 @@
 			web_craft_entries[i] = new entry
 	return web_craft_entries
 
-// Creates and shows the options in the radial menu.
+/// Creates and shows the options in the radial menu.
 /datum/action/cooldown/power/aberrant/web_crafter/proc/build_radial_options(list/entries, list/key_to_entry)
 	var/list/options = list()
 	for(var/datum/web_craft_entry/entry as anything in entries)
@@ -136,11 +136,11 @@
 		key_to_entry[key] = entry
 	return options
 
-// Unique radial menu id for this action and user.
+/// Unique radial menu id for this action and user.
 /datum/action/cooldown/power/aberrant/web_crafter/proc/get_radial_uniqueid(mob/living/user)
 	return "web_crafter_[REF(user)]"
 
-// Check before crafting.
+/// Check before crafting.
 /datum/action/cooldown/power/aberrant/web_crafter/proc/can_craft_entry(mob/living/user, datum/web_craft_entry/entry)
 	// Are we hungy?
 	if(!HAS_TRAIT(user, TRAIT_NOHUNGER) && user.nutrition <= NUTRITION_LEVEL_STARVING)
@@ -163,7 +163,7 @@
 			return FALSE
 	return TRUE
 
-// Atually creates the item.
+// Actually creates the item.
 /datum/action/cooldown/power/aberrant/web_crafter/proc/create_obj(mob/living/user, datum/web_craft_entry/entry)
 	if(entry.is_structure)
 		var/turf/target_turf = get_turf(user)

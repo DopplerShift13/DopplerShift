@@ -25,6 +25,7 @@
 	previous_form = null
 	return ..()
 
+/// Gets the action reference for shapechange
 /datum/power/aberrant/shapechange_wolf/proc/get_shapechange_action()
 	if(!power_holder?.powers)
 		return null

@@ -10,7 +10,7 @@
 
 	required_powers = list(/datum/power/aberrant_root/monstrous)
 
-	// how much we heal per second
+	/// how much we heal per second
 	var/healing = 0.2
 
 /datum/power/aberrant/healing_factor/process(seconds_per_tick)

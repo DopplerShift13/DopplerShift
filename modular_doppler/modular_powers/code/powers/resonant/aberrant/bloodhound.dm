@@ -17,9 +17,9 @@
 	click_to_activate = TRUE
 	target_range = 1
 
-	// How much hunger does tracking someone take?
+	/// How much hunger does tracking someone take?
 	var/hunger_cost = 20
-	// How long you can keep a mob's scent.
+	/// How long you can keep a mob's scent.
 	var/scent_duration = 2 MINUTES
 
 /datum/action/cooldown/power/aberrant/bloodhound/use_action(mob/living/user, atom/target)
@@ -48,7 +48,7 @@
 	user.adjust_nutrition(hunger_cost)
 	return TRUE
 
-// Checks if the target can be affected by bloodhound tracking. Basically magic resistance + scrying immunity.
+/// Checks if the target can be affected by bloodhound tracking. Basically magic resistance + scrying immunity.
 /datum/action/cooldown/power/aberrant/bloodhound/proc/can_affect_bloodhound(mob/living/target)
 	if(target.can_block_resonance())
 		return FALSE
@@ -58,7 +58,7 @@
 		return FALSE
 	return TRUE
 
-// Gets DNA from blood
+/// Gets DNA from blood
 /datum/action/cooldown/power/aberrant/bloodhound/proc/get_blood_dna_list_from_target(atom/target)
 	if(isnull(target))
 		return null
@@ -100,7 +100,7 @@
 
 	return dna_list
 
-// Checks the blood for a dna match.
+/// Checks the blood for a dna match.
 /datum/action/cooldown/power/aberrant/bloodhound/proc/find_target_from_dna(selected_dna)
 	if(!selected_dna)
 		return null
@@ -121,6 +121,7 @@
 	tick_interval = STATUS_EFFECT_AUTO_TICK
 	alert_type = /atom/movable/screen/alert/status_effect/bloodhound_scent
 
+	/// Weakref to the target mob
 	var/datum/weakref/target_ref
 
 /datum/status_effect/power/bloodhound_scent/on_creation(mob/living/new_owner, passed_duration, mob/living/target)
@@ -146,7 +147,7 @@
 		owner.emote("sniff")
 	update_direction_indicator()
 
-// Updates the direction indicator on the status effect (what we use to convey direction)
+/// Updates the direction indicator on the status effect (what we use to convey direction)
 /datum/status_effect/power/bloodhound_scent/proc/update_direction_indicator()
 	if(!owner || QDELETED(owner))
 		qdel(src)
