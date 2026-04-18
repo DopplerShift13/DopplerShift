@@ -35,7 +35,7 @@
 /obj/item/clothing/accessory/medal/silver/security
 	name = "\improper Port Safety Achievement Medal"
 	desc = "An award for distinguished behaviour in the Port Safety's interests. \
-		Whether defence, deescalation, mediation, it covers the whole range. \
+		Whether defence, de-escalation, mediation, it covers the whole range. \
 		Often awarded to security volunteers, but not solely so."
 
 
