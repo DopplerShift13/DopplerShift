@@ -185,6 +185,3 @@
 
 /area/station/command/heads_quarters/hos
 	name = "\improper Chief Guard's Office"
-
-/obj/effect/landmark/start/head_of_security
-	name = "Chief Guard"

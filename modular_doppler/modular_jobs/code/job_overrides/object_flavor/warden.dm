@@ -91,6 +91,3 @@
 
 /area/station/security/warden
 	name = "\improper Dispatcher's Office"
-
-/obj/effect/landmark/start/warden
-	name = "Dispatcher"

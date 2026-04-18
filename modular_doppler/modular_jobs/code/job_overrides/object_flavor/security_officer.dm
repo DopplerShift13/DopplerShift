@@ -52,11 +52,3 @@
 /obj/item/toy/figure/secofficer
 	name = "\improper Security Guard action figure"
 	toysay = "Two hundred reps onion cutting for insulting the chef!"
-
-
-/**
- * MAPPING
- */
-
-/obj/effect/landmark/start/security_officer
-	name = "Security Guard"
