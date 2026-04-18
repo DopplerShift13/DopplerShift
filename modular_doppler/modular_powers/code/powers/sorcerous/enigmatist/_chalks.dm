@@ -228,4 +228,4 @@
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 
 #undef CAT_ENIGMATIST
-/*
+*/

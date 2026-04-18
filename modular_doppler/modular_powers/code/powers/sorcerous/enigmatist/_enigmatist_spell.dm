@@ -82,4 +82,4 @@
 		used_chalk.balloon_alert(user, "too damaged!")
 		return FALSE
 	return TRUE
-/*
+*/
