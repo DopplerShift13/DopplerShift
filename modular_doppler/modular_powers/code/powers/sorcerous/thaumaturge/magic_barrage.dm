@@ -24,23 +24,27 @@
 	prep_cost = 5
 	anti_magic_on_target = FALSE
 
-	// The projectile we fire
+	/// The projectile we fire
 	var/obj/projectile/projectile_path = /obj/projectile/resonant/magic_barrage
 
-	// How many missiles we have left to fire.
+	/// How many missiles we have left to fire.
 	var/missiles_remaining = 0
 
-	// Orbital fluff
+	/// List of missiles currently oribing us
 	var/list/orbiting_missiles = list()
+	/// Times between each shot materializing
 	var/time_between_initial_missiles = 0.12 SECONDS // Missiles spawned sequentially to prevent stacking.
+	/// The radius in which the missiles orbit us
 	var/missile_orbit_radius = 20
+	/// The speed at which the missiles orbit us.
 	var/missile_rotation_speed = 15
 
-	// Cooldown for single shots in miliseconds.
+	/// world.time until we can fire our next shot
 	var/next_single_shot_time = 0
+	/// Cooldown for single shots in miliseconds.
 	var/single_shot_delay = 3
 
-	// Wind-up before you can start casting.
+	/// world.time wind-up before you can start casting.
 	var/barrage_ready_time = 0
 
 /datum/action/cooldown/power/thaumaturge/magical_barrage/use_action(mob/living/user, atom/target)
@@ -63,7 +67,7 @@
 	to_chat(owner, span_notice("Magical missiles orbit you. Left-click: Fire one. Right-click: Fire all."))
 	return TRUE
 
-// Turns off barrage mode and cleans up signals + orbitals.
+/// Turns off barrage mode and cleans up signals + orbitals.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/disable_barrage(mob/living/user, message)
 	if(!active)
 		return
@@ -79,7 +83,7 @@
 	if(user && message)
 		to_chat(user, message)
 
-// Click handler while barrage mode is active.
+/// Click handler while barrage mode is active.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/on_owner_clickon(mob/living/clicker, atom/target, params)
 	SIGNAL_HANDLER
 
@@ -115,7 +119,7 @@
 		if(missiles_remaining <= 0)
 			disable_barrage(owner, null)
 
-// Proc for firing a single shot.
+/// Proc for firing a single shot.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/fire_single_shot(mob/living/user, atom/target)
 	if(world.time < next_single_shot_time) // anti spam-click.
 		return FALSE
@@ -126,7 +130,7 @@
 	return fire_projectile(user, target, projectile_path)
 
 
-// Special proc for shotgunning it.
+/// Special proc for shotgunning it.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/fire_projectile_shotgun(mob/living/user, atom/target, obj/projectile/projectile, pellet_count = 5, cone_degrees = 18, angle_jitter_degrees = 1)
 	SHOULD_CALL_PARENT(TRUE)
 
@@ -177,7 +181,7 @@
 	playsound(owner, 'sound/effects/magic/magic_missile.ogg', 75, TRUE)
 	return fired_any
 
-// checks if we're allowed to fire after cast
+/// checks if we're allowed to fire after cast
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/can_fire_now(mob/living/user)
 	if(world.time < barrage_ready_time)
 		user.balloon_alert(user, "Wait for the missiles!")
@@ -205,7 +209,7 @@
 	anchored = TRUE
 	alpha = 180
 
-
+/// Spawns the oribitng effects around the mob.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/spawn_orbitals(amount)
 	clear_orbitals()
 	if(amount <= 0 || QDELETED(owner))
@@ -233,18 +237,21 @@
 	RegisterSignal(orbiter, COMSIG_QDELETING, PROC_REF(on_orbiter_deleted))
 	playsound(owner, 'sound/effects/magic/blink.ogg', 75, TRUE)
 
+/// Clears all orbiting missiles.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/clear_orbitals()
 	if(!length(orbiting_missiles))
 		return
 	QDEL_LIST(orbiting_missiles)
 	orbiting_missiles.Cut()
 
+/// Removes exactly one orbital.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/remove_one_orbital()
 	if(!length(orbiting_missiles))
 		return FALSE
 	qdel(orbiting_missiles[1])
 	return TRUE
 
+/// On qdel signaler that removes it from the orbiting list.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/on_orbiter_deleted(obj/effect/magic_missile_orbiter/orbiter)
 	SIGNAL_HANDLER
 
@@ -267,6 +274,7 @@
 	if(resonant)
 		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
+/// On dispel, poof there go your orbitals.
 /datum/action/cooldown/power/thaumaturge/magical_barrage/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	if(!active)

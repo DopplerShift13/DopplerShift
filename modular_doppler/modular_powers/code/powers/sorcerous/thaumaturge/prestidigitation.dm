@@ -204,10 +204,12 @@
 	UnregisterSignal(parent, COMSIG_FOOD_EATEN)
 	UnregisterSignal(parent, COMSIG_FOOD_GET_EXTRA_COMPLEXITY)
 
+/// Adds quality to a flavor component
 /datum/component/prestidigitation_flavor/proc/add_quality(datum/source, list/extra_complexity)
 	SIGNAL_HANDLER
 	extra_complexity[1] += quality_bonus
 
+/// Signaler for bad mood to give the disgusting fod modlet.
 /datum/component/prestidigitation_flavor/proc/on_food_eaten(datum/source, mob/eater, mob/feeder, bitecount, bite_consumption)
 	SIGNAL_HANDLER
 	if(!isliving(eater))

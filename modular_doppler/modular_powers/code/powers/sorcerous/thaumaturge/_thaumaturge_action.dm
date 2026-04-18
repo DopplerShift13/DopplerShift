@@ -8,21 +8,21 @@
 	cooldown_time = 5
 	// hides the cooldown text cause we contest the ui element location.
 	text_cooldown = FALSE
-	// Unlike normal spells, we have charges. More of that explained below at check_if_valid()
+	/// Unlike normal spells, we have charges. More of that explained below at check_if_valid()
 	var/charges = 0
-	// The cap on charges; you can't prepare more than these. If you leave this null, the spell will not interact with the charges system.
+	/// The cap on charges; you can't prepare more than these. If you leave this null, the spell will not interact with the charges system.
 	var/max_charges = THAUMATURGE_MAX_CHARGES_BASE
-	// How many charges does it consume on use?
+	/// How many charges does it consume on use?
 	var/charges_to_use = 1
-	// How much 'mana' does it cost to prepare this per charge?
+	/// How much 'mana' does it cost to prepare this per charge?
 	var/prep_cost = 1
 
-	// Overlay that shows the number of charges
+	/// Overlay that shows the number of charges
 	var/mutable_appearance/charge_overlay
 
-	// How much affinity is currently affecting the action. It is deliberate we snap-shot this on cast.
+	/// How much affinity is currently affecting the action. It is deliberate we snap-shot this on cast.
 	var/affinity
-	// How much affinity is required to use the action.
+	/// How much affinity is required to use the action.
 	var/required_affinity
 
 /datum/action/cooldown/power/thaumaturge/New()
@@ -50,6 +50,7 @@
 	check_if_valid()
 	return
 
+/// Adjusts the charge counts up to the cap and not below 0 unless overriden.
 /datum/action/cooldown/power/thaumaturge/proc/adjust_charges(amount, override_cap)
 	if(!isnum(amount))
 		return
@@ -59,6 +60,7 @@
 /*
 	Affinity system stuff here. Dress like a mage, get bonuses.
 */
+/// Gets and reutrns a mob's current highest affinity number.
 /datum/action/cooldown/power/thaumaturge/proc/get_affinity(mob/living/user)
 	var/highest_affinity = 0
 
@@ -92,7 +94,7 @@
 	Mechanically, we check if charges are 0. If so we Disable(). Otherwise, we deduct a charge and go on a short cooldown.
 */
 
-// Checks if we have charges to use.
+/// Checks if we have charges to use.
 /datum/action/cooldown/power/thaumaturge/proc/check_if_valid()
 	update_charges_overlay()
 	if(charges <= 0 && max_charges) // If charges are 0 or less and it has a max_charges set.
@@ -102,7 +104,7 @@
 		enable()
 		return TRUE
 
-// Handles the UI stuff.
+/// Handles the UI stuff.
 /datum/action/cooldown/power/thaumaturge/proc/update_charges_overlay()
 	var/atom/movable/ui_element = get_atom_moveable()
 	if(!ui_element)
@@ -123,7 +125,7 @@
 	ui_element.add_overlay(charge_overlay)
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 
-// Get the moveable atom specifically for adjusting the number.
+/// Get the moveable atom specifically for adjusting the number.
 /datum/action/cooldown/power/thaumaturge/proc/get_atom_moveable()
 	for(var/datum/hud/hud_instance as anything in viewers)
 		var/atom/movable/screen/movable/action_button/action_button_instance = viewers[hud_instance]

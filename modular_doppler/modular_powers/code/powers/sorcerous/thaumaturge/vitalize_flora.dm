@@ -20,12 +20,11 @@
 	required_affinity = 1
 	prep_cost = 2
 
-
-	// the amount to heal mob plants by
+	/// the amount to heal mob plants by
 	var/mob_heal_amount = 15
-	// the amount to heal non-mob plants by
+	/// the amount to heal non-mob plants by
 	var/obj_heal_amount = 10
-	// How many seconds to make it grow by.
+	/// How many seconds to make it grow by.
 	var/grow_amount = (15 SECONDS) / (HYDROTRAY_CYCLE_DELAY)
 
 /datum/action/cooldown/power/thaumaturge/vitalize_flora/use_action(mob/living/user, atom/target)

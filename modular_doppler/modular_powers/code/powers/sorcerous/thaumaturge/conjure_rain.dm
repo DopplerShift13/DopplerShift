@@ -26,23 +26,24 @@
 	use_time_overlay_type = /obj/effect/temp_visual/conjure_rain
 	use_time = 1 SECONDS
 
-	// the chem that the base rain uses
+	/// the chem that the base rain uses
 	var/datum/reagent/rain_chem = /datum/reagent/water
-	// the base conversion ratio of the chem.
+	/// the base conversion ratio of the chem.
 	var/base_chem_ratio = 1
-	// the max amount we put in a single container
+	/// the max amount we put in a single container
 	var/max_reagents_per_container = 20
-	// max amount of reagents we can spread across containers (not including mobs)
+	/// max amount of reagents we can spread across containers (not including mobs)
 	var/max_reagents_dupe = 60
-	// bonus to max reagents per affinity above 3.
+	/// bonus to max reagents per affinity above 3.
 	var/affinity_max_reagents = 20
-	// Max units of reagent to expose per turf when splashing on the ground.
+	/// Max units of reagent to expose per turf when splashing on the ground.
 	var/ground_expose_cap = 10
-	// If TRUE, only allow chems that can be synthesized (unless bypassed below).
+	/// If TRUE, only allow chems that can be synthesized (unless bypassed below).
 	var/require_synthesizable = TRUE
-	// Chems that bypass synthesizable check.
+	/// Chems that bypass synthesizable check.
 	var/list/synth_bypass_chems = list(/datum/reagent/blood) // blood is cool and has synergy iwth sanguine absorption
 
+/// Is the chem alloewd? If its synthesizable or is on the bypass list.
 /datum/action/cooldown/power/thaumaturge/conjure_rain/proc/is_allowed_rain_reagent(datum/reagent/reagent)
 	if(!reagent)
 		return FALSE
@@ -161,8 +162,9 @@
 	anchored = TRUE
 	density = FALSE
 
+	/// Holds reagents tempirarly.
 	var/datum/reagents/reagent_buffer
-	// also affects how much our rain produces
+	/// The size of our buffer; also affects how much our rain produces
 	var/buffer_volume = 20
 
 /obj/effect/abstract/thaum_rain_buffer/Initialize(mapload, new_buffer_volume)

@@ -41,10 +41,3 @@
 	prep_component.build_spells() // We call it here so all the spells are loaded when we open it.
 	prep_component.ui_interact(user)
 	return TRUE
-
-
-
-
-
-
-

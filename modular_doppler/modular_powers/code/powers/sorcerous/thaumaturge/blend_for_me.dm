@@ -21,9 +21,9 @@
 	required_affinity = 1
 	prep_cost = 2
 
-	// The grab damage per tick.
+	/// The grab damage per tick.
 	var/grab_blend_brute = 12.5
-	// How many cycles can we blend a person.
+	/// How many cycles can we blend a person.
 	var/grab_blend_duration = 4
 
 /datum/action/cooldown/power/thaumaturge/blend_for_me/use_action(mob/living/user, atom/target)
@@ -53,7 +53,7 @@
 
 	return will_it_blend(user, active_held_item, grinding)
 
-// Attempts to blend the item.
+/// Attempts to blend the item.
 /datum/action/cooldown/power/thaumaturge/blend_for_me/proc/will_it_blend(mob/living/user, obj/item/input_item, grinding)
 	// Start cooldown immediately (anti-spam)
 	StartCooldown()
@@ -127,7 +127,10 @@
 	anchored = TRUE
 	density = FALSE
 
+	/// The reagent_buffer that holds all the reagents temporarily.
 	var/datum/reagents/reagent_buffer
+
+	/// Size of the buffer
 	var/buffer_volume = 50
 
 /obj/effect/abstract/thaum_blend_buffer/Initialize(mapload, new_buffer_volume)
@@ -137,12 +140,12 @@
 	reagents = new /datum/reagents(buffer_volume, src)
 	reagents.flags = TRANSPARENT | DRAINABLE
 
-// Check to see if we're allowed to blend people.
+/// Check to see if we're allowed to blend people.
 /datum/action/cooldown/power/thaumaturge/blend_for_me/proc/person_blend_conditions(/mob/living/user, atom/target)
 	return owner.pulling && owner.grab_state <= GRAB_AGGRESSIVE && isliving(owner.pulling)
 
-// Attemps to blend A PERSON.
-// Keep in mind that if you try to blend an undersized person in your hand, it will use will_it_blend instead.
+/// Attemps to blend A PERSON.
+/// Keep in mind that if you try to blend an undersized person in your hand, it will use will_it_blend instead.
 /datum/action/cooldown/power/thaumaturge/blend_for_me/proc/will_a_person_blend(mob/living/user, mob/living/target)
 	// How many times has our do_while hurt the person?
 	var/blend_attacks = 0

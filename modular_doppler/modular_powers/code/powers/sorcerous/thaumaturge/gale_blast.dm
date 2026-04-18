@@ -58,6 +58,8 @@
 	// Extinguishes hotspots. Doesn't mess with atmos.
 	extinguish_hotspots_on_turf(current_turf)
 
+/// Drags along anything that's not nailed down on the floor.
+/// Testing note: This drags along ghosts. This is too funny to fix.
 /obj/projectile/resonant/gale_blast/proc/drag_along_movables(turf/from_turf, turf/to_turf)
 	if(!from_turf || !to_turf)
 		return
@@ -86,7 +88,7 @@
 		movable_instance.extinguish()
 		pushed_atoms++
 
-// Checks if we can drag along the target.
+/// Checks if we can drag along the target.
 /obj/projectile/resonant/gale_blast/proc/can_wind_drag(atom/movable/movable_instance, turf/current_turf)
 	if(!movable_instance)
 		return FALSE
@@ -105,7 +107,7 @@
 
 	return TRUE
 
-// Extinguishes fire in the target space.
+/// Extinguishes fire in the target space.
 /obj/projectile/resonant/gale_blast/proc/extinguish_hotspots_on_turf(turf/current_turf)
 	if(!current_turf)
 		return
@@ -126,7 +128,7 @@
 	apply_knockback(target)
 
 
-// Handles the knockback on hit
+/// Handles the knockback on hit
 /obj/projectile/resonant/gale_blast/proc/apply_knockback(atom/hit_atom)
 	var/atom/movable/movable_target = hit_atom
 	if(!istype(movable_target))

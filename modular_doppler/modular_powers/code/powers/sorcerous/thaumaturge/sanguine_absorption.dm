@@ -26,17 +26,17 @@
 	use_time = 3 SECONDS
 	click_to_activate = TRUE
 
-	// Healing ratio per 1u
+	/// Healing ratio per 1u
 	var/healing_ratio = 0.4
-	// How much extra affinity adds to the ratio.
+	/// How much extra affinity adds to the ratio.
 	var/affinity_healing_ratio_bonus = 0.05
 
 	/// How much blood (in units) we try to gather.
 	var/harvest_goal = 100
 
-	// The special effect on the target
+	/// The special effect on the target
 	var/use_time_target_overlay = /obj/effect/temp_visual/sanguine_absorption
-	// Tracks whether the current cast was dispelled mid-channel.
+	/// Tracks whether the current cast was dispelled mid-channel.
 	var/cast_interrupted_by_dispel = FALSE
 
 /datum/action/cooldown/power/aberrant/cocoon/InterceptClickOn(mob/living/clicker, params, atom/target)
@@ -176,17 +176,18 @@
 	playsound(target, 'sound/effects/splat.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	return TRUE
 
-// Do you have BLOOD; as in the real deal.
+/// Do you have BLOOD; as in the real deal.
 /datum/action/cooldown/power/thaumaturge/sanguine_absorption/proc/is_valid_blood_target(mob/living/target_mob)
 	if(!target_mob)
 		return FALSE
 	return target_mob.get_blood_reagent() == /datum/reagent/blood
 
+/// Ends the cast if we are dispelled during it.
 /datum/action/cooldown/power/thaumaturge/sanguine_absorption/proc/on_cast_dispel(datum/source, atom/dispeller)
 	cast_interrupted_by_dispel = TRUE
 	to_chat(owner, span_warning("Your [name] is dispelled!"))
 
-// Checks if there's any valid blood sources in the area.
+/// Checks if there's any valid blood sources in the area.
 /datum/action/cooldown/power/thaumaturge/sanguine_absorption/proc/get_valid_blood_sources(turf/center, mob/living/target_mob, obj/item/reagent_containers/ignore_container)
 	if(!center)
 		return list()
@@ -220,10 +221,11 @@
 
 	return sources
 
+/// Checks if the mob actually contains proper useable blood
 /datum/action/cooldown/power/thaumaturge/sanguine_absorption/proc/has_valid_blood_sources(turf/center, mob/living/target_mob, obj/item/reagent_containers/ignore_container)
 	return length(get_valid_blood_sources(center, target_mob, ignore_container)) > 0
 
-// Attempts to do a blood drive on decals, containers and mobs in descending order.
+/// Attempts to do a blood drive on decals, containers and mobs in descending order.
 /datum/action/cooldown/power/thaumaturge/sanguine_absorption/proc/harvest_blood(turf/center, amount_needed, mob/living/target_mob, obj/item/reagent_containers/ignore_container)
 	if(amount_needed <= 0 || !center)
 		return 0
@@ -237,7 +239,7 @@
 
 	return harvested
 
-// Attempts to harvest decals.
+/// Attempts to harvest decals.
 /datum/action/cooldown/power/thaumaturge/sanguine_absorption/proc/harvest_blood_from_decals(turf/center, amount_needed)
 	if(amount_needed <= 0 || !center)
 		return 0
@@ -269,7 +271,7 @@
 
 	return harvested
 
-// Attempts to harvest containers
+/// Attempts to harvest containers
 /datum/action/cooldown/power/thaumaturge/sanguine_absorption/proc/harvest_blood_from_containers(turf/center, amount_needed, obj/item/reagent_containers/ignore_container)
 	if(amount_needed <= 0 || !center)
 		return 0
@@ -291,7 +293,7 @@
 
 	return harvested
 
-// Attempts to harvest mobs.
+/// Attempts to harvest mobs.
 /datum/action/cooldown/power/thaumaturge/sanguine_absorption/proc/harvest_blood_from_mobs(turf/center, amount_needed, mob/living/target_mob)
 	if(amount_needed <= 0 || !center)
 		return 0

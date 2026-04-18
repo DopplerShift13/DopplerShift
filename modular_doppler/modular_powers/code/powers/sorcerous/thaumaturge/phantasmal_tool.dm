@@ -56,6 +56,7 @@
 		to_chat(owner, span_warning("Your [name] spell consumed a charge!"))
 	return ..(user, target, override_charges)
 
+/// Checks if we're capable of using the menu
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool/proc/phantasmal_tool_menu_check(mob/user)
 	if(!istype(user))
 		return FALSE
@@ -63,6 +64,7 @@
 		return FALSE
 	return TRUE
 
+/// Gets all the images of the tools within phantasmal tool
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool/proc/get_phantasmal_tool_radial_images()
 	var/static/list/tool_type_to_image
 	if(tool_type_to_image)
@@ -93,7 +95,7 @@
 /datum/element/phantasmal_tool
 	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
 
-	// The item we're attached to.
+	/// The item we're attached to.
 	var/obj/item/attached_item
 
 /datum/element/phantasmal_tool/Attach(datum/target)
@@ -102,7 +104,6 @@
 	attached_item.item_flags = DROPDEL | ABSTRACT
 	attached_item.alpha = 200
 	attached_item.color = "#66cbdd"
-	attached_item.force = 0
 	attached_item.AddElementTrait(TRAIT_ON_HIT_EFFECT, REF(src), /datum/element/on_hit_effect)
 	RegisterSignal(attached_item, COMSIG_ON_HIT_EFFECT, PROC_REF(break_on_hit))
 	RegisterSignal(attached_item, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
@@ -113,12 +114,14 @@
 	REMOVE_TRAIT(source, TRAIT_ON_HIT_EFFECT, REF(src))
 	return ..()
 
+/// Listener so that we shatter on hit
 /datum/element/phantasmal_tool/proc/break_on_hit(datum/source, atom/damage_target, hit_zone, throw_hit)
 	SIGNAL_HANDLER
 	if(ismob(damage_target))
 		playsound(attached_item, 'sound/items/ceramic_break.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 		qdel(attached_item)
 
+/// On dispel, we shatter too.
 /datum/element/phantasmal_tool/proc/on_dispel(datum/source, atom/dispeller)
 	SIGNAL_HANDLER
 	if(attached_item)
