@@ -6,9 +6,9 @@
 	value = 3
 	required_powers = list(/datum/power/cultivator_root/astral_touched)
 
-	// the trailing particles
+	/// the trailing particles
 	var/datum/effect_system/trail_follow/ion/grav_allowed/flight_trail
-	// ref to the root power's action
+	/// ref to the root power's action
 	var/datum/action/cooldown/power/cultivator/alignment/astral_touched/astral_alignment
 
 /datum/power/cultivator/fly_like_a_shooting_star/add(client/client_source)
@@ -24,19 +24,21 @@
 		remove_flight(power_holder)
 	. = ..()
 
+/// When alignemnt is enabled, start flying
 /datum/power/cultivator/fly_like_a_shooting_star/proc/on_alignment_enabled(mob/living/user, datum/action/cooldown/power/cultivator/alignment/alignment_action)
 	SIGNAL_HANDLER
 	if(!istype(alignment_action, /datum/action/cooldown/power/cultivator/alignment/astral_touched))
 		return
 	apply_flight(user)
 
+/// When alignment is disabled, stop flying
 /datum/power/cultivator/fly_like_a_shooting_star/proc/on_alignment_disabled(mob/living/user, datum/action/cooldown/power/cultivator/alignment/alignment_action)
 	SIGNAL_HANDLER
 	if(!istype(alignment_action, /datum/action/cooldown/power/cultivator/alignment/astral_touched))
 		return
 	remove_flight(user)
 
-// Adds the flight traits and particles on alignment activation
+/// Adds the flight traits and particles on alignment activation
 /datum/power/cultivator/fly_like_a_shooting_star/proc/apply_flight(mob/living/user)
 	if(!user)
 		return
@@ -47,7 +49,7 @@
 	flight_trail.set_up(user)
 	flight_trail.start()
 
-// Removes the flight trait and particles on alignment deactivation
+/// Removes the flight trait and particles on alignment deactivation
 /datum/power/cultivator/fly_like_a_shooting_star/proc/remove_flight(mob/living/user)
 	if(!user)
 		return

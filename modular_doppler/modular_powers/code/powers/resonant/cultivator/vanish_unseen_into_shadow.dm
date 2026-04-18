@@ -11,9 +11,9 @@
 	required_powers = list(/datum/power/cultivator_root/shadow_walker)
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
 
-	// Cached alignment action for gating effects.
+	/// Cached alignment action for gating effects.
 	var/datum/action/cooldown/power/cultivator/alignment/shadow_walker/shadow_walker_alignment
-	// Current instance of the status effect
+	/// Current instance of the status effect
 	var/datum/status_effect/power/vanish_unseen_into_shadow/active_effect
 
 // Cleanup lingering effects
@@ -39,12 +39,14 @@
 		qdel(active_effect)
 		active_effect = null
 
+/// Are we in a dark space?
 /datum/power/cultivator/vanish_unseen_into_shadow/proc/is_in_darkness(mob/living/user)
 	var/turf/user_turf = get_turf(user)
 	if(!user_turf)
 		return FALSE
 	return user_turf.get_lumcount() <= LIGHTING_TILE_IS_DARK
 
+/// Gets and sets our alignment if its not there; then checks if its active.
 /datum/power/cultivator/vanish_unseen_into_shadow/proc/is_shadow_walker_alignment_active(mob/living/user)
 	if(!shadow_walker_alignment || QDELETED(shadow_walker_alignment))
 		for(var/datum/action/cooldown/power/cultivator/alignment/shadow_walker/alignment_action in user.actions)

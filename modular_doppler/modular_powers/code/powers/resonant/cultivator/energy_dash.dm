@@ -17,11 +17,11 @@
 	target_type = /turf
 	click_to_activate = TRUE
 
-	// Dash behavior.
+	/// How much seconds inbetween steps. Lower the number = the faster we go.
 	var/dash_step_delay = 0.05 SECONDS
-	// Max amount of spaces we can dash.
+	/// Max amount of distance from our starting point that we can START a dash towards
 	var/dash_max_distance = 30
-	// max amounts of steps you can take with the dash
+	/// Max amounts of steps we can take WHILST a dash is happening
 	var/dash_max_steps = 50
 
 // Extra movement gating.
@@ -81,6 +81,7 @@
 	INVOKE_ASYNC(src, PROC_REF(dash_along_path), user, path, alignment_action.alignment_outline_color)
 	return TRUE
 
+/// Moves us along our pre-determined path.
 /datum/action/cooldown/power/cultivator/energy_dash/proc/dash_along_path(mob/living/user, list/path, alignment_color)
 	ADD_TRAIT(user, TRAIT_IMMOBILIZED, src) // we don't want em moving.
 	var/steps = 0
@@ -101,13 +102,13 @@
 	REMOVE_TRAIT(user, TRAIT_IMMOBILIZED, src)
 	active = FALSE
 
-// Validates we can land on the destination turf.
+/// Validates we can land on the destination turf.
 /datum/action/cooldown/power/cultivator/energy_dash/proc/is_valid_destination(mob/living/user, turf/target_turf)
 	if(!target_turf || !isopenturf(target_turf))
 		return FALSE
 	return TRUE
 
-// Returns an active cultivator alignment action, or the first one found.
+/// Returns an active cultivator alignment action, or the first one found.
 /datum/action/cooldown/power/cultivator/energy_dash/proc/get_alignment_action(mob/living/user)
 	if(!user)
 		return null

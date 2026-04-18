@@ -8,7 +8,7 @@
 	action_path = /datum/action/cooldown/power/cultivator/alignment/flame_soul
 	value = 6
 
-	// bonus to heat tolerance
+	/// bonus to heat tolerance
 	var/heat_tolerance_bonus = 60
 
 // Gives innate resistance to heat.

@@ -5,33 +5,36 @@
 /datum/action/cooldown/power/cultivator/alignment
 	name = "abstract alignment"
 
-	// The overlay effect for the alignment.
+	/// The size of the glow effect around the mob for alignment.
 	var/alignment_outline_size = 2
-	// The overlay color for alignment, if it has one
+	/// The overlay color for alignment, if it has one
 	var/alignment_outline_color = "#66d5dd"
-	// the name for the filter (dont nede to change this)
+	/// The name for the filter (dont need to change this)
 	var/filter_id = "alignment_outline"
 
-	// light object for the alignment
+	/// Light object for the alignment
 	var/obj/effect/dummy/lighting_obj/moblight/alignment_light
-	// sounds to play when actvating alignment
+	/// Sounds to play when activating alignment
 	var/alignment_activation_sound = 'sound/effects/magic/lightningbolt.ogg'
 
-	// Mutable appearance stuff for the overlay.
+	/// Mutable appearance stuff for the overlay.
 	var/mutable_appearance/alignment_overlay
+	/// Icon for the effect sprite of the alignment overlay. This is distinct from the outline, but IS affected by the outline.
 	var/alignment_overlay_icon = 'icons/effects/effects.dmi'
+	/// Icon state for the efffect sprite of the alignment overlay.
 	var/alignment_overlay_state = "lightning"
+	/// Layer on which the effect sprite sits for the alignment overlay
 	var/alignment_overlay_layer = ABOVE_MOB_LAYER
 
-	// the armor datum given when in alignment
+	/// The armor datum given when in alignment. You SHOULD modify this if you want to change the armor type.
 	var/datum/armor/alignment_defense = /datum/armor/alignment_unarmored_defense
-	// the armor datum we actually add after comparing current armor against alignment_defense
+	/// The armor datum we actually add after comparing current armor against alignment_defense. You should NOT need to modify this.
 	var/datum/armor/alignment_added_armor
-	// The damage type for the alignment
+	/// The damage type for the alignment
 	var/alignment_damage_type = BRUTE
-	// The bonus damage for the alignment
+	/// The bonus damage for the alignment
 	var/alignment_damage_bonus = CULTIVATOR_ALIGNMENT_DAMAGE_BONUS
-	// The upkeep cost of the alignment
+	/// The upkeep cost of the alignment
 	var/alignment_upkeep_cost = CULTIVATOR_ALIGNMENT_UPKEEP_COST
 
 	cooldown_time = 5 // to prevent spam-clicking it off
@@ -45,7 +48,7 @@
 		UnregisterSignal(owner, list(COMSIG_HUMAN_UNARMED_HIT, COMSIG_MOB_EQUIPPED_ITEM, COMSIG_MOB_UNEQUIPPED_ITEM, COMSIG_ATOM_DISPEL))
 		remove_alignment_armor()
 
-// The proc for onhit. Override as desired.
+/// The proc for onhit. Override as desired.
 /datum/action/cooldown/power/cultivator/alignment/proc/on_unarmed_hit(mob/living/user, mob/living/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 	SIGNAL_HANDLER
 	if(!active)
@@ -63,7 +66,7 @@
 		return TRUE
 	return FALSE
 
-// COOL effects to show your AURA.
+/// COOL effects to show your AURA.
 /datum/action/cooldown/power/cultivator/alignment/proc/activation_fx(mob/living/carbon/user, atom/target)
 	if(isnull(alignment_outline_color) && isnull(alignment_outline_size))
 		return
@@ -92,7 +95,7 @@
 	// plays sound
 	playsound(owner, alignment_activation_sound, 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 
-// Everything that needs to happen when enabling alignment
+/// Everything that needs to happen when enabling alignment
 /datum/action/cooldown/power/cultivator/alignment/proc/enable_alignment(mob/living/carbon/user)
 	active = TRUE
 	bypass_cost = TRUE // makes it so we don't check for cost next time.
@@ -105,7 +108,7 @@
 	SEND_SIGNAL(user, COMSIG_CULTIVATOR_ALIGNMENT_ENABLED, src)
 	return TRUE
 
-// Everything that needs to happen when disabling alignment
+/// Everything that needs to happen when disabling alignment
 /datum/action/cooldown/power/cultivator/alignment/proc/disable_alignment(mob/living/carbon/user)
 	active = FALSE
 	bypass_cost = FALSE
@@ -119,7 +122,8 @@
 	SEND_SIGNAL(user, COMSIG_CULTIVATOR_ALIGNMENT_DISABLED, src)
 	return TRUE
 
-// Dispel handler: drains Energy if alignment is active.
+/// Dispel handler: drains Energy if alignment is active.
+/// For balance reasons this should not end on dispel; it is really an all eggs in one basket power.
 /datum/action/cooldown/power/cultivator/alignment/proc/on_dispel(mob/owner, atom/dispeller)
 	SIGNAL_HANDLER
 	if(!active)
@@ -137,18 +141,19 @@
 
 /*
 	Below is the big scary block of 'how to maths out other armor'
-	Because we want armor to be a minimum of 40, we need to COMPARE it against the current armor and change the armor values on the fly.
+	Because we want armor to never EXCEED the alignment due to stacking armor items with alignment, we need to COMPARE it against the current armor and change the armor values on the fly.
 	This is called when either A. you activate the alignment or B. equip/unequip stuff.
-	Other armor applies globally, so wearing a really good helmet/chest will still disable the alignment damage bonus for other slots that may be uncovered.
+	'Other armor' as a type applies globally to all slots, so wearing a really good helmet/chest will still disable the alignment damage bonus for other slots that may be uncovered.
 */
 
+/// Whenever we change anything about our loadout, recompute.
 /datum/action/cooldown/power/cultivator/alignment/proc/on_equipment_changed(datum/source, obj/item/item, slot)
 	SIGNAL_HANDLER
 	if(!active)
 		return
 	recompute_alignment_armor(source)
 
-// The builder that actually applies the maths from calc_needed_internal_armor and applies it.
+/// The builder that actually applies the maths from calc_needed_internal_armor and applies it.
 /datum/action/cooldown/power/cultivator/alignment/proc/recompute_alignment_armor(mob/living/carbon/user)
 	if(!ishuman(user))
 		return
@@ -172,7 +177,7 @@
 		alignment_added_armor = base_armor.generate_new_with_specific(add_values)
 		human_user.physiology.armor = human_user.physiology.armor.add_other_armor(alignment_added_armor)
 
-// Compares the user's current worn armor against the armor from alignment_defense and returns the difference, to ensure we don't stack alignment armor past 40 armor.
+/// Compares the user's current worn armor against the armor from alignment_defense and returns the difference, to ensure we don't stack alignment armor past 40 armor.
 /datum/action/cooldown/power/cultivator/alignment/proc/calc_needed_internal_armor(mob/living/carbon/human/human_target, armor_type, target_total)
 	var/list/covering_clothing = list(
 		human_target.head, human_target.wear_mask, human_target.wear_suit, human_target.w_uniform, human_target.back, human_target.gloves, human_target.shoes, human_target.belt, human_target.s_store,	human_target.glasses, human_target.ears, human_target.wear_id, human_target.wear_neck)
@@ -192,6 +197,7 @@
 	var/required_internal = 100 * (1 - (1 - target_total / 100) / max(clothing_multiplier, 0.0001))
 	return max(0, required_internal - current_internal)
 
+/// Removes the lingering effects of the alignment armor.
 /datum/action/cooldown/power/cultivator/alignment/proc/remove_alignment_armor()
 	if(!alignment_added_armor || !ishuman(owner))
 		alignment_added_armor = null

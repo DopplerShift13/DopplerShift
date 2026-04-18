@@ -10,8 +10,12 @@
 	required_powers = list(/datum/power/cultivator_root/astral_touched)
 	action_path = /datum/action/cooldown/power/cultivator/many_stars
 
+// Tracks what mouse button was pressed and routes it through use_action
+/// No mouse-press, either fallback or something weird happened.
 #define STARS_CLICK_NONE 0
+/// Left mouse click.
 #define STARS_CLICK_LEFT 1
+/// Right mouse click.
 #define STARS_CLICK_RIGHT 2
 
 /datum/action/cooldown/power/cultivator/many_stars
@@ -28,40 +32,43 @@
 	anti_magic_on_target = FALSE
 	click_cd_override = 3 // matches cooldown between shots
 
-	// icon & state
+	/// Icon for the stars we throw
 	var/star_icon = 'icons/effects/eldritch.dmi'
+	/// Icon state for the stars we throw
 	var/star_state = "ring_leader_effect"
+	/// Color for the stars we throw
 	var/star_color = "#c1effa"
 
-	// how big are the stars
+	/// how big are the stars
 	var/star_size = 0.7
-	// how long do the stars last
+	/// how long do the stars last
 	var/star_duration = 300 SECONDS
-	// the light range
+	/// the light range
 	var/star_light_range = 5
-	// the light's power (how strong of al ight)
+	/// the light's power (how strong of a light)
 	var/star_light_power = 1
-	// the max amount of stars
+	/// the max amount of stars
 	var/max_active_stars = 8
-	// tracked stars
+	/// list of stars that are currently active
 	var/list/active_stars
 
-	// Cooldown for shots in miliseconds.
+	/// world.time for when we should be able to shoot our next shot
 	var/next_star_shot_time = 0
+	/// Cooldown for shots in miliseconds.
 	var/star_shot_delay = 3
 
-	// how much damage does the star do on explosion
+	/// how much damage does the star do on explosion
 	var/star_explosion_damage = 25
-	// the explosion effect range
+	/// the explosion effect range
 	var/star_explosion_range = 1
-	// the explosion sound
+	/// the explosion sound
 	var/star_explosion_sound = 'sound/effects/magic/wandodeath.ogg'
-	// the energy cost for exploding the stars
+	/// the energy cost for exploding the stars
 	var/star_explosion_cost = CULTIVATOR_ENERGY_TRIVIAL * 2
-	// the energy cost per star
+	/// the energy cost per star
 	var/star_explosion_cost_per_star = CULTIVATOR_ENERGY_TRIVIAL
 
-	// Cached alignment action for gating effects.
+	/// Cached alignment action for gating effects.
 	var/datum/action/cooldown/power/cultivator/alignment/astral_touched/astral_alignment
 	/// Which mouse click is used in use_action
 	var/stars_click_type = STARS_CLICK_NONE
@@ -89,6 +96,7 @@
 		return TRUE
 	return FALSE
 
+/// If we get dispelled, our stars end. Whilst this goes around the ususal philosophy of dispelling the target object, you are still linked to them with the ability to blow it up.
 /datum/action/cooldown/power/cultivator/many_stars/proc/dispel(atom/target, atom/dispeller)
 	var/list/stars_to_del = active_stars.Copy()
 	if(stars_to_del)
@@ -96,7 +104,7 @@
 	for(var/obj/effect/many_stars_star/star as anything in stars_to_del)
 		qdel(star)
 
-// Checks where to place the star
+/// Checks where to place the star
 /datum/action/cooldown/power/cultivator/many_stars/proc/can_place_star(turf/target_turf)
 	if(!target_turf || !isopenturf(target_turf))
 		return FALSE
@@ -106,7 +114,7 @@
 		return FALSE
 	return TRUE
 
-// Adds a star to the list and removes the oldest if it exceeds the max
+/// Adds a star to the list and removes the oldest if it exceeds the max
 /datum/action/cooldown/power/cultivator/many_stars/proc/register_star(obj/effect/many_stars_star/new_star)
 	if(!new_star)
 		return
@@ -117,12 +125,13 @@
 		if(oldest_star)
 			qdel(oldest_star)
 
+/// Removes a star from the list.
 /datum/action/cooldown/power/cultivator/many_stars/proc/unregister_star(obj/effect/many_stars_star/old_star)
 	if(!active_stars || !old_star)
 		return
 	active_stars -= old_star
 
-// KA-BOOOOOOOM.
+/// KA-BOOOOOOOM. Blows up all stars in our active stars list.
 /datum/action/cooldown/power/cultivator/many_stars/proc/explode_active_stars(mob/living/user)
 	if(!is_astral_alignment_active(user))
 		if(user)
@@ -168,7 +177,7 @@
 				astral_alignment.disable_alignment(user)
 			break
 
-// Gets & sets astral allignment. We only really reference it in the explosion.
+/// Gets & sets astral allignment. We only really reference it in the explosion.
 /datum/action/cooldown/power/cultivator/many_stars/proc/is_astral_alignment_active(mob/living/user)
 	if(!astral_alignment)
 		for(var/datum/action/cooldown/power/cultivator/alignment/astral_touched/alignment_action in user.actions)
@@ -178,7 +187,7 @@
 		return FALSE
 	return astral_alignment.active
 
-// Creates the lingering star on impact.
+/// Creates the lingering star on impact.
 /datum/action/cooldown/power/cultivator/many_stars/proc/spawn_star(turf/impact_turf, turf/fallback_turf, obj/projectile/resonant/many_stars/source_projectile)
 	var/turf/placement_turf = null
 	if(can_place_star(impact_turf))
@@ -249,13 +258,19 @@
 	icon = 'icons/effects/eldritch.dmi'
 	icon_state = "ring_leader_effect"
 
-	// icon state & color data saved
+	/// Icon of the star
 	var/star_icon
+	/// Icon state of the star
 	var/star_state
+	/// Color of the star
 	var/star_color
+	/// Size of the star's sprite
 	var/star_size = 0.5
+	/// The last turf we passed through as a star
 	var/turf/last_passed_turf
+	/// The turf the caster aimed us ast
 	var/turf/target_turf
+	/// Have we reached our destination?
 	var/reached_target = FALSE
 
 // Tracks the last space we were in
@@ -283,7 +298,7 @@
 	if(power)
 		power.spawn_star(impact_turf, last_passed_turf, src)
 
-// Applies the size to the projectile
+/// Applies the size to the projectile
 /obj/projectile/resonant/many_stars/proc/apply_star_scale()
 	if(!star_size)
 		return
@@ -302,8 +317,11 @@
 	light_range = 3
 	light_power = 1
 	light_color = "#66c5dd"
+	/// Size of the object
 	var/star_size = 0.5
+	/// Lifespan of the object
 	var/lifespan = 300 SECONDS
+	/// Reference to the action datum that created this
 	var/datum/action/cooldown/power/cultivator/many_stars/owner_power
 
 // Adds expiration timer and size modifier.
@@ -319,6 +337,7 @@
 	owner_power = null
 	return ..()
 
+/// On expiration, just remove.
 /obj/effect/many_stars_star/proc/expire()
 	qdel(src)
 
@@ -327,7 +346,7 @@
 	. = ..()
 	if(attacking_item?.force)
 		if(user)
-			to_chat(user, span_notice("You interact with the star, and it vanishes!"))
+			to_chat(user, span_notice("You smack the star, and it vanishes!"))
 		qdel(src)
 	return .
 
@@ -339,6 +358,7 @@
 	qdel(src)
 	return .
 
+/// Applies the size modifier on the star item.
 /obj/effect/many_stars_star/proc/apply_star_scale()
 	if(!star_size)
 		return

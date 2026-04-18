@@ -9,8 +9,12 @@
 	required_powers = list(/datum/power/cultivator_root/flame_soul)
 	action_path = /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay
 
+// Mouse click handlers
+/// No mouse click
 #define FIRE_CLICK_NONE 0
+/// Left mouse click
 #define FIRE_CLICK_LEFT 1
+/// Right mouse click
 #define FIRE_CLICK_RIGHT 2
 
 /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay
@@ -25,26 +29,34 @@
 	unset_after_click = FALSE
 	click_cd_override = 5 // matches cooldown between shots
 
-	// Cooldown for right click projectile, in deciseconds.
+	/// Cooldown for right click projectile, in deciseconds.
 	var/projectile_delay = 5
+	/// World-time for when the next projectile is ready
 	var/next_projectile_time = 0
 
-	// cost for flameblast
+	/// cost for flameblast projectile
 	var/flameblast_cost = 20
-	// icon, state and scale of flameblast
+	/// Icon for flameblast projectile
 	var/flameblast_icon = null
+	/// Icon state for flamebast projectile
 	var/flameblast_icon_state = "fireball"
+	/// Icon scale for the flameblast projectile
 	var/flameblast_scale = 0.7
-	// light range, power and color of flameblast
+
+	/// Flamebast's light range
 	var/flameblast_light_range = 3
+	/// Flameblast's light power
 	var/flameblast_light_power = 1
+	/// Flameblast's light color
 	var/flameblast_light_color = "#e99a3f"
-	// damage & firestacks of flameblast
+
+	/// Flameblast projectile's on-hit damage
 	var/flameblast_damage = 10
+	/// Flaemblast projectile's firestacks on hit
 	var/flameblast_firestacks = 0.1
-	// the sound of flameblast impacting
+	/// The sound of flameblast impacting
 	var/flameblast_impact_sound = 'sound/effects/fire_puff.ogg'
-	// Cached alignment action for gating right click effects.
+	/// Cached alignment action for gating right click effects.
 	var/datum/action/cooldown/power/cultivator/alignment/flame_soul/flame_soul_alignment
 	/// Which mouse click is used in use_action
 	var/fire_click_type = FIRE_CLICK_NONE
@@ -87,15 +99,20 @@
 		qdel(lighter)
 		return TRUE
 
-	// Only ignite flammable targets.
-	if((target.resistance_flags & FLAMMABLE) && !(target.resistance_flags & FIRE_PROOF))
-		target.fire_act(lighter.get_temperature())
+	// First run normal item-interaction handlers (candles use this path).
+	var/item_interact_result = target.item_interaction(user, lighter, list())
+	if(!(item_interact_result & ITEM_INTERACT_ANY_BLOCKER))
+		// Fallback to attackby handlers (bonfires use this path).
+		target.attackby(lighter, user, list(), list())
+		// Finally, raw ignition for generic flammables.
+		if((target.resistance_flags & FLAMMABLE) && !(target.resistance_flags & FIRE_PROOF))
+			target.fire_act(lighter.get_temperature())
 	qdel(lighter)
 	playsound(user, 'sound/effects/fire_puff.ogg', 60, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	// Always return TRUE to keep the click ability active.
 	return TRUE
 
-// Gets & caches flame soul alignment for gating the right click.
+/// Gets & caches flame soul alignment for gating the right click.
 /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay/proc/is_flame_soul_alignment_active(mob/living/user)
 	if(!flame_soul_alignment)
 		for(var/datum/action/cooldown/power/cultivator/alignment/flame_soul/alignment_action in user.actions)
@@ -105,7 +122,7 @@
 		return FALSE
 	return flame_soul_alignment.active
 
-// Shoots a lil flameblast when we're in alignment.
+/// Shoots a lil flameblast when we're in alignment.
 /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay/proc/shoot_flameblast(mob/living/user, atom/target)
 	if(!is_flame_soul_alignment_active(user))
 		user.balloon_alert(user, "alignment required!")

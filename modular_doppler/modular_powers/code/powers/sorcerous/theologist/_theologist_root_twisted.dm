@@ -50,7 +50,7 @@
 
 	active = TRUE
 	// I am going to shamelessly steal the red meditation spotlight for a moment.
-	target.apply_status_effect(/datum/status_effect/spotlight_light/resonant, 1200)
+	target.apply_status_effect(/datum/status_effect/spotlight_light/twisted, 1200)
 	current_beam = owner.Beam(target, icon_state = "light_beam", time = 120 SECONDS, maxdistance = target_range, beam_type = /obj/effect/ebeam/medical, beam_color = "#cf2525")
 
 	// Does the healing and damage
@@ -79,7 +79,7 @@
 
 	// cleanup
 	active = FALSE
-	target.remove_status_effect(/datum/status_effect/spotlight_light/resonant)
+	target.remove_status_effect(/datum/status_effect/spotlight_light/twisted)
 	QDEL_NULL(current_beam)
 
 	// unregister signal
@@ -194,3 +194,8 @@
 	owner.visible_message(span_warning("The resonant link between [owner.get_visible_name()] and [current_target.get_visible_name()] is broken!!"), span_notice("Your [name] is dispelled!"))
 	StartCooldownSelf()
 	return DISPEL_RESULT_DISPELLED
+
+// Legacy subtype for other powers still referencing this path.
+/datum/status_effect/spotlight_light/twisted
+	id = "twisted_spotlight"
+	spotlight_color = "#cf2525"

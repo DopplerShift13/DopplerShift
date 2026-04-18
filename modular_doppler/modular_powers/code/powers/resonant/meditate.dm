@@ -7,15 +7,18 @@ Reduces stress for psykers and restores Energy for cultivators
 	desc = "Restores the full potential of your resonant powers."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "chuuni"
-	// Both Cultivator and Psyker can benefit from meditate.
+
+	/// Both Cultivator and Psyker can benefit from meditate.
 	var/psyker_spotlight_color = "#ba2cc9"
 
-	// The components responsible for meditation.
+	/// Reference to the psyker organ, if any
 	var/obj/item/organ/resonant/psyker/psyker_organ
+	/// Reference to the cultivator energy component, if any
 	var/datum/component/cultivator_energy/cultivator_energy
 
-	// used for the do while loop
+	/// used for the do while loop
 	var/keep_going
+
 // Makes it end meditation by clicking it again.
 /datum/action/cooldown/power/resonant_meditate/Trigger(mob/clicker, trigger_flags, atom/target)
 	if(active)
@@ -62,7 +65,7 @@ Reduces stress for psykers and restores Energy for cultivators
 	spotlighttarget.remove_status_effect(/datum/status_effect/spotlight_light/meditation)
 	return
 
-// Changes the colors on meditate to whatever matches alignment.
+/// Changes the colors on meditate to whatever matches alignment.
 /datum/action/cooldown/power/resonant_meditate/proc/get_meditation_spotlight_config(mob/living/user)
 	var/list/config = list(
 		"color" = null,
@@ -77,6 +80,7 @@ Reduces stress for psykers and restores Energy for cultivators
 		config["color"] = psyker_spotlight_color
 	return config
 
+/// Gets the first alignment action that's used as our root.
 /datum/action/cooldown/power/resonant_meditate/proc/get_alignment_action(mob/living/user)
 	if(!user)
 		return null
@@ -88,6 +92,7 @@ Reduces stress for psykers and restores Energy for cultivators
 			return alignment_action
 	return first_alignment
 
+/// Checkes if we need to emit light; basically no dark colors.
 /datum/action/cooldown/power/resonant_meditate/proc/should_alignment_spotlight_emit_light(datum/action/cooldown/power/cultivator/alignment/alignment_action)
 	if(!alignment_action)
 		return TRUE
@@ -97,12 +102,12 @@ Reduces stress for psykers and restores Energy for cultivators
 		return FALSE
 	return TRUE
 
-// gets the psyker organ and the cultivator component
+/// gets the psyker organ and the cultivator component
 /datum/action/cooldown/power/resonant_meditate/proc/update_components()
 	psyker_organ = owner.get_organ_slot(ORGAN_SLOT_PSYKER)
 	cultivator_energy = owner.GetComponent(/datum/component/cultivator_energy)
 
-// Returns TRUE if any active Cultivator or Psyker power is active on the target.
+/// Returns TRUE if any active Cultivator or Psyker power is active on the target.
 /datum/action/cooldown/power/resonant_meditate/proc/user_has_active_power(mob/living/user)
 	if(!istype(user, /mob/living) || !user.powers)
 		return FALSE
@@ -146,8 +151,3 @@ Reduces stress for psykers and restores Energy for cultivators
 	if(additional_overlay)
 		owner.add_overlay(additional_overlay)
 	return TRUE
-
-// Legacy subtype for other powers still referencing this path.
-/datum/status_effect/spotlight_light/resonant
-	id = "resonant_spotlight"
-	spotlight_color = "#cf2525"

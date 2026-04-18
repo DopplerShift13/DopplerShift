@@ -24,7 +24,7 @@
 	cost = 25
 	target_type = /turf
 	use_time = 1 SECONDS
-	// Cached alignment action for gating effects.
+	/// Cached alignment action for gating effects.
 	var/datum/action/cooldown/power/cultivator/alignment/shadow_walker/shadow_walker_alignment
 
 // Handles the channel-time delay and mid-channel validation.
@@ -51,7 +51,7 @@
 	new /obj/effect/temp_visual/blank_echo(user_turf)
 	return TRUE
 
-// Shared validation for use-time, mid-channel, and post-channel checks.
+/// Shared validation for use-time, mid-channel, and post-channel checks.
 /datum/action/cooldown/power/cultivator/travel_under_the_veil_of_night/proc/check_travel_requirements(mob/living/user, atom/target)
 	if(!target)
 		return FALSE
@@ -76,7 +76,7 @@
 		return FALSE
 	return TRUE
 
-// Basically is the turf open/blocked?
+/// Basically is the turf open/blocked?
 /datum/action/cooldown/power/cultivator/travel_under_the_veil_of_night/proc/is_valid_destination(turf/target_turf)
 	if(!target_turf || !isopenturf(target_turf))
 		return FALSE
@@ -84,13 +84,13 @@
 		return FALSE
 	return is_turf_in_darkness(target_turf)
 
-// IS IT DARK?!
+/// IS IT DARK?!
 /datum/action/cooldown/power/cultivator/travel_under_the_veil_of_night/proc/is_turf_in_darkness(turf/target_turf)
 	if(!target_turf)
 		return FALSE
 	return target_turf.get_lumcount() <= LIGHTING_TILE_IS_DARK
 
-// ARE WE GOING SUPER SAIYAN?!
+/// ARE WE GOING SUPER SAIYAN?!
 /datum/action/cooldown/power/cultivator/travel_under_the_veil_of_night/proc/is_shadow_walker_alignment_active(mob/living/user)
 	if(!shadow_walker_alignment || QDELETED(shadow_walker_alignment))
 		for(var/datum/action/cooldown/power/cultivator/alignment/shadow_walker/alignment_action in user.actions)

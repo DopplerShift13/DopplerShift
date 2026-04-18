@@ -9,7 +9,7 @@
 
 	value = 6
 
-	// bonus to cold tolerance
+	/// bonus to cold tolerance
 	var/cold_tolerance_bonus = 40
 
 // Gives innate resistance to cold.

@@ -30,9 +30,9 @@
 	alignment_outline_color = "#000000"
 	alignment_overlay_state = "curse"
 
-	// the spooky overlay unique to shadow walker
+	/// the spooky overlay unique to shadow walker
 	var/mutable_appearance/echo_overlay
-	// global name/identity masking
+	/// global name/identity masking
 	var/datum/shadowwalker_identity/shadowwalker_identity
 
 // Adds pressure immunity & cold immunity.
@@ -113,7 +113,7 @@
 	alignment_overlay.color = alignment_outline_color
 	user.add_overlay(alignment_overlay)
 
-// Refreshes the overlay, because mechanically we want to always keep the user covered, we need to actually reupdate it during various animations (knockdown e.g)
+/// Refreshes the overlay, because mechanically we want to always keep the user covered, we need to actually reupdate it during various animations (knockdown e.g)
 /datum/action/cooldown/power/cultivator/alignment/shadow_walker/proc/refresh_echo_overlay(mob/living/carbon/user)
 	// Use the same matrix as echolocation
 	var/static/list/black_white_matrix = list(
@@ -141,12 +141,14 @@
 		animate(filter, alpha = 110, time = 1.5 SECONDS, loop = -1)
 		animate(alpha = 40, time = 2.5 SECONDS)
 
+/// Whenever any held item is changed that would possibly alter the sprite's appearance
 /datum/action/cooldown/power/cultivator/alignment/shadow_walker/proc/on_held_items_updated(mob/living/carbon/user)
 	SIGNAL_HANDLER
 	if(!user)
 		return
 	refresh_echo_overlay(user)
 
+/// When animation effect occurs.
 /datum/action/cooldown/power/cultivator/alignment/shadow_walker/proc/on_transform_updated(mob/living/carbon/user)
 	SIGNAL_HANDLER
 	if(!user)
@@ -158,8 +160,11 @@
 	Global identity masking for Shadow Walker alignment.
 */
 /datum/shadowwalker_identity
+	/// Mob that's being affected by the identity mask
 	var/mob/living/carbon/human/owner
+	/// Weakref to the owner
 	var/datum/weakref/owner_ref
+	/// Is it on or not?
 	var/active = FALSE
 
 /datum/shadowwalker_identity/New(mob/living/carbon/human/owner_arg)
@@ -174,6 +179,7 @@
 	owner_ref = null
 	return ..()
 
+/// Applies various signalers to override info about the mob.
 /datum/shadowwalker_identity/proc/apply()
 	var/mob/living/carbon/human/owner = src.owner || owner_ref?.resolve()
 	if(!istype(owner))
@@ -184,6 +190,7 @@
 	RegisterSignal(owner, COMSIG_ATOM_EXAMINE, PROC_REF(on_examine))
 	owner.update_visible_name()
 
+/// Removes all traces of the shadowwalker_identity
 /datum/shadowwalker_identity/proc/clear()
 	var/mob/living/carbon/human/owner = src.owner || owner_ref?.resolve()
 	if(owner)
@@ -191,6 +198,7 @@
 		owner.update_visible_name()
 	active = FALSE
 
+/// When a mob gets the visible name of the mob
 /datum/shadowwalker_identity/proc/on_visible_name(mob/living/carbon/human/source, list/identity)
 	SIGNAL_HANDLER
 	if(!active)
@@ -200,6 +208,7 @@
 	identity[VISIBLE_NAME_FACE] = "Unknown"
 	identity[VISIBLE_NAME_ID] = "Unknown"
 
+/// WHen a mob gets the visible name of the mob; this ones route a littel differently so we have to call both.
 /datum/shadowwalker_identity/proc/on_forced_name(mob/living/carbon/human/source, list/identity)
 	SIGNAL_HANDLER
 	if(!active)
@@ -208,6 +217,7 @@
 	identity[VISIBLE_NAME_FACE] = "Unknown"
 	identity[VISIBLE_NAME_ID] = "Unknown"
 
+/// When a mob attempts to examine our owner.
 /datum/shadowwalker_identity/proc/on_examine(datum/source, mob/user, list/examine_list)
 	SIGNAL_HANDLER
 	if(!active)

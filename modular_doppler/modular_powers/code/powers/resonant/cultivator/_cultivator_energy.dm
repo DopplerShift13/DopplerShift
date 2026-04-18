@@ -4,18 +4,19 @@
 /datum/component/cultivator_energy
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-	// The mob we’re attached to is always `parent`.
+	/// The mob we’re attached to is always parent.
 	var/mob/living/attached_mob
 
-	// Current Energy & the cap itself.
+	/// Current Energy
 	var/energy = 0
+	/// Max energy you can store
 	var/max_energy = CULTIVATOR_ENERGY_MAX
-
-	// The UI itself
+	/// The UI itself
 	var/atom/movable/screen/cultivator_energy/cultivator_ui
 
-	// min and max values for aurafarming
+	/// Minimum Energy gained from the Aura mechanic
 	var/aura_min = CULTIVATOR_MIN_CULTIVATION_BONUS
+	/// Maximum Energy gained from the Aura mechanic
 	var/aura_max = CULTIVATOR_MAX_CULTIVATION_BONUS
 
 /datum/component/cultivator_energy/Initialize()
@@ -34,7 +35,6 @@
 		RegisterSignal(attached_mob, COMSIG_MOB_HUD_CREATED, PROC_REF(on_hud_created))
 
 /datum/component/cultivator_energy/UnregisterFromParent()
-	// UnregisterSignal(attached_mob, list(COMSIG_..., COMSIG_...))
 	. = ..()
 	if(attached_mob) // prevents runtiming when adding/removing duplicate components
 		UnregisterSignal(attached_mob, COMSIG_MOB_HUD_CREATED)
@@ -81,6 +81,7 @@
 
 	adjust_energy(total)
 
+/// Waits for the HUD to load before installing the UI element
 /datum/component/cultivator_energy/proc/on_hud_created(datum/source)
 	SIGNAL_HANDLER
 
@@ -90,6 +91,7 @@
 
 	install_energy_hud(living_holder)
 
+/// Places the energy HUD on the player's UI
 /datum/component/cultivator_energy/proc/install_energy_hud(mob/living/living_holder)
 	if(cultivator_ui) // already installed
 		return
@@ -103,6 +105,7 @@
 
 	hud_used.show_hud(hud_used.hud_version)
 
+/// Changes how much energy we have within the confines of our limits, unless overriden.
 /datum/component/cultivator_energy/proc/adjust_energy(amount, override_cap)
 	if(!isnum(amount))
 		return

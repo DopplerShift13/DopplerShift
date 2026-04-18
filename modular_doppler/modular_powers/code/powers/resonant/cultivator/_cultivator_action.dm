@@ -4,17 +4,17 @@
 	overlay_icon_state = "bg_spell_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
-	// The organ that processes most of the Psyker Powers. Mostly all functions here communicate with this.
+	/// The component that talks with cultivator energy. Mostly all functions here communicate with this.
 	var/datum/component/cultivator_energy/energy_component
 
-	// The UI used for energy.alist
+	/// The UI element displaying how much energy we have.
 	var/atom/movable/screen/cultivator_energy/cultivator_ui
 
-	// Cost in Energy to use
+	/// Cost in Energy to use
 	var/cost
-	// Bypasses the cost check while active. On_action_success still subtracts it as normal.
+	/// Bypasses the cost check while active. On_action_success still subtracts it as normal.
 	var/bypass_cost
-	// Does this power get called by _cultivator_energy.dm when we check for aura farming? Used for potential future powers that allow you to aura farm in other ways.
+	/// Does this power get called by _cultivator_energy.dm when we check for aura farming? Used for potential future powers that allow you to aura farm in other ways.
 	var/contributes_to_aura_farming = FALSE
 
 
@@ -23,12 +23,12 @@
 	ValidateEnergyComponent()
 	return .
 
-// Feng Shui / Aura farming mechanics; get stuff in the environment, increase energy based on it
-// The func should be responsible for checking all the environmental stuff, calculating it and then returning it to the energy system.
+/// Feng Shui / Aura farming mechanics; get stuff in the environment, increase energy based on it
+/// This function should be responsible for checking all the environmental stuff, calculating it and then returning it to the energy system.
 /datum/action/cooldown/power/cultivator/proc/aura_farm()
 	return 0
 
-// Since Cultivator has multiple roots and a persistent resource system, we use a component for handling Energy
+/// Since Cultivator has multiple roots and a persistent resource system, we use a component for handling Energy
 /datum/action/cooldown/power/cultivator/proc/ValidateEnergyComponent()
 	if(owner) // Prevents runtiming on start
 		var/mob/living/carrier = owner
@@ -37,11 +37,11 @@
 		return FALSE
 	return TRUE
 
-// Validation handled in the energy component.
+/// Validation handled in the energy component.
 /datum/action/cooldown/power/cultivator/proc/adjust_energy(amount, override_cap)
 	energy_component.adjust_energy(amount, override_cap)
 
-//Easy access to energy
+///Easy access to energy
 /datum/action/cooldown/power/cultivator/proc/get_energy()
 	return energy_component.energy
 
