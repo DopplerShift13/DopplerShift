@@ -7202,7 +7202,6 @@
 #include "modular_doppler\modular_cosmetics\code\storage\medical\base_overrides.dm"
 #include "modular_doppler\modular_cosmetics\code\suits\basesuits.dm"
 #include "modular_doppler\modular_cosmetics\code\suits\cargo.dm"
-#include "modular_doppler\modular_cosmetics\code\suits\hardsuits.dm"
 #include "modular_doppler\modular_cosmetics\code\suits\jacket.dm"
 #include "modular_doppler\modular_cosmetics\code\suits\labcoat.dm"
 #include "modular_doppler\modular_cosmetics\code\suits\mining.dm"

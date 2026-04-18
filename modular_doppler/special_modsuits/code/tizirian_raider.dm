@@ -49,6 +49,7 @@
 		/obj/item/gun,
 		/obj/item/melee,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		/obj/item/storage/belt/holster,
 		/obj/item/construction,
 		/obj/item/fireaxe,
