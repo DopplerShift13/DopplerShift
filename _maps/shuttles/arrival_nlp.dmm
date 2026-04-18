@@ -1,86 +1,46 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"a" = (
-/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/east,
+"az" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon{
+	color = "#FF6821"
+	},
 /turf/closed/wall/mineral/nanocarbon{
 	color = #FF6821
 	},
 /area/shuttle/arrival)
-"b" = (
-/obj/structure/railing{
-	dir = 4
-	},
-/obj/structure/railing{
+"ca" = (
+/obj/structure/chair/comfy/shuttle{
 	dir = 8
 	},
-/turf/open/floor/iron/colony/texture/nanocarbon,
+/obj/machinery/light/cold/dim/directional/south,
+/obj/machinery/status_display/evac/directional/east,
+/turf/open/floor/pod,
 /area/shuttle/arrival)
-"c" = (
-/obj/effect/turf_decal/trimline/brown,
-/turf/open/floor/iron/colony/nanocarbon,
-/area/shuttle/arrival)
-"d" = (
+"cB" = (
 /obj/structure/shuttle_decoration/radiator{
 	dir = 1
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
-"e" = (
-/obj/machinery/digital_clock/directional/north,
-/obj/structure/shelf,
+"eU" = (
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/arrival)
+"fx" = (
+/obj/structure/closet/wardrobe/mixed,
+/obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/pod,
 /area/shuttle/arrival)
-"f" = (
+"hb" = (
 /obj/machinery/exoscanner/shuttle_part/sensors_blister/directional/east,
 /turf/closed/wall/mineral/nanocarbon{
 	color = #FF6821
 	},
 /area/shuttle/arrival)
-"g" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil{
-	dir = 8
+"hk" = (
+/turf/closed/wall/mineral/nanocarbon{
+	color = #FF6821
 	},
-/turf/closed/wall/mineral/aluminum,
 /area/shuttle/arrival)
-"h" = (
-/obj/machinery/power/shuttle_engine/propulsion{
-	dir = 8
-	},
-/obj/structure/engine_covers/thruster_nozzle{
-	dir = 8
-	},
-/turf/open/floor/plating/nanocarbon,
-/area/shuttle/arrival)
-"i" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/machinery/light/cold/dim/directional/north,
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"j" = (
-/obj/structure/shuttle_decoration/rcs/directional/south,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
-/area/shuttle/arrival)
-"k" = (
-/obj/structure/shuttle_decoration/rcs/directional/south,
-/obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
-/area/shuttle/arrival)
-"l" = (
-/obj/machinery/door/airlock/shuttle/glass,
-/turf/open/floor/iron/colony/texture/nanocarbon,
-/area/shuttle/arrival)
-"m" = (
-/obj/structure/shuttle_decoration/radiator,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
-/area/shuttle/arrival)
-"n" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 4
-	},
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"o" = (
+"hs" = (
 /obj/machinery/power/shuttle_engine/propulsion{
 	dir = 8
 	},
@@ -92,19 +52,16 @@
 	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/arrival)
-"p" = (
-/obj/structure/shuttle_decoration/wall_plate/nanocarbon{
-	dir = 6;
-	color = "#FF6821"
-	},
-/obj/structure/shuttle_decoration/bullbar/directional/east,
-/obj/structure/shuttle_decoration/headlight/directional/east,
+"ir" = (
+/obj/structure/shuttle_decoration/rcs/directional/north,
+/obj/structure/marker_beacon/burgundy,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal,
 /area/shuttle/arrival)
-"q" = (
-/turf/open/floor/plating/nanocarbon,
+"iM" = (
+/obj/structure/shuttle_decoration/landing_engine/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal,
 /area/shuttle/arrival)
-"r" = (
+"ja" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon{
 	dir = 1;
 	color = "#FF6821"
@@ -113,32 +70,93 @@
 	color = #FF6821
 	},
 /area/shuttle/arrival)
-"s" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+"lV" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 1;
+	name = "long-range antenna";
+	desc = null
+	},
+/turf/template_noop,
 /area/shuttle/arrival)
-"t" = (
-/obj/structure/closet/firecloset/full,
-/obj/item/storage/medkit/emergency,
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"u" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil{
-	dir = 1
+"nD" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 9
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
-"v" = (
+"nV" = (
+/obj/structure/shuttle_decoration/rcs/directional/south,
+/obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,
+/obj/structure/marker_beacon/olive,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/area/shuttle/arrival)
+"oi" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 8
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/arrival)
+"ps" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 10
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/arrival)
+"pB" = (
+/obj/structure/shuttle_access_panel,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/arrival)
+"rA" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/arrival)
+"rK" = (
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/structure/railing,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/shuttle/arrival)
+"rU" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
 /obj/machinery/light/cold/dim/directional/south,
+/obj/machinery/status_display/ai/directional/west,
 /turf/open/floor/pod,
 /area/shuttle/arrival)
-"w" = (
-/turf/template_noop,
-/area/template_noop)
-"x" = (
+"sc" = (
+/obj/structure/shuttle_decoration/landing_engine/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/area/shuttle/arrival)
+"tU" = (
+/obj/structure/railing,
+/obj/structure/railing{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/shuttle/arrival)
+"wF" = (
+/obj/structure/shuttle_decoration/liquid_tank/battery/shipmind/inert,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/arrival)
+"wX" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/shuttle/arrival)
+"xR" = (
+/obj/structure/shuttle_decoration/bullbar/directional/north,
+/obj/structure/shuttle_decoration/ladder_black/directional/north,
+/turf/closed/wall/mineral/nanocarbon{
+	color = #FF6821
+	},
+/area/shuttle/arrival)
+"yo" = (
 /obj/structure/fluff/tram_rail{
 	dir = 1;
 	name = "long-range antenna";
@@ -150,180 +168,97 @@
 	},
 /turf/template_noop,
 /area/shuttle/arrival)
-"y" = (
-/obj/structure/railing{
-	dir = 1
+"ys" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
 	},
-/obj/structure/railing,
-/turf/open/floor/iron/colony/texture/nanocarbon,
-/area/shuttle/arrival)
-"z" = (
-/obj/structure/shuttle_decoration/rcs/directional/north,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
-/area/shuttle/arrival)
-"A" = (
-/turf/closed/wall/mineral/aluminum,
-/area/shuttle/arrival)
-"B" = (
-/obj/structure/window/fulltile/salvage_shuttle,
-/obj/structure/fans/tiny/invisible,
-/turf/open/floor/plating/airless,
-/area/shuttle/arrival)
-"C" = (
-/obj/structure/fluff{
-	icon = 'icons/mob/simple/hivebot.dmi';
-	icon_state = "def_radar-off";
-	name = "CAS 'Guppy'";
-	desc = "A large dome-shaped structure that contains all the vital components needed to safely pilot an automated transport shuttle. Contains a simple-minded drone AI and a blackbox."
-	},
-/turf/open/floor/plating/nanocarbon,
-/area/shuttle/arrival)
-"D" = (
-/obj/structure/closet/wardrobe/mixed,
 /obj/machinery/light/cold/dim/directional/north,
 /turf/open/floor/pod,
 /area/shuttle/arrival)
-"E" = (
-/obj/machinery/power/shuttle_engine/heater{
-	dir = 8
-	},
+"yY" = (
 /obj/structure/engine_covers/heater_cover{
 	dir = 4
 	},
-/turf/open/floor/plating/nanocarbon,
-/area/shuttle/arrival)
-"F" = (
-/obj/structure/fluff/tram_rail/anchor{
-	desc = "Great for transport shuttles, not so great for much else.";
-	name = "long-range antenna anchor"
-	},
-/obj/structure/fluff/tram_rail/anchor{
-	dir = 1;
-	desc = "Great for transport shuttles, not so great for much else.";
-	name = "long-range antenna anchor"
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
 	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/arrival)
-"G" = (
+"zr" = (
+/obj/structure/closet/firecloset/full,
+/obj/item/storage/medkit/emergency,
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"zP" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/structure/engine_covers/thruster_nozzle{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/arrival)
+"BL" = (
 /obj/structure/closet/emcloset,
 /obj/item/storage/medkit,
 /turf/open/floor/pod,
 /area/shuttle/arrival)
-"H" = (
+"BU" = (
 /obj/structure/shuttle_access_panel,
 /turf/open/floor/iron/colony/texture/nanocarbon,
 /area/shuttle/arrival)
-"I" = (
-/obj/structure/shuttle_decoration/landing_engine/directional/south,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
-/area/shuttle/arrival)
-"J" = (
-/obj/structure/railing/corner/end{
-	dir = 8
-	},
-/obj/structure/railing/corner/end{
-	dir = 4
-	},
-/obj/structure/railing/corner/end/flip{
-	dir = 4
-	},
-/obj/structure/railing/corner/end/flip{
-	dir = 8
-	},
-/turf/open/floor/iron/colony/texture/nanocarbon,
-/area/shuttle/arrival)
-"K" = (
-/obj/structure/railing/corner,
-/obj/structure/railing/corner{
-	dir = 4
-	},
-/obj/structure/railing/corner{
-	dir = 8
-	},
-/obj/item/radio/intercom/directional/south,
-/obj/structure/railing/corner{
-	dir = 1
-	},
-/turf/open/floor/iron/colony/bolts/nanocarbon,
-/area/shuttle/arrival)
-"L" = (
-/obj/machinery/light/small/red/dim/directional/east,
-/turf/open/floor/plating/nanocarbon,
-/area/shuttle/arrival)
-"M" = (
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
-/area/shuttle/arrival)
-"N" = (
-/turf/closed/wall/mineral/nanocarbon{
-	color = #FF6821
-	},
-/area/shuttle/arrival)
-"O" = (
-/obj/structure/railing,
-/obj/structure/railing{
-	dir = 1
-	},
-/turf/open/floor/iron/colony/texture/nanocarbon,
-/area/shuttle/arrival)
-"P" = (
-/obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 9
-	},
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
-/area/shuttle/arrival)
-"Q" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/turf/open/floor/pod,
-/area/shuttle/arrival)
-"S" = (
-/obj/structure/shuttle_access_panel,
-/turf/open/floor/plating/nanocarbon,
-/area/shuttle/arrival)
-"T" = (
-/obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 10
-	},
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
-/area/shuttle/arrival)
-"U" = (
-/obj/structure/fluff/tram_rail/end{
-	dir = 1;
-	name = "long-range antenna";
-	desc = null
-	},
-/turf/template_noop,
-/area/shuttle/arrival)
-"V" = (
+"Dh" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon{
 	dir = 5;
 	color = "#FF6821"
 	},
-/obj/structure/shuttle_decoration/bullbar/directional/east,
-/obj/structure/shuttle_decoration/headlight/directional/east,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal,
 /area/shuttle/arrival)
-"W" = (
-/obj/structure/shuttle_decoration/landing_engine/directional/north,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
-/area/shuttle/arrival)
-"X" = (
-/obj/structure/shuttle_decoration/wall_plate/nanocarbon{
-	color = "#FF6821"
+"Dj" = (
+/obj/structure/fluff/tram_rail/anchor{
+	desc = "Great for transport shuttles, not so great for much else.";
+	name = "long-range antenna anchor"
 	},
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1;
+	desc = "Great for transport shuttles, not so great for much else.";
+	name = "long-range antenna anchor"
+	},
+/turf/template_noop,
+/area/shuttle/arrival)
+"DZ" = (
+/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/area/shuttle/arrival)
+"Gb" = (
+/obj/machinery/door/airlock/shuttle/glass,
+/obj/structure/fans/tiny/invisible,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/shuttle/arrival)
+"Gp" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"Hf" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/arrival)
+"HY" = (
+/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/east,
 /turf/closed/wall/mineral/nanocarbon{
 	color = #FF6821
 	},
 /area/shuttle/arrival)
-"Y" = (
-/obj/structure/chair/comfy/shuttle{
-	dir = 8
-	},
-/obj/machinery/light/cold/dim/directional/south,
-/turf/open/floor/pod,
+"Ka" = (
+/obj/structure/fans/tiny/invisible,
+/obj/structure/window/fulltile/salvage_shuttle,
+/turf/open/floor/plating/nanocarbon,
 /area/shuttle/arrival)
-"Z" = (
+"Lt" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon{
 	dir = 4;
 	color = "#FF6821"
@@ -332,139 +267,221 @@
 	color = #FF6821
 	},
 /area/shuttle/arrival)
+"NY" = (
+/obj/machinery/light/small/red/dim/directional/east,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/arrival)
+"RG" = (
+/obj/effect/turf_decal/trimline/brown,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/arrival)
+"Sm" = (
+/obj/structure/shelf,
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"SI" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/engine_covers/heater_cover{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/arrival)
+"TI" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon{
+	dir = 6;
+	color = "#FF6821"
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/area/shuttle/arrival)
+"Vy" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/turf/open/floor/pod,
+/area/shuttle/arrival)
+"VB" = (
+/obj/structure/railing/corner,
+/obj/structure/railing/corner{
+	dir = 8
+	},
+/obj/machinery/digital_clock/directional/north{
+	pixel_y = 37
+	},
+/obj/item/radio/intercom/directional/north,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/shuttle/arrival)
+"VJ" = (
+/turf/template_noop,
+/area/template_noop)
+"Wd" = (
+/obj/structure/railing/corner/end{
+	dir = 8
+	},
+/obj/structure/railing/corner/end{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 4
+	},
+/obj/structure/railing/corner/end/flip{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/shuttle/arrival)
+"WC" = (
+/obj/structure/shuttle_decoration/radiator,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/arrival)
+"WV" = (
+/obj/structure/shuttle_decoration/rcs/directional/north,
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/obj/structure/shuttle_decoration/headlight/directional/east,
+/obj/structure/marker_beacon/burgundy,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/area/shuttle/arrival)
+"YE" = (
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/arrival)
+"YX" = (
+/obj/structure/shuttle_decoration/rcs/directional/south,
+/obj/structure/marker_beacon/olive,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/area/shuttle/arrival)
 
 (1,1,1) = {"
-w
-P
-h
-o
-h
-T
-w
+VJ
+nD
+zP
+hs
+zP
+ps
+VJ
 "}
 (2,1,1) = {"
-w
-d
-E
-E
-E
-m
-w
+VJ
+cB
+yY
+SI
+SI
+WC
+VJ
 "}
 (3,1,1) = {"
-z
-s
-q
-q
-L
-u
-j
+ir
+rA
+YE
+YE
+NY
+Hf
+YX
 "}
 (4,1,1) = {"
-W
-A
-g
-S
-g
-A
-I
+sc
+eU
+oi
+pB
+oi
+eU
+iM
 "}
 (5,1,1) = {"
-N
-D
-t
-O
-n
-v
-N
+hk
+fx
+zr
+tU
+Vy
+rU
+hk
 "}
 (6,1,1) = {"
-B
-c
-c
-J
-c
-c
-B
+Ka
+RG
+RG
+Wd
+RG
+RG
+Ka
 "}
 (7,1,1) = {"
-N
-e
-G
-y
-Q
-Q
-N
+hk
+Sm
+BL
+rK
+Gp
+Gp
+hk
 "}
 (8,1,1) = {"
-l
-b
-b
-K
-A
-A
-N
+xR
+eU
+eU
+VB
+wX
+wX
+Gb
 "}
 (9,1,1) = {"
-N
-n
-n
-y
-n
-n
-N
+hk
+Vy
+Vy
+rK
+Vy
+Vy
+hk
 "}
 (10,1,1) = {"
-B
-c
-c
-J
-c
-c
-B
+Ka
+RG
+RG
+Wd
+RG
+RG
+Ka
 "}
 (11,1,1) = {"
-N
-i
-Q
-O
-Q
-Y
-N
+hk
+ys
+Gp
+tU
+Gp
+ca
+hk
 "}
 (12,1,1) = {"
-W
-f
-M
-H
-M
-a
-I
+sc
+hb
+DZ
+BU
+DZ
+HY
+iM
 "}
 (13,1,1) = {"
-z
-w
-r
-C
-X
-F
-k
+WV
+VJ
+ja
+wF
+az
+Dj
+nV
 "}
 (14,1,1) = {"
-w
-w
-V
-Z
-p
-x
-w
+VJ
+VJ
+Dh
+Lt
+TI
+yo
+VJ
 "}
 (15,1,1) = {"
-w
-w
-w
-w
-w
-U
-w
+VJ
+VJ
+VJ
+VJ
+VJ
+lV
+VJ
 "}
