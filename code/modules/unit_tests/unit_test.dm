@@ -373,6 +373,10 @@ GLOBAL_VAR_INIT(focused_tests, focused_tests())
 	returnable_list += typesof(/turf/open/openspace)
 	returnable_list += typesof(/obj/item/robot_model) // These should never be spawned outside of a robot.
 
+	// DOPPLER EDIT ADDITION START - SIGNBOARDS
+	returnable_list += /obj/effect/abstract/signboard_holder // shouldn't exist outside of signboards
+	// DOPPLER EDIT ADDITION END
+
 	return returnable_list
 
 /proc/RunUnitTests()
