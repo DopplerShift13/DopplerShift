@@ -1,6 +1,7 @@
 #define INVESTIGATE_SIGNBOARD "signboard"
 #define SIGNBOARD_WIDTH (ICON_SIZE_X * 3.5)
 #define SIGNBOARD_HEIGHT (ICON_SIZE_Y * 2.5)
+#define MAX_SIGN_LEN 106
 
 /obj/structure/signboard
 	name = "sign"
@@ -15,7 +16,7 @@
 	/// The current text written on the sign.
 	var/sign_text
 	/// The maximum length of text that can be input onto the sign.
-	var/max_length = MAX_PLAQUE_LEN
+	var/max_length = MAX_SIGN_LEN
 	/// If true, the text cannot be changed by players.
 	var/locked = FALSE
 	/// If text should be shown while unanchored.
@@ -229,5 +230,6 @@
 	if(harderforce)
 		return ..()
 
+#undef MAX_SIGN_LEN
 #undef SIGNBOARD_HEIGHT
 #undef SIGNBOARD_WIDTH
