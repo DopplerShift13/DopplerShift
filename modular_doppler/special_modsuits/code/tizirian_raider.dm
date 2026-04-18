@@ -7,13 +7,17 @@
 		/obj/item/mod/module/emp_shield,
 		/obj/item/mod/module/magnetic_harness/melee,
 		/obj/item/mod/module/sheath/filled,
-		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/status_readout,
+		/obj/item/mod/module/thermal_regulator,
+		/obj/item/mod/module/longfall,
 		/obj/item/mod/module/pathfinder,
 		/obj/item/mod/module/dna_lock,
 		/obj/item/mod/module/hat_stabilizer/syndicate,
 	)
 	default_pins = list(
-		/obj/item/mod/module/jetpack,
+		/obj/item/mod/module/thermal_regulator,
+		/obj/item/mod/module/sheath/filled,
+		/obj/item/mod/module/pathfinder,
 	)
 
 /datum/mod_theme/raider
