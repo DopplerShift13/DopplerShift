@@ -7828,6 +7828,7 @@
 #include "modular_doppler\soulcatcher\code\soulcatcher_verbs.dm"
 #include "modular_doppler\spacer_swimming\spacer_swim.dm"
 #include "modular_doppler\special_modsuits\code\engineering.dm"
+#include "modular_doppler\special_modsuits\code\tizirian_raider.dm"
 #include "modular_doppler\species_clothes\code\human_update_icons.dm"
 #include "modular_doppler\species_clothes\code\coalition\armor.dm"
 #include "modular_doppler\species_clothes\code\coalition\clothing.dm"
