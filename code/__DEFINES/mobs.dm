@@ -347,7 +347,7 @@
 #define NUTRITION_LEVEL_ALMOST_FULL 535
 
 // The standard charge all other Ethereal charge defines are scaled against.
-#define STANDARD_ETHEREAL_CHARGE (1 * STANDARD_CELL_CHARGE)
+#define STANDARD_ETHEREAL_CHARGE (2.5 * STANDARD_CELL_CHARGE) //DOPPLER EDIT - Original: (1 * STANDARD_CELL_CHARGE)
 // Charge levels for Ethereals, in joules.
 #define ETHEREAL_CHARGE_NONE 0
 #define ETHEREAL_CHARGE_LOWPOWER (0.4 * STANDARD_ETHEREAL_CHARGE)
@@ -507,7 +507,7 @@
 #define DOOR_CRUSH_DAMAGE 20 //the amount of damage that airlocks deal when they crush you
 
 #define HUNGER_FACTOR 0.05 //factor at which mob nutrition decreases
-#define ETHEREAL_DISCHARGE_RATE (1e-3 * STANDARD_ETHEREAL_CHARGE * 0.75) // Rate at which ethereal stomach charge decreases. DOPPLER EDIT ORIGINAL: ETHEREAL_DISCHARGE_RATE (1e-3 * STANDARD_ETHEREAL_CHARGE)
+#define ETHEREAL_DISCHARGE_RATE (1e-3 * STANDARD_ETHEREAL_CHARGE * 0.50) // Rate at which ethereal stomach charge decreases. DOPPLER EDIT ORIGINAL: ETHEREAL_DISCHARGE_RATE (1e-3 * STANDARD_ETHEREAL_CHARGE)
 /// How much nutrition eating clothes as moth gives and drains
 #define CLOTHING_NUTRITION_GAIN 15
 #define REAGENTS_METABOLISM 0.2 //How many units of reagent are consumed per second, by default.
