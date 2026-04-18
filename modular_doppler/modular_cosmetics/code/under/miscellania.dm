@@ -175,7 +175,7 @@
 	desc = "A form-fitting bodysuit made of a shiny latex polymer. Ages ago, it would've been a pain in the ass \
 	to get into, but centuries of clothing technology have made wearing it easier than ever before. \
 	Still, it takes longer to take off than an equivalent cloth garment."
-	icon_state = "latexsuit"
+	icon_state = "latexsuit_j"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
 	equip_sound = 'modular_doppler/modular_sounds/sound/items/latex.ogg'
@@ -196,14 +196,10 @@
 	can_adjust = FALSE
 	obj_flags = parent_type::obj_flags | INFINITE_RESKIN
 	unique_reskin = list(
-						"Old Masculine" = "latexsuit",
-						"Old Feminine" = "latexsuit_d",
-						"Old Masculine Half-suit" = "halflatexsuit",
-						"Old Feminine Half-suit" = "halflatexsuit_d",
-						"New Masculine" = "latexsuit_j",
-						"New Feminine" = "latexsuit_d_j",
-						"New Masculine Half-suit" = "halflatexsuit_j",
-						"New Feminine Half-suit" = "halflatexsuit_d_j",
+						"Masculine" = "latexsuit_j",
+						"Feminine" = "latexsuit_d_j",
+						"Masculine Half-suit" = "halflatexsuit_j",
+						"Feminine Half-suit" = "halflatexsuit_d_j",
 						)
 
 //This makes the player have to sit through a 6 Second do_after when taking off the latex suit

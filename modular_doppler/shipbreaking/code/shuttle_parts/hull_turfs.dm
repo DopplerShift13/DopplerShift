@@ -107,6 +107,14 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/yellow
 	color = COLOR_GOLD
 
+/turf/closed/wall/mineral/nanocarbon/tiziran_bronze
+	name = "bronze hull"
+	color = "#a6836a"
+
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/tiziran_bronze
+	name = "bronze hull"
+	color = "#a6836a"
+
 /turf/closed/wall/mineral/aluminum
 	name = "aluminum wall"
 	desc = "A thin aluminum wall, commonly used to plate the interior of ships."

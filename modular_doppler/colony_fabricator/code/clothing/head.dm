@@ -60,8 +60,13 @@
 /obj/item/clothing/head/frontier_headscarf
 	name = "frontier headscarf"
 	desc = "A casual wrapping of fabric to keep the sunlight off your head, or just for style."
-	icon_state = "colony_headscarf"
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
+	icon_state = "/obj/item/clothing/head/frontier_headscarf"
+	post_init_icon_state = "colony_headscarf"
+	greyscale_colors = "#62846e#62846e#444444"
+	greyscale_config = /datum/greyscale_config/colony_headscarf
+	greyscale_config_worn = /datum/greyscale_config/colony_headscarf/worn
 	inhand_icon_state = null
 	hair_mask = /datum/hair_mask/standard_hat_middle
+	flags_1 = IS_PLAYER_COLORABLE_1
