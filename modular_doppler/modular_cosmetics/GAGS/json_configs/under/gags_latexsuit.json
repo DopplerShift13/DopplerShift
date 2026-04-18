@@ -1,8 +1,32 @@
 {
-	"latexsuit": [
+	"gags_latexsuit": [
 		{
 			"type": "icon_state",
 			"icon_state": "gags_latexsuit",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"gags_latexsuit_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "gags_latexsuit_d",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"gags_halflatexsuit": [
+		{
+			"type": "icon_state",
+			"icon_state": "gags_halflatexsuit",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"gags_halflatexsuit_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "gags_halflatexsuit_d",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		}

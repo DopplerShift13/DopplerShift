@@ -219,6 +219,7 @@
 	to get into, but centuries of clothing technology have made wearing it easier than ever before. \
 	Still, it takes longer to take off than an equivalent cloth garment."
 	greyscale_config = /datum/greyscale_config/gags_latexsuit
+	post_init_icon_state = "gags_latexsuit"
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/gags_latexsuit/worn/digi,
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/gags_latexsuit/worn,
