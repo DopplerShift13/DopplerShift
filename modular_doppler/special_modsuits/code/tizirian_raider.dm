@@ -2,12 +2,11 @@
 	theme = /datum/mod_theme/raider
 	starting_frequency = MODLINK_FREQ_SYNDICATE
 	applied_cell = /obj/item/stock_parts/power_store/cell/super
-	applied_modules = list( // leaves 2 capacity open for whatever modules you want without removing any
+	applied_modules = list( // leaves 3 capacity open for whatever modules you want without removing any
 		/obj/item/mod/module/shock_absorber,
 		/obj/item/mod/module/emp_shield,
 		/obj/item/mod/module/magnetic_harness/melee,
 		/obj/item/mod/module/sheath/filled,
-		/obj/item/mod/module/status_readout,
 		/obj/item/mod/module/thermal_regulator,
 		/obj/item/mod/module/longfall,
 		/obj/item/mod/module/pathfinder,
