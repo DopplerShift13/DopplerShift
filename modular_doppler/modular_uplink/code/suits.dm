@@ -20,3 +20,9 @@
 	item = /obj/item/mod/control/pre_equipped/raider
 	cost = 8
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_item/suits/jetpack_harness
+	name = "Jet Harness (Oxygen)"
+	desc = "A lightweight tactical harness, used by those who don't want to be weighed down by traditional jetpacks."
+	item = /obj/item/tank/jetpack/oxygen/harness
+	cost = 1
