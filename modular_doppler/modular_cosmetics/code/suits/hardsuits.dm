@@ -13,8 +13,10 @@
 		/obj/item/melee,
 		/obj/item/restraints/handcuffs,
 		/obj/item/tank/internals,
+		/obj/item/tank/jetpack,
 		)
-	armor_type = /datum/armor/space_pirate
+	armor_type = /datum/armor/tiziran_raider
+	cell = /obj/item/stock_parts/power_store/cell/super
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(
@@ -29,3 +31,14 @@
 /obj/item/clothing/suit/space/pirate/tiziran/yellow
 	icon_state = "tiziran_raider_yellow"
 	worn_icon_state = "tiziran_raider_yellow"
+
+/datum/armor/tiziran_raider
+	melee = 40
+	bullet = 50
+	laser = 30
+	energy = 40
+	bomb = 35
+	bio = 40
+	fire = 75
+	acid = 90
+	wound = 20
