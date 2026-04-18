@@ -319,7 +319,6 @@ function Department(props: DepartmentProps) {
               key={name}
               job={job}
               name={name}
-              dopplerName={job.alt_titles[0]} // DOPPLER EDIT ADDITION - ALTERNATIVE_JOB_TITLES
               // DOPPLER EDIT ADDITION START - ALTERNATIVE_JOB_TITLES
               dopplerName={
                 !job.alt_titles ? (
