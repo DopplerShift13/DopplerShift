@@ -6,7 +6,7 @@
 		/obj/item/mod/module/shock_absorber,
 		/obj/item/mod/module/emp_shield,
 		/obj/item/mod/module/magnetic_harness/melee,
-		/obj/item/mod/module/sheath,
+		/obj/item/mod/module/sheath/filled,
 		/obj/item/mod/module/jetpack,
 		/obj/item/mod/module/pathfinder,
 		/obj/item/mod/module/dna_lock,
@@ -187,6 +187,10 @@
 	var/list/holster_types = list(
 		/obj/item/melee,
 	)
+
+/obj/item/mod/module/sheath/filled/Initialize(mapload)
+	. = ..()
+	holstered = new /obj/item/melee/tizirian_sword(src)
 
 /obj/item/mod/module/sheath/on_use(mob/activator)
 	if(!holstered)
