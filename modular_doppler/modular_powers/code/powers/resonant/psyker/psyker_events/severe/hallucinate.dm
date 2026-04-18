@@ -1,5 +1,5 @@
 /datum/psyker_event/severe/hallucinate
-	// Mostly instant shock factor stuff.
+	/// Mostly instant shock factor stuff.
 	var/static/list/initial_hallucinations = list(
 		/datum/hallucination/delusion,
 		/datum/hallucination/xeno_attack,

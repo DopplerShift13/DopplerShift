@@ -4,6 +4,8 @@
  * Base Enigmatist Chalk
  */
 
+/* Though crass, I am commenting this out largely because this will get development later.
+
 // TODO: make a basic enigmatist chalk item.
 // TODO: using it sends a signal to the user and collects a list of powers there.
 // Signal probably includes the type of chalk.
@@ -143,6 +145,7 @@
 	balloon_alert(user, "spell selected")
 	return CLICK_ACTION_SUCCESS
 
+/// C
 /obj/item/enigmatist_chalk/proc/check_selection_menu(mob/user)
 	if(QDELETED(src))
 		return FALSE
@@ -225,3 +228,4 @@
 	crafting_flags = CRAFT_MUST_BE_LEARNED
 
 #undef CAT_ENIGMATIST
+/*

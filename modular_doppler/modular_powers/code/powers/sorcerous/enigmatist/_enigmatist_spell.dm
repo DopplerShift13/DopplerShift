@@ -1,4 +1,5 @@
 
+/* Enigmatist content is getting commented out for now and getting developed later.
 /datum/power/enigmatist_spell
 	name = "Abstract Enigmatist Spell"
 	desc = "The true art of seeing into the seventh dimension: \
@@ -81,3 +82,4 @@
 		used_chalk.balloon_alert(user, "too damaged!")
 		return FALSE
 	return TRUE
+/*

@@ -5,9 +5,9 @@
 /datum/psyker_event
 	// Remember to set abstracts to this.
 	abstract_type = /datum/psyker_event
-	// check defines for weights.
+	/// check defines for weights.
 	var/weight = PSYKER_EVENT_RARITY_COMMON
-	// For events that continue for a while, this skips the qdel step. MAKE SURE YOU QDEL IT YOURSELF LATER INSIDE THE CODE.
+	/// For events that continue for a while, this skips the qdel step. MAKE SURE YOU QDEL IT YOURSELF LATER INSIDE THE CODE.
 	var/lingering = FALSE
 
 /// Are there any special prerequisites?

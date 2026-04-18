@@ -6,8 +6,9 @@
 	/// Pity system
 	var/max_ticks = 20
 
-	// The throw range and speed
+	/// The throw range
 	var/throw_range = 10
+	/// The throw speed
 	var/throw_speed = 3
 
 	/// Hand-made list of objects we prefer to smash people into, and will default to when throwing. Should only contain items with funny effects when thrown into them.
@@ -32,6 +33,7 @@
 	var/static/list/special_object_typecache
 	/// Track impact handling for this event
 	var/mob/living/carbon/human/impact_owner
+	/// Are we expecting the mob to impact a surface.
 	var/expecting_impact = FALSE
 
 /datum/psyker_event/catastrophic/tossed_around/execute(mob/living/carbon/human/psyker)

@@ -1,12 +1,14 @@
 // Resonant forces batter and wound your body. This one will always return TRUE, and is probably the deadliest.
 /datum/psyker_event/catastrophic/telekinetic_backlash
 	lingering = TRUE
-	// I guess we'll have a pity system.
+	/// I guess we'll have a pity system.
 	var/max_ticks = 6
 
-	// Brute damage per severity
+	/// Brute damage on a moderete severity roll
 	var/moderate_brute = 5
+	/// Damage on a severe severity roll
 	var/severe_brute = 10
+	/// Damage on a critical severity roll
 	var/critical_brute = 20
 
 	weight = PSYKER_EVENT_RARITY_UNCOMMON
@@ -69,6 +71,7 @@
 	// Schedule next tick in ~1 second
 	addtimer(CALLBACK(src, PROC_REF(_backlash_tick), psyker, tick_count + 1), 1 SECONDS)
 
+/// Picks a bodypart to wound.
 /datum/psyker_event/catastrophic/telekinetic_backlash/proc/pick_wound_bodypart(mob/living/carbon/human/psyker, allow_vital = TRUE)
 	if(!psyker || !length(psyker.bodyparts))
 		return null

@@ -7,13 +7,13 @@
 	// We're a psychic we don't need hands.
 	need_hands_free = FALSE
 
-	// The organ that processes most of the Psyker Powers. Mostly all functions here communicate with this.
+	/// The organ that processes most of the Psyker Powers. Mostly all functions here communicate with this.
 	var/obj/item/organ/resonant/psyker/psyker_organ
 
-	//If the spell (flavorwise) affects the target's mind. So this should be FALSE for things like telekinesis but TRUE for mind reading.
+	/// If the spell (flavorwise) affects the target's mind. So this should be FALSE for things like telekinesis but TRUE for mind reading.
 	var/mental = TRUE
 
-	// charge cost on antimagic powers. If it has a cooldown and is non-spamable then this should be 1; otherwise keep it as is. 0 means the target isn't made aware they get targeted as well.
+	/// charge cost on antimagic powers. If it has a cooldown and is non-spamable then this should be 1; otherwise keep it as is. 0 means the target isn't made aware they get targeted as well.
 	var/antimagic_charge_cost = 0
 
 /datum/action/cooldown/power/psyker/New()
