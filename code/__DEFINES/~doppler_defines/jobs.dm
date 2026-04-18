@@ -1,7 +1,7 @@
 
 // Defines for job default name overrides.
 
-#define JOB_CHIEF_GUARD "Head of Security"
+#define JOB_CHIEF_GUARD "Chief Guard"
 #define JOB_DISPATCHER "Dispatcher"
 #define JOB_SECURITY_GUARD "Security Guard"
 #define JOB_SECURITY_GUARD_MEDICAL "Security Guard (Medical)"

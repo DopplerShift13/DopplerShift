@@ -30,7 +30,7 @@
 /datum/job/command_bodyguard
 	alt_titles = list(
 		JOB_COMMAND_BODYGUARD,
-		"Secretarial Officer",
+		"Secretarial Guard",
 		"Command Guardian",
 		"Command Protector",
 	)

@@ -27,6 +27,7 @@
 	name = "security plasma envirosuit helmet"
 	desc = "A plasmaman containment helmet designed for security guards, protecting them from burning alive, alongside other undesirables."
 
+
 /**
  * SPECIAL ITEMS
  */
