@@ -22,7 +22,9 @@
 	extended_desc = "A twist on the design of the traditional breastplate, turned into a voidworthy suit with a tightly \
 		fitting underlayer. The helmet's design serves a twofold purpose, one to accomodate for the wide range of snout and \
 		head shapes within the empire, and a second to deflect impacts coming from head-on. While many of these suits are \
-		empire-issue, their aftermarket as the armour of choice for raiders gives them a mixed reputation."
+		empire-issue, their aftermarket as the armour of choice for raiders gives them a mixed reputation. \
+		Due to the design, the suit is not \"impossible\" for plantigrades to wear, but the experience can be described best \
+		as \"pretty uncomfortable\"."
 	default_skin = "raider"
 	ui_theme = "neutral"
 	armor_type = /datum/armor/mod_theme_infiltrator
