@@ -320,6 +320,15 @@ function Department(props: DepartmentProps) {
               job={job}
               name={name}
               dopplerName={job.alt_titles[0]} // DOPPLER EDIT ADDITION - ALTERNATIVE_JOB_TITLES
+              // DOPPLER EDIT ADDITION START - ALTERNATIVE_JOB_TITLES
+              dopplerName={
+                !job.alt_titles ? (
+                  name
+                ) : (
+                  job.alt_titles[0]
+                )
+              }
+              // DOPPLER EDIT CHANGE END
             />
           );
         })}

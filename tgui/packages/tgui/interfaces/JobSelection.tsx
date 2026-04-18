@@ -22,6 +22,7 @@ type Job = {
   used_slots: number;
   prioritized: BooleanLike;
   description: string;
+  doppler_name: string; // DOPPLER EDIT CHANGE - ALTERNATIVE_JOB_TITLES
 };
 
 type Department = {
