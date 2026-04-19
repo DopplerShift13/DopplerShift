@@ -50,7 +50,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 	"shard_alpha" = "Shard Alpha Raptoral",
 	"polytronic" = "Polytronic Modular Doll",
 	"teshari" = "Synthetic Teshari",
-	"robotic" = "Clover Corporpation Humaniform",
+	"robotic" = "Clover Corporation Humaniform",
 	"empty" = "Missing limb",
 	))
 /obj/item/bodypart/head/robot/android/empty
