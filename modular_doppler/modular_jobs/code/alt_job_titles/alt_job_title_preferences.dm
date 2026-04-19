@@ -23,4 +23,3 @@
 	if(LAZYLEN(feedback))
 		var/feedback_message = "The following alt titles have been reset:\n[feedback.Join("\n")]"
 		to_chat(parent, boxed_message(span_greentext(feedback_message)))
-		message_admins("boxed_message(span_greentext(feedback_message))")
