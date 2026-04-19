@@ -136,6 +136,15 @@
 	. = ..()
 	color = pick(insignia_colours)
 
+/obj/item/mod/module/insignia/raider/get_configuration()
+	. = ..()
+	.["insignia_color"] = add_ui_configuration("Insignia Color", "color", color)
+
+/obj/item/mod/module/insignia/raider/configure_edit(key, value)
+	switch(key)
+		if("insignia_color")
+			color = value
+
 #undef INSIGNIA_COLOUR_ORANGE
 #undef INSIGNIA_COLOUR_LIZARD_BLOOD
 #undef INSIGNIA_COLOUR_RED
