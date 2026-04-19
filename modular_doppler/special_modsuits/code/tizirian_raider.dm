@@ -17,6 +17,7 @@
 		/obj/item/mod/module/thermal_regulator,
 		/obj/item/mod/module/sheath/filled,
 		/obj/item/mod/module/pathfinder,
+		/obj/item/mod/module/night,
 	)
 
 /datum/mod_theme/raider
