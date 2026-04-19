@@ -304,7 +304,7 @@
 	if(visible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
 	if(visible_message_flags & EMOTE_MESSAGE)
-		message = span_emote("<b>[src]</b>[separation][message]") // DOPPLER EDIT ADDITION - Better emotes
+		message = "<span style='color: [chat_color]'><b>[src]</b></span>[separation][span_emote("[message]")]" // DOPPLER EDIT ADDITION - Better emotes
 
 	for(var/mob/hearing_mob as anything in hearers)
 		if(!hearing_mob?.client)
@@ -386,7 +386,7 @@
 	if(audible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
 	if(audible_message_flags & EMOTE_MESSAGE)
-		message = span_emote("<b>[src]</b>[separation][message]") //DOPPLER EDIT CHANGE
+		message = "<span style='color: [chat_color]'><b>[src]</b></span>[separation][span_emote("[message]")]" //DOPPLER EDIT CHANGE
 	for(var/mob/hearing_mob as anything in hearers)
 		if(!hearing_mob?.client)
 			continue
