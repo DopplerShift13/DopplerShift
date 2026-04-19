@@ -224,7 +224,7 @@
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/gags_latexsuit/worn/digi,
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/gags_latexsuit/worn,
 	)
-	greyscale_colors = "#636369"
+	greyscale_colors = "#636369#636369"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	unique_reskin = list(
 						"Masculine" = "gags_latexsuit",
