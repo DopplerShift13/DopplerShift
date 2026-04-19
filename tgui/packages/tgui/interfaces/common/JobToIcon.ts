@@ -28,7 +28,7 @@ export const JOB2ICON = {
   Curator: 'book',
   'Cyber Police': 'qrcode',
   Cyborg: 'robot',
-  Detective: 'user-secret',
+  Detective: 'search', // DOPPLER EDIT CHANGE - Security Lore Rework - Original: Detective: 'user-secret',
   Geneticist: 'dna',
   'Head of Personnel': 'dog',
   'Head of Security': 'user-shield',
@@ -57,6 +57,14 @@ export const JOB2ICON = {
   'Pun Pun': 'paw',
   Warden: 'handcuffs',
   // DOPPLER EDIT START
+  'Chief Guard': 'user-shield',
   'Command Bodyguard': 'user-tie',
+  'Security Guard (Cargo)': 'shield-halved',
+  'Security Guard (Engineering)': 'shield-halved',
+  'Security Guard (Medical)': 'shield-halved',
+  'Security Guard (Science)': 'shield-halved',
+  'Security Guard': 'shield-halved',
+  Dispatcher: 'phone',
+  'Sophont Resources Agent': 'file-signature',
   // DOPPLER EDIT END
 } as const;

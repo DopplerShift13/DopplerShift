@@ -180,12 +180,13 @@ type JobRowProps = {
   className?: string;
   job: Job;
   name: string;
+  dopplerName: string; // DOPPLER EDIT ADDITION - ALTERNATIVE_JOB_TITLES
 };
 
 function JobRow(props: JobRowProps) {
   const { data, act } =
     useBackend<PreferencesMenuData>(); /* DOPPLER EDIT: Adds in act */
-  const { className, job, name } = props;
+  const { className, job, name, dopplerName } = props; // DOPPLER EDIT CHANGE - ALTERNATIVE_JOB_TITLES - ORIGINAL: const { className, job, name } = props;
 
   const isOverflow = data.overflow_role === name;
   const priority = data.job_preferences[name];
@@ -195,11 +196,11 @@ function JobRow(props: JobRowProps) {
   const experienceNeeded = data.job_required_experience?.[name];
   const daysLeft = data.job_days_left ? data.job_days_left[name] : 0;
 
-  // DOPPLER EDIT ADDITION
+  // DOPPLER EDIT ADDITION START - ALTERNATIVE_JOB_TITLES
   const alt_title_selected = data.job_alt_titles[name]
     ? data.job_alt_titles[name]
-    : name;
-  // DOPPLER EDIT END
+    : dopplerName;
+  // DOPPLER EDIT ADDITION START END - ALTERNATIVE_JOB_TITLES
 
   let rightSide: ReactNode;
 
@@ -318,6 +319,15 @@ function Department(props: DepartmentProps) {
               key={name}
               job={job}
               name={name}
+              // DOPPLER EDIT ADDITION START - ALTERNATIVE_JOB_TITLES
+              dopplerName={
+                !job.alt_titles ? (
+                  name
+                ) : (
+                  job.alt_titles[0]
+                )
+              }
+              // DOPPLER EDIT CHANGE END
             />
           );
         })}

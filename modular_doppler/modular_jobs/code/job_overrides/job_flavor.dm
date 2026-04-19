@@ -21,6 +21,7 @@
 		Sit in your chair, watch the drunk tank and the officers, act on the commander's behalf. \
 		Make sure the armory is stocked, do the paperwork, keep the officers accountable for what they carry. \
 		Be prepared not to be thanked for everything the Security Commander doesn't want to do."
+	supervisors = "the Chief Guard"
 
 /datum/job/security_officer
 	// As (almost) straight from the wiki.
@@ -28,6 +29,7 @@
 		Come up with 'engaging' punishments. Help those that are in need. \
 		Hold a karaoke night in the office. Break a leg, it doesn't have to be yours. \
 		Follow orders from people that know better than you."
+	supervisors = "the Chief Guard, and the head of your assigned department (if applicable)"
 
 /datum/job/detective
 	description = "Security officers with extra strings attached. \
