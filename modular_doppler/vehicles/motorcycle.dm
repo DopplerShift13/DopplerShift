@@ -99,7 +99,7 @@
 	playsound(src, pick(rev_sounds), 50, TRUE)
 	return TRUE
 
-/obj/vehicle/ridden/motorcycle/welder_act(mob/living/user, obj/item/W)
+/obj/vehicle/ridden/motorcycle/welder_act(mob/living/user, obj/item/welder)
 	if(user.combat_mode)
 		return
 	. = TRUE
@@ -109,13 +109,13 @@
 	if(atom_integrity >= max_integrity)
 		balloon_alert(user, "it's not damaged!")
 		return
-	if(!W.tool_start_check(user, amount=1, heat_required = HIGH_TEMPERATURE_REQUIRED))
+	if(!welder.tool_start_check(user, amount=1, heat_required = HIGH_TEMPERATURE_REQUIRED))
 		return
 	user.balloon_alert_to_viewers("started welding [src]", "started repairing [src]")
 	audible_message(span_hear("You hear welding."))
-	var/did_the_thing
+	var/did_the_thing = FALSE
 	while(atom_integrity < max_integrity)
-		if(W.use_tool(src, user, 2.5 SECONDS, volume=50))
+		if(welder.use_tool(src, user, 2.5 SECONDS, volume=50))
 			did_the_thing = TRUE
 			repair_damage(10)
 			audible_message(span_hear("You hear welding."))
@@ -126,11 +126,11 @@
 	else
 		user.balloon_alert_to_viewers("stopped welding [src]", "interrupted the repair!")
 
-// returns our fuel level
+/// returns our fuel level
 /obj/vehicle/ridden/motorcycle/proc/get_fuel()
 	return reagents.get_reagent_amount(/datum/reagent/fuel)
 
-// burns some fuel
+/// burns some fuel
 /obj/vehicle/ridden/motorcycle/proc/burn_fuel(burnt = 0)
 	if(!occupant_amount() || get_fuel() <= 0)
 		return FALSE
@@ -143,7 +143,7 @@
 	else
 		return FALSE
 
-// checks to see if there's any fuel left, turns off the engine sound and immobilizes the bike if the tank is try.
+/// checks to see if there's any fuel left, turns off the engine sound and immobilizes the bike if the tank is try.
 /obj/vehicle/ridden/motorcycle/proc/check_fuel(mob/user)
 	if(get_fuel() <= 0)
 		for(var/mob/rider in buckled_mobs)
@@ -155,7 +155,7 @@
 	else
 		return
 
-// changes our selected_gear var for a simple simulation of a manual transmission
+/// changes our selected_gear var for a simple simulation of a manual transmission
 /obj/vehicle/ridden/motorcycle/proc/gear_shift(newly_selected_gear)
 	selected_gear = newly_selected_gear
 	for(var/mob/rider in buckled_mobs)
@@ -182,7 +182,7 @@
 	if(!iscarbon(rider) || rider.getStaminaLoss() >= 100 || iscarbon(bumped_thing))
 		var/atom/throw_target = get_edge_target_turf(rider, pick(GLOB.cardinals))
 		unbuckle_mob(rider)
-		if((istype(bumped_thing, /obj/machinery/disposal/bin)))
+		if(istype(bumped_thing, /obj/machinery/disposal/bin))
 			rider.Paralyze(8 SECONDS)
 			rider.forceMove(bumped_thing)
 			forceMove(bumped_thing)
