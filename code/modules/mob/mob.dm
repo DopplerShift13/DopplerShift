@@ -417,7 +417,7 @@
 	if(audible_message_flags & WITH_EMPHASIS_MESSAGE)
 		self_message = apply_message_emphasis(self_message)
 	if(audible_message_flags & EMOTE_MESSAGE)
-		self_message = span_emote("<b>[src]</b> [self_message]")
+		self_message = span_emote("<span style='color: [chat_color]'><b>[src]</b></span>[separation][span_emote("[message]")]") // DOPPLER EDIT - Coloured chat names - ORIGINAL: 		self_message = span_emote("<b>[src]</b> [self_message]")
 
 	if(audible_message_flags & ALWAYS_SHOW_SELF_MESSAGE)
 		to_chat(src, self_message, avoid_highlighting = block_self_highlight)
