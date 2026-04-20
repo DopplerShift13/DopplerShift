@@ -67,11 +67,11 @@
 	icon_state = "/obj/item/clothing/shoes/wraps/leggy"
 	post_init_icon_state = "legwrap"
 
-/obj/item/clothing/shoes/jackboots/colonial/greyscale
+/obj/item/clothing/shoes/jackboots/frontier_colonist/casual/greyscale
 	icon = 'icons/map_icons/clothing/shoes.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/shoes/casual.dmi'
-	icon_state = "/obj/item/clothing/shoes/jackboots/colonial/greyscale"
-	post_init_icon_state = "boots_colonial"
+	icon_state = "/obj/item/clothing/shoes/jackboots/frontier_colonist/casual/greyscale"
+	post_init_icon_state = "boots_casual"
 	greyscale_colors = "#2b2b2b"
 	greyscale_config = /datum/greyscale_config/boots
 	greyscale_config_worn = /datum/greyscale_config/boots/worn

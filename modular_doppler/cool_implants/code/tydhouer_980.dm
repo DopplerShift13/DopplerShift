@@ -236,6 +236,9 @@
 	ex_light = 0
 	ex_flame = 0
 
+/obj/item/grenade/c980payload/long_range_shrapnel
+	shrapnel_type = /obj/projectile/bullet/shrapnel
+
 /obj/projectile/bullet/shrapnel/short_range
 	icon = 'modular_doppler/cool_implants/icons/projectiles.dmi'
 	icon_state = "shortbullet"

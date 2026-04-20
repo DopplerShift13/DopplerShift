@@ -192,8 +192,13 @@
 		/obj/item/clothing/suit/toggle/labcoat/high_vis = 3,
 	)
 
-/*/obj/machinery/vending/wardrobe/law_wardrobe
-	products_doppler = list(
+/obj/machinery/vending/wardrobe/law_wardrobe
+	name = "AgentDrobe"
+	desc = "This wardrobe dispenses all that's needed for managing interpersonal relations in the workplace... \
+		formal office clothing, mostly."
+	product_ads = "Negotiating a better price just for YOU!"
+	vend_reply = "Thank you for using the AgentDrobe!"
+/*	products_doppler = list(
 	)	*/
 
 

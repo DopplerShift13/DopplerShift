@@ -22,6 +22,7 @@ type Job = {
   used_slots: number;
   prioritized: BooleanLike;
   description: string;
+  doppler_name: string; // DOPPLER EDIT CHANGE - ALTERNATIVE_JOB_TITLES
 };
 
 type Department = {
@@ -156,7 +157,7 @@ function DepartmentEntry(props: DepartmentEntryProps) {
             <Stack.Item key={name}>
               <JobEntry
                 key={name}
-                jobName={name}
+                jobName={job.doppler_name} // DOPPLER EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: jobName={name}
                 job={job}
                 department={department}
                 onClick={() => {

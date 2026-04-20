@@ -10,7 +10,7 @@
 	desc = "Used to view and edit personnel's security records."
 	icon_screen = "security"
 	icon_keyboard = "security_key"
-	req_one_access = list(ACCESS_SECURITY, ACCESS_HOP)
+	req_one_access = list(ACCESS_SECURITY, ACCESS_HOP, ACCESS_LAWYER) // DOPPLER EDIT CHANGE - Security Lore Rework - Original: req_one_access = list(ACCESS_SECURITY, ACCESS_HOP)
 	circuit = /obj/item/circuitboard/computer/secure_data
 	light_color = COLOR_SOFT_RED
 	/// The current state of the printer

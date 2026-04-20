@@ -44,6 +44,12 @@
 	pixel_x = -8;
 	pixel_y = 4
 	},
+/obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full,
+/obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full,
+/obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full,
+/obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full,
+/obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full,
+/obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "be" = (
@@ -120,13 +126,9 @@
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "eI" = (
-/obj/machinery/door/airlock/external{
-	id_tag = "pirateportexternal";
-	req_access = list("syndicate")
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/shuttle_access_panel,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "fc" = (
@@ -156,6 +158,7 @@
 /area/shuttle/personally_bought/tiziran_corvette)
 "gj" = (
 /obj/machinery/light/red/directional/west,
+/obj/machinery/portable_atmospherics/canister/oxygen,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "gp" = (
@@ -224,7 +227,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/structure/curtain/bounty/start_closed,
+/obj/structure/mineral_door/manual_colony_door/shuttle/interior,
 /turf/open/floor/iron/dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "ju" = (
@@ -265,7 +268,7 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "lh" = (
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_corvette)
 "mb" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -292,7 +295,7 @@
 /turf/open/floor/iron/dark/textured,
 /area/shuttle/personally_bought/tiziran_corvette)
 "nl" = (
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/mineral/nanocarbon/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_corvette)
 "nw" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -337,7 +340,7 @@
 /area/shuttle/personally_bought/tiziran_corvette)
 "qv" = (
 /obj/structure/railing/eva_handhold/directional/west,
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/mineral/nanocarbon/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_corvette)
 "rl" = (
 /obj/machinery/computer/monitor{
@@ -444,10 +447,9 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "xc" = (
-/obj/machinery/door/airlock/hatch,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/mapping_helpers/airlock/cutaiwire,
+/obj/structure/shuttle_access_panel,
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "xm" = (
@@ -564,7 +566,7 @@
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 1
 	},
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/mineral/nanocarbon/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_corvette)
 "BI" = (
 /obj/machinery/light/red/directional/south,
@@ -632,13 +634,17 @@
 	},
 /turf/open/floor/iron/dark,
 /area/shuttle/personally_bought/tiziran_corvette)
+"EO" = (
+/mob/living/basic/mouse/rat,
+/turf/open/floor/plating,
+/area/shuttle/personally_bought/tiziran_corvette)
 "ER" = (
 /obj/machinery/recharge_station,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "Fy" = (
 /obj/structure/railing/eva_handhold/directional/east,
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/mineral/nanocarbon/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_corvette)
 "Gt" = (
 /obj/machinery/light/red/directional/east,
@@ -656,7 +662,7 @@
 /area/shuttle/personally_bought/tiziran_corvette)
 "Hp" = (
 /obj/machinery/porta_turret/syndicate,
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/mineral/nanocarbon/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_corvette)
 "HE" = (
 /obj/effect/turf_decal/tile/red/full,
@@ -688,7 +694,7 @@
 /obj/machinery/porta_turret/syndicate{
 	dir = 1
 	},
-/turf/closed/wall/mineral/plastitanium,
+/turf/closed/wall/mineral/nanocarbon/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_corvette)
 "Ln" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -722,7 +728,7 @@
 /area/shuttle/personally_bought/tiziran_corvette)
 "Pk" = (
 /obj/structure/railing/eva_handhold/directional/west,
-/turf/closed/wall/mineral/plastitanium/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_corvette)
 "Pv" = (
 /obj/structure/cable,
@@ -946,7 +952,7 @@ lh
 XB
 To
 hq
-hq
+EO
 hq
 To
 lh

@@ -154,34 +154,6 @@
 	name = "\improper Port Authority minebot"
 	desc = "An old, but rugged design, based off of open-source software. Reassuring. The instructions printed on the side read: This is a small robot used to support miners, can be set to search and collect loose ore, or to help fend off wildlife."
 
-/obj/item/clothing/under/rank/security/officer
-	name = "security uniform"
-	desc = "A tactical security jumpsuit for officers complete with Port Authority belt buckle. Uniforms like this are standard for most corporate security."
-
-/obj/item/clothing/under/rank/security/officer/grey
-	name = "grey security jumpsuit"
-	desc = "A Port Authority security jumpsuit, but in grey. Uniforms like this are standard for most corporate security."
-
-/obj/item/clothing/under/rank/security/warden
-	name = "security suit"
-	desc = "A suit for on-duty Port Authority Wardens, complete with Port Authority belt buckle."
-	icon_state = "rwarden"
-	inhand_icon_state = "r_suit"
-
-/obj/item/clothing/under/rank/security/warden/grey
-	name = "grey security suit"
-	desc = "A suit for on-duty Port Authority Wardens, but in grey. Uniforms like this are standard for most corporate security."
-
-/obj/item/clothing/under/rank/prisoner
-	desc = "Standardised 4CA prisoner-wear. Has an ID tag at the back. Its suit sensors are stuck in the \"Fully On\" position."
-
-/obj/item/clothing/under/rank/prisoner/nosensor
-	desc = "Standardised 4CA prisoner-wear. Has an ID tag at the back.Its suit sensors are stuck in the \"OFF\" position."
-
-/obj/item/clothing/under/rank/prisoner/skirt
-	name = "prison jumpskirt"
-	desc = "Standardised 4CA prisoner-wear. Has an ID tag at the back. Its suit sensors are stuck in the \"Fully On\" position."
-
 /obj/item/clothing/accessory/pride
 	name = "pride pin"
 	desc = "A holographic pin to show off your pride. Futuristic!"
@@ -191,11 +163,6 @@
 	desc = "An artifact usually found in the hands of the natives of the planet below, which the 4CA is benevolently advancing!"
 
 // MOBS
-
-/mob/living/basic/carp/pet/lia
-	name = "Lia"
-	real_name = "Lia"
-	desc = "A failed experiment of the 4CA Void Corps to create weaponised carp technology. This less than intimidating carp now serves as the Head of Security's pet."
 
 /mob/living/basic/spider/maintenance
 	name = "duct spider"
