@@ -152,7 +152,7 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	var/namepart = speaker.get_message_voice(visible_name)
 	// DOPPLER ADDITION START - Coloured chat names
 	if(!radio_freq)
-		namepart = "<span style='color: [chat_color]'>[namepart]</span>"
+		namepart = chat_name_color_prefs_check(speaker, src, namepart)
 	// DOPPLER ADDITION END
 
 	//End name span.

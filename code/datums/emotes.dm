@@ -139,22 +139,22 @@
 					runechat_flags = EMOTE_MESSAGE,
 				)
 			else if(is_important)
-				to_chat(viewer, "<span style='color: [user.chat_color]'><b>[user]</b></span>[space][span_emote("[msg]")]") // DOPPLER EDIT - Coloured chat names - ORIGINAL: to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
+				to_chat(viewer, span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]")) // DOPPLER EDIT - Coloured chat names - ORIGINAL: to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
 			else if(is_audible && is_visual)
 				viewer.show_message(
-					"<span style='color: [user.chat_color]'><b>[user]</b></span>[space][span_emote("[msg]")]", MSG_AUDIBLE,  // DOPPLER EDIT - Coloured chat names - ORIGINAL: span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE,
-					"[span_emote("You see how")] <span style='color: [user.chat_color]'><b>[user]</b></span>[space][span_emote("[msg]")]", MSG_VISUAL,  // DOPPLER EDIT - Coloured chat names - ORIGINAL: span_emote("You see how <b>[user]</b> [msg]"), MSG_VISUAL,
+					span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]"), MSG_AUDIBLE,  // DOPPLER EDIT - Coloured chat names - ORIGINAL: span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE,
+					span_emote("You see how [chat_name_color_prefs_check(user, viewer)][space][msg]"), MSG_VISUAL,  // DOPPLER EDIT - Coloured chat names - ORIGINAL: span_emote("You see how <b>[user]</b> [msg]"), MSG_VISUAL,
 				)
 			else if(is_audible)
-				viewer.show_message(span_emote("<span style='color: [user.chat_color]'><b>[user]</b></span>[space][span_emote("[msg]")]"), MSG_AUDIBLE)  // DOPPLER EDIT - Coloured chat names - ORIGINAL: viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE)
+				viewer.show_message(span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]"), MSG_AUDIBLE)  // DOPPLER EDIT - Coloured chat names - ORIGINAL: viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE)
 			else if(is_visual)
-				viewer.show_message(span_emote("<span style='color: [user.chat_color]'><b>[user]</b></span>[space][span_emote("[msg]")]"), MSG_VISUAL)  // DOPPLER EDIT - Coloured chat names - ORIGINAL: viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_VISUAL)
+				viewer.show_message(span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]"), MSG_VISUAL)  // DOPPLER EDIT - Coloured chat names - ORIGINAL: viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_VISUAL)
 		return // Early exit so no dchat message
 
 	// The emote has some important information, and should always be shown to the user
 	else if(is_important)
 		for(var/mob/viewer as anything in viewers(user))
-			to_chat(viewer, "<span style='color: [user.chat_color]'><b>[user]</b></span>[space][span_emote("[msg]")]") // DOPPLER EDIT - Coloured chat names - ORIGINAL: to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
+			to_chat(viewer, span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]")) // DOPPLER EDIT - Coloured chat names - ORIGINAL: to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
 			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
 				viewer.create_chat_message(
 					speaker = user,
@@ -166,7 +166,7 @@
 	else if(is_visual && is_audible)
 		user.audible_message(
 			message = msg,
-			deaf_message = "[span_emote("You see how")] <span style='color: [user.chat_color]'><b>[user]</b></span>[space][span_emote("[msg]")]", // DOPPLER EDIT - Coloured chat names - ORIGINAL: deaf_message = span_emote("You see how <b>[user]</b> [msg]"),
+			deaf_message = span_emote("You see how <b>[user]</b> [msg]"),
 			self_message = msg,
 			audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE|additional_message_flags,
 			separation = space, // DOPPLER EDIT ADDITION
@@ -199,7 +199,7 @@
 		else if(is_visual && is_audible)
 			hologram.audible_message(
 				message = msg,
-				deaf_message = "[span_emote("You see how")] <span style='color: [user.chat_color]'><b>[user]</b></span>[space][span_emote("[msg]")]",
+				deaf_message = "<span class='emote'>You see how <b>[user]</b> [msg]</span>",
 				self_message = msg,
 				audible_message_flags = EMOTE_MESSAGE|ALWAYS_SHOW_SELF_MESSAGE,
 				separation = space,
