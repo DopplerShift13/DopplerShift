@@ -250,6 +250,10 @@
 					. += span_warning("[t_He] give[p_s()] off an unsettling aura.")
 					living_user.add_mood_event("bad_vibes", /datum/mood_event/bad_vibes)
 
+			if(!HAS_TRAIT(user, TRAIT_EMPATH) && HAS_TRAIT(src, TRAIT_BAD_VIBES) && prob(33))
+				. += span_warning("[t_He] give[p_s()] off an uncanny feeling.")
+				living_user.add_mood_event("bad_vibes", /datum/mood_event/bad_vibes_minor)
+
 			if(HAS_TRAIT(user, TRAIT_EVIL) && (mind?.holy_role || HAS_TRAIT(src, TRAIT_SPIRITUAL)))
 				. += span_warning("[t_He] shimmer[p_s()] with radiant protection.")
 				living_user.add_mood_event("holy_figure", /datum/mood_event/holy_figure)

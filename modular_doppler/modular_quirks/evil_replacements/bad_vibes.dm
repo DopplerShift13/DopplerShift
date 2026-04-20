@@ -13,3 +13,8 @@
 	description = "Some people truly disturb me... What could happen to make someone like that?"
 	mood_change = -4
 	timeout = 1 MINUTES
+
+/datum/mood_event/bad_vibes_minor
+	description = "Something's off about that person..."
+	mood_change = -2
+	timeout = 1 MINUTES
