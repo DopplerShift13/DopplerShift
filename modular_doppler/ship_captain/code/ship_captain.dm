@@ -1,3 +1,8 @@
+/// Used for removing ships if the owner leaves the round
+GLOBAL_LIST_EMPTY(ship_captain_pairs)
+GLOBAL_LIST_EMPTY(ship_code_to_spawn_marker)
+GLOBAL_LIST_EMPTY(ship_id_to_spawn_marker)
+
 /datum/quirk/ship_captain
 	name = "Spacefarer"
 	desc = "You have access to a hyperspace-capable vessel. Use a friend's crew identifier key to spawn on their shuttle, or set off solo on your own!"
@@ -71,6 +76,15 @@
 	var/new_shuttle_id
 	var/obj/effect/landmark/ship_captain_spawner/our_spawner
 
+	// Colours the ship according to your preferences
+	var/ship_primary_colour = quirk_holder.client?.prefs.read_preference(/datum/preference/color/ship_captain_primary_color)
+	var/ship_secondary_colour = quirk_holder.client?.prefs.read_preference(/datum/preference/color/ship_captain_secondary_color)
+	for(var/atom/recolorable_thing as anything in new_shuttle_area.contents)
+		if(HAS_TRAIT(recolorable_thing, TRAIT_SHIP_PRIMARY_COLOUR))
+			recolorable_thing.color = ship_primary_colour
+		else if(HAS_TRAIT(recolorable_thing, TRAIT_SHIP_SECONDARY_COLOUR))
+			recolorable_thing.color = ship_secondary_colour
+
 	// Links the ship to it's spawner
 	for(var/obj/docking_port/mobile/pcport in new_shuttle_area)
 		new_shuttle_id += pcport.shuttle_id
@@ -141,6 +155,9 @@
 
 /obj/effect/landmark/ship_captain_spawner/Initialize(mapload)
 	. = ..()
+	return INITIALIZE_HINT_LATELOAD
+
+/obj/effect/landmark/ship_captain_spawner/LateInitialize()
 	var/area/shuttle/spawn_area = get_area(src)
 	if(!istype(spawn_area))
 		return
@@ -149,6 +166,10 @@
 		GLOB.ship_id_to_spawn_marker[pcport.shuttle_id] = src
 		return // There should only be one of you on a ship you know
 
+/obj/effect/landmark/ship_captain_spawner/Destroy()
+	for(var/shuttle as anything in GLOB.ship_id_to_spawn_marker)
+		if(GLOB.ship_id_to_spawn_marker[shuttle] == src)
+			GLOB.ship_id_to_spawn_marker -= src
+
 // TODO: add more docking ports to the lavaland wastes
 // TODO: put a megabeacon at roundstart/mapload on the lavalands top waste z level
-// TODO: add some means of initial communication with the station to shuttles
