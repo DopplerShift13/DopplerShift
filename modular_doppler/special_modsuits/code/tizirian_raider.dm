@@ -144,7 +144,14 @@
 /obj/item/mod/module/insignia/raider/configure_edit(key, value)
 	switch(key)
 		if("insignia_color")
+			value = input(usr, "Pick new insignia color", "Insignia Color") as color|null
+			if(!value)
+				return
+			if(is_color_dark(value, 50))
+				balloon_alert(mod.wearer, "too dark!")
+				return
 			color = value
+			update_clothing_slots()
 
 #undef INSIGNIA_COLOUR_ORANGE
 #undef INSIGNIA_COLOUR_LIZARD_BLOOD
