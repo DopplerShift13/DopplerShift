@@ -173,6 +173,7 @@ SUBSYSTEM_DEF(job)
 		name_occupations[job.title] = job
 		for(var/alt_title in job.alternate_titles)
 			name_occupations[alt_title] = job
+		name_occupations[job.get_default_job_title()] = job // DOPPLER EDIT ADDITION - ALTERNATIVE_JOB_TITLES
 		type_occupations[job_type] = job
 
 		if(job.job_flags & JOB_NEW_PLAYER_JOINABLE)
