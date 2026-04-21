@@ -2,162 +2,162 @@
 "aX" = (
 /obj/effect/spawner/random/trash,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "bk" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "cY" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/chair/plastic{
 	dir = 4
 	},
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "eE" = (
 /obj/effect/decal/cleanable/blood/splatter/oil,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "fo" = (
 /obj/effect/landmark/deathmatch_player_spawn,
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "fA" = (
 /obj/structure/fluff/manhole/open,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "gS" = (
 /obj/effect/turf_decal/siding,
 /obj/structure/prop_vehicle/cop,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "gV" = (
 /obj/structure/fence,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "hC" = (
 /obj/structure/prop_vehicle/cop,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "ip" = (
 /obj/effect/spawner/random/trash/mess,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "iv" = (
 /obj/structure/fence/end,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
+"jO" = (
+/turf/open/chasm,
+/area/deathmatch/murderdrome)
 "kI" = (
 /obj/effect/turf_decal/siding,
 /obj/effect/spawner/random/trash/mess,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "ln" = (
 /obj/effect/turf_decal/siding,
 /obj/effect/spawner/random/trash/hobo_squat,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "nO" = (
 /obj/structure/fence/corner,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "nR" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/effect/spawner/random/trash,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "pi" = (
 /obj/structure/fence/cut/medium{
 	dir = 4
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "pv" = (
 /obj/effect/landmark/deathmatch_player_spawn,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "tz" = (
 /obj/effect/landmark/deathmatch_player_spawn,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "tY" = (
 /obj/structure/fence/end{
 	dir = 4
 	},
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "un" = (
 /obj/item/gun/ballistic/automatic/schiebenmaschine,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "ur" = (
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "vF" = (
 /obj/effect/turf_decal/siding,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "vS" = (
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "xj" = (
 /obj/structure/chair/sofa/bench/solo,
 /obj/effect/landmark/deathmatch_player_spawn,
 /obj/effect/light_emitter/fake_outdoors,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "xH" = (
 /obj/structure/prop_vehicle/red,
 /obj/effect/turf_decal/siding,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "xK" = (
 /obj/effect/turf_decal/siding{
 	dir = 4
 	},
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
-"yn" = (
-/turf/open/chasm,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "yq" = (
 /obj/structure/chair/plastic{
 	dir = 1
 	},
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "yI" = (
 /obj/structure/fence{
 	dir = 4
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "yY" = (
 /obj/effect/turf_decal/siding,
 /obj/vehicle/ridden/motorcycle{
 	dir = 1
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "zT" = (
 /obj/structure/fluff/streetlamp/destroyed,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "AR" = (
 /obj/effect/spawner/random/vending/snackvend,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Bw" = (
 /obj/structure/reagent_dispensers/fueltank/large,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Cm" = (
 /obj/effect/turf_decal/siding{
 	dir = 8
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Cs" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/item/storage/epic_loot_cooler,
@@ -166,68 +166,68 @@
 	pixel_y = 10
 	},
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Cy" = (
 /obj/vehicle/ridden/motorcycle{
 	dir = 4
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "CE" = (
 /obj/effect/turf_decal/siding,
 /obj/structure/prop_vehicle,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Dm" = (
 /obj/effect/decal/cleanable/blood/oil,
 /obj/effect/decal/cleanable/blood/gibs/down,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Dv" = (
 /obj/effect/decal/cleanable/blood/gibs/old,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "DP" = (
 /obj/item/trash/vendor_trash/rice_crackers,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "DV" = (
 /obj/effect/spawner/random/trash/bin{
 	pixel_x = -9
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "DZ" = (
 /obj/effect/landmark/deathmatch_player_spawn,
 /obj/effect/turf_decal/siding{
 	dir = 4
 	},
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Fe" = (
 /obj/structure/lattice,
 /turf/open/chasm,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Fh" = (
 /obj/structure/fluff/streetlamp,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "FU" = (
 /obj/structure/fence/cut/medium,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "FX" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Gl" = (
 /obj/effect/spawner/random/structure/shipping_container,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "GA" = (
 /obj/structure/prop_vehicle/red,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Hu" = (
 /obj/effect/turf_decal/siding,
 /obj/item/cigarette/pipe/crackpipe{
@@ -239,126 +239,126 @@
 	pixel_y = 4
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "HC" = (
 /obj/effect/turf_decal/siding,
 /obj/effect/decal/cleanable/blood/splatter/oil,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "It" = (
 /obj/structure/fence/cut/large{
 	dir = 4
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "IJ" = (
 /obj/structure/prop_vehicle/taxi,
 /obj/effect/turf_decal/siding,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Jz" = (
 /obj/effect/decal/cleanable/blood/innards,
 /obj/effect/decal/cleanable/blood/old,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "KB" = (
 /obj/effect/spawner/random/contraband/landmine,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "LD" = (
 /obj/structure/closet/crate/trashcart/filled,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "MI" = (
 /obj/effect/turf_decal/siding,
 /obj/effect/decal/cleanable/blood/gibs/body,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "MQ" = (
 /obj/structure/mystery_box/tdome,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Nt" = (
 /obj/effect/turf_decal/siding,
 /obj/vehicle/ridden/motorcycle,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "OM" = (
 /obj/structure/fluff/manhole,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "OX" = (
 /obj/effect/turf_decal/siding,
 /obj/vehicle/ridden/motorcycle{
 	dir = 4
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "PB" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/showcase/machinery/tv/broken,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Qm" = (
 /obj/structure/lattice,
 /obj/structure/fluff/streetlamp/destroyed,
 /turf/open/chasm,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Qz" = (
 /mob/living/basic/pet/dog/bullterrier,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Rn" = (
 /obj/effect/decal/cleanable/blood/tracks,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Sc" = (
 /obj/structure/fence/door/opened,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "ST" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "TG" = (
 /obj/item/paper/pamphlet/violent_video_games{
 	pixel_x = -6;
 	pixel_y = 3
 	},
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Uw" = (
 /obj/structure/flora/bush/sparsegrass/style_random,
 /obj/structure/fence/end{
 	dir = 8
 	},
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "UJ" = (
 /obj/structure/prop_vehicle/pizza_van,
 /obj/effect/turf_decal/siding,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Wj" = (
 /obj/structure/mystery_box/tdome,
 /turf/open/indestructible/sandy_dirt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "YF" = (
 /obj/structure/prop_vehicle,
 /obj/effect/turf_decal/siding,
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "YI" = (
 /obj/structure/lattice,
 /obj/structure/mystery_box/tdome,
 /turf/open/chasm,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 "Zx" = (
 /obj/effect/turf_decal/siding{
 	dir = 4
 	},
 /turf/open/indestructible/asphalt,
-/area/deathmatch)
+/area/deathmatch/murderdrome)
 
 (1,1,1) = {"
 vS
@@ -593,7 +593,7 @@ Fh
 Jz
 ur
 ur
-yn
+jO
 ur
 Fh
 ur
@@ -620,8 +620,8 @@ ur
 Zx
 ur
 Fe
-yn
-yn
+jO
+jO
 vF
 YF
 ur
@@ -670,8 +670,8 @@ YF
 ur
 ur
 Fe
-yn
-yn
+jO
+jO
 Fe
 bk
 ur
@@ -696,9 +696,9 @@ yY
 vF
 Dv
 ur
-yn
-yn
-yn
+jO
+jO
+jO
 Fe
 Rn
 fo
@@ -752,8 +752,8 @@ ur
 ur
 Fe
 Fe
-yn
-yn
+jO
+jO
 ur
 vF
 vF
@@ -778,7 +778,7 @@ ur
 ur
 Fe
 Fe
-yn
+jO
 Fe
 ur
 ur
@@ -804,7 +804,7 @@ ur
 aX
 ur
 ur
-yn
+jO
 Qm
 ur
 ur

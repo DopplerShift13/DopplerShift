@@ -7416,6 +7416,7 @@
 #include "modular_doppler\modular_jobs\code\command_bodyguard\job_skillchips\command_bodyguard.dm"
 #include "modular_doppler\modular_jobs\code\job_overrides\detective.dm"
 #include "modular_doppler\modular_jobs\code\job_overrides\job_flavor.dm"
+#include "modular_doppler\modular_mapping\code\areas\deathmatch.dm"
 #include "modular_doppler\modular_mapping\code\areas\mining.dm"
 #include "modular_doppler\modular_mapping\code\areas\ruins.dm"
 #include "modular_doppler\modular_mapping\code\areas\station.dm"
