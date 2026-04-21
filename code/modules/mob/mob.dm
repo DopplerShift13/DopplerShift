@@ -333,7 +333,7 @@
 			hearing_mob.create_chat_message(src, raw_message = raw_msg, runechat_flags = visible_message_flags)
 
 		// DOPPLER ADDITION START - Coloured chat name prefs
-		var/used_message = message
+		var/used_message = raw_msg
 		var/used_blind_message = blind_message
 		if(visible_message_flags & EMOTE_MESSAGE)
 			used_message = span_emote("[chat_name_color_prefs_check(src, hearing_mob)][separation][message]")
@@ -402,7 +402,7 @@
 		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(hearing_mob, audible_message_flags) && hearing_mob.can_hear())
 			hearing_mob.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
 		// DOPPLER ADDITION START - Coloured chat name prefs
-		var/used_message = message
+		var/used_message = raw_msg
 		var/used_deaf_message = deaf_message
 		if(audible_message_flags & EMOTE_MESSAGE)
 			used_message = span_emote("[chat_name_color_prefs_check(src, hearing_mob)][separation][message]")
