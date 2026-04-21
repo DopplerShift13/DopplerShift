@@ -203,46 +203,61 @@
 	)
 	cooldown_time = 0.5 SECONDS
 	allow_flags = MODULE_ALLOW_INACTIVE
-	/// The thing we have holstered
-	var/obj/item/holstered
+	/// The thing we have sheathed
+	var/datum/weakref/sheathed_ref
 	/// List of types we allow in the sheath
-	var/list/holster_types = list(
+	var/list/sheath_types = list(
 		/obj/item/melee,
 	)
 
 /obj/item/mod/module/sheath/filled/Initialize(mapload)
 	. = ..()
-	holstered = new /obj/item/melee/tizirian_sword(src)
+	var/sheathed = new /obj/item/melee/tizirian_sword(src)
+	sheathed_ref = WEAKREF(sheathed)
 
 /obj/item/mod/module/sheath/on_use(mob/activator)
-	if(!holstered)
-		var/obj/item/gun/holding = mod.wearer.get_active_held_item()
-		if(!holding)
-			balloon_alert(mod.wearer, "nothing to sheath!")
-			return
-		if(!is_type_in_list(holding, holster_types) || holding.w_class > WEIGHT_CLASS_BULKY)
-			balloon_alert(mod.wearer, "doesn't fit!")
-			return
-		if(mod.wearer.transferItemToLoc(holding, src, force = FALSE, silent = TRUE))
-			holstered = holding
-			balloon_alert(mod.wearer, "weapon sheathed")
-			playsound(src, 'sound/items/sheath.ogg', 100, TRUE)
-	else if(mod.wearer.put_in_active_hand(holstered, forced = FALSE, ignore_animation = TRUE))
-		balloon_alert(mod.wearer, "weapon drawn")
-		playsound(src, 'sound/items/unsheath.ogg', 100, TRUE)
+	if(sheathed_ref?.resolve())
+		unsheathe_item()
 	else
-		balloon_alert(mod.wearer, "sheath full!")
+		sheathe_item()
+
+/obj/item/mod/module/sheath/proc/sheathe_item()
+	var/obj/item/gun/holding = mod.wearer.get_active_held_item()
+	if(isnull(holding))
+		balloon_alert(mod.wearer, "nothing to sheath!")
+		return
+	if(!is_type_in_list(holding, sheath_types) || holding.w_class > WEIGHT_CLASS_BULKY)
+		balloon_alert(mod.wearer, "doesn't fit!")
+		return
+	if(!mod.wearer.transferItemToLoc(holding, src, force = FALSE, silent = TRUE))
+		balloon_alert(mod.wearer, "can't sheathe!")
+		return
+	sheathed_ref = WEAKREF(holding)
+	balloon_alert(mod.wearer, "weapon sheathed")
+	playsound(src, 'sound/items/sheath.ogg', 100, TRUE)
+
+/obj/item/mod/module/sheath/proc/unsheathe_item()
+	var/obj/item/to_unsheathe = sheathed_ref?.resolve()
+	if(isnull(to_unsheathe))
+		return
+	if(!mod.wearer.put_in_active_hand(to_unsheathe, forced = FALSE, ignore_animation = TRUE))
+		balloon_alert(mod.wearer, "can't unsheathe!")
+		return
+	balloon_alert(mod.wearer, "weapon drawn")
+	playsound(src, 'sound/items/unsheath.ogg', 100, TRUE)
 
 /obj/item/mod/module/sheath/on_uninstall(deleting = FALSE)
 	. = ..()
-	if(holstered)
-		holstered.forceMove(mod.drop_location())
+	var/obj/item/sheathed = sheathed_ref?.resolve()
+	if(isnull(sheathed))
+		return
+	sheathed.forceMove(mod.drop_location())
 
 /obj/item/mod/module/sheath/Exited(atom/movable/gone, direction)
-	if(gone == holstered)
-		holstered = null
+	if(gone == sheathed_ref?.resolve())
+		sheathed_ref = null
 	return ..()
 
 /obj/item/mod/module/sheath/Destroy()
-	QDEL_NULL(holstered)
+	sheathed_ref = null
 	return ..()
