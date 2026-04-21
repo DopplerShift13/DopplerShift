@@ -303,8 +303,8 @@
 	var/raw_msg = message
 	if(visible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
-	if(visible_message_flags & EMOTE_MESSAGE)
-		message = span_emote("<b>[src]</b> [message]")
+	/* if(visible_message_flags & EMOTE_MESSAGE) // DOPPLER REMOVAL - Coloured chat names, handling in for loop below
+		message = span_emote("<b>[src]</b> [message]") */
 
 	for(var/mob/hearing_mob as anything in hearers)
 		if(!hearing_mob?.client)
@@ -333,7 +333,7 @@
 			hearing_mob.create_chat_message(src, raw_message = raw_msg, runechat_flags = visible_message_flags)
 
 		// DOPPLER ADDITION START - Coloured chat name prefs
-		var/used_message = raw_msg
+		var/used_message = msg
 		var/used_blind_message = blind_message
 		if(visible_message_flags & EMOTE_MESSAGE)
 			used_message = span_emote("[chat_name_color_prefs_check(src, hearing_mob)][separation][message]")
@@ -392,8 +392,8 @@
 	var/raw_msg = message
 	if(audible_message_flags & WITH_EMPHASIS_MESSAGE)
 		message = apply_message_emphasis(message)
-	if(audible_message_flags & EMOTE_MESSAGE)
-		message = span_emote("<b>[src]</b> [message]")
+	/* if(audible_message_flags & EMOTE_MESSAGE) // DOPPLER REMOVAL - Coloured chat names, handled in for loop below
+		message = span_emote("<b>[src]</b> [message]") */
 	for(var/mob/hearing_mob as anything in hearers)
 		if(!hearing_mob?.client)
 			continue
@@ -402,7 +402,7 @@
 		if(audible_message_flags & EMOTE_MESSAGE && runechat_prefs_check(hearing_mob, audible_message_flags) && hearing_mob.can_hear())
 			hearing_mob.create_chat_message(src, raw_message = raw_msg, runechat_flags = audible_message_flags)
 		// DOPPLER ADDITION START - Coloured chat name prefs
-		var/used_message = raw_msg
+		var/used_message = message
 		var/used_deaf_message = deaf_message
 		if(audible_message_flags & EMOTE_MESSAGE)
 			used_message = span_emote("[chat_name_color_prefs_check(src, hearing_mob)][separation][message]")
