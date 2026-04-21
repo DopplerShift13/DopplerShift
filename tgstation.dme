@@ -7420,6 +7420,7 @@
 #include "modular_doppler\modular_mapping\code\areas\ruins.dm"
 #include "modular_doppler\modular_mapping\code\areas\station.dm"
 #include "modular_doppler\modular_mapping\code\ruins\icemoon.dm"
+#include "modular_doppler\modular_mapping\code\turfs\indestructibles.dm"
 #include "modular_doppler\modular_medical\code\carbon_update_icons.dm"
 #include "modular_doppler\modular_medical\code\medkit.dm"
 #include "modular_doppler\modular_medical\code\yo_doc_im_bleedin_here.dm"

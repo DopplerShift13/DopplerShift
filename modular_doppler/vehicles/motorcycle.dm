@@ -33,15 +33,18 @@
 	var/last_fuel_burn = 0
 	/// our current setting on the gear shifter, the values in the defines above (FIRST_GEAR, SECOND_GEAR, THIRD_GEAR) are applied to vehicle_movespeed_delay
 	var/selected_gear = FIRST_GEAR
-
+	/// our sound for getting off the bike
 	var/dismount_sound = 'modular_doppler/modular_sounds/sound/vehicles/bikedismount.ogg'
+	/// our selection of sounds for revving the motorcycle.
 	var/list/rev_sounds = list(
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-1.ogg',
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-2.ogg',
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-3.ogg',
 		'modular_doppler/modular_sounds/sound/vehicles/bikerev-4.ogg',
 	)
+	/// our cooldown, preventing players from spamming the engine rev.
 	COOLDOWN_DECLARE(rev_cooldown)
+	/// our smoke holder for damage fx
 	var/obj/effect/abstract/particle_holder/smoke = null
 
 /obj/vehicle/ridden/motorcycle/Initialize(mapload)
@@ -69,8 +72,6 @@
 
 /obj/vehicle/ridden/motorcycle/examine(mob/user)
 	. = ..()
-	if(!ishuman(user))
-		return
 	. += "It contains [get_fuel()] unit\s of fuel out of [max_fuel]."
 
 /obj/vehicle/ridden/motorcycle/post_buckle_mob(mob/living/M)
@@ -96,7 +97,7 @@
 		return FALSE
 	COOLDOWN_START(src, rev_cooldown, 3 SECONDS)
 	to_chat(user, span_notice("You rev the [src]'s engine."))
-	playsound(src, pick(rev_sounds), 50, TRUE)
+	playsound(src, pick(rev_sounds), 25, TRUE)
 	return TRUE
 
 /obj/vehicle/ridden/motorcycle/welder_act(mob/living/user, obj/item/welder)

@@ -134,7 +134,7 @@
 	suit = /obj/item/clothing/suit/jacket/doppler/bad_for_school
 	gloves = /obj/item/clothing/gloves/doppler_cargo/fingerless
 	glasses = /obj/item/clothing/glasses/techno_visor
-	belt = /obj/item/katana
+	l_hand = /obj/item/katana
 
 /datum/outfit/deathmatch_loadout/murderdrome/freek
 	name = "DM: Freek Gunner"
@@ -148,7 +148,7 @@
 	belt = /obj/item/gun/ballistic/automatic/schiebenmaschine
 	back = /obj/item/storage/backpack
 	backpack_contents = list(
-		/obj/item/gun/ballistic/automatic/schiebenmaschine = 5
+		/obj/item/gun/ballistic/automatic/schiebenmaschine = 7
 	)
 
 /datum/outfit/deathmatch_loadout/murderdrome/mad_maxwell
@@ -160,19 +160,21 @@
 	suit = /obj/item/clothing/suit/jacket/leather/biker
 	gloves = /obj/item/clothing/gloves/doppler_cargo
 	glasses = /obj/item/clothing/glasses/hud/ar/aviator
-	back = /obj/item/gun/ballistic/shotgun/doublebarrel/slugs
-	belt = /obj/item/storage/belt/bandolier/full_of_slugs
+	back = /obj/item/gun/ballistic/shotgun/riot/buckshot
+	belt = /obj/item/storage/belt/bandolier/full
 
-/datum/outfit/deathmatch_loadout/murderdrome/lord_hugemongus
-	name = "DM: Lord Hugemongus"
-	display_name = "Lord Hugemongus"
+/datum/outfit/deathmatch_loadout/murderdrome/lord_hughmongos
+	name = "DM: Lord Hughmongos"
+	display_name = "Lord Hughmongos"
 	desc = "One easy piece and a wheelgun, for a waster that knows what they want."
 	shoes = /obj/item/clothing/shoes/workboots/mining
 	uniform = /obj/item/clothing/under/misc/gear_harness/visible
 	gloves = /obj/item/clothing/gloves/doppler_cargo
 	glasses = /obj/item/clothing/glasses/hud/ar/aviator
-	belt = /obj/item/storage/belt/holster/nukie/cowboy
+	belt = /obj/item/storage/belt/holster/filled_humongous
 	mask = /obj/item/clothing/mask/gas
+	l_pocket = /obj/item/ammo_box/speedloader/c357
+	r_pocket = /obj/item/ammo_box/speedloader/c357
 
 /datum/outfit/deathmatch_loadout/murderdrome/rock_it
 	name = "DM: Rock-it Boi"

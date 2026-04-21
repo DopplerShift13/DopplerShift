@@ -1,20 +1,5 @@
 
-/obj/item/storage/belt/bandolier/full_of_slugs/PopulateContents()	// can you believe this doesn't exist already?
-	. = ..()
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
-	new /obj/item/ammo_casing/shotgun
+/obj/item/storage/belt/bandolier/full/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/ammo_casing/shotgun/buckshot = 17,
+	), src)
