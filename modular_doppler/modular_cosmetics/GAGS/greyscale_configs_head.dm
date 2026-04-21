@@ -134,3 +134,12 @@
 /datum/greyscale_config/lizard_headscarf/worn
 	name = "Tizirian headscarf (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
+
+/datum/greyscale_config/colony_headscarf
+	name = "Frontier headscarf"
+	icon_file = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/headscarf_colony.json'
+
+/datum/greyscale_config/colony_headscarf/worn
+	name = "Frontier headscarf (Worn)"
+	icon_file = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'

@@ -18,7 +18,8 @@
 	preserve_old_id(get_id())
 	build_new_id(get_id())
 	// apply alt-title
-	visitor_id.assignment = client_source.prefs.alt_job_titles[visitor_id.assignment] || visitor_id.assignment
+	var/mob/living/carbon/human/quirk_human = quirk_holder
+	visitor_id.assignment = client_source.get_selected_job_title(quirk_human.mind.assigned_role)
 	visitor_id.update_label()
 
 /datum/quirk/visitor/post_add()

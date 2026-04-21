@@ -173,6 +173,7 @@ SUBSYSTEM_DEF(job)
 		name_occupations[job.title] = job
 		for(var/alt_title in job.alternate_titles)
 			name_occupations[alt_title] = job
+		name_occupations[job.get_default_job_title()] = job // DOPPLER EDIT ADDITION - ALTERNATIVE_JOB_TITLES
 		type_occupations[job_type] = job
 
 		if(job.job_flags & JOB_NEW_PLAYER_JOINABLE)
@@ -597,7 +598,7 @@ SUBSYSTEM_DEF(job)
 /datum/controller/subsystem/job/proc/equip_rank(mob/living/equipping, datum/job/job, client/player_client)
 	// DOPPLER EDIT ADDITION BEGIN - ALTERNATIVE_JOB_TITLES
 	// The alt job title, if user picked one, or the default
-	var/alt_title = player_client?.prefs.alt_job_titles?[job.title] || job.title
+	var/alt_title = player_client?.get_selected_job_title(job)
 	// DOPPLER EDIT ADDITION END
 	equipping.job = job.title
 

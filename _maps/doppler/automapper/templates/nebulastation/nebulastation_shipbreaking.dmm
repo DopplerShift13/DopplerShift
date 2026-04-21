@@ -44,7 +44,9 @@
 	name = "Salvage Bay Shutters"
 	},
 /obj/machinery/button/door/directional/north{
-	id = "shipbreaking"
+	id = "shipbreaking";
+	req_access = list("cargo");
+	name = "Salvage Bay Shutter Control"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
