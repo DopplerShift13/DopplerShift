@@ -4,6 +4,9 @@
 	icon = 'icons/obj/clothing/modsuit/mod_modules.dmi'
 	icon_state = "module"
 	abstract_type = /obj/item/mod/module
+	sound_vary = TRUE
+	pickup_sound = SFX_GENERIC_DEVICE_PICKUP
+	drop_sound = SFX_GENERIC_DEVICE_DROP
 	/// If it can be removed
 	var/removable = TRUE
 	/// If it's passive, togglable, usable or active
@@ -171,6 +174,7 @@
 			balloon_alert(mod.wearer, "[src] activated, [used_button]-click to use") // As of now, only wearers can "use" mods
 	active = TRUE
 	SEND_SIGNAL(src, COMSIG_MODULE_ACTIVATED)
+	SEND_SIGNAL(mod, COMSIG_MOD_MODULE_ACTIVATED, src)
 	on_activation(activator)
 	update_clothing_slots()
 	return TRUE
@@ -190,6 +194,7 @@
 			UnregisterSignal(mod.wearer, used_signal)
 			used_signal = null
 	SEND_SIGNAL(src, COMSIG_MODULE_DEACTIVATED, mod.wearer)
+	SEND_SIGNAL(mod, COMSIG_MOD_MODULE_DEACTIVATED, src)
 	on_deactivation(activator, display_message = TRUE, deleting = FALSE)
 	update_clothing_slots()
 	return TRUE
@@ -482,7 +487,7 @@
 
 /obj/item/mod/module/anomaly_locked/examine(mob/user)
 	. = ..()
-	if(!length(accepted_anomalies))
+	if(!length(accepted_anomalies) || coreless) /// DOPPLER EDIT CHANGE - Support for anomalock modules without a core - ORIGINAL: if(!length(accepted_anomalies))
 		return
 	if(core)
 		. += span_notice("There is a [core.name] installed in it. [core_removable ? "You could remove it with a <b>screwdriver</b>..." : "Unfortunately, due to a design quirk, it's unremovable."]")
@@ -496,7 +501,7 @@
 			. += span_notice("Due to some design quirk, once a core is inserted, it won't be removable.")
 
 /obj/item/mod/module/anomaly_locked/on_select()
-	if(!core)
+	if(!core && !coreless) /// DOPPLER EDIT CHANGE - Support for anomalock modules without a core - ORIGINAL: if(!core)
 		balloon_alert(mod.wearer, "no core!")
 		return
 	return ..()
@@ -512,6 +517,10 @@
 	return TRUE
 
 /obj/item/mod/module/anomaly_locked/attackby(obj/item/item, mob/living/user, list/modifiers, list/attack_modifiers)
+	/// DOPPLER EDIT ADDITION START - Support for anomalock modules without a core
+	if(coreless)
+		return ..()
+	/// DOPPLER EDIT ADDITION END
 	if(item.type in accepted_anomalies)
 		if(core)
 			balloon_alert(user, "core already in!")
@@ -527,6 +536,10 @@
 
 /obj/item/mod/module/anomaly_locked/screwdriver_act(mob/living/user, obj/item/tool)
 	. = ..()
+	/// DOPPLER EDIT ADDITION START - Support for anomalock modules without a core
+	if(coreless)
+		return
+	/// DOPPLER EDIT ADDITION END
 	if(!core)
 		balloon_alert(user, "no core!")
 		return

@@ -6,3 +6,4 @@
 #define SPECIES_HEMOPHAGE "hemophage"
 #define SPECIES_SLIMESTART "slimehybrid"
 #define SPECIES_HOLOSYNTH "holosynth"
+#define SPECIES_TESHARI "teshari"

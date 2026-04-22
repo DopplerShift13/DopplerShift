@@ -103,6 +103,9 @@
 	name = "Gauntlets (Cargo)"
 	item_path = /obj/item/clothing/gloves/doppler_cargo/gauntlets
 
+/datum/loadout_item/gloves/gauntlets/primitive_genemod_gauntlets
+	name = "Gauntlets (Hearthkin)"
+	item_path = /obj/item/clothing/gloves/fingerless/primitive_genemod_gauntlets
 /**
  * COLORED GLOVES
  */
@@ -180,3 +183,7 @@
 /datum/loadout_item/gloves/misc/cloth_armwraps
 	name = "Cloth Armwraps"
 	item_path = /obj/item/clothing/gloves/bracer/wraps
+
+/datum/loadout_item/gloves/misc/primitive_genemod_armwraps
+	name = "Hearthkin Armwraps"
+	item_path = /obj/item/clothing/gloves/fingerless/primitive_genemod_armwraps

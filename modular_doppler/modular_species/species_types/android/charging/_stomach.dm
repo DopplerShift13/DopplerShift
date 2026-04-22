@@ -64,6 +64,9 @@
 		return
 	run_emp_effects(severity)
 
+/obj/item/organ/stomach/charging/get_cell()
+	return internal_cell
+
 /// Adjust our charge, handle subsequent charge effects.
 /obj/item/organ/stomach/charging/proc/adjust_charge(amount)
 	internal_cell.change(amount)
@@ -137,6 +140,20 @@
 	if(current_charge > 0.01 KILO JOULES)
 		return "[round((current_charge/(1 KILO JOULES)), 0.1)]kJ"
 	return "[round(current_charge, 0.1)]J"
+
+/// Handles the oversized quirk's interaction with synth charge
+/obj/item/organ/stomach/charging/proc/become_oversized()
+	internal_cell.maxcharge *= 2.5 // 5 MJ
+	name = "large [name]"
+	desc += " It has been constructed for a much larger frame than is standard."
+
+/// Handles removing the oversized quirk (just in case)
+/obj/item/organ/stomach/charging/proc/remove_oversized()
+	if(internal_cell.charge >= CHARGING_STOMACH_CHARGE_FULL)
+		internal_cell.charge = CHARGING_STOMACH_CHARGE_FULL
+	internal_cell.maxcharge = initial(internal_cell.maxcharge)
+	name = initial(name)
+	desc = initial(desc)
 
 /// Internal cell used by the charging stomach type.
 /obj/item/stock_parts/power_store/cell/charging_stomach

@@ -4,6 +4,11 @@
 	icon_state = "backpack-explorer"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/back.dmi'
+	)
 
 /obj/item/storage/backpack/duffelbag/explorer
 	name = "explorer duffel bag"
@@ -11,6 +16,8 @@
 	icon_state = "duffel-explorer"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/backpack/satchel/explorer
 	name = "explorer satchel"
@@ -18,6 +25,11 @@
 	icon_state = "satchel-explorer"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/back.dmi'
+	)
 
 /obj/item/storage/backpack/messenger/explorer
 	name = "explorer messenger bag"
@@ -25,3 +37,5 @@
 	icon_state = "messenger_explorer"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/mining.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/mining.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null

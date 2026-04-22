@@ -4,3 +4,5 @@
 	icon_state = "duffel_paramed"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/storage/medical.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/storage/medical.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null

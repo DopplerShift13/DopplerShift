@@ -30,7 +30,7 @@
 
 /datum/action/innate/toggle_floating_items
 	name = "Toggle Psionic Holding"
-	button_icon = 'modular_doppler/psychicshit/icons/effects/tele_effects.dmi'
+	button_icon = 'modular_doppler/psychics/icons/tele_effects.dmi'
 	button_icon_state = "telekinesishead"
 	check_flags = AB_CHECK_INCAPACITATED|AB_CHECK_CONSCIOUS
 

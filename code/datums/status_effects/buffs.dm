@@ -192,6 +192,9 @@
 	var/static/list/supplementary_reagents_bonus = list(
 		/datum/reagent/consumable/ethanol/protein_blend = 10 SECONDS, // protein shakes are very robust
 		/datum/reagent/inverse/oxandrolone = 8 SECONDS,
+		// DOPPLER EDIT ADDITION START - adds another type of protein supplement
+		/datum/reagent/consumable/nutriment/clown_preworkout = 5 SECONDS,
+		// DOPPLER EDIT ADDITION END
 		/datum/reagent/consumable/nutriment/protein = 5 SECONDS,
 		/datum/reagent/consumable/nutriment/vitamin = 4 SECONDS,
 		/datum/reagent/consumable/milk = 4 SECONDS,
@@ -299,16 +302,12 @@
 	)
 
 	//Makes the user passive, it's in their oath not to harm!
-	owner.add_traits(list(TRAIT_PACIFISM, TRAIT_HIPPOCRATIC_OATH), HIPPOCRATIC_OATH_TRAIT)
-	var/datum/atom_hud/med_hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-	med_hud.show_to(owner)
+	owner.add_traits(list(TRAIT_PACIFISM, TRAIT_HIPPOCRATIC_OATH, TRAIT_MEDICAL_HUD), HIPPOCRATIC_OATH_TRAIT)
 	return ..()
 
 /datum/status_effect/hippocratic_oath/on_remove()
 	QDEL_NULL(aura_healing)
-	owner.remove_traits(list(TRAIT_PACIFISM, TRAIT_HIPPOCRATIC_OATH), HIPPOCRATIC_OATH_TRAIT)
-	var/datum/atom_hud/med_hud = GLOB.huds[DATA_HUD_MEDICAL_ADVANCED]
-	med_hud.hide_from(owner)
+	owner.remove_traits(list(TRAIT_PACIFISM, TRAIT_HIPPOCRATIC_OATH, TRAIT_MEDICAL_HUD), HIPPOCRATIC_OATH_TRAIT)
 
 /datum/status_effect/hippocratic_oath/get_examine_text()
 	return span_notice("[owner.p_They()] seem[owner.p_s()] to have an aura of healing and helpfulness about [owner.p_them()].")

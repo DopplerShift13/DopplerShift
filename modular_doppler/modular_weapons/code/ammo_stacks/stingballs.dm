@@ -15,7 +15,19 @@
 	materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 3)
 	build_path = /obj/item/ammo_casing/avispa_stingball
 	category = list(
-		RND_CATEGORY_HACKED,
+		RND_CATEGORY_INITIAL,
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/datum/design/avispa_stingball
+	name = ".61 stingballs (Less Lethal)"
+	id = "61stingball"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/plastic = SMALL_MATERIAL_AMOUNT * 3)
+	build_path = /obj/item/ammo_casing/avispa_stingball
+	category = list(
+		RND_CATEGORY_INITIAL,
 		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SECURITY

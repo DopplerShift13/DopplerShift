@@ -71,7 +71,7 @@
 
 /datum/design/c38_true
 	name = "Speedloader (.38 True Strike) (Lethal)"
-	desc = "Designed to quickly reload revolvers. Bullets bounce towards new targets with surprising accuracy."
+	desc = "Designed to quickly reload revolvers. Bullets bounce towards new targets with surprising accuracy and can strike through armored target"
 	id = "c38_true_strike"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -183,7 +183,7 @@
 
 /datum/design/c38_true_mag
 	name = "Magazine (.38 True Strike) (Lethal)"
-	desc = "Designed to tactically reload a NT BR-38 Battle Rifle. Bullets bounce towards new targets with surprising accuracy."
+	desc = "Designed to tactically reload a NT BR-38 Battle Rifle. Bullets bounce towards new targets with surprising accuracy and can strike through armored target"
 	id = "c38_true_strike_mag"
 	build_type = PROTOLATHE | AWAY_LATHE
 	materials = list(
@@ -351,7 +351,9 @@
 	name = "Telescopic Riot Shield"
 	desc = "An advanced riot shield made of lightweight materials that collapses for easy storage."
 	id = "tele_shield"
-	build_type = PROTOLATHE | AWAY_LATHE
+	// DOPPLER EDIT CHANGE START - removes this design from any player accessible lathe in favor of a modularly added shield gauntlet
+	build_type = null // was: build_type = PROTOLATHE | AWAY_LATHE
+	// DOPPLER EDIT CHANGE END
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/glass = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver =SMALL_MATERIAL_AMOUNT * 3, /datum/material/titanium =SMALL_MATERIAL_AMOUNT * 2)
 	build_path = /obj/item/shield/riot/tele
 	category = list(

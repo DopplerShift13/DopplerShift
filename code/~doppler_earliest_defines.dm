@@ -200,6 +200,17 @@
 	name = "No Horns"
 	icon_state = "none"
 
+// Teshari
+/datum/sprite_accessory/tails/teshari/none
+	icon = /datum/sprite_accessory/tails/none::icon
+	name = DOPPLER_SPRITE_ACCESSORY_NOTAIL
+	icon_state = /datum/sprite_accessory/tails/none::icon_state
+
+/datum/sprite_accessory/ears_more/teshari/none
+	icon = 'modular_doppler/modular_customization/accessories/code/~overrides/icons/fallbacks.dmi'
+	name = DOPPLER_SPRITE_ACCESSORY_NOEARS
+	icon_state = /datum/sprite_accessory/ears/none::icon_state
+
 // Taur
 /datum/sprite_accessory/taur/none
 	name = DOPPLER_SPRITE_ACCESSORY_NOTAUR

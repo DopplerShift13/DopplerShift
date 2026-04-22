@@ -31,6 +31,14 @@
 	name = "Naga, Rattle"
 	icon_state = "nagarattle"
 
+/datum/sprite_accessory/taur/naga/fish
+	name = "Naga, Fish"
+	icon_state = "naga_fish"
+
+/datum/sprite_accessory/taur/naga/eel
+	name = "Naga, Eel"
+	icon_state = "naga_eel"
+
 /datum/sprite_accessory/taur/centipede
 	name = "Centipede"
 	icon_state = "centipede"

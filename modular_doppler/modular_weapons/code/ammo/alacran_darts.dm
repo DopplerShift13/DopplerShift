@@ -15,7 +15,7 @@
 	caliber = CALIBER_ALACRAN
 	projectile_type = /obj/projectile/bullet/dart/alacran_dart
 	harmful = FALSE
-	custom_price = PAYCHECK_COMMAND
+	custom_price = PAYCHECK_CREW
 	/// A list of the reagents in our payload
 	var/list/dart_reagents
 
@@ -52,13 +52,13 @@
 /obj/item/ammo_casing/alacran_dart/adrenaline/piercing
 	name = "\improper Puya adrenaline dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
-	custom_price = PAYCHECK_COMMAND * 1.2
+	custom_price = PAYCHECK_CREW * 1.2
 
 /obj/item/ammo_casing/alacran_dart/krotozine
 	name = "\improper Puya krotozine manipulative dart"
 	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of stimulants and weak healing agents."
 	greyscale_colors = "#905ea9#905ea9"
-	custom_price = PAYCHECK_COMMAND * 2
+	custom_price = PAYCHECK_CREW * 2
 	dart_reagents = list(
 		/datum/reagent/medicine/ondansetron = 3,
 		/datum/reagent/drug/kronkaine = 5,
@@ -69,12 +69,12 @@
 /obj/item/ammo_casing/alacran_dart/krotozine/piercing
 	name = "\improper Puya krotozine manipulative dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
-	custom_price = PAYCHECK_COMMAND * 2.4
+	custom_price = PAYCHECK_CREW * 2.4
 
 /obj/item/ammo_casing/alacran_dart/rootbeer	// no piercing version on purpose
 	name = "\improper Puya 'sharpshooter' dart"
 	desc = "A proprietary dart for the Alacran platform. This one contains a mixture of stimulants and nootropics purported to assist in firearms use."
-	custom_price = PAYCHECK_COMMAND * 1.1
+	custom_price = PAYCHECK_CREW * 1.1
 	greyscale_colors = "#663300#663300"
 	dart_reagents = list(
 		/datum/reagent/consumable/rootbeer = 13,
@@ -85,7 +85,7 @@
 	name = "\improper Puya 'electric wizard' experimental tranquilizer dart"
 	desc = "A proprietary dart for the Alacran platform. This one contains an experimental sedative for use in apprehending suspected criminals. All rights reserved. \
 	Not recommended for use on assailants with pre-existing heart conditions."
-	custom_price = PAYCHECK_COMMAND * 1.1
+	custom_price = PAYCHECK_CREW * 1.1
 	greyscale_colors = "#800000#808080"
 	dart_reagents = list(
 		/datum/reagent/consumable/ethanol/beepsky_smash = 10,
@@ -99,7 +99,7 @@
 	desc = "A third party imitation of Deforest-branded darts for the Alacran platform. This one contains a mix of experimental healing chemicals and exotic nootropics \
 	and bears a disconcertingly nonspecific warning regarding side effects. Caveat injector."
 	greyscale_colors = "#8987ff#4d9be6"
-	custom_price = PAYCHECK_COMMAND * 0.9
+	custom_price = PAYCHECK_CREW * 0.9
 	dart_reagents = list(
 		/datum/reagent/medicine/earthsblood = 6,
 		/datum/reagent/toxin/lipolicide = 3,
@@ -143,7 +143,7 @@
 /obj/item/ammo_casing/alacran_dart/morpital/piercing
 	name = "\improper Puya morpital regeneration dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
-	custom_price = PAYCHECK_COMMAND * 1.2
+	custom_price = PAYCHECK_CREW * 1.2
 
 /obj/item/ammo_casing/alacran_dart/meridine
 	name = "\improper Puya meridine antidote dart"
@@ -175,7 +175,7 @@
 /obj/item/ammo_casing/alacran_dart/slurry/piercing
 	name = "\improper Puya smart-slurry dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
-	custom_price = PAYCHECK_COMMAND * 1.2
+	custom_price = PAYCHECK_CREW * 1.2
 
 /obj/item/ammo_casing/alacran_dart/sensory_restoration
 	name = "\improper Puya occuisate sensory restoration dart"
@@ -192,7 +192,7 @@
 /obj/item/ammo_casing/alacran_dart/sensory_restoration/piercing
 	name = "\improper Puya occuisate sensory restoration dart - armor piercing"
 	projectile_type = /obj/projectile/bullet/dart/alacran_piercing_dart
-	custom_price = PAYCHECK_COMMAND * 1.2
+	custom_price = PAYCHECK_CREW * 1.2
 
 /obj/item/ammo_casing/alacran_dart/quadruple_sec
 	name = "\improper Puya experimental salve dart"

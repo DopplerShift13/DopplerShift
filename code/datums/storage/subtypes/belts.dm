@@ -79,6 +79,7 @@
 		/obj/item/flesh_shears,
 		/obj/item/blood_scanner,
 		/obj/item/reflexhammer,
+		/obj/item/crowbar/power/paramedic,
 	))
 
 ///Security belt
@@ -106,7 +107,8 @@
 		/obj/item/reagent_containers/spray/pepper,
 		/obj/item/restraints/handcuffs,
 		/obj/item/restraints/legcuffs/bola,
-		/obj/item/melee/sec_jitte,//DOPPLER EDIT ADDITION
+		/obj/item/melee/sec_jitte, //DOPPLER EDIT ADDITION
+		/obj/item/shield/escarabajo, //DOPPLER EDIT ADDITION
 	))
 
 ///Webbing security belt

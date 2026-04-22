@@ -86,15 +86,8 @@
 /datum/preference_middleware/jobs/get_ui_data(mob/user)
 	var/list/data = list()
 
-	// DOPPLER EDIT
-	if(isnull(preferences.alt_job_titles))
-		preferences.alt_job_titles = list()
-	// DOPPLER EDIT END
 	data["job_preferences"] = preferences.job_preferences
-
-	// DOPPLER EDIT
-	data["job_alt_titles"] = preferences.alt_job_titles
-	// DOPPLER EDIT END
+	data["job_alt_titles"] = preferences.alt_job_titles // DOPPLER EDIT ADDITION - ALTERNATIVE_JOB_TITLES
 
 	return data
 

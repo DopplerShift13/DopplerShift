@@ -63,4 +63,7 @@
 
 	. += ..()
 
-#undef ADD_NEWLINE_IF_NECESSARY
+/mob/living/silicon/robot/examine_descriptor(mob/user)
+	return "cyborg"
+
+#undef ADD_NEWLINE_IF_NECESSARY // DOPPLER EDIT ADDITION

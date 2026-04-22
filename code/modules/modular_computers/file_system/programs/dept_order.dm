@@ -85,9 +85,18 @@ GLOBAL_VAR(department_cd_override)
 		if(!islist(supply_data[pack.group]) || !can_see_pack(pack))
 			continue
 
+		// DOPPLER EDIT ADDITION BEGIN - TESHARI_WAR STORY MODULE
+		var/shortage_text = ""
+		if (pack.is_unavailable())
+			shortage_text = " (Shortages: Unavailable!)"
+		else if (pack.get_shortage_price_mult() != 1)
+			shortage_text = " (Shortages: [pack.get_shortage_price_mult()]x cooldown)"
+		// DOPPLER EDIT ADDITION END
 		UNTYPED_LIST_ADD(supply_data[pack.group], list(
 			"name" = pack.name,
 			"cost" = pack.get_cost(),
+			"unavailable" = pack.is_unavailable(), // DOPPLER EDIT ADDITION - TESHARI_WAR STORY MODULE
+			"shortage_text" = shortage_text, // DOPPLER EDIT ADDITION - TESHARI_WAR STORY MODULE
 			"id" = pack.id,
 			"desc" = pack.desc || pack.name, // If there is a description, use it. Otherwise use the pack's name.
 		))
@@ -266,7 +275,7 @@ GLOBAL_VAR(department_cd_override)
 	return FALSE
 
 /datum/aas_config_entry/department_orders
-	name = "Departmental Order Announcement"
+	name = "Departmental: Order Announcement"
 	announcement_lines_map = list(
 		"Order Placed" = "A department order has been placed by %PERSON for %ORDER.",
 		"Cooldown Reset" = "Department order cooldown has expired! A new order may now be placed!",

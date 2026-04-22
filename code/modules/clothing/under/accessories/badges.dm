@@ -10,8 +10,8 @@
 
 /obj/item/clothing/accessory/lawyers_badge/interact(mob/user)
 	. = ..()
-	if(prob(1))
-		user.say("The testimony contradicts the evidence!", forced = "[src]")
+	// if(prob(1)) // DOPPLER EDIT REMOVAL - Less forcesays
+	//	user.say("The testimony contradicts the evidence!", forced = "[src]") // DOPPLER EDIT REMOVAL - Less forcesays
 	user.point_at(src)
 
 /obj/item/clothing/accessory/lawyers_badge/accessory_equipped(obj/item/clothing/under/clothes, mob/living/user)

@@ -147,7 +147,9 @@
 						// DOPPLER EDIT ADDITION START - CANTINA_COMMS
 						// Cantina encryption key ONLY works for syndicate comms.
 						if((syndicate_radios.special_channels & RADIO_SPECIAL_CANTINA_HEADSET) && (frequency != FREQ_SYNDICATE))
-							continue
+							// But only if you don't also have the regular key.
+							if(!(syndicate_radios.special_channels & RADIO_SPECIAL_SYNDIE))
+								continue
 						// DOPPLER EDIT ADDITION END - CANTINA_COMMS
 						if(syndicate_radios.can_receive(FREQ_SYNDICATE, RADIO_NO_Z_LEVEL_RESTRICTION))
 							radios |= syndicate_radios

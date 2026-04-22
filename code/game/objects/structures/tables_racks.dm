@@ -571,6 +571,10 @@
 /obj/structure/table/glass/proc/check_break(mob/living/M)
 	if(is_flipped)
 		return FALSE
+	// DOPPLER EDIT ADDITION START -  Light-bodied species can tablerun without breaking glass tables
+	if(HAS_TRAIT(M, TRAIT_LIGHT_BODY))
+		return FALSE
+	// DOPPLER EDIT ADDITION END
 	if(M.has_gravity() && M.mob_size > MOB_SIZE_SMALL && !(M.movement_type & MOVETYPES_NOT_TOUCHING_GROUND))
 		table_shatter(M)
 
@@ -1145,7 +1149,7 @@
 	tool.play_tool_sound(src, 50)
 	balloon_alert(user, "mask detached")
 	UnregisterSignal(breath_mask, list(COMSIG_MOVABLE_MOVED, COMSIG_ITEM_DROPPED))
-	if (user.CanReach(breath_mask))
+	if (breath_mask.IsReachableBy(user))
 		user.put_in_hands(breath_mask)
 	breath_mask = null
 	update_appearance()
@@ -1160,7 +1164,7 @@
 	air_tank.forceMove(drop_location())
 	tool.play_tool_sound(src, 50)
 	balloon_alert(user, "tank detached")
-	if (user.CanReach(air_tank))
+	if (air_tank.IsReachableBy(user))
 		user.put_in_hands(air_tank)
 	if (patient?.external && patient.external == air_tank)
 		patient.close_externals()
@@ -1192,7 +1196,7 @@
 		. += span_notice("There's a port for a breathing mask tube on its side.")
 
 /obj/structure/table/optable/proc/detach_mask(mob/living/user)
-	if (!istype(user) || !user.CanReach(src) || !user.can_interact_with(src))
+	if (!istype(user) || !IsReachableBy(user) || !user.can_interact_with(src))
 		return FALSE
 
 	if (!breath_mask)
@@ -1208,7 +1212,7 @@
 	return TRUE
 
 /obj/structure/table/optable/mouse_drop_dragged(atom/over, mob/living/user, src_location, over_location, params)
-	if (over != patient || !istype(user) || !user.CanReach(src) || !user.can_interact_with(src))
+	if (over != patient || !istype(user) || !IsReachableBy(user) || !user.can_interact_with(src))
 		return
 
 	if (!air_tank)

@@ -106,6 +106,25 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	body_parts_covered = CHEST|ARMS
 
+/obj/item/clothing/neck/tesharian_mantle
+	name = "traveller's mantle"
+	desc = "A mantle of Teshari design, the so-called traveller's mantle is often constructed of scavenged silk and fabric from the ruins of Sirisai. Generally worn in a more decorative role, above insulating clothing."
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/tesharian_mantle"
+	post_init_icon_state = "tesharian_mantle"
+	supported_bodyshapes = list(
+		BODYSHAPE_HUMANOID,
+		BODYSHAPE_TESHARI
+	)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/tesharian_mantle/worn,
+		BODYSHAPE_TESHARI_T = /datum/greyscale_config/tesharian_mantle/worn/teshari
+	)
+	greyscale_config = /datum/greyscale_config/tesharian_mantle
+	greyscale_config_worn = /datum/greyscale_config/tesharian_mantle/worn
+	greyscale_colors = "#ffcc00#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 ///////////
 //SCARVES//
 ///////////

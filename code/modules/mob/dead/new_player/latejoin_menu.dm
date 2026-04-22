@@ -117,6 +117,7 @@ GLOBAL_DATUM_INIT(latejoin_menu, /datum/latejoin_menu, new)
 			var/list/job_data = list(
 				"command" = !!(job_datum.departments_bitflags & DEPARTMENT_BITFLAG_COMMAND),
 				"description" = job_datum.description,
+				"doppler_name" = job_datum.get_default_job_title() // DOPPLER EDIT ADDITION - ALTERNATIVE_JOB_TITLES
 			)
 
 			department_jobs[job_datum.title] = job_data

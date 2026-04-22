@@ -103,9 +103,9 @@
 	for(var/obj/machinery/computer/communications/comms_console in GLOB.shuttle_caller_list)
 		if(!(comms_console.machine_stat & (BROKEN|NOPOWER)) && is_station_level(comms_console.z))
 			if (ship_name != "Default")
-				new /obj/item/radio/one_shot_broadcaster(comms_console.loc, "NLP-NAV-TC", "informs", FREQ_COMMAND, "New vessel hailed and acknowledged in local vicinity. Transponder tag: [ship_name]. Hull class: [template_path_key]. Registered captain: [human_holder.name].")
+				new /obj/item/radio/one_shot_broadcaster(comms_console.loc, "9LP-NAV-TC", "informs", FREQ_COMMAND, "New vessel hailed and acknowledged in local vicinity. Transponder tag: [ship_name]. Hull class: [template_path_key]. Registered captain: [human_holder.name].")
 			else
-				new /obj/item/radio/one_shot_broadcaster(comms_console.loc, "NLP-NAV-TC", "informs", FREQ_COMMAND, "New vessel hailed and acknowledged in local vicinity. No unique transponder tag. Hull class: [template_path_key].")
+				new /obj/item/radio/one_shot_broadcaster(comms_console.loc, "9LP-NAV-TC", "informs", FREQ_COMMAND, "New vessel hailed and acknowledged in local vicinity. No unique transponder tag. Hull class: [template_path_key].")
 			break
 
 /datum/quirk/ship_captain/remove()

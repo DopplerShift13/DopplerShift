@@ -1,7 +1,7 @@
 /datum/surgery/revival/carbon/mechanic
 	name = "Full System Reboot"
 	requires_bodypart_type = BODYTYPE_ROBOTIC
-	possible_locs = list(BODY_ZONE_HEAD)
+	possible_locs = list(BODY_ZONE_CHEST)
 	target_mobtypes = list(/mob/living/carbon)
 	surgery_flags = parent_type::surgery_flags | SURGERY_REQUIRE_LIMB
 	steps = list(

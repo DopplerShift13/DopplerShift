@@ -6,11 +6,5 @@
 		return TRUE
 	return ..()
 
-//for making rollerskates work again
-
-/obj/item/clothing/shoes/wheelys
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
-
 /datum/component/riding/vehicle/scooter/skateboard/wheelys
 	vehicle_move_delay = 1.5

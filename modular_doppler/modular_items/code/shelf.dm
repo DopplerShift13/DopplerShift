@@ -6,13 +6,16 @@
 	layer = TABLE_LAYER
 	density = TRUE
 	anchored = TRUE
-	pass_flags_self = LETPASSTHROW
+	pass_flags_self = PASSTABLE | LETPASSTHROW
 	max_integrity = 35
+	/// Traits applied to the turf the shelf is on
+	var/static/list/turf_traits = list(TRAIT_TURF_IGNORE_SLOWDOWN, TRAIT_TURF_IGNORE_SLIPPERY, TRAIT_IMMERSE_STOPPED)
 
 /obj/structure/shelf/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/climbable)
 	AddElement(/datum/element/elevation, pixel_shift = 26)
+	AddElement(/datum/element/give_turf_traits, string_list(turf_traits))
 	register_context()
 	ADD_TRAIT(src, TRAIT_COMBAT_MODE_SKIP_INTERACTION, INNATE_TRAIT)
 
@@ -82,4 +85,15 @@
 
 /obj/structure/shelf/atom_deconstruct(disassembled = TRUE)
 	var/obj/item/stack/sheet/iron/newparts = new(loc)
+	transfer_fingerprints_to(newparts)
+
+/obj/structure/shelf/wooden
+	name = "wooden shelf"
+	desc = "Only a problem if someone has to help you reach the top of it, while on fire."
+	icon = 'modular_doppler/hearthkin/primitive_structures/icons/storage.dmi'
+	icon_state = "shelf_wood"
+	resistance_flags = FLAMMABLE
+
+/obj/structure/shelf/wooden/atom_deconstruct(disassembled = TRUE)
+	var/obj/item/stack/sheet/mineral/wood/newparts = new(loc, 2)
 	transfer_fingerprints_to(newparts)

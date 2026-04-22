@@ -13,7 +13,7 @@
 	light_range = 5
 	light_power = 1.25
 	/// Soundloop because this thing is potentially dangerous and potentially hard to notice
-	var/datum/looping_sound/arc_furnace_running/soundloop
+	var/datum/looping_sound/vibroblade/soundloop
 	/// The item that the heater disassembles into
 	var/repacked_type = /obj/item/flatpacked_machine/lizard_heater
 

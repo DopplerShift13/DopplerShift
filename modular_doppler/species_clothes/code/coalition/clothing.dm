@@ -46,6 +46,8 @@
 	lefthand_file = 'modular_doppler/species_clothes/icons/generic/lefthand.dmi'
 	righthand_file = 'modular_doppler/species_clothes/icons/generic/righthand.dmi'
 	inhand_icon_state = null
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/clothing/glasses/tajaran_hud/Initialize(mapload)
 	. = ..()

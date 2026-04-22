@@ -8,6 +8,10 @@
 	all_closets -= typesof(/obj/structure/closet/supplypod)
 	/// these bitches spawn specially crafted humans with gear and moving organs being shuffled around through the whole process
 	all_closets -= typesof(/obj/structure/closet/body_bag/lost_crew/with_body)
+	// DOPPLER EDIT ADDITION START - SHIPBREAKING CLOSETS TEST FAIL
+	all_closets -= typesof(/obj/structure/closet/shipping_container)
+	all_closets -= typesof(/obj/structure/closet/crate/shuttle)
+	// DOPPLER EDIT END
 
 	for(var/closet_type in all_closets)
 		var/obj/structure/closet/closet = allocate(closet_type)

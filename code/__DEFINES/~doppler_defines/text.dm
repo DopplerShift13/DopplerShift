@@ -6,3 +6,6 @@
 		return "an"
 	else
 		return "a"
+
+//for modular doppie pirates
+#define DOPPLER_PIRATE_NAMES_FILE "doppler_pirate_names.json"

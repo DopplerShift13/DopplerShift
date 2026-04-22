@@ -6,8 +6,7 @@
 	layer = BELOW_OBJ_LAYER
 	obj_flags = CAN_BE_HIT
 	pass_flags_self = LETPASSTHROW|LETPASSCLICKS
-	max_integrity = 200
-
+	max_integrity = 150
 	/// What storage datum we use
 	var/storage_datum_to_use = /datum/storage/maintenance_loot_structure
 	/// Weighted list of the loot that can spawn in this
@@ -16,16 +15,46 @@
 	)
 	/// This one is going to be weird, a string of dice to use when rolling number of contents
 	var/loot_spawn_dice_string = "2d4+1"
+	/// How long this takes to remove
+	var/removal_time = 3 SECONDS
 
 /obj/structure/maintenance_loot_structure/Initialize(mapload)
 	. = ..()
 	create_storage(storage_type = storage_datum_to_use)
 	make_contents()
+	register_context()
+
+/obj/structure/maintenance_loot_structure/add_context(atom/source, list/context, obj/item/held_item, mob/user)
+	. = ..()
+	if(isnull(held_item))
+		return NONE
+	if(held_item.tool_behaviour == TOOL_WELDER)
+		context[SCREENTIP_CONTEXT_LMB] = "Remove"
+		return CONTEXTUAL_SCREENTIP_SET
+	if(held_item.tool_behaviour == TOOL_WRENCH)
+		context[SCREENTIP_CONTEXT_LMB] = "Remove"
+		return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/maintenance_loot_structure/examine(mob/user)
 	. = ..()
 	. += span_engradio("It might have other things you're looking for <b>if you look again later</b>?")
+	. += span_notice("It can be removed with either a [EXAMINE_HINT("welder or wrench")].")
 	return .
+
+/obj/structure/maintenance_loot_structure/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	balloon_alert(user, "removing...")
+	if(!tool.use_tool(src, user, removal_time))
+		return ITEM_INTERACT_BLOCKING
+	deconstruct()
+	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/maintenance_loot_structure/welder_act(mob/living/user, obj/item/tool)
+	balloon_alert(user, "removing...")
+	if(!tool.use_tool(src, user, removal_time, amount = 1, volume = 50))
+		return ITEM_INTERACT_BLOCKING
+	deconstruct()
+	return ITEM_INTERACT_SUCCESS
 
 // Since it doesn't want to play nice for whatever reason
 /obj/structure/maintenance_loot_structure/attack_hand(mob/living/user)
@@ -58,6 +87,7 @@
 	numerical_stacking = FALSE
 	rustle_sound = FALSE
 	screen_max_columns = 3
+	insert_on_attack = FALSE
 	/// What sound this makes when people open it's storage
 	var/opening_sound = 'modular_doppler/epic_loot/sound/plastic.mp3'
 

@@ -5,6 +5,10 @@
 	name = "Fold"
 	icon_state = "fold"
 
+/datum/sprite_accessory/ears_more/dog/perky
+	name = "Perky"
+	icon_state = "perky"
+
 /datum/sprite_accessory/ears_more/dog/large
 	icon = 'modular_doppler/modular_customization/accessories/icons/non_species_specific/canine/canine_ears_big.dmi'
 	name = "Acrador"
@@ -25,3 +29,7 @@
 	icon = 'modular_doppler/modular_customization/accessories/icons/non_species_specific/canine/canine_ears_big.dmi'
 	name = "Sandfox"
 	icon_state = "sandfox"
+
+/datum/sprite_accessory/ears_more/dog/wolf
+	name = "Wolf"
+	icon_state = "wolf"

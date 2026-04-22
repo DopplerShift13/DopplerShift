@@ -21,6 +21,11 @@
 	AddElement(/datum/element/radioactive, threshold = RAD_VERY_LIGHT_INSULATION, minimum_exposure_time = NEBULA_RADIATION_MINIMUM_EXPOSURE_TIME)
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
+/obj/machinery/power/rtg/portable/wrench_act(mob/living/user, obj/item/tool)
+	. = ..()
+	default_unfasten_wrench(user, tool, time = 2 SECONDS)
+	return ITEM_INTERACT_SUCCESS
+
 /obj/machinery/power/rtg/portable/RefreshParts()
 	. = ..()
 	power_gen = initial(power_gen)

@@ -11,7 +11,7 @@
 	name = ".585 bullet"
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	icon_state = "bullet"
-	damage = 50
-	wound_bonus = 10
-	exposed_wound_bonus = 20
-	speed = 2.5
+	damage = 45
+	wound_bonus = 0
+	exposed_wound_bonus = 10
+	speed = 1.75

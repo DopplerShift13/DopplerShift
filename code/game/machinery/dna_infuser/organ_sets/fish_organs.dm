@@ -53,7 +53,7 @@
 	if(HAS_TRAIT(owner, TRAIT_IS_WET) && istype(owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL), /obj/item/organ/tail/fish))
 		add_speed_buff()
 	owner.mind?.adjust_experience(/datum/skill/fishing, SKILL_EXP_JOURNEYMAN, silent = TRUE)
-	owner.grant_language(/datum/language/carptongue, ALL, type)
+	// owner.grant_language(/datum/language/carptongue, ALL, type) // DOPPLER EDIT REMOVAL - carptongue rework, non-carp don't speak it inherently
 
 /datum/status_effect/organ_set_bonus/fish/disable_bonus(obj/item/organ/removed_organ)
 	. = ..()
@@ -78,7 +78,7 @@
 	if(HAS_TRAIT(owner, TRAIT_IS_WET) && istype(owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL), /obj/item/organ/tail/fish))
 		remove_speed_buff()
 	owner.mind?.adjust_experience(/datum/skill/fishing, -SKILL_EXP_JOURNEYMAN, silent = TRUE)
-	owner.remove_language(/datum/language/carptongue, ALL, type)
+	// owner.remove_language(/datum/language/carptongue, ALL, type) // DOPPLER EDIT REMOVAL - carptongue rework, non-carp don't speak it inherently
 
 /datum/status_effect/organ_set_bonus/fish/set_organs(new_value, obj/item/organ/organ)
 	. = ..()

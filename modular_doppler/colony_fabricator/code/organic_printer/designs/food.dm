@@ -1,48 +1,62 @@
-/datum/design/organic_printer/ration
-	name = "Foreign Colonization Ration"
-	id = "slavic_mre"
-	materials = list(/datum/material/biomass = 75)
-	build_path = /obj/item/storage/box/colonial_rations
+/datum/design/organic_printer/printer_meat
+	name = "Printed Meat"
+	id = "printed_meat"
+	materials = list(/datum/material/biomass = 15)
+	build_path = /obj/item/food/meat/slab/printed
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
 
-/datum/design/organic_printer/pljeskavica
-	name = "Foreign Colonization Ration, Main Course"
-	id = "slavic_burger"
-	materials = list(/datum/material/biomass = 30)
-	build_path = /obj/item/food/colonial_course/pljeskavica
+/datum/design/organic_printer/printer_crab
+	name = "Imitation Crab"
+	id = "printed_crab"
+	materials = list(/datum/material/biomass = 15)
+	build_path = /obj/item/food/meat/slab/rawcrab/printed
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
 
-/datum/design/organic_printer/nachos
-	name = "Foreign Colonization Ration, Side Dish"
-	id = "mexican_chips"
-	materials = list(/datum/material/biomass = 25)
-	build_path = /obj/item/food/colonial_course/nachos
+/datum/design/organic_printer/printer_fish
+	name = "Printed Fish Fillet"
+	id = "printed_fish"
+	materials = list(/datum/material/biomass = 15)
+	build_path = /obj/item/food/fishmeat/printed
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
 
-/datum/design/organic_printer/blins
-	name = "Foreign Colonization Ration, Dessert"
-	id = "slavic_crepes"
+/datum/design/organic_printer/printer_pork
+	name = "Printed Pork"
+	id = "printed_pork"
+	materials = list(/datum/material/biomass = 15)
+	build_path = /obj/item/food/meat/slab/pig/printed
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
+
+/datum/design/organic_printer/printer_chicken
+	name = "Printed Chicken"
+	id = "printed_chicken"
+	materials = list(/datum/material/biomass = 15)
+	build_path = /obj/item/food/meat/slab/chicken/printed
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
+
+/datum/design/organic_printer/printer_egg
+	name = "Synthetic Egg"
+	id = "printed_egg"
+	materials = list(/datum/material/biomass = 5)
+	build_path = /obj/item/food/egg/printed
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
+
+/datum/design/organic_printer/ship_bread
+	name = "Ship's Bread"
+	id = "ship_bread"
 	materials = list(/datum/material/biomass = 20)
-	build_path = /obj/item/food/colonial_course/blins
+	build_path = /obj/item/food/breadslice/hardtack
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
 
-/datum/design/organic_printer/spork
-	name = "Foreign Colonization Ration, Utensils"
-	id = "slavic_utens"
+/datum/design/organic_printer/sandbread
+	name = "Sandbread"
+	id = "sandbread"
+	materials = list(/datum/material/biomass = 20)
+	build_path = /obj/item/food/breadslice/roottack
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
+
+/datum/design/organic_printer/firm_mini_wheel
+	name = "Firm Cheese Mini-Wheel"
+	id = "firm_mini_wheel"
 	materials = list(/datum/material/biomass = 10)
-	build_path = /obj/item/storage/box/utensils
-	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
-
-/datum/design/organic_printer/bubblegum
-	name = "Foreign Colonization Ration, Bubblegum Pack"
-	id = "slavic_gum"
-	materials = list(/datum/material/biomass = 10)
-	build_path = /obj/item/storage/box/gum/colonial
-	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)
-
-/datum/design/organic_printer/cup
-	name = "Empty Paper Cup"
-	id = "slavic_cup"
-	materials = list(/datum/material/biomass = 2)
-	build_path = /obj/item/reagent_containers/cup/glass/coffee/colonial/empty
+	build_path = /obj/item/food/cheese/firm_cheese_slice/bigger
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_FOOD)

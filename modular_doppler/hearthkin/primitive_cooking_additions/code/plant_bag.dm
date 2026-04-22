@@ -56,22 +56,8 @@
 	worn_icon = 'modular_doppler/hearthkin/primitive_cooking_additions/icons/plant_bag_worn.dmi'
 	worn_icon_state = "plantbag_primitive"
 
-
-/obj/item/stack/sheet/cloth/on_item_crafted(mob/builder, atom/created)
-	if(!istype(created, /obj/item/storage/bag/plants))
-		return
-
-	if(!isprimitive(builder))
-		return
-
-	var/obj/item/storage/bag/plants/bag = created
-
-	bag.make_primitive()
-
-
 /obj/item/storage/bag/plants/portaseeder
 	uses_advanced_reskins = FALSE
 	unique_reskin = null
-
 
 #undef RESKIN_LINEN

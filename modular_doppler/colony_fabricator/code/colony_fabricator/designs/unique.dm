@@ -9,6 +9,7 @@
 	show_on_wiki = FALSE
 	starting_node = TRUE
 	design_ids = list(
+		"colony_autofab",
 		"colony_water_synth",
 		"colony_hydro_synth",
 		"gps_transmitter",
@@ -40,6 +41,16 @@
 		"colony_wirecutters",
 		"colony_wrench",
 		"colony_biogenerator",
+	)
+
+/datum/design/board/construction_autofab
+	name = "Construction Autofab Board"
+	desc = /obj/machinery/rnd/production/colony_lathe::desc
+	id = "colony_autofab"
+	build_path = /obj/item/circuitboard/machine/colony_lathe
+	build_type = COLONY_FABRICATOR
+	category = list(
+		RND_CATEGORY_MACHINE + RND_SUBCATEGORY_MACHINE_ENGINEERING
 	)
 
 /datum/design/board/organic_synthesizer
@@ -238,7 +249,7 @@
 	)
 
 /datum/design/colony_manual_door
-	name = "Manaul Airlock"
+	name = "Manual Airlock"
 	id = "colony_manual_door"
 	build_type = COLONY_FABRICATOR
 	materials = /obj/item/flatpacked_machine/airlock_kit_manual::custom_materials

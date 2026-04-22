@@ -1,0 +1,30 @@
+{
+	"fancy_labcoat": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancy_labcoat_base_closed_tesh_worn",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancy_labcoat_stripe_closed_tesh_worn",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	],
+	"fancy_labcoat_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "fancy_labcoat_base_open_tesh_worn",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "fancy_labcoat_strip_open_tesh_worn",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

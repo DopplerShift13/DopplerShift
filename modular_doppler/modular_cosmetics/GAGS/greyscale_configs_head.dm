@@ -125,3 +125,21 @@
 /datum/greyscale_config/colorable_mailcap/worn
 	name = "Colorable mailcap (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
+
+/datum/greyscale_config/lizard_headscarf
+	name = "Tizirian headscarf"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/headscarf.json'
+
+/datum/greyscale_config/lizard_headscarf/worn
+	name = "Tizirian headscarf (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
+
+/datum/greyscale_config/colony_headscarf
+	name = "Frontier headscarf"
+	icon_file = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/headscarf_colony.json'
+
+/datum/greyscale_config/colony_headscarf/worn
+	name = "Frontier headscarf (Worn)"
+	icon_file = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'

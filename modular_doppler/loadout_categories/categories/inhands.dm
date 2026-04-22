@@ -7,6 +7,10 @@
 	name = "Skateboard"
 	item_path = /obj/item/melee/skateboard
 
+/datum/loadout_item/inhand/wheelchair
+	name = "Wheelchair"
+	item_path = /obj/item/wheelchair
+
 /datum/loadout_item/inhand/mechanical_toolbox
 	name = "Mechanical Toolbox"
 	item_path = /obj/item/storage/toolbox/mechanical

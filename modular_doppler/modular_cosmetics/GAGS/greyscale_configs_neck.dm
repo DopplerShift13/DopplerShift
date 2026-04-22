@@ -88,6 +88,20 @@
 	name = "Basic Poncho (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
 
+/datum/greyscale_config/tesharian_mantle
+	name = "Tesharian Mantle"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/tesharian_mantle.json'
+
+/datum/greyscale_config/tesharian_mantle/worn
+	name = "Tesharian Mantle (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/tesharian_mantle_worn.json'
+
+/datum/greyscale_config/tesharian_mantle/worn/teshari
+	name = "Tesharian Mantle (Worn, Teshari)"
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/tesharian_mantle_worn_teshari.json'
+
 ///////////
 //SCARVES//
 ///////////

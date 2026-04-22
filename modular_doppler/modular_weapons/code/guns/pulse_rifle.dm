@@ -85,3 +85,24 @@
 	if(!station_check || is_station_level(station_check.z))
 		return FALSE
 	return TRUE
+
+/obj/item/gun/ballistic/automatic/karim/toy
+	name = "\improper RealToy™ Karim Pulse Rifle"
+	desc = "A compact rifle with high magazine capacity and fire-rate. At least, it's a toy that looks \
+	an awful lot like one."
+	accepted_magazine_type = /obj/item/ammo_box/magazine/toy/karim
+	gun_flags = TOY_FIREARM_OVERLAY | NOT_A_REAL_GUN
+	item_flags = NONE
+	casing_ejector = FALSE
+	pin = /obj/item/firing_pin
+	fire_sound = 'sound/items/syringeproj.ogg'
+	recoil = 0
+
+/obj/item/ammo_box/magazine/toy/karim
+	name = "\improper RealToy™ Karim magazine"
+	desc = "A standard size magazine for RealToy™ Karim pulse rifle toys, holds fifty rounds."
+	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon_state = "karim_mag"
+	ammo_type = /obj/item/ammo_casing/foam_dart
+	caliber = CALIBER_FOAM
+	max_ammo = 50

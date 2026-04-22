@@ -67,6 +67,12 @@
 		)
 	)
 
+/obj/item/clothing/suit/armor/lizard/Initialize(mapload)
+	. = ..()
+	var/list/allowed_two = allowed.Copy()
+	allowed_two += /obj/item/storage/belt/lizard_sabre
+	allowed = allowed_two
+
 // leg armor
 
 /obj/item/clothing/shoes/lizard_shins

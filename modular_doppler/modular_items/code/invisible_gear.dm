@@ -9,6 +9,8 @@
 	icon = 'modular_doppler/modular_items/icons/belts.dmi'
 	lefthand_file = 'modular_doppler/modular_items/icons/belt_lefthand.dmi'
 	righthand_file = 'modular_doppler/modular_items/icons/belt_righthand.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/belt/utility/invisible/Initialize(mapload)
 	. = ..()
@@ -25,7 +27,8 @@
 	icon = 'modular_doppler/modular_items/icons/belts.dmi'
 	lefthand_file = 'modular_doppler/modular_items/icons/belt_lefthand.dmi'
 	righthand_file = 'modular_doppler/modular_items/icons/belt_righthand.dmi'
-
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
 
 /obj/item/storage/belt/medical/invisible/Initialize(mapload)
 	. = ..()

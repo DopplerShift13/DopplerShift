@@ -53,7 +53,7 @@
 
 #define STATUS_DISPLAY_RELAY "Captain-Cast"
 
-#define RADIO_CHANNEL_SYNDICATE "Syndicate"
+#define RADIO_CHANNEL_SYNDICATE "Undisclosed" // DOPPLER EDIT CHANGE - CNS_RADIO - original: #define RADIO_CHANNEL_SYNDICATE "Syndicate"
 #define RADIO_KEY_SYNDICATE "t"
 #define RADIO_TOKEN_SYNDICATE ":t"
 #define RADIO_COLOR_SYNDICATE "#8f4a4b"
