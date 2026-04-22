@@ -7,15 +7,17 @@ GLOBAL_LIST_INIT(background_state_options, list(
 	"Black",
 	"Grey",
 	"White",
+	"Dark Tiles",
+	"Grey Tiles",
 	"White Tiles",
-	"Plasteel",
-	"Dark Tiles" ,
 	"Plating",
 	"Reinforced Floor",
+	"Grass",
+	"4CA",
 ))
 
 /datum/preference/choiced/background_state/create_default_value()
-	return GLOB.background_state_options[1]
+	return GLOB.background_state_options["Grey"]
 
 /datum/preference/choiced/background_state/init_possible_values()
 	return GLOB.background_state_options
