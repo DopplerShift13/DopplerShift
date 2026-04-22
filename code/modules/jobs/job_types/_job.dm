@@ -185,9 +185,9 @@
 
 /// Announce that this job as joined the round to all crew members.
 /// Note the joining mob has no client at this point.
-/datum/job/proc/announce_job(mob/living/joining_mob, job_title) // DOPPLER EDIT: alt title support
+/datum/job/proc/announce_job(mob/living/joining_mob, job_title) // DOPPLER EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: /datum/job/proc/announce_job(mob/living/joining_mob)
 	if(head_announce)
-		announce_head(joining_mob, head_announce, job_title) // DOPPLER EDIT: alt title support
+		announce_head(joining_mob, head_announce, job_title) // DOPPLER EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: announce_head(joining_mob, head_announce)
 
 
 //Used for a special check of whether to allow a client to latejoin as this job.
@@ -227,10 +227,18 @@
 	dna.species.pre_equip_species_outfit(equipping, src, visual_only)
 	equip_outfit_and_loadout(equipping.get_outfit(consistent), player_client?.prefs, visual_only)
 
-/datum/job/proc/announce_head(mob/living/carbon/human/human, channels, job_title) // DOPPLER EDIT: alternative job titles//tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
+// DOPPLER EDIT CHANGE START - ALTERNATIVE_JOB_TITLES
+/datum/job/proc/announce_head(mob/living/carbon/human/human, channels, job_title) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
+	if(human)
+		//timer because these should come after the captain announcement
+		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(aas_config_announce), /datum/aas_config_entry/newhead, list("PERSON" = human.real_name, "RANK" = job_title), null, channels, null, TRUE), 1))
+// DOPPLER EDIT CHANGE END
+/** // DOPPLER EDIT CHANGE ORIGINAL START
+/datum/job/proc/announce_head(mob/living/carbon/human/human, channels) //tells the given channel that the given mob is the new department head. See communications.dm for valid channels.
 	if(human)
 		//timer because these should come after the captain announcement
 		SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(aas_config_announce), /datum/aas_config_entry/newhead, list("PERSON" = human.real_name, "RANK" = human.job), null, channels, null, TRUE), 1))
+**/ // DOPPLER EDIT CHANGE ORIGINAL END
 
 //If the configuration option is set to require players to be logged as old enough to play certain jobs, then this proc checks that they are, otherwise it just returns 1
 /datum/job/proc/player_old_enough(client/player)
@@ -559,7 +567,7 @@
 			if(HUMAN_AUTHORITY_ENFORCED)
 				require_human = TRUE
 
-	src.job = job.title
+	src.job = job.get_default_job_title() // DOPPLER EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: src.job = job.title
 
 	if(fully_randomize)
 		player_client.prefs.apply_prefs_to(src)
