@@ -24,7 +24,7 @@ import {
   type FeatureChoicedServerData,
   FeatureValueInput,
 } from '../preferences/features/base';
-import { GENDERS, Gender } from '../preferences/gender';
+import { Gender, GENDERS } from '../preferences/gender';
 import {
   createSetPreference,
   type PreferencesMenuData,
@@ -462,12 +462,19 @@ export function MainPage(props: MainPageProps) {
     useState(false);
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
   const [randomToggleEnabled] = useRandomToggleState();
+
+  {
+    /* DOPPLER ADDITION START */
+  }
   enum PrefPage {
     Character, // The generic character options
     Markings, // Markings
   }
 
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Character);
+  {
+    /* DOPPLER ADDITION END */
+  }
 
   const serverData = useServerPrefs();
 
@@ -495,9 +502,16 @@ export function MainPage(props: MainPageProps) {
   const nonContextualPreferences = {
     ...data.character_preferences.non_contextual,
   };
+
+  {
+    /* DOPPLER ADDITION START */
+  }
   const MarkingPreferences = {
     ...data.character_preferences.markings,
   };
+  {
+    /* DOPPLER ADDITION END */
+  }
 
   if (randomBodyEnabled) {
     nonContextualPreferences.random_species =
@@ -608,7 +622,7 @@ export function MainPage(props: MainPageProps) {
                 }
               />
             </Stack.Item>
-            {/* NOVA EDIT ADDITION START: Background Selection */}
+			{/* DOPPLER ADDITION START */}
             <Stack.Item position="relative">
               <Dropdown
                 width="100%"
