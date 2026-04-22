@@ -56,7 +56,8 @@
 /obj/item/storage/box/syndie_kit/chameleon/changing_room
 	name = "changing room costuming kit"
 	desc = "A box containing various outfits and accessories for use in the changing room."
-	icon_state = "ghostcostuming"
+	icon_state = "box"
+	illustration = "writing"
 	storage_type = /datum/storage/changing_room
 
 

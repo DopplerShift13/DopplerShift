@@ -709,9 +709,6 @@
 /obj/effect/turf_decal/tile/neutral/fourcorners,
 /turf/open/indestructible,
 /area/centcom/changing_room)
-"QM" = (
-/turf/open/space/basic,
-/area/centcom/changing_room)
 "Rr" = (
 /obj/machinery/light/directional/north,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
@@ -922,11 +919,11 @@ VX
 "}
 (2,1,1) = {"
 Wm
-QM
-QM
-QM
-QM
-QM
+VX
+VX
+VX
+VX
+VX
 Wm
 VX
 VX
