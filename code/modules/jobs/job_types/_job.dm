@@ -567,7 +567,7 @@
 			if(HUMAN_AUTHORITY_ENFORCED)
 				require_human = TRUE
 
-	src.job = job.get_default_job_title() // DOPPLER EDIT CHANGE - ALTERNATIVE_JOB_TITLES - Original: src.job = job.title
+	src.job = job.title
 
 	if(fully_randomize)
 		player_client.prefs.apply_prefs_to(src)
