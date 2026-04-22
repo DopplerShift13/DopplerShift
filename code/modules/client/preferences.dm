@@ -279,7 +279,9 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 			preview_pref = params["updated_preview"]
 			character_preview_view.update_body()
 			return TRUE
-
+		if("update_background")
+			update_preference(GLOB.preference_entries[/datum/preference/choiced/background_state], params["new_background"])
+			return TRUE
 		if ("set_tricolor_preference")
 			var/requested_preference_key = params["preference"]
 			var/index_key = params["value"]
@@ -391,12 +393,21 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/datum/preferences/preferences
 	/// Whether we show current job clothes or nude/loadout only
 	var/show_job_clothes = TRUE
+	// DOPPLER SHIFT ADDITION START: Better character preview
+	var/image/canvas
+	var/last_canvas_size
+	var/last_canvas_state
+	// DOPPLER SHIFT ADDITION END
 
 /atom/movable/screen/map_view/char_preview/Initialize(mapload, datum/preferences/preferences)
 	. = ..()
 	src.preferences = preferences
 
 /atom/movable/screen/map_view/char_preview/Destroy()
+	// DOPPLER SHIFT ADDITION START
+	canvas?.cut_overlays()
+	canvas = null
+	// DOPPLER SHIFT ADDITION END
 	QDEL_NULL(body)
 	preferences?.character_preview_view = null
 	preferences = null
@@ -410,6 +421,50 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		body.wipe_state()
 
 	appearance = preferences.render_new_preview_appearance(body, show_job_clothes)
+
+	// DOPPLER SHIFT ADDITION BEGIN: Better character preview
+	var/canvas_state = preferences.read_preference(/datum/preference/choiced/background_state)
+	var/canvas_size = 0
+	if ((body.dna.features[FEATURE_TAUR] != /datum/sprite_accessory/taur/none::name))
+		canvas_size = 1
+	if (body.mob_height > 12)
+		canvas_size = 1
+	if (("Oversized" in preferences.all_quirks))
+		canvas_size = 2
+	if(canvas_size == 0)
+		var/obj/item/organ/ears/ears = body.get_organ_slot(ORGAN_SLOT_EARS)
+		if(ears && ears?.bodypart_overlay?.sprite_datum?.zooms_out_character_preview)
+			canvas_size = 1
+			LAZYNULL(ears)
+		var/obj/item/organ/tail/tail = body.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+		if(tail && tail?.bodypart_overlay?.sprite_datum?.zooms_out_character_preview)
+			canvas_size = 1
+			LAZYNULL(tail)
+		var/obj/item/organ/horns/horns = body.get_organ_slot(ORGAN_SLOT_EXTERNAL_HORNS)
+		if(horns && horns?.bodypart_overlay?.sprite_datum?.zooms_out_character_preview)
+			canvas_size = 1
+			LAZYNULL(horns)
+	body.pixel_x = canvas_size * 16
+
+	if (isnull(canvas) || last_canvas_size != canvas_size || last_canvas_state != canvas_state)
+		switch (canvas_size)
+			if (0)
+				canvas = image('modular_doppler/character_preview_background/icons/background_32x32.dmi', icon_state = canvas_state)
+			if (1)
+				canvas = image('modular_doppler/character_preview_background/icons/background_64x64.dmi', icon_state = canvas_state)
+			if (2)
+				canvas = image('modular_doppler/character_preview_background/icons/background_96x96.dmi', icon_state = canvas_state)
+
+	// Update the map view bounds when canvas size changes to properly display the scaled preview
+	set_position(1, 1)
+	last_canvas_size = canvas_size
+	last_canvas_state = canvas_state
+
+	canvas.cut_overlays()
+	canvas.add_overlay(body.appearance)
+
+	appearance = canvas.appearance
+	// DOPPLER SHIFT ADDITION END
 
 /atom/movable/screen/map_view/char_preview/proc/create_body()
 	QDEL_NULL(body)

@@ -5,7 +5,6 @@ import { type sendAct, useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
-  Dropdown, // DOPPLER ADDITION
   Floating,
   Input,
   LabeledList,
@@ -19,12 +18,13 @@ import { createSearch } from 'tgui-core/string';
 import { CharacterPreview } from '../../common/CharacterPreview';
 import { PageButton } from '../components/PageButton'; // DOPPLER ADDITION
 import { RandomizationButton } from '../components/RandomizationButton';
+import { SideDropdown } from '../components/SideDropdown'; // DOPPLER ADDITION
 import { features } from '../preferences/features';
 import {
   type FeatureChoicedServerData,
   FeatureValueInput,
 } from '../preferences/features/base';
-import { Gender, GENDERS } from '../preferences/gender';
+import { GENDERS, Gender } from '../preferences/gender';
 import {
   createSetPreference,
   type PreferencesMenuData,
@@ -462,19 +462,12 @@ export function MainPage(props: MainPageProps) {
     useState(false);
   const [multiNameInputOpen, setMultiNameInputOpen] = useState(false);
   const [randomToggleEnabled] = useRandomToggleState();
-
-  {
-    /* DOPPLER ADDITION START */
-  }
   enum PrefPage {
     Character, // The generic character options
     Markings, // Markings
   }
 
   const [currentPrefPage, setCurrentPrefPage] = useState(PrefPage.Character);
-  {
-    /* DOPPLER ADDITION END */
-  }
 
   const serverData = useServerPrefs();
 
@@ -502,16 +495,9 @@ export function MainPage(props: MainPageProps) {
   const nonContextualPreferences = {
     ...data.character_preferences.non_contextual,
   };
-
-  {
-    /* DOPPLER ADDITION START */
-  }
   const MarkingPreferences = {
     ...data.character_preferences.markings,
   };
-  {
-    /* DOPPLER ADDITION END */
-  }
 
   if (randomBodyEnabled) {
     nonContextualPreferences.random_species =
@@ -611,13 +597,26 @@ export function MainPage(props: MainPageProps) {
 
             {/* DOPPLER ADDITION START */}
             <Stack.Item position="relative">
-              <Dropdown
+              <SideDropdown
                 width="100%"
                 selected={data.preview_selection}
                 options={data.preview_options}
                 onSelected={(value) =>
                   act('update_preview', {
                     updated_preview: value,
+                  })
+                }
+              />
+            </Stack.Item>
+            {/* NOVA EDIT ADDITION START: Background Selection */}
+            <Stack.Item position="relative">
+              <SideDropdown
+                width="100%"
+                selected={data.character_preferences.misc.background_state}
+                options={serverData?.background_state.choices || []}
+                onSelected={(value) =>
+                  act('update_background', {
+                    new_background: value,
                   })
                 }
               />

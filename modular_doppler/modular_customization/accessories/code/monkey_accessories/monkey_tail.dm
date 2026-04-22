@@ -10,3 +10,4 @@
 	icon_state = "bigring_large"
 	dimension_x = 64
 	center = TRUE
+	zooms_out_character_preview = TRUE
