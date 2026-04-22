@@ -435,15 +435,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 		var/obj/item/organ/ears/ears = body.get_organ_slot(ORGAN_SLOT_EARS)
 		if(ears && ears?.bodypart_overlay?.sprite_datum?.zooms_out_character_preview)
 			canvas_size = 1
-			LAZYNULL(ears)
+		LAZYNULL(ears)
 		var/obj/item/organ/tail/tail = body.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
 		if(tail && tail?.bodypart_overlay?.sprite_datum?.zooms_out_character_preview)
 			canvas_size = 1
-			LAZYNULL(tail)
+		LAZYNULL(tail)
 		var/obj/item/organ/horns/horns = body.get_organ_slot(ORGAN_SLOT_EXTERNAL_HORNS)
 		if(horns && horns?.bodypart_overlay?.sprite_datum?.zooms_out_character_preview)
 			canvas_size = 1
-			LAZYNULL(horns)
+		LAZYNULL(horns)
 	body.pixel_x = canvas_size * 16
 
 	if (isnull(canvas) || last_canvas_size != canvas_size || last_canvas_state != canvas_state)
