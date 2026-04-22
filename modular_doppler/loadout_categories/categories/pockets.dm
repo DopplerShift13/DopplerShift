@@ -535,6 +535,18 @@
 	name = "Kronkus Vine Seeds"
 	item_path = /obj/item/seeds/kronkus
 
+/datum/loadout_item/pocket_items/drugs/bag_of_weed
+	name = "Bag of Weed"
+	item_path = /obj/item/storage/box/papersack/cannabis
+
+/datum/loadout_item/pocket_items/drugs/bong
+	name = "Bong"
+	item_path = /obj/item/bong
+
+/datum/loadout_item/pocket_items/drugs/pipe
+	name = "Glass Pipe"
+	item_path = /obj/item/cigarette/pipe/spoon
+
 /**
  * MISCELLANEOUS
  */
