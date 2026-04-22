@@ -6,7 +6,7 @@ export const CharacterPreview = (props: {
   id: string;
 }) => {
   // DOPPLER SHIFT ADDITION START
-  const { width = '272px' } = props;
+  const { width = '300px' } = props;
   // DOPPLER SHIFT ADDITION END
   return (
     <ByondUi

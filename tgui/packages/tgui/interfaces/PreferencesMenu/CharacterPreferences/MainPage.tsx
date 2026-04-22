@@ -5,6 +5,7 @@ import { type sendAct, useBackend } from 'tgui/backend';
 import {
   Box,
   Button,
+  Dropdown, // DOPPLER ADDITION
   Floating,
   Input,
   LabeledList,
@@ -18,7 +19,6 @@ import { createSearch } from 'tgui-core/string';
 import { CharacterPreview } from '../../common/CharacterPreview';
 import { PageButton } from '../components/PageButton'; // DOPPLER ADDITION
 import { RandomizationButton } from '../components/RandomizationButton';
-import { SideDropdown } from '../components/SideDropdown'; // DOPPLER ADDITION
 import { features } from '../preferences/features';
 import {
   type FeatureChoicedServerData,
@@ -597,7 +597,7 @@ export function MainPage(props: MainPageProps) {
 
             {/* DOPPLER ADDITION START */}
             <Stack.Item position="relative">
-              <SideDropdown
+              <Dropdown
                 width="100%"
                 selected={data.preview_selection}
                 options={data.preview_options}
@@ -610,7 +610,7 @@ export function MainPage(props: MainPageProps) {
             </Stack.Item>
             {/* NOVA EDIT ADDITION START: Background Selection */}
             <Stack.Item position="relative">
-              <SideDropdown
+              <Dropdown
                 width="100%"
                 selected={data.character_preferences.misc.background_state}
                 options={serverData?.background_state.choices || []}
