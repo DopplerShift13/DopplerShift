@@ -440,7 +440,7 @@
 	item_path = /obj/item/clothing/under/latexsuit
 
 /datum/loadout_item/undersuit/fullbody/gags_latexsuit
-	name = "Bodysuit (Latex, recolorable)"
+	name = "Bodysuit (Latex, Recolorable)"
 	item_path = /obj/item/clothing/under/latexsuit/gags_latexsuit
 
 /datum/loadout_item/undersuit/fullbody/jumpsuit
