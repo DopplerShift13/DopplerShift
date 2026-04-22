@@ -10,8 +10,8 @@
 	outfit = /datum/outfit/changing_room
 	you_are_text = "You are in the changing room!"
 	flavour_text = "Try on some outfits and see how you look!"
-	loadout_enabled = TRUE
-	quirks_enabled = TRUE
+	allow_loadout = TRUE
+	allow_prefs = TRUE
 
 /obj/effect/mob_spawn/ghost_role/human/changing_room/special(mob/living/spawned_human, mob/mob_possessor, apply_prefs)
 	. = ..()
