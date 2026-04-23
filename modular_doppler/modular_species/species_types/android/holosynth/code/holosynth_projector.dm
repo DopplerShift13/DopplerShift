@@ -203,7 +203,8 @@
 		target_mob.adjustBruteLoss(-1 * HOLOSYNTH_MANUAL_HEAL_BRUTE, updating_health = TRUE)
 		target_mob.adjustFireLoss(-1 * HOLOSYNTH_MANUAL_HEAL_BURN, updating_health = TRUE)
 
-	else . = ..()
+	else
+		return ..()
 
 /// the DEATH effect
 /atom/movable/screen/alert/status_effect/holosynth_death_alert
