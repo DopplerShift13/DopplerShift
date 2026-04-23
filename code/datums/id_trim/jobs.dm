@@ -777,6 +777,8 @@
 		ACCESS_LAWYER,
 		ACCESS_MINERAL_STOREROOM,
 		ACCESS_SERVICE,
+		ACCESS_SECURITY, // DOPPLER EDIT ADDITION - Security Lore Rework
+		ACCESS_COMMAND, // DOPPLER EDIT ADDITION - Security Lore Rework
 		)
 	extra_access = list()
 	template_access = list(
