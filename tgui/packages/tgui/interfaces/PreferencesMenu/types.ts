@@ -193,7 +193,6 @@ export type PreferencesMenuData = {
       species: string;
       loadout_list: LoadoutList;
       job_clothes: BooleanLike;
-      loadout_index: string; // DOPPLER SHIFT ADDITION: Multiple loadout presets
       background_state: string; // DOPPLER SHIFT ADDITION: Swappable character editor backgrounds
     };
 
