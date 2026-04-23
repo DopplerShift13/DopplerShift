@@ -188,23 +188,33 @@
 		return COMPONENT_BLOCK_TRANSFORM
 
 //Manual Healing
-/obj/item/holosynth_pen/attack(mob/living/target_mob, mob/living/user, list/modifiers, list/attack_modifiers)
+/obj/item/holosynth_pen/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+
+	if(istype(interacting_with, /mob/living))
+		return manual_heal(interacting_with, user)
+
+/obj/item/holosynth_pen/proc/manual_heal(mob/living/target_mob, mob/living/healer)
 	var/linked_mob = linked_mob_ref?.resolve()
-	if(target_mob == linked_mob && user.combat_mode == FALSE)
-		user.visible_message("[user] carefully shines the projector over [linked_mob]'s wounds. Whispy bands of light and aerogel delicately float over to replace what was damaged.")
+
+	if(linked_mob == healer) //No Self Healing
+		return ITEM_INTERACT_SKIP_TO_ATTACK
+
+	if(target_mob == linked_mob && healer.combat_mode == FALSE)
+		healer.visible_message("[healer] carefully shines the projector over [linked_mob]'s wounds. Whispy bands of light and aerogel delicately float over to replace what was damaged.")
 
 		target_mob.add_filter("holo_heal", 2, list("type" = "outline", "color" = COLOR_HEALING_CYAN, "size" = 1))
 		addtimer(CALLBACK(target_mob, TYPE_PROC_REF(/datum, remove_filter), "holo_heal"), HOLOSYNTH_MANUAL_HEAL_TIME)
 
-		if(!do_after(user, HOLOSYNTH_MANUAL_HEAL_TIME, target_mob))
+		if(!do_after(healer, HOLOSYNTH_MANUAL_HEAL_TIME, target_mob))
 			target_mob.remove_filter("holo_heal")
-			return
+			return ITEM_INTERACT_FAILURE
 
 		target_mob.adjustBruteLoss(-1 * HOLOSYNTH_MANUAL_HEAL_BRUTE, updating_health = TRUE)
 		target_mob.adjustFireLoss(-1 * HOLOSYNTH_MANUAL_HEAL_BURN, updating_health = TRUE)
+		return ITEM_INTERACT_SUCCESS
 
 	else
-		return ..()
+		return ITEM_INTERACT_SKIP_TO_ATTACK
 
 /// the DEATH effect
 /atom/movable/screen/alert/status_effect/holosynth_death_alert
