@@ -250,7 +250,7 @@
 					. += span_warning("[t_He] give[p_s()] off an unsettling aura.")
 					living_user.add_mood_event("bad_vibes", /datum/mood_event/bad_vibes)
 
-			if(!HAS_TRAIT(user, TRAIT_EMPATH) && !HAS_TRAIT(user, TRAIT_EMPATH) && HAS_TRAIT(src, TRAIT_BAD_VIBES) && prob(33))
+			if(!HAS_TRAIT(user, TRAIT_EMPATH) && !HAS_TRAIT(user, TRAIT_BAD_VIBES) && HAS_TRAIT(src, TRAIT_BAD_VIBES) && prob(33))
 				. += span_warning("[t_He] give[p_s()] off an uncanny feeling.")
 				living_user.add_mood_event("bad_vibes", /datum/mood_event/bad_vibes_minor)
 
