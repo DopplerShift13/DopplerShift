@@ -214,6 +214,25 @@
         return FALSE
     return TRUE
 
+/obj/item/clothing/under/latexsuit/gags_latexsuit
+	desc = "A form-fitting bodysuit made of a multichromatic latex polymer. Ages ago, it would've been a pain in the ass \
+	to get into, but centuries of clothing technology have made wearing it easier than ever before. \
+	Still, it takes longer to take off than an equivalent cloth garment."
+	greyscale_config = /datum/greyscale_config/gags_latexsuit
+	post_init_icon_state = "gags_latexsuit"
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/gags_latexsuit/worn/digi,
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/gags_latexsuit/worn,
+	)
+	greyscale_colors = "#636369#636369"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	unique_reskin = list(
+						"Masculine" = "gags_latexsuit",
+						"Feminine" = "gags_latexsuit_d",
+						"Masculine Half-suit" = "gags_halflatexsuit",
+						"Feminine Half-suit" = "gags_halflatexsuit_d",
+						)
+
 /obj/item/clothing/under/nevada_uniform
 	name = "\improper Nevada Beverage Co. uniform"
 	desc = "A comfortable paired set of a branded ThermoWick™ fabric henley and relaxed khaki joggers. For Nevada employees, \
