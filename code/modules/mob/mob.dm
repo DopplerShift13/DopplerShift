@@ -1243,7 +1243,7 @@
 			GLOB.chat_colors_by_mob_name -= oldname // DOPPLER EDIT ADDITION
 
 	if(client) // DOPPLER EDIT ADDITION - Update the mob chat color list, adding the new name
-		GLOB.chat_colors_by_mob_name[name] = list(chat_color, chat_color_darkened) // DOPPLER EDIT ADDITION
+		cache_chat_color(name, chat_color, chat_color_darkened) // DOPPLER EDIT ADDITION
 	log_mob_tag("TAG: [tag] RENAMED: [key_name(src)]")
 
 	return TRUE
