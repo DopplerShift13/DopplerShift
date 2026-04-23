@@ -170,6 +170,7 @@
 /area/shuttle/pirate/tiziran_corvette)
 "lm" = (
 /obj/machinery/light/red/directional/south,
+/obj/machinery/recharge_station,
 /turf/open/floor/plating,
 /area/shuttle/pirate/tiziran_corvette)
 "lr" = (
@@ -282,6 +283,7 @@
 /area/shuttle/pirate/tiziran_corvette)
 "pO" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/machinery/recharge_station,
 /turf/open/floor/plating,
 /area/shuttle/pirate/tiziran_corvette)
 "pW" = (
@@ -480,10 +482,6 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/iron_dark/airless,
 /area/shuttle/pirate/tiziran_corvette)
-"Bf" = (
-/obj/machinery/suit_storage_unit/tiziran_raiders/yellow,
-/turf/open/floor/plating,
-/area/shuttle/pirate/tiziran_corvette)
 "Bi" = (
 /obj/machinery/computer/camera_advanced/shuttle_docker/syndicate/pirate{
 	dir = 1;
@@ -542,10 +540,6 @@
 	dir = 4
 	},
 /turf/open/floor/iron/dark/smooth_half,
-/area/shuttle/pirate/tiziran_corvette)
-"EI" = (
-/obj/machinery/suit_storage_unit/tiziran_raiders/red,
-/turf/open/floor/plating,
 /area/shuttle/pirate/tiziran_corvette)
 "FQ" = (
 /obj/structure/girder/reinforced,
@@ -972,7 +966,7 @@ Jc
 Dl
 ZK
 ZK
-Bf
+IB
 Ja
 BS
 BS
@@ -994,7 +988,7 @@ Ja
 lW
 nt
 Vi
-EI
+IB
 IB
 Ja
 BS
