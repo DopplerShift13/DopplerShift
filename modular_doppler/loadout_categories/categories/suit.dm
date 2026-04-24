@@ -185,7 +185,9 @@
 	name = "Great Coat (Cargo)"
 	item_path = /obj/item/clothing/suit/jacket/cargo_coat/cargo_greatcoat
 
-
+/datum/loadout_item/suit/coat/primitive_genemod_coat
+	name = "Hearthkin Fur Coat"
+	item_path = /obj/item/clothing/suit/jacket/primitive_genemod_coat
 /**
  * SUIT JACKETS
  */

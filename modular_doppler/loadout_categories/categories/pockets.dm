@@ -83,6 +83,10 @@
 	name = "Equipment Strap (Security)"
 	item_path = /obj/item/job_equipment_strap/security
 
+/datum/loadout_item/pocket_items/equipment/copporcitite_axe
+	name = "Copporcitite Axe (Hearthkin)"
+	item_path = /obj/item/forging/reagent_weapon/axe/fake_copper
+
 /**
  * STORAGE
  */
@@ -530,6 +534,18 @@
 /datum/loadout_item/pocket_items/drugs/drugs_kronkus
 	name = "Kronkus Vine Seeds"
 	item_path = /obj/item/seeds/kronkus
+
+/datum/loadout_item/pocket_items/drugs/bag_of_weed
+	name = "Bag of Weed"
+	item_path = /obj/item/storage/box/papersack/cannabis
+
+/datum/loadout_item/pocket_items/drugs/bong
+	name = "Bong"
+	item_path = /obj/item/bong
+
+/datum/loadout_item/pocket_items/drugs/pipe
+	name = "Glass Pipe"
+	item_path = /obj/item/cigarette/pipe/spoon
 
 /**
  * MISCELLANEOUS

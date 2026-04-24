@@ -406,6 +406,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	all_quirks = SANITIZE_LIST(all_quirks)
 	// DOPPLER SHIFT ADDITION BEGIN
 	languages = SANITIZE_LIST(languages)
+	alt_job_titles = SANITIZE_LIST(alt_job_titles)
 	powers = SANITIZE_LIST(powers)
 	// DOPPLER SHIFT ADDITION END
 
@@ -418,6 +419,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	validate_quirks()
 	// DOPPLER SHIFT ADDITION BEGIN
 	sanitize_languages()
+	sanitize_alt_job_titles()
 	sanitize_powers()
 	// DOPPLER SHIFT ADDITION END
 
