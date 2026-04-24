@@ -7707,6 +7707,7 @@
 #include "modular_doppler\modular_weapons\code\guns\smg.dm"
 #include "modular_doppler\modular_weapons\code\guns\tian.dm"
 #include "modular_doppler\modular_weapons\code\sec_swords\baton.dm"
+#include "modular_doppler\modular_weapons\code\sec_swords\baton_overrides.dm"
 #include "modular_doppler\modular_weapons\code\sec_swords\big_sword.dm"
 #include "modular_doppler\modular_weapons\code\sec_swords\holodeck_trainer.dm"
 #include "modular_doppler\modular_weapons\code\sec_swords\jitte.dm"
