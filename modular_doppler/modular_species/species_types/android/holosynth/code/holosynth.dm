@@ -44,7 +44,7 @@
 	species_holder.physiology.burn_mod *= HOLOSYNTH_BURNMULT
 	species_holder.max_grab = GRAB_PASSIVE //you're like, only half solid yk
 
-	species_holder.AddComponent(/datum/component/glass_passer/holosynth, pass_time = 1 SECONDS, deform_glass = 0.5 SECONDS)
+	species_holder.AddComponent(/datum/component/glass_passer/holosynth, pass_time = 2.5 SECONDS, deform_glass = 0.5 SECONDS)
 	species_holder.AddComponent(/datum/component/holographic_nature)
 	species_holder.AddComponent(/datum/component/holosynth_effects)
 
