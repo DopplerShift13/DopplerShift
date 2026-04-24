@@ -127,6 +127,7 @@
 		name = "[initial(name)]"
 		reagents.clear_reagents() //just to make sure
 
+/// handles setting the lit var, fx for lighting the bong, and interactions for certain volatile chems
 /obj/item/bong/proc/light(flavor_text = null)
 	if(lit)
 		return
@@ -169,6 +170,7 @@
 	update_appearance(UPDATE_ICON)
 	START_PROCESSING(SSobj, src)
 
+/// spawns some steam clouds after we hit the bong
 /obj/item/bong/proc/spawn_cloud(turf/open/location, smoke_radius)
 	var/list/turfs_affected = list(location)
 	var/list/turfs_to_spread = list(location)
@@ -236,9 +238,11 @@
 		return
 	stage_down()
 
+/// controls steam opacity
 /obj/effect/abstract/fake_steam/proc/update_alpha()
 	alpha = FAKE_STEAM_TARGET_ALPHA * (current_stage / MAX_FAKE_STEAM_STAGES)
 
+/// moves us along the steam decay timeline
 /obj/effect/abstract/fake_steam/proc/stage_down()
 	if(!current_stage)
 		qdel(src)
@@ -247,6 +251,7 @@
 	next_stage_down = world.time + STAGE_DOWN_TIME
 	update_alpha()
 
+/// sets our max steamy-ness
 /obj/effect/abstract/fake_steam/proc/stage_up(max_stage = MAX_FAKE_STEAM_STAGES)
 	var/target_max_stage = min(MAX_FAKE_STEAM_STAGES, max_stage)
 	current_stage = min(current_stage + 1, target_max_stage)
