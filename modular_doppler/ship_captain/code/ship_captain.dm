@@ -170,6 +170,7 @@ GLOBAL_LIST_EMPTY(ship_id_to_spawn_marker)
 	for(var/shuttle as anything in GLOB.ship_id_to_spawn_marker)
 		if(GLOB.ship_id_to_spawn_marker[shuttle] == src)
 			GLOB.ship_id_to_spawn_marker -= src
+	return ..()
 
 // TODO: add more docking ports to the lavaland wastes
 // TODO: put a megabeacon at roundstart/mapload on the lavalands top waste z level
