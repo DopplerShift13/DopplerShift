@@ -404,6 +404,10 @@
 	name = "Qipao (Custom Trim)"
 	item_path = /obj/item/clothing/under/dress/doppler/qipao/customtrim
 
+/datum/loadout_item/undersuit/dress/primitive_genemod_tailored_dress
+	name = "Tailored Dress (Hearthkin)"
+	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tailored_dress
+
 /**
  * FULLBODY
  */
@@ -435,6 +439,10 @@
 	name = "Bodysuit (Latex)"
 	item_path = /obj/item/clothing/under/latexsuit
 
+/datum/loadout_item/undersuit/fullbody/gags_latexsuit
+	name = "Bodysuit (Latex, Recolorable)"
+	item_path = /obj/item/clothing/under/latexsuit/gags_latexsuit
+
 /datum/loadout_item/undersuit/fullbody/jumpsuit
 	name = "Colorable Jumpsuit"
 	item_path = /obj/item/clothing/under/color
@@ -451,6 +459,10 @@
 	name = "Frontier Jumpsuit"
 	item_path = /obj/item/clothing/under/frontier_colonist
 
+/datum/loadout_item/undersuit/fullbody/frontier_casual
+	name = "Frontier Casualwear"
+	item_path = /obj/item/clothing/under/frontier_colonist/casual
+
 /datum/loadout_item/undersuit/fullbody/osi
 	name = "OSI Jumpsuit"
 	item_path = /obj/item/clothing/under/costume/osi
@@ -459,6 +471,9 @@
 	name = "ATHLETAS Bodysuit"
 	item_path = /obj/item/clothing/under/athletas_bodysuit
 
+/datum/loadout_item/undersuit/fullbody/primitive_genemod_tunic
+	name = "Hearthkin Tunic"
+	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tunic
 /**
  * MISCELLANEOUS
  */
@@ -493,3 +508,7 @@
 /datum/loadout_item/undersuit/misc/biosuit_alt
 	name = "Biosuit (White)"
 	item_path = /obj/item/clothing/under/underlayer/white
+
+/datum/loadout_item/undersuit/misc/primitive_genemod_body_wraps
+	name = "Hearthkin Body Wraps"
+	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_body_wraps

@@ -3,6 +3,7 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 	)
+	exotic_bloodtype = BLOOD_TYPE_INSECTOID
 
 /datum/outfit/moth_preview
 	name = "Moth (Species Preview)"

@@ -55,12 +55,12 @@
 	item_path = /obj/item/clothing/shoes/jackboots/sec
 
 /datum/loadout_item/shoes/boots/colonial_boots
-	name = "Colonial Half-boots"
-	item_path = /obj/item/clothing/shoes/jackboots/colonial
+	name = "Frontier Casual Shoes"
+	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist/casual
 
 /datum/loadout_item/shoes/boots/colonial_boots_greyscale
-	name = "Colonial Half-boots (Colorable)"
-	item_path = /obj/item/clothing/shoes/jackboots/colonial/greyscale
+	name = "Frontier Casual Shoes (Colorable)"
+	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist/casual/greyscale
 
 /datum/loadout_item/shoes/boots/frontier_boots
 	name = "Heavy Boots"
@@ -109,6 +109,10 @@
 /datum/loadout_item/shoes/boots/magboots
 	name = "Magboots"
 	item_path = /obj/item/clothing/shoes/magboots
+
+/datum/loadout_item/shoes/boots/primitive_genemod_boots
+	name = "Ice Hiking Boots (Hearthkin)"
+	item_path = /obj/item/clothing/shoes/winterboots/ice_boots/primitive_genemod_boots
 
 /**
  * OTHER SHOES

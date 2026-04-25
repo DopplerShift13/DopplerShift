@@ -5,11 +5,25 @@
 	build_path = /obj/item/clothing/under/frontier_colonist
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
 
+/datum/design/organic_printer/jumpsuit_casual
+	name = "Casual Jumpsuit"
+	id = "frontier_jumpsuit_casual"
+	materials = list(/datum/material/biomass = 10)
+	build_path = /obj/item/clothing/under/frontier_colonist/casual
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
+
 /datum/design/organic_printer/boots
 	name = "Boots"
 	id = "frontier_boots"
 	materials = list(/datum/material/biomass = 10)
 	build_path = /obj/item/clothing/shoes/jackboots/frontier_colonist
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
+
+/datum/design/organic_printer/boots_casual
+	name = "Casual Boots"
+	id = "frontier_boots_casual"
+	materials = list(/datum/material/biomass = 10)
+	build_path = /obj/item/clothing/shoes/jackboots/frontier_colonist/casual
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
 
 /datum/design/organic_printer/gloves
@@ -33,6 +47,13 @@
 	build_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
 
+/datum/design/organic_printer/jacket_casual
+	name = "Raincloak"
+	id = "frontier_jacket_casual"
+	materials = list(/datum/material/biomass = 10)
+	build_path = /obj/item/clothing/suit/jacket/frontier_colonist/casual
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
+
 /datum/design/organic_printer/medical_jacket
 	name = "Medical Jacket"
 	id = "frontier_med_jacket"
@@ -52,6 +73,13 @@
 	id = "frontier_soft_helmet"
 	materials = list(/datum/material/biomass = 25)
 	build_path = /obj/item/clothing/head/frontier_colonist_helmet
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
+
+/datum/design/organic_printer/headscarf
+	name = "Headscarf"
+	id = "frontier_headscarf"
+	materials = list(/datum/material/biomass = 5)
+	build_path = /obj/item/clothing/head/frontier_headscarf
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
 
 /datum/design/organic_printer/ballcap

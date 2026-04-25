@@ -38,6 +38,7 @@ export type Supply = {
   small_item: BooleanLike;
   contraband: BooleanLike;
   contains: SupplyItem[];
+  shortagemult: number;
 };
 
 type SupplyItem = {

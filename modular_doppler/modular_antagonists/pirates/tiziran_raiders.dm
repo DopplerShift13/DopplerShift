@@ -67,15 +67,6 @@
 	icon_state = "oldpod-open"
 
 /obj/machinery/suit_storage_unit/tiziran_raiders
-	suit_type = /obj/item/clothing/suit/space/pirate/tiziran
-	helmet_type = /obj/item/clothing/head/helmet/space/pirate/tiziran_raider
-	mask_type = /obj/item/clothing/mask/breath
+	mask_type = /obj/item/clothing/mask/snout_balaclava
+	mod_type = /obj/item/mod/control/pre_equipped/raider
 	storage_type = /obj/item/tank/jetpack/oxygen/harness
-
-/obj/machinery/suit_storage_unit/tiziran_raiders/red
-	suit_type = /obj/item/clothing/suit/space/pirate/tiziran/red
-	helmet_type = /obj/item/clothing/head/helmet/space/pirate/tiziran_raider/red
-
-/obj/machinery/suit_storage_unit/tiziran_raiders/yellow
-	suit_type = /obj/item/clothing/suit/space/pirate/tiziran/yellow
-	helmet_type = /obj/item/clothing/head/helmet/space/pirate/tiziran_raider/yellow
