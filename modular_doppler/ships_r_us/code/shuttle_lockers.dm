@@ -20,16 +20,6 @@
 	new /obj/item/storage/medkit/frontier/stocked(src)
 	new /obj/item/storage/medkit/combat_surgeon/stocked(src)
 
-/obj/structure/closet/firecloset/shuttle/solo
-
-/obj/structure/closet/firecloset/shuttle/solo/PopulateContents()
-	new /obj/item/tank/internals/emergency_oxygen/engi(src)
-	new /obj/item/storage/bag/breach_bag(src)
-	new /obj/item/emergency_bed(src)
-	new /obj/item/storage/toolbox/emergency(src)
-	new /obj/item/storage/medkit/frontier/stocked(src)
-	new /obj/item/folded_navigation_gigabeacon(src)
-
 /obj/structure/closet/firecloset/shuttle/tools
 	name = "shuttle tools locker"
 	desc = "Otherwise known as the \"What's wrong with her now?\" locker, (usually) has a variety of tools for maintenance \
