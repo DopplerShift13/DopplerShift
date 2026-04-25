@@ -70,6 +70,12 @@
 		hemophage.balloon_alert(hemophage, "[victim] doesn't have blood!")
 		return FALSE
 
+	// Is it actually blood that we're drinking?
+	if(!ispath(victim.get_blood_reagent(), /datum/reagent/blood))
+		victim.show_message(span_warning("[hemophage] tries to bite you, but stops before touching you!"))
+		to_chat(hemophage, span_warning("[victim]'s veins course with something that isn't blood!"))
+		return FALSE
+
 	if(victim.can_block_magic(MAGIC_RESISTANCE_HOLY, charge_cost = 0))
 		victim.show_message(span_warning("[hemophage] tries to bite you, but stops before touching you!"))
 		to_chat(hemophage, span_warning("[victim] is blessed! You stop just in time to avoid catching fire."))
