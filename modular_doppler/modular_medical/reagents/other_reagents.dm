@@ -30,5 +30,5 @@
 /// Blood for androids, child of oil to preserve oil qualities but make it yellow.
 /datum/reagent/oil/synth
     name = "Synth Oil"
-    description = "The byproduct of synthetic lifeforms processing oil, giving it a yellow hue."
+    description = "The byproduct of synthetic lifeforms processing oil, giving it a blue hue."
     color = BLOOD_COLOR_SYNTHETIC
