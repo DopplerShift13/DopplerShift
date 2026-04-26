@@ -185,7 +185,7 @@
 /turf/open/floor/catwalk_floor/iron_dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "hi" = (
-/obj/machinery/suit_storage_unit/tiziran_raiders/red,
+/obj/machinery/suit_storage_unit/tiziran_raiders,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "hq" = (
@@ -404,7 +404,7 @@
 /turf/open/floor/iron/dark,
 /area/shuttle/personally_bought/tiziran_corvette)
 "uV" = (
-/obj/machinery/suit_storage_unit/tiziran_raiders/yellow,
+/obj/machinery/suit_storage_unit/tiziran_raiders,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
 "uW" = (

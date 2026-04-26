@@ -11,7 +11,7 @@
 	if(!ishuman(equipping))
 		return
 
-	var/chosen_title = player_client.prefs.alt_job_titles[job.title] || job.title
+	var/chosen_title = player_client.get_selected_job_title(job)
 
 	var/obj/item/card/id/card = equipping.get_idcard(hand_first = FALSE)
 	if(istype(card))
@@ -26,3 +26,18 @@
 	if(istype(pda))
 		pda.saved_job = chosen_title
 		pda.UpdateDisplay()
+
+
+/// Returns the selected job title from preferences, defaulting if no alt title was selected.
+/client/proc/get_selected_job_title(datum/job/selected_job)
+	var/selected_alt_title = prefs.alt_job_titles[selected_job.title]
+	if(selected_alt_title)
+		return selected_alt_title
+	return selected_job.get_default_job_title()
+
+
+/// Returns the default job title, if alt titles are present being overridden by the first in the list.
+/datum/job/proc/get_default_job_title()
+	if(length(alt_titles))
+		return alt_titles[1]
+	return title
