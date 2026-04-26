@@ -7397,6 +7397,8 @@
 #include "modular_doppler\modular_items\code\conversion_kits.dm"
 #include "modular_doppler\modular_items\code\drinks.dm"
 #include "modular_doppler\modular_items\code\emergency_breach_equipment.dm"
+#include "modular_doppler\modular_items\code\fidget_toys.dm"
+#include "modular_doppler\modular_items\code\furniture.dm"
 #include "modular_doppler\modular_items\code\hairbrush.dm"
 #include "modular_doppler\modular_items\code\invisible_gear.dm"
 #include "modular_doppler\modular_items\code\pda_reskins.dm"
