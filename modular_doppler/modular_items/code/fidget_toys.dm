@@ -7,6 +7,7 @@
 	icon = 'modular_doppler/modular_items/icons/toys.dmi'
 	abstract_type = /obj/item/fidget_toy
 	w_class = WEIGHT_CLASS_TINY
+	obj_flags = UNIQUE_RENAME
 
 	/// what verbs do we use when interacting with our toy? should be continuous, e.g. "chews"
 	var/fidget_verb_continuous
