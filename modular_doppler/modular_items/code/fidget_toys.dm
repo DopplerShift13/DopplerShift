@@ -51,7 +51,6 @@
 	greyscale_config = /datum/greyscale_config/bone
 	greyscale_config_worn = /datum/greyscale_config/bone/worn
 	greyscale_colors = "#9282ee"
-	post_init_icon_state = "bone"
 	slot_flags = ITEM_SLOT_MASK
 	flags_1 = IS_PLAYER_COLORABLE_1
 

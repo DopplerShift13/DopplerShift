@@ -44,7 +44,7 @@
 /datum/greyscale_config/bone
 	name = "Bone Chewtoy"
 	icon_file = 'modular_doppler/modular_items/icons/toys.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/items/raver_chewtoy.json'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/items/bone.json'
 
 /datum/greyscale_config/bone/worn
 	name = "Bone Chewtoy (Worn)"
