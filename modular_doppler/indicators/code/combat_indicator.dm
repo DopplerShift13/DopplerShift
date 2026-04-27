@@ -2,20 +2,14 @@
 GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 
 /proc/generate_combat_overlays()
-	var/mutable_appearance/combat_overlay_red = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "combat", FLY_LAYER)
-	combat_overlay_red.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
-	var/mutable_appearance/combat_overlay_yellow = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "dangerous", FLY_LAYER)
-	combat_overlay_yellow.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
-	var/mutable_appearance/combat_overlay_green = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "de-escalate", FLY_LAYER)
-	combat_overlay_green.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	return list(
-		"combat" = combat_overlay_red,
-		"dangerous" = combat_overlay_yellow,
-		"de-escalate" = combat_overlay_green
+		"combat" = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "combat", FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
+		"dangerous" = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "dangerous", FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
+		"de-escalate" = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "de-escalate", FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART)
 	)
 
 /mob/living
-	/// Is combat indicator enabled for this mob? Boolean.
+	/// What combat indicator is enabled for this mob? "none", "combat", "dangerous" and "de-escalate"
 	var/combat_indicator = "none"
 	/// When is the next time this mob will be able to use flick_emote?
 	var/nextcombatpopup = 0
@@ -29,27 +23,22 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
  * * source -- The mob in question that toggled CI status.
  */
 
-/obj/vehicle/sealed/proc/mob_toggled_ci(mob/living/source)
+/obj/vehicle/sealed/proc/mob_toggled_ci(mob/living/source, state)
 	SIGNAL_HANDLER
 	if ((src.max_occupants > src.max_drivers) && (!(source in return_drivers())) && (src.driver_amount() > 0)) // Only returms true if the mob in question has the driver control flags and/or there are drivers.
 		return
 	combat_indicator_vehicle = source.combat_indicator	// Sync CI between mob and vehicle.
 	if (combat_indicator_vehicle)
-		if(world.time > vehicle_next_combat_popup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 10 secs, so this is asking "has 10 secs past between last activation of CI?"
+		if(world.time > vehicle_next_combat_popup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 2 secs, so this is asking "has 2 secs past between last activation of CI?"
 			vehicle_next_combat_popup = world.time + COMBAT_NOTICE_COOLDOWN
-			playsound(src, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/combat_red.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
-			flick_emote_popup_on_obj("combat", 20)
-			visible_message(span_boldwarning("[src] prepares for combat!"))
-		combat_indicator_vehicle = TRUE
-	else
-		combat_indicator_vehicle = FALSE
+			flick_emote_popup_on_obj(state, 20)
+	combat_indicator_vehicle = state
 	update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
 
 /mob/living/update_overlays()
 	. = ..()
 	if(combat_indicator != "none")
-		var/ma = GLOB.combat_indicator_overlays[combat_indicator]
-		. += ma
+		. += GLOB.combat_indicator_overlays[combat_indicator]
 
 /obj/vehicle/sealed/update_overlays()
 	. = ..()
@@ -85,12 +74,12 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if(!CONFIG_GET(flag/combat_indicator))
 		return
 
-	if(stat == DEAD)
+	if(stat == DEAD || involuntary)
 		disable_combat_indicator(involuntary)
 
 	combat_indicator = state
 
-	SEND_SIGNAL(src, COMSIG_MOB_CI_TOGGLED)
+	SEND_SIGNAL(src, COMSIG_MOB_CI_TOGGLED, state)
 
 	if(combat_indicator != "none")
 		enable_combat_indicator(state)
@@ -107,11 +96,10 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if(world.time > nextcombatpopup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 2 secs, so this is asking "have 2 secs past between last activation of CI?"
 		nextcombatpopup = world.time + COMBAT_NOTICE_COOLDOWN
 		playsound(src, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/combat_red.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
+		flick_emote_popup_on_mob(state, 20)
 	combat_indicator = state
-	flick_emote_popup_on_mob(state, 20)
-	apply_status_effect(/datum/status_effect/grouped/surrender, src)
 	log_message("<font color='red'>[src] has turned ON the combat indicator, to mode '[state]'!</font>", LOG_ATTACK)
-	RegisterSignal(src, COMSIG_MOB_STATCHANGE , PROC_REF(ci_on_stat_change))
+	RegisterSignal(src, COMSIG_MOB_STATCHANGE , PROC_REF(ci_on_stat_change), override = TRUE)
 	update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
 
 /**
@@ -123,9 +111,8 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 
 /mob/living/proc/disable_combat_indicator(involuntary = FALSE)
 	combat_indicator = "none"
-	remove_status_effect(/datum/status_effect/grouped/surrender, src)
 	if(involuntary)
-		log_message("<font color='cyan'>[src] has fallen unconsious or has died and lost their combat indicator!</font>", LOG_ATTACK)
+		log_message("<font color='cyan'>[src] has fallen unconsious, has died or dropped connection, and lost their combat indicator!</font>", LOG_ATTACK)
 	else
 		log_message("<font color='cyan'>[src] has turned OFF the combat indicator!</font>", LOG_ATTACK)
 	UnregisterSignal(src, COMSIG_MOB_STATCHANGE)
@@ -160,8 +147,8 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	//If the vehicle can have more passenger seats than driver seats (note: each driver seat counts as a passenger seat) AND both: The mob is not a driver, and the vehicle has a driver, return.
 	if ((src.max_occupants > src.max_drivers) && ((!(user in return_drivers())) && (src.driver_amount() > 0)))
 		return
-	if (user.combat_indicator && !combat_indicator_vehicle) // Finally, if all conditions prior are not met, and the mob has CI enabled and the vehicle doesn't, enable CI.
-		combat_indicator_vehicle = TRUE
+	if (user.combat_indicator != "none" && combat_indicator_vehicle == "none") // Finally, if all conditions prior are not met, and the mob has CI enabled and the vehicle doesn't, enable CI.
+		combat_indicator_vehicle = user.combat_indicator
 		update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
 
 /**
@@ -178,17 +165,17 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if ((src.max_occupants > src.max_drivers) && ((!(user in return_drivers()) && (src.driver_amount() > 0)) || ((user in return_drivers()) && (src.occupant_amount() > 0))))
 		return
 	// If the preceding conditions are not met, and the vehicle has CI, look at each occupant to see if there is a non-driver with CI enabled. If yes, stop the proc, if no, disable CI.
-	if (combat_indicator_vehicle)
+	if (combat_indicator_vehicle != "none")
 		var/has_occupant_with_ci = FALSE
 		if (src.occupant_amount() > src.driver_amount())
 			for (var/mob/living/vehicle_occupant in return_occupants())
 				if (vehicle_occupant in return_drivers()) //this for loop does not account for multiple clowns in clown cars. i will not account for that. fuck that.
 					continue
-				if (vehicle_occupant.combat_indicator)
+				if (vehicle_occupant.combat_indicator != "none")
 					has_occupant_with_ci = TRUE
 					break
 		if (!has_occupant_with_ci)
-			combat_indicator_vehicle = FALSE
+			combat_indicator_vehicle = "none"
 			update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
 
 #undef COMBAT_NOTICE_COOLDOWN
@@ -236,25 +223,3 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 		return
 	var/mob/living/L = user.mob
 	L.user_toggle_combat_indicator("de-escalate")
-
-// Surrender shit
-/atom/movable/screen/alert/status_effect/surrender/
-	desc = "You're either in combat or being held up. Click here to surrender and show that you don't wish to fight. You will be incapacitated. (You can also say '*surrender' at any time to do this.)"
-
-/datum/emote/living/surrender
-	message = "drops to the floor and raises their hands defensively! They surrender%s!"
-	stat_allowed = SOFT_CRIT
-
-/datum/emote/living/surrender/run_emote(mob/user, params, type_override, intentional)
-	. = ..()
-	if(isliving(user))
-		var/mob/living/living_user = user
-		playsound(living_user, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/surrender.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
-		living_user.flick_emote_popup_on_mob("surrender", 20)
-		living_user.set_combat_indicator("none")
-
-/datum/emote/living/surrender/select_message_type(mob/user, intentional)
-	if(istype(/obj/vehicle, user.loc) || user.buckled)
-		return "surrender%s!"
-	var/turf/open/floor/floor = get_turf(user)
-	return "lays down [floor ? "upon [LOWER_TEXT(floor)] " : ""]and surrender%s!"

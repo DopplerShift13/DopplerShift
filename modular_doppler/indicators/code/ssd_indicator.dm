@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_doppler/indicators/icons/ssd_indicator.dmi', "ssd", FLY_LAYER))
+GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_doppler/indicators/icons/extra_indicator.dmi', "ssd", FLY_LAYER))
 
 /mob/living
 	var/ssd_indicator = FALSE
@@ -24,4 +24,6 @@ GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_doppler/indic
 /mob/living/Logout()
 	lastclienttime = world.time
 	set_ssd_indicator(TRUE)
+	if(combat_indicator != "none")
+		set_combat_indicator("none", involuntary = TRUE)
 	. = ..()
