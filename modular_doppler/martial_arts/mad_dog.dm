@@ -257,7 +257,7 @@
 
 /datum/martial_art/mad_dog/proc/on_movement(mob/living/carbon/user, atom/previous_loc) // fading trail effect when in combat with stun res active
 	SIGNAL_HANDLER
-	if(!user.combat_mode || !user.combat_indicator || user.IsParalyzed() || !user.stat == CONSCIOUS)
+	if(!user.combat_mode || user.combat_indicator == "none" || user.IsParalyzed() || !user.stat == CONSCIOUS)
 		return
 	var/datum/status_effect/stun_absorption/stun_absorption = stun_absorption_ref.resolve()
 	if(isnull(stun_absorption))

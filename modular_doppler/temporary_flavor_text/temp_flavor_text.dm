@@ -1,12 +1,5 @@
-GLOBAL_VAR_INIT(temporary_flavor_text_indicator, generate_temporary_flavor_text_indicator())
-
 /mob/living
 	var/temporary_flavor_text
-
-/proc/generate_temporary_flavor_text_indicator()
-	var/mutable_appearance/temporary_flavor_text_indicator = mutable_appearance('modular_doppler/temporary_flavor_text/indicator.dmi', "flavor", FLY_LAYER)
-	temporary_flavor_text_indicator.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
-	return temporary_flavor_text_indicator
 
 /mob/living/verb/set_temporary_flavor()
 	set category = "IC"
@@ -24,7 +17,6 @@ GLOBAL_VAR_INIT(temporary_flavor_text_indicator, generate_temporary_flavor_text_
 	// Turn empty input into no flavor text
 	var/result = msg || null
 	temporary_flavor_text = result
-	update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
 	update_holder_appearance()
 
 /// Hook for subtypes to potentially adjust their own appearance.
@@ -44,11 +36,6 @@ GLOBAL_VAR_INIT(temporary_flavor_text_indicator, generate_temporary_flavor_text_
 	if(length(examine_list) > 0 && examine_list[length(examine_list)])
 		examine_list += "" // Add a newline if needed.
 	examine_list += span_revennotice("They look different from usual: [tempflavorpart]")
-
-/mob/living/update_overlays()
-	. = ..()
-	if (temporary_flavor_text)
-		. += GLOB.temporary_flavor_text_indicator
 
 /mob/living/Topic(href, href_list)
 	. = ..()
@@ -80,11 +67,6 @@ GLOBAL_VAR_INIT(temporary_flavor_text_indicator, generate_temporary_flavor_text_
 	if(href_list["temporary_flavor"])
 		show_temp_ftext(usr)
 
-/mob/living/silicon/robot/update_icons()
-	. = ..()
-	if(temporary_flavor_text)
-		add_overlay(GLOB.temporary_flavor_text_indicator)
-
 /**
  * Temporary flavortext visible on the pAI card and AI intellicard.
  */
@@ -92,11 +74,6 @@ GLOBAL_VAR_INIT(temporary_flavor_text_indicator, generate_temporary_flavor_text_
 /mob/living/silicon/pai/update_holder_appearance()
 	if(card)
 		card.update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
-
-/obj/item/pai_card/update_overlays()
-	. = ..()
-	if(pai?.temporary_flavor_text)
-		. += GLOB.temporary_flavor_text_indicator
 
 /obj/item/pai_card/examine(mob/user)
 	. = ..()
@@ -107,11 +84,6 @@ GLOBAL_VAR_INIT(temporary_flavor_text_indicator, generate_temporary_flavor_text_
 /mob/living/silicon/ai/update_holder_appearance()
 	if(istype(loc, /obj/item/aicard))
 		loc.update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
-
-/obj/item/aicard/update_overlays()
-	. = ..()
-	if(AI?.temporary_flavor_text)
-		. += GLOB.temporary_flavor_text_indicator
 
 /obj/item/aicard/examine(mob/user)
 	. = ..()

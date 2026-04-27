@@ -1,6 +1,6 @@
 /obj/vehicle/sealed
 	/// Is combat indicator on for this vehicle? Boolean.
-	var/combat_indicator_vehicle = FALSE
+	var/combat_indicator_vehicle = "none"
 	/// When is the next time this vehicle will be able to use flick_emote and put the fluff text in chat?
 	var/vehicle_next_combat_popup = 0
 

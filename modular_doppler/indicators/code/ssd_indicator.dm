@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_doppler/indicators/icons/ssd_indicator.dmi', "default0", FLY_LAYER))
+GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_doppler/indicators/icons/ssd_indicator.dmi', "ssd", FLY_LAYER))
 
 /mob/living
 	var/ssd_indicator = FALSE
@@ -10,6 +10,8 @@ GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_doppler/indic
 	ssd_indicator = state
 	if(ssd_indicator)
 		add_overlay(GLOB.ssd_indicator_overlay)
+		flick_emote_popup_on_mob("ssd", 20)
+		playsound(src, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/ssd.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
 		log_message("<font color='green'>has went SSD and got their indicator!</font>", LOG_ATTACK)
 	else
 		cut_overlay(GLOB.ssd_indicator_overlay)
@@ -23,16 +25,3 @@ GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_doppler/indic
 	lastclienttime = world.time
 	set_ssd_indicator(TRUE)
 	. = ..()
-
-//Temporary, look below for the reason
-/mob/living/ghostize(can_reenter_corpse = TRUE)
-	. = ..()
-	set_ssd_indicator(FALSE)
-
-/*
-//EDIT - TRANSFER CKEY IS NOT A THING ON THE TG CODEBASE, if things break too bad because of it, consider implementing it
-//This proc should stop mobs from having the overlay when someone keeps jumping control of mobs, unfortunately it causes Aghosts to have their character without the SSD overlay, I wasn't able to find a better proc unfortunately
-/mob/living/transfer_ckey(mob/new_mob, send_signal = TRUE)
-	..()
-	set_ssd_indicator(FALSE)
-*/

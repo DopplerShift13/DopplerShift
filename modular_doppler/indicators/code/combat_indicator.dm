@@ -1,15 +1,23 @@
 #define COMBAT_NOTICE_COOLDOWN (2 SECONDS)
-GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
+GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 
-/proc/GenerateCombatOverlay()
-	var/mutable_appearance/combat_indicator = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "combat", FLY_LAYER)
-	combat_indicator.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
-	return combat_indicator
+/proc/generate_combat_overlays()
+	var/mutable_appearance/combat_overlay_red = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "combat", FLY_LAYER)
+	combat_overlay_red.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
+	var/mutable_appearance/combat_overlay_yellow = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "dangerous", FLY_LAYER)
+	combat_overlay_yellow.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
+	var/mutable_appearance/combat_overlay_green = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "de-escalate", FLY_LAYER)
+	combat_overlay_green.appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
+	return list(
+		"combat" = combat_overlay_red,
+		"dangerous" = combat_overlay_yellow,
+		"de-escalate" = combat_overlay_green
+	)
 
 /mob/living
 	/// Is combat indicator enabled for this mob? Boolean.
-	var/combat_indicator = FALSE
-	/// When is the next time this mob will be able to use flick_emote and put the fluff text in chat?
+	var/combat_indicator = "none"
+	/// When is the next time this mob will be able to use flick_emote?
 	var/nextcombatpopup = 0
 
 /**
@@ -29,7 +37,7 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 	if (combat_indicator_vehicle)
 		if(world.time > vehicle_next_combat_popup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 10 secs, so this is asking "has 10 secs past between last activation of CI?"
 			vehicle_next_combat_popup = world.time + COMBAT_NOTICE_COOLDOWN
-			playsound(src, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/ci_enable.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
+			playsound(src, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/combat_red.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
 			flick_emote_popup_on_obj("combat", 20)
 			visible_message(span_boldwarning("[src] prepares for combat!"))
 		combat_indicator_vehicle = TRUE
@@ -39,13 +47,14 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 
 /mob/living/update_overlays()
 	. = ..()
-	if(combat_indicator)
-		. += GLOB.combat_indicator_overlay
+	if(combat_indicator != "none")
+		var/ma = GLOB.combat_indicator_overlays[combat_indicator]
+		. += ma
 
 /obj/vehicle/sealed/update_overlays()
 	. = ..()
-	if(combat_indicator_vehicle)
-		. += GLOB.combat_indicator_overlay
+	if(combat_indicator_vehicle != "none")
+		. += GLOB.combat_indicator_overlays[combat_indicator_vehicle]
 
 /**
  * Called whenever a mob's stat changes.
@@ -60,7 +69,7 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 	SIGNAL_HANDLER
 	if(new_stat <= SOFT_CRIT)
 		return
-	set_combat_indicator(FALSE, involuntary = TRUE)
+	set_combat_indicator("none", involuntary = TRUE)
 
 /**
  * Called whenever a mob's CI status changes for any reason.
@@ -68,15 +77,12 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
  * Checks if the mob is dead, if config disallows CI, or if the current CI status is the same as state, and if it is, it will change CI status to state.
  *
  * Arguments:
- * * state -- Boolean. Inherited from the procs that call this, basically it's what that proc wants CI to change to - true or false, on or off.
+ * * state --
  * * involuntary -- Boolean. If true, the mob is dead or unconscious, and the log will reflect that.
  */
 
 /mob/living/proc/set_combat_indicator(state, involuntary = FALSE)
 	if(!CONFIG_GET(flag/combat_indicator))
-		return
-
-	if(combat_indicator == state) // If the mob is dead (should not happen) or if the combat_indicator is the same as state (also shouldnt happen) kill the proc.
 		return
 
 	if(stat == DEAD)
@@ -86,8 +92,8 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 
 	SEND_SIGNAL(src, COMSIG_MOB_CI_TOGGLED)
 
-	if(combat_indicator)
-		enable_combat_indicator()
+	if(combat_indicator != "none")
+		enable_combat_indicator(state)
 	else
 		disable_combat_indicator()
 
@@ -97,30 +103,14 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
  * Plays a sound, sents a message to chat, updates their overlay, and sets the mob's CI status to true.
  */
 
-/mob/living/proc/enable_combat_indicator()
-	if(world.time > nextcombatpopup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 10 secs, so this is asking "has 10 secs past between last activation of CI?"
+/mob/living/proc/enable_combat_indicator(state)
+	if(world.time > nextcombatpopup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 2 secs, so this is asking "have 2 secs past between last activation of CI?"
 		nextcombatpopup = world.time + COMBAT_NOTICE_COOLDOWN
-		playsound(src, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/ci_enable.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
-		flick_emote_popup_on_mob("combat", 20)
-		var/ciweapon
-		if(get_active_held_item())
-			ciweapon = get_active_held_item()
-			if(istype(ciweapon, /obj/item/gun))
-				visible_message(span_boldwarning("[src] raises \the [ciweapon] with their finger on the trigger, ready for combat!"))
-			else
-				visible_message(span_boldwarning("[src] readies \the [ciweapon] with a tightened grip and offensive stance, ready for combat!"))
-		else
-			if(issilicon(src))
-				visible_message(span_boldwarning("<b>[src] shifts its armour plating into a defensive stance, ready for combat!"))
-			if(ishuman(src))
-				visible_message(span_boldwarning("[src] raises [p_their()] fists in an offensive stance, ready for combat!"))
-			if(isalien(src))
-				visible_message(span_boldwarning("[src] hisses in a terrifying stance, claws raised and ready for combat!"))
-			else
-				visible_message(span_boldwarning("[src] gets ready for combat!"))
-	combat_indicator = TRUE
+		playsound(src, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/combat_red.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
+	combat_indicator = state
+	flick_emote_popup_on_mob(state, 20)
 	apply_status_effect(/datum/status_effect/grouped/surrender, src)
-	log_message("<font color='red'>[src] has turned ON the combat indicator!</font>", LOG_ATTACK)
+	log_message("<font color='red'>[src] has turned ON the combat indicator, to mode '[state]'!</font>", LOG_ATTACK)
 	RegisterSignal(src, COMSIG_MOB_STATCHANGE , PROC_REF(ci_on_stat_change))
 	update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
 
@@ -132,7 +122,7 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
  */
 
 /mob/living/proc/disable_combat_indicator(involuntary = FALSE)
-	combat_indicator = FALSE
+	combat_indicator = "none"
 	remove_status_effect(/datum/status_effect/grouped/surrender, src)
 	if(involuntary)
 		log_message("<font color='cyan'>[src] has fallen unconsious or has died and lost their combat indicator!</font>", LOG_ATTACK)
@@ -147,10 +137,13 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
  * If the user is conscious, it will set CI to be whatever the opposite of what it is currently.
  */
 
-/mob/living/proc/user_toggle_combat_indicator()
+/mob/living/proc/user_toggle_combat_indicator(state)
 	if(stat != CONSCIOUS)
 		return
-	set_combat_indicator(!combat_indicator) // Set CI status to whatever is the opposite of the current status.
+	if(combat_indicator == state)
+		set_combat_indicator("none")
+	else
+		set_combat_indicator(state)
 
 /**
  * Called whenever a mob enters a vehicle/sealed, after everything else.
@@ -200,21 +193,49 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 
 #undef COMBAT_NOTICE_COOLDOWN
 
-/datum/keybinding/living/combat_indicator
-	hotkey_keys = list("C")
-	name = "combat_indicator"
-	full_name = "Combat Indicator"
-	description = "Indicates that you're escalating to mechanics. YOU NEED TO USE THIS"
-	keybind_signal = COMSIG_KB_LIVING_COMBAT_INDICATOR
+/datum/config_entry/flag/combat_indicator
 
-/datum/keybinding/living/combat_indicator/down(client/user)
+/datum/keybinding/living/combat_indicator_red
+	hotkey_keys = list("C")
+	name = "combat_indicator_red"
+	full_name = "Combat Indicator"
+	description = "Indicates that you're escalating to mechanics."
+	keybind_signal = COMSIG_KB_LIVING_COMBAT_INDICATOR_RED
+
+/datum/keybinding/living/combat_indicator_red/down(client/user)
 	. = ..()
 	if(.)
 		return
 	var/mob/living/L = user.mob
-	L.user_toggle_combat_indicator()
+	L.user_toggle_combat_indicator("combat")
 
-/datum/config_entry/flag/combat_indicator
+/datum/keybinding/living/combat_indicator_yellow
+	hotkey_keys = list("ShiftC")
+	name = "combat_indicator_yellow"
+	full_name = "Dangerous Indicator"
+	description = "Indicates that you're escalating to mechanics if hindered."
+	keybind_signal = COMSIG_KB_LIVING_COMBAT_INDICATOR_YELLOW
+
+/datum/keybinding/living/combat_indicator_yellow/down(client/user)
+	. = ..()
+	if(.)
+		return
+	var/mob/living/L = user.mob
+	L.user_toggle_combat_indicator("dangerous")
+
+/datum/keybinding/living/combat_indicator_green
+	hotkey_keys = list("CtrlC")
+	name = "combat_indicator_green"
+	full_name = "De-escalate Indicator"
+	description = "Indicates that you're de-escalating away from mechanics."
+	keybind_signal = COMSIG_KB_LIVING_COMBAT_INDICATOR_GREEN
+
+/datum/keybinding/living/combat_indicator_green/down(client/user)
+	. = ..()
+	if(.)
+		return
+	var/mob/living/L = user.mob
+	L.user_toggle_combat_indicator("de-escalate")
 
 // Surrender shit
 /atom/movable/screen/alert/status_effect/surrender/
@@ -226,12 +247,14 @@ GLOBAL_VAR_INIT(combat_indicator_overlay, GenerateCombatOverlay())
 
 /datum/emote/living/surrender/run_emote(mob/user, params, type_override, intentional)
 	. = ..()
-	if(. && isliving(user))
+	if(isliving(user))
 		var/mob/living/living_user = user
-		living_user.set_combat_indicator(FALSE)
+		playsound(living_user, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/surrender.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
+		living_user.flick_emote_popup_on_mob("surrender", 20)
+		living_user.set_combat_indicator("none")
 
 /datum/emote/living/surrender/select_message_type(mob/user, intentional)
-	var/mob/living/living_mob = user
-	if(living_mob?.body_position == LYING_DOWN)
-		return "raises their hands defensively! They surrender%s!"
-	. = ..()
+	if(istype(/obj/vehicle, user.loc) || user.buckled)
+		return "surrender%s!"
+	var/turf/open/floor/floor = get_turf(user)
+	return "lays down [floor ? "upon [LOWER_TEXT(floor)] " : ""]and surrender%s!"
