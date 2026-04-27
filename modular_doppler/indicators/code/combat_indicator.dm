@@ -1,15 +1,22 @@
-#define COMBAT_NOTICE_COOLDOWN (2 SECONDS)
+#define INDICATOR_COMBAT "combat"
+#define INDICATOR_ALERT "alert"
+#define INDICATOR_PARLEY "de-escalate"
+/// The time for which the sound effect and `emote_popup` alert are disabled, but the CI swapping effect is not
+#define COMBAT_NOTICE_COOLDOWN (5 SECONDS)
+
 GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 
 /proc/generate_combat_overlays()
 	return list(
-		"combat" = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "combat", FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
-		"dangerous" = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "dangerous", FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
-		"de-escalate" = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', "de-escalate", FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART)
+		INDICATOR_COMBAT = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', INDICATOR_COMBAT, FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
+		INDICATOR_ALERT = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', INDICATOR_ALERT, FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
+		INDICATOR_PARLEY = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', INDICATOR_PARLEY, FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART)
 	)
 
+/datum/config_entry/flag/combat_indicator
+
 /mob/living
-	/// What combat indicator is enabled for this mob? "none", "combat", "dangerous" and "de-escalate"
+	/// What combat indicator is enabled for this mob? "none", "combat", "alert" and "de-escalate"
 	var/combat_indicator = "none"
 	/// When is the next time this mob will be able to use flick_emote?
 	var/nextcombatpopup = 0
@@ -31,7 +38,7 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if (combat_indicator_vehicle != "none")
 		if(world.time > vehicle_next_combat_popup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 2 secs, so this is asking "has 2 secs past between last activation of CI?"
 			vehicle_next_combat_popup = world.time + COMBAT_NOTICE_COOLDOWN
-			flick_emote_popup_on_obj(state, 20)
+			flick_emote_popup_on_obj(state, COMBAT_NOTICE_COOLDOWN)
 	combat_indicator_vehicle = state
 	update_appearance(UPDATE_ICON|UPDATE_OVERLAYS)
 
@@ -66,7 +73,7 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
  * Checks if the mob is dead, if config disallows CI, or if the current CI status is the same as state, and if it is, it will change CI status to state.
  *
  * Arguments:
- * * state --
+ * * state -- String, can be "none", "combat", "alert" and "de-escalate"
  * * involuntary -- Boolean. If true, the mob is dead or unconscious, and the log will reflect that.
  */
 
@@ -96,7 +103,7 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if(world.time > nextcombatpopup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 2 secs, so this is asking "have 2 secs past between last activation of CI?"
 		nextcombatpopup = world.time + COMBAT_NOTICE_COOLDOWN
 		playsound(src, "modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/[state].ogg", vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
-		flick_emote_popup_on_mob(state, 20)
+		flick_emote_popup_on_mob(state, COMBAT_NOTICE_COOLDOWN)
 	combat_indicator = state
 	log_message("<font color='red'>[src] has turned ON the combat indicator, to mode '[state]'!</font>", LOG_ATTACK)
 	RegisterSignal(src, COMSIG_MOB_STATCHANGE , PROC_REF(ci_on_stat_change), override = TRUE)
@@ -180,7 +187,9 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 
 #undef COMBAT_NOTICE_COOLDOWN
 
-/datum/config_entry/flag/combat_indicator
+/*
+	Keybind configurations
+*/
 
 /datum/keybinding/living/combat_indicator_red
 	hotkey_keys = list("C")
@@ -194,7 +203,7 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if(.)
 		return
 	var/mob/living/L = user.mob
-	L.user_toggle_combat_indicator("combat")
+	L.user_toggle_combat_indicator(INDICATOR_COMBAT)
 
 /datum/keybinding/living/combat_indicator_yellow
 	hotkey_keys = list("ShiftC")
@@ -208,7 +217,7 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if(.)
 		return
 	var/mob/living/L = user.mob
-	L.user_toggle_combat_indicator("dangerous")
+	L.user_toggle_combat_indicator(INDICATOR_ALERT)
 
 /datum/keybinding/living/combat_indicator_green
 	hotkey_keys = list("CtrlC")
@@ -222,4 +231,8 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if(.)
 		return
 	var/mob/living/L = user.mob
-	L.user_toggle_combat_indicator("de-escalate")
+	L.user_toggle_combat_indicator(INDICATOR_PARLEY)
+
+#undef INDICATOR_COMBAT
+#undef INDICATOR_ALERT
+#undef INDICATOR_PARLEY
