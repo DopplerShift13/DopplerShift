@@ -2,7 +2,7 @@
 #define INDICATOR_ALERT "alert"
 #define INDICATOR_PARLEY "de-escalate"
 /// The time for which the sound effect and `emote_popup` alert are disabled, but the CI swapping effect is not
-#define COMBAT_NOTICE_COOLDOWN (5 SECONDS)
+#define COMBAT_NOTICE_COOLDOWN (3.5 SECONDS)
 
 GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 
