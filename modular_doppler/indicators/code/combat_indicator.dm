@@ -28,7 +28,7 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 	if ((src.max_occupants > src.max_drivers) && (!(source in return_drivers())) && (src.driver_amount() > 0)) // Only returms true if the mob in question has the driver control flags and/or there are drivers.
 		return
 	combat_indicator_vehicle = source.combat_indicator	// Sync CI between mob and vehicle.
-	if (combat_indicator_vehicle)
+	if (combat_indicator_vehicle != "none")
 		if(world.time > vehicle_next_combat_popup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 2 secs, so this is asking "has 2 secs past between last activation of CI?"
 			vehicle_next_combat_popup = world.time + COMBAT_NOTICE_COOLDOWN
 			flick_emote_popup_on_obj(state, 20)
@@ -95,7 +95,7 @@ GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 /mob/living/proc/enable_combat_indicator(state)
 	if(world.time > nextcombatpopup) // As of the time of writing, COMBAT_NOTICE_COOLDOWN is 2 secs, so this is asking "have 2 secs past between last activation of CI?"
 		nextcombatpopup = world.time + COMBAT_NOTICE_COOLDOWN
-		playsound(src, 'modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/combat_red.ogg', vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
+		playsound(src, "modular_doppler/modular_sounds/sound/mobs/humanoids/combat_indicator/[state].ogg", vol = 15, vary = TRUE, extrarange = -6, falloff_exponent = 4, frequency = null, channel = 0, pressure_affected = FALSE, ignore_walls = FALSE, falloff_distance = 1)
 		flick_emote_popup_on_mob(state, 20)
 	combat_indicator = state
 	log_message("<font color='red'>[src] has turned ON the combat indicator, to mode '[state]'!</font>", LOG_ATTACK)

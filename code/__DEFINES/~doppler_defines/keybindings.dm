@@ -1,5 +1,5 @@
 #define COMSIG_KB_LIVING_COMBAT_INDICATOR_RED "keybinding_living_combat_indicator_red"
-#define COMSIG_KB_LIVING_COMBAT_INDICATOR_YELLOW "keybinding_living_combat_indicator_YELLOW"
+#define COMSIG_KB_LIVING_COMBAT_INDICATOR_YELLOW "keybinding_living_combat_indicator_yellow"
 #define COMSIG_KB_LIVING_COMBAT_INDICATOR_GREEN "keybinding_living_combat_indicator_green"
 #define COMSIG_KB_MOB_PIXEL_SHIFT_DOWN "keybinding_mob_pixel_shift_down"
 #define COMSIG_KB_MOB_PIXEL_SHIFT_UP "keybinding_mob_pixel_shift_up"
