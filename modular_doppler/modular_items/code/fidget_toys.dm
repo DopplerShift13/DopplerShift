@@ -72,6 +72,10 @@
 	slot_flags = ITEM_SLOT_MASK
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/fidget_toy/chewy/raver_chewtoy/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "placement")
+
 /obj/item/fidget_toy/poppable
 	name = "dolphin poppable"
 	desc = "A urethane sheet pockmarked in semi-spherical chambers. The domes provide a satisfying feeling and sound when depressed."
