@@ -1,17 +1,21 @@
 #define INDICATOR_SSD "ssd"
 /// The time for which the sound effect and `emote_popup` alert are disabled
-#define NOTICE_COOLDOWN (3.5 SECONDS)
+#define NOTICE_COOLDOWN (2.5 SECONDS)
 
 GLOBAL_LIST_INIT(extra_indicator_overlays, generate_extra_overlays())
 
 /proc/generate_extra_overlays()
 	return list(
-		INDICATOR_SSD = mutable_appearance('modular_doppler/indicators/icons/extra_indicators.dmi', INDICATOR_SSD, FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
+		INDICATOR_SSD = new /obj/effect/overlay/meta_indicator/ssd()
 	)
 
 /*
 	SSD/Dropped connection
 */
+
+/obj/effect/overlay/meta_indicator/ssd
+	icon = 'modular_doppler/indicators/icons/extra_indicators.dmi'
+	icon_state = INDICATOR_SSD
 
 /mob/living
 	var/ssd_indicator = FALSE

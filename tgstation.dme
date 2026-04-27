@@ -7067,6 +7067,7 @@
 #include "modular_doppler\indicators\code\combat_indicator.dm"
 #include "modular_doppler\indicators\code\emote_popup.dm"
 #include "modular_doppler\indicators\code\extra_indicators.dm"
+#include "modular_doppler\indicators\code\meta_indicator.dm"
 #include "modular_doppler\indicators\code\sealed.dm"
 #include "modular_doppler\item_visuals\code\random_rotation.dm"
 #include "modular_doppler\job_straps\code\research.dm"

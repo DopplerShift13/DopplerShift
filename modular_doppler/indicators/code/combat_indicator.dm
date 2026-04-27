@@ -2,18 +2,27 @@
 #define INDICATOR_ALERT "alert"
 #define INDICATOR_PARLEY "de-escalate"
 /// The time for which the sound effect and `emote_popup` alert are disabled, but the CI swapping effect is not
-#define COMBAT_NOTICE_COOLDOWN (3.5 SECONDS)
+#define COMBAT_NOTICE_COOLDOWN (2.5 SECONDS)
 
 GLOBAL_LIST_INIT(combat_indicator_overlays, generate_combat_overlays())
 
 /proc/generate_combat_overlays()
 	return list(
-		INDICATOR_COMBAT = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', INDICATOR_COMBAT, FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
-		INDICATOR_ALERT = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', INDICATOR_ALERT, FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART),
-		INDICATOR_PARLEY = mutable_appearance('modular_doppler/indicators/icons/combat_indicator.dmi', INDICATOR_PARLEY, FLY_LAYER, appearance_flags = APPEARANCE_UI_IGNORE_ALPHA|KEEP_APART)
+		INDICATOR_COMBAT = new /obj/effect/overlay/meta_indicator/combat(),
+		INDICATOR_ALERT = new /obj/effect/overlay/meta_indicator/alert(),
+		INDICATOR_PARLEY = new /obj/effect/overlay/meta_indicator/de_escalate()
 	)
 
 /datum/config_entry/flag/combat_indicator
+
+/obj/effect/overlay/meta_indicator/combat
+	icon_state = INDICATOR_COMBAT
+
+/obj/effect/overlay/meta_indicator/alert
+	icon_state = INDICATOR_ALERT
+
+/obj/effect/overlay/meta_indicator/de_escalate
+	icon_state = INDICATOR_PARLEY
 
 /mob/living
 	/// What combat indicator is enabled for this mob? "none", "combat", "alert" and "de-escalate"
