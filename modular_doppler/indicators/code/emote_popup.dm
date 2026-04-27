@@ -1,7 +1,8 @@
 /obj/effect/overlay/emote_popup
 	icon = 'modular_doppler/indicators/icons/popup_flicks.dmi'
 	icon_state = "combat"
-	plane = BALLOON_CHAT_PLANE
+	layer = FLY_LAYER
+	plane = GAME_PLANE
 	appearance_flags = APPEARANCE_UI_IGNORE_ALPHA | KEEP_APART
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 

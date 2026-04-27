@@ -25,5 +25,5 @@ GLOBAL_VAR_INIT(ssd_indicator_overlay, mutable_appearance('modular_doppler/indic
 	lastclienttime = world.time
 	set_ssd_indicator(TRUE)
 	if(combat_indicator != "none")
-		set_combat_indicator("none", involuntary = TRUE)
+		set_combat_indicator("none", involuntary = TRUE) // turn combat indicator off for the disconnected player
 	. = ..()
