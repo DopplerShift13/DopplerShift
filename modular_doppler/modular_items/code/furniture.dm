@@ -46,3 +46,4 @@
 	desc = "Some rope secured around a wooden post, for cats and catmodders to sharpen their claws on."
 	icon = 'modular_doppler/modular_items/icons/furniture.dmi'
 	icon_state = "scratching_post"
+	density = TRUE
