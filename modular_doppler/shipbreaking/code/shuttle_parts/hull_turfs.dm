@@ -44,14 +44,14 @@
 	smoothing_flags = SMOOTH_BITMASK
 
 /turf/closed/wall/mineral/nanocarbon/primary_colour
-	color = COLOR_AMETHYST
+	color = COLOR_SILVER
 
 /turf/closed/wall/mineral/nanocarbon/primary_colour/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SHIP_PRIMARY_COLOUR, TRAIT_GENERIC)
 
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour
-	color = COLOR_AMETHYST
+	color = COLOR_SILVER
 
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour/Initialize(mapload)
 	. = ..()
@@ -193,7 +193,7 @@
 	initial_gas_mix = AIRLESS_ATMOS
 
 /turf/open/floor/plating/nanocarbon/exterior/primary_colour
-	color = COLOR_AMETHYST
+	color = COLOR_SILVER
 
 /turf/open/floor/plating/nanocarbon/exterior/primary_colour/Initialize(mapload)
 	. = ..()
