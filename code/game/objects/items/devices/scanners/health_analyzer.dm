@@ -342,7 +342,7 @@
 		var/list/cyberimps
 		for(var/obj/item/organ/target_organ as anything in humantarget.organs)
 			if(IS_ROBOTIC_ORGAN(target_organ) && !(target_organ.organ_flags & ORGAN_HIDDEN))
-				// DOPPLER ADDITION START - Adds Premium augment support to organs.
+				// DOPPLER EDIT ADDITION BEGIN - Adds Premium augment support to organs.
 				var/line = target_organ.examine_title(user)
 				if(target_organ.premium_component) // DOPPLER ADDITION
 					var/quality = round(target_organ.premium_component.quality)
@@ -354,8 +354,8 @@
 						line = "[line] ([quality_text] <font color='#ff3333'>refurbish required</font>)"
 					else
 						line = "[line] ([quality_text])"
-				LAZYADD(cyberimps, line)
-				// DOPPLER ADDITION END
+				LAZYADD(cyberimps, line)	// was: LAZYADD(cyberimps, target_organ.examine_title(user))
+				// DOPPLER EDIT ADDITION END
 			if(target_organ.organ_flags & ORGAN_MUTANT)
 				mutant = TRUE
 		if(LAZYLEN(cyberimps))

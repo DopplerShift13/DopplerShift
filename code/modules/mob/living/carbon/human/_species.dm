@@ -913,7 +913,9 @@ GLOBAL_LIST_EMPTY(features_by_species)
 	var/kicking = (atk_effect == ATTACK_EFFECT_KICK)
 	var/final_armor_block = armor_block
 
-	SEND_SIGNAL(user, COMSIG_HUMAN_UNARMED_HIT, target, affecting, damage, armor_block, limb_sharpness) // DOPPLER ADDITION - Adds a signaler for the power system so that we can track if we land punches.
+	// DOPPLER EDIT ADDITION BEGIN - Adds a signaler for the power system so that we can track if we land punches.
+	SEND_SIGNAL(user, COMSIG_HUMAN_UNARMED_HIT, target, affecting, damage, armor_block, limb_sharpness)
+	// DOPPLER EDIT ADDITION END
 
 	if(kicking || grappled) //kicks and punches when grappling bypass armor slightly.
 		if(damage >= 9)

@@ -257,7 +257,9 @@
 				to_chat(user, span_warning("You prime [src]! [DisplayTimeText(det_time)]!"))
 
 	active = TRUE
-	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride) // DOPPLER ADDITION: Why do we not send this signal?! Used by explosives specialist and a dozen other things.
+	// DOPPLER EDIT ADDITION BEGIN Why do we not send this signal?! Used by explosives specialist and a dozen other things.
+	SEND_SIGNAL(src, COMSIG_GRENADE_ARMED, det_time, delayoverride)
+	// DOPPLER EDIT ADDITION END
 	update_icon_state()
 	playsound(src, grenade_arm_sound, volume, grenade_sound_vary)
 	if (landminemode)

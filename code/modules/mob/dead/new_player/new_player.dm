@@ -240,7 +240,9 @@
 		if(job.job_flags & JOB_ASSIGN_QUIRKS)
 			if(CONFIG_GET(flag/roundstart_traits))
 				SSquirks.AssignQuirks(humanc, humanc.client)
-				SSpowers.assign_powers(humanc, humanc.client) // DOPPLER EDIT ADDITION - Archetype Powers
+				// DOPPLER EDIT ADDITION BEGIN - Archetype Powers
+				SSpowers.assign_powers(humanc, humanc.client)
+				// DOPPLER EDIT ADDITION END
 		else // clear any personalities the prefs added since our job clearly does not want them
 			humanc.clear_personalities()
 
