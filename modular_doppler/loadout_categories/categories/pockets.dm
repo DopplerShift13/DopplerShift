@@ -353,6 +353,46 @@
 	name = "D00"
 	item_path = /obj/item/dice/d00
 
+/datum/loadout_item/pocket_items/recreational/melty_chew
+	name = "Melty Face Chew Toy"
+	item_path = /obj/item/fidget_toy/chewy
+
+/datum/loadout_item/pocket_items/recreational/dog_tag
+	name = "Dog Tag Chew Toy"
+	item_path = /obj/item/fidget_toy/chewy/dog_tag
+
+/datum/loadout_item/pocket_items/recreational/chewybear
+	name = "Chewy Bear"
+	item_path = /obj/item/fidget_toy/chewy/chewybear
+
+/datum/loadout_item/pocket_items/recreational/bonechew
+	name = "Bone Chew Toy"
+	item_path = /obj/item/fidget_toy/chewy/bone
+
+/datum/loadout_item/pocket_items/recreational/builderbrick
+	name = "Builderbrick Chew Toy"
+	item_path = /obj/item/fidget_toy/chewy/builderbrick
+
+/datum/loadout_item/pocket_items/recreational
+	name = "Marsian Raver Chewtoy"
+	item_path = /obj/item/fidget_toy/chewy/raver_chewtoy
+
+/datum/loadout_item/pocket_items/recreational/dolphin_poppable
+	name = "Dolphin Poppable"
+	item_path = /obj/item/fidget_toy/poppable
+
+/datum/loadout_item/pocket_items/recreational/phanic_poppable
+	name = "Phanic Poppable"
+	item_path = /obj/item/fidget_toy/poppable/phanic
+
+/datum/loadout_item/pocket_items/recreational/apple_poppable
+	name = "Apple Poppable"
+	item_path = /obj/item/fidget_toy/poppable/apple
+
+/datum/loadout_item/pocket_items/recreational/fidget_spinner
+	name = "Fidget Spinner"
+	item_path = /obj/item/fidget_toy/fidget_spinner
+
 /**
  * COSMETICS
  */
