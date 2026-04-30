@@ -106,6 +106,10 @@
 
 	GLOB.revenant_relay_mobs |= src
 
+	// DOPPLER EDIT ADDITION START - Calls a proc that gives langauges + manifest powers
+	add_roleplay_powers()
+	// DOPPLER EDIT ADDITION END
+
 /mob/living/basic/revenant/Destroy()
 	GLOB.revenant_relay_mobs -= src
 	return ..()
