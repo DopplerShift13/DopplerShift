@@ -26,7 +26,7 @@
 // Makes you appear. For when you want to be visible while monologueing. Or stalk people spooky style.
 /datum/action/cooldown/spell/revenant_manifest
 	name = "Manifest"
-	desc = "Manifests you into the realm of hte living for all to see. Unlike your other powers, this keeps you perpetually visible until you activate this ability again."
+	desc = "Manifests you into the realm of the living for all to see. Unlike your other powers, this keeps you perpetually visible until you activate this ability again."
 	button_icon = 'icons/mob/actions/actions_revenant.dmi'
 	background_icon_state = "bg_revenant"
 	overlay_icon_state = "bg_revenant_border"
@@ -55,7 +55,6 @@
 	// Decativates if active.
 	if(cast_on.has_status_effect(/datum/status_effect/revenant/revealed/manifest))
 		cast_on.remove_status_effect(/datum/status_effect/revenant/revealed/manifest)
-		to_chat(cast_on, span_revennotice("You recede from the corporeal realm."))
 		cast_on.balloon_alert(cast_on, "unmanifested")
 		return
 
