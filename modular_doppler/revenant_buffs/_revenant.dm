@@ -31,7 +31,7 @@
 	background_icon_state = "bg_revenant"
 	overlay_icon_state = "bg_revenant_border"
 	button_icon_state = "r_nightvision"
-	cooldown_time = 1 SECONDS
+	cooldown_time = 1
 	spell_requirements = NONE
 
 /datum/action/cooldown/spell/revenant_manifest/can_cast_spell(feedback = TRUE)
