@@ -491,6 +491,7 @@
 /obj/machinery/light/small/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/cigbutt,
+/obj/effect/landmark/start/prisoner,
 /turf/open/floor/iron/smooth_edge,
 /area/mine/laborcamp/quarters)
 "db" = (
@@ -4046,6 +4047,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/light/small/directional/north,
 /obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/prisoner,
 /turf/open/floor/iron/smooth_edge,
 /area/mine/laborcamp/quarters)
 "zU" = (
@@ -5152,6 +5154,7 @@
 /obj/effect/turf_decal/siding/wideplating_new{
 	dir = 1
 	},
+/obj/effect/landmark/start/prisoner,
 /turf/open/floor/iron/checker,
 /area/mine/laborcamp)
 "Ie" = (
