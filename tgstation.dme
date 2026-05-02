@@ -431,6 +431,7 @@
 #include "code\__DEFINES\~doppler_defines\enterprise_resource_planning.dm"
 #include "code\__DEFINES\~doppler_defines\examinemore.dm"
 #include "code\__DEFINES\~doppler_defines\flavor_defines.dm"
+#include "code\__DEFINES\~doppler_defines\fonts.dm"
 #include "code\__DEFINES\~doppler_defines\footsteps.dm"
 #include "code\__DEFINES\~doppler_defines\inventory.dm"
 #include "code\__DEFINES\~doppler_defines\is_helpers.dm"

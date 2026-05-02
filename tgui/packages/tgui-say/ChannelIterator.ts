@@ -5,6 +5,7 @@ export type Channel =
   // DOPPLER EDIT ADDITION START
   | 'Whis'
   | 'LOOC'
+  | 'Backstage'
   | 'Do'
   | 'IRC'
   // DOPPLER EDIT ADDITION END
@@ -26,6 +27,7 @@ export class ChannelIterator {
     // DOPPLER EDIT ADDITION
     'Whis',
     'LOOC',
+    'Backstage',
     'Do',
     'IRC',
     // DOPPLER EDIT ADDITION

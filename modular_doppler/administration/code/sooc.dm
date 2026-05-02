@@ -45,9 +45,9 @@
 
 	//Anonimity for players and deadminned admins
 	if(!holder || holder.deadmined)
-		if(!GLOB.ckey_to_sooc_name[key])
-			GLOB.ckey_to_sooc_name[key] = "Deputy [pick(GLOB.phonetic_alphabet)] [rand(1, 99)]"
-		keyname = GLOB.ckey_to_sooc_name[key]
+		if(!GLOB.ckey_to_anonymous[key])
+			GLOB.ckey_to_anonymous[key] = generate_anonymous_key()
+		keyname = GLOB.ckey_to_anonymous[key]
 		anon = TRUE
 
 	var/list/listeners = list()
@@ -57,18 +57,21 @@
 		//Admins with muted OOC do not get to listen to SOOC, but normal players do, as it could be admins talking important stuff to them
 		if(iterated_mob.client?.holder && !iterated_mob.client?.holder?.deadmined && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)
 			listeners[iterated_mob.client] = LISTEN_ADMIN
-		else
-			if(iterated_mob.mind)
-				var/datum/mind/mob_mind = iterated_mob.mind
-				if(GLOB.sooc_job_lookup[mob_mind.assigned_role?.title])
-					listeners[iterated_mob.client] = LISTEN_PLAYER
+			continue
+		if(GLOB.sooc_job_lookup[iterated_mob.mind?.assigned_role?.title])
+			listeners[iterated_mob.client] = LISTEN_PLAYER
+			continue
+		if(isobserver(iterated_mob) && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)
+			listeners[iterated_mob.client] = LISTEN_PLAYER
+			continue
 
 	for(var/iterated_listener as anything in listeners)
 		var/client/iterated_client = iterated_listener
 		var/mode = listeners[iterated_listener]
 		var/color = (!anon && CONFIG_GET(flag/allow_admin_ooccolor) && iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)) ? iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color) : GLOB.SOOC_COLOR
+		var/chat_icon = icon2html(MODULAR_EMOJI_SET, world, (is_admin(mob.client) && !GLOB.deadmins[mob.client?.ckey]) ? "dolphin" : "blorbo")
 		var/name = (mode == LISTEN_ADMIN && anon) ? "([key])[keyname]" : keyname
-		to_chat(iterated_client, span_oocplain("<font color='[color]'><b><span class='prefix'>SOOC:</span> <EM>[name]:</EM> <span class='message linkify'>[msg]</span></b></font>"))
+		to_chat(iterated_client, span_oocplain("<font color='[color]'>Private (S): [chat_icon] <EM>[name]</EM> says, <b><span class='message linkify'>[msg]</span></b></font>"))
 
 /proc/toggle_sooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling sooc
