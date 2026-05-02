@@ -7155,6 +7155,7 @@
 #include "modular_doppler\modular_antagonists\changeling\changeling.dm"
 #include "modular_doppler\modular_antagonists\datums\antag_recipes.dm"
 #include "modular_doppler\modular_antagonists\pirates\tiziran_raiders.dm"
+#include "modular_doppler\modular_balancing\jetpacks.dm"
 #include "modular_doppler\modular_cargo\doppler_cargo_packs.dm"
 #include "modular_doppler\modular_cosmetics\toggle_clothes.dm"
 #include "modular_doppler\modular_cosmetics\code\chest.dm"
