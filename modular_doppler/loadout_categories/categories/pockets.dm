@@ -373,7 +373,7 @@
 	name = "Builderbrick Chew Toy"
 	item_path = /obj/item/fidget_toy/chewy/builderbrick
 
-/datum/loadout_item/pocket_items/recreational
+/datum/loadout_item/pocket_items/recreational/raver_chewtoy
 	name = "Marsian Raver Chewtoy"
 	item_path = /obj/item/fidget_toy/chewy/raver_chewtoy
 
