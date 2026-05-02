@@ -79,9 +79,6 @@
 
 /datum/bodypart_overlay/mutant/ears/teshari
 
-/datum/bodypart_overlay/mutant/ears/teshari/get_global_feature_list()
-	return SSaccessories.ears_list_teshari
-
 /obj/item/organ/tail/teshari
 	name = "teshari tail"
 	desc = "A long, sinuous tail typically found in teshari. Whoever lost it probably isn't very pleased."
@@ -89,10 +86,7 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/teshari
 
 /datum/bodypart_overlay/mutant/tail/teshari
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/teshari/get_global_feature_list()
-	return SSaccessories.tails_list_teshari
+	feature_key = FEATURE_TAIL_TESHARI
 
 /obj/item/organ/stomach/teshari
 	name = "teshari stomach"

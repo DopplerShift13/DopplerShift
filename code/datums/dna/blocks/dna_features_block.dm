@@ -87,19 +87,7 @@
 /datum/dna_block/feature/accessory/pod_hair
 	feature_key = FEATURE_POD_HAIR
 
-/datum/dna_block/feature/pod_hair/create_unique_block(mob/living/carbon/human/target)
-	return construct_block(SSaccessories.pod_hair_list.Find(target.dna.features[feature_key]), length(SSaccessories.pod_hair_list))
-
-/datum/dna_block/feature/pod_hair/apply_to_mob(mob/living/carbon/human/target, dna_hash)
-	target.dna.features[feature_key] = SSaccessories.pod_hair_list[deconstruct_block(get_block(dna_hash), length(SSaccessories.pod_hair_list))]
-
 // DOPPLER ADDITIONS - DNA BLOCK
 /datum/dna_block/feature/breasts
 	feature_key = FEATURE_BREASTS
-
-/datum/dna_block/feature/breasts/create_unique_block(mob/living/carbon/human/target)
-	return construct_block(SSaccessories.breasts_list.Find(target.dna.features[feature_key]), length(SSaccessories.breasts_list))
-
-/datum/dna_block/feature/breasts/apply_to_mob(mob/living/carbon/human/target, dna_hash)
-	target.dna.features[feature_key] = SSaccessories.breasts_list[deconstruct_block(get_block(dna_hash), length(SSaccessories.breasts_list))]
 // DOPPLER ADDITIONS END

@@ -3,80 +3,80 @@
 /obj/item/organ/ears/cat
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/cat_ears
 
-/datum/bodypart_overlay/mutant/ears/cat_ears/get_global_feature_list()
-	return SSaccessories.ears_list
+/datum/bodypart_overlay/mutant/ears/cat_ears
+	feature_key = FEATURE_EARS
 
 /// Lizard ears
 //
 /obj/item/organ/ears/lizard
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/lizard_ears
 
-/datum/bodypart_overlay/mutant/ears/lizard_ears/get_global_feature_list()
-	return SSaccessories.ears_list_lizard
+/datum/bodypart_overlay/mutant/ears/lizard_ears
+	feature_key = FEATURE_EARS_LIZARD
 
 /// Fox ears
 //
 /obj/item/organ/ears/fox
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/fox_ears
 
-/datum/bodypart_overlay/mutant/ears/fox_ears/get_global_feature_list()
-	return SSaccessories.ears_list_fox
+/datum/bodypart_overlay/mutant/ears/fox_ears
+	feature_key = FEATURE_EARS_FOX
 
 /// Dog ears
 //
 /obj/item/organ/ears/dog
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/dog_ears
 
-/datum/bodypart_overlay/mutant/ears/dog_ears/get_global_feature_list()
-	return SSaccessories.ears_list_dog
+/datum/bodypart_overlay/mutant/ears/dog_ears
+	feature_key = FEATURE_EARS_DOG
 
 /// Bunny ears
 //
 /obj/item/organ/ears/bunny
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/bunny_ears
 
-/datum/bodypart_overlay/mutant/ears/bunny_ears/get_global_feature_list()
-	return SSaccessories.ears_list_bunny
+/datum/bodypart_overlay/mutant/ears/bunny_ears
+	feature_key = FEATURE_EARS_BUNNY
 
 /// Bird ears
 //
 /obj/item/organ/ears/bird
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/bird_ears
 
-/datum/bodypart_overlay/mutant/ears/bird_ears/get_global_feature_list()
-	return SSaccessories.ears_list_bird
+/datum/bodypart_overlay/mutant/ears/bird_ears
+	feature_key = FEATURE_EARS_BIRD
 
 /// Mouse ears
 //
 /obj/item/organ/ears/mouse
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/mouse_ears
 
-/datum/bodypart_overlay/mutant/ears/mouse_ears/get_global_feature_list()
-	return SSaccessories.ears_list_mouse
+/datum/bodypart_overlay/mutant/ears/mouse_ears
+	feature_key = FEATURE_EARS_MOUSE
 
 /// Monkey ears
 //
 /obj/item/organ/ears/monkey
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/monkey_ears
 
-/datum/bodypart_overlay/mutant/ears/monkey_ears/get_global_feature_list()
-	return SSaccessories.ears_list_monkey
+/datum/bodypart_overlay/mutant/ears/monkey_ears
+	feature_key = FEATURE_EARS_MONKEY
 
 /// Deer ears
 //
 /obj/item/organ/ears/deer
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/deer_ears
 
-/datum/bodypart_overlay/mutant/ears/deer_ears/get_global_feature_list()
-	return SSaccessories.ears_list_deer
+/datum/bodypart_overlay/mutant/ears/deer_ears
+	feature_key = FEATURE_EARS_DEER
 
 /// Fish ears
 //
 /obj/item/organ/ears/fish
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/fish_ears
 
-/datum/bodypart_overlay/mutant/ears/fish_ears/get_global_feature_list()
-	return SSaccessories.ears_list_fish
+/datum/bodypart_overlay/mutant/ears/fish_ears
+	feature_key = FEATURE_EARS_FISH
 
 /// Bug ears
 //
@@ -84,16 +84,16 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/bug_ears
 	organ_traits = list(TRAIT_ANTENNAE)
 
-/datum/bodypart_overlay/mutant/ears/bug_ears/get_global_feature_list()
-	return SSaccessories.ears_list_bug
+/datum/bodypart_overlay/mutant/ears/bug_ears
+	feature_key = FEATURE_EARS_BUG
 
 /// Humanoid ears
 //
 /obj/item/organ/ears/humanoid
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/humanoid_ears
 
-/datum/bodypart_overlay/mutant/ears/humanoid_ears/get_global_feature_list()
-	return SSaccessories.ears_list_humanoid
+/datum/bodypart_overlay/mutant/ears/humanoid_ears
+	feature_key = FEATURE_EARS_HUMANOID
 
 /// Cybernetic ears
 //
@@ -101,14 +101,14 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/cybernetic
 	restyle_flags = NONE
 
-/datum/bodypart_overlay/mutant/ears/cybernetic/get_global_feature_list()
-	return SSaccessories.ears_list_synthetic
+/datum/bodypart_overlay/mutant/ears/cybernetic
+	feature_key = FEATURE_EARS_CYBERNETIC
 
 /// Alien ears
 //
 /obj/item/organ/ears/alien
 	bodypart_overlay = /datum/bodypart_overlay/mutant/ears/alien_ears
 
-/datum/bodypart_overlay/mutant/ears/alien_ears/get_global_feature_list()
-	return SSaccessories.ears_list_alien
+/datum/bodypart_overlay/mutant/ears/alien_ears
+	feature_key = FEATURE_EARS_ALIEN
 
