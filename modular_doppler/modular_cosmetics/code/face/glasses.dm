@@ -165,7 +165,7 @@
 	)
 /obj/item/clothing/glasses/hud/eyepatch/med
 	name = "medical HUD eyepatch"
-	desc = "Do no harm; but, maybe harm has befallen you-- or your poor eyeball. Thankfully there's a way to continue your oath, thankfully it didn't mention strange experimental surgeries."
+	desc = "As the saying goes, 'Do no harm.' But, maybe harm has befallen you— or your poor eyeball. Fortunately there's a way to continue your oath, and it's thankfully not a strange experimental surgery."
 	icon_state = "medpatch"
 	base_icon_state = "medpatch"
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
@@ -225,7 +225,7 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/sci
 	name = "science HUD eyepatch"
-	desc = "Every few years, the aspiring mad scientist says to themselves 'I've got the castle, the evil laugh and equipment, but what I need is a look', thankfully, Dr. Galox has already covered that for you dear friend - while it doesn't do much beyond scan chemicals, what it lacks in use it makes up for in style."
+	desc = "An eyepatch fitted with an R&D scanner HUD. It can scan chemicals, tell you the makeup of certain materials, and even features an internal database that can scan objects for any tech particularly noteworthy."
 	icon_state = "scipatch"
 	base_icon_state = "scipatch"
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
