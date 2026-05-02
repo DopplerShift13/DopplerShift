@@ -7373,6 +7373,7 @@
 #include "modular_doppler\modular_customization\tri_color\tri_color_prefs_bespoke.dm"
 #include "modular_doppler\modular_customization\tri_color\wings.dm"
 #include "modular_doppler\modular_customization\verbs\human.dm"
+#include "modular_doppler\modular_emoji\emoji.dm"
 #include "modular_doppler\modular_food_drinks_and_chems\chemistry_and_narcotics\cannabis.dm"
 #include "modular_doppler\modular_food_drinks_and_chems\chemistry_and_narcotics\chemistry_reagents.dm"
 #include "modular_doppler\modular_food_drinks_and_chems\food_and_drinks\alcohol_reagents.dm"
