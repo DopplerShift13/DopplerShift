@@ -622,6 +622,19 @@ export function MainPage(props: MainPageProps) {
                 }
               />
             </Stack.Item>
+			{/* DOPPLER ADDITION START */}
+            <Stack.Item position="relative">
+              <Dropdown
+                width="100%"
+                selected={data.character_preferences.misc.background_state}
+                options={serverData?.background_state.choices || []}
+                onSelected={(value) =>
+                  act('update_background', {
+                    new_background: value,
+                  })
+                }
+              />
+            </Stack.Item>
             {/* DOPPLER ADDITION END */}
             <Stack.Item position="relative">
               <NameInput
