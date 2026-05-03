@@ -49,6 +49,7 @@
 /obj/item/mod/control/pre_equipped/civilian
 	theme = /datum/mod_theme/civilian
 	applied_modules = list(
+		/obj/item/mod/module/storage,
 		/obj/item/mod/module/welding,
 		/obj/item/mod/module/flashlight,
 	)

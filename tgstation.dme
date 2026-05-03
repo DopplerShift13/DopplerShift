@@ -7144,6 +7144,7 @@
 #include "modular_doppler\martial_arts\mad_dog.dm"
 #include "modular_doppler\mining\equipment\trophies_misc.dm"
 #include "modular_doppler\modsuits\anomalock_edits.dm"
+#include "modular_doppler\modsuits\civilian_belt.dm"
 #include "modular_doppler\modsuits\kinesis.dm"
 #include "modular_doppler\modsuits\mod_theme.dm"
 #include "modular_doppler\modsuits\modules_general.dm"
