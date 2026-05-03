@@ -1,11 +1,9 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "az" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon{
-	color = "#FF6821"
+	color = "#795B51"
 	},
-/turf/closed/wall/mineral/nanocarbon{
-	color = #FF6821
-	},
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/arrival)
 "ca" = (
 /obj/structure/chair/comfy/shuttle{
@@ -19,6 +17,7 @@
 /obj/structure/shuttle_decoration/radiator{
 	dir = 1
 	},
+/obj/structure/shuttle_decoration/wall_plate/armor,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 "eU" = (
@@ -31,14 +30,14 @@
 /area/shuttle/arrival)
 "hb" = (
 /obj/machinery/exoscanner/shuttle_part/sensors_blister/directional/east,
-/turf/closed/wall/mineral/nanocarbon{
-	color = #FF6821
-	},
+/turf/closed/wall/mineral/nanocarbon,
 /area/shuttle/arrival)
 "hk" = (
-/turf/closed/wall/mineral/nanocarbon{
-	color = #FF6821
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon{
+	color = "#795B51";
+	dir = 1
 	},
+/turf/closed/wall/mineral/nanocarbon,
 /area/shuttle/arrival)
 "hs" = (
 /obj/machinery/power/shuttle_engine/propulsion{
@@ -55,20 +54,18 @@
 "ir" = (
 /obj/structure/shuttle_decoration/rcs/directional/north,
 /obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 "iM" = (
 /obj/structure/shuttle_decoration/landing_engine/directional/south,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 "ja" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon{
-	dir = 1;
-	color = "#FF6821"
+	color = "#795B51";
+	dir = 1
 	},
-/turf/closed/wall/mineral/nanocarbon{
-	color = #FF6821
-	},
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/arrival)
 "lV" = (
 /obj/structure/fluff/tram_rail/end{
@@ -79,8 +76,9 @@
 /turf/template_noop,
 /area/shuttle/arrival)
 "nD" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
 /obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 9
+	dir = 1
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
@@ -88,7 +86,7 @@
 /obj/structure/shuttle_decoration/rcs/directional/south,
 /obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,
 /obj/structure/marker_beacon/olive,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 "oi" = (
 /obj/structure/shuttle_decoration/wall_plate/gold_foil{
@@ -97,10 +95,10 @@
 /turf/closed/wall/mineral/aluminum,
 /area/shuttle/arrival)
 "ps" = (
-/obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 10
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon{
+	color = "#795B51"
 	},
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/turf/closed/wall/mineral/nanocarbon,
 /area/shuttle/arrival)
 "pB" = (
 /obj/structure/shuttle_access_panel,
@@ -127,7 +125,7 @@
 /area/shuttle/arrival)
 "sc" = (
 /obj/structure/shuttle_decoration/landing_engine/directional/north,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 "tU" = (
 /obj/structure/railing,
@@ -152,9 +150,7 @@
 "xR" = (
 /obj/structure/shuttle_decoration/bullbar/directional/north,
 /obj/structure/shuttle_decoration/ladder_black/directional/north,
-/turf/closed/wall/mineral/nanocarbon{
-	color = #FF6821
-	},
+/turf/closed/wall/mineral/nanocarbon,
 /area/shuttle/arrival)
 "yo" = (
 /obj/structure/fluff/tram_rail{
@@ -207,12 +203,16 @@
 /obj/structure/shuttle_access_panel,
 /turf/open/floor/iron/colony/texture/nanocarbon,
 /area/shuttle/arrival)
+"CS" = (
+/obj/structure/shuttle_decoration/liquid_tank/battery,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/arrival)
 "Dh" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon{
-	dir = 5;
-	color = "#FF6821"
+	color = "#795B51";
+	dir = 5
 	},
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 "Dj" = (
 /obj/structure/fluff/tram_rail/anchor{
@@ -227,12 +227,12 @@
 /turf/template_noop,
 /area/shuttle/arrival)
 "DZ" = (
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon,
 /area/shuttle/arrival)
 "Gb" = (
-/obj/machinery/door/airlock/shuttle/glass,
 /obj/structure/fans/tiny/invisible,
 /obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/machinery/door/airlock/shuttle,
 /turf/open/floor/iron/colony/texture/nanocarbon,
 /area/shuttle/arrival)
 "Gp" = (
@@ -249,9 +249,7 @@
 /area/shuttle/arrival)
 "HY" = (
 /obj/machinery/exoscanner/shuttle_part/radar_panel/directional/east,
-/turf/closed/wall/mineral/nanocarbon{
-	color = #FF6821
-	},
+/turf/closed/wall/mineral/nanocarbon,
 /area/shuttle/arrival)
 "Ka" = (
 /obj/structure/fans/tiny/invisible,
@@ -259,16 +257,16 @@
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/arrival)
 "Lt" = (
+/obj/structure/shuttle_decoration/junction_box/directional/west,
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon{
-	dir = 4;
-	color = "#FF6821"
+	color = "#795B51";
+	dir = 4
 	},
-/turf/closed/wall/mineral/nanocarbon{
-	color = #FF6821
-	},
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/arrival)
 "NY" = (
 /obj/machinery/light/small/red/dim/directional/east,
+/obj/structure/shuttle_decoration/liquid_tank/coolant,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/arrival)
 "RG" = (
@@ -290,10 +288,10 @@
 /area/shuttle/arrival)
 "TI" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon{
-	dir = 6;
-	color = "#FF6821"
+	color = "#795B51";
+	dir = 6
 	},
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 "Vy" = (
 /obj/structure/chair/comfy/shuttle{
@@ -331,6 +329,9 @@
 /turf/open/floor/iron/colony/texture/nanocarbon,
 /area/shuttle/arrival)
 "WC" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
 /obj/structure/shuttle_decoration/radiator,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
@@ -339,7 +340,7 @@
 /obj/structure/shuttle_decoration/bullbar/directional/east,
 /obj/structure/shuttle_decoration/headlight/directional/east,
 /obj/structure/marker_beacon/burgundy,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 "YE" = (
 /turf/open/floor/plating/nanocarbon,
@@ -347,7 +348,7 @@
 "YX" = (
 /obj/structure/shuttle_decoration/rcs/directional/south,
 /obj/structure/marker_beacon/olive,
-/turf/closed/wall/mineral/nanocarbon/nodiagonal,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/arrival)
 
 (1,1,1) = {"
@@ -356,7 +357,7 @@ nD
 zP
 hs
 zP
-ps
+nD
 VJ
 "}
 (2,1,1) = {"
@@ -371,7 +372,7 @@ VJ
 (3,1,1) = {"
 ir
 rA
-YE
+CS
 YE
 NY
 Hf
@@ -393,7 +394,7 @@ zr
 tU
 Vy
 rU
-hk
+ps
 "}
 (6,1,1) = {"
 Ka
@@ -411,7 +412,7 @@ BL
 rK
 Gp
 Gp
-hk
+ps
 "}
 (8,1,1) = {"
 xR
@@ -429,7 +430,7 @@ Vy
 rK
 Vy
 Vy
-hk
+ps
 "}
 (10,1,1) = {"
 Ka
@@ -447,7 +448,7 @@ Gp
 tU
 Gp
 ca
-hk
+ps
 "}
 (12,1,1) = {"
 sc
