@@ -1,12 +1,5 @@
-GLOBAL_VAR_INIT(SOOC_COLOR, "#ff5454")
-GLOBAL_VAR_INIT(sooc_allowed, TRUE)	// used with admin verbs to disable sooc - not a config option
-GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
-
-#define SOOC_LISTEN_PLAYER 1
-#define SOOC_LISTEN_ADMIN 2
-
 /client/verb/sooc(msg as text)
-	set name = "SOOC"
+	set name = "OOC: Security"
 	set category = "OOC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
@@ -16,10 +9,8 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 	if(!mob)
 		return
 
-	var/static/list/job_lookup = list(JOB_CAPTAIN=TRUE, JOB_HEAD_OF_SECURITY=TRUE, JOB_WARDEN=TRUE, JOB_DETECTIVE=TRUE, JOB_SECURITY_OFFICER=TRUE, JOB_COMMAND_BODYGUARD=TRUE)
 	if(!holder)
-		var/job = mob?.mind.assigned_role.title
-		if(!job || !job_lookup[job])
+		if(GLOB.sooc_job_lookup[mob.mind?.assigned_role?.title])
 			to_chat(src, span_danger("You're not a security role!"))
 			return
 		if(!GLOB.sooc_allowed)
@@ -53,9 +44,9 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 
 	//Anonimity for players and deadminned admins
 	if(!holder || holder.deadmined)
-		if(!GLOB.ckey_to_sooc_name[key])
-			GLOB.ckey_to_sooc_name[key] = "Deputy [pick(GLOB.phonetic_alphabet)] [rand(1, 99)]"
-		keyname = GLOB.ckey_to_sooc_name[key]
+		if(!GLOB.ckey_to_anonymous[key])
+			GLOB.ckey_to_anonymous[key] = generate_anonymous_key()
+		keyname = GLOB.ckey_to_anonymous[key]
 		anon = TRUE
 
 	var/list/listeners = list()
@@ -64,22 +55,22 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 		var/mob/iterated_mob = iterated_player
 		//Admins with muted OOC do not get to listen to SOOC, but normal players do, as it could be admins talking important stuff to them
 		if(iterated_mob.client?.holder && !iterated_mob.client?.holder?.deadmined && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)
-			listeners[iterated_mob.client] = SOOC_LISTEN_ADMIN
-		else
-			if(iterated_mob.mind)
-				var/datum/mind/mob_mind = iterated_mob.mind
-				if(job_lookup[mob_mind.assigned_role?.title])
-					listeners[iterated_mob.client] = SOOC_LISTEN_PLAYER
+			listeners[iterated_mob.client] = LISTEN_ADMIN
+			continue
+		if(GLOB.sooc_job_lookup[iterated_mob.mind?.assigned_role?.title])
+			listeners[iterated_mob.client] = LISTEN_PLAYER
+			continue
+		if(isobserver(iterated_mob) && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)
+			listeners[iterated_mob.client] = LISTEN_PLAYER
+			continue
 
 	for(var/iterated_listener as anything in listeners)
 		var/client/iterated_client = iterated_listener
 		var/mode = listeners[iterated_listener]
 		var/color = (!anon && CONFIG_GET(flag/allow_admin_ooccolor) && iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)) ? iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color) : GLOB.SOOC_COLOR
-		var/name = (mode == SOOC_LISTEN_ADMIN && anon) ? "([key])[keyname]" : keyname
-		to_chat(iterated_client, span_oocplain("<font color='[color]'><b><span class='prefix'>SOOC:</span> <EM>[name]:</EM> <span class='message linkify'>[msg]</span></b></font>"))
-
-#undef SOOC_LISTEN_PLAYER
-#undef SOOC_LISTEN_ADMIN
+		var/chat_icon = icon2html(MODULAR_EMOJI_SET, world, (is_admin(mob.client) && !GLOB.deadmins[mob.client?.ckey]) ? "dolphin" : "blorbo")
+		var/name = (mode == LISTEN_ADMIN && anon) ? "([key])[keyname]" : keyname
+		to_chat(iterated_client, span_oocplain("<font color='[color]'>Private (S): [chat_icon] <EM>[name]</EM> says, <b><span class='message linkify'>[msg]</span></b></font>"))
 
 /proc/toggle_sooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling sooc
@@ -90,7 +81,6 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 	else //otherwise just toggle it
 		GLOB.sooc_allowed = !GLOB.sooc_allowed
 	var/list/listeners = list()
-	var/static/list/job_lookup = list(JOB_SECURITY_OFFICER = TRUE, JOB_WARDEN = TRUE, JOB_DETECTIVE = TRUE, JOB_HEAD_OF_SECURITY = TRUE, JOB_CAPTAIN = TRUE, JOB_COMMAND_BODYGUARD = TRUE)
 	for(var/iterated_player as anything in GLOB.player_list)
 		var/mob/iterated_mob = iterated_player
 		if(!iterated_mob.client?.holder?.deadmined)
@@ -98,13 +88,13 @@ GLOBAL_LIST_EMPTY(ckey_to_sooc_name)
 		else
 			if(iterated_mob.mind)
 				var/datum/mind/mob_mind = iterated_mob.mind
-				if(job_lookup[mob_mind.assigned_role])
+				if(GLOB.sooc_job_lookup[mob_mind.assigned_role])
 					listeners[iterated_mob.client] = TRUE
 	for(var/iterated_listener as anything in listeners)
 		var/client/iterated_client = iterated_listener
 		to_chat(iterated_client, span_oocplain("<b>The SOOC channel has been globally [GLOB.sooc_allowed ? "enabled" : "disabled"].</b>"))
 
-ADMIN_VERB(togglesooc, R_ADMIN, "Toggle Security OOC", "Toggles Security OOC.", ADMIN_CATEGORY_SERVER)
+ADMIN_VERB(toggle_sooc, R_ADMIN, "Toggle Security OOC", "Toggles Security OOC.", ADMIN_CATEGORY_SERVER)
 	toggle_sooc()
 	log_admin("[key_name(usr)] toggled Security OOC.")
 	message_admins("[key_name_admin(usr)] toggled Security OOC.")
