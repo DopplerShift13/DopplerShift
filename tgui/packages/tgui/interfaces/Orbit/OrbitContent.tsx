@@ -34,15 +34,33 @@ export function OrbitContent(props) {
   }
 
   const sections: readonly ContentSection[] = [
+    /** DOPPLER ADDITIONS START -- More categories! */
+    {
+      color: 'black',
+      content: data.cantina,
+      title: 'Cantina Crowd',
+    },
+    {
+      color: 'orange',
+      content: data.ninelives,
+      title: '9LP Crewmembers',
+    },
+    {
+      color: 'teal',
+      content: data.truth,
+      title: 'Truth Dwellers',
+    },
+    /* DOPPLER EDIT - moved down
     {
       color: 'purple',
       content: data.deadchat_controlled,
       title: 'Deadchat Controlled',
     },
+    /** DOPPLER ADDITIONS END */
     {
       color: 'blue',
       content: data.alive,
-      title: 'Alive',
+      title: 'Misc Alive', // DOPPLER EDIT - old: 'Alive'
     },
     {
       content: data.dead,
@@ -52,6 +70,13 @@ export function OrbitContent(props) {
       content: data.ghosts,
       title: 'Ghosts',
     },
+    /** DOPPLER ADDITION START */
+    {
+      color: 'purple',
+      content: data.deadchat_controlled,
+      title: 'Deadchat Controlled',
+    },
+    /** DOPPLER ADDITION END */
     {
       content: data.misc,
       title: 'Misc',

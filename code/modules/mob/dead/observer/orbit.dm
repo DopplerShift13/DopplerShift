@@ -70,6 +70,11 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 	var/list/ghosts = list()
 	var/list/misc = list()
 	var/list/npcs = list()
+	// DOPPLER ADDITIONS START
+	var/list/ninelives = list()
+	var/list/cantina = list()
+	var/list/truth = list()
+	// DOPPLER ADDITIONS END
 
 	for(var/name in new_mob_pois)
 		var/list/serialized = list()
@@ -109,6 +114,17 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 		if(isliving(mob_poi))
 			serialized += get_living_data(mob_poi)
 
+		// DOPPLER ADDITION START - Additional filters for 9LP crew and popular ghost roles, players that aren't caught by them get put under 'misc alive'
+		if(mob_poi.mind?.assigned_role?.faction == FACTION_STATION)
+			ninelives += list(serialized)
+			continue
+		if(istype(mob_poi.mind?.assigned_role, /datum/job/cantinoid))
+			cantina += list(serialized) // we don't need the antag data tbh
+			continue
+		if(istype(mob_poi.mind?.assigned_role, /datum/job/primitive_genemod))
+			truth += list(serialized)
+			continue
+		// DOPPLER ADDITION END
 		var/list/antag_data = get_antag_data(mob_poi.mind, is_admin)
 		if(length(antag_data))
 			serialized += antag_data
@@ -147,6 +163,11 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 		"ghosts" = ghosts,
 		"misc" = misc,
 		"npcs" = npcs,
+		// DOPPLER ADDITIONS START
+		"ninelives" = ninelives,
+		"cantina" = cantina,
+		"truth" = truth,
+		// DOPPLER ADDITIONS END
 		"can_observe" = !HAS_TRAIT(user, TRAIT_NO_OBSERVE),
 	)
 

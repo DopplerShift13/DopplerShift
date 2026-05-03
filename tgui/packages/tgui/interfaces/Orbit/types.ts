@@ -19,6 +19,11 @@ export type OrbitData = {
   ghosts: Observable[];
   misc: Observable[];
   npcs: Observable[];
+  /** DOPPLER ADDITIONS START */
+  ninelives: Observable[];
+  cantina: Observable[];
+  truth: Observable[];
+  /** DOPPLER ADDITIONS END */
   orbiting: Observable | null;
   can_observe: BooleanLike;
 };
