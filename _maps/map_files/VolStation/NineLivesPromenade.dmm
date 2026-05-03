@@ -14360,7 +14360,7 @@
 /obj/structure/window/reinforced/spawner/directional/west,
 /obj/effect/turf_decal/tile/yellow/half{
 	dir = 8;
-	color = "#EFB341"s"
+	color = "#EFB341"
 	},
 /obj/effect/turf_decal/siding/thinplating_new/light{
 	dir = 8
