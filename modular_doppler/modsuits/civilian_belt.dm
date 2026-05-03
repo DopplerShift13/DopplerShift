@@ -5,3 +5,4 @@
 		/obj/item/mod/module/welding,
 		/obj/item/mod/module/flashlight,
 	)
+	return .. ()
