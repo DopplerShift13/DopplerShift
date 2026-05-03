@@ -602,6 +602,7 @@ GLOBAL_VAR(generic_uni_icon_ears_tesh)
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND
 	feature_key = FEATURE_EARS
 	feature_key_sprite = FEATURE_EARS
+	special_feature_key = FEATURE_EARS
 
 /datum/bodypart_overlay/mutant/ears/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
 	draw_color = limb.owner?.dna.features[FEATURE_EARS_COLORS]

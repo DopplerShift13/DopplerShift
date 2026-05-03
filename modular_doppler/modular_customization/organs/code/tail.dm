@@ -92,6 +92,7 @@
 
 /datum/bodypart_overlay/mutant/tail/fox
 	feature_key = FEATURE_TAIL_FOX
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Bunny tail
 //
@@ -102,6 +103,7 @@
 
 /datum/bodypart_overlay/mutant/tail/bunny
 	feature_key = FEATURE_TAIL_BUNNY
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Bird tail
 //
@@ -112,6 +114,7 @@
 
 /datum/bodypart_overlay/mutant/tail/bird
 	feature_key = FEATURE_TAIL_BIRD
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Bug tail
 //
@@ -121,6 +124,7 @@
 
 /datum/bodypart_overlay/mutant/tail/bug
 	feature_key = FEATURE_TAIL_BUG
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Deer tail
 //
@@ -131,6 +135,7 @@
 
 /datum/bodypart_overlay/mutant/tail/deer
 	feature_key = FEATURE_TAIL_DEER
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Fish tail
 //
@@ -147,6 +152,7 @@
 
 /datum/bodypart_overlay/mutant/tail/cybernetic
 	feature_key = FEATURE_TAIL_CYBERNETIC
+	special_feature_key = FEATURE_TAIL_OTHER
 
 
 /// Humanoid tail
@@ -158,6 +164,7 @@
 
 /datum/bodypart_overlay/mutant/tail/humanoid
 	feature_key = FEATURE_TAIL_HUMANOID
+	special_feature_key = FEATURE_TAIL_OTHER
 
 
 /// Alien tail
@@ -169,3 +176,4 @@
 
 /datum/bodypart_overlay/mutant/tail/alien
 	feature_key = FEATURE_TAIL_ALIEN
+	special_feature_key = FEATURE_TAIL_OTHER

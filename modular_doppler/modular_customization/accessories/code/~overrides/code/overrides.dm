@@ -14,6 +14,8 @@
 /datum/bodypart_overlay/mutant
 	/// Annoying annoying annoyed annoyance - this is to avoid a massive headache trying to work around tails
 	var/feature_key_sprite = null
+	/// The feature key we use when checking for ears or tails because they're done a special way, the var above is for something different (??)
+	var/special_feature_key = null
 
 /datum/dna/initialize_dna(newblood_type, create_mutation_blocks = TRUE, randomize_features = TRUE)
 	. = ..()
