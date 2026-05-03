@@ -165,7 +165,7 @@
 
 /datum/loadout_item/belts/misc/modsuit_civilian
 	name = "Civilian Modsuit"
-	item_path = /obj/item/mod/control/pre_equipped/civilian_belt
+	item_path = /obj/item/mod/control/pre_equipped/civilian
 
 /datum/loadout_item/belts/misc/lantern
 	name = "Lantern"
