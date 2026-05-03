@@ -72,6 +72,7 @@
 	tesh.dna.ear_type = TESHARI
 	tesh.dna.features[FEATURE_MUTANT_COLOR] = base_color
 	tesh.dna.features[FEATURE_EARS] = "Teshari Feathers Upright"
+	tesh.dna.features[FEATURE_EARS_TESHARI] = "Teshari Feathers Upright"
 	tesh.dna.features[FEATURE_EARS_COLORS][1] = base_color
 	tesh.dna.features[FEATURE_EARS_COLORS][2] = ear_color
 	regenerate_organs(tesh, src, visual_only = TRUE)

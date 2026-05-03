@@ -10,7 +10,7 @@
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features[FEATURE_BREASTS])
-		if(target.dna.features[FEATURE_BREASTS] != "Bare")
+		if(target.dna.features[FEATURE_BREASTS] != SPRITE_ACCESSORY_NONE)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/breasts)
 			//replacement.build_from_dna(target.dna, "breasts") //TODO: do we need to add this
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)

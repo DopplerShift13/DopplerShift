@@ -44,6 +44,7 @@
 	human_for_preview.dna.features[FEATURE_SNOUT_COLORS][3] = "#776155"
 	human_for_preview.dna.ear_type = FOX
 	human_for_preview.dna.features[FEATURE_EARS] = "Fox"
+	human_for_preview.dna.features[FEATURE_EARS_FOX] = "Fox"
 	human_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#776155"
 	human_for_preview.dna.features[FEATURE_EARS_COLORS][2] = "#ffffff"
 	human_for_preview.set_haircolor("#574036", update = FALSE)

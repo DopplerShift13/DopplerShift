@@ -95,6 +95,7 @@
 	ramatan_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#FFFFFF"
 	ramatan_for_preview.dna.ear_type = ALIEN
 	ramatan_for_preview.dna.features[FEATURE_EARS] = "Ramatan"
+	ramatan_for_preview.dna.features[FEATURE_EARS_ALIEN] = "Ramatan"
 	ramatan_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#ffffff"
 	ramatan_for_preview.dna.features[FEATURE_EARS_COLORS][2] = "#dddddd"
 	ramatan_for_preview.dna.features[FEATURE_FRILLS] = "Ramatan"

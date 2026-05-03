@@ -78,6 +78,7 @@
 	return span_notice("[owner.p_They()] [owner.p_have()] [owner.p_their()] ears perked up, listening closely to whisper-quiet sounds.")
 
 /datum/bodypart_overlay/mutant/ears/teshari
+	feature_key = FEATURE_EARS_TESHARI
 
 /obj/item/organ/tail/teshari
 	name = "teshari tail"

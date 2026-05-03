@@ -58,7 +58,7 @@ Unlike normal organs, we're actually inside a persons limbs at all times
 		return FALSE
 
 	var/datum/bodypart_overlay/mutant/bodypart_overlay = initial(organpath.bodypart_overlay)
-	var/feature_key = !isnull(bodypart_overlay) && initial(bodypart_overlay.feature_key)
+	var/feature_key = !isnull(bodypart_overlay) && (initial(bodypart_overlay.feature_key_sprite) || initial(bodypart_overlay.feature_key)) // DOPPLER EDIT - Fixes runtimes with modular ears - var/feature_key = !isnull(bodypart_overlay) && initial(bodypart_overlay.feature_key)
 	if(isnull(feature_key))
 		return TRUE
 

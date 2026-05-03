@@ -49,6 +49,7 @@
 	human_for_preview.dna.features[FEATURE_FLUFF_COLORS][1] = "#dae7f7"
 	human_for_preview.dna.ear_type = BUG
 	human_for_preview.dna.features[FEATURE_EARS] = "Straight"
+	human_for_preview.dna.features[FEATURE_EARS_BUG] = "Straight"
 	human_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#ffffff"
 	human_for_preview.eye_color_left = "#46C346"
 	human_for_preview.eye_color_right = "#46C346"

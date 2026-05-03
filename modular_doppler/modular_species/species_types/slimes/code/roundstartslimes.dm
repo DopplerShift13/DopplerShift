@@ -314,6 +314,7 @@
 	human.dna.features[FEATURE_MUTANT_COLOR] = "#EF313F"
 	human.dna.ear_type = BUNNY
 	human.dna.features[FEATURE_EARS] = "Lop (Sexy)"
+	human.dna.features[FEATURE_EARS_BUNNY] = "Lop (Sexy)"
 	human.dna.features[FEATURE_EARS_COLORS][1] = "#EF313F"
 	human.dna.features[FEATURE_EARS_COLORS][2] = "#EF313F"
 	human.dna.features[FEATURE_EARS_COLORS][3] = "#EF313F"

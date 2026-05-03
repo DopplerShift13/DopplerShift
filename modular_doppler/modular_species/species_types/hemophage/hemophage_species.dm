@@ -104,6 +104,7 @@
 	human.dna.features[FEATURE_HORNS_COLORS][1] = "#52435e"
 	human.dna.ear_type = HUMANOID
 	human.dna.features[FEATURE_EARS] = "Elf (wide)"
+	human.dna.features[FEATURE_EARS_HUMANOID] = "Elf (wide)"
 	human.dna.features[FEATURE_EARS_COLORS][1] = "#F7D1C3"
 	human.hair_color = "#f1cc9c"
 	human.lip_style = "lipstick"
