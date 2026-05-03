@@ -43,6 +43,8 @@
 
 /datum/species/golem/get_species_lore()
 	return list(
+		"=== SEE WIKI ARTICLE: Golems ===",
+
 		"Without their rock layer golems can be easily mistaken as giant myriapods. With an average length of seven feet, the true form of a golem is defined by their cylindrical trunks and tapered heads. \
 			Hundreds of sticky cilia- paired in twos- line each flank of a golem's cuticle coated body, their opaque exoskeleton typically grey in coloration. \
 			Relying on a mixture of antennae and ocelli for sight, they are one of the few sapient species that can see into the ultraviolet range.",

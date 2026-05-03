@@ -1,4 +1,5 @@
 /datum/species/pod
+	name = "Viridian"
 	exotic_bloodtype = BLOOD_TYPE_SAP
 	digitigrade_customization = DIGITIGRADE_OPTIONAL
 
@@ -14,6 +15,8 @@
 
 /datum/species/pod/get_species_lore()
 	return list(
+		"=== SEE WIKI ARTICLE: Viridian ===",
+
 		"Viridians are a wide-ranging species of sapient plants. Ranging from humanoid, to non-humanoid, the description of a Viridian is incredibly loose.",
 
 		"They draw from pre-existing plant species, the term 'cultivars' used to categorize their variations. \

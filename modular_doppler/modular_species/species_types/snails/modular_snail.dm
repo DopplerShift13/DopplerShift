@@ -11,14 +11,27 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/digitigrade/insectoid,
 	)
 
+/datum/species/snail/get_species_description()
+	return "A species best described as oversized snails, \
+		these are slimy beings with a shell on their back and little eyestalks."
+
+/datum/species/snail/get_species_lore()
+	return list(
+		"=== TO BE IMPROVED ===",
+
+		"One of the founding species of the OCA.",
+	)
+
+/datum/species/snail/on_species_gain(mob/living/carbon/new_snailperson, datum/species/old_species, pref_load, regenerate_icons)
+	. = ..()
+	new_snailperson.update_icons()
+
+
 /datum/outfit/snail_preview
 	name = "Snail (Species Preview)"
 	uniform = /obj/item/clothing/under/rank/medical/chemist/pharmacologist/skirt
 	mask = /obj/item/clothing/mask/surgical
 
-/datum/species/snail/on_species_gain(mob/living/carbon/new_snailperson, datum/species/old_species, pref_load, regenerate_icons)
-	. = ..()
-	new_snailperson.update_icons()
 
 /obj/item/storage/backpack/snail
 	/// Whether or not a bluespace anomaly core has been inserted

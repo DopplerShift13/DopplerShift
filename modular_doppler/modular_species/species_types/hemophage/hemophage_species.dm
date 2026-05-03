@@ -38,13 +38,16 @@
 	new_hemophage.update_body()
 
 /datum/species/human/genemod/hemophage/get_species_description()
-	return "Oftentimes feared or pushed out of society for the predatory nature of their condition, \
+	return "=== TO BE REPLACED === \
+		Oftentimes feared or pushed out of society for the predatory nature of their condition, \
 		Hemophages are typically mixed around various Frontier populations, keeping their true nature hidden while \
 		reaping both the benefits and easy access to prey, enjoying unpursued existences on the Frontier."
 
 
 /datum/species/human/genemod/hemophage/get_species_lore()
 	return list(
+		"=== TO BE REPLACED ===",
+
 		"Though known by many other names, 'Hemophages' are those that have found themselves the host of a bloodthirsty infection. 'Natural' hemophages have their infection first overtake their body through the bloodstream, though methods vary; \
 		Hemophages thought to be a dense cluster of tightly related but distinct strains and variants. It will first take root in the chest, making alterations to the cells making up the host's organs to rapidly expand and take them over. \
 		Lungs will deflate into nothingness, the liver becomes wrapped up and filled with corrupted tissue and the digestive organs will gear themselves towards the intake of the only meal they can have; blood. The host's heart will almost triple in size from this 'cancerous' tissue, forming an overgrown coal-black tumor that now keeps their body standing.",
@@ -91,6 +94,19 @@
 		"In terms of human society, it's known for Hemophages to be passively strangled by the law itself. In 'civilized' places like Sol, Hemophages that attack or kill humans for their blood are prosecuted heavily; almost disproportionately compared to if the same crimes were committed by a normal person. \
 		Artificial sources of blood are intentionally kept rare by pharmaceutical companies, and those that do end up getting an easier access to such sources seem to almost always be working in the Medical field. \
 		Even adopting pets is made nigh-on-impossible for them. Those that don't leave to places like frontier systems typically end up part of oft-ephemeral networks of others of their kind, offering time-sensitive advice on where certain 'low-risk' or 'less-than-legal' meals may be found and forcing themselves to work past their base instincts to cooperate to an extent; anything else would mean death."
+	)
+	return list(
+		"Hemophages are organic beings who are inflicted with hemophagia; which a condition that infects a sufferer’s bloodstream. \
+		The initial point of transmission is a microscopic parasite that reaches a victim’s blood one way or another. \
+		This parasite breeds within the blood and spreads over time given enough sustenance, \
+		that being nutrients carried by various lifeforms’ blood. \
+		A single body can host the initial infection without symptoms, allowing it to run dormant, and not spread from this host. \
+		Eventually, symptoms begin occurring when the infection starts to run rampant, which include, but are not limited to:
+
+An intense thirst for blood.
+Quickened healing away from the light.
+Aversion to “normal” foods and drinks.
+Severe pain when symptoms begin to show."
 	)
 
 

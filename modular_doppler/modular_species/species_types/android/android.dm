@@ -1,7 +1,3 @@
-/// The starter amount for the android's core
-#define ENERGY_START_AMT 5 MEGA JOULES
-/// The amount at which mob energy decreases
-#define ENERGY_DRAIN_AMT 2.5 KILO JOULES
 
 /datum/species/android
 	name = "Android"
@@ -108,16 +104,18 @@
 	That said, an EMP will devastate them and they cannot process any chemicals."
 
 /datum/species/android/get_species_description()
-	return "Androids are an entirely synthetic species."
+	return "Not quite a species, androids cover a huge variety of bipedal synthetics. \
+		TODO: SOME COMMENT ABOUT HOW THIS DIFFERS FROM AIs/'BORGs'"
 
 /datum/species/android/get_species_lore()
 	return list(
-		"Androids are a synthetic species created by the Port Authority as an intermediary between humans and cyborgs."
+		"=== TO BE IMPROVED ===",
+
+		"Within the 4CA, sophont androids share equal rights to any other person, whether organic or synthetic.",
+
+		"Androids are each purpose-built, the lenses through which they view the world coloured by their purpose.",
 	)
 
 /datum/movespeed_modifier/android_nocharge
 	multiplicative_slowdown = CRAWLING_ADD_SLOWDOWN
 	flags = IGNORE_NOSLOW
-
-#undef ENERGY_START_AMT
-#undef ENERGY_DRAIN_AMT

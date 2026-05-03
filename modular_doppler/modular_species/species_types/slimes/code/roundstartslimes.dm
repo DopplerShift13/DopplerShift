@@ -285,8 +285,9 @@
 		slime.heal_overall_damage(brute = 1.5 * seconds_per_tick, burn = 1.5 * seconds_per_tick, required_bodytype = BODYTYPE_ORGANIC)
 		slime.adjustOxyLoss(-1 * seconds_per_tick)
 
+
 /datum/species/jelly/roundstartslime
-	name = "Xenobiological Slime Hybrid"
+	name = "Mucosid"
 	id = SPECIES_SLIMESTART
 	preview_outfit = /datum/outfit/slime_preview
 	examine_limb_id = SPECIES_SLIMEPERSON
@@ -304,6 +305,18 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/jelly/slime/roundstart,
 		BODY_ZONE_CHEST = /obj/item/bodypart/chest/jelly/slime/roundstart,
 	)
+
+/datum/species/jelly/roundstartslime/get_species_description()
+	return "A species seemingly made almost entirely out of gel, \
+		actually boiling down to a single discrete organ inside this gel known as their core. \
+		This core is the foundation of a Mucosid, \
+		acting as both their brain and that which maintains the cytoplasm, membranes, and organelles for one to function."
+
+/datum/species/jelly/roundstartslime/get_species_lore()
+	return list(
+		"=== TO BE DETERMINED ===",
+	)
+
 
 /datum/outfit/slime_preview
 	name = "Slimeperson (Species Preview)"

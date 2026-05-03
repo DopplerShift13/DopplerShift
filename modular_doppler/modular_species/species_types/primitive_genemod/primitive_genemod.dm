@@ -68,6 +68,8 @@
 
 /datum/species/human/genemod/primitive/get_species_description()
 	return list(
+		"=== TO BE REPLACED ===",
+
 		"Genetically modified humanoids believed to be descendants of a now centuries old colony \
 			ship from the pre-bluespace travel era. Still having at least some human traits, they \
 			are most comparable to today's felinids with most sporting features likely spliced from \
@@ -76,6 +78,8 @@
 
 /datum/species/human/genemod/primitive/get_species_lore()
 	return list(
+		"=== TO BE REPLACED ===",
+
 		"The Hearthkin are a culture of disparate Scandinavian groups all sharing a common origin \
 			as descendents from demihuman genemodders aboard the good ship Stjarndrakkr, or Star Dragon; \
 			an enormous colony ship almost 40km tall. This ship first reached the orbit of its last \
