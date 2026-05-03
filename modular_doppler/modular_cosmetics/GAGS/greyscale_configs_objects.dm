@@ -40,3 +40,34 @@
 	name = "ultraslim PDA"
 	icon_file = 'modular_doppler/modular_items/icons/pda_icons.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/items/pda_ultraslim.json'
+
+/datum/greyscale_config/bone
+	name = "Bone Chewtoy"
+	icon_file = 'modular_doppler/modular_items/icons/toys.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/items/bone.json'
+
+/datum/greyscale_config/bone/worn
+	name = "Bone Chewtoy (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/face/masks.dmi'
+
+/datum/greyscale_config/raver_chewtoy
+	name = "Raver Chewtoy"
+	icon_file = 'modular_doppler/modular_items/icons/toys.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/items/raver_chewtoy.json'
+
+/datum/greyscale_config/raver_chewtoy/worn
+	name = "Raver Chewtoy (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/face/masks.dmi'
+
+/datum/greyscale_config/beanbag_chair
+	name = "Beanbag Chair"
+	icon_file = 'modular_doppler/modular_items/icons/furniture.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/items/beanbag_chair.json'
+
+/datum/greyscale_config/beanbag_chair/lefthand
+	name = "Beanbag Chair (Left Hand)"
+	icon_file = 'modular_doppler/modular_items/icons/inhand_left.dmi'
+
+/datum/greyscale_config/beanbag_chair/righthand
+	name = "Beanbag Chair (Right Hand)"
+	icon_file = 'modular_doppler/modular_items/icons/inhand_right.dmi'

@@ -1,4 +1,4 @@
-import { Feature, FeatureChoiced, FeatureShortTextInput } from '../base';
+import { Feature, FeatureChoiced, FeatureShortTextInput, FeatureColorInput } from '../base';
 import { FeatureDropdownInput } from '../dropdowns';
 
 export const ship_captain_hull: FeatureChoiced = {
@@ -14,6 +14,18 @@ export const ship_captain_name: Feature<string> = {
 export const ship_captain_crewkey: Feature<string> = {
   name: 'Crew Key Identifier',
   description:
-    'If a shuttle with the same crew key identifier is already spawned, you will join that as crew instead of spawning a new shuttle (unless this is set to Solo)',
+    'If a shuttle with the same crew key identifier is already spawned, \
+    you will join that as crew instead of spawning a new shuttle \
+    (unless this is set to Solo)',
   component: FeatureShortTextInput,
+};
+
+export const ship_captain_primary_color: Feature<string> = {
+  name: 'Ship Primary Color',
+  component: FeatureColorInput,
+};
+
+export const ship_captain_secondary_color: Feature<string> = {
+  name: 'Ship Secondary Color',
+  component: FeatureColorInput,
 };
