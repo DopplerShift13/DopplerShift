@@ -1,11 +1,49 @@
-import { Box, Button, Image, Section, Stack } from 'tgui-core/components';
+import { filter } from 'es-toolkit/compat';
+import { useState } from 'react';
+import {
+  Box,
+  Button,
+  Dropdown,
+  Floating,
+  Image,
+  Section,
+  Stack,
+} from 'tgui-core/components';
 
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
-import { PreferencesMenuData } from './types';
+import { PreferenceList } from './CharacterPreferences/MainPage';
+import type { PreferencesMenuData } from './types';
+
+function getCorrespondingPreferences(
+  customizationOptions: string[],
+  relevantPreferences: Record<string, string>,
+) {
+  return Object.fromEntries(
+    filter(Object.entries(relevantPreferences), ([key]) =>
+      customizationOptions.includes(key),
+    ),
+  );
+}
 
 export const Powers = (props) => {
-  const { act } = useBackend<PreferencesMenuData>();
+  const { act, data } = useBackend<PreferencesMenuData>();
+  const [customizationExpanded, setCustomizationExpanded] = useState(false);
+
+  const customizationOptions = props.power.customization_options || [];
+  const hasCustomization =
+    props.power.customizable &&
+    props.power.has_power &&
+    customizationOptions.length > 0;
+  const customizationPreferences = hasCustomization
+    ? getCorrespondingPreferences(
+        customizationOptions,
+        data.character_preferences.manually_rendered_features,
+      )
+    : {};
+  const hasExpandableCustomization =
+    hasCustomization && Object.entries(customizationPreferences).length > 0;
+
   return (
     <Stack.Item
       style={{
@@ -13,28 +51,129 @@ export const Powers = (props) => {
       }}
     >
       <Section title={props.power.name}>
-        {props.power.description}
+        {/* Allows for newlines in power descs */}
+        {String(props.power.description)
+          .split('\n')
+          .map((line, i, lines) => (
+            <span key={i}>
+              {line}
+              {i < lines.length - 1 && <br />}
+            </span>
+          ))}
         <br />
         <br />
         <b>{'Cost: ' + props.power.cost}</b>
         <br />
       </Section>
-
-      <Button
-        icon={props.power.powertype}
-        color={props.power.state}
-        tooltip={props.power.rootpower}
-        tooltipPosition="right"
-        onClick={() => {
-          if (props.power.state === 'bad') {
-            act('remove_power', { power_name: props.power.name });
-          } else {
-            act('give_power', { power_name: props.power.name });
-          }
-        }}
-      >
-        {props.power.word} <Box />
-      </Button>
+      <Stack mt={1}>
+        <Stack.Item>
+          <Button
+            icon={props.power.powertype}
+            color={props.power.state}
+            tooltip={
+              props.power.required_powers?.length
+                ? `${
+                    props.power.required_allow_subtypes
+                      ? 'Requires any type of:'
+                      : props.power.required_allow_any
+                        ? 'Requires any of:'
+                        : 'Requires:'
+                  } ${props.power.required_powers.join(', ')}`
+                : null
+            }
+            tooltipPosition="right"
+            onClick={() => {
+              if (props.power.state === 'bad') {
+                act('remove_power', { power_name: props.power.name });
+              } else {
+                act('give_power', { power_name: props.power.name });
+              }
+            }}
+          >
+            {props.power.word} <Box />
+          </Button>
+        </Stack.Item>
+        <Stack.Item>
+          {props.power.augment?.is_arm && props.power.has_power ? (
+            <Box ml={1}>
+              <Dropdown
+                options={[
+                  ...(props.power.augment?.left_blocked ? [] : ['Left']),
+                  ...(props.power.augment?.right_blocked ? [] : ['Right']),
+                  ...(!props.power.augment?.left_blocked &&
+                  !props.power.augment?.right_blocked
+                    ? ['Both']
+                    : []),
+                ]}
+                selected={props.power.augment?.assignment}
+                placeholder="Arm"
+                disabled={
+                  props.power.augment?.left_blocked &&
+                  props.power.augment?.right_blocked
+                }
+                onSelected={(value) =>
+                  act('set_augment_arm', {
+                    power_name: props.power.name,
+                    side: value,
+                  })
+                }
+              />
+            </Box>
+          ) : props.power.augment?.location ? (
+            <Box ml={1} color="label" fontSize="0.8em">
+              ({props.power.augment?.location})
+            </Box>
+          ) : null}
+        </Stack.Item>
+        {/* Customization cogwheel for powers */}
+        <Stack.Item>
+          {hasCustomization ? (
+            <Floating
+              stopChildPropagation
+              placement="bottom-end"
+              onOpenChange={setCustomizationExpanded}
+              content={
+                hasExpandableCustomization && (
+                  <Box
+                    onClick={(e) => {
+                      e.stopPropagation();
+                    }}
+                    style={{
+                      boxShadow: '0px 4px 8px 3px rgba(0, 0, 0, 0.7)',
+                    }}
+                  >
+                    <Stack
+                      maxWidth="300px"
+                      backgroundColor="black"
+                      px="5px"
+                      py="3px"
+                    >
+                      <Stack.Item>
+                        <PreferenceList
+                          preferences={customizationPreferences}
+                          randomizations={{}}
+                          maxHeight="100px"
+                        />
+                      </Stack.Item>
+                    </Stack>
+                  </Box>
+                )
+              }
+            >
+              <div style={{ display: 'flow-root' }}>
+                <Button
+                  selected={customizationExpanded}
+                  icon="cog"
+                  tooltip="Customize"
+                  style={{
+                    float: 'right',
+                  }}
+                />
+              </div>
+            </Floating>
+          ) : null}
+        </Stack.Item>
+      </Stack>
     </Stack.Item>
   );
 };

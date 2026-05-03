@@ -825,6 +825,9 @@
 
 /mob/living/proc/check_block(atom/hit_by, damage, attack_text = "the attack", attack_type = MELEE_ATTACK, armour_penetration = 0, damage_type = BRUTE)
 	if(SEND_SIGNAL(src, COMSIG_LIVING_CHECK_BLOCK, hit_by, damage, attack_text, attack_type, armour_penetration, damage_type) & SUCCESSFUL_BLOCK)
+		// DOPPLER EDIT ADDITION BEGIN - Sends a signal if we succesfuly block.
+		SEND_SIGNAL(src, COMSIG_LIVING_SUCCESSFUL_BLOCK, hit_by, damage, attack_text, attack_type, armour_penetration, damage_type)
+		// DOPPLER EDIT ADDITION BEGIN
 		return SUCCESSFUL_BLOCK
 
 	return FAILED_BLOCK

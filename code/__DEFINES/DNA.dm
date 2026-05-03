@@ -137,6 +137,10 @@
 #define ORGAN_SLOT_VOICE "vocal_cords"
 #define ORGAN_SLOT_ZOMBIE "zombie_infection"
 
+// DOPPLER ADDITION START - Power-based organs
+#define ORGAN_SLOT_PSYKER "psyker_organ"
+// DOPPLER ADDITION END
+
 /// Organ slot external
 #define ORGAN_SLOT_EXTERNAL_TAIL "tail"
 #define ORGAN_SLOT_EXTERNAL_SPINES "spines"

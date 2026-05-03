@@ -1121,6 +1121,10 @@
 		return TRUE
 	if (Adjacent(A))
 		return TRUE
+	// DOPPLER ADDITION BEGIN - Adds a trait for Powers to bypass range checks.
+	if(HAS_TRAIT(src, TRAIT_NO_UI_DISTANCE) && (A in view(src)))
+		return TRUE
+	// DOPPLER ADDITION END - Adds a trait for Powers to bypass range checks.
 	var/datum/dna/mob_dna = has_dna()
 	if(mob_dna?.check_mutation(/datum/mutation/telekinesis) && tkMaxRangeCheck(src, A))
 		return TRUE

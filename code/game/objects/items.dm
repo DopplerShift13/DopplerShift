@@ -495,6 +495,11 @@
 	if(LAZYLEN(unique_reskin) && !current_skin)
 		.["reskinnable"] = "This item is able to be reskinned! Alt-Click to do so!"
 
+	// DOPPLER EDIT ADDITION START: Thaumaturges can examine items for affinity stat
+	if(affinity && (HAS_TRAIT(user, TRAIT_ARCHETYPE_SORCEROUS) || isobserver(user)))
+		.["affinity [affinity]"] = "Provides affinity [affinity] for thaumaturgic powers."
+	// DOPPLER EDIT ADDITION END
+
 /obj/item/examine_descriptor(mob/user)
 	return "item"
 

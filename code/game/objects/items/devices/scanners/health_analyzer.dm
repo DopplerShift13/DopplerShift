@@ -342,7 +342,20 @@
 		var/list/cyberimps
 		for(var/obj/item/organ/target_organ as anything in humantarget.organs)
 			if(IS_ROBOTIC_ORGAN(target_organ) && !(target_organ.organ_flags & ORGAN_HIDDEN))
-				LAZYADD(cyberimps, target_organ.examine_title(user))
+				// DOPPLER EDIT ADDITION BEGIN - Adds Premium augment support to organs.
+				var/line = target_organ.examine_title(user)
+				if(target_organ.premium_component) // DOPPLER ADDITION
+					var/quality = round(target_organ.premium_component.quality)
+					var/quality_text = "quality: [quality]%"
+					quality_text = conditional_tooltip(quality_text, "Premium augment quality affects performance. At 0% it must be refurbished. \
+					Using premium augment maintenance surgery on the appropriate bodypart ([parse_zone(target_organ.zone)]) will restore up to 75% so long as it is not broken. \
+					Removing the augment with organ manipulation and refurbishing it in-hand will restore up to 100% (examine the augment for instructions).", tochat)
+					if(quality <= 0)
+						line = "[line] ([quality_text] <font color='#ff3333'>refurbish required</font>)"
+					else
+						line = "[line] ([quality_text])"
+				LAZYADD(cyberimps, line)	// was: LAZYADD(cyberimps, target_organ.examine_title(user))
+				// DOPPLER EDIT ADDITION END
 			if(target_organ.organ_flags & ORGAN_MUTANT)
 				mutant = TRUE
 		if(LAZYLEN(cyberimps))
@@ -350,7 +363,6 @@
 				render_list += "<hr>"
 			render_list += "<span class='notice ml-1'>Detected cybernetic modifications:</span><br>"
 			render_list += "<span class='notice ml-2'>[english_list(cyberimps, and_text = ", and ")]</span><br>"
-
 		render_list += "<hr>"
 
 		//Genetic stability

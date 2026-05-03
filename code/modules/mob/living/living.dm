@@ -1391,9 +1391,12 @@
 
 			var/datum/dna/mob_DNA = has_dna()
 			if(!mob_DNA || !mob_DNA.check_mutation(/datum/mutation/telekinesis) || !tkMaxRangeCheck(src, target))
-				if(!(action_bitflags & SILENT_ADJACENCY))
-					to_chat(src, span_warning("You are too far away!"))
-				return FALSE
+				// DOPPLER EDIT START - Adds a trait for Powers to bypass range checks. ORIGINAL: if(!(action_bitflags & SILENT_ADJACENCY)) - to_chat(src, span_warning("You are too far away!")) - return FALSE
+				if(!HAS_TRAIT(src, TRAIT_REMOTE_INTERACT)) // remove this line if reverting this modular edit + restore indentation
+					if(!(action_bitflags & SILENT_ADJACENCY))
+						to_chat(src, span_warning("You are too far away!"))
+					return FALSE
+				// DOPPLER EDIT END
 
 	if((action_bitflags & NEED_VENTCRAWL) && !HAS_TRAIT(src, TRAIT_VENTCRAWLER_NUDE) && !HAS_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS))
 		to_chat(src, span_warning("You wouldn't fit!"))
