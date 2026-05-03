@@ -85,7 +85,10 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "dN" = (
-/obj/structure/disposalpipe/segment,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "eK" = (
@@ -95,19 +98,20 @@
 	},
 /turf/open/indestructible,
 /area/centcom/changing_room)
+"eP" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/gene_wardrobe,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/indestructible,
+/area/centcom/changing_room)
 "eQ" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/vending/wardrobe/coroner_wardrobe,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "fm" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 1
-	},
-/obj/structure/disposalpipe/junction/flip{
-	dir = 1
-	},
-/turf/open/indestructible,
+/obj/item/kirbyplants/random,
+/turf/open/floor/iron/dark,
 /area/centcom/changing_room)
 "fo" = (
 /obj/effect/turf_decal/tile/neutral{
@@ -129,11 +133,11 @@
 /turf/open/floor/wood,
 /area/centcom/changing_room)
 "gh" = (
-/obj/machinery/conveyor_switch/oneway{
-	id = "cafesposals"
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible/plating,
+/obj/machinery/light/directional/west,
+/turf/open/indestructible,
 /area/centcom/changing_room)
 "gj" = (
 /obj/structure/table/wood,
@@ -148,11 +152,25 @@
 /turf/open/floor/wood,
 /area/centcom/changing_room)
 "gE" = (
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+/obj/machinery/light/cold/directional/east,
+/obj/structure/fluff/fake_camera{
 	dir = 4
 	},
-/obj/item/kirbyplants/random,
-/turf/open/indestructible,
+/obj/machinery/vending/wardrobe/hydro_wardrobe,
+/turf/open/floor/iron/dark,
+/area/centcom/changing_room)
+"gF" = (
+/obj/machinery/vending/wardrobe/jani_wardrobe,
+/turf/open/floor/iron/dark,
+/area/centcom/changing_room)
+"gS" = (
+/obj/structure/table,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/structure/towel_bin,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "hG" = (
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -160,22 +178,36 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "hJ" = (
-/obj/machinery/vending/wardrobe/chap_wardrobe,
-/obj/effect/turf_decal/bot,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible,
+/obj/structure/closet/wardrobe/grey,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "iS" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/turf_decal/siding/red,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "jZ" = (
-/obj/machinery/door/airlock/glass,
-/obj/structure/disposalpipe/segment,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 4
+	},
+/obj/machinery/light/small/directional/east,
 /turf/open/indestructible,
+/area/centcom/changing_room)
+"kg" = (
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_x_offset = -8;
+	teleport_y_offset = -22
+	},
+/turf/open/mirage{
+	dir = 1;
+	target_turf_x = -8;
+	target_turf_y = -22
+	},
 /area/centcom/changing_room)
 "lb" = (
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
@@ -184,13 +216,7 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "lv" = (
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
-	dir = 1
-	},
-/obj/machinery/vending/autodrobe,
-/obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/cobweb,
-/turf/open/indestructible,
+/turf/cordon,
 /area/centcom/changing_room)
 "lB" = (
 /obj/effect/turf_decal/bot,
@@ -212,13 +238,13 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/indestructible,
 /area/centcom/changing_room)
+"or" = (
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/iron,
+/area/centcom/changing_room)
 "oW" = (
-/obj/item/kirbyplants/random,
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
-	dir = 4
-	},
-/obj/machinery/status_display/evac/directional/north,
-/turf/open/indestructible,
+/obj/machinery/vending/wardrobe/chef_wardrobe,
+/turf/open/floor/iron/dark,
 /area/centcom/changing_room)
 "pb" = (
 /obj/effect/turf_decal/tile/neutral/full,
@@ -241,10 +267,16 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "pO" = (
-/obj/structure/disposalpipe/junction{
-	dir = 1
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_x_offset = -28;
+	teleport_y_offset = 10
 	},
-/turf/open/indestructible,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/mirage{
+	dir = 4;
+	target_turf_x = -28;
+	target_turf_y = 10
+	},
 /area/centcom/changing_room)
 "qu" = (
 /obj/effect/turf_decal/siding/dark_blue{
@@ -291,8 +323,8 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "rP" = (
-/obj/machinery/vending/wardrobe/chef_wardrobe,
-/obj/effect/turf_decal/bot,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/machinery/light/cold/directional/south,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "rQ" = (
@@ -303,18 +335,19 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "sG" = (
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "cafesposals"
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible/plating,
+/obj/machinery/door/airlock/public/glass,
+/turf/open/indestructible,
 /area/centcom/changing_room)
 "tv" = (
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
 	dir = 8
 	},
 /obj/effect/turf_decal/siding/purple,
+/turf/open/indestructible,
+/area/centcom/changing_room)
+"tx" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "tS" = (
@@ -337,14 +370,30 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "uf" = (
-/obj/structure/fluff/fake_camera,
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/kirbyplants/organic/plant13,
+/obj/effect/light_emitter/thunderdome,
+/obj/structure/extinguisher_cabinet/directional/north,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "uw" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /obj/effect/turf_decal/siding/red,
 /turf/open/indestructible,
+/area/centcom/changing_room)
+"uy" = (
+/obj/effect/spawner/random/trash/soap,
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/shower/directional/east,
+/obj/effect/turf_decal/tile/dark_blue/half{
+	dir = 8
+	},
+/turf/open/floor/iron/textured_half{
+	dir = 8
+	},
 /area/centcom/changing_room)
 "vb" = (
 /turf/open/indestructible,
@@ -364,6 +413,19 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/indestructible,
 /area/centcom/changing_room)
+"wt" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/door/airlock/public/glass,
+/turf/open/indestructible,
+/area/centcom/changing_room)
+"xa" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/fluff/fake_scrubber,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/indestructible,
+/area/centcom/changing_room)
 "xo" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -380,6 +442,10 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
 /area/centcom/changing_room)
+"xD" = (
+/obj/machinery/door,
+/turf/open/indestructible,
+/area/centcom/changing_room)
 "xJ" = (
 /obj/effect/turf_decal/siding/white/corner,
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
@@ -390,20 +456,27 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "xO" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
+/obj/effect/turf_decal/stripes/line{
 	dir = 4
 	},
-/obj/effect/decal/cleanable/blood/splatter/xeno,
-/turf/open/indestructible,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/machinery/door/airlock,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "yJ" = (
+/obj/structure/extinguisher_cabinet/directional/north,
 /obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
-	dir = 4
+	dir = 1
 	},
-/obj/structure/table/wood,
-/obj/machinery/light/small/directional/north,
-/obj/effect/decal/cleanable/cobweb/cobweb2,
-/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/cobweb,
+/obj/item/kirbyplants/organic/plant13,
+/turf/open/indestructible,
+/area/centcom/changing_room)
+"zc" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "zw" = (
@@ -411,6 +484,10 @@
 /obj/effect/decal/cleanable/cobweb/cobweb2,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/wood,
+/area/centcom/changing_room)
+"zB" = (
+/obj/machinery/vending/wardrobe/bar_wardrobe,
+/turf/open/floor/iron/dark,
 /area/centcom/changing_room)
 "zW" = (
 /obj/structure/table,
@@ -424,12 +501,16 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Aj" = (
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
-	dir = 8
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_x_offset = 28;
+	teleport_y_offset = -10
 	},
-/obj/machinery/vending/clothing,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/mirage{
+	dir = 8;
+	target_turf_x = 28;
+	target_turf_y = -10
+	},
 /area/centcom/changing_room)
 "Am" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
@@ -437,10 +518,22 @@
 	},
 /turf/open/indestructible,
 /area/centcom/changing_room)
+"AC" = (
+/obj/effect/turf_decal/bot,
+/obj/machinery/digital_clock/directional/south,
+/obj/machinery/vending/wardrobe/science_wardrobe,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/indestructible,
+/area/centcom/changing_room)
 "BA" = (
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
-/obj/effect/turf_decal/siding/red,
-/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron/dark,
+/area/centcom/changing_room)
+"BI" = (
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/purple,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Cf" = (
@@ -457,6 +550,14 @@
 	},
 /turf/open/floor/wood,
 /area/centcom/changing_room)
+"Cs" = (
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+	dir = 4
+	},
+/obj/item/kirbyplants/organic/plant10,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/indestructible,
+/area/centcom/changing_room)
 "Cv" = (
 /obj/effect/turf_decal/bot,
 /obj/structure/sign/calendar/directional/south,
@@ -470,17 +571,31 @@
 /turf/open/indestructible/plating,
 /area/centcom/changing_room)
 "Cz" = (
-/obj/machinery/door/airlock/glass,
-/obj/structure/fans/tiny/invisible,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
+/obj/structure/closet/wardrobe/white,
+/obj/structure/fluff/fake_camera{
+	dir = 6
+	},
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "CV" = (
-/obj/structure/sign/poster/random/directional/north,
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/turf/open/indestructible,
+/obj/machinery/door/airlock/multi_tile/public/glass,
+/turf/open/floor/iron,
+/area/centcom/changing_room)
+"Db" = (
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 4
+	},
+/obj/machinery/washing_machine,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "Dk" = (
 /obj/structure/chair/office{
@@ -493,23 +608,38 @@
 /obj/structure/window/reinforced/fulltile/indestructible,
 /turf/open/indestructible/plating,
 /area/centcom/changing_room)
+"Ea" = (
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_x_offset = 8;
+	teleport_y_offset = 22
+	},
+/obj/machinery/light/small/directional/east,
+/turf/open/mirage{
+	target_turf_x = 8;
+	target_turf_y = 22
+	},
+/area/centcom/changing_room)
 "EL" = (
-/obj/item/kirbyplants/random,
-/obj/structure/extinguisher_cabinet/directional/north,
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/cobweb,
+/obj/machinery/computer/security/telescreen/entertainment/directional/north,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "EU" = (
-/obj/machinery/vending/wardrobe/jani_wardrobe,
-/obj/effect/turf_decal/bot,
-/turf/open/indestructible,
+/obj/machinery/vending/wardrobe/chap_wardrobe,
+/turf/open/floor/iron/dark,
 /area/centcom/changing_room)
 "EW" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/vending/wardrobe/cargo_wardrobe,
+/turf/open/indestructible,
+/area/centcom/changing_room)
+"Fc" = (
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+	dir = 4
+	},
+/obj/item/kirbyplants/organic/plant10,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Fx" = (
@@ -518,11 +648,19 @@
 	},
 /turf/open/indestructible,
 /area/centcom/changing_room)
+"FJ" = (
+/obj/effect/light_emitter/thunderdome,
+/obj/effect/turf_decal/bot,
+/obj/machinery/vending/wardrobe/robo_wardrobe,
+/turf/open/indestructible,
+/area/centcom/changing_room)
 "FK" = (
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+/obj/machinery/vending/autodrobe,
+/obj/effect/turf_decal/siding/dark_blue{
 	dir = 8
 	},
-/turf/open/indestructible,
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "FT" = (
 /obj/structure/sign/painting/library{
@@ -531,15 +669,18 @@
 /turf/open/floor/carpet/purple,
 /area/centcom/changing_room)
 "FZ" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/effect/decal/cleanable/blood/tracks/xeno,
-/turf/open/indestructible,
+/obj/structure/sink/directional/east,
+/obj/structure/mirror/directional/west,
+/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
+/turf/open/floor/iron/kitchen,
+/area/centcom/changing_room)
+"Gp" = (
+/turf/open/floor/plating,
 /area/centcom/changing_room)
 "Gv" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 4
-	},
-/obj/structure/sign/poster/random/directional/east,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/turf_decal/siding/purple,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "GV" = (
@@ -550,43 +691,59 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
 /turf/open/indestructible,
 /area/centcom/changing_room)
+"Hv" = (
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/structure/fluff/fake_vent,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/indestructible,
+/area/centcom/changing_room)
 "Hy" = (
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
-/obj/machinery/button/crematorium{
-	id = "crematoriumChangingRoom";
-	pixel_x = 25
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
 	},
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/decal/cleanable/vomit,
+/obj/effect/light_emitter/thunderdome,
+/turf/open/indestructible,
+/area/centcom/changing_room)
+"HQ" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/obj/effect/turf_decal/siding/purple,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "If" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/structure/sign/poster/random/directional/south,
-/turf/open/indestructible,
-/area/centcom/changing_room)
-"IT" = (
+/obj/effect/decal/cleanable/blood/xeno,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
+/turf/open/indestructible,
+/area/centcom/changing_room)
+"IT" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "JQ" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/effect/decal/cleanable/blood/tracks,
-/turf/open/indestructible,
+/obj/effect/step_trigger/teleporter/offset{
+	teleport_x_offset = 8;
+	teleport_y_offset = 22
+	},
+/turf/open/mirage{
+	target_turf_x = 8;
+	target_turf_y = 22
+	},
 /area/centcom/changing_room)
 "JW" = (
-/obj/machinery/recycler{
+/obj/machinery/shower/directional/east,
+/obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 8
 	},
-/obj/machinery/conveyor{
-	dir = 4;
-	id = "cafesposals"
+/turf/open/floor/iron/textured_half{
+	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible/plating,
 /area/centcom/changing_room)
 "Ko" = (
 /obj/effect/turf_decal/bot,
@@ -615,11 +772,13 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Lr" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
+/obj/machinery/shower/directional/west,
+/obj/effect/turf_decal/tile/dark_blue/half{
 	dir = 4
 	},
-/obj/machinery/light/directional/east,
-/turf/open/indestructible,
+/turf/open/floor/iron/textured_half{
+	dir = 8
+	},
 /area/centcom/changing_room)
 "Lz" = (
 /obj/effect/turf_decal/bot,
@@ -628,18 +787,24 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "LQ" = (
-/obj/structure/sign/poster/random/directional/west,
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
-	dir = 8
+	dir = 4
 	},
+/obj/effect/light_emitter/thunderdome,
+/turf/open/indestructible,
+/area/centcom/changing_room)
+"Ms" = (
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
+/obj/effect/turf_decal/siding/red,
+/obj/effect/light_emitter/thunderdome,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "MP" = (
-/obj/structure/disposalpipe/segment{
-	dir = 10
+/obj/machinery/status_display/evac/directional/east,
+/obj/effect/mob_spawn/ghost_role/human/changing_room{
+	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible/plating,
+/turf/open/floor/wood,
 /area/centcom/changing_room)
 "Ns" = (
 /obj/structure/fluff/fake_vent,
@@ -662,20 +827,22 @@
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet/purple,
 /area/centcom/changing_room)
+"Oi" = (
+/turf/open/floor/iron,
+/area/centcom/changing_room)
 "Pl" = (
-/obj/effect/turf_decal/siding/white/corner{
-	dir = 8
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
 	},
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/effect/turf_decal/siding/red/corner,
-/obj/structure/sign/poster/random/directional/south,
+/obj/machinery/light/cold/directional/north,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "PP" = (
-/obj/machinery/light/dim/directional/south,
-/obj/effect/decal/cleanable/garbage,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible/plating,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 8
+	},
+/obj/machinery/light/cold/directional/west,
+/turf/open/indestructible,
 /area/centcom/changing_room)
 "Qe" = (
 /obj/machinery/light/directional/north,
@@ -685,6 +852,11 @@
 /obj/effect/turf_decal/siding/dark_blue/corner{
 	dir = 1
 	},
+/turf/open/indestructible,
+/area/centcom/changing_room)
+"Qm" = (
+/obj/effect/turf_decal/tile/neutral/anticorner/contrasted,
+/obj/effect/turf_decal/siding/red,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Qv" = (
@@ -708,15 +880,13 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "RH" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/item/kirbyplants/random,
-/turf/open/indestructible,
+/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
+/obj/structure/fluff/fake_scrubber,
+/turf/open/floor/iron/kitchen,
 /area/centcom/changing_room)
 "Sd" = (
-/obj/structure/disposalpipe/segment{
-	dir = 5
-	},
-/turf/open/indestructible,
+/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
+/turf/open/floor/iron/kitchen,
 /area/centcom/changing_room)
 "Se" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -724,11 +894,20 @@
 /turf/open/floor/carpet/purple,
 /area/centcom/changing_room)
 "Sp" = (
-/obj/effect/turf_decal/tile/neutral/half/contrasted{
+/obj/effect/turf_decal/siding/white/corner{
 	dir = 8
 	},
-/obj/machinery/light/dim/directional/west,
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/turf_decal/siding/red/corner,
 /turf/open/indestructible,
+/area/centcom/changing_room)
+"SL" = (
+/obj/machinery/washing_machine,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 4
+	},
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "SX" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
@@ -738,12 +917,25 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Tg" = (
-/obj/effect/decal/cleanable/blood/tracks,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/dark_blue/corner{
+	dir = 1
+	},
+/obj/effect/light_emitter/thunderdome,
+/obj/machinery/light/directional/north,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Tn" = (
-/obj/structure/fluff/fokoff_sign,
-/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/siding/yellow/corner{
+	dir = 4
+	},
+/obj/effect/light_emitter/thunderdome,
+/obj/machinery/light/directional/north,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Tr" = (
@@ -752,8 +944,11 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "TG" = (
-/obj/effect/turf_decal/tile/neutral{
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 8
+	},
+/obj/effect/decal/cleanable/blood/tracks/xeno{
+	dir = 6
 	},
 /turf/open/indestructible,
 /area/centcom/changing_room)
@@ -771,19 +966,21 @@
 /turf/open/space/basic,
 /area/space)
 "Wa" = (
-/obj/structure/bodycontainer/crematorium{
-	id = "crematoriumChangingRoom"
+/obj/machinery/vending/clothing,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
 	},
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
-	dir = 1
-	},
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/open/indestructible,
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "Wi" = (
-/obj/structure/fluff/fake_scrubber,
-/obj/effect/decal/cleanable/blood/xeno,
-/turf/open/indestructible,
+/obj/structure/closet/wardrobe/black,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
+	},
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/obj/machinery/light/cold/directional/east,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "Wm" = (
 /turf/closed/indestructible/reinforced,
@@ -797,6 +994,10 @@
 	},
 /turf/open/indestructible,
 /area/centcom/changing_room)
+"Xa" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/iron,
+/area/centcom/changing_room)
 "Xi" = (
 /obj/structure/table,
 /obj/effect/turf_decal/tile/neutral/fourcorners,
@@ -807,14 +1008,14 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Xj" = (
-/obj/machinery/vending/wardrobe/hydro_wardrobe,
-/obj/effect/turf_decal/bot,
-/turf/open/indestructible,
+/obj/structure/chair/stool/directional/east,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/obj/machinery/computer/security/telescreen/entertainment/directional/west,
+/turf/open/floor/iron/dark,
 /area/centcom/changing_room)
 "Xn" = (
-/obj/structure/fluff/fake_scrubber,
-/obj/structure/disposalpipe/segment,
-/turf/open/indestructible,
+/obj/effect/turf_decal/tile/neutral/fourcorners,
+/turf/open/floor/iron/dark,
 /area/centcom/changing_room)
 "Xr" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
@@ -831,45 +1032,40 @@
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Ys" = (
-/obj/machinery/door/airlock/glass,
-/obj/structure/fans/tiny/invisible,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 8
 	},
+/obj/effect/light_emitter/thunderdome,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "Yz" = (
-/obj/machinery/door/airlock/glass,
-/obj/structure/fans/tiny/invisible,
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/effect/light_emitter/thunderdome,
 /turf/open/indestructible,
 /area/centcom/changing_room)
 "YE" = (
-/obj/structure/disposaloutlet{
-	dir = 1
-	},
-/obj/structure/disposalpipe/trunk{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/dirt,
-/turf/open/indestructible/plating,
+/obj/structure/window/reinforced/fulltile/indestructible,
+/turf/open/floor/plating,
 /area/centcom/changing_room)
 "YF" = (
 /turf/closed/indestructible/fakedoor/maintenance,
 /area/centcom/changing_room)
 "YN" = (
-/obj/machinery/status_display/evac/directional/east,
-/obj/effect/mob_spawn/ghost_role/human/changing_room,
-/turf/open/floor/wood,
-/area/centcom/changing_room)
-"Zj" = (
-/obj/effect/turf_decal/tile/neutral/anticorner/contrasted{
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/structure/sign/poster/random/directional/north,
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/turf/open/floor/iron,
+/area/centcom/changing_room)
+"Zj" = (
+/obj/structure/closet/wardrobe/mixed,
+/obj/effect/turf_decal/siding/dark_blue{
+	dir = 8
 	},
-/turf/open/indestructible,
+/obj/effect/turf_decal/tile/dark_blue/fourcorners,
+/turf/open/floor/iron,
 /area/centcom/changing_room)
 "ZT" = (
 /obj/machinery/disposal/bin,
@@ -879,19 +1075,38 @@
 /turf/open/floor/wood,
 /area/centcom/changing_room)
 "ZW" = (
-/obj/machinery/vending/wardrobe/bar_wardrobe,
-/obj/effect/turf_decal/bot,
-/turf/open/indestructible,
+/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
+/obj/structure/fluff/fake_vent,
+/turf/open/floor/iron/kitchen,
 /area/centcom/changing_room)
 
 (1,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 Wm
 Wm
 Wm
 Wm
+YF
 Wm
-Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -906,13 +1121,32 @@ VX
 VX
 "}
 (2,1,1) = {"
-Wm
 VX
 VX
 VX
 VX
 VX
-Wm
+VX
+VX
+VX
+lv
+vb
+Am
+Am
+gh
+If
+TG
+Am
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -927,18 +1161,37 @@ VX
 VX
 "}
 (3,1,1) = {"
-Wm
-DU
-DU
-DU
-DU
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+vb
+md
+rf
+mD
+Ae
+md
+md
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -948,18 +1201,37 @@ VX
 VX
 "}
 (4,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
-lb
-Am
-Am
-Am
-Am
-Sp
-Am
-LQ
-Am
-FK
 Wm
+Fx
+vb
+GY
+Wm
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -969,18 +1241,37 @@ VX
 VX
 "}
 (5,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+lv
 Wm
 Fx
 vb
-vb
-vb
-mD
-vb
-ua
-vb
-vb
-Tn
+GY
 Wm
+lv
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -990,18 +1281,37 @@ VX
 VX
 "}
 (6,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
-ar
-md
-md
-xO
-rf
+Fx
 vb
-Ae
-md
-md
-GV
+GY
 Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1011,18 +1321,37 @@ VX
 VX
 "}
 (7,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
-Wm
-Wm
-Wm
-Wm
-Fx
-vb
+Pl
+ua
 GY
 Wm
-Wm
-Wm
-Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1036,11 +1365,30 @@ VX
 VX
 VX
 VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
-CV
+Fx
 vb
-uf
+tx
 Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1057,11 +1405,30 @@ VX
 VX
 VX
 VX
-YF
-iS
-Tg
-JQ
-YF
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+Aj
+Aj
+Aj
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1078,11 +1445,30 @@ VX
 VX
 VX
 VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 Fx
 vb
 GY
 Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1099,11 +1485,30 @@ VX
 VX
 VX
 VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
-ar
+Fx
 vb
-GV
+GY
 Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1119,14 +1524,33 @@ VX
 VX
 VX
 VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
+Fx
+vb
+rP
 Wm
-YF
-DU
-YF
-Wm
-Wm
-Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1138,16 +1562,35 @@ VX
 "}
 (13,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
+Fx
+vb
+GY
 Wm
-Wm
-EL
-IT
-Am
-Am
-tv
-Lz
-Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1159,16 +1602,35 @@ VX
 "}
 (14,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+lv
 Wm
-Cy
-YF
-Fx
-Ae
+ar
 md
-rf
-cj
-Cv
+GV
 Wm
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1180,16 +1642,35 @@ VX
 "}
 (15,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+lv
+lv
+lv
+Wm
+Wm
+sG
+DU
+sG
 Wm
 Wm
 Wm
-Rr
-GY
-hG
-Fx
-cj
-ue
+YF
 Wm
+Wm
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1201,16 +1682,35 @@ VX
 "}
 (16,1,1) = {"
 VX
-Wm
-aV
-Ye
-Wu
-cL
-Xi
-Fx
-xJ
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 Wm
+Wm
+yJ
+Am
+Am
+Am
+tv
+Lz
+Wm
+Gp
+JW
+uy
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 VX
 VX
 VX
@@ -1222,6 +1722,132 @@ VX
 "}
 (17,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+Cy
+YF
+Fx
+Ae
+md
+rf
+cj
+Cv
+Wm
+Xa
+Gp
+or
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+"}
+(18,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+Wm
+Wm
+Rr
+GY
+hG
+Fx
+cj
+ue
+Wm
+Oi
+Lr
+Lr
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Tg
+zc
+Hv
+Hy
+iS
+lv
+"}
+(19,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+aV
+Ye
+Wu
+cL
+Xi
+Fx
+xJ
+Wm
+Wm
+xO
+Wm
+Wm
+Wm
+lv
+lv
+lv
+lv
+lv
+VX
+VX
+VX
+VX
+VX
+lv
+Hy
+Yz
+Ys
+IT
+iS
+lv
+"}
+(20,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 bP
 Qv
@@ -1230,19 +1856,38 @@ GY
 rk
 eK
 nw
-ZW
+zB
+Xj
+Xn
+fm
 Wm
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
+Wm
+Wm
+Wm
+Wm
+Wm
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+Cs
+LQ
+LQ
+LQ
+Ms
+lv
 "}
-(18,1,1) = {"
+(21,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 EW
 Ko
@@ -1251,19 +1896,38 @@ cL
 cy
 Fx
 nw
-hJ
+BA
+Xn
+Xn
+BA
+YE
+SL
+gS
+gS
+SL
 Wm
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+sG
+DU
+sG
+Wm
+lv
 "}
-(19,1,1) = {"
+(22,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 Wm
 Wm
@@ -1272,19 +1936,38 @@ SX
 pb
 Fx
 nw
-rP
-Wm
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
+Xn
+Xn
+Xn
+Xn
+CV
+ZW
+Sd
+Sd
+Sd
+FZ
+Sd
+CV
+lb
+PP
+Am
+Am
+Am
+JQ
+Am
+Am
+Am
+Am
+lv
 "}
-(20,1,1) = {"
+(23,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 eQ
 lB
@@ -1293,19 +1976,38 @@ cV
 cG
 eK
 nw
-EU
-Wm
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
+Xn
+Xn
+Xn
+Xn
+YN
+Sd
+Sd
+Sd
+Sd
+Sd
+RH
+YN
+Fx
+Ae
+md
+md
+md
+Ea
+md
+md
+md
+jZ
+lv
 "}
-(21,1,1) = {"
+(24,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 Kp
 qu
@@ -1314,19 +2016,38 @@ cV
 zW
 eK
 nw
-Xj
+oW
+gF
+gE
+EU
+YE
+Wa
+FK
+Cz
+Wi
+hJ
+Zj
+YE
+Fx
+GY
 Wm
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
+Wm
+Wm
+Wm
+Wm
+xD
+Wm
+Wm
+lv
 "}
-(22,1,1) = {"
+(25,1,1) = {"
 VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 rK
 qY
@@ -1334,20 +2055,39 @@ KT
 cV
 xo
 Fx
-Pl
+Sp
 Wm
 Wm
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Fx
+GY
+Wm
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
 "}
-(23,1,1) = {"
-Wm
+(26,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
 Wm
 Wm
@@ -1366,13 +2106,32 @@ VX
 VX
 VX
 VX
-"}
-(24,1,1) = {"
+VX
 Wm
-Wa
-FK
-Cz
 Fx
+bp
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(27,1,1) = {"
+lv
+lv
+lv
+lv
+VX
+VX
+lv
+lv
+lv
+Wm
+EL
 fo
 Am
 fH
@@ -1387,138 +2146,231 @@ VX
 VX
 VX
 VX
+VX
+Wm
+Fx
+GY
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 "}
-(25,1,1) = {"
+(28,1,1) = {"
+lv
 Wm
-yJ
-Hy
 Wm
-oW
+lv
+lv
+lv
+lv
+lv
+lv
+Wm
+Fc
 tS
 md
 md
-BA
+Qm
 Vn
 Wm
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 Wm
+Fx
+GY
 Wm
-Wm
+lv
+VX
+VX
 VX
 VX
 VX
 VX
 VX
 "}
-(26,1,1) = {"
+(29,1,1) = {"
+lv
+Db
 Wm
 Wm
 Wm
 Wm
 Wm
-Ys
+Wm
+Wm
+Wm
+Wm
+wt
 DU
-Yz
+sG
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+YF
+Wm
+Wm
+Fx
+GY
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(30,1,1) = {"
+lv
+Sd
+Sd
+Sd
+vb
+Am
+PP
+Am
+kg
+Am
+Am
+Am
+Am
+Am
+Am
+Am
+Am
+Am
+Am
+Am
+Am
+Am
+gh
+If
+TG
+Am
+Am
+fH
+GY
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(31,1,1) = {"
+lv
+Sd
+Sd
+Sd
+vb
+md
+md
+md
+kg
+md
+jZ
+md
+md
+md
+jZ
+md
+md
+md
+jZ
+md
+md
+rf
+mD
+Ae
+md
+md
+md
+md
+GV
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(32,1,1) = {"
+lv
+Cz
+Wi
+hJ
+YE
+Fx
+GY
+Wm
+Wm
+Wm
+Wm
+Wm
+dN
+Wm
+Wm
+Wm
+dN
+Wm
+Wm
+Wm
+Wm
+Fx
+vb
+GY
+Wm
+Wm
+Wm
 Wm
 Wm
 Wm
 lv
-Aj
-Wm
-Wm
-Wm
-Wm
-Wm
-Wm
-"}
-(27,1,1) = {"
 VX
-Wm
-sG
-YE
-Wm
-Zj
-Am
-Am
-Am
-Am
-Am
-fH
-TG
-FK
-YF
-lb
-Am
-FK
-Wm
-"}
-(28,1,1) = {"
 VX
-Wm
-sG
-MP
-jZ
-fm
-pO
-Xn
-dN
-dN
-Sd
-ua
-vb
-RH
-DU
-Fx
-Wi
-FZ
-YF
-"}
-(29,1,1) = {"
 VX
-Wm
-JW
-PP
-Wm
-gE
-tS
-Gv
-Lr
-md
-tS
-md
-Lr
-GV
-YF
-Fx
-vb
-If
-Wm
-"}
-(30,1,1) = {"
 VX
-Wm
-sG
-gh
-Wm
-Wm
-Ys
-Wm
-Wm
-Wm
-Ys
+VX
+VX
+VX
+"}
+(33,1,1) = {"
+lv
 Wm
 Wm
 Wm
 Wm
 Fx
-vb
-bp
+GY
 Wm
-"}
-(31,1,1) = {"
-VX
-Wm
-Wm
-Wm
+lv
+lv
 Wm
 gl
 Cp
@@ -1528,18 +2380,37 @@ gj
 Cp
 qA
 Wm
-VX
+lv
 Wm
 Fx
 vb
 GY
 Wm
+lv
+lv
+lv
+lv
+lv
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 "}
-(32,1,1) = {"
-VX
-VX
-VX
-VX
+(34,1,1) = {"
+lv
+lv
+lv
+lv
+Wm
+Fx
+bp
+Wm
+lv
+lv
 Wm
 TY
 Dk
@@ -1549,18 +2420,37 @@ TY
 Cf
 NL
 Wm
-VX
+lv
 Wm
 Fx
-ua
+vb
 GY
 Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 "}
-(33,1,1) = {"
+(35,1,1) = {"
 VX
 VX
 VX
-VX
+lv
+lv
+lv
+lv
+lv
+lv
+lv
 Wm
 vf
 Ns
@@ -1570,48 +2460,499 @@ vf
 qL
 FT
 Wm
+lv
+Wm
+Pl
+ua
+GY
+Wm
+lv
 VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(36,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+fZ
+MP
+xB
+Wm
+zw
+MP
+xB
+Wm
+lv
+Wm
+Fx
+vb
+GY
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(37,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+Wm
+lv
+Wm
+Fx
+vb
+GY
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(38,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+Wm
+pO
+pO
+pO
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(39,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+Fx
+vb
+GY
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(40,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+Fx
+vb
+rP
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(41,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+Fx
+vb
+GY
+Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(42,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+lv
 Wm
 ar
 md
 GV
 Wm
+lv
+lv
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 "}
-(34,1,1) = {"
+(43,1,1) = {"
 VX
 VX
 VX
 VX
-Wm
-fZ
-YN
-xB
-Wm
-zw
-YN
-xB
-Wm
 VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+Wm
+Wm
+vb
+vb
+vb
 Wm
 Wm
 Wm
-Wm
-Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
 "}
-(35,1,1) = {"
+(44,1,1) = {"
 VX
 VX
 VX
 VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
+uf
+Ys
+Ys
+Ys
+BI
+eP
 Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(45,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+YF
+Hy
+LQ
+LQ
+LQ
+HQ
+FJ
 Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(46,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
 Wm
+Tn
+zc
+xa
+Hy
+Gv
+AC
 Wm
-Wm
-Wm
-Wm
-Wm
+lv
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+"}
+(47,1,1) = {"
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+VX
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+lv
+VX
+VX
+VX
+VX
 VX
 VX
 VX
