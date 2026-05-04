@@ -9,6 +9,16 @@
 # Traits - Station (for station relatied edits), CentCom (for edits on the CC map), Mining (for edits on Lavaland)
 # More can be found in code\__DEFINES\maps.dm
 
+# CENTRAL COMMAND MAP TEMPLATES
+# Changing Room
+[templates.changing_room]
+map_files = ["changing_room.dmm"]
+directory = "_maps/doppler/automapper/templates/centcom/"
+required_map = "builtin"
+coordinates = [3, 21, 1]
+trait_name = "CentCom"
+
+
 # METASTATION MAP TEMPLATES
 # Metastation Cryo
 [templates.metastation_cryo]
