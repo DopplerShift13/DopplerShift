@@ -452,6 +452,7 @@
 /datum/preference/choiced/species_feature/fish_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FISH)
 		target.dna.features[FEATURE_TAIL_FISH] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
 /datum/preference/choiced/species_feature/fish_tail/icon_for(value)
 	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)

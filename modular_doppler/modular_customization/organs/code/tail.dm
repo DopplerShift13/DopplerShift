@@ -142,6 +142,9 @@
 /obj/item/organ/tail/fish
 	organ_traits = list(TRAIT_TACKLING_TAILED_DEFENDER, TRAIT_FLOPPING)
 
+/datum/bodypart_overlay/mutant/tail/fish
+	special_feature_key = FEATURE_TAIL_OTHER
+
 /// Cybernetic tail
 //
 /obj/item/organ/tail/cybernetic
