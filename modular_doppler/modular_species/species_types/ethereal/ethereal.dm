@@ -7,6 +7,7 @@
 	head = /obj/item/clothing/head/soft/frontier_colonist
 
 /datum/species/ethereal/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	turn_off_every_species_feature(human_for_preview)
 	human_for_preview.dna.features["ethcolor"] = GLOB.color_list_ethereal["Green"]
 	refresh_light_color(human_for_preview)
 	human_for_preview.set_hairstyle("Lila", update = TRUE)

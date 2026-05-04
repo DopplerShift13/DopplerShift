@@ -90,6 +90,7 @@
 	new_ramatan.AddComponent(/datum/component/sign_language)
 
 /datum/species/ramatan/prepare_human_for_preview(mob/living/carbon/human/ramatan_for_preview)
+	turn_off_every_species_feature(ramatan_for_preview)
 	ramatan_for_preview.dna.features[FEATURE_LIZARD_MARKINGS] = "Ramatan Underbelly"
 	ramatan_for_preview.dna.features[FEATURE_MARKINGS_COLORS][1] = "#ccecff"
 	ramatan_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#FFFFFF"

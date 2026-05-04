@@ -99,6 +99,7 @@
 	uniform = /obj/item/clothing/under/suit/black_really/skirt
 
 /datum/species/human/genemod/hemophage/prepare_human_for_preview(mob/living/carbon/human/human)
+	turn_off_every_species_feature(human)
 	human.dna.features[FEATURE_MUTANT_COLOR] = skintone2hex("albino")
 	human.dna.features[FEATURE_HORNS] = "Lifted"
 	human.dna.features[FEATURE_HORNS_COLORS][1] = "#52435e"

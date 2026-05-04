@@ -41,6 +41,7 @@
 	uniform = /obj/item/clothing/under/rank/cargo/miner/lavaland
 
 /datum/species/insectoid/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	turn_off_every_species_feature(human_for_preview)
 	human_for_preview.dna.features[FEATURE_LIZARD_MARKINGS] = "Insectoid Pattern"
 	human_for_preview.dna.features[FEATURE_MARKINGS_COLORS][1] = "#46c346"
 	human_for_preview.dna.features[FEATURE_MARKINGS_COLORS][2] = "#1c1c1c"
