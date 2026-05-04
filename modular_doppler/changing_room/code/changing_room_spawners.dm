@@ -1,6 +1,6 @@
 /obj/effect/mob_spawn/ghost_role/human/changing_room
 	name = "Changing Room Sleeper"
-	prompt_name = "a changing room goer"
+	prompt_name = "a changing room dreamer"
 	infinite_use = TRUE
 	deletes_on_zero_uses_left = FALSE
 	icon = 'icons/obj/machines/sleeper.dmi'
@@ -8,7 +8,7 @@
 	density = FALSE
 	//spawner_job_path = /datum/job/changing_room
 	outfit = /datum/outfit/changing_room
-	you_are_text = "You are in the changing room!"
+	you_are_text = "You are in the changing room dreamscape."
 	flavour_text = "Try on some outfits and see how you look!"
 	allow_loadout = TRUE
 	allow_prefs = TRUE
