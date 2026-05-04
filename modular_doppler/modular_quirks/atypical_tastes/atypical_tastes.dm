@@ -16,7 +16,7 @@ GLOBAL_LIST_INIT(possible_quirk_atypical_tastes, list(
 
 /datum/quirk_constant_data/atypical_taster
 	associated_typepath = /datum/quirk/atypical_tastes
-	customization_options = list(/datum/preference/choiced/atypical_tastes)
+	customization_options = list(/datum/preference/choiced/atypical_tastes, /datum/preference/toggle/tongue_replacement)
 
 /datum/quirk/atypical_tastes/add_unique(client/client_source)
 	var/obj/item/organ/tongue/desired_taste_copier = GLOB.possible_quirk_atypical_tastes[client_source?.prefs?.read_preference(/datum/preference/choiced/atypical_tastes)]
@@ -33,8 +33,16 @@ GLOBAL_LIST_INIT(possible_quirk_atypical_tastes, list(
 		to_chat(human_holder, span_warning("As you seem to lack a tongue and thus ability to taste food, the [name] quirk has been disabled."))
 		return
 
-	holder_tongue.liked_foodtypes = desired_taste_copier.liked_foodtypes
-	holder_tongue.disliked_foodtypes = desired_taste_copier.disliked_foodtypes
-	holder_tongue.toxic_foodtypes = desired_taste_copier.toxic_foodtypes
-	holder_tongue.sense_of_taste = desired_taste_copier.sense_of_taste
+	if(client_source?.prefs?.read_preference(/datum/preference/toggle/tongue_replacement))
+		var/obj/item/organ/tongue/new_tongue = new desired_taste_copier()
+		new_tongue.Insert(human_holder, special = TRUE)
+		holder_tongue.moveToNullspace()
+		if(ishemophage(human_holder))
+			new_tongue.AddComponent(/datum/component/organ_corruption/tongue, time_to_corrupt = 0)
+		STOP_PROCESSING(SSobj, holder_tongue)
+	else
+		holder_tongue.liked_foodtypes = desired_taste_copier.liked_foodtypes
+		holder_tongue.disliked_foodtypes = desired_taste_copier.disliked_foodtypes
+		holder_tongue.toxic_foodtypes = desired_taste_copier.toxic_foodtypes
+		holder_tongue.sense_of_taste = desired_taste_copier.sense_of_taste
 	medical_record_text = "Patient exhibits atypical mutation in taste receptors."

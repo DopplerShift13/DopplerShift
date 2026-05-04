@@ -18,3 +18,18 @@
 
 /datum/preference/choiced/atypical_tastes/apply_to_human(mob/living/carbon/human/target, value)
 	return
+
+/datum/preference/toggle/tongue_replacement
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "tongue_replacement"
+	savefile_identifier = PREFERENCE_CHARACTER
+	default_value = FALSE
+
+/datum/preference/toggle/tongue_replacement/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+/datum/preference/toggle/tongue_replacement/is_accessible(datum/preferences/preferences)
+	if (!..(preferences))
+		return FALSE
+
+	return "Atypical Tastes" in preferences.all_quirks
