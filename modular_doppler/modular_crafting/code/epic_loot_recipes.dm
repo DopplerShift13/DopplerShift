@@ -67,9 +67,6 @@
 		/obj/item/epic_loot/military_flash = 1,
 		/obj/item/book = 1,
 	)
-	tool_behaviors = list(
-		TOOL_PEN,
-	)
 	time = 20 SECONDS
 	category = CAT_MISC
 
