@@ -29,7 +29,7 @@
 
 /datum/crafting_recipe/suppressor
 	name = "Suppressor"
-	result = /obj/item/weapon/attachment/suppressor
+	result = /obj/item/suppressor
 	reqs = list(
 		/obj/item/epic_loot/water_filter = 1,
 		/obj/item/epic_loot/cold_weld = 1,
