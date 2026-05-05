@@ -31,7 +31,6 @@
 	for(var/obj/item/bodypart/bodypart as anything in human_holder.bodyparts)
 		on_gain_limb(src, bodypart, special = FALSE)
 
-	human_holder.blood_volume_normal = BLOOD_VOLUME_OVERSIZED
 	human_holder.physiology.hunger_mod *= OVERSIZED_HUNGER_MOD //50% hungrier
 	human_holder.add_movespeed_modifier(/datum/movespeed_modifier/oversized)
 
@@ -83,7 +82,6 @@
 
 	UnregisterSignal(human_holder, COMSIG_CARBON_POST_ATTACH_LIMB)
 
-	human_holder.blood_volume_normal = BLOOD_VOLUME_NORMAL
 	human_holder.physiology.hunger_mod /= OVERSIZED_HUNGER_MOD
 	human_holder.remove_movespeed_modifier(/datum/movespeed_modifier/oversized)
 	human_holder.remove_traits(oversized_traits, QUIRK_TRAIT)
