@@ -5,7 +5,7 @@
 		/obj/item//epic_loot/thermal_camera = 1,
 		/obj/item/stack/cable_coil = 1,
 		/obj/item/clothing/glasses/meson = 1,
-	)
+		)
 	tool_behaviors = list(
 		TOOL_WIRECUTTER,
 		TOOL_SCREWDRIVER,
@@ -13,7 +13,7 @@
 	time = 10 SECONDS
 	category = CAT_CLOTHING
 
-/datum/crafting_recipe/high-explosive
+/datum/crafting_recipe/high_explosive
 	name = "High-Explosive Grenade"
 	result = /obj/item/grenade/syndieminibomb/concussion
 	reqs = list(
