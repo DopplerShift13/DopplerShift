@@ -121,3 +121,45 @@
 	)
 	time = 20 SECONDS
 	category = CAT_MISC
+
+/datum/crafting_recipe/mirage_grenade
+	name = "Mirage Grenade"
+	result = /obj/item/grenade/mirage
+	reqs = list(
+		/obj/item/grenade/chem_grenade = 1,
+		/obj/item/epic_loot/graphics = 1,
+		/obj/item/sequence_scanner = 1,
+	)
+	tool_behaviors = list(
+		TOOL_SCREWDRIVER,
+	)
+	time = 5 SECONDS
+	category = CAT_WEAPON_RANGED
+
+/datum/crafting_recipe/exotic_fuelpellet
+	name = "Exotic Fuel Pellet"
+	result = /obj/item/fuel_pellet/exotic
+	reqs = list(
+		/obj/item/fuel_pellet = 1,
+		/obj/item/epic_loot/fuel_conditioner = 1,
+		/obj/item/stack/sheet/bluespace_crystal = 1,
+	)
+	tool_behaviors = list(
+		TOOL_WRENCH,
+	)
+	time = 5 SECONDS
+	category = CAT_MISC
+
+/datum/crafting_recipe/atrocinator
+	name = "Atrocinator Module"
+	result = /obj/item/mod/module/atrocinator
+	reqs = list(
+		/obj/item/epic_loot/shuttle_gyro = 1,
+		/obj/item/mod/module/magboot = 1,
+	)
+	tool_behaviors = list(
+		TOOL_SCREWDRIVER,
+		TOOL_WIRECUTTER,
+	)
+	time = 10 SECONDS
+	category = CAT_MISC
