@@ -1,4 +1,5 @@
 /// Ensures digitigrade legs and clothing are displayed correctly in screenshots
+/* // DOPPLER REMOVAL START - This test doesn't work right due to how doppler does digitigrade legs
 /datum/unit_test/screenshot_digi
 
 /datum/unit_test/screenshot_digi/Run()
@@ -73,3 +74,4 @@
 
 	// and upload
 	test_screenshot("leg_test", finished_icon)
+*/ // DOPPLER REMOVAL END

@@ -104,7 +104,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_TAIL_XENO] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/xeno) // DOPPLER EDIT - OPTIONAL ACCESSORY - ORIGINAL: feature_list[FEATURE_TAIL_XENO] = INIT_ACCESSORY(/datum/sprite_accessory/tails/xeno)
 	// DOPPLER ADDITION BEGIN - Modular accessories
 	feature_list[FEATURE_BREASTS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/breasts)
-	feature_list[FEATURE_WINGS] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/wings_more)
+	feature_list[FEATURE_WINGS] |= INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/wings_more)
 	feature_list[FEATURE_FLUFF] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/fluff)
 	feature_list[FEATURE_TAUR] = INIT_ACCESSORY(/datum/sprite_accessory/taur)
 	// Ear variations
