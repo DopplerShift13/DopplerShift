@@ -58,18 +58,6 @@
 	time = 15 SECONDS
 	category = CAT_MISC
 
-/datum/crafting_recipe/codespeak_manual
-	name = "Codespeak Manual"
-	result = /obj/item/language_manual/codespeak_manual
-	reqs = list(
-		/obj/item/epic_loot/intel_folder = 1,
-		/obj/item/epic_loot/corpo_folder = 1,
-		/obj/item/epic_loot/military_flash = 1,
-		/obj/item/book = 1,
-	)
-	time = 20 SECONDS
-	category = CAT_MISC
-
 /datum/crafting_recipe/exosuit_emp_shield
 	name = "Exosuit EMP Shielding"
 	result = /obj/item/mecha_parts/mecha_equipment/armor/antiemp_armor_booster/clandestine
