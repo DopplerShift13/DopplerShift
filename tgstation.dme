@@ -7240,6 +7240,7 @@
 #include "modular_doppler\modular_crafting\code\crafting_items.dm"
 #include "modular_doppler\modular_crafting\code\crafting_melee.dm"
 #include "modular_doppler\modular_crafting\code\crafting_structures.dm"
+#include "modular_doppler\modular_crafting\code\epic_loot_recipes.dm"
 #include "modular_doppler\modular_crafting\code\lathe_recipes.dm"
 #include "modular_doppler\modular_crafting\code\sheet_types.dm"
 #include "modular_doppler\modular_crusher_ahabs_spear\code\trophies_misc.dm"
