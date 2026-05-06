@@ -1,11 +1,11 @@
 /datum/species/get_features()
 	var/list/features = ..()
 
-	features += /datum/preference/choiced/lizard_snout
-	features += /datum/preference/choiced/lizard_frills
-	features += /datum/preference/choiced/lizard_horns
-	features += /datum/preference/choiced/lizard_tail
-	features += /datum/preference/choiced/lizard_body_markings
+	features += /datum/preference/choiced/species_feature/lizard_snout
+	features += /datum/preference/choiced/species_feature/lizard_frills
+	features += /datum/preference/choiced/species_feature/lizard_horns
+	features += /datum/preference/choiced/species_feature/lizard_tail
+	features += /datum/preference/choiced/species_feature/lizard_body_markings
 
 	GLOB.features_by_species[type] = features
 
@@ -14,6 +14,8 @@
 /datum/bodypart_overlay/mutant
 	/// Annoying annoying annoyed annoyance - this is to avoid a massive headache trying to work around tails
 	var/feature_key_sprite = null
+	/// The feature key we use when checking for ears or tails because they're done a special way, the var above is for something different (??)
+	var/special_feature_key = null
 
 /datum/dna/initialize_dna(newblood_type, create_mutation_blocks = TRUE, randomize_features = TRUE)
 	. = ..()
@@ -23,12 +25,12 @@
 			var/skin_tone = pick(GLOB.skin_tones)
 			features[FEATURE_MUTANT_COLOR] = skintone2hex(skin_tone) //spoof
 		if(species.id != /datum/species/human/felinid::id)
-			features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/tails/human/none::name
-			features[FEATURE_EARS] = /datum/sprite_accessory/ears/none::name
+			features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			features[FEATURE_EARS] = /datum/sprite_accessory/blank::name
 		if(species.id != /datum/species/monkey::id)
-			features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
+			features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
 		if(species.id != /datum/species/human/felinid::id)
-			features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/tails/human/none::name
+			features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
 	update_dna_identity()
 
 /mob/living/carbon/human

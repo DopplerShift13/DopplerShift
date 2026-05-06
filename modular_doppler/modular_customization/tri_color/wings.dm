@@ -1,11 +1,11 @@
 // Gotta add to the selector
-/datum/preference/choiced/wings/compile_constant_data()
+/datum/preference/choiced/species_feature/wings/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/wings_color::savefile_key
 	return data
 
 // Gotta add to the selector for moths too
-/datum/preference/choiced/moth_wings/compile_constant_data()
+/datum/preference/choiced/species_feature/moth_wings/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/wings_color::savefile_key
 	return data

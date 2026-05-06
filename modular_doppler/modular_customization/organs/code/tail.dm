@@ -45,10 +45,7 @@
 	AddComponent(/datum/component/accessable_storage/organ)
 
 /datum/bodypart_overlay/mutant/tail/mouse
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/mouse/get_global_feature_list()
-	return SSaccessories.tails_list_mouse
+	feature_key = FEATURE_TAIL_MOUSE
 
 /// Dog tail
 //	Buffs people if they're closeby while you're wagging it!
@@ -60,10 +57,7 @@
 	var/datum/proximity_monitor/advanced/dog_wag/mood_buff
 
 /datum/bodypart_overlay/mutant/tail/dog
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/dog/get_global_feature_list()
-	return SSaccessories.tails_list_dog
+	feature_key = FEATURE_TAIL_DOG
 
 // Create the proximity monitor when we start wagging, thanks TG for this proc!
 /obj/item/organ/tail/dog/start_wag(mob/living/carbon/organ_owner, stop_after = INFINITY)
@@ -97,10 +91,8 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/fox
 
 /datum/bodypart_overlay/mutant/tail/fox
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/fox/get_global_feature_list()
-	return SSaccessories.tails_list_fox
+	feature_key = FEATURE_TAIL_FOX
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Bunny tail
 //
@@ -110,10 +102,8 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/bunny
 
 /datum/bodypart_overlay/mutant/tail/bunny
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/bunny/get_global_feature_list()
-	return SSaccessories.tails_list_bunny
+	feature_key = FEATURE_TAIL_BUNNY
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Bird tail
 //
@@ -123,10 +113,8 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/bird
 
 /datum/bodypart_overlay/mutant/tail/bird
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/bird/get_global_feature_list()
-	return SSaccessories.tails_list_bird
+	feature_key = FEATURE_TAIL_BIRD
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Bug tail
 //
@@ -135,10 +123,8 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/bug
 
 /datum/bodypart_overlay/mutant/tail/bug
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/bug/get_global_feature_list()
-	return SSaccessories.tails_list_bug
+	feature_key = FEATURE_TAIL_BUG
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Deer tail
 //
@@ -148,15 +134,16 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/deer
 
 /datum/bodypart_overlay/mutant/tail/deer
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/deer/get_global_feature_list()
-	return SSaccessories.tails_list_deer
+	feature_key = FEATURE_TAIL_DEER
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Fish tail
 //
 /obj/item/organ/tail/fish
 	organ_traits = list(TRAIT_TACKLING_TAILED_DEFENDER, TRAIT_FLOPPING)
+
+/datum/bodypart_overlay/mutant/tail/fish
+	special_feature_key = FEATURE_TAIL_OTHER
 
 /// Cybernetic tail
 //
@@ -167,10 +154,8 @@
 	restyle_flags = NONE
 
 /datum/bodypart_overlay/mutant/tail/cybernetic
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/cybernetic/get_global_feature_list()
-	return SSaccessories.tails_list_synth
+	feature_key = FEATURE_TAIL_CYBERNETIC
+	special_feature_key = FEATURE_TAIL_OTHER
 
 
 /// Humanoid tail
@@ -181,10 +166,8 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/humanoid
 
 /datum/bodypart_overlay/mutant/tail/humanoid
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/humanoid/get_global_feature_list()
-	return SSaccessories.tails_list_humanoid
+	feature_key = FEATURE_TAIL_HUMANOID
+	special_feature_key = FEATURE_TAIL_OTHER
 
 
 /// Alien tail
@@ -195,7 +178,5 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/alien
 
 /datum/bodypart_overlay/mutant/tail/alien
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/alien/get_global_feature_list()
-	return SSaccessories.tails_list_alien
+	feature_key = FEATURE_TAIL_ALIEN
+	special_feature_key = FEATURE_TAIL_OTHER

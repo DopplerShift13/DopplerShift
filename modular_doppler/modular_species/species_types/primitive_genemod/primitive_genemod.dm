@@ -53,6 +53,7 @@
 	hearthkin.dna.remove_mutation(/datum/mutation/olfaction, MUTATION_SOURCE_SPECIES)
 
 /datum/species/human/genemod/primitive/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	turn_off_every_species_feature(human_for_preview)
 	human_for_preview.dna.ear_type = CAT
 	human_for_preview.dna.features[FEATURE_EARS] = "Coeurl"
 	human_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#e9eff5"

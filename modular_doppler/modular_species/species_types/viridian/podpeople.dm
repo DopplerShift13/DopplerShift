@@ -7,6 +7,13 @@
 		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/digitigrade/pod,
 	)
 
+/datum/species/pod/prepare_human_for_preview(mob/living/carbon/human/human)
+	turn_off_every_species_feature(human)
+	human.dna.features[FEATURE_MUTANT_COLOR] = "#886600"
+	human.dna.features[FEATURE_POD_HAIR] = "Rose"
+	regenerate_organs(human)
+	human.update_body(is_creating = TRUE)
+
 /datum/species/pod/get_species_description()
 	return 	"Viridians are a species of sapient plants-- \
 		the result of an encounter between carefree experimentation by the Ordoht and the modern technology involved in genetically modified crops. \

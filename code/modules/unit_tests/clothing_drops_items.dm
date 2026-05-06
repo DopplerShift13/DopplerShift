@@ -28,6 +28,7 @@
 	var/list/robo_dummy_items = allocate_items()
 	var/mob/living/carbon/human/consistent/robo_dummy = allocate(__IMPLIED_TYPE__)
 	robo_dummy.set_species(/datum/species/android)
+	robo_dummy.dna.species.regenerate_organs(robo_dummy) // DOPPLER ADDITION - Fixes androids failing tests
 
 	for(var/slot in robo_dummy_items)
 		TEST_ASSERT(robo_dummy.equip_to_slot_if_possible(robo_dummy_items[slot], text2num(slot)), \

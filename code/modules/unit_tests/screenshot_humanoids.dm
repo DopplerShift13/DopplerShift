@@ -6,6 +6,7 @@
 
 	// Test lizards as their own thing so we can get more coverage on their features
 	var/mob/living/carbon/human/lizard = allocate(/mob/living/carbon/human/dummy/consistent)
+	turn_off_every_species_feature(lizard) // DOPPLER ADDITION - Fixes screenshot tests with features
 	lizard.dna.features[FEATURE_MUTANT_COLOR] = "#099"
 	lizard.dna.features[FEATURE_TAIL_LIZARD] = "Light Tiger"
 	lizard.dna.features[FEATURE_SNOUT] = "Sharp + Light"
@@ -24,6 +25,7 @@
 
 	// let me have this
 	var/mob/living/carbon/human/moth = allocate(/mob/living/carbon/human/dummy/consistent)
+	turn_off_every_species_feature(moth) // DOPPLER ADDITION - Fixes screenshot tests with features
 	moth.dna.features[FEATURE_MOTH_ANTENNAE] = "Firewatch"
 	moth.dna.features[FEATURE_MOTH_MARKINGS] = "None"
 	moth.dna.features[FEATURE_MOTH_WINGS] = "Firewatch"
@@ -35,6 +37,7 @@
 	// More in depth test for slimes since they have a lot going on
 	for (var/datum/species/slime_type as anything in typesof(/datum/species/jelly))
 		var/mob/living/carbon/human/slime = allocate(/mob/living/carbon/human/dummy/consistent)
+		turn_off_every_species_feature(slime) // DOPPLER ADDITION - Fixes screenshot tests with features
 		slime.dna.features[FEATURE_MUTANT_COLOR] = COLOR_PINK
 		slime.hairstyle = "Bob Hair 2"
 		slime.hair_color = COLOR_RED // Should be forced to pink
@@ -49,6 +52,7 @@
 
 /datum/unit_test/screenshot_humanoids/proc/make_dummy(species, job_outfit)
 	var/mob/living/carbon/human/dummy/consistent/dummy = allocate(/mob/living/carbon/human/dummy/consistent)
+	turn_off_every_species_feature(dummy) // DOPPLER ADDITION - Fixes screenshot tests with features
 	dummy.set_species(species)
 	dummy.equipOutfit(job_outfit, visuals_only = TRUE)
 	return dummy
