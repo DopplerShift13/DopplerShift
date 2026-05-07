@@ -142,3 +142,7 @@
 /datum/loadout_item/backpack/misc/gravity_harness
 	name = "Gravity Harness"
 	item_path = /obj/item/gravity_harness/with_cell
+
+/datum/loadout_item/backpack/misc/invisible
+	name = "Equipment Harness (Compact)"
+	item_path = /obj/item/storage/backpack/invisible
