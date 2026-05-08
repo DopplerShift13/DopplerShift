@@ -47,3 +47,4 @@
 	righthand_file = 'modular_doppler/modular_items/icons/backpack_lefthand.dmi'
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
+	storage_type = /datum/storage/backpack/satchel_flat
