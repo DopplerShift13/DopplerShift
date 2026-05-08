@@ -26,6 +26,7 @@ GLOBAL_LIST_INIT(shapechange_form_types, list(
 	"Duct Spider" = /mob/living/basic/spider/maintenance,
 	"Bat" = /mob/living/basic/bat,
 	"Butterfly" = /mob/living/basic/butterfly,
+	"Mothroach" = /mob/living/basic/mothroach,
 ))
 
 /// Shapechanger: Spider power.
