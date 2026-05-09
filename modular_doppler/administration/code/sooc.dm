@@ -10,7 +10,7 @@
 		return
 
 	if(!holder)
-		if(GLOB.sooc_job_lookup[mob.mind?.assigned_role?.title])
+		if(!GLOB.sooc_job_lookup[mob.mind?.assigned_role?.title])
 			to_chat(src, span_danger("You're not a security role!"))
 			return
 		if(!GLOB.sooc_allowed)
