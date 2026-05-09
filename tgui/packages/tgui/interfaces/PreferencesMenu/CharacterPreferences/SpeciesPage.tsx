@@ -343,6 +343,7 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                     <CharacterPreview
                       id={data.character_preview_view}
                       height="100%"
+                      width="179px" // DOPPLER SHIFT ADDITION
                     />
                   </Stack.Item>
                 </Stack>

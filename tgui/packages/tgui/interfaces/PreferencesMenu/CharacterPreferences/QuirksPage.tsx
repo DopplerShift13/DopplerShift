@@ -11,6 +11,7 @@ import {
   Tooltip,
 } from 'tgui-core/components';
 import { createSearch } from 'tgui-core/string';
+import { CharacterPreview } from '../../common/CharacterPreview'; // DOPPLER EDIT ADDITION
 
 import {
   type PreferencesMenuData,
@@ -95,6 +96,7 @@ function QuirkDisplay(props: QuirkDisplayProps) {
   const { icon, value, name, description, customizable, failTooltip } = quirk;
 
   const [customizationExpanded, setCustomizationExpanded] = useState(false);
+  const { data } = useBackend<PreferencesMenuData>(); // DOPPLER EDIT ADDITION
 
   const className = 'PreferencesMenu__Quirks__QuirkList__quirk';
 
@@ -455,7 +457,27 @@ function QuirkPage() {
       </Stack.Item>
 
       <Stack.Item align="center">
-        <Icon name="exchange-alt" size={1.5} ml={2} mr={2} />
+        {/* <Icon name="exchange-alt" size={1.5} ml={2} mr={2} /> // DOPPLER EDIT REMOVAL - moved down */}
+        {/* DOPPLER EDIT ADDITION START */}
+        <Stack vertical fill align="center">
+          {/* Keep the CharacterPreview alive but "hidden", so that traits that affect appearance (e.g. Oversized) refresh rendering calculations immediately. */}
+          <Stack.Item
+            style={{
+              padding: '-1px',
+              width: 1,
+              height: 1,
+              opacity: 0.0,
+            }}
+          >
+            <CharacterPreview
+              id={data.character_preview_view}
+              height="1px"
+              width="1px"
+            />
+          </Stack.Item>
+          <Icon name="exchange-alt" size={1.5} ml={2} mr={2} />
+        </Stack>
+        {/* DOPPLER EDIT ADDITION END */}
       </Stack.Item>
 
       <Stack.Item basis="50%">

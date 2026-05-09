@@ -6873,6 +6873,7 @@
 #include "modular_doppler\carp_infusion\code\carp_organs.dm"
 #include "modular_doppler\cell_component\code\cell_component.dm"
 #include "modular_doppler\chamtoggle\code\datums\mutations\chameleon.dm"
+#include "modular_doppler\character_preview_background\code\character_preview_background.dm"
 #include "modular_doppler\chatroom_soul\code\chatroom_keybinding.dm"
 #include "modular_doppler\chatroom_soul\code\irc_checks.dm"
 #include "modular_doppler\chatroom_soul\code\irc_verbs.dm"

@@ -95,6 +95,7 @@
 	name = "Painted Points"
 	icon = 'modular_doppler/modular_customization/accessories/icons/human/horns_big.dmi'
 	icon_state = "paintedpoints"
+	zooms_out_character_preview = TRUE
 
 /datum/sprite_accessory/horns/humanoid/big/whoshorns
 	name = "Who's Horns"

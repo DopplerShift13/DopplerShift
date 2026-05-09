@@ -27,6 +27,11 @@ export const ServerPrefs = createContext<ServerData | undefined>({
     loadout_tabs: [],
   },
   species: {},
+  // DOPPLER SHIFT ADDITION START - Background Selection
+  background_state: {
+    choices: [],
+  },
+  // DOPPLER SHIFT ADDITION END
 });
 
 export function useServerPrefs() {
