@@ -2,7 +2,7 @@
 	returns the appropriate message color for the OOC channels.
 	SOOC_COLOR for secoffs, AOOC_COLOR for antags, and the ooc pref for admins
 */
-/proc/ooc_channel_color(mob/living/carbon/human/chatter)
+/proc/ooc_channel_color(mob/chatter)
 	var/color = "#c43b23"
 	if(!chatter.mind || !chatter.client || !chatter.client?.prefs)
 		return color
@@ -23,7 +23,7 @@
 	returns the appropriate emoji for the OOC channels.
 	picks from a pref regarding if youre secoff or antag. always doppie for admins
 */
-/proc/ooc_channel_emoji(mob/living/carbon/human/chatter)
+/proc/ooc_channel_emoji(mob/chatter)
 	var/emoji_icon_state = "fpalm"
 	var/emoji_icon_file = EMOJI_SET
 	if(!chatter.mind || !chatter.client || !chatter.client?.prefs)
