@@ -155,8 +155,7 @@
 /area/ruin/space/has_grav/powered)
 "ch" = (
 /obj/structure/shuttle_decoration/munition/ciws{
-	pixel_y = -8;
-	layer = 2.9
+	pixel_y = -8
 	},
 /obj/effect/spawner/random/epic_loot/random_tools,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -282,9 +281,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "eb" = (
-/obj/structure/titanium_structure{
-	layer = 2.8
-	},
+/obj/structure/titanium_structure,
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
 	dir = 10
 	},
@@ -612,9 +609,7 @@
 /turf/template_noop,
 /area/space)
 "jx" = (
-/obj/structure/titanium_structure{
-	layer = 2.8
-	},
+/obj/structure/titanium_structure,
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
 	dir = 6
 	},
@@ -997,9 +992,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "pA" = (
-/obj/structure/shuttle_decoration/liquid_tank/coolant/industrial{
-	layer = 2.9
-	},
+/obj/structure/shuttle_decoration/liquid_tank/coolant/industrial,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/iron/colony/white/texture,
@@ -1108,13 +1101,11 @@
 "ro" = (
 /obj/structure/shuttle_decoration/ladder_black{
 	pixel_x = -8;
-	pixel_y = 20;
-	layer = 2.8
+	pixel_y = 20
 	},
 /obj/structure/bed/pod,
 /obj/structure/bed/pod{
-	pixel_y = 11;
-	layer = 2.95
+	pixel_y = 11
 	},
 /obj/machinery/airalarm/directional/south,
 /turf/open/floor/plating/nanocarbon,
@@ -1500,9 +1491,7 @@
 "ym" = (
 /obj/machinery/exoscanner/shuttle_part/radar_panel/directional/south,
 /obj/structure/shuttle_decoration/junction_box/directional/south,
-/obj/structure/titanium_structure{
-	layer = 2.8
-	},
+/obj/structure/titanium_structure,
 /turf/open/floor/plating/nanocarbon/exterior/standard,
 /area/ruin/space/has_grav/powered)
 "yu" = (
@@ -1660,7 +1649,6 @@
 "zO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/structure/cable,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
@@ -1741,7 +1729,7 @@
 /area/ruin/space/has_grav/powered)
 "AO" = (
 /obj/machinery/smartfridge/food,
-/turf/closed/wall,
+/turf/open/space/basic,
 /area/ruin/space/has_grav/powered)
 "AX" = (
 /obj/structure/shelf,
@@ -2263,9 +2251,7 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered)
 "JX" = (
-/obj/structure/titanium_structure{
-	layer = 2.8
-	},
+/obj/structure/titanium_structure,
 /obj/structure/shuttle_decoration/radiator/directional/south,
 /turf/open/floor/plating/nanocarbon/exterior/standard,
 /area/ruin/space/has_grav/powered)
@@ -2518,9 +2504,7 @@
 "On" = (
 /obj/machinery/exoscanner/shuttle_part/radar_panel/directional/south,
 /obj/structure/shuttle_decoration/extinguisher/directional/south,
-/obj/structure/titanium_structure{
-	layer = 2.8
-	},
+/obj/structure/titanium_structure,
 /turf/open/floor/plating/nanocarbon/exterior/standard,
 /area/ruin/space/has_grav/powered)
 "Os" = (
@@ -2965,8 +2949,7 @@
 	},
 /obj/structure/bed/pod{
 	pixel_y = 11;
-	dir = 1;
-	layer = 2.95
+	dir = 1
 	},
 /obj/structure/shuttle_decoration/ladder_black{
 	pixel_x = 8
@@ -2975,8 +2958,7 @@
 /area/ruin/space/has_grav/powered)
 "Tz" = (
 /obj/structure/shuttle_decoration/liquid_tank/explosive/hydrazine{
-	pixel_x = -5;
-	layer = 2.8
+	pixel_x = -5
 	},
 /obj/machinery/light/red/directional/north,
 /turf/open/floor/iron/colony/nanocarbon,
