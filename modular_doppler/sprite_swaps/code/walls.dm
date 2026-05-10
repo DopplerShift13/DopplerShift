@@ -39,6 +39,12 @@
 	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
 	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
+/turf/closed/wall/mineral/titanium/nodiagonal
+	icon = MAP_SWITCH('modular_doppler/sprite_swaps/icons/turfs/walls/shuttle_wall.dmi', 'icons/turf/walls/misc_wall.dmi')
+
+/turf/closed/wall/mineral/titanium/overspace
+	icon = MAP_SWITCH('modular_doppler/sprite_swaps/icons/turfs/walls/shuttle_wall.dmi', 'icons/turf/walls/misc_wall.dmi')
+
 /turf/closed/wall/mineral/titanium/survival
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/survival_pod_walls.dmi'
 	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
