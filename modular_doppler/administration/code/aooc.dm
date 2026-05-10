@@ -38,17 +38,6 @@
 		return
 
 	mob.log_talk(raw_msg, LOG_OOC, tag = "AOOC")
-
-	var/keyname = key
-	var/anon = FALSE
-
-	//Anonimity for players and deadminned admins
-	if(!holder || holder.deadmined)
-		if(!GLOB.ckey_to_anonymous[key])
-			GLOB.ckey_to_anonymous[key] = generate_anonymous_key()
-		keyname = GLOB.ckey_to_anonymous[key]
-		anon = TRUE
-
 	var/list/listeners = list()
 
 	for(var/mind as anything in get_antag_minds(/datum/antagonist))
@@ -70,10 +59,9 @@
 	for(var/iterated_listener as anything in listeners)
 		var/client/iterated_client = iterated_listener
 		var/mode = listeners[iterated_listener]
-		var/color = (!anon && CONFIG_GET(flag/allow_admin_ooccolor) && iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)) ? iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color) : GLOB.AOOC_COLOR
-		var/chat_icon = (is_admin(mob.client) && !GLOB.deadmins[mob.client?.ckey]) ? icon2html(MODULAR_EMOJI_SET, world, "dolphin") : icon2html(EMOJI_SET, world, "pop")
-		var/name = (mode == LISTEN_ADMIN && anon) ? "([key])[keyname]" : keyname
-		to_chat(iterated_client, span_oocplain("<font color='[color]'>Private (A): [chat_icon] <EM>[name]</EM> says, <b><span class='message linkify'>[msg]</span></b></font>"))
+		var/name = (mode == LISTEN_ADMIN) ? "([key]) [mob.real_name]" : mob?.real_name
+		to_chat(iterated_client, span_oocplain("<font color='[ooc_channel_color(mob)]'>Private (A): [ooc_channel_emoji(mob)] <EM>[name]</EM> says, <b><span class='message linkify'>[msg]</span></b></font>"))
+		SEND_SOUND(iterated_client, 'modular_doppler/modular_sounds/sound/machines/typewriter_click.ogg')
 
 /proc/toggle_aooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling aooc

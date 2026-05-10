@@ -1,6 +1,3 @@
-#define ASOOC_RED 1
-#define ASOOC_BLUE 2
-
 /client/verb/backstage(msg as text)
 	set name = "OOC: Backstage (Antag/Sec)"
 	set category = "OOC"
@@ -11,15 +8,14 @@
 
 	if(!mob)
 		return
-
-	var/red_or_blue = NONE
+	var/backstage_access = FALSE
+	if(GLOB.sooc_job_lookup[mob.mind?.assigned_role?.title])
+		backstage_access = TRUE
 	if(length(mob.mind?.antag_datums))
-		red_or_blue = ASOOC_RED
-	else if(GLOB.sooc_job_lookup[mob.mind?.assigned_role?.title])
-		red_or_blue = ASOOC_BLUE
+		backstage_access = TRUE
 
 	if(!holder)
-		if(!red_or_blue)
+		if(!backstage_access)
 			to_chat(src, span_danger("You don't have backstage access!"))
 			return
 		if(!GLOB.backstage_allowed)
@@ -47,17 +43,6 @@
 		return
 
 	mob.log_talk(raw_msg, LOG_OOC, tag = "Backstage")
-
-	var/keyname = key
-	var/anon = FALSE
-
-	//Anonimity for players and deadminned admins
-	if(!holder || holder.deadmined)
-		if(!GLOB.ckey_to_anonymous[key])
-			GLOB.ckey_to_anonymous[key] = generate_anonymous_key()
-		keyname = GLOB.ckey_to_anonymous[key]
-		anon = TRUE
-
 	var/list/listeners = list()
 
 	for(var/iterated_player as anything in GLOB.player_list)
@@ -76,13 +61,9 @@
 	for(var/iterated_listener as anything in listeners)
 		var/client/iterated_client = iterated_listener
 		var/mode = listeners[iterated_listener]
-		var/color = (!anon && CONFIG_GET(flag/allow_admin_ooccolor) && iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)) ? iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color) : GLOB.backstage_color[red_or_blue]
-		var/name = (mode == LISTEN_ADMIN && anon) ? "([key])[keyname]" : keyname
-		var/chat_icon = (is_admin(mob.client) && !GLOB.deadmins[mob.client?.ckey]) ? icon2html(MODULAR_EMOJI_SET, world, "dolphin") : icon2html(red_or_blue == ASOOC_RED ? EMOJI_SET : MODULAR_EMOJI_SET, world, red_or_blue == ASOOC_RED ? "pop" : "blorbo")
-		to_chat(iterated_client, span_oocplain("<font color='[color]'> [chat_icon] <EM>[name]</EM> says, <b><span class='message linkify'>[msg]</span></b></font>"))
-
-#undef ASOOC_RED
-#undef ASOOC_BLUE
+		var/name = (mode == LISTEN_ADMIN) ? "([key]) [mob?.real_name]" : mob?.real_name
+		to_chat(iterated_client, span_oocplain("<font color='[ooc_channel_color(mob)]'> [ooc_channel_emoji(mob)] <EM>[name]</EM> says, <b><span class='message linkify'>[msg]</span></b></font>"))
+		SEND_SOUND(iterated_client, 'modular_doppler/modular_sounds/sound/machines/typewriter_click.ogg')
 
 /proc/toggle_backstage(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling aooc
