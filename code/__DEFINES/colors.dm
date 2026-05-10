@@ -226,10 +226,11 @@
 #define BLOOD_COLOR_OIL "#2C2C2C"
 #define BLOOD_COLOR_BLACK "#1F1A00"
 #define BLOOD_COLOR_DRIED "#370404" // Not to be used normally, only exists for mapper convinience
-// DOPPLER ADDITIONS:
+// DOPPLER ADDITION START - Special blood colours
 #define BLOOD_COLOR_INSECTOID "#945d9b"
-#define BLOOD_COLOR_SYNTHETIC "#f0bd84"
+#define BLOOD_COLOR_SYNTHETIC "#214370"
 #define BLOOD_COLOR_HOLOGEL "#43aaff95" //OoOoh extra digits makes transparency
+// DOPPLER ADDITION END
 
 ///Main colors for UI themes
 #define COLOR_THEME_MIDNIGHT "#6086A0"

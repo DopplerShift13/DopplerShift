@@ -4,6 +4,8 @@
 		/datum/preference/choiced/ship_captain_hull,
 		/datum/preference/text/ship_captain_name,
 		/datum/preference/text/ship_captain_crewkey,
+		/datum/preference/color/ship_captain_primary_color,
+		/datum/preference/color/ship_captain_secondary_color,
 	)
 
 // HULL TYPE
@@ -65,4 +67,42 @@
 	return "Spacefarer" in preferences.all_quirks
 
 /datum/preference/text/ship_captain_crewkey/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+// Ship primary color
+/datum/preference/color/ship_captain_primary_color
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "ship_captain_primary_color"
+	savefile_identifier = PREFERENCE_CHARACTER
+	can_randomize = FALSE
+
+/datum/preference/color/ship_captain_primary_color/create_default_value()
+	return COLOR_SILVER
+
+/datum/preference/color/ship_captain_primary_color/is_accessible(datum/preferences/preferences)
+	if (!..())
+		return FALSE
+
+	return "Spacefarer" in preferences.all_quirks
+
+/datum/preference/color/ship_captain_primary_color/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
+// Ship secondary color
+/datum/preference/color/ship_captain_secondary_color
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "ship_captain_secondary_color"
+	savefile_identifier = PREFERENCE_CHARACTER
+	can_randomize = FALSE
+
+/datum/preference/color/ship_captain_secondary_color/create_default_value()
+	return COLOR_ORANGE
+
+/datum/preference/color/ship_captain_secondary_color/is_accessible(datum/preferences/preferences)
+	if (!..())
+		return FALSE
+
+	return "Spacefarer" in preferences.all_quirks
+
+/datum/preference/color/ship_captain_secondary_color/apply_to_human(mob/living/carbon/human/target, value)
 	return

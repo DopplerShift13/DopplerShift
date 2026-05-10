@@ -11,7 +11,7 @@
 	flavour_text = "Known by The Curfew and Sundown to squares, The Undisclosed Location is a front for criminal activity in the sector. \
 	The breadth of their corporate affiliations is on a need to know basis, but the sheer volume of gear in the back is at least a little \
 	illuminating. You're a regular here, and you know that they can get you the goods."
-	spawner_job_path = /datum/job/cantina_regular
+	spawner_job_path = /datum/job/cantinoid/regular
 	role_ban = ROLE_TRAITOR
 
 /obj/effect/mob_spawn/ghost_role/human/cantina/create(mob/mob_possessor, newname)
@@ -38,7 +38,7 @@
 	flavour_text = "Known by The Curfew and Sundown to squares, The Undisclosed Location is a front for criminal activity in the sector. \
 	The breadth of their corporate affiliations is on a need to know basis, but the sheer volume of gear in the back is at least a little \
 	illuminating. You're an employee here, and you have clientele to please."
-	spawner_job_path = /datum/job/cantina_bartender
+	spawner_job_path = /datum/job/cantinoid/bartender
 	role_ban = ROLE_TRAITOR
 
 /obj/effect/mob_spawn/ghost_role/human/cantina_bartender/create(mob/mob_possessor, newname)

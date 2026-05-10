@@ -112,3 +112,11 @@
 	new /obj/item/gun/ballistic/alacran(src)
 	new /obj/item/storage/box/alacran_dart(src)
 	new /obj/item/storage/belt/security/webbing/full(src)
+
+// for lord humongous in the murderdrome
+
+/obj/item/storage/belt/holster/filled_humongous/PopulateContents()
+	generate_items_inside(list(
+		/obj/item/ammo_box/speedloader/c357 = 2,
+		/obj/item/gun/ballistic/revolver/cowboy = 1,
+	), src)

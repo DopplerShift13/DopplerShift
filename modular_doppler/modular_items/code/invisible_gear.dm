@@ -35,3 +35,16 @@
 	atom_storage.max_total_storage = 12
 	atom_storage.max_slots = 5
 
+/obj/item/storage/backpack/invisible
+	name = "compact equipment harness"
+	desc = "A simple, inconspicuous harness capable of holding items."
+	icon_state = "compact_harness"
+	inhand_icon_state = "compact_harness"
+	worn_icon_state = "hidden_icon"
+	worn_icon = 'modular_doppler/modular_items/icons/backpacks.dmi'
+	icon = 'modular_doppler/modular_items/icons/backpacks.dmi'
+	lefthand_file = 'modular_doppler/modular_items/icons/backpack_lefthand.dmi'
+	righthand_file = 'modular_doppler/modular_items/icons/backpack_lefthand.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
+	storage_type = /datum/storage/backpack/satchel_flat

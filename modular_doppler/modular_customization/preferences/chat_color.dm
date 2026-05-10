@@ -5,7 +5,7 @@
 	savefile_key = "ic_chat_color"
 
 /datum/preference/color/chat_color/apply_to_human(mob/living/carbon/human/target, value)
-	target.apply_preference_chat_color(value)
+	target.apply_chat_color(value)
 	return
 
 /datum/preference/color/chat_color/deserialize(input, datum/preferences/preferences)
@@ -17,21 +17,49 @@
 /datum/preference/color/chat_color/serialize(input)
 	return process_chat_color(sanitize_hexcolor(input))
 
-/mob/living/carbon/human/proc/apply_preference_chat_color(value)
+/// Applies the given chat color, processing it before doing so.
+/mob/living/proc/apply_chat_color(value, add_to_cache = FALSE)
 	if(isnull(value))
 		return FALSE
 
 	chat_color = process_chat_color(value, sat_shift = 1, lum_shift = 1)
 	chat_color_darkened = process_chat_color(value, sat_shift = 0.85, lum_shift = 0.85)
 	chat_color_name = name
+	if(add_to_cache)
+		cache_chat_color(name, chat_color, chat_color_darkened)
 	return TRUE
+
+/// Manually applies the chat color preference.
+/mob/living/proc/apply_chat_color_preference(client/player_client)
+	var/color_to_use = player_client?.prefs?.read_preference(/datum/preference/color/chat_color)
+	if(isnull(color_to_use))
+		return FALSE
+	apply_chat_color(color_to_use, add_to_cache = TRUE)
+	return TRUE
+
+/// Copies the chat color from the given mob to us, caching it if need be.
+/mob/living/proc/copy_chat_color(mob/living/copy_from, add_to_cache = TRUE)
+	chat_color = copy_from.chat_color
+	chat_color_darkened = copy_from.chat_color_darkened
+	chat_color_name = name
+
+	if(add_to_cache)
+		cache_chat_color(chat_color_name, chat_color, chat_color_darkened)
+
+/// Caches the given chat color for the given name, overriding whatever may already be there.
+/proc/cache_chat_color(name, chat_color, chat_color_darkened)
+	GLOB.chat_colors_by_mob_name[name] = list(chat_color, chat_color_darkened)
+
+/// Returns a list of chat colors cached for the given name, if any.
+/proc/get_cached_chat_color(name)
+	return GLOB.chat_colors_by_mob_name[name]
 
 #define CHAT_COLOR_NORMAL 1
 #define CHAT_COLOR_DARKENED 2
 
 /// Get the mob's chat color by looking up their name in the cached list, if no match is found default to colorize_string().
 /datum/chatmessage/proc/get_chat_color_string(name, darkened)
-	var/chat_color_strings = GLOB.chat_colors_by_mob_name[name]
+	var/chat_color_strings = get_cached_chat_color(name)
 	if(chat_color_strings)
 		return darkened ? chat_color_strings[CHAT_COLOR_DARKENED] : chat_color_strings[CHAT_COLOR_NORMAL]
 	if(darkened)

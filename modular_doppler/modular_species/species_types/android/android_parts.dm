@@ -1035,6 +1035,49 @@
 	icon_state = "polytronic_r_leg"
 	limb_id = "polytronic"
 
+
+///
+// Humaniform
+///
+/obj/item/bodypart/head/robot/android/robotic
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "robotic_head"
+	limb_id = "robotic"
+
+/obj/item/bodypart/chest/robot/android/robotic
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "robotic_chest"
+	limb_id = "robotic"
+
+/obj/item/bodypart/arm/right/robot/android/robotic
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "robotic_r_arm"
+	limb_id = "robotic"
+
+/obj/item/bodypart/arm/left/robot/android/robotic
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "robotic_l_arm"
+	limb_id = "robotic"
+
+/obj/item/bodypart/leg/right/robot/android/robotic
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "robotic_r_leg"
+	limb_id = "robotic"
+
+/obj/item/bodypart/leg/left/robot/android/robotic
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "robotic_l_leg"
+	limb_id = "robotic"
+
+
+
+
 #undef HEAD_MONITOR_FACE
 #undef ANDROID_BODYPARTS_DMI
 

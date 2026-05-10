@@ -1,8 +1,11 @@
 
-/datum/job/cantina_regular
+/datum/job/cantinoid
+	title = "Undisclosed Location guest"
+
+/datum/job/cantinoid/regular
 	title = "Undisclosed Location regular"
 
-/datum/job/cantina_bartender
+/datum/job/cantinoid/bartender
 	title = "Undisclosed Location bartender"
 
 /datum/antagonist/traitor/cantina
