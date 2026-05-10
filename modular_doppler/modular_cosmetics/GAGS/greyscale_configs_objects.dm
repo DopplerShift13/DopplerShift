@@ -71,3 +71,13 @@
 /datum/greyscale_config/beanbag_chair/righthand
 	name = "Beanbag Chair (Right Hand)"
 	icon_file = 'modular_doppler/modular_items/icons/inhand_right.dmi'
+
+/datum/greyscale_config/ace_custom_wheelchair
+	name = "Ace Custom Wheelchair (Vehicle)"
+	icon_file = 'modular_doppler/vehicles/icons/32x_vehicles.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/items/ace_custom_wheelchair.json'
+
+/datum/greyscale_config/ace_custom_wheelchair_item
+	name = "Ace Custom Wheelchair (Item)"
+	icon_file = 'modular_doppler/vehicles/icons/wheelchair_item.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/items/ace_custom_wheelchair_item.json'
