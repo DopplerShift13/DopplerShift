@@ -9,17 +9,15 @@
 /datum/job/cantinoid/regular
 	title = "Undisclosed Location regular"
 
-/datum/antagonist/traitor/cantina_regular
+/datum/antagonist/traitor/cantinoid
 	name = "\improper Cantina Regular"
 	show_in_roundend = FALSE
 	default_custom_objective = "Thwart the encroachment on your turf... by any means necessary!"
 	antag_flags = ANTAG_SKIP_GLOBAL_LIST
 
-/datum/antagonist/traitor/cantina_bartender
+/datum/antagonist/traitor/cantinoid/bartender
 	name = "\improper Cantina Bartender"
-	show_in_roundend = FALSE
 	default_custom_objective = "Serve refreshing drinks... by any means necessary!"
-	antag_flags = ANTAG_SKIP_GLOBAL_LIST
 
 /datum/outfit/cantina_regular
 	name = "Cantina Regular"

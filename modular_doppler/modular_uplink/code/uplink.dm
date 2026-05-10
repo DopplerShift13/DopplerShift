@@ -1,3 +1,3 @@
-/datum/antagonist/traitor/cantina/on_gain()
+/datum/antagonist/traitor/cantinoid/on_gain()
 	. = ..()
 	uplink_handler.add_telecrystals(10)
