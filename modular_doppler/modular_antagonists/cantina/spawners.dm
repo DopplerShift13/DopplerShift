@@ -11,14 +11,14 @@
 	flavour_text = "Known by The Curfew and Sundown to squares, The Undisclosed Location is a front for criminal activity in the sector. \
 	The breadth of their corporate affiliations is on a need to know basis, but the sheer volume of gear in the back is at least a little \
 	illuminating. You're a regular here, and you know that they can get you the goods."
-	spawner_job_path = /datum/job/cantinoid/regular
+	spawner_job_path = /datum/job/cantina_regular
 	role_ban = ROLE_TRAITOR
 
 /obj/effect/mob_spawn/ghost_role/human/cantina/create(mob/mob_possessor, newname)
 	. = ..()
 	var/mob/living/spawned_mob = .
 	if(istype(spawned_mob))
-		spawned_mob.mind.add_antag_datum(/datum/antagonist/traitor/cantina)
+		spawned_mob.mind.add_antag_datum(/datum/antagonist/traitor/cantina_regular)
 		spawned_mob.faction = list(ROLE_SYNDICATE)
 
 /obj/effect/mob_spawn/ghost_role/human/cantina/special(mob/living/new_spawn)
@@ -38,17 +38,41 @@
 	flavour_text = "Known by The Curfew and Sundown to squares, The Undisclosed Location is a front for criminal activity in the sector. \
 	The breadth of their corporate affiliations is on a need to know basis, but the sheer volume of gear in the back is at least a little \
 	illuminating. You're an employee here, and you have clientele to please."
-	spawner_job_path = /datum/job/cantinoid/bartender
+	spawner_job_path = /datum/job/cantina_bartender
 	role_ban = ROLE_TRAITOR
 
 /obj/effect/mob_spawn/ghost_role/human/cantina_bartender/create(mob/mob_possessor, newname)
 	. = ..()
 	var/mob/living/spawned_mob = .
 	if(istype(spawned_mob))
-		spawned_mob.mind.add_antag_datum(/datum/antagonist/traitor/cantina/bartender)
+		spawned_mob.mind.add_antag_datum(/datum/antagonist/traitor/cantina_bartender)
 		spawned_mob.faction = list(ROLE_SYNDICATE)
 
 /obj/effect/mob_spawn/ghost_role/human/cantina_bartender/special(mob/living/new_spawn)
+	. = ..()
+	var/datum/bank_account/remote/bank_account = new(new_spawn.real_name, SSjob.get_job_type(/datum/job/unassigned))
+	bank_account.replaceable = FALSE
+	new_spawn.add_mob_memory(/datum/memory/key/account, remembered_id = bank_account.account_id)
+
+/obj/effect/mob_spawn/ghost_role/human/cantina_guest
+	name = "Guest at The Undisclosed Location sleeper"
+	desc = "A lifeform stasis unit. These are nominally produced to support long haul travel or to conserve resources in \
+	Deep Space installations, but they also serve a thriving secondary market for people who cannot sleep soundly."
+	prompt_name = "cantina guest"
+	icon_state = "sleeper_s"
+	outfit = /datum/outfit/cantina_guest
+	you_are_text = "You are a Guest at the The Undisclosed Location."
+	flavour_text = "Known by The Curfew and Sundown to squares, The Undisclosed Location is a front for criminal activity in the sector. \
+	The breadth of their corporate affiliations is on a need to know basis, but the sheer volume of gear in the back is at least a little \
+	illuminating. You're a guest here, not permitted to the equipment in stock but welcome to stay and relax."
+	spawner_job_path = /datum/job/cantina_guest
+	role_ban = ROLE_TRAITOR
+
+/obj/effect/mob_spawn/ghost_role/human/cantina_guest/create(mob/mob_possessor, newname)
+	. = ..()
+
+
+/obj/effect/mob_spawn/ghost_role/human/cantina_guest/special(mob/living/new_spawn)
 	. = ..()
 	var/datum/bank_account/remote/bank_account = new(new_spawn.real_name, SSjob.get_job_type(/datum/job/unassigned))
 	bank_account.replaceable = FALSE

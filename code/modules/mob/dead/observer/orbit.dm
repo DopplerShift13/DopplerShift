@@ -118,7 +118,7 @@ GLOBAL_DATUM_INIT(orbit_menu, /datum/orbit_menu, new)
 		if(mob_poi.mind?.assigned_role?.faction == FACTION_STATION)
 			ninelives += list(serialized)
 			continue
-		if(istype(mob_poi.mind?.assigned_role, /datum/job/cantinoid))
+		if(istype(mob_poi.mind?.assigned_role, /datum/job/cantina_regular))
 			cantina += list(serialized) // we don't need the antag data tbh
 			continue
 		if(istype(mob_poi.mind?.assigned_role, /datum/job/primitive_genemod))

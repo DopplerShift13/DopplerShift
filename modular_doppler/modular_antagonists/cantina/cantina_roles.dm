@@ -1,22 +1,25 @@
 
-/datum/job/cantinoid
-	title = "Undisclosed Location guest"
-
-/datum/job/cantinoid/regular
+/datum/job/cantina_regular
 	title = "Undisclosed Location regular"
 
-/datum/job/cantinoid/bartender
+/datum/job/cantina_bartender
 	title = "Undisclosed Location bartender"
 
-/datum/antagonist/traitor/cantina
+/datum/job/cantina_guest
+	title = "Undisclosed Location guest"
+	// Guests are more narrative/story focused ghost roles, ones that do not get antag equipment or TC.
+
+/datum/antagonist/traitor/cantina_regular
 	name = "\improper Cantina Regular"
 	show_in_roundend = FALSE
 	default_custom_objective = "Thwart the encroachment on your turf... by any means necessary!"
 	antag_flags = ANTAG_SKIP_GLOBAL_LIST
 
-/datum/antagonist/traitor/cantina/bartender
+/datum/antagonist/traitor/cantina_bartender
 	name = "\improper Cantina Bartender"
+	show_in_roundend = FALSE
 	default_custom_objective = "Serve refreshing drinks... by any means necessary!"
+	antag_flags = ANTAG_SKIP_GLOBAL_LIST
 
 /datum/outfit/cantina_regular
 	name = "Cantina Regular"
@@ -27,7 +30,7 @@
 	ears = /obj/item/radio/headset/chameleon
 	l_pocket = /obj/item/modular_computer/pda/chameleon
 	r_pocket = /obj/item/pen/edagger
-	id = /obj/item/card/id/advanced/chameleon
+	id = /obj/item/card/id/advanced/black/cantina
 	belt = /obj/item/storage/belt/utility/frontier_colonist
 	box = /obj/item/storage/box/survival/syndie
 	implants = list(/obj/item/implant/weapons_auth)
@@ -45,10 +48,23 @@
 	ears = /obj/item/radio/headset/syndicate/alt
 	l_pocket = /obj/item/modular_computer/pda/chameleon
 	r_pocket = /obj/item/pen/edagger
-	id = /obj/item/card/id/advanced/chameleon
+	id = /obj/item/card/id/advanced/black/cantina/bartender
 	belt = /obj/item/storage/belt/utility/frontier_colonist
 	box = /obj/item/storage/box/survival/syndie
 	implants = list(/obj/item/implant/weapons_auth)
 	backpack_contents = list(
 		/obj/item/stack/spacecash/c1000 = 10,
 		)
+
+/datum/outfit/cantina_guest
+	name = "Cantina Visitor"
+	uniform = /obj/item/clothing/under/costume/buttondown/slacks
+	shoes = /obj/item/clothing/shoes/laceup
+	back = /obj/item/storage/backpack/industrial/frontier_colonist
+	l_pocket = /obj/item/modular_computer/pda/chameleon
+	id = /obj/item/card/id/advanced/chameleon
+	box = /obj/item/storage/box/survival
+	backpack_contents = list(
+		/obj/item/stack/spacecash/c1000 = 10,
+		/obj/item/storage/box/syndie_kit/chameleon = 1,
+	)
