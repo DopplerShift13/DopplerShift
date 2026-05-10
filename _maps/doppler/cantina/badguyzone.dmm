@@ -1854,9 +1854,6 @@
 /obj/item/chair/plastic,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/trail{
-	dir = 10
-	},
 /obj/effect/decal/cleanable/blood/trail_holder,
 /obj/effect/decal/cleanable/glass,
 /turf/open/floor/wood,
@@ -2107,7 +2104,6 @@
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/tracks,
 /obj/effect/decal/cleanable/blood/trail_holder,
-/obj/effect/decal/cleanable/blood/trail,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 1
@@ -2696,9 +2692,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/effect/decal/cleanable/blood/trail{
-	dir = 8
-	},
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/dark/textured_large,
 /area/ruin/space/has_grav/powered)

@@ -1,13 +1,13 @@
 
-/datum/job/cantina_regular
-	title = "Undisclosed Location regular"
-
-/datum/job/cantina_bartender
-	title = "Undisclosed Location bartender"
-
-/datum/job/cantina_guest
+/datum/job/cantinoid
 	title = "Undisclosed Location guest"
 	// Guests are more narrative/story focused ghost roles, ones that do not get antag equipment or TC.
+
+/datum/job/cantinoid/bartender
+	title = "Undisclosed Location bartender"
+
+/datum/job/cantinoid/regular
+	title = "Undisclosed Location regular"
 
 /datum/antagonist/traitor/cantina_regular
 	name = "\improper Cantina Regular"
