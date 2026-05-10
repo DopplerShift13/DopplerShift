@@ -67,5 +67,5 @@
 		"trap",
 		"sink",
 		"grab",
-		"disarm",
+		"harm",
 	)
