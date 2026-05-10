@@ -1,50 +1,89 @@
-/turf/closed/wall/ice
-	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/icedmetal_wall.dmi'
+// Regular walls
+
+/turf/closed/wall
+	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/wall/r_wall
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/reinforced_wall.dmi'
 
+/turf/closed/wall/ice
+	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/icedmetal_wall.dmi'
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
+
+// Mineral walls
+
 /turf/closed/wall/mineral/silver
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/silver_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/wall/mineral/uranium
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/uranium_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/wall/mineral/wood
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/wood_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/wall/mineral/iron
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/iron_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/wall/mineral/titanium
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/shuttle_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/wall/mineral/titanium/survival
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/survival_pod_walls.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/wall/mineral/titanium/survival/nodiagonal
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/survival_pod_walls.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
+
+// Material walls
 
 /turf/closed/wall/material
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/material_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
-/turf/closed/wall
-	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/wall.dmi'
+// Indestructible walls
 
 /turf/closed/indestructible/reinforced
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/reinforced_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/indestructible/reinforced/titanium
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/shuttle_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/indestructible/riveted
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/riveted.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/indestructible/riveted/uranium
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/uranium_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/indestructible/wood
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/wood_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/indestructible/iron
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/iron_wall.dmi'
+	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	canSmoothWith = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
