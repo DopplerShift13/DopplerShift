@@ -10,7 +10,7 @@
 
 /turf/closed/mineral/strong/red
 	name = "Strong Ferrous Rock"
-	color = "#DB9879"
+	color = "#D46D59"
 
 /area/ruin/space/has_grav/powered/undisclosed_location
 	name = "Undisclosed Location"

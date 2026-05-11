@@ -206,6 +206,7 @@
 /area/space)
 "cT" = (
 /obj/machinery/oven/range,
+/obj/machinery/airalarm/directional/north,
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "cW" = (
@@ -554,15 +555,6 @@
 /obj/structure/railing/eva_handhold/directional/north,
 /obj/structure/shuttle_decoration/ladder/directional/south,
 /turf/template_noop,
-/area/ruin/space/has_grav/powered/undisclosed_location)
-"hS" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
-	},
-/obj/effect/spawner/random/food_or_drink/booze,
-/turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "hX" = (
 /obj/structure/fluff/tram_rail/end,
@@ -984,6 +976,9 @@
 	dir = 4
 	},
 /obj/structure/shuttle_decoration/landing_engine/directional/east,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
 /turf/open/floor/plating/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "oP" = (
@@ -1038,9 +1033,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table/reinforced,
 /obj/machinery/reagentgrinder{
-	pixel_x = -17
+	pixel_x = -14
 	},
-/obj/machinery/processor,
+/obj/machinery/processor{
+	pixel_x = 3
+	},
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "pq" = (
@@ -1415,6 +1412,9 @@
 	},
 /obj/structure/shuttle_decoration/landing_engine/directional/west,
 /obj/structure/shuttle_decoration/ladder/directional/south,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
 /turf/open/floor/plating/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "vv" = (
@@ -1486,7 +1486,6 @@
 	},
 /obj/structure/table,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/spawner/random/food_or_drink/booze,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "wd" = (
@@ -1792,6 +1791,7 @@
 	dir = 8
 	},
 /obj/effect/spawner/random/food_or_drink/seed/one,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Au" = (
@@ -2157,26 +2157,25 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table/reinforced,
 /obj/item/storage/box/coffeepack{
-	pixel_y = 13;
+	pixel_y = 20;
 	pixel_x = 11
 	},
 /obj/item/storage/box/coffeepack/robusta{
 	pixel_x = 11;
-	pixel_y = 6
+	pixel_y = 13
 	},
 /obj/item/reagent_containers/cup/beaker{
-	pixel_y = 12
+	pixel_y = 20
 	},
 /obj/item/reagent_containers/cup/glass/mug{
 	pixel_x = 1;
-	pixel_y = 3
+	pixel_y = 8
 	},
 /obj/item/reagent_containers/cup/glass/mug{
-	pixel_y = -3;
 	pixel_x = 3
 	},
 /obj/item/reagent_containers/condiment/enzyme{
-	pixel_y = 10;
+	pixel_y = 7;
 	pixel_x = -9
 	},
 /turf/open/floor/iron/dark,
@@ -2190,7 +2189,6 @@
 	dir = 1
 	},
 /obj/structure/table,
-/obj/effect/spawner/random/food_or_drink/booze,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Hr" = (
@@ -2208,7 +2206,6 @@
 	id = "evilass3"
 	},
 /obj/structure/toilet,
-/obj/machinery/light/dim/directional/north,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/effect/decal/cleanable/blood/gibs/body,
@@ -2226,6 +2223,7 @@
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 1
 	},
+/obj/machinery/light/broken/directional/north,
 /turf/open/floor/iron/white,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "HM" = (
@@ -2412,12 +2410,14 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Kb" = (
-/obj/structure/table/reinforced/plastitaniumglass,
-/obj/effect/turf_decal/siding/wideplating_new/dark{
-	dir = 1
-	},
-/obj/effect/spawner/random/food_or_drink/booze,
-/turf/open/floor/wood/tile,
+/obj/machinery/hydroponics/constructable,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/turf_decal/bot,
+/obj/machinery/light/small/directional/north,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "KI" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2431,13 +2431,6 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "KM" = (
-/obj/item/card/id/advanced/chameleon{
-	pixel_y = 5;
-	pixel_x = 2
-	},
-/obj/item/card/id/advanced/chameleon{
-	pixel_x = -3
-	},
 /obj/structure/shelf,
 /obj/effect/turf_decal/bot,
 /obj/item/card/id/advanced/chameleon{
@@ -2453,11 +2446,6 @@
 "KO" = (
 /obj/machinery/smartfridge/organ,
 /turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/undisclosed_location)
-"KV" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/airalarm/directional/north,
-/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Lr" = (
 /obj/item/gun/energy/disabler/smg{
@@ -4363,7 +4351,7 @@ Js
 jW
 jW
 JD
-hS
+LS
 FC
 jp
 jp
@@ -4397,11 +4385,11 @@ vv
 pA
 nz
 kZ
-vv
-KV
+AO
+aq
 Ml
 CF
-Kb
+AY
 VU
 jp
 jp
@@ -4473,7 +4461,7 @@ vv
 Ek
 pw
 xH
-AO
+vv
 UA
 qq
 zC
@@ -4577,7 +4565,7 @@ tg
 tg
 tg
 vv
-wK
+Kb
 Iu
 fg
 fg
