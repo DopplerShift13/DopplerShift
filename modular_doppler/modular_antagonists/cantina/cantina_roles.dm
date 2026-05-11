@@ -34,6 +34,7 @@
 	implants = list(/obj/item/implant/weapons_auth)
 	backpack_contents = list(
 		/obj/item/stack/spacecash/c1000 = 2,
+		/obj/item/card/id/advanced/chameleon,
 		/obj/item/encryptionkey/syndicate/cantina_headset,
 		)
 
@@ -63,6 +64,6 @@
 	id = /obj/item/card/id/advanced/chameleon
 	box = /obj/item/storage/box/survival
 	backpack_contents = list(
-		/obj/item/stack/spacecash/c1000 = 10,
+		/obj/item/stack/spacecash/c1000 = 2,
 		/obj/item/storage/box/syndie_kit/chameleon = 1,
 	)
