@@ -84,6 +84,7 @@
 /turf/closed/indestructible/riveted
 	icon = 'modular_doppler/sprite_swaps/icons/turfs/walls/riveted.dmi'
 	smoothing_flags = SMOOTH_BITMASK|SMOOTH_OBJ
+	smoothing_groups = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_CLOSED_TURFS
 	canSmoothWith = SMOOTH_GROUP_WALLS + SMOOTH_GROUP_WINDOW_FULLTILE + SMOOTH_GROUP_WINDOW_FULLTILE_SHUTTLE + SMOOTH_GROUP_AIRLOCK
 
 /turf/closed/indestructible/riveted/uranium
