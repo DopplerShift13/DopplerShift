@@ -4,8 +4,6 @@
 */
 /proc/ooc_channel_color(mob/chatter)
 	var/color = "#c43b23"
-	if(!chatter.mind || !chatter.client || !chatter.client?.prefs)
-		return color
 
 	// if you're sec
 	if(GLOB.sooc_job_lookup[chatter.mind?.assigned_role?.title])
@@ -26,8 +24,6 @@
 /proc/ooc_channel_emoji(mob/chatter)
 	var/emoji_icon_state = "fpalm"
 	var/emoji_icon_file = EMOJI_SET
-	if(!chatter.mind || !chatter.client || !chatter.client?.prefs)
-		return icon2html(emoji_icon_file, world, emoji_icon_state)
 
 	// if you're sec
 	if(GLOB.sooc_job_lookup[chatter.mind?.assigned_role?.title])
