@@ -14,4 +14,5 @@
 
 /area/ruin/space/has_grav/powered/undisclosed_location
 	name = "Undisclosed Location"
+	flags_1 = null
 
