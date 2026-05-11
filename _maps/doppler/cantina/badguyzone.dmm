@@ -1134,10 +1134,7 @@
 "qr" = (
 /obj/machinery/light/red/directional/north,
 /obj/machinery/cryopod/quiet,
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
-	},
-/turf/open/floor/wood,
+/turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "qz" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
@@ -1601,8 +1598,10 @@
 /turf/open/floor/plating/nanocarbon/exterior/standard,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "yu" = (
-/obj/effect/turf_decal/siding/wood,
 /obj/machinery/vending/cigarette/syndicate,
+/obj/effect/turf_decal/siding/wood{
+	dir = 6
+	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "yB" = (
@@ -1653,6 +1652,9 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "yW" = (
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
 /turf/open/floor/iron/dark/textured_edge,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "yX" = (
@@ -1820,8 +1822,10 @@
 /turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "AO" = (
-/obj/machinery/smartfridge/food,
-/turf/closed/wall/r_wall,
+/obj/machinery/smartfridge/food{
+	opacity = 1
+	},
+/turf/open/floor/iron/colony/white/bolts,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "AX" = (
 /obj/structure/extinguisher_cabinet/directional/north,
@@ -2312,6 +2316,9 @@
 /turf/closed/wall/mineral/aluminum,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Jd" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/textured_edge,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Je" = (
@@ -2339,6 +2346,16 @@
 "Js" = (
 /obj/machinery/vending/boozeomat/syndicate,
 /turf/closed/wall/r_wall,
+/area/ruin/space/has_grav/powered/undisclosed_location)
+"Jt" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_edge{
+	dir = 4
+	},
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Ju" = (
 /obj/structure/chair/plastic{
@@ -2716,6 +2733,9 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 1
+	},
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 1
 	},
@@ -3387,6 +3407,9 @@
 /obj/machinery/light/red/dim/directional/west,
 /obj/structure/steps/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 8
+	},
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
@@ -4542,7 +4565,7 @@ kh
 XT
 gw
 XP
-Ia
+Jt
 OR
 eQ
 Qg
