@@ -92,7 +92,6 @@
 /obj/effect/mapping_helpers/airlock/unres{
 	dir = 1
 	},
-/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /obj/machinery/door/firedoor,
 /obj/effect/mapping_helpers/airlock/access/all/away/maintenance,
 /turf/open/floor/iron/colony/white/texture,
@@ -100,7 +99,6 @@
 "bu" = (
 /obj/structure/table/optable,
 /obj/effect/mapping_helpers/broken_floor,
-/obj/effect/decal/cleanable/blood/trail,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -896,10 +894,6 @@
 /obj/structure/shuttle_decoration/liquid_tank/coolant/industrial,
 /turf/open/floor/iron/colony/white/bolts,
 /area/ruin/space/has_grav/powered/undisclosed_location)
-"nA" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/turf/closed/wall/r_wall,
-/area/ruin/space/has_grav/powered/undisclosed_location)
 "nD" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -916,9 +910,6 @@
 /obj/effect/mapping_helpers/airlock/cutaiwire,
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 1
-	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/door/airlock/freezer,
 /obj/effect/mapping_helpers/airlock/unres{
@@ -1764,9 +1755,6 @@
 /obj/machinery/door/airlock/external/glass,
 /obj/structure/fans/tiny,
 /obj/effect/mapping_helpers/airlock/cutaiwire,
-/obj/effect/mapping_helpers/airlock/cyclelink_helper{
-	dir = 8
-	},
 /obj/effect/mapping_helpers/airlock/welded,
 /obj/effect/mapping_helpers/airlock/locked,
 /obj/structure/shuttle_decoration/eva_catwalks/directional{
@@ -1884,7 +1872,6 @@
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Cf" = (
-/obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/airalarm/directional/south,
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/powered/undisclosed_location)
@@ -1938,7 +1925,6 @@
 /obj/item/chair/plastic,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/effect/decal/cleanable/blood/trail_holder,
 /obj/effect/decal/cleanable/glass,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/item/chair/stool/bar{
@@ -2222,7 +2208,6 @@
 /obj/effect/mob_spawn/corpse/human/clown,
 /obj/effect/decal/cleanable/blood/splatter,
 /obj/effect/decal/cleanable/blood/tracks,
-/obj/effect/decal/cleanable/blood/trail_holder,
 /obj/effect/decal/cleanable/blood/old,
 /obj/effect/decal/cleanable/blood/footprints{
 	dir = 1
@@ -2936,9 +2921,6 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Rb" = (
 /obj/effect/decal/cleanable/blood/splatter,
-/obj/effect/decal/cleanable/blood/trail{
-	dir = 1
-	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /turf/open/floor/iron/white/small,
@@ -4184,7 +4166,7 @@ zz
 xT
 xP
 cc
-nA
+vv
 Nn
 kl
 nR
