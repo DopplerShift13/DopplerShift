@@ -2,8 +2,8 @@
 /obj/machinery/fax
 	/// Weakref to the encryption key we use for deciding our internal radio channels.
 	var/datum/weakref/encryption_key_ref
-	/// What frequency do we announce over without a key, for subtypes to override.
-	var/default_announcement_frequency = FREQ_COMMON
+	/// What channel do we announce over without a key, for subtypes to override.
+	var/default_announcement_channel = RADIO_CHANNEL_COMMON
 	/// Whether we announce our faxes over radio.
 	var/announce_over_radio = FALSE
 
@@ -58,7 +58,9 @@
 	if(panel_open)
 		var/obj/item/encryptionkey/encryption_key = encryption_key_ref?.resolve()
 		if(encryption_key)
-			. += span_notice("Its key slot is occupied by [encryption_key].")
+			. += span_notice("Its encryption key slot is occupied by [encryption_key].")
+		else
+			. += span_notice("Its encryption key slot is unoccupied.")
 
 	. += span_notice("[EXAMINE_HINT("Right-Click")] with a multitool to turn [announce_over_radio ? "off" : "on"] received faxes being announced over radio.")
 
@@ -67,7 +69,7 @@
 		for(var/channel_name in get_radio_channels())
 			var/channel_span_class = get_radio_span(GLOB.default_radio_channels[channel_name])
 			announcement_channels += "<li><b>[span_class(channel_span_class, channel_name)]</b></li>"
-		. += span_notice("It is currently announcing received faxes to the following frequencies:")
+		. += span_notice("It is currently announcing received faxes on the following frequencies:")
 		. += span_notice("<ul style='display:inline-block; margin: 0; list-style: square;'>[announcement_channels.Join()]</ul>")
 	else
 		. += span_notice("It is not currently announcing received faxes.")
