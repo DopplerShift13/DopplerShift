@@ -107,7 +107,7 @@
 	if(encryption_key)
 		return encryption_key.channels
 	else
-		return list(default_announcement_frequency)
+		return list(default_announcement_channel)
 
 /// Announces the arrival of a fax over AAS, if need be.
 /obj/machinery/fax/proc/announce_fax_arrival(sender_name)
