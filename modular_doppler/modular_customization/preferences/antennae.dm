@@ -1,7 +1,7 @@
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features["moth_antennae"] && can_regenerate_mutant_feature("moth_antennae"))
-		if(target.dna.features["moth_antennae"] != /datum/sprite_accessory/moth_antennae/none::name && target.dna.features["moth_antennae"] != /datum/sprite_accessory/blank::name)
+		if(target.dna.features[FEATURE_MOTH_ANTENNAE] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/antennae)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -19,8 +19,7 @@
 
 /datum/preference/toggle/antennae/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features["moth_antennae"] = /datum/sprite_accessory/moth_antennae/none::name
-
+		target.dna.features[FEATURE_MOTH_ANTENNAE] = /datum/sprite_accessory/blank::name
 /datum/preference/toggle/antennae/create_default_value()
 	return FALSE
 
@@ -32,10 +31,11 @@
 	return TRUE
 
 //sprite selection
-/datum/preference/choiced/moth_antennae
+/datum/preference/choiced/species_feature/moth_antennae
 	category = PREFERENCE_CATEGORY_CLOTHING
+	feature_key = FEATURE_MOTH_ANTENNAE
 
-/datum/preference/choiced/moth_antennae/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/moth_antennae/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!species_can_access_mutant_customization(species))
@@ -45,11 +45,11 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/moth_antennae/create_default_value()
-	return /datum/sprite_accessory/moth_antennae/none::name
+/datum/preference/choiced/species_feature/moth_antennae/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/moth_antennae/icon_for(value)
-	return generate_antennae_icon(SSaccessories.moth_antennae_list[value])
+/datum/preference/choiced/species_feature/moth_antennae/icon_for(value)
+	return generate_antennae_icon(get_accessory_for_value(value))
 
 /datum/preference/choiced/proc/generate_antennae_icon(datum/sprite_accessory/sprite_accessory)
 	var/static/datum/universal_icon/body

@@ -311,9 +311,11 @@
 	head = /obj/item/clothing/head/costume/maid_headband
 
 /datum/species/jelly/roundstartslime/prepare_human_for_preview(mob/living/carbon/human/human)
+	turn_off_every_species_feature(human)
 	human.dna.features[FEATURE_MUTANT_COLOR] = "#EF313F"
 	human.dna.ear_type = BUNNY
 	human.dna.features[FEATURE_EARS] = "Lop (Sexy)"
+	human.dna.features[FEATURE_EARS_BUNNY] = "Lop (Sexy)"
 	human.dna.features[FEATURE_EARS_COLORS][1] = "#EF313F"
 	human.dna.features[FEATURE_EARS_COLORS][2] = "#EF313F"
 	human.dna.features[FEATURE_EARS_COLORS][3] = "#EF313F"

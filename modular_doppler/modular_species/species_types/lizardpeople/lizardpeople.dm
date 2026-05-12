@@ -28,6 +28,7 @@
 	suit = /obj/item/clothing/suit/armor/lizard
 
 /datum/species/lizard/prepare_human_for_preview(mob/living/carbon/human/lizard_for_preview)
+	turn_off_every_species_feature(lizard_for_preview)
 	lizard_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#4A81A1"
 	lizard_for_preview.dna.features[FEATURE_FRILLS] = "Short"
 	lizard_for_preview.dna.features[FEATURE_FRILLS_COLORS][1] = "#4a81a1"
