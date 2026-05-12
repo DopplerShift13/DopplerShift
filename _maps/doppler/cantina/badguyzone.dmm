@@ -1210,11 +1210,11 @@
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "rG" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/structure/shuttle_decoration/bullbar/directional/north,
+/obj/structure/lattice,
 /obj/structure/fluff/cantinasign/damaged,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/undisclosed_location)
+/turf/template_noop,
+/area/space)
 "rS" = (
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
 	dir = 8
@@ -1319,11 +1319,11 @@
 /turf/template_noop,
 /area/space)
 "tN" = (
-/obj/effect/spawner/structure/window/reinforced,
-/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/structure/shuttle_decoration/bullbar/directional/north,
+/obj/structure/lattice,
 /obj/structure/fluff/cantinasign,
-/turf/open/floor/plating,
-/area/ruin/space/has_grav/powered/undisclosed_location)
+/turf/template_noop,
+/area/space)
 "tU" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -4198,8 +4198,8 @@ sH
 Gg
 Jn
 rX
+xv
 tN
-MH
 lM
 lM
 lM
@@ -4578,8 +4578,8 @@ Jd
 qU
 Jn
 DF
+xv
 rG
-MH
 lM
 lM
 lM

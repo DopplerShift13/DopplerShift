@@ -2,14 +2,12 @@
 /*
  * Cantina-Goers' IDs Only for the Regulars and Bartender, Visitors get cham cards.
  */
-
-
 /datum/id_trim/away/cantina
-	access = list(ACCESS_AWAY_MAINTENANCE)
+	access = list(ACCESS_AWAY_MAINTENANCE, ACCESS_SYNDICATE)
 	assignment = "Cantina Regular Pass"
 	
 /datum/id_trim/away/cantina_bartender
-	access = list(ACCESS_AWAY_MAINTENANCE, ACCESS_AWAY_SEC)
+	access = list(ACCESS_AWAY_MAINTENANCE, ACCESS_AWAY_SEC, ACCESS_SYNDICATE)
 	assignment = "Cantina Bartender"
 	big_pointer = TRUE
 	pointer_color = COLOR_SYNDIE_RED
