@@ -219,6 +219,7 @@
 	to get into, but centuries of clothing technology have made wearing it easier than ever before. \
 	Still, it takes longer to take off than an equivalent cloth garment."
 	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/latexsuit/gags_latexsuit"
 	greyscale_config = /datum/greyscale_config/gags_latexsuit
 	post_init_icon_state = "gags_latexsuit"
 	greyscale_config_worn_bodyshapes = list(
