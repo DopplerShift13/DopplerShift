@@ -34,8 +34,11 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "aE" = (
-/obj/machinery/light/cold/directional/south,
-/turf/open/floor/iron/colony/texture,
+/obj/effect/mob_spawn/ghost_role/human/cantina_guest{
+	dir = 8
+	},
+/obj/structure/extinguisher_cabinet/directional/south,
+/turf/open/floor/plating/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "aF" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
@@ -80,6 +83,7 @@
 	id_tag = "leftresident"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/away/maintenance,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "bs" = (
@@ -137,7 +141,9 @@
 /turf/closed/wall/r_wall,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "cb" = (
-/obj/machinery/power/shuttle_engine/propulsion/salvage,
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/bot_red,
+/obj/machinery/light/cold/directional/south,
 /turf/open/floor/plating/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "cc" = (
@@ -194,6 +200,7 @@
 /obj/effect/turf_decal/tile/yellow/half/contrasted{
 	dir = 4
 	},
+/obj/item/cigbutt/roach,
 /turf/open/floor/iron/textured,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "cL" = (
@@ -233,6 +240,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/moisture_trap,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "dA" = (
@@ -289,7 +297,7 @@
 	pixel_y = -3
 	},
 /obj/structure/shelf,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "eb" = (
 /obj/structure/titanium_structure,
@@ -317,7 +325,7 @@
 /obj/effect/turf_decal/bot,
 /obj/item/storage/cans/sixbeer,
 /obj/structure/table,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "eA" = (
 /obj/structure/railing{
@@ -440,7 +448,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "gp" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -451,6 +459,7 @@
 	id_tag = "rightresident"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/away/maintenance,
+/obj/effect/mapping_helpers/airlock/locked,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "gr" = (
@@ -468,10 +477,9 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "gM" = (
 /obj/machinery/light/small/directional/east,
-/obj/structure/closet/crate/bin,
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/spawner/random/trash/cigbutt,
-/obj/effect/spawner/random/trash/garbage,
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "gO" = (
@@ -592,7 +600,7 @@
 	},
 /obj/item/multitool,
 /obj/effect/decal/cleanable/cobweb,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "iy" = (
 /obj/machinery/atmospherics/components/tank/air,
@@ -614,7 +622,7 @@
 	pixel_y = 5;
 	pixel_x = 1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "iJ" = (
 /obj/item/storage/toolbox/guncase/smartgun{
@@ -736,7 +744,7 @@
 /obj/item/stock_parts/power_store/cell/high,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "kF" = (
 /obj/structure/bed/double{
@@ -784,14 +792,12 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "lx" = (
-/obj/effect/decal/cleanable/dirt/dust,
-/obj/structure/steps/directional/north,
+/obj/structure/fake_stairs/directional/north,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "ly" = (
-/obj/structure/window/spawner/directional/east,
 /obj/machinery/light/dim/directional/north,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wood{
@@ -799,6 +805,12 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/vending/imported/marsian,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "lE" = (
@@ -812,6 +824,9 @@
 /turf/template_noop,
 /area/space)
 "lZ" = (
+/obj/effect/turf_decal/siding/dark/corner{
+	dir = 4
+	},
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/dark/textured_edge,
 /area/ruin/space/has_grav/powered/undisclosed_location)
@@ -847,7 +862,7 @@
 /obj/effect/turf_decal/bot,
 /obj/machinery/space_heater,
 /obj/machinery/light/small/directional/south,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "np" = (
 /obj/structure/shuttle_decoration/wall_plate/armor,
@@ -868,7 +883,7 @@
 	},
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "nw" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1068,7 +1083,7 @@
 /obj/item/holosign_creator/janibarrier,
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "pA" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -1125,6 +1140,7 @@
 "qr" = (
 /obj/machinery/light/red/directional/north,
 /obj/machinery/cryopod/quiet,
+/obj/effect/turf_decal/bot_red,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "qz" = (
@@ -1192,6 +1208,12 @@
 /obj/structure/shelf,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/colony/texture,
+/area/ruin/space/has_grav/powered/undisclosed_location)
+"rG" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/structure/fluff/cantinasign/damaged,
+/turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "rS" = (
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
@@ -1296,6 +1318,12 @@
 /obj/item/stack/sheet/iron/five,
 /turf/template_noop,
 /area/space)
+"tN" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/structure/fluff/cantinasign,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav/powered/undisclosed_location)
 "tU" = (
 /obj/effect/turf_decal/siding/dark{
 	dir = 1
@@ -1337,13 +1365,19 @@
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "uJ" = (
-/obj/structure/closet/crate/bin,
-/turf/open/floor/iron/colony/texture,
+/obj/structure/table/reinforced/plastitaniumglass,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 1
+	},
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "uK" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/airalarm/directional/north,
-/obj/structure/curtain/bounty/start_closed,
+/obj/machinery/door/morgue,
 /turf/open/floor/iron/textured_edge{
 	dir = 8
 	},
@@ -1353,7 +1387,7 @@
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt/dust,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "vd" = (
 /obj/effect/turf_decal/siding/wood{
@@ -1432,7 +1466,7 @@
 /obj/item/organ/cyberimp/arm/toolkit/medibeam,
 /obj/structure/shelf,
 /obj/machinery/light/small/red/dim/directional/east,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "vC" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon/primary_colour{
@@ -1499,7 +1533,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "wW" = (
 /obj/structure/shuttle_decoration/wall_plate/armor,
@@ -1511,6 +1545,10 @@
 /obj/effect/spawner/random/trash/cigbutt,
 /obj/effect/spawner/random/trash/garbage,
 /obj/effect/spawner/random/trash/crushed_can,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/obj/effect/spawner/random/trash/deluxe_garbage/no_mobs_ever,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "xl" = (
@@ -1544,14 +1582,12 @@
 "xH" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/cold/directional/south,
-/obj/item/storage/box/ingredients/random{
-	pixel_y = 8;
+/obj/structure/shelf,
+/obj/item/storage/box/ingredients/wildcard{
+	pixel_y = 7;
 	pixel_x = -4
 	},
-/obj/item/storage/box/ingredients/random{
-	pixel_x = 4
-	},
-/obj/structure/shelf,
+/obj/item/storage/box/ingredients/wildcard,
 /turf/open/floor/iron/colony/white/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "xP" = (
@@ -1589,11 +1625,9 @@
 /turf/open/floor/plating/nanocarbon/exterior/standard,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "yu" = (
-/obj/machinery/vending/cigarette/syndicate,
-/obj/effect/turf_decal/siding/wood{
-	dir = 6
-	},
-/turf/open/floor/wood,
+/obj/machinery/cryopod/quiet,
+/obj/effect/turf_decal/bot_red,
+/turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "yB" = (
 /obj/machinery/computer/operating{
@@ -1616,7 +1650,7 @@
 /obj/item/lazarus_injector,
 /obj/item/defibrillator/compact/combat/loaded,
 /obj/structure/extinguisher_cabinet/directional/east,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "yE" = (
 /obj/effect/turf_decal/siding/dark/corner,
@@ -1643,8 +1677,8 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "yW" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/effect/turf_decal/siding/dark/corner{
-	dir = 4
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
 	},
 /turf/open/floor/iron/dark/textured_edge,
 /area/ruin/space/has_grav/powered/undisclosed_location)
@@ -1716,7 +1750,7 @@
 /obj/effect/mapping_helpers/broken_floor,
 /obj/effect/decal/cleanable/cobweb,
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "zO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -1749,7 +1783,7 @@
 /obj/effect/decal/cleanable/blood/splatter/oil,
 /obj/machinery/light/small/directional/north,
 /obj/effect/decal/cleanable/fuel_pool,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Aj" = (
 /obj/machinery/door/airlock/external/glass,
@@ -1800,7 +1834,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small/directional/north,
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "AM" = (
 /obj/machinery/fax/cantina{
@@ -1863,17 +1897,21 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "BW" = (
 /obj/machinery/automatic_implanter,
 /obj/machinery/light/dim/directional/west,
 /obj/item/radio/intercom/cantina/directional/west,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Cf" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/cable,
 /obj/machinery/airalarm/directional/south,
-/turf/closed/wall/r_wall,
+/turf/open/floor/iron/white,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Ck" = (
 /obj/effect/turf_decal/bot,
@@ -1882,9 +1920,14 @@
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "CC" = (
-/obj/machinery/airalarm/directional/south,
-/obj/machinery/recharge_station,
+/obj/machinery/autolathe/colony_amenities,
 /obj/effect/turf_decal/bot,
+/obj/item/stack/sheet/iron/twenty{
+	pixel_x = -5;
+	pixel_y = 3
+	},
+/obj/item/stack/sheet/glass/twenty,
+/obj/machinery/airalarm/directional/south,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "CD" = (
@@ -1907,7 +1950,7 @@
 /obj/structure/shelf,
 /obj/effect/spawner/random/maintenance/no_decals/three,
 /obj/effect/spawner/random/food_or_drink/seed/one,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "DD" = (
 /obj/structure/fluff/tram_rail,
@@ -1956,7 +1999,7 @@
 	pixel_x = 3
 	},
 /obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Ee" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2068,7 +2111,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "FB" = (
 /obj/structure/shuttle_decoration/radiator/directional/west,
@@ -2092,9 +2135,6 @@
 /turf/open/floor/iron/textured_edge,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Gf" = (
-/obj/machinery/door/window/left/directional/east{
-	name = "Kitchen"
-	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
@@ -2103,6 +2143,9 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/cable,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Gg" = (
@@ -2219,7 +2262,7 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "HV" = (
 /obj/structure/fluff/tram_rail{
@@ -2271,6 +2314,7 @@
 /obj/machinery/door/airlock{
 	id_tag = "evilass1"
 	},
+/obj/structure/closet/crate/bin,
 /turf/open/floor/plating/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "IO" = (
@@ -2294,7 +2338,7 @@
 /obj/structure/shelf,
 /obj/effect/spawner/random/maintenance/no_decals/five,
 /obj/effect/spawner/random/food_or_drink/seed/one,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Jc" = (
 /obj/structure/shuttle_decoration/wall_plate/armor,
@@ -2366,7 +2410,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/food/plant_smudge,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "JP" = (
 /obj/structure/fluff/tram_rail,
@@ -2399,7 +2443,7 @@
 	},
 /obj/item/organ/cyberimp/arm/toolkit/toolset,
 /obj/structure/shelf,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "JX" = (
 /obj/structure/titanium_structure,
@@ -2419,7 +2463,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/bot,
 /obj/machinery/light/small/directional/north,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "KI" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2447,7 +2491,7 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "KO" = (
 /obj/machinery/smartfridge/organ,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Lr" = (
 /obj/item/gun/energy/disabler/smg{
@@ -2488,7 +2532,7 @@
 	pixel_y = 1;
 	pixel_x = -1
 	},
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "LS" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2567,8 +2611,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/plasma,
 /obj/effect/decal/cleanable/shreds,
-/obj/effect/spawner/random/trash/deluxe_garbage/no_mobs_ever,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "MV" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
@@ -2586,7 +2629,7 @@
 	},
 /obj/structure/shelf,
 /obj/effect/turf_decal/bot,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Nn" = (
 /obj/item/wallframe/telescreen/entertainment{
@@ -2642,12 +2685,18 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/seed_extractor,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Oi" = (
-/obj/structure/window/spawner/directional/east,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
+	},
+/obj/machinery/vending/cigarette/syndicate,
+/obj/effect/turf_decal/siding/wideplating_new/dark/corner{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
 	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
@@ -2691,7 +2740,7 @@
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
 /obj/effect/turf_decal/bot,
 /obj/effect/mapping_helpers/broken_floor,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "OL" = (
 /obj/item/weldingtool/hugetank{
@@ -2712,7 +2761,7 @@
 	},
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/shelf,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "OR" = (
 /obj/effect/decal/cleanable/dirt/dust,
@@ -2736,7 +2785,7 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Pt" = (
 /obj/item/reagent_containers/condiment/saltshaker{
-	pixel_x = -3
+	pixel_x = -6
 	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -2746,6 +2795,7 @@
 	pixel_x = 7;
 	pixel_y = 13
 	},
+/obj/item/cigbutt/greycigbutt,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "PA" = (
@@ -2917,6 +2967,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/structure/steam_vent,
+/obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Rb" = (
@@ -2950,7 +3001,7 @@
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/light/small/directional/north,
 /obj/effect/decal/cleanable/cobweb/cobweb2,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Rv" = (
 /obj/structure/lattice,
@@ -3027,6 +3078,9 @@
 	pixel_x = 8;
 	pixel_y = 3
 	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/wood/tile,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Sj" = (
@@ -3091,7 +3145,7 @@
 "SF" = (
 /obj/effect/mapping_helpers/broken_floor,
 /obj/machinery/limbgrower/fullupgrade,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "SR" = (
 /obj/item/clothing/shoes/combat{
@@ -3106,7 +3160,7 @@
 /obj/structure/shelf,
 /obj/effect/turf_decal/bot,
 /obj/effect/spawner/random/maintenance/no_decals/two,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "SS" = (
 /obj/structure/cable,
@@ -3331,6 +3385,7 @@
 	},
 /obj/effect/spawner/random/trash/cigbutt,
 /obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/deluxe_garbage/no_mobs_ever,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "WC" = (
@@ -3342,6 +3397,10 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "WG" = (
 /obj/machinery/light/small/directional/west,
+/obj/structure/closet/crate/bin,
+/obj/effect/spawner/random/trash/garbage,
+/obj/effect/spawner/random/trash/cigbutt,
+/obj/effect/spawner/random/trash/deluxe_garbage/no_mobs_ever,
 /turf/open/floor/iron/white/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "WS" = (
@@ -3368,15 +3427,20 @@
 /obj/machinery/biogenerator/organic_printer,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
-/turf/open/floor/plating,
+/turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Xy" = (
-/obj/structure/window/spawner/directional/east,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/turf_decal/siding/wood{
 	dir = 8
 	},
 /obj/machinery/vending/cola/pwr_game,
+/obj/effect/turf_decal/siding/wideplating_new/dark{
+	dir = 4
+	},
+/obj/structure/railing{
+	dir = 4
+	},
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "XB" = (
@@ -3387,11 +3451,11 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "XP" = (
 /obj/machinery/light/red/dim/directional/west,
-/obj/structure/steps/directional/north,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/turf_decal/siding/dark/corner{
 	dir = 8
 	},
+/obj/structure/fake_stairs/directional/north,
 /turf/open/floor/iron/dark/textured_corner{
 	dir = 8
 	},
@@ -3904,8 +3968,8 @@ TL
 vv
 pf
 Su
-ov
 Cf
+vv
 Fg
 JX
 Mx
@@ -4134,7 +4198,7 @@ sH
 Gg
 Jn
 rX
-xv
+tN
 MH
 lM
 lM
@@ -4204,7 +4268,7 @@ Up
 aq
 tf
 JD
-AY
+uJ
 qe
 ft
 yU
@@ -4514,7 +4578,7 @@ Jd
 qU
 Jn
 DF
-xv
+rG
 MH
 lM
 lM
@@ -4928,7 +4992,7 @@ lM
 CD
 vI
 MC
-uJ
+Fm
 Fm
 CC
 vI
@@ -4968,7 +5032,7 @@ lE
 xw
 eA
 Fm
-aE
+Fm
 cb
 ls
 zf
@@ -5006,7 +5070,7 @@ vI
 Al
 Vs
 Vs
-Vs
+aE
 vI
 sR
 pB

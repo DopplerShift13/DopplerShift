@@ -16,3 +16,14 @@
 	name = "Undisclosed Location"
 	flags_1 = null
 
+/obj/structure/fluff/cantinasign
+	name = "Curfew & Sundown bar sign"
+	desc = "The Curfew and Sundown's iconic holotube signage affixed to an ill-maintained EVA lattice."
+	icon = 'modular_doppler/modular_antagonists/cantina/barsign.dmi'
+	icon_state = "cantina"
+	layer = 5
+	pixel_x = -32
+
+/obj/structure/fluff/cantinasign/damaged
+	desc = "The Curfew and Sundown's iconic holotube signage affixed to an ill-maintained EVA lattice. It's visibly taking age, the once well-hidden cables are showing some slack while the holotubes keep flickering."
+	icon_state = "cantinadamaged"
