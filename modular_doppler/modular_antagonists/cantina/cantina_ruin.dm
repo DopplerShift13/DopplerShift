@@ -23,7 +23,7 @@
 	icon_state = "cantina"
 	layer = 5
 	pixel_x = -32
-	pxiel_y = 32
+	pixel_y = 32
 
 /obj/structure/fluff/cantinasign/damaged
 	desc = "The Curfew and Sundown's iconic holotube signage affixed to an ill-maintained EVA lattice. It's visibly taking age, the once well-hidden cables are showing some slack while the holotubes keep flickering."
