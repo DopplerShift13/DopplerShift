@@ -313,8 +313,11 @@
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/blood/oil/slippery,
 /obj/effect/turf_decal/bot,
-/obj/item/storage/cans/sixbeer,
 /obj/structure/table,
+/obj/machinery/recharger,
+/obj/item/reagent_containers/cup/glass/bottle/beer{
+	pixel_x = -9
+	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "eA" = (
@@ -734,6 +737,10 @@
 /obj/item/stock_parts/power_store/cell/high,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/bot,
+/obj/item/reagent_containers/cup/glass/bottle/beer{
+	pixel_x = 8;
+	pixel_y = 16
+	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "kF" = (
