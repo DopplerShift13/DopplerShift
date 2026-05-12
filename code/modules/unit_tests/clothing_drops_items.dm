@@ -27,6 +27,7 @@
 /datum/unit_test/clothing_drops_items/proc/test_android()
 	var/list/robo_dummy_items = allocate_items()
 	var/mob/living/carbon/human/consistent/robo_dummy = allocate(__IMPLIED_TYPE__)
+	turn_off_every_species_feature(robo_dummy) // DOPPLER EDIT - Stops the dummy from becoming a taur out of nowhere
 	robo_dummy.set_species(/datum/species/android)
 
 	for(var/slot in robo_dummy_items)

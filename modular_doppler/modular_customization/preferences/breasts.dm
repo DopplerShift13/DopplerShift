@@ -1,25 +1,16 @@
 /datum/species/get_features()
 	var/list/features = ..()
 
-	features += /datum/preference/choiced/breasts
+	features += /datum/preference/choiced/species_feature/breasts
 
 	GLOB.features_by_species[type] = features
 
 	return features
 
-/// SSAccessories setup
-/datum/controller/subsystem/accessories
-	var/list/breasts_list
-
-/datum/controller/subsystem/accessories/setup_lists()
-	. = ..()
-	breasts_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/breasts)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
-
-
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features[FEATURE_BREASTS])
-		if(target.dna.features[FEATURE_BREASTS] != "Bare")
+		if(target.dna.features[FEATURE_BREASTS] != SPRITE_ACCESSORY_NONE)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/breasts)
 			//replacement.build_from_dna(target.dna, "breasts") //TODO: do we need to add this
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -47,7 +38,7 @@
 	return FALSE
 
 //sprite selection
-/datum/preference/choiced/breasts
+/datum/preference/choiced/species_feature/breasts
 	savefile_key = "feature_breasts"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
@@ -55,20 +46,18 @@
 	should_generate_icons = TRUE
 	priority = PREFERENCE_PRIORITY_DEFAULT
 	can_randomize = FALSE
+	feature_key = FEATURE_BREASTS
 
-/datum/preference/choiced/breasts/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.breasts_list)
+/datum/preference/choiced/species_feature/breasts/icon_for(value)
+	return generate_breasts_shot(get_accessory_for_value(value))
 
-/datum/preference/choiced/breasts/icon_for(value)
-	return generate_breasts_shot(SSaccessories.breasts_list[value])
-
-/datum/preference/choiced/breasts/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/breasts/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_BREASTS] = value
 
-/datum/preference/choiced/breasts/create_default_value()
+/datum/preference/choiced/species_feature/breasts/create_default_value()
 	return /datum/sprite_accessory/breasts/bare::name
 
-/datum/preference/choiced/breasts/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/breasts/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/has_breasts = preferences.read_preference(/datum/preference/toggle/breasts)
 	if(has_breasts == TRUE)

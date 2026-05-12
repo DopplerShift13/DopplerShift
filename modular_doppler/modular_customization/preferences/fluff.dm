@@ -1,14 +1,7 @@
-/datum/controller/subsystem/accessories
-	var/list/fluff_list
-
-/datum/controller/subsystem/accessories/setup_lists()
-	. = ..()
-	fluff_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/fluff)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
-
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features[FEATURE_FLUFF] && can_regenerate_mutant_feature(FEATURE_FLUFF))
-		if(target.dna.features[FEATURE_FLUFF] != /datum/sprite_accessory/fluff/none::name && target.dna.features[FEATURE_FLUFF] != /datum/sprite_accessory/blank::name)
+		if(target.dna.features[FEATURE_FLUFF] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/fluff)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -26,7 +19,7 @@
 
 /datum/preference/toggle/fluff/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features[FEATURE_FLUFF] = /datum/sprite_accessory/fluff/none::name
+		target.dna.features[FEATURE_FLUFF] = /datum/sprite_accessory/blank::name
 
 /datum/preference/toggle/fluff/create_default_value()
 	return FALSE
@@ -38,17 +31,15 @@
 		return FALSE
 	return TRUE
 
-/datum/preference/choiced/fluff
+/datum/preference/choiced/species_feature/fluff
 	savefile_key = "fluff"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Fluff"
+	feature_key = FEATURE_FLUFF
 
-/datum/preference/choiced/fluff/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.fluff_list)
-
-/datum/preference/choiced/fluff/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/fluff/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!species_can_access_mutant_customization(species))
@@ -58,21 +49,21 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/fluff/create_default_value()
-	return /datum/sprite_accessory/fluff/none::name
+/datum/preference/choiced/species_feature/fluff/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/fluff/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/fluff/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_FLUFF] = value
 
-/datum/preference/choiced/fluff/icon_for(value)
+/datum/preference/choiced/species_feature/fluff/icon_for(value)
 	var/static/datum/universal_icon/body
 	if (isnull(body))
 		body = uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_head_f")
 		body.blend_icon(uni_icon('icons/mob/human/bodyparts_greyscale.dmi', "human_chest_f"), ICON_OVERLAY)
 
 	var/datum/universal_icon/final_icon = body.copy()
-	if (value != "No Fluff")
-		var/datum/sprite_accessory/sprite_accessory = SSaccessories.fluff_list[value]
+	if (value != SPRITE_ACCESSORY_NONE)
+		var/datum/sprite_accessory/sprite_accessory = get_accessory_for_value(value)
 		if(icon_exists(sprite_accessory.icon, "m_fluff_[sprite_accessory.icon_state]_ADJ"))
 			var/datum/universal_icon/fluff_adj = uni_icon(sprite_accessory.icon, "m_fluff_[sprite_accessory.icon_state]_ADJ")
 			fluff_adj.blend_color(COLOR_WEBSAFE_DARK_GRAY, ICON_MULTIPLY)

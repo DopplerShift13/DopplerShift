@@ -182,7 +182,7 @@
 				user = user,
 				message = "Select an antenna design:",
 				title = "antenna design",
-				items = SSaccessories.ears_list_synthetic
+				items = SSaccessories.feature_list[FEATURE_EARS_CYBERNETIC]
 			)
 			if(input_antenna_design)
 				stored_antenna_design = input_antenna_design

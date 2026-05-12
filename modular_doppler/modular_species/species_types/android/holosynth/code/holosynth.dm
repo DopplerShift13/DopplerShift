@@ -142,6 +142,7 @@
 	name = "Holosynth (Species Preview)"
 
 /datum/species/android/holosynth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	turn_off_every_species_feature(human_for_preview)
 	human_for_preview.set_haircolor("#CCECFF", update = FALSE)
 	human_for_preview.set_hairstyle("Mia", update = TRUE)
 	human_for_preview.eye_color_left = "#66CCFF"

@@ -1,31 +1,3 @@
-/// SSAccessories setup
-/datum/controller/subsystem/accessories
-	var/list/tails_list_dog
-	var/list/tails_list_fox
-	var/list/tails_list_bunny
-	var/list/tails_list_mouse
-	var/list/tails_list_bird
-	var/list/tails_list_deer
-	var/list/tails_list_bug
-	var/list/tails_list_synth
-	var/list/tails_list_humanoid
-	var/list/tails_list_alien
-	var/list/tails_list_teshari
-
-/datum/controller/subsystem/accessories/setup_lists()
-	. = ..()
-	tails_list_dog = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/dog)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
-	tails_list_fox = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/fox)["default_sprites"]
-	tails_list_bunny = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/bunny)["default_sprites"]
-	tails_list_mouse = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/mouse)["default_sprites"]
-	tails_list_bird = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/bird)["default_sprites"]
-	tails_list_deer = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/deer)["default_sprites"]
-	tails_list_bug = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/bug)["default_sprites"]
-	tails_list_synth = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/cybernetic)["default_sprites"]
-	tails_list_humanoid = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/humanoid)["default_sprites"]
-	tails_list_alien = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/alien)["default_sprites"]
-	tails_list_teshari = init_sprite_accessory_subtypes(/datum/sprite_accessory/tails/teshari)["default_sprites"]
-
 /datum/dna
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
 	var/tail_type = NO_VARIATION
@@ -37,23 +9,23 @@
 	if(!ishuman(target))
 		return
 
-	if(target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/tails/lizard/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_LIZARD) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
+	if(can_regenerate_mutant_feature(FEATURE_TAIL_LIZARD) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features[FEATURE_TAIL_CAT] != /datum/sprite_accessory/tails/human/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_CAT) && target.dna.features[FEATURE_TAIL_CAT] != /datum/sprite_accessory/blank::name)
+	else if(can_regenerate_mutant_feature(FEATURE_TAIL_CAT) && target.dna.features[FEATURE_TAIL_CAT] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/cat)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/tails/monkey/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_MONKEY) && target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/blank::name)
+	else if(can_regenerate_mutant_feature(FEATURE_TAIL_MONKEY) && target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/monkey)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/tails/fish/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_FISH) && target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/blank::name)
+	else if(can_regenerate_mutant_feature(FEATURE_TAIL_FISH) && target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/fish)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if((target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/tails/lizard/none::name && can_regenerate_mutant_feature(FEATURE_TAIL_OTHER) && target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
+	else if((can_regenerate_mutant_feature(FEATURE_TAIL_OTHER) && target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
 		var/obj/item/organ/organ_path = text2path("/obj/item/organ/tail/[target.dna.tail_type]")
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -98,50 +70,52 @@
 //	Luckily for all of us, this list wont get any bigger
 	switch(chosen_variation)
 		if(NO_VARIATION)
-			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
-			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/blank::name
 		if(LIZARD)
-			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
-			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/blank::name
 		if(CAT)
-			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
-			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/blank::name
 		if(MONKEY)
-			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
-			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/blank::name
 		if(FISH)
-			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/tails/none::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_OTHER] = /datum/sprite_accessory/blank::name
 		else
-			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/tails/lizard/none::name
-			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/tails/human/none::name
-			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/tails/monkey/none::name
-			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/tails/fish/none::name
+			target.dna.features[FEATURE_TAIL_LIZARD] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_CAT] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_MONKEY] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_TAIL_FISH] = /datum/sprite_accessory/blank::name
 
 ///	All current tail types to choose from
 //	Lizard
-/datum/preference/choiced/lizard_tail // this is an overwrite, so its missing some variables
+/datum/preference/choiced/species_feature/lizard_tail // this is an overwrite, so its missing some variables
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_LIZARD
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/lizard_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/lizard_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/lizard_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -151,23 +125,26 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/lizard_tail/create_default_value()
-	return /datum/sprite_accessory/tails/lizard/none::name
+/datum/preference/choiced/species_feature/lizard_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/lizard_tail/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features[FEATURE_TAIL_LIZARD] = value
+/datum/preference/choiced/species_feature/lizard_tail/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.dna.tail_type == LIZARD)
+		target.dna.features[FEATURE_TAIL_LIZARD] = value
 
-/datum/preference/choiced/lizard_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_lizard[value]
+/datum/preference/choiced/species_feature/lizard_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Cat
-/datum/preference/choiced/tail_felinid
+/datum/preference/choiced/species_feature/tail_felinid
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_CAT
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/tail_felinid/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/tail_felinid/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -177,33 +154,33 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/tail_felinid/create_default_value()
-	return /datum/sprite_accessory/tails/human/none::name
+/datum/preference/choiced/species_feature/tail_felinid/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/tail_felinid/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features[FEATURE_TAIL_CAT] = value
+/datum/preference/choiced/species_feature/tail_felinid/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.dna.tail_type == CAT)
+		target.dna.features[FEATURE_TAIL_CAT] = value
 
-/datum/preference/choiced/tail_felinid/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_felinid[value]
+/datum/preference/choiced/species_feature/tail_felinid/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Dog
-/datum/preference/choiced/dog_tail
+/datum/preference/choiced/species_feature/dog_tail
 	savefile_key = "feature_dog_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_DOG
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/dog_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/dog_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/dog_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_dog)
-
-/datum/preference/choiced/dog_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/dog_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -213,34 +190,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/dog_tail/create_default_value()
-	return /datum/sprite_accessory/tails/dog/none::name
+/datum/preference/choiced/species_feature/dog_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/dog_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/dog_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == DOG)	// we will be sharing the 'tail_other' slot with multiple tail types
+		target.dna.features[FEATURE_TAIL_DOG] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/dog_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_dog[value]
+/datum/preference/choiced/species_feature/dog_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Fox
-/datum/preference/choiced/fox_tail
+/datum/preference/choiced/species_feature/fox_tail
 	savefile_key = "feature_fox_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_FOX
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/fox_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/fox_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/fox_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_fox)
-
-/datum/preference/choiced/fox_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/fox_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -250,34 +227,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/fox_tail/create_default_value()
-	return /datum/sprite_accessory/tails/fox/none::name
+/datum/preference/choiced/species_feature/fox_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/fox_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/fox_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FOX)
+		target.dna.features[FEATURE_TAIL_FOX] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/fox_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_fox[value]
+/datum/preference/choiced/species_feature/fox_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Bunny
-/datum/preference/choiced/bunny_tail
+/datum/preference/choiced/species_feature/bunny_tail
 	savefile_key = "feature_bunny_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_BUNNY
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/bunny_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/bunny_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/bunny_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_bunny)
-
-/datum/preference/choiced/bunny_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/bunny_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -287,34 +264,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/bunny_tail/create_default_value()
-	return /datum/sprite_accessory/tails/bunny/none::name
+/datum/preference/choiced/species_feature/bunny_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/bunny_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/bunny_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == BUNNY)
+		target.dna.features[FEATURE_TAIL_BUNNY] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/bunny_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_bunny[value]
+/datum/preference/choiced/species_feature/bunny_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Mouse
-/datum/preference/choiced/mouse_tail
+/datum/preference/choiced/species_feature/mouse_tail
 	savefile_key = "feature_mouse_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_MOUSE
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/mouse_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/mouse_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/mouse_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_mouse)
-
-/datum/preference/choiced/mouse_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/mouse_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -324,34 +301,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/mouse_tail/create_default_value()
-	return /datum/sprite_accessory/tails/mouse/none::name
+/datum/preference/choiced/species_feature/mouse_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/mouse_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/mouse_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == MOUSE)
+		target.dna.features[FEATURE_TAIL_MOUSE] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/mouse_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_mouse[value]
+/datum/preference/choiced/species_feature/mouse_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Bird
-/datum/preference/choiced/bird_tail
+/datum/preference/choiced/species_feature/bird_tail
 	savefile_key = "feature_bird_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_BIRD
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/bird_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/bird_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/bird_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_bird)
-
-/datum/preference/choiced/bird_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/bird_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -361,29 +338,32 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/bird_tail/create_default_value()
-	return /datum/sprite_accessory/tails/bird/none::name
+/datum/preference/choiced/species_feature/bird_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/bird_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/bird_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == BIRD)
+		target.dna.features[FEATURE_TAIL_BIRD] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/bird_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_bird[value]
+/datum/preference/choiced/species_feature/bird_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Monkey
-/datum/preference/choiced/monkey_tail
+/datum/preference/choiced/species_feature/monkey_tail
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_MONKEY
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/monkey_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/monkey_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/monkey_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/monkey_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -393,33 +373,33 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/monkey_tail/create_default_value()
-	return /datum/sprite_accessory/tails/monkey/none::name
+/datum/preference/choiced/species_feature/monkey_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/monkey_tail/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features[FEATURE_TAIL_MONKEY] = value
+/datum/preference/choiced/species_feature/monkey_tail/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.dna.tail_type == MONKEY)
+		target.dna.features[FEATURE_TAIL_MONKEY] = value
 
-/datum/preference/choiced/monkey_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_monkey[value]
+/datum/preference/choiced/species_feature/monkey_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Deer
-/datum/preference/choiced/deer_tail
+/datum/preference/choiced/species_feature/deer_tail
 	savefile_key = "feature_deer_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_DEER
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/deer_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/deer_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/deer_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_deer)
-
-/datum/preference/choiced/deer_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/deer_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -429,34 +409,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/deer_tail/create_default_value()
-	return /datum/sprite_accessory/tails/deer/none::name
+/datum/preference/choiced/species_feature/deer_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/deer_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/deer_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == DEER)
+		target.dna.features[FEATURE_TAIL_DEER] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/deer_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_deer[value]
+/datum/preference/choiced/species_feature/deer_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Fish
-/datum/preference/choiced/fish_tail
+/datum/preference/choiced/species_feature/fish_tail
 	savefile_key = "feature_fish_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_FISH
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/fish_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/fish_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/fish_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_fish)
-
-/datum/preference/choiced/fish_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/fish_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -466,34 +446,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/fish_tail/create_default_value()
-	return /datum/sprite_accessory/tails/fish/none::name
+/datum/preference/choiced/species_feature/fish_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/fish_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/fish_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == FISH)
 		target.dna.features[FEATURE_TAIL_FISH] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/fish_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_fish[value]
+/datum/preference/choiced/species_feature/fish_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Bug
-/datum/preference/choiced/bug_tail
+/datum/preference/choiced/species_feature/bug_tail
 	savefile_key = "feature_bug_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_BUG
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/bug_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/bug_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/bug_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_bug)
-
-/datum/preference/choiced/bug_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/bug_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -503,34 +483,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/bug_tail/create_default_value()
-	return /datum/sprite_accessory/tails/bug/none::name
+/datum/preference/choiced/species_feature/bug_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/bug_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/bug_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == BUG)
+		target.dna.features[FEATURE_TAIL_BUG] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/bug_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_bug[value]
+/datum/preference/choiced/species_feature/bug_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Synth
-/datum/preference/choiced/synth_tail
+/datum/preference/choiced/species_feature/synth_tail
 	savefile_key = "feature_synth_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_CYBERNETIC
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/synth_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/synth_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/synth_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_synth)
-
-/datum/preference/choiced/synth_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/synth_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -540,34 +520,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/synth_tail/create_default_value()
-	return /datum/sprite_accessory/tails/cybernetic/none::name
+/datum/preference/choiced/species_feature/synth_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/synth_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/synth_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == CYBERNETIC)
+		target.dna.features[FEATURE_TAIL_CYBERNETIC] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/synth_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_synth[value]
+/datum/preference/choiced/species_feature/synth_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Humanoid
-/datum/preference/choiced/humanoid_tail
+/datum/preference/choiced/species_feature/humanoid_tail
 	savefile_key = "feature_humanoid_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_HUMANOID
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/humanoid_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/humanoid_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/humanoid_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_humanoid)
-
-/datum/preference/choiced/humanoid_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/humanoid_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -577,34 +557,34 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/humanoid_tail/create_default_value()
-	return /datum/sprite_accessory/tails/humanoid/none::name
+/datum/preference/choiced/species_feature/humanoid_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/humanoid_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/humanoid_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == HUMANOID)
+		target.dna.features[FEATURE_TAIL_HUMANOID] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/humanoid_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_humanoid[value]
+/datum/preference/choiced/species_feature/humanoid_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 //	Alien
-/datum/preference/choiced/alien_tail
+/datum/preference/choiced/species_feature/alien_tail
 	savefile_key = "feature_alien_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_ALIEN
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/alien_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/alien_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/alien_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_alien)
-
-/datum/preference/choiced/alien_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/alien_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -614,29 +594,29 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/alien_tail/create_default_value()
-	return /datum/sprite_accessory/tails/alien/none::name
+/datum/preference/choiced/species_feature/alien_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/alien_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/alien_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == ALIEN)
+		target.dna.features[FEATURE_TAIL_ALIEN] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 
-/datum/preference/choiced/alien_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_alien[value]
+/datum/preference/choiced/species_feature/alien_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 // Teshari
-/datum/preference/choiced/teshari_tail
+/datum/preference/choiced/species_feature/teshari_tail
 	savefile_key = "feature_teshari_tail"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_TESHARI
+	priority = PREFERENCE_PRIORITY_SPECIES
 
-/datum/preference/choiced/teshari_tail/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.tails_list_teshari)
-
-/datum/preference/choiced/teshari_tail/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/teshari_tail/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 
@@ -648,26 +628,27 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/teshari_tail/species_can_access_mutant_customization(species_typepath)
+/datum/preference/choiced/species_feature/teshari_tail/species_can_access_mutant_customization(species_typepath)
 	if (ispath(species_typepath, /datum/species/teshari))
 		return TRUE
 	return ..()
 
-/datum/preference/choiced/teshari_tail/create_default_value()
-	return /datum/sprite_accessory/tails/alien/none::name
+/datum/preference/choiced/species_feature/teshari_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/teshari_tail/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/teshari_tail/apply_to_human(mob/living/carbon/human/target, value)
 	if(target.dna.tail_type == TESHARI)
+		target.dna.features[FEATURE_TAIL_TESHARI] = value
 		target.dna.features[FEATURE_TAIL_OTHER] = value
 		target.regenerate_organs()
 
-/datum/preference/choiced/teshari_tail/icon_for(value)
-	var/datum/sprite_accessory/chosen_tail = SSaccessories.tails_list_teshari[value]
+/datum/preference/choiced/species_feature/teshari_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
 /// Proc to gen that icon
 //	We don't wanna copy paste this
-/datum/preference/choiced/proc/generate_back_icon(datum/sprite_accessory/sprite_accessory, key)
+/datum/preference/choiced/species_feature/proc/generate_back_icon(datum/sprite_accessory/sprite_accessory, key)
 	var/static/datum/universal_icon/body
 	if (isnull(body))
 		body = uni_icon('icons/mob/human/human.dmi', "human_basic", NORTH)

@@ -1,75 +1,75 @@
 // Gotta add to the ears selector
-/datum/preference/choiced/felinid_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/felinid_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/lizard_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/dog_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/dog_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/fox_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/fox_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/bunny_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/bunny_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/mouse_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/mouse_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/bird_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/bird_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/monkey_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/monkey_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/deer_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/deer_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/fish_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/fish_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/bug_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/bug_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/humanoid_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/humanoid_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/synthetic_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/synthetic_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/alien_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/alien_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data
 
-/datum/preference/choiced/teshari_ears/compile_constant_data()
+/datum/preference/choiced/species_feature/teshari_ears/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/ears_color::savefile_key
 	return data

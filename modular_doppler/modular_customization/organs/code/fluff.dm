@@ -12,6 +12,3 @@
 
 /datum/bodypart_overlay/mutant/fluff
 	feature_key = FEATURE_FLUFF
-
-/datum/bodypart_overlay/mutant/fluff/get_global_feature_list()
-	return SSaccessories.fluff_list
