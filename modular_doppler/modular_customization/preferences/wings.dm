@@ -1,11 +1,3 @@
-/// SSAccessories setup
-/datum/controller/subsystem/accessories
-	var/list/wings_list_more
-
-/datum/controller/subsystem/accessories/setup_lists()
-	. = ..()
-	wings_list_more = init_sprite_accessory_subtypes(/datum/sprite_accessory/wings_more)["default_sprites"] // FLAKY DEFINE: this should be using DEFAULT_SPRITE_LIST
-
 /datum/dna
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
 	var/wing_type = NO_VARIATION
@@ -20,12 +12,12 @@
 	if(target.dna.features[FEATURE_MOTH_WINGS] && can_regenerate_mutant_feature(FEATURE_MOTH_WINGS))
 		if(target.dna.wing_type == NO_VARIATION)
 			return .
-		if((target.dna.features[FEATURE_MOTH_WINGS] != /datum/sprite_accessory/moth_wings/none::name && target.dna.features["moth_wings"] != /datum/sprite_accessory/blank::name))
+		if(target.dna.features["moth_wings"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/moth)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
 	if(target.dna.features[FEATURE_WINGS] && can_regenerate_mutant_feature(FEATURE_WINGS))
-		if(target.dna.features[FEATURE_WINGS] != /datum/sprite_accessory/wings_more/none::name && target.dna.features["wings"] != /datum/sprite_accessory/blank::name)
+		if(target.dna.features["wings"] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/wings/more)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -53,12 +45,12 @@
 	target.dna.wing_type = chosen_variation
 	switch(chosen_variation)
 		if(NO_VARIATION)
-			target.dna.features["wings"] = /datum/sprite_accessory/wings_more/none::name
-			target.dna.features["moth_wings"] = /datum/sprite_accessory/moth_wings/none::name
+			target.dna.features[FEATURE_WINGS] = /datum/sprite_accessory/blank::name
+			target.dna.features[FEATURE_MOTH_WINGS] = /datum/sprite_accessory/blank::name
 		if("Wings")
-			target.dna.features["moth_wings"] = /datum/sprite_accessory/moth_wings/none::name
+			target.dna.features[FEATURE_MOTH_WINGS] = /datum/sprite_accessory/blank::name
 		if("Moth Wings")
-			target.dna.features["wings"] = /datum/sprite_accessory/wings_more/none::name
+			target.dna.features[FEATURE_WINGS] = /datum/sprite_accessory/blank::name
 
 /datum/preference/choiced/wing_variation/is_accessible(datum/preferences/preferences)
 	. = ..()
@@ -68,14 +60,15 @@
 	return TRUE
 
 //	Wings
-/datum/preference/choiced/wings
+/datum/preference/choiced/species_feature/wings
 	savefile_key = "feature_wings"
 	savefile_identifier = PREFERENCE_CHARACTER
 	category = PREFERENCE_CATEGORY_CLOTHING
 	should_generate_icons = TRUE
 	main_feature_name = "Wings"
+	feature_key = FEATURE_WINGS
 
-/datum/preference/choiced/wings/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -85,28 +78,25 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/wings/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.wings_list_more)
+/datum/preference/choiced/species_feature/wings/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
-/datum/preference/choiced/wings/create_default_value()
-	return /datum/sprite_accessory/wings_more/none::name
+/datum/preference/choiced/species_feature/wings/apply_to_human(mob/living/carbon/human/target, value)
+	target.dna.features[FEATURE_WINGS] = value
 
-/datum/preference/choiced/wings/apply_to_human(mob/living/carbon/human/target, value)
-	target.dna.features["wings"] = value
+/datum/preference/choiced/species_feature/wings/icon_for(value)
+	var/datum/sprite_accessory/wings = get_accessory_for_value(value)
+	return generate_back_icon(wings, FEATURE_WINGS)
 
-/datum/preference/choiced/wings/icon_for(value)
-	var/datum/sprite_accessory/wings = SSaccessories.wings_list_more[value]
-	return generate_back_icon(wings, "wings")
-
-/datum/preference/choiced/moth_wings/icon_for(value)
-	var/datum/sprite_accessory/wings = SSaccessories.moth_wings_list[value]
-	return generate_back_icon(wings, "moth_wings")
+/datum/preference/choiced/species_feature/moth_wings/icon_for(value)
+	var/datum/sprite_accessory/wings = get_accessory_for_value(value)
+	return generate_back_icon(wings, FEATURE_MOTH_WINGS)
 
 //	Moth Wings
-/datum/preference/choiced/moth_wings
+/datum/preference/choiced/species_feature/moth_wings
 	category = PREFERENCE_CATEGORY_CLOTHING
 
-/datum/preference/choiced/moth_wings/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/moth_wings/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if (!species_can_access_mutant_customization(species))
@@ -116,8 +106,8 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/moth_wings/create_default_value()
-	return /datum/sprite_accessory/moth_wings/none::name
+/datum/preference/choiced/species_feature/moth_wings/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
 /// Overwrite lives here
 //	This is for the triple color channel

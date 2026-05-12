@@ -8,6 +8,12 @@
 	/// The primary layer of our body - most bodies use ADJ, but some use FRONT. Used for prefs rendering.
 	var/primary_layer = "ADJ"
 
+/datum/sprite_accessory/taur/none
+	name = SPRITE_ACCESSORY_NONE
+	dimension_x = 32
+	center = FALSE
+	icon_state = "none"
+
 /datum/sprite_accessory/taur/deer
 	name = "Deer"
 	icon_state = "deer"

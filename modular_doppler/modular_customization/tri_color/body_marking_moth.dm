@@ -1,6 +1,6 @@
 
 // Gotta add to the selector
-/datum/preference/choiced/moth_markings/compile_constant_data()
+/datum/preference/choiced/species_feature/moth_markings/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/moth_markings_color::savefile_key
 	return data

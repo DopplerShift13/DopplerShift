@@ -23,7 +23,7 @@
 
 // Gotta add to the selector too
 // TODO: we need fluff organs & selection
-/datum/preference/choiced/fluff/compile_constant_data()
+/datum/preference/choiced/species_feature/fluff/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/fluff_color::savefile_key
 	return data

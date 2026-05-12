@@ -1,7 +1,7 @@
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features["snout"] && can_regenerate_mutant_feature("snout"))
-		if(target.dna.features["snout"] != /datum/sprite_accessory/snouts/none::name && target.dna.features["snout"] != /datum/sprite_accessory/blank::name)
+		if(target.dna.features[FEATURE_SNOUT] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/snout)
 			replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 			return .
@@ -19,7 +19,7 @@
 
 /datum/preference/toggle/snout/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features["snout"] = /datum/sprite_accessory/snouts/none::name
+		target.dna.features[FEATURE_SNOUT] = /datum/sprite_accessory/blank::name
 
 /datum/preference/toggle/snout/create_default_value()
 	return FALSE
@@ -31,10 +31,11 @@
 		return FALSE
 	return TRUE
 
-/datum/preference/choiced/lizard_snout
+/datum/preference/choiced/species_feature/lizard_snout
 	category = PREFERENCE_CATEGORY_CLOTHING
+	feature_key = FEATURE_SNOUT
 
-/datum/preference/choiced/lizard_snout/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/lizard_snout/is_accessible(datum/preferences/preferences)
 	. = ..()
 	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
 	if(!species_can_access_mutant_customization(species))
@@ -44,14 +45,14 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/lizard_snout/create_default_value()
-	return /datum/sprite_accessory/snouts/none::name
+/datum/preference/choiced/species_feature/lizard_snout/create_default_value()
+	return /datum/sprite_accessory/blank::name
 
 
-/datum/preference/choiced/lizard_snout/icon_for(value)
-	return generate_snout_icon(SSaccessories.snouts_list[value])
+/datum/preference/choiced/species_feature/lizard_snout/icon_for(value)
+	return generate_snout_icon(get_accessory_for_value(value))
 
-/datum/preference/choiced/proc/generate_snout_icon(datum/sprite_accessory/sprite_accessory)
+/datum/preference/choiced/species_feature/proc/generate_snout_icon(datum/sprite_accessory/sprite_accessory)
 	var/static/datum/universal_icon/body
 	if (isnull(body))
 		body = uni_icon('modular_doppler/modular_species/species_types/anthromorph/icons/bodyparts.dmi', "anthromorph_head", EAST)
