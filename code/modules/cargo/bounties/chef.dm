@@ -1,6 +1,6 @@
 /datum/bounty/item/chef/birthday_cake
 	name = "Birthday Cake"
-	description = "Nanotrasen's birthday is coming up! Ship Central Command a birthday cake to celebrate!"
+	description = "Nanotrasen's birthday is coming up! Ship Nanotrasen a birthday cake to celebrate!"
 	reward = CARGO_CRATE_VALUE * 8
 	wanted_types = list(
 		/obj/item/food/cake/birthday = TRUE,
@@ -62,13 +62,13 @@
 
 /datum/bounty/item/chef/pie
 	name = "Pie"
-	description = "3.14159? No! CentCom management wants edible pie! Ship a whole one."
+	description = "3.14159? No! Nanotrasen management wants edible pie! Ship a whole one."
 	reward = 3142 //Screw it I'll do this one by hand
 	wanted_types = list(/obj/item/food/pie = TRUE)
 
 /datum/bounty/item/chef/salad
 	name = "Salad or Rice Bowls"
-	description = "CentCom management is going on a health binge. Your order is to ship salad or rice bowls."
+	description = "Nanotrasen management is going on a health binge. Your order is to ship salad or rice bowls."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 3
 	wanted_types = list(/obj/item/food/salad = TRUE)
@@ -88,13 +88,13 @@
 
 /datum/bounty/item/chef/poppypretzel
 	name = "Poppy Pretzel"
-	description = "Central Command needs a reason to fire their HR head. Send over a poppy pretzel to force a failed drug test."
+	description = "Nanotrasen needs a reason to fire their HR head. Send over a poppy pretzel to force a failed drug test."
 	reward = CARGO_CRATE_VALUE * 6
 	wanted_types = list(/obj/item/food/poppypretzel = TRUE)
 
 /datum/bounty/item/chef/cubancarp
 	name = "Cuban Carp"
-	description = "To celebrate the birth of Castro XXVII, ship one cuban carp to CentCom."
+	description = "To celebrate the birth of Castro XXVII, ship one cuban carp to Nanotrasen."
 	reward = CARGO_CRATE_VALUE * 16
 	wanted_types = list(/obj/item/food/cubancarp = TRUE)
 
@@ -106,14 +106,14 @@
 
 /datum/bounty/item/chef/eggplantparm
 	name = "Eggplant Parmigianas"
-	description = "A famous singer will be arriving at CentCom, and their contract demands that they only be served Eggplant Parmigiana. Ship some, please!"
+	description = "A famous singer will be arriving at Nanotrasen, and their contract demands that they only be served Eggplant Parmigiana. Ship some, please!"
 	reward = CARGO_CRATE_VALUE * 7
 	required_count = 3
 	wanted_types = list(/obj/item/food/eggplantparm = TRUE)
 
 /datum/bounty/item/chef/muffin
 	name = "Muffins"
-	description = "The Muffin Man is visiting CentCom, but he's forgotten his muffins! Your order is to rectify this."
+	description = "The Muffin Man is visiting Nanotrasen, but he's forgotten his muffins! Your order is to rectify this."
 	reward = CARGO_CRATE_VALUE * 6
 	required_count = 3
 	wanted_types = list(/obj/item/food/muffin = TRUE)
@@ -126,14 +126,14 @@
 
 /datum/bounty/item/chef/kebab
 	name = "Kebabs"
-	description = "Remove all kebab from station you are best food. Ship to CentCom to remove from the premises."
+	description = "Remove all kebab from station you are best food. Ship to Nanotrasen to remove from the premises."
 	reward = CARGO_CRATE_VALUE * 7
 	required_count = 3
 	wanted_types = list(/obj/item/food/kebab = TRUE)
 
 /datum/bounty/item/chef/soylentgreen
 	name = "Soylent Green"
-	description = "CentCom has heard wonderful things about the product 'Soylent Green', and would love to try some. If you indulge them, expect a pleasant bonus."
+	description = "Nanotrasen has heard wonderful things about the product 'Soylent Green', and would love to try some. If you indulge them, expect a pleasant bonus."
 	reward = CARGO_CRATE_VALUE * 10
 	wanted_types = list(/obj/item/food/soylentgreen = TRUE)
 

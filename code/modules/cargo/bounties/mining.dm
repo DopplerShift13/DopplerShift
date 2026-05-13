@@ -60,7 +60,7 @@
 
 /datum/bounty/item/mining/bone_dagger
 	name = "Bone Daggers"
-	description = "Central Command's canteen is undergoing budget cuts. Ship over some bone daggers so our chef can keep working."
+	description = "Nanotrasen's canteen is undergoing budget cuts. Ship over some bone daggers so our chef can keep working."
 	reward = CARGO_CRATE_VALUE * 10
 	required_count = 3
 	wanted_types = list(/obj/item/knife/combat/bone = TRUE)

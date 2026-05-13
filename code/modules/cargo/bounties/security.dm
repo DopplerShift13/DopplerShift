@@ -28,13 +28,13 @@
 
 /datum/bounty/item/security/earmuffs
 	name = "Earmuffs"
-	description = "Central Command is getting tired of your station's messages. They've ordered that you ship some earmuffs to lessen the annoyance."
+	description = "Nanotrasen is getting tired of your station's messages. They've ordered that you ship some earmuffs to lessen the annoyance."
 	reward = CARGO_CRATE_VALUE * 2
 	wanted_types = list(/obj/item/clothing/ears/earmuffs = TRUE)
 
 /datum/bounty/item/security/handcuffs
 	name = "Handcuffs"
-	description = "A large influx of escaped convicts have arrived at Central Command. Now is the perfect time to ship out spare handcuffs (or restraints)."
+	description = "A large influx of escaped convicts have arrived at Nanotrasen. Now is the perfect time to ship out spare handcuffs (or restraints)."
 	reward = CARGO_CRATE_VALUE * 2
 	required_count = 5
 	wanted_types = list(/obj/item/restraints/handcuffs = TRUE)

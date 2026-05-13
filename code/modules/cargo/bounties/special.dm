@@ -14,7 +14,7 @@
 
 /datum/bounty/item/syndicate_documents
 	name = "Syndicate Documents"
-	description = "Intel regarding the syndicate is highly prized at CentCom. If you find syndicate documents, ship them. You could save lives."
+	description = "Intel regarding the syndicate is highly prized at Nanotrasen. If you find syndicate documents, ship them. You could save lives."
 	reward = CARGO_CRATE_VALUE * 30
 	wanted_types = list(
 		/obj/item/documents/syndicate = TRUE,
@@ -38,7 +38,7 @@
 
 /datum/bounty/item/trash
 	name = "Trash"
-	description = "Recently a group of janitors have run out of trash to clean up, and CentCom wants to fire them to cut costs. Send a shipment of trash to keep them employed, and they'll give you a small compensation."
+	description = "Recently a group of janitors have run out of trash to clean up, and Nanotrasen wants to fire them to cut costs. Send a shipment of trash to keep them employed, and they'll give you a small compensation."
 	reward = CARGO_CRATE_VALUE * 2
 	required_count = 10
 	wanted_types = list(/obj/item/trash = TRUE)

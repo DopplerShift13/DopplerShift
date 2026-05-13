@@ -19,7 +19,7 @@
 
 /datum/bounty/item/atmospherics/pluox_tank
 	name = "Full Tank of Pluoxium"
-	description = "CentCom RnD is researching extra compact internals. Ship us a tank full of Pluoxium and you'll be compensated. (20 Moles)"
+	description = "Nanotrasen RnD is researching extra compact internals. Ship us a tank full of Pluoxium and you'll be compensated. (20 Moles)"
 	gas_type = /datum/gas/pluoxium
 
 /datum/bounty/item/atmospherics/nitrium_tank

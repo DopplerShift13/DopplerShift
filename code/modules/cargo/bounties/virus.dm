@@ -10,7 +10,7 @@
 	if(rand(3) == 1)
 		stat_value *= -1
 	name = "Virus ([stat_name] of [stat_value])"
-	description = "Nanotrasen is interested in a virus with a [stat_name] stat of exactly [stat_value]. Central Command will pay handsomely for such a virus."
+	description = "Nanotrasen is interested in a virus with a [stat_name] stat of exactly [stat_value]. Nanotrasen will pay handsomely for such a virus."
 	reward += rand(0, 4) * CARGO_CRATE_VALUE
 
 /datum/bounty/virus/can_claim()
