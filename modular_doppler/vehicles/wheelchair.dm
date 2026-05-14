@@ -22,7 +22,7 @@
 /obj/item/wheelchair/ace_custom
 	name = "ace custom wheelchair"
 	desc = "A custom-fit wheelchair, folded for stowage."
-	icon = 'icons/map_icons/objects.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/wheelchair/ace_custom"
 	post_init_icon_state = "ace_custom_wheelchair"
 	greyscale_colors = "#1c1c1c#3399ff#111111"

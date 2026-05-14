@@ -87,7 +87,7 @@
 	innumerable subcultural phenotypes between. The leather uppers are admittedly pretty nice."
 	icon = 'icons/map_icons/clothing/shoes.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/shoes/casual.dmi'
-	icon_state = "/obj/item/clothing/shoes/geowpns"
+	icon_state = "/obj/item/clothing/shoes/geowpn"
 	post_init_icon_state = "geowpn"
 	greyscale_config = /datum/greyscale_config/geowpn
 	greyscale_config_worn = /datum/greyscale_config/geowpn/worn
