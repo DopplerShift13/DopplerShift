@@ -1,0 +1,52 @@
+{
+	"marsian_gown": [
+		{
+			"type": "icon_state",
+			"icon_state": "marsian_gown_underlay",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "marsian_gown",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "marsian_gown_trim",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "marsian_gown_tech",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"marsian_gown_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "marsian_gown_underlay_t",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "marsian_gown_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "marsian_gown_trim_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "marsian_gown_tech_t",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

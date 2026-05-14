@@ -369,7 +369,6 @@
 	name = "TechNyne Overlay"
 	item_path = /obj/item/clothing/suit/hooded/doppler/technyne_overlay
 
-
 /**
  * LABCOATS
  */
@@ -533,3 +532,11 @@
 /datum/loadout_item/suit/misc/techpriest
 	name = "Machine Dustcover"
 	item_path = /obj/item/clothing/suit/hooded/techpriest
+
+/datum/loadout_item/suit/misc/marsian_gown
+	name = "Marsian Gown"
+	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_gown
+
+/datum/loadout_item/suit/misc/marsian_gown_hood
+	name = "Marsian Gown"
+	item_path = /obj/item/clothing/head/hooded/doppler/marsian_gown_hood
