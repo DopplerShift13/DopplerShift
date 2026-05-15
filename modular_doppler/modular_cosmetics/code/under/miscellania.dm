@@ -25,7 +25,7 @@
 	desc = "Lab grown lambskin has been adhered to a spandex underlayer to produce a leather with considerable \
 	four way stretch, allowing for a closer fit in leather pants than ever before. This style features integrated \
 	kneepads."
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/pants/moto_leggings"
 	post_init_icon_state = "moto_leggings"
 	greyscale_config = /datum/greyscale_config/moto_leggings
@@ -42,8 +42,8 @@
 	desc = "A pair of baggy shorts with a contoured waistband and weather-repellant fabrication. A pair of fitted kneepads \
 	and knit baselayer leggings are included. The trio is surprisingly practical, except that it leaves the wearer with three \
 	things to take off at the end of the day."
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
-	icon_state = "/obj/item/clothing/under/pants/tech_nyne_bottomwear"
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/pants/technyne_bottomwear"
 	post_init_icon_state = "tech_nyne_bottomwear"
 	greyscale_config = /datum/greyscale_config/tech_nyne_bottomwear
 	greyscale_config_worn_bodyshapes = list(
@@ -57,7 +57,7 @@
 /obj/item/clothing/under/pants/megashorts
 	name = "\improper JUNCO megashorts"
 	desc = "A broad pair of ripstop shorts that have remained popular within Marsian skate culture for decades."
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/pants/megashorts"
 	post_init_icon_state = "megashorts"
 	greyscale_config = /datum/greyscale_config/megashorts
@@ -73,7 +73,7 @@
 	name = "\improper JUNCO megacargo pants"
 	desc = "De riguer for techno classicists, these extreme wide leg pants come back into style every \
 		now and then. This pair has generous onboard storage."
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/pants/big_pants"
 	post_init_icon_state = "megacargos"
 	greyscale_config = /datum/greyscale_config/megacargo_pants
@@ -90,7 +90,7 @@
 	name = "\improper JUNCO megajeans"
 	desc = "An ocean of denim for total encapsulation of the wearer's legs. The pockets are roomy beyond any sense \
 	of practicality."
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
 	icon_state = "/obj/item/clothing/under/pants/megajeans"
 	post_init_icon_state = "megajeans"
 	greyscale_config = /datum/greyscale_config/megajeans
@@ -218,6 +218,8 @@
 	desc = "A form-fitting bodysuit made of a multichromatic latex polymer. Ages ago, it would've been a pain in the ass \
 	to get into, but centuries of clothing technology have made wearing it easier than ever before. \
 	Still, it takes longer to take off than an equivalent cloth garment."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/latexsuit/gags_latexsuit"
 	greyscale_config = /datum/greyscale_config/gags_latexsuit
 	post_init_icon_state = "gags_latexsuit"
 	greyscale_config_worn_bodyshapes = list(
