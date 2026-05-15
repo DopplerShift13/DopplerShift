@@ -126,6 +126,19 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 //Marsian Fashion
+/obj/item/clothing/neck/marsian_shoulder_cloak
+	name = "marsian shoulder cloak"
+	desc = "Normally thrown atop something else, this thick, fur-collared mantle cinches in the front\
+	and provides a strictly aesthetic quality, most often burnished in colors\
+	resembling the wearer's typical environments."
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/marsian_shoulder_cloak"
+	post_init_icon_state = "marsian_shoulder_cloak"
+	greyscale_config = /datum/greyscale_config/marsian_shoulder_cloak
+	greyscale_config_worn = /datum/greyscale_config/marsian_shoulder_cloak/worn
+	greyscale_colors = "#ffcc00#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 
 ///////////
 //SCARVES//
