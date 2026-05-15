@@ -858,7 +858,6 @@
 "nn" = (
 /obj/effect/turf_decal/bot,
 /obj/machinery/space_heater,
-/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "np" = (
@@ -1582,10 +1581,14 @@
 /obj/machinery/light/cold/directional/south,
 /obj/structure/shelf,
 /obj/item/storage/box/ingredients/wildcard{
-	pixel_y = 7;
+	pixel_y = 5;
 	pixel_x = -4
 	},
 /obj/item/storage/box/ingredients/wildcard,
+/obj/item/storage/box/dishdrive{
+	pixel_y = -5;
+	pixel_x = 4
+	},
 /turf/open/floor/iron/colony/white/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "xP" = (
@@ -1774,13 +1777,11 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/spawner/random/epic_loot/random_supply_crate,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Ai" = (
 /obj/structure/reagent_dispensers/fueltank/large,
-/obj/effect/decal/cleanable/blood/splatter/oil,
-/obj/machinery/light/small/directional/north,
-/obj/effect/decal/cleanable/fuel_pool,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Aj" = (
@@ -2249,7 +2250,6 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/decal/cleanable/dirt,
 /obj/machinery/light/small/directional/south,
 /turf/open/floor/catwalk_floor,
 /area/ruin/space/has_grav/powered/undisclosed_location)
@@ -2646,6 +2646,7 @@
 	},
 /obj/structure/shelf,
 /obj/effect/turf_decal/bot,
+/obj/machinery/light/small/directional/west,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Nn" = (
@@ -2750,7 +2751,7 @@
 	pixel_y = 12
 	},
 /obj/structure/shelf,
-/obj/machinery/light/red/directional/west,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "OC" = (
@@ -3349,8 +3350,8 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "VN" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/machinery/light/red/directional/west,
 /obj/machinery/rnd/production/techfab,
+/obj/machinery/light/red/directional/south,
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "VU" = (
@@ -4276,7 +4277,7 @@ Th
 gS
 pk
 YQ
-YQ
+Hr
 vv
 ZA
 RU
@@ -4314,7 +4315,7 @@ Yh
 PO
 bX
 MS
-Hr
+fw
 zO
 cz
 jD
