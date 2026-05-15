@@ -20,7 +20,7 @@
 	name = "machined slug"
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	icon_state = "yellowtrac"
-	damage = 50
+	damage = 40
 	armour_penetration = 20
 	wound_falloff_tile = 0
 
@@ -53,7 +53,7 @@
 
 /obj/projectile/bullet/bolt_slug/shot
 	name = "machined bearing"
-	damage = 8
+	damage = 7
 	armour_penetration = 15
 	wound_bonus = -10
 	wound_falloff_tile = 0
