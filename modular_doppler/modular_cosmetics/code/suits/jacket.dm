@@ -562,54 +562,13 @@
 	greyscale_config_worn = /datum/greyscale_config/technyne_hood/worn
 	greyscale_colors = "#b66029"
 
-// Marsian
-/obj/item/clothing/suit/hooded/doppler/marsian_gown
-	name = "marsian gown"
-	desc = "wip"
-	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_gown"
-	post_init_icon_state =  "marsian_gown"
-	cold_protection = CHEST|ARMS
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	greyscale_config = /datum/greyscale_config/marsian_gown
-	greyscale_config_worn = /datum/greyscale_config/marsian_gown/worn
-	greyscale_colors = "#ffffff#ffffff#ffffff"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	hoodtype = /obj/item/clothing/head/hooded/doppler/marsian_gown_hood
-
-/obj/item/clothing/suit/hooded/doppler/marsian_gown/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
-	. = ..()
-	if(!hood)
-		return
-	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
-	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
-	hood.set_greyscale(new_hoodie_colors)
-	hood.update_slot_icon()
-
-/obj/item/clothing/suit/hooded/doppler/marsian_gown/on_hood_created(obj/item/clothing/head/hooded/hood)
-	. = ..()
-	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
-	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
-	hood.set_greyscale(new_hoodie_colors)
-
-/obj/item/clothing/head/hooded/doppler/marsian_gown_hood
-	name = "marsian gown hood"
-	desc = "wip"
-	icon = 'icons/map_icons/clothing/head/_head.dmi'
-	icon_state = "/obj/item/clothing/head/hooded/marsian_gown_hood"
-	post_init_icon_state = "marsian_gown_hood"
-	body_parts_covered = HEAD
-	cold_protection = HEAD
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	hair_mask = /datum/hair_mask/winterhood
-	greyscale_config = /datum/greyscale_config/marsian_gown_hood
-	greyscale_config_worn = /datum/greyscale_config/marsian_gown_hood/worn
-	greyscale_colors = "#ffffff#ffffff#ffffff"
-	flags_1 = IS_PLAYER_COLORABLE_1
+// Marsian Fashion
 
 /obj/item/clothing/suit/hooded/doppler/marsian_duster
 	name = "marsian duster"
-	desc = "wip"
+	desc = "Worn by the utilitarian, this is a bit of a throwback design-- somewhere between a duster and a hooded cloak. \
+	Thick and durable canvas is smattered with the occasional abrasion of dust storm and the microscopic craters \
+	it creates, but the material will likely long outlive the wearer. "
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_duster"
 	post_init_icon_state =  "marsian_duster"
