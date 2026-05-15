@@ -541,7 +541,3 @@
 	name = "Marsian Gown"
 	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_gown
 
-/datum/loadout_item/suit/misc/marsian_overalls
-	name = "Marsian Overall Bodysuit"
-	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_overalls
-
