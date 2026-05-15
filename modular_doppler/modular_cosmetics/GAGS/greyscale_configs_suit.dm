@@ -205,7 +205,7 @@
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/marsian_gown.json'
 
 /datum/greyscale_config/marsian_gown/worn
-	name = "Marsian Gown"
+	name = "Marsian Gown (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
 /datum/greyscale_config/marsian_gown_hood
