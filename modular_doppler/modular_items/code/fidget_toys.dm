@@ -46,7 +46,7 @@
 
 /obj/item/fidget_toy/chewy/bone
 	name = "bone chew toy"
-	icon = 'icons/map_icons/clothing/mask.dmi'
+	icon = 'icons/map_icons/items/_item.dmi'
 	icon_state = "/obj/item/fidget_toy/chewy/bone"
 	post_init_icon_state = "bone"
 	greyscale_config = /datum/greyscale_config/bone
@@ -60,11 +60,11 @@
 	icon_state = "builderbrick"
 
 /obj/item/fidget_toy/chewy/raver_chewtoy
-	name = "\improper Marsian raver chewtoy"
+	name = "\improper Marsian raver chew toy"
 	desc = "A retro throwback that has started to gain purchase in the Marsian underground amongst afficianados of \
 	jabber. Its adherents swear by it to prevent damage by narcotic-induced teeth grinding."
-	icon = 'icons/map_icons/clothing/mask.dmi'
-	icon_state = "/obj/item/fidget_toy/chewy/marsian_raver"
+	icon = 'icons/map_icons/items/_item.dmi'
+	icon_state = "/obj/item/fidget_toy/chewy/raver_chewtoy"
 	post_init_icon_state = "raver_chewtoy"
 	greyscale_config = /datum/greyscale_config/raver_chewtoy
 	greyscale_config_worn = /datum/greyscale_config/raver_chewtoy/worn
