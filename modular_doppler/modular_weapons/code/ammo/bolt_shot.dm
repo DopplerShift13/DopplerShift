@@ -21,7 +21,7 @@
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	icon_state = "yellowtrac"
 	damage = 40
-	armour_penetration = 20
+	armour_penetration = 50
 	wound_falloff_tile = 0
 
 /obj/item/ammo_box/magazine/ammo_stack/bolt_slug
@@ -54,7 +54,7 @@
 /obj/projectile/bullet/bolt_slug/shot
 	name = "machined bearing"
 	damage = 7
-	armour_penetration = 15
+	armour_penetration = 25
 	wound_bonus = -10
 	wound_falloff_tile = 0
 
