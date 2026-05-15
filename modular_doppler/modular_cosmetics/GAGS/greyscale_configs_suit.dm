@@ -234,3 +234,30 @@
 /datum/greyscale_config/marsian_gown_hood/worn
 	name = "Marsian Gown Hood (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
+
+/datum/greyscale_config/marsian_overalls
+	name = "Mechanic Overall Bodysuit"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/marsian_overalls.json'
+
+/datum/greyscale_config/marsian_overalls_worn
+	name = "Mechanic Overall Bodysuit"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/marsian_overalls/digi
+	name = "Mechanic Overall Bodysuit (Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/marsian_overalls_digi.json'
+
+/datum/greyscale_config/marsian_overalls_worn/digi
+	name = "Mechanic Overall Bodysuit (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/marsian_overalls_helmet
+	name = "Mechanic Overall Bodysuit Helmet"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/marsian_overalls_hood.json'
+
+/datum/greyscale_config/marsian_overalls_helmet_worn
+	name = "Mechanic Overall Bodysuit Helmet (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
