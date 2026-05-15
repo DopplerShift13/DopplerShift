@@ -126,9 +126,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 //Marsian Fashion
-/obj/item/clothing/neck/marsian_cloak
-name = "Marsian Cloak"
-desc = "wip"
+
 ///////////
 //SCARVES//
 ///////////
