@@ -669,17 +669,6 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	hoodtype = /obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet
 
-/obj/item/clothing/suit/hooded/doppler/marsian_overalls/digi
-	name = "marsian overall bodysuit (digi)"
-	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_overalls_digi"
-	icon_state = "marsian_overalls_digi"
-	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	greyscale_config = /datum/greyscale_config/marsian_overalls/digi
-	greyscale_config_worn = /datum/greyscale_config/marsian_overalls_worn/digi
-	greyscale_colors = "#ffffff#ffffff"
-	flags_1 = IS_PLAYER_COLORABLE_1
-	hoodtype = /obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet
-
 /obj/item/clothing/suit/hooded/doppler/marsian_overalls/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
 	. = ..()
 	if(!hood)
@@ -699,8 +688,8 @@
 	name = "marsian overalls helmet"
 	desc = "A helmet for the Marsian overalls."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
-	icon_state = "/obj/item/clothing/head/hooded/doppler/marsian_overalls_hood"
-	post_init_icon_state = "marsian_overalls_hood"
+	icon_state = "/obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet"
+	post_init_icon_state = "marsian_overalls_helmet"
 	body_parts_covered = HEAD
 	cold_protection = HEAD|NECK
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
