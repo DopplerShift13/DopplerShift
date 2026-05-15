@@ -125,6 +125,10 @@
 	greyscale_colors = "#ffcc00#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+//Marsian Fashion
+/obj/item/clothing/neck/marsian_cloak
+name = "Marsian Cloak"
+desc = "wip"
 ///////////
 //SCARVES//
 ///////////
@@ -160,3 +164,4 @@
 	greyscale_config = /datum/greyscale_config/mantle
 	greyscale_config_worn = /datum/greyscale_config/mantle/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+
