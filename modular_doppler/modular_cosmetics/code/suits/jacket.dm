@@ -653,3 +653,60 @@
 	greyscale_config_worn = /datum/greyscale_config/marsian_gown_hood/worn
 	greyscale_colors = "#ffffff#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/hooded/doppler/marsian_overalls
+	name = "marsian overall bodysuit"
+	desc = "A dense network of rubber tubes worm their way through this environment suit, comfort control machinery underneath adding or removing temperature from the wearer's overworked body.\
+	A retractile hood has been added and equipped with a breathing tube, with cameras on the outside to ensure the visor can remain thick."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_overalls"
+	post_init_icon_state =  "marsian_overalls"
+	cold_protection =  CHEST|ARMS|LEGS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/marsian_overalls
+	greyscale_config_worn = /datum/greyscale_config/marsian_overalls_worn
+	greyscale_colors = "#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	hoodtype = /obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet
+
+/obj/item/clothing/suit/hooded/doppler/marsian_overalls/digi
+	name = "marsian overall bodysuit (digi)"
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_overalls_digi"
+	icon_state = "marsian_overalls_digi"
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/marsian_overalls/digi
+	greyscale_config_worn = /datum/greyscale_config/marsian_overalls_worn/digi
+	greyscale_colors = "#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	hoodtype = /obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet
+
+/obj/item/clothing/suit/hooded/doppler/marsian_overalls/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/marsian_overalls/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+
+/obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet
+	name = "marsian overalls helmet"
+	desc = "A helmet for the Marsian overalls."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet"
+	post_init_icon_state = "marsian_overalls_helmet"
+	body_parts_covered = HEAD
+	cold_protection = HEAD|NECK
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/marsian_overalls_helmet
+	greyscale_config_worn = /datum/greyscale_config/marsian_overalls_helmet_worn
+	greyscale_colors = "#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
