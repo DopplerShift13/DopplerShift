@@ -216,3 +216,21 @@
 /datum/greyscale_config/marsian_gown_hood/worn
 	name = "Marsian Gown Hood (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
+
+/datum/greyscale_config/marsian_duster
+	name = "Marsian Duster"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/marsian_duster.json'
+
+/datum/greyscale_config/marsian_duster/worn
+	name = "Marsian Duster (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/marsian_duster_hood/
+	name = "Marsian Duster Hood"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/marsian_duster_hood.json'
+
+/datum/greyscale_config/marsian_duster_hood/worn
+	name = "Marsian Duster Hood"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
