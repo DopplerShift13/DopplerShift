@@ -597,7 +597,7 @@
 
 /obj/item/clothing/head/hooded/doppler/marsian_duster_hood
 	name = "marsian duster hood"
-	desc = "wip"
+	desc = "The hood of the Marsian duster."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/marsian_duster_hood"
 	post_init_icon_state = "marsian_duster_hood"
