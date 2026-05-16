@@ -136,7 +136,7 @@
 	post_init_icon_state = "marsian_shoulder_cloak"
 	greyscale_config = /datum/greyscale_config/marsian_shoulder_cloak
 	greyscale_config_worn = /datum/greyscale_config/marsian_shoulder_cloak/worn
-	greyscale_colors = "#ffcc00#ffffff"
+	greyscale_colors = "#892626#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 

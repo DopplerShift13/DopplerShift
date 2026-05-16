@@ -289,3 +289,8 @@
 /datum/loadout_item/glasses/other/recolorable_glasses
 	name = "Glasses (Colorable)"
 	item_path = /obj/item/clothing/glasses/recolorable
+
+/datum/loadout_item/glasses/infogoggles
+
+	name = "Information Goggles"
+	item_path = /obj/item/clothing/glasses/infogoggles
