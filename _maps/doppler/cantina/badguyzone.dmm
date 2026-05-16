@@ -1236,7 +1236,6 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
-/obj/machinery/light/dim/directional/south,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "rZ" = (
@@ -1497,6 +1496,7 @@
 	},
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
+/obj/machinery/light/broken/directional/south,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "vZ" = (
@@ -1998,7 +1998,6 @@
 	pixel_x = -10;
 	pixel_y = 6
 	},
-/obj/machinery/light/broken/directional/south,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "DK" = (
@@ -2544,7 +2543,6 @@
 	pixel_y = -6
 	},
 /obj/structure/closet/crate/secure/syndicate/mi13,
-/obj/machinery/light/dim/directional/north,
 /obj/item/minigunpack,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/colony/texture,
@@ -2621,6 +2619,7 @@
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
+/obj/machinery/light/dim/directional/south,
 /turf/open/floor/wood,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "MH" = (
