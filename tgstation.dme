@@ -7072,6 +7072,7 @@
 #include "modular_doppler\indicators\code\emote_popup.dm"
 #include "modular_doppler\indicators\code\sealed.dm"
 #include "modular_doppler\indicators\code\ssd_indicator.dm"
+#include "modular_doppler\infogoggles\code\infogoggles.dm"
 #include "modular_doppler\item_visuals\code\random_rotation.dm"
 #include "modular_doppler\job_straps\code\research.dm"
 #include "modular_doppler\job_straps\code\straps.dm"
