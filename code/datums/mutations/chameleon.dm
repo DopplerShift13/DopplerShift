@@ -22,11 +22,13 @@
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
 	RegisterSignal(owner, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_attack_hand))
 
-/datum/mutation/chameleon/on_life(seconds_per_tick, times_fired)
-	/// NOVA EDIT BEGIN
+/datum/mutation/chameleon/on_life(seconds_per_tick)
+	// DOPPLER EDIT - Toggleable chameleon skin
 	if(HAS_TRAIT(owner, TRAIT_CHAMELEON_SKIN))
 		owner.alpha = max(owner.alpha - (12.5 * (GET_MUTATION_POWER(src)) * seconds_per_tick), 0)
-	/// NOVA EDIT END
+	// ORIGINAL:
+	//owner.alpha = max(owner.alpha - (12.5 * (GET_MUTATION_POWER(src)) * seconds_per_tick), 0)
+	// DOPPLER EDIT END
 
 //Upgraded mutation of the base variant, used for changelings. No instability and better power_coeff
 /datum/mutation/chameleon/changeling
