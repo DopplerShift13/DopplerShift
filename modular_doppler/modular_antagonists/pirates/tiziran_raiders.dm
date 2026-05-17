@@ -34,7 +34,7 @@
 
 /datum/outfit/pirate/tiziran/captain
 	belt = null
-	r_hand = /obj/item/melee/tizirian_sword/megachoppa
+	r_hand = /obj/item/melee/tiziran_sword/megachoppa
 
 
 /obj/effect/mob_spawn/ghost_role/human/pirate/tiziran

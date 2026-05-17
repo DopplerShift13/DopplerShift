@@ -30,11 +30,11 @@
 	abstract_type = /datum/loadout_item/head/hats
 
 /datum/loadout_item/head/hats/peakhat_tan
-	name = "Tizirian Peak-Cover (Tan)"
+	name = "tiziran Peak-Cover (Tan)"
 	item_path = /obj/item/clothing/head/lizard_hat
 
 /datum/loadout_item/head/hats/peakhat_white
-	name = "Tizirian Peak-Cover (White)"
+	name = "tiziran Peak-Cover (White)"
 	item_path = /obj/item/clothing/head/lizard_hat/white
 
 /datum/loadout_item/head/hats/flattop
@@ -280,19 +280,19 @@
 	item_path = /obj/item/clothing/head/helmet/tajaran/contract
 
 /datum/loadout_item/head/helmets/lizard_helmet_tan
-	name = "Tizirian Helmet (Tan)"
+	name = "tiziran Helmet (Tan)"
 	item_path = /obj/item/clothing/head/helmet/lizard
 
 /datum/loadout_item/head/helmets/lizard_helmet_white
-	name = "Tizirian Helmet (White)"
+	name = "tiziran Helmet (White)"
 	item_path = /obj/item/clothing/head/helmet/lizard/white
 
 /datum/loadout_item/head/helmets/lizard_helmet_tan_glass
-	name = "Tizirian Glassed Helmet (Tan)"
+	name = "tiziran Glassed Helmet (Tan)"
 	item_path = /obj/item/clothing/head/helmet/lizard/glass
 
 /datum/loadout_item/head/helmets/lizard_helmet_white_glass
-	name = "Tizirian Glassed Helmet (White)"
+	name = "tiziran Glassed Helmet (White)"
 	item_path = /obj/item/clothing/head/helmet/lizard/white/glass
 
 /datum/loadout_item/head/helmets/fullhelmet
@@ -536,7 +536,7 @@
 	item_path = /obj/item/clothing/head/flowing_headband
 
 /datum/loadout_item/head/misc/headscarf
-	name = "Headscarf (Tizirian)"
+	name = "Headscarf (tiziran)"
 	item_path = /obj/item/clothing/head/lizard_headscarf
 
 /datum/loadout_item/head/misc/bear_pelt

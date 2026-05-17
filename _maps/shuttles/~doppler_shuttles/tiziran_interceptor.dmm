@@ -253,10 +253,10 @@
 "T" = (
 /obj/structure/window/reinforced/survival_pod/spawner/directional/north,
 /obj/structure/shelf,
-/obj/item/melee/tizirian_sword{
+/obj/item/melee/tiziran_sword{
 	pixel_x = -3
 	},
-/obj/item/melee/tizirian_sword{
+/obj/item/melee/tiziran_sword{
 	pixel_x = 5
 	},
 /turf/open/floor/plating,

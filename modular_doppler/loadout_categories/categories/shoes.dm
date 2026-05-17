@@ -177,7 +177,7 @@
 	abstract_type = /datum/loadout_item/shoes/shins
 
 /datum/loadout_item/shoes/shins/lizard_shin_guards
-	name = "Tizirian Shin Guards"
+	name = "tiziran Shin Guards"
 	item_path = /obj/item/clothing/shoes/lizard_shins
 
 /datum/loadout_item/shoes/shins/tajaran_greaves

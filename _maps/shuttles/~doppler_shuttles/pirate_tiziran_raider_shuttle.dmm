@@ -187,13 +187,13 @@
 "lW" = (
 /obj/machinery/light/red/directional/west,
 /obj/structure/shelf,
-/obj/item/melee/tizirian_sword{
+/obj/item/melee/tiziran_sword{
 	pixel_x = -10
 	},
-/obj/item/melee/tizirian_sword{
+/obj/item/melee/tiziran_sword{
 	pixel_x = -3
 	},
-/obj/item/melee/tizirian_sword{
+/obj/item/melee/tiziran_sword{
 	pixel_x = 5
 	},
 /turf/open/floor/plating,

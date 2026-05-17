@@ -23,7 +23,7 @@
 	// List of diet options
 	var/list/radial_diet_options = list(
 		"Standard Diet" = image(icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/menu_icons.dmi', icon_state = "4ca"),
-		"Tizirian Diet" = image(icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/menu_icons.dmi', icon_state = "tiziria"),
+		"tiziran Diet" = image(icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/menu_icons.dmi', icon_state = "tiziria"),
 	)
 	var/diet_choice = show_radial_menu(user, supply_console_used, radial_diet_options, require_near = TRUE)
 	if(!diet_choice)
@@ -45,7 +45,7 @@
 			items_we_deliver += /obj/item/food/breadslice/hardtack
 			items_we_deliver += /obj/item/food/cheese/firm_cheese_slice/bigger
 			items_we_deliver += /obj/item/reagent_containers/cup/glass/waterbottle/large
-		if("Tizirian Diet")
+		if("tiziran Diet")
 			var/lizard_aspics = list(
 				/obj/item/food/aspic/miso,
 				/obj/item/food/aspic/black_broth,

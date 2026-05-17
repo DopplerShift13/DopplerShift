@@ -214,7 +214,7 @@
 
 /obj/item/soil_sack/coir
 	name = "#1™ korta coir sack"
-	desc = "A sack of Tiziran korta root coir. The fiberous roots are composted until they separate into individual fibres.\n\nProvides an excellent food source for saprotrophic mushrooms and helps hold onto water in the hot Tizirian climate."
+	desc = "A sack of Tiziran korta root coir. The fiberous roots are composted until they separate into individual fibres.\n\nProvides an excellent food source for saprotrophic mushrooms and helps hold onto water in the hot tiziran climate."
 	icon_state = "soil_sack_coir"
 	base_icon_state = "soil_sack_coir"
 	custom_premium_price = PAYCHECK_CREW * 3

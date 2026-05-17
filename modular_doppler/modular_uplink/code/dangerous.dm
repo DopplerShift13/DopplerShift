@@ -24,11 +24,11 @@
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/dangerous/megachoppa
-	name = "\improper Tizirian Greatsword"
+	name = "\improper tiziran Greatsword"
 	desc = "A rare variation of the utilitarian Tiziran sabre, this design relies on the cutting edge of bronze metallurgy \
 	to achieve such a lengthy blade. Exotic amendments to its constituent alloys allow for keener edge and help alleviate a rare \
 	phenomena where clashed blades in near vacuum can contact weld to one another."
-	item = /obj/item/melee/tizirian_sword/megachoppa
+	item = /obj/item/melee/tiziran_sword/megachoppa
 	cost = 6
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 

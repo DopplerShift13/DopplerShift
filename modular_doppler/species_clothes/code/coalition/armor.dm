@@ -26,7 +26,7 @@
 
 /obj/item/clothing/head/helmet/vulp
 	name = "\improper Vulpkanin skirmisher helmet"
-	desc = "A strong and simple helmet. Taking design notes from the Tizirians, the front is strongly angled to \
+	desc = "A strong and simple helmet. Taking design notes from the tizirans, the front is strongly angled to \
 		give a much greater chance at glancing blows. Different, however, is the much more open air and artistic design."
 	icon = 'modular_doppler/species_clothes/icons/vulp/gear.dmi'
 	icon_state = "skirmisher"

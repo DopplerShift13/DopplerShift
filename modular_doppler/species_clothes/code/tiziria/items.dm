@@ -1,5 +1,5 @@
-/obj/item/melee/tizirian_sword
-	name = "\improper Tizirian chopping sword"
+/obj/item/melee/tiziran_sword
+	name = "\improper tiziran chopping sword"
 	desc = "'Chopper' is, at best, a poor translation of the true name in Khaishhs. It speaks well to the \
 		purpose of this blade however, being a strong blade made to defeat the armor and scales that historical \
 		Tizirans would have had to defeat. The design persists to this day through tradition."
@@ -33,14 +33,14 @@
 	var/list/alt_simple = list("bash", "clobber", "crush")
 	var/belt_suffix = "_choppa"
 
-/obj/item/melee/tizirian_sword/Initialize(mapload)
+/obj/item/melee/tiziran_sword/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/butchering, speed = 4 SECONDS, effectiveness = 100)
 	alt_continuous = string_list(alt_continuous)
 	alt_simple = string_list(alt_simple)
 	AddComponent(/datum/component/alternative_sharpness, NONE, alt_continuous, alt_simple, 0)
 
-/obj/item/melee/tizirian_sword/attack(mob/living/target_mob, mob/living/user, list/modifiers)
+/obj/item/melee/tiziran_sword/attack(mob/living/target_mob, mob/living/user, list/modifiers)
 	if(sharpness == SHARP_EDGED)
 		hitsound = 'sound/items/weapons/rapierhit.ogg'
 	else
@@ -51,7 +51,7 @@
 
 /obj/item/storage/belt/lizard_sabre
 	name = "chopping sword sheath"
-	desc = "A minimalist sheath adorned with clasps of Tizirian bronze."
+	desc = "A minimalist sheath adorned with clasps of tiziran bronze."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
 	icon_state = "sheath"
 	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'
@@ -87,7 +87,7 @@
 /obj/item/storage/belt/lizard_sabre/update_icon_state()
 	icon_state = initial(icon_state)
 	worn_icon_state = initial(worn_icon_state)
-	for(var/obj/item/melee/tizirian_sword/belt_content in contents)
+	for(var/obj/item/melee/tiziran_sword/belt_content in contents)
 		if(belt_content)
 			icon_state += belt_content.belt_suffix
 			worn_icon_state += belt_content.belt_suffix
@@ -95,7 +95,7 @@
 	return ..()
 
 /obj/item/storage/belt/lizard_sabre/PopulateContents()
-	new /obj/item/melee/tizirian_sword(src)
+	new /obj/item/melee/tiziran_sword(src)
 	update_appearance()
 
 /datum/storage/lizard_belt
@@ -106,9 +106,9 @@
 
 /datum/storage/lizard_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage)
 	. = ..()
-	set_holdable(/obj/item/melee/tizirian_sword)
+	set_holdable(/obj/item/melee/tiziran_sword)
 
-/obj/item/melee/tizirian_sword/boffa
+/obj/item/melee/tiziran_sword/boffa
 	name = "\improper Tiziran training sword"
 	desc = "A polymer made from bitumenic discharge shaped into a facsimile of the chopping sabres \
 	favored still by Tiziran warriors. Distributed to nascent striplings for their training, it's also \
@@ -130,8 +130,8 @@
 	attack_verb_continuous = list("bonks", "bops", "bashes", "slaps", "thumps", "thwacks", "wallops", "biffs")
 	attack_verb_simple = list("bonk", "bop", "bash", "slap", "thump", "thwack", "wallop", "biff")
 
-/obj/item/melee/tizirian_sword/megachoppa	// a special variant for the raider captain, thus it's roughly one esword in strength
-	name = "\improper Tizirian great sword"
+/obj/item/melee/tiziran_sword/megachoppa	// a special variant for the raider captain, thus it's roughly one esword in strength
+	name = "\improper tiziran great sword"
 	desc = "A rare variation of the utilitarian Tiziran sabre, this design relies on the cutting edge of bronze metallurgy \
 	to achieve such a lengthy blade. Exotic amendments to its constituent alloys allow for keener edge and help alleviate a rare \
 	phenomena where clashed blades in near vacuum can contact weld to one another."
@@ -147,6 +147,6 @@
 	exposed_wound_bonus = 30
 	demolition_mod = 1.5
 
-/obj/item/melee/tizirian_sword/megachoppa/Initialize(mapload)
+/obj/item/melee/tiziran_sword/megachoppa/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/two_handed, wieldsound = 'sound/items/equip/glove_equip.ogg', force_wielded = 30, force_unwielded = 20, icon_wielded = "megachoppa1")

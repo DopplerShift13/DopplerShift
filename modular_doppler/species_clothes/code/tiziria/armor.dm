@@ -1,8 +1,8 @@
 // helmet
 
 /obj/item/clothing/head/helmet/lizard
-	name = "\improper Tizirian tan helmet"
-	desc = "A distinctly Tizirian designed helmet, special made to fit and long enough to the front to protect \
+	name = "\improper tiziran tan helmet"
+	desc = "A distinctly tiziran designed helmet, special made to fit and long enough to the front to protect \
 		an array of snout sizes from the top down. This gives a secondary benefit of heavily angling the front \
 		profile, increasing strength. This one is tan for the empire's obligate service members."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
@@ -18,7 +18,7 @@
 	hair_mask = /datum/hair_mask/standard_hat_middle
 
 /obj/item/clothing/head/helmet/lizard/glass
-	desc = "A distinctly Tizirian designed helmet, special made to fit and long enough to the front to protect \
+	desc = "A distinctly tiziran designed helmet, special made to fit and long enough to the front to protect \
 		an array of snout sizes from the top down. This gives a secondary benefit of heavily angling the front \
 		profile, increasing strength. This one has a protective eye shield made of reflective orange glass, \
 		and is tan for the empire's obligate service members."
@@ -27,15 +27,15 @@
 	flags_cover = HEADCOVERSEYES|EARS_COVERED
 
 /obj/item/clothing/head/helmet/lizard/white
-	name = "\improper Tizirian white helmet"
-	desc = "A distinctly Tizirian designed helmet, special made to fit and long enough to the front to protect \
+	name = "\improper tiziran white helmet"
+	desc = "A distinctly tiziran designed helmet, special made to fit and long enough to the front to protect \
 		an array of snout sizes from the top down. This gives a secondary benefit of heavily angling the front \
 		profile, increasing strength. This one is white for the empire's career service members."
 	icon_state = "halo_reg"
 	worn_icon_state = "halo_reg"
 
 /obj/item/clothing/head/helmet/lizard/white/glass
-	desc = "A distinctly Tizirian designed helmet, special made to fit and long enough to the front to protect \
+	desc = "A distinctly tiziran designed helmet, special made to fit and long enough to the front to protect \
 		an array of snout sizes from the top down. This gives a secondary benefit of heavily angling the front \
 		profile, increasing strength. This one has a protective eye shield made of reflective orange glass, \
 		and is white for the empire's career service members."
@@ -46,8 +46,8 @@
 // armor vest
 
 /obj/item/clothing/suit/armor/lizard
-	name = "\improper Tizirian breastplate"
-	desc = "An important aspect of Tizirian childhood, or rather, the end of it. A thick breastplate supported at \
+	name = "\improper tiziran breastplate"
+	desc = "An important aspect of tiziran childhood, or rather, the end of it. A thick breastplate supported at \
 		the shoulders and midsection by armored scales. Each citizen of the empire recieves one as part of their \
 		coming of age ceremonies. The beginning of adulthood and a long life, and military service as well."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
@@ -76,8 +76,8 @@
 // leg armor
 
 /obj/item/clothing/shoes/lizard_shins
-	name = "\improper Tizirian shin guards"
-	desc = "Thick plated shin guards combined with a dyed wrap made for use by Tizirian soldiers. Especially \
+	name = "\improper tiziran shin guards"
+	desc = "Thick plated shin guards combined with a dyed wrap made for use by tiziran soldiers. Especially \
 		favored by close quarters specialists, and anyone who is currently being forced to carry heavy cargo."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
 	icon_state = "guards"
@@ -99,9 +99,9 @@
 // gloves
 
 /obj/item/clothing/gloves/lizard_gloves
-	name = "\improper Tizirian gauntlets"
-	desc = "Gloves common in Tizirian service regardless of rank, with a thick decorated plate on the user's sword \
-		arm. Mostly a customary holdover from times well past, but a Tizirian melee fighter would feel naked without one."
+	name = "\improper tiziran gauntlets"
+	desc = "Gloves common in tiziran service regardless of rank, with a thick decorated plate on the user's sword \
+		arm. Mostly a customary holdover from times well past, but a tiziran melee fighter would feel naked without one."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
 	icon_state = "gloves"
 	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'

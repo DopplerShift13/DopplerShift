@@ -1,8 +1,8 @@
-/obj/structure/tizirian_radiator
+/obj/structure/tiziran_radiator
 	name = "portable heat radiator"
 	desc = "A small, self-powering machine that works not too much unlike a large heat lamp. \
 		Standing anywhere near it is bound to warm you up. Thanks in part to being designed by \
-		and for Tizirians, humans standing near it for too long may experience discomfort and \
+		and for tizirans, humans standing near it for too long may experience discomfort and \
 		potential burns."
 	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "lizard_heater"
@@ -17,20 +17,20 @@
 	/// The item that the heater disassembles into
 	var/repacked_type = /obj/item/flatpacked_machine/lizard_heater
 
-/obj/structure/tizirian_radiator/Initialize(mapload)
+/obj/structure/tiziran_radiator/Initialize(mapload)
 	. = ..()
 	soundloop = new(src, TRUE)
 	AddComponent(/datum/component/powerful_heat_radiator)
 
-/obj/structure/tizirian_radiator/examine(mob/user)
+/obj/structure/tiziran_radiator/examine(mob/user)
 	. = ..()
 	. += span_notice("Disassemble with a [EXAMINE_HINT("wrench")].")
 
-/obj/structure/tizirian_radiator/Destroy(force)
+/obj/structure/tiziran_radiator/Destroy(force)
 	QDEL_NULL(soundloop)
 	return ..()
 
-/obj/structure/tizirian_radiator/wrench_act(mob/living/user, obj/item/wrench)
+/obj/structure/tiziran_radiator/wrench_act(mob/living/user, obj/item/wrench)
 	user.visible_message(span_warning("[user] disassembles [src]."),
 		span_notice("You start to disassemble [src]..."), span_hear("You hear clanking and banging noises."))
 	if(!wrench.use_tool(src, user, 2 SECONDS, volume=50))
@@ -38,7 +38,7 @@
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
 
-/obj/structure/tizirian_radiator/atom_deconstruct(disassembled)
+/obj/structure/tiziran_radiator/atom_deconstruct(disassembled)
 	. = ..()
 	if(disassembled)
 		new repacked_type(drop_location())
@@ -46,11 +46,11 @@
 // Disassembled item
 /obj/item/flatpacked_machine/lizard_heater
 	name = "packed heat radiator"
-	desc = /obj/structure/tizirian_radiator::desc
+	desc = /obj/structure/tiziran_radiator::desc
 	icon = 'modular_doppler/colony_fabricator/icons/packed_machines.dmi'
 	icon_state = "lizard_heater"
 	w_class = WEIGHT_CLASS_SMALL
-	type_to_deploy = /obj/structure/tizirian_radiator
+	type_to_deploy = /obj/structure/tiziran_radiator
 	custom_materials = list(
 		/datum/material/iron = SHEET_MATERIAL_AMOUNT,
 		/datum/material/glass = HALF_SHEET_MATERIAL_AMOUNT,

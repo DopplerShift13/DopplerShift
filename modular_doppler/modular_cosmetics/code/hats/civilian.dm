@@ -8,7 +8,7 @@
 
 /obj/item/clothing/head/lizard_headscarf
 	name = "headscarf"
-	desc = "Like a scarf, but worn over the top of your head. The premier of Tizirian fashion sense."
+	desc = "Like a scarf, but worn over the top of your head. The premier of tiziran fashion sense."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/lizard_headscarf"
 	post_init_icon_state = "headscarf"

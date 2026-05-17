@@ -158,7 +158,7 @@
 	gender = FEMALE
 	use_static = FALSE
 
-/datum/sprite_accessory/undershirt/tizirian_undershirt
-	name = "Tizirian Undershirt"
-	icon_state = "tizirian_top"
+/datum/sprite_accessory/undershirt/tiziran_undershirt
+	name = "tiziran Undershirt"
+	icon_state = "tiziran_top"
 	use_static = FALSE

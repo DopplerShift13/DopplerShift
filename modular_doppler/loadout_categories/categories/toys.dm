@@ -22,7 +22,7 @@
 
 /datum/loadout_item/toy/tiziran_boffa
 	name = "\improper Tiziran training sword"
-	item_path = /obj/item/melee/tizirian_sword/boffa
+	item_path = /obj/item/melee/tiziran_sword/boffa
 
 /datum/loadout_item/toy/toy_gun
 	name = "Fake .357 Revolver"

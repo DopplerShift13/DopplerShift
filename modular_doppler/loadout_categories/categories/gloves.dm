@@ -91,8 +91,8 @@
 	name = "Alloy Gauntlets (Vulpkanin)"
 	item_path = /obj/item/clothing/gloves/vulp_gloves
 
-/datum/loadout_item/gloves/gauntlets/tizirian_gauntlets
-	name = "Tizirian Gauntlets"
+/datum/loadout_item/gloves/gauntlets/tiziran_gauntlets
+	name = "tiziran Gauntlets"
 	item_path = /obj/item/clothing/gloves/lizard_gloves
 
 /datum/loadout_item/gloves/gauntlets/cargo_colorblock

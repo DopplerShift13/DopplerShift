@@ -212,7 +212,7 @@
 
 /obj/item/mod/module/sheath/filled/Initialize(mapload)
 	. = ..()
-	var/sheathed = new /obj/item/melee/tizirian_sword(src)
+	var/sheathed = new /obj/item/melee/tiziran_sword(src)
 	sheathed_ref = WEAKREF(sheathed)
 
 /obj/item/mod/module/sheath/on_use(mob/activator)

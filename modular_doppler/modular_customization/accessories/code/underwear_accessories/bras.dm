@@ -145,7 +145,7 @@
 	name = "Pasties (Alt)"
 	icon_state = "pasties_alt"
 
-/datum/sprite_accessory/bra/tizirian_braces
-	name = "Tizirian Braces"
-	icon_state = "tizirian_braces"
+/datum/sprite_accessory/bra/tiziran_braces
+	name = "tiziran Braces"
+	icon_state = "tiziran_braces"
 	use_static = FALSE

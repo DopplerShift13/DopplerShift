@@ -62,15 +62,15 @@
 	item_path = /obj/item/clothing/neck/half_cape
 
 /datum/loadout_item/neck/cape/lizard_cape_hand
-	name = "Hand's Cape (Tizirian)"
+	name = "Hand's Cape (tiziran)"
 	item_path = /obj/item/clothing/neck/lizard_cape
 
 /datum/loadout_item/neck/cape/lizard_cape_med
-	name = "Scaler's Cape (Tizirian)"
+	name = "Scaler's Cape (tiziran)"
 	item_path = /obj/item/clothing/neck/lizard_cape/med
 
 /datum/loadout_item/neck/cape/lizard_cape_claw
-	name = "Claw's Cape (Tizirian)"
+	name = "Claw's Cape (tiziran)"
 	item_path = /obj/item/clothing/neck/lizard_cape/spec
 
 /datum/loadout_item/neck/cape/taj_cape_holder
