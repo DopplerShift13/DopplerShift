@@ -16,6 +16,10 @@
 	name = "Undisclosed Location"
 	flags_1 = null
 
+/mob/living/basic/stoat/cantina
+	name = "Fernet"
+	desc = "The Curfew and Sundown's pet stoat, rescued by one of the regulars from a terrible, shocking fate."
+
 /obj/structure/fluff/cantinasign
 	name = "Curfew & Sundown bar sign"
 	desc = "The Curfew and Sundown's iconic holotube signage affixed to an ill-maintained EVA lattice."

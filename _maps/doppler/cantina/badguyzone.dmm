@@ -1974,6 +1974,13 @@
 /obj/structure/cable,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/undisclosed_location)
+"Dk" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/mob/living/basic/stoat/cantina,
+/turf/open/floor/catwalk_floor,
+/area/ruin/space/has_grav/powered/undisclosed_location)
 "Dv" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt,
@@ -4172,7 +4179,7 @@ vv
 vv
 OL
 QM
-YQ
+Dk
 YQ
 sD
 zZ
