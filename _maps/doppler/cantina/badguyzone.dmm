@@ -1043,15 +1043,11 @@
 /turf/open/floor/wood/large,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "pp" = (
-/obj/effect/decal/cleanable/dirt/dust,
 /obj/structure/table/reinforced,
-/obj/machinery/reagentgrinder{
-	pixel_x = -14
-	},
-/obj/machinery/processor{
-	pixel_x = 3
-	},
-/turf/open/floor/iron/dark/small,
+/obj/item/storage/bag/tray,
+/obj/item/kitchen/rollingpin,
+/obj/item/knife/kitchen,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "pq" = (
 /obj/effect/decal/cleanable/dirt,
@@ -1366,6 +1362,11 @@
 /obj/machinery/light/small/directional/west,
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
 /turf/open/floor/iron/colony/texture,
+/area/ruin/space/has_grav/powered/undisclosed_location)
+"uE" = (
+/obj/machinery/microwave,
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "uJ" = (
 /obj/structure/table/reinforced/plastitaniumglass,
@@ -1839,8 +1840,20 @@
 "AG" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/machinery/light/small/directional/north,
-/obj/effect/spawner/random/epic_loot/random_supply_crate,
+/obj/machinery/smartfridge/drying,
+/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/colony/texture,
+/area/ruin/space/has_grav/powered/undisclosed_location)
+"AJ" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/structure/table/reinforced,
+/obj/machinery/reagentgrinder{
+	pixel_x = -6
+	},
+/obj/machinery/processor{
+	pixel_x = 11
+	},
+/turf/open/floor/iron/dark/small,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "AM" = (
 /obj/structure/bed/pod,
@@ -3303,9 +3316,6 @@
 	pixel_x = 16;
 	pixel_y = -6
 	},
-/obj/item/storage/bag/tray,
-/obj/item/kitchen/rollingpin,
-/obj/item/knife/kitchen,
 /turf/open/floor/iron/dark,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Up" = (
@@ -4318,7 +4328,7 @@ vv
 ZA
 RU
 vv
-Up
+AJ
 aq
 tf
 JD
@@ -4356,7 +4366,7 @@ zO
 cz
 jD
 vv
-pp
+Up
 GU
 Ul
 JD
@@ -4471,8 +4481,8 @@ wC
 wC
 wC
 Js
-jW
-jW
+uE
+pp
 JD
 LS
 FC
