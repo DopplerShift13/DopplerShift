@@ -7684,6 +7684,7 @@
 #include "modular_doppler\modular_vending\code\tg_vendors\medical.dm"
 #include "modular_doppler\modular_vending\code\tg_vendors\megaseed.dm"
 #include "modular_doppler\modular_vending\code\tg_vendors\modularpc.dm"
+#include "modular_doppler\modular_vending\code\tg_vendors\robodrobe.dm"
 #include "modular_doppler\modular_vending\code\tg_vendors\sectech.dm"
 #include "modular_doppler\modular_vending\code\tg_vendors\shadycigs.dm"
 #include "modular_doppler\modular_vending\code\tg_vendors\toys.dm"
