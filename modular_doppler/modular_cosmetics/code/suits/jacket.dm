@@ -612,7 +612,9 @@
 
 /obj/item/clothing/suit/hooded/doppler/marsian_gown
 	name = "marsian gown"
-	desc = "wip"
+	desc = "A comfortable dress, much like the standard machine dustcovers. It comes fitted with belts and loops for\
+	the average Red Marsian, as eventually needing so much equipment became the standard for mechanics and the like.\
+	Made with the same durable material."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_gown"
 	post_init_icon_state =  "marsian_gown"
@@ -641,7 +643,7 @@
 
 /obj/item/clothing/head/hooded/doppler/marsian_gown_hood
 	name = "marsian gown hood"
-	desc = "wip"
+	desc = "The hood of the Marsian gown."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/marsian_gown_hood"
 	post_init_icon_state = "marsian_gown_hood"
@@ -656,7 +658,10 @@
 
 /obj/item/clothing/suit/hooded/doppler/marsian_overalls
 	name = "marsian overalls"
-	desc = "wip"
+	desc = "A dense network of rubber tubes worm their way through this environment suit,\
+	comfort control machinery underneath adding or removing temperature from the wearer's overworked body.\
+	A retractile hood has been added with cameras on the outside to ensure\
+	the visor can remain thick."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_overalls"
 	post_init_icon_state =  "marsian_overalls"
@@ -685,6 +690,7 @@
 
 /obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet
 	name = "marsian overalls helmet"
+	desc = "The helmet-like hood of the Marsian overalls."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/marsian_overalls_helmet"
 	post_init_icon_state = "marsian_overalls_helmet"

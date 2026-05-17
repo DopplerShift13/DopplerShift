@@ -24,10 +24,6 @@
 	name = "marsian flag sticker"
 	icon_state = "marsian"
 
-/obj/item/sticker/doppler/marsian_seal
-	name = "marsian wax seal"
-	icon_state = "marsian_wax_seal"
-
 /obj/item/sticker/doppler/tizira
 	name = "tiziran flag sticker"
 	icon_state = "tizira"
