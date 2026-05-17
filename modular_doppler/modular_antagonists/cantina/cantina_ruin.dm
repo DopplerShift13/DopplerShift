@@ -19,6 +19,7 @@
 /mob/living/basic/stoat/cantina
 	name = "Fernet"
 	desc = "The Curfew and Sundown's pet stoat, rescued by one of the regulars from a terrible, shocking fate."
+	gender = MALE
 
 /obj/structure/fluff/cantinasign
 	name = "Curfew & Sundown bar sign"
