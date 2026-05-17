@@ -6999,6 +6999,8 @@
 #include "modular_doppler\epic_loot\code\loot_structures\wall_jackets.dm"
 #include "modular_doppler\epic_loot\code\storage_containers\containers.dm"
 #include "modular_doppler\examinemore\code\examine_more.dm"
+#include "modular_doppler\fax_improvements\code\fax_radio\areas.dm"
+#include "modular_doppler\fax_improvements\code\fax_radio\fax.dm"
 #include "modular_doppler\flavortext_and_records\code\defines.dm"
 #include "modular_doppler\flavortext_and_records\code\examine.dm"
 #include "modular_doppler\flavortext_and_records\code\flavor_text.dm"
