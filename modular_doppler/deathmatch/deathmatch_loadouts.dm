@@ -30,7 +30,7 @@
 		new_implant.Insert(squaddie)
 	for(var/iterated_bodypart in bodyparts_to_replace)
 		var/obj/item/bodypart/new_bodypart = new iterated_bodypart()
-		new_bodypart.replace_limb(squaddie, special = TRUE)
+		new_bodypart.replace_limb(squaddie)
 	return ..()
 
 // Chromed out loadouts

@@ -134,7 +134,7 @@
 
 	set_highest_scar(null)
 
-/datum/wound/burn/robotic/overheat/remove_wound(ignore_limb, replaced)
+/datum/wound/burn/robotic/overheat/remove_wound(ignore_limb, replaced, destroying)
 	if (!replaced && highest_scar)
 		already_scarred = TRUE
 		highest_scar.lazy_attach(limb)
@@ -220,18 +220,13 @@
 	SIGNAL_HANDLER
 
 	var/reagent_coeff = base_reagent_temp_coefficient
-	if (!get_location_accessible(victim, limb.body_zone))
-		if (ishuman(victim))
-			// hi! it's niko! small rant
-			// this proc has no goddamn reason to be on human, it could so easily just have used a proc on carbon that would get the required bodyparts to check
-			// but no. it had to hardcode the list in the proc itself so it's impossible to modularly fix this
-			// so instead we just say fuck it and hope to god only human subtypes get this wound
-			// tldr; ryll why
-			var/mob/living/carbon/human/human_victim = victim
-			for (var/obj/item/clothing/iter_clothing as anything in human_victim.get_clothing_on_part(limb))
-				if (iter_clothing.clothing_flags & THICKMATERIAL)
-					return
-
+	var/mob/living/carbon/human/human_victim
+	if(ishuman(victim))
+		human_victim = victim
+	if(human_victim?.get_clothing_on_part(limb))
+		for(var/obj/item/clothing/iter_clothing as anything in human_victim.get_clothing_on_part(limb))
+			if(iter_clothing.clothing_flags & THICKMATERIAL)
+				return
 		reagent_coeff *= sprayed_with_reagent_clothed_mult
 
 	if (istype(source.my_atom, /obj/effect/particle_effect/water/extinguisher)) // this used to be a lot, lot more modular, but sadly reagent temps/volumes and shit are horribly inconsistant
@@ -281,9 +276,10 @@
 		if (limb.grasped_by)
 			gauze_mult *= 0.7 // hold it down yourself
 
-		if (victim)
+		if(victim && ishuman(victim))
+			var/mob/living/carbon/human/human_victim = victim
 			var/gauze_or_not = (!isnull(gauze) ? ", but [gauze] helps to keep it together" : "")
-			var/clothing_text = (!get_location_accessible(victim, limb.body_zone) ? ", [victim.p_their()] clothing absorbing some of the liquid" : "")
+			var/clothing_text = ((human_victim.get_clothing_on_part(limb)) ? ", [victim.p_their()] clothing absorbing some of the liquid" : "")
 			victim.visible_message(span_warning("[victim]'s [limb.plaintext_zone] strains from the thermal shock[clothing_text][gauze_or_not]!"))
 			playsound(victim, 'sound/items/tools/welder.ogg', 25)
 

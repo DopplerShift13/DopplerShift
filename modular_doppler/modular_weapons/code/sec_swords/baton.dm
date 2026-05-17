@@ -75,12 +75,6 @@
 	//if a stun is applied or not
 	. = cell.use(deducted_charge)
 
-/obj/item/melee/baton/doppler_security/clumsy_check(mob/living/carbon/human/user)
-	. = ..()
-	if(.)
-		SEND_SIGNAL(user, COMSIG_LIVING_MINOR_SHOCK)
-		deductcharge(cell_hit_cost)
-
 /obj/item/melee/baton/doppler_security/baton_effect(mob/living/target, mob/living/user, modifiers, stun_override)
 	if(iscyborg(loc))
 		var/mob/living/silicon/robot/robot = loc

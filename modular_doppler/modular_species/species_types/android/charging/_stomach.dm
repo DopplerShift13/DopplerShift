@@ -165,9 +165,11 @@
 	charge_light_type = null
 	connector_type = null
 	custom_materials = null
-	grind_results = null
 	emp_damage_modifier = 0
 
 /obj/item/stock_parts/power_store/cell/charging_stomach/examine(mob/user)
 	. = ..()
 	CRASH("[src.type] got examined by [user]")
+
+/obj/item/stock_parts/power_store/cell/charging_stomach/grind_results()
+	return

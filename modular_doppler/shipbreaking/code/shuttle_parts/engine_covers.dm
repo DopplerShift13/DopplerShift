@@ -17,7 +17,7 @@
 /obj/structure/engine_covers/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
-	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
+	AddElement(/datum/element/simple_rotation, ROTATION_NEEDS_ROOM)
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_EXIT = PROC_REF(on_exit),
 	)

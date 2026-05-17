@@ -22,7 +22,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/cell_charger_multi, 29)
 
 /obj/machinery/cell_charger_multi/Initialize(mapload)
 	. = ..()
-	find_and_hang_on_wall()
+	find_and_mount_on_atom()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_FRONTIER)
 
 /obj/machinery/cell_charger_multi/update_overlays()

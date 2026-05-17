@@ -40,7 +40,7 @@
 
 /obj/machinery/docking_clamp/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/simple_rotation)
+	AddElement(/datum/element/simple_rotation)
 	var/static/list/tool_behaviors = list(
 		TOOL_MULTITOOL = list(
 			SCREENTIP_CONTEXT_LMB = "Get Link",
