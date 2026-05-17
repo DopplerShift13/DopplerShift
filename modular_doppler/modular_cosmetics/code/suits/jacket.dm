@@ -614,7 +614,7 @@
 	name = "marsian gown"
 	desc = "A comfortable dress, much like the standard machine dustcovers. It comes fitted with belts and loops for\
 	the average Red Marsian, as eventually needing so much equipment became the standard for mechanics and the like.\
-	Made with the same durable material."
+	Made with the durable material necessary to protect one from the dust storms."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_gown"
 	post_init_icon_state =  "marsian_gown"
