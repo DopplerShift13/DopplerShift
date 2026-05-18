@@ -2,7 +2,7 @@
 	name = "portable heat radiator"
 	desc = "A small, self-powering machine that works not too much unlike a large heat lamp. \
 		Standing anywhere near it is bound to warm you up. Thanks in part to being designed by \
-		and for Tizirians, humans standing near it for too long may experience discomfort and \
+		and for Tizirans, humans standing near it for too long may experience discomfort and \
 		potential burns."
 	icon = 'modular_doppler/colony_fabricator/icons/machines.dmi'
 	icon_state = "lizard_heater"

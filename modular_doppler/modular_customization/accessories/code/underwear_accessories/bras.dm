@@ -146,6 +146,6 @@
 	icon_state = "pasties_alt"
 
 /datum/sprite_accessory/bra/tizirian_braces
-	name = "Tizirian Braces"
+	name = "Tiziran Braces"
 	icon_state = "tizirian_braces"
 	use_static = FALSE

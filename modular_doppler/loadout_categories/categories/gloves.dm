@@ -92,7 +92,7 @@
 	item_path = /obj/item/clothing/gloves/vulp_gloves
 
 /datum/loadout_item/gloves/gauntlets/tizirian_gauntlets
-	name = "Tizirian Gauntlets"
+	name = "Tiziran Gauntlets"
 	item_path = /obj/item/clothing/gloves/lizard_gloves
 
 /datum/loadout_item/gloves/gauntlets/cargo_colorblock

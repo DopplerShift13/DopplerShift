@@ -101,27 +101,27 @@
 	item_path = /obj/item/storage/backpack/coalition
 
 /datum/loadout_item/backpack/kit_bag/lizard_tan
-	name = "Tizirian Kitbag (Tan)"
+	name = "Tiziran Kitbag (Tan)"
 	item_path = /obj/item/storage/backpack/lizard
 
 /datum/loadout_item/backpack/kit_bag/lizard_white
-	name = "Tizirian Kitbag (White)"
+	name = "Tiziran Kitbag (White)"
 	item_path = /obj/item/storage/backpack/lizard/white
 
 /datum/loadout_item/backpack/kit_bag/lizard_black
-	name = "Tizirian Kitbag (Black)"
+	name = "Tiziran Kitbag (Black)"
 	item_path = /obj/item/storage/backpack/lizard/black
 
 /datum/loadout_item/backpack/kit_bag/tailbag_tan
-	name = "Tizirian Tailbag (Tan)"
+	name = "Tiziran Tailbag (Tan)"
 	item_path = /obj/item/storage/backpack/lizard_tailbag
 
 /datum/loadout_item/backpack/kit_bag/tailbag_white
-	name = "Tizirian Tailbag (White)"
+	name = "Tiziran Tailbag (White)"
 	item_path = /obj/item/storage/backpack/lizard_tailbag/white
 
 /datum/loadout_item/backpack/kit_bag/tailbag_black
-	name = "Tizirian Tailbag (Black)"
+	name = "Tiziran Tailbag (Black)"
 	item_path = /obj/item/storage/backpack/lizard_tailbag/black
 
 /**

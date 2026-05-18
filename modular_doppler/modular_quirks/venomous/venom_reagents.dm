@@ -1,7 +1,7 @@
 // TO MAKE: special medicine that you (RESPECTFULLY AQUIRE TIZIRIAN VENOM) to produce
 /datum/reagent/toxin/tizirian
-	name = "Tizirian Cytotoxin"
-	description = "A toxic, though hardly fatal venom produced by some Tizirians. \
+	name = "Tiziran Cytotoxin"
+	description = "A toxic, though hardly fatal venom produced by some Tizirans. \
 		Used historically to bring prey to toxic shock for hunting purposes."
 	color = "#fff588" // rgb: 207, 54, 0
 	taste_description = "coppery bitterness"
@@ -14,8 +14,8 @@
 	health_required = -10 // Won't ever directly kill someone
 
 /datum/reagent/toxin/tizirian/less
-	name = "Tizirian Dendrotoxin"
-	description = "A venom produced by some Tizirians that is hardly, if ever, fatal to the victim. \
+	name = "Tiziran Dendrotoxin"
+	description = "A venom produced by some Tizirans that is hardly, if ever, fatal to the victim. \
 		Instead it works to disrupt the victim's nervous system activity to incapacitate them."
 	color = "#c5ff88" // rgb: 207, 54, 0
 	toxpwr = 0

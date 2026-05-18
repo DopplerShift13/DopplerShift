@@ -1,5 +1,5 @@
 /obj/item/melee/tizirian_sword
-	name = "\improper Tizirian chopping sword"
+	name = "\improper Tiziran chopping sword"
 	desc = "'Chopper' is, at best, a poor translation of the true name in Khaishhs. It speaks well to the \
 		purpose of this blade however, being a strong blade made to defeat the armor and scales that historical \
 		Tizirans would have had to defeat. The design persists to this day through tradition."
@@ -51,7 +51,7 @@
 
 /obj/item/storage/belt/lizard_sabre
 	name = "chopping sword sheath"
-	desc = "A minimalist sheath adorned with clasps of Tizirian bronze."
+	desc = "A minimalist sheath adorned with clasps of Tiziran bronze."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
 	icon_state = "sheath"
 	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'
@@ -131,7 +131,7 @@
 	attack_verb_simple = list("bonk", "bop", "bash", "slap", "thump", "thwack", "wallop", "biff")
 
 /obj/item/melee/tizirian_sword/megachoppa	// a special variant for the raider captain, thus it's roughly one esword in strength
-	name = "\improper Tizirian great sword"
+	name = "\improper Tiziran great sword"
 	desc = "A rare variation of the utilitarian Tiziran sabre, this design relies on the cutting edge of bronze metallurgy \
 	to achieve such a lengthy blade. Exotic amendments to its constituent alloys allow for keener edge and help alleviate a rare \
 	phenomena where clashed blades in near vacuum can contact weld to one another."

@@ -286,11 +286,11 @@
 	item_path = /obj/item/clothing/under/suit/pencil/green
 
 /datum/loadout_item/undersuit/skirt/lizard_kilt_tan
-	name = "Tizirian War Kilt (Tan)"
+	name = "Tiziran War Kilt (Tan)"
 	item_path = /obj/item/clothing/under/lizard_kilt
 
 /datum/loadout_item/undersuit/skirt/lizard_kilt_white
-	name = "Tizirian War Kilt (White)"
+	name = "Tiziran War Kilt (White)"
 	item_path = /obj/item/clothing/under/lizard_kilt/white
 
 /datum/loadout_item/undersuit/skirt/simple
