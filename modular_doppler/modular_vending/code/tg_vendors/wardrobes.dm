@@ -43,7 +43,7 @@
 		/obj/item/clothing/head/utility/hardhat/dblue = 2,
 		/obj/item/clothing/head/utility/hardhat/welding/dblue = 2,
 		/obj/item/clothing/head/utility/hardhat/red = 2,
-		/obj/item/storage/box/stickers/marsian_wax_seal = 2
+		/obj/item/storage/box/stickers/marsian_seals = 2
 	)
 
 /obj/machinery/vending/wardrobe/atmos_wardrobe
@@ -110,7 +110,7 @@
 		/obj/item/storage/backpack/custom = 2,
 		/obj/item/storage/backpack/satchel/custom = 2,
 		/obj/item/storage/backpack/duffelbag/custom = 2,
-		/obj/item/storage/box/stickers/marsian_wax_seal = 2
+		/obj/item/storage/box/stickers/marsian_seals = 2
 	)
 
 /obj/machinery/vending/wardrobe/science_wardrobe
