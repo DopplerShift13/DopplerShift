@@ -24,9 +24,13 @@
 	name = "marsian flag sticker"
 	icon_state = "marsian"
 
-/obj/item/sticker/doppler/marsian_wax_seal
-	name = "marsian wax seal"
-	icon_state = "marsian_wax_seal"
+/obj/item/sticker/doppler/marsian_seal_dark
+	name = "marsian seal"
+	icon_state = "marsian_seal_dark"
+
+/obj/item/sticker/doppler/marsian_seal_light
+	name = "marsian seal"
+	icon_state = "marsian_seal_light"
 
 /obj/item/sticker/doppler/tizira
 	name = "tiziran flag sticker"
@@ -123,10 +127,11 @@
 	spawned_sticker_basetype = /obj/item/sticker/rhinestone
 
 ///box for the wax seals
-/obj/item/storage/box/stickers/marsian_wax_seal
-	name = "box of wax marsians seals"
-	desc = "A box containing several wax seals representing the rebels of Mars."
+/obj/item/storage/box/stickers/marsian_seals
+	name = "box of marsians seals"
+	desc = "A box containing several seals representing the rebels of Mars."
 
-/obj/item/storage/box/stickers/marsian_wax_seal/PopulateContents()
-	for(var/i in 1 to 8)
-		new /obj/item/sticker/doppler/marsian_wax_seal(src)
+/obj/item/storage/box/stickers/marsian_seals/PopulateContents()
+	for(var/i in 1 to 4)
+		new /obj/item/sticker/doppler/marsian_seal_dark(src)
+		new /obj/item/sticker/doppler/marsian_seal_light(src)
