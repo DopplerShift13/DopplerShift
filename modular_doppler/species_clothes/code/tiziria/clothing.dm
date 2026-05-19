@@ -2,7 +2,7 @@
 
 /obj/item/clothing/head/lizard_hat
 	name = "tan peak-cover"
-	desc = "A Tizirian favorite in military headwear. A bill to keep the sun away and side flaps to cover the \
+	desc = "A Tiziran favorite in military headwear. A bill to keep the sun away and side flaps to cover the \
 		sides of your head. All this, while still looking fancy through a neatly folded top cover. This one is \
 		in the recognizable tan of the empire's obligate service members."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
@@ -17,7 +17,7 @@
 
 /obj/item/clothing/head/lizard_hat/white
 	name = "white peak-cover"
-	desc = "A Tizirian favorite in military headwear. A bill to keep the sun away and side flaps to cover the \
+	desc = "A Tiziran favorite in military headwear. A bill to keep the sun away and side flaps to cover the \
 		sides of your head. All this, while still looking fancy through a neatly folded top cover. This one \
 		is in the stark white of the empire's career service members."
 	icon_state = "peak_reg"
@@ -55,7 +55,7 @@
 
 /obj/item/clothing/accessory/ear_tag
 	name = "ear tag"
-	desc = "A an old Tizirian ear tag, or at least a replica of one. These are a relic of a long gone era \
+	desc = "A an old Tiziran ear tag, or at least a replica of one. These are a relic of a long gone era \
 		where obligate soldiers of the empire (previously lovingly called levies) would have a tag such as this \
 		attached for identification after battles."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
@@ -161,7 +161,7 @@
 
 /obj/item/clothing/suit/lizard_halftop
 	name = "tan halftop"
-	desc = "The most popular clothing for the upper half of the Tizirians, enough to keep your scales from dulling \
+	desc = "The most popular clothing for the upper half of the Tizirans, enough to keep your scales from dulling \
 		in the harsh summer sun, but open enough to not overheat in the same situation. This one is tan for the \
 		empire's obligate service members."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
@@ -176,7 +176,7 @@
 
 /obj/item/clothing/suit/lizard_halftop/white
 	name = "white halftop"
-	desc = "The most popular clothing for the upper half of the Tizirians, enough to keep your scales from dulling \
+	desc = "The most popular clothing for the upper half of the Tizirans, enough to keep your scales from dulling \
 		in the harsh summer sun, but open enough to not overheat in the same situation. This one is white for the \
 		empire's career service members."
 	icon_state = "halftop_reg"
@@ -184,7 +184,7 @@
 
 /obj/item/clothing/suit/lizard_halftop/black
 	name = "black halftop"
-	desc = "The most popular clothing for the upper half of the Tizirians, enough to keep your scales from dulling \
+	desc = "The most popular clothing for the upper half of the Tizirans, enough to keep your scales from dulling \
 		in the harsh summer sun, but open enough to not overheat in the same situation. This one is black, typically \
 		a taboo color for anything other than your armor and your legwear, due to black's capacity for absorbing the sun."
 	icon_state = "halftop_black"
@@ -193,8 +193,8 @@
 // kilts
 
 /obj/item/clothing/under/lizard_kilt
-	name = "\improper Tizirian tan war kilt"
-	desc = "The third best maintained item a Tizirian owns, next to their blades and armor. A relatively simple \
+	name = "\improper Tiziran tan war kilt"
+	desc = "The third best maintained item a Tiziran owns, next to their blades and armor. A relatively simple \
 		looking kilt with a red banner hanging from it's front. Each banner holds a different long string of \
 		Khaishhs written on to it, often with little meaning and just to \"look cool\" for the cameras. \
 		This one is tan for the empire's obligate service members."
@@ -212,8 +212,8 @@
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
 /obj/item/clothing/under/lizard_kilt/white
-	name = "\improper Tizirian white war kilt"
-	desc = "The third best maintained item a Tizirian owns, next to their blades and armor. A relatively simple \
+	name = "\improper Tiziran white war kilt"
+	desc = "The third best maintained item a Tiziran owns, next to their blades and armor. A relatively simple \
 		looking kilt with a red banner hanging from it's front. Each banner holds a different long string of \
 		Khaishhs written on to it, often with little meaning and just to \" look cool \" for the cameras. \
 		This one is white for the empire's career service members."
@@ -224,7 +224,7 @@
 
 /obj/item/clothing/mask/snout_balaclava
 	name = "snout balaclava"
-	desc = "A special balaclava, first popularized by the Tizirians and then stolen by everyone else, that \
+	desc = "A special balaclava, first popularized by the Tizirans and then stolen by everyone else, that \
 		comfortably fits the average snout that any creature may have. Has generous eye holes for the wide variety of \
 		numbers of eyes that many species have. May prove for an awkward fit on anyone without a snout."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'

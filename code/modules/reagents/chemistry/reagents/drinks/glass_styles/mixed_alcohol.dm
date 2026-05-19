@@ -1061,7 +1061,7 @@
 /datum/glass_style/drinking_glass/amaretto_sour
 	required_drink_type = /datum/reagent/consumable/ethanol/amaretto_sour
 	name = "Amaretto Sour"
-	desc = "This sweet play on the sour formula has gained popularity among tizirian audiences due to it's nutty-eggy nature. It's still perfectly suited to most anyone's palette, as long as they're not vegan."
+	desc = "This sweet play on the sour formula has gained popularity among tiziran audiences due to it's nutty-eggy nature. It's still perfectly suited to most anyone's palette, as long as they're not vegan."
 	icon = 'icons/obj/drinks/mixed_drinks.dmi'
 	icon_state = "amaretto_sour"
 
@@ -1109,7 +1109,7 @@
 
 /datum/glass_style/drinking_glass/tizirian_sour
 	required_drink_type = /datum/reagent/consumable/ethanol/tizirian_sour
-	name = "Tizirian Sour"
+	name = "Tiziran Sour"
 	desc = "From Trinidad to Tobago to Tiziria, it's quite rare to find a cocktail that uses bitters as a base spirit like this."
 	icon = 'icons/obj/drinks/mixed_drinks.dmi'
 	icon_state = "tizirian_sour"

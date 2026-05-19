@@ -159,6 +159,6 @@
 	use_static = FALSE
 
 /datum/sprite_accessory/undershirt/tizirian_undershirt
-	name = "Tizirian Undershirt"
+	name = "Tiziran Undershirt"
 	icon_state = "tizirian_top"
 	use_static = FALSE

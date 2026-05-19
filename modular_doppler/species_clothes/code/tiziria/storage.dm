@@ -1,7 +1,7 @@
 // backpacks
 
 /obj/item/storage/backpack/lizard
-	name = "\improper Tizirian tan kitbag"
+	name = "\improper Tiziran tan kitbag"
 	desc = "A high mounted backpack for the carrying of specialist equipment, mounted the way it is to prevent \
 		interference with movement of the tail and any attached equipment. \
 		This one is tan for the empire's obligate service members."
@@ -14,7 +14,7 @@
 	inhand_icon_state = null
 
 /obj/item/storage/backpack/lizard/white
-	name = "\improper Tizirian white kitbag"
+	name = "\improper Tiziran white kitbag"
 	desc = "A high mounted backpack for the carrying of specialist equipment, mounted the way it is to prevent \
 		interference with movement of the tail and any attached equipment. \
 		This one is white for the empire's career service members."
@@ -22,7 +22,7 @@
 	worn_icon_state = "backpack_reg"
 
 /obj/item/storage/backpack/lizard/black
-	name = "\improper Tizirian black kitbag"
+	name = "\improper Tiziran black kitbag"
 	desc = "A high mounted backpack for the carrying of specialist equipment, mounted the way it is to prevent \
 		interference with movement of the tail and any attached equipment. \
 		This one is black, typically \
@@ -34,7 +34,7 @@
 
 /obj/item/storage/backpack/lizard_tailbag
 	name = "tan tailbag"
-	desc = "A pair of essentially saddlebags with straps for wear around a Tizirian's large tail. \
+	desc = "A pair of essentially saddlebags with straps for wear around a Tiziran's large tail. \
 		The most common and most popular type of storage, even amongst Tiziria's non-military members. \
 		This one is white for the empire's obligate service members."
 	icon = 'modular_doppler/species_clothes/icons/tiziria/gear.dmi'
@@ -53,7 +53,7 @@
 
 /obj/item/storage/backpack/lizard_tailbag/white
 	name = "white tailbag"
-	desc = "A pair of essentially saddlebags with straps for wear around a Tizirian's large tail. \
+	desc = "A pair of essentially saddlebags with straps for wear around a Tiziran's large tail. \
 		The most common and most popular type of storage, even amongst Tiziria's non-military members. \
 		This one is white for the empire's career service members."
 	icon_state = "tailbag_reg"
@@ -61,7 +61,7 @@
 
 /obj/item/storage/backpack/lizard_tailbag/black
 	name = "black tailbag"
-	desc = "A pair of essentially saddlebags with straps for wear around a Tizirian's large tail. \
+	desc = "A pair of essentially saddlebags with straps for wear around a Tiziran's large tail. \
 		The most common and most popular type of storage, even amongst Tiziria's non-military members. \
 		This one is black, typically \
 		a taboo color for anything other than your armor and your legwear, due to black's capacity for absorbing the sun."

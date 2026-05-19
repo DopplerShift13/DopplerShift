@@ -1,7 +1,7 @@
 // Pot
 /obj/item/reagent_containers/cup/soup_pot/lizard
 	name = "stout soup pot"
-	desc = "A stout soup designed to mix and cook all kinds of Tizirian soup."
+	desc = "A stout soup designed to mix and cook all kinds of Tiziran soup."
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
 	volume = 150
 	possible_transfer_amounts = list(20, 50, 100, 150)
@@ -25,7 +25,7 @@
 
 // Now that's a knife
 /obj/item/knife/lizard_kitchen
-	name = "\improper Tizirian kitchen knife"
+	name = "\improper Tiziran kitchen knife"
 	desc = "The one knife you need for cooking in the kitchens of Tiziria. They claim that all knives in the universe \
 		are actually a cheap copy of this very design."
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
@@ -47,7 +47,7 @@
 
 // plates n trays
 /obj/item/plate/oven_tray/copper
-	desc = "Time to bake... Have Tizirians invented cookies yet?"
+	desc = "Time to bake... Have Tizirans invented cookies yet?"
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
 	fragile = FALSE
 	w_class = WEIGHT_CLASS_SMALL

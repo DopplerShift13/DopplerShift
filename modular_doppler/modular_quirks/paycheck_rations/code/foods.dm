@@ -68,7 +68,7 @@
 
 /obj/item/food/breadslice/roottack
 	name = "sandbread"
-	desc = "What can only barely be called bread, an important staple of the surface-faring Tizirian of history long ago."
+	desc = "What can only barely be called bread, an important staple of the surface-faring Tiziran of history long ago."
 	icon = 'modular_doppler/modular_quirks/paycheck_rations/icons/foods.dmi'
 	icon_state = "root_hardtack"
 	foodtypes = VEGETABLES | NUTS
@@ -149,7 +149,7 @@
 
 /obj/item/food/aspic/black_broth
 	name = "black broth aspic"
-	desc = "Condensed Tizirian black broth, which could be eaten raw if you are either a psycho, high class, or both. \
+	desc = "Condensed Tiziran black broth, which could be eaten raw if you are either a psycho, high class, or both. \
 		For everyone else, it should be boiled in a pot to turn back into soup."
 	soup_type = /datum/reagent/consumable/nutriment/soup/black_broth
 	foodtypes = MEAT | VEGETABLES | GORE

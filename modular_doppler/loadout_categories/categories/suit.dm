@@ -429,15 +429,15 @@
 	item_path = /obj/item/clothing/suit/costume/hawaiian
 
 /datum/loadout_item/suit/top/lizard_halftop_tan
-	name = "Tizirian Halftop (Tan)"
+	name = "Tiziran Halftop (Tan)"
 	item_path = /obj/item/clothing/suit/lizard_halftop
 
 /datum/loadout_item/suit/top/lizard_halftop_white
-	name = "Tizirian Halftop (White)"
+	name = "Tiziran Halftop (White)"
 	item_path = /obj/item/clothing/suit/lizard_halftop/white
 
 /datum/loadout_item/suit/top/lizard_halftop_black
-	name = "Tizirian Halftop (Black)"
+	name = "Tiziran Halftop (Black)"
 	item_path = /obj/item/clothing/suit/lizard_halftop/black
 
 /datum/loadout_item/suit/top/wellwornshirt
@@ -496,7 +496,7 @@
 	item_path = /obj/item/clothing/suit/armor/vulp
 
 /datum/loadout_item/suit/armor/tizirian_breast
-	name = "Tizirian Breastplate"
+	name = "Tiziran Breastplate"
 	item_path = /obj/item/clothing/suit/armor/lizard
 
 /**

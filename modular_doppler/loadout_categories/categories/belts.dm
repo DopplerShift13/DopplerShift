@@ -126,7 +126,7 @@
 	item_path = /obj/item/storage/belt/crusader
 
 /datum/loadout_item/belts/sheath/lizard_sword
-	name = "Tizirian Chopping Sword Sheath"
+	name = "Tiziran Chopping Sword Sheath"
 	item_path = /obj/item/storage/belt/lizard_sabre
 
 /datum/loadout_item/belts/sheath/tajaran_sword

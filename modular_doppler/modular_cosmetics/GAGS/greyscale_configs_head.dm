@@ -127,12 +127,12 @@
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
 
 /datum/greyscale_config/lizard_headscarf
-	name = "Tizirian headscarf"
+	name = "Tiziran headscarf"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/headscarf.json'
 
 /datum/greyscale_config/lizard_headscarf/worn
-	name = "Tizirian headscarf (Worn)"
+	name = "Tiziran headscarf (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
 
 /datum/greyscale_config/colony_headscarf
