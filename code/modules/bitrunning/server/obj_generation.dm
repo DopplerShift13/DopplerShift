@@ -170,6 +170,7 @@
 			if(!(domain_forbids_flags & DOMAIN_FORBIDS_ABILITIES))
 				avatar_preference.safe_transfer_prefs_to(avatar)
 				SSquirks.AssignQuirks(avatar, prefs_disk.mock_client)
+				SSpowers.assign_powers(avatar, prefs_disk.mock_client) // DOPPLER EDIT ADDITION - Assign powers to bitrunning mobs if allowed
 			if(!(domain_forbids_flags & DOMAIN_FORBIDS_ITEMS) && prefs_disk.include_loadout)
 				avatar.equip_outfit_and_loadout(/datum/outfit, avatar_preference)
 

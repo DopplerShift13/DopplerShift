@@ -255,6 +255,7 @@
 	new_body.forceMove(get_turf(src))
 	new_body.blood_volume = BLOOD_VOLUME_SAFE+60
 	SSquirks.AssignQuirks(new_body, brainmob.client)
+	SSpowers.assign_powers(new_body, brainmob.client)
 	src.replace_into(new_body)
 	for(var/obj/item/bodypart/bodypart as anything in new_body.bodyparts)
 		if(!istype(bodypart, /obj/item/bodypart/chest))
