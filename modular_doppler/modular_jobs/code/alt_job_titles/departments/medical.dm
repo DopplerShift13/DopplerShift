@@ -33,6 +33,7 @@
 		"Nurse",
 		"Physician",
 		"Surgeon",
+		"Virologist",
 		"Medical Student",
 	)
 
