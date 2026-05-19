@@ -576,7 +576,7 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/marsian_duster
 	greyscale_config_worn = /datum/greyscale_config/marsian_duster/worn
-	greyscale_colors = "#892626#ffffff"
+	greyscale_colors = "#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	hoodtype = /obj/item/clothing/head/hooded/doppler/marsian_duster_hood
 
@@ -607,7 +607,7 @@
 	hair_mask = /datum/hair_mask/winterhood
 	greyscale_config = /datum/greyscale_config/marsian_duster_hood
 	greyscale_config_worn = /datum/greyscale_config/marsian_duster_hood/worn
-	greyscale_colors = "#892525#ffffff"
+	greyscale_colors = "#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/doppler/marsian_gown
@@ -622,7 +622,7 @@
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/marsian_gown
 	greyscale_config_worn = /datum/greyscale_config/marsian_gown/worn
-	greyscale_colors = "#892626#ffffff#00ffcc"
+	greyscale_colors = "#ffffff#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	hoodtype = /obj/item/clothing/head/hooded/doppler/marsian_gown_hood
 
@@ -653,7 +653,7 @@
 	hair_mask = /datum/hair_mask/winterhood
 	greyscale_config = /datum/greyscale_config/marsian_gown_hood
 	greyscale_config_worn = /datum/greyscale_config/marsian_gown_hood/worn
-	greyscale_colors = "#892626#ffffff#00ffcc"
+	greyscale_colors = "#ffffff#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/doppler/marsian_overalls
