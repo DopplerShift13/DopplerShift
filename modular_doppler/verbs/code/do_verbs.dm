@@ -20,7 +20,7 @@
 	var/name_stub = " (<b>[usr]</b>)"
 	message = usr.apply_message_emphasis(message)
 	message = trim(copytext_char(message, 1, (MAX_MESSAGE_LEN - length(name_stub))))
-	var/message_with_name = message + name_stub
+	var/message_with_name
 
 	usr.log_message(message, LOG_EMOTE)
 
@@ -40,9 +40,11 @@
 
 	for(var/mob/ghost as anything in GLOB.dead_mob_list)
 		if((ghost.client?.prefs.chat_toggles & CHAT_GHOSTSIGHT) && !(ghost in viewers))
+			message_with_name = "[message] ([chat_name_color_prefs_check(usr, ghost)])"
 			ghost.show_message(span_emote(message_with_name))
 
 	for(var/mob/receiver in viewers)
+		message_with_name = "[message] ([chat_name_color_prefs_check(usr, receiver)])"
 		receiver.show_message(span_emote(message_with_name), alt_msg = span_emote(message_with_name))
-		if (receiver.client?.prefs.read_preference(/datum/preference/toggle/enable_runechat))
-			create_chat_message(usr, null, message, null, EMOTE_MESSAGE)
+		if (receiver.client?.prefs.read_preference(/datum/preference/toggle/see_rc_emotes))
+			receiver.create_chat_message(usr, null, message, null, EMOTE_MESSAGE)

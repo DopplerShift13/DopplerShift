@@ -72,20 +72,23 @@
 
 	var/space = should_have_space_before_emote(html_decode(subtle_emote)[1]) ? " " : ""
 
-	subtle_message = span_emote("<b>[user]</b>[space]<i>[user.apply_message_emphasis(subtle_message)]</i>")
+	subtle_message = span_emote("[space]<i>[user.apply_message_emphasis(subtle_message)]</i>")
 
 	if(istype(target, /mob))
 		var/mob/target_mob = target
-		user.show_message(subtle_message, alt_msg = subtle_message)
+		var/user_subtle_message = span_emote("[chat_name_color_prefs_check(user, user)][subtle_message]")
+		user.show_message(user_subtle_message, alt_msg = user_subtle_message)
 		var/obj/effect/overlay/holo_pad_hologram/hologram = GLOB.hologram_impersonators[user]
 		if((get_dist(user.loc, target_mob.loc) <= subtle_range) || (hologram && get_dist(hologram.loc, target_mob.loc) <= subtle_range))
-			target_mob.show_message(subtle_message, alt_msg = subtle_message)
+			var/target_subtle_message = span_emote("[chat_name_color_prefs_check(user, target_mob)][subtle_message]")
+			target_mob.show_message(target_subtle_message, alt_msg = target_subtle_message)
 		else
 			to_chat(user, span_warning("Your emote was unable to be sent to your target: Too far away."))
 	else if(istype(target, /obj/effect/overlay/holo_pad_hologram))
 		var/obj/effect/overlay/holo_pad_hologram/hologram = target
 		if(hologram.Impersonation?.client)
-			hologram.Impersonation.show_message(subtle_message, alt_msg = subtle_message)
+			var/hologram_subtle_message = span_emote("[chat_name_color_prefs_check(user, hologram.Impersonation)][subtle_message]")
+			hologram.Impersonation.show_message(hologram_subtle_message, alt_msg = hologram_subtle_message)
 	else
 		var/ghostless = get_hearers_in_view(target, user) - GLOB.dead_mob_list
 
@@ -98,7 +101,8 @@
 				ghostless |= holo.Impersonation
 
 		for(var/mob/receiver in ghostless)
-			receiver.show_message(subtle_message, alt_msg = subtle_message)
+			var/receiver_subtle_message = span_emote("[chat_name_color_prefs_check(user, receiver)][subtle_message]")
+			receiver.show_message(receiver_subtle_message, alt_msg = receiver_subtle_message)
 
 	return TRUE
 

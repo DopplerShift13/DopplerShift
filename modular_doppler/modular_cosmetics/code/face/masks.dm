@@ -168,7 +168,7 @@
 /obj/item/clothing/mask/gas/atmos/faceplate
 	name = "faceplate mask"
 	desc = "A solid mask that completely covers the face, or a lack of one."
-	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/face.dmi'
+	icon = 'icons/map_icons/clothing/mask.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
 	icon_state = "/obj/item/clothing/mask/gas/atmos/faceplate"
 	post_init_icon_state = "faceplate"

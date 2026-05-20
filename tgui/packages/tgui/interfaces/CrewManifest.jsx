@@ -11,6 +11,7 @@ const commandJobs = [
   'Research Director',
   'Chief Medical Officer',
   'Quartermaster',
+  'Chief Guard', // DOPPLER EDIT ADDITION: Security Lore Rework
 ];
 
 export const CrewManifest = (props) => {

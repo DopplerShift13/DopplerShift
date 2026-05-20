@@ -78,9 +78,7 @@
 	return span_notice("[owner.p_They()] [owner.p_have()] [owner.p_their()] ears perked up, listening closely to whisper-quiet sounds.")
 
 /datum/bodypart_overlay/mutant/ears/teshari
-
-/datum/bodypart_overlay/mutant/ears/teshari/get_global_feature_list()
-	return SSaccessories.ears_list_teshari
+	feature_key = FEATURE_EARS_TESHARI
 
 /obj/item/organ/tail/teshari
 	name = "teshari tail"
@@ -89,10 +87,7 @@
 	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/teshari
 
 /datum/bodypart_overlay/mutant/tail/teshari
-	feature_key = FEATURE_TAIL_OTHER
-
-/datum/bodypart_overlay/mutant/tail/teshari/get_global_feature_list()
-	return SSaccessories.tails_list_teshari
+	feature_key = FEATURE_TAIL_TESHARI
 
 /obj/item/organ/stomach/teshari
 	name = "teshari stomach"

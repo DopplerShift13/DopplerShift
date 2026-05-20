@@ -38,12 +38,14 @@
 	uniform = /obj/item/clothing/under/rank/security/officer/skirt
 
 /datum/species/anthromorph/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	turn_off_every_species_feature(human_for_preview)
 	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#776155"
 	human_for_preview.dna.features[FEATURE_SNOUT] = "Fox (Long)"
 	human_for_preview.dna.features[FEATURE_SNOUT_COLORS][2] = "#ffffff"
 	human_for_preview.dna.features[FEATURE_SNOUT_COLORS][3] = "#776155"
 	human_for_preview.dna.ear_type = FOX
 	human_for_preview.dna.features[FEATURE_EARS] = "Fox"
+	human_for_preview.dna.features[FEATURE_EARS_FOX] = "Fox"
 	human_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#776155"
 	human_for_preview.dna.features[FEATURE_EARS_COLORS][2] = "#ffffff"
 	human_for_preview.set_haircolor("#574036", update = FALSE)

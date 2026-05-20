@@ -25,3 +25,21 @@
 	)
 	map_name = "mars"
 	key = "mars"
+
+/*
+*	MURDERDROME
+*/
+/datum/lazy_template/deathmatch/murderdrome
+	map_dir = "_maps/doppler/deathmatch"
+	name = "MURDERDROME"
+	desc = "BLOOD! ASPHALT! GASOLINE!"
+	max_players = 10
+	allowed_loadouts = list(
+		/datum/outfit/deathmatch_loadout/murderdrome/samurai,
+		/datum/outfit/deathmatch_loadout/murderdrome/freek,
+		/datum/outfit/deathmatch_loadout/murderdrome/mad_maxwell,
+		/datum/outfit/deathmatch_loadout/murderdrome/lord_hughmongos,
+		/datum/outfit/deathmatch_loadout/murderdrome/rock_it,
+	)
+	map_name = "murderdrome"
+	key = "murderdrome"

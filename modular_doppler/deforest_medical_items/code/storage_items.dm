@@ -155,7 +155,7 @@
 		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1,
 		/obj/item/stack/medical/ointment = 1,
-		/obj/item/stack/medical/suture = 1,
+		/obj/item/stack/medical/bruise_pack = 1,
 		/obj/item/stack/medical/suture/coagulant = 1,
 		/obj/item/stack/medical/gauze/sterilized = 1,
 		/obj/item/storage/pill_bottle/painkiller = 1,

@@ -36,3 +36,16 @@
 	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
 	crate_name = "Finest Tajaran Imports"
 	crate_type = /obj/structure/closet/crate/wooden
+
+/datum/supply_pack/imports/motorcycle
+	name = "Racing Motorcycle"
+	desc = "A classic streetbike that's racetrack ready. Ride Smart! Wear a helmet!"
+	cost = CARGO_CRATE_VALUE * 6
+	contains = list(
+		/obj/vehicle/ridden/motorcycle,
+		/obj/item/clothing/suit/jacket/leather/biker,
+		/obj/item/clothing/glasses/hud/ar/aviator,
+	)
+	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
+	crate_name = "Triumphant 900cc Streetbike"
+	crate_type = /obj/structure/closet/crate/large

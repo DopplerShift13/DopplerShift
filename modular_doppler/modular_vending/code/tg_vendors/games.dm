@@ -5,6 +5,16 @@
 			"icon" = "hat-wizard",
 			"products" = list(
 				/obj/item/storage/briefcase/secure/wargame_kit = 3,
+				/obj/item/fidget_toy/chewy = 5,
+				/obj/item/fidget_toy/chewy/dog_tag = 5,
+				/obj/item/fidget_toy/chewy/chewybear = 5,
+				/obj/item/fidget_toy/chewy/bone = 5,
+				/obj/item/fidget_toy/chewy/builderbrick = 5,
+				/obj/item/fidget_toy/chewy/raver_chewtoy = 5,
+				/obj/item/fidget_toy/poppable = 5,
+				/obj/item/fidget_toy/poppable/phanic = 5,
+				/obj/item/fidget_toy/poppable/apple = 5,
+				/obj/item/fidget_toy/fidget_spinner = 5,
 			),
 		),
 		list(
@@ -31,6 +41,13 @@
 			"products" = list(
 				/obj/item/skillchip/booze_thrower = 2,
 			),
+		),
+		list(
+			"name" = "Other",
+			"icon" = "star",
+			"products" = list(
+				/obj/item/chair/beanbag = 10,
+			)
 		)
 	)
 	premium_doppler = list(

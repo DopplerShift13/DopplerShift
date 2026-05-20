@@ -475,7 +475,7 @@
 	fleece that this was sewn from. They laid the stitching down with some Union Special coverlocks from the 22nd \
 	century. Don't ask why that matters, just know that it costs a lot of money to look this normal."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/technyne_sweatshirt"
+	icon_state = "/obj/item/clothing/suit/jacket/doppler/technyne_sweatshirt"
 	post_init_icon_state = "tech_sweatshirt"
 	greyscale_config = /datum/greyscale_config/technyne_sweatshirt
 	greyscale_config_worn = /datum/greyscale_config/technyne_sweatshirt/worn

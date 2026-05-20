@@ -44,7 +44,7 @@
 	species_holder.physiology.burn_mod *= HOLOSYNTH_BURNMULT
 	species_holder.max_grab = GRAB_PASSIVE //you're like, only half solid yk
 
-	species_holder.AddComponent(/datum/component/glass_passer/holosynth, pass_time = 1 SECONDS, deform_glass = 0.5 SECONDS)
+	species_holder.AddComponent(/datum/component/glass_passer/holosynth, pass_time = 2.5 SECONDS, deform_glass = 0.5 SECONDS)
 	species_holder.AddComponent(/datum/component/holographic_nature)
 	species_holder.AddComponent(/datum/component/holosynth_effects)
 
@@ -142,6 +142,7 @@
 	name = "Holosynth (Species Preview)"
 
 /datum/species/android/holosynth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	turn_off_every_species_feature(human_for_preview)
 	human_for_preview.set_haircolor("#CCECFF", update = FALSE)
 	human_for_preview.set_hairstyle("Mia", update = TRUE)
 	human_for_preview.eye_color_left = "#66CCFF"

@@ -1,76 +1,76 @@
 
 // Add the selector to ALL THE TAILS!
-/datum/preference/choiced/lizard_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/lizard_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/tail_felinid/compile_constant_data()
+/datum/preference/choiced/species_feature/tail_felinid/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/monkey_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/monkey_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/dog_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/dog_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/fox_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/fox_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/bunny_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/bunny_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/mouse_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/mouse_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/bird_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/bird_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/deer_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/deer_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/fish_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/fish_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/bug_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/bug_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/synth_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/synth_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/humanoid_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/humanoid_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/alien_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/alien_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data
 
-/datum/preference/choiced/teshari_tail/compile_constant_data()
+/datum/preference/choiced/species_feature/teshari_tail/compile_constant_data()
 	var/list/data = ..()
 	data[SUPPLEMENTAL_FEATURE_KEY] = /datum/preference/tri_color/tail_color::savefile_key
 	return data

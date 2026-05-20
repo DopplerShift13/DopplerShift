@@ -1,0 +1,42 @@
+{
+	"raver_chewtoy": [
+		{
+			"type": "icon_state",
+			"icon_state": "raver_chewtoy",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "raver_chewtoy2",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "raver_chewtoy3",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"raver_chewtoy_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "raver_chewtoy_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "raver_chewtoy2_t",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "raver_chewtoy3_t",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}
