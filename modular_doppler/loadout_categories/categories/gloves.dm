@@ -158,6 +158,57 @@
 	item_path = /obj/item/clothing/gloves/color/rainbow
 
 /**
+ * ENVIROGLOVES
+ */
+/datum/loadout_item/gloves/envirogloves
+	group = "Envirogloves"
+	abstract_type = /datum/loadout_item/gloves/envirogloves
+
+/datum/loadout_item/gloves/envirogloves/black
+	name = "Black Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/black
+
+/datum/loadout_item/gloves/envirogloves/white
+	name = "White Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/white
+
+/datum/loadout_item/gloves/envirogloves/nitrile
+	name = "Nitrile Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/plasmanitrile
+
+/datum/loadout_item/gloves/envirogloves/red
+	name = "Red Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/robot
+
+/datum/loadout_item/gloves/envirogloves/orange
+	name = "Orange Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/engineer
+
+/datum/loadout_item/gloves/envirogloves/blue
+	name = "Blue Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/atmos
+
+/datum/loadout_item/gloves/envirogloves/tan
+	name = "Tan Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/cargo
+
+/datum/loadout_item/gloves/envirogloves/explorer
+	name = "Explorer Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/explorer
+
+/datum/loadout_item/gloves/envirogloves/purple
+	name = "Purple Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/janny
+
+/datum/loadout_item/gloves/envirogloves/teal
+	name = "Teal Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/centcom_official
+
+/datum/loadout_item/gloves/envirogloves/green
+	name = "Green Envirogloves"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/centcom_commander
+
+/**
  * MISCELLANEOUS
  */
 /datum/loadout_item/gloves/misc

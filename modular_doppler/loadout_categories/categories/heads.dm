@@ -327,6 +327,46 @@
 	name = "Hard Hat (Red)"
 	item_path = /obj/item/clothing/head/utility/hardhat/red
 
+/datum/loadout_item/head/helmets/white_enviro
+	name = "Phorid Envirosuit Helmet (Science)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/white
+
+/datum/loadout_item/head/helmets/mining_enviro
+	name = "Phorid Envirosuit Helmet (Cargo, Mining)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/mining
+
+/datum/loadout_item/head/helmets/bitrunner_enviro
+	name = "Phorid Envirosuit Helmet (Cargo, Bitrunner)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/bitrunner
+
+/datum/loadout_item/head/helmets/cargo_enviro
+	name = "Phorid Envirosuit Helmet (Cargo)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/cargo
+
+/datum/loadout_item/head/helmets/chaplain_enviro
+	name = "Phorid Envirosuit Helmet (Service, Chaplain)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/chaplain
+
+/datum/loadout_item/head/helmets/med_enviro
+	name = "Phorid Envirosuit Helmet (Medical)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/medical
+
+/datum/loadout_item/head/helmets/coroner_enviro
+	name = "Phorid Envirosuit Helmet (Medical, Coroner)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/coroner
+
+/datum/loadout_item/head/helmets/paramed_enviro
+	name = "Phorid Envirosuit Helmet (Medical, Paramedic)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/paramedic
+
+/datum/loadout_item/head/helmets/chemist_enviro
+	name = "Phorid Envirosuit Helmet (Medical, Chemistry)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/chemist
+
+/datum/loadout_item/head/helmets/robotics_enviro
+	name = "Phorid Envirosuit Helmet (Science, Robotics)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/robotics
+
 /**
  * HAIR ACCESSORIES
  */
