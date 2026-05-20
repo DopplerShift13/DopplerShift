@@ -446,7 +446,7 @@ GLOBAL_LIST_INIT(achievements_unlocked, list())
 	GLOB.survivor_report = survivor_report(popcount)
 	log_roundend_report()
 	for(var/client/C in GLOB.clients)
-		show_roundend_report(C)
+	//	show_roundend_report(C) DOPPLER REMOVAL, roundend revamp - the button is sufficient
 		give_show_report_button(C)
 		CHECK_TICK
 
