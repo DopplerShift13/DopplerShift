@@ -5,19 +5,23 @@
 	desc = "A web of pockets hung across your chest for storing various murder implements."
 	icon_state = "militarywebbing2"
 	worn_icon_state = "militarywebbing2"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "militarywebbing2",
-			RESKIN_WORN_ICON_STATE = "militarywebbing2"
-		),
-		"Evil" = list(
-			RESKIN_ICON_STATE = "evilwebbing",
-			RESKIN_WORN_ICON_STATE = "evilwebbing"
-		)
-	)
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
+
+/obj/item/storage/belt/military/pouches/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/webbing)
+
+/datum/atom_skin/webbing
+	abstract_type = /datum/atom_skin/webbing
+
+/datum/atom_skin/webbing/regular
+	preview_name = "Regular"
+	new_icon_state = "militarywebbing2"
+
+/datum/atom_skin/webbing/evil
+	preview_name = "Evil"
+	new_icon_state = "evilwebbing"
 
 //preloaded variant for a security loadout package
 /obj/item/storage/belt/military/pouches/security_gunner_package
