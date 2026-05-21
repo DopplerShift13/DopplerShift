@@ -255,13 +255,13 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
 	name = "sec blindfold HUD"
-	desc = "A fake blindfold with a security HUD inside, helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
+	desc = "A fake blindfold with a security HUD inside. Helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
 	icon_state =  "secfold"
 	base_icon_state =  "secfold"
 
 /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
 	name = "medical blindfold HUD"
-	desc = "A fake blindfold with a medical HUD inside, great for helping keep a poker face when dealing with patients."
+	desc = "A fake blindfold with a medical HUD inside. Great for helping keep a poker face when dealing with patients."
 	icon_state =  "medfold"
 	base_icon_state =  "medfold"
 
@@ -273,13 +273,13 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
 	name = "diagnostic blindfold HUD"
-	desc = "A fake blindfold with a diagnostic HUD inside, excellent for working on androids."
+	desc = "A fake blindfold with a diagnostic HUD inside. Excellent for working on androids."
 	icon_state =  "robofold"
 	base_icon_state =  "robofold"
 
 /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
 	name = "science blindfold HUD"
-	desc = "A fake blindfold with a science HUD inside, provides a way to get used to blindfolds before you eventually end up needing the real thing."
+	desc = "A fake blindfold with a science HUD inside. Provides a way to get used to blindfolds before you eventually end up needing the real thing."
 	icon_state =  "scifold"
 	base_icon_state =  "scifold"
 
@@ -576,7 +576,7 @@
 
 /datum/crafting_recipe/defaultprescriptaviatorsremoval
 	name = "Aviators prescription removal"
-	result = /obj/item/clothing/glasses/hud/ar/aviator/
+	result = /obj/item/clothing/glasses/hud/ar/aviator
 	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/prescription = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
