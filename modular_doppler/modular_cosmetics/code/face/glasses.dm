@@ -627,9 +627,9 @@
 
 /datum/crafting_recipe/sciprescriptaviatorsremoval
 	name = "Prescription Science HUD Aviators HUD"
-	result = /item/clothing/glasses/hud/ar/aviator/science/prescription
+	result = /obj/item/clothing/glasses/hud/ar/aviator/science/prescription
 	time = 2 SECONDS
-	reqs = list(/item/clothing/glasses/hud/ar/aviator/science = 1, /obj/item/clothing/glasses/regular = 1, /obj/item/stack/cable_coil = 5)
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/science = 1, /obj/item/clothing/glasses/regular = 1, /obj/item/stack/cable_coil = 5)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	category = CAT_EQUIPMENT
 
@@ -637,7 +637,7 @@
 	name = "Prescription Science HUD Aviators HUD removal"
 	result = /obj/item/clothing/glasses/regular
 	time = 2 SECONDS
-	reqs = list(/item/clothing/glasses/hud/ar/aviator/science/prescription = 1)
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/science/prescription = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	category = CAT_EQUIPMENT
 //Prescription Aviators End//
