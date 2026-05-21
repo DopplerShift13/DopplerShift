@@ -112,6 +112,26 @@
 	name = "Aviators (Science)"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 
+/datum/loadout_item/glasses/hud/aviator_meson/prescription
+	name = "Prescription Aviators (Meson)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
+
+/datum/loadout_item/glasses/hud/aviator_health/prescription
+	name = "Prescription Aviators (Medical)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
+
+/datum/loadout_item/glasses/hud/aviator_security/prescription
+	name = "Prescription Aviators (Security)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
+
+/datum/loadout_item/glasses/hud/aviator_diagnostic/prescription
+	name = "Prescription Aviators (Diagnostics)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
+
+/datum/loadout_item/glasses/hud/aviator_science/prescription
+	name = "Prescription Aviators (Science)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science/prescription
+
 /datum/loadout_item/glasses/hud/hud_eyepatch_meson
 	name = "HUD Eyepatch (Meson)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
