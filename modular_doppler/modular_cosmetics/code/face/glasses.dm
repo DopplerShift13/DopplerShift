@@ -572,7 +572,7 @@
 	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/ = 1, /obj/item/clothing/glasses/regular = 1) //No cable coil requirement since we're not adding a hud
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_EQUIPMENT
+	category = CAT_CLOTHING //these are the only version that isn't in the equipment category because of no hud too
 
 /datum/crafting_recipe/defaultprescriptaviatorsremoval
 	name = "Aviators prescription removal"
@@ -580,7 +580,7 @@
 	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/prescription = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_EQUIPMENT
+	category = CAT_CLOTHING
 
 /datum/crafting_recipe/secprescriptaviators
 	name = "Prescription Security HUD Aviators"
