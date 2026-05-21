@@ -323,6 +323,9 @@
 	clothing_traits = null
 	. = ..()
 	clothing_traits = traits
+	// Reapply corrective traits even when off
+	if(TRAIT_NEARSIGHTED_CORRECTED in traits)
+		ADD_CLOTHING_TRAIT(user, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/proc/toggle_mode(mob/user, voluntary)
 
@@ -387,8 +390,6 @@
 	if(!ishuman(user) || human.glasses != src) // Make sure they're a human wearing the glasses first
 		return
 	for(var/trait in clothing_traits)
-		if(trait == TRAIT_NEARSIGHTED_CORRECTED) // this isn't a HUD!
-			continue
 		REMOVE_CLOTHING_TRAIT(human, trait)
 
 /obj/item/clothing/glasses/hud/ar/proc/reset_vars()
