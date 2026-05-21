@@ -112,6 +112,10 @@
 	name = "Aviators (Science)"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 
+/datum/loadout_item/glasses/hud/ar/aviator/prescription
+	name = "Prescription Aviators (None)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/prescription
+
 /datum/loadout_item/glasses/hud/aviator_meson/prescription
 	name = "Prescription Aviators (Meson)"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription

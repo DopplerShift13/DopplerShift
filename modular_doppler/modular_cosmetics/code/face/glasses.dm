@@ -390,6 +390,8 @@
 	if(!ishuman(user) || human.glasses != src) // Make sure they're a human wearing the glasses first
 		return
 	for(var/trait in clothing_traits)
+		if(trait == TRAIT_NEARSIGHTED_CORRECTED) // this isn't a HUD!
+			continue
 		REMOVE_CLOTHING_TRAIT(human, trait)
 
 /obj/item/clothing/glasses/hud/ar/proc/reset_vars()
@@ -493,6 +495,11 @@
 /datum/armor/aviator_science
 	fire = 80
 	acid = 100
+
+/obj/item/clothing/glasses/hud/ar/aviator/prescription
+	name = "prescription aviators"
+	desc = "A pair of designer sunglasses with electrochromatic darkening lenses that also help correct eye sight! Sweet!"
+	clothing_traits = list(TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
 	name = "prescription security HUD aviators"
