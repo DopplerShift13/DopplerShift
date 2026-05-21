@@ -16,7 +16,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 	. = ..()
 	if(mapload)
 		hidden_item = new /obj/item/food/urinalcake(src)
-		find_and_hang_on_wall()
+		find_and_mount_on_atom()
 
 /obj/structure/urinal/Exited(atom/movable/gone, direction)
 	. = ..()
@@ -36,8 +36,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/urinal, 32)
 				return
 			user.changeNext_move(CLICK_CD_MELEE)
 			user.visible_message(span_danger("[user] slams [grabbed_mob] into [src]!"), span_danger("You slam [grabbed_mob] into [src]!"))
-			grabbed_mob.painful_scream() // DOPPLER EDIT: check for painkilling before screaming
-			grabbed_mob.adjustBruteLoss(8)
+			grabbed_mob.painful_scream() // DOPPLER EDIT - Check painkiller for screaming - ORIGINAL: grabbed_mob.emote("scream")
+			grabbed_mob.adjust_brute_loss(8)
 		else
 			to_chat(user, span_warning("You need a tighter grip!"))
 		return

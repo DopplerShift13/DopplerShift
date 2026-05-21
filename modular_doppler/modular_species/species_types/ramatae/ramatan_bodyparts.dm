@@ -2,7 +2,6 @@
 	icon_greyscale = 'modular_doppler/modular_species/species_types/ramatae/icons/bodyparts.dmi'
 	limb_id = SPECIES_RAMATAN
 	is_dimorphic = FALSE
-	eyes_icon = 'modular_doppler/modular_species/species_types/ramatae/icons/ramatan_eyes.dmi'
 	biological_state = (BIO_FLESH|BIO_BLOODED)
 
 /obj/item/bodypart/chest/ramatan

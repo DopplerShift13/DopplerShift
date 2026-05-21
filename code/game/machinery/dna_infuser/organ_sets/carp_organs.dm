@@ -89,16 +89,16 @@
 	head.unarmed_attack_effect = initial(head.unarmed_attack_effect)
 	head.unarmed_sharpness = initial(head.unarmed_sharpness)
 
-// DOPPLER REMOVAL START: carp infusion changes (don't cough up random carp teeth)
-/*/obj/item/organ/tongue/carp/on_life(seconds_per_tick, times_fired)
+/* DOPPLER REMOVAL START: carp infusion changes (don't cough up random carp teeth)
+/obj/item/organ/tongue/carp/on_life(seconds_per_tick)
 	. = ..()
 	if(owner.stat != CONSCIOUS || !prob(0.1))
 		return
 	owner.emote("cough")
 	var/turf/tooth_fairy = get_turf(owner)
 	if(tooth_fairy)
-		new /obj/item/knife/carp(tooth_fairy)*/
-// DOPPLER REMOVAL END
+		new /obj/item/knife/carp(tooth_fairy)
+*/ // DOPPLER REMOVAL END
 
 /obj/item/organ/tongue/carp/get_possible_languages()
 	. = ..()
@@ -121,6 +121,7 @@
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = CARP_COLORS
 	can_smoothen_out = FALSE
+	shade_color = "blue"
 
 	///Timer counting down. When finished, the owner gets a bad moodlet.
 	var/cooldown_timer

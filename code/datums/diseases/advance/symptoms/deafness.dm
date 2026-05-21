@@ -55,8 +55,8 @@
 				if(!HAS_TRAIT_FROM(infected_mob, TRAIT_DEAF, DISEASE_TRAIT))
 					to_chat(infected_mob, span_userdanger("Your ears pop painfully and start bleeding!"))
 					// Just absolutely murder me man
-					infected_mob.adjustOrganLoss(ORGAN_SLOT_EARS, INFINITY)
-					infected_mob.painful_scream() // DOPPLER EDIT: check for painkilling before screaming
+					infected_mob.adjust_organ_loss(ORGAN_SLOT_EARS, INFINITY)
+					infected_mob.painful_scream() // DOPPLER EDIT - Screams check pain - ORIGINAL: infected_mob.emote("scream")
 					ADD_TRAIT(infected_mob, TRAIT_DEAF, DISEASE_TRAIT)
 			else
 				to_chat(infected_mob, span_userdanger("Your ears pop and begin ringing loudly!"))

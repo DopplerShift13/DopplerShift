@@ -1,8 +1,10 @@
 /obj/item/organ/eyes/bug
 	blink_animation = FALSE
+	eye_icon = 'modular_doppler/modular_species/species_types/insectoid/icons/eyes.dmi'
 
 /obj/item/organ/eyes/ramatan
 	blink_animation = FALSE
+	eye_icon = 'modular_doppler/modular_species/species_types/ramatae/icons/ramatan_eyes.dmi'
 
 /obj/item/organ/eyes/pod
 	eye_color_left = null

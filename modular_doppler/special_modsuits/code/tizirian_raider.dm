@@ -40,9 +40,9 @@
 	complexity_max = DEFAULT_MAX_COMPLEXITY - 3 // 12
 	activation_step_time = MOD_ACTIVATION_STEP_TIME * 0.5
 	slot_flags = ITEM_SLOT_BELT
+	hearing_protection = EAR_PROTECTION_NORMAL
 	inbuilt_modules = list(
 		/obj/item/mod/module/storage/belt,
-		/obj/item/mod/module/hearing_protection,
 		/obj/item/mod/module/night,
 		/obj/item/mod/module/welding/no_overlay,
 		/obj/item/mod/module/insignia/raider,

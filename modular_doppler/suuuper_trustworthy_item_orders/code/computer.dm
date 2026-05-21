@@ -67,7 +67,7 @@
 
 /datum/supply_pack/custom_grey
 	name = "supply order"
-	hidden = TRUE
+	order_flags = ORDER_INVISIBLE
 	crate_name = "supply delivery crate"
 	/// Types of crates we can spawn as
 	var/random_crate_types = list(

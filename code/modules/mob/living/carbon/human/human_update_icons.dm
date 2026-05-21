@@ -323,11 +323,9 @@ There are several things that need to be remembered:
 
 		var/icon_file = 'icons/mob/clothing/neck.dmi'
 
+		var/mutable_appearance/neck_overlay = worn_item.build_worn_icon(default_layer = NECK_LAYER, default_icon_file = icon_file)
 		var/obj/item/bodypart/chest/my_chest = get_bodypart(BODY_ZONE_CHEST)
-		var/mutable_appearance/neck_overlay = get_updated_worn_icon(wear_neck, NECK_LAYER, OFFSET_NECK, icon_file, my_chest?.worn_neck_offset) /// DOPPLER EDIT - WAS wear_suit.build_worn_icon(default_layer = BACK_LAYER, default_icon_file = icon_file, override_file = autogen_override ? icon_file : null, humie = src)
-		//var/obj/item/bodypart/chest/my_head = get_bodypart(BODY_ZONE_HEAD) // Doppler edit removal - Moved up
-		//my_chest?.worn_suit_offset?.apply_offset(head_overlay) // DOPPLER EDIT REMOVAL - Moved into get_updated_worn_icon
-
+		my_chest?.worn_neck_offset?.apply_offset(neck_overlay)
 		overlays_standing[NECK_LAYER] = neck_overlay
 
 	apply_overlay(NECK_LAYER)
@@ -1007,7 +1005,7 @@ generate/load female uniform sprites matching all previously decided variables
 
 /mob/living/carbon/human/proc/update_underwear()
 	remove_overlay(BODY_LAYER)
-	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN))
+	if(HAS_TRAIT(src, TRAIT_HUSK) || HAS_TRAIT(src, TRAIT_INVISIBLE_MAN) || HAS_TRAIT(src, TRAIT_NO_UNDERWEAR))
 		return
 	// Underwear, Undershirts & Socks
 	var/list/standing = list()

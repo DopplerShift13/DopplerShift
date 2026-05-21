@@ -9,14 +9,37 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/rev6mm
 	initial_caliber = CALIBER_6MMGIBRALTAR
 	initial_fire_sound = 'modular_doppler/modular_weapons/sounds/pistol_heavy.ogg'
-	unique_reskin = list(
-		"Classic" = "det",
-		"Modern" = "det_modern",
-		"Polished" = "det_steel",
-		"Polished Modern" = "det_modern_steel",
-		"Signal" = "det_signal", // erm uhh
-		"Gold" = "det_gold",
-	)
+
+/obj/item/gun/ballistic/revolver/c38/detective/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/javiro)
+
+/datum/atom_skin/javiro
+	abstract_type = /datum/atom_skin/javiro
+
+/datum/atom_skin/javiro/classic
+	preview_name = "Classic"
+	new_icon_state = "det"
+
+/datum/atom_skin/javiro/modern
+	preview_name = "Modern"
+	new_icon_state = "det_modern"
+
+/datum/atom_skin/javiro/steel
+	preview_name = "Polished"
+	new_icon_state = "det_steel"
+
+/datum/atom_skin/javiro/modern_steel
+	preview_name = "Polished Modern"
+	new_icon_state = "det_modern_steel"
+
+/datum/atom_skin/javiro/signal
+	preview_name = "Signal"
+	new_icon_state = "det_signal"
+
+/datum/atom_skin/javiro/gold
+	preview_name = "Gold"
+	new_icon_state = "det_gold"
 
 /obj/item/ammo_box/magazine/internal/cylinder/rev6mm
 	name = "detective revolver cylinder"

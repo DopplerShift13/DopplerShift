@@ -40,49 +40,63 @@
 
 /obj/item/clothing/glasses/hud/security/sunglasses
 	glass_colour_type = /datum/client_colour/glass_colour/red
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "sunhudsec",
-			RESKIN_WORN_ICON_STATE = "sunhudsec"
-		),
-		"Viper" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi',
-			RESKIN_ICON_STATE = "viperhudsec",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
-			RESKIN_WORN_ICON_STATE = "viperhudsec"
-		)
-	)
+
+/obj/item/clothing/glasses/hud/security/sunglasses/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/sec_sunglasses)
+
+/datum/atom_skin/doppler/sec_sunglasses
+	abstract_type = /datum/atom_skin/doppler/sec_sunglasses
+
+/datum/atom_skin/doppler/sec_sunglasses/regular
+	preview_name = "Regular"
+	new_icon_state = "sunhudsec"
+
+/datum/atom_skin/doppler/sec_sunglasses/viper
+	preview_name = "Viper"
+	new_icon_state = "viperhudsec"
+	new_icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
+	new_worn_file = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 
 /obj/item/clothing/glasses/night
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "glasses",
-			RESKIN_WORN_ICON_STATE = "night"
-		),
-		"Wetwork" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi',
-			RESKIN_ICON_STATE = "nvg",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
-			RESKIN_WORN_ICON_STATE = "nvg"
-		)
-	)
+
+/obj/item/clothing/glasses/night/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/nvg)
+
+/datum/atom_skin/doppler/nvg
+	abstract_type = /datum/atom_skin/doppler/nvg
+
+/datum/atom_skin/doppler/nvg/regular
+	preview_name = "Regular"
+	new_icon_state = "glasses"
+	new_worn_icon_state = "night"
+
+/datum/atom_skin/doppler/nvg/larp
+	preview_name = "Wetwork"
+	new_icon_state = "nvg"
+	new_icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
+	new_worn_file = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 
 /obj/item/clothing/glasses/hud/security/night
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "securityhudnight",
-			RESKIN_WORN_ICON_STATE = "securityhudnight"
-		),
-		"Wetwork" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi',
-			RESKIN_ICON_STATE = "nvghudsec",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
-			RESKIN_WORN_ICON_STATE = "nvgsechud"
-		)
-	)
+
+/obj/item/clothing/glasses/hud/security/night/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/nvg_sec)
+
+/datum/atom_skin/doppler/nvg_sec
+	abstract_type = /datum/atom_skin/doppler/nvg
+
+/datum/atom_skin/doppler/nvg_sec/regular
+	preview_name = "Regular"
+	new_icon_state = "securityhudnight"
+
+/datum/atom_skin/doppler/nvg_sec/larp
+	preview_name = "Wetwork"
+	new_icon_state = "nvghudsec"
+	new_icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
+	new_worn_icon_state = "nvgsechud"
+	new_worn_file = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch
 	name = "HUD eyepatch"
@@ -97,7 +111,6 @@
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
 	inhand_icon_state = "sunhudmed"
-	uses_advanced_reskins = TRUE
 	actions_types = list(/datum/action/item_action/flip)
 	var/flipped = FALSE
 
@@ -153,16 +166,21 @@
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "hudpatch",
-			RESKIN_WORN_ICON_STATE = "hudpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "secfold",
-			RESKIN_WORN_ICON_STATE = "secfold"
-		)
-	)
+/obj/item/clothing/glasses/hud/eyepatch/sec/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/eyepatch_sec)
+
+/datum/atom_skin/doppler/eyepatch_sec
+	abstract_type = /datum/atom_skin/doppler/eyepatch_sec
+
+/datum/atom_skin/doppler/eyepatch_sec/eyepatch
+	preview_name = "Eyepatch"
+	new_icon_state = "hudpatch"
+
+/datum/atom_skin/doppler/eyepatch_sec/blindfold
+	preview_name = "Fake Blindfold"
+	new_icon_state = "secfold"
+
 /obj/item/clothing/glasses/hud/eyepatch/med
 	name = "medical HUD eyepatch"
 	desc = "As the saying goes, 'Do no harm.' But, maybe harm has befallen you— or your poor eyeball. Fortunately there's a way to continue your oath, and it's thankfully not a strange experimental surgery."
@@ -171,16 +189,20 @@
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "medpatch",
-			RESKIN_WORN_ICON_STATE = "medpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "medfold",
-			RESKIN_WORN_ICON_STATE = "medfold"
-		)
-	)
+/obj/item/clothing/glasses/hud/eyepatch/med/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/eyepatch_med)
+
+/datum/atom_skin/doppler/eyepatch_med
+	abstract_type = /datum/atom_skin/doppler/eyepatch_med
+
+/datum/atom_skin/doppler/eyepatch_med/eyepatch
+	preview_name = "Eyepatch"
+	new_icon_state = "medpatch"
+
+/datum/atom_skin/doppler/eyepatch_med/blindfold
+	preview_name = "Fake Blindfold"
+	new_icon_state = "medfold"
 
 /obj/item/clothing/glasses/hud/eyepatch/meson
 	name = "mesons HUD eyepatch"
@@ -193,16 +215,20 @@
 	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "mesonpatch",
-			RESKIN_WORN_ICON_STATE = "mesonpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "mesonfold",
-			RESKIN_WORN_ICON_STATE = "mesonfold"
-		)
-	)
+/obj/item/clothing/glasses/hud/eyepatch/meson/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/eyepatch_meson)
+
+/datum/atom_skin/doppler/eyepatch_meson
+	abstract_type = /datum/atom_skin/doppler/eyepatch_meson
+
+/datum/atom_skin/doppler/eyepatch_meson/eyepatch
+	preview_name = "Eyepatch"
+	new_icon_state = "mesonpatch"
+
+/datum/atom_skin/doppler/eyepatch_meson/blindfold
+	preview_name = "Fake Blindfold"
+	new_icon_state = "mesonfold"
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic
 	name = "diagnostic HUD eyepatch"
@@ -212,16 +238,20 @@
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "robopatch",
-			RESKIN_WORN_ICON_STATE = "robopatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "robofold",
-			RESKIN_WORN_ICON_STATE = "robofold"
-		)
-	)
+/obj/item/clothing/glasses/hud/eyepatch/diagnostic/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/eyepatch_robo)
+
+/datum/atom_skin/doppler/eyepatch_robo
+	abstract_type = /datum/atom_skin/doppler/eyepatch_robo
+
+/datum/atom_skin/doppler/eyepatch_robo/eyepatch
+	preview_name = "Eyepatch"
+	new_icon_state = "robopatch"
+
+/datum/atom_skin/doppler/eyepatch_robo/blindfold
+	preview_name = "Fake Blindfold"
+	new_icon_state = "robofold"
 
 /obj/item/clothing/glasses/hud/eyepatch/sci
 	name = "science HUD eyepatch"
@@ -230,17 +260,20 @@
 	base_icon_state = "scipatch"
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "scipatch",
-			RESKIN_WORN_ICON_STATE = "scipatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "scifold",
-			RESKIN_WORN_ICON_STATE = "scifold"
-		)
-	)
+/obj/item/clothing/glasses/hud/eyepatch/sci/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/eyepatch_sci)
 
+/datum/atom_skin/doppler/eyepatch_sci
+	abstract_type = /datum/atom_skin/doppler/eyepatch_sci
+
+/datum/atom_skin/doppler/eyepatch_sci/eyepatch
+	preview_name = "Eyepatch"
+	new_icon_state = "scipatch"
+
+/datum/atom_skin/doppler/eyepatch_sci/blindfold
+	preview_name = "Fake Blindfold"
+	new_icon_state = "scifold"
 
 /// BLINDFOLD HUDS ///
 /obj/item/clothing/glasses/trickblindfold/obsolete

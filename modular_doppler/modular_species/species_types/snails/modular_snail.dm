@@ -24,79 +24,91 @@
 	/// Whether or not a bluespace anomaly core has been inserted
 	var/storage_core = FALSE
 	alternate_worn_layer = ABOVE_BODY_FRONT_LAYER //This makes them layer over tails like the cult backpack; some tails really shouldn't appear over them!
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Conical Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "coneshell",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "coneshell"
-		),
-		"Round Shell" = list(
-			RESKIN_ICON = 'icons/obj/storage/backpack.dmi',
-			RESKIN_ICON_STATE = "snailshell",
-			RESKIN_WORN_ICON = 'icons/mob/clothing/back/backpack.dmi',
-			RESKIN_WORN_ICON_STATE = "snailshell"
-		),
-		"Cinnamon Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "cinnamonshell",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "cinnamonshell"
-		),
-		"Caramel Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "caramelshell",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "caramelshell"
-		),
-		"Metal Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "mechashell",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "mechashell"
-		),
-		"Pyramid Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "pyramidshell",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "pyramidshell"
-		),
-		"Ivory Pyramid Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "pyramidshellwhite",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "pyramidshellwhite"
-		),
-		"Spiral Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "spiralshell",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "spiralshell"
-		),
-		"Ivory Spiral Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "spiralshellwhite",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "spiralshellwhite"
-		),
-		"Rocky Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "rockshell",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "rockshell"
-		),
-		"Ivory Rocky Shell" = list(
-			RESKIN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi',
-			RESKIN_ICON_STATE = "rockshellwhite",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi',
-			RESKIN_WORN_ICON_STATE = "rockshellwhite"
-		),
-	)
 
 /obj/item/storage/backpack/snail/Initialize(mapload)
 	. = ..()
 	atom_storage.max_total_storage = 30
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/snailbag)
+
+/datum/atom_skin/doppler/snailbag
+	abstract_type = /datum/atom_skin/doppler/snailbag
+
+/datum/atom_skin/doppler/snailbag/conical
+	preview_name = "Conical Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "coneshell"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "coneshell"
+
+/datum/atom_skin/doppler/snailbag/round
+	preview_name = "Round Shell"
+	new_icon = 'icons/obj/storage/backpack.dmi'
+	new_icon_state = "snailshell"
+	new_worn_file = 'icons/mob/clothing/back/backpack.dmi'
+	new_worn_icon_state = "snailshell"
+
+/datum/atom_skin/doppler/snailbag/cinnamon
+	preview_name = "Cinnamon Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "cinnamonshell"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "cinnamonshell"
+
+/datum/atom_skin/doppler/snailbag/caramel
+	preview_name = "Caramel Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "caramelshell"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "caramelshell"
+
+/datum/atom_skin/doppler/snailbag/metal
+	preview_name = "Metal Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "mechashell"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "mechashell"
+
+/datum/atom_skin/doppler/snailbag/pyramid
+	preview_name = "Pyramid Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "pyramidshell"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "pyramidshell"
+
+/datum/atom_skin/doppler/snailbag/ivory_pyramid
+	preview_name = "Ivory Pyramid Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "pyramidshellwhite"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "pyramidshellwhite"
+
+/datum/atom_skin/doppler/snailbag/spiral
+	preview_name = "Spiral Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "spiralshell"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "spiralshell"
+
+/datum/atom_skin/doppler/snailbag/ivory_spiral
+	preview_name = "Ivory Spiral Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "spiralshellwhite"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "spiralshellwhite"
+
+/datum/atom_skin/doppler/snailbag/rocky
+	preview_name = "Rocky Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "rockshell"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "rockshell"
+
+/datum/atom_skin/doppler/snailbag/ivory_rocky
+	preview_name = "Ivory Rocky Shell"
+	new_icon = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_obj.dmi'
+	new_icon_state = "rockshellwhite"
+	new_worn_file = 'modular_doppler/modular_species/species_types/snails/icons/shell/shell_mob.dmi'
+	new_worn_icon_state = "rockshellwhite"
 
 /obj/item/storage/backpack/snail/build_worn_icon(
 	default_layer = 0,

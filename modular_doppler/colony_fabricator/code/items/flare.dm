@@ -8,11 +8,10 @@
 	heat = 1200
 	light_color = LIGHT_COLOR_COPPER_OXIDE
 	light_power = 1.5
-	grind_results = list(
-		/datum/reagent/sulfur = 10,
-		/datum/reagent/copper = 10,
-	)
 	trash_type = /obj/item/trash/flare/copper
+
+/obj/item/flashlight/flare/copper/grind_results()
+	return list(/datum/reagent/sulfur = 10, /datum/reagent/copper = 10)
 
 /obj/item/trash/flare/copper
 	icon = 'modular_doppler/colony_fabricator/icons/items.dmi'
