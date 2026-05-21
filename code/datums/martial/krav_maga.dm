@@ -1,5 +1,5 @@
 /datum/martial_art/krav_maga
-	name = "Krav Maga"
+	name = "Kaza Ruk"
 	id = MARTIALART_KRAVMAGA
 	VAR_PRIVATE/datum/action/neck_chop/neckchop
 	VAR_PRIVATE/datum/action/leg_sweep/legsweep
@@ -222,8 +222,8 @@
 	AddComponent(/datum/component/martial_art_giver, /datum/martial_art/krav_maga)
 
 /obj/item/clothing/gloves/krav_maga/sec//more obviously named, given to sec
-	name = "krav maga gloves"
-	desc = "These gloves can teach you to perform Krav Maga using nanochips."
+	name = "kaza ruk gloves"
+	desc = "These gloves can teach you to perform kaza ruk using nanochips."
 	icon_state = "fightgloves"
 	greyscale_colors = "#c41e0d"
 	cold_protection = HANDS
@@ -234,7 +234,7 @@
 
 /obj/item/clothing/gloves/krav_maga/combatglovesplus
 	name = "combat gloves plus"
-	desc = "These tactical gloves are fireproof and electrically insulated, and through the use of nanochip technology will teach you the martial art of krav maga."
+	desc = "These tactical gloves are fireproof and electrically insulated, and through the use of nanochip technology will teach you the martial art of kaza ruk."
 	icon_state = "black"
 	greyscale_colors = "#2f2e31"
 	siemens_coefficient = 0
