@@ -255,13 +255,13 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
 	name = "sec blindfold HUD"
-	desc = "a fake blindfold with a security HUD inside, helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
+	desc = "A fake blindfold with a security HUD inside, helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
 	icon_state =  "secfold"
 	base_icon_state =  "secfold"
 
 /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
 	name = "medical blindfold HUD"
-	desc = "a fake blindfold with a medical HUD inside, great for helping keep a poker face when dealing with patients."
+	desc = "A fake blindfold with a medical HUD inside, great for helping keep a poker face when dealing with patients."
 	icon_state =  "medfold"
 	base_icon_state =  "medfold"
 
@@ -289,7 +289,7 @@
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	icon_state = "glasses_regular"
-	desc = "A heads-up display that provides important info in (almost) real time. These don't really seem to work"
+	desc = "A heads-up display that provides important info in (almost) real time. These don't really seem to work."
 	actions_types = list(/datum/action/item_action/toggle_mode)
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 	/// Defines sound to be played upon mode switching
@@ -498,27 +498,27 @@
 
 /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
 	name = "prescription security HUD aviators"
-	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting which. Has lenses that help correct eye sight."
+	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. The HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting and lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_SECURITY_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
 	name = "prescription medical HUD aviators"
-	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their health status. This HUD has been fitted inside of a pair of sunglasses which has lenses that help correct eye sight."
+	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their health status. The HUD has been fitted inside of a pair of sunglasses with lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_MEDICAL_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
 	name = "prescription meson HUD aviators"
-	desc = "A heads-up display used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting conditions. This HUD has been fitted inside of a pair of sunglasses which has lenses that help correct eye sight."
+	desc = "A heads-up display used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting conditions. The HUD has been fitted inside of a pair of sunglasses with lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_MADNESS_IMMUNE, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
 	name = "prescription diagnostic HUD aviators"
-	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. This HUD has been fitted inside of a pair of sunglasses which has lenses that help correct eye sight."
+	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. The HUD has been fitted inside of a pair of sunglasses with lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/science/prescription
-	name = "prescription science aviators"
-	desc = "A pair of tacky purple aviator sunglasses that allow the wearer to recognize various chemical compounds with only a glance, which has lenses that help correct eye sight."
+	name = "prescription science HUD aviators"
+	desc = "A pair of tacky purple aviator sunglasses that allow the wearer to recognize various chemical compounds with only a glance. The HUD has been fitted inside of a pair of sunglasses with lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER, TRAIT_NEARSIGHTED_CORRECTED)
 
 // Retinal projector
@@ -560,76 +560,167 @@
 	icon_state = "projector_sci"
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 
+//Prescription Aviators//
+/datum/crafting_recipe/secprescriptaviators
+	name = "Prescription Security HUD Aviators"
+	result = /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/security = 1, /obj/item/clothing/glasses/regular = 1, /obj/item/stack/cable_coil = 5)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/secprescriptaviatorsremoval
+	name = "Prescription Security HUD Aviators HUD removal"
+	result = /obj/item/clothing/glasses/regular
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/security/prescription = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/medprescriptaviators
+	name = "Prescription Medical HUD Aviators"
+	result = /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/health = 1, /obj/item/clothing/glasses/regular = 1, /obj/item/stack/cable_coil = 5)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/medprescriptaviatorsremoval
+	name = "Prescription Medical HUD Aviators HUD removal"
+	result = /obj/item/clothing/glasses/regular
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/health/prescription = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/mesonprescriptaviators
+	name = "Prescription Meson HUD Aviators"
+	result = /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/meson = 1, /obj/item/clothing/glasses/regular = 1, /obj/item/stack/cable_coil = 5)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/mesonprescriptaviatorsremoval
+	name = "Prescription Meson HUD Aviators HUD removal"
+	result = /obj/item/clothing/glasses/regular
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/meson/prescription = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/roboprescriptaviators
+	name = "Prescription Diagonostic HUD Aviators"
+	result = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/diagnostic = 1, /obj/item/clothing/glasses/regular = 1, /obj/item/stack/cable_coil = 5)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/roboprescriptaviatorsremoval
+	name = "Prescription Diagonostic HUD Aviators HUD removal"
+	result = /obj/item/clothing/glasses/regular
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/sciprescriptaviatorsremoval
+	name = "Prescription Science HUD Aviators HUD"
+	result = /item/clothing/glasses/hud/ar/aviator/science/prescription
+	time = 2 SECONDS
+	reqs = list(/item/clothing/glasses/hud/ar/aviator/science = 1, /obj/item/clothing/glasses/regular = 1, /obj/item/stack/cable_coil = 5)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/sciprescriptaviatorsremoval
+	name = "Prescription Science HUD Aviators HUD removal"
+	result = /obj/item/clothing/glasses/regular
+	time = 2 SECONDS
+	reqs = list(/item/clothing/glasses/hud/ar/aviator/science/prescription = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+//Prescription Aviators End//
+
 //Eyepatches//
 /datum/crafting_recipe/secpatch
-	name = "Security Eyepatch HUD"
+	name = "Security HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/sec
 	reqs = list(/obj/item/clothing/glasses/hud/security = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER) //Tools needed and requirements are kept the same as craftable HUD sunglasses//
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/secpatchremoval
-	name = "Security Eyepatch HUD removal"
+	name = "Security HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/sec = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/medpatch
-	name = "Medical Eyepatch HUD"
+	name = "Medical HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/med
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/health = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/medpatchremoval
-	name = "Medical Eyepatch HUD removal"
+	name = "Medical HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/med = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/mesonpatch
-	name = "Meson Eyepatch HUD"
+	name = "Meson HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/meson
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/meson = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/mesonpatchremoval
-	name = "Meson Eyepatch HUD removal"
+	name = "Meson HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/meson = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/robopatch
-	name = "Diagnostic Eyepatch HUD"
+	name = "Diagnostic HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/diagnostic
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/diagnostic = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/robopatchremoval
-	name = "Diagnostic Eyepatch HUD removal"
+	name = "Diagnostic HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/diagnostic = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/scipatch
-	name = "Science Eyepatch HUD"
+	name = "Science HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/sci
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/science = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/scipatchremoval
-	name = "Science Eyepatch HUD removal"
+	name = "Science HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/sci = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 //eyepatches end//
 
 //Regular Glasses
