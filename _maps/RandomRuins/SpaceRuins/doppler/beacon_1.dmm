@@ -2,8 +2,8 @@
 "a" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/teal,
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space)
 "p" = (
 /obj/machinery/spaceship_navigation_beacon{
 	pixel_y = 23;
@@ -39,11 +39,11 @@
 	gpstag = "NAV_BEACON_4CA"
 	},
 /turf/open/floor/plating/airless,
-/area/template_noop)
+/area/space)
 "Z" = (
 /obj/structure/lattice,
-/turf/template_noop,
-/area/template_noop)
+/turf/open/space/basic,
+/area/space)
 
 (1,1,1) = {"
 Z
