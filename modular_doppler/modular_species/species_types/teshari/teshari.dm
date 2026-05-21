@@ -59,6 +59,7 @@
 
 /obj/item/organ/eyes/teshari
 	blink_animation = FALSE
+	eye_icon = 'modular_doppler/modular_species/species_types/teshari/icons/teshari_eyes.dmi'
 
 /obj/item/organ/tongue/teshari
 	liked_foodtypes = RAW | MEAT | GORE

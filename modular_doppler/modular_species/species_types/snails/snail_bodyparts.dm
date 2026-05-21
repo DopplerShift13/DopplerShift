@@ -4,7 +4,6 @@
 	icon_greyscale = BODYPART_ICON_SNAIL
 	bodyshape = BODYSHAPE_HUMANOID
 	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_DEBRAIN
-	eyes_icon = 'modular_doppler/modular_species/species_types/snails/icons/organs/snail_eyes.dmi'
 
 /obj/item/bodypart/chest/snail
 	icon_greyscale = BODYPART_ICON_SNAIL
