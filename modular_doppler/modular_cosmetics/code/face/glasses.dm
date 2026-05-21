@@ -348,6 +348,7 @@
 		if(MODE_OFF)
 			if(MODE_OFF_FLASH_PROTECTION in modes)
 				flash_protect = FLASH_PROTECTION_FLASH
+				tint = 1
 				balloon_alert(user, span_notice("[modes_msg[MODE_OFF_FLASH_PROTECTION]]"))
 			else
 				balloon_alert(user, span_notice("[modes_msg[mode]]"))
@@ -424,73 +425,69 @@
 	name = "aviators"
 	desc = "A pair of designer sunglasses with electrochromatic darkening lenses!"
 	icon_state = "aviator"
+	inhand_icon_state = "sunglasses"
 	off_state = "aviator_off"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
-	flash_protect = FLASH_PROTECTION_FLASH
-	modes = list(MODE_OFF, MODE_ON)
+	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF_FLASH_PROTECTION, MODE_ON)
+	modes_msg = list(MODE_OFF_FLASH_PROTECTION = "flash protection enabled", MODE_ON = "flash protection disabled") //a little counterintuitive, but the system was built with the security aviators in mind
 	tint = 0
-
-/obj/item/clothing/glasses/fake_sunglasses/aviator
-	name = "aviators"
-	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes."
-	icon_state = "aviator"
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
-	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
 
 // Security Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/security
 	name = "security HUD aviators"
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting."
 	icon_state = "aviator_sec"
+	inhand_icon_state = "sunhudsec" //Only aviators that don't default to blank sunglasses icon when off
 	off_state = "aviator_sec_flash"
-	flash_protect = FLASH_PROTECTION_NONE
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
-	modes = list(MODE_OFF_FLASH_PROTECTION, MODE_ON)
-	modes_msg = list(MODE_OFF_FLASH_PROTECTION = "flash protection mode", MODE_ON = "optical matrix enabled")
+	modes_msg = list(MODE_OFF_FLASH_PROTECTION = "flash protection mode", MODE_ON = "optical matrix mode")
 
 // Medical Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/health
 	name = "medical HUD aviators"
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their health status. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_med"
-	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF, MODE_ON)
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
+	modes_msg = list(MODE_ON = "optical matrix enabled", MODE_OFF = "optical matrix disabled")
 
 // (Normal) meson scanner Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/meson
 	name = "meson HUD aviators"
 	desc = "A heads-up display used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting conditions. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_meson"
-	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF, MODE_ON)
 	clothing_traits = list(TRAIT_MADNESS_IMMUNE)
 	vision_flags = SEE_TURFS
 	color_cutoffs = list(5, 15, 5)
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
+	modes_msg = list(MODE_ON = "optical matrix enabled", MODE_OFF = "optical matrix disabled")
 
 // diagnostic Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/diagnostic
 	name = "diagnostic HUD aviators"
 	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_diagnostic"
-	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF, MODE_ON)
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
+	modes_msg = list(MODE_ON = "optical matrix enabled", MODE_OFF = "optical matrix disabled")
 
 // Science Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/science
 	name = "science aviators"
 	desc = "A pair of tacky purple aviator sunglasses that allow the wearer to recognize various chemical compounds with only a glance."
 	icon_state = "aviator_sci"
-	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF, MODE_ON)
 	glass_colour_type = /datum/client_colour/glass_colour/purple
 	resistance_flags = ACID_PROOF
 	armor_type = /datum/armor/aviator_science
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
+	modes_msg = list(MODE_ON = "optical matrix enabled", MODE_OFF = "optical matrix disabled")
 
 /datum/armor/aviator_science
 	fire = 80
@@ -610,7 +607,7 @@
 	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/roboprescriptaviators
-	name = "Prescription Diagonostic HUD Aviators"
+	name = "Prescription Diagnostic HUD Aviators"
 	result = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
 	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/diagnostic = 1, /obj/item/clothing/glasses/regular = 1, /obj/item/stack/cable_coil = 5)
