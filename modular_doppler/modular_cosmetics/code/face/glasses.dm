@@ -14,6 +14,9 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "eyewrap"
+	inhand_icon_state = null
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	base_icon_state = "eyewrap"
 
 /obj/item/clothing/glasses/eyepatch/white
@@ -21,6 +24,9 @@
 	desc = "This is what happens when a pirate gets a PhD."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	inhand_icon_state = null
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
@@ -97,6 +103,8 @@
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
 	inhand_icon_state = null
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	uses_advanced_reskins = TRUE
 	actions_types = list(/datum/action/item_action/flip)
 	var/flipped = FALSE
@@ -295,6 +303,7 @@
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	icon_state = "glasses_regular"
+	inhand_icon_state = "glasses"
 	desc = "A heads-up display that provides important info in (almost) real time. These don't really seem to work."
 	actions_types = list(/datum/action/item_action/toggle_mode)
 	glass_colour_type = /datum/client_colour/glass_colour/gray
@@ -539,6 +548,8 @@
 	desc = "A headset equipped with a scanning lens and mounted retinal projector. It doesn't provide any eye protection, but it's less obtrusive than a visor."
 	icon_state = "projector"
 	inhand_icon_state = "headset"
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	flags_cover = null /// It doesn't actually cover up any parts
