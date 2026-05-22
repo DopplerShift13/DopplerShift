@@ -118,6 +118,13 @@
 				In order to start, the game needs at least two teams with at least one person each. These do not need to be different people, allowing \
 				for solo play.<br>"
 
+/// Updates every hologram run by a terrain projector
+/obj/item/wargame_base_station/proc/update_terrain_holograms()
+	for(var/obj/item/wargame_projector/projector as anything in terrain_projectors)
+		for(var/obj/structure/wargame_hologram/hologram as anything in projector.projections)
+			if(hologram.controllable)
+				hologram.unit_stats.effects_phase_process(hologram)
+
 #define MY_CHILD_WILL "Yes"
 #define MY_CHILD_WILL_NOT "No"
 
@@ -172,6 +179,9 @@
 			say("Action phase, [team_turn.team_name], turn [turn_counter].")
 		if(WARGAME_PHASE_ACTION)
 			if(!length(teams_per_turn))
+				update_terrain_holograms()
+				for(var/datum/wargaming_team/team as anything in just_team_datums())
+					team.update_all_units()
 				game_phase = WARGAME_PHASE_EFFECTS
 				say("Effects phase, turn [turn_counter].")
 			else

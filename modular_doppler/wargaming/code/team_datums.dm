@@ -17,3 +17,8 @@
 				hologram.unit_stats.make_ready()
 
 /// Tells every controllable hologram to update it's conditions and explode if necessary
+/datum/wargaming_team/proc/update_all_units()
+	for(var/obj/item/wargame_projector/projector as anything in tracked_projectors)
+		for(var/obj/structure/wargame_hologram/hologram as anything in projector.projections)
+			if(hologram.controllable)
+				hologram.unit_stats.effects_phase_process(hologram)

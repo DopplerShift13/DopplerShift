@@ -24,6 +24,8 @@
 	var/action_points = 0
 	/// If this unit counts as a "small vessel" for the purpose of attacks
 	var/is_small_vessel = FALSE
+	/// If this unit can be targetted by others at all, use for background stuff like space dust
+	var/can_be_a_target = TRUE
 	/// Associative list of weapon to radial choice, should be a list of weapons on init
 	var/list/weaponry = list()
 
@@ -38,7 +40,7 @@
 	for(var/datum/wargame_weapon/weapon as anything in weaponry)
 		var/datum/radial_menu_choice/choice = new()
 		choice.name = weapon.weapon_name
-		choice.icon = image(icon = WARGAME_ACTIONS_FILE, icon_state = weapon.radial_icon_state)
+		choice.image = image(icon = WARGAME_ACTIONS_FILE, icon_state = weapon.radial_icon_state)
 		choice.info = weapon.weapon_description()
 		temporary_weapons[weapon] = choice
 
@@ -47,13 +49,19 @@
 	action_points = maximum_action_points
 
 /// Runs through everything we might need to process during the effects phase
-/datum/wargame_unit_stats/proc/effects_phase_process()
+/datum/wargame_unit_stats/proc/effects_phase_process(obj/structure/wargame_hologram/hologram)
 	for(var/datum/wargame_condition/condition as anything in current_conditions)
 		condition.condition_lifetime_left--
 		if(condition.condition_lifetime_left <= 0)
 			condition.removed_from_unit()
 			current_conditions -= condition
 			qdel(condition)
+	if(length(current_conditions) > conditions_limit)
+		im_boutta_blow(hologram)
+
+/// What to do when this unit explodes, good place to spawn a replacement "wreck" unit type
+/datum/wargame_unit_stats/proc/im_boutta_blow(obj/structure/wargame_hologram/hologram)
+	qdel(hologram)
 
 /// Shows the menu for basic actions before moving into details
 /datum/wargame_unit_stats/proc/basic_actions(mob/living/user, obj/hologram)
@@ -93,8 +101,8 @@
 	if(!weapon_choice.prefire_checks(user, src))
 		return
 	if(!weapon_choice.all_special_effects)
-		target_hologram.get_attacked(user, hologram, weapon_choice)
-	weapon_choice.special_effects_fire(user, src)
+		target_hologram.unit_stats.get_attacked(user, hologram, weapon_choice)
+	weapon_choice.special_effects_fire(user, src, hologram)
 
 /// Calculates getting attacked
 /datum/wargame_unit_stats/proc/get_attacked(mob/living/user, obj/hologram, datum/wargame_weapon/weapon_used)
@@ -104,7 +112,7 @@
 	if(is_small_vessel && weapon_used.small_ship_disadvantage)
 		incoming_attack_roll = min(incoming_attack_roll, roll(weapon_used.attack_roll))
 	var/total_armor_class = weapon_used.evadable ? (armor_class + evasion_modifier) : armor_class
-	if(incoming_attack_roll <= incoming_attack_roll)
+	if(incoming_attack_roll <= total_armor_class)
 		return
 	if((incoming_attack_roll + weapon_used.damage_roll_bonus) <= armor_class)
 		return // If our weapon is weak (PDC) then it makes our attack roll less than armor class
