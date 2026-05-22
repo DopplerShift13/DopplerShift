@@ -270,6 +270,8 @@
 	icon_state =  "secfold"
 	base_icon_state =  "secfold"
 	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
 	name = "medical blindfold HUD"
@@ -277,6 +279,8 @@
 	icon_state =  "medfold"
 	base_icon_state =  "medfold"
 	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
 	name = "meson blindfold HUD"
@@ -284,6 +288,8 @@
 	icon_state =  "mesonfold"
 	base_icon_state =  "mesonfold"
 	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
 	name = "diagnostic blindfold HUD"
@@ -291,6 +297,8 @@
 	icon_state =  "robofold"
 	base_icon_state =  "robofold"
 	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
 	name = "science blindfold HUD"
@@ -298,6 +306,8 @@
 	icon_state =  "scifold"
 	base_icon_state =  "scifold"
 	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/ar
 	name = "\improper AR glasses"
