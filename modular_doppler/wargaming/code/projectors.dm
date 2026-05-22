@@ -1,23 +1,18 @@
 /obj/item/wargame_projector
-	name = "holographic projector"
-	desc = "A handy-dandy holographic projector developed by the Port Authority Naval Command for playing wargames with, this one seems broken."
+	name = "holographic wargame projector"
+	desc = "A holographic projectors for creating holograms that work in the wargaming system."
 	icon = 'modular_doppler/wargaming/icons/projectors_and_holograms.dmi'
 	icon_state = "projector"
 	base_icon_state = "projector"
-	inhand_icon_state = "electronic"
-	worn_icon_state = "electronic"
-	lefthand_file = 'icons/mob/inhands/items/devices_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items/devices_righthand.dmi'
-	force = 0
+	lefthand_file = 'modular_doppler/wargaming/icons/mob/lefthand.dmi'
+	righthand_file = 'modular_doppler/wargaming/icons/mob/righthand.dmi'
+	inhand_icon_state = "generic"
+	worn_icon = 'modular_doppler/wargaming/icons/mob/worn.dmi'
+	worn_icon_state = "generic"
 	w_class = WEIGHT_CLASS_SMALL
-	throwforce = 0
-	throw_speed = 3
-	throw_range = 7
 	item_flags = NOBLUDGEON
 	/// All of the signs this projector is maintaining
 	var/list/projections
-	/// The maximum number of projections this can support
-	var/max_signs = 1
 	/// The color to give holograms when created
 	var/holosign_color = COLOR_WHITE
 	/// The type of hologram to spawn on click
@@ -46,17 +41,12 @@
 
 /obj/item/wargame_projector/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/openspace_item_click_handler)
 	update_appearance()
 	populate_radial_choice_lists()
-
-/obj/item/wargame_projector/handle_openspace_click(turf/target, mob/user, click_parameters)
-	ranged_interact_with_atom(target, user, params2list(click_parameters))
 
 /obj/item/wargame_projector/update_appearance()
 	. = ..()
 	cut_overlays()
-
 	var/image/color_select_overlay = image(icon = icon, icon_state = "[base_icon_state]_screen")
 	color_select_overlay.color = holosign_color
 	add_overlay(color_select_overlay)
@@ -84,10 +74,8 @@
 		require_near = TRUE,
 		tooltips = TRUE,
 		)
-
 	if(isnull(picked_choice))
 		return
-
 	holosign_type = projection_names_to_path[picked_choice]
 
 /obj/item/wargame_projector/attack_self(mob/user)
@@ -125,19 +113,14 @@
 /// Spawn a hologram with pixel offset based on where the user clicked
 /obj/item/wargame_projector/proc/create_hologram(atom/target, mob/user, list/modifiers)
 	var/obj/target_holosign = new holosign_type(get_turf(target), src)
-
 	var/click_x
 	var/click_y
-
 	if(LAZYACCESS(modifiers, ICON_X) && LAZYACCESS(modifiers, ICON_Y))
 		click_x = clamp(text2num(LAZYACCESS(modifiers, ICON_X)) - 16, -(world.icon_size/2), world.icon_size/2)
 		click_y = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)
-
 	target_holosign.pixel_x = click_x
 	target_holosign.pixel_y = click_y
-
 	target_holosign.color = holosign_color
-
 	playsound(loc, 'sound/machines/click.ogg', 20, TRUE)
 
 /obj/item/wargame_projector/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)

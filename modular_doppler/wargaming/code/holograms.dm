@@ -1,20 +1,23 @@
 /obj/structure/wargame_hologram
-	name = "broken holographic wargame marker"
-	desc = "You have a feeling like this is supposed to be telling you something, but the hologram must have broken."
+	abstract_type = /obj/structure/wargame_hologram
 	icon = 'modular_doppler/wargaming/icons/projectors_and_holograms.dmi'
 	icon_state = null
 	anchored = TRUE
 	density = FALSE
-	max_integrity = 1
+	max_integrity = 30
 	obj_flags = UNIQUE_RENAME
 	/// What object created this projection? Can be null as a projector isn't required for this to exist
 	var/obj/item/wargame_projector/projector
+	/// If this hologram ignores pixel shifting when placed, instead using swarming
+	var/swarming = FALSE
 
 /obj/structure/wargame_hologram/Initialize(mapload, source_projector)
 	. = ..()
 	if(source_projector)
 		projector = source_projector
 		LAZYADD(projector.projections, src)
+	if(swarming)
+		AddComponent(/datum/component/swarming)
 
 /obj/structure/wargame_hologram/Destroy()
 	if(projector)
@@ -25,6 +28,40 @@
 /obj/structure/wargame_hologram/update_overlays()
 	. = ..()
 	. += emissive_appearance(icon, icon_state, src)
+
+/obj/structure/wargame_hologram/attack_hand(mob/living/user, list/modifiers)
+	if(user.combat_mode)
+		return ..()
+	hologram_controls(user)
+
+/// Handles controlling the hologram when clicked on
+/obj/structure/wargame_hologram/proc/hologram_controls(mob/living/user)
+	return
+
+/obj/structure/wargame_hologram/controllable
+	abstract_type = /obj/structure/wargame_hologram/controllable
+	/// The team datum responsible for managing this hologram, if any
+	var/datum/wargaming_team/owner_team
+	/// Does this controllable thing require a mob interacting with it to be on its team
+	var/requires_same_team = TRUE
+
+/obj/structure/wargame_hologram/controllable/hologram_controls(mob/living/user)
+	SHOULD_CALL_PARENT(TRUE)
+	if(requires_same_team && !verify_user_team(user))
+		balloon_alert(user, "wrong team!")
+		return
+
+/// Checks if the user is in the team datum's players list
+/obj/structure/wargame_hologram/controllable/proc/verify_user_team(mob/living/user)
+	if(!owner_team)
+		return FALSE
+	if(user in owner_team.team_players)
+		return TRUE
+	return FALSE
+
+/obj/structure/wargame_hologram/controllable/ship
+	abstract_type = /obj/structure/wargame_hologram/controllable/ship
+	swarming = TRUE
 
 /// Projections for 'moving vessels' in order from smallest to largest representation
 
