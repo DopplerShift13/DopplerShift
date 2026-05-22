@@ -39,6 +39,13 @@
 	/// A names to path list for the projections filled out by populate_radial_choice_lists() on init
 	var/list/projection_names_to_path = list()
 
+	/// Weakref to a linked base station, required for placing holograms
+	var/datum/weakref/linked_base_station
+	/// If this projector requires a linked team in order to place holograms as well
+	var/requires_linked_team = FALSE
+	/// Weakref to a linked team, for drawing color from
+	var/datum/weakref/linked_team
+
 /obj/item/wargame_projector/Initialize(mapload)
 	. = ..()
 	update_appearance()
@@ -53,10 +60,9 @@
 
 /obj/item/wargame_projector/examine(mob/user)
 	. = ..()
-	if(projections)
-		. += span_notice("It is currently maintaining <b>[projections.len]/[max_signs]</b> projections.")
 	. += span_notice("Use the projector <b>in hand</b> to change what type of hologram it creates.")
-	. += span_notice("<b>Alt clicking</b> the projector will let you change the color of the next hologram it makes.")
+	if(!requires_linked_team)
+		. += span_notice("<b>Alt clicking</b> the projector will let you change the color of the next hologram it makes.")
 	. += span_warning("<b>Control clicking</b> the projector will allow you to clear all active holograms.")
 
 /obj/item/wargame_projector/proc/populate_radial_choice_lists()
@@ -82,6 +88,8 @@
 	select_hologram(user)
 
 /obj/item/wargame_projector/click_alt(mob/user)
+	if(requires_linked_team)
+		return ..() // Controllers linked to a team are locked to that team's color
 	var/selected_color = tgui_input_list(user, "Select a color", "Color Selection", color_options)
 	if(isnull(selected_color))
 		balloon_alert(user, "no color change")
@@ -99,20 +107,30 @@
 	return CLICK_ACTION_SUCCESS
 
 /// Can we place a hologram at the target location?
-/obj/item/wargame_projector/proc/check_can_place_hologram(atom/target, mob/user, team)
+/obj/item/wargame_projector/proc/check_can_place_hologram(atom/target, mob/user)
+	var/obj/item/wargame_base_station/base_station = linked_base_station?.resolve()
+	if(isnull(base_station))
+		user.balloon_alert(user, "no basestation!")
+		return FALSE
+	if(base_station.game_phase != WARGAME_PHASE_PLACEMENT)
+		user.balloon_alert(user, "wrong game phase!")
+		return FALSE
 	if(!check_allowed_items(target, not_inside = TRUE))
 		return FALSE
 	var/turf/target_turf = get_turf(target)
 	if(target_turf.is_blocked_turf(TRUE))
 		return FALSE
-	if(LAZYLEN(projections) >= max_signs)
-		balloon_alert(user, "max capacity!")
-		return FALSE
 	return TRUE
 
 /// Spawn a hologram with pixel offset based on where the user clicked
 /obj/item/wargame_projector/proc/create_hologram(atom/target, mob/user, list/modifiers)
-	var/obj/target_holosign = new holosign_type(get_turf(target), src)
+	var/obj/structure/wargame_hologram/target_holosign = new holosign_type(get_turf(target), src)
+	target_holosign.color = holosign_color
+	playsound(loc, 'sound/machines/click.ogg', 20, TRUE)
+	if(requires_linked_team)
+		target_holosign.team_reference = linked_team
+	if(target_holosign.swarming)
+		return // Ships use the swarming component and don't get specific pixel offsets
 	var/click_x
 	var/click_y
 	if(LAZYACCESS(modifiers, ICON_X) && LAZYACCESS(modifiers, ICON_Y))
@@ -120,14 +138,30 @@
 		click_y = clamp(text2num(LAZYACCESS(modifiers, ICON_Y)) - 16, -(world.icon_size/2), world.icon_size/2)
 	target_holosign.pixel_x = click_x
 	target_holosign.pixel_y = click_y
-	target_holosign.color = holosign_color
-	playsound(loc, 'sound/machines/click.ogg', 20, TRUE)
 
 /obj/item/wargame_projector/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	if(istype(interacting_with, /obj/item/wargame_base_station))
+		var/obj/item/wargame_base_station/base_station = interacting_with
+		balloon_alert(user, "linking...")
+		var/datum/wargaming_team/reference_team
+		if(requires_linked_team)
+			var/picked_team = tgui_input_list(user, "Pick a team to link to.", "Team Picker", base_station.managed_teams)
+			if(isnull(picked_team))
+				base_station.balloon_alert(user, "needs team!")
+				return NONE
+			linked_team = WEAKREF(base_station.managed_teams[picked_team])
+			reference_team = linked_team.resolve()
+		if(!do_after(user, 3 SECONDS, base_station))
+			return NONE
+		if(!isnull(reference_team))
+			holosign_color = reference_team.team_color
+			update_appearance()
+		linked_base_station = WEAKREF(base_station)
+		return ITEM_INTERACT_SUCCESS
 	if(istype(interacting_with, /obj/structure/wargame_hologram))
 		qdel(interacting_with)
 		return ITEM_INTERACT_SUCCESS
-	if(!check_can_place_hologram(interacting_with, user, 1))
+	if(!check_can_place_hologram(interacting_with, user))
 		return NONE
 	create_hologram(interacting_with, user, modifiers)
 	return ITEM_INTERACT_SUCCESS
@@ -141,7 +175,6 @@
 /obj/item/wargame_projector/ships
 	name = "holographic unit projector"
 	desc = "A handy-dandy holographic projector developed by the Port Authority Naval Command for playing wargames with, this one creates markers for 'units'."
-	max_signs = 30
 	holosign_color = COLOR_BLUE_LIGHT
 	holosign_type = /obj/structure/wargame_hologram/ship_marker
 	holosign_options = list(
@@ -158,6 +191,7 @@
 		/obj/structure/wargame_hologram/stationary_structure,
 		/obj/structure/wargame_hologram/stationary_structure/platform,
 	)
+	requires_linked_team = TRUE
 
 /obj/item/wargame_projector/ships/red
 	holosign_color = COLOR_RED_LIGHT
@@ -165,7 +199,6 @@
 /obj/item/wargame_projector/terrain
 	name = "holographic terrain projector"
 	desc = "A handy-dandy holographic projector developed by the Port Authority Naval Command for playing wargames with, this one creates markers for space 'terrain'."
-	max_signs = 30
 	holosign_color = COLOR_GRAY
 	holosign_type = /obj/structure/wargame_hologram/asteroid
 	// Some things, like stations, probes, and unidentified contacts, can be in the terrain one just because I can see situations where that's desired

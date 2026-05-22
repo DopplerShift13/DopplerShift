@@ -10,6 +10,10 @@
 	var/obj/item/wargame_projector/projector
 	/// If this hologram ignores pixel shifting when placed, instead using swarming
 	var/swarming = FALSE
+	/// The team datum responsible for managing this hologram, if any
+	var/datum/weakref/team_reference
+	/// Does this controllable thing require a mob interacting with it to be on its team
+	var/requires_same_team = TRUE
 
 /obj/structure/wargame_hologram/Initialize(mapload, source_projector)
 	. = ..()
@@ -18,6 +22,7 @@
 		LAZYADD(projector.projections, src)
 	if(swarming)
 		AddComponent(/datum/component/swarming)
+		layer = LOW_ITEM_LAYER
 
 /obj/structure/wargame_hologram/Destroy()
 	if(projector)
@@ -36,71 +41,62 @@
 
 /// Handles controlling the hologram when clicked on
 /obj/structure/wargame_hologram/proc/hologram_controls(mob/living/user)
-	return
-
-/obj/structure/wargame_hologram/controllable
-	abstract_type = /obj/structure/wargame_hologram/controllable
-	/// The team datum responsible for managing this hologram, if any
-	var/datum/wargaming_team/owner_team
-	/// Does this controllable thing require a mob interacting with it to be on its team
-	var/requires_same_team = TRUE
-
-/obj/structure/wargame_hologram/controllable/hologram_controls(mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
 	if(requires_same_team && !verify_user_team(user))
 		balloon_alert(user, "wrong team!")
 		return
 
 /// Checks if the user is in the team datum's players list
-/obj/structure/wargame_hologram/controllable/proc/verify_user_team(mob/living/user)
-	if(!owner_team)
+/obj/structure/wargame_hologram/proc/verify_user_team(mob/living/user)
+	var/datum/wargaming_team/owner_team = team_reference?.resolve()
+	if(isnull(owner_team))
 		return FALSE
 	if(user in owner_team.team_players)
 		return TRUE
 	return FALSE
 
-/obj/structure/wargame_hologram/controllable/ship
-	abstract_type = /obj/structure/wargame_hologram/controllable/ship
+/obj/structure/wargame_hologram/ship
+	abstract_type = /obj/structure/wargame_hologram/ship
 	swarming = TRUE
 
 /// Projections for 'moving vessels' in order from smallest to largest representation
 
-/obj/structure/wargame_hologram/strike_craft
+/obj/structure/wargame_hologram/ship/strike_craft
 	name = "strike craft marker"
 	desc = "A hologram of a single strike craft."
 	icon_state = "strikesingle"
 
-/obj/structure/wargame_hologram/strike_craft_util
+/obj/structure/wargame_hologram/ship/strike_craft_util
 	name = "skiff marker"
 	desc = "A hologram of a single utility skiff."
 	icon_state = "strike_utility"
 
-/obj/structure/wargame_hologram/strike_craft/wing
+/obj/structure/wargame_hologram/ship/strike_craft/wing
 	name = "strike craft wing marker"
 	desc = "A hologram of a wing of strike craft."
 	icon_state = "strikewing"
 
-/obj/structure/wargame_hologram/ship_marker
+/obj/structure/wargame_hologram/ship/ship_marker
 	name = "small vessel marker"
 	desc = "A hologram of a small frigate."
 	icon_state = "smallship"
 
-/obj/structure/wargame_hologram/ship_marker/medium
+/obj/structure/wargame_hologram/ship/ship_marker/medium
 	name = "medium vessel marker"
 	desc = "A hologram of a destroyer."
 	icon_state = "mediumship"
 
-/obj/structure/wargame_hologram/ship_marker/large
+/obj/structure/wargame_hologram/ship/ship_marker/large
 	name = "large vessel marker"
 	desc = "A hologram of a large cruiser."
 	icon_state = "bigship"
 
-/obj/structure/wargame_hologram/ship_marker/large/alternate
+/obj/structure/wargame_hologram/ship/ship_marker/large/alternate
 	name = "alternate large vessel marker"
 	desc = "A hologram of a massive ship."
 	icon_state = "bigship_alternate"
 
-/obj/structure/wargame_hologram/unidentified
+/obj/structure/wargame_hologram/ship/unidentified
 	name = "unidentified contact marker"
 	desc = "A hologram standing for an unidentified contact."
 	icon_state = "unidentified"
