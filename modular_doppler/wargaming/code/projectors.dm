@@ -149,8 +149,9 @@
 			if(isnull(picked_team))
 				base_station.balloon_alert(user, "needs team!")
 				return NONE
-			linked_team = WEAKREF(base_station.managed_teams[picked_team])
-			reference_team = linked_team.resolve()
+			reference_team = base_station.managed_teams[picked_team]
+			reference_team.tracked_projectors += src
+			linked_team = WEAKREF(reference_team)
 		if(!do_after(user, 3 SECONDS, base_station))
 			return NONE
 		if(!isnull(reference_team))
@@ -168,6 +169,9 @@
 
 /obj/item/wargame_projector/Destroy()
 	QDEL_LAZYLIST(projections)
+	var/datum/wargaming_team/our_team = linked_team?.resolve()
+	if(!isnull(our_team))
+		our_team.tracked_projectors -= src
 	. = ..()
 
 /// Actual projector types, split between the 'categories' of things they can project
@@ -176,17 +180,17 @@
 	name = "holographic unit projector"
 	desc = "A handy-dandy holographic projector developed by the Port Authority Naval Command for playing wargames with, this one creates markers for 'units'."
 	holosign_color = COLOR_BLUE_LIGHT
-	holosign_type = /obj/structure/wargame_hologram/ship_marker
+	holosign_type = /obj/structure/wargame_hologram/ship/ship_marker
 	holosign_options = list(
-		/obj/structure/wargame_hologram/unidentified,
+		/obj/structure/wargame_hologram/ship/unidentified,
 		/obj/structure/wargame_hologram/missile_warning,
-		/obj/structure/wargame_hologram/strike_craft,
-		/obj/structure/wargame_hologram/strike_craft_util,
-		/obj/structure/wargame_hologram/strike_craft/wing,
-		/obj/structure/wargame_hologram/ship_marker,
-		/obj/structure/wargame_hologram/ship_marker/medium,
-		/obj/structure/wargame_hologram/ship_marker/large,
-		/obj/structure/wargame_hologram/ship_marker/large/alternate,
+		/obj/structure/wargame_hologram/ship/strike_craft,
+		/obj/structure/wargame_hologram/ship/strike_craft_util,
+		/obj/structure/wargame_hologram/ship/strike_craft/wing,
+		/obj/structure/wargame_hologram/ship/ship_marker,
+		/obj/structure/wargame_hologram/ship/ship_marker/medium,
+		/obj/structure/wargame_hologram/ship/ship_marker/large,
+		/obj/structure/wargame_hologram/ship/ship_marker/large/alternate,
 		/obj/structure/wargame_hologram/probe,
 		/obj/structure/wargame_hologram/stationary_structure,
 		/obj/structure/wargame_hologram/stationary_structure/platform,
@@ -203,7 +207,7 @@
 	holosign_type = /obj/structure/wargame_hologram/asteroid
 	// Some things, like stations, probes, and unidentified contacts, can be in the terrain one just because I can see situations where that's desired
 	holosign_options = list(
-		/obj/structure/wargame_hologram/unidentified,
+		/obj/structure/wargame_hologram/ship/unidentified,
 		/obj/structure/wargame_hologram/dust,
 		/obj/structure/wargame_hologram/asteroid,
 		/obj/structure/wargame_hologram/asteroid/large,

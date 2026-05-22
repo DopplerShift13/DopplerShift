@@ -6,5 +6,14 @@
 	var/team_color = "#fff"
 	/// The players currently on this team
 	var/list/team_players = list()
-	/// Associated list of equipment to the player that linked it
-	var/list/players_equipment = list()
+	/// Tracks hologram projectors associated with this team for updating unit action points with
+	var/list/tracked_projectors = list()
+
+/// Sets every controllable hologram in our tracked controllers back to its default amount of action points
+/datum/wargaming_team/proc/ready_all_units()
+	for(var/obj/item/wargame_projector/projector as anything in tracked_projectors)
+		for(var/obj/structure/wargame_hologram/hologram as anything in projector.projections)
+			if(hologram.controllable)
+				hologram.unit_stats.make_ready()
+
+/// Tells every controllable hologram to update it's conditions and explode if necessary

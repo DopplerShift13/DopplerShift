@@ -1,3 +1,5 @@
+#define WARGAME_ACTIONS_FILE 'modular_doppler/wargaming/icons/actions.dmi'
+
 /// Current game phase is placing units
 #define WARGAME_PHASE_PLACEMENT 0
 /// Current game phase is action
@@ -28,3 +30,10 @@
 #define BASESTATION_TEAM_NAME "Team Name"
 /// Change the color of the currently selected team
 #define BASESTATION_TEAM_COLOR "Team Color"
+
+/// Opens a unit's movement options
+#define WARGAME_UNIT_MOVE "Move"
+/// Opens a unit's attack options
+#define WARGAME_UNIT_ATTACK "Attack"
+/// Opens a unit's special options
+#define WARGAME_UNIT_SPECIAL "Special"

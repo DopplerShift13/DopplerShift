@@ -1,5 +1,3 @@
-#define ACTIONS_FILE 'modular_doppler/wargaming/icons/actions.dmi'
-
 /obj/item/wargame_base_station
 	name = "wargames base station"
 	desc = "A base station for holographic wargames, all controllers and interactive wearables link to this machine and are automatically managed by it."
@@ -20,24 +18,26 @@
 	var/datum/wargaming_team/team_turn
 	/// How many turns have passed
 	var/turn_counter = 1
+	/// List of any terrain projectors linked to us
+	var/list/terrain_projectors = list()
 	/// Radial options for before the game has been started
 	var/static/list/pre_game_radial_options = list(
-		BASESTATION_JOIN_LEAVE = image(icon = ACTIONS_FILE, icon_state = "join_team"),
-		BASESTATION_ADD_TEAM = image(icon = ACTIONS_FILE, icon_state = "add_team"),
-		BASESTATION_REMOVE_TEAM = image(icon = ACTIONS_FILE, icon_state = "delete_team"),
-		BASESTATION_EDIT_TEAM = image(icon = ACTIONS_FILE, icon_state = "edit_team"),
-		BASESTATION_RESET = image(icon = ACTIONS_FILE, icon_state = "reset"),
-		BASESTATION_START = image(icon = ACTIONS_FILE, icon_state = "start_game"),
+		BASESTATION_JOIN_LEAVE = image(icon = WARGAME_ACTIONS_FILE, icon_state = "join_team"),
+		BASESTATION_ADD_TEAM = image(icon = WARGAME_ACTIONS_FILE, icon_state = "add_team"),
+		BASESTATION_REMOVE_TEAM = image(icon = WARGAME_ACTIONS_FILE, icon_state = "delete_team"),
+		BASESTATION_EDIT_TEAM = image(icon = WARGAME_ACTIONS_FILE, icon_state = "edit_team"),
+		BASESTATION_RESET = image(icon = WARGAME_ACTIONS_FILE, icon_state = "reset"),
+		BASESTATION_START = image(icon = WARGAME_ACTIONS_FILE, icon_state = "start_game"),
 	)
 	/// Radial options for after the game has already been started
 	var/static/list/mid_game_radial_options = list(
-		BASESTATION_END = image(icon = ACTIONS_FILE, icon_state = "end_game"),
-		BASESTATION_NEXT = image(icon = ACTIONS_FILE, icon_state = "next_phase"),
+		BASESTATION_END = image(icon = WARGAME_ACTIONS_FILE, icon_state = "end_game"),
+		BASESTATION_NEXT = image(icon = WARGAME_ACTIONS_FILE, icon_state = "next_phase"),
 	)
 	/// Radial options for editing a team
 	var/static/list/team_edit_radial_options = list(
-		BASESTATION_TEAM_NAME = image(icon = ACTIONS_FILE, icon_state = "team_name"),
-		BASESTATION_TEAM_COLOR = image(icon = ACTIONS_FILE, icon_state = "team_color"),
+		BASESTATION_TEAM_NAME = image(icon = WARGAME_ACTIONS_FILE, icon_state = "team_name"),
+		BASESTATION_TEAM_COLOR = image(icon = WARGAME_ACTIONS_FILE, icon_state = "team_color"),
 	)
 
 /obj/item/wargame_base_station/examine(mob/user)
@@ -46,6 +46,8 @@
 	// Game stats
 	var/game_stats_text
 	game_stats_text = "The game is currently in the [game_phase_2_text(game_phase)] phase.<br>"
+	if(team_turn)
+		game_stats_text = "It is the turn of team [team_turn.team_name].<br>"
 	game_stats_text += game_phase_2_desc(game_phase)
 	game_stats_text += "The teams have completed [EXAMINE_HINT("[turn_counter - 1]")] total turns.<br>"
 	. += fieldset_block(game_phase_2_text(game_phase, TRUE), game_stats_text, "boxed_message")
@@ -174,14 +176,16 @@
 				say("Effects phase, turn [turn_counter].")
 			else
 				game_phase = WARGAME_PHASE_ACTION
-				team_turn = teams_per_turn[teams_per_turn[1]]
+				team_turn = teams_per_turn[1]
+				team_turn.ready_all_units()
 				teams_per_turn -= team_turn
 				say("Action phase, [team_turn.team_name], turn [turn_counter].")
 		if(WARGAME_PHASE_EFFECTS)
 			teams_per_turn = just_team_datums()
 			turn_counter += 1
 			say("Turn [turn_counter - 1] complete, beginning turn [turn_counter].")
-			team_turn = teams_per_turn[teams_per_turn[1]]
+			team_turn = teams_per_turn[1]
+			team_turn.ready_all_units()
 			teams_per_turn -= team_turn
 			game_phase = WARGAME_PHASE_ACTION
 			say("Action phase, [team_turn.team_name], turn [turn_counter].")
@@ -221,7 +225,8 @@
 			managed_teams -= team // Empty teams are wiped before the game starts
 	shuffle(managed_teams)
 	teams_per_turn = just_team_datums()
-	team_turn = teams_per_turn[teams_per_turn[1]]
+	team_turn = teams_per_turn[1]
+	team_turn.ready_all_units()
 	teams_per_turn -= team_turn
 	turn_counter = 1
 	say("Beginning game, placement phase.")
@@ -308,4 +313,3 @@
 
 #undef MY_CHILD_WILL
 #undef MY_CHILD_WILL_NOT
-#undef ACTIONS_FILE

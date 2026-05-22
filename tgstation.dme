@@ -7959,6 +7959,9 @@
 #include "modular_doppler\wargaming\code\holograms.dm"
 #include "modular_doppler\wargaming\code\projectors.dm"
 #include "modular_doppler\wargaming\code\team_datums.dm"
+#include "modular_doppler\wargaming\code\unit_conditions.dm"
+#include "modular_doppler\wargaming\code\unit_stats.dm"
+#include "modular_doppler\wargaming\code\unit_weapons.dm"
 #include "modular_doppler\z_lore_rename\pa_4ca.dm"
 #include "modular_doppler\z_lore_rename\syndicate_removal.dm"
 // END_INCLUDE

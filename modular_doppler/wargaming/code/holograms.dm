@@ -14,14 +14,20 @@
 	var/datum/weakref/team_reference
 	/// Does this controllable thing require a mob interacting with it to be on its team
 	var/requires_same_team = TRUE
+	/// Is this hologram controllable in any way, false for things like dust clouds and asteroids
+	var/controllable = FALSE
+	/// This object's unit stats datum, to be created on init
+	var/datum/wargame_unit_stats/unit_stats = /datum/wargame_unit_stats/generic
 
 /obj/structure/wargame_hologram/Initialize(mapload, source_projector)
 	. = ..()
+	unit_stats = new unit_stats()
+	chat_color = color
 	if(source_projector)
 		projector = source_projector
 		LAZYADD(projector.projections, src)
 	if(swarming)
-		AddComponent(/datum/component/swarming)
+		AddComponent(/datum/component/swarming, max_x = 12, max_y = 12)
 		layer = LOW_ITEM_LAYER
 
 /obj/structure/wargame_hologram/Destroy()
@@ -35,16 +41,32 @@
 	. += emissive_appearance(icon, icon_state, src)
 
 /obj/structure/wargame_hologram/attack_hand(mob/living/user, list/modifiers)
-	if(user.combat_mode)
+	if(user.combat_mode || !controllable)
 		return ..()
 	hologram_controls(user)
 
 /// Handles controlling the hologram when clicked on
 /obj/structure/wargame_hologram/proc/hologram_controls(mob/living/user)
 	SHOULD_CALL_PARENT(TRUE)
+	if(!currently_our_turn())
+		balloon_alert(user, "not our turn!")
+		return
 	if(requires_same_team && !verify_user_team(user))
 		balloon_alert(user, "wrong team!")
 		return
+	unit_stats.basic_actions(user, src)
+
+/// Checks with our projector's linked controller to see if it's our turn to move
+/obj/structure/wargame_hologram/proc/currently_our_turn()
+	var/obj/item/wargame_base_station/base_station = projector.linked_base_station?.resolve()
+	if(isnull(base_station))
+		return FALSE
+	var/datum/wargaming_team/our_team = team_reference?.resolve()
+	if(isnull(our_team))
+		return FALSE
+	if(base_station.team_turn != our_team)
+		return FALSE
+	return TRUE
 
 /// Checks if the user is in the team datum's players list
 /obj/structure/wargame_hologram/proc/verify_user_team(mob/living/user)
@@ -58,6 +80,7 @@
 /obj/structure/wargame_hologram/ship
 	abstract_type = /obj/structure/wargame_hologram/ship
 	swarming = TRUE
+	controllable = TRUE
 
 /// Projections for 'moving vessels' in order from smallest to largest representation
 
