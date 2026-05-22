@@ -112,7 +112,7 @@
 	name = "Aviators (Science)"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 
-/datum/loadout_item/glasses/hud/aviator/prescription
+	/datum/loadout_item/glasses/hud/aviator/prescription
 	name = "Prescription Aviators (None)"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/prescription
 
@@ -196,6 +196,10 @@
 /datum/loadout_item/glasses/blinding/fake_blindfold
 	name = "Blindfold (Black, Fake)"
 	item_path = /obj/item/clothing/glasses/trickblindfold
+
+/datum/loadout_item/glasses/trickblindfold/obsolete
+	name = "Obsolete Fake Blindfold"
+	item_path = /obj/item/clothing/glasses/trickblindfold/obsolete
 
 /datum/loadout_item/glasses/blinding/eyepatch
 	name = "Eyepatch (Black)"

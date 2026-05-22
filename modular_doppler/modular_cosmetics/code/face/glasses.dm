@@ -96,7 +96,7 @@
 	)
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
-	inhand_icon_state = "sunhudmed"
+	inhand_icon_state = null
 	uses_advanced_reskins = TRUE
 	actions_types = list(/datum/action/item_action/flip)
 	var/flipped = FALSE
@@ -249,6 +249,7 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "obsoletefold"
+	inhand_icon_state = "blindfold"
 	base_icon_state = "obsoletefold"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
@@ -258,30 +259,35 @@
 	desc = "A fake blindfold with a security HUD inside. Helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
 	icon_state =  "secfold"
 	base_icon_state =  "secfold"
+	inhand_icon_state = "blindfold"
 
 /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
 	name = "medical blindfold HUD"
 	desc = "A fake blindfold with a medical HUD inside. Great for helping keep a poker face when dealing with patients."
 	icon_state =  "medfold"
 	base_icon_state =  "medfold"
+	inhand_icon_state = "blindfold"
 
 /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
 	name = "meson blindfold HUD"
 	desc = "A fake blindfold with meson lenses inside. Doesn't shield against welding."
 	icon_state =  "mesonfold"
 	base_icon_state =  "mesonfold"
+	inhand_icon_state = "blindfold"
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
 	name = "diagnostic blindfold HUD"
 	desc = "A fake blindfold with a diagnostic HUD inside. Excellent for working on androids."
 	icon_state =  "robofold"
 	base_icon_state =  "robofold"
+	inhand_icon_state = "blindfold"
 
 /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
 	name = "science blindfold HUD"
 	desc = "A fake blindfold with a science HUD inside. Provides a way to get used to blindfolds before you eventually end up needing the real thing."
 	icon_state =  "scifold"
 	base_icon_state =  "scifold"
+	inhand_icon_state = "blindfold"
 
 /obj/item/clothing/glasses/hud/ar
 	name = "\improper AR glasses"
@@ -532,6 +538,7 @@
 	name = "retinal projector"
 	desc = "A headset equipped with a scanning lens and mounted retinal projector. It doesn't provide any eye protection, but it's less obtrusive than a visor."
 	icon_state = "projector"
+	inhand_icon_state = "headset"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	flags_cover = null /// It doesn't actually cover up any parts
@@ -752,6 +759,7 @@
 	desc = "What's your favorite color to see through?"
 	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/glasses/recolorable"
+	inhand_icon_state = "glasses"
 	post_init_icon_state = "recolorable_glasses"
 	greyscale_colors = "#cfd1d4#D5D5B9"
 	greyscale_config = /datum/greyscale_config/recolorable_glasses
