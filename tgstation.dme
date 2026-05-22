@@ -7914,6 +7914,8 @@
 #include "modular_doppler\suuuper_trustworthy_item_orders\code\categories\order_hardware.dm"
 #include "modular_doppler\suuuper_trustworthy_item_orders\code\categories\order_software.dm"
 #include "modular_doppler\suuuper_trustworthy_item_orders\code\categories\order_tooling.dm"
+#include "modular_doppler\swing_combat\code\helpers.dm"
+#include "modular_doppler\swing_combat\code\melee.dm"
 #include "modular_doppler\taurs\code\bodyparts.dm"
 #include "modular_doppler\taurs\code\clothing.dm"
 #include "modular_doppler\taurs\code\taur_body.dm"
