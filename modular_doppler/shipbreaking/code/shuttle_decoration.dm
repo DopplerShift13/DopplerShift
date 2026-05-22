@@ -24,6 +24,12 @@
 	find_and_mount_on_atom()
 	register_context()
 
+/obj/structure/shuttle_decoration/get_turfs_to_mount_on()
+	return list(get_turf(src))
+
+/obj/structure/shuttle_decoration/is_mountable_turf(turf/target)
+	return !isgroundlessturf(target) || isclosedturf(target)
+
 /obj/structure/shuttle_decoration/shuttleRotate(rotation, params)
 	if(shuttles_wont_pixelshift)
 		params &= ~ROTATE_OFFSET
