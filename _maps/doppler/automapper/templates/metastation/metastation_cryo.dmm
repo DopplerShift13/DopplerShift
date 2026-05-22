@@ -95,10 +95,6 @@
 "N" = (
 /turf/closed/wall,
 /area/station/commons/cryopods)
-"O" = (
-/obj/machinery/airalarm/directional/west,
-/turf/template_noop,
-/area/template_noop)
 "U" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -147,7 +143,7 @@ N
 a
 a
 U
-O
+a
 a
 "}
 (6,1,1) = {"
