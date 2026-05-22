@@ -197,7 +197,7 @@
 	name = "Blindfold (Black, Fake)"
 	item_path = /obj/item/clothing/glasses/trickblindfold
 
-/datum/loadout_item/glasses/trickblindfold/obsolete
+/datum/loadout_item/glasses/blinding/fake_blindfold/obsolete
 	name = "Obsolete Fake Blindfold"
 	item_path = /obj/item/clothing/glasses/trickblindfold/obsolete
 
