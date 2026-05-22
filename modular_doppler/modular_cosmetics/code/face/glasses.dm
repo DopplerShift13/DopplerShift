@@ -258,6 +258,8 @@
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "obsoletefold"
 	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 	base_icon_state = "obsoletefold"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
