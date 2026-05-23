@@ -71,10 +71,10 @@
 
 /obj/item/wargame_projector/examine(mob/user)
 	. = ..()
+	var/datum/wargaming_team/our_team = linked_team?.resolve()
 	if(!isnull(our_team))
 		. += span_notice("This projector is linked to the [our_team.team_name] team!")
 	. += "Use the projector [EXAMINE_HINT("in hand")] to change what type of hologram it creates."
-	var/datum/wargaming_team/our_team = linked_team?.resolve()
 	if(!requires_linked_team)
 		. += "[EXAMINE_HINT("Alt-click")] will let you change the color of the next hologram it makes."
 	. += span_warning("[EXAMINE_HINT("Ctrl-Click")] will allow you to clear all active holograms.")
