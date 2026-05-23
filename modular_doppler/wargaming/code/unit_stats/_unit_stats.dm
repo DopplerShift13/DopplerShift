@@ -251,7 +251,8 @@
 		"Getting there.",
 		"Starting burn.",
 	)
-	hologram.say("[pick(lines)]")
+	if(talkative)
+		hologram.say("[pick(lines)]")
 	playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 
 /datum/wargame_unit_stats/generic

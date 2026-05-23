@@ -34,7 +34,9 @@
 	register_context()
 
 /obj/structure/wargame_hologram/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
-	if(isnull(held_item))
+	if(istype(held_item, /obj/item/wargame_projector))
+		context[SCREENTIP_CONTEXT_LMB] = "Delete hologram"
+	else
 		context[SCREENTIP_CONTEXT_LMB] = "Open actions menu"
 	return CONTEXTUAL_SCREENTIP_SET
 

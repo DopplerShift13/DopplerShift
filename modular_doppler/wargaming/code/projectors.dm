@@ -56,11 +56,10 @@
 	register_context()
 
 /obj/item/wargame_projector/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
-	if(isnull(held_item))
-		context[SCREENTIP_CONTEXT_LMB] = "Change hologram"
-		if(!requires_linked_team)
-			context[SCREENTIP_CONTEXT_ALT_LMB] = "Change hologram color"
-		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Clear all holograms"
+	context[SCREENTIP_CONTEXT_LMB] = "Change hologram"
+	if(!requires_linked_team)
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Change hologram color"
+	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Clear all holograms"
 	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/wargame_projector/update_appearance()
@@ -72,10 +71,13 @@
 
 /obj/item/wargame_projector/examine(mob/user)
 	. = ..()
-	. += span_notice("Use the projector <b>in hand</b> to change what type of hologram it creates.")
+	if(!isnull(our_team))
+		. += span_notice("This projector is linked to the [our_team.team_name] team!")
+	. += "Use the projector [EXAMINE_HINT("in hand")] to change what type of hologram it creates."
+	var/datum/wargaming_team/our_team = linked_team?.resolve()
 	if(!requires_linked_team)
-		. += span_notice("<b>Alt clicking</b> the projector will let you change the color of the next hologram it makes.")
-	. += span_warning("<b>Control clicking</b> the projector will allow you to clear all active holograms.")
+		. += "[EXAMINE_HINT("Alt-click")] will let you change the color of the next hologram it makes."
+	. += span_warning("[EXAMINE_HINT("Ctrl-Click")] will allow you to clear all active holograms.")
 
 /// Plays a clicking sound for menu actions
 /obj/item/wargame_projector/proc/play_menu_sound()
@@ -89,6 +91,7 @@
 
 /// Changes the selected hologram to one of the options from the hologram list
 /obj/item/wargame_projector/proc/select_hologram(mob/user)
+	play_menu_sound()
 	var/picked_choice = show_radial_menu(
 		user,
 		src,
