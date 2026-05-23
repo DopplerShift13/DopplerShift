@@ -42,8 +42,14 @@
 
 /obj/item/wargame_base_station/Initialize(mapload)
 	. = ..()
+	register_context()
 	if(prob(0.01))
 		make_special_edition()
+
+/obj/item/wargame_base_station/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	if(isnull(held_item))
+		context[SCREENTIP_CONTEXT_ALT_LMB] = "Open console menu"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /// Turns the console gold and gives it a silly name
 /obj/item/wargame_base_station/proc/make_special_edition()

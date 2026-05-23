@@ -30,6 +30,12 @@
 	if(swarming)
 		AddComponent(/datum/component/swarming, max_x = 12, max_y = 12)
 		layer = LOW_ITEM_LAYER
+	register_context()
+
+/obj/item/wargame_projector/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	if(isnull(held_item))
+		context[SCREENTIP_CONTEXT_LMB] = "Open actions menu"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/structure/wargame_hologram/examine(mob/user)
 	. = ..()

@@ -50,6 +50,15 @@
 	. = ..()
 	update_appearance()
 	populate_radial_choice_lists()
+	register_context()
+
+/obj/item/wargame_projector/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+	if(isnull(held_item))
+		context[SCREENTIP_CONTEXT_LMB] = "Change hologram"
+		if(!requires_linked_team)
+			context[SCREENTIP_CONTEXT_ALT_LMB] = "Change hologram color"
+		context[SCREENTIP_CONTEXT_CTRL_LMB] = "Clear all holograms"
+	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/wargame_projector/update_appearance()
 	. = ..()
