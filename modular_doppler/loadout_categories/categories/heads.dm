@@ -327,43 +327,50 @@
 	name = "Hard Hat (Red)"
 	item_path = /obj/item/clothing/head/utility/hardhat/red
 
-/datum/loadout_item/head/helmets/white_enviro
+/**
+ * ENVIROSUIT HELMETS
+ */
+/datum/loadout_item/head/envirohelm
+	group = "Envirosuit Helmets"
+	abstract_type = /datum/loadout_item/head/envirohelm
+
+/datum/loadout_item/head/envirohelm/white_enviro
 	name = "Phorid Envirosuit Helmet (Science)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/white
 
-/datum/loadout_item/head/helmets/mining_enviro
+/datum/loadout_item/head/envirohelm/mining_enviro
 	name = "Phorid Envirosuit Helmet (Cargo, Mining)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/mining
 
-/datum/loadout_item/head/helmets/bitrunner_enviro
+/datum/loadout_item/head/envirohelm/bitrunner_enviro
 	name = "Phorid Envirosuit Helmet (Cargo, Bitrunner)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/bitrunner
 
-/datum/loadout_item/head/helmets/cargo_enviro
+/datum/loadout_item/head/envirohelm/cargo_enviro
 	name = "Phorid Envirosuit Helmet (Cargo)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/cargo
 
-/datum/loadout_item/head/helmets/chaplain_enviro
+/datum/loadout_item/head/envirohelm/chaplain_enviro
 	name = "Phorid Envirosuit Helmet (Service, Chaplain)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/chaplain
 
-/datum/loadout_item/head/helmets/med_enviro
+/datum/loadout_item/head/envirohelm/med_enviro
 	name = "Phorid Envirosuit Helmet (Medical)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/medical
 
-/datum/loadout_item/head/helmets/coroner_enviro
+/datum/loadout_item/head/envirohelm/coroner_enviro
 	name = "Phorid Envirosuit Helmet (Medical, Coroner)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/coroner
 
-/datum/loadout_item/head/helmets/paramed_enviro
+/datum/loadout_item/head/envirohelm/paramed_enviro
 	name = "Phorid Envirosuit Helmet (Medical, Paramedic)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/paramedic
 
-/datum/loadout_item/head/helmets/chemist_enviro
+/datum/loadout_item/head/envirohelm/chemist_enviro
 	name = "Phorid Envirosuit Helmet (Medical, Chemistry)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/chemist
 
-/datum/loadout_item/head/helmets/robotics_enviro
+/datum/loadout_item/head/envirohelm/robotics_enviro
 	name = "Phorid Envirosuit Helmet (Science, Robotics)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/robotics
 

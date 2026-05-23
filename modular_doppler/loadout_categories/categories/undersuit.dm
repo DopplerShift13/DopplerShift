@@ -476,69 +476,65 @@
 	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tunic
 
 /**
- * SUITS
+ * ENVIROSUITS
  */
-/datum/loadout_item/undersuit/suit
-	group = "Suits"
-	abstract_type = /datum/loadout_item/undersuit/suit
+/datum/loadout_item/undersuit/envirosuit
+	group = "Envirosuits"
+	abstract_type = /datum/loadout_item/undersuit/envirosuit
 
-/datum/loadout_item/undersuit/suit/biosuit_alt
-	name = "Biosuit (White)"
-	item_path = /obj/item/clothing/under/underlayer/white
-
-/datum/loadout_item/undersuit/suit/phorid_slacks
+/datum/loadout_item/undersuit/envirosuit/phorid_slacks
 	name = "Phorid Enviroslacks"
 	item_path = /obj/item/clothing/under/plasmaman/enviroslacks
 
-/datum/loadout_item/undersuit/suit/phorid_engi
+/datum/loadout_item/undersuit/envirosuit/phorid_engi
 	name = "Phorid Envirosuit (Engineering)"
 	item_path = /obj/item/clothing/under/plasmaman/engineering
 
-/datum/loadout_item/undersuit/suit/phorid_atmos
+/datum/loadout_item/undersuit/envirosuit/phorid_atmos
 	name = "Phorid Envirosuit (Engineering, Atmospherics)"
 	item_path = /obj/item/clothing/under/plasmaman/atmospherics
 
-/datum/loadout_item/undersuit/suit/phorid_med
+/datum/loadout_item/undersuit/envirosuit/phorid_med
 	name = "Phorid Envirosuit (Medical)"
 	item_path = /obj/item/clothing/under/plasmaman/medical
 
-/datum/loadout_item/undersuit/suit/phorid_chemist
+/datum/loadout_item/undersuit/envirosuit/phorid_chemist
 	name = "Phorid Envirosuit (Medical, Chemistry)"
 	item_path = /obj/item/clothing/under/plasmaman/chemist
 
-/datum/loadout_item/undersuit/suit/phorid_coroner
+/datum/loadout_item/undersuit/envirosuit/phorid_coroner
 	name = "Phorid Envirosuit (Medical, Coroner)"
 	item_path = /obj/item/clothing/under/plasmaman/coroner
 
-/datum/loadout_item/undersuit/suit/phorid_paramed
+/datum/loadout_item/undersuit/envirosuit/phorid_paramed
 	name = "Phorid Envirosuit (Medical, Paramedic)"
 	item_path = /obj/item/clothing/under/plasmaman/paramedic
 
-/datum/loadout_item/undersuit/suit/phorid_sci
+/datum/loadout_item/undersuit/envirosuit/phorid_sci
 	name = "Phorid Envirosuit (Science)"
 	item_path = /obj/item/clothing/under/plasmaman/science
 
-/datum/loadout_item/undersuit/suit/phorid_robotics
+/datum/loadout_item/undersuit/envirosuit/phorid_robotics
 	name = "Phorid Envirosuit (Science, Robotics)"
 	item_path = /obj/item/clothing/under/plasmaman/robotics
 
-/datum/loadout_item/undersuit/suit/phorid_genetics
+/datum/loadout_item/undersuit/envirosuit/phorid_genetics
 	name = "Phorid Envirosuit (Science, Genetics)"
 	item_path = /obj/item/clothing/under/plasmaman/genetics
 
-/datum/loadout_item/undersuit/suit/phorid_sec
+/datum/loadout_item/undersuit/envirosuit/phorid_sec
 	name = "Phorid Envirosuit (Security)"
 	item_path = /obj/item/clothing/under/plasmaman/security
 
-/datum/loadout_item/undersuit/suit/phorid_bitrunner
+/datum/loadout_item/undersuit/envirosuit/phorid_bitrunner
 	name = "Phorid Envirosuit (Cargo, Bitrunner)"
 	item_path = /obj/item/clothing/under/plasmaman/bitrunner
 
-/datum/loadout_item/undersuit/suit/phorid_cargo
+/datum/loadout_item/undersuit/envirosuit/phorid_cargo
 	name = "Phorid Envirosuit (Cargo)"
 	item_path = /obj/item/clothing/under/plasmaman/cargo
 
-/datum/loadout_item/undersuit/suit/phorid_chaplain
+/datum/loadout_item/undersuit/envirosuit/phorid_chaplain
 	name = "Phorid Envirosuit (Service, Chaplain)"
 	item_path = /obj/item/clothing/under/plasmaman/chaplain
 
@@ -576,3 +572,7 @@
 /datum/loadout_item/undersuit/misc/primitive_genemod_body_wraps
 	name = "Hearthkin Body Wraps"
 	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_body_wraps
+
+/datum/loadout_item/undersuit/misc/biosuit_alt
+	name = "Biosuit (White)"
+	item_path = /obj/item/clothing/under/underlayer/white
