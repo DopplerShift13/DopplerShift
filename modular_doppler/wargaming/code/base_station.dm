@@ -62,7 +62,8 @@
 	name = "\improper DopplerStation 2"
 	desc = "A base station for holographic wargames, all controllers and interactive wearables link to this machine and are automatically managed by it. \
 		This looks like the special pre-order edition of the console, how did one of these get out this far? The faceplate has been replaced with one \
-		plated in gold, and someone seems to have left a sticker of a little dolphin on the case."
+		plated in gold, and someone seems to have left a sticker of a little dolphin on the case. \
+		Whoever owned this before must lament their purchase every day, this thing only has one game on it!"
 	icon_state = "basestation_gold"
 	update_appearance(UPDATE_ICON)
 
