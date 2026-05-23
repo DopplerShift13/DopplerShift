@@ -136,6 +136,7 @@
 		return
 	if(weapon_choice.firing_voiceline() && talkative)
 		hologram.say(weapon_choice.firing_voiceline())
+	weapon_choice.weapon_firing_message(hologram, target_hologram)
 	weapon_choice.weapon_firing_sound(hologram)
 	if(!weapon_choice.all_special_effects)
 		var/impact = target_hologram.unit_stats.get_attacked(user, hologram, target_hologram, weapon_choice)

@@ -13,3 +13,6 @@
 		"Ah.",
 	)
 	return pick(lines)
+
+/datum/wargame_weapon/ramming/strike/weapon_firing_message(obj/firer, obj/target)
+	firer.visible_message(span_warning("[firer] locks into a collision trajectory with [target], engines burning to full!"))

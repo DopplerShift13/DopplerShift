@@ -121,6 +121,17 @@
 	dir = 4
 	},
 /obj/structure/table,
+/obj/item/wargame_projector/terrain{
+	pixel_y = 6;
+	pixel_x = 14
+	},
+/obj/item/clothing/head/tajaran_hat{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/clothing/head/lizard_hat/white{
+	pixel_x = -5
+	},
 /turf/open/floor/holofloor{
 	base_icon_state = "smooth";
 	icon_state = "smooth";
@@ -324,12 +335,8 @@
 	dir = 1
 	},
 /obj/structure/shelf,
-/obj/item/wargame_projector/terrain{
-	pixel_y = -6
-	},
 /obj/item/wargame_projector/ships/red{
-	pixel_y = 3;
-	pixel_x = 3
+	pixel_x = 9
 	},
 /obj/item/wargame_projector/ships{
 	pixel_y = 12

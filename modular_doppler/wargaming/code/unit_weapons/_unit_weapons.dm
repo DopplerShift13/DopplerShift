@@ -33,6 +33,10 @@
 /datum/wargame_weapon/proc/weapon_firing_sound(obj/firer)
 	return
 
+/// Plays a firing sound for the weapon
+/datum/wargame_weapon/proc/weapon_firing_message(obj/firer, obj/target)
+	return
+
 /// By default, checks in a circle range around the ship for another hologram to target
 /datum/wargame_weapon/proc/pick_target(mob/living/user, obj/structure/wargame_hologram/hologram)
 	var/datum/wargaming_team/hologram_team = hologram.team_reference?.resolve()

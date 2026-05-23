@@ -8,10 +8,13 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/rockets/strike
-	maximum_ammo = 2
+	maximum_ammo = 4
 
 /datum/wargame_weapon/rockets/weapon_description()
 	return "A barrage of unguided rockets from a fixed rack or large launcher. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+
+/datum/wargame_weapon/rockets/weapon_firing_message(obj/firer, obj/target)
+	firer.visible_message(span_warning("[firer] lets loose a volley of rockets at [target]!"))
 
 /datum/wargame_weapon/rockets/firing_voiceline()
 	var/static/list/lines = list(
@@ -29,11 +32,14 @@
 	evadable = TRUE
 	small_ship_disadvantage = TRUE
 	radial_icon_state = "weapon_bomb"
-	maximum_ammo = 1
+	maximum_ammo = 2
 	action_point_cost = 1
 
 /datum/wargame_weapon/bombs/weapon_description()
 	return "A group of unpowered explosive bombs to crack large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+
+/datum/wargame_weapon/bombs/weapon_firing_message(obj/firer, obj/target)
+	firer.visible_message(span_warning("[firer] makes a run at [target], releasing a large bomb that drifts toward them!"))
 
 /datum/wargame_weapon/bombs/firing_voiceline()
 	var/static/list/lines = list(
