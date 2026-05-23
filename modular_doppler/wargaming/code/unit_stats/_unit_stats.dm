@@ -93,7 +93,8 @@
 			"Punch out! Punch out! We're had!",
 		)
 		hologram.say(pick(lines))
-		playsound(hologram, 'modular_doppler/wargaming/sound/ship_explode.ogg', 50, TRUE)
+		playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
+	playsound(hologram, 'modular_doppler/wargaming/sound/ship_explode.ogg', 50, TRUE)
 	do_sparks(3, FALSE, hologram)
 	qdel(hologram)
 
@@ -136,6 +137,7 @@
 		return
 	if(weapon_choice.firing_voiceline() && talkative)
 		hologram.say(weapon_choice.firing_voiceline())
+		playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 	weapon_choice.weapon_firing_message(hologram, target_hologram)
 	weapon_choice.weapon_firing_sound(hologram)
 	if(!weapon_choice.all_special_effects)
@@ -155,11 +157,13 @@
 	if(incoming_attack_roll <= total_armor_class)
 		if(attacking_hologram.unit_stats.talkative)
 			attacking_hologram.say(missed_voiceline())
+			playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 		hologram.visible_message(span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was less than or equal to the target's effective armor class, [total_armor_class]."))
 		return FALSE
 	if((incoming_attack_roll + weapon_used.damage_roll_bonus) <= armor_class)
 		if(attacking_hologram.unit_stats.talkative)
 			attacking_hologram.say(nonpen_voiceline())
+			playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 		hologram.visible_message(span_warning("Attacker's damage roll, [incoming_attack_roll + weapon_used.damage_roll_bonus], was less than or equal to the target's armor class, [armor_class]."))
 		playsound(hologram, 'modular_doppler/wargaming/sound/ship_hit.ogg', 50, TRUE)
 		return TRUE // If our weapon is weak (PDC) then it makes our attack roll less than armor class
@@ -169,6 +173,7 @@
 	current_conditions += new_condition
 	if(attacking_hologram.unit_stats.talkative)
 		attacking_hologram.say(good_hit_voiceline())
+		playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 	hologram.visible_message(span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was higher than the target's effective armor class, [total_armor_class]."))
 	hologram.Shake(2, 0, 2 SECONDS)
 	playsound(hologram, 'modular_doppler/wargaming/sound/ship_hit.ogg', 50, TRUE)
@@ -237,6 +242,7 @@
 /// Any effects to do post movement, like voicelines or sound effects
 /datum/wargame_unit_stats/proc/post_move_effects(obj/hologram)
 	if(prob(50))
+		playsound(hologram, 'sound/items/radio/radio_talk.ogg', 50, TRUE)
 		return
 	var/static/list/lines = list(
 		"Moving to designated coordinates.",
@@ -246,6 +252,7 @@
 		"Starting burn.",
 	)
 	hologram.say("[pick(lines)]")
+	playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 
 /datum/wargame_unit_stats/generic
 	unit_class = "Generic Thing"

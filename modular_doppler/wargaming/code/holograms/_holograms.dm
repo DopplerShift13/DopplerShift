@@ -76,6 +76,7 @@
 	if(!currently_our_turn())
 		if(prob(1/1000))
 			say("WAIT. YOUR. TURN!")
+			playsound(src, 'sound/effects/seedling_chargeup.ogg', 50)
 		else
 			balloon_alert(user, "not our turn!")
 		return
