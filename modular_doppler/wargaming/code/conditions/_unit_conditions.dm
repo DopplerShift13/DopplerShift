@@ -43,7 +43,7 @@
 /datum/wargame_condition/engine_damage
 	condition_name = "Engine Damage"
 	condition_desc = "Damage to the engines that makes movement cost an extra action point."
-	condition_lifetime_left = 2
+	condition_lifetime_left = 3
 
 /datum/wargame_condition/engine_damage/applied_to_unit(datum/wargame_unit_stats/stats)
 	stats.movement_cost += 1
@@ -54,7 +54,7 @@
 /datum/wargame_condition/reactor_damage
 	condition_name = "Reactor Damage"
 	condition_desc = "Damage to the ship's reactor that reduces maximum action points by one."
-	condition_lifetime_left = 3
+	condition_lifetime_left = 4
 
 /datum/wargame_condition/reactor_damage/applied_to_unit(datum/wargame_unit_stats/stats)
 	stats.maximum_action_points -= 1
