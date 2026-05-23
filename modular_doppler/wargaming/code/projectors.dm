@@ -1,7 +1,7 @@
 /obj/item/wargame_projector
 	name = "holographic wargame projector"
 	desc = "A holographic projectors for creating holograms that work in the wargaming system."
-	icon = 'modular_doppler/wargaming/icons/projector.dmi'
+	icon = 'modular_doppler/wargaming/icons/items.dmi'
 	icon_state = "projector"
 	base_icon_state = "projector"
 	lefthand_file = 'modular_doppler/wargaming/icons/mob/lefthand.dmi'

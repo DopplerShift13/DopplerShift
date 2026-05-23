@@ -40,6 +40,20 @@
 		BASESTATION_TEAM_COLOR = image(icon = WARGAME_ACTIONS_FILE, icon_state = "team_color"),
 	)
 
+/obj/item/wargame_base_station/Initialize(mapload)
+	. = ..()
+	if(prob(0.01))
+		make_special_edition()
+
+/// Turns the console gold and gives it a silly name
+/obj/item/wargame_base_station/proc/make_special_edition()
+	name = "\improper DopplerStation 2"
+	desc = "A base station for holographic wargames, all controllers and interactive wearables link to this machine and are automatically managed by it. \
+		This looks like the special pre-order edition of the console, how did one of these get out this far? The faceplate has been replaced with one \
+		plated in gold, and someone seems to have left a sticker of a little dolphin on the case."
+	icon_state = "basestation_gold"
+	update_appearance(UPDATE_ICON)
+
 /obj/item/wargame_base_station/examine(mob/user)
 	. = ..()
 	. += span_notice("Interact with the menu with [EXAMINE_HINT("Alt-Click")].")
