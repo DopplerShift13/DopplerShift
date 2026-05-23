@@ -11,6 +11,8 @@
 	worn_icon_state = "generic"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NOBLUDGEON
+	pickup_sound = SFX_GENERIC_DEVICE_PICKUP
+	drop_sound = SFX_GENERIC_DEVICE_DROP
 	/// All of the signs this projector is maintaining
 	var/list/projections
 	/// The color to give holograms when created
@@ -74,6 +76,10 @@
 		. += span_notice("<b>Alt clicking</b> the projector will let you change the color of the next hologram it makes.")
 	. += span_warning("<b>Control clicking</b> the projector will allow you to clear all active holograms.")
 
+/// Plays a clicking sound for menu actions
+/obj/item/wargame_projector/proc/play_menu_sound()
+	playsound(src, SFX_REMOTE_ACTION, 50, TRUE)
+
 /obj/item/wargame_projector/proc/populate_radial_choice_lists()
 	if(!length(radial_choices) || !length(projection_names_to_path))
 		for(var/obj/structure/wargame_hologram/hologram as anything in holosign_options)
@@ -92,6 +98,7 @@
 	if(isnull(picked_choice))
 		return
 	holosign_type = projection_names_to_path[picked_choice]
+	play_menu_sound()
 
 /obj/item/wargame_projector/attack_self(mob/user)
 	select_hologram(user)
@@ -102,10 +109,12 @@
 	var/selected_color = tgui_input_list(user, "Select a color", "Color Selection", color_options)
 	if(isnull(selected_color))
 		balloon_alert(user, "no color change")
+		play_menu_sound()
 		return
 	var/color_to_set_to = color_options[selected_color]
 	holosign_color = color_to_set_to
 	balloon_alert(user, "color changed")
+	play_menu_sound()
 	update_appearance()
 	return CLICK_ACTION_SUCCESS
 
@@ -113,6 +122,7 @@
 	if(tgui_alert(usr,"Clear all currently active holograms?", "Hologram Removal", list("Yes", "No")) == "Yes")
 		for(var/hologram as anything in projections)
 			qdel(hologram)
+		play_menu_sound()
 	return CLICK_ACTION_SUCCESS
 
 /// Can we place a hologram at the target location?
@@ -135,7 +145,7 @@
 /obj/item/wargame_projector/proc/create_hologram(atom/target, mob/user, list/modifiers)
 	var/obj/structure/wargame_hologram/target_holosign = new holosign_type(get_turf(target), src)
 	target_holosign.color = holosign_color
-	playsound(loc, 'sound/machines/click.ogg', 20, TRUE)
+	playsound(loc, SFX_INDUSTRIAL_SCAN, 45, TRUE)
 	if(requires_linked_team)
 		target_holosign.team_reference = linked_team
 	if(target_holosign.swarming)
@@ -157,21 +167,32 @@
 			var/picked_team = tgui_input_list(user, "Pick a team to link to.", "Team Picker", base_station.managed_teams)
 			if(isnull(picked_team))
 				base_station.balloon_alert(user, "needs team!")
+				play_menu_sound()
 				return NONE
 			reference_team = base_station.managed_teams[picked_team]
 			reference_team.tracked_projectors += src
 			linked_team = WEAKREF(reference_team)
 		if(!do_after(user, 3 SECONDS, base_station))
+			play_menu_sound()
 			return NONE
 		if(!isnull(reference_team))
 			holosign_color = reference_team.team_color
 			update_appearance()
+		playsound(src, SFX_INDUSTRIAL_SCAN, 50, TRUE)
 		linked_base_station = WEAKREF(base_station)
 		return ITEM_INTERACT_SUCCESS
 	if(istype(interacting_with, /obj/structure/wargame_hologram))
+		var/obj/item/wargame_base_station/base_station = linked_base_station?.resolve()
+		if(!isnull(base_station))
+			if(base_station.game_phase != WARGAME_PHASE_PLACEMENT)
+				user.balloon_alert(user, "wrong game phase!")
+				play_menu_sound()
+				return NONE
 		qdel(interacting_with)
+		play_menu_sound()
 		return ITEM_INTERACT_SUCCESS
 	if(!check_can_place_hologram(interacting_with, user))
+		play_menu_sound()
 		return NONE
 	create_hologram(interacting_with, user, modifiers)
 	return ITEM_INTERACT_SUCCESS

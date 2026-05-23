@@ -8,6 +8,8 @@
 	inhand_icon_state = "generic"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NOBLUDGEON
+	drop_sound = 'sound/items/handling/tools/rcd_drop.ogg'
+	pickup_sound = 'sound/items/handling/tools/rcd_pickup.ogg'
 	/// List of all team datums this controller is currently managing, empty teams are cleared at game start
 	var/list/managed_teams = list()
 	/// Nebulous list of teams per round, subtracted from as teams complete their turns
@@ -106,6 +108,7 @@
 			end_the_game(user)
 		if(BASESTATION_NEXT)
 			advance_phase(user)
+	play_menu_sound()
 	return CLICK_ACTION_SUCCESS
 
 /// Converts a given game phase number to text
@@ -159,28 +162,35 @@
 	var/option = tgui_alert(user, "Join or leave a team?", "Team Manager", list(JOIN_A_TEAM, LEAVE_A_TEAM))
 	if(isnull(option))
 		balloon_alert(user, "no choice made!")
+		play_menu_sound()
 		return
 	switch(option)
 		if(JOIN_A_TEAM)
 			var/picked_team = tgui_input_list(user, "Choose which team to join.", "Team Manager", managed_teams)
 			if(isnull(picked_team))
 				balloon_alert(user, "no choice made!")
+				play_menu_sound()
 				return
 			var/datum/wargaming_team/wargame_team = managed_teams[picked_team]
 			if(user in wargame_team.team_players)
 				balloon_alert(user, "already in!")
+				play_menu_sound()
 				return
 			wargame_team.team_players += user
+			play_menu_sound()
 		if(LEAVE_A_TEAM)
 			var/picked_team = tgui_input_list(user, "Choose which team to leave.", "Team Manager", managed_teams)
 			if(isnull(picked_team))
 				balloon_alert(user, "no choice made!")
+				play_menu_sound()
 				return
 			var/datum/wargaming_team/wargame_team = managed_teams[picked_team]
 			if(!(user in wargame_team.team_players))
 				balloon_alert(user, "not in team!")
+				play_menu_sound()
 				return
 			wargame_team.team_players -= user
+			play_menu_sound()
 
 #undef JOIN_A_TEAM
 #undef LEAVE_A_TEAM
@@ -220,6 +230,7 @@
 			teams_per_turn -= team_turn
 			game_phase = WARGAME_PHASE_ACTION
 			say("Action phase, [team_turn.team_name], turn [turn_counter].")
+	play_menu_sound()
 
 /// Ends the game if it is currently running
 /obj/item/wargame_base_station/proc/end_the_game(mob/living/user)
@@ -228,8 +239,10 @@
 		return
 	var/certainty = tgui_alert(user, "Are you certain you wish to end the game?", "Game Ender", list(MY_CHILD_WILL, MY_CHILD_WILL_NOT))
 	if(certainty != MY_CHILD_WILL)
+		play_menu_sound()
 		return
 	game_phase = WARGAME_PHASE_NOTHING
+	play_menu_sound()
 	say("Game ended.")
 
 /// Starts the game if it has not already been started
@@ -247,6 +260,7 @@
 		return
 	var/certainty = tgui_alert(user, "Are you certain you wish to start the game?", "Game Starter", list(MY_CHILD_WILL, MY_CHILD_WILL_NOT))
 	if(certainty != MY_CHILD_WILL)
+		play_menu_sound()
 		return
 	game_phase = WARGAME_PHASE_PLACEMENT
 	for(var/team as anything in managed_teams)
@@ -260,6 +274,7 @@
 	team_turn.ready_all_units()
 	teams_per_turn -= team_turn
 	turn_counter = 1
+	play_menu_sound()
 	say("Beginning game, placement phase.")
 
 /// Returns a list of just team datums from the managed_teams list
@@ -276,13 +291,16 @@
 		for(var/team as anything in managed_teams)
 			qdel(managed_teams[team])
 			managed_teams -= team
+	play_menu_sound()
 
 /// Selects a team and edits the name or color
 /obj/item/wargame_base_station/proc/edit_a_team(mob/living/user)
 	var/editing_team = tgui_input_list(user, "Choose which team you wish to edit.", "Team List", managed_teams)
 	if(isnull(editing_team))
 		balloon_alert(user, "no choice!")
+		play_menu_sound()
 		return
+	play_menu_sound()
 	show_team_edit_radial(user, managed_teams[editing_team])
 
 /// Constantly shows a radial for editing a team until cancelled
@@ -296,18 +314,23 @@
 			if(isnull(new_name))
 				balloon_alert(user, "needs name!")
 				show_team_edit_radial(user, edited_team)
+				play_menu_sound()
 				return
 			if(new_name in managed_teams)
 				balloon_alert(user, "name in use!")
 				show_team_edit_radial(user, edited_team)
+				play_menu_sound()
 				return
+			play_menu_sound()
 			edited_team.team_name = new_name
 		if(BASESTATION_TEAM_COLOR)
 			var/new_color = input(user, "Choose your new team color." ,"Color Selection", COLOR_PRIDE_PURPLE) as color|null
 			if(isnull(new_color))
 				balloon_alert(user, "needs color!")
 				show_team_edit_radial(user, edited_team)
+				play_menu_sound()
 				return
+			play_menu_sound()
 			edited_team.team_color = new_color
 
 /// Lets players pick from a list of existing teams to delete one
@@ -315,11 +338,13 @@
 	var/deleting_team = tgui_input_list(user, "Choose which team you wish to delete.", "Team List", managed_teams)
 	if(isnull(deleting_team))
 		balloon_alert(user, "no choice!")
+		play_menu_sound()
 		return
 	var/certainty = tgui_alert(user, "Are you certain you wish to delete [deleting_team]?", "Deletion Confirmation", list(MY_CHILD_WILL, MY_CHILD_WILL_NOT))
 	if(certainty == MY_CHILD_WILL)
 		qdel(managed_teams[deleting_team])
 		managed_teams -= deleting_team
+	play_menu_sound()
 
 /// Interactively create a new team with the user
 /obj/item/wargame_base_station/proc/create_new_team(mob/living/user)
@@ -328,19 +353,28 @@
 	if(isnull(new_name)) // How?
 		qdel(new_team)
 		balloon_alert(user, "needs name!")
+		play_menu_sound()
 		return
 	if(new_name in managed_teams) // This name is already in use, get some new material
 		qdel(new_team)
 		balloon_alert(user, "name in use!")
+		play_menu_sound()
 		return
+	play_menu_sound()
 	new_team.team_name = new_name
 	var/new_color = input(user, "Choose your new team color." ,"Color Selection", COLOR_PRIDE_PURPLE) as color|null
 	if(isnull(new_color))
 		qdel(new_team)
 		balloon_alert(user, "needs color!")
+		play_menu_sound()
 		return
+	play_menu_sound()
 	new_team.team_color = new_color
 	managed_teams[new_team.team_name] += new_team
+
+/// Plays a clicking sound for menu actions
+/obj/item/wargame_base_station/proc/play_menu_sound()
+	playsound(src, SFX_REMOTE_MODE_SWITCH, 50, TRUE)
 
 #undef MY_CHILD_WILL
 #undef MY_CHILD_WILL_NOT
