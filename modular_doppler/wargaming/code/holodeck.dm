@@ -1,6 +1,7 @@
 /turf/open/indestructible/wargame
 	icon = 'modular_doppler/wargaming/icons/turf.dmi'
 	icon_state = "holodeck"
+	holodeck_compatible = TRUE
 
 /datum/map_template/holodeck/doppler_wargame_board
 	name = "Holodeck - Wargame Simulator"
