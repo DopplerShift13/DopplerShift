@@ -74,7 +74,7 @@
 	for(var/datum/wargame_condition/condition as anything in current_conditions)
 		condition.condition_lifetime_left--
 		if(condition.condition_lifetime_left <= 0)
-			condition.removed_from_unit()
+			condition.removed_from_unit(src)
 			current_conditions -= condition
 			qdel(condition)
 	if(length(current_conditions) > conditions_limit)
