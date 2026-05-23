@@ -1109,7 +1109,7 @@
 
 /datum/glass_style/drinking_glass/tizirian_sour
 	required_drink_type = /datum/reagent/consumable/ethanol/tizirian_sour
-	name = "Tiziran Sour"
+	name = "Tizirian Sour"
 	desc = "From Trinidad to Tobago to Tiziria, it's quite rare to find a cocktail that uses bitters as a base spirit like this."
 	icon = 'icons/obj/drinks/mixed_drinks.dmi'
 	icon_state = "tizirian_sour"
