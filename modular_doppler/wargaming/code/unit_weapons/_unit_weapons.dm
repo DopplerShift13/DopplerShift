@@ -87,8 +87,7 @@
 	radial_icon_state = "weapon_ram"
 
 /datum/wargame_weapon/ramming/special_effects_fire(mob/living/user, datum/wargame_unit_stats/stats, obj/structure/wargame_hologram/hologram, obj/structure/wargame_hologram/target_hologram, impact)
-	if(impact)
-		stats.im_boutta_blow(hologram)
+	stats.im_boutta_blow(hologram)
 
 // Generic missile launch weapon
 /datum/wargame_weapon/missile
