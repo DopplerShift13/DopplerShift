@@ -7956,6 +7956,7 @@
 #include "modular_doppler\verbs\code\subtle.dm"
 #include "modular_doppler\wargaming\code\base_station.dm"
 #include "modular_doppler\wargaming\code\game_kit.dm"
+#include "modular_doppler\wargaming\code\holodeck.dm"
 #include "modular_doppler\wargaming\code\projectors.dm"
 #include "modular_doppler\wargaming\code\team_datums.dm"
 #include "modular_doppler\wargaming\code\conditions\_unit_conditions.dm"
