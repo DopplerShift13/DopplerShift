@@ -2,9 +2,7 @@
 	abstract_type = /datum/wargame_unit_stats/terrain
 	conditions_limit = 4
 	possible_conditions = list(
-		/datum/wargame_condition/hull_damage,
-		/datum/wargame_condition/engine_damage,
-		/datum/wargame_condition/reactor_damage,
+		/datum/wargame_condition/hull_damage/asteroid,
 	)
 	is_small_vessel = FALSE
 	unit_size = WARGAME_SIZE_LARGE
