@@ -9,6 +9,20 @@
 /// Current game phase is nothing, the game is over or hasn't even started yet
 #define WARGAME_PHASE_NOTHING 10
 
+/// Something like a dust cloud that gives an evasion bonus but no cover
+#define WARGAME_EVASION_BONUS 0
+/// A small thing with zero cover value
+#define WARGAME_SIZE_SMALL 1
+/// A medium sized thing that small things can hide around
+#define WARGAME_SIZE_MEDIUM 2
+/// A large thing that even decent sized ships can hide around
+#define WARGAME_SIZE_LARGE 3
+
+/// The maximum amount of cover bonus a unit can have
+#define WARGAME_MAX_COVER_BONUS 4
+/// The maximum amount of evasion bonus a unit can have
+#define WARGAME_MAX_EVASION_BONUS 2
+
 /// Add a team to the base station
 #define BASESTATION_ADD_TEAM "Add Team"
 /// Remove a team from the base station

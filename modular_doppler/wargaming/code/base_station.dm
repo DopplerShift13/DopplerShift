@@ -176,14 +176,15 @@
 	switch(game_phase)
 		if(WARGAME_PHASE_PLACEMENT)
 			game_phase = WARGAME_PHASE_ACTION
+			team_turn.ready_all_units()
 			say("Action phase, [team_turn.team_name], turn [turn_counter].")
 		if(WARGAME_PHASE_ACTION)
 			if(!length(teams_per_turn))
 				update_terrain_holograms()
+				say("Effects phase, turn [turn_counter].")
 				for(var/datum/wargaming_team/team as anything in just_team_datums())
 					team.update_all_units()
 				game_phase = WARGAME_PHASE_EFFECTS
-				say("Effects phase, turn [turn_counter].")
 			else
 				game_phase = WARGAME_PHASE_ACTION
 				team_turn = teams_per_turn[1]

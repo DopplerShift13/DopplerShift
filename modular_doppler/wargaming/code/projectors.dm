@@ -1,7 +1,7 @@
 /obj/item/wargame_projector
 	name = "holographic wargame projector"
 	desc = "A holographic projectors for creating holograms that work in the wargaming system."
-	icon = 'modular_doppler/wargaming/icons/projectors_and_holograms.dmi'
+	icon = 'modular_doppler/wargaming/icons/projector.dmi'
 	icon_state = "projector"
 	base_icon_state = "projector"
 	lefthand_file = 'modular_doppler/wargaming/icons/mob/lefthand.dmi'
@@ -178,22 +178,22 @@
 
 /obj/item/wargame_projector/ships
 	name = "holographic unit projector"
-	desc = "A handy-dandy holographic projector developed by the Port Authority Naval Command for playing wargames with, this one creates markers for 'units'."
+	desc = "A holographic projectors for creating holograms that work in the wargaming system. Must be linked to a base station and team before use."
 	holosign_color = COLOR_BLUE_LIGHT
-	holosign_type = /obj/structure/wargame_hologram/ship/ship_marker
+	holosign_type = /obj/structure/wargame_hologram/controllable/strike_wing
 	holosign_options = list(
-		/obj/structure/wargame_hologram/ship/unidentified,
-		/obj/structure/wargame_hologram/missile_warning,
-		/obj/structure/wargame_hologram/ship/strike_craft,
-		/obj/structure/wargame_hologram/ship/strike_craft_util,
-		/obj/structure/wargame_hologram/ship/strike_craft/wing,
-		/obj/structure/wargame_hologram/ship/ship_marker,
-		/obj/structure/wargame_hologram/ship/ship_marker/medium,
-		/obj/structure/wargame_hologram/ship/ship_marker/large,
-		/obj/structure/wargame_hologram/ship/ship_marker/large/alternate,
-		/obj/structure/wargame_hologram/probe,
-		/obj/structure/wargame_hologram/stationary_structure,
-		/obj/structure/wargame_hologram/stationary_structure/platform,
+		/obj/structure/wargame_hologram/controllable/strike_wing,
+		/obj/structure/wargame_hologram/controllable/interceptor_wing,
+		/obj/structure/wargame_hologram/controllable/picket_corvette,
+		/obj/structure/wargame_hologram/controllable/missile_frigate,
+		/obj/structure/wargame_hologram/controllable/beam_frigate,
+		/obj/structure/wargame_hologram/controllable/destroyer,
+		/obj/structure/wargame_hologram/controllable/mass_driver_cruiser,
+		/obj/structure/wargame_hologram/controllable/artillery_cruiser,
+		/obj/structure/wargame_hologram/controllable/battlecruiser,
+		/obj/structure/wargame_hologram/controllable/platform,
+		/obj/structure/wargame_hologram/controllable/civilian_station,
+		/obj/structure/wargame_hologram/controllable/military_station,
 	)
 	requires_linked_team = TRUE
 
@@ -207,13 +207,8 @@
 	holosign_type = /obj/structure/wargame_hologram/asteroid
 	// Some things, like stations, probes, and unidentified contacts, can be in the terrain one just because I can see situations where that's desired
 	holosign_options = list(
-		/obj/structure/wargame_hologram/ship/unidentified,
-		/obj/structure/wargame_hologram/dust,
 		/obj/structure/wargame_hologram/asteroid,
 		/obj/structure/wargame_hologram/asteroid/large,
-		/obj/structure/wargame_hologram/asteroid/cluster,
-		/obj/structure/wargame_hologram/planet,
-		/obj/structure/wargame_hologram/probe,
-		/obj/structure/wargame_hologram/stationary_structure,
-		/obj/structure/wargame_hologram/stationary_structure/platform,
+		/obj/structure/wargame_hologram/asteroid/shattered,
+		/obj/structure/wargame_hologram/dust,
 	)
