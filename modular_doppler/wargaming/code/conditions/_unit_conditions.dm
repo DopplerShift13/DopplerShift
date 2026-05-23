@@ -56,8 +56,8 @@
 	condition_desc = "Damage to the ship's reactor that reduces maximum action points by one."
 	condition_lifetime_left = 3
 
-/datum/wargame_condition/engine_damage/applied_to_unit(datum/wargame_unit_stats/stats)
+/datum/wargame_condition/reactor_damage/applied_to_unit(datum/wargame_unit_stats/stats)
 	stats.maximum_action_points -= 1
 
-/datum/wargame_condition/engine_damage/removed_from_unit(datum/wargame_unit_stats/stats)
+/datum/wargame_condition/reactor_damage/removed_from_unit(datum/wargame_unit_stats/stats)
 	stats.maximum_action_points += 1

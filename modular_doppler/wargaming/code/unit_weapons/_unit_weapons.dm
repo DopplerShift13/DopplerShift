@@ -102,7 +102,7 @@
 	if(!target_hologram)
 		return // ??
 	if(get_dist(hologram, target_hologram) <= 1)
-		target_hologram.unit_stats.get_attacked(user, hologram, src)
+		target_hologram.unit_stats.get_attacked(user, hologram, target_hologram, src)
 		return ..()
 	var/dir_to_target = get_dir(hologram, target_hologram)
 	var/obj/structure/wargame_hologram/new_missile = new missile_type(get_turf(hologram), hologram.projector)

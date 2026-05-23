@@ -13,6 +13,9 @@
 /datum/wargame_weapon/rockets/weapon_description()
 	return "A barrage of unguided rockets from a fixed rack or large launcher. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
 
+/datum/wargame_weapon/rockets/weapon_firing_sound(obj/firer)
+	playsound(firer, 'modular_doppler/wargaming/sound/swarm_launch.ogg', 40, TRUE)
+
 /datum/wargame_weapon/rockets/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer] lets loose a volley of rockets at [target]!"))
 
@@ -37,6 +40,9 @@
 
 /datum/wargame_weapon/bombs/weapon_description()
 	return "A group of unpowered explosive bombs to crack large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+
+/datum/wargame_weapon/bombs/weapon_firing_sound(obj/firer)
+	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
 
 /datum/wargame_weapon/bombs/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer] makes a run at [target], releasing a large bomb that drifts toward them!"))

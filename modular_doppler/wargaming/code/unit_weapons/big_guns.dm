@@ -9,7 +9,7 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/mass_driver/weapon_firing_sound(obj/firer)
-	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 75, TRUE)
+	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
 
 /datum/wargame_weapon/mass_driver/weapon_description()
 	return "A large mass driver for launching hardened cores at large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
@@ -38,7 +38,7 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/large_cannon/weapon_firing_sound(obj/firer)
-	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 75, TRUE)
+	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
 
 /datum/wargame_weapon/large_cannon/weapon_description()
 	return "A large calibre 7 in. cannon for launching shells at large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
@@ -65,7 +65,7 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/medium_cannon/weapon_firing_sound(obj/firer)
-	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 75, TRUE)
+	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
 
 /datum/wargame_weapon/medium_cannon/weapon_description()
 	return "A medium calibre 2.5 in. cannon fore launching shells at large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."

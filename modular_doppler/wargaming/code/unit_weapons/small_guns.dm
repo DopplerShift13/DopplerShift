@@ -8,7 +8,7 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/autocannon/weapon_firing_sound(obj/firer)
-	playsound(firer, 'modular_doppler/wargaming/sound/autocannonlong.ogg', 75, TRUE)
+	playsound(firer, 'modular_doppler/wargaming/sound/autocannonlong.ogg', 40, TRUE)
 
 /datum/wargame_weapon/autocannon/weapon_description()
 	return "Low calibre 45mm autocannons for fast moving targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
@@ -34,7 +34,7 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/pdc/weapon_firing_sound(obj/firer)
-	playsound(firer, 'modular_doppler/wargaming/sound/autocannonlong.ogg', 75, TRUE)
+	playsound(firer, 'modular_doppler/wargaming/sound/autocannonlong.ogg', 40, TRUE)
 
 /datum/wargame_weapon/pdc/weapon_description()
 	return "Small calibre 26mm autocannons with exceptional hit chance but low damage. Max range of [attack_range] tiles. [action_point_cost] AP to fire."

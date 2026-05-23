@@ -9,7 +9,7 @@
 	action_point_cost = 2
 
 /datum/wargame_weapon/anti_ship_beam/weapon_firing_sound(obj/firer)
-	playsound(firer, 'modular_doppler/wargaming/sound/beam.ogg', 75, TRUE)
+	playsound(firer, 'modular_doppler/wargaming/sound/beam.ogg', 40, TRUE)
 
 /datum/wargame_weapon/anti_ship_beam/weapon_description()
 	return "A high-energy beam for coring large ships with. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
@@ -35,7 +35,7 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/pd_beam/weapon_firing_sound(obj/firer)
-	playsound(firer, 'modular_doppler/wargaming/sound/beam.ogg', 75, TRUE)
+	playsound(firer, 'modular_doppler/wargaming/sound/beam.ogg', 40, TRUE)
 
 /datum/wargame_weapon/pd_beam/weapon_description()
 	return "Highly focused beams with exceptional hit chance but low damage. Max range of [attack_range] tiles. [action_point_cost] AP to fire."

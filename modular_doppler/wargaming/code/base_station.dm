@@ -6,10 +6,14 @@
 	lefthand_file = 'modular_doppler/wargaming/icons/mob/lefthand.dmi'
 	righthand_file = 'modular_doppler/wargaming/icons/mob/righthand.dmi'
 	inhand_icon_state = "generic"
+	worn_icon = 'modular_doppler/wargaming/icons/mob/worn.dmi'
+	worn_icon_state = "controller"
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NOBLUDGEON
 	drop_sound = 'sound/items/handling/tools/rcd_drop.ogg'
 	pickup_sound = 'sound/items/handling/tools/rcd_pickup.ogg'
+	do_not_override_chat_colors = TRUE
+	chat_color = LIGHT_COLOR_COPPER_OXIDE
 	/// List of all team datums this controller is currently managing, empty teams are cleared at game start
 	var/list/managed_teams = list()
 	/// Nebulous list of teams per round, subtracted from as teams complete their turns
@@ -88,27 +92,35 @@
 /obj/item/wargame_base_station/click_alt(mob/living/user)
 	var/picked_choice = show_radial_menu(user, src, (game_phase == WARGAME_PHASE_NOTHING) ? pre_game_radial_options : mid_game_radial_options, require_near = TRUE, tooltips = TRUE)
 	if(isnull(picked_choice))
+		play_menu_sound()
 		return CLICK_ACTION_BLOCKING
 	switch(picked_choice)
 		// Pregame options
 		if(BASESTATION_JOIN_LEAVE)
+			play_menu_sound()
 			try_join_leave(user)
 		if(BASESTATION_ADD_TEAM)
+			play_menu_sound()
 			create_new_team(user)
 		if(BASESTATION_REMOVE_TEAM)
+			play_menu_sound()
 			delete_team(user)
 		if(BASESTATION_EDIT_TEAM)
+			play_menu_sound()
 			edit_a_team(user)
 		if(BASESTATION_RESET)
+			play_menu_sound()
 			reset_everything(user)
 		if(BASESTATION_START)
+			play_menu_sound()
 			start_the_game(user)
 		// Midgame options
 		if(BASESTATION_END)
+			play_menu_sound()
 			end_the_game(user)
 		if(BASESTATION_NEXT)
+			play_menu_sound()
 			advance_phase(user)
-	play_menu_sound()
 	return CLICK_ACTION_SUCCESS
 
 /// Converts a given game phase number to text
@@ -164,6 +176,7 @@
 		balloon_alert(user, "no choice made!")
 		play_menu_sound()
 		return
+	play_menu_sound()
 	switch(option)
 		if(JOIN_A_TEAM)
 			var/picked_team = tgui_input_list(user, "Choose which team to join.", "Team Manager", managed_teams)

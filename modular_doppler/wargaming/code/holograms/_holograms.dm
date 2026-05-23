@@ -7,6 +7,7 @@
 	max_integrity = 30
 	alpha = 180
 	obj_flags = UNIQUE_RENAME
+	do_not_override_chat_colors = TRUE
 	/// What object created this projection? Can be null as a projector isn't required for this to exist
 	var/obj/item/wargame_projector/projector
 	/// If this hologram ignores pixel shifting when placed, instead using swarming
@@ -32,7 +33,7 @@
 		layer = LOW_ITEM_LAYER
 	register_context()
 
-/obj/item/wargame_projector/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+/obj/structure/wargame_hologram/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	if(isnull(held_item))
 		context[SCREENTIP_CONTEXT_LMB] = "Open actions menu"
 	return CONTEXTUAL_SCREENTIP_SET
