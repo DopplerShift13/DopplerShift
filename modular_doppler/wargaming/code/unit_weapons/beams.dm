@@ -6,7 +6,7 @@
 	evadable = FALSE
 	small_ship_disadvantage = TRUE
 	radial_icon_state = "weapon_beam"
-	action_point_cost = 2
+	action_point_cost = 1
 
 /datum/wargame_weapon/anti_ship_beam/weapon_firing_sound(obj/firer)
 	playsound(firer, 'modular_doppler/wargaming/sound/beam.ogg', 40, TRUE)

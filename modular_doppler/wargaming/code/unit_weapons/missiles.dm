@@ -52,6 +52,9 @@
 	maximum_ammo = 12
 	missile_type = /obj/structure/wargame_hologram/controllable/swarm_missile
 
+/datum/wargame_weapon/missile/swarm/strike
+	maximum_ammo = 4
+
 /datum/wargame_weapon/missile/swarm/weapon_firing_sound(obj/firer)
 	playsound(firer, 'modular_doppler/wargaming/sound/swarm_launch.ogg', 40, TRUE)
 

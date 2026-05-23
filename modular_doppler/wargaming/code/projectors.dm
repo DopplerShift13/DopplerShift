@@ -196,6 +196,8 @@
 		qdel(interacting_with)
 		play_menu_sound()
 		return ITEM_INTERACT_SUCCESS
+	if(!isturf(interacting_with))
+		return NONE
 	if(!check_can_place_hologram(interacting_with, user))
 		play_menu_sound()
 		return NONE

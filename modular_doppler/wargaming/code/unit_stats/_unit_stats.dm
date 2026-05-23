@@ -45,11 +45,15 @@
 	if(isnull(unit_class) && isnull(unit_name))
 		return
 	if(generates_name)
-		unit_name = pick_list_replacements("~doppler/salvage_shuttle.json", "ship_name")
+		unit_name = create_unit_name()
 	if(isnull(unit_name))
 		hologram.name = unit_class
 	else
 		hologram.name = "[unit_class] - ([unit_name])"
+
+/// Generates a name for the unit, overwriten by subtypes for different naming schemes
+/datum/wargame_unit_stats/proc/create_unit_name()
+	return pick_list_replacements("~doppler/salvage_shuttle.json", "ship_name")
 
 /// Sets up weapon datums and radial options
 /datum/wargame_unit_stats/proc/set_up_weaponry()
@@ -71,14 +75,27 @@
 
 /// Runs through everything we might need to process during the effects phase
 /datum/wargame_unit_stats/proc/effects_phase_process(obj/structure/wargame_hologram/hologram)
+	var/repaired_this_phase = FALSE
 	for(var/datum/wargame_condition/condition as anything in current_conditions)
 		condition.condition_lifetime_left--
 		if(condition.condition_lifetime_left <= 0)
 			condition.removed_from_unit(src)
 			current_conditions -= condition
+			repaired_this_phase = TRUE
 			qdel(condition)
 	if(length(current_conditions) > conditions_limit)
 		im_boutta_blow(hologram)
+		return
+	if(repaired_this_phase)
+		var/static/list/lines = list(
+			"Conditions repaired, combat functionality restored.",
+			"Repairs complete, let's get back in the fight!",
+			"Damage control reports successful repairs.",
+			"One less hole in the wall, let's keep at it!",
+			"Integrity partially restored, let's show them we're still in this!",
+		)
+		hologram.say(pick(lines))
+		playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 
 /// What to do when this unit explodes, good place to spawn a replacement "wreck" unit type
 /datum/wargame_unit_stats/proc/im_boutta_blow(obj/structure/wargame_hologram/hologram)

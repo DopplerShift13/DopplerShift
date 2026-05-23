@@ -41,7 +41,7 @@
 /datum/wargame_weapon/proc/pick_target(mob/living/user, obj/structure/wargame_hologram/hologram)
 	var/datum/wargaming_team/hologram_team = hologram.team_reference?.resolve()
 	var/list/potential_targets = list()
-	for(var/obj/structure/wargame_hologram/other_hologram in view(attack_range, hologram))
+	for(var/obj/structure/wargame_hologram/other_hologram in view(attack_range, get_turf(hologram)))
 		if(!other_hologram.unit_stats.can_be_a_target)
 			continue
 		if(isnull(hologram_team))

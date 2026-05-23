@@ -1,6 +1,10 @@
 /datum/wargame_unit_stats/missile
 	abstract_type = /datum/wargame_unit_stats/missile
 	talkative = FALSE
+	generates_name = TRUE
+
+/datum/wargame_unit_stats/missile/create_unit_name()
+	return "Track [pick_list_replacements("~doppler/wargame_identifiers.json", "name_word")] [rand(1,99)]"
 
 /datum/wargame_unit_stats/missile/im_boutta_blow(obj/structure/wargame_hologram/hologram)
 	hologram.visible_message(span_warning("[hologram] is reduced to data with a bright spark!"))

@@ -49,7 +49,6 @@
 	evasion_modifier = 0
 	movement_cost = 2
 	maximum_action_points = 4
-	conditions_limit = 5
 	weaponry = list(
 		/datum/wargame_weapon/missile/swarm,
 		/datum/wargame_weapon/missile/torpedo,

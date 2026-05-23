@@ -18,11 +18,15 @@
 /datum/wargame_unit_stats/terrain/asteroid
 	unit_class = "asteroid"
 	unit_description = "A large asteroid that serves as good cover. Can be broken apart with sufficient damage."
+	generates_name = TRUE
 	armor_class = 13
 	evasion_modifier = 0
 	movement_cost = 100
 	maximum_action_points = 0
 	weaponry = list()
+
+/datum/wargame_unit_stats/terrain/asteroid/create_unit_name()
+	return "[pick_list_replacements("~doppler/wargame_identifiers.json", "name_word")] [rand(100, 999)]"
 
 /datum/wargame_unit_stats/terrain/dust_cloud
 	unit_class = "dust cloud"
