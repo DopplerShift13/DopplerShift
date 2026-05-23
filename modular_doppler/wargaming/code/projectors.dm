@@ -9,6 +9,7 @@
 	inhand_icon_state = "generic"
 	worn_icon = 'modular_doppler/wargaming/icons/mob/worn.dmi'
 	worn_icon_state = "generic"
+	slot_flags = ITEM_SLOT_BELT
 	w_class = WEIGHT_CLASS_SMALL
 	item_flags = NOBLUDGEON
 	pickup_sound = SFX_GENERIC_DEVICE_PICKUP

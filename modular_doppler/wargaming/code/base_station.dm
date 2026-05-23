@@ -13,6 +13,7 @@
 	drop_sound = 'sound/items/handling/tools/rcd_drop.ogg'
 	pickup_sound = 'sound/items/handling/tools/rcd_pickup.ogg'
 	do_not_override_chat_colors = TRUE
+	slot_flags = ITEM_SLOT_BELT
 	chat_color = LIGHT_COLOR_COPPER_OXIDE
 	/// List of all team datums this controller is currently managing, empty teams are cleared at game start
 	var/list/managed_teams = list()
