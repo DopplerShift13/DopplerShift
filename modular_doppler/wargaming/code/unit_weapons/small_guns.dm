@@ -26,8 +26,8 @@
 
 /datum/wargame_weapon/pdc
 	weapon_name = "26mm PDC"
-	attack_roll = "1d12+8"
-	damage_roll_bonus = -5
+	attack_roll = "1d12+6"
+	damage_roll_bonus = -3
 	attack_range = 1
 	evadable = FALSE
 	radial_icon_state = "weapon_guns_pdc"

@@ -260,7 +260,7 @@
 	},
 /area/template_noop)
 "F" = (
-/turf/open/floor/holofloor/wargame,
+/turf/open/indestructible/wargame,
 /area/template_noop)
 "I" = (
 /obj/effect/turf_decal/arrows/white{

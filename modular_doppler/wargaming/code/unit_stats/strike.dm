@@ -20,7 +20,7 @@
 	armor_class = 7
 	evasion_modifier = 4
 	movement_cost = 1
-	maximum_action_points = 5
+	maximum_action_points = 3
 	weaponry = list(
 		/datum/wargame_weapon/pdc,
 		/datum/wargame_weapon/rockets,
@@ -34,7 +34,7 @@
 	armor_class = 6
 	evasion_modifier = 5
 	movement_cost = 1
-	maximum_action_points = 5
+	maximum_action_points = 3
 	weaponry = list(
 		/datum/wargame_weapon/pdc,
 		/datum/wargame_weapon/autocannon,

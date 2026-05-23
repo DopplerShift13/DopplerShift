@@ -1,4 +1,4 @@
-/turf/open/floor/holofloor/wargame
+/turf/open/indestructible/wargame
 	icon = 'modular_doppler/wargaming/icons/turf.dmi'
 	icon_state = "holodeck"
 

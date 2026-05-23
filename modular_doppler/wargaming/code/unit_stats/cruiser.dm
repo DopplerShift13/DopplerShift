@@ -1,7 +1,7 @@
 /datum/wargame_unit_stats/cruiser
 	abstract_type = /datum/wargame_unit_stats/cruiser
 	generates_name = TRUE
-	conditions_limit = 6
+	conditions_limit = 4
 	possible_conditions = list(
 		/datum/wargame_condition/hull_damage,
 		/datum/wargame_condition/engine_damage,
@@ -49,6 +49,7 @@
 	evasion_modifier = 0
 	movement_cost = 2
 	maximum_action_points = 4
+	conditions_limit = 5
 	weaponry = list(
 		/datum/wargame_weapon/missile/swarm,
 		/datum/wargame_weapon/missile/torpedo,
