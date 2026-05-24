@@ -30,7 +30,6 @@
 /obj/effect/turf_decal/tile/neutral/half/contrasted{
 	dir = 1
 	},
-/obj/structure/railing,
 /obj/effect/turf_decal/trimline/yellow/warning,
 /turf/open/floor/holofloor{
 	base_icon_state = "smooth";
@@ -56,7 +55,11 @@
 	},
 /obj/structure/table,
 /obj/item/wargame_base_station{
-	pixel_y = 7
+	pixel_y = 12;
+	pixel_x = 2
+	},
+/obj/item/wargame_projector/ships/green{
+	pixel_x = -8
 	},
 /turf/open/floor/holofloor{
 	base_icon_state = "smooth_half";
@@ -116,21 +119,32 @@
 	},
 /turf/open/floor/holofloor/stairs,
 /area/template_noop)
+"p" = (
+/obj/effect/turf_decal/tile/neutral/half,
+/obj/effect/turf_decal/trimline/yellow/warning{
+	dir = 1
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
 "q" = (
 /obj/effect/turf_decal/tile/neutral{
 	dir = 4
 	},
 /obj/structure/table,
-/obj/item/wargame_projector/terrain{
-	pixel_y = 6;
-	pixel_x = 14
-	},
 /obj/item/clothing/head/tajaran_hat{
 	pixel_y = 8;
 	pixel_x = -4
 	},
 /obj/item/clothing/head/lizard_hat/white{
 	pixel_x = -5
+	},
+/obj/item/wargame_projector/terrain{
+	pixel_y = 13;
+	pixel_x = 14
 	},
 /turf/open/floor/holofloor{
 	base_icon_state = "smooth";
@@ -213,6 +227,17 @@
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 1
 	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"z" = (
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/warning,
 /turf/open/floor/holofloor{
 	base_icon_state = "smooth_half";
 	icon_state = "smooth_half";
@@ -336,10 +361,14 @@
 	},
 /obj/structure/shelf,
 /obj/item/wargame_projector/ships/red{
-	pixel_x = 9
+	pixel_x = 9;
+	pixel_y = 4
 	},
 /obj/item/wargame_projector/ships{
 	pixel_y = 12
+	},
+/obj/item/wargame_projector/ships/yellow{
+	pixel_y = -1
 	},
 /turf/open/floor/holofloor{
 	base_icon_state = "smooth_half";
@@ -386,9 +415,6 @@
 /area/template_noop)
 "Y" = (
 /obj/effect/turf_decal/tile/neutral/half/contrasted,
-/obj/structure/railing{
-	dir = 1
-	},
 /obj/effect/turf_decal/trimline/yellow/warning{
 	dir = 1
 	},
@@ -437,14 +463,14 @@ g
 "}
 (4,1,1) = {"
 M
-P
+z
 F
 F
 F
 F
 F
 F
-y
+p
 R
 "}
 (5,1,1) = {"
@@ -461,14 +487,14 @@ r
 "}
 (6,1,1) = {"
 d
-P
+z
 F
 F
 F
 F
 F
 F
-y
+p
 C
 "}
 (7,1,1) = {"

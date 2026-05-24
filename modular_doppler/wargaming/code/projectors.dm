@@ -238,6 +238,12 @@
 /obj/item/wargame_projector/ships/red
 	holosign_color = COLOR_RED_LIGHT
 
+/obj/item/wargame_projector/ships/yellow
+	holosign_color = COLOR_VIVID_YELLOW
+
+/obj/item/wargame_projector/ships/green
+	holosign_color = COLOR_VIBRANT_LIME
+
 /obj/item/wargame_projector/terrain
 	name = "holographic terrain projector"
 	desc = "A handy-dandy holographic projector developed by the Port Authority Naval Command for playing wargames with, this one creates markers for space 'terrain'."
