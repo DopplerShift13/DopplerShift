@@ -150,6 +150,7 @@
 	var/obj/structure/wargame_hologram/target_holosign = new holosign_type(get_turf(target), src)
 	target_holosign.color = holosign_color
 	target_holosign.chat_color = holosign_color
+	target_holosign.update_appearance(UPDATE_OVERLAYS)
 	playsound(loc, SFX_INDUSTRIAL_SCAN, 45, TRUE)
 	if(requires_linked_team)
 		target_holosign.team_reference = linked_team

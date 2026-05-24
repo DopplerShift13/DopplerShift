@@ -1,6 +1,6 @@
 /datum/wargame_weapon/anti_ship_beam
 	weapon_name = "Anti-Ship Beam"
-	attack_roll = "1d20+5"
+	attack_roll = "2d12+7"
 	damage_roll_bonus = 0
 	attack_range = 1
 	evadable = FALSE

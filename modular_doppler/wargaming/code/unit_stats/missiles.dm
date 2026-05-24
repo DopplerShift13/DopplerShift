@@ -20,7 +20,7 @@
 	armor_class = 4
 	evasion_modifier = 1
 	movement_cost = 1
-	maximum_action_points = 2
+	maximum_action_points = 3
 	is_small_vessel = TRUE
 	unit_size = WARGAME_SIZE_SMALL
 	weaponry = list(
