@@ -178,6 +178,8 @@
 			reference_team = base_station.managed_teams[picked_team]
 			reference_team.tracked_projectors += src
 			linked_team = WEAKREF(reference_team)
+		else
+			base_station.terrain_projectors += src
 		if(!do_after(user, 3 SECONDS, base_station))
 			play_menu_sound()
 			return NONE

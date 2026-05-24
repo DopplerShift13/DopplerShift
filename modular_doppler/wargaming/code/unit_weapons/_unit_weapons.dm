@@ -41,17 +41,37 @@
 /datum/wargame_weapon/proc/pick_target(mob/living/user, obj/structure/wargame_hologram/hologram)
 	var/datum/wargaming_team/hologram_team = hologram.team_reference?.resolve()
 	var/list/potential_targets = list()
+	var/list/target_ships = list()
+	var/list/target_missiles = list()
+	var/list/every_other_target = list()
 	for(var/obj/structure/wargame_hologram/other_hologram in range(attack_range, hologram))
 		if(!other_hologram.unit_stats?.can_be_a_target)
 			continue // Anything we target at all should have unit stats but you never know
 		if(isnull(hologram_team))
-			potential_targets += other_hologram
+			if(other_hologram.controllable && !istype(other_hologram.unit_stats, /datum/wargame_unit_stats/missile))
+				target_ships += other_hologram
+			else if(istype(other_hologram.unit_stats, /datum/wargame_unit_stats/missile))
+				target_missiles += other_hologram
+			else
+				every_other_target += other_hologram
 			continue // If we have no team then free for all everything's a target
 		var/datum/wargaming_team/other_hologram_team = other_hologram.team_reference?.resolve()
 		if(isnull(other_hologram_team))
-			potential_targets += other_hologram
+			if(other_hologram.controllable && !istype(other_hologram.unit_stats, /datum/wargame_unit_stats/missile))
+				target_ships += other_hologram
+			else if(istype(other_hologram.unit_stats, /datum/wargame_unit_stats/missile))
+				target_missiles += other_hologram
+			else
+				every_other_target += other_hologram
 		if(other_hologram_team != hologram_team)
-			potential_targets += other_hologram
+			if(other_hologram.controllable && !istype(other_hologram.unit_stats, /datum/wargame_unit_stats/missile))
+				target_ships += other_hologram
+			else if(istype(other_hologram.unit_stats, /datum/wargame_unit_stats/missile))
+				target_missiles += other_hologram
+			else
+				every_other_target += other_hologram
+	// Sorts targets so ships and missiles are at the top
+	potential_targets = target_ships + target_missiles + every_other_target
 	if(!length(potential_targets))
 		hologram.balloon_alert(user, "no targets!")
 		return
