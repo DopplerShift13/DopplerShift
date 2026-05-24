@@ -188,7 +188,7 @@
 		return TRUE // If our weapon is weak (PDC) then it makes our attack roll less than armor class
 	var/datum/wargame_condition/new_condition = pick(possible_conditions)
 	new_condition = new new_condition()
-	new_condition.applied_to_unit(src)
+	new_condition.applied_to_unit(src, hologram)
 	current_conditions += new_condition
 	if(attacking_hologram.unit_stats.talkative)
 		attacking_hologram.say(good_hit_voiceline())

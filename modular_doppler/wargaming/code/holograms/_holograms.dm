@@ -56,6 +56,11 @@
 		. += boxed_message(conditions_text)
 		if(length(unit_stats.current_conditions) > unit_stats.conditions_limit)
 			. += span_warning("It looks like it's nearing its limit, if these conditions don't improve by next effects phase, the ship will be lost.")
+	if(length(unit_stats.weaponry))
+		var/weaponry_text = ""
+		for(var/datum/wargame_weapon/weapon as anything in unit_stats.weaponry)
+			weaponry_text += "[span_boldnotice("[weapon.weapon_name]")] - [weapon.weapon_description()][!isnull(weapon.maximum_ammo) ? " [weapon.maximum_ammo] shots left" : ""]<br>"
+		. += fieldset_block(span_bold("Weaponry"), weaponry_text, "boxed_message")
 
 /obj/structure/wargame_hologram/Destroy()
 	if(projector)

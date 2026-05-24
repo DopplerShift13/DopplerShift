@@ -1,12 +1,12 @@
 /datum/wargame_weapon/mass_driver
 	weapon_name = "Mass Driver"
-	attack_roll = "2d10+4"
+	attack_roll = "2d12+2"
 	damage_roll_bonus = 0
 	attack_range = 3
 	evadable = TRUE
 	small_ship_disadvantage = TRUE
 	radial_icon_state = "weapon_guns_big"
-	action_point_cost = 1
+	action_point_cost = 2
 
 /datum/wargame_weapon/mass_driver/weapon_firing_sound(obj/firer)
 	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
@@ -36,7 +36,7 @@
 	evadable = TRUE
 	small_ship_disadvantage = TRUE
 	radial_icon_state = "weapon_guns_big"
-	action_point_cost = 1
+	action_point_cost = 2
 
 /datum/wargame_weapon/large_cannon/weapon_firing_sound(obj/firer)
 	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)

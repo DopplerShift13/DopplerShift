@@ -46,7 +46,7 @@
 /datum/wargame_unit_stats/cruiser/linebreaker
 	unit_class = "battlecruiser"
 	unit_description = "A heavily armed and armored cruiser for breaking through fortified enemy lines."
-	armor_class = 15
+	armor_class = 14
 	evasion_modifier = 0
 	movement_cost = 2
 	maximum_action_points = 4

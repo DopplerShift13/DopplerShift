@@ -18,7 +18,7 @@
 /datum/wargame_unit_stats/destroyer/brawler
 	unit_class = "destroyer"
 	unit_description = "A heavily armored destroyer for close-in brawling engagements."
-	armor_class = 13
+	armor_class = 12
 	evasion_modifier = 0
 	movement_cost = 1
 	maximum_action_points = 4
@@ -26,6 +26,7 @@
 		/datum/wargame_weapon/autocannon,
 		/datum/wargame_weapon/missile/swarm,
 		/datum/wargame_weapon/medium_cannon,
+		/datum/wargame_weapon/missile/torpedo/small,
 	)
 
 /datum/wargame_unit_stats/destroyer/beam

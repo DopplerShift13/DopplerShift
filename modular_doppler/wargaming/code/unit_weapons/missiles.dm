@@ -51,11 +51,11 @@
 	evadable = FALSE
 	radial_icon_state = "weapon_missile_small"
 	action_point_cost = 1
-	maximum_ammo = 12
+	maximum_ammo = 6
 	missile_type = /obj/structure/wargame_hologram/controllable/swarm_missile
 
 /datum/wargame_weapon/missile/swarm/strike
-	maximum_ammo = 4
+	maximum_ammo = 2
 
 /datum/wargame_weapon/missile/swarm/weapon_firing_sound(obj/firer)
 	playsound(firer, 'modular_doppler/wargaming/sound/swarm_launch.ogg', 40, TRUE)
@@ -71,7 +71,7 @@
 /datum/wargame_weapon/missile/swarm/firing_voiceline()
 	var/static/list/lines = list(
 		"Get some swarmers on that track!",
-		"Try doding the third, fourth, and fifth ones this time!",
+		"Try dodging the third, fourth, and fifth ones this time!",
 		"Solid track, swarmers out",
 	)
 	return pick(lines)
@@ -101,6 +101,9 @@
 	action_point_cost = 1
 	maximum_ammo = 4
 	missile_type = /obj/structure/wargame_hologram/controllable/torpedo
+
+/datum/wargame_weapon/missile/torpedo/small
+	maximum_ammo = 2
 
 /datum/wargame_weapon/missile/torpedo/weapon_firing_sound(obj/firer)
 	playsound(firer, 'modular_doppler/wargaming/sound/missile_launch.ogg', 30, TRUE)

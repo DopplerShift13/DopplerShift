@@ -8,7 +8,7 @@
 	var/condition_lifetime_left
 
 /// When the condition is applied to a unit stats, what changes
-/datum/wargame_condition/proc/applied_to_unit(datum/wargame_unit_stats/stats)
+/datum/wargame_condition/proc/applied_to_unit(datum/wargame_unit_stats/stats, obj/hologram)
 	return
 
 /// When the condition is removed from a unit stats, what changes back
@@ -21,15 +21,15 @@
 	condition_desc = "Complete failure of missile systems, safety self destruct imminent."
 	condition_lifetime_left = 2
 
-/datum/wargame_condition/missile_failure/applied_to_unit(datum/wargame_unit_stats/stats)
-	stats.maximum_action_points = 0 // Missile is disabled
+/datum/wargame_condition/missile_failure/applied_to_unit(datum/wargame_unit_stats/stats, obj/hologram)
+	stats.im_boutta_blow(hologram)
 
 /datum/wargame_condition/hull_damage
 	condition_name = "Hull Damage"
 	condition_desc = "Damage to the hull that reduces the armor class of the ship."
 	condition_lifetime_left = 2
 
-/datum/wargame_condition/hull_damage/applied_to_unit(datum/wargame_unit_stats/stats)
+/datum/wargame_condition/hull_damage/applied_to_unit(datum/wargame_unit_stats/stats, obj/hologram)
 	stats.armor_class -= 1
 
 /datum/wargame_condition/hull_damage/removed_from_unit(datum/wargame_unit_stats/stats)
@@ -45,7 +45,7 @@
 	condition_desc = "Damage to the engines that makes movement cost an extra action point."
 	condition_lifetime_left = 3
 
-/datum/wargame_condition/engine_damage/applied_to_unit(datum/wargame_unit_stats/stats)
+/datum/wargame_condition/engine_damage/applied_to_unit(datum/wargame_unit_stats/stats, obj/hologram)
 	stats.movement_cost += 1
 
 /datum/wargame_condition/engine_damage/removed_from_unit(datum/wargame_unit_stats/stats)
@@ -56,7 +56,7 @@
 	condition_desc = "Damage to the ship's reactor that reduces maximum action points by one."
 	condition_lifetime_left = 4
 
-/datum/wargame_condition/reactor_damage/applied_to_unit(datum/wargame_unit_stats/stats)
+/datum/wargame_condition/reactor_damage/applied_to_unit(datum/wargame_unit_stats/stats, obj/hologram)
 	stats.maximum_action_points -= 1
 
 /datum/wargame_condition/reactor_damage/removed_from_unit(datum/wargame_unit_stats/stats)

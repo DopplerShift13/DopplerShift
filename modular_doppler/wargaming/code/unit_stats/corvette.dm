@@ -24,4 +24,6 @@
 	maximum_action_points = 3
 	weaponry = list(
 		/datum/wargame_weapon/pdc,
+		/datum/wargame_weapon/autocannon,
+		/datum/wargame_weapon/missile/torpedo/small,
 	)

@@ -19,7 +19,7 @@
 #define WARGAME_SIZE_LARGE 3
 
 /// The maximum amount of cover bonus a unit can have
-#define WARGAME_MAX_COVER_BONUS 4
+#define WARGAME_MAX_COVER_BONUS 2
 /// The maximum amount of evasion bonus a unit can have
 #define WARGAME_MAX_EVASION_BONUS 2
 
