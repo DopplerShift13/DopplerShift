@@ -14,7 +14,8 @@
 	return "Low calibre 45mm autocannons for fast moving targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/autocannon/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer]'s 45mm autocannon tracks toward [target], following the target for mere moments before sending a burst of shells at it!"))
+	firer.visible_message(span_warning("[firer]'s 45mm autocannon tracks toward [target], following the target for mere moments before sending a burst of shells at it!"), \
+		blind_message = span_warning("[firer]'s 45mm autocannon tracks toward [target], following the target for mere moments before sending a burst of shells at it!"))
 
 /datum/wargame_weapon/autocannon/firing_voiceline()
 	var/static/list/lines = list(
@@ -40,7 +41,8 @@
 	return "Small calibre 26mm autocannons with exceptional hit chance but low damage. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/pdc/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer]'s point defence grid quickly gimbals toward [target], filling the sky with a dense rain of tracers!"))
+	firer.visible_message(span_warning("[firer]'s point defence grid quickly gimbals toward [target], filling the sky with a dense rain of tracers!"), \
+		blind_message = span_warning("[firer]'s point defence grid quickly gimbals toward [target], filling the sky with a dense rain of tracers!"))
 
 /datum/wargame_weapon/pdc/firing_voiceline()
 	var/static/list/lines = list(

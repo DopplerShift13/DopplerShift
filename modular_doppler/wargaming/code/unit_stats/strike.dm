@@ -11,11 +11,12 @@
 	unit_size = WARGAME_SIZE_SMALL
 
 /datum/wargame_unit_stats/strike/im_boutta_blow(obj/structure/wargame_hologram/hologram)
-	hologram.visible_message(span_warning("[hologram] starts to careen off course before crackling and exploding!"))
+	hologram.visible_message(span_warning("[hologram] starts to careen off course before crackling and exploding!"), \
+		blind_message = span_warning("[hologram] starts to careen off course before crackling and exploding!"))
 	return ..()
 
 /datum/wargame_unit_stats/strike/create_unit_name()
-	return "[pick_list_replacements("~doppler/wargame_identifiers.json", "name_word")] Squadrom"
+	return "[pick_list_replacements("~doppler/wargame_identifiers.json", "name_word")] Squadron"
 
 /datum/wargame_unit_stats/strike/wing
 	unit_class = "strike wing"

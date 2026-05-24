@@ -57,6 +57,10 @@
 	context[SCREENTIP_CONTEXT_ALT_LMB] = "Open console menu"
 	return CONTEXTUAL_SCREENTIP_SET
 
+/obj/item/wargame_base_station/update_overlays()
+	. = ..()
+	. += emissive_appearance(icon, "basestation_emissive", src, alpha = 100)
+
 /// Turns the console gold and gives it a silly name
 /obj/item/wargame_base_station/proc/make_special_edition()
 	name = "\improper DopplerStation 2"

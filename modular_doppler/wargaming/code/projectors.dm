@@ -62,12 +62,12 @@
 	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Clear all holograms"
 	return CONTEXTUAL_SCREENTIP_SET
 
-/obj/item/wargame_projector/update_appearance()
+/obj/item/wargame_projector/update_overlays()
 	. = ..()
-	cut_overlays()
 	var/image/color_select_overlay = image(icon = icon, icon_state = "[base_icon_state]_screen")
 	color_select_overlay.color = holosign_color
-	add_overlay(color_select_overlay)
+	. += color_select_overlay
+	. += emissive_appearance(icon, "[base_icon_state]_screen", src)
 
 /obj/item/wargame_projector/examine(mob/user)
 	. = ..()
@@ -198,7 +198,7 @@
 		play_menu_sound()
 		return ITEM_INTERACT_SUCCESS
 	if(!isturf(interacting_with))
-		return NONE
+		return ..()
 	if(!check_can_place_hologram(interacting_with, user))
 		play_menu_sound()
 		return NONE

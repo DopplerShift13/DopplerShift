@@ -12,7 +12,8 @@
 	return
 
 /datum/wargame_unit_stats/terrain/im_boutta_blow(obj/structure/wargame_hologram/hologram)
-	hologram.visible_message(span_warning("[hologram] cracks into pieces before fading into a digital cloud!"))
+	hologram.visible_message(span_warning("[hologram] cracks into pieces before fading into a digital cloud!"), \
+		blind_message = span_warning("[hologram] cracks into pieces before fading into a digital cloud!"))
 	return ..()
 
 /datum/wargame_unit_stats/terrain/asteroid

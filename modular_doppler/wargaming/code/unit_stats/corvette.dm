@@ -11,7 +11,8 @@
 	unit_size = WARGAME_SIZE_SMALL
 
 /datum/wargame_unit_stats/corvette/im_boutta_blow(obj/structure/wargame_hologram/hologram)
-	hologram.visible_message(span_warning("[hologram] flashes and disappears as its reactor goes critical!"))
+	hologram.visible_message(span_warning("[hologram] flashes and disappears as its reactor goes critical!"), \
+		blind_message = span_warning("[hologram] flashes and disappears as its reactor goes critical!"))
 	return ..()
 
 /datum/wargame_unit_stats/corvette/picket

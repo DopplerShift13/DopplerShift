@@ -175,13 +175,15 @@
 		if(attacking_hologram.unit_stats.talkative)
 			attacking_hologram.say(missed_voiceline())
 			playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
-		hologram.visible_message(span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was less than or equal to the target's effective armor class, [total_armor_class]."))
+		hologram.visible_message(span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was less than or equal to the target's effective armor class, [total_armor_class]."), \
+			blind_message = span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was less than or equal to the target's effective armor class, [total_armor_class]."))
 		return FALSE
 	if((incoming_attack_roll + weapon_used.damage_roll_bonus) <= armor_class)
 		if(attacking_hologram.unit_stats.talkative)
 			attacking_hologram.say(nonpen_voiceline())
 			playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
-		hologram.visible_message(span_warning("Attacker's damage roll, [incoming_attack_roll + weapon_used.damage_roll_bonus], was less than or equal to the target's armor class, [armor_class]."))
+		hologram.visible_message(span_warning("Attacker's damage roll, [incoming_attack_roll + weapon_used.damage_roll_bonus], was less than or equal to the target's armor class, [armor_class]."), \
+			blind_message = span_warning("Attacker's damage roll, [incoming_attack_roll + weapon_used.damage_roll_bonus], was less than or equal to the target's armor class, [armor_class]."))
 		playsound(hologram, 'modular_doppler/wargaming/sound/ship_hit.ogg', 50, TRUE)
 		return TRUE // If our weapon is weak (PDC) then it makes our attack roll less than armor class
 	var/datum/wargame_condition/new_condition = pick(possible_conditions)
@@ -191,7 +193,8 @@
 	if(attacking_hologram.unit_stats.talkative)
 		attacking_hologram.say(good_hit_voiceline())
 		playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
-	hologram.visible_message(span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was higher than the target's effective armor class, [total_armor_class]."))
+	hologram.visible_message(span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was higher than the target's effective armor class, [total_armor_class]."), \
+		blind_message = span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was higher than the target's effective armor class, [total_armor_class]."))
 	hologram.Shake(2, 0, 2 SECONDS)
 	playsound(hologram, 'modular_doppler/wargaming/sound/ship_hit.ogg', 50, TRUE)
 	return TRUE

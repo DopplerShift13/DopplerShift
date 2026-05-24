@@ -16,7 +16,8 @@
 	return our_actions
 
 /datum/wargame_unit_stats/platform/im_boutta_blow(obj/structure/wargame_hologram/hologram)
-	hologram.visible_message(span_warning("[hologram] briefly becomes a new star in the night sky, before fading into a large debris field!"))
+	hologram.visible_message(span_warning("[hologram] briefly becomes a new star in the night sky, before fading into a large debris field!"), \
+		blind_message = span_warning("[hologram] briefly becomes a new star in the night sky, before fading into a large debris field!"))
 	return ..()
 
 /datum/wargame_unit_stats/platform/outpost

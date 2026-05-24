@@ -11,7 +11,8 @@
 	unit_size = WARGAME_SIZE_MEDIUM
 
 /datum/wargame_unit_stats/destroyer/im_boutta_blow(obj/structure/wargame_hologram/hologram)
-	hologram.visible_message(span_warning("[hologram] starts to drift off course before shattering into a large debris field!"))
+	hologram.visible_message(span_warning("[hologram] starts to drift off course before shattering into a large debris field!"), \
+		blind_message = span_warning("[hologram] starts to drift off course before shattering into a large debris field!"))
 	return ..()
 
 /datum/wargame_unit_stats/destroyer/brawler

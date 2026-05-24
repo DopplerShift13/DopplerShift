@@ -15,7 +15,8 @@
 	return "A high-energy beam for coring large ships with. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/anti_ship_beam/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer]'s spinal beam lens glows before piercing the sky towards [target] with a blinding flash of light!"))
+	firer.visible_message(span_warning("[firer]'s spinal beam lens glows before piercing the sky towards [target] with a blinding flash of light!"), \
+		blind_message = span_warning("[firer]'s spinal beam lens glows before piercing the sky towards [target] with a blinding flash of light!"))
 
 /datum/wargame_weapon/anti_ship_beam/firing_voiceline()
 	var/static/list/lines = list(
@@ -41,7 +42,8 @@
 	return "Highly focused beams with exceptional hit chance but low damage. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/pd_beam/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("Gimbaled lenses all along [firer] turn towards [target] and light up the night with a dazzling laser light show!"))
+	firer.visible_message(span_warning("Gimbaled lenses all along [firer] turn towards [target] and light up the night with a dazzling laser light show!"), \
+		blind_message = span_warning("Gimbaled lenses all along [firer] turn towards [target] and light up the night with a dazzling laser light show!"))
 
 /datum/wargame_weapon/pd_beam/firing_voiceline()
 	var/static/list/lines = list(

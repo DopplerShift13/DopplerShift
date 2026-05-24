@@ -41,16 +41,17 @@
 /datum/wargame_weapon/proc/pick_target(mob/living/user, obj/structure/wargame_hologram/hologram)
 	var/datum/wargaming_team/hologram_team = hologram.team_reference?.resolve()
 	var/list/potential_targets = list()
-	for(var/obj/structure/wargame_hologram/other_hologram in view(attack_range, get_turf(hologram)))
-		if(!other_hologram.unit_stats.can_be_a_target)
-			continue
+	for(var/obj/structure/wargame_hologram/other_hologram in range(attack_range, hologram))
+		if(!other_hologram.unit_stats?.can_be_a_target)
+			continue // Anything we target at all should have unit stats but you never know
 		if(isnull(hologram_team))
 			potential_targets += other_hologram
 			continue // If we have no team then free for all everything's a target
 		var/datum/wargaming_team/other_hologram_team = other_hologram.team_reference?.resolve()
-		if(other_hologram_team == hologram_team)
-			continue // Cannot target friendlies otherwise
-		potential_targets += other_hologram
+		if(isnull(other_hologram_team))
+			potential_targets += other_hologram
+		if(other_hologram_team != hologram_team)
+			potential_targets += other_hologram
 	if(!length(potential_targets))
 		hologram.balloon_alert(user, "no targets!")
 		return

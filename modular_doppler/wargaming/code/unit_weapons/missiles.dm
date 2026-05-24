@@ -13,7 +13,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/missile_launch.ogg', 30, TRUE)
 
 /datum/wargame_weapon/missile/cruise/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer]'s missile tubes pop open and dispense a large missile that quickly turns and burns towards [target]!"))
+	firer.visible_message(span_warning("[firer]'s missile tubes pop open and dispense a large missile that quickly turns and burns towards [target]!"), \
+		blind_message = span_warning("[firer]'s missile tubes pop open and dispense a large missile that quickly turns and burns towards [target]!"))
 
 /datum/wargame_weapon/missile/cruise/weapon_description()
 	return "A long range cruise missile for engaging large targets. Becomes a controllable ship if the target is beyond short range. \
@@ -40,7 +41,8 @@
 		Max range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/ramming/cruise/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer] engages its terminal stage boosters as it dives toward [target] in a spiraling loop!"))
+	firer.visible_message(span_warning("[firer] engages its terminal stage boosters as it dives toward [target] in a spiraling loop!"), \
+		blind_message = span_warning("[firer] engages its terminal stage boosters as it dives toward [target] in a spiraling loop!"))
 
 /datum/wargame_weapon/missile/swarm
 	weapon_name = "Swarm Missiles"
@@ -63,7 +65,8 @@
 		Max target range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/missile/swarm/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer] ejects a bouquet of micro-missiles with a puff of gas, which break off into a swarm towards [target]!"))
+	firer.visible_message(span_warning("[firer] ejects a bouquet of micro-missiles with a puff of gas, which break off into a swarm towards [target]!"), \
+		blind_message = span_warning("[firer] ejects a bouquet of micro-missiles with a puff of gas, which break off into a swarm towards [target]!"))
 
 /datum/wargame_weapon/missile/swarm/firing_voiceline()
 	var/static/list/lines = list(
@@ -85,7 +88,8 @@
 		Max range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/ramming/swarm/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer] swarm towards [target], burning in high-gee turns to evade defense!"))
+	firer.visible_message(span_warning("[firer] swarm towards [target], burning in high-gee turns to evade defense!"), \
+		blind_message = span_warning("[firer] swarm towards [target], burning in high-gee turns to evade defense!"))
 
 /datum/wargame_weapon/missile/torpedo
 	weapon_name = "Torpedo"
@@ -106,7 +110,8 @@
 		Max target range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/missile/torpedo/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer] dispenses a large torpedo, which slowly spins up and gimbals toward [target]!"))
+	firer.visible_message(span_warning("[firer] dispenses a large torpedo, which slowly spins up and gimbals toward [target]!"), \
+		blind_message = span_warning("[firer] dispenses a large torpedo, which slowly spins up and gimbals toward [target]!"))
 
 /datum/wargame_weapon/missile/torpedo/firing_voiceline()
 	var/static/list/lines = list(
@@ -129,4 +134,5 @@
 		Max range of [attack_range] tiles. [action_point_cost] AP to fire."
 
 /datum/wargame_weapon/ramming/torpedo/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer] ejects its cruise stage and ignites an oversized terminal booster, speeding towards [target]!"))
+	firer.visible_message(span_warning("[firer] ejects its cruise stage and ignites an oversized terminal booster, speeding towards [target]!"), \
+		blind_message = span_warning("[firer] ejects its cruise stage and ignites an oversized terminal booster, speeding towards [target]!"))

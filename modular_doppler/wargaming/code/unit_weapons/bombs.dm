@@ -17,7 +17,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/swarm_launch.ogg', 40, TRUE)
 
 /datum/wargame_weapon/rockets/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer] lets loose a volley of rockets at [target]!"))
+	firer.visible_message(span_warning("[firer] lets loose a volley of rockets at [target]!"), \
+		blind_message = span_warning("[firer] lets loose a volley of rockets at [target]!"))
 
 /datum/wargame_weapon/rockets/firing_voiceline()
 	var/static/list/lines = list(
@@ -45,7 +46,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
 
 /datum/wargame_weapon/bombs/weapon_firing_message(obj/firer, obj/target)
-	firer.visible_message(span_warning("[firer] makes a run at [target], releasing a large bomb that drifts toward them!"))
+	firer.visible_message(span_warning("[firer] makes a run at [target], releasing a large bomb that drifts toward them!"), \
+		blind_message = span_warning("[firer] makes a run at [target], releasing a large bomb that drifts toward them!"))
 
 /datum/wargame_weapon/bombs/firing_voiceline()
 	var/static/list/lines = list(
