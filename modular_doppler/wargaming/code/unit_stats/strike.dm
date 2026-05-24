@@ -16,7 +16,7 @@
 	return ..()
 
 /datum/wargame_unit_stats/strike/create_unit_name()
-	return "[pick_list_replacements("~doppler/wargame_identifiers.json", "name_word")] Squadron"
+	return "Squadron [pick_list_replacements("~doppler/wargame_identifiers.json", "name_word")] [rand(1, 9)]"
 
 /datum/wargame_unit_stats/strike/wing
 	unit_class = "strike wing"
