@@ -29,6 +29,10 @@
 	group = "Prescription Glasses"
 	abstract_type = /datum/loadout_item/glasses/prescription
 
+/datum/loadout_item/glasses/prescription/get_item_information()
+	. = ..()
+	.[FA_ICON_GLASSES] = "Corrects nearsightedness!"
+
 /datum/loadout_item/glasses/prescription/regular
 	name = "Prescription Glasses"
 	item_path = /obj/item/clothing/glasses/regular
@@ -112,30 +116,6 @@
 	name = "Aviators (Science)"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 
-/datum/loadout_item/glasses/hud/aviator/prescription
-	name = "Prescription Aviators (None)"
-	item_path = /obj/item/clothing/glasses/hud/ar/aviator/prescription
-
-/datum/loadout_item/glasses/hud/aviator_meson/prescription
-	name = "Prescription Aviators (Meson)"
-	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
-
-/datum/loadout_item/glasses/hud/aviator_health/prescription
-	name = "Prescription Aviators (Medical)"
-	item_path = /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
-
-/datum/loadout_item/glasses/hud/aviator_security/prescription
-	name = "Prescription Aviators (Security)"
-	item_path = /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
-
-/datum/loadout_item/glasses/hud/aviator_diagnostic/prescription
-	name = "Prescription Aviators (Diagnostics)"
-	item_path = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
-
-/datum/loadout_item/glasses/hud/aviator_science/prescription
-	name = "Prescription Aviators (Science)"
-	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science/prescription
-
 /datum/loadout_item/glasses/hud/hud_eyepatch_meson
 	name = "HUD Eyepatch (Meson)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
@@ -159,6 +139,40 @@
 /datum/loadout_item/glasses/hud/mining_goggles
 	name = "Explorer Goggles (Meson)"
 	item_path = /obj/item/clothing/glasses/mining_meson
+
+/**
+ * PRESCRIPTION HUD HYBRID GLASSES
+ */
+/datum/loadout_item/glasses/hud/prescription
+	abstract_type = /datum/loadout_item/glasses/hud/prescription
+
+/datum/loadout_item/glasses/hud/prescription/get_item_information()
+	. = ..()
+	.[FA_ICON_GLASSES] = "Corrects nearsightedness!"
+
+/datum/loadout_item/glasses/hud/prescription/aviator
+	name = "Aviators (None, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_meson
+	name = "Aviators (Meson, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_health
+	name = "Aviators (Medical, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_security
+	name = "Aviators (Security, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_diagnostic
+	name = "Aviators (Diagnostics, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_science
+	name = "Aviators (Science, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science/prescription
 
 /**
  * HUD GLASSES (Take in other huds)
