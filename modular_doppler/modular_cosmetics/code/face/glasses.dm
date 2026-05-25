@@ -622,7 +622,7 @@
 
 /datum/crafting_recipe/secprescriptaviatorsremoval
 	name = "Security HUD Aviators prescription removal"
-	result = /obj/item/clothing/glasses/hud/ar/aviator/security/
+	result = /obj/item/clothing/glasses/hud/ar/aviator/security
 	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/security/prescription = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -638,7 +638,7 @@
 
 /datum/crafting_recipe/medprescriptaviatorsremoval
 	name = "Medical HUD Aviators prescription removal"
-	result = /obj/item/clothing/glasses/hud/ar/aviator/health/
+	result = /obj/item/clothing/glasses/hud/ar/aviator/health
 	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/health/prescription = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -670,7 +670,7 @@
 
 /datum/crafting_recipe/roboprescriptaviatorsremoval
 	name = "Diagnostic HUD Aviators prescription removal"
-	result = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/
+	result = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic
 	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
@@ -686,7 +686,7 @@
 
 /datum/crafting_recipe/sciprescriptaviatorsremoval
 	name = "Science HUD Aviators prescription removal"
-	result = /obj/item/clothing/glasses/hud/ar/aviator/science/
+	result = /obj/item/clothing/glasses/hud/ar/aviator/science
 	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/ar/aviator/science/prescription = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
