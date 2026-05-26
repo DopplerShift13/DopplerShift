@@ -1,8 +1,7 @@
-/datum/component/thaumaturge_preparation
+/datum/component/thaumaturge/preparation
 	dupe_mode = COMPONENT_DUPE_UNIQUE
 
-	/// The mob we’re attached to is always `parent`.
-	var/mob/living/attached_mob
+	charges_color = "#ff69b4"
 
 	/// The 'mana' we have to allocate. This is basically the power value of the spell in the powers menu. Note that the spell's own mana cost need not be propertional to the value.
 	var/mana = 0
@@ -28,23 +27,20 @@
 	/// If they go to sleep, they'll recharge their actions. This is only set if it passes validation.
 	var/recharge_when_sleep = FALSE
 
-/datum/component/thaumaturge_preparation/Initialize()
+/datum/component/thaumaturge/preparation/Initialize()
 	. = ..()
-	if(!isliving(parent))
-		return COMPONENT_INCOMPATIBLE
-	attached_mob = parent
 
 // We need to set these to interact with sleeping = gain charges
-/datum/component/thaumaturge_preparation/RegisterWithParent()
+/datum/component/thaumaturge/preparation/RegisterWithParent()
 	. = ..()
 	RegisterSignal(attached_mob, COMSIG_LIVING_STATUS_SLEEP, PROC_REF(on_sleep_set))
 
-/datum/component/thaumaturge_preparation/UnregisterFromParent()
+/datum/component/thaumaturge/preparation/UnregisterFromParent()
 	UnregisterSignal(attached_mob, COMSIG_LIVING_STATUS_SLEEP)
 	. = ..()
 
 /// Gives the status effect responsible for charging spells when we go to sleep.
-/datum/component/thaumaturge_preparation/proc/on_sleep_set(mob/living/source, amount)
+/datum/component/thaumaturge/preparation/proc/on_sleep_set(mob/living/source, amount)
 	SIGNAL_HANDLER
 	// Only trigger on entering sleep (not waking, shortening, or extending existing sleep).
 	if(amount <= 0 || source.IsSleeping())
@@ -60,7 +56,7 @@
 
 
 /// Validates mana and adds spells to the list.
-/datum/component/thaumaturge_preparation/proc/build_spells()
+/datum/component/thaumaturge/preparation/proc/build_spells()
 	var/calculated_mana = 0
 	spell_list = list()
 	for(var/datum/power/power_instance as anything in attached_mob.powers)
@@ -74,7 +70,7 @@
 	mana = clamp(calculated_mana * THAUMATURGE_MANA_MULT, 0, max_mana)
 
 /// Checks if we can prepare the spell in our spellbook and if so adds it to the spell list.
-/datum/component/thaumaturge_preparation/proc/check_if_can_prepare(action_type)
+/datum/component/thaumaturge/preparation/proc/check_if_can_prepare(action_type)
 	if(!istype(action_type, /datum/action/cooldown/power/thaumaturge))
 		return FALSE
 	var/datum/action/cooldown/power/thaumaturge/cast_type = action_type
@@ -84,7 +80,7 @@
 	return TRUE
 
 /// Find the spell in the current spell_list and read its prep_cost.
-/datum/component/thaumaturge_preparation/proc/get_prep_cost_for_spell_ref(spell_ref)
+/datum/component/thaumaturge/preparation/proc/get_prep_cost_for_spell_ref(spell_ref)
 	for(var/datum/power/power_instance as anything in spell_list)
 		if("[power_instance.action_path.type]" == spell_ref)
 			var/datum/action/cooldown/power/thaumaturge/action_instance = power_instance.action_path
@@ -93,7 +89,7 @@
 
 
 /// Starts the process of applying spells. Verification & all
-/datum/component/thaumaturge_preparation/proc/apply_preperation()
+/datum/component/thaumaturge/preparation/proc/apply_preperation()
 	if(!check_valid_preperation())
 		recharge_when_sleep = FALSE
 		return
@@ -110,7 +106,7 @@
 		to_chat(attached_mob, span_notice("Your changes have been saved! The next time you take the sleep action, the charges will be applied."))
 
 /// Applies the prepared spell charges.
-/datum/component/thaumaturge_preparation/proc/apply_spell_charges()
+/datum/component/thaumaturge/preparation/proc/apply_spell_charges()
 	if(!length(applied_prepared_charges))
 		return FALSE
 
@@ -138,7 +134,7 @@
 	return TRUE
 
 /// Reverifies that all the things picked for preperation are indeed valid.
-/datum/component/thaumaturge_preparation/proc/check_valid_preperation()
+/datum/component/thaumaturge/preparation/proc/check_valid_preperation()
 	var/total_mana_cost = 0
 	build_spells()
 	for(var/prepared_key in applied_prepared_charges)
@@ -163,7 +159,7 @@
 	return TRUE
 
 /// Because TGUI gives it along as a string.
-/datum/component/thaumaturge_preparation/proc/get_applied_charges_matching_power(list/powers_list, prepared_key)
+/datum/component/thaumaturge/preparation/proc/get_applied_charges_matching_power(list/powers_list, prepared_key)
 	for(var/datum/power/power in powers_list)
 		var/datum/action/cooldown/power/thaumaturge/action = power.action_path
 		if(!action)
@@ -179,7 +175,7 @@
 /* Below is responsible for all the TGUI stuff to do with spell preperation.
    Save yourself if you need to touch this.
 */
-/datum/component/thaumaturge_preparation/ui_interact(mob/living/user, datum/tgui/ui)
+/datum/component/thaumaturge/preparation/ui_interact(mob/living/user, datum/tgui/ui)
 	if(!user)
 		return
 
@@ -202,10 +198,10 @@
 	ui.open()
 
 
-/datum/component/thaumaturge_preparation/ui_state(mob/user)
+/datum/component/thaumaturge/preparation/ui_state(mob/user)
 	return GLOB.always_state
 
-/datum/component/thaumaturge_preparation/ui_data(mob/living/user)
+/datum/component/thaumaturge/preparation/ui_data(mob/living/user)
 	var/list/spells_payload = list()
 
 	for(var/datum/power/power_instance as anything in spell_list)
@@ -245,7 +241,7 @@
 
 
 
-/datum/component/thaumaturge_preparation/ui_act(action, list/params, datum/tgui/ui)
+/datum/component/thaumaturge/preparation/ui_act(action, list/params, datum/tgui/ui)
 	. = ..()
 	if(.)
 		return
@@ -315,9 +311,9 @@
 	/// Has the sleep ended early?
 	var/ends_early = FALSE
 	/// Reference to the preperation component.
-	var/datum/component/thaumaturge_preparation/prep_component
+	var/datum/component/thaumaturge/preparation/prep_component
 
-/datum/status_effect/power/thaumaturgic_sleep/on_creation(mob/living/new_owner, datum/component/thaumaturge_preparation/thaum_component)
+/datum/status_effect/power/thaumaturgic_sleep/on_creation(mob/living/new_owner, datum/component/thaumaturge/preparation/thaum_component)
 	prep_component = thaum_component
 	return ..()
 
@@ -343,3 +339,4 @@
 	desc = "You are manifesting your thaumaturgic power through your dreams; if you are asleep with your spell focus when this effect expires, you will recharge your spells. Waking up early yields nothing!"
 	icon = 'icons/obj/weapons/guns/projectiles.dmi'
 	icon_state = "ice_1"
+

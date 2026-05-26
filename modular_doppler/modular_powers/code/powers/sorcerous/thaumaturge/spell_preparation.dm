@@ -16,14 +16,14 @@
 	if(!power_holder) // So it doesn't runtime at init
 		return
 	// Spell preperation is so complicated we basically handle it all in a component, including the UI part.
-	power_holder.AddComponent(/datum/component/thaumaturge_preparation, power_holder)
+	power_holder.AddComponent(/datum/component/thaumaturge/preparation, power_holder)
 	. = ..()
 
 /datum/power/thaumaturge_root/spell_preparation/remove()
 	. = ..()
 	if(!power_holder)
 		return
-	var/tobedel = power_holder.GetComponent(/datum/component/thaumaturge_preparation)
+	var/tobedel = power_holder.GetComponent(/datum/component/thaumaturge/preparation)
 	QDEL_NULL(tobedel)
 
 
@@ -39,10 +39,11 @@
 	disabled_by_incapacitate = FALSE
 
 /datum/action/cooldown/power/thaumaturge/spell_preparation/use_action(mob/living/user, atom/target)
-	var/datum/component/thaumaturge_preparation/prep_component = user.GetComponent(/datum/component/thaumaturge_preparation)
+	var/datum/component/thaumaturge/preparation/prep_component = user.GetComponent(/datum/component/thaumaturge/preparation)
 	if(!prep_component)
 		to_chat(user, span_warning("Something terrible has happened; you're missing your preparation component. Yell at devs!"))
 		return FALSE
 	prep_component.build_spells() // We call it here so all the spells are loaded when we open it.
 	prep_component.ui_interact(user)
 	return TRUE
+

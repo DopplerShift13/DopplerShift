@@ -6,16 +6,12 @@
 */
 /datum/power/thaumaturge_root/hemomancy
 	name = "Hemomancy"
-	desc = "You cast spells by channeling your blood. All your spells drain your blood when wielding them, usually 3 * the power's cost. \
+	desc = "You cast spells by channeling your blood. All your spells drain your blood when wielding them, usually 4 * the power's allocation cost. \
 	Blood exceeding 110% of your natural blood threshold is consumed at higher rates to boost the affinity of your spells, empowering them to higher levels of Affinity, up to a maximum of 6. This does not trigger on spells that have a chance refund charges based on affinity. \
 	\nYou cannot gain Affinity from items, you do not benefit from random chance to refund charges on spells, and all your spells are now affected by holy resistance.\
 	\nYou also gain the Channel Blood action. Using it allows you to transfer blood from various sources back to you (and converts the blood-type to yours), and grants Affinity 3 (4 if you're a Hemophage) while the channel is active. Requires an empty hand."
 	security_record_text = "Subject is capable of wielding their blood to perform thaumaturgic magic."
 	action_path = /datum/action/cooldown/power/thaumaturge/channel_blood
-	charges_color = "#c72222"
-	resource_display_mode = THAUMATURGE_RESOURCE_DISPLAY_PREP_COST
-	charge_mechanics = FALSE
-	affinity_benefits_from_items = FALSE
 	species_blacklist = list(/datum/species/android, /datum/species/android/holosynth, /datum/species/golem, /datum/species/plasmaman, /datum/species/ethereal, /datum/species/jelly, /datum/species/pod, /datum/species/snail) // You can't do blood magic without blood, duh!
 	value = 5
 
@@ -23,14 +19,14 @@
 	if(!power_holder) // So it doesn't runtime at init
 		return
 	// Spell preperation is so complicated we basically handle it all in a component, including the UI part.
-	power_holder.AddComponent(/datum/component/thaumaturge_hemomancy, power_holder)
+	power_holder.AddComponent(/datum/component/thaumaturge/hemomancy, power_holder)
 	. = ..()
 
 /datum/power/thaumaturge_root/hemomancy/remove()
 	. = ..()
 	if(!power_holder)
 		return
-	var/tobedel = power_holder.GetComponent(/datum/component/thaumaturge_hemomancy)
+	var/tobedel = power_holder.GetComponent(/datum/component/thaumaturge/hemomancy)
 	QDEL_NULL(tobedel)
 
 /datum/action/cooldown/power/thaumaturge/channel_blood
@@ -104,16 +100,20 @@
 	righthand_file = 'icons/mob/inhands/items/touchspell_righthand.dmi'
 	icon_state = "scream_for_me"
 	inhand_icon_state = "disintegrate"
-	item_flags = ABSTRACT | HAND_ITEM | DROPDEL
+	item_flags = ABSTRACT | HAND_ITEM
 	w_class = WEIGHT_CLASS_HUGE
 	throwforce = 0
 	throw_range = 0
 	throw_speed = 0
 	affinity = 3 // this doesn't do anything by itself: though it alters the description to say it gives Affinity 3.
-	/// How much blood we drain per touch.
+	/// How much blood we drain per touch from objects.
 	var/drain_amount = 25
-	/// Multiplier on the drain against mobs.
-	var/drain_mob_mult = 0.4
+	/// How much blood we drain from a mob per second.
+	var/mob_drain_amount = 10
+
+/obj/item/melee/channel_blood/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, INNATE_TRAIT)
 
 // Adds a listener to the affinity check
 /obj/item/melee/channel_blood/equipped(mob/user, slot, initial = FALSE)
@@ -148,10 +148,20 @@
 	if(ishemophage(source))
 		action.affinity += 1
 
-// Handles blood draining from objects
-/obj/item/melee/channel_blood/afterattack(atom/target, mob/living/user, proximity_flag, click_parameters)
-	. = ..()
-	if(!proximity_flag || !isliving(user) || !target)
+// Handles blood draining and blocks default melee attack behavior.
+/obj/item/melee/channel_blood/pre_attack(atom/target, mob/living/user, list/modifiers, list/attack_modifiers)
+	if(!isliving(user) || !target)
+		return TRUE
+	if(get_dist(user, target) > 1)
+		return TRUE
+
+	// If the target is a living mob, we start a beam effect.
+	if(isliving(target))
+		var/mob/living/target_mob = target
+		if(start_blood_channel(target_mob, user))
+			to_chat(user, span_notice("You begin channeling blood from [target_mob]."))
+		else
+			to_chat(user, span_warning("You failed to channel blood from [target_mob]!"))
 		return
 
 	var/drained = drain_blood_from_target(target, user, drain_amount)
@@ -162,6 +172,7 @@
 	user.blood_volume += drained
 	to_chat(user, span_notice("You siphon [round(drained, 0.1)]u of blood into yourself."))
 	playsound(get_turf(user), 'sound/effects/splat.ogg', 30, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
+	return TRUE
 
 /// Proc that determines what function we call for the target, depending on what we're drawing blood from.
 /obj/item/melee/channel_blood/proc/drain_blood_from_target(atom/target, mob/living/user, amount)
@@ -169,9 +180,21 @@
 		return drain_blood_from_container(target, amount)
 	if(istype(target, /obj/effect/decal/cleanable/blood))
 		return drain_blood_from_decal(target, amount)
-	if(isliving(target))
-		return drain_blood_from_mob(target, user, amount)
 	return 0
+
+/// Starts or refreshes blood channeling on a mob.
+/obj/item/melee/channel_blood/proc/start_blood_channel(mob/living/target_mob, mob/living/user)
+	if(!target_mob || !user)
+		return FALSE
+	// Respect anti-magic protections similarly to power anti_magic_on_target handling.
+	if(target_mob.can_block_resonance(1) || target_mob.can_block_magic(MAGIC_RESISTANCE | MAGIC_RESISTANCE_HOLY, charge_cost = 1))
+		return FALSE
+	if(target_mob.get_blood_reagent() != /datum/reagent/blood || target_mob.blood_volume <= 0)
+		return FALSE
+
+	// Removes it if its already there.
+	target_mob.remove_status_effect(/datum/status_effect/power/thaumaturge_blood_channeling)
+	return target_mob.apply_status_effect(/datum/status_effect/power/thaumaturge_blood_channeling, user, mob_drain_amount)
 
 /// Acquires blood from a reagent container.
 /obj/item/melee/channel_blood/proc/drain_blood_from_container(obj/item/reagent_containers/container, amount)
@@ -182,23 +205,6 @@
 		return 0
 	var/to_take = min(amount, available)
 	container.reagents.remove_reagent(/datum/reagent/blood, to_take, include_subtypes = TRUE)
-	return to_take
-
-/// Acquires blood from mobs.
-/obj/item/melee/channel_blood/proc/drain_blood_from_mob(mob/living/target_mob, mob/living/user, amount)
-	if(!target_mob || amount <= 0)
-		return 0
-	// Respect anti-magic protections similarly to power anti_magic_on_target handling.
-	if(target_mob.can_block_resonance(1) || target_mob.can_block_magic(MAGIC_RESISTANCE | MAGIC_RESISTANCE_HOLY, charge_cost = 1))
-		return 0
-	if(target_mob.get_blood_reagent() != /datum/reagent/blood || target_mob.blood_volume <= 0)
-		return 0
-	amount *= drain_mob_mult // you drain less from mobs.
-	var/to_take = min(amount, target_mob.blood_volume)
-	if(to_take <= 0)
-		return 0
-	target_mob.blood_volume = max(target_mob.blood_volume - to_take, 0)
-	to_chat(target_mob, span_userdanger("You feel your blood being siphoned by [user]!"))
 	return to_take
 
 /// Acquires blood from decals.
@@ -226,3 +232,105 @@
 			blood_decal.reagents.remove_reagent(/datum/reagent/blood, to_take, include_subtypes = TRUE)
 
 	return to_take
+
+/*
+	Status effect used for continuous blood channeling from mob targets.
+*/
+/datum/status_effect/power/thaumaturge_blood_channeling
+	id = "thaumaturge_blood_channeling"
+	duration = -1
+	tick_interval = 1 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/thaumaturge_blood_channeling
+
+	/// Who receives the siphoned blood.
+	var/mob/living/channel_origin
+	/// Continuous beam visual.
+	var/datum/beam/channel_beam
+	/// Blood moved each tick.
+	var/channel_amount = 10
+
+// Passes the channel amount from the var over.
+/datum/status_effect/power/thaumaturge_blood_channeling/on_creation(mob/living/new_owner, mob/living/new_channel_origin, new_channel_amount)
+	channel_origin = new_channel_origin
+	if(isnum(new_channel_amount))
+		channel_amount = max(0, new_channel_amount)
+	. = ..()
+
+// Creates the beaaam.
+/datum/status_effect/power/thaumaturge_blood_channeling/on_apply()
+	. = ..()
+	if(!isliving(owner) || !isliving(channel_origin))
+		return FALSE
+	if(get_dist(owner, channel_origin) > 1)
+		return FALSE
+	channel_beam = owner.Beam(channel_origin, icon_state = "blood", time = 10 MINUTES, maxdistance = 1)
+	to_chat(owner, span_userdanger("You feel your blood being siphoned by [channel_origin]!"))
+	return TRUE
+
+// Deletes the beaaaam
+/datum/status_effect/power/thaumaturge_blood_channeling/on_remove()
+	QDEL_NULL(channel_beam)
+	return ..()
+
+// Transfers blood on tick.
+/datum/status_effect/power/thaumaturge_blood_channeling/tick(seconds_between_ticks)
+	var/mob/living/channel_target = owner
+	if(!channel_target || !channel_origin)
+		qdel(src)
+		return
+
+	// Channel requires adjacency.
+	if(get_dist(channel_target, channel_origin) > 1)
+		qdel(src)
+		return
+
+	// Origin must still be actively channeling with the blood hand and action toggled on.
+	if(!origin_can_channel())
+		qdel(src)
+		return
+
+	// Respect anti-magic and blood validity each tick.
+	if(channel_target.can_block_resonance(1) || channel_target.can_block_magic(MAGIC_RESISTANCE | MAGIC_RESISTANCE_HOLY, charge_cost = 1))
+		qdel(src)
+		return
+	if(channel_target.get_blood_reagent() != /datum/reagent/blood || channel_target.blood_volume <= 0)
+		qdel(src)
+		return
+
+	var/transferred = min(channel_amount, channel_target.blood_volume)
+	// if juice-box, delete.
+	if(transferred <= 0)
+		qdel(src)
+		return
+
+	channel_target.blood_volume = max(channel_target.blood_volume - transferred, 0)
+	channel_origin.blood_volume += transferred
+
+/// Validates if the original caster meets the prerequisites.
+/datum/status_effect/power/thaumaturge_blood_channeling/proc/origin_can_channel()
+	if(!isliving(channel_origin))
+		return FALSE
+
+	// If the blood hand is active
+	var/has_live_blood_hand = FALSE
+	for(var/obj/item/melee/channel_blood/blood_hand as anything in channel_origin.held_items)
+		if(QDELETED(blood_hand) || blood_hand.loc != channel_origin)
+			continue
+		has_live_blood_hand = TRUE
+		break
+	if(!has_live_blood_hand)
+		return FALSE
+
+	// If the power is considered active.
+	for(var/datum/action/action as anything in channel_origin.actions)
+		if(!istype(action, /datum/action/cooldown/power/thaumaturge/channel_blood))
+			continue
+		var/datum/action/cooldown/power/thaumaturge/channel_blood/channel_action = action
+		return !!channel_action.active
+	return FALSE
+
+/atom/movable/screen/alert/status_effect/thaumaturge_blood_channeling
+	name = "Blood Channeling"
+	desc = "Your blood is being drained!"
+	icon = 'icons/mob/actions/actions_cult.dmi'
+	icon_state = "manip"

@@ -194,7 +194,7 @@
 	. = ..()
 	if(!projectile_instance || !isliving(user))
 		return
-	if(user.GetComponent(/datum/component/thaumaturge_hemomancy))
+	if(user.GetComponent(/datum/component/thaumaturge/hemomancy))
 		projectile_instance.icon_state = "blood_bolt"
 
 
@@ -240,7 +240,7 @@
 	orbiter.transform = matrix()
 	orbiter.transform.Scale(0.5, 0.5)
 	orbiter.icon = projectile_path.icon // if you end up editing the projectile, it should also affect the orbitals.
-	orbiter.icon_state = owner?.GetComponent(/datum/component/thaumaturge_hemomancy) ? "blood_bolt" : projectile_path.icon_state // changes the icon_state to the blood ones if we have hemomancy.
+	orbiter.icon_state = owner?.GetComponent(/datum/component/thaumaturge/hemomancy) ? "blood_bolt" : projectile_path.icon_state // changes the icon_state to the blood ones if we have hemomancy.
 	orbiting_missiles += orbiter
 	orbiter.orbit(owner, missile_orbit_radius, rotation_speed =  missile_rotation_speed)
 	RegisterSignal(orbiter, COMSIG_QDELETING, PROC_REF(on_orbiter_deleted))
@@ -290,3 +290,4 @@
 		return NONE
 	disable_barrage(owner, span_userdanger("Your magic missiles vanish as they are dispelled!"))
 	return DISPEL_RESULT_DISPELLED
+

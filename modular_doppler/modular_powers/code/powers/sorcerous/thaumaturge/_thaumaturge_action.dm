@@ -26,17 +26,11 @@
 	var/last_power_refunded = FALSE
 	/// If TRUE, this action uses the default charges system.
 	var/charge_mechanics = TRUE
-	/// Root power tied to this action. Used for charge/color/display settings.
-	var/datum/power/thaumaturge_root/associated_root_power
+	/// Thaumaturge component tied to this action's owner. Used for mechanics settings.
+	var/datum/component/thaumaturge/thaumaturge_component
 
 	/// Overlay that shows the number of charges
 	var/mutable_appearance/charge_overlay
-	/// Color used for the resource overlay text. Set by thaumaturge roots.
-	var/resource_color = "#ff69b4"
-	/// What value to show in the resource overlay.
-	var/resource_display_mode = THAUMATURGE_RESOURCE_DISPLAY_CHARGES
-	/// Multiplier used when display mode is prep_cost.
-	var/resource_display_multiplier = 1
 
 	/// How much affinity is currently affecting the action. It is deliberate we snap-shot this on cast.
 	var/affinity
@@ -50,25 +44,20 @@
 
 /datum/action/cooldown/power/thaumaturge/Grant(mob/grant_to)
 	. = ..()
-	ValidateThaumaturgeRoot()
+	ValidateThaumaturgeComponent()
 	check_if_valid(grant_to)
 	return .
 
-/// Checks if we have our referenced root, to determine underlying mechanics, colors, charges behavior etc.
-/// If its not there, it attempts to set it.
-/datum/action/cooldown/power/thaumaturge/proc/ValidateThaumaturgeRoot()
-	if(owner)
-		var/mob/living/carrier = owner
-		for(var/datum/power/power as anything in carrier.powers)
-			if(istype(power, /datum/power/thaumaturge_root))
-				associated_root_power = power
-				break
-	if(!associated_root_power)
+/// Checks if we have our referenced thaumaturge component for mechanics/display behavior.
+/datum/action/cooldown/power/thaumaturge/proc/ValidateThaumaturgeComponent()
+	if(owner && !thaumaturge_component)
+		thaumaturge_component = owner.GetComponent(/datum/component/thaumaturge)
+	if(!thaumaturge_component)
 		return FALSE
 	return TRUE
 
 /datum/action/cooldown/power/thaumaturge/try_use(mob/living/user, atom/target)
-	ValidateThaumaturgeRoot()
+	ValidateThaumaturgeComponent()
 	if(!check_if_valid(user))
 		return FALSE
 	if(ishuman(user)) // We're not checking for clothes on cats
@@ -76,21 +65,23 @@
 	if(affinity < required_affinity) // Do we have the minimal required affinity
 		owner.balloon_alert(user, "requires [required_affinity] affinity!")
 		return FALSE
+	// Ensures extra anti-magic flags get properly added retroactively to powers.
+	magic_resistance_types = thaumaturge_component.additional_magic_resistance_flags
 	. = ..()
 
 // The charge deduction is handled on_action_success and thusly gains override_charges as an arg.
 // If your spell does anything unusual with charges such as refunds or costing multiples, this is where you would handle that.
-// You can otherwise use on_action_success as normal, just make sure to call parrent.
+// You can otherwise use on_action_success as normal, just make sure to call parent.
 /datum/action/cooldown/power/thaumaturge/on_action_success(mob/living/user, atom/target, override_charges)
 	SHOULD_CALL_PARENT(TRUE)
 	. = ..()
-	ValidateThaumaturgeRoot()
+	ValidateThaumaturgeComponent()
 	last_power_refunded = handle_power_refund()
 	if(last_power_refunded)
 		override_charges = 0
 		to_chat(owner, span_notice("Your [name] spell did not consume a charge!"))
 
-	charge_mechanics = isnull(associated_root_power?.charge_mechanics) ? charge_mechanics : associated_root_power.charge_mechanics
+	charge_mechanics = isnull(thaumaturge_component?.charge_mechanics) ? charge_mechanics : thaumaturge_component.charge_mechanics
 	if(charge_mechanics)
 		adjust_charges(isnull(override_charges) ? -charges_to_use : -override_charges)
 	check_if_valid(user)
@@ -101,7 +92,7 @@
 	if(!power_refunds)
 		return FALSE
 	// Hemomancy-style roots do not use charge mechanics, so they should never roll refunds.
-	if(!isnull(associated_root_power?.charge_mechanics) && !associated_root_power.charge_mechanics)
+	if(!isnull(thaumaturge_component?.charge_mechanics) && !thaumaturge_component.charge_mechanics)
 		return FALSE
 	var/refund_chance = clamp(power_refund_chance + (power_refund_affinity_bonus * max(affinity, 0)), 0, THAUMATURGE_REFUND_MAX)
 	if(prob(refund_chance))
@@ -120,11 +111,11 @@
 */
 /// Gets and reutrns a mob's current highest affinity number.
 /datum/action/cooldown/power/thaumaturge/proc/get_affinity(mob/living/user)
-	ValidateThaumaturgeRoot()
+	ValidateThaumaturgeComponent()
 	var/highest_affinity = 0
 
 	// If the root power benefits from dressing like a wizard.
-	if(associated_root_power.affinity_benefits_from_items)
+	if(thaumaturge_component?.affinity_benefits_from_items)
 		// Checks if you're wearing items with affinity. This has to be clothing; wearing your staff does not count.
 		var/list/equipped_items = user.get_equipped_items()
 		for(var/obj/item/equipped_item as anything in equipped_items)
@@ -161,9 +152,9 @@
 
 /// Checks if we have charges to use.
 /datum/action/cooldown/power/thaumaturge/proc/check_if_valid(mob/living/user = owner)
-	ValidateThaumaturgeRoot()
+	ValidateThaumaturgeComponent()
 	update_charges_overlay()
-	if(!associated_root_power?.charge_mechanics)
+	if(!thaumaturge_component?.charge_mechanics)
 		enable()
 		return TRUE
 
@@ -179,8 +170,8 @@
 	var/atom/movable/ui_element = get_atom_moveable()
 	if(!ui_element)
 		return
-	ValidateThaumaturgeRoot()
-	var/used_mode = associated_root_power?.resource_display_mode || resource_display_mode
+	ValidateThaumaturgeComponent()
+	var/used_mode = thaumaturge_component?.resource_display_mode || THAUMATURGE_RESOURCE_DISPLAY_CHARGES
 
 	// Usually we only show a resource number for charge-based actions.
 	// Hemomancy-style roots can still request prep_cost display even with null max_charges.
@@ -196,7 +187,7 @@
 	charge_overlay.maptext_x = 4
 	charge_overlay.maptext_y = 0
 
-	var/used_color = associated_root_power?.charges_color || resource_color
+	var/used_color = thaumaturge_component?.charges_color || "#ff69b4"
 	var/display_value = get_resource_display_value()
 	// Don't render "0" for prep-cost displays; zero-cost powers should look costless.
 	if(used_mode == THAUMATURGE_RESOURCE_DISPLAY_PREP_COST && display_value <= 0)
@@ -208,9 +199,9 @@
 
 /// Gets the numeric value shown in the resource overlay.
 /datum/action/cooldown/power/thaumaturge/proc/get_resource_display_value()
-	ValidateThaumaturgeRoot()
-	var/used_mode = associated_root_power?.resource_display_mode || resource_display_mode
-	var/used_mult = associated_root_power?.resource_display_multiplier || resource_display_multiplier
+	ValidateThaumaturgeComponent()
+	var/used_mode = thaumaturge_component?.resource_display_mode || THAUMATURGE_RESOURCE_DISPLAY_CHARGES
+	var/used_mult = thaumaturge_component?.resource_display_multiplier || 1
 	// Prep cost a la hemomancy
 	if(used_mode == THAUMATURGE_RESOURCE_DISPLAY_PREP_COST)
 		return prep_cost * max(used_mult, 1)
@@ -223,3 +214,5 @@
 		var/atom/movable/screen/movable/action_button/action_button_instance = viewers[hud_instance]
 		if(istype(action_button_instance, /atom/movable/screen/movable/action_button))
 			return action_button_instance
+
+

@@ -122,6 +122,8 @@
 #define THAUMATURGE_HEMOMANCY_MIN_AFFINITY 3
 // The maximum affinity you can get with overcasting.
 #define THAUMATURGE_HEMOMANCY_MAX_AFFINITY 6
+// How much blood cost scales from prep_cost (and UI display) for hemomancy.
+#define THAUMATURGE_HEMOMANCY_BLOOD_COST_MULTIPLIER 4
 
 /**
  * SORCEROUS: ENIGMATIST
