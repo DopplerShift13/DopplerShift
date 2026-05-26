@@ -1,5 +1,29 @@
 
 /*
+ * Cantina-Goers' IDs Only for the Regulars and Bartender, Visitors get cham cards.
+ */
+/datum/id_trim/away/cantina
+	access = list(ACCESS_AWAY_MAINTENANCE, ACCESS_SYNDICATE)
+	assignment = "Cantina Regular Pass"
+	
+/datum/id_trim/away/cantina_bartender
+	access = list(ACCESS_AWAY_MAINTENANCE, ACCESS_AWAY_SEC, ACCESS_SYNDICATE)
+	assignment = "Cantina Bartender"
+	big_pointer = TRUE
+	pointer_color = COLOR_SYNDIE_RED
+
+/obj/item/card/id/advanced/black/cantina
+	name = "Cantina identification card"
+	desc = "A black ID card with its production number filed away."
+	trim = /datum/id_trim/away/cantina
+	wildcard_slots = WILDCARD_LIMIT_SYNDICATE
+
+/obj/item/card/id/advanced/black/cantina/bartender
+	name = "Cantina identification card"
+	desc = "A black ID card with the letters 'C&S' engraved into it."
+	trim = /datum/id_trim/away/cantina_bartender
+
+/*
  * Express-only groceries console for the cantina.
  */
 /obj/machinery/computer/order_console/cook/cantina
@@ -106,6 +130,21 @@
 	This one has been customized to block its network-visibility as needed."
 	obj_flags = parent_type::obj_flags | EMAGGED
 	visible_to_network = FALSE
+	default_announcement_channel = RADIO_CHANNEL_SYNDICATE
+	announce_over_radio = TRUE
+
+	/// The radio that we use for broadcasting.
+	var/obj/item/radio/radio
+	/// The type of the radio we use for broadcasting.
+	var/radio_type = /obj/item/radio/headset/syndicate
+
+/obj/machinery/fax/cantina/Initialize(mapload)
+	. = ..()
+	radio = new radio_type(src)
+
+/obj/machinery/fax/cantina/Destroy()
+	QDEL_NULL(radio)
+	return ..()
 
 /obj/machinery/fax/cantina/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
@@ -116,6 +155,13 @@
 	visible_to_network = !visible_to_network
 	balloon_alert(user, (visible_to_network ? "fax unhidden" : "fax hidden"))
 	return CLICK_ACTION_SUCCESS
+
+/obj/machinery/fax/cantina/announce_fax_arrival(sender_name)
+	if(!announce_over_radio)
+		return
+	var/announcement_message = "Fax received from [sender_name] at #!@%ERR-34%2 CANNOT LOCAT@#!"
+	for(var/channel in get_radio_channels())
+		radio.talk_into(src, announcement_message, channel, null)
 
 
 /*

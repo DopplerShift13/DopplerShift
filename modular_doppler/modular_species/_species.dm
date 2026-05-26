@@ -42,6 +42,9 @@
 		bodypart_overrides[BODY_ZONE_L_LEG] = frame_bodyparts[BODY_ZONE_L_LEG]
 	return ..()
 
+/proc/turn_off_every_species_feature(mob/living/carbon/human/target)
+	for(var/feature_key in SSaccessories.feature_list)
+		target.dna.features[feature_key] = /datum/sprite_accessory/blank::name
 
 /// Animal trait logic goes here!
 //	Used for the genemod and anthro species

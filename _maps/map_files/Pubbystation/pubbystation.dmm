@@ -5534,7 +5534,7 @@
 	cycle_id = "brig-entrance-left"
 	},
 /obj/machinery/door/airlock/security/glass{
-	id_tag = "innerbrig";
+	id_tag = "outerbrig";
 	name = "Brig"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/entrance,
@@ -5554,7 +5554,7 @@
 	cycle_id = "brig-entrance-right"
 	},
 /obj/machinery/door/airlock/security/glass{
-	id_tag = "innerbrig";
+	id_tag = "outerbrig";
 	name = "Brig"
 	},
 /obj/effect/mapping_helpers/airlock/access/all/security/entrance,
