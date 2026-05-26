@@ -241,7 +241,7 @@
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/vegetable_slop_drank
 	name = "homogenized vegetable slurry can"
-	desc = "Canned vegetable slurry. Despite the claims of homogenization, there's a layer of brine on top of the dense mush. Produced from the finest (cheapest) imported vegetables. The fine prints warns of consuming if allergic to Astrotame. A very familiar taste to these from the poorest wards of Tizira."
+	desc = "Canned vegetable slurry. Despite the claims of homogenization, there's a layer of brine on top of the dense mush. Produced from the best (cheapest) imported vegetables. The fine prints warns of consuming if allergic to Astrotame. A very familiar taste to these from the poorest wards of Tizira."
 	icon_state = "vegetable_slop_drank"
 	volume = 55 // tallboy
 	list_reagents = list(
