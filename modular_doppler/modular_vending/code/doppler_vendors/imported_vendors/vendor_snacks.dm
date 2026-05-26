@@ -253,7 +253,7 @@
 	custom_price = PAYCHECK_LOWER
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/e_plus_drank
-	name = "\improper FemmE-Aid Health Drink™"
+	name = "\improper FemmE-Aid™"
 	desc = "The E stands for Energy, Euphoria, ...Estrogen? The flexing female reptile on the can is smiling smugly at you. - Originally targetted at female Tizirans, but found unexpected popularity in foreign markets... Probably just body-builders? Contains genuine Peptides, synthetic approximation of hormones and who knows what else - the entire back of the can is an ingredients list."
 	icon_state = "e_plus_drank"
 	volume = 55 // tallboy
