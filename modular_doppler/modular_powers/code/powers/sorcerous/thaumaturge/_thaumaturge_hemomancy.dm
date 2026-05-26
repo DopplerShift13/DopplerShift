@@ -44,10 +44,7 @@
 	var/datum/hud/hud_used = attached_mob.hud_used
 
 	// Always delete competing hemophage trackers so ours stays authoritative.
-	for(var/atom/movable/screen/screen_obj as anything in hud_used.infodisplay)
-		if(!istype(screen_obj, /atom/movable/screen/hemophage/blood))
-			continue
-		var/atom/movable/screen/hemophage/blood/existing_tracker = screen_obj
+	for(var/atom/movable/screen/hemophage/blood/existing_tracker as anything in hud_used.infodisplay)
 		if(existing_tracker == blood_tracker)
 			continue
 		hud_used.infodisplay -= existing_tracker
@@ -67,19 +64,17 @@
 
 	attached_mob.hud_used.show_hud(attached_mob.hud_used.hud_version)
 
-// Updates
+/// Updates the blood tracker with new numbers +
 /datum/component/thaumaturge/hemomancy/proc/update_blood_tracker()
 	if(!attached_mob || !blood_tracker)
 		return
-	var/normal_blood_volume = BLOOD_VOLUME_NORMAL
 	var/hud_color = "#FFDDDD"
-	if(normal_blood_volume > 0)
-		// Turn green if we can 'overcast'
-		if(attached_mob.blood_volume >= normal_blood_volume * THAUMATURGE_HEMOMANCY_OVERCAST_THRESHOLD)
-			hud_color = "#83d46f"
-		// Turns red if we are in the danger zone.
-		else if(attached_mob.blood_volume <= normal_blood_volume * THAUMATURGE_HEMOMANCY_LOW_BLOOD_THRESHOLD)
-			hud_color = "#eb6b6b"
+	// Turn green if we can 'overcast'
+	if(attached_mob.blood_volume >= BLOOD_VOLUME_NORMAL * THAUMATURGE_HEMOMANCY_OVERCAST_THRESHOLD)
+		hud_color = "#83d46f"
+	// Turns red if we are in the danger zone.
+	else if(attached_mob.blood_volume <= BLOOD_VOLUME_NORMAL * THAUMATURGE_HEMOMANCY_LOW_BLOOD_THRESHOLD)
+		hud_color = "#eb6b6b"
 	blood_tracker.maptext = MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='[hud_color]'>[trunc(attached_mob.blood_volume)]</font></div>")
 
 /// Removes the blood tracker UI element
