@@ -21,6 +21,8 @@
 	var/list/teams_per_turn = list()
 	/// What phase of the game are we currently in
 	var/game_phase = WARGAME_PHASE_NOTHING
+	/// The turn mode we are using, one team at a time or all at once
+	var/turn_mode = WARGAME_TURN_MODE_STANDARD
 	/// Which team's turn is it right now?
 	var/datum/wargaming_team/team_turn
 	/// How many turns have passed
@@ -45,6 +47,8 @@
 	var/static/list/team_edit_radial_options = list(
 		BASESTATION_TEAM_NAME = image(icon = WARGAME_ACTIONS_FILE, icon_state = "team_name"),
 		BASESTATION_TEAM_COLOR = image(icon = WARGAME_ACTIONS_FILE, icon_state = "team_color"),
+		BASESTATION_TEAM_COMMANDER = image(icon = WARGAME_ACTIONS_FILE, icon_state = "team_commander"),
+		BASESTATION_TEAM_PREFIX = image(icon = WARGAME_ACTIONS_FILE, icon_state = "team_prefix"),
 	)
 
 /obj/item/wargame_base_station/Initialize(mapload)
@@ -75,19 +79,21 @@
 	. = ..()
 	. += span_notice("Interact with the menu with [EXAMINE_HINT("Alt-Click")].")
 	// Game stats
-	var/game_stats_text
-	game_stats_text = "The game is currently in the [game_phase_2_text(game_phase)] phase.<br>"
-	if(team_turn)
-		game_stats_text = "It is the turn of team [team_turn.team_name].<br>"
+	var/game_stats_text = ""
+	game_stats_text += "The game is currently in the [game_phase_2_text(game_phase)] phase.<br>"
+	if(turn_mode == WARGAME_TURN_MODE_SIMULTANEOUS)
+		game_stats_text += "The game is in simultaneous turns mode, all teams may make actions.<br>"
+	else if(team_turn)
+		game_stats_text += "It is the turn of team [team_turn.team_name].<br>"
 	game_stats_text += game_phase_2_desc(game_phase)
 	game_stats_text += "The teams have completed [EXAMINE_HINT("[turn_counter - 1]")] total turns.<br>"
 	. += fieldset_block(game_phase_2_text(game_phase, TRUE), game_stats_text, "boxed_message")
 	// Player and team stats
 	for(var/team as anything in managed_teams)
 		var/datum/wargaming_team/team_datum = managed_teams[team]
-		var/team_display
+		var/team_display = ""
 		if(length(team_datum.team_players))
-			team_display = "Composed of [length(team_datum.team_players)] players:<br>"
+			team_display += "Composed of [length(team_datum.team_players)] players:<br>"
 			for(var/mob/living/player_on_team as anything in team_datum.team_players)
 				team_display += "	- [player_on_team.get_visible_name()]<br>"
 		else
@@ -223,11 +229,17 @@
 		return
 	switch(game_phase)
 		if(WARGAME_PHASE_PLACEMENT)
+			switch(turn_mode)
+				if(WARGAME_TURN_MODE_STANDARD)
+					team_turn.ready_all_units()
+					say("Action phase, [team_turn.team_name], turn [turn_counter].")
+				if(WARGAME_TURN_MODE_SIMULTANEOUS)
+					for(var/datum/wargaming_team/starting_team as anything in just_team_datums())
+						starting_team.ready_all_units()
+					say("Action phase, all teams, turn [turn_counter].")
 			game_phase = WARGAME_PHASE_ACTION
-			team_turn.ready_all_units()
-			say("Action phase, [team_turn.team_name], turn [turn_counter].")
 		if(WARGAME_PHASE_ACTION)
-			if(!length(teams_per_turn))
+			if(!length(teams_per_turn) || turn_mode == WARGAME_TURN_MODE_SIMULTANEOUS)
 				update_terrain_holograms()
 				say("Effects phase, turn [turn_counter].")
 				for(var/datum/wargaming_team/team as anything in just_team_datums())
@@ -240,14 +252,20 @@
 				teams_per_turn -= team_turn
 				say("Action phase, [team_turn.team_name], turn [turn_counter].")
 		if(WARGAME_PHASE_EFFECTS)
-			teams_per_turn = just_team_datums()
 			turn_counter += 1
 			say("Turn [turn_counter - 1] complete, beginning turn [turn_counter].")
-			team_turn = teams_per_turn[1]
-			team_turn.ready_all_units()
-			teams_per_turn -= team_turn
+			switch(turn_mode)
+				if(WARGAME_TURN_MODE_STANDARD)
+					teams_per_turn = just_team_datums()
+					team_turn = teams_per_turn[1]
+					team_turn.ready_all_units()
+					teams_per_turn -= team_turn
+					say("Action phase, [team_turn.team_name], turn [turn_counter].")
+				if(WARGAME_TURN_MODE_SIMULTANEOUS)
+					for(var/datum/wargaming_team/starting_team as anything in just_team_datums())
+						starting_team.ready_all_units()
+					say("Action phase, all teams, turn [turn_counter].")
 			game_phase = WARGAME_PHASE_ACTION
-			say("Action phase, [team_turn.team_name], turn [turn_counter].")
 	play_menu_sound()
 
 /// Ends the game if it is currently running
@@ -265,6 +283,7 @@
 
 /// Starts the game if it has not already been started
 /obj/item/wargame_base_station/proc/start_the_game(mob/living/user)
+	// Verify that the game can actually be started or if it has already started
 	if(game_phase != WARGAME_PHASE_NOTHING)
 		balloon_alert(user, "already started!")
 		return
@@ -276,21 +295,30 @@
 	if(number_of_valid_teams <= 1) // This counts teams that actually have players in them
 		balloon_alert(user, "too few teams!")
 		return
+	// Check if we actually want to start the game
 	var/certainty = tgui_alert(user, "Are you certain you wish to start the game?", "Game Starter", list(MY_CHILD_WILL, MY_CHILD_WILL_NOT))
 	if(certainty != MY_CHILD_WILL)
 		play_menu_sound()
 		return
+	// Select what turn mode to use, sequential means one team goes at a time, simultaneous means all teams can move at once.
+	var/turn_mode_choice = tgui_alert(user, "Select turn mode. Sequential: One team making actions at a time, rotating. Simultaneous: All teams act at once.", "Turn Mode", list(WARGAME_TURN_MODE_STANDARD, WARGAME_TURN_MODE_SIMULTANEOUS))
+	if(isnull(turn_mode_choice))
+		balloon_alert(user, "no choice made!")
+		play_menu_sound()
+		return
+	turn_mode = turn_mode_choice
+	// Actually start the game now
 	game_phase = WARGAME_PHASE_PLACEMENT
 	for(var/team as anything in managed_teams)
 		var/datum/wargaming_team/team_datum = managed_teams[team]
 		if(!length(team_datum.team_players))
 			qdel(team_datum)
 			managed_teams -= team // Empty teams are wiped before the game starts
-	shuffle(managed_teams)
-	teams_per_turn = just_team_datums()
-	team_turn = teams_per_turn[1]
-	team_turn.ready_all_units()
-	teams_per_turn -= team_turn
+	if(turn_mode == WARGAME_TURN_MODE_STANDARD)
+		shuffle(managed_teams)
+		teams_per_turn = just_team_datums()
+		team_turn = teams_per_turn[1]
+		teams_per_turn -= team_turn
 	turn_counter = 1
 	play_menu_sound()
 	say("Beginning game, placement phase.")
@@ -330,7 +358,7 @@
 		if(BASESTATION_TEAM_NAME)
 			var/new_name = tgui_input_text(user, "Give your new team a name.", "Team Name", "Unnamed Combatants")
 			if(isnull(new_name))
-				balloon_alert(user, "needs name!")
+				balloon_alert(user, "need name!")
 				show_team_edit_radial(user, edited_team)
 				play_menu_sound()
 				return
@@ -340,16 +368,38 @@
 				play_menu_sound()
 				return
 			play_menu_sound()
+			show_team_edit_radial(user, edited_team)
 			edited_team.team_name = new_name
 		if(BASESTATION_TEAM_COLOR)
 			var/new_color = input(user, "Choose your new team color." ,"Color Selection", COLOR_PRIDE_PURPLE) as color|null
 			if(isnull(new_color))
-				balloon_alert(user, "needs color!")
+				balloon_alert(user, "need color!")
 				show_team_edit_radial(user, edited_team)
 				play_menu_sound()
 				return
 			play_menu_sound()
+			show_team_edit_radial(user, edited_team)
 			edited_team.team_color = new_color
+		if(BASESTATION_TEAM_COMMANDER)
+			var/new_commander_title = tgui_input_text(user, "How will this team's units address the players? ALL LOWERCASE IF NOT PROPER!", "Commander Title", "fleet")
+			if(isnull(new_commander_title))
+				balloon_alert(user, "need title!")
+				show_team_edit_radial(user, edited_team)
+				play_menu_sound()
+				return
+			play_menu_sound()
+			edited_team.team_commander_reference = new_commander_title
+			show_team_edit_radial(user, edited_team)
+		if(BASESTATION_TEAM_PREFIX)
+			var/new_prefix = tgui_input_text(user, "Choose what your ships' automatic titles will be prefixed with, such as 4CA, TTV.", "Ship Name Prefix", "4CA")
+			if(isnull(new_prefix))
+				balloon_alert(user, "need prefix!")
+				show_team_edit_radial(user, edited_team)
+				play_menu_sound()
+				return
+			play_menu_sound()
+			edited_team.team_ship_prefix = new_prefix
+			show_team_edit_radial(user, edited_team)
 
 /// Lets players pick from a list of existing teams to delete one
 /obj/item/wargame_base_station/proc/delete_team(mob/living/user)
@@ -388,6 +438,22 @@
 		return
 	play_menu_sound()
 	new_team.team_color = new_color
+	var/new_commander_title = tgui_input_text(user, "How will this team's units address the players? ALL LOWERCASE IF NOT PROPER!", "Commander Title", "fleet")
+	if(isnull(new_commander_title))
+		balloon_alert(user, "need title!")
+		qdel(new_team)
+		play_menu_sound()
+		return
+	play_menu_sound()
+	new_team.team_commander_reference = new_commander_title
+	var/new_prefix = tgui_input_text(user, "Choose what your ships' automatic titles will be prefixed with, such as 4CA, TTV.", "Ship Name Prefix", "4CA")
+	if(isnull(new_prefix))
+		balloon_alert(user, "need prefix!")
+		qdel(new_team)
+		play_menu_sound()
+		return
+	play_menu_sound()
+	new_team.team_ship_prefix = new_prefix
 	managed_teams[new_team.team_name] += new_team
 
 /// Plays a clicking sound for menu actions

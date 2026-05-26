@@ -17,11 +17,11 @@
 	firer.visible_message(span_warning("[firer]'s 45mm autocannon tracks toward [target], following the target for mere moments before sending a burst of shells at it!"), \
 		blind_message = span_warning("[firer]'s 45mm autocannon tracks toward [target], following the target for mere moments before sending a burst of shells at it!"))
 
-/datum/wargame_weapon/autocannon/firing_voiceline()
-	var/static/list/lines = list(
+/datum/wargame_weapon/autocannon/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
 		"Tracking looks good, let's let 'em have some.",
-		"Autocannon belts spooled, ready to fire.",
-		"Like to see them dodge this one, shells away.",
+		"Autocannon belts spooled, ready to fire [stats.commander].",
+		"Like to see them dodge this one, shells away [stats.commander].",
 	)
 	return pick(lines)
 
@@ -44,10 +44,10 @@
 	firer.visible_message(span_warning("[firer]'s point defence grid quickly gimbals toward [target], filling the sky with a dense rain of tracers!"), \
 		blind_message = span_warning("[firer]'s point defence grid quickly gimbals toward [target], filling the sky with a dense rain of tracers!"))
 
-/datum/wargame_weapon/pdc/firing_voiceline()
-	var/static/list/lines = list(
+/datum/wargame_weapon/pdc/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
 		"We need PDC on that target, now!",
-		"One wall of lead, coming right up.",
-		"Tracking multiple targets, open fire.",
+		"One wall of lead, coming right up [stats.commander].",
+		"Tracking multiple targets [stats.commander], open fire.",
 	)
 	return pick(lines)

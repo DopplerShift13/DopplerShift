@@ -20,11 +20,11 @@
 	return "A long range cruise missile for engaging large targets. Becomes a controllable ship if the target is beyond short range. \
 		Max target range of [attack_range] tiles. [action_point_cost] AP to fire."
 
-/datum/wargame_weapon/missile/cruise/firing_voiceline()
-	var/static/list/lines = list(
-		"Drive signature? Ask them to hold this cruise missile for us.",
-		"Drive cone locked, cruise missile away.",
-		"Lock confirmed, launching cruise missile.",
+/datum/wargame_weapon/missile/cruise/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
+		"Drive signature? We'll have a cruise missile right up for them [stats.commander].",
+		"Drive cone locked, cruise missile away [stats.commander].",
+		"Lock confirmed, launching cruise missile [stats.commander].",
 	)
 	return pick(lines)
 
@@ -68,11 +68,11 @@
 	firer.visible_message(span_warning("[firer] ejects a bouquet of micro-missiles with a puff of gas, which break off into a swarm towards [target]!"), \
 		blind_message = span_warning("[firer] ejects a bouquet of micro-missiles with a puff of gas, which break off into a swarm towards [target]!"))
 
-/datum/wargame_weapon/missile/swarm/firing_voiceline()
-	var/static/list/lines = list(
+/datum/wargame_weapon/missile/swarm/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
 		"Get some swarmers on that track!",
 		"Try dodging the third, fourth, and fifth ones this time!",
-		"Solid track, swarmers out",
+		"Solid track, swarmers out [stats.commander].",
 	)
 	return pick(lines)
 
@@ -116,11 +116,11 @@
 	firer.visible_message(span_warning("[firer] dispenses a large torpedo, which slowly spins up and gimbals toward [target]!"), \
 		blind_message = span_warning("[firer] dispenses a large torpedo, which slowly spins up and gimbals toward [target]!"))
 
-/datum/wargame_weapon/missile/torpedo/firing_voiceline()
-	var/static/list/lines = list(
+/datum/wargame_weapon/missile/torpedo/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
 		"The guns ain't enough. I want that track gone.",
-		"Torpedo away, stand by for fireworks.",
-		"Good track confirmed, torpedo dispensed.",
+		"Torpedo away, stand by for fireworks [stats.commander].",
+		"Good track confirmed, torpedo dispensed [stats.commander].",
 	)
 	return pick(lines)
 

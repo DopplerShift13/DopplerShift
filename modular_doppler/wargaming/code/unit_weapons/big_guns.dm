@@ -18,13 +18,13 @@
 	firer.visible_message(span_warning("[firer]'s mass driver ripples the space around it as it charges, piercing a streak across the sky as it fires at [target]!"), \
 		blind_message = span_warning("[firer]'s mass driver ripples the space around it as it charges, piercing a streak across the sky as it fires at [target]!"))
 
-/datum/wargame_weapon/mass_driver/firing_voiceline()
-	var/static/list/lines = list(
-		"We shot this in atmosphere once, you should've seen it!",
+/datum/wargame_weapon/mass_driver/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
+		"We shot this in atmosphere once, you should've seen it [stats.commander]!",
 		"One-second delivery, or your tungsten rod is free!",
 		"Let's see how that ship looks with a brand new hole down the center of it.",
-		"Tungsten cube, hot and ready!",
-		"A few more shots like this, and we'll have to change the rails out.",
+		"Tungsten cube, hot and ready for them [stats.commander]!",
+		"[capitalize(stats.commander)], a few more shots like this, and we'll have to change the rails out.",
 	)
 	return pick(lines)
 
@@ -48,11 +48,11 @@
 	firer.visible_message(span_warning("[firer]'s 7\" guns fire at [target], sending a jet of burning plasma out the back of each cannon!"), \
 		blind_message = span_warning("[firer]'s 7\" guns fire at [target], sending a jet of burning plasma out the back of each cannon!"))
 
-/datum/wargame_weapon/large_cannon/firing_voiceline()
-	var/static/list/lines = list(
+/datum/wargame_weapon/large_cannon/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
 		"Target lead and trajectory calculations green, fire at will.",
 		"Artillery adds dignity to what would otherwise be a vulgar brawl",
-		"Shell, away. Have we ceased life, saer?",
+		"Shell away. Have we ceased life, [stats.commander]?",
 	)
 	return pick(lines)
 
@@ -76,10 +76,10 @@
 	firer.visible_message(span_warning("[firer]'s 2.5\" guns turn to bear on [target], rattling the vessel as they unleash a volley of shells!"), \
 		blind_message = span_warning("[firer]'s 2.5\" guns turn to bear on [target], rattling the vessel as they unleash a volley of shells!"))
 
-/datum/wargame_weapon/medium_cannon/firing_voiceline()
-	var/static/list/lines = list(
+/datum/wargame_weapon/medium_cannon/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
 		"All mounts local control, watch fire for friendlies!",
-		"I want all guns on that track, open fire!",
+		"[capitalize(stats.commander)] wants all guns on that track, open fire!",
 		"Target in range, all guns to local fire director!",
 	)
 	return pick(lines)

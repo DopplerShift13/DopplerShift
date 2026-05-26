@@ -20,7 +20,7 @@
 	firer.visible_message(span_warning("[firer] lets loose a volley of rockets at [target]!"), \
 		blind_message = span_warning("[firer] lets loose a volley of rockets at [target]!"))
 
-/datum/wargame_weapon/rockets/firing_voiceline()
+/datum/wargame_weapon/rockets/firing_voiceline(datum/wargame_unit_stats/stats)
 	var/static/list/lines = list(
 		"Go for rocket salvo, let's see how they like some of these!",
 		"Rockets! Rockets! You're in my party now!",
@@ -49,7 +49,7 @@
 	firer.visible_message(span_warning("[firer] makes a run at [target], releasing a large bomb that drifts toward them!"), \
 		blind_message = span_warning("[firer] makes a run at [target], releasing a large bomb that drifts toward them!"))
 
-/datum/wargame_weapon/bombs/firing_voiceline()
+/datum/wargame_weapon/bombs/firing_voiceline(datum/wargame_unit_stats/stats)
 	var/static/list/lines = list(
 		"I got a present for ya!",
 		"Kill him! Kill him! Point the nose at him and drop the bomb at him!",

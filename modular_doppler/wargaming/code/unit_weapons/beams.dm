@@ -18,10 +18,10 @@
 	firer.visible_message(span_warning("[firer]'s spinal beam lens glows before piercing the sky towards [target] with a blinding flash of light!"), \
 		blind_message = span_warning("[firer]'s spinal beam lens glows before piercing the sky towards [target] with a blinding flash of light!"))
 
-/datum/wargame_weapon/anti_ship_beam/firing_voiceline()
-	var/static/list/lines = list(
-		"Try not to stare directly at the beam.",
-		"Hope you brought your sunglasses today.",
+/datum/wargame_weapon/anti_ship_beam/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
+		"Try not to stare directly at the beam [stats.commander].",
+		"Hope you brought your sunglasses today [stats.commander].",
 		"Plasma cutters got nothing on me, watch this.",
 	)
 	return pick(lines)
@@ -45,10 +45,10 @@
 	firer.visible_message(span_warning("Gimbaled lenses all along [firer] turn towards [target] and light up the night with a dazzling laser light show!"), \
 		blind_message = span_warning("Gimbaled lenses all along [firer] turn towards [target] and light up the night with a dazzling laser light show!"))
 
-/datum/wargame_weapon/pd_beam/firing_voiceline()
-	var/static/list/lines = list(
+/datum/wargame_weapon/pd_beam/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
 		"Incoming track within range, blink it with the lasers.",
 		"Get the spotlights on that track, I want it off the board!",
-		"Laser defence responding to incoming track.",
+		"Laser defence responding to incoming track [stats.commander].",
 	)
 	return pick(lines)

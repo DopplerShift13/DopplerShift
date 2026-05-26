@@ -15,7 +15,7 @@
 		blind_message = span_warning("[hologram] starts to careen off course before crackling and exploding!"))
 	return ..()
 
-/datum/wargame_unit_stats/strike/create_unit_name()
+/datum/wargame_unit_stats/strike/create_unit_name(datum/wargaming_team/team)
 	return "Squadron [pick_list_replacements("~doppler/wargame_identifiers.json", "name_word")] [rand(1, 9)]"
 
 /datum/wargame_unit_stats/strike/wing

@@ -4,6 +4,10 @@
 	var/team_name
 	/// The color of the team as shown in holograms and outfits
 	var/team_color = "#fff"
+	/// How does this team's units reference their commander(s)
+	var/team_commander_reference = "fleet"
+	/// The prefix applied to all automatically generated ship names for this team
+	var/team_ship_prefix = "4CA"
 	/// The players currently on this team
 	var/list/team_players = list()
 	/// Tracks hologram projectors associated with this team for updating unit action points with

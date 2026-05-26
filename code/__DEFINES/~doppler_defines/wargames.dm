@@ -44,6 +44,10 @@
 #define BASESTATION_TEAM_NAME "Team Name"
 /// Change the color of the currently selected team
 #define BASESTATION_TEAM_COLOR "Team Color"
+/// Change a team's units address them
+#define BASESTATION_TEAM_COMMANDER "Team Commander Response"
+/// Change a team's name prefix for automatically generated ship names
+#define BASESTATION_TEAM_PREFIX "Team Ship Prefix"
 
 /// Opens a unit's movement options
 #define WARGAME_UNIT_MOVE "Move"
@@ -51,3 +55,8 @@
 #define WARGAME_UNIT_ATTACK "Attack"
 /// Opens a unit's special options
 #define WARGAME_UNIT_SPECIAL "Special"
+
+/// If the base station will go one team at a time until the effects phase
+#define WARGAME_TURN_MODE_STANDARD "Sequential"
+/// If the base station will let every team move at once before the effects phase
+#define WARGAME_TURN_MODE_SIMULTANEOUS "Simultaneous"

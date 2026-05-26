@@ -26,7 +26,7 @@
 	maximum_action_points = 0
 	weaponry = list()
 
-/datum/wargame_unit_stats/terrain/asteroid/create_unit_name()
+/datum/wargame_unit_stats/terrain/asteroid/create_unit_name(datum/wargaming_team/team)
 	return "[pick_list_replacements("~doppler/wargame_identifiers.json", "name_word")] [rand(100, 999)]"
 
 /datum/wargame_unit_stats/terrain/dust_cloud

@@ -5,11 +5,11 @@
 	small_ship_disadvantage = TRUE
 	action_point_cost = 2
 
-/datum/wargame_weapon/ramming/strike/firing_voiceline()
-	var/static/list/lines = list(
+/datum/wargame_weapon/ramming/strike/firing_voiceline(datum/wargame_unit_stats/stats)
+	var/list/lines = list(
 		"One. Last. Plan!",
-		"It's been an honor.",
-		"Initiating burn drive, godspeed.",
+		"It's been an honor [stats.commander].",
+		"Initiating burn drive, godspeed [stats.commander].",
 		"Ah.",
 	)
 	return pick(lines)

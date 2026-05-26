@@ -49,11 +49,10 @@
 		. += "This unit has [unit_stats.action_points] / [unit_stats.maximum_action_points] action points."
 		. += "It costs this unit [unit_stats.movement_cost] action points to move."
 	if(length(unit_stats.current_conditions))
-		. += span_notice("It currently suffers from the following conditions")
 		var/conditions_text = ""
 		for(var/datum/wargame_condition/condition as anything in unit_stats.current_conditions)
-			conditions_text += "- [condition.condition_name] - [condition.condition_desc] - [condition.condition_lifetime_left] turns until cleared.<br>"
-		. += boxed_message(conditions_text)
+			conditions_text += "[span_boldnotice("[condition.condition_name]")] - [condition.condition_desc] - [condition.condition_lifetime_left] turns until cleared.<br>"
+		. += fieldset_block(span_bold("Conditions"), conditions_text, "boxed_message")
 		if(length(unit_stats.current_conditions) > unit_stats.conditions_limit)
 			. += span_warning("It looks like it's nearing its limit, if these conditions don't improve by next effects phase, the ship will be lost.")
 	if(length(unit_stats.weaponry))
@@ -100,6 +99,8 @@
 	var/datum/wargaming_team/our_team = team_reference?.resolve()
 	if(isnull(our_team))
 		return FALSE
+	if(base_station.turn_mode == WARGAME_TURN_MODE_SIMULTANEOUS)
+		return TRUE
 	if(base_station.team_turn != our_team)
 		return FALSE
 	return TRUE

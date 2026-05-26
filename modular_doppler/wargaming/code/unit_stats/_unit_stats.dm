@@ -32,6 +32,8 @@
 	var/unit_size = WARGAME_SIZE_SMALL
 	/// If this unit is talkative and will speak voicelines during specific actions
 	var/talkative = TRUE
+	/// How does this unit refer to the players in charge of it? Set by the team datum
+	var/commander = "fleet"
 	/// Associative list of weapon to radial choice, should be a list of weapons on init
 	var/list/weaponry = list()
 
@@ -40,20 +42,26 @@
 
 /// Sets the name of the attached hologram
 /datum/wargame_unit_stats/proc/set_hologram_name(obj/structure/wargame_hologram/hologram)
+	var/datum/wargaming_team/team = hologram.team_reference?.resolve()
+	if(!isnull(team))
+		commander = team.team_commander_reference
 	if(!isnull(unit_description))
 		hologram.desc = unit_description
 	if(isnull(unit_class) && isnull(unit_name))
 		return
 	if(generates_name)
-		unit_name = create_unit_name()
+		unit_name = create_unit_name(team)
 	if(isnull(unit_name))
 		hologram.name = unit_class
 	else
 		hologram.name = "[unit_class] - ([unit_name])"
 
 /// Generates a name for the unit, overwriten by subtypes for different naming schemes
-/datum/wargame_unit_stats/proc/create_unit_name()
-	return pick_list_replacements("~doppler/salvage_shuttle.json", "ship_name")
+/datum/wargame_unit_stats/proc/create_unit_name(datum/wargaming_team/team)
+	if(isnull(team))
+		return pick_list_replacements("~doppler/salvage_shuttle.json", "ship_name")
+	else
+		return "[team.team_ship_prefix] [pick_list_replacements("~doppler/salvage_shuttle.json", "ship_name_no_designation")]"
 
 /// Sets up weapon datums and radial options
 /datum/wargame_unit_stats/proc/set_up_weaponry()
@@ -87,12 +95,12 @@
 		im_boutta_blow(hologram)
 		return
 	if(repaired_this_phase)
-		var/static/list/lines = list(
-			"Conditions repaired, combat functionality restored.",
-			"Repairs complete, let's get back in the fight!",
-			"Damage control reports successful repairs.",
-			"One less hole in the wall, let's keep at it!",
-			"Integrity partially restored, let's show them we're still in this!",
+		var/list/lines = list(
+			"Conditions repaired [commander], combat functionality restored.",
+			"Repairs complete [commander], let's get back in the fight!",
+			"[capitalize(commander)]? Damage control reports successful repairs.",
+			"One less hole in the wall [commander], let's keep at it!",
+			"Integrity partially restored [commander], let's show them we're still in this!",
 		)
 		hologram.say(pick(lines))
 		playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
@@ -100,13 +108,13 @@
 /// What to do when this unit explodes, good place to spawn a replacement "wreck" unit type
 /datum/wargame_unit_stats/proc/im_boutta_blow(obj/structure/wargame_hologram/hologram)
 	if(talkative)
-		var/static/list/lines = list(
+		var/list/lines = list(
 			"Reactor critical, all crew punch out!",
 			"We're losing her!",
 			"It's not- It's not shutting down!",
 			"Damage critical, all crew to lifeboats.",
 			"Red alert! Abandon ship!",
-			"Send for rescue! We're-",
+			"Send for rescue [commander]! We're-",
 			"Punch out! Punch out! We're had!",
 		)
 		hologram.say(pick(lines))
@@ -150,10 +158,10 @@
 	var/obj/structure/wargame_hologram/target_hologram = weapon_choice.pick_target(user, hologram)
 	if(isnull(target_hologram))
 		return
-	if(!weapon_choice.prefire_checks(user, src, hologram))
+	if(!weapon_choice.prefire_checks(user, src, hologram, target_hologram))
 		return
-	if(weapon_choice.firing_voiceline() && talkative)
-		hologram.say(weapon_choice.firing_voiceline())
+	if(weapon_choice.firing_voiceline(src) && talkative)
+		hologram.say(weapon_choice.firing_voiceline(src))
 		playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 	weapon_choice.weapon_firing_message(hologram, target_hologram)
 	weapon_choice.weapon_firing_sound(hologram)
@@ -162,6 +170,23 @@
 		weapon_choice.special_effects_fire(user, src, hologram, target_hologram, impact)
 	else
 		weapon_choice.special_effects_fire(user, src, hologram, target_hologram)
+	if(!isnull(weapon_choice.maximum_ammo))
+		if(weapon_choice.maximum_ammo <= 0)
+			weaponry -= weapon_choice
+			report_no_ammo(hologram, weapon_choice)
+			qdel(weapon_choice)
+
+/// Speaks a voiceline about a weapon being out of ammo
+/datum/wargame_unit_stats/proc/report_no_ammo(obj/structure/wargame_hologram/hologram, datum/wargame_weapon/weapon)
+	var/list/voicelines = list(
+		"[weapon], ammo depleted.",
+		"We're out of [weapon] [commander]!",
+		"[capitalize(commander)]? [weapon], reporting ammunition zero.",
+		"Bingo ammo on [weapon], [commander].",
+		"That was the last of [weapon] we had!",
+	)
+	hologram.say(pick(voicelines))
+	playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 
 /// Calculates getting attacked, returns TRUE if the weapon actually made impact with the enemy, even if it did nothing
 /datum/wargame_unit_stats/proc/get_attacked(mob/living/user, obj/structure/wargame_hologram/attacking_hologram, obj/structure/wargame_hologram/hologram, datum/wargame_weapon/weapon_used)
@@ -201,27 +226,27 @@
 
 /// Returns a voiceline for missing the target
 /datum/wargame_unit_stats/proc/missed_voiceline()
-	var/static/list/lines = list(
-		"Bad target track, we missed the target!",
-		"We have missed the target.",
+	var/list/lines = list(
+		"Bad target track, we missed the target [commander]!",
+		"[capitalize(commander)], we have missed the target.",
 		"Looks like we missed!",
 	)
 	return pick(lines)
 
 /// Returns a voiceline for hitting the target and doing nothing
 /datum/wargame_unit_stats/proc/nonpen_voiceline()
-	var/static/list/lines = list(
+	var/list/lines = list(
 		"Hit- We didn't even scratch them!",
-		"No effect on the target, bad hit!",
+		"No effect on the target, bad hit [commander]!",
 		"All we did was scratch the paint!",
 	)
 	return pick(lines)
 
 /// Returns a voiceline for hitting the target and damaging it
 /datum/wargame_unit_stats/proc/good_hit_voiceline()
-	var/static/list/lines = list(
-		"Confirming good hits.",
-		"We hit them! Good effect on target!",
+	var/list/lines = list(
+		"Confirming good hits [commander].",
+		"[capitalize(commander)]! We hit them! Good effect on target!",
 		"Yes, a hit!",
 	)
 	return pick(lines)
@@ -264,12 +289,15 @@
 	if(prob(50))
 		playsound(hologram, 'sound/items/radio/radio_talk.ogg', 50, TRUE)
 		return
-	var/static/list/lines = list(
+	var/list/lines = list(
 		"Moving to designated coordinates.",
-		"Moving to positions.",
+		"Moving to position [commander].",
 		"Displacing.",
 		"Getting there.",
 		"Starting burn.",
+		"Move order ackowledged.",
+		"Course set [commander].",
+		"Coordinates dialed in.",
 	)
 	if(talkative)
 		hologram.say("[pick(lines)]")

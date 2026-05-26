@@ -154,6 +154,7 @@
 	playsound(loc, SFX_INDUSTRIAL_SCAN, 45, TRUE)
 	if(requires_linked_team)
 		target_holosign.team_reference = linked_team
+		target_holosign.unit_stats.set_hologram_name(target_holosign)
 	if(target_holosign.swarming)
 		return // Ships use the swarming component and don't get specific pixel offsets
 	var/click_x

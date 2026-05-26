@@ -26,7 +26,7 @@
 	return
 
 /// Returns a string for a ship to say when firing the weapon
-/datum/wargame_weapon/proc/firing_voiceline()
+/datum/wargame_weapon/proc/firing_voiceline(datum/wargame_unit_stats/stats)
 	return
 
 /// Plays a firing sound for the weapon
@@ -82,10 +82,12 @@
 	return picked_target
 
 /// If this weapon has any special pre-fire checks
-/datum/wargame_weapon/proc/prefire_checks(mob/living/user, datum/wargame_unit_stats/stats, obj/structure/wargame_hologram/hologram)
+/datum/wargame_weapon/proc/prefire_checks(mob/living/user, datum/wargame_unit_stats/stats, obj/structure/wargame_hologram/hologram, obj/structure/wargame_hologram/target_hologram)
 	if(stats.action_points < action_point_cost)
 		hologram.balloon_alert(user, "not enough AP!")
 		return FALSE
+	if(get_dist(hologram, target_hologram) > attack_range)
+		hologram.balloon_alert(user, "out of range!")
 	if(isnull(maximum_ammo))
 		return TRUE
 	if(maximum_ammo <= 0)
