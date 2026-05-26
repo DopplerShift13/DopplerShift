@@ -189,6 +189,14 @@
 		return FALSE
 	return TRUE
 
+/// Flavor override: hemomancy users fire blood bolts instead of arcane bolts.
+/datum/action/cooldown/power/thaumaturge/magical_barrage/ready_projectile(obj/projectile/projectile_instance, atom/target, mob/living/user)
+	. = ..()
+	if(!projectile_instance || !isliving(user))
+		return
+	if(user.GetComponent(/datum/component/thaumaturge_hemomancy))
+		projectile_instance.icon_state = "blood_bolt"
+
 
 // the projectile in question
 /obj/projectile/resonant/magic_barrage

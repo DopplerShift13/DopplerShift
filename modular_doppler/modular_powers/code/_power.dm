@@ -213,7 +213,6 @@
 		return FALSE
 
 	var/datum/action/cooldown/power/new_action = new power_path(src)
-	// TODO: Browse this and see how much of this we can move to the action subtypes.
 	new_action.origin_power = src
 	new_action.Grant(power_holder)
 

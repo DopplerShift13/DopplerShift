@@ -3,6 +3,7 @@
 	name = "Thaumaturge Root"
 	desc = "RAW, AWESOME MAGICAL POTENTIAL, UNREFINED CODE. ALL WAITING TO BE SHAPED INTO AN AWESOME POWER. That is to say, you are not meant to see this and should report this to a dev."
 
+	abstract_parent_type = /datum/power/thaumaturge_root
 	mob_trait = TRAIT_ARCHETYPE_SORCEROUS
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THAUMATURGE
@@ -14,15 +15,7 @@
 	var/resource_display_mode = THAUMATURGE_RESOURCE_DISPLAY_CHARGES
 	/// Multiplier used on the display, e.g if you are using a resource to cast.
 	var/resource_display_multiplier = 1
-
-/datum/power/thaumaturge_root/grant_action(datum/action/cooldown/power/power_path)
-	var/datum/action/cooldown/power/new_action = ..()
-	if(!new_action)
-		return FALSE
-	if(istype(new_action, /datum/action/cooldown/power/thaumaturge))
-		var/datum/action/cooldown/power/thaumaturge/thaum_action = new_action
-		thaum_action.resource_color = charges_color
-		thaum_action.resource_display_mode = resource_display_mode
-		thaum_action.resource_display_multiplier = resource_display_multiplier
-		thaum_action.update_charges_overlay()
-	return new_action
+	/// If TRUE, thaumaturge actions use the default charges system.
+	var/charge_mechanics = TRUE
+	/// If TRUE, affinity can be gained from equipped/held items.
+	var/affinity_benefits_from_items = TRUE

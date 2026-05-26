@@ -61,11 +61,11 @@
 			return FALSE
 	if(!do_use_time(user, target))
 		return FALSE
-	// on_use_action signaler, for riders or arbitrarily adding effect riders to powers.
-	SEND_SIGNAL(src, COMSIG_POWER_ACTION_USED, user, target)
+	// on_use_action signaler, emitted from the user so listeners can hook once on the mob.
+	SEND_SIGNAL(user, COMSIG_POWER_ACTION_USED, src, target)
 	if(use_action(user, target))
-		// on_action_success signaler. Same as above, for various riders.
-		SEND_SIGNAL(src, COMSIG_POWER_ACTION_SUCCESS, user, target)
+		// on_action_success signaler, emitted from the user so listeners can hook once on the mob.
+		SEND_SIGNAL(user, COMSIG_POWER_ACTION_SUCCESS, src, target)
 		on_action_success(user, target)
 		return TRUE
 	return FALSE

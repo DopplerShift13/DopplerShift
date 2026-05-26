@@ -71,7 +71,7 @@
 	cast_interrupted_by_dispel = FALSE
 	if(user)
 		RegisterSignal(user, COMSIG_ATOM_DISPEL, PROC_REF(on_cast_dispel))
-	if(target)
+	if(target && !user == target) // prevents double registering
 		RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_cast_dispel))
 	var/target_use_overlay
 	if(use_time_target_overlay)
@@ -89,7 +89,7 @@
 	. = ..()
 	if(user)
 		UnregisterSignal(user, COMSIG_ATOM_DISPEL)
-	if(target)
+	if(target && !user == target)
 		UnregisterSignal(target, COMSIG_ATOM_DISPEL)
 	if(cast_interrupted_by_dispel)
 		return FALSE

@@ -114,6 +114,15 @@
 #define THAUMATURGE_RESOURCE_DISPLAY_CHARGES "charges"
 #define THAUMATURGE_RESOURCE_DISPLAY_PREP_COST "prep_cost"
 
+// Thresholds for hemomancy whenever you are either low blood or ready to overcast, relative to blood volume normal.
+#define THAUMATURGE_HEMOMANCY_LOW_BLOOD_THRESHOLD 0.85
+#define THAUMATURGE_HEMOMANCY_OVERCAST_THRESHOLD 1.10
+
+// The minimum affinity you have with your blood hand.
+#define THAUMATURGE_HEMOMANCY_MIN_AFFINITY 3
+// The maximum affinity you can get with overcasting.
+#define THAUMATURGE_HEMOMANCY_MAX_AFFINITY 6
+
 /**
  * SORCEROUS: ENIGMATIST
  * All defines related to the enigmatist powers.

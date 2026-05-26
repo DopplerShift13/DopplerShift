@@ -21,6 +21,9 @@
 
 	required_affinity = 1
 	prep_cost = 3
+	power_refunds = TRUE
+	power_refund_chance = THAUMATURGE_REFUND_MULT_BASE
+	power_refund_affinity_bonus = THAUMATURGE_REFUND_MULT_AFFINITY
 
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool/use_action(mob/living/user, atom/target)
 	if(user.get_active_held_item() && user.get_inactive_held_item())
@@ -46,16 +49,6 @@
 		qdel(new_tool_item) // destroys the item if it fails to put it in our hands, as it shouldn't ever exist out of hands.
 	playsound(user, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 	return TRUE
-
-// To potentially refund it, we run a small check.
-/datum/action/cooldown/power/thaumaturge/phantasmal_tool/on_action_success(mob/living/user, atom/target, override_charges)
-	var/chance_to_refund = clamp(THAUMATURGE_REFUND_MULT_AFFINITY * affinity + THAUMATURGE_REFUND_MULT_BASE, 0, THAUMATURGE_REFUND_MAX)
-	if(prob(chance_to_refund))
-		override_charges = 0
-		to_chat(owner, span_notice("Your [name] spell did not consume a charge!"))
-	else if(chance_to_refund >= 51) // At this point it's more common that it does not consume a charge, so we invert them and tell them when it does consume a charge!
-		to_chat(owner, span_warning("Your [name] spell consumed a charge!"))
-	return ..(user, target, override_charges)
 
 /// Checks if we're capable of using the menu
 /datum/action/cooldown/power/thaumaturge/phantasmal_tool/proc/phantasmal_tool_menu_check(mob/user)

@@ -26,13 +26,16 @@
 	var/action_symbol = "point"
 
 // Registers signaler for action use so we can use it as a rider for setting the command bonus.
-/datum/action/cooldown/power/warfighter/command/New(Target)
+/datum/action/cooldown/power/warfighter/command/Grant(mob/grant_to)
 	. = ..()
-	RegisterSignal(src, COMSIG_POWER_ACTION_USED, PROC_REF(on_power_action_used))
+	RegisterSignal(grant_to, COMSIG_POWER_ACTION_USED, PROC_REF(on_power_action_used))
 
 /datum/action/cooldown/power/warfighter/command/Destroy()
-	UnregisterSignal(src, COMSIG_POWER_ACTION_USED)
 	return ..()
+
+/datum/action/cooldown/power/warfighter/command/Remove(mob/removed_from)
+	. = ..()
+	UnregisterSignal(removed_from, COMSIG_POWER_ACTION_USED)
 
 /// Is the user a member of the command department.
 /datum/action/cooldown/power/warfighter/command/proc/is_command_staff(mob/living/user)
@@ -73,9 +76,13 @@
 		owner.balloon_alert(user, "you're unable to relay your commands!")
 		return FALSE
 
-//// Sets commander modifier bonuses at action use time via COMSIG_POWER_ACTION_USED.
-/datum/action/cooldown/power/warfighter/command/proc/on_power_action_used(datum/source, mob/living/user, mob/living/target)
+//// Sets commander modifier bonuses at action use time via mob-level COMSIG_POWER_ACTION_USED.
+/datum/action/cooldown/power/warfighter/command/proc/on_power_action_used(mob/living/source, datum/action/cooldown/power/action, atom/target)
 	SIGNAL_HANDLER
+	if(action != src)
+		return
+	var/mob/living/user = source
+	var/mob/living/target_mob = target
 	commander_modifier = WARFIGHTER_COMMANDER_BASE_MULT
 	command_bonus = is_command_staff(user)
 	department_bonus = FALSE
@@ -86,7 +93,7 @@
 			commander_modifier += WARFIGHTER_COMMANDER_DEPARTMENT_BONUS * 0.5 * department_member_count
 	// Standard scaling
 	else
-		department_bonus = is_same_department(user, target)
+		department_bonus = is_same_department(user, target_mob)
 		if(department_bonus)
 			commander_modifier += WARFIGHTER_COMMANDER_DEPARTMENT_BONUS
 	// Bonus if head of staff
