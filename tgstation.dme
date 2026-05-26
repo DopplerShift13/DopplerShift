@@ -7541,6 +7541,7 @@
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\_command_action.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\_warfighter_action.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\_warfighter_power.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\warfighter\command_assault.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\command_grit.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\command_recover.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\dual_wielder.dm"
