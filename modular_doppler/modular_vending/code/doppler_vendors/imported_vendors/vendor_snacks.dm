@@ -227,7 +227,7 @@
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/cactus_drank
 	name = "\improper Ashlands Cactus Seltzer™"
-	desc = "A can of cactus-flavoured sparkling water. Contains a real cactus fruit... ground into paste. Both bland and too sweet at the same time, the lingering taste of cactus paste sticking to the mouth. Proudly grown in a failed mining operation turned plantation, using only the finest convict labour."
+	desc = "A bronze can of cactus-flavoured sparkling water. Contains a real cactus fruit... ground into paste. Both bland and too sweet at the same time, the lingering taste of cactus paste sticking to the mouth. Proudly grown in a failed mining operation turned plantation, by lizards who found out the deserts of Tizira weren't that bad after all."
 	icon_state = "cactus_drank"
 	volume = 55 // tallboy
 	list_reagents = list(
@@ -241,7 +241,7 @@
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/vegetable_slop_drank
 	name = "homogenized vegetable slurry can"
-	desc = "Canned vegetable slurry. Despite the claims of homogenization, there's a layer of brine on top of the dense mush. Produced from the best (cheapest) imported vegetables. The fine prints warns of consuming if allergic to Astrotame. A very familiar taste to these from the poorest wards of Tizira."
+	desc = "Canned vegetable slurry. Despite the claims of homogenization, there's a layer of brine on top of the dense mush. Produced from the best (cheapest) imported vegetables. A familiar taste to these from the poorest wards of Tizira - for the more fortunate just another reminder of The Devastation. The fine print warns of consuming if allergic to Astrotame."
 	icon_state = "vegetable_slop_drank"
 	volume = 55 // tallboy
 	list_reagents = list(
@@ -254,8 +254,8 @@
 
 /obj/item/reagent_containers/cup/soda_cans/doppler/e_plus_drank
 	name = "\improper FemmE-Aid™"
-	desc = "The E stands for Energy, Euphoria, ...Estrogen? The flexing female reptile on the can is smiling smugly at you. - Originally targetted at female Tizirans, but found unexpected popularity in foreign markets... Probably just body-builders? Contains genuine peptides, synthetic approximation of hormones and who knows what else - the entire back of the can is an ingredients list."
-	icon_state = "e_plus_drank"
+	desc = "The reptile on the bronze can flexes while smiling smugly, the little eyes painted to look like shes staring back at you regardless of the angle - Originally targetted at female Tizirans, the drink found unexpected popularity in foreign markets... Probably just body-builders? Contains genuine peptides, synthetic approximation of hormones and who knows what else - the entire back of the can is an ingredients list, carefully picked with assistance of the legal team."
+	icon_state = "estro_drank"
 	volume = 55 // tallboy
 	list_reagents = list(
 		/datum/reagent/consumable/liz_e = 45,
