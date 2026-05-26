@@ -119,7 +119,8 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/proc/flip_eyepatch()
 	flipped = !flipped
-	icon_state = flipped ? "[base_icon_state]_flipped" : base_icon_state
+	var/reskin_icon_state = current_skin && unique_reskin[current_skin] ? unique_reskin[current_skin][RESKIN_ICON_STATE] : base_icon_state
+	icon_state = flipped ? "[reskin_icon_state]_flipped" : reskin_icon_state
 	if (!ismob(loc))
 		return
 	var/mob/user = loc
@@ -150,21 +151,22 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/attack_self(mob/user, modifiers)
 	. = ..()
-	icon_state = (icon_state == base_icon_state) ? "[base_icon_state]_flipped" : base_icon_state
+	var/reskin_icon_state = current_skin && unique_reskin[current_skin] ? unique_reskin[current_skin][RESKIN_ICON_STATE] : base_icon_state
+	worn_icon_state = flipped ? "[reskin_icon_state]_flipped" : reskin_icon_state
 	user.update_worn_glasses()
 
 /obj/item/clothing/glasses/hud/eyepatch/sec
 	name = "security HUD eyepatch"
 	desc = "Lost your eye beating an innocent clown? Incompatible with cybernetics? Thankfully, modern technology has a replacement. Protects against flashes 50% of the time, none of the time."
-	icon_state = "security_eyepatch"
-	base_icon_state = "security_eyepatch"
+	icon_state = "secpatch"
+	base_icon_state = "secpatch"
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
 
 	unique_reskin = list(
 		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "hudpatch",
-			RESKIN_WORN_ICON_STATE = "hudpatch"
+			RESKIN_ICON_STATE = "secpatch",
+			RESKIN_WORN_ICON_STATE = "secpatch"
 		),
 		"Fake Blindfold" = list(
 			RESKIN_ICON_STATE = "secfold",
