@@ -146,6 +146,9 @@
 				/obj/item/reagent_containers/cup/glass/bottle/mushi_kombucha = 6,
 				/obj/item/reagent_containers/cup/glass/waterbottle/tea/mushroom = 6,
 				/obj/item/reagent_containers/cup/soda_cans/doppler/kortara = 6,
+				/obj/item/reagent_containers/cup/soda_cans/doppler/cactus_drank = 6,
+				/obj/item/reagent_containers/cup/soda_cans/doppler/vegetable_slop_drank = 6,
+				/obj/item/reagent_containers/cup/soda_cans/doppler/e_plus_drank = 6,
 			),
 		),
 		list(

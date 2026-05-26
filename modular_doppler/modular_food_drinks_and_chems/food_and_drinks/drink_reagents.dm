@@ -82,7 +82,7 @@
 	name = "Yogurt Soda"
 	description = "A refreshing beverage of carbonated yogurt drink"
 	color = "#dddada"
-	taste_description = "bubbly sweet yogurt."
+	taste_description = "bubbly sweet yogurt"
 
 /datum/reagent/consumable/gakster_energy
 	name = "Gakster energy drink"
@@ -115,3 +115,24 @@
 	need_mob_update = affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
+
+/datum/reagent/consumable/sodawater/cactus
+	name = "Cactus Seltzer"
+	description = "Cactus-flavoured sparkling water. 0 calories, 0 cactus."
+	color = "#d15454"
+	taste_description = "prickly fizz"
+	nutriment_factor = 0
+
+/datum/reagent/consumable/nutraslop/vegetable_slop
+	name = "Vegetable Slurry"
+	description = "A selection of the cheapest avaliable off-world vegetables, ground and mixed into a consistent slurry of green nutrition."
+	color = "#2a4805"
+	taste_description = "vague greens"
+	nutriment_factor = 8 // more nutritious than prison slop
+
+/datum/reagent/consumable/liz_e
+	name = "FemmE-Aid"
+	description = "A mysterious, proprietary chemical concoction. Possibly steroids, probably estrogen, maybe synthesized from petroleum."
+	color = "#c91595"
+	taste_description = "oily sparks going off in your mouth"
+	nutriment_factor = 0

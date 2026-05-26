@@ -192,7 +192,8 @@
 	var/static/list/supplementary_reagents_bonus = list(
 		/datum/reagent/consumable/ethanol/protein_blend = 10 SECONDS, // protein shakes are very robust
 		/datum/reagent/inverse/oxandrolone = 8 SECONDS,
-		// DOPPLER EDIT ADDITION START - adds another type of protein supplement
+		// DOPPLER EDIT ADDITION START - adds more workout reagents
+		/datum/reagent/consumable/liz_e = 6 SECONDS,
 		/datum/reagent/consumable/nutriment/clown_preworkout = 5 SECONDS,
 		// DOPPLER EDIT ADDITION END
 		/datum/reagent/consumable/nutriment/protein = 5 SECONDS,

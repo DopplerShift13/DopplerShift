@@ -225,6 +225,45 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/kortara = 30)
 	drink_type = ALCOHOL
 
+/obj/item/reagent_containers/cup/soda_cans/doppler/cactus_drank
+	name = "\improper Ashlands Cactus Seltzer™"
+	desc = "A can of cactus-flavoured sparkling water. Contains a real cactus fruit... ground into paste. Both bland and too sweet at the same time, the lingering taste of cactus paste sticking to the mouth. Proudly grown in a failed mining operation turned plantation, using only the finest convict labour."
+	icon_state = "cactus_drank"
+	volume = 55 // tallboy
+	list_reagents = list(
+		/datum/reagent/consumable/sodawater/cactus = 39,
+		/datum/reagent/consumable/nutriment/vitamin = 4,
+		/datum/reagent/consumable/nutriment = 4,
+		/datum/reagent/consumable/vitfro = 8,
+	)
+	drink_type = FRUIT
+	custom_price = PAYCHECK_LOWER
+
+/obj/item/reagent_containers/cup/soda_cans/doppler/vegetable_slop_drank
+	name = "homogenized vegetable slurry can"
+	desc = "Canned vegetable slurry. Despite the claims of homogenization, there's a layer of brine on top of the dense mush. Produced from the finest (cheapest) imported vegetables. The fine prints warns of consuming if allergic to Astrotame."
+	icon_state = "vegetable_slop_drank"
+	volume = 55 // tallboy
+	list_reagents = list(
+		/datum/reagent/consumable/nutraslop/vegetable_slop = 40,
+		/datum/reagent/consumable/astrotame = 5,
+		/datum/reagent/water/salt = 10,
+	)
+	drink_type = VEGETABLES
+	custom_price = PAYCHECK_LOWER
+
+/obj/item/reagent_containers/cup/soda_cans/doppler/e_plus_drank
+	name = "\improper FemmE-Aid Health Drink™"
+	desc = "The E stands for Energy, Euphoria, ...Estrogen? The flexing female reptile on the can is smiling smugly at you. - Originally targetted at female Tizirans, but found unexpected popularity in foreign markets... Probably just body-builders? Contains genuine Peptides, synthetic approximation of hormones and who knows what else - the entire back of the can is an ingredients list."
+	icon_state = "e_plus_drank"
+	volume = 55 // tallboy
+	list_reagents = list(
+		/datum/reagent/consumable/liz_e = 45,
+		/datum/reagent/consumable/nutriment/peptides = 5,
+		/datum/reagent/impurity/healing/medicine_failure = 5,
+	)
+	custom_price = PAYCHECK_LOWER * 2
+
 /*
 *	Marsian Snacks
 */
