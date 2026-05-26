@@ -13,6 +13,7 @@
 
 	action_path = /datum/action/cooldown/power/thaumaturge/magical_barrage
 	required_powers = list(/datum/power/thaumaturge_root)
+	required_allow_subtypes = TRUE
 
 /datum/action/cooldown/power/thaumaturge/magical_barrage
 	name = "Magical Barrage"

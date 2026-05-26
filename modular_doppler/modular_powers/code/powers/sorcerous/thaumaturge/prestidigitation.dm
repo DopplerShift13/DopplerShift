@@ -9,6 +9,7 @@
 
 	action_path = /datum/action/cooldown/power/thaumaturge/prestidigtation
 	required_powers = list(/datum/power/thaumaturge_root)
+	required_allow_subtypes = TRUE
 
 #define PRESTI_SUMMON_SPARKS "Summon Sparks"
 #define PRESTI_CLEAN_OBJECTS "Clean Objects"

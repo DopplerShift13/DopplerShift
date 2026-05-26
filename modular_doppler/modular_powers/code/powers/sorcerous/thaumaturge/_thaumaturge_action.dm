@@ -19,6 +19,12 @@
 
 	/// Overlay that shows the number of charges
 	var/mutable_appearance/charge_overlay
+	/// Color used for the resource overlay text. Set by thaumaturge roots.
+	var/resource_color = "#ff69b4"
+	/// What value to show in the resource overlay.
+	var/resource_display_mode = THAUMATURGE_RESOURCE_DISPLAY_CHARGES
+	/// Multiplier used when display mode is prep_cost.
+	var/resource_display_multiplier = 1
 
 	/// How much affinity is currently affecting the action. It is deliberate we snap-shot this on cast.
 	var/affinity
@@ -121,9 +127,18 @@
 	charge_overlay.maptext_x = 4
 	charge_overlay.maptext_y = 0
 
-	charge_overlay.maptext = MAPTEXT("<span style='text-align:left; color:#ff69b4;'>[charges]</span>")
+	var/display_value = get_resource_display_value()
+	charge_overlay.maptext = MAPTEXT("<span style='text-align:left; color:[resource_color];'>[display_value]</span>")
 	ui_element.add_overlay(charge_overlay)
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
+
+/// Gets the numeric value shown in the resource overlay.
+/datum/action/cooldown/power/thaumaturge/proc/get_resource_display_value()
+	// Prep cost a la hemomancy
+	if(resource_display_mode == THAUMATURGE_RESOURCE_DISPLAY_PREP_COST)
+		return prep_cost * max(resource_display_multiplier, 1)
+	// Charges a la spell preperation.
+	return charges * max(resource_display_multiplier, 1)
 
 /// Get the moveable atom specifically for adjusting the number.
 /datum/action/cooldown/power/thaumaturge/proc/get_atom_moveable()
@@ -131,7 +146,4 @@
 		var/atom/movable/screen/movable/action_button/action_button_instance = viewers[hud_instance]
 		if(istype(action_button_instance, /atom/movable/screen/movable/action_button))
 			return action_button_instance
-
-
-
 

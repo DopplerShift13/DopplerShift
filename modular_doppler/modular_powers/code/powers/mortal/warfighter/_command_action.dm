@@ -89,6 +89,7 @@
 		department_bonus = is_same_department(user, target)
 		if(department_bonus)
 			commander_modifier += WARFIGHTER_COMMANDER_DEPARTMENT_BONUS
+	// Bonus if head of staff
 	if(command_bonus)
 		commander_modifier += WARFIGHTER_COMMANDER_HEAD_BONUS
 

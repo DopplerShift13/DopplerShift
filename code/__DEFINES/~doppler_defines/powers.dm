@@ -110,6 +110,10 @@
 // How long a thaumaturge has to sleep to get their charges. Please make sure that this is BELOW the normal sleep verb's time.
 #define THAUMATURGE_SLEEP_TIME 30 SECONDS
 
+// Thaumaturge action resource display modes.
+#define THAUMATURGE_RESOURCE_DISPLAY_CHARGES "charges"
+#define THAUMATURGE_RESOURCE_DISPLAY_PREP_COST "prep_cost"
+
 /**
  * SORCEROUS: ENIGMATIST
  * All defines related to the enigmatist powers.
