@@ -127,7 +127,7 @@
 	name = "Vegetable Slurry"
 	description = "A selection of the cheapest avaliable off-world vegetables, ground and mixed into a consistent slurry of green nutrition."
 	color = "#2a4805"
-	taste_description = "vague greens"
+	taste_description = "vague greens with an undertone of poverty"
 	nutriment_factor = 8 // more nutritious than prison slop
 
 /datum/reagent/consumable/liz_e
