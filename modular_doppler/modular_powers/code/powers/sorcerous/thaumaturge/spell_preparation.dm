@@ -1,7 +1,7 @@
 /datum/power/thaumaturge_root/spell_preparation
 	name = "Spell Preparation"
 	desc = "You cast spells by focusing on your thaumaturic magic throughout your sleep. Your spells have a limited amount of charges based upon the total amount of points in the Thaumaturgy path. You can allocate up to 6 charges to these spells\
-	by using a special action, depending on each spell's power cost. You can change which spells you have prepared and recharge them by sleeping with your Spell Focus. \
+	 by using a special action, depending on each spell's power cost. You can change which spells you have prepared and recharge them by sleeping with your Spell Focus. \
 	\nGrants you a Spell Focus, an unique item that allows you to charge your Thaumaturge spells while sleeping, and enhance them by holding it. Use the Spell Focus in your hand to change it's form."
 	security_record_text = "Subject is capable of performing feats of thaumaturgic magic while in possession of a spell focus."
 	action_path = /datum/action/cooldown/power/thaumaturge/spell_preparation

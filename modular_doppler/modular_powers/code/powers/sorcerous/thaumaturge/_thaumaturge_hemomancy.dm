@@ -7,6 +7,8 @@
 	var/atom/movable/screen/hemophage/blood/blood_tracker
 	/// Multiplier for converting prep_cost into blood cost.
 	var/blood_cost_multiplier = 4
+	/// Original magic-resistance flags for thaumaturge actions we modify.
+	var/list/original_magic_resistance_flags = list()
 
 /datum/component/thaumaturge_hemomancy/Initialize(mob/living/new_attached_mob)
 	. = ..()
@@ -17,20 +19,74 @@
 	RegisterSignal(attached_mob, COMSIG_POWER_ACTION_USED, PROC_REF(on_mob_power_action_used))
 	// Mob-level power success hook; keeps this component decoupled from per-action registration.
 	RegisterSignal(attached_mob, COMSIG_POWER_ACTION_SUCCESS, PROC_REF(on_mob_power_action_success))
+	// Track new/removed actions to apply holy-resistance checks while hemomancy is active.
+	RegisterSignal(attached_mob, COMSIG_MOB_GRANTED_ACTION, PROC_REF(on_mob_granted_action))
+	RegisterSignal(attached_mob, COMSIG_MOB_REMOVED_ACTION, PROC_REF(on_mob_removed_action))
 
 	// Procs & trackers for blood UI
 	RegisterSignal(attached_mob, COMSIG_LIVING_LIFE, PROC_REF(on_owner_life))
 	RegisterSignal(attached_mob, COMSIG_MOB_LOGIN, PROC_REF(on_owner_login))
+	// Tells the root how much to multiply the UI numbers by
 	sync_root_resource_display_multiplier()
+	// Makes all thaumaturge actions be affected by holy resistance.
+	apply_holy_resistance_to_existing_thaum_actions()
+
+	// Updates to the blood tracker
 	ensure_blood_tracker()
 	update_blood_tracker()
 
 // Removes all signalers.
 /datum/component/thaumaturge_hemomancy/Destroy(force)
 	if(attached_mob)
-		UnregisterSignal(attached_mob, list(COMSIG_POWER_ACTION_USED, COMSIG_POWER_ACTION_SUCCESS, COMSIG_LIVING_LIFE, COMSIG_MOB_LOGIN))
+		UnregisterSignal(attached_mob, list(COMSIG_POWER_ACTION_USED, COMSIG_POWER_ACTION_SUCCESS, COMSIG_MOB_GRANTED_ACTION, COMSIG_MOB_REMOVED_ACTION, COMSIG_LIVING_LIFE, COMSIG_MOB_LOGIN))
+	restore_holy_resistance_on_tracked_actions()
 	clear_blood_tracker()
 	return ..()
+
+/// Adds holy resistance checks to all current thaumaturge actions.
+/datum/component/thaumaturge_hemomancy/proc/apply_holy_resistance_to_existing_thaum_actions()
+	if(!attached_mob)
+		return
+	for(var/datum/action/action as anything in attached_mob.actions)
+		apply_holy_resistance_to_action(action)
+
+/// Applies holy resistance check flags to a thaumaturge action, preserving original flags for restoration.
+/datum/component/thaumaturge_hemomancy/proc/apply_holy_resistance_to_action(datum/action/action)
+	var/datum/action/cooldown/power/thaumaturge/thaum_action = action
+	if(!istype(thaum_action))
+		return
+	var/action_ref = REF(thaum_action)
+	if(isnull(original_magic_resistance_flags[action_ref]))
+		original_magic_resistance_flags[action_ref] = thaum_action.check_magic_resistance_flags
+	thaum_action.check_magic_resistance_flags |= MAGIC_RESISTANCE_HOLY
+
+/// Restores action flags we modified when hemomancy ends.
+/datum/component/thaumaturge_hemomancy/proc/restore_holy_resistance_on_tracked_actions()
+	if(!attached_mob)
+		original_magic_resistance_flags.Cut()
+		return
+	for(var/datum/action/action as anything in attached_mob.actions)
+		var/datum/action/cooldown/power/thaumaturge/thaum_action = action
+		if(!istype(thaum_action))
+			continue
+		var/action_ref = REF(thaum_action)
+		if(isnull(original_magic_resistance_flags[action_ref]))
+			continue
+		thaum_action.check_magic_resistance_flags = original_magic_resistance_flags[action_ref]
+	original_magic_resistance_flags.Cut()
+
+/// Applies holy checks to newly granted actions.
+/datum/component/thaumaturge_hemomancy/proc/on_mob_granted_action(mob/source, datum/action/granted_action)
+	SIGNAL_HANDLER
+	apply_holy_resistance_to_action(granted_action)
+
+/// Stops tracking removed actions.
+/datum/component/thaumaturge_hemomancy/proc/on_mob_removed_action(mob/source, datum/action/removed_action)
+	SIGNAL_HANDLER
+	var/datum/action/cooldown/power/thaumaturge/thaum_action = removed_action
+	if(!istype(thaum_action))
+		return
+	original_magic_resistance_flags -= REF(thaum_action)
 
 /// Syncs the hemomancy root's displayed resource multiplier to this component's blood cost multiplier.
 /datum/component/thaumaturge_hemomancy/proc/sync_root_resource_display_multiplier()
@@ -129,6 +185,9 @@
 		return
 	thaum_action.ValidateThaumaturgeRoot()
 	if(thaum_action.associated_root_power?.charge_mechanics)
+		return
+	// Overcasting is disabled for powers that use refund mechanics.
+	if(thaum_action.power_refunds)
 		return
 
 	// Gets the cost of the ability

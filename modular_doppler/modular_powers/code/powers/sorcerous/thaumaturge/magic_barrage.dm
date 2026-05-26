@@ -240,7 +240,7 @@
 	orbiter.transform = matrix()
 	orbiter.transform.Scale(0.5, 0.5)
 	orbiter.icon = projectile_path.icon // if you end up editing the projectile, it should also affect the orbitals.
-	orbiter.icon_state = projectile_path.icon_state // ditto on above
+	orbiter.icon_state = owner?.GetComponent(/datum/component/thaumaturge_hemomancy) ? "blood_bolt" : projectile_path.icon_state // changes the icon_state to the blood ones if we have hemomancy.
 	orbiting_missiles += orbiter
 	orbiter.orbit(owner, missile_orbit_radius, rotation_speed =  missile_rotation_speed)
 	RegisterSignal(orbiter, COMSIG_QDELETING, PROC_REF(on_orbiter_deleted))

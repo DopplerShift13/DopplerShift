@@ -47,6 +47,8 @@
 	var/aim_assist = TRUE
 	/// Do we check for anti magic on the target when we target them? Basically if your action targets but doesn't do anything directly magical to them immediately (like projectiles), this should be false.
 	var/anti_magic_on_target = TRUE
+	/// Magic resistance flags checked on target during try_use. Set to NONE to skip can_block_magic checks.
+	var/check_magic_resistance_flags = MAGIC_RESISTANCE
 
 /// Attempts to actively use the action by pathing through validation, antimagic, do_use_time and finally use_action
 /datum/action/cooldown/power/proc/try_use(mob/living/user, atom/target)
@@ -54,10 +56,13 @@
 	if(!can_use(user, target))
 		return FALSE
 	// Checking for anti-resonance/anti-magic below which really is a pain.
-	if(anti_magic_on_target && resonant && ismob(target) && target != user) // If the spell does check for antimagic on the target, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
+	if(anti_magic_on_target && ismob(target) && target != user) // If the spell checks antimagic, and if the target is a mob, and if the target is not us.
 		var/mob/mob_target = target
-		if(mob_target.can_block_resonance(1)) // Runs the special can_block_resonance function which also handles the anti-magic part.
+		if(resonant && mob_target.can_block_resonance(1)) // Resonance checks are handled by the resonant var.
 			// I would like to deduct resources on spell fail, but that is going to be so utterly complex. TODO for the future chap who wants this.
+			return FALSE
+		// Additional configurable magic resistance checks (e.g. holy resistance for hemomancy users).
+		if(check_magic_resistance_flags && mob_target.can_block_magic(check_magic_resistance_flags, charge_cost = 0))
 			return FALSE
 	if(!do_use_time(user, target))
 		return FALSE
@@ -298,6 +303,7 @@ Projectile action code down below
 	if(istype(projectile_instance, /obj/projectile/resonant))
 		var/obj/projectile/resonant/resonant_proj = projectile_instance
 		resonant_proj.creating_power = src
+		resonant_proj.antimagic_flags = check_magic_resistance_flags
 
 	// If you want “on hit” logic for your power, hook it here.
 	RegisterSignal(projectile_instance, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_power_projectile_hit))

@@ -2,17 +2,20 @@
 	Variant of spell preperation. Rather than needing to choose and prepare spells, you have access to all your chosen spells (with an increased root cost to compensate).
 	You instead pay the spell's cost in blood, proportional to charge_cost.
 	Comes with an innate ability to drain blood from various things much like sanguine absorption. So you can aura-farm blood without needing to quite literally drink it.
+	Given the cultist stereotypes, your magic is also now affected by holy resistance.
 */
 /datum/power/thaumaturge_root/hemomancy
 	name = "Hemomancy"
 	desc = "You cast spells by channeling your blood. All your spells drain your blood when wielding them, usually 3 * the power's cost. \
-	Blood exceeding 110% of your natural blood threshold is consumed at higher rates to boost the affinity of your spells, empowering them to higher levels of Affinity, up to a maximum of 6. You cannot gain Affinity from items.\
-	\n You also gain the Channel Blood action. Using it allows you to transfer blood from various sources back to you (and converts the blood-type to yours), and grants Affinity 3 (4 if you're a Hemophage) while the channel is active. Requires an empty hand."
+	Blood exceeding 110% of your natural blood threshold is consumed at higher rates to boost the affinity of your spells, empowering them to higher levels of Affinity, up to a maximum of 6. This does not trigger on spells that have a chance refund charges based on affinity. \
+	\nYou cannot gain Affinity from items, you do not benefit from random chance to refund charges on spells, and all your spells are now affected by holy resistance.\
+	\nYou also gain the Channel Blood action. Using it allows you to transfer blood from various sources back to you (and converts the blood-type to yours), and grants Affinity 3 (4 if you're a Hemophage) while the channel is active. Requires an empty hand."
 	security_record_text = "Subject is capable of wielding their blood to perform thaumaturgic magic."
 	action_path = /datum/action/cooldown/power/thaumaturge/channel_blood
 	charges_color = "#c72222"
 	resource_display_mode = THAUMATURGE_RESOURCE_DISPLAY_PREP_COST
 	charge_mechanics = FALSE
+	affinity_benefits_from_items = FALSE
 	species_blacklist = list(/datum/species/android, /datum/species/android/holosynth, /datum/species/golem, /datum/species/plasmaman, /datum/species/ethereal, /datum/species/jelly, /datum/species/pod, /datum/species/snail) // You can't do blood magic without blood, duh!
 	value = 5
 
