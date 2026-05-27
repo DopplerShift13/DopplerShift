@@ -133,6 +133,6 @@
 /datum/reagent/consumable/liz_e
 	name = "FemmE-Aid"
 	description = "A mysterious, proprietary chemical concoction. The soda water is emulsified with oil, carrying the myriad of ingredients - including unregulated steroid equivalents and a sprinkle of synthetic hormones. Drinking it leaves the oils clinging to your mouth."
-	color = "#c91595"
+	color = "#7aeedb"
 	taste_description = "oily soda and girl power"
 	nutriment_factor = 0
