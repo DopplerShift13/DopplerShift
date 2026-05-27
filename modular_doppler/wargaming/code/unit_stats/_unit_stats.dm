@@ -179,11 +179,11 @@
 /// Speaks a voiceline about a weapon being out of ammo
 /datum/wargame_unit_stats/proc/report_no_ammo(obj/structure/wargame_hologram/hologram, datum/wargame_weapon/weapon)
 	var/list/voicelines = list(
-		"[weapon], ammo depleted.",
-		"We're out of [weapon] [commander]!",
-		"[capitalize(commander)]? [weapon], reporting ammunition zero.",
-		"Bingo ammo on [weapon], [commander].",
-		"That was the last of [weapon] we had!",
+		"[weapon.weapon_name], ammo depleted.",
+		"We're out of [weapon.weapon_name] [commander]!",
+		"[capitalize(commander)]? [weapon.weapon_name], reporting ammunition zero.",
+		"Bingo ammo on [weapon.weapon_name], [commander].",
+		"That was the last of [weapon.weapon_name] we had!",
 	)
 	hologram.say(pick(voicelines))
 	playsound(hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
@@ -198,14 +198,14 @@
 	var/total_armor_class = weapon_used.evadable ? (calculate_armor_class(hologram) + calculate_evasion_mod(hologram)) : calculate_armor_class(hologram)
 	if(incoming_attack_roll <= total_armor_class)
 		if(attacking_hologram.unit_stats.talkative)
-			attacking_hologram.say(missed_voiceline())
+			attacking_hologram.say(missed_voiceline(attacking_hologram.unit_stats))
 			playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 		hologram.visible_message(span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was less than or equal to the target's effective armor class, [total_armor_class]."), \
 			blind_message = span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was less than or equal to the target's effective armor class, [total_armor_class]."))
 		return FALSE
 	if((incoming_attack_roll + weapon_used.damage_roll_bonus) <= armor_class)
 		if(attacking_hologram.unit_stats.talkative)
-			attacking_hologram.say(nonpen_voiceline())
+			attacking_hologram.say(nonpen_voiceline(attacking_hologram.unit_stats))
 			playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 		hologram.visible_message(span_warning("Attacker's damage roll, [incoming_attack_roll + weapon_used.damage_roll_bonus], was less than or equal to the target's armor class, [armor_class]."), \
 			blind_message = span_warning("Attacker's damage roll, [incoming_attack_roll + weapon_used.damage_roll_bonus], was less than or equal to the target's armor class, [armor_class]."))
@@ -216,7 +216,7 @@
 	new_condition.applied_to_unit(src, hologram)
 	current_conditions += new_condition
 	if(attacking_hologram.unit_stats.talkative)
-		attacking_hologram.say(good_hit_voiceline())
+		attacking_hologram.say(good_hit_voiceline(attacking_hologram.unit_stats))
 		playsound(attacking_hologram, 'sound/items/radio/radio_receive.ogg', 50, TRUE)
 	hologram.visible_message(span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was higher than the target's effective armor class, [total_armor_class]."), \
 		blind_message = span_warning("Attacker's roll, [weapon_used.attack_roll], resulted in [incoming_attack_roll], which was higher than the target's effective armor class, [total_armor_class]."))
@@ -225,28 +225,28 @@
 	return TRUE
 
 /// Returns a voiceline for missing the target
-/datum/wargame_unit_stats/proc/missed_voiceline()
+/datum/wargame_unit_stats/proc/missed_voiceline(datum/wargame_unit_stats/stats)
 	var/list/lines = list(
-		"Bad target track, we missed the target [commander]!",
-		"[capitalize(commander)], we have missed the target.",
+		"Bad target track, we missed the target [stats.commander]!",
+		"[capitalize(stats.commander)], we have missed the target.",
 		"Looks like we missed!",
 	)
 	return pick(lines)
 
 /// Returns a voiceline for hitting the target and doing nothing
-/datum/wargame_unit_stats/proc/nonpen_voiceline()
+/datum/wargame_unit_stats/proc/nonpen_voiceline(datum/wargame_unit_stats/stats)
 	var/list/lines = list(
 		"Hit- We didn't even scratch them!",
-		"No effect on the target, bad hit [commander]!",
+		"No effect on the target, bad hit [stats.commander]!",
 		"All we did was scratch the paint!",
 	)
 	return pick(lines)
 
 /// Returns a voiceline for hitting the target and damaging it
-/datum/wargame_unit_stats/proc/good_hit_voiceline()
+/datum/wargame_unit_stats/proc/good_hit_voiceline(datum/wargame_unit_stats/stats)
 	var/list/lines = list(
-		"Confirming good hits [commander].",
-		"[capitalize(commander)]! We hit them! Good effect on target!",
+		"Confirming good hits [stats.commander].",
+		"[capitalize(stats.commander)]! We hit them! Good effect on target!",
 		"Yes, a hit!",
 	)
 	return pick(lines)
@@ -256,6 +256,8 @@
 	var/cover_modifier = 0
 	var/turf/cover_turf = get_turf(hologram)
 	for(var/obj/structure/wargame_hologram/cover_hologram in cover_turf.contents)
+		if(cover_hologram == hologram)
+			continue
 		if(cover_hologram.unit_stats.unit_size > unit_size)
 			cover_modifier++
 	return armor_class + min(cover_modifier, WARGAME_MAX_COVER_BONUS)
