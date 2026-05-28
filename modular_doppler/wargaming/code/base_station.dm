@@ -41,6 +41,7 @@
 	/// Radial options for after the game has already been started
 	var/static/list/mid_game_radial_options = list(
 		BASESTATION_END = image(icon = WARGAME_ACTIONS_FILE, icon_state = "end_game"),
+		BASESTATION_JOIN_LEAVE = image(icon = WARGAME_ACTIONS_FILE, icon_state = "join_team"),
 		BASESTATION_NEXT = image(icon = WARGAME_ACTIONS_FILE, icon_state = "next_phase"),
 	)
 	/// Radial options for editing a team
@@ -179,9 +180,6 @@
 
 /// Allows the user to join or leave a team of their choosing
 /obj/item/wargame_base_station/proc/try_join_leave(mob/living/user)
-	if(game_phase != WARGAME_PHASE_NOTHING)
-		balloon_alert(user, "already in progress!")
-		return
 	var/option = tgui_alert(user, "Join or leave a team?", "Team Manager", list(JOIN_A_TEAM, LEAVE_A_TEAM))
 	if(isnull(option))
 		balloon_alert(user, "no choice made!")
