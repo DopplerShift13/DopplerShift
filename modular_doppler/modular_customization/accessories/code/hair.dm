@@ -704,7 +704,7 @@
 	name = "Chunky Twin Buns"
 	icon_state = "hair_twinbun_chunky"
 
-/datum/sprite_accessory/hair/modular/twinbun_chunky
+/datum/sprite_accessory/hair/modular/quadbun_chunky
 	name = "Chunky Quad Buns"
 	icon_state = "hair_quadbun_chunky"
 	y_offset = 1
