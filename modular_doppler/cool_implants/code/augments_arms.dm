@@ -36,7 +36,7 @@
 	icon_state = "razorwire_weapon"
 	righthand_file = 'modular_doppler/cool_implants/icons/inhands/lefthand.dmi'
 	lefthand_file = 'modular_doppler/cool_implants/icons/inhands/righthand.dmi'
-	inhand_icon_state = "razorwire"
+	inhand_icon_state = "razorwire_weapon"
 	w_class = WEIGHT_CLASS_BULKY
 	sharpness = SHARP_EDGED
 	force = 20
