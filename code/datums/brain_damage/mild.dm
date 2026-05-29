@@ -64,7 +64,6 @@
 		owner.emote("drool")
 	else if(owner.stat == CONSCIOUS && SPT_PROB(1.5, seconds_per_tick))
 		owner.say(pick_list_replacements(BRAIN_DAMAGE_FILE, "brain_damage"), forced = "brain damage", filterproof = TRUE)
-
 */ // DOPPLER EDIT END
 
 /datum/brain_trauma/mild/dumbness/on_lose()
