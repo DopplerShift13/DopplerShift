@@ -47,6 +47,7 @@ GLOBAL_LIST_INIT(quirk_trauma_choice, list(
 	"Lumiphobia" = /datum/brain_trauma/magic/lumiphobia,
 	"Poltergeist" = /datum/brain_trauma/magic/poltergeist,
 	"Stalking Phantom" = /datum/brain_trauma/magic/stalker,
+	"Dumbness" = /datum/brain_trauma/mild/dumbness,
 	"Stuttering" = /datum/brain_trauma/mild/stuttering,
 	"Concussion" = /datum/brain_trauma/mild/concussion,
 	"Muscle Weakness" = /datum/brain_trauma/mild/muscle_weakness,
