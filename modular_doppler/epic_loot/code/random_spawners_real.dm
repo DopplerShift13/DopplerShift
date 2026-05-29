@@ -651,5 +651,4 @@
 		/obj/structure/maintenance_loot_structure/register/random,
 		/obj/structure/maintenance_loot_structure/desk_safe/random,
 		/obj/structure/maintenance_loot_structure/toolbox/random,
-		/obj/structure/maintenance_loot_structure/wall_jacket/random,
 	)

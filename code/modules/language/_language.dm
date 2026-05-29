@@ -195,7 +195,7 @@
 	SHOULD_NOT_OVERRIDE(TRUE)
 	var/lowertext_input = LOWER_TEXT(input)
 	// The most common words are always cached
-	if(GLOB.most_common_words[lowertext_input])
+	if(GLOB.most_common_words_frequency[lowertext_input])
 		most_common_cache[lowertext_input] = scrambled_text
 		return
 	// Add it to cache, cutting old entries if the list is too long
@@ -263,8 +263,8 @@
 		if(translate_prob > 0)
 			// the probability of managing to understand a word is based on how common it is (+10%, -15%)
 			// 1000 words in the list, so words outside the list are just treated as "the 1250th most common word"
-			var/commonness = GLOB.most_common_words[LOWER_TEXT(base_word)] || 2000 // DOPPLER EDIT CHANGE - More intuitive partial language - original: var/commonness = GLOB.most_common_words[LOWER_TEXT(base_word)] || 1250 
-			translate_prob += (100 * (1 - (min(commonness, 2000) / 2000))) // DOPPLER EDIT CHANGE - More intuitive partial language - original: translate_prob += (10 * (1 - (min(commonness, 1250) / 500)))
+			var/commonness = GLOB.most_common_words_frequency[LOWER_TEXT(base_word)] || 2000 // DOPPLER EDIT - More intuitive partial language - var/commonness = GLOB.most_common_words_frequency[LOWER_TEXT(base_word)] || 1250
+			translate_prob += (10 * (1 - (min(commonness, 2000) / 2000))) // DOPPLER EDIT - More intuitive partial language - translate_prob += (10 * (1 - (min(commonness, 1250) / 500)))
 			if(prob(translate_prob))
 				scrambled_words += word
 				translated_index += FALSE

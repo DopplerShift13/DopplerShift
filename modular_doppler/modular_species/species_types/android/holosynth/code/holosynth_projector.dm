@@ -209,8 +209,8 @@
 			target_mob.remove_filter("holo_heal")
 			return ITEM_INTERACT_FAILURE
 
-		target_mob.adjustBruteLoss(-1 * HOLOSYNTH_MANUAL_HEAL_BRUTE, updating_health = TRUE)
-		target_mob.adjustFireLoss(-1 * HOLOSYNTH_MANUAL_HEAL_BURN, updating_health = TRUE)
+		target_mob.adjust_brute_loss(-1 * HOLOSYNTH_MANUAL_HEAL_BRUTE, updating_health = TRUE)
+		target_mob.adjust_fire_loss(-1 * HOLOSYNTH_MANUAL_HEAL_BURN, updating_health = TRUE)
 		return ITEM_INTERACT_SUCCESS
 
 	else

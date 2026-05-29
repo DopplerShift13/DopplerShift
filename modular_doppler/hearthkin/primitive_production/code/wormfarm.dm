@@ -134,6 +134,8 @@
 	desc = "When you fed your worms, you should have expected this."
 	icon = 'modular_doppler/hearthkin/primitive_production/icons/misc.dmi'
 	icon_state = "fertilizer"
-	grind_results = list(/datum/reagent/plantnutriment/eznutriment = 3, /datum/reagent/plantnutriment/left4zednutriment = 3, /datum/reagent/plantnutriment/robustharvestnutriment = 3)
 	singular_name = "fertilizer"
 	merge_type = /obj/item/stack/worm_fertilizer
+
+/obj/item/stack/worm_fertilizer/grind_results()
+	return list(/datum/reagent/plantnutriment/eznutriment = 3, /datum/reagent/plantnutriment/left4zednutriment = 3, /datum/reagent/plantnutriment/robustharvestnutriment = 3)

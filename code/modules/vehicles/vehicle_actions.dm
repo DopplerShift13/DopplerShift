@@ -340,8 +340,8 @@
 		return
 	var/mob/living/rider = owner
 	var/turf/landing_turf = get_step(vehicle.loc, vehicle.dir)
-	rider.adjustStaminaLoss(vehicle.instability* 0.75)
-	if (rider.getStaminaLoss() >= 100)
+	rider.adjust_stamina_loss(vehicle.instability* 0.75)
+	if (rider.get_stamina_loss() >= 100)
 		vehicle.obj_flags &= ~CAN_BE_HIT
 		playsound(src, 'sound/effects/bang.ogg', 20, TRUE)
 		vehicle.unbuckle_mob(rider)
@@ -379,8 +379,8 @@
 	var/obj/vehicle/ridden/scooter/skateboard/board = vehicle_target
 	var/mob/living/rider = owner
 
-	rider.adjustStaminaLoss(board.instability)
-	if (rider.getStaminaLoss() >= 100)
+	rider.adjust_stamina_loss(board.instability)
+	if (rider.get_stamina_loss() >= 100)
 		playsound(src, 'sound/effects/bang.ogg', 20, vary = TRUE)
 		board.unbuckle_mob(rider)
 		rider.Paralyze(50)
@@ -389,8 +389,8 @@
 				span_danger("[rider] misses the landing and falls on [rider.p_their()] face!)"),
 				span_userdanger("You smack against the board, hard."),
 			)
-			rider.painful_scream() // DOPPLER EDIT: check for painkilling before screaming
-			rider.adjustBruteLoss(10)  // thats gonna leave a mark
+			rider.painful_scream() // DOPPLER EDIT - Check painkiller for screaming - ORIGINAL: rider.emote("scream")
+			rider.adjust_brute_loss(10)  // thats gonna leave a mark
 			return
 		rider.visible_message(
 			span_danger("[rider] misses the landing and falls on [rider.p_their()] face!"),

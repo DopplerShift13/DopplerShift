@@ -55,8 +55,8 @@
 	var/static/datum/universal_icon/body
 	if (isnull(body))
 		body = uni_icon('icons/mob/human/species/moth/bodyparts.dmi', "moth_head")
-		body.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "motheyes_l"), ICON_OVERLAY)
-		body.blend_icon(uni_icon('icons/mob/human/human_face.dmi', "motheyes_r"), ICON_OVERLAY)
+		body.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "motheyes_l"), ICON_OVERLAY)
+		body.blend_icon(uni_icon('icons/mob/human/human_eyes.dmi', "motheyes_r"), ICON_OVERLAY)
 	var/datum/universal_icon/final_icon = body.copy()
 
 	if (sprite_accessory.icon_state != "No Antennae")

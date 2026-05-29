@@ -1,6 +1,6 @@
 /datum/action/item_action/adjust/papermask
 	name = "Adjust paper mask"
-	desc = "LMB: Change mask face. RMB: Adjust mask."
+	desc = "RMB: Adjust mask."
 
 /datum/action/item_action/adjust/papermask/Trigger(trigger_flags)
 	. = ..()
@@ -9,8 +9,6 @@
 	var/obj/item/clothing/mask/paper/paper_mask = target
 	if(trigger_flags & TRIGGER_SECONDARY_ACTION)
 		paper_mask.adjust_mask(usr)
-	else
-		paper_mask.reskin_obj(usr)
 
 /obj/item/clothing/mask/paper
 	name = "paper mask"
@@ -25,34 +23,6 @@
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	actions_types = list(/datum/action/item_action/adjust/papermask)
-	unique_reskin = list(
-			"Blank" = "mask_paper",
-			"Neutral" = "mask_neutral",
-			"Eye" = "mask_eye",
-			"Sleep" = "mask_sleep",
-			"Heart" = "mask_heart",
-			"Core" = "mask_core",
-			"Plus" = "mask_plus",
-			"Square" = "mask_square",
-			"Bullseye" = "mask_bullseye",
-			"Vertical" = "mask_vertical",
-			"Horizontal" = "mask_horizontal",
-			"X" = "mask_x",
-			"Bug" = "mask_bug",
-			"Double" = "mask_double",
-			"Mark" = "mask_mark",
-			"Line" = "mask_line",
-			"Minus" = "mask_minus",
-			"Four" = "mask_four",
-			"Diamond" = "mask_diamond",
-			"Cat" = "mask_cat",
-			"Big Eye" = "mask_bigeye",
-			"Good" = "mask_good",
-			"Bad" = "mask_bad",
-			"Happy" = "mask_happy",
-			"Sad" = "mask_sad",
-	)
-
 	/// Whether or not the mask is currently being layered over (or under!) hair. FALSE/null means the mask is layered over the hair (this is how it starts off).
 	var/wear_hair_over
 	/// Whether or not the strap is currently hidden or visible
@@ -77,25 +47,9 @@
 
 /obj/item/clothing/mask/paper/add_context(atom/source, list/context, obj/item/held_item, mob/user)
 	. = ..()
-	context[SCREENTIP_CONTEXT_ALT_LMB] = "Change Mask Face"
 	context[SCREENTIP_CONTEXT_ALT_RMB] = "Adjust Mask"
 	context[SCREENTIP_CONTEXT_CTRL_LMB] = "Hide/Show Strap"
 	return CONTEXTUAL_SCREENTIP_SET
-
-/obj/item/clothing/mask/paper/reskin_obj(mob/user)
-	if(!user.is_holding_item_of_type(/obj/item/pen))
-		balloon_alert(user, "must be holding a pen!")
-		return
-
-	. = ..()
-
-	var/mob/living/carbon/carbon_user
-	if(iscarbon(user))
-		carbon_user = user
-	if(carbon_user && carbon_user.wear_mask == src)
-		carbon_user.update_worn_mask()
-
-	current_skin = null //so we can infinitely reskin
 
 /obj/item/clothing/mask/paper/proc/adjust_mask(mob/living/carbon/human/user)
 	if(!istype(user))
@@ -127,6 +81,113 @@
 	var/prev_alternate_worn_layer = alternate_worn_layer
 	. = ..()
 	alternate_worn_layer = prev_alternate_worn_layer
+
+/obj/item/clothing/mask/paper/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/papermask, TRUE)
+
+/datum/atom_skin/doppler/papermask
+	abstract_type = /datum/atom_skin/doppler/papermask
+
+/datum/atom_skin/doppler/papermask/blank
+	preview_name = "Blank"
+	new_icon_state = "mask_paper"
+
+/datum/atom_skin/doppler/papermask/neutral
+	preview_name = "Neutral"
+	new_icon_state = "mask_neutral"
+
+/datum/atom_skin/doppler/papermask/eye
+	preview_name = "Eye"
+	new_icon_state = "mask_eye"
+
+/datum/atom_skin/doppler/papermask/sleeping
+	preview_name = "Sleep"
+	new_icon_state = "mask_sleep"
+
+/datum/atom_skin/doppler/papermask/heart
+	preview_name = "Heart"
+	new_icon_state = "mask_heart"
+
+/datum/atom_skin/doppler/papermask/cre
+	preview_name = "Core"
+	new_icon_state = "mask_core"
+
+/datum/atom_skin/doppler/papermask/plus
+	preview_name = "Plus"
+	new_icon_state = "mask_plus"
+
+/datum/atom_skin/doppler/papermask/square
+	preview_name = "Square"
+	new_icon_state = "mask_square"
+
+/datum/atom_skin/doppler/papermask/bullseye
+	preview_name = "Bullseye"
+	new_icon_state = "mask_bullseye"
+
+/datum/atom_skin/doppler/papermask/vertical
+	preview_name = "Vertical"
+	new_icon_state = "mask_vertical"
+
+/datum/atom_skin/doppler/papermask/horizontal
+	preview_name = "Horizontal"
+	new_icon_state = "mask_horizontal"
+
+/datum/atom_skin/doppler/papermask/x
+	preview_name = "X"
+	new_icon_state = "mask_x"
+
+/datum/atom_skin/doppler/papermask/bug
+	preview_name = "Bug"
+	new_icon_state = "mask_bug"
+
+/datum/atom_skin/doppler/papermask/double
+	preview_name = "Double"
+	new_icon_state = "mask_double"
+
+/datum/atom_skin/doppler/papermask/mark
+	preview_name = "Mark"
+	new_icon_state = "mask_mark"
+
+/datum/atom_skin/doppler/papermask/line
+	preview_name = "Line"
+	new_icon_state = "mask_line"
+
+/datum/atom_skin/doppler/papermask/minus
+	preview_name = "Minus"
+	new_icon_state = "mask_minus"
+
+/datum/atom_skin/doppler/papermask/four
+	preview_name = "Four"
+	new_icon_state = "mask_four"
+
+/datum/atom_skin/doppler/papermask/diamond
+	preview_name = "Diamond"
+	new_icon_state = "mask_diamond"
+
+/datum/atom_skin/doppler/papermask/cat
+	preview_name = "Cat"
+	new_icon_state = "mask_cat"
+
+/datum/atom_skin/doppler/papermask/big_eye
+	preview_name = "Big Eye"
+	new_icon_state = "mask_bigeye"
+
+/datum/atom_skin/doppler/papermask/good
+	preview_name = "Good"
+	new_icon_state = "mask_good"
+
+/datum/atom_skin/doppler/papermask/bad
+	preview_name = "Bad"
+	new_icon_state = "mask_bad"
+
+/datum/atom_skin/doppler/papermask/happy
+	preview_name = "Happy"
+	new_icon_state = "mask_happy"
+
+/datum/atom_skin/doppler/papermask/sad
+	preview_name = "Sad"
+	new_icon_state = "mask_sad"
 
 /datum/crafting_recipe/paper_mask
 	name = "Paper Mask"

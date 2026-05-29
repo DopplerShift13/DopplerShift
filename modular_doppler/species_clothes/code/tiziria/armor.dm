@@ -55,17 +55,21 @@
 	worn_icon = 'modular_doppler/species_clothes/icons/tiziria/gear_worn.dmi'
 	worn_icon_state = "armor"
 	supported_bodyshapes = null
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "armor",
-			RESKIN_WORN_ICON_STATE = "armor"
-		),
-		"Bronze" = list(
-			RESKIN_ICON_STATE = "armor_bronze",
-			RESKIN_WORN_ICON_STATE = "armor_bronze"
-		)
-	)
+
+/obj/item/clothing/suit/armor/lizard/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tiziranarmor)
+
+/datum/atom_skin/tiziranarmor
+	abstract_type = /datum/atom_skin/tiziranarmor
+
+/datum/atom_skin/tiziranarmor/regular
+	preview_name = "Regular"
+	new_icon_state = "armor"
+
+/datum/atom_skin/tiziranarmor/vatborn
+	preview_name = "Bronze"
+	new_icon_state = "armor_bronze"
 
 /obj/item/clothing/suit/armor/lizard/Initialize(mapload)
 	. = ..()

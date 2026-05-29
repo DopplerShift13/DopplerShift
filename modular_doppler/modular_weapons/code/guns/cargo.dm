@@ -3,7 +3,7 @@
 	desc = "(*!&@#I know a guy, over on New Gibraltar. He has mountains of these things, I don't know why. \
 		Maybe he's a collector or something. It's not important, what is, is that he's willing to part with \
 		a few if you have the right kind of compensation.!#@*$"
-	hidden = FALSE
+	order_flags = ORDER_CONTRABAND
 	cost = CARGO_CRATE_VALUE * 7
 	contains = list(
 		/obj/item/gun/ballistic/automatic/wt550 = 2,
@@ -15,7 +15,7 @@
 	name = "Smuggled Sindaryo Ammo Crate"
 	desc = "(*!&@#We never found where he even got all of these, I never think it wise to ask anyway. \
 		I'm not going to start pushing the guy with a mountain of clone guns on where he got them all.!#@*$"
-	hidden = FALSE
+	order_flags = ORDER_CONTRABAND
 	cost = CARGO_CRATE_VALUE * 4
 	contains = list(
 		/obj/item/ammo_box/magazine/wt550m9 = 2,
@@ -89,22 +89,22 @@
 	crate_name = "schießenmaschine crate"
 
 /datum/supply_pack/goody/dumdum38
-	special = TRUE
+	order_flags = ORDER_INVISIBLE
 
 /datum/supply_pack/goody/match38
-	special = TRUE
+	order_flags = ORDER_INVISIBLE
 
 /datum/supply_pack/goody/rubber
-	special = TRUE
+	order_flags = ORDER_INVISIBLE
 
 /datum/supply_pack/goody/dumdum38br
-	special = TRUE
+	order_flags = ORDER_INVISIBLE
 
 /datum/supply_pack/goody/match38br
-	special = TRUE
+	order_flags = ORDER_INVISIBLE
 
 /datum/supply_pack/goody/rubber
-	special = TRUE
+	order_flags = ORDER_INVISIBLE
 
 /datum/supply_pack/goody/mars_single
 	name = "Javiro Detective Special Single-Pack"

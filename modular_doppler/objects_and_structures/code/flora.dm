@@ -18,38 +18,45 @@
 	name = "citrus tree"
 	desc = "A fruit tree. This one is covered in juicy-looking plums."
 	icon_state = "citrus_1"
-	product_types = list(/obj/item/food/grown/plum = 1)
 	harvest_amount_low = CITRUS_MIN_HARVEST_AMOUNT
 	harvest_amount_high = CITRUS_MAX_HARVEST_AMOUNT
 	flora_flags = FLORA_HERBAL // Yeah, yeah.
+
+/obj/structure/flora/tree/citrus/plum/get_potential_products()
+	return list(/obj/item/food/grown/plum = 1)
 
 /obj/structure/flora/tree/citrus/blue
 	name = "citrus tree"
 	desc = "A fruit tree. This one is covered in ripe-looking berries."
 	icon_state = "citrus_2"
-	product_types = list(/obj/item/food/grown/berries = 1)
 	harvest_amount_low = CITRUS_MIN_HARVEST_AMOUNT
 	harvest_amount_high = CITRUS_MAX_HARVEST_AMOUNT
 	flora_flags = FLORA_HERBAL
+
+/obj/structure/flora/tree/citrus/blue/get_potential_products()
+	return list(/obj/item/food/grown/berries = 1)
 
 /obj/structure/flora/tree/citrus/lemon
 	name = "citrus tree"
 	desc = "A fruit tree. This one is covered in tart-looking lemons."
 	icon_state = "citrus_3"
-	product_types = list(/obj/item/food/grown/citrus/lemon = 1)
 	harvest_amount_low = CITRUS_MIN_HARVEST_AMOUNT
 	harvest_amount_high = CITRUS_MAX_HARVEST_AMOUNT
 	flora_flags = FLORA_HERBAL
+
+/obj/structure/flora/tree/citrus/lemon/get_potential_products()
+	return list(/obj/item/food/grown/citrus/lemon = 1)
 
 /obj/structure/flora/tree/citrus/lime
 	name = "citrus tree"
 	desc = "A fruit tree. This one is covered in sharp-looking limes."
 	icon_state = "citrus_4"
-	product_types = list(/obj/item/food/grown/citrus/lime = 1)
 	harvest_amount_low = CITRUS_MIN_HARVEST_AMOUNT
 	harvest_amount_high = CITRUS_MAX_HARVEST_AMOUNT
 	flora_flags = FLORA_HERBAL
 
+/obj/structure/flora/tree/citrus/lime/get_potential_products()
+	return list(/obj/item/food/grown/citrus/lime = 1)
 
 /**
  * FICUS TREES

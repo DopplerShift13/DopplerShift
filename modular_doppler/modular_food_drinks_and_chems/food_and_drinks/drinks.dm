@@ -6,6 +6,7 @@
 /obj/item/reagent_containers/cup/soda_cans/doppler
 	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = null
+	icon_state_preview = null
 
 /// overrides a couple of can procs so it produces a modular trash item
 /// for smashing it on our head

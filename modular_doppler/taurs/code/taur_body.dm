@@ -105,14 +105,14 @@
 	if(old_left_leg)
 		old_left_leg.drop_limb(special = TRUE, move_to_floor = FALSE)
 		old_left_leg.moveToNullspace()
-	new_left_leg.replace_limb(receiver, special = TRUE)
+	new_left_leg.replace_limb(receiver)
 	new_left_leg.bodytype |= BODYTYPE_TAUR
 
 	new_right_leg.bodyshape |= external_bodyshapes
 	if(old_right_leg)
 		old_right_leg.drop_limb(special = TRUE, move_to_floor = FALSE)
 		old_right_leg.moveToNullspace()
-	new_right_leg.replace_limb(receiver, special = TRUE)
+	new_right_leg.replace_limb(receiver)
 	new_right_leg.bodytype |= BODYTYPE_TAUR
 
 	return ..()
@@ -165,11 +165,11 @@
 		qdel(right_leg)
 
 	if(old_left_leg)
-		old_left_leg.replace_limb(organ_owner, special = TRUE)
+		old_left_leg.replace_limb(organ_owner)
 		old_left_leg = null
 
 	if(old_right_leg)
-		old_right_leg.replace_limb(organ_owner, special = TRUE)
+		old_right_leg.replace_limb(organ_owner)
 		old_right_leg = null
 
 	// We don't call `synchronize_bodytypes()` here, because it's already going to get called in the parent because `external_bodyshapes` has a value.
