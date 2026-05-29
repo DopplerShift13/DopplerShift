@@ -45,6 +45,7 @@
 	owner.remove_status_effect(/datum/status_effect/speech/stutter)
 	return ..()
 
+/* DOPPLER EDIT REMOVAL - Gets rid of Dumbness for LRP nature.
 /datum/brain_trauma/mild/dumbness
 	name = "Dumbness"
 	desc = "Patient has reduced brain activity, making them less intelligent."
@@ -69,6 +70,7 @@
 	owner.remove_status_effect(/datum/status_effect/speech/stutter/derpspeech)
 	owner.clear_mood_event("dumb")
 	return ..()
+*/ // DOPPLER EDIT END
 
 /datum/brain_trauma/mild/speech_impediment
 	name = "Speech Impediment"
