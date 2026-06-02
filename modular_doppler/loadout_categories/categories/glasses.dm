@@ -116,6 +116,10 @@
 	name = "Aviators (Science)"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 
+/datum/loadout_item/glasses/hud/hud_eyepatch
+	name = "HUD Eyepatch (None)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch
+
 /datum/loadout_item/glasses/hud/hud_eyepatch_meson
 	name = "HUD Eyepatch (Meson)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
