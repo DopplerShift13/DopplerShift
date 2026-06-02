@@ -120,7 +120,7 @@
 	name = "HUD Eyepatch (Meson)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
 
-/datum/loadout_item/glasses/hud/hud_eyepatch_med
+/datum/loadout_item/glasses/hud/hud_eyepatch_health
 	name = "HUD Eyepatch (Medical)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/med
 
@@ -135,6 +135,30 @@
 /datum/loadout_item/glasses/hud/hud_eyepatch_sci
 	name = "HUD Eyepatch (Science)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/sci
+
+/datum/loadout_item/glasses/hud/hud_blindfold_none
+	name = "HUD Blindfold (None, Fake)"
+	item_path = /obj/item/clothing/glasses/trickblindfold/obsolete
+
+/datum/loadout_item/glasses/hud/hud_blindfold_meson
+	name = "HUD Blindfold (Meson, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
+
+/datum/loadout_item/glasses/hud/hud_blindfold_health
+	name = "HUD Blindfold (Medical, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
+
+/datum/loadout_item/glasses/hud/hud_blindfold_sec
+	name = "HUD Blindfold (Security, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
+
+/datum/loadout_item/glasses/hud/hud_blindfold_diagnostic
+	name = "HUD Blindfold (Diagnostics, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
+
+/datum/loadout_item/glasses/hud/hud_blindfold_sci
+	name = "HUD Blindfold (Science, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
 
 /datum/loadout_item/glasses/hud/mining_goggles
 	name = "Explorer Goggles (Meson)"
@@ -210,10 +234,6 @@
 /datum/loadout_item/glasses/blinding/fake_blindfold
 	name = "Blindfold (Black, Fake)"
 	item_path = /obj/item/clothing/glasses/trickblindfold
-
-/datum/loadout_item/glasses/blinding/fake_blindfold/obsolete
-	name = "Obsolete Fake Blindfold"
-	item_path = /obj/item/clothing/glasses/trickblindfold/obsolete
 
 /datum/loadout_item/glasses/blinding/eyepatch
 	name = "Eyepatch (Black)"
