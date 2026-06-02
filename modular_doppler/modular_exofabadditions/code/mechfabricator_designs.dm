@@ -1,7 +1,7 @@
 //Modules
 
 /datum/design/module/mod_melee_harness
-	name = "Sword Magnetic Harness"
+	name = "Sword Magnetic Harness Module"
 	id = "mod_melee_harness"
 	materials = list(
 		/datum/material/iron =HALF_SHEET_MATERIAL_AMOUNT * 1.5,
