@@ -28,7 +28,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/power/solar/fixed/advanced, 0)
 	set_panel_direction()
 
 /// Sets the rotation target of the solar panel based on the panel's dir
-/obj/machinery/power/solar/fixed/set_panel_rotation()
+/obj/machinery/power/solar/fixed/proc/set_panel_rotation()
 	var/text_dir = dir2text(dir)
 	var/new_angle = 0
 	switch(text_dir)
