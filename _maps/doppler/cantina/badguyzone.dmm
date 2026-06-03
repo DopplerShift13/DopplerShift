@@ -591,8 +591,15 @@
 	pixel_x = 1;
 	pixel_y = -1
 	},
-/obj/item/multitool,
 /obj/effect/decal/cleanable/cobweb,
+/obj/item/storage/toolbox/mechanical{
+	has_latches = 0;
+	latches = "quad_latch";
+	name = "evil fucked up toolbox";
+	desc = "Why in the world does it have four latches?";
+	pixel_y = -8;
+	pixel_x = 4
+	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "iy" = (
@@ -602,13 +609,20 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "iD" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/toolbox/mechanical{
-	has_latches = 0;
-	latches = "quad_latch";
-	name = "evil fucked up toolbox";
-	desc = "Why in the world does it have four latches?";
+/obj/item/wrench/combat{
 	pixel_y = 17;
-	pixel_x = -2
+	pixel_x = -8
+	},
+/obj/item/wrench/combat{
+	pixel_y = 10;
+	pixel_x = -11
+	},
+/obj/item/multitool{
+	pixel_y = 8;
+	pixel_x = 8
+	},
+/obj/item/multitool{
+	pixel_y = 9
 	},
 /obj/item/storage/belt/utility,
 /obj/item/storage/belt/utility{
@@ -862,6 +876,7 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/ore_silo,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "np" = (
@@ -2530,6 +2545,12 @@
 	pixel_x = -3;
 	pixel_y = -10
 	},
+/obj/item/storage/belt/holster{
+	pixel_x = 2
+	},
+/obj/item/storage/belt/holster{
+	pixel_y = -6
+	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "KO" = (
@@ -2959,13 +2980,6 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Qs" = (
 /obj/effect/turf_decal/bot,
-/obj/item/stack/sheet/iron/fifty{
-	pixel_y = 10
-	},
-/obj/item/stack/sheet/glass/fifty{
-	pixel_y = 6;
-	pixel_x = 3
-	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Qz" = (
@@ -3146,24 +3160,20 @@
 /turf/open/floor/plating/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "SE" = (
-/obj/structure/shelf,
-/obj/item/storage/belt/holster{
-	pixel_x = 2
-	},
-/obj/item/storage/belt/holster{
-	pixel_y = -6
-	},
-/obj/item/wrench/combat{
-	pixel_y = 10;
-	pixel_x = -7
-	},
-/obj/item/multitool/ai_detect{
-	pixel_x = 7
-	},
-/obj/item/suppressor{
-	pixel_y = -6
-	},
-/obj/item/wrench/combat,
+/obj/structure/closet/crate/cargo,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/cloth/ten,
+/obj/item/stack/sheet/leather/five,
+/obj/item/stack/sheet/mineral/gold/fifty,
+/obj/item/stack/sheet/mineral/plasma/fifty,
+/obj/item/stack/sheet/mineral/titanium/fifty,
+/obj/item/stack/sheet/mineral/uranium/fifty,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/obj/item/stack/sheet/mineral/silver/fifty,
+/obj/item/stack/sheet/mineral/diamond/fifty,
+/obj/item/stack/sheet/mineral/bananium/five,
+/obj/item/stack/sheet/bluespace_crystal/fifty,
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "SF" = (
@@ -3257,6 +3267,9 @@
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/light/red/directional/north,
+/obj/item/suppressor{
+	pixel_y = 11
+	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "TB" = (
