@@ -48,7 +48,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/obj/machinery/suit_storage_unit/void_old/jetpack,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_interceptor)
 "i" = (
@@ -214,7 +214,7 @@
 	dir = 8
 	},
 /obj/machinery/light/small/red/directional/east,
-/obj/machinery/suit_storage_unit/void_old/jetpack,
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_interceptor)
 "O" = (
