@@ -18,3 +18,6 @@
 	item = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
 	cost = 1 // takes ages to use in-pressure because of the release, so it's cheap
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_item/device_tools/encryptionkey
+	cost = 6 // i'm sorry, little one

@@ -31,22 +31,24 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/tiziran_bronze,
 /area/shuttle/personally_bought/tiziran_interceptor)
 "g" = (
-/obj/item/ammo_box/magazine/ammo_stack/bolt_slug/full,
-/obj/item/ammo_box/magazine/ammo_stack/bolt_slug/full,
-/obj/item/gun/ballistic/bolt_thrower,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
 /obj/structure/shelf,
-/obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full,
-/obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full,
+/obj/item/storage/box/tiziran_goods,
+/obj/item/storage/box/tiziran_meats{
+	pixel_y = 3
+	},
+/obj/item/storage/box/tiziran_cans{
+	pixel_y = -5
+	},
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_interceptor)
 "h" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/obj/machinery/suit_storage_unit/tiziran_raiders,
+/obj/machinery/suit_storage_unit/void_old/jetpack,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_interceptor)
 "i" = (
@@ -211,8 +213,8 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 8
 	},
-/obj/machinery/suit_storage_unit/tiziran_raiders,
 /obj/machinery/light/small/red/directional/east,
+/obj/machinery/suit_storage_unit/void_old/jetpack,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_interceptor)
 "O" = (
