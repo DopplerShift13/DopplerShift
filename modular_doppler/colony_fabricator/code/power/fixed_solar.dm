@@ -25,7 +25,7 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/power/solar/fixed/advanced, 0)
 	. = ..()
 	panel.icon_state = "solar_panel_[material_type.name]"
 	panel_edge.icon_state = "solar_panel_[material_type.name]_edge"
-	set_panel_direction()
+	set_panel_rotation()
 
 /// Sets the rotation target of the solar panel based on the panel's dir
 /obj/machinery/power/solar/fixed/proc/set_panel_rotation()
