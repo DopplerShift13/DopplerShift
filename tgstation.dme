@@ -7850,6 +7850,7 @@
 #include "modular_doppler\shipbreaking\code\shuttle_parts\munitions.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\reinforced_turfs.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\sleeping_closet.dm"
+#include "modular_doppler\shipbreaking\code\shuttle_parts\space_toilet.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\wall_plating.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\water_cycler.dm"
 #include "modular_doppler\shipbreaking\code\shuttle_parts\windows.dm"

@@ -117,7 +117,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/mapping_helpers/airlock/cyclelink_helper,
-/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/machinery/door/airlock/spacer,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/mining_hub)
 "kA" = (
@@ -352,9 +352,9 @@
 /turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
 /area/shuttle/personally_bought/mining_hub)
 "CL" = (
-/obj/structure/mineral_door/manual_colony_door/shuttle/interior,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/mineral_door/manual_colony_door/shuttle,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/mining_hub)
 "DD" = (
@@ -529,7 +529,7 @@
 	dir = 1
 	},
 /obj/structure/fans/tiny,
-/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/machinery/door/airlock/spacer,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/mining_hub)
 "SU" = (
@@ -567,7 +567,7 @@
 	port_direction = 8
 	},
 /obj/structure/fans/tiny,
-/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/machinery/door/airlock/spacer,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/mining_hub)
 "Ur" = (
@@ -575,7 +575,7 @@
 	dir = 1
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/machinery/door/airlock/spacer,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/mining_hub)
 "UA" = (
