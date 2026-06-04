@@ -10,6 +10,9 @@
 	Miraculously, it also doubles as a pen."
 	icon = 'modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi'
 	worn_icon = 'modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi'
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
+	inhand_icon_state = "pen"
 	icon_state = "Holopen"
 	worn_icon_state = "w_holopen"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_EARS
