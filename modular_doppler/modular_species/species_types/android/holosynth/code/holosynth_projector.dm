@@ -61,6 +61,9 @@
 		limit_to_trait = TRAIT_HOLOSYNTH, \
 		healing_color = BLOOD_COLOR_HOLOGEL, \
 	)
+	var/mutable_appearance/pen_color_overlay = mutable_appearance('modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi', "holopen_overlay")
+	pen_color_overlay.color = linked_mob.dna.features[FEATURE_MUTANT_COLOR]
+	add_overlay(pen_color_overlay)
 
 /obj/item/holosynth_pen/proc/create_transform_component()
 	AddComponent( \
@@ -113,7 +116,7 @@
 	if(linked_mob)
 		linked_mob.apply_status_effect(/datum/status_effect/holosynth_dissolving)
 		linked_mob.visible_message(
-			span_danger("[linked_mob]'s whole body begins to flicker, shudder and fall apart!"),
+			span_danger("[linked_mob]'s whole body begins to flicker, shudder, and fall apart!"),
  			span_userdanger("You feel your projector being destroyed! Your form loses cohesion!")
 		)
 	. = ..()
@@ -200,7 +203,7 @@
 		return ITEM_INTERACT_SKIP_TO_ATTACK
 
 	if(target_mob == linked_mob && healer.combat_mode == FALSE)
-		healer.visible_message("[healer] carefully shines the projector over [linked_mob]'s wounds. Whispy bands of light and aerogel delicately float over to replace what was damaged.")
+		healer.visible_message("[healer] carefully shines the projector over [linked_mob]'s wounds; whispy bands of soft-light and aerogel delicately float over to replace what was damaged.")
 
 		target_mob.add_filter("holo_heal", 2, list("type" = "outline", "color" = COLOR_HEALING_CYAN, "size" = 1))
 		addtimer(CALLBACK(target_mob, TYPE_PROC_REF(/datum, remove_filter), "holo_heal"), HOLOSYNTH_MANUAL_HEAL_TIME)
@@ -219,7 +222,7 @@
 /// the DEATH effect
 /atom/movable/screen/alert/status_effect/holosynth_death_alert
 	name = "Projector Destroyed"
-	desc = "YOUR FORM COLLAPSES AT THE SEAMS, you are MELTING AWAY!!"
+	desc = "YOUR FORM COLLAPSES AT THE SEAMS! YOU ARE MELTING AWAY!"
 	icon_state = "convulsing"
 
 /datum/status_effect/holosynth_dissolving
