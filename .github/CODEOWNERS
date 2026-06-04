@@ -7,14 +7,15 @@
 # kannthus
 /.github/workflows/ @kannthus
 /SQL/ @kannthus
+/config/ @kannthus
 
 # Maintainers
-/modular_doppler/ @cardapax @Carpotoxin @00-Steven
-/code/ @cardapax @Carpotoxin @00-Steven
+/modular_doppler/ @carda-sometimesknownas-paxilmaniac @Carpotoxin @00-Steven
+/code/ @carda-sometimesknownas-paxilmaniac @Carpotoxin @00-Steven
 # /sound/
 # /strings/
 
-# Head Maptainers
+# Maptainers
 /_maps/ @dawsonkeyes @kannthus
 
 # Spritetainers (real)
