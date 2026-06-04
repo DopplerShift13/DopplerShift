@@ -325,11 +325,6 @@
 		info += span_boldnotice("As this station was initially staffed with a \
 			[CONFIG_GET(flag/jobs_have_minimal_access) ? "full crew, only your job's necessities" : "skeleton crew, additional access may"] \
 			have been added to your ID card.")
-	//DOPPLER EDIT ADDITION START - ALTERNATIVE_JOB_TITLES
-	if(alt_title != title)
-		info += span_warning("Remember that alternate titles are purely for flavor and roleplay.")
-		info += span_warning("Do not use your \"[alt_title]\" alt title as an excuse to forego your duties as a [title].")
-	//DOPPLER EDIT END
 
 	return info
 

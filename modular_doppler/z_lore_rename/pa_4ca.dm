@@ -137,11 +137,6 @@
 	name = "\improper 4CA Saber SMG"
 	desc = "A prototype full-auto 9mm submachine gun, designated 'SABR'. Has a threaded barrel for suppressors."
 
-/obj/item/gun/ballistic/automatic/wt550
-	name = "\improper WT-550 Autorifle"
-	desc = "An old but true gun, the striking image of the turbulent times following the dissolution and civil war following the dissolution of the Third Celestial Accord. \
-		Real-life image of an agonizing time-frame, stopped in motion, where these top-loaders were used in the brutal fighting that followed. Now, these are mostly used by pirates, underfunded corpo-sec, and gangs  Light-weight and fully automatic. Uses 4.6x30mm rounds."
-
 /obj/item/gun/ballistic/automatic/ar
 	name = "\improper NT-ARG 'Boarder'"
 	desc = "A robust assault rifle used by Nanotrasen fighting forces."
