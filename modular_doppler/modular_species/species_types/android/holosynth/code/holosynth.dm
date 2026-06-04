@@ -78,11 +78,11 @@
 // Lore Box
 /datum/species/android/holosynth/get_species_lore()
 	return list(\
-		"Somewhere between an android and a hologram, these semi-physical autonomous units are extremely vulnerable to heat and electricity \
-		A niche choice more popular among wealthy customers (silicon and uploaded organics alike) - their lack of robustness makes them somewhat inept for physical activity but they are excellent at scouting or clerical work.",
+		"Somewhere between an android and a hologram, these semi-physical autonomous units are extremely vulnerable to heat and electricity. \
+		A niche choice more popular among wealthy customers (silicon and uploaded organics alike), their lack of robustness makes them somewhat inept for physical activity but they are excellent at scouting or clerical work.",
 
-		 "As of late the design of the required holoprojection equipment has shrunk considerably. \
-		 With an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis."
+		 "As of late the design of the required holoprojection equipment has shrunk considerably, \
+		 with an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis."
 	)
 
 //Character creation Perks
@@ -129,7 +129,7 @@
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_NOTES_MEDICAL,
 		SPECIES_PERK_NAME = "Regenerator",
-		SPECIES_PERK_DESC = "Being made of soft-light, a Holosynths' projector and controller will mend tears in their form and aerogel.",
+		SPECIES_PERK_DESC = "Being made of soft-light, a Holosynth's projector and controller will mend tears in their form and aerogel.",
 	))
 	return perks
 

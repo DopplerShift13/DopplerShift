@@ -64,9 +64,11 @@
 		limit_to_trait = TRAIT_HOLOSYNTH, \
 		healing_color = BLOOD_COLOR_HOLOGEL, \
 	)
+	var/penjamin_color = linked_mob.dna.features[FEATURE_MUTANT_COLOR]
 	var/mutable_appearance/pen_color_overlay = mutable_appearance('modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi', "holopen_overlay")
-	pen_color_overlay.color = linked_mob.dna.features[FEATURE_MUTANT_COLOR]
-	add_overlay(pen_color_overlay)
+	if(penjamin_color != null)
+		pen_color_overlay.color = penjamin_color
+		add_overlay(pen_color_overlay)
 
 /obj/item/holosynth_pen/proc/create_transform_component()
 	AddComponent( \
