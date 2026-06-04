@@ -10,10 +10,10 @@
 	Miraculously, it also doubles as a pen."
 	icon = 'modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi'
 	worn_icon = 'modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi'
-	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
-	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
-	inhand_icon_state = "pen"
+	lefthand_file = 'modular_doppler/modular_species/species_types/android/holosynth/icons/mob/inhands/holosynth_pen_lefthand.dmi'
+	righthand_file = 'modular_doppler/modular_species/species_types/android/holosynth/icons/mob/inhands/holosynth_pen_righthand.dmi'
 	icon_state = "Holopen"
+	inhand_icon_state = "holopen"
 	worn_icon_state = "w_holopen"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_EARS
 	w_class = WEIGHT_CLASS_TINY
@@ -86,6 +86,7 @@
 	playsound(src, 'sound/items/pen_click.ogg', 30, TRUE, -3)
 	icon_state = initial(icon_state) + (active ? "_writing" : "")
 	worn_icon_state = initial(worn_icon_state) + (active ? "_writing" : "")
+	inhand_icon_state = initial(inhand_icon_state) + (active ? "_writing" : "")
 	update_appearance(UPDATE_ICON)
 
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
