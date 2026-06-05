@@ -1,3 +1,6 @@
+/// How opaque vs. see-through holosynths are
+#define HOLOSYNTH_OPACITY 0.6
+
 /datum/preference/color/holosynth_color
 	savefile_key = "feature_holo_color"
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -7,7 +10,7 @@
 	if(isnull(value))
 		return
 	var/list/rbg_value = rgb2num(value)
-	target.dna.features[FEATURE_HOLO_COLOR] = rgb(rbg_value[1], rbg_value[2], rbg_value[3])
+	target.dna.features[FEATURE_HOLO_COLOR] = rgb(rbg_value[1], rbg_value[2], rbg_value[3], (HOLOSYNTH_OPACITY * 255))
 
 /datum/preference/color/holosynth_color/create_default_value()
 	return sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]")
@@ -18,3 +21,5 @@
 	if(ispath(species, /datum/species/android/holosynth))
 		return TRUE
 	return FALSE
+
+#undef HOLOSYNTH_OPACITY

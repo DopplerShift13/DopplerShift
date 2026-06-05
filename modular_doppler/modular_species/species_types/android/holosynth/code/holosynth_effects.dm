@@ -1,6 +1,3 @@
-/// How opaque vs. see-through holosynths are
-#define HOLOSYNTH_OPACITY 0.6
-
 /datum/component/holosynth_effects
 	/// Tracks the emissive overlay glow for later deletion
 	var/mutable_appearance/glow
@@ -23,7 +20,7 @@
 
 
 /datum/component/holosynth_effects/proc/make_hologram_glowless()
-	parent_as_human.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(parent_as_human.dna.features[FEATURE_HOLO_COLOR], HOLOSYNTH_OPACITY * 255))
+	parent_as_human.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(parent_as_human.dna.features[FEATURE_HOLO_COLOR]))
 	var/atom/movable/scanline = new(null)
 	scanline.icon = 'icons/effects/effects.dmi'
 	scanline.icon_state = "scanline"
@@ -49,5 +46,3 @@
 	parent_as_human.add_overlay(glow_appearance)
 	LAZYADD(parent_as_human.update_overlays_on_z, glow_appearance)
 	return glow_appearance
-
-#undef HOLOSYNTH_OPACITY
