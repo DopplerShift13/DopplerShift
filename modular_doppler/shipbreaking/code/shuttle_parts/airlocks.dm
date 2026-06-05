@@ -52,6 +52,7 @@
 	var/static/list/tool_behaviors = list(
 		TOOL_WELDER = list(
 			SCREENTIP_CONTEXT_LMB = "Secure",
+			SCREENTIP_CONTEXT_RMB = "Destroy",
 		),
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
@@ -69,6 +70,20 @@
 	new reconnect_type(get_turf(src))
 	qdel(src)
 	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/hull_plating/airlock/welder_act_secondary(mob/living/user, obj/item/tool)
+	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
+		return ITEM_INTERACT_FAILURE
+	balloon_alert(user, "destroying...")
+	if(!tool.use_tool(src, user, 3 SECONDS, amount = 1, volume=50))
+		return ITEM_INTERACT_BLOCKING
+	deconstruct(TRUE)
+	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/hull_plating/airlock/handle_deconstruct(disassembled)
+	. = ..()
+	new /obj/item/stack/sheet/iron(drop_location(), 4)
+	new /obj/item/stack/sheet/mineral/titanium(drop_location(), 2)
 
 /obj/structure/mineral_door/manual_colony_door/shuttle/interior
 	name = "manual interior airlock"
@@ -122,3 +137,26 @@
 	desc = "A maintenance panel used for access to crawlspaces and engines in ships, this one has been cut from the frame."
 	icon_state = "access_free"
 	reconnect_type = /obj/structure/shuttle_access_panel
+
+// Actual powered airlock
+
+/obj/machinery/door/airlock/spacer
+	name = "spacer airlock"
+	desc = "An airlock in the general style of spacers and their void habitats. Built for reliability and low maintenance over all else."
+	icon = 'modular_doppler/shipbreaking/icons/airlock/airlock.dmi'
+	overlays_file = 'modular_doppler/shipbreaking/icons/airlock/overlays.dmi'
+	assemblytype = /obj/structure/door_assembly/spacer
+
+/obj/machinery/door/airlock/spacer/glass
+	name = "windowed spacer airlock"
+	opacity = FALSE
+	glass = TRUE
+
+/obj/structure/door_assembly/spacer
+	name = "spacer airlock assembly"
+	icon = 'modular_doppler/shipbreaking/icons/airlock/airlock.dmi'
+	base_name = "spacer airlock"
+	airlock_type = /obj/machinery/door/airlock/spacer
+	glass_type = /obj/machinery/door/airlock/spacer/glass
+	material_type = /obj/item/stack/sheet/aluminum
+	nomineral = TRUE
