@@ -7897,7 +7897,6 @@
 #include "modular_doppler\sprite_swaps\code\coffee.dm"
 #include "modular_doppler\sprite_swaps\code\false_walls.dm"
 #include "modular_doppler\sprite_swaps\code\walls.dm"
-#include "modular_doppler\starter_resources\ore_vent.dm"
 #include "modular_doppler\stone\code\ore_veins.dm"
 #include "modular_doppler\stone\code\stone.dm"
 #include "modular_doppler\STORY_teshari_war\config.dm"
