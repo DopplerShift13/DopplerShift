@@ -7733,6 +7733,7 @@
 	fax_name = "Detective's Office";
 	name = "Detective's Fax Machine"
 	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "aFo" = (
@@ -27922,6 +27923,7 @@
 	},
 /obj/structure/detectiveboard/directional/south,
 /obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "cPO" = (
