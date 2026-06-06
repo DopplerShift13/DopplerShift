@@ -7,9 +7,6 @@
 	lose_text = ("The tremble in your hands seems to have disappeared.")
 	medical_record_text = "Patient has a documented nervous tremble in their hands that worsens with stress."
 
-
-
-
 /datum/quirk/nervous_aim/add(client/client_source)
 	RegisterSignal(quirk_holder, COMSIG_MOB_FIRED_GUN, PROC_REF(on_mob_fired_gun))
 
