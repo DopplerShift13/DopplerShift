@@ -32,6 +32,8 @@ GLOBAL_LIST_INIT_TYPED(quirk_blacklist, /list/datum/quirk, list(
 	list(/datum/quirk/undersized, /datum/quirk/oversized),
 	list(/datum/quirk/genemodded, /datum/quirk/oversized),
 	list(/datum/quirk/visitor, /datum/quirk/item_quirk/underworld_connections),
+	list(/datum/quirk/poor_aim, /datum/quirk/nervous_aim),
+	list(/datum/quirk/bighands, /datum/quirk/nervous_aim)
 	// DOPPLER EDIT ADDITION END
 ))
 

@@ -7535,6 +7535,7 @@
 #include "modular_doppler\modular_quirks\limping\limping.dm"
 #include "modular_doppler\modular_quirks\limping\preferences.dm"
 #include "modular_doppler\modular_quirks\linguist\linguist.dm"
+#include "modular_doppler\modular_quirks\nervous_aim\nervous_aim.dm"
 #include "modular_doppler\modular_quirks\night_vision\night_vision.dm"
 #include "modular_doppler\modular_quirks\oversized\oversized.dm"
 #include "modular_doppler\modular_quirks\overwrites\equipping.dm"
