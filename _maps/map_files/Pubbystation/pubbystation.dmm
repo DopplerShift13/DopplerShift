@@ -6797,11 +6797,6 @@
 "aCn" = (
 /obj/machinery/light/small/directional/north,
 /obj/machinery/vending/wardrobe/det_wardrobe,
-/obj/machinery/button/door/directional/north{
-	id = "datboidetective";
-	name = "Privacy Shutters";
-	req_access = list("detective")
-	},
 /turf/open/floor/iron/grimy,
 /area/station/security/detectives_office)
 "aCo" = (
