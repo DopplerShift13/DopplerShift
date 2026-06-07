@@ -566,9 +566,9 @@
 
 /obj/item/clothing/suit/hooded/doppler/marsian_duster
 	name = "marsian duster"
-	desc = "Worn by the utilitarian, this is a bit of a throwback design-- somewhere between a duster and a hooded cloak. \
-	Thick and durable canvas is smattered with the occasional abrasion of dust storm and the microscopic craters \
-	it creates, but the material will likely long outlive the wearer. "
+	desc = "Worn by the utilitarian, this is a bit of a throwback design-- somewhere between a duster and a hooded cloak.\
+	Thick and durable canvas is smattered with the occasional abrasion of dust storm and the microscopic craters it creates\
+	, but the material will likely long outlive the wearer. "
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_duster"
 	post_init_icon_state =  "marsian_duster"
@@ -659,8 +659,8 @@
 /obj/item/clothing/suit/hooded/doppler/marsian_overalls
 	name = "marsian overalls"
 	desc = "A dense network of rubber tubes worm their way through this environment suit,\
-	comfort control machinery underneath adding or removing temperature from the wearer's overworked body.\
-	A retractile hood has been added with cameras on the outside to ensure\
+	comfort control machinery underneath adding or removing temperature from the wearer's\
+	overworked body. A retractile hood has been added with cameras on the outside to ensure\
 	the visor can remain thick."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_overalls"
