@@ -128,7 +128,7 @@
 
 ///box for the wax seals
 /obj/item/storage/box/stickers/marsian_seals
-	name = "box of marsians seals"
+	name = "box of marsian seals"
 	desc = "A box containing several seals representing the rebels of Mars."
 
 /obj/item/storage/box/stickers/marsian_seals/PopulateContents()
