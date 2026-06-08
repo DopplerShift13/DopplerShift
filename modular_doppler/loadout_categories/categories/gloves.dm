@@ -165,47 +165,47 @@
 	abstract_type = /datum/loadout_item/gloves/envirogloves
 
 /datum/loadout_item/gloves/envirogloves/black
-	name = "Black Envirogloves"
+	name = "Phorid Envirogloves (Black)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/black
 
 /datum/loadout_item/gloves/envirogloves/white
-	name = "White Envirogloves"
+	name = "Phorid Envirogloves (White)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/white
 
 /datum/loadout_item/gloves/envirogloves/nitrile
-	name = "Nitrile Envirogloves"
+	name = "Phorid Envirogloves (Nitrile)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/plasmanitrile
 
 /datum/loadout_item/gloves/envirogloves/red
-	name = "Red Envirogloves"
+	name = "Phorid Envirogloves (Red)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/robot
 
 /datum/loadout_item/gloves/envirogloves/orange
-	name = "Orange Envirogloves"
+	name = "Phorid Envirogloves (Orange)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/engineer
 
 /datum/loadout_item/gloves/envirogloves/blue
-	name = "Blue Envirogloves"
+	name = "Phorid Envirogloves (Blue)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/atmos
 
 /datum/loadout_item/gloves/envirogloves/tan
-	name = "Tan Envirogloves"
+	name = "Phorid Envirogloves (Tan)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/cargo
 
 /datum/loadout_item/gloves/envirogloves/explorer
-	name = "Explorer Envirogloves"
+	name = "Phorid Envirogloves (Explorer)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/explorer
 
 /datum/loadout_item/gloves/envirogloves/purple
-	name = "Purple Envirogloves"
+	name = "Phorid Envirogloves (Purple)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/janny
 
 /datum/loadout_item/gloves/envirogloves/teal
-	name = "Teal Envirogloves"
+	name = "Phorid Envirogloves (Teal)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/centcom_official
 
 /datum/loadout_item/gloves/envirogloves/green
-	name = "Green Envirogloves"
+	name = "Phorid Envirogloves (Green)"
 	item_path = /obj/item/clothing/gloves/color/plasmaman/centcom_commander
 
 /**
