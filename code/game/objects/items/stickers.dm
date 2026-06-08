@@ -228,3 +228,4 @@
 
 /obj/item/sticker/purity_seal/purity_seal_2
 	icon_state = "purity_seal_2"
+
