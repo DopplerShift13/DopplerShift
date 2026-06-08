@@ -565,7 +565,7 @@
 // Marsian Fashion
 
 /obj/item/clothing/suit/hooded/doppler/marsian_duster
-	name = "marsian duster"
+	name = "red marsian duster"
 	desc = "Worn by the utilitarian, this is a bit of a throwback design-- somewhere between a duster and a hooded cloak.\
 	Thick and durable canvas is smattered with the occasional abrasion of dust storm and the microscopic craters it creates\
 	, but the material will likely long outlive the wearer. "
@@ -596,8 +596,8 @@
 	hood.set_greyscale(new_hoodie_colors)
 
 /obj/item/clothing/head/hooded/doppler/marsian_duster_hood
-	name = "marsian duster hood"
-	desc = "The hood of the Marsian duster."
+	name = "red marsian duster hood"
+	desc = "The hood of the Red Marsian duster."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/marsian_duster_hood"
 	post_init_icon_state = "marsian_duster_hood"
@@ -611,10 +611,11 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/doppler/marsian_gown
-	name = "marsian gown"
+	name = "red marsian gown"
 	desc = "A comfortable dress, much like the standard machine dustcovers. It comes fitted with belts and loops for\
 	the average Red Marsian, as eventually needing so much equipment became the standard for mechanics and the like.\
-	Made with the durable material necessary to protect one from the dust storms."
+	Made with the durable material necessary to protect one from the dust storms whilst providing a comfortable and\
+	fashionable look."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_gown"
 	post_init_icon_state =  "marsian_gown"
@@ -642,8 +643,8 @@
 	hood.set_greyscale(new_hoodie_colors)
 
 /obj/item/clothing/head/hooded/doppler/marsian_gown_hood
-	name = "marsian gown hood"
-	desc = "The hood of the Marsian gown."
+	name = "red marsian gown hood"
+	desc = "The hood of the Red Marsian gown."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/marsian_gown_hood"
 	post_init_icon_state = "marsian_gown_hood"
@@ -657,7 +658,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/doppler/marsian_overalls
-	name = "marsian overalls"
+	name = "rde marsian overalls"
 	desc = "A dense network of rubber tubes worm their way through this environment suit,\
 	comfort control machinery underneath adding or removing temperature from the wearer's\
 	overworked body. A retractile hood has been added with cameras on the outside to ensure\
@@ -689,8 +690,8 @@
 	hood.set_greyscale(new_hoodie_colors)
 
 /obj/item/clothing/head/hooded/doppler/marsian_overalls_helmet
-	name = "marsian overalls helmet"
-	desc = "The helmet-like hood of the Marsian overalls."
+	name = "red marsian overalls helmet"
+	desc = "The helmet-like hood of the red Marsian overalls."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/marsian_overalls_helmet"
 	post_init_icon_state = "marsian_overalls_helmet"
