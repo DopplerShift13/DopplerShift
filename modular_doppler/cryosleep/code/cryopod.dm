@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
 	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 22)
 
 /obj/machinery/computer/cryopod/Initialize(mapload)
 	. = ..()

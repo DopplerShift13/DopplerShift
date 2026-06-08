@@ -1,6 +1,8 @@
 GLOBAL_LIST_INIT(plastic_wall_panel_recipes, list(
 	new/datum/stack_recipe("plastic wall", /turf/closed/wall/prefab_plastic, time = 2 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
 	new/datum/stack_recipe("airtight flaps", /obj/structure/plasticflaps/colony, 5, time = 3 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_STRUCTURE), \
+	new/datum/stack_recipe("handrail", /obj/structure/handrail/colony, 1, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("sleeping compartment", /obj/structure/closet/sleeping_compartment, 6, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_FURNITURE),\
 	))
 
 /obj/item/stack/sheet/plastic_wall_panel
