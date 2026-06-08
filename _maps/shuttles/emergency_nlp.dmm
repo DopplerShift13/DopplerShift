@@ -1,0 +1,1227 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ag" = (
+/obj/machinery/light/directional/east,
+/obj/structure/closet/crate/freezer/blood,
+/turf/open/floor/iron/colony/white/nanocarbon,
+/area/shuttle/escape)
+"ah" = (
+/obj/machinery/power/shuttle_engine/propulsion,
+/obj/structure/engine_covers/thruster_nozzle,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"bp" = (
+/obj/structure/fluff/shower_drain,
+/obj/structure/window/reinforced/spawner/directional/north,
+/obj/structure/curtain,
+/obj/machinery/shower/directional/north,
+/turf/open/floor/iron/colony/white/texture,
+/area/shuttle/escape)
+"bA" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"cq" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/turf/open/floor/pod,
+/area/shuttle/escape)
+"cO" = (
+/obj/structure/shuttle_decoration/bullbar/directional/west,
+/obj/structure/shuttle_decoration/rcs/directional/west,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"dj" = (
+/obj/machinery/button/door/directional/south{
+	id = "evac_shutters";
+	name = "Emergency Shutters Control"
+	},
+/turf/open/floor/iron/dark/smooth_corner{
+	dir = 4
+	},
+/area/shuttle/escape)
+"dA" = (
+/obj/machinery/computer/security{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/shuttle/escape)
+"es" = (
+/obj/effect/mapping_helpers/airlock/access/all/security/brig,
+/obj/machinery/door/airlock/titanium,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/escape)
+"eu" = (
+/obj/machinery/status_display/evac/directional/north,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"eF" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 4
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"fp" = (
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 4
+	},
+/area/shuttle/escape)
+"fK" = (
+/obj/machinery/computer/records/medical,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/escape)
+"fP" = (
+/turf/open/floor/iron/smooth_corner{
+	dir = 8
+	},
+/area/shuttle/escape)
+"gx" = (
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/obj/structure/shuttle_decoration/ladder_black/directional/east,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"gV" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 8
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"hE" = (
+/obj/machinery/camera/autoname/directional/west,
+/obj/structure/table/reinforced,
+/obj/item/folder/red{
+	pixel_y = 3
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/escape)
+"ih" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"in" = (
+/obj/structure/extinguisher_cabinet/directional/north,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"iV" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/rcs/directional/west,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"jx" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"km" = (
+/obj/machinery/stasis{
+	dir = 4
+	},
+/obj/machinery/defibrillator_mount/directional/west,
+/turf/open/floor/iron/white/textured_large,
+/area/shuttle/escape)
+"kr" = (
+/turf/open/floor/iron/white/smooth_half{
+	dir = 1
+	},
+/area/shuttle/escape)
+"kt" = (
+/obj/structure/table/optable,
+/obj/item/surgical_drapes,
+/turf/open/floor/iron/white/textured_large,
+/area/shuttle/escape)
+"kO" = (
+/obj/structure/reagent_dispensers/fueltank,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"kX" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 9
+	},
+/turf/closed/wall/mineral/nanocarbon/primary_colour,
+/area/shuttle/escape)
+"mc" = (
+/obj/machinery/door/airlock/virology/glass{
+	name = "Escape Shuttle Infirmary"
+	},
+/turf/open/floor/iron/colony/white/texture/nanocarbon,
+/area/shuttle/escape)
+"mL" = (
+/obj/machinery/light/small/red/dim/directional/west,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"mW" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/medkit/o2{
+	pixel_y = 2;
+	pixel_x = 0
+	},
+/obj/item/storage/medkit/regular{
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/turf/open/floor/iron/colony/white/nanocarbon,
+/area/shuttle/escape)
+"ni" = (
+/obj/item/clothing/suit/hazardvest{
+	desc = "A high-visibility lifejacket complete with whistle and slot for oxygen tanks.";
+	name = "emergency lifejacket"
+	},
+/obj/item/clothing/suit/hazardvest{
+	desc = "A high-visibility lifejacket complete with whistle and slot for oxygen tanks.";
+	name = "emergency lifejacket"
+	},
+/obj/item/clothing/suit/hazardvest{
+	desc = "A high-visibility lifejacket complete with whistle and slot for oxygen tanks.";
+	name = "emergency lifejacket"
+	},
+/obj/item/clothing/suit/hazardvest{
+	desc = "A high-visibility lifejacket complete with whistle and slot for oxygen tanks.";
+	name = "emergency lifejacket"
+	},
+/obj/item/clothing/suit/hazardvest{
+	desc = "A high-visibility lifejacket complete with whistle and slot for oxygen tanks.";
+	name = "emergency lifejacket"
+	},
+/obj/item/tank/internals/emergency_oxygen{
+	pixel_x = 3
+	},
+/obj/item/tank/internals/emergency_oxygen{
+	pixel_x = 3
+	},
+/obj/item/tank/internals/emergency_oxygen{
+	pixel_x = 3
+	},
+/obj/item/tank/internals/emergency_oxygen{
+	pixel_x = 3
+	},
+/obj/item/tank/internals/emergency_oxygen{
+	pixel_x = 3
+	},
+/obj/item/clothing/mask/breath{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/clothing/mask/breath{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/clothing/mask/breath{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/clothing/mask/breath{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/clothing/mask/breath{
+	pixel_x = -3;
+	pixel_y = -3
+	},
+/obj/item/clothing/head/utility/hardhat/orange{
+	name = "protective hat";
+	pixel_y = 9
+	},
+/obj/item/clothing/head/utility/hardhat/orange{
+	name = "protective hat";
+	pixel_y = 9
+	},
+/obj/item/clothing/head/utility/hardhat/orange{
+	name = "protective hat";
+	pixel_y = 9
+	},
+/obj/item/clothing/head/utility/hardhat/orange{
+	name = "protective hat";
+	pixel_y = 9
+	},
+/obj/item/clothing/head/utility/hardhat/orange{
+	name = "protective hat";
+	pixel_y = 9
+	},
+/obj/structure/closet/crate/internals,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"nn" = (
+/obj/structure/shuttle_decoration/radiator{
+	dir = 4
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"nB" = (
+/obj/machinery/stasis{
+	dir = 4
+	},
+/turf/open/floor/iron/white/textured_large,
+/area/shuttle/escape)
+"nC" = (
+/obj/structure/reagent_dispensers/watertank,
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"nQ" = (
+/obj/machinery/light/directional/west,
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/escape)
+"pW" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/pod,
+/area/shuttle/escape)
+"qg" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/medkit/regular{
+	pixel_y = 4
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/escape)
+"qs" = (
+/obj/machinery/camera/autoname/directional/east,
+/obj/structure/shelf,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"rk" = (
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"ro" = (
+/obj/machinery/light/directional/east,
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/shuttle/escape)
+"rp" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 8
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"rJ" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 6
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"so" = (
+/obj/effect/turf_decal/arrows/white{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/escape)
+"th" = (
+/obj/structure/shuttle_decoration/bullbar/directional/west,
+/turf/closed/wall/mineral/nanocarbon/primary_colour,
+/area/shuttle/escape)
+"tU" = (
+/turf/template_noop,
+/area/template_noop)
+"uA" = (
+/turf/open/floor/iron/smooth_half{
+	dir = 1
+	},
+/area/shuttle/escape)
+"uM" = (
+/obj/structure/shelf,
+/obj/item/storage/toolbox/emergency{
+	pixel_y = 6
+	},
+/obj/item/storage/toolbox/emergency{
+	pixel_y = -4
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"uN" = (
+/obj/structure/closet/crate/medical,
+/obj/item/storage/medkit/regular,
+/obj/item/storage/medkit/o2{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/storage/medkit/toxin{
+	pixel_x = -4;
+	pixel_y = 3
+	},
+/obj/item/healthanalyzer{
+	pixel_x = 3;
+	pixel_y = 3
+	},
+/obj/item/lazarus_injector,
+/mob/living/basic/bot/medbot{
+	name = "\improper emergency medibot";
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/effect/turf_decal/bot_white,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"uP" = (
+/obj/machinery/door/airlock/security/glass{
+	name = "Holding Area"
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/escape)
+"uZ" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 9
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/standard,
+/area/shuttle/escape)
+"vr" = (
+/obj/docking_port/mobile/emergency{
+	dir = 8;
+	name = "Nebula emergency shuttle";
+	port_direction = 4
+	},
+/obj/machinery/door/airlock/titanium,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/escape)
+"vK" = (
+/turf/open/floor/iron/stairs{
+	color = "#79787D"
+	},
+/area/shuttle/escape)
+"wf" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/black{
+	dir = 4
+	},
+/turf/closed/wall/mineral/nanocarbon/primary_colour,
+/area/shuttle/escape)
+"wi" = (
+/obj/machinery/camera/autoname/directional/north,
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"wl" = (
+/obj/effect/mapping_helpers/burnt_floor,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/shuttle/escape)
+"ws" = (
+/obj/machinery/door/airlock/titanium,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/escape)
+"wv" = (
+/turf/open/floor/iron/smooth_corner{
+	dir = 1
+	},
+/area/shuttle/escape)
+"xf" = (
+/obj/effect/turf_decal/caution/white{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/escape)
+"xn" = (
+/obj/machinery/computer/emergency_shuttle,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/shuttle/escape)
+"xO" = (
+/obj/structure/sign/semiotic/bridge/directional/north,
+/obj/structure/table/reinforced,
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"xQ" = (
+/obj/machinery/light/directional/east,
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/escape)
+"xT" = (
+/turf/open/floor/iron/smooth_corner{
+	dir = 4
+	},
+/area/shuttle/escape)
+"yq" = (
+/obj/structure/shuttle_decoration/radiator{
+	dir = 8
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"zp" = (
+/obj/machinery/status_display/evac/directional/south,
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/escape)
+"zF" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/rcs/directional/east,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"AE" = (
+/obj/structure/shuttle_access_panel,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"Bu" = (
+/turf/open/floor/iron/smooth_corner,
+/area/shuttle/escape)
+"BC" = (
+/obj/structure/railing/corner/end/flip{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/escape)
+"BQ" = (
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/escape)
+"Cd" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 5
+	},
+/turf/closed/wall/mineral/nanocarbon/primary_colour,
+/area/shuttle/escape)
+"CD" = (
+/turf/open/floor/iron/dark/smooth_half,
+/area/shuttle/escape)
+"CQ" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 5
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/standard,
+/area/shuttle/escape)
+"Dc" = (
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"DH" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/pod,
+/area/shuttle/escape)
+"DR" = (
+/obj/structure/table/reinforced,
+/obj/item/restraints/handcuffs{
+	pixel_y = 3
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/escape)
+"Ec" = (
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 1
+	},
+/area/shuttle/escape)
+"EE" = (
+/obj/machinery/power/shuttle_engine/propulsion/salvage{
+	name = "old navigation console";
+	desc = "A bulky computer containing everything needed to safely pilot a ship with little to no human intervention."
+	},
+/obj/structure/shuttle_decoration/console/directional/south,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"Fe" = (
+/obj/structure/window/fulltile/salvage_shuttle,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "evac_shutters";
+	name = "Emergency Shutters"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"Fx" = (
+/obj/machinery/status_display/ai/directional/south,
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/escape)
+"FG" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 3
+	},
+/obj/item/assembly/flash/handheld{
+	pixel_x = -10;
+	pixel_y = 4
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/escape)
+"Gb" = (
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/shuttle/escape)
+"Ge" = (
+/obj/machinery/camera/autoname/directional/east,
+/obj/structure/table/reinforced,
+/obj/effect/spawner/surgery_tray/full,
+/turf/open/floor/iron/colony/white/nanocarbon,
+/area/shuttle/escape)
+"Go" = (
+/obj/structure/window/fulltile/salvage_shuttle,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"HL" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/medkit/fire{
+	pixel_x = 0;
+	pixel_y = 2
+	},
+/obj/item/storage/medkit/toxin{
+	pixel_x = 0;
+	pixel_y = 9
+	},
+/turf/open/floor/iron/colony/white/nanocarbon,
+/area/shuttle/escape)
+"Io" = (
+/obj/machinery/camera/autoname/directional/south,
+/obj/item/radio/intercom/directional/south,
+/turf/open/floor/iron/dark/smooth_corner{
+	dir = 1
+	},
+/area/shuttle/escape)
+"Ju" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 4
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/escape)
+"KJ" = (
+/turf/open/floor/iron/white/smooth_corner,
+/area/shuttle/escape)
+"LB" = (
+/obj/structure/table/reinforced,
+/obj/machinery/recharger{
+	pixel_y = 3
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/escape)
+"LP" = (
+/turf/open/floor/iron/dark/smooth_large,
+/area/shuttle/escape)
+"Mv" = (
+/turf/closed/wall/mineral/aluminum{
+	desc = "A thin aluminum wall, commonly used to plate the interior of ships."
+	},
+/area/shuttle/escape)
+"Nm" = (
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/escape)
+"NC" = (
+/turf/open/floor/iron/white/smooth_corner{
+	dir = 8
+	},
+/area/shuttle/escape)
+"NG" = (
+/obj/machinery/computer/crew,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/escape)
+"NH" = (
+/obj/machinery/computer/communications,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/shuttle/escape)
+"Ol" = (
+/obj/structure/sign/semiotic/exhaust/directional/south,
+/obj/machinery/light/small/red/dim/directional/south,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"OA" = (
+/obj/machinery/status_display/ai/directional/north,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"Qc" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/escape)
+"Qq" = (
+/obj/machinery/door/airlock/command/glass{
+	name = "Cockpit"
+	},
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "evac_shutters";
+	name = "Emergency Shutters"
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/shuttle/escape)
+"QN" = (
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/standard,
+/area/shuttle/escape)
+"Rc" = (
+/turf/open/floor/iron/dark/smooth_half{
+	dir = 1
+	},
+/area/shuttle/escape)
+"RI" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/escape)
+"RS" = (
+/obj/structure/shuttle_decoration/landing_engine/directional/east,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"Sk" = (
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"So" = (
+/obj/machinery/light/directional/west,
+/obj/machinery/camera/autoname/directional/west,
+/obj/machinery/recharge_station,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/shuttle/escape)
+"Sp" = (
+/obj/machinery/computer/station_alert{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/shuttle/escape)
+"Sz" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_corner{
+	dir = 8
+	},
+/area/shuttle/escape)
+"Tk" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 4
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"Tv" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 8
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"TD" = (
+/obj/machinery/light/directional/east,
+/obj/structure/table/reinforced,
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"TG" = (
+/obj/structure/railing/corner/end{
+	dir = 1
+	},
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/escape)
+"TM" = (
+/obj/machinery/power/shuttle_engine/heater,
+/obj/structure/engine_covers/heater_cover{
+	dir = 1
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"Ub" = (
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/escape)
+"Ud" = (
+/obj/machinery/computer/records/security{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/shuttle/escape)
+"Vd" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/box/zipties{
+	pixel_y = 4
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/escape)
+"Vr" = (
+/obj/machinery/newscaster/directional/north,
+/obj/effect/turf_decal/arrows/white{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/escape)
+"VU" = (
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/escape)
+"WI" = (
+/obj/machinery/computer/atmos_alert{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/shuttle/escape)
+"WQ" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8
+	},
+/turf/open/floor/pod,
+/area/shuttle/escape)
+"WY" = (
+/obj/machinery/wall_healer/free/directional/south{
+	use_power = 0
+	},
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/escape)
+"Xs" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/iron/dark/smooth_corner,
+/area/shuttle/escape)
+"XK" = (
+/obj/structure/shuttle_decoration/landing_engine/directional/west,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+"XX" = (
+/obj/machinery/newscaster/directional/south,
+/obj/machinery/camera/autoname/directional/south,
+/turf/open/floor/iron/smooth_half,
+/area/shuttle/escape)
+"YE" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/black{
+	dir = 8
+	},
+/turf/closed/wall/mineral/nanocarbon/primary_colour,
+/area/shuttle/escape)
+"YL" = (
+/obj/structure/reagent_dispensers/wall/peppertank/directional/north,
+/turf/open/floor/iron/dark/textured_large,
+/area/shuttle/escape)
+"ZB" = (
+/obj/structure/shelf,
+/obj/effect/turf_decal/bot_white{
+	color = "#87cf4c"
+	},
+/obj/structure/sign/semiotic/medical/directional/south,
+/obj/item/emergency_bed{
+	pixel_y = -1
+	},
+/obj/item/emergency_bed{
+	pixel_y = 9
+	},
+/turf/open/floor/iron/smooth_large,
+/area/shuttle/escape)
+"ZH" = (
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/obj/structure/shuttle_decoration/rcs/directional/east,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/escape)
+
+(1,1,1) = {"
+tU
+tU
+tU
+tU
+tU
+tU
+kX
+YE
+Go
+Go
+Go
+Go
+th
+Go
+Go
+Go
+Go
+YE
+YE
+YE
+th
+Go
+Go
+th
+XK
+iV
+yq
+Tv
+eF
+"}
+(2,1,1) = {"
+tU
+tU
+tU
+tU
+tU
+kX
+QN
+nQ
+cq
+cq
+cq
+Nm
+So
+Nm
+cq
+cq
+cq
+nQ
+ZB
+Dc
+nB
+mW
+HL
+km
+bA
+VU
+TM
+ah
+wl
+"}
+(3,1,1) = {"
+tU
+uZ
+cO
+XK
+YE
+QN
+ni
+Bu
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+xT
+Go
+KJ
+kr
+kr
+fp
+bA
+VU
+TM
+ah
+wl
+"}
+(4,1,1) = {"
+Go
+Go
+FG
+dA
+Ud
+Fe
+ni
+Ub
+WQ
+WQ
+WQ
+WQ
+rk
+WQ
+WQ
+WQ
+WQ
+rk
+Ub
+mc
+NC
+kr
+kr
+Ec
+bA
+VU
+TM
+ah
+wl
+"}
+(5,1,1) = {"
+Go
+NH
+BQ
+Qc
+Qc
+Fe
+uN
+Fx
+Mv
+Mv
+Mv
+Mv
+in
+Mv
+Mv
+Mv
+Mv
+eu
+Ub
+Go
+kt
+Ge
+ag
+bp
+bA
+Ol
+Sk
+Sk
+eF
+"}
+(6,1,1) = {"
+Go
+xn
+Xs
+Rc
+dj
+Gb
+wi
+TG
+cq
+cq
+DH
+cq
+rk
+cq
+DH
+cq
+cq
+rk
+WY
+Dc
+Ju
+Ju
+Ju
+Ju
+rJ
+VU
+TM
+ah
+wl
+"}
+(7,1,1) = {"
+Go
+EE
+CD
+LP
+CD
+Qq
+vK
+Ub
+rk
+rk
+rk
+rk
+rk
+rk
+rk
+rk
+rk
+rk
+xf
+AE
+VU
+VU
+mL
+VU
+VU
+VU
+TM
+ah
+wl
+"}
+(8,1,1) = {"
+Go
+NG
+Sz
+Rc
+Io
+Gb
+xO
+BC
+WQ
+WQ
+pW
+WQ
+rk
+WQ
+pW
+WQ
+WQ
+rk
+XX
+Dc
+gV
+gV
+gV
+gV
+jx
+VU
+TM
+ah
+wl
+"}
+(9,1,1) = {"
+Go
+fK
+BQ
+RI
+RI
+Fe
+kO
+zp
+Mv
+Mv
+Mv
+Mv
+in
+Mv
+Mv
+Mv
+Mv
+OA
+Ub
+Dc
+cq
+cq
+cq
+hE
+ih
+Ol
+Sk
+Sk
+eF
+"}
+(10,1,1) = {"
+Go
+Go
+qg
+Sp
+WI
+Fe
+nC
+Ub
+cq
+cq
+cq
+cq
+rk
+cq
+cq
+cq
+cq
+rk
+Ub
+uP
+BQ
+BQ
+BQ
+LB
+bA
+VU
+TM
+ah
+wl
+"}
+(11,1,1) = {"
+tU
+CQ
+ZH
+RS
+wf
+QN
+uM
+fP
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+uA
+wv
+Dc
+YL
+BQ
+BQ
+DR
+bA
+VU
+TM
+ah
+wl
+"}
+(12,1,1) = {"
+tU
+tU
+tU
+tU
+tU
+Cd
+QN
+WQ
+WQ
+ro
+so
+qs
+so
+xQ
+WQ
+WQ
+WQ
+TD
+so
+Dc
+Vr
+ro
+WQ
+Vd
+bA
+VU
+TM
+ah
+wl
+"}
+(13,1,1) = {"
+tU
+tU
+tU
+tU
+tU
+tU
+Cd
+wf
+wf
+gx
+ws
+gx
+ws
+gx
+Go
+Go
+Go
+gx
+vr
+gx
+es
+gx
+wf
+wf
+RS
+zF
+nn
+Tk
+rp
+"}
