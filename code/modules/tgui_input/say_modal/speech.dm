@@ -54,6 +54,9 @@
 		if(WHIS_CHANNEL)
 			client.mob.whisper_verb(entry)
 			return TRUE
+		if(BACKSTAGE_CHANNEL)
+			client.backstage(entry)
+			return TRUE
 		if(DO_CHANNEL)
 			client.mob.do_verb(entry)
 		if(IRC_CHANNEL)
