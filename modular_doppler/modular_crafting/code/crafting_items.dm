@@ -1,3 +1,5 @@
+
+
 /datum/crafting_recipe/waterbottle_bong
 	result = /obj/item/bong/waterbottle_bong
 	reqs = list(
@@ -26,4 +28,22 @@
 	)
 	time = 3 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
+	category = CAT_MISC
+
+/datum/crafting_recipe/redmars_seal_dark
+	result = /obj/item/sticker/redmars_seal_dark
+	reqs = list(
+		/obj/item/paper = 1
+	)
+	time = 3 SECONDS
+	tool_behaviours = list(TOOL_PEN)
+	category = CAT_MISC
+
+/datum/crafting_recipe/redmars_seal_light
+	result = /obj/item/sticker/redmars_seal_light
+	reqs = list(
+		/obj/item/paper = 1
+	)
+	time = 3 SECONDS
+	tool_behaviours = list(TOOL_PEN)
 	category = CAT_MISC
