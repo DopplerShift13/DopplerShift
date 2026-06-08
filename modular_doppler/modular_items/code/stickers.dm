@@ -27,9 +27,9 @@
 /obj/item/sticker/redmars_seal_dark
 	name = "red mars dark seal"
 	icon_state = "redmars_seal_dark"
-	desc = "An eccentric dak seal with some strong adhesive on the back, sticks to stuff!"
+	desc = "An eccentric dark seal with some strong adhesive on the back, sticks to stuff!"
 
-/obj/item/sticker/doppler/redmars_seal_light
+/obj/item/sticker/redmars_seal_light
 	name = "red mars light seal"
 	icon_state = "redmars_seal_light"
 	desc = "A peculiar white seal with some strong adhesive on the back, sticks to stuff!"
@@ -133,7 +133,7 @@
 	name = "box of red marsian seals"
 	desc = "A box containing several seals that represent Red Mars."
 
-/obj/item/storage/box/stickers/marsian_seals/PopulateContents()
+/obj/item/storage/box/stickers/redmars_seals/PopulateContents()
 	for(var/i in 1 to 4)
-		new /obj/item/sticker/doppler/redmars_seal_dark(src)
-		new /obj/item/sticker/doppler/redmars_seal_light(src)
+		new /obj/item/sticker/redmars_seal_dark(src)
+		new /obj/item/sticker/redmars_seal_light(src)
