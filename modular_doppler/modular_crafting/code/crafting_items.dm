@@ -36,7 +36,7 @@
 		/obj/item/paper = 1
 	)
 	time = 3 SECONDS
-	tool_behaviours = list(TOOL_PEN)
+	tool_behaviors = list(TOOL_PEN)
 	category = CAT_MISC
 
 /datum/crafting_recipe/redmars_seal_light
@@ -45,5 +45,5 @@
 		/obj/item/paper = 1
 	)
 	time = 3 SECONDS
-	tool_behaviours = list(TOOL_PEN)
+	tool_behaviors = list(TOOL_PEN)
 	category = CAT_MISC
