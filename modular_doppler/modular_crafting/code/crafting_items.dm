@@ -33,17 +33,23 @@
 /datum/crafting_recipe/redmars_seal_dark
 	result = /obj/item/sticker/redmars_seal_dark
 	reqs = list(
-		/obj/item/paper = 1
+		/obj/item/paper = 1,
+		/obj/item/toy/crayon = 1
 	)
 	time = 3 SECONDS
-	tool_behaviors = list(TOOL_PEN)
+	tool_behaviors = list(TOOL_WELDER,
+		TOOL_SCREWDRIVER,
+		TOOL_WIRECUTTER)
 	category = CAT_MISC
 
 /datum/crafting_recipe/redmars_seal_light
 	result = /obj/item/sticker/redmars_seal_light
 	reqs = list(
-		/obj/item/paper = 1
+		/obj/item/paper = 1,
+		/obj/item/toy/crayon = 1
 	)
 	time = 3 SECONDS
-	tool_behaviors = list(TOOL_PEN)
+	tool_behaviors = list(TOOL_WELDER,
+		TOOL_SCREWDRIVER,
+		TOOL_WIRECUTTER)
 	category = CAT_MISC
