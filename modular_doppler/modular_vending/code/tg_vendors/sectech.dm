@@ -24,10 +24,14 @@
 		/obj/item/ammo_casing/alacran_dart/rootbeer = 3,
 		/obj/item/storage/box/alacran_dart = 3,
 		/obj/item/storage/box/alacran_dart/piercing = 3,
+		/obj/item/storage/toolbox/guncase/modular/sportsco_large_case = 2,
+		/obj/item/storage/toolbox/guncase/modular/sportsco_small_case = 2,
+		/obj/item/book/granter/tactical_gun_tosser = 1,
 	)
 	premium_doppler = list(
 		/obj/item/gun/ballistic/automatic/schiebenmaschine = 30,
 		/obj/item/gun/ballistic/avispa_stingball_shooter = 5,
+		/obj/item/gun/ballistic/alacran = 5,
 		/obj/item/knife/combat/survival = 3,
 		/obj/item/reagent_containers/cup/soda_cans/monkey_energy = 5,
 		/obj/item/reagent_containers/cup/soda_cans/grey_bull = 5,
