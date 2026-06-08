@@ -120,6 +120,7 @@
 #define FEATURE_FLUFF_COLORS "fluff_colors"
 #define FEATURE_POD_HAIR_COLORS "pod_hair_colors"
 #define FEATURE_SYNTHETIC_CHARGING_METHOD "synthetic_charging_method"
+#define FEATURE_HOLO_COLOR "holo_color"
 // DOPPLER FEATURES END
 
 // Other
