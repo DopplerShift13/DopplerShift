@@ -109,6 +109,9 @@
 	mental_status = MENTAL_STABLE,
 	quirk_notes,
 	// DOPPLER EDIT START - records & flavor text
+	power_notes = "No powers declared.",
+	power_notes_minor = "",
+	power_notes_major = "",
 	past_general_records = "",
 	past_medical_records = "",
 	past_security_records = "",
@@ -126,6 +129,9 @@
 	src.mental_status = mental_status
 	src.quirk_notes = quirk_notes
 	// DOPPLER EDIT START
+	src.power_notes = power_notes
+	src.power_notes_minor = power_notes_minor
+	src.power_notes_major = power_notes_major
 	src.past_general_records = past_general_records
 	src.past_medical_records = past_medical_records
 	src.past_security_records = past_security_records
@@ -274,6 +280,8 @@
 	if(past_general_records != "")
 		final_paper_text += "<br><B>General Records:</B>"
 		final_paper_text += "<br>[past_general_records]<br>"
+	final_paper_text += "<br><B>Powers:</B>"
+	final_paper_text += "<br>[power_notes || "No powers declared."]<br>"
 	// DOPPLER EDIT END
 	final_paper_text += "<center><B>Security Data</B></center><br><br>"
 
