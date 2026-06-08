@@ -101,9 +101,9 @@
 	name = "Mantle (Teshari)"
 	item_path = /obj/item/clothing/neck/tesharian_mantle
 
-/datum/loadout_item/neck/cape/marsian_shoulder_cloak
-	name = "Marsian Shoulder Cloak"
-	item_path = /obj/item/clothing/neck/marsian_shoulder_cloak
+/datum/loadout_item/neck/cape/shoulder_cloak_redmars
+	name = "Shoulder Cloak (Red Mars)"
+	item_path = /obj/item/clothing/neck/cloak/shoulder_cloak_redmars
 
 /**
  * SCARVES
