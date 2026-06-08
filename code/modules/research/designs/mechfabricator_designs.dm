@@ -2470,7 +2470,7 @@
 		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_ENGINEERING
 	)
 
-/datum/design/module/mod_holster
+/* /datum/design/module/mod_holster // DOPPLER REMOVAL - Unprintable holster modules
 	name = "Holster Module"
 	id = "mod_holster"
 	materials = list(
@@ -2480,7 +2480,7 @@
 	build_path = /obj/item/mod/module/holster
 	category = list(
 		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_SECURITY
-	)
+	) */
 
 /datum/design/module/mod_sonar
 	name = "Active Sonar Module"
