@@ -334,9 +334,9 @@
 	name = "Peacekeeper Jacket (Security, Badged)"
 	item_path = /obj/item/clothing/suit/jacket/doppler/peacekeeper_jacket/badged
 
-/datum/loadout_item/suit/jacket/duster_redmars
+/datum/loadout_item/suit/jacket/marsian_duster
 	name = "Marsian Duster"
-	item_path = /obj/item/clothing/suit/hooded/doppler/duster_redmars
+	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_duster
 
 /**
  * HOODIES
@@ -534,13 +534,13 @@
 	item_path = /obj/item/clothing/suit/dagger_mantle
 
 /datum/loadout_item/suit/misc/techpriest
-	name = "Machine Dustcover (Red Mars)"
+	name = "Machine Dustcover"
 	item_path = /obj/item/clothing/suit/hooded/techpriest
 
-/datum/loadout_item/suit/misc/gown_redmars
-	name = "Marsian Gown (Red Mars)"
-	item_path = /obj/item/clothing/suit/hooded/doppler/gown_redmars
+/datum/loadout_item/suit/misc/marsian_gown
+	name = "Marsian Gown"
+	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_gown
 
-/datum/loadout_item/suit/misc/overalls_redmars
-	name = "Overalls (Red Mars)"
-	item_path = /obj/item/clothing/suit/hooded/doppler/overalls_redmars
+/datum/loadout_item/suit/misc/marsian_overalls
+	name = "Marsian Overalls"
+	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_overalls

@@ -1,38 +1,38 @@
 {
-	"overalls_redmars":[
+	"marsian_duster": [
 		{
 			"type": "icon_state",
-			"icon_state": "overalls_redmars",
+			"icon_state": "marsian_duster_underlay",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "overalls_trim_redmars",
+			"icon_state": "marsian_duster",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "overalls_tech_redmars",
+			"icon_state": "marsian_duster_trim",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
 	],
-	"overalls_t_redmars":[
+	"marsian_duster_t": [
 		{
 			"type": "icon_state",
-			"icon_state": "overalls_t_redmars",
+			"icon_state": "marsian_duster_underlay_t",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "overalls_trim_t_redmars",
+			"icon_state": "marsian_duster_t",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "overalls_tech_t_redmars",
+			"icon_state": "marsian_duster_trim_t",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
