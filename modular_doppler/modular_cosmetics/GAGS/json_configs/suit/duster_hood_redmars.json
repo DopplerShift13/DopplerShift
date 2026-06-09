@@ -1,19 +1,19 @@
 {
-	"marsian_overalls_helmet":[
+	"duster_hood_redmars": [
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls_helmet",
+			"icon_state": "duster_hood_underlay_redmars",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls_helmet_trim",
+			"icon_state": "duster_hood_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls_helmet_tech",
+			"icon_state": "duster_hood_trim_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
