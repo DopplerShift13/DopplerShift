@@ -1,25 +1,25 @@
 {
-	"gownlower_hood_redmars": [
+	"gown_hood_redmars": [
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_hood_underlay_redmars",
+			"icon_state": "gown_hood_underlay_redmars",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_hood_redmars",
+			"icon_state": "gown_hood_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_hood_trim_redmars",
+			"icon_state": "gown_hood_trim_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_hood_tech_redmars",
+			"icon_state": "gown_hood_tech_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}
