@@ -200,55 +200,55 @@
 // Marsian Fashion
 
 /datum/greyscale_config/duster_redmars
-	name = "Marsian Duster"
+	name = "Duster (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/duster_redmars.json'
 
 /datum/greyscale_config/duster_redmars/worn
-	name = "Marsian Duster (Worn)"
+	name = "Duster (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
 /datum/greyscale_config/duster_hood_redmars/
-	name = "Marsian Duster Hood"
+	name = "Duster Hood (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/duster_hood_redmars.json'
 
 /datum/greyscale_config/duster_hood_redmars/worn
-	name = "Marsian Duster Hood (Worn)"
+	name = "Duster Hood (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
 
 /datum/greyscale_config/gown_redmars
-	name = "Marsian Gown"
+	name = "Gown (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/gown_redmars.json'
 
 /datum/greyscale_config/gown_redmars/worn
-	name = "Marsian Gown (Worn)"
+	name = "Gown (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
 /datum/greyscale_config/gown_hood_redmars
-	name = "Marsian Gown Hood"
+	name = "Gown Hood (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/gown_hood_redmars.json'
 
 /datum/greyscale_config/gown_hood_redmars/worn
-	name = "Marsian Gown Hood (Worn)"
+	name = "Gown Hood (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
 
 /datum/greyscale_config/overalls_redmars
-	name = "Marsian Overalls"
+	name = "Overalls (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/overalls_redmars.json'
 
 /datum/greyscale_config/overalls_redmars/worn
-	name = "Marsian Overalls (Worn)"
+	name = "Overalls (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
 /datum/greyscale_config/overalls_helmet_redmars
-	name = "Marsian Overalls Helmet"
+	name = "Overalls Helmet (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/overalls_helmet_redmars.json'
 
 /datum/greyscale_config/overalls_helmet_redmars/worn
-	name = "Marsian Overalls (Worn)"
+	name = "Overalls (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
