@@ -618,7 +618,7 @@
 	fashionable look."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/gown_redmars"
-	post_init_icon_state =  "gown_redmars"
+	post_init_icon_state =  "marsian_gown"
 	cold_protection =  CHEST|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/gown_redmars
@@ -665,7 +665,7 @@
 	the visor can remain thick."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/overalls_redmars"
-	post_init_icon_state =  "overalls_redmars"
+	post_init_icon_state =  "marsian_overalls"
 	cold_protection =  CHEST|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/overalls_redmars
@@ -694,7 +694,7 @@
 	desc = "The helmet-like hood of the red Marsian overalls."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/overalls_helmet_redmars"
-	post_init_icon_state = "overalls_helmet_redmars"
+	post_init_icon_state = "marsian_overalls_helmet"
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	flags_inv = HIDEHAIR|HIDEEARS
