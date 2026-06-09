@@ -610,24 +610,24 @@
 	greyscale_colors = "#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
-/obj/item/clothing/suit/hooded/doppler/marsian_gown
-	name = "red marsian gown"
-	desc = "A comfortable dress, much like the standard machine dustcovers. It comes fitted with belts and loops for\
-	the average Red Marsian, as eventually needing so much equipment became the standard for mechanics and the like.\
-	Made with the durable material necessary to protect one from the dust storms whilst providing a comfortable and\
+/obj/item/clothing/suit/hooded/doppler/redmars_gown
+	name = "machine gown"
+	desc = "A comfortable dress, much like the standard machine dustcovers. It comes fitted with belts and loops for \
+	the average Red Marsian, as eventually needing so much equipment became the standard for mechanics and the like. \
+	Made with the durable material necessary to protect one from the dust storms whilst providing a comfortable and \
 	fashionable look."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
-	icon_state = "/obj/item/clothing/suit/hooded/doppler/marsian_gown"
-	post_init_icon_state =  "marsian_gown"
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/redmars_gown"
+	post_init_icon_state =  "redmars_gown"
 	cold_protection =  CHEST|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	greyscale_config = /datum/greyscale_config/marsian_gown
-	greyscale_config_worn = /datum/greyscale_config/marsian_gown/worn
+	greyscale_config = /datum/greyscale_config/redmars_gown
+	greyscale_config_worn = /datum/greyscale_config/redmars_gown/worn
 	greyscale_colors = "#ffffff#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	hoodtype = /obj/item/clothing/head/hooded/doppler/marsian_gown_hood
+	hoodtype = /obj/item/clothing/head/hooded/doppler/redmars_gown_hood
 
-/obj/item/clothing/suit/hooded/doppler/marsian_gown/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+/obj/item/clothing/suit/hooded/doppler/redmars_gown/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
 	. = ..()
 	if(!hood)
 		return
@@ -636,24 +636,24 @@
 	hood.set_greyscale(new_hoodie_colors)
 	hood.update_slot_icon()
 
-/obj/item/clothing/suit/hooded/doppler/marsian_gown/on_hood_created(obj/item/clothing/head/hooded/hood)
+/obj/item/clothing/suit/hooded/doppler/redmars_gown/on_hood_created(obj/item/clothing/head/hooded/hood)
 	. = ..()
 	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
 	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
 	hood.set_greyscale(new_hoodie_colors)
 
-/obj/item/clothing/head/hooded/doppler/marsian_gown_hood
-	name = "red marsian gown hood"
-	desc = "The hood of the Red Marsian gown."
+/obj/item/clothing/head/hooded/doppler/redmars_gown_hood
+	name = "machine gown hood"
+	desc = "The hood of the Machine Gown."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
-	icon_state = "/obj/item/clothing/head/hooded/marsian_gown_hood"
-	post_init_icon_state = "marsian_gown_hood"
+	icon_state = "/obj/item/clothing/head/hooded/redmars_gown_hood"
+	post_init_icon_state = "redmars_gown_hood"
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	hair_mask = /datum/hair_mask/winterhood
-	greyscale_config = /datum/greyscale_config/marsian_gown_hood
-	greyscale_config_worn = /datum/greyscale_config/marsian_gown_hood/worn
+	greyscale_config = /datum/greyscale_config/redmars_gown_hood
+	greyscale_config_worn = /datum/greyscale_config/redmars_gown_hood/worn
 	greyscale_colors = "#ffffff#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
