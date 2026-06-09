@@ -1,5 +1,5 @@
 {
-	"redmars_gown":[
+	"redmars_gown": [
 		{
 			"type": "icon_state",
 			"icon_state": "redmars_gown",
@@ -24,7 +24,7 @@
 			"color_ids": [3]
 		}
 	],
-	"redmars_gown_t":[
+	"redmars_gown_t": [
 		{
 			"type": "icon_state",
 			"icon_state": "redmars_gown_t",
