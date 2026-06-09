@@ -541,6 +541,6 @@
 	name = "Machine Gown (Red Mars)"
 	item_path = /obj/item/clothing/suit/hooded/doppler/redmars_gown
 
-/datum/loadout_item/suit/misc/marsian_overalls
+/datum/loadout_item/suit/misc/redmars_overalls
 	name = "Mechanical Overalls (Red Mars)"
-	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_overalls
+	item_path = /obj/item/clothing/suit/hooded/doppler/redmars_overalls

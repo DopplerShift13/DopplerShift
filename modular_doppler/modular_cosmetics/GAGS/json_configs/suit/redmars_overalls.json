@@ -1,38 +1,38 @@
 {
-	"marsian_overalls":[
+	"redmars_overalls":[
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls",
+			"icon_state": "redmars_overalls",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls_trim",
+			"icon_state": "redmars_overalls_trim",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls_tech",
+			"icon_state": "redmars_overalls_tech",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
 	],
-	"marsian_overalls_t":[
+	"redmars_overalls_t":[
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls_t",
+			"icon_state": "redmars_overalls_t",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls_trim_t",
+			"icon_state": "redmars_overalls_trim_t",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_overalls_tech_t",
+			"icon_state": "redmars_overalls_tech_t",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
