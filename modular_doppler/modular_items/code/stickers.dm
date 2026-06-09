@@ -1,4 +1,3 @@
-
 ///a parent doppler sticker item so we can populate a doppie sticker pack easily
 /obj/item/sticker/doppler
 	abstract_type = /obj/item/sticker/doppler
@@ -23,16 +22,6 @@
 /obj/item/sticker/doppler/marsian
 	name = "marsian flag sticker"
 	icon_state = "marsian"
-
-/obj/item/sticker/redmars_dark_seal
-	name = "red mars dark seal"
-	icon_state = "redmars_dark_seal"
-	desc = "An eccentric dark seal with some strong adhesive on the back, sticks to stuff!"
-
-/obj/item/sticker/redmars_light_seal
-	name = "red mars light seal"
-	icon_state = "redmars_light_seal"
-	desc = "A peculiar white seal with some strong adhesive on the back, sticks to stuff!"
 
 /obj/item/sticker/doppler/tizira
 	name = "tiziran flag sticker"
@@ -128,12 +117,52 @@
 	)
 	spawned_sticker_basetype = /obj/item/sticker/rhinestone
 
-///box for the red marsian stickers
+/// parent for marsian stickers in general for posterity sake, if gray stickers are released then /obj/item/sticker/mars/gray would be used
+/obj/item/sticker/mars
+	abstract_type = /obj/item/sticker/mars
+	icon = 'modular_doppler/modular_items/icons/stickers.dmi'
+
+/obj/item/sticker/mars/red/redmars_dark_seal
+	name = "red mars dark seal"
+	icon_state = "redmars_dark_seal"
+	desc = "An eccentric dark seal with some strong adhesive on the back, sticks to stuff!"
+
+/obj/item/sticker/mars/red/redmars_light_seal
+	name = "red mars light seal"
+	icon_state = "redmars_light_seal"
+	desc = "A peculiar white seal with some strong adhesive on the back, sticks to stuff!"
+
+//box for the red marsian seals
 /obj/item/storage/box/stickers/redmars_seals
 	name = "box of red marsian seals"
 	desc = "A box containing several seals that represent Red Mars."
 
 /obj/item/storage/box/stickers/redmars_seals/PopulateContents()
 	for(var/i in 1 to 4)
-		new /obj/item/sticker/redmars_dark_seal(src)
-		new /obj/item/sticker/redmars_light_seal(src)
+		new /obj/item/sticker/mars/red/redmars_dark_seal(src)
+		new /obj/item/sticker/mars/red/redmars_light_seal(src)
+
+//crafting recipe for the red marsian seals
+/datum/crafting_recipe/redmars_dark_seal
+	result = /obj/item/sticker/mars/red/redmars_dark_seal
+	reqs = list(
+		/obj/item/paper = 1,
+		/obj/item/toy/crayon = 1
+	)
+	time = 3 SECONDS
+	tool_behaviors = list(TOOL_WELDER,
+		TOOL_SCREWDRIVER,
+		TOOL_WIRECUTTER)
+	category = CAT_MISC
+
+/datum/crafting_recipe/redmars_light_seal
+	result = /obj/item/sticker/mars/red/redmars_light_seal
+	reqs = list(
+		/obj/item/paper = 1,
+		/obj/item/toy/crayon = 1
+	)
+	time = 3 SECONDS
+	tool_behaviors = list(TOOL_WELDER,
+		TOOL_SCREWDRIVER,
+		TOOL_WIRECUTTER)
+	category = CAT_MISC
