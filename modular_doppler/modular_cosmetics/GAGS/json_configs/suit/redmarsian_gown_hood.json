@@ -1,25 +1,25 @@
 {
-	"marsian_gown_hood": [
+	"redmarsian_gown_hood": [
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_gown_hood_underlay",
+			"icon_state": "redmarsian_gown_hood_underlay",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_gown_hood",
+			"icon_state": "redmarsian_gown_hood",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_gown_hood_trim",
+			"icon_state": "redmarsian_gown_hood_trim",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "marsian_gown_hood_tech",
+			"icon_state": "redmarsian_gown_hood_tech",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}
