@@ -24,14 +24,14 @@
 	name = "marsian flag sticker"
 	icon_state = "marsian"
 
-/obj/item/sticker/redmars_seal_dark
+/obj/item/sticker/redmars_dark_seal
 	name = "red mars dark seal"
-	icon_state = "redmars_seal_dark"
+	icon_state = "redmars_dark_seal"
 	desc = "An eccentric dark seal with some strong adhesive on the back, sticks to stuff!"
 
-/obj/item/sticker/redmars_seal_light
+/obj/item/sticker/redmars_light_seal
 	name = "red mars light seal"
-	icon_state = "redmars_seal_light"
+	icon_state = "redmars_light_seal"
 	desc = "A peculiar white seal with some strong adhesive on the back, sticks to stuff!"
 
 /obj/item/sticker/doppler/tizira
@@ -135,5 +135,5 @@
 
 /obj/item/storage/box/stickers/redmars_seals/PopulateContents()
 	for(var/i in 1 to 4)
-		new /obj/item/sticker/redmars_seal_dark(src)
-		new /obj/item/sticker/redmars_seal_light(src)
+		new /obj/item/sticker/redmars_dark_seal(src)
+		new /obj/item/sticker/redmars_light_seal(src)
