@@ -1,5 +1,3 @@
-
-
 /datum/crafting_recipe/waterbottle_bong
 	result = /obj/item/bong/waterbottle_bong
 	reqs = list(
