@@ -658,7 +658,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/doppler/marsian_overalls
-	name = "rde marsian overalls"
+	name = "red marsian overalls"
 	desc = "A dense network of rubber tubes worm their way through this environment suit,\
 	comfort control machinery underneath adding or removing temperature from the wearer's\
 	overworked body. A retractile hood has been added with cameras on the outside to ensure\
