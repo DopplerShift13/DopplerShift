@@ -334,9 +334,9 @@
 	name = "Peacekeeper Jacket (Security, Badged)"
 	item_path = /obj/item/clothing/suit/jacket/doppler/peacekeeper_jacket/badged
 
-/datum/loadout_item/suit/jacket/marsian_duster
-	name = "Marsian Duster"
-	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_duster
+/datum/loadout_item/suit/jacket/redmars_duster
+	name = "Duster (Red Mars)"
+	item_path = /obj/item/clothing/suit/hooded/doppler/redmars_duster
 
 /**
  * HOODIES
