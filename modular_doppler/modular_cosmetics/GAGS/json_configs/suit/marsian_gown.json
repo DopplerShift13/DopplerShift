@@ -1,50 +1,50 @@
 {
-	"gown_redmars":[
+	"marsian_gown":[
 		{
 			"type": "icon_state",
-			"icon_state": "gown_redmars",
+			"icon_state": "marsian_gown",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gown_trim_redmars",
+			"icon_state": "marsian_gown_trim",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gown_underlay_redmars",
+			"icon_state": "marsian_gown_underlay",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gown_tech_redmars",
+			"icon_state": "marsian_gown_tech",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}
 	],
-	"gown_t_redmars":[
+	"marsian_gown_t":[
 		{
 			"type": "icon_state",
-			"icon_state": "gown_t_redmars",
+			"icon_state": "marsian_gown_t",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gown_trim_t_redmars",
+			"icon_state": "marsian_gown_trim_t",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gown_underlay_t_redmars",
+			"icon_state": "marsian_gown_underlay_t",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gown_tech_t_redmars",
+			"icon_state": "marsian_gown_tech_t",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}
