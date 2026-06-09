@@ -19,4 +19,4 @@
 
 /datum/sprite_accessory/tails/teshari/stubby
 	name = "Teshari (Stubby)"
-	icon_state = "teshari_damaged"
+	icon_state = "teshari_stubby"
