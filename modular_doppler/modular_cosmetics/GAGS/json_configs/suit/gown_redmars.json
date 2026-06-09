@@ -1,50 +1,50 @@
 {
-	"gownlower_redmars":[
+	"gown_redmars":[
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_redmars",
+			"icon_state": "gown_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_trim_redmars",
+			"icon_state": "gown_trim_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_underlay_redmars",
+			"icon_state": "gown_underlay_redmars",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_tech_redmars",
+			"icon_state": "gown_tech_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}
 	],
-	"gownlower_t_redmars":[
+	"gown_t_redmars":[
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_t_redmars",
+			"icon_state": "gown_t_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [1]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_trim_t_redmars",
+			"icon_state": "gown_trim_t_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_underlay_t_redmars",
+			"icon_state": "gown_underlay_t_redmars",
 			"blend_mode": "overlay"
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "gownlower_tech_t_redmars",
+			"icon_state": "gown_tech_t_redmars",
 			"blend_mode": "overlay",
 			"color_ids": [3]
 		}

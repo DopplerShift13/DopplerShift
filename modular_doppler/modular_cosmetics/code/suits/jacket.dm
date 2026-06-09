@@ -618,7 +618,7 @@
 	fashionable look."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/gown_redmars"
-	post_init_icon_state =  "gownlower_redmars"
+	post_init_icon_state =  "gown_redmars"
 	cold_protection =  CHEST|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/gown_redmars
@@ -647,7 +647,7 @@
 	desc = "The hood of the Red Marsian gown."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/gown_hood_redmars"
-	post_init_icon_state = "gownlower_hood_redmars"
+	post_init_icon_state = "gown_hood_redmars"
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
