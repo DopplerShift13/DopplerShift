@@ -537,12 +537,8 @@
 	name = "Machine Dustcover (Red Mars)"
 	item_path = /obj/item/clothing/suit/hooded/techpriest
 
-/datum/loadout_item/suit/misc/duster_redmars
-	name = "Dusters (Red Mars)"
-	item_path = /obj/item/clothing/suit/hooded/doppler/duster_redmars
-
 /datum/loadout_item/suit/misc/gown_redmars
-	name = "Gown (Red Mars)"
+	name = "Marsian Gown (Red Mars)"
 	item_path = /obj/item/clothing/suit/hooded/doppler/gown_redmars
 
 /datum/loadout_item/suit/misc/overalls_redmars
