@@ -539,7 +539,7 @@
 
 /datum/loadout_item/suit/misc/marsian_gown
 	name = "Marsian Gown"
-	item_path = /obj/item/clothing/suit/hooded/doppler/redmarsian_gown
+	item_path = /obj/item/clothing/suit/hooded/doppler/marsian_gown
 
 /datum/loadout_item/suit/misc/marsian_overalls
 	name = "Marsian Overalls"
