@@ -612,7 +612,7 @@
 
 /obj/item/clothing/suit/hooded/doppler/redmars_gown
 	name = "machine gown"
-	desc = "A comfortable dress, much like the standard machine dustcovers. It comes fitted with belts and loops for \
+	desc = "A form-fitting gown, similar to standard machine dustcovers. It comes fitted with belts and loops for \
 	the average Red Marsian, as eventually needing so much equipment became the standard for mechanics and the like. \
 	Made with the durable material necessary to protect one from the dust storms whilst providing a comfortable and \
 	fashionable look."
