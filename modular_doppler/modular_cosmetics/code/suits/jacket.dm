@@ -618,7 +618,7 @@
 	fashionable look."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/gown_redmars"
-	post_init_icon_state =  "gownlower_redmars"
+	post_init_icon_state =  "gown_redmars"
 	cold_protection =  CHEST|ARMS
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	greyscale_config = /datum/greyscale_config/gown_redmars
