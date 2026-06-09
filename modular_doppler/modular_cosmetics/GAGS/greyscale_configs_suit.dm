@@ -199,22 +199,22 @@
 
 // Marsian Fashion
 
-/datum/greyscale_config/marsian_duster
-	name = "Marsian Duster"
+/datum/greyscale_config/redmars_duster
+	name = "Duster (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/marsian_duster.json'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmars_duster.json'
 
-/datum/greyscale_config/marsian_duster/worn
-	name = "Marsian Duster (Worn)"
+/datum/greyscale_config/redmars_duster/worn
+	name = "Duster (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
-/datum/greyscale_config/marsian_duster_hood/
-	name = "Marsian Duster Hood"
+/datum/greyscale_config/redmars_duster_hood/
+	name = "Duster Hood (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
-	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/marsian_duster_hood.json'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmars_duster_hood.json'
 
-/datum/greyscale_config/marsian_duster_hood/worn
-	name = "Marsian Duster Hood (Worn)"
+/datum/greyscale_config/redmars_duster_hood/worn
+	name = "Duster Hood (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
 
 /datum/greyscale_config/marsian_gown
