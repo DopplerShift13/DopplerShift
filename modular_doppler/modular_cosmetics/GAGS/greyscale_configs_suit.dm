@@ -222,16 +222,16 @@
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmarsian_gown.json'
 
-/datum/greyscale_config/redmarsian_gown/worn
+/datum/greyscale_config/marsian_gown/worn
 	name = "Marsian Gown (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
 
-/datum/greyscale_config/redmarsian_gown_hood
+/datum/greyscale_config/marsian_gown_hood
 	name = "Marsian Gown Hood (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmarsian_gown_hood.json'
 
-/datum/greyscale_config/redmarsian_gown_hood/worn
+/datum/greyscale_config/marsian_gown_hood/worn
 	name = "Marsian Gown Hood (Worn, Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
 
