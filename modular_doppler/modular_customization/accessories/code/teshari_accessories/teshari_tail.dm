@@ -12,3 +12,11 @@
 /datum/sprite_accessory/tails/teshari/thin
 	name = "Teshari (Thin)"
 	icon_state = "teshari_thin"
+
+/datum/sprite_accessory/tails/teshari/short
+	name = "Teshari (Damaged)"
+	icon_state = "teshari_damaged"
+
+/datum/sprite_accessory/tails/teshari/stubby
+	name = "Teshari (Stubby)"
+	icon_state = "teshari_damaged"
