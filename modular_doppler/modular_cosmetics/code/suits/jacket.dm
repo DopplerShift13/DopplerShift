@@ -612,10 +612,9 @@
 
 /obj/item/clothing/suit/hooded/doppler/redmars_gown
 	name = "machine gown"
-	desc = "A form-fitting gown, similar to standard machine dustcovers. It comes fitted with belts and loops for \
-	the average Red Marsian, as eventually needing so much equipment became the standard for mechanics and the like. \
-	Made with the durable material necessary to protect one from the dust storms whilst providing a comfortable and \
-	fashionable look."
+	desc = "A form-fitting gown, fitted with belts and loops and buckles. It provides bare minimum protection from the dust\
+	storms, usually requiring something underneath if travelling through the dusty Red. It comes fitted with its' very own \
+	metallic cowl whilst granting the wearer a fashionable look when worn casually."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
 	icon_state = "/obj/item/clothing/suit/hooded/doppler/redmars_gown"
 	post_init_icon_state =  "redmars_gown"
