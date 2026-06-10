@@ -201,7 +201,7 @@
 *	item = /obj/item/suspiciousphone
 *	restricted = TRUE
 *	cost = 7
-*//	limited_stock = 1 
+	limited_stock = 1 */ 
 /// DOPPLER EDIT CHANGE END
 
 /datum/uplink_item/device_tools/binary
