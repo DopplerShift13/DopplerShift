@@ -612,7 +612,7 @@
 
 /obj/item/clothing/suit/hooded/doppler/redmars_gown
 	name = "machine gown"
-	desc = "A form-fitting gown, sewn with belts, loops, and buckles. It provides bare minimum protection from the dust \
+	desc = "A form-fitting gown sewn with belts, loops, and buckles. It provides bare minimum protection from the dust \
 	storms, usually requiring something underneath if travelling through outskirts. It comes fitted with its' very own \
 	metallic cowl whilst granting the wearer a fashionable look when worn casually."
 	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
