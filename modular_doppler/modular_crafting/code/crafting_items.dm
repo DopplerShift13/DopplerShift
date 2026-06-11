@@ -27,3 +27,28 @@
 	time = 3 SECONDS
 	tool_behaviors = list(TOOL_SCREWDRIVER)
 	category = CAT_MISC
+
+//crafting recipe for the red marsian seals
+/datum/crafting_recipe/redmars_dark_seal
+	result = /obj/item/sticker/mars/red/redmars_dark_seal
+	reqs = list(
+		/obj/item/paper = 1,
+		/obj/item/toy/crayon = 1
+	)
+	time = 3 SECONDS
+	tool_behaviors = list(TOOL_WELDER,
+		TOOL_SCREWDRIVER,
+		TOOL_WIRECUTTER)
+	category = CAT_MISC
+
+/datum/crafting_recipe/redmars_light_seal
+	result = /obj/item/sticker/mars/red/redmars_light_seal
+	reqs = list(
+		/obj/item/paper = 1,
+		/obj/item/toy/crayon = 1
+	)
+	time = 3 SECONDS
+	tool_behaviors = list(TOOL_WELDER,
+		TOOL_SCREWDRIVER,
+		TOOL_WIRECUTTER)
+	category = CAT_MISC
