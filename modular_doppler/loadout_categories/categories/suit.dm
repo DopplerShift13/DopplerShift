@@ -538,9 +538,9 @@
 	item_path = /obj/item/clothing/suit/hooded/techpriest
 
 /datum/loadout_item/suit/misc/redmars_gown
-	name = "Hooded Gown (Red Mars)"
+	name = "Dustwalker Gown (Red Mars)"
 	item_path = /obj/item/clothing/suit/hooded/doppler/redmars_gown
 
 /datum/loadout_item/suit/misc/redmars_overalls
-	name = "Padded Overalls (Red Mars)"
+	name = "Thermally-Insulated Work Overalls (Red Mars)"
 	item_path = /obj/item/clothing/suit/hooded/doppler/redmars_overalls
