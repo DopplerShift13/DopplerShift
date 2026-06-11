@@ -139,7 +139,9 @@
 //box for the red marsian seals
 /obj/item/storage/box/stickers/redmars_seals
 	name = "box of red marsian seals"
-	desc = "A box containing several seals that represent Red Mars."
+	desc = "A box containing several seals that represent different manufacturers of Red Mars. While familiar to most \
+	Marsians, these seals are rarely utilized outside of the planet beyond specific specialista and professionals that \
+	take particular pride in their work."
 
 /obj/item/storage/box/stickers/redmars_seals/PopulateContents()
 	for(var/i in 1 to 4)
