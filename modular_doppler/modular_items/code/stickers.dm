@@ -125,12 +125,16 @@
 /obj/item/sticker/mars/red/redmars_dark_seal
 	name = "red mars dark seal"
 	icon_state = "redmars_dark_seal"
-	desc = "An eccentric dark seal with some strong adhesive on the back, sticks to stuff!"
+	desc = "An eccentric seal with some strong adhesive on the back, often used as a manufacturer's seal on machinery \
+	and work products to evidence completion or personal skill in their creation. This one comes in a nice set of darker \
+	tones. It's remarkably similar to a sticker."
 
 /obj/item/sticker/mars/red/redmars_light_seal
 	name = "red mars light seal"
 	icon_state = "redmars_light_seal"
-	desc = "A peculiar white seal with some strong adhesive on the back, sticks to stuff!"
+	desc = "A peculiar seal with some strong adhesive on the back, often used as a manufacturer's seal on machinery \
+	and work products to evidence completion or personal skill in their creation. This one comes in a readable set of \
+	lighter tones. It's remarkably similar to a sticker."
 
 //box for the red marsian seals
 /obj/item/storage/box/stickers/redmars_seals

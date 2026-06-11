@@ -49,15 +49,3 @@
 	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
 	crate_name = "Triumphant 900cc Streetbike"
 	crate_type = /obj/structure/closet/crate/large
-
-/datum/supply_pack/goodies/redmars_seals
-
-	name = "Red Mars Seals Pack"
-	desc = "A box of Red Mars seals, featuring two different variations."
-	cost  = CARGO_CRATE_VALUE * 0.5 //two boxes for fifty each, i don't think it needs to be expensive as fuck
-	contains = list(
-		/obj/item/storage/box/stickers/redmars_seals = 2
-	)
-	discountable = SUPPLY_PACK_RARE_DISCOUNTABLE
-	crate_name = "Red Marsian Certifications"
-	crate_type = /obj/structure/closet/crate/large

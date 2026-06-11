@@ -611,7 +611,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/doppler/redmars_gown
-	name = "machine gown"
+	name = "hooded gown"
 	desc = "A form-fitting gown sewn with belts, loops, and buckles. It provides bare minimum protection from the dust \
 	storms, usually requiring something underneath if travelling through outskirts. It comes equipped with its very own \
 	metallic cowl and protective lenses whilst granting the wearer a fashionable look when worn casually."
@@ -642,8 +642,8 @@
 	hood.set_greyscale(new_hoodie_colors)
 
 /obj/item/clothing/head/hooded/doppler/redmars_gown_hood
-	name = "machine gown hood"
-	desc = "The hood of the machine gown."
+	name = "hooded gown cowl"
+	desc = "The cowl of the hooded gown."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/redmars_gown_hood"
 	post_init_icon_state = "redmars_gown_hood"
@@ -657,7 +657,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/doppler/redmars_overalls
-	name = "mechanical overalls"
+	name = "padded work overalls"
 	desc = "A dense network of rubber tubes worm their way through this environment suit, \
 	comfort control machinery underneath adding or removing temperature from the wearer's \
 	overworked body. A retractile hood has been added with cameras on the outside to ensure \
@@ -689,7 +689,7 @@
 	hood.set_greyscale(new_hoodie_colors)
 
 /obj/item/clothing/head/hooded/doppler/redmars_overalls_helmet
-	name = "mechanical overalls helmet"
+	name = "padded work overalls helmet"
 	desc = "The helmet-like hood of the mechanical overalls."
 	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	icon_state = "/obj/item/clothing/head/hooded/redmars_overalls_helmet"
