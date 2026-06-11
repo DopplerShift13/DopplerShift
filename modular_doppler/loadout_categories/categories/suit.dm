@@ -534,13 +534,13 @@
 	item_path = /obj/item/clothing/suit/dagger_mantle
 
 /datum/loadout_item/suit/misc/techpriest
-	name = "Machine Dustcover (Red Mars)"
+	name = "Machine Dustcover"
 	item_path = /obj/item/clothing/suit/hooded/techpriest
 
 /datum/loadout_item/suit/misc/redmars_gown
-	name = "Machine Gown (Red Mars)"
+	name = "Hooded Gown (Red Mars)"
 	item_path = /obj/item/clothing/suit/hooded/doppler/redmars_gown
 
 /datum/loadout_item/suit/misc/redmars_overalls
-	name = "Mechanical Overalls (Red Mars)"
+	name = "Padded Overalls (Red Mars)"
 	item_path = /obj/item/clothing/suit/hooded/doppler/redmars_overalls

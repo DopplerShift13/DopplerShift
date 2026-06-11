@@ -136,7 +136,7 @@
 	post_init_icon_state = "shoulder_cloak_redmars"
 	greyscale_config = /datum/greyscale_config/shoulder_cloak_redmars
 	greyscale_config_worn = /datum/greyscale_config/shoulder_cloak_redmars/worn
-	greyscale_colors = "#892626#ffffff"
+	greyscale_colors = "#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 
