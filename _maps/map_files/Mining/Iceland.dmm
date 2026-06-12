@@ -2107,7 +2107,7 @@
 /obj/machinery/light/small/directional/north,
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/suit/hooded/wintercoat,
-/obj/item/trench_tool,
+/obj/item/pickaxe,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "ni" = (
@@ -3350,7 +3350,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/suit/hooded/wintercoat,
-/obj/item/trench_tool,
+/obj/item/pickaxe,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "vD" = (
@@ -8065,7 +8065,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/item/clothing/shoes/winterboots,
 /obj/item/clothing/suit/hooded/wintercoat,
-/obj/item/trench_tool,
+/obj/item/pickaxe,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "Zh" = (
