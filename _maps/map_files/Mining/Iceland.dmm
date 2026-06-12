@@ -50,11 +50,13 @@
 	dir = 5
 	},
 /obj/item/storage/bag/ore,
-/obj/item/pickaxe,
 /obj/structure/rack,
 /obj/item/mining_scanner,
 /obj/item/flashlight,
 /obj/item/clothing/glasses/meson,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/trench_tool,
 /turf/open/floor/iron/colony,
 /area/mine/storage/public)
 "au" = (
@@ -152,7 +154,7 @@
 	},
 /area/mine/laborcamp/production)
 "bc" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -342,7 +344,6 @@
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "cq" = (
-/obj/item/cultivator,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp)
 "cr" = (
@@ -525,7 +526,7 @@
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/surface/outdoors/nospawn)
 "dk" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/production/lower)
 "dr" = (
@@ -621,6 +622,7 @@
 /obj/item/shovel/spade,
 /obj/item/secateurs,
 /obj/item/reagent_containers/cup/watering_can,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/iron/colony,
 /area/mine/lounge)
 "dP" = (
@@ -748,7 +750,7 @@
 "eP" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/obj/machinery/power/rtg/old_station,
+/obj/machinery/power/rtg/portable,
 /obj/structure/railing{
 	dir = 6
 	},
@@ -757,7 +759,7 @@
 "eQ" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/production)
@@ -772,6 +774,7 @@
 /obj/effect/spawner/random/trash/graffiti,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster/official/work_for_a_future/directional/west,
+/obj/effect/spawner/random/bedsheet/any,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
 "eV" = (
@@ -823,7 +826,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/wall_healer/directional/east,
+/obj/machinery/wall_healer/free/directional/east,
 /turf/open/floor/iron/white,
 /area/mine/laborcamp/production)
 "fi" = (
@@ -856,6 +859,11 @@
 /obj/item/seeds/wheat,
 /obj/item/seeds/wheat,
 /obj/item/seeds/sunflower,
+/obj/item/storage/bag/plants,
+/obj/item/secateurs,
+/obj/item/reagent_containers/cup/jerrycan/eznutriment,
+/obj/item/shovel/spade,
+/obj/item/cultivator,
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp)
 "fv" = (
@@ -1037,6 +1045,10 @@
 /obj/machinery/power/smes/full,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
+"gr" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/mine/production)
 "gs" = (
 /obj/structure/table/greyscale,
 /obj/item/storage/crayons,
@@ -1204,7 +1216,7 @@
 /turf/open/floor/iron/colony,
 /area/mine/production)
 "ho" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/living_quarters)
 "hr" = (
@@ -1358,11 +1370,13 @@
 	dir = 6
 	},
 /obj/item/storage/bag/ore,
-/obj/item/pickaxe,
 /obj/structure/rack,
 /obj/item/mining_scanner,
 /obj/item/flashlight,
 /obj/item/clothing/glasses/meson,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/trench_tool,
 /turf/open/floor/iron/colony,
 /area/mine/storage/public)
 "ik" = (
@@ -1418,6 +1432,10 @@
 /obj/item/tank/internals/emergency_oxygen,
 /turf/open/floor/iron/colony,
 /area/mine/storage/public)
+"iG" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/mine/laborcamp/production)
 "iH" = (
 /obj/structure/table/greyscale,
 /obj/effect/spawner/random/food_or_drink/dinner,
@@ -1453,7 +1471,7 @@
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/living_quarters)
 "jc" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security)
 "jd" = (
@@ -1753,7 +1771,7 @@
 "kZ" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/obj/machinery/power/rtg/old_station,
+/obj/machinery/power/rtg/portable,
 /obj/structure/railing{
 	dir = 9
 	},
@@ -2083,11 +2101,13 @@
 "mU" = (
 /obj/structure/rack,
 /obj/item/storage/bag/ore,
-/obj/item/pickaxe,
 /obj/item/mining_scanner,
 /obj/item/flashlight,
 /obj/item/clothing/glasses/meson,
 /obj/machinery/light/small/directional/north,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/trench_tool,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "ni" = (
@@ -2110,6 +2130,10 @@
 "nm" = (
 /turf/closed/wall/prefab_plastic,
 /area/mine/maintenance/production)
+"nn" = (
+/obj/structure/fluff/streetlamp,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/underground/explored)
 "np" = (
 /obj/effect/turf_decal/trimline/red/filled/line{
 	dir = 5
@@ -2210,6 +2234,10 @@
 /obj/effect/turf_decal/trimline/red/filled/line,
 /turf/open/floor/iron/colony,
 /area/mine/laborcamp/security)
+"oa" = (
+/obj/structure/fluff/streetlamp,
+/turf/open/floor/plating/snowed/smoothed/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "ob" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -2315,6 +2343,7 @@
 	network = list("labor")
 	},
 /obj/item/cigbutt,
+/obj/effect/spawner/random/bedsheet/any,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
 "oJ" = (
@@ -2391,7 +2420,7 @@
 "ps" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/obj/machinery/power/rtg/old_station,
+/obj/machinery/power/rtg/portable,
 /obj/structure/railing{
 	dir = 4
 	},
@@ -2555,7 +2584,7 @@
 	},
 /area/mine/laborcamp/quarters)
 "ql" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/production/middle)
 "qo" = (
@@ -2601,6 +2630,7 @@
 /obj/structure/bed,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/sign/poster/official/work_for_a_future/directional/east,
+/obj/effect/spawner/random/bedsheet/any,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
 "qx" = (
@@ -2642,7 +2672,7 @@
 /turf/open/floor/iron/colony/white/texture,
 /area/mine/living_quarters)
 "qN" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/cafeteria)
@@ -2708,7 +2738,7 @@
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp)
 "rp" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/production)
@@ -2793,7 +2823,7 @@
 /turf/open/floor/iron/colony/bolts,
 /area/mine/eva)
 "sf" = (
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/personal,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/autoname/directional/west{
 	network = list("labor")
@@ -2947,7 +2977,7 @@
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "th" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/production/lower)
@@ -2969,7 +2999,7 @@
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/surface/outdoors/nospawn)
 "tr" = (
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/personal,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp)
@@ -3053,7 +3083,7 @@
 /area/mine/storage)
 "tW" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "tX" = (
@@ -3063,6 +3093,7 @@
 "tZ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/table/greyscale,
+/obj/structure/showcase/machinery/microwave,
 /turf/open/floor/iron/smooth_edge{
 	dir = 8
 	},
@@ -3149,7 +3180,7 @@
 "uI" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/obj/machinery/power/rtg/old_station,
+/obj/machinery/power/rtg/portable,
 /obj/structure/railing{
 	dir = 10
 	},
@@ -3280,7 +3311,7 @@
 /turf/open/floor/iron/colony,
 /area/mine/laborcamp/security)
 "vp" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/hydroponics)
@@ -3312,12 +3343,14 @@
 "vB" = (
 /obj/structure/rack,
 /obj/item/storage/bag/ore,
-/obj/item/pickaxe,
 /obj/item/mining_scanner,
 /obj/item/flashlight,
 /obj/item/clothing/glasses/meson,
 /obj/machinery/airalarm/directional/north,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/trench_tool,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "vD" = (
@@ -3805,6 +3838,7 @@
 /obj/machinery/camera/autoname/directional/west{
 	network = list("labor")
 	},
+/obj/effect/spawner/random/bedsheet/any,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/quarters)
 "yE" = (
@@ -3853,6 +3887,10 @@
 /obj/structure/cable,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/laborcamp/security/maintenance)
+"yS" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/mine/lounge)
 "yT" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 8
@@ -3986,6 +4024,10 @@
 	},
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/underground/explored)
+"zE" = (
+/obj/structure/fluff/streetlamp,
+/turf/open/misc/asteroid/snow/icemoon,
+/area/icemoon/surface/outdoors/nospawn)
 "zF" = (
 /obj/item/kirbyplants/random,
 /obj/effect/turf_decal/trimline/blue/filled/line{
@@ -4084,7 +4126,7 @@
 /turf/open/floor/plating/snowed/smoothed/icemoon,
 /area/icemoon/underground/explored)
 "Am" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
 "Ao" = (
@@ -4173,6 +4215,7 @@
 /area/icemoon/underground/explored)
 "AV" = (
 /obj/structure/table/greyscale,
+/obj/machinery/burner_plate,
 /turf/open/floor/iron/colony/white/bolts,
 /area/mine/cafeteria)
 "AX" = (
@@ -4199,6 +4242,11 @@
 /obj/structure/railing/corner,
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/underground/explored)
+"Bh" = (
+/obj/effect/spawner/structure/window/ice,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/mine/laborcamp/security)
 "Bi" = (
 /obj/structure/railing,
 /turf/open/misc/asteroid/snow/icemoon,
@@ -4249,7 +4297,7 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/underground/explored)
 "BR" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
@@ -4586,14 +4634,14 @@
 "Ee" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/obj/machinery/power/rtg/old_station,
+/obj/machinery/power/rtg/portable,
 /obj/structure/railing{
 	dir = 5
 	},
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/surface/outdoors/nospawn)
 "Eg" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating,
 /area/mine/maintenance/living/north)
@@ -4809,7 +4857,7 @@
 /turf/open/floor/iron/colony/white,
 /area/mine/lounge)
 "FX" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/maintenance/production)
 "FZ" = (
@@ -4841,7 +4889,7 @@
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "Gj" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/plating,
@@ -4975,6 +5023,10 @@
 /obj/machinery/holopad/secure,
 /turf/open/floor/iron/smooth_large,
 /area/mine/laborcamp/production)
+"He" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/mine/hydroponics)
 "Hf" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -5127,6 +5179,10 @@
 /obj/structure/chair/plastic,
 /turf/open/floor/iron/colony/bolts,
 /area/mine/cafeteria)
+"HU" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/mine/storage/public)
 "HX" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5413,7 +5469,7 @@
 /turf/open/floor/plating/snowed/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "JE" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/maintenance/labor)
 "JF" = (
@@ -5558,11 +5614,13 @@
 	dir = 10
 	},
 /obj/item/storage/bag/ore,
-/obj/item/pickaxe,
 /obj/structure/rack,
 /obj/item/mining_scanner,
 /obj/item/flashlight,
 /obj/item/clothing/glasses/meson,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/trench_tool,
 /turf/open/floor/iron/colony,
 /area/mine/storage/public)
 "Kp" = (
@@ -5697,6 +5755,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/catwalk_floor/colony_fabricator,
 /area/mine/maintenance/living/north)
+"Lj" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/mine/laborcamp)
 "Lk" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5738,6 +5800,10 @@
 /obj/structure/sign/semiotic/warning/directional/east,
 /turf/open/floor/iron/colony/bolts,
 /area/mine/production)
+"Lr" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/mine/eva)
 "Ls" = (
 /obj/structure/lattice/catwalk/mining,
 /obj/structure/railing/corner{
@@ -5759,7 +5825,7 @@
 "Ly" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/cable,
-/obj/machinery/power/rtg/old_station,
+/obj/machinery/power/rtg/portable,
 /obj/structure/railing{
 	dir = 8
 	},
@@ -5895,6 +5961,10 @@
 	},
 /turf/open/floor/iron/colony/white/bolts,
 /area/mine/lounge)
+"Mk" = (
+/obj/structure/fluff/streetlamp,
+/turf/open/floor/plating/snowed/smoothed/icemoon,
+/area/icemoon/underground/explored)
 "Mr" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -6165,7 +6235,7 @@
 /turf/open/openspace/icemoon/keep_below,
 /area/icemoon/underground/explored)
 "NM" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
@@ -6191,7 +6261,7 @@
 /turf/closed/wall/prefab_plastic,
 /area/mine/production)
 "NV" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/maintenance/service)
 "NX" = (
@@ -6229,12 +6299,14 @@
 	dir = 9
 	},
 /obj/item/storage/bag/ore,
-/obj/item/pickaxe,
 /obj/structure/rack,
 /obj/item/mining_scanner,
 /obj/item/flashlight,
 /obj/item/clothing/glasses/meson,
 /obj/machinery/light/directional/north,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/trench_tool,
 /turf/open/floor/iron/colony,
 /area/mine/storage/public)
 "Oh" = (
@@ -6304,7 +6376,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "OK" = (
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/personal,
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/camera/autoname/directional/west{
 	network = list("labor")
@@ -6331,7 +6403,7 @@
 /turf/open/floor/iron/dark,
 /area/mine/laborcamp)
 "OS" = (
-/obj/structure/closet/secure_closet/brig,
+/obj/structure/closet/secure_closet/personal,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/smooth_edge,
@@ -6970,6 +7042,10 @@
 /obj/effect/turf_decal/trimline/brown/filled/line,
 /turf/open/floor/iron/colony,
 /area/mine/production)
+"SV" = (
+/obj/effect/spawner/structure/window/ice,
+/turf/open/floor/plating,
+/area/mine/cafeteria)
 "Tc" = (
 /obj/structure/lattice/catwalk,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -6980,7 +7056,7 @@
 /turf/open/misc/asteroid/snow/icemoon,
 /area/icemoon/surface/outdoors/nospawn)
 "Te" = (
-/obj/effect/spawner/structure/window/reinforced,
+/obj/effect/spawner/structure/window/ice,
 /turf/open/floor/plating,
 /area/mine/laborcamp/quarters)
 "Tf" = (
@@ -7002,6 +7078,7 @@
 	dir = 4
 	},
 /obj/structure/table/greyscale,
+/obj/item/reagent_containers/cup/soup_pot/lizard,
 /turf/open/floor/iron/colony/white/bolts,
 /area/mine/cafeteria)
 "Tp" = (
@@ -7982,11 +8059,13 @@
 "YY" = (
 /obj/structure/rack,
 /obj/item/storage/bag/ore,
-/obj/item/pickaxe,
 /obj/item/mining_scanner,
 /obj/item/flashlight,
 /obj/item/clothing/glasses/meson,
 /obj/effect/decal/cleanable/dirt,
+/obj/item/clothing/shoes/winterboots,
+/obj/item/clothing/suit/hooded/wintercoat,
+/obj/item/trench_tool,
 /turf/open/floor/iron/smooth,
 /area/mine/laborcamp/production)
 "Zh" = (
@@ -8018,6 +8097,7 @@
 /area/mine/cafeteria)
 "Zp" = (
 /obj/structure/cable,
+/obj/machinery/light/small/dim/directional/north,
 /turf/open/floor/plating,
 /area/mine/laborcamp/security/maintenance)
 "Zq" = (
@@ -30418,12 +30498,12 @@ Nr
 pU
 pU
 pU
-Om
+nn
 pU
 pU
 pU
 pU
-Om
+pU
 pU
 pU
 ZM
@@ -50467,7 +50547,7 @@ pU
 pU
 qE
 ge
-ge
+Mk
 uM
 pU
 pU
@@ -96982,12 +97062,12 @@ Nr
 Nr
 Nr
 pU
-Om
+pU
 mF
 pU
 pU
 tC
-Om
+nn
 pU
 NL
 NL
@@ -114983,7 +115063,7 @@ KI
 mG
 yV
 ge
-ge
+Mk
 pU
 lE
 Om
@@ -153797,12 +153877,12 @@ aK
 aK
 ff
 ff
-eR
-eR
+iG
+iG
 ff
 gK
 ff
-eR
+iG
 ff
 aK
 aK
@@ -154052,7 +154132,7 @@ aK
 aK
 aK
 aK
-eR
+iG
 YY
 YY
 LR
@@ -154306,8 +154386,8 @@ eb
 eb
 eb
 aK
-eR
-eR
+iG
+iG
 ff
 ff
 vB
@@ -154563,7 +154643,7 @@ eb
 eb
 eb
 eb
-eR
+iG
 Kw
 LO
 ff
@@ -154820,11 +154900,11 @@ eb
 eb
 eb
 eb
-eR
+iG
 Iy
 Lp
-ff
-ff
+uq
+uq
 nX
 Nz
 Ez
@@ -155077,7 +155157,7 @@ eb
 eb
 eb
 eb
-eR
+iG
 pr
 gl
 fh
@@ -155334,8 +155414,8 @@ aK
 aK
 eb
 eb
-eR
-eR
+iG
+iG
 ff
 ff
 ff
@@ -156361,10 +156441,10 @@ xG
 xG
 xG
 xG
-rX
-rX
+Lj
+Lj
 kg
-rX
+Lj
 kg
 Ub
 Tu
@@ -156875,10 +156955,10 @@ xG
 xG
 xG
 xG
-rX
-rX
+Lj
+Lj
 kg
-rX
+Lj
 kg
 rS
 Kp
@@ -157136,7 +157216,7 @@ Lw
 eb
 eb
 eb
-rX
+Lj
 GD
 Ut
 Lf
@@ -157389,10 +157469,10 @@ xG
 xG
 xG
 xG
-rX
-rX
+Lj
+Lj
 kg
-rX
+Lj
 kg
 kg
 Yp
@@ -157663,7 +157743,7 @@ pH
 zr
 kg
 EG
-rX
+Lj
 aK
 Dv
 Dv
@@ -157903,8 +157983,8 @@ xG
 xG
 xG
 xG
-rX
-rX
+Lj
+Lj
 kg
 kg
 kg
@@ -158679,7 +158759,7 @@ eb
 eb
 eb
 eb
-rX
+Lj
 wu
 VS
 vO
@@ -158936,8 +159016,8 @@ eb
 eb
 eb
 eb
-rX
-rX
+Lj
+Lj
 rX
 Dj
 oN
@@ -159195,7 +159275,7 @@ eb
 eb
 eb
 eb
-rX
+Lj
 OO
 BH
 XW
@@ -159452,9 +159532,9 @@ eb
 eb
 eb
 eb
-rX
-rX
-rX
+Lj
+Lj
+Lj
 kg
 kg
 yG
@@ -159716,7 +159796,7 @@ eb
 kg
 VX
 kg
-rX
+Lj
 kg
 Vq
 rF
@@ -162537,8 +162617,8 @@ aK
 aK
 aK
 kt
-he
-he
+Bh
+Bh
 kt
 TT
 gZ
@@ -163049,7 +163129,7 @@ aK
 eb
 aK
 aK
-he
+Bh
 vN
 Wm
 nY
@@ -163306,7 +163386,7 @@ aK
 eb
 eb
 aK
-he
+Bh
 Oh
 GW
 cj
@@ -163563,7 +163643,7 @@ aK
 aK
 eb
 aK
-he
+Bh
 ji
 Oy
 IU
@@ -164079,8 +164159,8 @@ eb
 aK
 aK
 kt
-he
-he
+Bh
+Bh
 kt
 wh
 ci
@@ -164601,7 +164681,7 @@ lW
 kt
 Hx
 qr
-aK
+zE
 eb
 aK
 aK
@@ -164840,7 +164920,7 @@ aK
 SO
 aK
 aK
-SO
+zE
 eb
 eb
 eb
@@ -167161,8 +167241,8 @@ eb
 aK
 aK
 kY
-Pm
-Pm
+SV
+SV
 kY
 aK
 eb
@@ -167422,7 +167502,7 @@ gD
 zH
 kY
 kY
-Pm
+SV
 kY
 RF
 RB
@@ -167673,7 +167753,7 @@ eb
 eb
 aK
 fP
-Pm
+SV
 xn
 ry
 te
@@ -167688,13 +167768,13 @@ eb
 eb
 FZ
 Ym
-SP
-SP
+yS
+yS
 Ym
-SP
-SP
-SP
-SP
+yS
+yS
+yS
+yS
 Ym
 TA
 aK
@@ -167930,7 +168010,7 @@ eb
 aK
 fP
 fP
-Pm
+SV
 xJ
 XA
 eK
@@ -167944,7 +168024,7 @@ aa
 aa
 aa
 Ka
-SP
+yS
 JI
 cM
 Ym
@@ -167952,7 +168032,7 @@ KJ
 LM
 uN
 Mt
-SP
+yS
 fD
 xG
 eb
@@ -168209,7 +168289,7 @@ PS
 Ff
 Ff
 wg
-SP
+yS
 uR
 eb
 eb
@@ -168466,7 +168546,7 @@ qd
 Ff
 Ff
 cK
-SP
+yS
 fD
 xG
 eb
@@ -168708,7 +168788,7 @@ Ia
 uv
 OT
 Yc
-Pm
+SV
 fP
 eb
 eb
@@ -168723,7 +168803,7 @@ lO
 Zz
 FT
 Qa
-SP
+yS
 gx
 Tc
 eb
@@ -168954,7 +169034,7 @@ eb
 fP
 aK
 aK
-Pm
+SV
 HT
 HT
 Pm
@@ -168965,7 +169045,7 @@ Ia
 eD
 OT
 sW
-Pm
+SV
 eb
 eb
 eb
@@ -169211,7 +169291,7 @@ eb
 aK
 aK
 fP
-Pm
+SV
 tX
 ut
 uk
@@ -169222,14 +169302,14 @@ Ia
 db
 gP
 To
-Pm
+SV
 aK
 eb
 eb
 eb
 eb
 aK
-yX
+He
 Sn
 Sz
 xr
@@ -169468,7 +169548,7 @@ eb
 eb
 aK
 fP
-Pm
+SV
 QR
 tx
 Pm
@@ -169743,7 +169823,7 @@ eb
 eb
 eb
 eb
-yX
+He
 pB
 OM
 hK
@@ -170010,7 +170090,7 @@ XD
 Oe
 Og
 Ko
-cE
+HU
 TA
 eb
 eb
@@ -170267,7 +170347,7 @@ Ss
 cE
 hV
 xU
-cE
+HU
 TA
 eb
 eb
@@ -170524,7 +170604,7 @@ HB
 qo
 IV
 iD
-cE
+HU
 gb
 aK
 eb
@@ -170781,7 +170861,7 @@ rY
 cE
 hi
 tT
-cE
+HU
 TA
 fP
 eb
@@ -171038,7 +171118,7 @@ jZ
 cE
 aq
 ij
-cE
+HU
 gx
 Tc
 eb
@@ -172568,7 +172648,7 @@ aK
 eb
 eb
 eb
-SP
+yS
 gp
 mn
 QP
@@ -172577,7 +172657,7 @@ MS
 QP
 LE
 os
-SP
+yS
 aK
 xe
 xe
@@ -172825,7 +172905,7 @@ aK
 eb
 eb
 aK
-SP
+yS
 cF
 ib
 od
@@ -172834,7 +172914,7 @@ JZ
 PR
 ib
 os
-SP
+yS
 aK
 aK
 xe
@@ -173082,7 +173162,7 @@ eb
 eb
 eb
 aK
-SP
+yS
 kK
 Sm
 Vz
@@ -173339,7 +173419,7 @@ aK
 RM
 RM
 aK
-SP
+yS
 ti
 ib
 FD
@@ -173601,9 +173681,9 @@ JA
 wp
 zF
 Ym
-SP
-SP
-SP
+yS
+yS
+yS
 Ym
 aK
 aK
@@ -174111,9 +174191,9 @@ RM
 eb
 eb
 eb
-SP
+yS
 Xs
-SP
+yS
 eb
 eb
 eb
@@ -174368,9 +174448,9 @@ aK
 Pd
 NY
 NY
-SP
+yS
 xN
-SP
+yS
 NY
 NY
 LS
@@ -175901,7 +175981,7 @@ QX
 QX
 LF
 YU
-Le
+gr
 aK
 eb
 eb
@@ -176415,7 +176495,7 @@ wV
 Ni
 hn
 Dd
-Le
+gr
 aK
 eb
 eb
@@ -176929,7 +177009,7 @@ CE
 Ni
 IW
 SQ
-Le
+gr
 eb
 eb
 eb
@@ -177422,14 +177502,14 @@ aK
 aK
 aK
 aK
-SO
+aK
 aK
 aK
 eb
 eb
 yp
 eb
-Le
+gr
 Lh
 Nh
 NU
@@ -177445,10 +177525,10 @@ wt
 jw
 fA
 Le
-Le
+gr
 NU
-Le
-Le
+gr
+gr
 xG
 xG
 xG
@@ -177959,10 +178039,10 @@ GF
 lb
 Yl
 Le
-Le
+gr
 NU
-Le
-Le
+gr
+gr
 xG
 xG
 xG
@@ -178193,14 +178273,14 @@ aK
 aK
 aK
 aK
-SO
-RD
+aK
+oa
 aK
 eb
 eb
 eb
 eb
-Le
+gr
 Lq
 ye
 NU
@@ -178728,7 +178808,7 @@ lg
 se
 Yg
 li
-dK
+Lr
 aK
 eb
 eb
@@ -178973,7 +179053,7 @@ eb
 eb
 aK
 aK
-Le
+gr
 QI
 zJ
 oi
@@ -178985,7 +179065,7 @@ Tf
 Jp
 Yg
 TQ
-dK
+Lr
 aK
 eb
 eb
@@ -179230,7 +179310,7 @@ eb
 eb
 aK
 aK
-Le
+gr
 rH
 rH
 fV
@@ -179496,8 +179576,8 @@ op
 NU
 pK
 pK
-dK
-dK
+Lr
+Lr
 pK
 pK
 eb
@@ -180263,7 +180343,7 @@ aK
 aK
 hG
 aK
-RD
+oa
 hT
 dY
 eb
