@@ -50,9 +50,26 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 /obj/item/grenade/c4/demo_charge/examine(mob/user)
 	. = ..()
 	if(more_explosive)
-		. += span_notice("It feels heavier than usual. Did they overload it?")
+		. += span_notice("It feels heavier than it should. This one probably has more explosives in it than usual.")
+	if(!directional)
+		. += span_notice("The casing feels pretty thing. It seems like a good idea to be nowhere in line of sight of this when it goes off.")
 	if(obj_flags & EMAGGED)
-		. += span_notice("It keeps trying to stick to everything around it, it looks like the safety is fried.")
+		. += span_notice("It keeps trying to stick to everything around it, looks like the safety is fried.")
+
+/obj/item/grenade/c4/demo_charge/emag_act(mob/user, obj/item/card/emag/emag_card)
+	if(obj_flags & EMAGGED)
+		return FALSE
+	playsound(src, SFX_SPARKS, 100, vary = TRUE, extrarange = SHORT_RANGE_SOUND_EXTRARANGE)
+	do_sparks(3, cardinal_only = FALSE, source = src)
+	obj_flags |= EMAGGED
+	return TRUE
+
+/obj/item/grenade/c4/demo_charge/emp_act(severity)
+	. = ..()
+	if(prob(5))
+		detonate()
+		return
+	emag_act()
 
 /// Randomizes the explosive power of the charge and gives it a really low chance to not be directional just for fun
 /obj/item/grenade/c4/demo_charge/proc/randomize_explosives()
@@ -62,10 +79,13 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	switch(random_explosive_mass)
 		if(1)
 			boom_sizes = list(1, 4, 6)
+			directional_arc = 60
 		if(2)
 			boom_sizes = list(1, 3, 5)
+			directional_arc = 200
 		if(3)
 			boom_sizes = list(0, 5, 7)
+			directional_arc = 160
 		else
 			return
 	more_explosive = TRUE
