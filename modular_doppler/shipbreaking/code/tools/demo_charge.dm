@@ -15,8 +15,6 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	user.balloon_alert_to_viewers("clack")
 	playsound(src, 'sound/items/pen_click.ogg', 40, TRUE)
 	for(var/obj/item/grenade/c4/demo_charge/charge as anything in GLOB.demolition_charges)
-		if(charge.clacks >= charge.clacks_needed)
-			charge.detonate()
 		charge.clack()
 
 /obj/item/grenade/c4/demo_charge
@@ -47,9 +45,11 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 /// Decides on random effects to play when the detonator has been clicked but nothing happens yet
 /obj/item/grenade/c4/demo_charge/proc/clack()
 	clacks++
-	if(prob(75))
+	if(prob(25))
+		do_sparks(3, FALSE, target)
+	if(clacks < clacks_needed)
 		return
-	do_sparks(3, FALSE, target)
+	detonate()
 
 /obj/item/grenade/c4/demo_charge/Destroy()
 	if(src in GLOB.demolition_charges)
