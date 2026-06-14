@@ -24,6 +24,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 		whatever surface the charge is attached to. Involves minimal risk to any operators standing near the charge."
 	icon = 'modular_doppler/shipbreaking/icons/tools.dmi'
 	icon_state = "charge0"
+	base_icon_state = "charge"
 	inhand_icon_state = "ninja-explosive"
 	worn_icon_state = null
 	lefthand_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
@@ -35,19 +36,46 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	/// How many times the detonator has pulsed on this demo charge
 	var/clacks = 0
 	/// How many times the detonator needs to be pulsed to detonate the charge
-	var/clacks_needed = 2
+	var/clacks_needed = 3
+	/// If the charge has more explosive than normal
+	var/more_explosive = FALSE
 
 /obj/item/grenade/c4/demo_charge/Initialize(mapload)
 	. = ..()
+	randomize_explosives()
+	plastic_overlay = mutable_appearance(icon, "[base_icon_state]2", HIGH_OBJ_LAYER)
 	if(prob(20))
 		clacks_needed += rand(1, 3)
+
+/obj/item/grenade/c4/demo_charge/examine(mob/user)
+	. = ..()
+	if(more_explosive)
+		. += span_notice("It feels heavier than usual. Did they overload it?")
+	if(obj_flags & EMAGGED)
+		. += span_notice("It keeps trying to stick to everything around it, it looks like the safety is fried.")
+
+/// Randomizes the explosive power of the charge and gives it a really low chance to not be directional just for fun
+/obj/item/grenade/c4/demo_charge/proc/randomize_explosives()
+	if(prob(5))
+		directional = FALSE
+	var/random_explosive_mass = rand(1,10)
+	switch(random_explosive_mass)
+		if(1)
+			boom_sizes = list(1, 4, 6)
+		if(2)
+			boom_sizes = list(1, 3, 5)
+		if(3)
+			boom_sizes = list(0, 5, 7)
+		else
+			return
+	more_explosive = TRUE
 
 /// Decides on random effects to play when the detonator has been clicked but nothing happens yet
 /obj/item/grenade/c4/demo_charge/proc/clack()
 	clacks++
 	if(prob(25))
 		do_sparks(3, FALSE, target)
-	if(clacks < clacks_needed)
+	if(clacks_needed > clacks)
 		return
 	if(obj_flags & EMAGGED)
 		detonate()
