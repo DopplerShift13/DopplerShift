@@ -26,7 +26,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	icon_state = "charge0"
 	base_icon_state = "charge"
 	inhand_icon_state = "ninja-explosive"
-	worn_icon_state = null
+	worn_icon_state = "electronic"
 	lefthand_file = 'icons/mob/inhands/weapons/bombs_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/weapons/bombs_righthand.dmi'
 	directional = TRUE
