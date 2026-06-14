@@ -49,7 +49,12 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 		do_sparks(3, FALSE, target)
 	if(clacks < clacks_needed)
 		return
-	detonate()
+	if(obj_flags & EMAGGED)
+		detonate()
+		return
+	if(istype(get_area(target), /area/shuttle/salvaged_shuttle))
+		detonate()
+		return
 
 /obj/item/grenade/c4/demo_charge/Destroy()
 	if(src in GLOB.demolition_charges)
