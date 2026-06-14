@@ -35,7 +35,7 @@ GLOBAL_LIST_EMPTY(demolition_charges)
 	/// How many times the detonator has pulsed on this demo charge
 	var/clacks = 0
 	/// How many times the detonator needs to be pulsed to detonate the charge
-	var/clacks_needed = 3
+	var/clacks_needed = 2
 
 /obj/item/grenade/c4/demo_charge/Initialize(mapload)
 	. = ..()
