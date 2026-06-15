@@ -575,6 +575,10 @@
 	},
 /turf/open/space/basic,
 /area/space/nearstation)
+"Fr" = (
+/obj/effect/wind/shipbreaking_collector/scrap,
+/turf/open/space/basic,
+/area/space)
 "FL" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/salvage,
 /obj/effect/decal/cleanable/dirt,
@@ -758,6 +762,7 @@
 "OK" = (
 /obj/effect/turf_decal/loading_area/red,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/wind/shipbreaking_collector/scrap,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "OO" = (
@@ -805,6 +810,10 @@
 /obj/machinery/camera/autoname/directional/north,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
+"Rh" = (
+/obj/effect/wind/shipbreaking_collector,
+/turf/open/space/basic,
+/area/space)
 "Rj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -822,6 +831,7 @@
 "Rv" = (
 /obj/effect/turf_decal/loading_area/white,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/wind/shipbreaking_collector,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "RY" = (
@@ -1454,8 +1464,8 @@ Oq
 Oq
 Oq
 Oq
-Oq
-Oq
+Fr
+Fr
 OK
 xn
 Zc
@@ -1486,8 +1496,8 @@ Oq
 Oq
 Oq
 Oq
-Oq
-Oq
+Fr
+Fr
 OK
 fi
 Zc
@@ -1742,8 +1752,8 @@ Oq
 Oq
 Oq
 Oq
-Oq
-Oq
+Rh
+Rh
 Rv
 xn
 TU
@@ -1774,8 +1784,8 @@ Oq
 Oq
 Oq
 Oq
-Oq
-Oq
+Rh
+Rh
 Rv
 fi
 vC
