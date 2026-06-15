@@ -16,12 +16,13 @@
 
 /datum/component/thaumaturge/hemomancy/Initialize(mob/living/new_attached_mob)
 	. = ..(new_attached_mob)
-	// Mob-level power use hook for overcast affinity rider.
+	// Power use hook for overcast affinity rider.
 	RegisterSignal(attached_mob, COMSIG_POWER_ACTION_USED, PROC_REF(on_mob_power_action_used))
-	// Mob-level power success hook; keeps this component decoupled from per-action registration.
+	// Power success hook that hadnles costs
 	RegisterSignal(attached_mob, COMSIG_POWER_ACTION_SUCCESS, PROC_REF(on_mob_power_action_success))
 
 	// Procs & trackers for blood UI
+	// I'd prefer to tie it to blood volume changes but since there's no signaler for that (and unlike powers resources which auto-update UIs when incremented) we'll have to settle for life.
 	RegisterSignal(attached_mob, COMSIG_LIVING_LIFE, PROC_REF(on_owner_life))
 	RegisterSignal(attached_mob, COMSIG_MOB_LOGIN, PROC_REF(on_owner_login))
 
