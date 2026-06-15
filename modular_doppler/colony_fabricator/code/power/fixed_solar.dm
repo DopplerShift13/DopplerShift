@@ -9,6 +9,8 @@
 	/// What this panel disassembles into
 	var/repacked_type = /obj/item/flatpacked_machine/manual_solar
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/power/solar/fixed, 0)
+
 /obj/machinery/power/solar/fixed/advanced
 	name = "advanced manual solar panel"
 	desc = "A solar panel without the automatic control machinery, must be rotated manually in whichever direction you want. \
@@ -17,10 +19,36 @@
 	power_tier = 4
 	repacked_type = /obj/item/flatpacked_machine/manual_solar/adv
 
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/power/solar/fixed/advanced, 0)
+
 /obj/machinery/power/solar/fixed/Initialize(mapload, obj/item/solar_assembly/S)
 	. = ..()
 	panel.icon_state = "solar_panel_[material_type.name]"
 	panel_edge.icon_state = "solar_panel_[material_type.name]_edge"
+	set_panel_rotation()
+
+/// Sets the rotation target of the solar panel based on the panel's dir
+/obj/machinery/power/solar/fixed/proc/set_panel_rotation()
+	var/text_dir = dir2text(dir)
+	var/new_angle = 0
+	switch(text_dir)
+		if(NORTH)
+			new_angle = 0
+		if(NORTHEAST)
+			new_angle = 45
+		if(EAST)
+			new_angle = 90
+		if(SOUTHEAST)
+			new_angle = 135
+		if(SOUTH)
+			new_angle = 180
+		if(SOUTHWEST)
+			new_angle = 225
+		if(WEST)
+			new_angle = 270
+		if(NORTHWEST)
+			new_angle = 315
+	queue_turn(new_angle)
 
 /obj/machinery/power/solar/fixed/set_control(obj/machinery/power/solar_control/SC)
 	return // You can't link these to anything
@@ -45,7 +73,12 @@
 	if(!tool.use_tool(src, user, 2 SECONDS))
 		return ITEM_INTERACT_BLOCKING
 	playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE)
-	queue_turn(azimuth_target + target_change)
+	var/new_angle = azimuth_target + target_change
+	if(new_angle < 0)
+		new_angle = 360 - new_angle
+	if(new_angle > 360)
+		new_angle = new_angle - 360
+	queue_turn(new_angle)
 	return ITEM_INTERACT_SUCCESS
 
 /obj/machinery/power/solar/fixed/Make(obj/item/solar_assembly/assembly)
