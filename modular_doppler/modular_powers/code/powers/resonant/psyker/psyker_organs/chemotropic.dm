@@ -13,6 +13,8 @@
 /obj/item/organ/resonant/psyker/chemotropic
 	name = "chemotropic gland"
 	desc = "An intrusive organ that should not even be able to function in most bodies. It responds to chemical stimuli in the bloodstream, accelerating psychic recovery in exchange for unhealthy dependency."
+	icon = 'modular_doppler/modular_powers/icons/items/organs.dmi'
+	icon_state = "chemotropic"
 	recovery_per_second = PSYKER_STRESS_RECOVERY * 0.25
 	matching_root_type = /datum/power/psyker_root/chemotropic
 	stress_backlash_cooldown = 180 SECONDS // double duration between backlash events since you can be stuck on a tier from the lack of accessible recovery.

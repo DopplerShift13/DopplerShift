@@ -12,8 +12,8 @@
 	name = "paracausal gland"
 	desc = "An intrusive organ that should not even be able to function in most bodies. Commonly found in the bodies of Psykers. Though many would try to implement these into themselves to try and awaken psychic powers, \
 	its presence in those without such powers is often life-threatening."
-	icon = 'icons/obj/medical/organs/organs.dmi'
-	icon_state = "demon_heart-on"
+	icon = 'modular_doppler/modular_powers/icons/items/organs.dmi'
+	icon_state = "paracausal"
 	recovery_per_second = PSYKER_STRESS_RECOVERY
 	matching_root_type = /datum/power/psyker_root/paracausal
 
