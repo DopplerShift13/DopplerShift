@@ -41,7 +41,7 @@
 		human_holder.del_and_replace_bodypart(new /obj/item/bodypart/arm/right/robot, special = TRUE)
 
 /obj/item/organ/cyberimp/arm/toolkit/reagent_cannon
-	name = "Premium SPRY Reagent Cannon"
+	name = "SPRY Reagent Cannon"
 	desc = "Usually included in various company contracts, those who work in mega-scale botanics and cleaning need to push for optimal efficiency. Manufactured by Nex-Zephyr, this beauty will be your lifelong replacement of a spray bottle.\
 	\n When activated, transform your arm into a chemsprayer, allowing you to deploy chemicals rapidly in a large area. Capable of containing up to 600 chemicals. \
 	\n Because this is an incredibly invasive augment, this requires a cybernetic arm to wield effectively."
