@@ -257,6 +257,8 @@
 
 // How much meditate recovers.
 #define PSYKER_STRESS_MEDITATION_POWER 10
+// How much chemotropic gland recovers with substances.
+#define PSYKER_STRESS_CHEMOTROPIC_POWER 10
 
 // Standard stress for Psykers. This all goes off of the base organ being 100.
 #define PSYKER_STRESS_TRIVIAL (PSYKER_STRESS_STANDARD_THRESHOLD / 100)

@@ -6,7 +6,7 @@
 	name = "Scrying"
 	desc = "Using a sample of a creature's blood, you can see the world through their eyes remotely. Creatures will be vague and hard to distinguish, but their environment will appear clear. \
 	In this state, you use their sight instead of your own; but you cannot target creatures that are immune to magic, scrying; or lack the brain activity required to be detectable (dumb). \
-	Passively builds up stress. The target sometimes gets preminations to indicate they are watched."
+	Passively builds up stress, with extended use causing escalating amounts of stress. The target sometimes gets preminations to indicate they are watched."
 	security_record_text = "Subject can psychically observe people's locations based on blood samples from extreme distances."
 	value = 10
 	action_path = /datum/action/cooldown/power/psyker/scrying
@@ -21,6 +21,8 @@
 
 	/// The target we are currently scrying
 	var/atom/movable/scry_target
+	/// Seconds spent maintaining the current scrying link
+	var/scry_duration = 0
 
 	// This thing is a MESS. We have split functionality into three datums.
 	/// Scrying Camera which handles imparting the sight of the target
@@ -61,6 +63,7 @@
 		return FALSE
 
 	active = TRUE
+	scry_duration = 0
 
 	scry_target = chosen_target
 	// We create the new datums which will immediately handle their effects.
@@ -150,12 +153,21 @@
 			return target
 	return null
 
+/// Returns the current per-second stress upkeep for maintaining the scrying link.
+/datum/action/cooldown/power/psyker/scrying/proc/get_upkeep_stress_per_second()
+	var/stress_per_second = (PSYKER_STRESS_MINOR / 2) + (scry_duration * 0.1)
+	var/mob/living/action_owner = owner
+	if(action_owner?.has_quirk(/datum/quirk/item_quirk/blindness))
+		stress_per_second *= 0.5
+	return stress_per_second
+
 /// called by everything that ends scrying; removes all the datums and left over signalers.
 /datum/action/cooldown/power/psyker/scrying/proc/end_scrying()
 	if(!active)
 		return
 
 	active = FALSE
+	scry_duration = 0
 
 	QDEL_NULL(tracker)
 	QDEL_NULL(scry_vision)
@@ -332,11 +344,9 @@
 		if(prob((seconds_per_tick / 30) * 100))
 			to_chat(target_mob, span_warning("A shudder runs down your spine, as if you're being watched."))
 
-	// Applies stress. On the trope of having cripple quirks for psyker, being blind halves your stress upkeep.
-	if(owner.has_quirk(/datum/quirk/item_quirk/blindness))
-		action.modify_stress((PSYKER_STRESS_MINOR * seconds_per_tick) / 4) // handicap discount
-	else
-		action.modify_stress((PSYKER_STRESS_MINOR * seconds_per_tick) / 2) // normal people cost
+	// Applies stress, increasing with link duration to prevent permanent upkeep.
+	action.modify_stress(action.get_upkeep_stress_per_second() * seconds_per_tick)
+	action.scry_duration += seconds_per_tick
 
 	// Re-apply in case other systems reassert blindness/quirk/etc.
 	if(action.scry_vision)

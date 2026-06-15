@@ -53,7 +53,7 @@
 	))
 	/// UI blacklist for targets that should never open a UI via Manipulate.
 	var/static/list/ui_blacklist = typecacheof(list(
-		/obj/machinery/door/airlock,
+		/obj/machinery/door/airlock, // opens the AI interface instead
 	))
 
 // We're manipulating click-on to A distnguish between obj machinery and obj structure and B to distinguish between left and right hand clicks.

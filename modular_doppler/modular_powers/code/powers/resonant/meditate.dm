@@ -48,7 +48,13 @@ Reduces stress for psykers and restores Energy for cultivators
 			if(!psyker_organ && !cultivator_energy)
 				to_chat(owner, span_notice("I have nothing to meditate on!"))
 			if(psyker_organ)
-				psyker_organ.modify_stress(-PSYKER_STRESS_MEDITATION_POWER)
+				var/stress_recovery = PSYKER_STRESS_MEDITATION_POWER
+
+				// Checks if you have the right psyker power, otherwise reduces it to a third.
+				if(psyker_organ.has_compatible_root() && !psyker_organ.has_matching_root())
+					stress_recovery *= 0.33
+
+				psyker_organ.modify_stress(-stress_recovery)
 				if(psyker_organ.stress <= 0)
 					to_chat(owner, span_notice("I no longer feel any stress"))
 			if(cultivator_energy)
