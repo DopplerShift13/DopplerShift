@@ -45759,6 +45759,12 @@
 	},
 /turf/open/floor/iron/terracotta/small,
 /area/station/service/kitchen)
+"qyV" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
 "qze" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/machinery/firealarm/directional/south,
@@ -49761,6 +49767,12 @@
 	dir = 8
 	},
 /area/station/engineering/atmos/hfr_room)
+"tmV" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
 "tmY" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -80554,10 +80566,10 @@ abI
 qos
 eTg
 gZu
-aht
-aht
-cdm
-aaa
+qyV
+qyV
+qyV
+qyV
 aaa
 aaa
 aaa
@@ -80811,10 +80823,10 @@ abI
 fLG
 eTg
 eTg
-cdm
-cdm
-cdm
-aaa
+qyV
+qyV
+qyV
+qyV
 aaa
 aaa
 aaa
@@ -81068,10 +81080,10 @@ fEk
 dYG
 eTg
 qnM
-aht
-aht
-cdm
-aaa
+qyV
+qyV
+qyV
+qyV
 aaa
 aaa
 aaa
@@ -81582,10 +81594,10 @@ wwa
 sww
 nYb
 gZu
-aht
-aht
-cdm
-aaa
+tmV
+tmV
+tmV
+tmV
 aaa
 aaa
 aaa
@@ -81839,10 +81851,10 @@ abI
 tFr
 nYb
 eTg
-cdm
-cdm
-cdm
-aaa
+tmV
+tmV
+tmV
+tmV
 aaa
 aaa
 aaa
@@ -82096,10 +82108,10 @@ abI
 rlk
 nYb
 qnM
-aht
-aht
-cdm
-aaa
+tmV
+tmV
+tmV
+tmV
 aaa
 aaa
 aaa

@@ -80,6 +80,12 @@
 "eP" = (
 /turf/template_noop,
 /area/template_noop)
+"eS" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 8
+	},
+/turf/open/space/openspace,
+/area/space)
 "fz" = (
 /obj/structure/railing{
 	dir = 9
@@ -224,6 +230,12 @@
 "ll" = (
 /turf/open/floor/iron/grimy,
 /area/station/salvage_bay)
+"lr" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 8
+	},
+/turf/open/space/openspace,
+/area/space)
 "lt" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
@@ -311,6 +323,9 @@
 "pS" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/loading_area/red{
+	dir = 8
+	},
+/obj/effect/wind/shipbreaking_collector/scrap{
 	dir = 8
 	},
 /turf/open/floor/plating/airless,
@@ -507,6 +522,13 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
+"yN" = (
+/obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 8
+	},
+/turf/open/floor/plating/airless,
+/area/station/asteroid)
 "yO" = (
 /obj/structure/railing{
 	dir = 8
@@ -837,6 +859,9 @@
 /obj/effect/turf_decal/loading_area/white{
 	dir = 8
 	},
+/obj/effect/wind/shipbreaking_collector{
+	dir = 8
+	},
 /turf/open/floor/plating/airless,
 /area/station/asteroid)
 "SQ" = (
@@ -940,6 +965,9 @@
 /area/station/salvage_bay)
 "Yx" = (
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/wind/shipbreaking_collector{
+	dir = 8
+	},
 /turf/open/floor/plating/airless,
 /area/station/asteroid)
 "YG" = (
@@ -1882,9 +1910,9 @@ Yx
 Yx
 Yx
 pB
-Yx
-Yx
-Yx
+yN
+yN
+yN
 yn
 fU
 fU
@@ -1937,15 +1965,15 @@ vv
 vv
 WN
 lt
-Wu
-Wu
-Wu
-Wu
-Wu
-Wu
-Wu
-Wu
-Wu
+So
+lr
+lr
+lr
+So
+eS
+eS
+eS
+So
 Wu
 Wu
 VD
@@ -1997,15 +2025,15 @@ Sl
 lt
 lt
 lt
-lt
-lt
-lt
-lt
-lt
-lt
-lt
-lt
-lt
+So
+lr
+lr
+lr
+So
+eS
+eS
+eS
+So
 lt
 lt
 WA
