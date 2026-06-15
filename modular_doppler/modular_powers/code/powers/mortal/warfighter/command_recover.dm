@@ -21,14 +21,16 @@
 	button_icon_state = "dextrous"
 	action_symbol = "move"
 
+	/// How much to reduce the afflictions with. Sleeping is 150% of this.
+	var/seconds_to_reduce = 6 SECONDS
+
 /datum/action/cooldown/power/warfighter/command/recover/use_action(mob/living/user, mob/living/carbon/target)
-	..()
 	// Basically the same amounts as shaking up twice multiplied by commander modifiers.
-	target.AdjustStun(-6 SECONDS * (commander_modifier + 1))
-	target.AdjustKnockdown(-6 SECONDS * (commander_modifier + 1))
-	target.AdjustUnconscious(-6 SECONDS * (commander_modifier + 1))
-	target.AdjustSleeping(-10 SECONDS * (commander_modifier + 1))
-	target.AdjustParalyzed(-6 SECONDS * (commander_modifier + 1))
-	target.AdjustImmobilized(-6 SECONDS * (commander_modifier + 1))
+	target.AdjustStun(-seconds_to_reduce * (commander_modifier + 1))
+	target.AdjustKnockdown(-seconds_to_reduce * (commander_modifier + 1))
+	target.AdjustUnconscious(-seconds_to_reduce * (commander_modifier + 1))
+	target.AdjustSleeping(-(seconds_to_reduce * 1.5) * (commander_modifier + 1))
+	target.AdjustParalyzed(-seconds_to_reduce * (commander_modifier + 1))
+	target.AdjustImmobilized(-seconds_to_reduce * (commander_modifier + 1))
 	target.shake_up_animation() // visual
 	return TRUE

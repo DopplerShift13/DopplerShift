@@ -10,6 +10,7 @@
 
 	action_path = /datum/action/cooldown/power/thaumaturge/vitalize_flora
 	required_powers = list(/datum/power/thaumaturge_root)
+	required_allow_subtypes = TRUE
 
 /datum/action/cooldown/power/thaumaturge/vitalize_flora
 	name = "Vitalize Flora"
@@ -19,6 +20,9 @@
 
 	required_affinity = 1
 	prep_cost = 2
+	power_refunds = TRUE
+	power_refund_chance = THAUMATURGE_REFUND_MULT_BASE
+	power_refund_affinity_bonus = THAUMATURGE_REFUND_MULT_AFFINITY
 
 	/// the amount to heal mob plants by
 	var/mob_heal_amount = 15
@@ -100,16 +104,6 @@
 		return FALSE
 	playsound(user, 'sound/effects/magic/charge.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	return TRUE
-
-// Refund chance, similar to phantasmal tool & blend for me.
-/datum/action/cooldown/power/thaumaturge/vitalize_flora/on_action_success(mob/living/user, atom/target, override_charges)
-	var/chance_to_refund = clamp(THAUMATURGE_REFUND_MULT_AFFINITY * affinity + THAUMATURGE_REFUND_MULT_BASE, 0, THAUMATURGE_REFUND_MAX)
-	if(prob(chance_to_refund))
-		override_charges = 0
-		to_chat(owner, span_notice("Your [name] spell did not consume a charge!"))
-	else if(chance_to_refund >= 51) // At this point it's more common that it does not consume a charge, so we invert them and tell them when it does consume a charge!
-		to_chat(owner, span_warning("Your [name] spell consumed a charge!"))
-	return ..(user, target, override_charges)
 
 // visual effect for plant growth
 /obj/effect/temp_visual/plant_growth

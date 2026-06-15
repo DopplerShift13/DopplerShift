@@ -110,6 +110,21 @@
 // How long a thaumaturge has to sleep to get their charges. Please make sure that this is BELOW the normal sleep verb's time.
 #define THAUMATURGE_SLEEP_TIME 30 SECONDS
 
+// Thaumaturge action resource display modes.
+#define THAUMATURGE_RESOURCE_DISPLAY_CHARGES "charges"
+#define THAUMATURGE_RESOURCE_DISPLAY_PREP_COST "prep_cost"
+
+// Thresholds for hemomancy whenever you are either low blood or ready to overcast, relative to blood volume normal.
+#define THAUMATURGE_HEMOMANCY_LOW_BLOOD_THRESHOLD 0.85
+#define THAUMATURGE_HEMOMANCY_OVERCAST_THRESHOLD 1.10
+
+// The minimum affinity you have with your blood hand.
+#define THAUMATURGE_HEMOMANCY_MIN_AFFINITY 3
+// The maximum affinity you can get with overcasting.
+#define THAUMATURGE_HEMOMANCY_MAX_AFFINITY 6
+// How much blood cost scales from prep_cost (and UI display) for hemomancy.
+#define THAUMATURGE_HEMOMANCY_BLOOD_COST_MULTIPLIER 4
+
 /**
  * SORCEROUS: ENIGMATIST
  * All defines related to the enigmatist powers.
@@ -242,6 +257,8 @@
 
 // How much meditate recovers.
 #define PSYKER_STRESS_MEDITATION_POWER 10
+// How much chemotropic gland recovers with substances.
+#define PSYKER_STRESS_CHEMOTROPIC_POWER 10
 
 // Standard stress for Psykers. This all goes off of the base organ being 100.
 #define PSYKER_STRESS_TRIVIAL (PSYKER_STRESS_STANDARD_THRESHOLD / 100)

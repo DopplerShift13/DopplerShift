@@ -1,4 +1,7 @@
-// Custom actions for premium augments, meant to show the progress bar with quality wear.
+/*
+	Custom actions for premium augments, meant to show the progress bar with quality wear.
+	A downside to this system is that all our premium augments need an action button to see quality. This is all to have parity with existing augments without becoming the 'snowflake' augment
+*/
 /datum/action/item_action/organ_action/premium
 	name = "Premium Augment"
 	check_flags = AB_CHECK_CONSCIOUS | AB_CHECK_INCAPACITATED

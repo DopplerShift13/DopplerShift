@@ -11,6 +11,9 @@
 	// silicons I hate to break it to you but you aren't included.
 	target_type = /mob/living/carbon
 
+	/// does this power scale off of department members in view instead of the target being in view? (for targeting non-allies usually)
+	var/department_los_scaling = FALSE
+
 	/// is the user a command staff
 	var/command_bonus = FALSE
 	/// is the target part of the user's department?
@@ -21,6 +24,18 @@
 
 	/// the symbol displayed over the target's head when using the action
 	var/action_symbol = "point"
+
+// Registers signaler for action use so we can use it as a rider for setting the command bonus.
+/datum/action/cooldown/power/warfighter/command/Grant(mob/grant_to)
+	. = ..()
+	RegisterSignal(grant_to, COMSIG_POWER_ACTION_USED, PROC_REF(on_power_action_used))
+
+/datum/action/cooldown/power/warfighter/command/Destroy()
+	return ..()
+
+/datum/action/cooldown/power/warfighter/command/Remove(mob/removed_from)
+	. = ..()
+	UnregisterSignal(removed_from, COMSIG_POWER_ACTION_USED)
 
 /// Is the user a member of the command department.
 /datum/action/cooldown/power/warfighter/command/proc/is_command_staff(mob/living/user)
@@ -37,6 +52,19 @@
 		return FALSE
 	return (user_job.departments_bitflags & target_job.departments_bitflags)
 
+/// Counts same-department allies that can perceive the user (can hear OR can see), excluding the user.
+/datum/action/cooldown/power/warfighter/command/proc/count_department_members_in_los(mob/living/user)
+	var/member_count = 0
+	for(var/mob/living/carbon/department_member in view(user))
+		if(department_member == user)
+			continue
+		if(!is_same_department(user, department_member))
+			continue
+		if(!department_member.can_hear() && !can_see(department_member, user))
+			continue
+		member_count++
+	return member_count
+
 /datum/action/cooldown/power/warfighter/command/can_use(mob/living/user, mob/living/target)
 	. = ..()
 	// If the target can't hear or see you
@@ -48,19 +76,32 @@
 		owner.balloon_alert(user, "you're unable to relay your commands!")
 		return FALSE
 
-// We do the department checks in here. We force a parent call because commands kind-of are build around this system.
-/datum/action/cooldown/power/warfighter/command/use_action(mob/living/user, mob/living/target)
-	SHOULD_CALL_PARENT(TRUE)
-	. = ..()
+//// Sets commander modifier bonuses at action use time via mob-level COMSIG_POWER_ACTION_USED.
+/datum/action/cooldown/power/warfighter/command/proc/on_power_action_used(mob/living/source, datum/action/cooldown/power/action, atom/target)
+	SIGNAL_HANDLER
+	if(action != src)
+		return
+	var/mob/living/user = source
+	var/mob/living/target_mob = target
 	commander_modifier = WARFIGHTER_COMMANDER_BASE_MULT
 	command_bonus = is_command_staff(user)
-	department_bonus = is_same_department(user, target)
-	if(department_bonus)
-		commander_modifier += WARFIGHTER_COMMANDER_DEPARTMENT_BONUS
+	department_bonus = FALSE
+	// If we scale off of department members in los instead of the target being department members.
+	if(department_los_scaling)
+		var/department_member_count = count_department_members_in_los(user)
+		if(department_member_count > 0)
+			commander_modifier += WARFIGHTER_COMMANDER_DEPARTMENT_BONUS * 0.5 * department_member_count
+	// Standard scaling
+	else
+		department_bonus = is_same_department(user, target_mob)
+		if(department_bonus)
+			commander_modifier += WARFIGHTER_COMMANDER_DEPARTMENT_BONUS
+	// Bonus if head of staff
 	if(command_bonus)
 		commander_modifier += WARFIGHTER_COMMANDER_HEAD_BONUS
 
 /datum/action/cooldown/power/warfighter/command/on_action_success(mob/living/user, mob/living/target)
+	SHOULD_CALL_PARENT(TRUE)
 	. = ..()
 	var/mutable_appearance/user_symbol = mutable_appearance('icons/effects/callouts.dmi', "danger")
 	user_symbol.pixel_y = 16
@@ -91,4 +132,3 @@
 		var/datum/action/cooldown/power/warfighter/command/C = A
 		if(C.next_use_time <= world.time)
 			C.StartCooldownSelf(2 SECONDS)
-

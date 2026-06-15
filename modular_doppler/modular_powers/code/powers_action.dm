@@ -47,6 +47,8 @@
 	var/aim_assist = TRUE
 	/// Do we check for anti magic on the target when we target them? Basically if your action targets but doesn't do anything directly magical to them immediately (like projectiles), this should be false.
 	var/anti_magic_on_target = TRUE
+	/// Magic resistance flags checked on target during try_use. This should mostly just be holy and mental, since normal magic resistance is checked in can_block_resonance()
+	var/magic_resistance_types
 
 /// Attempts to actively use the action by pathing through validation, antimagic, do_use_time and finally use_action
 /datum/action/cooldown/power/proc/try_use(mob/living/user, atom/target)
@@ -54,14 +56,21 @@
 	if(!can_use(user, target))
 		return FALSE
 	// Checking for anti-resonance/anti-magic below which really is a pain.
-	if(anti_magic_on_target && resonant && ismob(target) && target != user) // If the spell does check for antimagic on the target, and if the spell is resonance based, and if the target is a mob, and if the target is not us.
+	if(anti_magic_on_target && ismob(target) && target != user) // If the spell checks antimagic, and if the target is a mob, and if the target is not us.
 		var/mob/mob_target = target
-		if(mob_target.can_block_resonance(1)) // Runs the special can_block_resonance function which also handles the anti-magic part.
-			// I would like to deduct resources on spell fail, but that is going to be so utterly complex. TODO for the future chap who wants this.
+		if(resonant && mob_target.can_block_resonance(1)) // Resonance checks are handled by the resonant var.
+			// I would like to deduct resources on spell fail, but I have no good way of implementing it during the validation layer when most costs happen in the on_action_success layer. TODO for the future chap who wants this.
+			return FALSE
+		// Checks against magic resistances beyond the standard above.
+		if(resonant && magic_resistance_types && mob_target.can_block_magic(magic_resistance_types, charge_cost = 0))
 			return FALSE
 	if(!do_use_time(user, target))
 		return FALSE
+	// on_use_action signaler, emitted from the user so listeners can hook once on the mob.
+	SEND_SIGNAL(user, COMSIG_POWER_ACTION_USED, src, target)
 	if(use_action(user, target))
+		// on_action_success signaler, emitted from the user so listeners can hook once on the mob.
+		SEND_SIGNAL(user, COMSIG_POWER_ACTION_SUCCESS, src, target)
 		on_action_success(user, target)
 		return TRUE
 	return FALSE
@@ -294,6 +303,7 @@ Projectile action code down below
 	if(istype(projectile_instance, /obj/projectile/resonant))
 		var/obj/projectile/resonant/resonant_proj = projectile_instance
 		resonant_proj.creating_power = src
+		resonant_proj.antimagic_flags = magic_resistance_types
 
 	// If you want “on hit” logic for your power, hook it here.
 	RegisterSignal(projectile_instance, COMSIG_PROJECTILE_SELF_ON_HIT, PROC_REF(on_power_projectile_hit))
@@ -308,3 +318,5 @@ Projectile action code down below
 /// Anything that should otherwise happen normally on projectile hit should preferably be handled in /obj/projectile/.../on_hit
 /datum/action/cooldown/power/proc/on_projectile_hit(datum/source, mob/firer, atom/target, angle, hit_limb)
 	return
+
+

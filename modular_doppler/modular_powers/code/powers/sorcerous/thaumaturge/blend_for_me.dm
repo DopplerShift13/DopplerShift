@@ -10,6 +10,7 @@
 
 	action_path = /datum/action/cooldown/power/thaumaturge/blend_for_me
 	required_powers = list(/datum/power/thaumaturge_root)
+	required_allow_subtypes = TRUE
 
 /datum/action/cooldown/power/thaumaturge/blend_for_me
 	name = "Blend For Me"
@@ -20,6 +21,9 @@
 	cooldown_time = 50 // we don't want people spamming the blender noise. that's it. that's the whole reason why we force a 5 second cooldown.
 	required_affinity = 1
 	prep_cost = 2
+	power_refunds = TRUE
+	power_refund_chance = THAUMATURGE_REFUND_MULT_BASE
+	power_refund_affinity_bonus = THAUMATURGE_REFUND_MULT_AFFINITY
 
 	/// The grab damage per tick.
 	var/grab_blend_brute = 12.5
@@ -107,17 +111,6 @@
 	qdel(buffer)
 
 	return TRUE
-
-// To potentially refund it, we run a small check.
-/datum/action/cooldown/power/thaumaturge/blend_for_me/on_action_success(mob/living/user, atom/target, override_charges)
-	var/chance_to_refund = clamp(THAUMATURGE_REFUND_MULT_AFFINITY * affinity + THAUMATURGE_REFUND_MULT_BASE, 0, THAUMATURGE_REFUND_MAX)
-	if(prob(chance_to_refund))
-		override_charges = 0
-		to_chat(owner, span_notice("Your [name] spell did not consume a charge!"))
-	else if(chance_to_refund >= 51) // At this point it's more common that it does not consume a charge, so we invert them and tell them when it does consume a charge!
-		to_chat(owner, span_warning("Your [name] spell consumed a charge!"))
-	return ..(user, target, override_charges)
-
 
 // We create a temporary buffer for holding the reagents, given that our 'blender' in this case isn't a conventional object.
 /obj/effect/abstract/thaum_blend_buffer

@@ -10,6 +10,7 @@
 
 	action_path = /datum/action/cooldown/power/thaumaturge/conjure_rain
 	required_powers = list(/datum/power/thaumaturge_root)
+	required_allow_subtypes = TRUE
 
 /datum/action/cooldown/power/thaumaturge/conjure_rain
 	name = "Conjure Rain"
@@ -41,7 +42,7 @@
 	/// If TRUE, only allow chems that can be synthesized (unless bypassed below).
 	var/require_synthesizable = TRUE
 	/// Chems that bypass synthesizable check.
-	var/list/synth_bypass_chems = list(/datum/reagent/blood) // blood is cool and has synergy iwth sanguine absorption
+	var/list/synth_bypass_chems = list(/datum/reagent/blood) // blood is cool and has synergy with sanguine absorption
 
 /// Is the chem alloewd? If its synthesizable or is on the bypass list.
 /datum/action/cooldown/power/thaumaturge/conjure_rain/proc/is_allowed_rain_reagent(datum/reagent/reagent)

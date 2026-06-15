@@ -1,26 +1,31 @@
+/*
+	Abstract type of the psyker organ which handles most of the stress resource as well as backlash events.
+*/
 /obj/item/organ/resonant/psyker
-	name = "paracausal gland"
-	desc = "An intrusive organ that should not even be able to function in most bodies. Commonly found in the bodies of Psykers. Though many would try to implement these into themselves to try and awaken psychic powers, its presence in those without such powers is often life-threatening."
-	icon = 'icons/obj/medical/organs/organs.dmi'
-	icon_state = "demon_heart-on"
+	name = "abstract psyker organ"
+	desc = "how did you get this?!"
 	healing_factor = STANDARD_ORGAN_HEALING
 	decay_factor = 5 * STANDARD_ORGAN_DECAY //about 12mins to fully decay.
 	slot = ORGAN_SLOT_PSYKER
 	zone = BODY_ZONE_CHEST
 
-	/// The psyker organ handles most of the stress to do with psyker abilities; which is their central currecny. Without this organ, you can't use psyker abilities.
+	/// The psyker organ handles most of the stress to do with psyker abilities; which is their central currency. Without this organ, you can't use psyker abilities.
 	/// Stress is not correlated to organ damage, but organ damage does affect this gland.
 	var/stress = 0
 	/// Stress threshold is how much the psyker organ can handle before the bad events start befalling the user.
 	/// Usually, 1x is the minor events, 1.5x are the major events, and 2x are the catastrophic events.
 	var/stress_threshold = PSYKER_STRESS_STANDARD_THRESHOLD
-	/// Base recovery per second
-	var/recovery_per_second = PSYKER_STRESS_RECOVERY
+	/// The root subtype this organ is meant to work with at full efficiency.
+	var/matching_root_type = /datum/power/psyker_root
+	/// Base recovery per second.
+	var/recovery_per_second = 0
+	/// Time between repeat backlash events while above the stress threshold.
+	var/stress_backlash_cooldown = 90 SECONDS
 
-	///Cooldown for mild stress events
-	var/CDstressMild = 0
-	///Cooldown for major stress events
-	var/CDstressSevere = 0
+	/// Cooldown for mild stress events.
+	COOLDOWN_DECLARE(mild_stress_backlash_cooldown)
+	/// Cooldown for severe stress events.
+	COOLDOWN_DECLARE(severe_stress_backlash_cooldown)
 
 	///The stress warning message
 	var/datum/status_effect/power/stress_warning
@@ -32,47 +37,94 @@
 	var/cap_to = isnum(override_cap) ? override_cap : PSYKER_STRESS_STANDARD_THRESHOLD * 2
 	stress = clamp(stress + amount, 0, cap_to)
 
+/// Returns how much stress should naturally recover each second.
+/obj/item/organ/resonant/psyker/proc/get_stress_recovery_per_second()
+	if(stress >= PSYKER_STRESS_STANDARD_THRESHOLD)
+		return 0
+
+	var/recovery_amount = max(recovery_per_second - (damage * 0.015), 0)
+	if(has_compatible_root() && !has_matching_root())
+		recovery_amount *= 0.5
+
+	return recovery_amount
+
+/// Returns TRUE if the host has any psyker root at all.
+/obj/item/organ/resonant/psyker/proc/has_compatible_root()
+	if(!owner?.powers)
+		return FALSE
+
+	for(var/datum/power/power as anything in owner.powers)
+		if(istype(power, /datum/power/psyker_root))
+			return TRUE
+
+	return FALSE
+
+/// Returns TRUE if the host has the specific root subtype that belongs to this organ
+/obj/item/organ/resonant/psyker/proc/has_matching_root()
+	if(!owner?.powers)
+		return FALSE
+
+	for(var/datum/power/power as anything in owner.powers)
+		if(istype(power, matching_root_type))
+			return TRUE
+
+	return FALSE
+
+/// Updates medscanner visibility flags after the organ is inserted.
+/obj/item/organ/resonant/psyker/Insert(mob/living/carbon/organ_owner, special, movement_flags)
+	. = ..()
+	if(.)
+		update_medscan_flags()
+
+/// Clears the flags on the organ before removal
+/obj/item/organ/resonant/psyker/Remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+	update_medscan_flags(FALSE)
+	return ..()
+
+/// Updates the flags on the medscanner in the event that the person with the organ is not a psyker and when the organ is killing them.
+/obj/item/organ/resonant/psyker/proc/update_medscan_flags()
+	if(has_compatible_root())
+		organ_flags &= ~ORGAN_HAZARDOUS
+		return
+
+	organ_flags |= ORGAN_HAZARDOUS
+
+// If the organ is dangerous, it shows. Otherwise, you need an advanced med-scanner.
+/obj/item/organ/resonant/psyker/get_status_appendix(advanced, add_tooltips)
+	if(organ_flags & ORGAN_HAZARDOUS)
+		return "Hazardous resonant organ detected"
+	if(advanced)
+		return "Unnatural resonant organ detected"
+
+	return ..()
+
+// Handles stress & backlash events
 /obj/item/organ/resonant/psyker/on_life(seconds_per_tick, times_fired)
 	. = ..()
+	update_medscan_flags()
 
 	// If you have the associated power. read; you are a psyker.
-	if(owner.has_power(/datum/power/psyker_root))
+	if(has_compatible_root())
 		if(stress <= 0)
 			stress = 0
 			return
-		var/stress_to_recover = recovery_per_second
-		// Organ damage makes recovery worse
-		stress_to_recover -= (damage * 0.015)
-
-		// Can't recover stress while at high stress.
-		if(stress >= PSYKER_STRESS_STANDARD_THRESHOLD)
-			stress_to_recover = 0
-
-		// Don’t let recovery go negative (would increase stress)
-		stress_to_recover = max(stress_to_recover, 0)
-
-		// Apply recovery, don't let it send stress into the negatives.
-		stress = max(stress - (stress_to_recover * seconds_per_tick), 0)
-
+		stress = max(stress - (get_stress_recovery_per_second() * seconds_per_tick), 0)
 
 		// Check if we do stress backlash after stress reduction.
 		if(stress >= (stress_threshold * 2)) // Catastrophic event.
 			stress_backlash(PSYKER_EVENT_TIER_CATASTROPHIC)
 			owner.dispel(src) // ends most effects
 			stress = 0 // No CD, just a hard reset and the consequences of your actions.
-			CDstressMild = 0
-			CDstressSevere = 0
-		else if(stress >= (stress_threshold * 1.5) && CDstressSevere <= 0) // Severe Event
-			CDstressSevere = 90 // reset CD
+			COOLDOWN_RESET(src, mild_stress_backlash_cooldown)
+			COOLDOWN_RESET(src, severe_stress_backlash_cooldown)
+		// Severe event.
+		else if(stress >= (stress_threshold * 1.5) && COOLDOWN_FINISHED(src, severe_stress_backlash_cooldown))
+			COOLDOWN_START(src, severe_stress_backlash_cooldown, stress_backlash_cooldown)
 			stress_backlash(PSYKER_EVENT_TIER_SEVERE)
-		else if (stress >= stress_threshold && CDstressMild <= 0) // Mild Event
-			CDstressMild = 90 // reset CD
+		// Mild event.
+		else if(stress >= stress_threshold && COOLDOWN_FINISHED(src, mild_stress_backlash_cooldown))
+			COOLDOWN_START(src, mild_stress_backlash_cooldown, stress_backlash_cooldown)
 			stress_backlash(PSYKER_EVENT_TIER_MILD)
-
-		if(CDstressMild > 0)
-			CDstressMild = max(CDstressMild - seconds_per_tick, 0)
-		if(CDstressSevere > 0)
-			CDstressSevere = max(CDstressSevere - seconds_per_tick, 0)
 
 		//Handle the warning status effect
 		if(stress >= stress_threshold && !stress_warning)
@@ -83,7 +135,6 @@
 
 	// In the event that you implant this into someone else.
 	// Currently placeholder til we settle on what it do on people that don't have it.
-	// TODO: Appear on med scanners.
 	else
 		damage += 1
 		owner.apply_damage(damage * 0.1, TOX)
@@ -123,7 +174,7 @@
 		var/weight = initial(event_type.weight)
 		candidates[subtype] = weight
 
-	// We check the canidates, pick one, try it. If it returns true, we ened. If it returns false, we try another.
+	// We check the candidates, pick one, try it. If it returns true, we end. If it returns false, we try another.
 	// In principle this should never fail because each category has one that will always return true.
 	while(length(candidates))
 		var/subtype = pick_weight(candidates)
@@ -135,7 +186,7 @@
 			qdel(event)
 			continue
 
-		// We check if it actually succesfully executed. Qdel it under normal circumstances; if it lingers we don't.
+		// We check if it actually successfully executed. Qdel it under normal circumstances; if it lingers we don't.
 		if(event.execute(human))
 			if(!event.lingering)
 				qdel(event)

@@ -18,6 +18,9 @@
 		"set_augment_arm" = PROC_REF(set_augment_arm),
 	)
 
+/datum/preference_middleware/powers/post_set_preference(mob/user, preference, value)
+	preferences.sanitize_powers()
+
 /datum/preference_middleware/powers/get_ui_data(mob/user)
 	var/list/data = list()
 

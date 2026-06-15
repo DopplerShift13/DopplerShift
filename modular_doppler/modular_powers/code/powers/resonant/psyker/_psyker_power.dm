@@ -9,3 +9,4 @@
 	path = POWER_PATH_PSYKER
 	priority = POWER_PRIORITY_BASIC
 	required_powers = list(/datum/power/psyker_root)
+	required_allow_subtypes = TRUE
