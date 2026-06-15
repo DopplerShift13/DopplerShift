@@ -284,6 +284,9 @@
 // The trait for Psyker's Levitate power.
 #define TRAIT_PSYKER_LEVITATE_FLIGHT "psyker_levitate_flight"
 
+// Efficiency multiplier when using another root's organ
+#define PSYKER_MISMATCHED_ORGAN_EFFICIENCY 0.33
+
 /**
  * RESONANT: ABERRANT
  * All defines related to the aberrant powers.

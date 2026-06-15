@@ -52,7 +52,7 @@ Reduces stress for psykers and restores Energy for cultivators
 
 				// Checks if you have the right psyker power, otherwise reduces it to a third.
 				if(psyker_organ.has_compatible_root() && !psyker_organ.has_matching_root())
-					stress_recovery *= 0.33
+					stress_recovery *= PSYKER_MISMATCHED_ORGAN_EFFICIENCY
 
 				psyker_organ.modify_stress(-stress_recovery)
 				if(psyker_organ.stress <= 0)

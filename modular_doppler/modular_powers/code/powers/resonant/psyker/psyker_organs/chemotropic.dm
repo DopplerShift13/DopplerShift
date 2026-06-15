@@ -71,6 +71,6 @@
 	var/recovery_amount = base_recovery_amount * recovery_multiplier
 	// Wrong root? Recover only a third as much.
 	if(!has_matching_root())
-		recovery_amount *= 0.33
+		recovery_amount *= PSYKER_MISMATCHED_ORGAN_EFFICIENCY
 
 	return recovery_amount + recovery_per_second
