@@ -37,6 +37,11 @@
 	uniform = /obj/item/clothing/under/rank/doppler_cargo/tech
 	suit = /obj/item/clothing/suit/jacket/cargo_coat
 
+/datum/outfit/job/hos
+	backpack_contents = list(
+		/obj/item/melee/baton/doppler_security/loaded = 1,
+		)
+
 /datum/outfit/job/security
 	suit_store = null
 	backpack_contents = list(

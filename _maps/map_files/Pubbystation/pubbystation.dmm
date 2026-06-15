@@ -6797,11 +6797,6 @@
 "aCn" = (
 /obj/machinery/light/small/directional/north,
 /obj/machinery/vending/wardrobe/det_wardrobe,
-/obj/machinery/button/door/directional/north{
-	id = "datboidetective";
-	name = "Privacy Shutters";
-	req_access = list("detective")
-	},
 /turf/open/floor/iron/grimy,
 /area/station/security/detectives_office)
 "aCo" = (
@@ -7733,6 +7728,7 @@
 	fax_name = "Detective's Office";
 	name = "Detective's Fax Machine"
 	},
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "aFo" = (
@@ -7945,6 +7941,10 @@
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
+	},
+/obj/machinery/button/door/directional/south{
+	name = "Privacy Shutters";
+	id = "datboidetective"
 	},
 /turf/open/floor/iron/grimy,
 /area/station/security/detectives_office)
@@ -27918,6 +27918,7 @@
 	},
 /obj/structure/detectiveboard/directional/south,
 /obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/machinery/light/small/directional/south,
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "cPO" = (
@@ -29532,6 +29533,15 @@
 /obj/item/reagent_containers/medigel/sterilizine,
 /turf/open/floor/iron/white/textured_large,
 /area/station/medical/surgery)
+"ehm" = (
+/obj/effect/spawner/structure/window/reinforced,
+/obj/machinery/door/poddoor/shutters/preopen{
+	id = "datboidetective";
+	name = "Privacy Shutters Control"
+	},
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/station/security/detectives_office)
 "ehK" = (
 /obj/effect/turf_decal/stripes/line{
 	dir = 9
@@ -52111,7 +52121,7 @@
 /obj/machinery/newscaster/directional/east,
 /obj/machinery/button/door/directional/south{
 	id = "lawyer_shutters";
-	name = "Privacy Shutters";
+	name = "Privacy Shutters Control";
 	req_access = list("lawyer")
 	},
 /turf/open/floor/carpet,
@@ -79160,7 +79170,7 @@ uUY
 tMK
 aQt
 coP
-aBe
+ehm
 vDq
 aDq
 aEn

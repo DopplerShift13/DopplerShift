@@ -1,5 +1,5 @@
 /datum/supply_pack/imports/wt550
-	name = "Sindaryo PDW Crate"
+	name = "Smuggled Sindaryo PDW Crate"
 	desc = "(*!&@#I know a guy, over on New Gibraltar. He has mountains of these things, I don't know why. \
 		Maybe he's a collector or something. It's not important, what is, is that he's willing to part with \
 		a few if you have the right kind of compensation.!#@*$"
@@ -12,7 +12,7 @@
 	crate_type = /obj/structure/closet/crate/secure/syndicate/gorlex/weapons/bustedlock
 
 /datum/supply_pack/imports/wt550ammo
-	name = "Sindaryo Ammo Crate"
+	name = "Smuggled Sindaryo Ammo Crate"
 	desc = "(*!&@#We never found where he even got all of these, I never think it wise to ask anyway. \
 		I'm not going to start pushing the guy with a mountain of clone guns on where he got them all.!#@*$"
 	hidden = FALSE

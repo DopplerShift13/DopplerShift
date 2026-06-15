@@ -700,6 +700,30 @@
 	name = "Reptile Frills"
 	icon_state = "hair_frillsbig"
 
+/datum/sprite_accessory/hair/modular/twinbun_chunky
+	name = "Chunky Twin Buns"
+	icon_state = "hair_twinbun_chunky"
+
+/datum/sprite_accessory/hair/modular/quadbun_chunky
+	name = "Chunky Quad Buns"
+	icon_state = "hair_quadbun_chunky"
+	y_offset = 1
+
+/datum/sprite_accessory/hair/modular/ponytail_chunky
+	name = "Chunky Ponytail"
+	icon_state = "hair_ponytail_chunky"
+	hair_appendages_inner = list("hair_ponytail_chunky" = HAIR_APPENDAGE_REAR)
+
+/datum/sprite_accessory/hair/modular/ponytail_kzero
+	name = "'Zero' Ponytail"
+	icon_state = "hair_ponytail_kzero"
+	hair_appendages_inner = list("hair_ponytail_kzero" = HAIR_APPENDAGE_REAR)
+
+/datum/sprite_accessory/hair/modular/misshapen
+	name = "Misshapen"
+	icon_state = "hair_misshapen"
+
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/modular
