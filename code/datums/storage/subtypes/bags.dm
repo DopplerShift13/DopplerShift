@@ -204,7 +204,7 @@
 /datum/storage/bag/construction
 	max_total_storage = 100
 	max_slots = 50
-	max_specific_storage = WEIGHT_CLASS_SMALL // DOPPLER EDIT - Construction bags hold shipbreaking scrap items - max_specific_storage = WEIGHT_CLASS_SMALL
+	max_specific_storage = WEIGHT_CLASS_NORMAL // DOPPLER EDIT - Construction bags hold shipbreaking scrap items - max_specific_storage = WEIGHT_CLASS_SMALL
 
 /datum/storage/bag/construction/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
