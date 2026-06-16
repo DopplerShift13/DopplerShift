@@ -635,6 +635,14 @@
 	},
 /turf/open/floor/iron,
 /area/station/salvage_bay)
+"Gs" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 8
+	},
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/open/space/openspace,
+/area/space/nearstation)
 "Gu" = (
 /obj/machinery/atmospherics/components/unary/passive_vent/layer2{
 	dir = 8
@@ -656,6 +664,11 @@
 	},
 /turf/open/misc/asteroid,
 /area/station/salvage_bay)
+"Hm" = (
+/obj/structure/lattice/catwalk,
+/obj/structure/lattice,
+/turf/open/space/openspace,
+/area/space/nearstation)
 "Ij" = (
 /obj/structure/girder/reinforced,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -876,6 +889,11 @@
 	dir = 1
 	},
 /area/station/salvage_bay)
+"TK" = (
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/open/space/openspace,
+/area/space/nearstation)
 "TN" = (
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/misc/asteroid,
@@ -938,6 +956,14 @@
 "WN" = (
 /obj/structure/shuttle_decoration/headlight/directional/east,
 /turf/closed/wall/r_wall,
+/area/space/nearstation)
+"Xd" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 8
+	},
+/obj/structure/lattice,
+/obj/structure/lattice,
+/turf/open/space/openspace,
 /area/space/nearstation)
 "XK" = (
 /obj/structure/railing{
@@ -1969,7 +1995,7 @@ So
 lr
 lr
 lr
-So
+TK
 eS
 eS
 eS
@@ -2025,15 +2051,15 @@ Sl
 lt
 lt
 lt
-So
-lr
-lr
-lr
-So
-eS
-eS
-eS
-So
+TK
+Xd
+Xd
+Xd
+Hm
+Gs
+Gs
+Gs
+TK
 lt
 lt
 WA
@@ -2086,13 +2112,13 @@ lt
 So
 So
 So
+lr
+lr
+lr
 So
-So
-So
-So
-So
-So
-So
+eS
+eS
+eS
 So
 So
 So

@@ -40069,6 +40069,13 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
+"msC" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "msO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -48964,6 +48971,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"sOd" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "sOm" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 4
@@ -80568,7 +80582,7 @@ eTg
 gZu
 qyV
 qyV
-qyV
+sOd
 qyV
 aaa
 aaa
@@ -80825,7 +80839,7 @@ eTg
 eTg
 qyV
 qyV
-qyV
+sOd
 qyV
 aaa
 aaa
@@ -81082,7 +81096,7 @@ eTg
 qnM
 qyV
 qyV
-qyV
+sOd
 qyV
 aaa
 aaa
@@ -81596,7 +81610,7 @@ nYb
 gZu
 tmV
 tmV
-tmV
+msC
 tmV
 aaa
 aaa
@@ -81853,7 +81867,7 @@ nYb
 eTg
 tmV
 tmV
-tmV
+msC
 tmV
 aaa
 aaa
@@ -82110,7 +82124,7 @@ nYb
 qnM
 tmV
 tmV
-tmV
+msC
 tmV
 aaa
 aaa

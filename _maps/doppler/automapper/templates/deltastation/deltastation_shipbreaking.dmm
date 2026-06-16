@@ -215,6 +215,13 @@
 /obj/structure/lattice/catwalk,
 /turf/open/space/basic,
 /area/space/nearstation)
+"rV" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "sw" = (
 /obj/structure/lattice,
 /obj/structure/marker_beacon/yellow,
@@ -495,6 +502,13 @@
 /obj/structure/lattice/catwalk,
 /obj/structure/railing/eva_handhold/directional/east,
 /obj/structure/railing/eva_handhold/directional/west,
+/turf/open/space/basic,
+/area/space/nearstation)
+"MY" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 1
+	},
+/obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
 "MZ" = (
@@ -995,8 +1009,8 @@ iA
 ul
 jS
 jS
+MY
 jS
-wA
 wA
 wA
 wA
@@ -1038,8 +1052,8 @@ LO
 iA
 jS
 jS
+MY
 jS
-wA
 wA
 wA
 wA
@@ -1081,8 +1095,8 @@ YA
 nZ
 jS
 jS
+MY
 jS
-wA
 wA
 wA
 wA
@@ -1167,8 +1181,8 @@ OC
 ul
 UW
 UW
+rV
 UW
-wA
 wA
 wA
 wA
@@ -1210,8 +1224,8 @@ OC
 iA
 UW
 UW
+rV
 UW
-wA
 wA
 wA
 wA
@@ -1253,8 +1267,8 @@ OC
 nZ
 UW
 UW
+rV
 UW
-wA
 wA
 wA
 wA

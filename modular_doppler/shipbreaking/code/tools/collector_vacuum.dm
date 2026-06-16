@@ -5,10 +5,14 @@
 	icon_state = "inlet"
 	invisibility = 0
 	color = "#4699a6"
+	light_range = 1
+	light_power = 2
+	light_on = TRUE
 
 /obj/effect/wind/shipbreaking_collector/Initialize(mapload)
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)
+	light_color = color
 
 /obj/effect/wind/shipbreaking_collector/update_overlays()
 	. = ..()
