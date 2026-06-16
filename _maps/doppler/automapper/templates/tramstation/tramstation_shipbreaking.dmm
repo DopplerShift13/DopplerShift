@@ -814,6 +814,18 @@
 /turf/open/floor/iron,
 /area/station/salvage_bay)
 "Pp" = (
+/obj/structure/shelf,
+/obj/item/storage/bag/construction{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/storage/bag/construction{
+	pixel_x = 2
+	},
+/obj/item/storage/bag/construction{
+	pixel_x = -1;
+	pixel_y = 7
+	},
 /obj/structure/railing{
 	dir = 8
 	},
