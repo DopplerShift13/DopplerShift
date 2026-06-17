@@ -23,7 +23,7 @@
 
 
 /datum/component/holosynth_effects/proc/make_hologram_glowless()
-	parent_as_human.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(rgb(125,180,225, HOLOSYNTH_OPACITY * 255)))
+	parent_as_human.add_filter("HOLO: Color and Transparent", 1, color_matrix_filter(parent_as_human.dna.features[FEATURE_MUTANT_COLOR], HOLOSYNTH_OPACITY * 255))
 	var/atom/movable/scanline = new(null)
 	scanline.icon = 'icons/effects/effects.dmi'
 	scanline.icon_state = "scanline"
