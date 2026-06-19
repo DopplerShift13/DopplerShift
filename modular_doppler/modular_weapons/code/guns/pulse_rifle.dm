@@ -25,6 +25,8 @@
 	spread = 5
 	recoil = 0.1
 	pin = /obj/item/firing_pin/explorer/mining
+	/// Unloaded .980 underbarrel grenade launcher fired by right clicking
+	var/obj/item/gun/ballistic/underbarrel = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer/safer
 	/// List of the possible firing sounds
 	var/list/firing_sound_list = list(
 		'sound/items/weapons/gun/smartgun/smartgun_shoot_1.ogg',
@@ -35,6 +37,7 @@
 /obj/item/gun/ballistic/automatic/karim/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
+	underbarrel = new()
 
 /obj/item/gun/ballistic/automatic/karim/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
@@ -45,6 +48,18 @@
 
 /obj/item/gun/ballistic/automatic/karim/emag_act(mob/user, obj/item/card/emag/emag_card)
 	pin.emag_act(user, emag_card) // So emagging the gun emags the pin
+	return ..()
+
+/obj/item/gun/ballistic/automatic/karim/try_fire_gun(atom/target, mob/living/user, params)
+	if(LAZYACCESS(params2list(params), RIGHT_CLICK))
+		return underbarrel.try_fire_gun(target, user, params)
+	return ..()
+
+/obj/item/gun/ballistic/automatic/karim/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(isammocasing(tool))
+		if(istype(tool, underbarrel.magazine.ammo_type))
+			underbarrel.item_interaction(user, tool, modifiers)
+		return ITEM_INTERACT_BLOCKING
 	return ..()
 
 /obj/item/gun/ballistic/automatic/karim/no_mag
@@ -71,6 +86,50 @@
 /datum/orderable_item/accelerator/pulse_ammo_minebot
 	purchase_path = /obj/item/ammo_box/magazine/karim/minebot
 	cost_per_order = 40
+
+// Larp variants of the pulse rifle for the Void Corps; including a longer cool version and a machinegun version
+
+/obj/item/gun/ballistic/automatic/karim/voidcorps
+	name = "\improper Karim/EVC Pulse Rifle"
+	desc = "A compact rifle with high magazine capacity and fire-rate. A novel design that replaces many common firearm \
+		components with electrified alternatives, allowing a much smaller size for the firepower it provides. \
+		This specific variant is purpose-built for extra-vehicular combat, with a heavier barrel and upgraded receiver."
+	icon = 'modular_doppler/modular_weapons/icons/obj/guns48x.dmi'
+	icon_state = "karim_evc"
+	worn_icon_state = "karim_evc"
+	SET_BASE_PIXEL(-2, 0)
+	spawn_magazine_type = /obj/item/ammo_box/magazine/karim/tcc
+	pin = /obj/item/firing_pin/implant/mindshield
+	/// Evil ass loaded grenade launcher variant
+	underbarrel = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer
+
+/obj/item/gun/ballistic/automatic/karim/voidcorps/unrestricted
+	pin = /obj/item/firing_pin
+
+/obj/item/gun/ballistic/automatic/l6_saw/minhir
+	name = "\improper Minhir Heavy Pulse Rifle"
+	desc = "A compact machinegun with a staggeringly massive ammunition capacity and a blisteringly high rate of fire \
+		designed to capitalize on the efficiency of an electronic firing action. Though weighty, it remains surprisingly \
+		compact and easy to carry in comparison to more antiquated squad automatic weapons."
+	icon = 'modular_doppler/modular_weapons/icons/obj/guns48x.dmi'
+	icon_state = "minhir"
+	worn_icon = 'modular_doppler/modular_weapons/icons/mob/worn/guns.dmi'
+	worn_icon_state = "minhir"
+	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_lefthand.dmi'
+	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
+	inhand_icon_state = "minhir"
+	SET_BASE_PIXEL(-2, 0)
+	fire_delay = 0.016 SECONDS /// translates to ~600 rounds per minute, or an entire box emptied in 30 seconds
+	/// We have to define all of the normal pulse rifle characteristics because this is an L6 subtype for the sake of the cool feed tray thingy
+	spread = 5
+	recoil = 0.1
+	mag_display = FALSE
+	mag_display_ammo = FALSE
+	accepted_magazine_type = /obj/item/ammo_box/magazine/karim/minhir
+	pin = /obj/item/firing_pin/implant/mindshield
+
+/obj/item/gun/ballistic/automatic/l6_saw/minhir/unrestricted
+	pin = /obj/item/firing_pin
 
 /obj/item/firing_pin/explorer/mining
 	name = "mining firing pin"

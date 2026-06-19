@@ -7726,6 +7726,7 @@
 #include "modular_doppler\modular_weapons\code\guns\bolt_thrower.dm"
 #include "modular_doppler\modular_weapons\code\guns\cargo.dm"
 #include "modular_doppler\modular_weapons\code\guns\crankin_my.dm"
+#include "modular_doppler\modular_weapons\code\guns\grenade_launcher.dm"
 #include "modular_doppler\modular_weapons\code\guns\marcielle.dm"
 #include "modular_doppler\modular_weapons\code\guns\naval_gun.dm"
 #include "modular_doppler\modular_weapons\code\guns\NO_MORE_BATTLE_RIFLE.dm"
