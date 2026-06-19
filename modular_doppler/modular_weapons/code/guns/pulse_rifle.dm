@@ -26,7 +26,8 @@
 	recoil = 0.1
 	pin = /obj/item/firing_pin/explorer/mining
 	/// Unloaded .980 underbarrel grenade launcher fired by right clicking
-	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/underbarrel = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer/safer
+	var/underbarrel_type = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer/safer
+	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/underbarrel
 	/// List of the possible firing sounds
 	var/list/firing_sound_list = list(
 		'sound/items/weapons/gun/smartgun/smartgun_shoot_1.ogg',
@@ -37,7 +38,7 @@
 /obj/item/gun/ballistic/automatic/karim/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
-	underbarrel = new()
+	underbarrel = new underbarrel_type()
 
 /obj/item/gun/ballistic/automatic/karim/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
@@ -102,7 +103,7 @@
 	spawn_magazine_type = /obj/item/ammo_box/magazine/karim/tcc
 	pin = /obj/item/firing_pin/implant/mindshield
 	/// Evil ass loaded grenade launcher variant
-	underbarrel = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer
+	underbarrel_type = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer
 
 /obj/item/gun/ballistic/automatic/karim/voidcorps/unrestricted
 	pin = /obj/item/firing_pin
@@ -121,7 +122,6 @@
 	inhand_icon_state = "minhir"
 	SET_BASE_PIXEL(-2, 0)
 	fire_delay = 0.165 SECONDS
-	rof = 0.016 SECONDS /// translates to ~600 rounds per minute, or an entire box emptied in 30 seconds
 	/// We have to define all of the normal pulse rifle characteristics because this is an L6 subtype for the sake of the cool feed tray thingy
 	spread = 5
 	recoil = 0.1
@@ -134,6 +134,10 @@
 		'sound/items/weapons/gun/smartgun/smartgun_shoot_2.ogg',
 		'sound/items/weapons/gun/smartgun/smartgun_shoot_3.ogg',
 	)
+
+/obj/item/gun/ballistic/automatic/l6_saw/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/automatic_fire, 0.016 SECONDS)
 
 /obj/item/gun/ballistic/automatic/l6_saw/minhir/fire_sounds()
 	var/picked_fire_sound = pick(firing_sound_list)
