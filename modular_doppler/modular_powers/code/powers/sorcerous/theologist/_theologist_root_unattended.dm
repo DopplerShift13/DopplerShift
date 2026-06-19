@@ -3,4 +3,4 @@
 	name = "A Burden Unattended"
 	desc = "Alleviating the burdens of others is not your duty.\
 	\nGrants you access to Theologist powers without the heavier cost of the other Burden powers, but comes with no other benefits."
-	value = 1
+	value = 0
