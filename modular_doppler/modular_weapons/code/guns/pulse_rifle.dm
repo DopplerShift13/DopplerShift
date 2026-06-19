@@ -120,7 +120,8 @@
 	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
 	inhand_icon_state = "minhir"
 	SET_BASE_PIXEL(-2, 0)
-	fire_delay = 0.016 SECONDS /// translates to ~600 rounds per minute, or an entire box emptied in 30 seconds
+	fire_delay = 0.165 SECONDS
+	rof = 0.016 SECONDS /// translates to ~600 rounds per minute, or an entire box emptied in 30 seconds
 	/// We have to define all of the normal pulse rifle characteristics because this is an L6 subtype for the sake of the cool feed tray thingy
 	spread = 5
 	recoil = 0.1
