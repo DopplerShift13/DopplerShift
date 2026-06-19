@@ -2,7 +2,7 @@
 */
 /datum/power/theologist/pious_prayer
 	name = "Pious Prayer"
-	desc = "Focus yourself into prayer. If you are in the Chapel, this grants you Piety unless you have 5 or more Piety. Performing prayers elsewhere only has a small chance to grant Piety. Being religious increases the efficiency of this skill."
+	desc = "Focus yourself into prayer. If you are in the Chapel, this grants you Piety unless you have 10 or more Piety. Performing prayers elsewhere only has a small chance to grant Piety. Being religious increases the efficiency of this skill."
 	security_record_text = "Subject fuels their powers with visits to the Chapel."
 	value = 2
 
