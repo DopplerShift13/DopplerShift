@@ -26,7 +26,7 @@
 	recoil = 0.1
 	pin = /obj/item/firing_pin/explorer/mining
 	/// Unloaded .980 underbarrel grenade launcher fired by right clicking
-	var/obj/item/gun/ballistic/underbarrel = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer/safer
+	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/underbarrel = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer/safer
 	/// List of the possible firing sounds
 	var/list/firing_sound_list = list(
 		'sound/items/weapons/gun/smartgun/smartgun_shoot_1.ogg',
@@ -97,6 +97,7 @@
 	icon = 'modular_doppler/modular_weapons/icons/obj/guns48x.dmi'
 	icon_state = "karim_evc"
 	worn_icon_state = "karim_evc"
+	inhand_icon_state = "karim_evc"
 	SET_BASE_PIXEL(-2, 0)
 	spawn_magazine_type = /obj/item/ammo_box/magazine/karim/tcc
 	pin = /obj/item/firing_pin/implant/mindshield
@@ -127,6 +128,24 @@
 	mag_display_ammo = FALSE
 	accepted_magazine_type = /obj/item/ammo_box/magazine/karim/minhir
 	pin = /obj/item/firing_pin/implant/mindshield
+	var/list/firing_sound_list = list(
+		'sound/items/weapons/gun/smartgun/smartgun_shoot_1.ogg',
+		'sound/items/weapons/gun/smartgun/smartgun_shoot_2.ogg',
+		'sound/items/weapons/gun/smartgun/smartgun_shoot_3.ogg',
+	)
+
+/obj/item/gun/ballistic/automatic/l6_saw/minhir/fire_sounds()
+	var/picked_fire_sound = pick(firing_sound_list)
+	playsound(src, picked_fire_sound, fire_sound_volume, vary_fire_sound)
+
+// overrides base L6 SAW inhand icon behavior
+/obj/item/gun/ballistic/automatic/l6_saw/minhir/update_icon_state()
+	. = ..()
+	inhand_icon_state = "minhir"
+
+/obj/item/gun/ballistic/automatic/l6_saw/minhir/update_overlays()
+	. = ..()
+	. += "minhir_door_[cover_open ? "open" : "closed"]"
 
 /obj/item/gun/ballistic/automatic/l6_saw/minhir/unrestricted
 	pin = /obj/item/firing_pin
