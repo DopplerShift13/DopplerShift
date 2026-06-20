@@ -107,7 +107,7 @@
 	worn_icon_state = "karim_evc"
 	inhand_icon_state = "karim_evc"
 	SET_BASE_PIXEL(-2, 0)
-	spawn_magazine_type = /obj/item/ammo_box/magazine/karim/tcc
+	spawn_magazine_type = /obj/item/ammo_box/magazine/karim
 	pin = /obj/item/firing_pin/implant/mindshield
 	/// Evil ass loaded grenade launcher variant
 	underbarrel_type = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer

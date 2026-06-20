@@ -11,13 +11,6 @@
 	. = ..()
 	AddElement(/datum/element/caseless)
 
-/obj/item/ammo_casing/europan4mm/tcc
-	name = "4mm Callistan TCC casing"
-	desc = "A small caseless round for use in the Karim Electrics pulse rifle, with a tungsten-carbide core designed to defeat modern body armor."
-	icon_state = "4mm_europa_tcc"
-	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/europan4mm/tcc
-	projectile_type = /obj/projectile/bullet/europan4mm/tcc
-
 /obj/item/ammo_casing/europan4mm/minebot
 	name = "4mm Callistan passthrough casing"
 	desc = "A small caseless round for use in the Karim Electrics pulse rifle. These bullets dodge around minebots."
@@ -39,11 +32,6 @@
 	. = ..()
 	set_light(l_on = TRUE)
 
-/obj/projectile/bullet/europan4mm/tcc
-	damage = 20
-	armour_penetration = 40
-	speed = 3
-
 /obj/projectile/bullet/europan4mm/minebot
 	speed = 1.5
 
@@ -62,14 +50,6 @@
 	casing_z_padding = 6
 
 /obj/item/ammo_box/magazine/ammo_stack/europan4mm/prefilled
-	start_empty = FALSE
-
-/obj/item/ammo_box/magazine/ammo_stack/europan4mm/tcc
-	name = "4mm Callistan TCC casings"
-	desc = "A stack of 4mm Callistan Tungsten-Carbide Core cartridges."
-	ammo_type = /obj/item/ammo_casing/europan4mm/tcc
-
-/obj/item/ammo_box/magazine/ammo_stack/europan4mm/tcc/prefilled
 	start_empty = FALSE
 
 /obj/item/ammo_box/magazine/ammo_stack/europan4mm/prefilled/minebot
@@ -98,17 +78,11 @@
 	icon_state = "karim_mag_minebot"
 	ammo_type = /obj/item/ammo_casing/europan4mm/minebot
 
-// Void Corps pulse rifle/heavy pulse rifle magazines with evil ammunition
-
-/obj/item/ammo_box/magazine/karim/tcc
-	name = "\improper Karim pulse rifle TCC magazine"
-	desc = "A standard size magazine for Karim pulse rifles, holds fifty armor-piercing rounds."
-	icon_state = "karim_mag_tcc"
-	ammo_type = /obj/item/ammo_casing/europan4mm/tcc
-
 /obj/item/ammo_box/magazine/karim/minhir
-	name = "\improper Minhir heavy pulse rifle belt box"
-	desc = "A high-capacity belt box for the Minhir heavy pulse rifle, holding a whopping three hundred armor-piercing rounds."
+	name = "\improper Minhir heavy pulse rifle ammo box"
+	desc = "A high-capacity ammo box for the Minhir heavy pulse rifle, holding a whopping three hundred armor-piercing rounds. \
+		Rather than an exposed set of links, rounds are fed through a flexible enclosed tube to prevent dirt from entering the \
+		weapon's mechanism."
 	icon_state = "minhir_box"
 	max_ammo = 300
 	w_class = WEIGHT_CLASS_NORMAL

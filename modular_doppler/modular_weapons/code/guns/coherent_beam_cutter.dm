@@ -1,11 +1,11 @@
-// the Handheld Coherent Beam Cutter is a laser weapon that shoots a constant beam that can easily cut right through walls, doors, and most other structures
+// the Handheld Coherent Beam Cutter is a laser weapon that shoots a constant beam that can easily cut right through walls, windows, and most other structures
 
 // this is the amount of charge used per heat unit when welding with the cutter
 #define BEAM_CUTTER_CHARGE_WELD (0.050 * STANDARD_CELL_CHARGE)
 
 /obj/item/gun/energy/coherent_beam_cutter
 	name = "\improper Handheld Coherent Beam Cutter"
-	desc = "A compact, stockless energy weapon with a peculiar set of rotating coils surrounding the barrel and\
+	desc = "A compact, stockless energy weapon with a peculiar set of rotating coils surrounding the barrel and \
 		a completely separate handguard to keep your palms away from any moving parts. Cutters like these are used \
 		in many industrial applications like shipbreaking, but work just as well as weapons or breaching tools."
 	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
@@ -37,7 +37,7 @@
 	if(QDELETED(cell))
 		balloon_alert(user, "no cell inserted!")
 		return FALSE
-	// A cutter weld charge costs are 50 charge from the cutter's 5000
+	// A cutter weld charge costs 50 charge from the cutter's 5000
 	// We take away 50 charge for every unit of heat required, with equal base heat to a normal welding tool
 	if(amount ? cell.charge < BEAM_CUTTER_CHARGE_WELD * amount : cell.charge < BEAM_CUTTER_CHARGE_WELD)
 		balloon_alert(user, "not enough charge!")
@@ -62,15 +62,18 @@
 	else
 		. = ..(amount=1)
 
-/obj/item/gun/energy/coherent_beam_cutter/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!status && interacting_with.is_refillable())
-		reagents.trans_to(interacting_with, reagents.total_volume, transferred_by = user)
-		to_chat(user, span_notice("You empty [src]'s fuel tank into [interacting_with]."))
-		update_appearance()
-		return ITEM_INTERACT_SUCCESS
-	if(!ishuman(interacting_with))
-		return NONE
-	if(user.combat_mode)
-		return NONE
+// self-charging variant that has a smaller power cell to represent the barrel overheating from sustained fire
+/obj/item/gun/energy/coherent_beam_cutter/selfcharging
+	name = "\improper Handheld Coherent Beam Cutter"
+	desc = "A compact, stockless energy weapon with a peculiar set of rotating coils surrounding the barrel and \
+		a completely separate handguard to keep your palms away from any moving parts. While most industrial beam \
+		cutters require regular recharging, this variant has been retrofitted with a cyclic power generator, at the \
+		noted cost of it being far easier to overheat."
+	icon_state = "handheld_cbc_infinite"
+	shaded_charge = TRUE
+	selfcharge = TRUE
+	charge_delay = 0
+	charge_timer = 0
+	cell_type = /obj/item/stock_parts/power_store/cell
 
 #undef BEAM_CUTTER_CHARGE_WELD

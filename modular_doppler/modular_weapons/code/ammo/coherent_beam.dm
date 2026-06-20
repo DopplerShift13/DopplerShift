@@ -31,17 +31,15 @@
 		else
 			SSexplosions.lowturf += target
 
-lowturf
-
 /// Looping sound for the beam cutter
 /datum/looping_sound/coherent_beam_cutter
-	start_sound = list('modular_doppler/modular_weapon/sounds/start_beam.wav' = 1)
+	start_sound = list('modular_doppler/modular_weapons/sounds/start_beam.wav' = 1)
 	start_volume = 100
-	start_length = 200 MILLISECONDS
-	mid_sounds = list('modular_doppler/modular_weapon/sounds/constant_beam.wav' = 1)
+	start_length = 1 SECONDS
+	mid_sounds = list('modular_doppler/modular_weapons/sounds/constant_beam.wav' = 1)
 	mid_length = 3 SECONDS
 	volume = 100
-	end_sound = list('modular_doppler/modular_weapon/sounds/end_beam.wav' = 1)
-	end_volume = 15
+	end_sound = list('modular_doppler/modular_weapons/sounds/end_beam.wav' = 1)
+	end_volume = 100
 	ignore_walls = FALSE
 	reserve_random_channel = TRUE
