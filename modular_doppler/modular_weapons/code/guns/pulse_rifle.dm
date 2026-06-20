@@ -125,7 +125,7 @@
 	worn_icon_state = "minhir"
 	inhand_icon_state = "minhir"
 	SET_BASE_PIXEL(-2, 0)
-	fire_delay = 0.016 SECONDS
+	fire_delay = 0.14 SECONDS
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	tac_reloads = FALSE
@@ -163,7 +163,7 @@
 	return .
 
 /obj/item/gun/ballistic/automatic/karim/minhir/attack_hand(mob/user, list/modifiers)
-	if (loc != user)
+	if (!user.is_holding(src))
 		..()
 		return
 	if (!cover_open)
@@ -171,11 +171,11 @@
 		return
 	..()
 
-/obj/item/gun/ballistic/automatic/karim/minhir/attackby(obj/item/A, mob/user, list/modifiers, list/attack_modifiers)
-	if(!cover_open && istype(A, accepted_magazine_type))
-		balloon_alert(user, "open the cover!")
-		return
-	..()
+/obj/item/gun/ballistic/automatic/karim/minhir/insert_magazine(obj/item/I, mob/user)
+    if(!cover_open && istype(I, accepted_magazine_type))
+        balloon_alert(user, "open the cover!")
+        return FALSE
+    return ..()
 
 /obj/item/gun/ballistic/automatic/karim/minhir/unrestricted
 	pin = /obj/item/firing_pin

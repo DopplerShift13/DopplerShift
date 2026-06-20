@@ -13,7 +13,7 @@
 
 /obj/item/ammo_casing/europan4mm/tcc
 	name = "4mm Callistan TCC casing"
-	desc = "A small military-grade caseless round for use in the Karim Electrics pulse rifle, with a tungsten-carbide core designed to defeat modern body armor."
+	desc = "A small caseless round for use in the Karim Electrics pulse rifle, with a tungsten-carbide core designed to defeat modern body armor."
 	icon_state = "4mm_europa_tcc"
 	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/europan4mm/tcc
 	projectile_type = /obj/projectile/bullet/europan4mm/tcc
@@ -40,7 +40,7 @@
 	set_light(l_on = TRUE)
 
 /obj/projectile/bullet/europan4mm/tcc
-	damage = 30
+	damage = 20
 	armour_penetration = 40
 	speed = 3
 
