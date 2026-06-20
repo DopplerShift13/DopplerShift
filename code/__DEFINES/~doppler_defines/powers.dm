@@ -83,9 +83,6 @@
  * All defines related to the sorcerous archetype.
  */
 
-/// Trait held by all under the sorcerous archetype.
-#define TRAIT_ARCHETYPE_SORCEROUS "archetype_sorcerous"
-
 /**
  * SORCEROUS: THAUMATURGE
  * All defines related to the Thaumaturge powers.
@@ -190,10 +187,6 @@
  * RESONANT
  * All defines related to the resonant archetype.
  */
-
-/// Trait held by all under the resonant archetype.
-#define TRAIT_ARCHETYPE_RESONANT "archetype_resonant"
-
 
 /**
  * RESONANT: CULTIVATOR

@@ -82,16 +82,6 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		POWER_PRIORITY_BASIC,
 		POWER_PRIORITY_ADVANCED,
 	)
-	/// Assoc. list of all mutually exclusive power paths. // TODO: NO LONGER TRUE
-	var/static/list/power_paths = list(
-		POWER_ARCHETYPE_SORCEROUS = list(
-			POWER_PATH_THAUMATURGE,
-			POWER_PATH_ENIGMATIST,
-			POWER_PATH_THEOLOGIST,
-		),
-		POWER_ARCHETYPE_RESONANT = list(),
-		POWER_ARCHETYPE_MORTAL = list(),
-	)
 	/// List of powers removed from players by the powers sanitization.
 	var/list/powers_removed
 

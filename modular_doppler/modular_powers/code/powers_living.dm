@@ -58,6 +58,20 @@
 	return FALSE
 
 /**
+ * Checks whether the mob has any power on a given path.
+ *
+ * Arguments:
+ * * power_path - The path identifier to check against, e.g. POWER_PATH_THAUMATURGE
+ *
+ * Returns TRUE if any owned power matches the path, FALSE otherwise.
+ */
+/mob/living/proc/has_power_in_path(power_path)
+	for(var/datum/power/power in powers)
+		if(power.path == power_path)
+			return TRUE
+	return FALSE
+
+/**
  * Getter function for a mob's power
  *
  * Arguments:

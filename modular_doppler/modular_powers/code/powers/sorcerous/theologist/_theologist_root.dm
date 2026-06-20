@@ -4,7 +4,7 @@
 	Present this to the developers for the next hint in your quest. Because you're not actually meant to have this."
 	abstract_parent_type = /datum/power/theologist_root
 
-	mob_trait = TRAIT_ARCHETYPE_SORCEROUS
+
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THEOLOGIST
 	priority = POWER_PRIORITY_ROOT
