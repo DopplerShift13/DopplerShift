@@ -237,7 +237,8 @@
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_DISARM)
 	if(defender.stat == CONSCIOUS && !defender.IsParalyzed() && attacker.combat_mode)
 		var/obj/item/disarmed_item = defender.get_active_held_item()
-		if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item) && prob(20))
+		if(disarmed_item && prob(20))
+			defender.temporarilyRemoveItemFromInventory(disarmed_item)
 			attacker.put_in_hands(disarmed_item)
 		else
 			disarmed_item = null
