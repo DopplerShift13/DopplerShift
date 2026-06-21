@@ -1,5 +1,5 @@
-/datum/outfit/centcom/ert/pa_emergency
-	name = "Port Authority Emergency Corps Commander"
+/datum/outfit/centcom/ert/parc
+	name = "Port Authority Response Corps Commander"
 
 	id = /obj/item/card/id/advanced/centcom/ert
 	uniform = /obj/item/clothing/under/rank/engineering/breach_skinsuit/pressuresuit

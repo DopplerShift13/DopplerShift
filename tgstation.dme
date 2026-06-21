@@ -7565,6 +7565,8 @@
 #include "modular_doppler\modular_quirks\visitor\code\visitor.dm"
 #include "modular_doppler\modular_quirks\visitor\code\visitor_card.dm"
 #include "modular_doppler\modular_quirks\visitor\code\visitor_on_join.dm"
+#include "modular_doppler\modular_response_teams\code\clothing.dm"
+#include "modular_doppler\modular_response_teams\code\outfits.dm"
 #include "modular_doppler\modular_scryers\code\brick_phone_scryer.dm"
 #include "modular_doppler\modular_scryers\code\cargo.dm"
 #include "modular_doppler\modular_scryers\code\designs.dm"

@@ -98,3 +98,42 @@
 	worn_icon = 'modular_doppler/modular_response_teams/icons/onmob.dmi'
 	/// Duffel-type slightly extra back storage, without the cost of having to care about the zipper
 	storage_type = /datum/storage/duffel
+
+/obj/item/clothing/head/soft/parc
+	name = "PA-RC cap"
+	desc = "A nice brown baseball cap representing the Port Authority Response Corps."
+	icon = 'modular_doppler/modular_response_teams/icons/icon.dmi'
+	icon_state = "workhat"
+	worn_icon = 'modular_doppler/modular_response_teams/icons/onmob.dmi'
+	dog_fashion = null
+
+/obj/item/radio/headset/headset_frontier_colonist/parc
+	name = "PA-RC radio headset"
+	desc = "A bulky headset designed to survive the most unruly of conditions. Though not as bulky as a standard frontier \
+		radio headset, it's still significantly larger than the usual earpieces. These Port Authority Response Corps variants \
+		feature active audio balancing to help mitigate the impact of incredibly loud noises, while also keeping the wearer \
+		verbally audible in low-pressure environments."
+	/// Comes with a captain key to ensure that PARC dudes can access command/engi/medical communications instead of just command
+	keyslot = /obj/item/encryptionkey/headset_cent
+	keyslot2 = /obj/item/encryptionkey/heads/captain
+	resistance_flags = FIRE_PROOF
+
+/obj/item/radio/headset/headset_frontier_colonist/parc/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/wearertargeting/earprotection)
+
+/obj/item/radio/headset/headset_frontier_colonist/parc/equipped(mob/living/carbon/human/user, slot)
+	. = ..()
+	if(slot & ITEM_SLOT_EARS)
+		ADD_TRAIT(user, TRAIT_SPEECH_BOOSTER, CLOTHING_TRAIT)
+
+/obj/item/radio/headset/headset_frontier_colonist/parc/dropped(mob/living/carbon/human/user)
+	. = ..()
+	REMOVE_TRAIT(user, TRAIT_SPEECH_BOOSTER, CLOTHING_TRAIT)
+
+/obj/item/storage/belt/military/pouches/parc
+	icon_state = "evilwebbing"
+	worn_icon_state = "evilwebbing"
+	uses_advanced_reskins = FALSE
+
+/obj/item/storage/belt/military/pouches/parc/tools

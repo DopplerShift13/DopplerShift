@@ -129,6 +129,7 @@
 	bolt_type = BOLT_TYPE_OPEN
 	show_bolt_icon = FALSE
 	tac_reloads = FALSE
+	slot_flags = ITEM_SLOT_BACK
 	accepted_magazine_type = /obj/item/ammo_box/magazine/karim/minhir
 	pin = /obj/item/firing_pin/implant/mindshield
 	underbarrel_type = null

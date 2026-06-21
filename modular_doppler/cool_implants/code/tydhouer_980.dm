@@ -14,9 +14,8 @@
 	projectile_type = /obj/projectile/bullet/c980grenade
 
 /obj/item/ammo_casing/c980grenade/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
-	var/obj/item/gun/ballistic/shotgun/shell_launcher/firing_launcher = fired_from
-	if(istype(firing_launcher))
-		loaded_projectile.range = firing_launcher.target_range
+	if(fired_from?.vars["target_range"])
+		loaded_projectile.range = fired_from.vars["target_range"]
 	else
 		loaded_projectile.range = 7
 	. = ..()
@@ -105,7 +104,7 @@
 	damage_falloff_tile = -0.25
 	range = 20
 
-// .980 Flechette
+// .980 Sabot
 
 /obj/item/ammo_casing/c980grenade/sabot
 	name = ".980 Tydhouer Sabot"
