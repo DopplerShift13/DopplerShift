@@ -440,6 +440,13 @@
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 
+// Looks like thermals, acts like SEC hud.
+/obj/item/clothing/glasses/hud/security/secglasses
+	name = "security HUD glasses"
+	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. Now in a fashionable pair of glasses!"
+	icon_state = "thermal"
+
+
 // Security Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/security
 	name = "security HUD aviators"

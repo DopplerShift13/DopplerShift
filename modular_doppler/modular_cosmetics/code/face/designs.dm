@@ -163,3 +163,15 @@
 		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SCIENCE + RND_SUBCATEGORY_EQUIPMENT_MEDICAL,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_SCIENCE | DEPARTMENT_BITFLAG_MEDICAL
+
+/datum/design/security_hud_glasses
+	name = "Security HUD Glasses"
+	desc = "A heads-up display that scans the humans in view and provides accurate data about their ID status. Now in fashionable glasses form!"
+	id = "security_hud_glasses"
+	build_type = PROTOLATHE | AWAY_LATHE
+	materials = list(/datum/material/iron =SMALL_MATERIAL_AMOUNT*5, /datum/material/glass =SMALL_MATERIAL_AMOUNT*5)
+	build_path = /obj/item/clothing/glasses/hud/security/secglasses
+	category = list(
+		RND_CATEGORY_EQUIPMENT + RND_SUBCATEGORY_EQUIPMENT_SECURITY
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY

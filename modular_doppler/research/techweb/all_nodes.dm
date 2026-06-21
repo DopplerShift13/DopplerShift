@@ -10,5 +10,6 @@
 		"diagnostic_hud_projector",
 		"meson_hud_projector",
 		"science_hud_projector",
+		"security_hud_glasses",
 	)
 	return ..()
