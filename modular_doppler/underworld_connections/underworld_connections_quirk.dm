@@ -49,6 +49,8 @@
 	// Set us as 'suspected' on HUDs at roundstart and leave a note about our dark and mysterious past. No permits for us! If we're human.
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
+		if(HAS_TRAIT(human_holder, TRAIT_BITRUNNER_AVATAR))
+			return
 		var/datum/record/crew/our_record = find_record(human_holder.name)
 		if (our_record)
 			our_record.wanted_status = WANTED_SUSPECT
