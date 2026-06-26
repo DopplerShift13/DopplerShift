@@ -13,8 +13,11 @@ Version: V1.0
 # <span id="anchor"></span>Quick Notes (for the lazy)
 
 Disclaimer: If this is your first time working with the powers system, read the full document first. This section exists as a quick-reference sheet for returning contributors.
+Disclaimer 2: Any written document may with time become outdated. Check the last-updated tag at the top: if its been a few years, take it with a grain of salt.
 
 - Vars in this document are written in _italics_. Functions are referred to by ending in ().
+
+- Defines can be found [here](../../code/__DEFINES/~doppler_defines/powers.dm) and the global lists/vars for Powers can be found [here](../../code/_globalvars/~doppler_globalvars/powers.dm).
 
 - Just look at how other powers do things; there are so many examples to draw from.
 
