@@ -26,7 +26,7 @@ Disclaimer 2: Any written document may with time become outdated. Check the last
 - For action datums, the main functions you want to use are use_action() for using the action and can_use() for validation.
   - Use _active_ when there’s an active state to the power, to help communicate to other powers.
   - Use _click_to_activate_ = TRUE to use click-based targeting.
-  - If you use projectiles, fire*projectile() is set up to handle almost all projectile firing mechanics. Make sure to set \_anti_magic_on_target* to FALSE so that it will only check on impact, and that _click_to_activate_ is TRUE so that you actually give targets.
+  - If you use projectiles, fire_projectile() is set up to handle almost all projectile firing mechanics. Make sure to set \_anti_magic_on_target\* to FALSE so that it will only check on impact, and that \_click_to_activate\* is TRUE so that you actually give targets.
   - If you want to have cast/use times, use the _use_time_ var, and optionally _use_time_flags_ to set the conditions for interruption. You can further tweak the properties of the cast time with do_use_time().
   - There are a lot of other niche vars in /datum/action/cooldown/power; it is recommended to look at them to see if you can use them.
 
@@ -72,7 +72,7 @@ When it comes to adding functionality to powers, most of it will make use of the
 
 Example of a Power Datum, set up to passively heal damage (`Miasmic Conversion`).
 
-The difference between the various add functions is important. add() and post*add() differ in when it resolves. Some powers may require the mob to be fully initialized first before we can safely set values, for which post_add() is useful, as it guarantees we have a fully functional mob. Otherwise, you should default to add(). add_unique() works similar to post_add() but only functions when \_power_transfer* (indicating that the power is being transferred over from another source) is not true, and is meant for things that should occur only once, such as spawning items.
+The difference between the various add functions is important. add() and post_add() differ in when it resolves. Some powers may require the mob to be fully initialized first before we can safely set values, for which post_add() is useful, as it guarantees we have a fully functional mob. Otherwise, you should default to add(). add_unique() works similar to post_add() but only functions when \_power_transfer\* (indicating that the power is being transferred over from another source) is not true, and is meant for things that should occur only once, such as spawning items.
 
 The description of powers supports newlines using \n; it is recommended you use these for formatting to prevent word-slop.
 
@@ -139,9 +139,9 @@ Actions traverse a pipeline from the moment they are pressed to resolution. Ther
 
 - can_use() checks against any prerequisite checks, such as silencing, incapacitation, etc. If your action has powers that need validating, such as needing a tail for tail swipe, it should be done in can_use(), before the power actually starts resolving.
 
-- Once can*use() is successfully resolved, we pass onto anti magic checks. If the action is resonant and \_anti_magic_on_target* is true, this runs can_block_resonance() against the target. If the target can block it (either from resonance or magic immunity), it returns a false, and the pipeline will fail.
+- Once can_use() is successfully resolved, we pass onto anti magic checks. If the action is resonant and \_anti_magic_on_target\* is true, this runs can_block_resonance() against the target. If the target can block it (either from resonance or magic immunity), it returns a false, and the pipeline will fail.
 
-- Once the anti-magic checks are resolved, we pass onto do*use_time(). If we have an \_use_time* specified, it will attempt a do_after() and return a TRUE if uninterrupted. A FALSE stops the actions.
+- Once the anti-magic checks are resolved, we pass onto do_use_time(). If we have an \_use_time\* specified, it will attempt a do_after() and return a TRUE if uninterrupted. A FALSE stops the actions.
 
 - After this, we successfully reach use_action(). We send a signal for COMSIG_POWER_ACTION_USED, which is useful for powers to intercept powers before they reach their use_action(). use_action() then resolves depending on the specifications of the power. If it returns TRUE, the action is considered a success. If FALSE, it its considered a failure.
 
@@ -154,7 +154,7 @@ This is the step-by-step pipeline that every action follows. As mentioned howeve
 - Rather than passing off immediately after triggering, it is passed on to InterceptClickOn(). We override the whole parent function with a powers specific one.
   - Once a mob clicks while InterceptClickOn() is called, it will route through that part of the pipeline with the clicked target as the target. InterceptClickOn() will continue overriding click behaviour until it returns TRUE.
 
-- First it attempts to perform aim*assist() if \_aim_assist* is TRUE. It will as explained earlier attempt to lock onto the earliest viable/preferred target. aim_assist() returns a target, and will override the existing click target if it does.
+- First it attempts to perform aim_assist() if \_aim_assist\* is TRUE. It will as explained earlier attempt to lock onto the earliest viable/preferred target. aim_assist() returns a target, and will override the existing click target if it does.
 
 - It will then perform a large variety of targeting based checks.
   - It checks if the _target_type_ matches the target’s type. This is an istype() call.
@@ -194,7 +194,7 @@ Action powers offer an use_time system, allowing you to have ‘cast times’ an
 - use_time dictates this. If it is 0, it uses the power instantly. Otherwise, it routes through do_use_time() to attempt to perform the action.
 - use_time_flags determines if the action is not interrupted by certain behaviour, e.g IGNORE_HELD_ITEM causes it to not stop when interacting with a held object.
 - use_time_overlay_type allows passing an overlay effect (such as /obj/effect/temp_visual/conjure_rain) to display while using.
-- do*use_time() is the function that handles most of \_use_time*’s functionality, performing a do_after(). It is wise to override if you want specific things to occur during cast time, such as telegraphs (e.g conjure rain). A FALSE return means the power fails and stops, a TRUE will cause it to keep going.
+- do_use_time() is the function that handles most of \_use_time\*’s functionality, performing a do_after(). It is wise to override if you want specific things to occur during cast time, such as telegraphs (e.g conjure rain). A FALSE return means the power fails and stops, a TRUE will cause it to keep going.
 
 Targeting goes off of a singular target which is handed along through the entire action pipeline. How people acquire the target depends on the following variables.
 
@@ -210,7 +210,7 @@ Though that wraps up most variables, there are a multitude of functions aimed at
 
 - apply_damage_with_armor() is a handler that allows applying damage to mobs whilst respecting armour variables. Any form of damage should route through this, as it introduces counterplay and keeps in harmony with the existing game systems.
 
-- fire*projectile() fires a projectile from the first argument’s position towards the second argument’s position, with the third argument being the projectile type. Though this usually assumes the same to be the action’s \_target* var, this can be anything, allowing you to create complex patterns such as shotgun-blasts. You should use this with projectiles; and any magical projectiles you create should be /obj/projectile/resonant as to aid in anti-magic functionality.
+- fire_projectile() fires a projectile from the first argument’s position towards the second argument’s position, with the third argument being the projectile type. Though this usually assumes the same to be the action’s \_target\* var, this can be anything, allowing you to create complex patterns such as shotgun-blasts. You should use this with projectiles; and any magical projectiles you create should be /obj/projectile/resonant as to aid in anti-magic functionality.
   - These come with the on_power_projectile_hit() signaller, allowing you to easily communicate back to the power.
 
 ## <span id="anchor-7"></span>Status Effect Datum
@@ -343,7 +343,7 @@ Mages! Wizards!
 
 - <span id="anchor-16"></span>_prep_cost_ should almost always be tied to the power’s _value_. Value plays a closer role in balance than with other powers, as it determines how ‘spammable’ the ability is for all roots.
 
-- Costs are handled in on*action_success(). Some powers have a refund chance, based on the \_power_refund_chance* and _power_refund_affinity_bonus_ vars. These are handled in that same function.
+- Costs are handled in on_action_success(). Some powers have a refund chance, based on the \_power_refund_chance\* and \_power_refund_affinity_bonus\* vars. These are handled in that same function.
 
 ## <span id="anchor-17"></span>Enigmatist
 
@@ -476,7 +476,7 @@ With this, we already have a good basis. Now it is time to start writing our [fu
 
 For this, we’ll need to get the user’s eyes, the damage value on it, and store it in our new _eyes_ variable. You’ll regularly bump into these scenarios where you’ll need to figure out how to discover something is done, to which my recommendation is to to try and find something that is similar in functionality. Take on the challenge; and once you’ve had enough, go to the next paragraph where I’ll present my answer.
 
-In this case, we want **get_organ_slot(ORGAN_SLOT_EYES)** proc. Now, our ‘user’ in our action datum is only defined as a mob/living/, but that is insufficient for get*organ_slot(), so we’ll need to fix that by [casting](https://spacestation13.github.io/DMByExample/vars/casting.html) it. We’ll need to get and set them as a carbon; which means setting a variable that defines them as a **var/mob/living/carbon**. This is usually done with an **if(!iscarbon())** check, which is what we’ll be doing. Get and set our \_carbon_user* and then get their organ_slot_eyes. Make sure to add a can_use() function, with user and target as their arguments.
+In this case, we want **get_organ_slot(ORGAN_SLOT_EYES)** proc. Now, our ‘user’ in our action datum is only defined as a mob/living/, but that is insufficient for get_organ_slot(), so we’ll need to fix that by [casting](https://spacestation13.github.io/DMByExample/vars/casting.html) it. We’ll need to get and set them as a carbon; which means setting a variable that defines them as a **var/mob/living/carbon**. This is usually done with an **if(!iscarbon())** check, which is what we’ll be doing. Get and set our \_carbon_user\* and then get their organ_slot_eyes. Make sure to add a can_use() function, with user and target as their arguments.
 
 Let us expand it with an [if-statement](https://spacestation13.github.io/DMByExample/flow/if_else.html) to actually check against the damage of the eyes. We’ll be doing **if(eyes.damage >= eyes.maxHealth)**, and returning FALSE if true. This is an [operator](https://spacestation13.github.io/DMByExample/operators.html) that returns true if the left-side variable is bigger or equal to the right-side variable. This way, non-functional eyes won’t let us shoot, but a bit of eye damage isn’t a problem yet.
 
@@ -486,7 +486,7 @@ Make sure to include return ..() in the block so that it can [inherit](https://s
 
 Sweet. So now we have our validation out of the way. Now lets actually shoot freakin laser beams! Fortunately, we already have a good helper in the form of **fire_projectile()**. We’ll just need to add a few [arguments](https://spacestation13.github.io/DMByExample/procs/arguments.html), and add a bit of feedback in the form of a sound.
 
-fire*projectile() takes three arguments; the origin point, the target and the projectile. I’ll give you an existing laser projectile for now for ease of access: we’ll be using **/obj/projectile/beam/laser**. Define it in our earlier \_projectile_path*. Now, lets make our use_action(). Make sure to define a user and a target, just like with can_use(). We’ll be adding the fire_projectile() function with all three arguments in there; and making it an if-statement. Why? Because that way we can now if our use_action() was a success or not.
+fire_projectile() takes three arguments; the origin point, the target and the projectile. I’ll give you an existing laser projectile for now for ease of access: we’ll be using **/obj/projectile/beam/laser**. Define it in our earlier \_projectile_path\*. Now, lets make our use_action(). Make sure to define a user and a target, just like with can_use(). We’ll be adding the fire_projectile() function with all three arguments in there; and making it an if-statement. Why? Because that way we can now if our use_action() was a success or not.
 
 Finally, throw in a sound for a bit of feedback, because a laser isn’t as satisfying without a pew. I’ll give you this one for free: **playsound(user, 'sound/items/weapons/lasercannonfire.ogg', 50)**
 
