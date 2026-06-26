@@ -8,8 +8,6 @@ Last updated: 26/06/26
 
 Version: V1.0
 
-#
-
 # <span id="anchor"></span>Quick Notes (for the lazy)
 
 Disclaimer: If this is your first time working with the powers system, read the full document first. This section exists as a quick-reference sheet for returning contributors.
@@ -35,8 +33,6 @@ Disclaimer 2: Any written document may with time become outdated. Check the last
 - Use status effects for any and all lingering effects on mobs.
 
 - **Read the appropriate path notes for **[**Path-Specific Notes on Adding Powers**](#anchor-10), some things may radically differ per path.
-
-#
 
 # <span id="anchor-1"></span>Technical Notes on Adding Powers
 
@@ -131,8 +127,6 @@ The Action Datum is an optional but very commonly used part of powers. This adds
 ```
 
 Example of an Action Datum that shoots a projectile (`Gale Blast`).
-
-###
 
 ### <span id="anchor-5"></span>The Pipeline
 
@@ -291,8 +285,6 @@ Status effects have a few important variables.
 
 - show_duration shows a timer on the status effect (if it has an alert_type) until when it expires. It is a useful piece of player feedback to give, and should be given to any power that naturally expires after a period.
 
-##
-
 ## <span id="anchor-8"></span>Anti-Magic, Silencing & Dispelling
 
 The Powers System adds a new tier of magic to the existing anti-magic system, the ability for mobs to be silenced and unable to use resonant powers, and a dispel functionality to remove existing powers. Most of these are findable in modular_doppler\modular_powers\code\powers_antimagic.dm, and are used for people to be able to combat the strength often provided by magical and supernatural powers.
@@ -329,8 +321,6 @@ There’s a few generic helper functions you can call for various purposes, to d
   - include_empty_text determines what happens if there are no powers to return. TRUE means it returns “No powers declared” if Security is TRUE or “None” if Security is FALSE. FALSE on include_empty_text will instead send an empty string.
 
 - transfer_power_datums() lets you transfer all powers from one mob to another. This transfers from the mob that you call the proc on, to the mob specified in the argument.
-
-#
 
 # <span id="anchor-10"></span>Path-Specific Notes on Adding Powers
 
@@ -373,8 +363,6 @@ The faithful, not specifically tied to god.
 - Some Theologist powers use the* unholy_mobs *global list. It is recommended to try and incorporate this and grant increased effects against those creatures, for flavour-sake when possible. Likewise, involve the Chaplain and their religion system when possible.
 - Flavour-wise, Theologist shouldn’t suggest being directly related to religions or gods. It is designed flavour wise to be open-ended and be more about strong convictions, e.g being a zealot. This can mean you have a strong philosophical believe, rather than needing to revere a god.
 
-##
-
 ## <span id="anchor-19"></span>Psyker
 
 Psychic powers at often grave risk.
@@ -394,8 +382,6 @@ Psychic powers at often grave risk.
 - The roots determine which subtype of organ the psyker gets. This determines both how much stress they generate, how much they can handle, and how they cope with it.
 
 - Psyker powers usually give increased bonuses for having matching negative quirks. For example, scrying is less stress inducing on a blind person. A paraplegic person can levitate with minimal upkeep. When possible, you should incorporate bonuses for matching negative quirks into your psyker powers for flavour reasons.
-
-##
 
 ## <span id="anchor-20"></span>Cultivators
 
@@ -446,8 +432,6 @@ Mundane, but neat!
 - There’s no overarching mechanics; just add whats fun. It is best to keep things simple. Try to tap into gameplay systems such as the skill system that don’t often see a lot of love; people love having a cozy niche.
 - Powers here shouldn’t be magical as that would mean they belong elsewhere, nor should they be directly combat, as that would imply they belong to Warfighter. Clever-use in combat is still allowed, such as Punt.
 
-##
-
 ## <span id="anchor-24"></span>Augmented
 
 I never asked for this.
@@ -460,8 +444,6 @@ I never asked for this.
   - Every premium augment needs an action, as it indicates the percentage. An off/on switch is sufficient.
 
 - Regular augments are mixed in with the archetype as well. Make sure to distinguish powers-unique augments as premium; the flavour is that these are rare, custom-made augments that can’t be mass-produced on the station.
-
-#
 
 # <span id="anchor-25"></span>Step-By-Step Walkthrough on Making a Power
 
