@@ -12,18 +12,20 @@
  *
  * Arguments
  * * power_type - Power typepath to add to the mob
+ * * client_source - Client to use for power initialization and preference reads.
+ * * add_unique - TRUE/FALSE that determines if add_unique() gets called on powers.
  * If not passed, defaults to this mob's client.
  *
  * Returns TRUE on success, FALSE on failure (already has the power, etc)
  */
-/mob/living/proc/add_archetype_power(datum/power/power_type, client/override_client, add_unique = TRUE)
+/mob/living/proc/add_archetype_power(datum/power/power_type, client/client_source, add_unique = TRUE)
 	if(has_archetype_power(power_type))
 		return FALSE
 	var/qname = initial(power_type.name)
 	if(!SSpowers || !SSpowers.powers[qname])
 		return FALSE
 	var/datum/power/new_power = new power_type()
-	if(new_power.add_to_holder(new_holder = src, client_source = override_client, unique = add_unique))
+	if(new_power.add_to_holder(new_holder = src, client_source = client_source, unique = add_unique))
 		return TRUE
 	qdel(new_power)
 	return FALSE

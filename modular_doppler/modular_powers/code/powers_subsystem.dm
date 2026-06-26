@@ -133,7 +133,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		if(isnull(priority_powers))
 			continue
 		for(var/datum/power/power_type as anything in priority_powers)
-			if(!user.add_archetype_power(power_type, override_client = applied_client))
+			if(!user.add_archetype_power(power_type, client_source = applied_client))
 				continue
 			SSblackbox.record_feedback("tally", "powers_taken", 1, "[power_type.name]")
 

@@ -61,7 +61,7 @@
 	return FALSE
 
 /// Adds a power by calling the power subsystem.
-/mob/living/carbon/proc/add_power(datum/power/powertype, power_transfer = FALSE, client/override_client, unique = TRUE, include_in_security_records = TRUE, list/power_init_vars)
+/mob/living/carbon/proc/add_power(datum/power/powertype, power_transfer = FALSE, client/client_source, unique = TRUE, include_in_security_records = TRUE, list/power_init_vars)
 	if(has_power(powertype))
 		return FALSE
 	var/pname = initial(powertype.name)
@@ -73,7 +73,7 @@
 			if(varname in power.vars)
 				power.vars[varname] = power_init_vars[varname]
 	power.include_in_security_records = include_in_security_records
-	if(!power.add_to_holder(new_holder = src, power_transfer = power_transfer, client_source = override_client, unique = unique))
+	if(!power.add_to_holder(new_holder = src, power_transfer = power_transfer, client_source = client_source, unique = unique))
 		qdel(power)
 		return FALSE
 	refresh_security_power_records()
