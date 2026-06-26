@@ -548,7 +548,7 @@
 	reqs = list(
 		/obj/item/clothing/glasses/hud/security = 1,
 		/obj/item/clothing/glasses/eyepatch = 1,
-		/obj/item/stack/cable_coil = 5
+		/obj/item/stack/cable_coil = 5,
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER) //Tools needed and requirements are kept the same as craftable HUD sunglasses//
 	category = CAT_EQUIPMENT
@@ -568,7 +568,7 @@
 	reqs = list(
 		/obj/item/clothing/glasses/hud/health = 1,
 		/obj/item/clothing/glasses/eyepatch = 1,
-		/obj/item/stack/cable_coil = 5
+		/obj/item/stack/cable_coil = 5,
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	category = CAT_EQUIPMENT
@@ -588,7 +588,7 @@
 	reqs = list(
 		/obj/item/clothing/glasses/meson = 1,
 		/obj/item/clothing/glasses/eyepatch = 1,
-		/obj/item/stack/cable_coil = 5
+		/obj/item/stack/cable_coil = 5,
 	)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
 	category = CAT_EQUIPMENT
