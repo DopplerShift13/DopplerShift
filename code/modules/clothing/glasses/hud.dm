@@ -157,17 +157,6 @@
 	icon_state = "securityhud"
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
-	/// DOPPLER SHIFT EDIT BEGIN
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Default" = list(
-			RESKIN_ICON_STATE = "securityhud",
-			RESKIN_WORN_ICON_STATE = "securityhud"),
-		"Goggles" = list(
-			RESKIN_ICON_STATE = "thermal",
-			RESKIN_WORN_ICON_STATE = "thermal"
-		))
-	/// DOPPLER SHIFT EDIT END
 
 /obj/item/clothing/glasses/hud/security/chameleon
 	name = "chameleon security HUD"

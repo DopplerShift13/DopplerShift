@@ -38,6 +38,17 @@
 // 	. = ..()
 // 	. += "Use in hands to wear it over your [icon_state == base_icon_state ? "left" : "right"] eye."
 
+/obj/item/clothing/glasses/hud/security
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Default" = list(
+			RESKIN_ICON_STATE = "securityhud",
+			RESKIN_WORN_ICON_STATE = "securityhud"),
+		"Goggles" = list(
+			RESKIN_ICON_STATE = "thermal",
+			RESKIN_WORN_ICON_STATE = "thermal"
+		))
+
 /obj/item/clothing/glasses/hud/security/sunglasses
 	glass_colour_type = /datum/client_colour/glass_colour/red
 	uses_advanced_reskins = TRUE
