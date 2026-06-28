@@ -2308,7 +2308,6 @@
 "akJ" = (
 /obj/structure/table/reinforced,
 /obj/item/storage/box/shipping{
-	pixel_x = -6;
 	pixel_y = 6
 	},
 /obj/machinery/door/window/left/directional/south{
@@ -5735,6 +5734,16 @@
 "axC" = (
 /turf/closed/wall,
 /area/station/maintenance/solars/port/fore)
+"axD" = (
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "CrateReturn";
+	name = "Crate Returns";
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/turf/open/floor/iron,
+/area/station/cargo/sorting)
 "axE" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "prison release";
@@ -43363,6 +43372,10 @@
 /obj/effect/mapping_helpers/mail_sorting/science/xenobiology,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
+"oTm" = (
+/obj/structure/sink/directional/west,
+/turf/open/floor/iron/white/textured_large,
+/area/station/medical/treatment_center)
 "oTp" = (
 /obj/machinery/light/small/directional/north,
 /obj/structure/disposalpipe/segment{
@@ -44821,10 +44834,6 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
-"pVZ" = (
-/obj/structure/sink/directional/west,
-/turf/open/floor/iron/white/textured_large,
-/area/station/medical/treatment_center)
 "pWb" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -46977,6 +46986,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/trimline/brown/filled/line,
+/obj/structure/filingcabinet,
 /turf/open/floor/iron,
 /area/station/cargo/storage)
 "rxa" = (
@@ -50524,14 +50534,8 @@
 /turf/open/floor/carpet/blue,
 /area/station/hallway/primary/aft)
 "tOf" = (
-/obj/machinery/conveyor_switch/oneway{
-	dir = 8;
-	id = "CrateReturn";
-	name = "Crate Returns";
-	pixel_x = -8;
-	pixel_y = 11
-	},
 /obj/machinery/firealarm/directional/north,
+/obj/structure/filingcabinet,
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
 "tOn" = (
@@ -85111,7 +85115,7 @@ sMg
 bin
 dYh
 bjY
-pVZ
+oTm
 pku
 qib
 iGi
@@ -93834,7 +93838,7 @@ sre
 piM
 xPQ
 aWu
-bat
+axD
 prO
 ajQ
 pvZ
