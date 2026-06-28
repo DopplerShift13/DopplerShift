@@ -22922,9 +22922,15 @@
 /turf/open/floor/plating,
 /area/station/service/chapel/asteroid/monastery)
 "bXO" = (
-/obj/structure/sink/directional/west,
-/turf/open/floor/iron/white/textured_large,
-/area/station/medical/treatment_center)
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "CrateReturn";
+	name = "Crate Returns";
+	pixel_x = 8;
+	pixel_y = 11
+	},
+/turf/open/floor/iron,
+/area/station/cargo/sorting)
 "bXU" = (
 /obj/effect/spawner/random/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -38445,7 +38451,6 @@
 /obj/structure/table,
 /obj/machinery/airalarm/directional/west,
 /obj/item/reagent_containers/cup/fish_feed{
-	pixel_x = -4;
 	pixel_y = 2
 	},
 /turf/open/floor/wood/large,
@@ -43487,15 +43492,9 @@
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/aft)
 "oXU" = (
-/obj/machinery/conveyor_switch/oneway{
-	dir = 8;
-	id = "CrateReturn";
-	name = "Crate Returns";
-	pixel_x = 8;
-	pixel_y = 11
-	},
-/turf/open/floor/iron,
-/area/station/cargo/sorting)
+/obj/structure/sink/directional/west,
+/turf/open/floor/iron/white/textured_large,
+/area/station/medical/treatment_center)
 "oXV" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -85107,7 +85106,7 @@ sMg
 bin
 dYh
 bjY
-bXO
+oXU
 pku
 qib
 iGi
@@ -93830,7 +93829,7 @@ sre
 piM
 xPQ
 aWu
-oXU
+bXO
 prO
 ajQ
 pvZ
