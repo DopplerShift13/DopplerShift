@@ -15,3 +15,9 @@
 		tgui_alert(target, text)
 		return FALSE
 
+// regenerate the appearance at the end of create()
+// as safety to make sure the correct appearance is applied
+/obj/effect/mob_spawn/ghost_role/human/create(mob/mob_possessor, newname)
+	. = ..()
+	var/mob/living/carbon/human/spawned_mob = .
+	spawned_mob?.dna.species.regenerate_organs(spawned_mob)
