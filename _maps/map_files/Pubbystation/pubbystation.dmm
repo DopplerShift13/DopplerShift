@@ -10653,7 +10653,11 @@
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 4
 	},
-/obj/item/storage/epic_loot_cooler,
+/obj/structure/rack,
+/obj/item/hand_labeler,
+/obj/item/stack/package_wrap,
+/obj/item/wrench,
+/obj/item/crowbar,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
 "aUb" = (
@@ -12639,9 +12643,7 @@
 /obj/machinery/airalarm/directional/north,
 /obj/structure/table/reinforced/titaniumglass,
 /obj/machinery/burner_plate,
-/obj/machinery/reagentgrinder{
-	pixel_x = 14
-	},
+/obj/effect/mapping_helpers/airalarm/tlv_kitchen,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "bcg" = (
@@ -13343,7 +13345,8 @@
 	name = "Kitchen Window Shutters Control";
 	req_access = list("kitchen")
 	},
-/obj/machinery/food_cart,
+/obj/structure/table/reinforced/titaniumglass,
+/obj/machinery/reagentgrinder,
 /turf/open/floor/iron/kitchen/small,
 /area/station/service/kitchen)
 "bfr" = (
@@ -14950,11 +14953,10 @@
 "bns" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
-/obj/item/crowbar,
-/obj/item/wrench,
 /obj/effect/turf_decal/weather/snow/corner{
 	dir = 1
 	},
+/obj/item/storage/epic_loot_cooler,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
 "bnu" = (
@@ -35454,9 +35456,7 @@
 	dir = 4
 	},
 /obj/effect/turf_decal/weather/snow/corner,
-/obj/structure/rack,
-/obj/item/hand_labeler,
-/obj/item/stack/package_wrap,
+/obj/machinery/food_cart,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
 "iNT" = (
