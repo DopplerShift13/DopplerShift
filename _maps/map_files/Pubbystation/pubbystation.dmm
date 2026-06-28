@@ -1844,7 +1844,7 @@
 /obj/effect/turf_decal/tile/red/half/contrasted{
 	dir = 1
 	},
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet,
 /turf/open/floor/iron,
 /area/station/security/office)
 "ajm" = (
@@ -4918,6 +4918,9 @@
 	name = "Brig Desk";
 	req_access = list("security")
 	},
+/obj/item/folder/red{
+	pixel_y = 2
+	},
 /turf/open/floor/iron/dark,
 /area/station/security/brig)
 "auE" = (
@@ -6774,7 +6777,7 @@
 /turf/open/floor/plating,
 /area/station/maintenance/department/security/brig)
 "aCe" = (
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet/employment,
 /turf/open/floor/wood,
 /area/station/service/lawoffice)
 "aCf" = (
@@ -8434,6 +8437,7 @@
 	dir = 1
 	},
 /obj/structure/table/reinforced/rglass,
+/obj/item/folder/blue,
 /turf/open/floor/iron/dark/smooth_large,
 /area/station/medical/paramedic)
 "aIX" = (
@@ -9082,7 +9086,7 @@
 /obj/machinery/airalarm/directional/north,
 /obj/machinery/power/apc/auto_name/directional/east,
 /obj/structure/cable,
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/supply)
 "aMm" = (
@@ -9572,7 +9576,7 @@
 	dir = 8
 	},
 /obj/machinery/airalarm/directional/north,
-/obj/structure/filingcabinet,
+/obj/structure/filingcabinet/white,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
 "aPb" = (
@@ -12331,7 +12335,7 @@
 "baU" = (
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/tile/red/anticorner/contrasted,
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet/white,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/customs)
 "baV" = (
@@ -18726,7 +18730,7 @@
 /obj/effect/turf_decal/tile/red/anticorner/contrasted{
 	dir = 8
 	},
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/science)
 "bEX" = (
@@ -25112,6 +25116,7 @@
 "clp" = (
 /obj/structure/table/wood,
 /obj/machinery/computer/libraryconsole/bookmanagement,
+/obj/structure/window/spawner/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "cls" = (
@@ -27211,16 +27216,19 @@
 /obj/structure/table/wood,
 /obj/item/flashlight/lamp/green{
 	pixel_x = 1;
-	pixel_y = 5
+	pixel_y = -6
 	},
+/obj/structure/window/spawner/directional/north,
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "czp" = (
 /obj/structure/table/wood,
 /obj/machinery/fax{
 	name = "Library Fax Machine";
-	fax_name = "Library"
+	fax_name = "Library Desk"
 	},
+/obj/structure/window/spawner/directional/north,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "czr" = (
@@ -27298,12 +27306,15 @@
 "czN" = (
 /obj/structure/table/wood,
 /obj/item/storage/bag/books,
+/obj/structure/window/spawner/directional/south,
+/obj/structure/window/spawner/directional/west,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "czO" = (
 /obj/machinery/modular_computer/preset/curator{
 	dir = 1
 	},
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "czP" = (
@@ -27311,6 +27322,7 @@
 /obj/item/stack/package_wrap,
 /obj/item/coin/gold,
 /obj/item/instrument/saxophone,
+/obj/structure/window/spawner/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "czQ" = (
@@ -27320,6 +27332,10 @@
 	network = list("ss13","monastery")
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/door/window/right/directional/south{
+	req_access = list("library");
+	name = "Library Desk"
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "cAi" = (
@@ -27845,6 +27861,17 @@
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
+"cKb" = (
+/obj/machinery/door/window/right/directional/north{
+	name = "Secure Art Exhibit";
+	req_access = list("library")
+	},
+/obj/machinery/door/window/right/directional/north{
+	name = "Secure Art Exhibit";
+	req_access = list("library")
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/library/artgallery)
 "cKA" = (
 /obj/effect/landmark/generic_maintenance_landmark,
 /obj/effect/turf_decal/siding/dark_blue/corner,
@@ -27917,8 +27944,9 @@
 	dir = 4
 	},
 /obj/structure/detectiveboard/directional/south,
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
 /obj/machinery/light/small/directional/south,
+/obj/item/folder/red,
+/obj/structure/filingcabinet/security,
 /turf/open/floor/carpet,
 /area/station/security/detectives_office)
 "cPO" = (
@@ -27997,6 +28025,13 @@
 /obj/machinery/bouldertech/refinery/smelter,
 /turf/open/floor/iron,
 /area/station/cargo/miningfoundry)
+"cSG" = (
+/obj/machinery/door/window/right/directional/north{
+	name = "Library Desk";
+	req_access = list("library")
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/library)
 "cSJ" = (
 /obj/structure/table/wood,
 /obj/item/toy/cards/deck/wizoff,
@@ -31902,7 +31937,7 @@
 	},
 /obj/effect/turf_decal/siding/wood,
 /obj/structure/window/reinforced/spawner/directional/south,
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet,
 /turf/open/floor/carpet/green,
 /area/station/command/heads_quarters/captain)
 "fWL" = (
@@ -32872,7 +32907,7 @@
 /obj/structure/table/wood,
 /obj/machinery/fax{
 	name = "Chapel Fax Machine";
-	fax_name = "Chapel"
+	fax_name = "Chapel Office"
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
@@ -40201,6 +40236,10 @@
 	dir = 1;
 	pixel_y = 4
 	},
+/obj/item/folder/blue{
+	pixel_x = 16;
+	pixel_y = 2
+	},
 /turf/open/floor/iron/white/textured_large,
 /area/station/medical/psychology)
 "myc" = (
@@ -41460,7 +41499,7 @@
 "nAh" = (
 /obj/effect/turf_decal/tile/red/half/contrasted,
 /obj/machinery/light/small/directional/south,
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/medical)
 "nAF" = (
@@ -45780,6 +45819,7 @@
 	pixel_x = -4;
 	pixel_y = 12
 	},
+/obj/item/folder/red,
 /turf/open/floor/iron,
 /area/station/security/office)
 "qBo" = (
@@ -73883,7 +73923,7 @@ cjp
 cAK
 xja
 cAK
-cAK
+cSG
 tqH
 cAK
 czQ
@@ -74642,7 +74682,7 @@ kkU
 kkU
 kkU
 pQA
-tqW
+cKb
 fwx
 whJ
 cfN
