@@ -113,6 +113,10 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/clothing/neck/cloak/herald_cloak
 	affinity = 3
 
+// It glows. That makes it more magical.
+/obj/item/bedsheet/cult
+	affinity = 3
+
 // Heretic focues arent too pronounced but theyre antag items so they get preferential treatment
 /obj/item/clothing/neck/heretic_focus
 	affinity = 3
