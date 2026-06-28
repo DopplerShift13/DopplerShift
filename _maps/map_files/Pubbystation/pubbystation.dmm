@@ -195,6 +195,7 @@
 "aaQ" = (
 /obj/item/exodrone,
 /obj/machinery/exodrone_launcher,
+/obj/machinery/camera/directional/north,
 /turf/open/floor/plating,
 /area/station/cargo/drone_bay)
 "aaR" = (
@@ -1566,7 +1567,11 @@
 /obj/effect/turf_decal/trimline/brown/filled/line{
 	dir = 5
 	},
-/obj/machinery/icecream_vat,
+/obj/structure/table/glass,
+/obj/machinery/fax{
+	fax_name = "Service Hallway";
+	name = "Service Fax Machine"
+	},
 /turf/open/floor/iron/dark,
 /area/station/hallway/secondary/service)
 "ahY" = (
@@ -5734,16 +5739,6 @@
 "axC" = (
 /turf/closed/wall,
 /area/station/maintenance/solars/port/fore)
-"axD" = (
-/obj/machinery/conveyor_switch/oneway{
-	dir = 8;
-	id = "CrateReturn";
-	name = "Crate Returns";
-	pixel_x = 8;
-	pixel_y = 11
-	},
-/turf/open/floor/iron,
-/area/station/cargo/sorting)
 "axE" = (
 /obj/machinery/door/poddoor/preopen{
 	id = "prison release";
@@ -9577,7 +9572,7 @@
 	dir = 8
 	},
 /obj/machinery/airalarm/directional/north,
-/obj/structure/maintenance_loot_structure/file_cabinet/random,
+/obj/structure/filingcabinet,
 /turf/open/floor/wood,
 /area/station/command/heads_quarters/qm)
 "aPb" = (
@@ -11899,8 +11894,7 @@
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "aYT" = (
-/obj/structure/table/wood,
-/obj/machinery/reagentgrinder,
+/obj/machinery/vending/dinnerware,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "aYU" = (
@@ -11914,8 +11908,8 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
-/obj/machinery/vending/dinnerware,
 /obj/effect/turf_decal/weather/snow/corner,
+/obj/machinery/icecream_vat,
 /turf/open/floor/iron/freezer,
 /area/station/service/kitchen/coldroom)
 "aYY" = (
@@ -12498,7 +12492,7 @@
 	},
 /obj/machinery/disposal/delivery_chute{
 	dir = 4;
-	name = "delisvery chute"
+	name = "Deliveries to Disposals"
 	},
 /obj/structure/disposalpipe/trunk{
 	dir = 2
@@ -12645,6 +12639,9 @@
 /obj/machinery/airalarm/directional/north,
 /obj/structure/table/reinforced/titaniumglass,
 /obj/machinery/burner_plate,
+/obj/machinery/reagentgrinder{
+	pixel_x = 14
+	},
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "bcg" = (
@@ -18091,6 +18088,9 @@
 /area/station/maintenance/department/medical/morgue)
 "bBZ" = (
 /obj/effect/turf_decal/tile/pine_green/half/contrasted,
+/obj/machinery/modular_computer/preset/cargochat/medical{
+	dir = 1
+	},
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
 "bCa" = (
@@ -22922,14 +22922,15 @@
 /turf/open/floor/plating,
 /area/station/service/chapel/asteroid/monastery)
 "bXO" = (
-/obj/effect/turf_decal/stripes/line{
-	dir = 8
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "CrateReturn";
+	name = "Crate Returns";
+	pixel_x = 8;
+	pixel_y = 11
 	},
-/obj/machinery/camera/directional/west{
-	c_tag = "Drone Bay Ext."
-	},
-/turf/open/floor/plating,
-/area/station/cargo/drone_bay)
+/turf/open/floor/iron,
+/area/station/cargo/sorting)
 "bXU" = (
 /obj/effect/spawner/random/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -27214,8 +27215,10 @@
 /area/station/service/library)
 "czp" = (
 /obj/structure/table/wood,
-/obj/item/disk/nuclear/fake,
-/obj/item/barcodescanner,
+/obj/machinery/fax{
+	name = "Library Fax Machine";
+	fax_name = "Library"
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "czr" = (
@@ -27229,6 +27232,7 @@
 /area/station/service/library)
 "czu" = (
 /obj/structure/table/wood,
+/obj/item/barcodescanner,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
 "czv" = (
@@ -32866,8 +32870,9 @@
 /area/station/solars/port/fore)
 "gKz" = (
 /obj/structure/table/wood,
-/obj/item/kirbyplants/organic/plant22{
-	pixel_y = 8
+/obj/machinery/fax{
+	name = "Chapel Fax Machine";
+	fax_name = "Chapel"
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/chapel/office)
@@ -33346,13 +33351,15 @@
 /area/station/hallway/primary/central/aft)
 "hjh" = (
 /obj/structure/sign/poster/official/random/directional/south,
-/obj/machinery/modular_computer/preset/cargochat/medical{
-	dir = 1
-	},
 /obj/effect/turf_decal/siding/wood{
 	dir = 1
 	},
 /obj/structure/sign/semiotic/warning/directional/west,
+/obj/structure/table/glass,
+/obj/machinery/fax{
+	fax_name = "Medical";
+	name = "Medical Fax Machine"
+	},
 /turf/open/floor/wood/tile,
 /area/station/medical/break_room)
 "hju" = (
@@ -33786,6 +33793,10 @@
 "hzy" = (
 /turf/open/floor/iron/chapel,
 /area/station/service/chapel)
+"hAd" = (
+/obj/structure/sink/directional/west,
+/turf/open/floor/iron/white/textured_large,
+/area/station/medical/treatment_center)
 "hAF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -43372,10 +43383,6 @@
 /obj/effect/mapping_helpers/mail_sorting/science/xenobiology,
 /turf/open/floor/plating,
 /area/station/maintenance/department/science/central)
-"oTm" = (
-/obj/structure/sink/directional/west,
-/turf/open/floor/iron/white/textured_large,
-/area/station/medical/treatment_center)
 "oTp" = (
 /obj/machinery/light/small/directional/north,
 /obj/structure/disposalpipe/segment{
@@ -85115,7 +85122,7 @@ sMg
 bin
 dYh
 bjY
-oTm
+hAd
 pku
 qib
 iGi
@@ -93838,7 +93845,7 @@ sre
 piM
 xPQ
 aWu
-axD
+bXO
 prO
 ajQ
 pvZ
@@ -102567,7 +102574,7 @@ aFi
 odG
 aEj
 wmE
-bXO
+wmE
 ofR
 qfa
 sZh
