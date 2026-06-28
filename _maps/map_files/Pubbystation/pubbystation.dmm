@@ -22922,15 +22922,9 @@
 /turf/open/floor/plating,
 /area/station/service/chapel/asteroid/monastery)
 "bXO" = (
-/obj/machinery/conveyor_switch/oneway{
-	dir = 8;
-	id = "CrateReturn";
-	name = "Crate Returns";
-	pixel_x = 8;
-	pixel_y = 11
-	},
-/turf/open/floor/iron,
-/area/station/cargo/sorting)
+/obj/structure/sink/directional/west,
+/turf/open/floor/iron/white/textured_large,
+/area/station/medical/treatment_center)
 "bXU" = (
 /obj/effect/spawner/random/maintenance,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -28103,10 +28097,8 @@
 	name = "Kitchen Requests Console"
 	},
 /obj/effect/mapping_helpers/requests_console/supplies,
-/obj/machinery/processor{
-	pixel_y = 6
-	},
 /obj/structure/table/reinforced/titaniumglass,
+/obj/machinery/processor,
 /turf/open/floor/iron/cafeteria,
 /area/station/service/kitchen)
 "daO" = (
@@ -33793,10 +33785,6 @@
 "hzy" = (
 /turf/open/floor/iron/chapel,
 /area/station/service/chapel)
-"hAd" = (
-/obj/structure/sink/directional/west,
-/turf/open/floor/iron/white/textured_large,
-/area/station/medical/treatment_center)
 "hAF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -43499,18 +43487,15 @@
 /turf/open/floor/plating,
 /area/station/maintenance/solars/starboard/aft)
 "oXU" = (
-/obj/structure/disposalpipe/segment{
-	dir = 4
+/obj/machinery/conveyor_switch/oneway{
+	dir = 8;
+	id = "CrateReturn";
+	name = "Crate Returns";
+	pixel_x = 8;
+	pixel_y = 11
 	},
-/obj/effect/turf_decal/siding{
-	dir = 1
-	},
-/obj/effect/turf_decal/trimline/pine_green/line{
-	dir = 1
-	},
-/obj/structure/sink/directional/south,
-/turf/open/floor/iron/white/smooth_half,
-/area/station/medical/medbay/central)
+/turf/open/floor/iron,
+/area/station/cargo/sorting)
 "oXV" = (
 /obj/structure/window/reinforced/spawner/directional/north,
 /obj/structure/window/reinforced/spawner/directional/west,
@@ -81786,7 +81771,7 @@ fxE
 bkY
 wjK
 whr
-oXU
+bqY
 ciy
 mEo
 qRO
@@ -85122,7 +85107,7 @@ sMg
 bin
 dYh
 bjY
-hAd
+bXO
 pku
 qib
 iGi
@@ -93845,7 +93830,7 @@ sre
 piM
 xPQ
 aWu
-bXO
+oXU
 prO
 ajQ
 pvZ
