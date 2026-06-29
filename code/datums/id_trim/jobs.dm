@@ -924,8 +924,8 @@
 /datum/id_trim/job/psychologist
 	assignment = JOB_PSYCHOLOGIST
 	trim_state = "trim_psychologist"
-	department_color = COLOR_SERVICE_LIME
-	subdepartment_color = COLOR_MEDICAL_BLUE
+	department_color = COLOR_MEDICAL_BLUE // DOPPLER EDIT CHANGE - Making Psychologist Medical, ORIGINAL: COLOR_SERVICE_LIME
+	subdepartment_color = COLOR_SERVICE_LIME // DOPPLER EDIT CHANGE - Making Psychologist Medical, ORIGINAL: COLOR_MEDICAL_BLUE
 	sechud_icon_state = SECHUD_PSYCHOLOGIST
 	minimal_access = list(
 		ACCESS_MEDICAL,
