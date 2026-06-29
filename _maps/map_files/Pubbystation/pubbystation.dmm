@@ -14666,6 +14666,7 @@
 /area/station/hallway/primary/aft)
 "blE" = (
 /obj/structure/filingcabinet/chestdrawer,
+/obj/item/folder/white,
 /turf/open/floor/iron/dark/small,
 /area/station/science/robotics/lab)
 "blF" = (
@@ -14891,17 +14892,16 @@
 /area/station/science/robotics/lab)
 "bmO" = (
 /obj/structure/table,
-/obj/item/bodypart/head/robot/android/zhp{
-	pixel_y = -6;
-	pixel_x = 5
+/obj/item/bodypart/head/robot/android/zhp,
+/obj/item/radio/headset/headset_rob{
+	pixel_x = -2;
+	pixel_y = -3;
+	keyslot = /obj/item/encryptionkey/headset_medsci
 	},
-/obj/item/bodypart/arm/left/robot/android/zhp{
-	pixel_x = -6;
-	dir = 8
-	},
-/obj/item/mmi{
-	pixel_x = 5;
-	pixel_y = 10
+/obj/item/radio/headset/headset_rob{
+	pixel_x = 7;
+	pixel_y = 1;
+	keyslot = /obj/item/encryptionkey/headset_medsci
 	},
 /turf/open/floor/iron/white/smooth_large,
 /area/station/science/robotics/lab)
@@ -15243,6 +15243,11 @@
 	pixel_y = 8;
 	pixel_x = -3
 	},
+/obj/item/bodypart/arm/left/robot/android/zhp{
+	pixel_x = -2;
+	dir = 8;
+	pixel_y = 12
+	},
 /turf/open/floor/iron/white/textured_large,
 /area/station/science/robotics/lab)
 "bpb" = (
@@ -15423,15 +15428,10 @@
 "bqg" = (
 /obj/structure/table,
 /obj/machinery/newscaster/directional/west,
-/obj/item/radio/headset/headset_rob{
-	pixel_x = 7;
-	pixel_y = 1;
-	keyslot = /obj/item/encryptionkey/headset_medsci
-	},
-/obj/item/radio/headset/headset_rob{
-	pixel_x = -2;
-	pixel_y = -3;
-	keyslot = /obj/item/encryptionkey/headset_medsci
+/obj/machinery/computer/records/medical/laptop{
+	dir = 4;
+	pixel_y = 3;
+	pixel_x = 1
 	},
 /turf/open/floor/iron/dark/small,
 /area/station/science/robotics/lab)
@@ -16140,11 +16140,11 @@
 /obj/item/healthanalyzer,
 /obj/item/stack/cable_coil,
 /obj/item/stack/cable_coil,
-/obj/structure/table,
 /obj/machinery/airalarm/directional/south,
 /obj/effect/turf_decal/siding{
 	dir = 4
 	},
+/obj/structure/rack,
 /turf/open/floor/iron/dark,
 /area/station/science/robotics/lab)
 "bta" = (
@@ -19496,11 +19496,6 @@
 /obj/machinery/computer/security/telescreen/entertainment,
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/ai_upload)
-"bJu" = (
-/obj/structure/table/wood/fancy,
-/obj/item/instrument/saxophone,
-/turf/open/floor/carpet,
-/area/station/service/library)
 "bJD" = (
 /obj/structure/sign/departments/engineering/directional/south,
 /obj/machinery/door/firedoor,
@@ -30338,17 +30333,6 @@
 	},
 /turf/open/floor/iron/kitchen/small,
 /area/station/medical/break_room)
-"eOC" = (
-/obj/machinery/door/window/right/directional/north{
-	name = "Secure Art Exhibit";
-	req_access = list("library")
-	},
-/obj/machinery/door/window/right/directional/north{
-	name = "Secure Art Exhibit";
-	req_access = list("library")
-	},
-/turf/open/floor/iron/dark,
-/area/station/service/library/artgallery)
 "eOJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -30685,6 +30669,13 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
+"faf" = (
+/obj/machinery/door/window/right/directional/north{
+	name = "Library Desk";
+	req_access = list("library")
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/library)
 "faA" = (
 /obj/effect/landmark/blobstart,
 /obj/effect/decal/cleanable/dirt,
@@ -33061,8 +33052,14 @@
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
 "gQI" = (
-/obj/structure/table/wood,
-/obj/item/stack/package_wrap,
+/obj/machinery/door/window/right/directional/north{
+	name = "Secure Art Exhibit";
+	req_access = list("library")
+	},
+/obj/machinery/door/window/right/directional/north{
+	name = "Secure Art Exhibit";
+	req_access = list("library")
+	},
 /turf/open/floor/iron/dark,
 /area/station/service/library/artgallery)
 "gQM" = (
@@ -44625,13 +44622,6 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood/large,
 /area/station/medical/psychology)
-"pJw" = (
-/obj/machinery/door/window/right/directional/north{
-	name = "Library Desk";
-	req_access = list("library")
-	},
-/turf/open/floor/iron/dark,
-/area/station/service/library)
 "pJT" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical{
@@ -44663,6 +44653,11 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
+"pLk" = (
+/obj/structure/table/wood/fancy,
+/obj/item/instrument/saxophone,
+/turf/open/floor/carpet,
+/area/station/service/library)
 "pLw" = (
 /obj/machinery/holopad,
 /obj/effect/turf_decal/tile/blue/half/contrasted{
@@ -46407,26 +46402,26 @@
 /area/station/engineering/lobby)
 "qZN" = (
 /obj/item/assembly/prox_sensor{
-	pixel_x = -8;
+	pixel_x = -4;
 	pixel_y = 4
 	},
-/obj/item/assembly/prox_sensor{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/obj/item/assembly/prox_sensor{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/obj/item/assembly/prox_sensor{
-	pixel_x = -8;
-	pixel_y = 4
-	},
-/obj/item/crowbar,
-/obj/structure/table,
 /obj/effect/turf_decal/siding{
 	dir = 4
 	},
+/obj/structure/shelf,
+/obj/item/assembly/prox_sensor{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/assembly/prox_sensor{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/assembly/prox_sensor{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/crowbar,
 /turf/open/floor/iron/dark/smooth_edge{
 	dir = 8
 	},
@@ -47007,6 +47002,11 @@
 /obj/effect/landmark/start/hangover,
 /turf/open/floor/iron/dark,
 /area/station/service/library)
+"rvB" = (
+/obj/structure/table/wood,
+/obj/item/stack/package_wrap,
+/turf/open/floor/iron/dark,
+/area/station/service/library/artgallery)
 "rvC" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -71381,7 +71381,7 @@ iBp
 cyZ
 cAK
 czl
-bJu
+pLk
 czr
 czI
 pcn
@@ -73950,7 +73950,7 @@ cjp
 cAK
 xja
 cAK
-pJw
+faf
 tqH
 cAK
 czQ
@@ -74709,7 +74709,7 @@ kkU
 kkU
 kkU
 pQA
-eOC
+gQI
 fwx
 whJ
 cfN
@@ -76239,7 +76239,7 @@ whJ
 nVN
 gkQ
 gkQ
-gQI
+rvB
 xkB
 vsJ
 uIv
