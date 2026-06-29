@@ -19496,6 +19496,11 @@
 /obj/machinery/computer/security/telescreen/entertainment,
 /turf/closed/wall/r_wall,
 /area/station/ai_monitored/turret_protected/ai_upload)
+"bJu" = (
+/obj/structure/table/wood/fancy,
+/obj/item/instrument/saxophone,
+/turf/open/floor/carpet,
+/area/station/service/library)
 "bJD" = (
 /obj/structure/sign/departments/engineering/directional/south,
 /obj/machinery/door/firedoor,
@@ -27323,7 +27328,7 @@
 /obj/structure/window/spawner/directional/west,
 /obj/machinery/libraryscanner{
 	pixel_x = 4;
-	pixel_y = 4
+	pixel_y = 8
 	},
 /turf/open/floor/iron/dark,
 /area/station/service/library)
@@ -30333,6 +30338,17 @@
 	},
 /turf/open/floor/iron/kitchen/small,
 /area/station/medical/break_room)
+"eOC" = (
+/obj/machinery/door/window/right/directional/north{
+	name = "Secure Art Exhibit";
+	req_access = list("library")
+	},
+/obj/machinery/door/window/right/directional/north{
+	name = "Secure Art Exhibit";
+	req_access = list("library")
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/library/artgallery)
 "eOJ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
@@ -44388,11 +44404,6 @@
 	},
 /turf/open/floor/engine,
 /area/station/engineering/supermatter/room)
-"pDK" = (
-/obj/structure/table/wood/fancy,
-/obj/item/instrument/saxophone,
-/turf/open/floor/carpet,
-/area/station/service/library)
 "pDW" = (
 /obj/structure/grille,
 /obj/structure/lattice,
@@ -44614,6 +44625,13 @@
 /obj/machinery/light/directional/west,
 /turf/open/floor/wood/large,
 /area/station/medical/psychology)
+"pJw" = (
+/obj/machinery/door/window/right/directional/north{
+	name = "Library Desk";
+	req_access = list("library")
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/library)
 "pJT" = (
 /obj/structure/table,
 /obj/item/storage/toolbox/electrical{
@@ -48719,13 +48737,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/sorting)
-"sBp" = (
-/obj/machinery/door/window/right/directional/north{
-	name = "Library Desk";
-	req_access = list("library")
-	},
-/turf/open/floor/iron/dark,
-/area/station/service/library)
 "sBA" = (
 /obj/machinery/firealarm/directional/north,
 /obj/effect/turf_decal/tile/red/half/contrasted{
@@ -48815,17 +48826,6 @@
 "sEC" = (
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/structure/cable,
-/turf/open/floor/iron/dark,
-/area/station/service/library/artgallery)
-"sEK" = (
-/obj/machinery/door/window/right/directional/north{
-	name = "Secure Art Exhibit";
-	req_access = list("library")
-	},
-/obj/machinery/door/window/right/directional/north{
-	name = "Secure Art Exhibit";
-	req_access = list("library")
-	},
 /turf/open/floor/iron/dark,
 /area/station/service/library/artgallery)
 "sEN" = (
@@ -71381,7 +71381,7 @@ iBp
 cyZ
 cAK
 czl
-pDK
+bJu
 czr
 czI
 pcn
@@ -73950,7 +73950,7 @@ cjp
 cAK
 xja
 cAK
-sBp
+pJw
 tqH
 cAK
 czQ
@@ -74709,7 +74709,7 @@ kkU
 kkU
 kkU
 pQA
-sEK
+eOC
 fwx
 whJ
 cfN
