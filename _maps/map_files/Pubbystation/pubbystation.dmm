@@ -33051,6 +33051,13 @@
 /obj/machinery/firealarm/directional/south,
 /turf/open/floor/carpet,
 /area/station/commons/dorms)
+"gQI" = (
+/obj/machinery/door/window/left/directional/north{
+	req_access = list("library");
+	name = "Secure Art Exhibit"
+	},
+/turf/open/floor/iron/dark,
+/area/station/service/library/artgallery)
 "gQM" = (
 /obj/structure/maintenance_loot_structure/large_crate/medical,
 /turf/open/floor/plating,
@@ -74698,7 +74705,7 @@ kkU
 kkU
 kkU
 pQA
-tqW
+gQI
 fwx
 whJ
 cfN
