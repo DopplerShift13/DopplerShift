@@ -111,6 +111,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 
 /// Assigns all powers in the player's preferences onto the mob.
 /datum/controller/subsystem/processing/powers/proc/assign_powers(mob/living/user, client/applied_client)
+	// No powers are given if the admins have turned on power spawning.
 	if(!spawn_powers_enabled)
 		return
 
@@ -277,6 +278,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	// if its in there, yes/no.
 	return !is_listed
 
+/// Admin verb that disables players from getting powers on spawn based on their prefs. This in essence prevents powers application except through VV.
 ADMIN_VERB(toggle_spawn_powers, R_ADMIN, "Toggle Spawn with Powers", "Toggles whether newly spawned players receive powers from their preferences this round.", ADMIN_CATEGORY_GAME)
 	SSpowers.spawn_powers_enabled = !SSpowers.spawn_powers_enabled
 
