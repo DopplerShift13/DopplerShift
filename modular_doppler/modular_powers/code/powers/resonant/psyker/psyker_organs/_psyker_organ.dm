@@ -74,12 +74,19 @@
 /obj/item/organ/resonant/psyker/Insert(mob/living/carbon/organ_owner, special, movement_flags)
 	. = ..()
 	if(.)
+		RegisterSignal(organ_owner, COMSIG_LIVING_POST_FULLY_HEAL, PROC_REF(on_owner_fully_healed))
 		update_medscan_flags()
 
 /// Clears the flags on the organ before removal
 /obj/item/organ/resonant/psyker/Remove(mob/living/carbon/organ_owner, special = FALSE, movement_flags)
+	UnregisterSignal(organ_owner, COMSIG_LIVING_POST_FULLY_HEAL)
 	update_medscan_flags(FALSE)
 	return ..()
+
+/// Resets psyker stress after a full heal.
+/obj/item/organ/resonant/psyker/proc/on_owner_fully_healed(datum/source, heal_flags)
+	SIGNAL_HANDLER
+	stress = 0
 
 /// Updates the flags on the medscanner in the event that the person with the organ is not a psyker and when the organ is killing them.
 /obj/item/organ/resonant/psyker/proc/update_medscan_flags()
