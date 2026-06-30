@@ -74,6 +74,8 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	runlevels = RUNLEVEL_GAME
 	wait = 1 SECONDS
 
+	/// Whether newly spawned mobs should receive preference-selected powers this round.
+	var/spawn_powers_enabled = TRUE
 	/// Assoc. list of all roundstart power datum types; "name" = /path/
 	var/list/powers = list()
 	/// List of all power priorities in order.
@@ -109,6 +111,9 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 
 /// Assigns all powers in the player's preferences onto the mob.
 /datum/controller/subsystem/processing/powers/proc/assign_powers(mob/living/user, client/applied_client)
+	if(!spawn_powers_enabled)
+		return
+
 	var/bad_power = FALSE
 	var/list/powers_by_priority = list()
 	for(var/power_name in applied_client.prefs.all_powers)
@@ -271,3 +276,11 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		return is_listed
 	// if its in there, yes/no.
 	return !is_listed
+
+ADMIN_VERB(toggle_spawn_powers, R_ADMIN, "Toggle Spawn with Powers", "Toggles whether newly spawned players receive powers from their preferences this round.", ADMIN_CATEGORY_GAME)
+	SSpowers.spawn_powers_enabled = !SSpowers.spawn_powers_enabled
+
+	to_chat(user, span_adminnotice("Newly spawned players will [SSpowers.spawn_powers_enabled ? "now" : "no longer"] receive powers this round."), confidential = TRUE)
+	message_admins(span_adminnotice("[key_name_admin(user)] has toggled spawn power assignment [SSpowers.spawn_powers_enabled ? "ON" : "OFF"] for this round."))
+	log_admin("[key_name(user)] toggled spawn power assignment [SSpowers.spawn_powers_enabled ? "ON" : "OFF"] for this round.")
+	SSblackbox.record_feedback("nested tally", "admin_toggle", 1, list("Toggle Spawn Powers", "[SSpowers.spawn_powers_enabled ? "Enabled" : "Disabled"]"))
