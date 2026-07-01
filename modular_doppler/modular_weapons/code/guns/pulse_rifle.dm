@@ -65,9 +65,19 @@
 /obj/item/gun/ballistic/automatic/karim/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
 	if(underbarrel)
 		if(isammocasing(tool))
-			if(istype(tool, underbarrel.magazine.ammo_type))
-				underbarrel.item_interaction(user, tool, modifiers)
+			var/obj/item/ammo_casing/boolet = tool
+			if(boolet.caliber == underbarrel.magazine.caliber)
+				return underbarrel.item_interaction(user, boolet, modifiers)
 			return ITEM_INTERACT_BLOCKING
+		if(istype(tool, /obj/item/ammo_box/magazine/ammo_stack))
+			var/obj/item/ammo_box/magazine/ammo_stack/stack = tool
+			var/obj/item/casing = stack.get_round(TRUE)
+			if(!istype(casing, /obj/item/ammo_casing))
+				return ITEM_INTERACT_BLOCKING
+			var/obj/item/ammo_casing/boolet = casing
+			if(boolet.caliber != underbarrel.magazine.caliber)
+				return ITEM_INTERACT_BLOCKING
+			return underbarrel.item_interaction(user, boolet, modifiers)
 	return ..()
 
 /obj/item/gun/ballistic/automatic/karim/no_mag
@@ -107,7 +117,6 @@
 	worn_icon_state = "karim_evc"
 	inhand_icon_state = "karim_evc"
 	SET_BASE_PIXEL(-2, 0)
-	spawn_magazine_type = /obj/item/ammo_box/magazine/karim
 	pin = /obj/item/firing_pin/implant/mindshield
 	/// Evil ass loaded grenade launcher variant
 	underbarrel_type = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer
@@ -130,11 +139,21 @@
 	show_bolt_icon = FALSE
 	tac_reloads = FALSE
 	slot_flags = ITEM_SLOT_BACK
-	accepted_magazine_type = /obj/item/ammo_box/magazine/karim/minhir
+	accepted_magazine_type = /obj/item/ammo_box/magazine/minhir
 	pin = /obj/item/firing_pin/implant/mindshield
 	underbarrel_type = null
 	/// Whether or not the feed cover is open on the gun
 	var/cover_open = FALSE
+
+/obj/item/gun/ballistic/automatic/karim/minhir/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_GUN_TRY_FIRE, PROC_REF(check_cover_block))
+
+// Autofire never reaches try_fire_gun, so to block gunfire with the feed cover still raised, we need our own proc registered with COMSIG_GUN_TRY_FIRE
+/obj/item/gun/ballistic/automatic/karim/minhir/proc/check_cover_block(mob/living/user, atom/target, adj, params)
+    if(cover_open)
+        balloon_alert(user, "open the cover!")
+        return COMPONENT_CANCEL_GUN_FIRE
 
 /obj/item/gun/ballistic/automatic/karim/minhir/examine(mob/user)
 	. = ..()
@@ -153,16 +172,6 @@
 	. = ..()
 	. += "minhir_door_[cover_open ? "open" : "closed"]"
 
-/obj/item/gun/ballistic/automatic/karim/minhir/try_fire_gun(atom/target, mob/living/user, params)
-	if(cover_open)
-		balloon_alert(user, "close the cover!")
-		return FALSE
-
-	. = ..()
-	if(.)
-		update_appearance()
-	return .
-
 /obj/item/gun/ballistic/automatic/karim/minhir/attack_hand(mob/user, list/modifiers)
 	if (!user.is_holding(src))
 		..()
@@ -172,8 +181,14 @@
 		return
 	..()
 
-/obj/item/gun/ballistic/automatic/karim/minhir/insert_magazine(obj/item/I, mob/user)
-    if(!cover_open && istype(I, accepted_magazine_type))
+/obj/item/gun/ballistic/automatic/karim/minhir/insert_magazine(mob/user, obj/item/ammo_box/magazine/AM, display_message = TRUE)
+    if(!cover_open)
+        balloon_alert(user, "open the cover!")
+        return FALSE
+    return ..()
+
+/obj/item/gun/ballistic/automatic/karim/minhir/eject_magazine(mob/user, display_message = TRUE, obj/item/ammo_box/magazine/tac_load = null)
+    if(!cover_open)
         balloon_alert(user, "open the cover!")
         return FALSE
     return ..()

@@ -33,6 +33,9 @@
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, autofire_shot_delay =  100 MILLISECONDS, firing_sound_loop = /datum/looping_sound/coherent_beam_cutter)
 
+/obj/item/gun/energy/coherent_beam_cutter/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_PORT_AUTHORITY)
+
 /obj/item/gun/energy/coherent_beam_cutter/tool_use_check(mob/living/user, amount, heat_required)
 	if(QDELETED(cell))
 		balloon_alert(user, "no cell inserted!")
@@ -72,8 +75,15 @@
 	icon_state = "handheld_cbc_infinite"
 	shaded_charge = TRUE
 	selfcharge = TRUE
+	w_class = WEIGHT_CLASS_NORMAL
 	charge_delay = 0
 	charge_timer = 0
+	charge_sections = 5
 	cell_type = /obj/item/stock_parts/power_store/cell
+
+/obj/item/gun/energy/coherent_beam_cutter/selfcharging/update_icon_state()
+	var/ratio = get_charge_ratio()
+	inhand_icon_state = "handheld_cbc_charge[ratio]"
+	. = ..()
 
 #undef BEAM_CUTTER_CHARGE_WELD

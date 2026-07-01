@@ -33,6 +33,14 @@
 		/obj/item/storage/pill_bottle,
 	))
 
+/obj/item/storage/epic_loot_medpen_case/ert_med_preset/PopulateContents()
+	new /obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline(src)
+	new /obj/item/reagent_containers/hypospray/medipen/deforest/synephrine(src)
+	new /obj/item/reagent_containers/hypospray/medipen/deforest/calopine(src)
+	new /obj/item/reagent_containers/hypospray/medipen/deforest/coagulants(src)
+	new /obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi(src)
+	new /obj/item/reagent_containers/hypospray/medipen/deforest/lipital(src)
+
 /obj/item/storage/epic_loot_docs_case
 	name = "documents case"
 	desc = "A large pouch conveniently shaped to hold all of the valueable paperwork in the galaxy."
@@ -89,6 +97,10 @@
 	screen_max_columns = 2
 	numerical_stacking = TRUE
 	opening_sound = 'sound/items/zip/un_zip.ogg'
+
+/obj/item/storage/epic_loot_org_pouch/ert_ammo_preset/PopulateContents()
+	for(var/i in 1 to 4)
+		new /obj/item/ammo_box/magazine/wt550m9(src)
 
 /obj/item/storage/epic_loot_cooler
 	name = "compact cooler"

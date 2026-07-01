@@ -2,8 +2,6 @@
 
 /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/tydhouer
-	/// .980 usually has a speed of 0.75, this puts it up to 1.5 because it's fired from a barrel longer than 2 inches
-	projectile_speed_multiplier = 2
 
 /obj/item/ammo_box/magazine/internal/grenadelauncher/tydhouer
 	ammo_type = /obj/item/ammo_casing/c980grenade
@@ -36,7 +34,6 @@
 	weapon_weight = WEAPON_HEAVY
 	slot_flags = ITEM_SLOT_BELT|ITEM_SLOT_BACK
 	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin
-	projectile_speed_multiplier = 2
 	var/target_range = 14
 	var/maximum_target_range = 14
 

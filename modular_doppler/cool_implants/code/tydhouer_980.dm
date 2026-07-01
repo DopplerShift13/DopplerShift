@@ -11,10 +11,11 @@
 	icon = 'modular_doppler/cool_implants/icons/casings.dmi'
 	icon_state = "tyd_hedp"
 	caliber = CALIBER_980TYDHOUER
+	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c980grenade
 	projectile_type = /obj/projectile/bullet/c980grenade
 
 /obj/item/ammo_casing/c980grenade/fire_casing(atom/target, mob/living/user, params, distro, quiet, zone_override, spread, atom/fired_from)
-	if(fired_from?.vars["target_range"])
+	if(fired_from && ("target_range" in fired_from.vars))
 		loaded_projectile.range = fired_from.vars["target_range"]
 	else
 		loaded_projectile.range = 7
@@ -45,6 +46,18 @@
 	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, 5)
 	explosion(target, heavy_impact_range = 1, light_impact_range = 3, flash_range = 2, adminlog = FALSE, explosion_cause = src)
 
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade
+	name = ".980 Tydhouer grenade shells"
+	desc = "A stack of .980 Tydhouer shells."
+	caliber = CALIBER_980TYDHOUER
+	ammo_type = /obj/item/ammo_casing/c980grenade
+	max_ammo = 4
+	casing_w_spacing = 3
+	casing_z_padding = 3
+
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled
+	start_empty = FALSE
+
 // .980 APHE
 
 /obj/item/ammo_casing/c980grenade/aphe
@@ -69,6 +82,9 @@
 		projectile_piercing = NONE
 	return ..()
 
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/aphe
+	ammo_type = /obj/item/ammo_casing/c980grenade/aphe
+
 // .980 Thermobaric
 
 /obj/item/ammo_casing/c980grenade/thermobaric
@@ -83,6 +99,9 @@
 /obj/projectile/bullet/c980grenade/thermobaric/fuse_activation(atom/target)
 	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, 5)
 	explosion(target, heavy_impact_range = 1, flame_range = 1, flash_range = 2, adminlog = FALSE, explosion_cause = src)
+
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/thermobaric
+	ammo_type = /obj/item/ammo_casing/c980grenade/thermobaric
 
 // .980 Flechette
 
@@ -104,6 +123,9 @@
 	damage_falloff_tile = -0.25
 	range = 20
 
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/flechette
+	ammo_type = /obj/item/ammo_casing/c980grenade/flechette
+
 // .980 Sabot
 
 /obj/item/ammo_casing/c980grenade/sabot
@@ -123,6 +145,9 @@
 	max_pierces = 2
 	projectile_piercing = PASSMOB|PASSGRILLE|PASSCLOSEDTURF|PASSMACHINE|PASSSTRUCTURE|PASSDOORS|PASSFLAPS|PASSVEHICLE|PASSWINDOW
 
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/sabot
+	ammo_type = /obj/item/ammo_casing/c980grenade/sabot
+
 // .980 smoke grenade
 
 /obj/item/ammo_casing/c980grenade/smoke
@@ -140,6 +165,9 @@
 	var/datum/effect_system/fluid_spread/smoke/bad/smoke = new
 	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
 	smoke.start()
+
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/smoke
+	ammo_type = /obj/item/ammo_casing/c980grenade/smoke
 
 // .980 ECM grenade
 
@@ -208,6 +236,9 @@
 	scale = generator(GEN_VECTOR, list(0.9,0.9), list(1.1,1.1), NORMAL_RAND)
 	spin = generator(GEN_NUM, list(-15,15), NORMAL_RAND)
 
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/ecm
+	ammo_type = /obj/item/ammo_casing/c980grenade/ecm
+
 // .980 shrapnel grenade
 
 /obj/item/ammo_casing/c980grenade/shrapnel
@@ -243,6 +274,9 @@
 	icon_state = "shortbullet"
 	range = 2
 
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/shrapnel
+	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel
+
 // .980 phosphor grenade
 
 /obj/item/ammo_casing/c980grenade/shrapnel/phosphor
@@ -267,6 +301,9 @@
 
 /obj/projectile/bullet/incendiary/fire/backblast/short_range
 	range = 1
+
+/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/shrapnel/phosphor
+	ammo_type = /obj/item/ammo_casing/c980grenade/shrapnel/phosphor
 
 #undef GRENADE_SMOKE_RANGE
 #undef GRENADE_ECM_RANGE
