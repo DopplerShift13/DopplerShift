@@ -72,6 +72,7 @@
 /datum/power/aberrant/vent_crawl/proc/can_use_ventcrawl(mob/living/source)
 	if(HAS_TRAIT(source, TRAIT_RESONANCE_SILENCED))
 		source.balloon_alert(source, "Silenced!")
+		return FALSE
 	if(HAS_TRAIT(source, TRAIT_OVERSIZED))
 		source.balloon_alert(source, "You're too big to fit!")
 		return FALSE

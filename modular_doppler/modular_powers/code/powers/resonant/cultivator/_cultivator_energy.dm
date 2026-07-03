@@ -59,6 +59,13 @@
 	if(!attached_mob)
 		return
 
+	// End the alignment if we're dead.
+	if(attached_mob.stat == DEAD)
+		for(var/datum/action/cooldown/power/cultivator/alignment/power in attached_mob.actions)
+			if(power.active)
+				power.disable_alignment(attached_mob)
+		return
+
 	// Handles upkeep for alignment powers.
 	for(var/datum/action/cooldown/power/cultivator/alignment/power in attached_mob.actions)
 		if(power.active)

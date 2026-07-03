@@ -9,7 +9,7 @@
 	resource_display_multiplier = THAUMATURGE_HEMOMANCY_BLOOD_COST_MULTIPLIER
 
 	/// HUD element that shows current blood amount.
-	var/atom/movable/screen/hemophage/blood/blood_tracker
+	var/atom/movable/screen/hemophage/blood/thaumaturge/blood_tracker
 	/// Multiplier for converting prep_cost into blood cost.
 	var/blood_cost_multiplier = THAUMATURGE_HEMOMANCY_BLOOD_COST_MULTIPLIER
 
@@ -44,9 +44,10 @@
 		return
 	var/datum/hud/hud_used = attached_mob.hud_used
 
-	// Always delete competing hemophage trackers so ours stays authoritative.
+	// Hemomancy replaces the generic hemophage tracker, but should not touch any
+	// unrelated HUD element or its own subtype.
 	for(var/atom/movable/screen/hemophage/blood/existing_tracker as anything in hud_used.infodisplay)
-		if(existing_tracker == blood_tracker)
+		if(existing_tracker.type != /atom/movable/screen/hemophage/blood)
 			continue
 		hud_used.infodisplay -= existing_tracker
 		qdel(existing_tracker)
@@ -57,13 +58,13 @@
 
 	// Create ours if missing.
 	if(!blood_tracker)
-		blood_tracker = new /atom/movable/screen/hemophage/blood(null, hud_used)
+		blood_tracker = new /atom/movable/screen/hemophage/blood/thaumaturge(null, hud_used)
 
 	// Ensure ours is in infodisplay.
 	if(!(blood_tracker in hud_used.infodisplay))
 		hud_used.infodisplay += blood_tracker
 
-	attached_mob.hud_used.show_hud(attached_mob.hud_used.hud_version)
+	hud_used.show_hud(hud_used.hud_version)
 
 /// Updates the blood tracker with new numbers +
 /datum/component/thaumaturge/hemomancy/proc/update_blood_tracker()
@@ -159,3 +160,6 @@
 	if(!istype(thaum_action))
 		return
 	consume_action_cost(thaum_action, source)
+
+/atom/movable/screen/hemophage/blood/thaumaturge
+	name = "Hemomancy Blood Meter"
