@@ -1,5 +1,14 @@
 /*
 	Its like the welder from Phantasmal Tool but its magical, doesnt need protective glasses and does a bunch more useful things.
+	As a brief overview, it does the following:
+	- Mends borgs & bots.
+	- Mends mechs.
+	- Mends structures.
+	- Mends glass shards into glass.
+	- Mends damaged/burned clothing, including EMP'd suit sensors.
+	- Mends unorganic organs if they are outside of the mob.
+	- Mends unorganic mob parts if they are on a mob. Uses targeting dummy.
+	- Restores 10% quality on premium augments, caps out at 50%. Does not work at 0%. Uses targeting dummy.
 */
 /datum/power/thaumaturge/mending
 	name = "Mending"
@@ -68,6 +77,16 @@
 		play_mending_feedback(user, target, "damage")
 		return TRUE
 
+	/// Reforms glass shards back into their parent sheet material.
+	if(istype(target, /obj/item/shard))
+		var/obj/item/shard/target_shard = target
+		var/obj/item/stack/sheet/repaired_sheet = repair_shard(target_shard)
+		if(!repaired_sheet)
+			user.balloon_alert(user, "invalid target!")
+			return FALSE
+		play_mending_feedback(user, repaired_sheet, "fractures")
+		return TRUE
+
 	/// Heals damaged clothing and broken suit sensors.
 	if(istype(target, /obj/item/clothing))
 		var/obj/item/clothing/target_clothing = target
@@ -87,16 +106,6 @@
 			user.balloon_alert(user, "target is not damaged!")
 			return FALSE
 		play_mending_feedback(user, target, "damage")
-		return TRUE
-
-	/// Reforms glass shards back into their parent sheet material.
-	if(istype(target, /obj/item/shard))
-		var/obj/item/shard/target_shard = target
-		var/obj/item/stack/sheet/repaired_sheet = repair_shard(target_shard)
-		if(!repaired_sheet)
-			user.balloon_alert(user, "invalid target!")
-			return FALSE
-		play_mending_feedback(user, target, "fractures")
 		return TRUE
 
 	/// Heals targeted synthetic limbs attached to a carbon mob.
