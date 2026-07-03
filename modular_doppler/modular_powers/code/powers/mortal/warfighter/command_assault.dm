@@ -6,6 +6,7 @@
 	security_threat = POWER_THREAT_MAJOR // power literally only used for murder
 	value = 5
 	action_path = /datum/action/cooldown/power/warfighter/command/assault
+	required_powers = list(/datum/power/warfighter/command_recover)
 
 /datum/action/cooldown/power/warfighter/command/assault
 	name = "Command: Assault"
@@ -16,6 +17,7 @@
 	button_icon = 'icons/hud/guardian.dmi'
 	button_icon_state = "assassin"
 	action_symbol = "attack"
+	target_type = /mob/living
 
 	/// how much extra damage the target takes
 	var/vulnerable_amount = 20

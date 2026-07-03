@@ -211,7 +211,7 @@
 #define CULTIVATOR_MIN_CULTIVATION_BONUS 0
 
 // How much does activating the alignment cost
-#define CULTIVATOR_ALIGNMENT_ACTIVATION_COST 200
+#define CULTIVATOR_ALIGNMENT_ACTIVATION_COST 100
 
 // How much does sustaining the alignment cost
 #define CULTIVATOR_ALIGNMENT_UPKEEP_COST 3
