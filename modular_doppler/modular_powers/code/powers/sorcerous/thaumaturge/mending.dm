@@ -4,17 +4,19 @@
 	- Mends borgs & bots.
 	- Mends mechs.
 	- Mends structures.
+	- Mends damaged floors and dented walls.
 	- Mends glass shards into glass.
+	- Mends broken and burnt-out light bulbs and tubes, both loose and inside fixtures.
 	- Mends damaged/burned clothing, including EMP'd suit sensors.
 	- Mends inorganic organs if they are outside of the mob.
 	- Mends inorganic mob parts if they are on a mob. Uses targeting dummy.
-	- Restores 10% quality on premium augments, caps out at 50%. Does not work at 0%. Uses targeting dummy.
+	- Restores quality on premium augments equal to Affinity + 2, caps out at 50%. Does not work at 0%. Uses targeting dummy.
 */
 /datum/power/thaumaturge/mending
 	name = "Mending"
 	desc = "Removes wear and damage from various items, structures and inorganic mobs. This will usually heal 15 health or 10% of its health, whichever is bigger. \
 	\nRequires Affinity 1 to cast. Affinity gives a chance to not consume charges on cast."
-	security_record_text = "Subject can mend damage objects with a touch."
+	security_record_text = "Subject can mend damaged objects with a touch."
 	value = 2
 
 	action_path = /datum/action/cooldown/power/thaumaturge/mending
@@ -40,8 +42,8 @@
 	var/heal_amount = 15
 	/// How much % of Health to restore if it is bigger than the base healing.
 	var/heal_amount_percent = 10
-	/// How much Quality Mending restores on Premium Augments
-	var/quality_amount = 10
+	/// How much Quality Mending restores on Premium Augments on top of Affinity
+	var/quality_amount = 2
 	/// How much Quality can Mending restore at the max on Premium Augments?
 	var/max_quality_percent = 50
 
@@ -68,10 +70,28 @@
 		play_mending_feedback(user, target, "damage")
 		return TRUE
 
-	/// Heals structures
-	if(istype(target, /obj/structure))
-		var/obj/structure/target_structure = target
-		if(!target_structure.uses_integrity || !repair_integrity_target(target_structure, get_mending_amount(target_structure.max_integrity)))
+	/// Repairs damaged light fixtures, including broken or burnt-out bulbs.
+	if(istype(target, /obj/machinery/light))
+		var/obj/machinery/light/target_light_fixture = target
+		if(!repair_light_fixture(target_light_fixture))
+			user.balloon_alert(user, "target is not damaged!")
+			return FALSE
+		play_mending_feedback(user, target, "damage")
+		return TRUE
+
+	/// Repairs loose broken or burnt-out light bulbs and tubes that are not inside a fixture.
+	if(istype(target, /obj/item/light))
+		var/obj/item/light/target_light_item = target
+		if(!repair_light_item(target_light_item))
+			user.balloon_alert(user, "target is not damaged!")
+			return FALSE
+		play_mending_feedback(user, target, "damage")
+		return TRUE
+
+	/// Heals structures and machinery
+	if(istype(target, /obj/structure) || istype(target, /obj/machinery))
+		var/atom/target_atom = target
+		if(!target_atom.uses_integrity || !repair_integrity_target(target_atom, get_mending_amount(target_atom.max_integrity)))
 			user.balloon_alert(user, "target is not damaged!")
 			return FALSE
 		play_mending_feedback(user, target, "damage")
@@ -125,6 +145,15 @@
 			user.balloon_alert(user, "target is not damaged!")
 			return FALSE
 		play_mending_feedback(user, target, "quality")
+		return TRUE
+
+	/// Repairs damaged floors and dented walls.
+	if(isturf(target))
+		var/turf/target_turf = target
+		if(!repair_turf_damage(target_turf))
+			user.balloon_alert(user, "target is not damaged!")
+			return FALSE
+		play_mending_feedback(user, target, "damage")
 		return TRUE
 
 	/// No target found
@@ -188,6 +217,71 @@
 		return FALSE
 	return damaged_atom.repair_damage(amount_to_repair) > 0
 
+/// Repairs the fixture itself and restores any inserted bulb or tube.
+/datum/action/cooldown/power/thaumaturge/mending/proc/repair_light_fixture(obj/machinery/light/target_light_fixture)
+	if(!target_light_fixture)
+		return FALSE
+
+	var/did_repair = FALSE
+	// Repairs the lightbulb inside the fixture
+	if(target_light_fixture.status != LIGHT_OK && target_light_fixture.status != LIGHT_EMPTY)
+		target_light_fixture.fix()
+		did_repair = TRUE
+
+	// Also repairs the fixture itself
+	if(target_light_fixture.uses_integrity && target_light_fixture.get_integrity() < target_light_fixture.max_integrity)
+		did_repair = repair_integrity_target(target_light_fixture, get_mending_amount(target_light_fixture.max_integrity)) || did_repair
+
+	return did_repair
+
+/// Repairs loose light bulbs and tubes by restoring them to an intact state.
+/datum/action/cooldown/power/thaumaturge/mending/proc/repair_light_item(obj/item/light/target_light_item)
+	if(!target_light_item)
+		return FALSE
+	if(target_light_item.status == LIGHT_OK)
+		return FALSE
+
+	// There's no proc dedicated to fixing lights so we just reset everything set by broken lights.
+	target_light_item.status = LIGHT_OK
+	target_light_item.brightness = initial(target_light_item.brightness)
+	target_light_item.force = initial(target_light_item.force)
+	target_light_item.sharpness = initial(target_light_item.sharpness)
+	target_light_item.update_appearance(UPDATE_DESC | UPDATE_ICON)
+	return TRUE
+
+/// Repairs floor scorch/break states and wall dents.
+/datum/action/cooldown/power/thaumaturge/mending/proc/repair_turf_damage(turf/target_turf)
+	if(istype(target_turf, /turf/open))
+		var/turf/open/target_open_turf = target_turf
+		return repair_open_turf(target_open_turf)
+
+	if(istype(target_turf, /turf/closed/wall))
+		var/turf/closed/wall/target_wall = target_turf
+		return repair_wall(target_wall)
+
+	return FALSE
+
+/// Floors store runtime damage as broken and burnt visual states.
+/datum/action/cooldown/power/thaumaturge/mending/proc/repair_open_turf(turf/open/target_open_turf)
+	if(!target_open_turf)
+		return FALSE
+	if(!target_open_turf.broken && !target_open_turf.burnt)
+		return FALSE
+
+	target_open_turf.broken = FALSE
+	target_open_turf.burnt = FALSE
+	target_open_turf.update_appearance()
+	return TRUE
+
+/// Walls do not have health damage here; they only accumulate dent overlays.
+/datum/action/cooldown/power/thaumaturge/mending/proc/repair_wall(turf/closed/wall/target_wall)
+	if(!target_wall || !LAZYLEN(target_wall.dent_decals))
+		return FALSE
+
+	target_wall.cut_overlay(target_wall.dent_decals)
+	target_wall.dent_decals.Cut()
+	return TRUE
+
 /// Repairs damaged clothing and, for undersuits, broken sensors.
 /// Clothing damage states are binary, so damaged or shredded clothes are restored in full.
 /datum/action/cooldown/power/thaumaturge/mending/proc/repair_clothing(obj/item/clothing/target_clothing)
@@ -239,9 +333,10 @@
 	if(premium_component.quality <= 0 || premium_component.quality >= max_quality_percent)
 		return FALSE
 
-	var/starting_quality = premium_component.quality
-	premium_component.adjust_quality(quality_amount, max_quality_percent)
-	return premium_component.quality > starting_quality
+	var/current_quality = premium_component.quality
+	var/quality_to_restore = quality_amount + max(0, affinity)
+	premium_component.adjust_quality(quality_to_restore, max_quality_percent)
+	return premium_component.quality > current_quality
 
 /// Repairs damage on a detached synthetic organ.
 /datum/action/cooldown/power/thaumaturge/mending/proc/repair_synthetic_organ(obj/item/organ/target_organ)

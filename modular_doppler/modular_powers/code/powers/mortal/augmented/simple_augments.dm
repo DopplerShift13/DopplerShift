@@ -108,6 +108,13 @@ Not to be confused with HUD eyes above.
 	augment = /obj/item/organ/eyes/robotic/shield
 	disable_if_prisoner = FALSE // don't go ripping out a man's eyes.
 
+/datum/power/augmented/glow_eyes
+	name = "High Luminosity Eyes"
+	desc = "Special eyes that glow! For when you just want to look cool."
+	value = 1
+	augment = /obj/item/organ/eyes/robotic/glow
+	disable_if_prisoner = FALSE // there's no aura police
+
 /*
 INTERNAL (basically anything that isnt standard slots)
 */

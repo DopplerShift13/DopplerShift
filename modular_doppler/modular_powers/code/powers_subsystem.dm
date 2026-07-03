@@ -284,7 +284,7 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 	return !is_listed
 
 /// Admin verb that disables players from getting powers on spawn based on their prefs. This in essence prevents powers application except through VV.
-ADMIN_VERB(toggle_spawn_powers, R_ADMIN, "Toggle Spawn with Powers", "Toggles whether newly spawned players receive powers from their preferences this round.", ADMIN_CATEGORY_GAME)
+ADMIN_VERB(toggle_spawn_powers, R_ADMIN, "Toggle Spawn Powers", "Toggles whether newly spawned players receive powers from their preferences this round.", ADMIN_CATEGORY_GAME)
 	SSpowers.spawn_powers_enabled = !SSpowers.spawn_powers_enabled
 
 	to_chat(user, span_adminnotice("Newly spawned players will [SSpowers.spawn_powers_enabled ? "now" : "no longer"] receive powers this round."), confidential = TRUE)

@@ -7,7 +7,7 @@
 	\nAny excess blood in the target creature beyond 100% is transformed into healing, at a 10u per 4 damage ratio. This can only heal organic bodyparts and does not heal any damage-types besides Brute or Burn. This also does not affect creatures with non-blood bloodtypes such as Ethereals or Slimepeople. \
 	\nRequires Affinity 3. Additional affinity increases the healing ratio by 0.5 per affinity"
 	security_record_text = "Subject can draw blood from varying sources (including humanoids) and transmute it into universal blood, potentially healing the target."
-	value = 5
+	value = 4
 
 	action_path = /datum/action/cooldown/power/thaumaturge/sanguine_absorption
 	required_powers = list(/datum/power/thaumaturge_root/hemomancy)
@@ -20,7 +20,7 @@
 	button_icon_state = "bubblegumfoot"
 
 	required_affinity = 3
-	prep_cost = 5
+	prep_cost = 4
 	target_range = 4
 
 	use_time = 3 SECONDS
