@@ -3,7 +3,7 @@
 */
 /datum/power/warfighter/kaza_ruk
 	name = "Kaza Ruk"
-	desc = "Trained in various disarming moves, you can wield the martial arts of Krav Maga without any external assistance."
+	desc = "Trained in various disarming moves, you can wield the martial arts of Kaza Ruk without any external assistance."
 	security_record_text = "Subject can wield Kaza Ruk in unarmed combat."
 	security_threat = POWER_THREAT_MAJOR
 	value = 10
