@@ -37,6 +37,7 @@
 
 	click_to_activate = TRUE
 	aim_assist = FALSE // I see some use-cases where what you want to target is very finnicky and that you don't want to default to humanoid targets.
+	target_range = 1
 
 	/// How much Mending restores
 	var/heal_amount = 15
