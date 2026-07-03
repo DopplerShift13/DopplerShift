@@ -12,7 +12,7 @@
 	desc = "Grants the ability to manipulate and move various objects. Generates stress based upon weight on pick-up and throw, as well as passively while holding an object."
 	security_record_text = "Subject can wield telekinesis to maneuver and fling objects."
 	security_threat = POWER_THREAT_MAJOR
-	value = 4
+	value = 5
 	required_powers = list(/datum/power/psyker_root)
 	action_path = /datum/action/cooldown/power/psyker/telekinesis
 
@@ -24,7 +24,6 @@
 	click_to_activate = TRUE
 	target_self = FALSE
 	unset_after_click = FALSE
-
 	target_range = 255 // this is just for show.
 
 	mental = FALSE // We are lifting them with the mind but it doesn't affect the target's mind
