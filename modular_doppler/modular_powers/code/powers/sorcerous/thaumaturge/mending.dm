@@ -10,7 +10,7 @@
 	- Mends damaged/burned clothing, including EMP'd suit sensors.
 	- Mends inorganic organs if they are outside of the mob.
 	- Mends inorganic mob parts if they are on a mob. Uses targeting dummy.
-	- Restores quality on premium augments equal to Affinity + 2, caps out at 50%. Does not work at 0%. Uses targeting dummy.
+	- Restores 3-5% quality on premium augments, caps out at 50%. Does not work at 0%. Uses targeting dummy.
 */
 /datum/power/thaumaturge/mending
 	name = "Mending"
@@ -42,8 +42,10 @@
 	var/heal_amount = 15
 	/// How much % of Health to restore if it is bigger than the base healing.
 	var/heal_amount_percent = 10
-	/// How much Quality Mending restores on Premium Augments on top of Affinity
-	var/quality_amount = 2
+	/// How much Quality Mending restores on Premium Augments
+	var/quality_amount = 4
+	/// How much more/less quality gets randomly added on quality repair
+	var/quality_sway = 1
 	/// How much Quality can Mending restore at the max on Premium Augments?
 	var/max_quality_percent = 50
 
@@ -324,7 +326,7 @@
 		return FALSE
 	return TRUE
 
-/// Restores premium augment quality by 10%, but never above the spell's maintenance ceiling and never from 0%.
+/// Restores premium augment quality by a base amount plus a random sway, but never above the spell's maintenance ceiling and never from 0%.
 /datum/action/cooldown/power/thaumaturge/mending/proc/repair_premium_augment(obj/item/organ/target_organ)
 	if(!target_organ?.premium || !target_organ.premium_component)
 		return FALSE
@@ -334,7 +336,7 @@
 		return FALSE
 
 	var/current_quality = premium_component.quality
-	var/quality_to_restore = quality_amount + max(0, affinity)
+	var/quality_to_restore = quality_amount + rand(-quality_sway, quality_sway)
 	premium_component.adjust_quality(quality_to_restore, max_quality_percent)
 	return premium_component.quality > current_quality
 
