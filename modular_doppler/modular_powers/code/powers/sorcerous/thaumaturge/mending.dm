@@ -6,8 +6,8 @@
 	- Mends structures.
 	- Mends glass shards into glass.
 	- Mends damaged/burned clothing, including EMP'd suit sensors.
-	- Mends unorganic organs if they are outside of the mob.
-	- Mends unorganic mob parts if they are on a mob. Uses targeting dummy.
+	- Mends inorganic organs if they are outside of the mob.
+	- Mends inorganic mob parts if they are on a mob. Uses targeting dummy.
 	- Restores 10% quality on premium augments, caps out at 50%. Does not work at 0%. Uses targeting dummy.
 */
 /datum/power/thaumaturge/mending
