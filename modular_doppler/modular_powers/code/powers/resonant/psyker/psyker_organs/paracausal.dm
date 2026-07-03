@@ -48,7 +48,7 @@
 	if(!meditate_action)
 		meditate_action = new(src)
 
-	if(has_compatible_root())
+	if(has_compatible_root() && is_functional())
 		if(meditate_action.owner != organ_owner)
 			meditate_action.Grant(organ_owner)
 		return

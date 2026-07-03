@@ -26,6 +26,8 @@
 		psyker_organ =  owner.get_organ_slot(ORGAN_SLOT_PSYKER)
 	if(!psyker_organ)
 		return FALSE
+	if(!psyker_organ.is_functional())
+		return FALSE
 	return TRUE
 
 /// This doesn't actually add the stress itself; it merely tells the organ to add the stress. Validation is handled on the organ side.
@@ -33,9 +35,12 @@
 	psyker_organ.modify_stress(amount, override_cap)
 
 // We added checking for organs on try_use, as well as making sure that if we are wearing a tinfoil cap, we can't just wield our psychic powers.
-/datum/action/cooldown/power/psyker/try_use(mob/living/user, mob/living/target)
+/datum/action/cooldown/power/psyker/can_use(mob/living/user, mob/living/target)
 	if(!ValidateOrgan())
-		owner.balloon_alert(owner, "No paracausal gland!")
+		if(psyker_organ)
+			owner.balloon_alert(owner, "Paracausal gland destroyed!")
+		else
+			owner.balloon_alert(owner, "No paracausal gland!")
 		return FALSE
 	// This checks against mental on the target
 	if(isliving(target) && mental && !can_affect_mental(target, antimagic_charge_cost))

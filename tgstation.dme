@@ -7634,6 +7634,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_organs\_psyker_organ.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_organs\chemotropic.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_organs\paracausal.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\psyker\psyker_organs\surgery.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_chalks.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_enigmatist_root.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\enigmatist\_enigmatist_spell.dm"

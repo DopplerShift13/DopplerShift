@@ -37,6 +37,10 @@
 	var/cap_to = isnum(override_cap) ? override_cap : PSYKER_STRESS_STANDARD_THRESHOLD * 2
 	stress = clamp(stress + amount, 0, cap_to)
 
+/// Returns TRUE while the gland can still power psyker abilities.
+/obj/item/organ/resonant/psyker/proc/is_functional()
+	return damage < maxHealth && !(organ_flags & ORGAN_FAILING)
+
 /// Returns how much stress should naturally recover each second.
 /obj/item/organ/resonant/psyker/proc/get_stress_recovery_per_second()
 	if(stress >= PSYKER_STRESS_STANDARD_THRESHOLD)
@@ -109,6 +113,13 @@
 /obj/item/organ/resonant/psyker/on_life(seconds_per_tick, times_fired)
 	. = ..()
 	update_medscan_flags()
+
+	// Organ doesn't work? Don't do anything.
+	if(!is_functional())
+		if(stress_warning)
+			owner.remove_status_effect(/datum/status_effect/power/stress_warning)
+			stress_warning = null
+		return
 
 	// If you have the associated power. read; you are a psyker.
 	if(has_compatible_root())
