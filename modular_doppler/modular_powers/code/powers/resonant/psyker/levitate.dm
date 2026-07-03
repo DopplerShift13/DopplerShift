@@ -1,6 +1,6 @@
 /datum/power/psyker_power/levitate
 	name = "Levitate"
-	desc = "Grants the ability to levitate yourself above surfaces and letting you propel yourself in zero-gravity. Passively drains stress while in use."
+	desc = "Grants the ability to levitate yourself above surfaces and letting you propel yourself in zero-gravity. Passively causes stress while in use."
 	security_record_text = "Subject can levitate their body regardless of the current gravity."
 	value = 4
 	required_powers = list(/datum/power/psyker_root)
@@ -8,7 +8,7 @@
 
 /datum/action/cooldown/power/psyker/levitate
 	name = "Levitate"
-	desc = "Toggles levitation, causing you to ignore the ground. Also allows for propulsion in zero-gravity. Passively drains stress while in use."
+	desc = "Toggles levitation, causing you to ignore the ground. Also allows for propulsion in zero-gravity. Passively causes stress while in use."
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "beam_up"
 

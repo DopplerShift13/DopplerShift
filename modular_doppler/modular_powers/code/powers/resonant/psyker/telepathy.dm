@@ -18,6 +18,7 @@
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "telepathy"
 	click_to_activate = TRUE
+	unset_after_click = FALSE
 	target_self = FALSE
 	target_range = 12
 	target_type = /mob/living

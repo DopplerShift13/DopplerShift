@@ -433,33 +433,23 @@
 	var/allow_subtypes = power_type.required_allow_subtypes
 	var/list/missing_required = list()
 
+	// Runs through all required powers and checks if anything is missing
 	for(var/datum/power/required_power_type as anything in required_powers)
-		var/required_power_name = required_power_type.name
+		var/requirement_satisfied = FALSE
+		for(var/selected_power_name in preferences.all_powers)
+			var/datum/power/selected_power_type = SSpowers.powers[selected_power_name]
+			if(!selected_power_type)
+				continue
 
-		// Exact requirement satisfied
-		if(required_power_name in preferences.all_powers)
+			// Checks if the power matches the requirements including the various ifs/buts like allow_Subtypes
+			if(power_matches_requirement(selected_power_type, required_power_type, allow_subtypes))
+				requirement_satisfied = TRUE
+				break
+
+		if(requirement_satisfied)
 			if(allow_any)
 				return list()
 			continue
-
-		// Optional: allow subtypes, decided by the power we're trying to learn
-		if(allow_subtypes)
-			var/required_typepath = ispath(required_power_type) ? required_power_type : required_power_type.type
-			var/found_subtype = FALSE
-
-			for(var/selected_power_name in preferences.all_powers)
-				var/datum/power/selected_power_type = SSpowers.powers[selected_power_name]
-				if(!selected_power_type)
-					continue
-
-				if(ispath(selected_power_type.type, required_typepath))
-					found_subtype = TRUE
-					break
-
-			if(found_subtype)
-				if(allow_any)
-					return list()
-				continue
 
 		if(!allow_any)
 			missing_required += required_power_type
@@ -475,12 +465,18 @@
  * and returns the first one encountered if so.
  */
 /datum/preference_middleware/powers/proc/get_requiring_power(datum/power/power_type)
-	var/list/powers_requiring_this = GLOB.powers_inverse_requirements_list[power_type]
-	if(!length(powers_requiring_this))
-		return
-	for(var/datum/power/requiring_power_type as anything in powers_requiring_this)
-		if(requiring_power_type.name in preferences.all_powers)
-			return requiring_power_type
+	for(var/selected_power_name in preferences.all_powers)
+		var/datum/power/requiring_power_type = SSpowers.powers[selected_power_name]
+		if(!requiring_power_type || requiring_power_type == power_type)
+			continue
+
+		var/list/required_powers = GLOB.powers_requirements_list[requiring_power_type]
+		if(!length(required_powers))
+			continue
+
+		for(var/datum/power/required_power_type as anything in required_powers)
+			if(power_matches_requirement(power_type, required_power_type, requiring_power_type.required_allow_subtypes))
+				return requiring_power_type
 
 /**
  * Checks whether a given power type is incompatible with our selected powers,

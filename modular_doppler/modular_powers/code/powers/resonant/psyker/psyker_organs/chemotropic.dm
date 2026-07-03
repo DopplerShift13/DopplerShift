@@ -4,8 +4,8 @@
 /datum/power/psyker_root/chemotropic
 	name = "Chemotropic Gland"
 	desc = "An unnatural organ that grows inside the chest-cavity of Psykers. Required as a catalyst to wield Psyker powers.\
-	\nThis gland particularly only functions through external chemical stimuli: particularly substances such as nicotine, ethanol and hard-drugs. You barely recover stress passively, but recover vast amounts from having any of the aforementioned\
-	substances inside your bloodstream, with hard-drugs yielding more reecovery than nicotine and ethanol.\
+	\nThis gland particularly only functions through external chemical stimuli: particularly substances such as nicotine, ethanol and hard-drugs. You barely recover stress passively, but recover vast amounts from having any of the aforementioned \
+	substances inside your bloodstream, with hard-drugs yielding more recovery than nicotine and ethanol.\
 	\nHaving matching negative quirks with the substance (such as the Smoker quirk with Nicotine) increases the stress recovery."
 	security_record_text = "Subject wields psionic abilities and recovers from it through substance consumption."
 	organ_type = /obj/item/organ/resonant/psyker/chemotropic

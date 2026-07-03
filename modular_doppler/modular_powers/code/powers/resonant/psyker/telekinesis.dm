@@ -23,8 +23,8 @@
 	button_icon_state = "repulse"
 	click_to_activate = TRUE
 	target_self = FALSE
-
 	unset_after_click = FALSE
+
 	target_range = 255 // this is just for show.
 
 	mental = FALSE // We are lifting them with the mind but it doesn't affect the target's mind

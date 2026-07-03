@@ -14,6 +14,19 @@ GLOBAL_LIST_INIT(powers_inverse_requirements_list, generate_powers_inverse_requi
 /// Glob list of powers that have species restrictions.
 GLOBAL_LIST_INIT(powers_species_restrictions, generate_powers_species_restrictions())
 
+/// Returns TRUE when selected_power_type satisfies required_power_type.
+/proc/power_matches_requirement(datum/power/selected_power_type, datum/power/required_power_type, allow_subtypes = FALSE)
+	var/selected_typepath = ispath(selected_power_type) ? selected_power_type : selected_power_type.type
+	var/required_typepath = ispath(required_power_type) ? required_power_type : required_power_type.type
+
+	if(selected_typepath == required_typepath)
+		return TRUE
+
+	if(allow_subtypes && ispath(selected_typepath, required_typepath))
+		return TRUE
+
+	return FALSE
+
 /// Gets a power and all their requirements and adds it to the requirements list.
 /proc/generate_powers_requirements_list()
 	var/list/requirements_list = list()
@@ -224,25 +237,17 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 		var/any_satisfied = FALSE
 
 		for(var/datum/power/req_type as anything in required)
-			// Exact requirement satisfied
-			if(selected_types[req_type])
-				any_satisfied = TRUE
-				if(allow_any)  // check to end early if any requirements are validated and allow_any is true.
+			// checks if we satisfy any requirements first
+			for(var/datum/power/selected_type as anything in selected_types)
+				if(power_matches_requirement(selected_type, req_type, allow_subtypes))
+					any_satisfied = TRUE
+					break
+
+			// check to end early if any requirements are validated and allow_any is true.
+			if(any_satisfied)
+				if(allow_any)
 					break
 				continue
-
-			// Optional: allow subtypes
-			if(allow_subtypes)
-				var/required_typepath = ispath(req_type) ? req_type : req_type.type
-				for(var/datum/power/selected_type as anything in selected_types)
-					if(ispath(selected_type, required_typepath))
-						any_satisfied = TRUE
-						break
-
-				if(any_satisfied) // check to end early if any requirements are validated and allow_any is true.
-					if(allow_any)
-						break
-					continue
 
 			// If we require all, any missing invalidates.
 			if(!allow_any)
