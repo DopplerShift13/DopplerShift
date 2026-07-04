@@ -73,6 +73,14 @@
 		play_mending_feedback(user, target, "damage")
 		return TRUE
 
+	/// Fully stabilizes the supermatter engine at the cost of the caster's life.
+	if(istype(target, /obj/machinery/power/supermatter_crystal/engine))
+		var/obj/machinery/power/supermatter_crystal/engine/target_supermatter = target
+		if(!repair_supermatter(user, target_supermatter))
+			user.balloon_alert(user, "target is not damaged!")
+			return FALSE
+		return TRUE
+
 	/// Repairs damaged light fixtures, including broken or burnt-out bulbs.
 	if(istype(target, /obj/machinery/light))
 		var/obj/machinery/light/target_light_fixture = target
@@ -385,3 +393,80 @@
 
 	target_living.heal_overall_damage(brute = brute_to_repair, burn = burn_to_repair)
 	return TRUE
+
+/// Fully restores the supermatter's structural and delamination integrity, then sacrifices the caster.
+/datum/action/cooldown/power/thaumaturge/mending/proc/repair_supermatter(mob/living/user, obj/machinery/power/supermatter_crystal/engine/target_supermatter)
+	if(!user || !target_supermatter)
+		return FALSE
+	if(target_supermatter.get_integrity() >= target_supermatter.max_integrity && target_supermatter.damage <= 0 && !target_supermatter.final_countdown)
+		return FALSE
+
+	// Clears the area around the supermatter to buy some time
+	clear_supermatter_plasma_area(target_supermatter)
+
+	// Heals all damage, even stops the final countdown.
+	target_supermatter.update_integrity(target_supermatter.max_integrity)
+	target_supermatter.damage = 0
+	target_supermatter.damage_archived = 0
+	target_supermatter.external_damage_immediate = 0
+	target_supermatter.final_countdown = FALSE
+	target_supermatter.tainted_by_mending = TRUE
+	target_supermatter.add_atom_colour("#7266dd", FIXED_COLOUR_PRIORITY)
+	target_supermatter.update_appearance()
+
+	// If on station Z, inform everyone of the Mender's Sacrifice
+	if(is_station_level(target_supermatter.z))
+		for(var/mob/station_mob as anything in GLOB.player_list)
+			if(!is_station_level(station_mob.z))
+				continue
+			SEND_SOUND(station_mob, sound('sound/effects/supermatter.ogg', volume = 25))
+			to_chat(station_mob, "<font color='#7266dd' size='5'><b>KZZZZT!</b></font>")
+
+	// Ring effect
+	new /obj/effect/temp_visual/circle_wave/mending_supermatter(get_turf(target_supermatter))
+
+	var/datum/component/supermatter_crystal/supermatter_component = target_supermatter.GetComponent(/datum/component/supermatter_crystal)
+	if(!supermatter_component)
+		return FALSE
+
+	// inform le admins
+	message_admins("Supermatter [target_supermatter] at [ADMIN_VERBOSEJMP(target_supermatter)] has been stabilized with Mending. If it delaminates again, this will cause a mass erasure event.")
+	target_supermatter.investigate_log("[user] has stabilized the engine using Mending.", INVESTIGATE_ENGINE)
+
+	// DEATH
+	supermatter_component.dust_mob(
+		target_supermatter,
+		user,
+		span_danger("[user] stabilizes [target_supermatter] with a final display of thaumaturgic power before rapidly fading to ash."),
+		span_userdanger("With your full thaumaturgic might, you stabilize the supermatter crystal. You can only hope that your sacrifice was worth it, as you quickly fade to ash."),
+		"thaumaturgic stabilization",
+	)
+
+	// Prepare for unforseen consequences
+	target_supermatter.tainted_by_mending = TRUE
+
+	return TRUE
+
+/// Removes nearby plasma and active plasma fires so the engine does not immediately retrigger.
+/datum/action/cooldown/power/thaumaturge/mending/proc/clear_supermatter_plasma_area(obj/machinery/power/supermatter_crystal/engine/target_supermatter)
+	var/turf/center_turf = get_turf(target_supermatter)
+	if(!center_turf)
+		return
+
+	for(var/turf/open/current_turf as anything in RANGE_TURFS(7, center_turf))
+		if(current_turf.air)
+			current_turf.air.assert_gas(/datum/gas/plasma)
+			current_turf.air.gases[/datum/gas/plasma][MOLES] = 0
+			current_turf.air.garbage_collect()
+			current_turf.air_update_turf(FALSE, FALSE)
+
+		for(var/obj/effect/hotspot/hotspot_instance as anything in current_turf)
+			if(hotspot_instance.type != /obj/effect/hotspot)
+				continue
+			qdel(hotspot_instance)
+
+/// Circle wave effect on mending the SM.
+/obj/effect/temp_visual/circle_wave/mending_supermatter
+	color = "#7266dd"
+	duration = 5 SECONDS
+	amount_to_scale = 10
