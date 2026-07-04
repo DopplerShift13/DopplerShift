@@ -23,6 +23,7 @@ GLOBAL_LIST_INIT(frame_types, list(
 	"polytronic",
 	"teshari",
 	"robotic",
+	"ghost",
 	"empty",
 	))
 
@@ -51,6 +52,7 @@ GLOBAL_LIST_INIT(frame_type_names, list(
 	"polytronic" = "Polytronic Modular Doll",
 	"teshari" = "Synthetic Teshari",
 	"robotic" = "Clover Corporation Humaniform",
+	"ghost" = "Virtual Solutions Ghost",
 	"empty" = "Missing limb",
 	))
 /obj/item/bodypart/head/robot/android/empty
