@@ -62,6 +62,9 @@
 /// Args: (mob/living/carbon/attacker, mob/living/carbon/target, obj/item/bodypart/affecting, damage, armor_block, limb_sharpness)
 #define COMSIG_HUMAN_UNARMED_HIT "living_unarmed_hit"
 
+/// After a living mob is successfully shoved, this is sent to the shoved mob (mob/living/shover, shove_flags, obj/item/weapon)
+#define COMSIG_LIVING_SHOVE_SUCCESS "living_shove_success"
+
 /// Fired after a succesful block in /mob/living/proc/check_block().
 /// Args: (atom/hit_by, damage, attack_text, attack_type, armour_penetration, damage_type)
 #define COMSIG_LIVING_SUCCESSFUL_BLOCK "living_succesful_block"
@@ -316,6 +319,9 @@
 
 // Trait for the Explosives Specialist power
 #define TRAIT_POWER_EXPLOSIVES_SPECIALIST "power_explosives_specialist"
+
+// Martial Art define for Tchotchke Style
+#define MARTIALART_TCHOTCHKE_STYLE "tchotchke style"
 
 /**
  * MORTAL: Augmented

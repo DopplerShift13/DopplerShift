@@ -800,6 +800,11 @@
 	if(shove_flags & SHOVE_CAN_STAGGER)
 		target.adjust_staggered_up_to(STAGGERED_SLOWDOWN_LENGTH, 10 SECONDS)
 
+	/// DOPPLER ADDITION START: Shuccesful sove listener to be used for martial arts and other things
+	if(!(shove_flags & SHOVE_BLOCKED))
+		SEND_SIGNAL(target, COMSIG_LIVING_SHOVE_SUCCESS, src, shove_flags, weapon)
+	/// DOPPLER ADDITION END
+
 	log_combat(src, target, "shoved", append_message)
 
 ///Check if the universal conditions for disarming/shoving are met.
