@@ -53,6 +53,10 @@
 	message_admins("[sm] will no longer trigger a mass erasure event. [ADMIN_VERBOSEJMP(sm)]")
 	sm.investigate_log("will no longer trigger a mass erasure event.", INVESTIGATE_ENGINE)
 
+/datum/sm_delam/erasure/lights(obj/machinery/power/supermatter_crystal/sm)
+	..()
+	sm.set_light_color("#7266dd")
+
 /datum/sm_delam/erasure/delaminate(obj/machinery/power/supermatter_crystal/sm)
 	message_admins("Supermatter [sm] at [ADMIN_VERBOSEJMP(sm)] triggered a mass erasure event.")
 	sm.investigate_log("triggered a mass erasure event.", INVESTIGATE_ENGINE)
@@ -63,9 +67,9 @@
 
 /datum/sm_delam/erasure/count_down_messages(obj/machinery/power/supermatter_crystal/sm)
 	var/list/messages = list()
-	messages += "CRYSTAL DELAMINATION IMMINENT. The supermatter has reached critical integrity failure. Resonant phenomena has caused mass-sensor failure. Prepare for unforseen consequences."
+	messages += "CRYSTAL DELAMINATION IMMINENT. The supermatter has reached critical integrity failure. Resonant phenomena has caused mass-sensor failure. Mass reality altering event imminent. Prepare for unforseen consequences."
 	messages += "Crystalline hyperstructure returning to safe operating parameters. Resonant phemona decreasing."
-	messages += "remain before unforseen consequences."
+	messages += "remain until crystal delamination."
 	return messages
 
 /datum/sm_delam/erasure/proc/announce_erasure(obj/machinery/power/supermatter_crystal/sm)
@@ -86,7 +90,8 @@
 	if(!center_turf)
 		return
 
-	new /obj/effect/erasure_anchor(center_turf)
+	var/obj/effect/erasure_anchor/erasure_anchor = new /obj/effect/erasure_anchor(center_turf)
+	erasure_anchor.activate_erasure()
 
 /// Sends the station-wide erasure warning text and music, with special messaging for thaumaturges and Void Path heretics.
 /datum/sm_delam/erasure/proc/broadcast_erasure_message(obj/machinery/power/supermatter_crystal/sm)
@@ -131,7 +136,7 @@
 	invisibility = INVISIBILITY_OBSERVER
 
 	/// Whether this anchor is still actively erasing the map.
-	var/erasure_active = TRUE
+	var/erasure_active = FALSE
 	/// Radius, in tiles, of the one-time wipe centered on the supermatter.
 	var/initial_wipe_radius = 7
 	/// Additional invisible hotspots to create per station z-level, not counting the guaranteed epicenter hotspot.
@@ -145,10 +150,16 @@
 	/// Cached frontier source turfs grouped by station z-level for hotspot spawning and relocation.
 	var/list/frontier_sources_by_z = list()
 
-/// Performs the initial wipe, caches valid frontier sources, and spawns the hotspot controllers.
+/// Initializes the anchor inertly so admin-spawned instances do nothing until explicitly activated.
 /obj/effect/erasure_anchor/Initialize(mapload)
-	. = ..()
+	return ..()
 
+/// Performs the initial wipe, caches valid frontier sources, and spawns the hotspot controllers.
+/obj/effect/erasure_anchor/proc/activate_erasure()
+	if(erasure_active)
+		return FALSE
+
+	erasure_active = TRUE
 	for(var/turf/current_turf as anything in RANGE_TURFS(initial_wipe_radius, src))
 		erase_turf(current_turf)
 
@@ -156,22 +167,59 @@
 	spawn_initial_hotspots()
 	if(!LAZYLEN(active_hotspots))
 		qdel(src)
+		return FALSE
 
-/// Removes non-mob contents from a turf and converts it into the appropriate erasure void turf.
+	return TRUE
+
+/obj/effect/erasure_anchor/vv_get_dropdown()
+	. = ..()
+	VV_DROPDOWN_OPTION("", "---------")
+	VV_DROPDOWN_OPTION("activate_erasure", "Activate Erasure")
+
+/obj/effect/erasure_anchor/vv_do_topic(list/href_list)
+	. = ..()
+	if(!.)
+		return
+	if(isnull(usr) || !href_list["activate_erasure"] || !check_rights(R_FUN, show_msg = TRUE))
+		return
+
+	log_admin("[key_name(usr)] has activated a mass erasure anchor.")
+	activate_erasure()
+
+/// Removes hidden underfloor support objects and converts a turf into the appropriate erasure void turf.
 /obj/effect/erasure_anchor/proc/erase_turf(turf/target_turf, preferred_void_turf_type)
 	if(!target_turf || !is_valid_erasure_target(target_turf))
 		return FALSE
 
-	erase_turf_contents(target_turf)
-	convert_turf_to_erasure_void(target_turf, preferred_void_turf_type)
+	erase_hidden_underfloor_objects(target_turf)
+	erase_void_turf_objects(target_turf)
+	var/turf/converted_turf = convert_turf_to_erasure_void(target_turf, preferred_void_turf_type)
+	if(!converted_turf)
+		return FALSE
 	return TRUE
 
-/// Deletes every movable on a turf except mobs and the anchor itself.
-/obj/effect/erasure_anchor/proc/erase_turf_contents(turf/target_turf)
-	for(var/atom/movable/contained_atom as anything in target_turf.contents)
-		if(ismob(contained_atom) || contained_atom == src)
+/// Deletes only concealed underfloor objects, mirroring singularity cleanup without removing support objects the turf conversion may need.
+/obj/effect/erasure_anchor/proc/erase_hidden_underfloor_objects(turf/target_turf)
+	if(target_turf.underfloor_accessibility >= UNDERFLOOR_INTERACTABLE)
+		return
+
+	for(var/obj/contained_object as anything in target_turf.contents)
+		if(!istype(contained_object))
 			continue
-		qdel(contained_atom, force = TRUE)
+		if(!HAS_TRAIT(contained_object, TRAIT_UNDERFLOOR))
+			continue
+		qdel(contained_object, force = TRUE)
+
+/// Deletes objects on a void turf unless they are explicitly indestructible, preserving the erasure controller objects themselves.
+/obj/effect/erasure_anchor/proc/erase_void_turf_objects(turf/target_turf)
+	for(var/obj/contained_object as anything in target_turf.contents)
+		if(!istype(contained_object))
+			continue
+		if(contained_object == src || istype(contained_object, /obj/effect/erasure_hotspot))
+			continue
+		if(contained_object.resistance_flags & INDESTRUCTIBLE)
+			continue
+		qdel(contained_object, force = TRUE)
 
 /// Builds the cached frontier source lists used to spawn and relocate erasure hotspots.
 /obj/effect/erasure_anchor/proc/cache_frontier_sources()
@@ -198,14 +246,14 @@
 /obj/effect/erasure_anchor/proc/spawn_initial_hotspots()
 	var/list/used_spawn_sources = list()
 	var/turf/anchor_turf = get_turf(src)
-	var/turf/epicenter_spawn_turf = is_valid_frontier_source(anchor_turf) ? anchor_turf : pick_frontier_source(anchor_turf?.z, used_spawn_sources)
+	var/turf/epicenter_spawn_turf = is_valid_frontier_source(anchor_turf) ? anchor_turf : pick_frontier_source(anchor_turf?.z, used_spawn_sources, TRUE)
 	if(epicenter_spawn_turf)
 		create_hotspot(epicenter_spawn_turf)
 		used_spawn_sources += epicenter_spawn_turf
 
 	for(var/station_z as anything in SSmapping.levels_by_trait(ZTRAIT_STATION))
 		for(var/controller_index in 1 to controllers_per_station_z)
-			var/turf/spawn_turf = pick_frontier_source(station_z, used_spawn_sources)
+			var/turf/spawn_turf = pick_frontier_source(station_z, used_spawn_sources, TRUE)
 			if(!spawn_turf)
 				break
 			create_hotspot(spawn_turf)
@@ -225,8 +273,12 @@
 	new_hotspot.begin_processing()
 	return new_hotspot
 
-/// Picks a cached frontier source, preferring the requested z-level and pruning invalid entries lazily.
-/obj/effect/erasure_anchor/proc/pick_frontier_source(preferred_z, list/excluded_sources)
+/// Picks a cached frontier source, either strictly from one z-level or by falling back across station z-levels.
+/obj/effect/erasure_anchor/proc/pick_frontier_source(preferred_z, list/excluded_sources, strict_z = FALSE)
+	if(strict_z)
+		var/preferred_z_key = "[preferred_z]"
+		return pick_valid_frontier_source_from_list(frontier_sources_by_z[preferred_z_key], excluded_sources)
+
 	var/list/candidate_z_levels = list()
 	var/preferred_z_key = "[preferred_z]"
 	if(!isnull(frontier_sources_by_z[preferred_z_key]))
@@ -265,7 +317,7 @@
 
 /// Attempts to relocate a stalled hotspot to a fresh cached frontier source and reseed its local frontier.
 /obj/effect/erasure_anchor/proc/relocate_hotspot(obj/effect/erasure_hotspot/hotspot)
-	var/turf/new_frontier_source = pick_frontier_source(hotspot?.z)
+	var/turf/new_frontier_source = pick_frontier_source(hotspot?.z, strict_z = TRUE)
 	if(!new_frontier_source)
 		return FALSE
 
@@ -313,49 +365,35 @@
 /// Converts a turf to hard space on the lowest station layer and openspace on higher station layers.
 /obj/effect/erasure_anchor/proc/convert_turf_to_erasure_void(turf/target_turf, preferred_void_turf_type)
 	if(!target_turf)
-		return
+		return null
 
 	if(should_convert_to_openspace(target_turf))
 		if(isopenspaceturf(target_turf))
-			return
-		scrape_turf_to_erasure_openspace(target_turf, preferred_void_turf_type)
-		return
+			return target_turf
+
+		var/turf/scraped_turf = target_turf.ScrapeAway(2)
+		if(isopenspaceturf(scraped_turf))
+			return scraped_turf
+
+		var/openspace_turf_type = ispath(preferred_void_turf_type, /turf/open/openspace) ? preferred_void_turf_type : /turf/open/openspace
+		var/turf/forced_openspace_turf = scraped_turf?.ChangeTurf(openspace_turf_type)
+		return isopenspaceturf(forced_openspace_turf) ? forced_openspace_turf : null
 
 	if(isspaceturf(target_turf))
-		return
+		return target_turf
+
 	var/turf/open/space/new_space_turf = target_turf.ChangeTurf(/turf/open/space, flags = CHANGETURF_INHERIT_AIR)
 	if(!istype(new_space_turf))
-		return
+		return null
 	if(!istype(get_area(new_space_turf), /area/space/nearstation))
 		set_turf_to_area(new_space_turf, GLOB.areas_by_type[/area/space/nearstation])
 	new_space_turf.update_starlight()
+	return new_space_turf
 
 /// Returns TRUE when the turf has another station layer below it and should therefore become openspace instead of hard space.
 /obj/effect/erasure_anchor/proc/should_convert_to_openspace(turf/target_turf)
 	var/turf/below_turf = GET_TURF_BELOW(target_turf)
 	return is_station_level(below_turf?.z)
-
-/// Scrapes a turf down through its baseturf stack until it reaches an openspace layer, falling back to direct conversion if none exists.
-/obj/effect/erasure_anchor/proc/scrape_turf_to_erasure_openspace(turf/target_turf, preferred_void_turf_type)
-	var/scrape_depth = get_erasure_openspace_scrape_depth(target_turf)
-	if(scrape_depth)
-		target_turf.ScrapeAway(scrape_depth, CHANGETURF_INHERIT_AIR)
-		return
-
-	if(ispath(preferred_void_turf_type, /turf/open/space/openspace) || ispath(preferred_void_turf_type, /turf/open/openspace))
-		target_turf.ChangeTurf(preferred_void_turf_type, flags = CHANGETURF_INHERIT_AIR)
-		return
-
-	target_turf.ChangeTurf(/turf/open/space/openspace, flags = CHANGETURF_INHERIT_AIR)
-
-/// Returns the number of scrape layers needed to reveal an openspace turf from the target's current baseturf stack.
-/obj/effect/erasure_anchor/proc/get_erasure_openspace_scrape_depth(turf/target_turf)
-	var/baseturf_count = target_turf.count_baseturfs()
-	for(var/scrape_depth in 1 to baseturf_count)
-		var/baseturf_type = target_turf.baseturf_at_depth(scrape_depth)
-		if(ispath(baseturf_type, /turf/open/space/openspace) || ispath(baseturf_type, /turf/open/openspace))
-			return scrape_depth
-	return null
 
 
 /// Stops the anchor from processing further and clears its cached state.
@@ -393,7 +431,17 @@
 
 /// Finishes hotspot initialization without seeding, because the owning anchor is attached immediately after creation.
 /obj/effect/erasure_hotspot/Initialize(mapload)
-	return ..()
+	. = ..()
+	addtimer(CALLBACK(src, PROC_REF(validate_host_anchor)), 0)
+	return .
+
+/// Removes manually spawned hotspots that never received a valid host anchor.
+/obj/effect/erasure_hotspot/proc/validate_host_anchor()
+	if(QDELETED(src))
+		return
+	if(istype(owning_anchor))
+		return
+	qdel(src)
 
 /// Starts this hotspot's repeating processing loop.
 /obj/effect/erasure_hotspot/proc/begin_processing()
@@ -406,6 +454,13 @@
 	if(!hotspot_active || QDELETED(owning_anchor) || !owning_anchor.erasure_active)
 		qdel(src)
 		return
+
+	prune_local_frontier()
+	if(!has_viable_frontier())
+		if(!owning_anchor.relocate_hotspot(src))
+			qdel(src)
+			return
+		prune_local_frontier()
 
 	var/turfs_erased = 0
 	var/max_attempts = min(LAZYLEN(local_frontier_turfs) * 2, max_attempts_per_tick)
@@ -445,6 +500,25 @@
 	local_frontier_turfs.Cut()
 	seed_local_frontier()
 
+/// Removes stale, duplicate, or self-referential frontier entries so stalled hotspots do not orbit invalid work.
+/obj/effect/erasure_hotspot/proc/prune_local_frontier()
+	var/turf/current_turf = get_turf(src)
+	if(!LAZYLEN(local_frontier_turfs))
+		return
+
+	for(var/frontier_index = local_frontier_turfs.len, frontier_index >= 1, frontier_index--)
+		var/turf/candidate_turf = local_frontier_turfs[frontier_index]
+		if(candidate_turf == current_turf || !owning_anchor?.is_valid_erasure_candidate(candidate_turf))
+			local_frontier_turfs.Cut(frontier_index, frontier_index + 1)
+
+/// Returns TRUE when this hotspot still has either queued frontier work or a valid frontier source under itself.
+/obj/effect/erasure_hotspot/proc/has_viable_frontier()
+	if(LAZYLEN(local_frontier_turfs))
+		return TRUE
+
+	var/turf/current_turf = get_turf(src)
+	return owning_anchor?.is_valid_frontier_source(current_turf)
+
 /// Seeds the hotspot's local frontier using the current turf's cardinal neighbors.
 /obj/effect/erasure_hotspot/proc/seed_local_frontier()
 	var/turf/current_turf = get_turf(src)
@@ -454,8 +528,11 @@
 
 /// Adds newly exposed neighboring turfs to this hotspot's local frontier.
 /obj/effect/erasure_hotspot/proc/enqueue_adjacent_candidates(turf/origin_turf)
+	var/turf/current_turf = get_turf(src)
 	for(var/direction in GLOB.cardinals)
 		var/turf/adjacent_turf = get_step(origin_turf, direction)
+		if(adjacent_turf == current_turf)
+			continue
 		if(!owning_anchor?.is_valid_erasure_candidate(adjacent_turf))
 			continue
 		local_frontier_turfs |= adjacent_turf
