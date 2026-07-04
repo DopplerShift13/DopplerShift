@@ -4,8 +4,7 @@
 	rename_team = "Port Authority Response Corps"
 	mission = "Assist the station in resolving present emergencies and threats."
 	polldesc = "a Port Authority Response Corps squad"
-	// Forcing a custom ferry requires they be loaded into it in space like this. Thankfully, the spawnpoints aboard aren't used for normal ERT spawning
-	ert_template = /datum/map_template/shuttle/ferry/responsecorps
+	ert_template = /datum/map_template/shuttle/ert/insertion_vehicle
 
 /datum/ert/void_corps_strike_team
 	roles = list(/datum/antagonist/ert/fourthcelestialalignment/voidcorps/autorifle, /datum/antagonist/ert/fourthcelestialalignment/voidcorps/breacher, /datum/antagonist/ert/fourthcelestialalignment/voidcorps/comtech, /datum/antagonist/ert/fourthcelestialalignment/voidcorps/corpsman)

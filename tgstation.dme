@@ -7571,6 +7571,8 @@
 #include "modular_doppler\modular_response_teams\code\id_cards.dm"
 #include "modular_doppler\modular_response_teams\code\id_trims.dm"
 #include "modular_doppler\modular_response_teams\code\outfits.dm"
+#include "modular_doppler\modular_response_teams\code\shuttle_areas.dm"
+#include "modular_doppler\modular_response_teams\code\shuttle_templates.dm"
 #include "modular_doppler\modular_scryers\code\brick_phone_scryer.dm"
 #include "modular_doppler\modular_scryers\code\cargo.dm"
 #include "modular_doppler\modular_scryers\code\designs.dm"

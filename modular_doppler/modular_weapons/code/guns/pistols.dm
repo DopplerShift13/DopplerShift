@@ -1,3 +1,4 @@
+// the kieran; a small semi-automatic handgun that takes sindaryo magazines
 /obj/item/gun/ballistic/automatic/pistol/kieran
 	name = "\improper Kieran pistol"
 	desc = "A surprisingly modular handgun firing standard New Gibraltar 6mm rounds. This specific version \
@@ -33,3 +34,16 @@
 
 /obj/item/gun/ballistic/automatic/pistol/kieran/suppressed/starts_empty
 	spawnwithmagazine = FALSE
+
+/obj/item/gun/ballistic/automatic/pistol/kieran/mindshield_pin
+	pin = /obj/item/firing_pin/implant/mindshield
+
+/obj/item/gun/ballistic/automatic/pistol/kieran/suppressed/mindshield_pin
+	pin = /obj/item/firing_pin/implant/mindshield
+
+/obj/item/gun/ballistic/automatic/pistol/kieran/suppressed/syndicate_pin
+	pin = /obj/item/firing_pin/implant/pindicate
+
+// syndicate pin desert eagle; because sometimes u gotta blow a dude's head smoove off
+/obj/item/gun/ballistic/automatic/pistol/deagle/syndicate_pin
+	pin = /obj/item/firing_pin/implant/pindicate

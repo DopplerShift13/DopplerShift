@@ -77,3 +77,13 @@
 /obj/item/storage/belt/military/pouches/heavy_ammo/voidcorps/PopulateContents()
 	for(var/i in 1 to 3)
 		new /obj/item/ammo_box/magazine/minhir(src)
+
+//shocktrooper version that's forced to be evil black
+/obj/item/storage/belt/military/pouches/shocktrooper
+	icon_state = "evilwebbing"
+	worn_icon_state = "evilwebbing"
+	uses_advanced_reskins = FALSE
+
+/obj/item/storage/belt/military/pouches/shocktrooper/PopulateContents()
+	for(var/i in 1 to 7)
+		new /obj/item/ammo_box/magazine/smgm45(src)

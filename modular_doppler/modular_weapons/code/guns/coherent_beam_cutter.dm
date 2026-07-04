@@ -86,4 +86,10 @@
 	inhand_icon_state = "handheld_cbc_charge[ratio]"
 	. = ..()
 
+/obj/item/gun/energy/coherent_beam_cutter/selfcharging/mindshield_pin
+	pin = /obj/item/firing_pin/implant/mindshield
+
+/obj/item/gun/energy/coherent_beam_cutter/selfcharging/syndicate_pin
+	pin = /obj/item/firing_pin/implant/pindicate
+
 #undef BEAM_CUTTER_CHARGE_WELD

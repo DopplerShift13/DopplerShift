@@ -1,0 +1,466 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/fans/tiny,
+/obj/machinery/light/small/directional/south,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/insertion_vehicle)
+"b" = (
+/obj/structure/shuttle_decoration/rcs/directional/south,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"c" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"e" = (
+/obj/structure/closet/crate,
+/obj/item/storage/toolbox/guncase/modular/munin,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/turf/open/floor/plating/aluminum,
+/area/shuttle/insertion_vehicle)
+"f" = (
+/turf/template_noop,
+/area/template_noop)
+"g" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/shuttle/insertion_vehicle)
+"i" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 9
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/insertion_vehicle)
+"j" = (
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"k" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/belt/utility/full/powertools/rcd,
+/obj/item/storage/belt/utility/full/powertools/rcd{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/obj/item/storage/belt/utility/full/powertools/rcd{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/item/storage/belt/utility/full/powertools/rcd{
+	pixel_y = 8;
+	pixel_x = 3
+	},
+/obj/item/storage/belt/utility/full/powertools/rcd{
+	pixel_y = 6;
+	pixel_x = -1
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"m" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/machinery/light/directional/south,
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"n" = (
+/obj/machinery/door/airlock/spacer,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/insertion_vehicle)
+"o" = (
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"p" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/insertion_vehicle)
+"q" = (
+/obj/structure/shuttle_decoration/radiator/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/insertion_vehicle)
+"s" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/structure/engine_covers/thruster_nozzle{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon/exterior/standard,
+/area/shuttle/insertion_vehicle)
+"t" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/obj/machinery/computer/shuttle/insertion_vehicle{
+	pixel_y = 25
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"u" = (
+/obj/structure/table/optable,
+/obj/item/surgical_drapes,
+/obj/machinery/vending/wallmed/directional/north,
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"w" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/machinery/light/directional/north,
+/obj/effect/landmark/ert_shuttle_spawn,
+/obj/machinery/digital_clock/directional/north,
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"x" = (
+/obj/effect/landmark/ert_shuttle_brief_spawn,
+/turf/open/floor/pod/light,
+/area/shuttle/insertion_vehicle)
+"y" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"z" = (
+/obj/structure/shuttle_decoration/aux_engine/directional/east,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"A" = (
+/obj/structure/shelf,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/stack/sheet/rglass/fifty{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/item/rcd_ammo/large{
+	pixel_y = -6;
+	pixel_x = 7
+	},
+/obj/item/rcd_ammo/large{
+	pixel_y = -4;
+	pixel_x = 7
+	},
+/obj/item/rcd_ammo/large{
+	pixel_y = -2;
+	pixel_x = 7
+	},
+/obj/item/rcd_ammo/large{
+	pixel_x = 7
+	},
+/obj/item/rcd_ammo/large{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"B" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/engine_covers/heater_cover{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon/exterior/standard,
+/area/shuttle/insertion_vehicle)
+"E" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/surgery_tray/full,
+/obj/machinery/wall_healer/free/directional/north,
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"F" = (
+/obj/structure/shuttle_decoration/ladder/directional/south,
+/obj/structure/shuttle_decoration/junction_box/directional/north,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"G" = (
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"H" = (
+/obj/structure/shelf,
+/obj/machinery/light/small/directional/east,
+/obj/item/storage/hypospraykit/cmo/combat{
+	pixel_y = 6
+	},
+/obj/item/gun/medbeam{
+	pixel_y = -7
+	},
+/turf/open/floor/plating/aluminum,
+/area/shuttle/insertion_vehicle)
+"I" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"J" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 8
+	},
+/obj/docking_port/mobile/insertion_vehicle,
+/obj/machinery/door/airlock/spacer/glass,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/insertion_vehicle)
+"K" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"L" = (
+/obj/structure/guncase/wt550{
+	capacity = 6
+	},
+/turf/open/floor/plating/aluminum,
+/area/shuttle/insertion_vehicle)
+"M" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/item/grenade/c4{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/grenade/c4{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/grenade/c4{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"O" = (
+/obj/machinery/light/small/directional/east,
+/obj/structure/shelf,
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_x = -4;
+	pixel_y = -7
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_x = -4;
+	pixel_y = -7
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_y = -7;
+	pixel_x = 1
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_y = -7;
+	pixel_x = 1
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_y = -7;
+	pixel_x = 6
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_y = -7;
+	pixel_x = 6
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/open/floor/plating/aluminum,
+/area/shuttle/insertion_vehicle)
+"P" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/insertion_vehicle)
+"Q" = (
+/obj/structure/shuttle_decoration/radiator/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/insertion_vehicle)
+"R" = (
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 4
+	},
+/obj/machinery/door/airlock/spacer/glass,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/insertion_vehicle)
+"T" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/insertion_vehicle{
+	dir = 8
+	},
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"U" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/effect/landmark/ert_shuttle_spawn,
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"V" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/insertion_vehicle)
+"W" = (
+/turf/open/floor/pod/light,
+/area/shuttle/insertion_vehicle)
+"X" = (
+/obj/structure/shuttle_decoration/rcs/directional/north,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/insertion_vehicle)
+"Y" = (
+/obj/structure/shelf,
+/obj/item/storage/medkit/brute{
+	pixel_y = -3
+	},
+/obj/item/storage/medkit/fire{
+	pixel_y = 1
+	},
+/obj/item/storage/medkit/advanced{
+	pixel_y = 6
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/pod/dark,
+/area/shuttle/insertion_vehicle)
+"Z" = (
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/insertion_vehicle)
+
+(1,1,1) = {"
+i
+s
+s
+s
+V
+"}
+(2,1,1) = {"
+p
+B
+B
+B
+P
+"}
+(3,1,1) = {"
+p
+L
+Z
+e
+P
+"}
+(4,1,1) = {"
+q
+O
+Z
+H
+Q
+"}
+(5,1,1) = {"
+X
+G
+n
+G
+b
+"}
+(6,1,1) = {"
+g
+Y
+W
+A
+g
+"}
+(7,1,1) = {"
+y
+u
+W
+M
+c
+"}
+(8,1,1) = {"
+G
+E
+W
+k
+F
+"}
+(9,1,1) = {"
+g
+W
+x
+W
+g
+"}
+(10,1,1) = {"
+X
+w
+W
+m
+b
+"}
+(11,1,1) = {"
+y
+t
+W
+U
+c
+"}
+(12,1,1) = {"
+g
+T
+W
+U
+g
+"}
+(13,1,1) = {"
+z
+G
+R
+G
+z
+"}
+(14,1,1) = {"
+f
+I
+a
+K
+f
+"}
+(15,1,1) = {"
+f
+o
+J
+j
+f
+"}

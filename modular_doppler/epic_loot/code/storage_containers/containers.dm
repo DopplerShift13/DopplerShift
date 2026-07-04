@@ -102,6 +102,10 @@
 	for(var/i in 1 to 4)
 		new /obj/item/ammo_box/magazine/wt550m9(src)
 
+/obj/item/storage/epic_loot_org_pouch/ert_ammo_preset_deagle/PopulateContents()
+	for(var/i in 1 to 4)
+		new /obj/item/ammo_box/magazine/m50(src)
+
 /obj/item/storage/epic_loot_cooler
 	name = "compact cooler"
 	desc = "A wonder in food storage technology, it's a blue bag that you can put food in."

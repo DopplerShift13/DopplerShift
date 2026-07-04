@@ -25,10 +25,17 @@
 	acid = 40
 	wound = 10
 
+// Slimmer combat uniforms that look better with a deactivated/mid-activation MOD because the pants don't have giant baggy pockets
 /obj/item/clothing/under/syndicate/combat/eva
 	name = "exoatmospheric combat uniform"
 	icon = 'modular_doppler/modular_response_teams/icons/icon.dmi'
 	icon_state = "exo_combat"
+	worn_icon = 'modular_doppler/modular_response_teams/icons/onmob.dmi'
+
+/obj/item/clothing/under/syndicate/combat/shocktrooper
+	name = "shocktrooper combat uniform"
+	icon = 'modular_doppler/modular_response_teams/icons/icon.dmi'
+	icon_state = "shocktrooper_combat"
 	worn_icon = 'modular_doppler/modular_response_teams/icons/onmob.dmi'
 
 /obj/item/clothing/shoes/combat/pressureboots
@@ -89,6 +96,13 @@
 	acid = 90
 	wound = 10
 
+/obj/item/clothing/head/helmet/alt/heavy_ballistic
+	name = "low-cut ballistic helmet"
+	desc = "An up-armored low-cut helmet that more effectively covers the sides of the user's head than most contemporary \
+		helmets. The standard-issue visor has been taken out to replace its fixtures within the helmet with yet more armor."
+	icon_state = "helmet-novisor"
+	armor_type = /datum/armor/armor_heavy
+
 /obj/item/clothing/suit/armor/vest/combatarmor
 	name = "plated combat armor"
 	desc = "An armored vest that fully covers the torso, with added shoulder guards and a lap protector. Though \
@@ -103,6 +117,22 @@
 	resistance_flags = FIRE_PROOF
 	clothing_traits = list(TRAIT_BRAWLING_KNOCKDOWN_BLOCKED)
 	armor_type = /datum/armor/response_team_armored
+
+/obj/item/clothing/suit/armor/heavy_ballistic
+	name = "heavy armor suit"
+	desc = "A modified Type III ballistic vest with improved protection and a number of aftermarket upgrades to ensure it \
+		protects every bit of the wearer's body, save for their head. Though useful and remarkably effective at allowing \
+		a wearer to shrug off small-arms fire, systems like these are ludicrously heavy, and far worse at protecting against \
+		laser or energy-based threats."
+	icon = 'modular_doppler/modular_response_teams/icons/icon.dmi'
+	icon_state = "heavy_battle_armor"
+	worn_icon = 'modular_doppler/modular_response_teams/icons/onmob.dmi'
+	w_class = WEIGHT_CLASS_HUGE
+	clothing_flags = THICKMATERIAL
+	body_parts_covered = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
+	strip_delay = 12 SECONDS
+	slowdown = 0.7
+	armor_type = /datum/armor/armor_heavy
 
 /obj/item/clothing/suit/hazardvest/parc
 	name = "PA-RC work vest"
@@ -163,6 +193,17 @@
 		audio balancing to help mitigate the impact of incredibly loud noises, while also keeping the wearer verbally audible \
 		in low-pressure environments."
 
+/obj/item/radio/headset/headset_frontier_colonist/ert/shocktrooper
+	name = "active radio headset"
+	desc = "A bulky headset designed to survive the most unruly of conditions. Though not as heavy as a standard frontier \
+		radio headset, it's still significantly larger than the usual earpieces. These after-market variants feature active \
+		audio balancing to help mitigate the impact of incredibly loud noises, while also keeping the wearer verbally audible \
+		in low-pressure environments."
+
+/obj/item/radio/headset/headset_frontier_colonist/ert/shocktrooper/Initialize(mapload)
+	. = ..()
+	make_syndie()
+
 /obj/item/storage/toolset
 	name = "toolset pouch"
 	desc = "A large pouch fitted just right to hold a full suite of tools while keeping your waist nice and free."
@@ -176,10 +217,7 @@
 	slot_flags = ITEM_SLOT_POCKETS
 	w_class = WEIGHT_CLASS_BULKY
 
-/obj/item/storage/toolset/voidcorps
-	preload = TRUE
-
-/obj/item/storage/toolset/voidcorps/full/PopulateContents()
+/obj/item/storage/toolset/full/PopulateContents()
 	new /obj/item/screwdriver/power(src)
 	new /obj/item/crowbar/power(src)
 	new /obj/item/weldingtool/experimental(src)

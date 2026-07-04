@@ -41,6 +41,10 @@
 		/obj/item/mod/module/surgical_processor/emergency,
 	)
 
+/obj/item/mod/control/pre_equipped/responsory/trooper/breacher
+	insignia_type = /obj/item/mod/module/insignia/void/breacher
+	additional_modules = /obj/item/mod/module/visor/sechud
+
 /datum/mod_theme/trooper
 	name = "trooper"
 	desc = "A remarkably dextrous exoatmospheric suit with high-power manuevering pulse thrusters and heavy armor over a \
