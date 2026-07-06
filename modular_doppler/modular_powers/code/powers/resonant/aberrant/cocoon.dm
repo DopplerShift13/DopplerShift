@@ -47,6 +47,7 @@
 	if(isliving(target))
 		if(!can_cocoon_mob(user, target))
 			return FALSE
+		user.visible_message(span_warning("[user] starts wrapping [target] in layers of silk!"))
 		if(cocoon_mob(user, target))
 			last_cocoon_was_mob = TRUE
 			return TRUE
@@ -140,6 +141,7 @@
 	if(!new_cocoon.insert(target))
 		qdel(new_cocoon)
 		return FALSE
+	user.visible_message(span_warning("[user] fully wraps [target] in a cocoon of silk!"))
 	return TRUE
 
 /// Checks if a mob is cocoonable.

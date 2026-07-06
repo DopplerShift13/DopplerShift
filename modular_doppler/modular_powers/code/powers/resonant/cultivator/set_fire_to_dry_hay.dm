@@ -130,6 +130,7 @@
 	if(world.time < next_projectile_time)
 		return FALSE
 	next_projectile_time = world.time + projectile_delay
+	user.visible_message(span_warning("[user] shoots [initial(/obj/projectile/resonant/fire_to_dry_hay.name)] from their hands!"))
 	fire_projectile(user, target, /obj/projectile/resonant/fire_to_dry_hay)
 	playsound(user, 'sound/effects/fire_puff.ogg', 60, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	adjust_energy(-flameblast_cost)

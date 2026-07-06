@@ -31,6 +31,7 @@
 
 /datum/action/cooldown/power/thaumaturge/gale_blast/use_action(mob/living/user, atom/target)
 	if(fire_projectile(user, target, /obj/projectile/resonant/gale_blast))
+		user.visible_message(span_warning("[user] shoots a [initial(/obj/projectile/resonant/gale_blast.name)]!"))
 		playsound(user, 'sound/effects/podwoosh.ogg', 60, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 		return TRUE
 	return FALSE

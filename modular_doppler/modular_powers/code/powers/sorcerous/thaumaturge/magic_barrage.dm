@@ -244,6 +244,7 @@
 	orbiting_missiles += orbiter
 	orbiter.orbit(owner, missile_orbit_radius, rotation_speed =  missile_rotation_speed)
 	RegisterSignal(orbiter, COMSIG_QDELETING, PROC_REF(on_orbiter_deleted))
+	owner.visible_message(span_warning("[orbiter]s start orbiting around [owner]!"))
 	playsound(owner, 'sound/effects/magic/blink.ogg', 75, TRUE)
 
 /// Clears all orbiting missiles.
@@ -290,4 +291,3 @@
 		return NONE
 	disable_barrage(owner, span_userdanger("Your magic missiles vanish as they are dispelled!"))
 	return DISPEL_RESULT_DISPELLED
-

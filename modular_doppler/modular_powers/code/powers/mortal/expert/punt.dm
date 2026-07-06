@@ -56,6 +56,7 @@
 	var/turf/target_turf = get_ranged_target_turf(target, dir, range)
 
 	RegisterSignal(target, COMSIG_MOVABLE_IMPACT, PROC_REF(punt_impact))
+	user.visible_message(span_warning("[user] punts [target] away!"))
 	playsound(user, 'sound/effects/meteorimpact.ogg', 75, TRUE, SILENCED_SOUND_EXTRARANGE)
 	target.throw_at(target_turf, range = range, speed = target.density ? 3 : 4, thrower = user, spin = isitem(target))
 	return TRUE

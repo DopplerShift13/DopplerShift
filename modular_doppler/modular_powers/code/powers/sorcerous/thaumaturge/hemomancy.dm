@@ -190,6 +190,7 @@
 	if(isliving(target))
 		var/mob/living/target_mob = target
 		if(start_blood_channel(target_mob, user))
+			user.visible_message(span_warning("[user] starts magically draining the blood out of [target_mob]!"))
 			to_chat(user, span_notice("You begin channeling blood from [target_mob]."))
 		else
 			to_chat(user, span_warning("You failed to channel blood from [target_mob]!"))

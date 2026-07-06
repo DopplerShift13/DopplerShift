@@ -347,9 +347,9 @@
 				if(target_organ.premium_component) // DOPPLER ADDITION
 					var/quality = round(target_organ.premium_component.quality)
 					var/quality_text = "quality: [quality]%"
-					quality_text = conditional_tooltip(quality_text, "Premium augment quality affects performance. At 0% it must be refurbished. \
-					Using premium augment maintenance surgery on the appropriate bodypart ([parse_zone(target_organ.zone)]) will restore up to 75% so long as it is not broken. \
-					Removing the augment with organ manipulation and refurbishing it in-hand will restore up to 100% (examine the augment for instructions).", tochat)
+					quality_text = conditional_tooltip(quality_text, "Premium augment are special augments with proprietary parts that cannot be fabricated on station. These degrade in performance, and at 0% must be refurbished. \
+					Using premium augment maintenance surgery on the appropriate bodypart ([parse_zone(target_organ.zone)]) will restore it to 75% so long as it is not broken (at 0%). \
+					Removing the augment with organ manipulation and refurbishing it in-hand will restore it to 100% (examine the augment for instructions). Refurbishing does not require the maintenance surgery to precede it.", tochat)
 					if(quality <= 0)
 						line = "[line] ([quality_text] <font color='#ff3333'>refurbish required</font>)"
 					else
