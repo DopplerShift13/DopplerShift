@@ -59,6 +59,8 @@
 /datum/quirk/item_quirk/underworld_connections/remove()
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
+		if(HAS_TRAIT(human_holder, TRAIT_BITRUNNER_AVATAR))
+			return
 		var/datum/record/crew/our_record = find_record(human_holder.name)
 		if (isnull(our_record))
 			return
