@@ -34,10 +34,6 @@
 	if(locate(/datum/action/item_action/flip) in actions)
 		. += "Use in hands to wear it over your [icon_state == base_icon_state ? "left" : "right"] eye."
 
-// /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/examine(mob/user)
-// 	. = ..()
-// 	. += "Use in hands to wear it over your [icon_state == base_icon_state ? "left" : "right"] eye."
-
 /obj/item/clothing/glasses/hud/security
 	uses_advanced_reskins = TRUE
 	unique_reskin = list(
