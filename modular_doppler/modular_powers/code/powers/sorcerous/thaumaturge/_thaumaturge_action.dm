@@ -121,7 +121,7 @@
 		for(var/obj/item/equipped_item as anything in equipped_items)
 			if(!equipped_item)
 				continue
-			if(!istype(equipped_item, /obj/item/clothing) || equipped_item.affinity_worn_override)
+			if(!istype(equipped_item, /obj/item/clothing) && !equipped_item.affinity_worn_override)
 				continue
 
 			if(equipped_item.affinity > highest_affinity)
@@ -132,8 +132,8 @@
 			if(!held_item)
 				continue
 
-			// Holding clothing shouldn't contribute
-			if(istype(held_item, /obj/item/clothing))
+			// Holding clothing or worn-override items shouldn't contribute.
+			if(istype(held_item, /obj/item/clothing) || held_item.affinity_worn_override)
 				continue
 
 			if(held_item.affinity > highest_affinity)
@@ -214,5 +214,4 @@
 		var/atom/movable/screen/movable/action_button/action_button_instance = viewers[hud_instance]
 		if(istype(action_button_instance, /atom/movable/screen/movable/action_button))
 			return action_button_instance
-
 

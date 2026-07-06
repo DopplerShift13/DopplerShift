@@ -90,6 +90,8 @@
 	var/turf/target_turf = get_adjacent_open_turf(target)
 	if(QDELETED(summoned) || !target_turf)
 		return
+	if(destination_is_visible_to_summoned(summoned, target_turf))
+		return
 	active = FALSE
 	addtimer(VARSET_CALLBACK(src, active, TRUE), cooldown)
 	addtimer(CALLBACK(src, PROC_REF(begin_summon), summoned, target_turf), summon_delay)
@@ -109,6 +111,14 @@
 	if(!length(candidates))
 		return null
 	return pick(candidates)
+
+/// Prevents summoning to locations the summoned can already see.
+/datum/component/beetlejuice/summonable/proc/destination_is_visible_to_summoned(atom/movable/summoned, turf/target_turf)
+	if(!ismob(summoned) || !target_turf)
+		return FALSE
+
+	var/mob/summoned_mob = summoned
+	return (target_turf in view(summoned_mob))
 
 /// Starts the timers and starts manifesting effects.
 /datum/component/beetlejuice/summonable/proc/begin_summon(atom/movable/summoned, turf/target_turf)

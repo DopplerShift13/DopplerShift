@@ -266,3 +266,8 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/mod/control/pre_equipped/enchanted
 	affinity = 8
 	affinity_worn_override = TRUE
+
+// Just to make testing easier.
+/obj/item/mod/control/pre_equipped/administrative
+	affinity = 5
+	affinity_worn_override = TRUE

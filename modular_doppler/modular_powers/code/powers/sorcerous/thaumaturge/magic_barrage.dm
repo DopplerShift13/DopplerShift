@@ -127,6 +127,8 @@
 
 	next_single_shot_time = world.time + single_shot_delay
 
+	var/obj/projectile/projectile_type = projectile_path
+	user.visible_message(span_warning("[user] shoots one of their orbiting [initial(projectile_type.name)]!"))
 	playsound(owner, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	return fire_projectile(user, target, projectile_path)
 
@@ -150,6 +152,8 @@
 	pellet_count = clamp(pellet_count, 1, 50)
 	cone_degrees = clamp(cone_degrees, 0, 90)
 	angle_jitter_degrees = clamp(angle_jitter_degrees, 0, 15)
+
+	user.visible_message(span_warning("[user] shoots all of their orbiting [initial(projectile.name)]s!"))
 
 	// Base angle from shooter to clicked turf
 	var/base_angle = get_angle(user_turf, target_turf)
@@ -223,6 +227,8 @@
 	clear_orbitals()
 	if(amount <= 0 || QDELETED(owner))
 		return
+	var/obj/projectile/projectile_type = projectile_path
+	owner.visible_message(span_warning("[initial(projectile_type.name)]s start orbiting around [owner]!"))
 
 	for(var/missile_num in 1 to amount)
 		var/time_until_created = (missile_num - 1) * time_between_initial_missiles
@@ -244,7 +250,6 @@
 	orbiting_missiles += orbiter
 	orbiter.orbit(owner, missile_orbit_radius, rotation_speed =  missile_rotation_speed)
 	RegisterSignal(orbiter, COMSIG_QDELETING, PROC_REF(on_orbiter_deleted))
-	owner.visible_message(span_warning("[orbiter]s start orbiting around [owner]!"))
 	playsound(owner, 'sound/effects/magic/blink.ogg', 75, TRUE)
 
 /// Clears all orbiting missiles.
