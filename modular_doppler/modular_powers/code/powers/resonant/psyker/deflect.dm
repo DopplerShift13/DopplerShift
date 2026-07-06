@@ -92,6 +92,7 @@
 	playsound(owner, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	RegisterSignal(owner, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_projectile_prehit))
 	RegisterSignal(owner, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(on_death))
 	cursor_tracker = owner.overlay_fullscreen("psyker_deflect_cursor", /atom/movable/screen/fullscreen/cursor_catcher, 0)
 	cursor_tracker?.assign_to_mob(owner)
 	if(source_action)
@@ -114,6 +115,7 @@
 		playsound(owner, 'sound/effects/magic/cosmic_energy.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 		UnregisterSignal(owner, COMSIG_PROJECTILE_PREHIT)
 		UnregisterSignal(owner, COMSIG_ATOM_DISPEL)
+		UnregisterSignal(owner, COMSIG_LIVING_DEATH)
 		owner.clear_fullscreen("psyker_deflect_cursor")
 		cursor_tracker = null
 		if(caster_effect)
@@ -146,8 +148,16 @@
 	if(!psyker_organ)
 		return NONE
 
+	// Need a nat20 to succesfuly deflect this.
+	if(istype(hitting_projectile, /obj/projectile/magic/death) && rand(95))
+		to_chat(source, span_userdanger("Your psychic strength cannot ward against death!"))
+		return NONE
+
 	// Stress cost + stamina cost
 	var/stress_cost = max(hitting_projectile.damage, 0) + projectile_stress_bonus
+	// magic projectiles that deal 0 damage will coutn as dealing 100
+	if(istype(hitting_projectile, /obj/projectile/magic) && hitting_projectile.damage <= 0)
+		stress_cost = 100 + projectile_stress_bonus
 	var/catastrophic_threshold = psyker_organ.stress_threshold * 2
 	source_action.modify_stress(stress_cost)
 	source.adjustStaminaLoss(max(stress_cost, 0) * 0.5)
@@ -163,6 +173,14 @@
 	if(HAS_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES))
 		return NONE
 	ADD_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES, REF(src))
+
+	// You still negate the projectile but you do not get to redirect it
+	if(istype(hitting_projectile, /obj/projectile/magic))
+		to_chat(source, span_userdanger("Your psychic strength is not strong enough to steer this magic!"))
+		was_dispelled = TRUE
+		qdel(src)
+		REMOVE_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES, REF(src))
+		return NONE
 
 	// deflection starts here
 	redirect_projectile(source, hitting_projectile)
@@ -215,6 +233,10 @@
 	qdel(src)
 	to_chat(owner, span_userdanger("Your deflection barrier was dispelled!"))
 	return DISPEL_RESULT_DISPELLED
+
+/datum/status_effect/power/deflect/proc/on_death(mob/living/source)
+	SIGNAL_HANDLER
+	qdel(src)
 
 /// Stress upkeep
 /datum/status_effect/power/deflect/tick(seconds_between_ticks)

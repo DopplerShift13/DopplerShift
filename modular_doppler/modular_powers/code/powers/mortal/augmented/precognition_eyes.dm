@@ -137,6 +137,10 @@
 		return NONE
 	if(HAS_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES))
 		return NONE
+	// Need a nat20 to evade this
+	if(istype(proj, /obj/projectile/magic/death) && rand(95))
+		to_chat(source, span_userdanger("You foresee your death, and yet your body fails to move!"))
+		return NONE
 	ADD_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES, AUGMENTATION_TRAIT)
 
 	// stam + quality loss.

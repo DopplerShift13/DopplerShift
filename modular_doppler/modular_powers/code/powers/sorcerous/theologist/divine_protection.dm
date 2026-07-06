@@ -31,12 +31,21 @@
 	if(!blocking_user)
 		return NONE
 
+	// can't block if you're not awake, as funny as it would be
+	if(blocking_user.stat != CONSCIOUS || HAS_TRAIT(blocking_user, TRAIT_INCAPACITATED))
+		return NONE
+
 	var/datum/component/theologist_piety/piety_component = blocking_user.GetComponent(/datum/component/theologist_piety)
 	if(!piety_component)
 		return NONE
 
 	var/block_chance = clamp(round(piety_component.piety * piety_ratio), 0, 100)
 	if(block_chance <= 0 || !prob(block_chance))
+		return NONE
+
+	// only a nat20 will save you now
+	if(istype(hitby, /obj/projectile/magic/death) && rand(95))
+		to_chat(blocking_user, span_userdanger("Your conviction fails to defend against death!"))
 		return NONE
 
 	block_effect(blocking_user, attack_text, hitby, attack_type)
