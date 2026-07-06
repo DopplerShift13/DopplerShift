@@ -6,11 +6,11 @@
 	All of these have separate 5s cooldowns. This ironically make them susceptible to other Tchotchke Styles.
 */
 /datum/power/warfighter/tchotchke_style
-	name = "Tchotchke Style"
-	desc = "Grants you the Tchotchke Style martial art. Having its root in the mage planet of Tchotchke, it was used by the various less-gifted individuals to put themselves on even ground against mages, \
+	name = "Tchotchke Gutter Fighting"
+	desc = "Grants you the Tchotchke Gutter Fighting martial art. Having its root in the mage planet of Tchotchke, it was used by the various less-gifted individuals to put themselves on even ground against mages, \
 	specialized in targeting various key-weaknesses to their power. It is surprisingly useful even against normal combatants, with its ability to disrupt an enemy's focus by putting their actions on cooldown,\
 	being able to disarm foes with a measure of set-up, and perform more powerful shoves."
-	security_record_text = "Subject can wield the Tchotchke Style martial art in unarmed combat."
+	security_record_text = "Subject can wield the Tchotchke Gutter Fighting martial art in unarmed combat."
 	security_threat = POWER_THREAT_MAJOR
 	value = 8
 	required_powers = list(/datum/power/warfighter/martial_artist)

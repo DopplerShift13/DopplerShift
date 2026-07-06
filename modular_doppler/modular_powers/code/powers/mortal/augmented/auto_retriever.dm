@@ -83,6 +83,7 @@
 	internal_radio.subspace_transmission = TRUE
 	internal_radio.canhear_range = 0 // no free medbay radio 4u
 	internal_radio.recalculateChannels()
+	internal_radio.set_listening(FALSE)
 
 /obj/item/organ/cyberimp/chest/auto_retriever/Destroy()
 	if(teleport_timer_id)
@@ -154,6 +155,7 @@
 
 	var/teleport_success = do_teleport(owner, destination, channel = TELEPORT_CHANNEL_QUANTUM)
 	if(!teleport_success)
+		apply_failed_teleport_penalty("Teleportation blocked; entering cooldown.")
 		return
 
 	augment_speak("Auto Retriever alert: [owner.real_name] has teleported to Medbay for emergency treatment.", RADIO_CHANNEL_MEDICAL)
@@ -181,7 +183,11 @@
 		deltimer(teleport_timer_id)
 		teleport_timer_id = null
 	clear_teleport_effects()
-	augment_speak("Teleportation cancelled; entering cooldown.")
+	apply_failed_teleport_penalty("Teleportation cancelled; entering cooldown.")
+
+/// Applies the shared cooldown and quality loss for an interrupted or blocked teleport.
+/obj/item/organ/cyberimp/chest/auto_retriever/proc/apply_failed_teleport_penalty(message)
+	augment_speak(message)
 	COOLDOWN_START(src, teleport_cooldown, tp_cooldown)
 	if(premium_component)
 		premium_component.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MODERATE)

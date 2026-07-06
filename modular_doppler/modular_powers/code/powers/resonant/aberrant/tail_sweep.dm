@@ -4,7 +4,7 @@
 /datum/power/aberrant/tailsweep
 	name = "Tail Sweep"
 	desc = "Your tail is a weapon in its own right. When activated, damages all creatures adjacent to you for 20 brute and 30 stamina, and knocks them away 2 spaces, potentially into walls.\
-	\n Has a short cooldown, consumes hunger and the damage is affected by your opponent's chest armor. Requires a tail. If you are a large mob (such as with the Oversized quirk), you gain +1 range."
+	\n Has a short cooldown, consumes hunger and the damage is affected by your opponent's chest armor. Requires a tail or taur body. If you are a large mob (such as with the Oversized quirk), you gain +1 range."
 	security_record_text = "Subject can use their tail to damage and knock back foes in active combat."
 	security_threat = POWER_THREAT_MAJOR
 	value = 4
@@ -36,7 +36,8 @@
 	if(iscarbon(user)) // we don't check for tails on non-carbons; I figured it should only exist on others for admeme reasons.
 		var/mob/living/carbon/carbon_user = user
 		var/obj/item/organ/tail/tail = carbon_user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
-		if(!tail)
+		var/obj/item/organ/taur_body/taur_body = carbon_user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAUR)
+		if(!tail && !taur_body)
 			owner.balloon_alert(user, "no tail")
 			return FALSE
 	if(user.nutrition <= NUTRITION_LEVEL_STARVING) // can't use while starving
