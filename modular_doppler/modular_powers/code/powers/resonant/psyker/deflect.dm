@@ -14,7 +14,7 @@
 	causes stress equal to the projectile's damage + 10 as well as stamina damage equal to half of that, and ends prematurely if you suffer a catastrophic stress event."
 	button_icon = 'icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "singular_shot"
-	cooldown_time = 2 SECONDS
+	cooldown_time = 4 SECONDS
 
 	/// Forced cooldown when the effect is dispelled.
 	var/dispel_cooldown_time = 15 SECONDS
@@ -169,25 +169,23 @@
 		qdel(src)
 		return NONE
 
+	// You do not get to redirect the projectile but you do prevent it from hitting you
+	if(istype(hitting_projectile, /obj/projectile/magic) || istype(hitting_projectile, /obj/projectile/beam/instakill))
+		to_chat(source, span_userdanger("Your psychic strength is not strong enough to steer this magic!"))
+		was_dispelled = TRUE
+		qdel(src)
+		return PROJECTILE_INTERRUPT_HIT_PHASE
+
 	// this trait is what determines if projectiles hit us or not
 	if(HAS_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES))
 		return NONE
 	ADD_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES, REF(src))
-
-	// You still negate the projectile but you do not get to redirect it
-	if(istype(hitting_projectile, /obj/projectile/magic))
-		to_chat(source, span_userdanger("Your psychic strength is not strong enough to steer this magic!"))
-		was_dispelled = TRUE
-		qdel(src)
-		REMOVE_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES, REF(src))
-		return NONE
 
 	// deflection starts here
 	redirect_projectile(source, hitting_projectile)
 
 	// removes the trait that makes us unhittable by projectiles
 	REMOVE_TRAIT(source, TRAIT_UNHITTABLE_BY_PROJECTILES, REF(src))
-
 
 	// special effects only
 	var/image/flash_overlay = new('icons/effects/effects.dmi', source, "void", dir = pick(GLOB.cardinals))
