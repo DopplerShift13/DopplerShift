@@ -18,3 +18,7 @@
 	psyker.cause_hallucination(pick(initial_hallucinations), src)
 	return TRUE
 
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/hallucinate
+	name = "Psyker Event: Hallucinations"
+	event_type = /datum/psyker_event/severe/hallucinate

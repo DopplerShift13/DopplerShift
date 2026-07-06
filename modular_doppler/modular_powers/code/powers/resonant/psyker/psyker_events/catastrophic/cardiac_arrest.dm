@@ -9,3 +9,7 @@
 
 	return TRUE
 
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/heart_attack
+	name = "Psyker Event: Cardiac Arrest"
+	event_type = /datum/psyker_event/catastrophic/heart_attack

@@ -9,3 +9,8 @@
 	description = "Overusing my powers has given me a splitting headache!"
 	mood_change = -15
 	timeout = 1 MINUTES // I wish my headaches went away that fast.
+
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/headache
+	name = "Psyker Event: Headache"
+	event_type = /datum/psyker_event/mild/headache

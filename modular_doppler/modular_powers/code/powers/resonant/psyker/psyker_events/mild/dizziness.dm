@@ -5,3 +5,8 @@
 	psyker.set_dizzy_if_lower(15 SECONDS)
 	to_chat(psyker, span_danger("Overusing your powers has made you dizzy!"))
 	return TRUE
+
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/dizziness
+	name = "Psyker Event: Dizziness"
+	event_type = /datum/psyker_event/mild/dizziness

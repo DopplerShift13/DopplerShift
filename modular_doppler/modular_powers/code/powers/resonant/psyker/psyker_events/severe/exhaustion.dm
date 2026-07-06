@@ -9,3 +9,8 @@
 	psyker.playsound_local(psyker, 'sound/effects/screech.ogg', 50, FALSE)
 	psyker.flash_act(visual = TRUE, length = 1 SECONDS)
 	return TRUE
+
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/exhaustion
+	name = "Psyker Event: Exhaustion"
+	event_type = /datum/psyker_event/severe/exhaustion

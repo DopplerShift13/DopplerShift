@@ -13,3 +13,7 @@
 	to_chat(psyker, span_userdanger("You feel like you're no longer in touch with your own Resonant powers."))
 	return TRUE
 
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/silence_trauma
+	name = "Psyker Event: Silence Trauma"
+	event_type = /datum/psyker_event/catastrophic/silence_trauma

@@ -35,3 +35,8 @@
 	color = COLOR_RED
 	fade_in = 1
 	fade_out = 1
+
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/eyes_bleed
+	name = "Psyker Event: Eyes Bleed"
+	event_type = /datum/psyker_event/severe/eyes_bleed

@@ -122,3 +122,8 @@
 		UnregisterSignal(impact_owner, COMSIG_MOVABLE_IMPACT)
 		impact_owner = null
 	return ..()
+
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/tossed_around
+	name = "Psyker Event: Tossed Around"
+	event_type = /datum/psyker_event/catastrophic/tossed_around

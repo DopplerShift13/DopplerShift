@@ -191,3 +191,8 @@
 	funny_image.override = TRUE
 	SET_PLANE_EXPLICIT(funny_image, ABOVE_GAME_PLANE, over_who)
 	return funny_image
+
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/mirage_gangup
+	name = "Psyker Event: Mirage Gang-Up"
+	event_type = /datum/psyker_event/catastrophic/mirage_gangup

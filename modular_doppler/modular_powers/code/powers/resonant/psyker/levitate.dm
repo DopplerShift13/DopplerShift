@@ -13,8 +13,6 @@
 	button_icon_state = "beam_up"
 
 	mental = FALSE
-	/// Overlay we add to the caster
-	var/mutable_appearance/caster_effect
 
 /datum/action/cooldown/power/psyker/levitate/use_action()
 	. = ..()
@@ -24,25 +22,12 @@
 		to_chat(owner, span_boldnotice("Your body gently floats in the air!"))
 		START_PROCESSING(SSfastprocess, src)
 		active = TRUE
-		//visual fx
-		caster_effect = mutable_appearance(
-			icon = 'icons/effects/effects.dmi',
-			icon_state = "psychic",
-			layer = owner.layer - 0.1,
-			alpha = 100,
-			appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART
-		)
-		owner.add_overlay(caster_effect)
 		playsound(owner, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	else
 		REMOVE_TRAIT(owner, TRAIT_PSYKER_LEVITATE_FLIGHT, REF(src))
 		to_chat(owner, span_boldnotice("You let yourself gently drop the ground."))
 		STOP_PROCESSING(SSfastprocess, src)
 		active = FALSE
-		// visual fx
-		if(caster_effect)
-			owner.cut_overlay(caster_effect)
-		caster_effect = null
 		playsound(owner, 'sound/effects/magic/cosmic_energy.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 	return TRUE
@@ -82,10 +67,6 @@
 		REMOVE_TRAIT(owner, TRAIT_PSYKER_LEVITATE_FLIGHT, REF(src))
 		STOP_PROCESSING(SSfastprocess, src)
 		active = FALSE
-		// visual fx
-		if(caster_effect)
-			owner.cut_overlay(caster_effect)
-		caster_effect = null
 		playsound(owner, 'sound/effects/magic/cosmic_energy.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 		// Do you have anything to brace your fall? Or do you possibly manage to get lucky?

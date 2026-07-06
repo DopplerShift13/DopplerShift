@@ -190,6 +190,7 @@
 			continue
 		cooldown_action.StartCooldownSelf(25)
 
+	defender.flash_act(visual = TRUE, length = 0.25 SECONDS)
 	dazing_strike.StartCooldown()
 	log_combat(attacker, defender, "dazing struck")
 	return MARTIAL_ATTACK_SUCCESS

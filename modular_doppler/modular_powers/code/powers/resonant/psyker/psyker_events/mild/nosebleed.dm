@@ -9,3 +9,8 @@
 	head.adjustBleedStacks(5)
 	psyker.visible_message(span_notice("[psyker] gets a nosebleed."), span_danger("Overusing your powers has given you a nosebleed!"))
 	return TRUE
+
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/nosebleed
+	name = "Psyker Event: Nosebleed"
+	event_type = /datum/psyker_event/mild/nosebleed

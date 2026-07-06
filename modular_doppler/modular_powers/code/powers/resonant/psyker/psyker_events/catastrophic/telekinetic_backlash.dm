@@ -93,3 +93,8 @@
 		return null
 
 	return pick(candidates)
+
+// Adds the backlash option as a smite for admin
+/datum/smite/psyker_breakdown/telekinetic_backlash
+	name = "Psyker Event: Telekinetic Backlash"
+	event_type = /datum/psyker_event/catastrophic/telekinetic_backlash
