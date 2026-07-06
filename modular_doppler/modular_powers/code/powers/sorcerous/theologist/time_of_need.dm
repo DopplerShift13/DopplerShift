@@ -2,7 +2,7 @@
 */
 /datum/power/theologist/time_of_need
 	name = "Time of Need"
-	desc = "Your conviction is enough to drive you to action. Spend 5 Piety to reduce all your active cooldowns (except this one) by 15 seconds. Has a 10 second cooldown."
+	desc = "Your conviction is enough to drive you to action. Spend 5 Piety to reduce all your active cooldowns (except this one) by 15 seconds. Has a 30 second cooldown."
 	security_record_text = "Subject can fuel their powers with piety, allowing them to wield them more often."
 	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/time_of_need
@@ -13,10 +13,10 @@
 
 /datum/action/cooldown/power/theologist/time_of_need
 	name = "Time of Need"
-	desc = "Your conviction is enough to drive you to action. Spend 5 Piety to reduce all your active cooldowns (except this one) by 15 seconds. Has a 10 second cooldown."
+	desc = "Your conviction is enough to drive you to action. Spend 5 Piety to reduce all your active cooldowns (except this one) by 15 seconds. Has a 30 second cooldown."
 	button_icon = 'icons/mob/actions/actions_genetic.dmi'
 	button_icon_state = "adrenaline"
-	cooldown_time = 100
+	cooldown_time = 300
 	cost = 5
 
 /datum/action/cooldown/power/theologist/time_of_need/use_action(mob/living/user, mob/living/target)

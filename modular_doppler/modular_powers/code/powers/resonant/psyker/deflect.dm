@@ -89,6 +89,7 @@
 /datum/status_effect/power/deflect/on_apply()
 	if(!owner)
 		return FALSE
+	playsound(owner, 'sound/effects/magic/magic_missile.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	RegisterSignal(owner, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_projectile_prehit))
 	RegisterSignal(owner, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	cursor_tracker = owner.overlay_fullscreen("psyker_deflect_cursor", /atom/movable/screen/fullscreen/cursor_catcher, 0)
@@ -110,6 +111,7 @@
 /// Removes everything left-over by the status effect
 /datum/status_effect/power/deflect/on_remove()
 	if(owner)
+		playsound(owner, 'sound/effects/magic/cosmic_energy.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 		UnregisterSignal(owner, COMSIG_PROJECTILE_PREHIT)
 		UnregisterSignal(owner, COMSIG_ATOM_DISPEL)
 		owner.clear_fullscreen("psyker_deflect_cursor")
