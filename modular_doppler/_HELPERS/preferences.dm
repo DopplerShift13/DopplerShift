@@ -19,4 +19,5 @@ GLOBAL_LIST_INIT(quirk_trauma_choice, list(
 	"Muscle Weakness" = /datum/brain_trauma/mild/muscle_weakness,
 	"Muscle Spasms" = /datum/brain_trauma/mild/muscle_spasms,
 	"Nervous cough" = /datum/brain_trauma/mild/nervous_cough,
+	"Hypnotic Stupor" = /datum/brain_trauma/severe/hypnotic_stupor,
 ))
