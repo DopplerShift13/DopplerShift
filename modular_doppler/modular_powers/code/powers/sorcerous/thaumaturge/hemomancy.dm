@@ -64,7 +64,7 @@
 		return FALSE
 
 	// Attempts to make a new blood hand
-	var/obj/item/melee/channel_blood/new_blood_hand = new(user)
+	var/obj/item/melee/channel_blood/new_blood_hand = new(user, src)
 	if(!user.put_in_active_hand(new_blood_hand))
 		qdel(new_blood_hand)
 		return FALSE
@@ -100,7 +100,7 @@
 	righthand_file = 'icons/mob/inhands/items/touchspell_righthand.dmi'
 	icon_state = "scream_for_me"
 	inhand_icon_state = "disintegrate"
-	item_flags = ABSTRACT | HAND_ITEM
+	item_flags = ABSTRACT | DROPDEL | HAND_ITEM
 	w_class = WEIGHT_CLASS_HUGE
 	throwforce = 0
 	throw_range = 0
@@ -110,10 +110,14 @@
 	var/drain_amount = 25
 	/// How much blood we drain from a mob per second.
 	var/mob_drain_amount = 10
+	/// The action that created this hand.
+	var/datum/weakref/source_action_ref
 
-/obj/item/melee/channel_blood/Initialize(mapload)
+/obj/item/melee/channel_blood/Initialize(mapload, datum/action/cooldown/power/thaumaturge/channel_blood/source_action)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, INNATE_TRAIT)
+	if(source_action)
+		source_action_ref = WEAKREF(source_action)
 
 // Adds a listener to the affinity check
 /obj/item/melee/channel_blood/equipped(mob/user, slot, initial = FALSE)
@@ -125,17 +129,44 @@
 
 // Removes the affinity check listener.
 /obj/item/melee/channel_blood/dropped(mob/user, silent = FALSE)
+	if(isliving(user))
+		clear_channel_state(user)
 	. = ..()
-	if(!isliving(user))
+
+/obj/item/melee/channel_blood/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change = TRUE)
+	. = ..()
+	if(!isliving(old_loc) || loc == old_loc || QDELETED(src))
 		return
-	UnregisterSignal(user, COMSIG_THAUMATURGE_AFFINITY_QUERY)
+
+	var/mob/living/old_holder = old_loc
+	clear_channel_state(old_holder)
+	qdel(src)
 
 // Removes the affinity check listener.
 /obj/item/melee/channel_blood/Destroy(force)
 	if(isliving(loc))
 		var/mob/living/holder = loc
-		UnregisterSignal(holder, COMSIG_THAUMATURGE_AFFINITY_QUERY)
+		clear_channel_state(holder)
 	return ..()
+
+/// Removes the hand and if the pwower exists, sets it to non-active.
+/obj/item/melee/channel_blood/proc/clear_channel_state(mob/living/holder)
+	if(!holder)
+		return
+
+	UnregisterSignal(holder, COMSIG_THAUMATURGE_AFFINITY_QUERY)
+
+	var/datum/action/cooldown/power/thaumaturge/channel_blood/source_action = source_action_ref?.resolve()
+	if(!QDELETED(source_action))
+		source_action.active = FALSE
+		return
+
+	for(var/datum/action/cooldown/power/action as anything in holder.actions)
+		if(!istype(action, /datum/action/cooldown/power/thaumaturge/channel_blood))
+			continue
+
+		action.active = FALSE
+		return
 
 /// While this hand is held, it contributes +3 affinity to thaumaturge actions.
 /obj/item/melee/channel_blood/proc/on_thaumaturge_affinity_query(mob/living/source, datum/action/cooldown/power/thaumaturge/action)

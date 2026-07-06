@@ -156,6 +156,17 @@
 
 /// Converts objects into other objects!
 /datum/action/cooldown/power/theologist/purify/proc/convert_objects(mob/living/user, atom/target)
+	// Watermelon seeds -> Holymelon seeds
+	if(istype(target, /obj/item/seeds/watermelon) && !istype(target, /obj/item/seeds/watermelon/holy))
+		if(!try_add_cost(user, THEOLOGIST_PIETY_MINOR))
+			return FALSE
+		var/obj/item/seeds/watermelon/old_seed = target
+		var/obj/item/seeds/watermelon/holy/new_seed = replace_target(old_seed, /obj/item/seeds/watermelon/holy, user)
+		if(new_seed)
+			copy_seed_stats(old_seed, new_seed)
+		to_chat(user, span_notice("Divine light transforms [old_seed] into holymelon seeds."))
+		return TRUE
+
 	// Melon -> Holy Melon
 	if(istype(target, /obj/item/food/grown/watermelon) && !istype(target, /obj/item/food/grown/holymelon))
 		if(!try_add_cost(user, THEOLOGIST_PIETY_MINOR))
