@@ -1,7 +1,8 @@
 /datum/power/psyker_power/deflect
 	name = "Deflect"
 	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has an incredibly high upkeep, every projectile deflected \
-	causes stress equal to the projectile's damage + 10 as well as stamina damage equal to half of that, and ends prematurely if you suffer a catastrophic stress event."
+	causes stress equal to the projectile's damage + 10 , and ends prematurely if you suffer a catastrophic stress event.\
+	\nCauses stamina damage equal to half the stress generated!"
 	security_record_text = "Subject can deflect projectiles away from themselves and towards new targets."
 	security_threat = POWER_THREAT_MAJOR
 	value = 8
@@ -11,7 +12,8 @@
 /datum/action/cooldown/power/psyker/deflect
 	name = "Deflect"
 	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has an incredibly high upkeep, every projectile deflected \
-	causes stress equal to the projectile's damage + 10 as well as stamina damage equal to half of that, and ends prematurely if you suffer a catastrophic stress event."
+	causes stress equal to the projectile's damage + 10, and ends prematurely if you suffer a catastrophic stress event.\
+	\nCauses stamina damage equal to half the stress generated!"
 	button_icon = 'icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "singular_shot"
 	cooldown_time = 4 SECONDS
@@ -242,3 +244,4 @@
 		qdel(src)
 		return
 	source_action.modify_stress(stress_per_second * seconds_between_ticks)
+	owner.adjustStaminaLoss((stress_per_second * seconds_between_ticks) * 0.5)
