@@ -24,6 +24,8 @@
 	var/stress_per_second = 10
 	/// Flat stress added on top of projectile damage when we successfully try to deflect it.
 	var/projectile_stress_bonus = 10
+	/// How much stress is also dealt as stamina damage? Multaplicative number.
+	var/stress_as_stam_damage = 0.5
 	/// The status effect on the caster.
 	var/datum/status_effect/power/deflect/active_effect
 
@@ -64,6 +66,8 @@
 	var/stress_per_second
 	/// Flat stress added on top of projectile damage when we successfully try to deflect it.
 	var/projectile_stress_bonus
+	/// How much stress is also dealt as stamina damage? Multaplicative number
+	var/stress_as_stam_damage
 	/// Reference to the deflect action.
 	var/datum/action/cooldown/power/psyker/deflect/source_action
 	/// Tracks whether removal was caused by a dispel so we can force cooldown exactly once.
@@ -86,6 +90,7 @@
 	if(source_action)
 		stress_per_second = source_action.stress_per_second
 		projectile_stress_bonus = source_action.projectile_stress_bonus
+		stress_as_stam_damage = source_action.stress_as_stam_damage
 
 /// Applies cursor tracking and the overlay bubble.
 /datum/status_effect/power/deflect/on_apply()
@@ -162,7 +167,7 @@
 		stress_cost = 100 + projectile_stress_bonus
 	var/catastrophic_threshold = psyker_organ.stress_threshold * 2
 	source_action.modify_stress(stress_cost)
-	source.adjustStaminaLoss(max(stress_cost, 0) * 0.5)
+	source.adjustStaminaLoss(max(stress_cost * stress_as_stam_damage), 0)
 
 	// If you try to deflect while overcapped, it just won't work.
 	if(psyker_organ.stress >= catastrophic_threshold)
@@ -243,5 +248,9 @@
 	if(!source_action || QDELETED(source_action))
 		qdel(src)
 		return
+	// ends prematurely if incapacitated
+	if(owner.stat != CONSCIOUS || HAS_TRAIT(owner, TRAIT_INCAPACITATED))
+		qdel(src)
+		return
 	source_action.modify_stress(stress_per_second * seconds_between_ticks)
-	owner.adjustStaminaLoss((stress_per_second * seconds_between_ticks) * 0.5)
+	owner.adjustStaminaLoss(max((stress_per_second * seconds_between_ticks) * stress_as_stam_damage), 0)
