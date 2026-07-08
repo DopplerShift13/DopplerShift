@@ -198,8 +198,8 @@
 
 /obj/item/clothing/head/helmet/space/plasmaman/rev2
 	name = "modern plasma envirosuit helmet"
-	desc = "A modern variant of envirosuit helmet with a reflective visor and more accomodating internal head space, suitable \
-		for people other than plasmoids to wear. It's still space-proof to boot!"
+	desc = "A modern variant of envirosuit helmet with a reflective visor and more accommodating internal head space, suitable \
+		for people other than phorids to wear. It's still space-proof to boot!"
 	icon = 'modular_doppler/modular_response_teams/icons/icon.dmi'
 	icon_state = "rev2_envirohelm"
 	worn_icon = 'modular_doppler/modular_response_teams/icons/onmob.dmi'

@@ -1,7 +1,7 @@
 /datum/antagonist/ert/official/pallas_cat_inspector
 	name = "Pallas Cargo and Transport Inspector"
 	outfit = /datum/outfit/centcom/portauthority/pcat/inspector
-	plasmaman_outfit =/datum/outfit/plasmaman/pcat
+	plasmaman_outfit = /datum/outfit/plasmaman/pcat
 
 /datum/antagonist/ert/official/pallas_cat_inspector/greet()
 	if(!ert_team)

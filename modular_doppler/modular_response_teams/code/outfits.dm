@@ -24,14 +24,14 @@
 		/obj/item/lighter = 1,
 	)
 
-/datum/outfit/centcom/portauthority/post_equip(mob/living/carbon/human/H, visuals_only = FALSE)
+/datum/outfit/centcom/portauthority/post_equip(mob/living/carbon/human/user, visuals_only = FALSE)
 	if(visuals_only)
 		return
 
-	var/obj/item/card/id/W = H.wear_id
-	W.registered_name = H.real_name
-	W.update_label()
-	W.update_icon()
+	var/obj/item/card/id/worn_id = user.wear_id
+	worn_id.registered_name = user.real_name
+	worn_id.update_label()
+	worn_id.update_appearance(UPDATE_ICON)
 	..()
 
 /datum/outfit/centcom/portauthority/formal
@@ -198,7 +198,7 @@
 	backpack_contents = list(
 		/obj/item/tank/internals/oxygen = 1,
 		/obj/item/storage/medkit/tactical = 1,
-		/obj/item/reagent_containers/hypospray/combat/nanites =1,
+		/obj/item/reagent_containers/hypospray/combat/nanites = 1,
 		/obj/item/gun/ballistic/automatic/pistol/kieran/suppressed/mindshield_pin = 1,
 		/obj/item/knife/combat = 1,
 		/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled = 1,
@@ -259,7 +259,7 @@
 
 	backpack_contents = list(
 		/obj/item/storage/medkit/tactical = 1,
-		/obj/item/reagent_containers/hypospray/combat/nanites =1,
+		/obj/item/reagent_containers/hypospray/combat/nanites = 1,
 		/obj/item/gun/medbeam = 1,
 		/obj/item/knife/combat = 1,
 		/obj/item/gun/ballistic/automatic/pistol/kieran/suppressed/syndicate_pin = 1,
