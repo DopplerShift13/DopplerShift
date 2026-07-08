@@ -57,15 +57,6 @@
 	ammo_type = /obj/item/ammo_casing/c980grenade
 	caliber = CALIBER_980TYDHOUER
 
-/*
-/obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin/get_round()
-	var/casing = stored_ammo[1]
-	if(ispath(casing))
-		casing = new casing(src)
-		stored_ammo[1] = casing
-	return casing
-*/
-
 /obj/item/gun/ballistic/revolver/rotary_gl/smoke
 	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin/smoke
 

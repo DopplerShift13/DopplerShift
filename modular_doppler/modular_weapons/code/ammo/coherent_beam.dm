@@ -25,11 +25,10 @@
 		target_carbon.adjust_fire_stacks(fire_stacks)
 		target_carbon.ignite_mob()
 
-	if (!QDELETED(target) && (isturf(target) || isstructure(target)))
-		if(isobj(target))
-			SSexplosions.low_mov_atom += target
-		else
-			SSexplosions.lowturf += target
+	if(!QDELETED(target) && isstructure(target))
+		SSexplosions.low_mov_atom += target
+	else if(!QDELETED(target) && isturf(target))
+		SSexplosions.lowturf += target
 
 /// Looping sound for the beam cutter
 /datum/looping_sound/coherent_beam_cutter

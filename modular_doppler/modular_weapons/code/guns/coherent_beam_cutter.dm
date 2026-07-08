@@ -17,6 +17,7 @@
 	inhand_icon_state = "handheld_cbc"
 	ammo_type = list(/obj/item/ammo_casing/energy/coherent_energy_beam)
 	cell_type = /obj/item/stock_parts/power_store/cell/high
+	usesound = list('sound/items/tools/welder.ogg', 'sound/items/tools/welder2.ogg')
 	charge_sections = 3
 	ammo_x_offset = 2
 	shaded_charge = FALSE
@@ -46,7 +47,7 @@
 		balloon_alert(user, "not enough charge!")
 		return FALSE
 	if(heat < heat_required)
-		to_chat(user, span_warning("[src] is not hot enough to complete this task!"))
+		balloon_alert(user, "not hot enough!")
 		return FALSE
 
 	return TRUE
@@ -54,16 +55,15 @@
 /obj/item/gun/energy/coherent_beam_cutter/use(used)
 	return (!QDELETED(cell) && cell.use(used ? used * BEAM_CUTTER_CHARGE_WELD : BEAM_CUTTER_CHARGE_WELD))
 
-/obj/item/gun/energy/coherent_beam_cutter/use_tool(atom/target, mob/living/user, delay, amount=1, volume=0, datum/callback/extra_checks)
-	if(amount)
-		var/mutable_appearance/sparks = mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE)
-		target.add_overlay(sparks)
-		LAZYADD(update_overlays_on_z, sparks)
-		. = ..()
-		LAZYREMOVE(update_overlays_on_z, sparks)
-		target.cut_overlay(sparks)
-	else
-		. = ..(amount=1)
+/obj/item/gun/energy/coherent_beam_cutter/use_tool(atom/target, mob/living/user, delay, amount = 1, volume = 0, datum/callback/extra_checks)
+	if(!amount)
+		return ..(amount = 1)
+	var/mutable_appearance/sparks = mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE)
+	target.add_overlay(sparks)
+	LAZYADD(update_overlays_on_z, sparks)
+	. = ..()
+	LAZYREMOVE(update_overlays_on_z, sparks)
+	target.cut_overlay(sparks)
 
 // self-charging variant that has a smaller power cell to represent the barrel overheating from sustained fire
 /obj/item/gun/energy/coherent_beam_cutter/selfcharging
