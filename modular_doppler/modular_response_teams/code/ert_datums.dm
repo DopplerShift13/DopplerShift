@@ -1,3 +1,9 @@
+/datum/ert/centcom_official/pallas_cat_inspector
+	leader_role = /datum/antagonist/ert/official/pallas_cat_inspector
+	roles = list(/datum/antagonist/ert/official/pallas_cat_inspector)
+	rename_team = "Pallas Cargo and Transport Inspectors"
+	polldesc = "a Pallas Cargo and Transport Inspector"
+
 /datum/ert/port_authority_response_corps
 	roles = list(/datum/antagonist/ert/fourthcelestialalignment/parc/officer)
 	leader_role = /datum/antagonist/ert/fourthcelestialalignment/parc

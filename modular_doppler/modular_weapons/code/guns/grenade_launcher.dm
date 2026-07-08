@@ -10,7 +10,6 @@
 
 // subtype for standard mining karims so they don't start loaded with an HEDP round
 /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer/safer
-	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/tydhouer/safer
 
 /obj/item/ammo_box/magazine/internal/grenadelauncher/tydhouer/safer
 	start_empty = TRUE
@@ -58,3 +57,9 @@
 /obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin
 	ammo_type = /obj/item/ammo_casing/c980grenade
 	caliber = CALIBER_980TYDHOUER
+
+/obj/item/gun/ballistic/revolver/rotary_gl/smoke
+	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin/smoke
+
+/obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin/smoke
+	ammo_type = /obj/item/ammo_casing/c980grenade/smoke

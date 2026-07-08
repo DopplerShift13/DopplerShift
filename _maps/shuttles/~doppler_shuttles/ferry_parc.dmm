@@ -1,8 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "a" = (
-/obj/machinery/door/airlock/external/ruin,
-/obj/structure/fans/tiny,
-/turf/open/floor/plating/nanocarbon,
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/transport)
+"b" = (
+/obj/structure/shuttle_decoration/radiator/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/transport)
 "e" = (
 /obj/structure/closet/crate,
@@ -19,11 +22,19 @@
 /obj/effect/spawner/structure/window/reinforced/shuttle,
 /turf/open/floor/plating,
 /area/shuttle/transport)
+"i" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/machinery/digital_clock/directional/north,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/transport)
 "j" = (
 /obj/machinery/power/shuttle_engine/propulsion{
 	dir = 8
 	},
-/turf/open/floor/plating/nanocarbon/exterior/standard,
+/obj/structure/engine_covers/thruster_nozzle{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
 /area/shuttle/transport)
 "k" = (
 /obj/structure/table/reinforced,
@@ -44,46 +55,61 @@
 	pixel_y = 6;
 	pixel_x = -1
 	},
-/turf/open/floor/pod/dark,
+/turf/open/floor/iron/colony/white/bolts,
 /area/shuttle/transport)
 "m" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
 	},
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/pod/dark,
+/turf/open/floor/iron/colony/bolts,
 /area/shuttle/transport)
 "n" = (
-/obj/machinery/door/airlock/titanium,
+/obj/machinery/door/airlock/spacer,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/transport)
-"s" = (
-/obj/machinery/power/shuttle_engine/propulsion/right{
-	dir = 8
+"o" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 9
 	},
-/turf/open/floor/plating/nanocarbon/exterior/standard,
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/transport)
+"q" = (
+/obj/structure/shuttle_decoration/aux_engine/directional/east,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/transport)
+"s" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/transport)
 "t" = (
 /obj/structure/chair/comfy/shuttle,
 /obj/machinery/light/directional/north,
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/pod/dark,
+/turf/open/floor/iron/colony/bolts,
 /area/shuttle/transport)
 "u" = (
-/obj/machinery/light/directional/north,
 /obj/structure/table/optable,
 /obj/item/surgical_drapes,
-/turf/open/floor/pod/dark,
+/obj/machinery/vending/wallmed/directional/north,
+/obj/item/tank/internals/anesthetic,
+/obj/item/clothing/mask/breath/muzzle,
+/turf/open/floor/iron/colony/white/bolts,
 /area/shuttle/transport)
 "w" = (
 /obj/machinery/computer/shuttle/ferry/request{
 	dir = 8
 	},
-/turf/open/floor/pod/dark,
+/turf/open/floor/iron/colony/bolts,
 /area/shuttle/transport)
 "x" = (
-/obj/effect/landmark/ert_shuttle_brief_spawn,
-/turf/open/floor/pod/light,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/transport)
+"y" = (
+/obj/structure/shuttle_decoration/radiator/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/transport)
+"z" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/transport)
 "A" = (
 /obj/structure/shelf,
@@ -118,18 +144,34 @@
 	pixel_x = 7;
 	pixel_y = 2
 	},
-/turf/open/floor/pod/dark,
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/colony/white/bolts,
 /area/shuttle/transport)
 "B" = (
 /obj/machinery/power/shuttle_engine/heater{
 	dir = 8
 	},
+/obj/structure/engine_covers/heater_cover{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/shuttle/transport)
+"D" = (
+/obj/structure/shuttle_decoration/ladder/directional/south,
+/obj/structure/shuttle_decoration/junction_box/directional/north,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/transport)
 "E" = (
 /obj/structure/table/reinforced,
 /obj/effect/spawner/surgery_tray/full,
-/turf/open/floor/pod/dark,
+/obj/machinery/wall_healer/free/directional/north,
+/obj/item/clothing/mask/surgical{
+	pixel_y = 5
+	},
+/obj/item/clothing/gloves/latex/nitrile{
+	pixel_y = 6
+	},
+/turf/open/floor/iron/colony/white/bolts,
 /area/shuttle/transport)
 "G" = (
 /turf/closed/wall/mineral/titanium,
@@ -145,20 +187,31 @@
 	},
 /turf/open/floor/plating/aluminum,
 /area/shuttle/transport)
-"K" = (
-/obj/machinery/power/shuttle_engine/propulsion/left{
-	dir = 8
+"J" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
 	},
-/turf/open/floor/plating/nanocarbon/exterior/standard,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"K" = (
+/obj/structure/shuttle_decoration/rcs/directional/south,
+/turf/closed/wall/mineral/titanium,
 /area/shuttle/transport)
 "L" = (
 /obj/structure/guncase/wt550{
-	capacity = 6
+	capacity = 6;
+	gun_category = /obj/item/gun/ballistic/automatic/wt550;
+	open = 0
 	},
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
 /turf/open/floor/plating/aluminum,
 /area/shuttle/transport)
 "M" = (
-/obj/machinery/light/directional/south,
 /obj/structure/closet/secure_closet/engineering_electrical,
 /obj/item/grenade/c4{
 	pixel_x = 3;
@@ -172,7 +225,7 @@
 	pixel_x = 3;
 	pixel_y = 1
 	},
-/turf/open/floor/pod/dark,
+/turf/open/floor/iron/colony/white/bolts,
 /area/shuttle/transport)
 "O" = (
 /obj/machinery/light/small/directional/east,
@@ -227,8 +280,11 @@
 	},
 /turf/open/floor/plating/aluminum,
 /area/shuttle/transport)
+"Q" = (
+/obj/structure/shuttle_decoration/rcs/directional/north,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
 "R" = (
-/obj/machinery/door/airlock/titanium,
 /obj/docking_port/mobile{
 	dir = 8;
 	shuttle_id = "ferry";
@@ -236,23 +292,35 @@
 	preferred_direction = 4
 	},
 /obj/structure/fans/tiny,
+/obj/machinery/door/airlock/spacer,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/transport)
 "T" = (
 /obj/structure/chair/comfy/shuttle,
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/pod/dark,
+/turf/open/floor/iron/colony/bolts,
 /area/shuttle/transport)
 "U" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 4
 	},
 /obj/machinery/light/directional/south,
-/obj/effect/landmark/ert_shuttle_spawn,
-/turf/open/floor/pod/dark,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/transport)
+"V" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/transport)
 "W" = (
-/turf/open/floor/pod/light,
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/transport)
+"X" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
 /area/shuttle/transport)
 "Y" = (
 /obj/structure/shelf,
@@ -265,100 +333,101 @@
 /obj/item/storage/medkit/advanced{
 	pixel_y = 6
 	},
-/turf/open/floor/pod/dark,
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/colony/white/bolts,
 /area/shuttle/transport)
 "Z" = (
-/turf/open/floor/plating/nanocarbon,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
 /area/shuttle/transport)
 
 (1,1,1) = {"
-G
-K
+o
 j
-s
-G
+j
+j
+X
 "}
 (2,1,1) = {"
-G
+V
 B
 B
 B
-G
+s
 "}
 (3,1,1) = {"
-G
+V
 L
 Z
 e
-G
+s
 "}
 (4,1,1) = {"
-G
+b
 O
 Z
 H
-G
+y
 "}
 (5,1,1) = {"
-G
+Q
 G
 n
 G
-G
+K
 "}
 (6,1,1) = {"
 g
 Y
-W
+x
 A
 g
 "}
 (7,1,1) = {"
-G
+J
 u
-W
+x
 M
-G
+z
 "}
 (8,1,1) = {"
 G
 E
-W
+x
 k
-G
+D
 "}
 (9,1,1) = {"
+g
 a
-W
 x
 W
-a
+g
 "}
 (10,1,1) = {"
-G
-T
-W
+Q
+i
+x
 m
-G
+K
 "}
 (11,1,1) = {"
-G
+J
 t
-W
+x
 U
-G
+z
 "}
 (12,1,1) = {"
 g
 T
-W
+x
 w
 g
 "}
 (13,1,1) = {"
-G
+q
 g
 R
 g
-G
+q
 "}

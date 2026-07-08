@@ -127,7 +127,7 @@
 	desc = "A thick gun case with foam inserts laid out to fit a weapon and a panoply of loose ammunition."
 
 /obj/item/storage/toolbox/guncase/modular/munin/PopulateContents()
-	new /obj/item/gun/ballistic/revolver/rotary_gl(src)
+	new /obj/item/gun/ballistic/revolver/rotary_gl/smoke(src)
 	new /obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled(src)
 	new /obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/shrapnel(src)
 	new /obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/sabot(src)

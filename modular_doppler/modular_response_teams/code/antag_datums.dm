@@ -1,3 +1,8 @@
+/datum/antagonist/ert/official/pallas_cat_inspector
+	name = "Pallas Cargo and Transport Inspector"
+	outfit = /datum/outfit/centcom/portauthority/pcat/inspector
+	plasmaman_outfit =/datum/outfit/plasmaman/pcat
+
 /datum/antagonist/ert/fourthcelestialalignment
 
 /datum/antagonist/ert/fourthcelestialalignment/greet()
@@ -27,7 +32,6 @@
 	outfit = /datum/outfit/centcom/ert/parc/officer
 	role = "Officer"
 
-// the void corps are military dudes so if you set random names to yes they'll get ranks
 // specific role prefixes are handled by ID honorifics
 /datum/antagonist/ert/fourthcelestialalignment/voidcorps
 	name = "Void Corps Commander"
@@ -53,4 +57,4 @@
 /datum/antagonist/ert/fourthcelestialalignment/voidcorps/corpsman
 	name = "Void Corps Corpsman"
 	outfit = /datum/outfit/centcom/ert/voidcorps/corpsman
-	role = "Corporal"
+	role = "Sergeant"

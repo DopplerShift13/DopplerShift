@@ -3,7 +3,7 @@
 	description = "Though light on seating beyond the required personnel, this ferry comes with engineering \
     	and medical amenities to spare, alongside a fully stocked armory."
 	prefix = "_maps/shuttles/~doppler_shuttles/"
-	suffix = "ferry_parc"
+	suffix = "parc"
 
 /datum/map_template/shuttle/ert/insertion_vehicle
 	name = "response corps insertion vehicle"
@@ -12,4 +12,3 @@
 		airlock to boot."
 	prefix = "_maps/shuttles/~doppler_shuttles/"
 	suffix = "parc_insertion_vehicle"
- 
