@@ -38,7 +38,6 @@
 		/obj/item/mod/module/medbeam,
 		/obj/item/mod/module/thread_ripper,
 		/obj/item/mod/module/defibrillator/combat,
-		/obj/item/mod/module/surgical_processor/emergency,
 	)
 
 /obj/item/mod/control/pre_equipped/responsory/trooper/breacher

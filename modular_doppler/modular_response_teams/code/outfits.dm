@@ -89,7 +89,7 @@
 
 	id = /obj/item/card/id/advanced/centcom/ert/parc
 	ears = /obj/item/radio/headset/headset_frontier_colonist/ert/parc
-	uniform = /obj/item/clothing/under/rank/engineering/breach_skinsuit/pressuresuit
+	uniform = /obj/item/clothing/under/rank/engineering/pressuresuit
 	suit = /obj/item/clothing/suit/hazardvest/portauth
 	l_pocket = /obj/item/storage/epic_loot_org_pouch/ert_ammo_preset
 	r_pocket = /obj/item/storage/epic_loot_medpen_case/ert_med_preset

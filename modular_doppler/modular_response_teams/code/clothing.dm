@@ -38,7 +38,7 @@
 	desc = "A suave green turtleneck and pencil skirt that make you look fabulously important."
 	icon_state = "officer_skirt"
 
-/obj/item/clothing/under/rank/engineering/breach_skinsuit/pressuresuit
+/obj/item/clothing/under/rank/engineering/pressuresuit
 	name = "pressure-resistant bodysuit"
 	desc = "A space-worthy bodysuit designed to fit snugly around the wearer's body, allowing them \
 		to enter the vacuum of space without requiring a bulky, dedicated spacesuit. This version is \
@@ -51,6 +51,11 @@
 	icon = 'modular_doppler/modular_response_teams/icons/icon.dmi'
 	icon_state = "pressure_suit"
 	worn_icon = 'modular_doppler/modular_response_teams/icons/onmob.dmi'
+	equip_sound = 'sound/items/equip/glove_equip.ogg'
+	can_adjust = FALSE
+	resistance_flags = FIRE_PROOF
+	clothing_flags = STOPSPRESSUREDAMAGE
+	cold_protection = CHEST|GROIN|LEGS|FEET|ARMS|HANDS
 	min_cold_protection_temperature = SPACE_SUIT_MIN_TEMP_PROTECT
 	max_heat_protection_temperature = SPACE_SUIT_MAX_TEMP_PROTECT
 	slowdown = 0

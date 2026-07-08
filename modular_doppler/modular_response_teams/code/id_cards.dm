@@ -18,7 +18,7 @@
 	name = "\improper Void Corps ID"
 	desc = "An ID card used by official Void Corps personnel."
 	icon_state = "card_black"
-	inhand_icon_state = "card_grey"
+	inhand_icon_state = "card-id"
 	trim = /datum/id_trim/centcom/ert/voidcorps/commander
 
 /obj/item/card/id/advanced/centcom/ert/voidcorps/autorifle
