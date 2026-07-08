@@ -32,10 +32,14 @@
 	return ..()
 
 /obj/machinery/computer/shuttle/insertion_vehicle/attack_ai()
-	return allow_silicons ? ..() : FALSE
+	if(!allow_silicons)
+		return FALSE
+	return ..()
 
 /obj/machinery/computer/shuttle/insertion_vehicle/attack_robot()
-	return allow_silicons ? ..() : FALSE
+	if(!allow_silicons)
+		return FALSE
+	return ..()
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/insertion_vehicle
 	name = "insertion vehicle navigation computer"

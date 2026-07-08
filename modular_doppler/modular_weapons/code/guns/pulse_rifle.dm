@@ -66,9 +66,9 @@
 	if(underbarrel)
 		if(isammocasing(tool))
 			var/obj/item/ammo_casing/boolet = tool
-			if(boolet.caliber == underbarrel.magazine.caliber)
-				return underbarrel.item_interaction(user, boolet, modifiers)
-			return ITEM_INTERACT_BLOCKING
+			if(boolet.caliber != underbarrel.magazine.caliber)
+				return ITEM_INTERACT_BLOCKING
+			return underbarrel.item_interaction(user, boolet, modifiers)
 		if(istype(tool, /obj/item/ammo_box/magazine/ammo_stack))
 			var/obj/item/ammo_box/magazine/ammo_stack/stack = tool
 			var/obj/item/casing = stack.get_round(TRUE)

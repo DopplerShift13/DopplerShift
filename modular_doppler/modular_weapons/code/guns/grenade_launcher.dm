@@ -41,18 +41,16 @@
 
 /obj/item/gun/ballistic/revolver/rotary_gl/examine(mob/user)
 	. = ..()
-	. += span_notice("<b>Right Click</b> anywhere to set a range at which the launcher's shells will automatically detonate.")
+	. += span_notice("[EXAMINE_HINT("Right-Click")] anywhere to set a range at which the launcher's shells will automatically detonate.")
 
 // Near-identical rangefinder code as the arm-mounted shell launch system, allowing you to choose a range for rounds to detonate
 /obj/item/gun/ballistic/revolver/rotary_gl/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!interacting_with || !user)
-		return ITEM_INTERACT_BLOCKING
 	var/distance_ranged = get_dist(user, interacting_with)
 	if(distance_ranged > maximum_target_range)
-		user.balloon_alert(user, "out of range")
+		balloon_alert(user, "out of range!")
 		return ITEM_INTERACT_BLOCKING
 	target_range = distance_ranged
-	user.balloon_alert(user, "range set: [target_range]")
+	balloon_alert(user, "range set: [target_range]")
 	return ITEM_INTERACT_SUCCESS
 
 /obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin

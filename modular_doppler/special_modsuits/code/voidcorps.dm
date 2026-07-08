@@ -46,11 +46,11 @@
 
 /datum/mod_theme/trooper
 	name = "trooper"
-	desc = "A remarkably dextrous exoatmospheric suit with high-power manuevering pulse thrusters and heavy armor over a \
+	desc = "A remarkably dextrous exoatmospheric suit with high-power maneuvering pulse thrusters and heavy armor over a \
 		light exoskeletal frame. This one comes in black."
 	extended_desc = "Designed from the ground-up to rectify the needs of the Fourth Celestial Alignment's Void Corps, MODsuits \
 		like these replaced more aging armored voidsuits that, while durable, were far too bulky for effective usage in boarding \
-		manuevers and close combat. With a modern exoskeletal system used to both slow battery drain and support some rather \
+		maneuvers and close combat. With a modern exoskeletal system used to both slow battery drain and support some rather \
 		extensive armor plating, the suit is made complete by a set of high-power thrusters that enable terrifyingly fast movement \
 		through the vacuum of space. Even still, it's mobile enough to reliably operate in conditions up to and beyond 1g of \
 		gravity, while fully protecting the wearer from any sort of environmental factors that might get in the way."

@@ -21,9 +21,9 @@
 	firer.Beam(target, icon_state = "solar_beam", time = 1)
 
 	if(iscarbon(target))
-		var/mob/living/carbon/M = target
-		M.adjust_fire_stacks(fire_stacks)
-		M.ignite_mob()
+		var/mob/living/carbon/target_carbon = target
+		target_carbon.adjust_fire_stacks(fire_stacks)
+		target_carbon.ignite_mob()
 
 	if (!QDELETED(target) && (isturf(target) || isstructure(target)))
 		if(isobj(target))
