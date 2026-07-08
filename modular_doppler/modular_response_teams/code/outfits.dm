@@ -51,7 +51,7 @@
 	r_hand = /obj/item/storage/belt/sheath/modular/cane
 
 /datum/outfit/centcom/portauthority/pcat/inspector
-	name = "Pallas Cargo and Transport Inpsector"
+	name = "Pallas Cargo and Transport Inspector"
 
 	backpack_contents = list(
 		/obj/item/storage/fancy/cigarettes/cigars/cohiba = 1,

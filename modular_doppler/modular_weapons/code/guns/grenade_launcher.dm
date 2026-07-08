@@ -43,6 +43,7 @@
 	. = ..()
 	. += span_notice("<b>Right Click</b> anywhere to set a range at which the launcher's shells will automatically detonate.")
 
+// Near-identical rangefinder code as the arm-mounted shell launch system, allowing you to choose a range for rounds to detonate
 /obj/item/gun/ballistic/revolver/rotary_gl/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!interacting_with || !user)
 		return ITEM_INTERACT_BLOCKING
@@ -57,6 +58,15 @@
 /obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin
 	ammo_type = /obj/item/ammo_casing/c980grenade
 	caliber = CALIBER_980TYDHOUER
+
+/*
+/obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin/get_round()
+	var/casing = stored_ammo[1]
+	if(ispath(casing))
+		casing = new casing(src)
+		stored_ammo[1] = casing
+	return casing
+*/
 
 /obj/item/gun/ballistic/revolver/rotary_gl/smoke
 	spawn_magazine_type = /obj/item/ammo_box/magazine/internal/cylinder/grenademulti/munin/smoke

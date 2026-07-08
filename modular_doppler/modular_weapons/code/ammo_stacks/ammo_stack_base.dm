@@ -30,7 +30,7 @@
 
 /obj/item/ammo_box/magazine/ammo_stack/Exited(atom/movable/gone, direction)
 	. = ..()
-	check_empty()
+	addtimer(CALLBACK(src, PROC_REF(check_empty)), 0)
 
 /obj/item/ammo_box/magazine/ammo_stack/remove_from_stored_ammo(atom/movable/gone)
 	if(QDELETED(src))

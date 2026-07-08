@@ -3,6 +3,14 @@
 	outfit = /datum/outfit/centcom/portauthority/pcat/inspector
 	plasmaman_outfit =/datum/outfit/plasmaman/pcat
 
+/datum/antagonist/ert/official/pallas_cat_inspector/greet()
+	if(!ert_team)
+		return
+
+	to_chat(owner, "<span class='warningplain'><B><font size=3 color=red>You are a [name].</font></B></span>")
+
+	to_chat(owner, "<span class='warningplain'>Pallas Cargo and Transport is sending you to [station_name()] with the task: [ert_team.mission.explanation_text]</span>")
+
 /datum/antagonist/ert/fourthcelestialalignment
 
 /datum/antagonist/ert/fourthcelestialalignment/greet()

@@ -20,7 +20,6 @@
 /obj/item/storage/belt/military/pouches/sindaryo,
 /obj/item/storage/belt/military/pouches/sindaryo,
 /obj/item/storage/belt/military/pouches/sindaryo,
-/obj/item/storage/belt/military/pouches/sindaryo,
 /turf/open/floor/plating/aluminum,
 /area/shuttle/insertion_vehicle)
 "f" = (
@@ -239,11 +238,10 @@
 /area/shuttle/insertion_vehicle)
 "L" = (
 /obj/structure/guncase/wt550{
-	capacity = 6;
+	capacity = 5;
 	gun_category = /obj/item/gun/ballistic/automatic/wt550;
 	open = 0
 	},
-/obj/item/gun/ballistic/automatic/wt550,
 /obj/item/gun/ballistic/automatic/wt550,
 /obj/item/gun/ballistic/automatic/wt550,
 /obj/item/gun/ballistic/automatic/wt550,
@@ -288,10 +286,6 @@
 	},
 /obj/item/clothing/suit/armor/vest/combatarmor{
 	pixel_y = -7;
-	pixel_x = 1
-	},
-/obj/item/clothing/suit/armor/vest/combatarmor{
-	pixel_y = -7;
 	pixel_x = 6
 	},
 /obj/item/clothing/suit/armor/vest/combatarmor{
@@ -304,10 +298,6 @@
 	},
 /obj/item/clothing/head/helmet/pressurehelmet{
 	pixel_x = -4;
-	pixel_y = 4
-	},
-/obj/item/clothing/head/helmet/pressurehelmet{
-	pixel_x = 1;
 	pixel_y = 4
 	},
 /obj/item/clothing/head/helmet/pressurehelmet{
