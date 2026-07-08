@@ -336,7 +336,7 @@
 
 /datum/loadout_item/head/envirohelm/rev2
 	name = "Modernized Phorid Envirosuit Helmet (Green)"
-	item_path = /obj/item/clothing/head/helmet/space/rev2
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/rev2
 
 /**
  * HAIR ACCESSORIES

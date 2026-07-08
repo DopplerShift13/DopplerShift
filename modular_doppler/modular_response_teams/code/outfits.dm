@@ -63,7 +63,7 @@
 
 	uniform = /obj/item/clothing/under/plasmaman/rev2/portauth
 	gloves = /obj/item/clothing/gloves/color/plasmaman/rev2
-	head = /obj/item/clothing/head/helmet/space/rev2/portauth
+	head = /obj/item/clothing/head/helmet/space/plasmaman/rev2/portauth
 	shoes = /obj/item/clothing/shoes/jackboots/rev2
 
 /datum/outfit/plasmaman/pcat
@@ -71,7 +71,7 @@
 
 	uniform = /obj/item/clothing/under/plasmaman/rev2/pcat
 	gloves = /obj/item/clothing/gloves/color/plasmaman/rev2
-	head = /obj/item/clothing/head/helmet/space/rev2/pcat
+	head = /obj/item/clothing/head/helmet/space/plasmaman/rev2/pcat
 	shoes = /obj/item/clothing/shoes/jackboots/rev2
 
 /datum/outfit/plasmaman/rev2
@@ -79,7 +79,7 @@
 
 	uniform = /obj/item/clothing/under/plasmaman/rev2
 	gloves = /obj/item/clothing/gloves/color/plasmaman/rev2
-	head = /obj/item/clothing/head/helmet/space/rev2
+	head = /obj/item/clothing/head/helmet/space/plasmaman/rev2
 	shoes = /obj/item/clothing/shoes/jackboots/rev2
 
 /// "real" ERT outfits like void corps soldiers and response corps officers

@@ -196,7 +196,7 @@
 		helmets. The standard-issue visor has been taken out to allow for easier operation of proprietary optical devices."
 	icon_state = "helmet-novisor"
 
-/obj/item/clothing/head/helmet/space/rev2
+/obj/item/clothing/head/helmet/space/plasmaman/rev2
 	name = "modern plasma envirosuit helmet"
 	desc = "A modern variant of envirosuit helmet with a reflective visor and more accomodating internal head space, suitable \
 		for people other than plasmoids to wear. It's still space-proof to boot!"
@@ -204,13 +204,13 @@
 	icon_state = "rev2_envirohelm"
 	worn_icon = 'modular_doppler/modular_response_teams/icons/onmob.dmi'
 
-/obj/item/clothing/head/helmet/space/rev2/pcat
+/obj/item/clothing/head/helmet/space/plasmaman/rev2/pcat
 	name = "\improper P-CAT plasma envirosuit helmet"
 	desc = "A modern variant of envirosuit helmet designed for individuals representing Pallas Cargo and Transport that might \
 		require protection from an oxygen-rich environment."
 	icon_state = "official_envirohelm"
 
-/obj/item/clothing/head/helmet/space/rev2/portauth
+/obj/item/clothing/head/helmet/space/plasmaman/rev2/portauth
 	name = "\improper Port Authority plasma envirosuit helmet"
 	desc = "A modern variant of envirosuit helmet worn around by the Port Authority's most flammable commanders."
 	icon_state = "portauth_envirohelm"
