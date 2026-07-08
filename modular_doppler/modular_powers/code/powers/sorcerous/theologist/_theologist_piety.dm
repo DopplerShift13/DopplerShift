@@ -1,5 +1,5 @@
 /// Helper to format the text that gets thrown onto the piety hud element.
-#define FORMAT_PIETY_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#ddd166'>[round(charges)]</font></div>")
+#define FORMAT_PIETY_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='[POWER_COLOR_THEOLOGIST]'>[round(charges)]</font></div>")
 
 /datum/component/theologist_piety
 	dupe_mode = COMPONENT_DUPE_UNIQUE

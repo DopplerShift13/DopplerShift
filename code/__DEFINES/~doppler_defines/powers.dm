@@ -24,6 +24,15 @@
 #define POWER_PATH_EXPERT "Expert"
 #define POWER_PATH_AUGMENTED "Augmented"
 
+#define POWER_COLOR_THAUMATURGE "#7266dd"
+#define POWER_COLOR_ENIGMATIST "#26A300"
+#define POWER_COLOR_THEOLOGIST "#ddd166"
+#define POWER_COLOR_PSYKER "#FF3CC8"
+#define POWER_COLOR_CULTIVATOR "#66c5dd"
+#define POWER_COLOR_ABERRANT "#4F3A57"
+#define POWER_COLOR_WARFIGHTER "#cc3d3d"
+#define POWER_COLOR_EXPERT "#38495C"
+#define POWER_COLOR_AUGMENTED "#7C8287"
 /// Any traits granted by powers.
 #define POWER_TRAIT "power_trait"
 

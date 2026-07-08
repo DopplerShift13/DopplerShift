@@ -95,7 +95,7 @@
 					break
 		if(ui)
 			var/filter_id = "manipulate_glow"
-			target.add_filter(filter_id, 1, list(type = "outline", color = "#ff66cc", size = 2))
+			target.add_filter(filter_id, 1, list(type = "outline", color = POWER_COLOR_PSYKER, size = 2))
 			var/filter = target.get_filter(filter_id)
 			if(filter)
 				animate(filter, alpha = 110, time = 1.5 SECONDS, loop = -1)

@@ -8,7 +8,7 @@
 	/// The size of the glow effect around the mob for alignment.
 	var/alignment_outline_size = 2
 	/// The overlay color for alignment, if it has one
-	var/alignment_outline_color = "#66d5dd"
+	var/alignment_outline_color = POWER_COLOR_CULTIVATOR
 	/// The name for the filter (dont need to change this)
 	var/filter_id = "alignment_outline"
 

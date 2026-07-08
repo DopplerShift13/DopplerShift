@@ -1,6 +1,6 @@
 /datum/power/theologist_root/shared
 	name = "A Burden Shared"
-	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. The beam requires continous line of sight to function, and neither you or your target can be incapacitated.\
+	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. The beam requires continous line of sight to function, and ends prematurely if you are knocked down or incapacitated.\
 	\nGenerates Piety if you are transfering damage to yourself. Works on synthetic bodyparts"
 	security_record_text = "Subject can transfer the injuries of a target onto themselves, or visa versa."
 	security_threat = POWER_THREAT_MAJOR
@@ -11,7 +11,7 @@
 /datum/action/cooldown/power/theologist/theologist_root/shared
 	name = "A Burden Shared"
 	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. \
-	The beam requires continous line of sight to function, and neither you or your target can be incapacitated. Generates Piety if you are transfering damage to yourself. Works on synthetic bodyparts"
+	The beam requires continous line of sight to function, and ends prematurely if you are knocked down or incapacitated. Generates Piety if you are transfering damage to yourself. Works on synthetic bodyparts"
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "swap"
 	cooldown_time = 150
@@ -155,7 +155,7 @@
 	active = TRUE
 
 	// Create a beam from user -> target. This mirrors medbeam.dm's Beam() lifecycle.
-	current_beam = user.Beam(current_target, icon_state = "light_beam", time = 10 MINUTES, maxdistance = target_range, beam_type = /obj/effect/ebeam/medical, beam_color = "#ddd166")
+	current_beam = user.Beam(current_target, icon_state = "light_beam", time = 10 MINUTES, maxdistance = target_range, beam_type = /obj/effect/ebeam/medical, beam_color = POWER_COLOR_THEOLOGIST)
 	RegisterSignal(current_beam, COMSIG_QDELETING, PROC_REF(beam_died))
 	RegisterSignal(user, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	RegisterSignal(target, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))

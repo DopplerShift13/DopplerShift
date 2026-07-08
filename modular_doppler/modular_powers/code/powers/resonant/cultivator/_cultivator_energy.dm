@@ -1,5 +1,5 @@
 /// Helper to format the text that gets thrown onto the energy hud element.
-#define FORMAT_ENERGY_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='#66c5dd'>[floor(charges)]</font></div>")
+#define FORMAT_ENERGY_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='[POWER_COLOR_THEOLOGIST]''>[floor(charges)]</font></div>")
 
 /datum/component/cultivator_energy
 	dupe_mode = COMPONENT_DUPE_UNIQUE

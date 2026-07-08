@@ -40,7 +40,7 @@
 	// effects
 	playsound(user, 'sound/effects/magic/charge.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	var/filter_id = "time_of_need"
-	user.add_filter(filter_id, 1, list(type = "outline", color = "#ddd166", size = 2, alpha = 255))
+	user.add_filter(filter_id, 1, list(type = "outline", color = POWER_COLOR_THEOLOGIST, size = 2, alpha = 255))
 	user.transition_filter(filter_id, list("alpha" = 0), 2 SECONDS) // this actually looks smoother
 	addtimer(CALLBACK(user, PROC_REF(remove_filter), filter_id), 2 SECONDS)
 

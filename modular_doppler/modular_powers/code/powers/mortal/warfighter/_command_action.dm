@@ -105,11 +105,11 @@
 	. = ..()
 	var/mutable_appearance/user_symbol = mutable_appearance('icons/effects/callouts.dmi', "danger")
 	user_symbol.pixel_y = 16
-	user_symbol.color = "#cc3d3d"
+	user_symbol.color = POWER_COLOR_WARFIGHTER
 	SET_PLANE_EXPLICIT(user_symbol, ABOVE_LIGHTING_PLANE, user)
 	var/mutable_appearance/target_symbol = mutable_appearance('icons/effects/callouts.dmi', action_symbol)
 	target_symbol.pixel_y = 16
-	target_symbol.color = "#cc3d3d"
+	target_symbol.color = POWER_COLOR_WARFIGHTER
 	SET_PLANE_EXPLICIT(target_symbol, ABOVE_LIGHTING_PLANE, target)
 	// applies the status effect overlay
 	user.flick_overlay_static(user_symbol, 2 SECONDS)

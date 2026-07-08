@@ -57,7 +57,7 @@
 
 /datum/sm_delam/erasure/lights(obj/machinery/power/supermatter_crystal/sm)
 	..()
-	sm.set_light_color("#7266dd")
+	sm.set_light_color(POWER_COLOR_THAUMATURGE)
 
 /datum/sm_delam/erasure/delaminate(obj/machinery/power/supermatter_crystal/sm)
 	message_admins("Supermatter [sm] at [ADMIN_VERBOSEJMP(sm)] triggered a mass erasure event.")
@@ -114,7 +114,7 @@
 				message_text = "Reality is begining to unfold, the thaumaturgic magic that previously mended the crystal has now turned on the station, undoing its existence. Is this what magic can do?!"
 
 		SEND_SOUND(station_mob, sound('sound/music/antag/heretic/VoidsEmbrace.ogg', volume = 60))
-		to_chat(station_mob, "<font color='#7266dd' size='5'><b>[message_text]</b></font>")
+		to_chat(station_mob, "<font color='[POWER_COLOR_THAUMATURGE]' size='5'><b>[message_text]</b></font>")
 
 /// Calls the emergency shuttle with a fixed 10 minute timer for the erasure event.
 /datum/sm_delam/erasure/proc/force_emergency_shuttle(obj/machinery/power/supermatter_crystal/sm)

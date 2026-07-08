@@ -209,7 +209,7 @@
 /datum/action/cooldown/power/thaumaturge/mending/proc/play_mending_feedback(mob/living/user, atom/target, repaired_thing)
 	// Flash similar to presti to show it has been mended
 	var/filter_id = "mending_flash"
-	target.add_filter(filter_id, 1, list(type = "outline", color = "#7266dd", size = 2, alpha = 255))
+	target.add_filter(filter_id, 1, list(type = "outline", color = POWER_COLOR_THAUMATURGE, size = 2, alpha = 255))
 	target.transition_filter(filter_id, list("alpha" = 0), 2 SECONDS)
 	addtimer(CALLBACK(target, PROC_REF(remove_filter), filter_id), 2 SECONDS)
 
@@ -421,7 +421,7 @@
 			if(!is_station_level(station_mob.z))
 				continue
 			SEND_SOUND(station_mob, sound('sound/effects/supermatter.ogg', volume = 25))
-			to_chat(station_mob, "<font color='#7266dd' size='5'><b>KZZZZT!</b></font>")
+			to_chat(station_mob, "<font color='[POWER_COLOR_THAUMATURGE]' size='5'><b>KZZZZT!</b></font>")
 
 	// Ring effect
 	new /obj/effect/temp_visual/circle_wave/mending_supermatter(get_turf(target_supermatter))
@@ -468,6 +468,6 @@
 
 /// Circle wave effect on mending the SM.
 /obj/effect/temp_visual/circle_wave/mending_supermatter
-	color = "#7266dd"
+	color = POWER_COLOR_THAUMATURGE
 	duration = 5 SECONDS
 	amount_to_scale = 10

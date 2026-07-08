@@ -9,7 +9,7 @@ Reduces stress for psykers and restores Energy for cultivators
 	button_icon_state = "chuuni"
 
 	/// Both Cultivator and Psyker can benefit from meditate.
-	var/psyker_spotlight_color = "#ba2cc9"
+	var/psyker_spotlight_color = POWER_COLOR_PSYKER
 
 	/// Reference to the psyker organ, if any
 	var/obj/item/organ/resonant/psyker/psyker_organ

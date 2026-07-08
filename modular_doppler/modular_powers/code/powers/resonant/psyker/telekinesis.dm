@@ -369,7 +369,7 @@
 /atom/movable/screen/fullscreen/cursor_catcher/kinesis/psyker_tk
 	icon_state = "kinesis"
 	alpha = 180
-	color = "#8A2BE2"
+	color = POWER_COLOR_PSYKER
 	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 #undef TK_CLICK_NONE
