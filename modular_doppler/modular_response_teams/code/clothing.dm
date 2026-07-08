@@ -245,12 +245,14 @@
 	name = "\improper Port Authority beret"
 	desc = "Well, the badge isn't dull, so clearly whoever's wearing this must be vaguely important."
 	armor_type = /datum/armor/hats_centcom_cap
-	greyscale_colors = "#988d7f#ffea80"
+	icon_state = "/obj/item/clothing/head/beret/centcom_formal/portauth"
+	greyscale_colors = "#988d7f#e6b917"
 
 /obj/item/clothing/head/beret/centcom_formal/pcat
 	name = "\improper P-CAT site manager beret"
 	desc = "Is it silver, or platinum? Perhaps it's up to taste."
 	armor_type = /datum/armor/hats_centcom_cap
+	icon_state = "/obj/item/clothing/head/beret/centcom_formal/pcat"
 	greyscale_colors = "#988d7f#d4d7dF"
 
 /// Vests - armored torsowear
