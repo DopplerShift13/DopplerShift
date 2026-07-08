@@ -18,6 +18,10 @@
 	department_color = COLOR_PA_ORANGE
 	subdepartment_color = COLOR_PA_ORANGE
 
+/datum/id_trim/centcom/commander/portauthority/pcat/inspector
+	assignment = JOB_PCAT_INSPECTOR
+	honorifics = list("Inspector", "INSP.")
+
 /datum/id_trim/centcom/ert/voidcorps
 	department_color = COLOR_PA_ORANGE
 	subdepartment_color = COLOR_PA_ORANGE

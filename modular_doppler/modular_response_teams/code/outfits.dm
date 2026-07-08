@@ -53,9 +53,18 @@
 /datum/outfit/centcom/portauthority/pcat/inspector
 	name = "Pallas Cargo and Transport Inspector"
 
+	id = /obj/item/card/id/advanced/centcom/portauthority/pcat/inspector
+	suit = /obj/item/clothing/suit/armor/bulletproof
+	shoes = /obj/item/clothing/shoes/combat
+	head = null
+	gloves = null
+
 	backpack_contents = list(
 		/obj/item/storage/fancy/cigarettes/cigars/cohiba = 1,
 		/obj/item/lighter = 1,
+		/obj/item/folder/blue = 1,
+		/obj/item/pen/fourcolor = 1,
+		/obj/item/stamp/centcom = 1,
 	)
 
 /datum/outfit/plasmaman/portauth

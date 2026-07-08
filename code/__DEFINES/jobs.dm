@@ -125,6 +125,7 @@
 // DOPPLER EDIT ADDITION START
 #define JOB_COMMAND_BODYGUARD "Command Bodyguard"
 #define JOB_PCAT_MANAGER "P-CAT Site Manager"
+#define JOB_PCAT_INSPECTOR "P-CAT Inspector"
 #define JOB_PORTAUTH_COMMANDER "Port Authority Commander"
 #define JOB_ERT_PARC_COMMANDER "Response Corps Commander"
 #define JOB_ERT_PARC_OFFICER "Response Corps Officer"

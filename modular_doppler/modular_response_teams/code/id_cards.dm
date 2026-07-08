@@ -14,6 +14,9 @@
 	desc = "An ID card used by official Pallas Cargo and Transport personnel."
 	trim = /datum/id_trim/centcom/commander/portauthority/pcat
 
+/obj/item/card/id/advanced/centcom/portauthority/pcat/inspector
+	trim = /datum/id_trim/centcom/commander/portauthority/pcat/inspector
+
 /obj/item/card/id/advanced/centcom/ert/voidcorps
 	name = "\improper Void Corps ID"
 	desc = "An ID card used by official Void Corps personnel."

@@ -13,7 +13,7 @@
 	can_adjust = FALSE
 
 /obj/item/clothing/under/rank/centcom/portauthority/pcat
-	name = "\improper P-CAT site manager uniform"
+	name = "\improper P-CAT manager uniform"
 	desc = "A suit worn by Pallas Cargo and Transport's site managers and representatives."
 	icon_state = "official"
 
