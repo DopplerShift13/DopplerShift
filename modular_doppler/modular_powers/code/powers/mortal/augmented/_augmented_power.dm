@@ -39,6 +39,7 @@
 
 	// All checks passed, time to actually give the item.
 	var/obj/item/organ/implant = new augment()
+	apply_eye_preference_colors(implant, carbon_holder, client_source)
 
 	// Yes. We do all this. Just to get people's arms. Having two is infinitely more difficult
 	// In essence we check if the arm is given through VV; if so we skip most pref checking and use arm_override instead. Otherwise we use the prefs as normal.
@@ -56,11 +57,13 @@
 
 		if(left_match && right_match)
 			var/obj/item/organ/left_implant = new augment()
+			apply_eye_preference_colors(left_implant, carbon_holder, client_source)
 			left_implant.zone = BODY_ZONE_L_ARM
 			left_implant.slot = ORGAN_SLOT_LEFT_ARM_AUG
 			left_implant.Insert(carbon_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 
 			var/obj/item/organ/right_implant = new augment()
+			apply_eye_preference_colors(right_implant, carbon_holder, client_source)
 			right_implant.zone = BODY_ZONE_R_ARM
 			right_implant.slot = ORGAN_SLOT_RIGHT_ARM_AUG
 			right_implant.Insert(carbon_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -75,6 +78,22 @@
 			return
 	implant.Insert(carbon_holder, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 	return
+
+/// Augmented eye replacements should preserve the character's configured eye colors.
+/datum/power/augmented/proc/apply_eye_preference_colors(obj/item/organ/implant, mob/living/carbon/carbon_holder, client/client_source)
+	if(!istype(implant, /obj/item/organ/eyes) || !ishuman(carbon_holder))
+		return
+
+	var/mob/living/carbon/human/human_holder = carbon_holder
+	var/obj/item/organ/eyes/eye_implant = implant
+	var/left_eye_color = client_source?.prefs?.read_preference(/datum/preference/color/eye_color) || human_holder.eye_color_left
+	var/right_eye_color = left_eye_color
+
+	if(human_holder.eye_color_heterochromatic)
+		right_eye_color = client_source?.prefs?.read_preference(/datum/preference/color/heterochromatic) || human_holder.eye_color_right
+
+	eye_implant.eye_color_left = left_eye_color
+	eye_implant.eye_color_right = right_eye_color
 
 /// Removes any augments spawned by this power.
 /datum/power/augmented/remove()
