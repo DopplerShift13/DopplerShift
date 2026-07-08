@@ -39,6 +39,7 @@ export const DEPARTMENT2COLOR: Record<string, Department> = {
       'Coroner',
       'Medical Doctor',
       'Paramedic',
+      'Psychologist', // DOPPLER EDIT ADDITION - Making Psychologist Medical
     ],
   },
   science: {
@@ -62,7 +63,7 @@ export const DEPARTMENT2COLOR: Record<string, Department> = {
       'Janitor',
       'Lawyer',
       'Mime',
-      'Psychologist',
+//      'Psychologist', // DOPPLER EDIT REMOVAL - Making Psychologist Medical
     ],
   },
 };
