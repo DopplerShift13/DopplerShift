@@ -19,3 +19,11 @@
 		airlock to boot."
 	prefix = "_maps/shuttles/~doppler_shuttles/"
 	suffix = "parc_insertion_vehicle"
+
+/datum/map_template/shuttle/ert/dropship
+	name = "void corps dropship"
+	description = "Entirely bereft of niceties like bedding or storage racks, dropships such as these are used \
+    	by military forces both dedicated and piecemeal. They are heavily armored, and feature a dizzying array \
+		of weapons at the slim cost of having zero actual crew facilities."
+	prefix = "_maps/shuttles/~doppler_shuttles/"
+	suffix = "dropship"
