@@ -22,7 +22,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "fancy_labcoat_strip_open_tesh_worn",
+			"icon_state": "fancy_labcoat_stripe_open_tesh_worn",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}

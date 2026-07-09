@@ -8,6 +8,12 @@
 	#define COMPONENT_POWER_SUCCESS (1<<0)
 	#define COMPONENT_NO_CELL  (1<<1)
 	#define COMPONENT_NO_CHARGE (1<<2)
+/// Sent right before a power action resolves through use_action: (mob/living/user, atom/target)
+#define COMSIG_POWER_ACTION_USED "power_action_used"
+/// Sent when a power action successfully resolves (use_action returned TRUE): (mob/living/user, atom/target)
+#define COMSIG_POWER_ACTION_SUCCESS "power_action_success"
+/// Sent by thaumaturge get_affinity for external affinity riders: (datum/action/cooldown/power/thaumaturge/action)
+#define COMSIG_THAUMATURGE_AFFINITY_QUERY "thaumaturge_affinity_query"
 
 /// For when a Hemophage's pulsating tumor gets added to their body.
 #define COMSIG_PULSATING_TUMOR_ADDED "pulsating_tumor_added"
