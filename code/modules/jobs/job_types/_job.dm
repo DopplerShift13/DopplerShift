@@ -670,4 +670,4 @@
 	if(!icon_state || icon_state == SECHUD_UNKNOWN)
 		CRASH("[src.type] has no job icon state.")
 
-	return icon('icons/mob/huds/hud.dmi', icon_state)
+	return icon('modular_doppler/overwrites/huds/hud.dmi', icon_state) // DOPPLER EDIT CHANGE, ensuring job icon selected is the Doppler version, ORIGINAL: 'icons/mob/huds/hud.dmi'
