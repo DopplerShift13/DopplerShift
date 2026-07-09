@@ -9,7 +9,7 @@
 /datum/power/theologist/purify
 	name = "Purify"
 	desc = "Cleanses impurity from objects and creatures in melee range. The chosen target is immediately dispelled and purified of all poisons. \
-	Converts objects into a holy equivalent (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
+	Converts objects into their holy equivalents (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
 	security_record_text = "Subject can end magical effects on a target, nullify poisons and transmute objects into their holy variants with a touch."
 	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/purify
@@ -20,7 +20,7 @@
 /datum/action/cooldown/power/theologist/purify
 	name = "Purify"
 	desc = "Cleanses impurity from objects and creatures in melee range. The chosen target is immediately dispelled and purified of all poisons. \
-	Converts objects into a holy equivalent (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
+	Converts objects into their holy equivalents (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
 	button_icon = 'icons/obj/mining_zones/artefacts.dmi'
 	button_icon_state = "purified_soulstone"
 	cooldown_time = 60
