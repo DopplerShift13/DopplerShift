@@ -7,8 +7,8 @@
 
 /datum/map_template/shuttle/ferry/highcap
 	name = "super high-capacity transport ferry"
-	description = "I worry what you heard was, 'give me a lot of ERT members'. What I said was, give me all \
-    	the ERT members you have."
+	description = "I worry what you heard was, 'give me a lot of ERT members'. What I said was, 'give me all \
+    	the ERT members you have'."
 	prefix = "_maps/shuttles/~doppler_shuttles/"
 	suffix = "highcap"
 
