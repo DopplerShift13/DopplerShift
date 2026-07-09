@@ -4,7 +4,7 @@
 /datum/power/aberrant/summonable
 	name = "Summonable"
 	desc = "By speaking a specific name or word, you appear next to the speaker after a short delay. The summoning takes time, you are stunned throughout, is entirely involuntary and can only be stopped by being silenced, buckled or dispelled.\
-	\n After being succesfuly summoned, you are unable to be summoned again for 1 minute. \
+	\n After being successfully summoned, you are unable to be summoned again for 1 minute. \
 	\n The chosen word is a partial secret; the Security Records on your powers contain the word as well. It cannot contain any special characters, only standard letters and numbers."
 	security_threat = POWER_THREAT_MAJOR
 	value = 7
