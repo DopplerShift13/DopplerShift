@@ -318,14 +318,29 @@
 /datum/component/returning_throw_attunement/proc/on_post_throw(datum/source, datum/thrownthing/throwingdatum, spin)
 	SIGNAL_HANDLER
 	var/mob/living/owner = owner_ref?.resolve()
+	var/mob/living/thrower = throwingdatum?.get_thrower()
+	// If there is no owner, we either self-terminate or we usurpt it with the htrower
 	if(!istype(owner))
 		if(self_terminate)
 			qdel(src)
+			return
+		if(!istype(thrower))
+			return
+		owner = thrower
+		owner_ref = WEAKREF(thrower)
+
+	if(!istype(thrower))
+		return
+	// If we are not self-terminating and someone stole the item and threw it, they are now the onwer.
+	if(!self_terminate && thrower != owner)
+		owner = thrower
+		owner_ref = WEAKREF(thrower)
+
+	// If thrower/owner are not the same (cause they at this poitn should be the same), something again went wrong and we need to top.
+	if(thrower != owner)
 		return
 
-	if(throwingdatum?.get_thrower() != owner)
-		return
-
+	// Sets the remaining return hops to the configured max (inherited from the action or the component)
 	if(!is_returning)
 		remaining_return_hops = max_return_hops
 	ensure_throw_effect()
