@@ -37,8 +37,9 @@
 	button_icon_state = "manip"
 	max_charges = null
 	cooldown_time = 15
-
 	prep_cost = 0
+
+	background_icon_state = "bg_thaumaturge_hemomancy"
 
 /datum/action/cooldown/power/thaumaturge/channel_blood/Grant(mob/granted_to)
 	. = ..()

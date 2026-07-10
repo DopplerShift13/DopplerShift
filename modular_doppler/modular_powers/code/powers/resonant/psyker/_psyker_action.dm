@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/psyker
 	name = "abstract psyker power action - ahelp this"
-	background_icon_state = "bg_hive"
-	overlay_icon_state = "bg_hive_border"
+	background_icon_state = "bg_psyker"
+	overlay_icon_state = "bg_psyker_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
 	// We're a psychic we don't need hands.

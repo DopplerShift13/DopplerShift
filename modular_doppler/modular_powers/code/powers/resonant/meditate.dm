@@ -7,6 +7,8 @@ Reduces stress for psykers and restores Energy for cultivators
 	desc = "Restores the full potential of your resonant powers."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "chuuni"
+	background_icon_state = "bg_irregular"
+	overlay_icon_state = "bg_irregular_border"
 
 	/// Both Cultivator and Psyker can benefit from meditate.
 	var/psyker_spotlight_color = POWER_COLOR_PSYKER

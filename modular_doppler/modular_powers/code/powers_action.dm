@@ -7,11 +7,12 @@
 */
 /datum/action/cooldown/power
 	name = "abstract power action - ahelp this"
-	background_icon_state = "bg_revenant"
-	overlay_icon_state = "bg_revenant_border"
-	button_icon = 'icons/mob/actions/backgrounds.dmi'
+	background_icon_state = "bg_default"
+	overlay_icon_state = "bg_default_border"
 	active_overlay_icon_state = "bg_spell_border_active_red"
 	ranged_mousepointer = 'icons/effects/mouse_pointers/weapon_pointer.dmi'
+	background_icon = 'modular_doppler/modular_powers/icons/powers/backgrounds.dmi'
+	overlay_icon = 'modular_doppler/modular_powers/icons/powers/backgrounds.dmi'
 
 	/// Maximum state of consciousness before the ability is blocked.
 	/// For example, `UNCONSCIOUS` prevents it from being used when in hard crit or dead,

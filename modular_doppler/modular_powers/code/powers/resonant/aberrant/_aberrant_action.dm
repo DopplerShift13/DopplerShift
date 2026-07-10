@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/aberrant
 	name = "abstract aberrant power action - ahelp this"
-	background_icon_state = "bg_alien"
-	overlay_icon_state = "bg_alien_border"
+	background_icon_state = "bg_aberrant"
+	overlay_icon_state = "bg_aberrant_border"
 
 	/// How much hunger cost the ability use has
 	var/cost

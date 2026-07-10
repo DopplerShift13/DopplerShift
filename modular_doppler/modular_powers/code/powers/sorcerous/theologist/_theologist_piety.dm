@@ -71,15 +71,20 @@
 
 	var/datum/hud/hud_used = living_holder.hud_used
 	theologist_ui = new /atom/movable/screen/theologist_piety(null, hud_used)
-	// If the cultivator energy UI is present, use the alternate screen loc to avoid overlap.
-	if(living_holder.GetComponent(/datum/component/cultivator_energy))
-		theologist_ui.screen_loc = THEOLOGIST_ALT_UI_SCREEN_LOC
+	update_screen_loc()
 	hud_used.infodisplay += theologist_ui
 
 	// Set initial text so it isn't blank until first adjust.
 	theologist_ui.maptext = FORMAT_PIETY_TEXT(piety)
 
 	hud_used.show_hud(hud_used.hud_version)
+
+/// Refreshes where the piety HUD should sit based on whether cultivator energy is also present.
+/datum/component/theologist_piety/proc/update_screen_loc()
+	if(!theologist_ui || !attached_mob)
+		return
+
+	theologist_ui.screen_loc = attached_mob.GetComponent(/datum/component/cultivator_energy) ? THEOLOGIST_ALT_UI_SCREEN_LOC : THEOLOGIST_UI_SCREEN_LOC
 
 /// Handler for adjusting piety.
 /datum/component/theologist_piety/proc/adjust_piety(amount, override_cap)

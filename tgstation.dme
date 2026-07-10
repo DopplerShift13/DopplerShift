@@ -7540,6 +7540,7 @@
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\rich.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\strider.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\expert\zoologist.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\irregular\_irregular_action.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\irregular\_irregular_power.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\irregular\false_power.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\irregular\hidden_powers.dm"

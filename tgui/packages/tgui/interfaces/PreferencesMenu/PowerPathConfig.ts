@@ -158,6 +158,6 @@ export const powerPathConfig: Record<PowerPathId, PowerPathConfig> = {
       'Irregular does not count against the 2-paths only limit. In turn, all powers in Irregular provide niché benefits only, and often only at payoffs (for example, records-manipulating powers could be seen as fraud). There are no other overarching mechanics.',
     overviewText:
       'A catch-all for niche qualities that make you stand out, but are not great feats worth boasting about.',
-    themeColor: '#f0e6cb',
+    themeColor: '#cacaca',
   },
 };

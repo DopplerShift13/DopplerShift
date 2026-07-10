@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/thaumaturge
 	name = "abstract thaumaturge power action - ahelp this"
-	background_icon_state = "bg_star"
-	overlay_icon_state = "bg_default_border"
+	background_icon_state = "bg_thaumaturge"
+	overlay_icon_state = "bg_thaumaturge_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
 	// We generally don't dabble with cooldowns but a cooldown of 0.5 seconds is kinda handy to prevent you from blowing your load on all your charges by accident.
