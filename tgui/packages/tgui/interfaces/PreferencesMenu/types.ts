@@ -268,8 +268,6 @@ export type PreferencesMenuData = {
 
   augment_location?: string | null;
 
-  augment_location?: string | null;
-
   // DOPPLER EDIT END
   keybindings: Record<string, string[]>;
   overflow_role: string;
