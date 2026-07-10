@@ -8,7 +8,6 @@
 "ak" = (
 /obj/structure/shuttle_decoration/radiator/directional/north,
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
-	layer = 2.94;
 	dir = 4
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
@@ -16,10 +15,6 @@
 "da" = (
 /obj/structure/engine_covers/thruster_nozzle,
 /obj/machinery/power/shuttle_engine/propulsion/salvage,
-/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
-	layer = 2.94;
-	dir = 4
-	},
 /turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "eG" = (
@@ -57,7 +52,6 @@
 "hN" = (
 /obj/structure/shuttle_decoration/radiator/directional/north,
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
-	layer = 2.94;
 	dir = 8
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
@@ -107,10 +101,12 @@
 /turf/open/floor/iron/colony/bolts,
 /area/shuttle/dropship)
 "mm" = (
-/obj/structure/shuttle_decoration/wall_plate/plastamic{
-	dir = 8
+/obj/structure/engine_covers/thruster_nozzle,
+/obj/machinery/power/shuttle_engine/propulsion/salvage,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 4
 	},
-/turf/closed/wall/mineral/titanium,
+/turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "mn" = (
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
@@ -192,7 +188,6 @@
 /obj/structure/engine_covers/thruster_nozzle,
 /obj/machinery/power/shuttle_engine/propulsion/salvage,
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
-	layer = 2.94;
 	dir = 8
 	},
 /turf/open/floor/plating/nanocarbon/airless,
@@ -373,10 +368,10 @@
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/dropship)
 "OL" = (
-/obj/structure/shuttle_decoration/wall_plate/plastamic{
-	dir = 4
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 9
 	},
-/turf/closed/wall/mineral/titanium,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
 /area/shuttle/dropship)
 "PU" = (
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
@@ -535,7 +530,7 @@ yT
 hb
 iQ
 wm
-OL
+yN
 Zz
 Zz
 Zh
@@ -644,7 +639,7 @@ Qs
 Yq
 yY
 yY
-yY
+OL
 yY
 yY
 yY
@@ -673,7 +668,7 @@ yT
 hb
 pG
 NB
-mm
+eG
 zp
 zp
 SE
@@ -722,7 +717,7 @@ xM
 ak
 EL
 EL
-da
+mm
 xM
 xM
 xM
