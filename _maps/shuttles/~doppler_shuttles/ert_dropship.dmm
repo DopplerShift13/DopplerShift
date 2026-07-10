@@ -295,7 +295,6 @@
 "GU" = (
 /obj/machinery/button{
 	pixel_y = 21;
-	layer = 3;
 	id = "dropship_rear"
 	},
 /turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
