@@ -4,7 +4,7 @@
 
 /datum/power/expert/false_power
 	name = "False Power"
-	desc = "A bit of misinformation about your capabilities and its immediately on record. Allows you to add a 'fake' power entry to your Security Records, tailored to your design."
+	desc = "A bit of misinformation about your capabilities and it's immediately on record. Allows you to add a 'fake' power entry to your Security Records, tailored to your design."
 	value = 1
 
 /datum/power/expert/false_power/add(client/client_source)

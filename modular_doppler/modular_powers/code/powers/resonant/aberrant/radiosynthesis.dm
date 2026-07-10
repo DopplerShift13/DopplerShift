@@ -1,9 +1,9 @@
 /*
 	Sunbathe under the Supermatter for healing. Doctors hate this trick! Heals every damage type except oxyloss.
 */
-/datum/power/aberrant/radiosyntehsis
+/datum/power/aberrant/radiosynthesis
 	name = "Radiosynthesis"
-	desc = "Rather than the molecular degredation you experience from radioactivity, your body instead uses it as an energy source to rapidly heal your body. Radioactivity heals you instead of damaging you. Because this healing is anomalous, it heals synthetic and biological bodyparts."
+	desc = "Rather than the molecular degradation you experience from radioactivity, your body instead uses it as an energy source to rapidly heal your body. Radioactivity heals you instead of damaging you. Because this healing is anomalous, it heals synthetic and biological body parts."
 	security_record_text = "Subject's body regenerates instead of degenerate from exposure to radiation."
 	value = 3
 	mob_trait = TRAIT_HALT_RADIATION_EFFECTS // we don't give radimmune cause we want to ENCOURAGE people to get irradiated.
@@ -14,7 +14,7 @@
 	/// how much we heal per second
 	var/healing = 1
 
-/datum/power/aberrant/radiosyntehsis/process(seconds_per_tick)
+/datum/power/aberrant/radiosynthesis/process(seconds_per_tick)
 	// Only heal if we're irradiated
 	if(!HAS_TRAIT(power_holder, TRAIT_IRRADIATED))
 		return

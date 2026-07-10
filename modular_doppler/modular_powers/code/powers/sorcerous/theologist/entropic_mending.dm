@@ -4,8 +4,8 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 */
 /datum/power/theologist/entropic_mending
 	name = "Entropic Mending"
-	desc = "Entropy's a long road, a few steps further along it will do you more good than harm. Spend 5 Piety to touch another humanoid and attempt to restore it's lingering wounds. \
-	Moderate wounds will be healed automatically; all other wounds have a random chance to depending on severity. \
+	desc = "Entropy's a long road, a few steps further along it will do you more good than harm. Spend 5 Piety to touch another humanoid and attempt to restore its lingering wounds. \
+	Moderate wounds will be healed automatically; all other wounds have a random chance to heal depending on severity. \
 	Invoking this power will cause temporary, lingering entropic effects on the target; such as increased metabolism, hunger and blood replenishment, at triple pace."
 	security_record_text = "Subject can accelerate a target's bodily functions (e.g metabolism) to be thrice as fast, and mend lingering wounds."
 	action_path = /datum/action/cooldown/power/theologist/entropic_mending
@@ -16,7 +16,7 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 /datum/action/cooldown/power/theologist/entropic_mending
 	name = "Entropic Mending"
 	desc = "Entropy's a long road, a few steps further along it will do one more good than harm. Spend 5 Piety to touch another humanoid and attempt to restore it's lingering wounds. \
-	Moderate wounds will be healed automatically; all other wounds have a random chance to depending on severity. \
+	Moderate wounds will be healed automatically; all other wounds have a random chance to heal depending on severity. \
 	Invoking this power will cause temporary, lingering entropic effects on the target; such as increased metabolism, hunger and blood replenishment, at triple pace."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "manip"

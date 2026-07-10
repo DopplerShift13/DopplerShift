@@ -4,7 +4,7 @@
 */
 /datum/power/warfighter/command_recover
 	name = "Commander"
-	desc = "There's many facets to a good leader, but being able to delegate and manage people under pressure is an art of it's own. \
+	desc = "There's many facets to a good leader, but being able to delegate and manage people under pressure is an art of its own. \
 	You gain the 'Command: Recover' ability. Using it on someone will cause them to recover from stuns faster (as if shook on help intent). Has a moderate cooldown. \
 	For any and all command abilities in this category, the effect is increased if you are in the same department as the target, and even further if you are a head of staff (regardless of department). \
 	Command abilities can never be used on yourself, and require the target to be able to see or hear you."

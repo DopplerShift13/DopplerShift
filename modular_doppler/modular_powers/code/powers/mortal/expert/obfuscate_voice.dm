@@ -4,7 +4,7 @@ Hides your voice as unknown while active. Act out the machivalean you always wan
 
 /datum/power/expert/obfuscate_voice
 	name = "Obfuscate Voice"
-	desc = "Like an actor, the sheer range in your voice is enough, with a little effort, to sound like someone entirely unfamiliar. Grants the 'Obfuscate Voice' action, making your voice unrecognizeable while active."
+	desc = "Like an actor, the sheer range in your voice is enough, with a little effort, to sound like someone entirely unfamiliar. Grants the 'Obfuscate Voice' action, making your voice unrecognizable while active."
 	security_record_text = "Subject can change their voice to be distinctly different from their normal voice."
 	value = 3
 
@@ -12,7 +12,7 @@ Hides your voice as unknown while active. Act out the machivalean you always wan
 
 /datum/action/cooldown/power/expert/obfuscate_voice
 	name = "Obfuscate Voice"
-	desc = "Makes your voice unrecognizeable while active."
+	desc = "Makes your voice unrecognizable while active."
 	button_icon = 'icons/mob/actions/actions_items.dmi'
 	button_icon_state = "bci_say"
 

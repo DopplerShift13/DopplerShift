@@ -1,7 +1,7 @@
 /datum/power/cultivator/set_fire_to_dry_hay
 	name = "Set Fire to Dry Hay"
-	desc = "You can set fire onto anything you touch. This works similary to a ligher in terms of functionality. \
-	While in Alignment, you can right click shoot a flameblast that ignite everything in the area where it lands. \
+	desc = "You can set fire onto anything you touch. This works similarly to a lighter in terms of functionality. \
+	While in Alignment, you can right click shoot a flameblast that ignites everything in the area where it lands. \
 	Using the alignment version consumes Energy. No cooldown."
 	security_record_text = "Subject can set fire to any object in melee range. While in a heightened state, they can shoot motes of flame to ignite anything hit as well."
 	security_threat = POWER_THREAT_MAJOR
@@ -19,8 +19,8 @@
 
 /datum/action/cooldown/power/cultivator/set_fire_to_dry_hay
 	name = "Set Fire to Dry Hay"
-	desc = "You can set fire onto anything you touch. This works similary to a lighter in terms of functionality. \
-	While in Alignment, you can right click to shoot a flameblast that ignite everything in the area where it lands. \
+	desc = "You can set fire onto anything you touch. This works similarly to a lighter in terms of functionality. \
+	While in Alignment, you can right click to shoot a flameblast that ignites everything in the area where it lands. \
 	Using the alignment version consumes Energy. No cooldown."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "fireball"
@@ -157,7 +157,7 @@
 	flame_projectile.light_on = TRUE
 	flame_projectile.set_light(flame_projectile.light_range, flame_projectile.light_power, flame_projectile.light_color, l_on = TRUE)
 
-// Because welder/lighter interactions check for get_temprature on the item we kind of have to make an abstract item do the work for us.
+// Because welder/lighter interactions check for get_temperature on the item we kind of have to make an abstract item do the work for us.
 /obj/item/cultivator_virtual_lighter
 	parent_type = /obj/item/lighter
 	name = "\improper cultivator flame"
