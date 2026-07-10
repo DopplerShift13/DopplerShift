@@ -9,8 +9,10 @@
 	security_threat = POWER_THREAT_MAJOR
 	value = 7
 	magic_flags = POWER_MAGIC_STANDARD
-
 	required_powers = list(/datum/power/imbued_root/enchanted)
+
+	menu_icon = 'icons/effects/eldritch.dmi'
+	menu_icon_state = "realitycrack"
 
 	/// Reference to the beetlejuice component
 	var/datum/component/beetlejuice/summonable/summon_component

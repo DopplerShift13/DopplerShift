@@ -3,6 +3,10 @@
 	desc = "Your capabilities were never put on paper, for one reason or another. Your powers are not visible in the security records.\
 	\n If you have False Power, it will be the only preserved record of your powers."
 	value = 3
+
+	menu_icon = 'icons/obj/service/bureaucracy.dmi'
+	menu_icon_state = "paper_onfire"
+
 	/// Tracks each power's original security-record visibility so we can restore it on remove.
 	var/list/original_visibility = list()
 

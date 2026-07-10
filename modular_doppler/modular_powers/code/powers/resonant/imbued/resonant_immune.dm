@@ -8,8 +8,10 @@
 	security_record_text = "Subject is immune to resonance-based phenomena and is unable to wield them."
 	security_threat = POWER_THREAT_MAJOR
 	value = 9
-
 	required_powers = list(/datum/power/imbued_root/anomalous)
+
+	menu_icon = 'icons/effects/effects.dmi'
+	menu_icon_state = "shield_old"
 
 /datum/power/imbued/counter_resonance/add()
 	ADD_TRAIT(power_holder, TRAIT_ANTIRESONANCE, src)

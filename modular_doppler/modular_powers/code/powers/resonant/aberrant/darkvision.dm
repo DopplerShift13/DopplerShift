@@ -4,10 +4,12 @@
 	desc = "Your eyes see perfectly in the dark; but your vision gains a colored tint. This color is customizeable."
 	security_record_text = "Subject sees perfectly in the dark."
 	mob_trait = TRAIT_TRUE_NIGHT_VISION
-
 	value = 3
 	required_powers = list(/datum/power/aberrant_root)
 	required_allow_subtypes = TRUE
+
+	menu_icon = 'icons/mob/actions/actions_changeling.dmi'
+	menu_icon_state = "darkness_adaptation"
 
 	/// Saves if we apply the cutoffs for darkvision.
 	var/eye_color_cutoffs_applied = FALSE

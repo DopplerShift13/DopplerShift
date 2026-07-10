@@ -7,8 +7,10 @@
 	security_record_text = "Subject is exceedingly good at landing tackles."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
-
 	required_powers = list(/datum/power/warfighter/tackler)
+
+	menu_icon = 'icons/obj/clothing/gloves.dmi'
+	menu_icon_state = "gorilla"
 
 	/// bonuses to success chance
 	var/skill_mod_bonus = 3

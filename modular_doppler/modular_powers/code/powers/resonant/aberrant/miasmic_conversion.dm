@@ -8,8 +8,10 @@
 	security_record_text = "Subject extremely rapidly regenerates, but experiences toxic backlash when they do."
 	value = 4
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
-
 	required_powers = list(/datum/power/aberrant_root/monstrous)
+
+	menu_icon = 'icons/mob/actions/actions_changeling.dmi'
+	menu_icon_state = "biodegrade"
 
 	/// how much we passively heal tox
 	var/passive_tox_healing = 0.05

@@ -10,6 +10,9 @@
 	value = 6
 	required_powers = list(/datum/power/expert/heavy_lifter)
 
+	menu_icon = 'icons/obj/clothing/suits/armor.dmi'
+	menu_icon_state = "riot"
+
 	/// how much xp we start with on average. Since the prerequisite skill gives journeyman, we subtract that.
 	var/starting_xp_base = SKILL_EXP_MASTER - SKILL_EXP_JOURNEYMAN
 

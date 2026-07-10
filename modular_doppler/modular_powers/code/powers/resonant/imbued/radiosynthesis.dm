@@ -8,8 +8,10 @@
 	value = 3
 	mob_trait = TRAIT_HALT_RADIATION_EFFECTS // we don't give radimmune cause we want to ENCOURAGE people to get irradiated.
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
-
 	required_powers = list(/datum/power/imbued_root/anomalous)
+
+	menu_icon = 'icons/hud/screen_alert.dmi'
+	menu_icon_state = "irradiated"
 
 	/// how much we heal per second
 	var/healing = 1

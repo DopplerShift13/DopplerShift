@@ -13,6 +13,9 @@
 	required_powers = list(/datum/power/aberrant_root)
 	required_allow_subtypes = TRUE
 
+	menu_icon = 'icons/obj/machines/atmospherics/unary_devices.dmi'
+	menu_icon_state = "vent_out" //sus
+
 /datum/power/aberrant/vent_crawl/add(client/client_source)
 	. = ..()
 	if(!power_holder)

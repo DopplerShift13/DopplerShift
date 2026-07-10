@@ -14,6 +14,10 @@
 	security_threat = POWER_THREAT_MAJOR
 	value = 8
 	required_powers = list(/datum/power/warfighter/martial_artist)
+
+	menu_icon = 'icons/obj/clothing/gloves.dmi'
+	menu_icon_state = "wizard"
+
 	/// Uniquely, martial arts components are stored in the minds. Most powers are stored per mob, so this is a bit of an odd case.
 	var/datum/component/mindbound_martial_arts/martial_art_component
 

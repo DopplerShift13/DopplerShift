@@ -7,6 +7,9 @@
 	desc = "A bit of misinformation about your capabilities and its immediately on record. Allows you to add a 'fake' power entry to your Security Records, tailored to your design."
 	value = 1
 
+	menu_icon = 'icons/obj/service/bureaucracy.dmi'
+	menu_icon_state = "docs_red"
+
 /datum/power/irregular/false_power/add(client/client_source)
 	apply_false_power_prefs(client_source)
 

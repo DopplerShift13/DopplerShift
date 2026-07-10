@@ -8,8 +8,10 @@
 	security_record_text = "Subject passively regenerates any injuries they sustain."
 	value = 4
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
-
 	required_powers = list(/datum/power/aberrant_root/monstrous)
+
+	menu_icon = 'icons/mob/actions/actions_changeling.dmi'
+	menu_icon_state = "fleshmend"
 
 	/// how much we heal per second
 	var/healing = 0.2
