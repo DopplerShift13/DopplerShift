@@ -5,7 +5,7 @@
 	value = 3
 
 	menu_icon = 'icons/obj/service/bureaucracy.dmi'
-	menu_icon_state = "paper_onfire"
+	menu_icon_state = "folder_sred"
 
 	/// Tracks each power's original security-record visibility so we can restore it on remove.
 	var/list/original_visibility = list()
