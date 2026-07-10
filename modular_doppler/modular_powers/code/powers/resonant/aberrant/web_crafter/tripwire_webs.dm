@@ -2,9 +2,10 @@
 	name = "Tripwire Webs"
 	desc = "Allows you to place near- invisible tripwires using web crafter.\
 	\n Any creature that isn't able to safely pass webs will trigger the tripwire when they pass through it, destroying it and warning you of which wire was triggered.\
-	\n Creatures immune to resonant scrying can trigger the webs without notifying you. Extreme distances and non-movement destruction will also not notify you."
+	\n Creatures immune to magic or scrying can trigger the webs without notifying you. Extreme distances and non-movement destruction will also not notify you."
 	security_record_text = "Subject can craft tripwires from their spider silk."
 	value = 3
+	magic_flags = POWER_MAGIC_SCRYING // yes this is non-magical but is scrying based. deal with it.
 
 	required_powers = list(/datum/power/aberrant/web_crafter)
 

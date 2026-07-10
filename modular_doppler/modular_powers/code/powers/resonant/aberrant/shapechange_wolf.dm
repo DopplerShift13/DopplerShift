@@ -3,6 +3,7 @@
 	name = "Shapechange: Wolf"
 	desc = "Overrides your chosen Shapechange form with a Wolf; a fast creature with a strong bite attack."
 	value = 2
+	magic_flags = POWER_MAGIC_STANDARD
 
 	required_powers = list(/datum/power/aberrant/shapechange)
 	/// Saved form so we can restore on removal.

@@ -5,6 +5,8 @@
 	\n The thresholds for being low on blood are unchanged, meaning you are extra resistent to bloodloss."
 	security_record_text = "Subject's body contains and regenerates more blood."
 	value = 3
+	menu_icon = 'icons/obj/medical/bloodpack.dmi'
+	menu_icon_state = "generic_bloodpack"
 
 	/// Target blood level while this power is active.
 	var/target_blood_volume

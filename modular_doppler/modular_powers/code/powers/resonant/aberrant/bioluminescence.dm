@@ -1,12 +1,15 @@
 // he be glowin. can be toggled on or off.
 /datum/power/aberrant/bioluminescence
 	name = "Bioluminescence"
-	desc = "You can glow! You passively emit the chosen light color; which can be toggled on or off at will. Very slightly increases passive hunger when enabling or disabling the light."
+	desc = "You can glow! You passively emit the chosen light color; which can be toggled on or off at will.\
+	\nToggling the light causes a trivial amount of hunger."
 	value = 1
+	magic_flags = POWER_MAGIC_STANDARD
 	security_record_text = "Subject has been observed to glow through bioluminescence."
 
-	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
-	required_allow_any = TRUE
+	required_powers = list(/datum/power/aberrant_root)
+	required_allow_subtypes = TRUE
+
 	action_path = /datum/action/cooldown/power/aberrant/bioluminescence
 
 /datum/action/cooldown/power/aberrant/bioluminescence
@@ -16,6 +19,7 @@
 	button_icon_state = "lantern-blue-on"
 
 	cooldown_time = 5
+	cost = ABERRANT_HUNGER_TRIVIAL
 	// start with da pretty lights on
 	active = TRUE
 
@@ -50,7 +54,6 @@
 		enable_bioluminescence()
 	else
 		disable_bioluminescence()
-	user.adjust_nutrition(-2)
 	owner.balloon_alert(owner, active ? "bioluminescence on" : "bioluminescence off")
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return TRUE

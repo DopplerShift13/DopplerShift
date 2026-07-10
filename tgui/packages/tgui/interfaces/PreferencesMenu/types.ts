@@ -102,30 +102,62 @@ export type Language = {
   icon: string;
 };
 
-export type Power = {
+export type PowerPathId =
+  | 'thaumaturge'
+  | 'enigmatist'
+  | 'theologist'
+  | 'psyker'
+  | 'cultivator'
+  | 'aberrant'
+  | 'imbued'
+  | 'warfighter'
+  | 'expert'
+  | 'augmented'
+  | 'irregular';
+
+export type PowerAugmentStatic = {
+  is_arm?: boolean;
+  location?: string | null;
+};
+
+export type PowerAugmentState = {
+  assignment?: string | null;
+  left_blocked?: boolean;
+  right_blocked?: boolean;
+};
+
+export type PowerStatic = {
   description: string;
-  name: string;
-  icon: string;
   cost: number;
-  has_power?: boolean;
-  state: string;
-  word: string;
-  color: string;
-  powertype: (string | null)[];
-  rootpower: (string | null)[];
+  magic_flags?: string[];
+  name: string;
+  powertype: string | (string | null)[] | null;
+  rootpower: string | null;
   required_powers?: string[];
   required_allow_any?: boolean;
   required_allow_subtypes?: boolean;
+  action_icon?: string | null;
+  action_icon_state?: string | null;
   customizable?: boolean;
   customization_options?: string[];
-  augment?: {
-    location?: string | null;
-    is_arm?: boolean;
-    assignment?: string | null;
-    left_blocked?: boolean;
-    right_blocked?: boolean;
-  } | null;
+  augment?: PowerAugmentStatic | null;
 };
+
+export type PowerState = {
+  name: string;
+  has_power?: boolean;
+  state: string;
+  augment?: PowerAugmentState | null;
+};
+
+export type Power = PowerStatic &
+  PowerState & {
+    augment?: (PowerAugmentStatic & PowerAugmentState) | null;
+  };
+
+export type PowerPathMap = Record<PowerPathId, Power[]>;
+export type PowerStaticPathMap = Record<PowerPathId, PowerStatic[]>;
+export type PowerStatePathMap = Record<PowerPathId, PowerState[]>;
 
 // DOPPLER EDIT END
 
@@ -231,17 +263,10 @@ export type PreferencesMenuData = {
   unselected_languages: Language[];
   total_language_points: number;
 
-  total_power_points: number;
-  thaumaturge: Power[];
-  enigmatist: Power[];
-  theologist: Power[];
-  psyker: Power[];
-  cultivator: Power[];
-  aberrant: Power[];
-  warfighter: Power[];
-  expert: Power[];
-  augmented: Power[];
   power_points: number;
+  power_state_paths: PowerStatePathMap;
+
+  augment_location?: string | null;
 
   augment_location?: string | null;
 
@@ -284,6 +309,12 @@ export type ServerData = {
   loadout: {
     loadout_tabs: LoadoutCategory[];
   };
+  /* DOPPLER EDIT ADDITION START - Powers constant data */
+  powers: {
+    power_paths: PowerStaticPathMap;
+    total_power_points: number;
+  };
+  /* DOPPLER EDIT ADDITION END */
   species: Record<string, Species>;
   [otherKey: string]: unknown;
 };

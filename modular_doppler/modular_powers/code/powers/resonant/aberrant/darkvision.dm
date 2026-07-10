@@ -6,8 +6,8 @@
 	mob_trait = TRAIT_TRUE_NIGHT_VISION
 
 	value = 3
-	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
-	required_allow_any = TRUE
+	required_powers = list(/datum/power/aberrant_root)
+	required_allow_subtypes = TRUE
 
 	/// Saves if we apply the cutoffs for darkvision.
 	var/eye_color_cutoffs_applied = FALSE

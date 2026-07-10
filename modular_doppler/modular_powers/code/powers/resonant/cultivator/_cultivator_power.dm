@@ -5,4 +5,5 @@
 	archetype = POWER_ARCHETYPE_RESONANT
 	path = POWER_PATH_CULTIVATOR
 	priority = POWER_PRIORITY_BASIC
+	magic_flags = POWER_MAGIC_STANDARD
 	abstract_parent_type = /datum/power/cultivator

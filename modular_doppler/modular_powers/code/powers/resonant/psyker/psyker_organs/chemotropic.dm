@@ -9,6 +9,8 @@
 	\nHaving matching negative quirks with the substance (such as the Smoker quirk with Nicotine) increases the stress recovery."
 	security_record_text = "Subject wields psionic abilities and recovers from it through substance consumption."
 	organ_type = /obj/item/organ/resonant/psyker/chemotropic
+	menu_icon = 'modular_doppler/modular_powers/icons/items/organs.dmi'
+	menu_icon_state = "chemotropic"
 
 /obj/item/organ/resonant/psyker/chemotropic
 	name = "chemotropic gland"

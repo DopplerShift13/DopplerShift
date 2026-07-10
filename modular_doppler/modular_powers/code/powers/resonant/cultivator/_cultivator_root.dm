@@ -4,6 +4,7 @@
 	Lines upon lines of code created at but the single flick of the wrist. So know what is good with you; and report this abstract root."
 	abstract_parent_type = /datum/power/cultivator_root
 
+	magic_flags = POWER_MAGIC_STANDARD
 	archetype = POWER_ARCHETYPE_RESONANT
 	path = POWER_PATH_CULTIVATOR
 	priority = POWER_PRIORITY_ROOT

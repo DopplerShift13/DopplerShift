@@ -3,7 +3,8 @@
 */
 /datum/power/aberrant/miasmic_conversion
 	name = "Miasmic Conversion"
-	desc = "Your body mends itself disturbingly well, but creates toxic backlash in your system. You passively convert 1 brute or burn damage per second to toxins damage, at a 90% ratio. You also passively heal a tiny amount of toxins damage per second."
+	desc = "Your body mends itself disturbingly well, but creates toxic backlash in your system. You passively convert 1 brute or burn damage per second to toxins damage, at a 90% ratio.\
+	\nYou also passively heal 0.05 toxins damage damage per second. This healing causes a trivial amount of hunger every 2 health healed."
 	security_record_text = "Subject extremely rapidly regenerates, but experiences toxic backlash when they do."
 	value = 4
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
@@ -16,6 +17,8 @@
 	var/healing = 1
 	/// the ratio at which we convert.
 	var/conversion_rate = 0.90
+	/// How much healing is required to consume 1 satiety.
+	var/hunger_per_healing = 2
 
 /datum/power/aberrant/miasmic_conversion/process(seconds_per_tick)
 	var/heal_amt = healing * seconds_per_tick
@@ -37,10 +40,12 @@
 
 	// Applies healing, then reapplies as damage.
 	var/damage_before = bodypart.get_damage()
-	if(bodypart.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC))
+	var/updated_bodypart_state = bodypart.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC)
+	if(updated_bodypart_state)
 		mob.update_damage_overlays()
 	var/healed = damage_before - bodypart.get_damage()
 	if(healed > 0) // Reapply the damage as tox.
 		// Inverts for tox-healing spcies
 		healed = HAS_TRAIT(power_holder, TRAIT_TOXINLOVER) ? -healed : healed
 		power_holder.adjustToxLoss(healed * conversion_rate)
+		power_holder.adjust_nutrition(-(healed / hunger_per_healing))

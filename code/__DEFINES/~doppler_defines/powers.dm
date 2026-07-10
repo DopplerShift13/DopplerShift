@@ -10,29 +10,43 @@
 #define POWER_PRIORITY_BASIC "Basic"
 #define POWER_PRIORITY_ADVANCED "Advanced"
 
+/// Designatiosn whne referring to arcehtypes.
 #define POWER_ARCHETYPE_SORCEROUS "Sorcerous"
 #define POWER_ARCHETYPE_RESONANT "Resonant"
 #define POWER_ARCHETYPE_MORTAL "Mortal"
 
+/// Designations when referring to paths.
 #define POWER_PATH_THAUMATURGE "Thaumaturge"
 #define POWER_PATH_ENIGMATIST "Enigmatist"
 #define POWER_PATH_THEOLOGIST "Theologist"
 #define POWER_PATH_PSYKER "Psyker"
 #define POWER_PATH_CULTIVATOR "Cultivator"
 #define POWER_PATH_ABERRANT "Aberrant"
+#define POWER_PATH_IMBUED "Imbued"
 #define POWER_PATH_WARFIGHTER "Warfighter"
 #define POWER_PATH_EXPERT "Expert"
 #define POWER_PATH_AUGMENTED "Augmented"
+#define POWER_PATH_IRREGULAR "Irregular"
 
+/// Color association per power. Generally speaking if you want to use colors, use these.
 #define POWER_COLOR_THAUMATURGE "#7266dd"
-#define POWER_COLOR_ENIGMATIST "#26A300"
-#define POWER_COLOR_THEOLOGIST "#ddd166"
-#define POWER_COLOR_PSYKER "#FF3CC8"
+#define POWER_COLOR_ENIGMATIST "#439c27"
+#define POWER_COLOR_THEOLOGIST "#d1c029"
+#define POWER_COLOR_PSYKER "#b94398"
 #define POWER_COLOR_CULTIVATOR "#66c5dd"
 #define POWER_COLOR_ABERRANT "#4F3A57"
-#define POWER_COLOR_WARFIGHTER "#cc3d3d"
+#define POWER_COLOR_IMBUED "#e9874f"
+#define POWER_COLOR_WARFIGHTER "#ac2222"
 #define POWER_COLOR_EXPERT "#38495C"
-#define POWER_COLOR_AUGMENTED "#7C8287"
+#define POWER_COLOR_AUGMENTED "#6b6652"
+#define POWER_COLOR_IRREGULAR "#cacaca"
+
+/// Bitflags to determine what anti-magic a power interacts with/what type of magic it is.
+#define POWER_MAGIC_STANDARD (1<<0)
+#define POWER_MAGIC_MENTAL (1<<1)
+#define POWER_MAGIC_UNHOLY (1<<2)
+#define POWER_MAGIC_SCRYING (1<<3)
+
 /// Any traits granted by powers.
 #define POWER_TRAIT "power_trait"
 
@@ -297,8 +311,26 @@
  * All defines related to the aberrant powers.
  */
 
+/// The value that the below numbers scale off ofm, because hunger is a little arbitrary. The reason why is as followed:
+/// Starving is 150, Hungry is 250, Fed is 350, Well Fed is 450 Full is 550 and Fat is 600. So our effective 'range' we want to consider is 150-550. So that is a 400 gap.
+/// However, with the balance of the game, 250 sucks ass anyway, and 500 is a large variance since most people will cap food out naturally at 450.
+/// So we're settling for 200 for now.
+#define ABERRANT_HUNGER_COST_BASE 200
+
+// Huner costs
+#define ABERRANT_HUNGER_TRIVIAL (ABERRANT_HUNGER_COST_BASE / 100)
+#define ABERRANT_HUNGER_MINOR (ABERRANT_HUNGER_COST_BASE / 10)
+#define ABERRANT_HUNGER_MODERATE (ABERRANT_HUNGER_COST_BASE / 5)
+#define ABERRANT_HUNGER_MAJOR (ABERRANT_HUNGER_COST_BASE / 2)
+#define ABERRANT_HUNGER_EXTREME (ABERRANT_HUNGER_COST_BASE)
+
+/**
+ * RESONANT: IMBUED
+ * All defines related to the imbued powers.
+ */
+
 // Trait that lets you use the riftwalker mechanic.
-#define TRAIT_ABERRANT_RIFTWALKER "riftwalker"
+#define TRAIT_IMBUED_RIFTWALKER "riftwalker"
 
 /**MORTAL DEFINES
 * I'm literally just using this to define Breacher Knuckle right now

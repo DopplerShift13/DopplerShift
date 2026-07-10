@@ -14,6 +14,7 @@
 	action_path = /datum/action/cooldown/power/thaumaturge/channel_blood
 	species_blacklist = list(/datum/species/android, /datum/species/android/holosynth, /datum/species/golem, /datum/species/plasmaman, /datum/species/ethereal, /datum/species/jelly, /datum/species/pod, /datum/species/snail) // You can't do blood magic without blood, duh!
 	value = 5
+	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_UNHOLY
 
 /datum/power/thaumaturge_root/hemomancy/post_add()
 	if(!power_holder) // So it doesn't runtime at init

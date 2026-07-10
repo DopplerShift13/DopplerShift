@@ -26,6 +26,24 @@ export const ServerPrefs = createContext<ServerData | undefined>({
   loadout: {
     loadout_tabs: [],
   },
+  /* DOPPLER EDIT ADDITION START - Powers constant data */
+  powers: {
+    power_paths: {
+      thaumaturge: [],
+      enigmatist: [],
+      theologist: [],
+      psyker: [],
+      cultivator: [],
+      aberrant: [],
+      imbued: [],
+      warfighter: [],
+      expert: [],
+      augmented: [],
+      irregular: [],
+    },
+    total_power_points: 0,
+  },
+  /* DOPPLER EDIT ADDITION END */
   species: {},
 });
 

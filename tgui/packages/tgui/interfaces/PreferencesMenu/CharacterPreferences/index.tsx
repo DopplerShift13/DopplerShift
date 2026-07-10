@@ -10,11 +10,14 @@ import { exhaustiveCheck } from 'tgui-core/exhaustive';
 import { PageButton } from '../components/PageButton';
 import { LanguagesPage } from '../LanguagesMenu'; /* DOPPLER EDIT ADDITION */
 import { LorePage } from '../LorePage'; /* DOPPLER EDIT ADDITION */
-import { MortalPage } from '../Mortal'; /* DOPPLER EDIT ADDITION */
+import { defaultPowerPathId, powerPathConfig } from '../PowerPathConfig';
+import { PowerPathPage } from '../PowerPathPage';
 import { PowersPage } from '../PowersMenu'; /* DOPPLER EDIT ADDITION */
-import { ResonantPage } from '../Resonant'; /* DOPPLER EDIT ADDITION */
-import { SorcerousPage } from '../Sorcerous'; /* DOPPLER EDIT ADDITION */
-import { PreferencesMenuData } from '../types';
+import { SelectedPowersPage } from '../SelectedPowersPage'; /* DOPPLER EDIT ADDITION */
+import type {
+  PowerPathId,
+  PreferencesMenuData,
+} from '../types'; /* DOPPLER EDIT ADDITION */
 import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
 import { LoadoutPage } from './loadout';
@@ -32,9 +35,8 @@ enum Page {
   Languages /* DOPPLER EDIT ADDITION */,
   Lore /* DOPPLER EDIT ADDITION */,
   Powers /* DOPPLER EDITION ADDITION */,
-  Mortal /* DOPPLER EDIT ADDITION */,
-  Sorcerous /* DOPPLER EDIT ADDITION */,
-  Resonant /* DOPPLER EDIT ADDITION */,
+  PowerPath /* DOPPLER EDIT ADDITION */,
+  SelectedPowers /* DOPPLER EDIT ADDITION */,
 }
 
 type ProfileProps = {
@@ -73,6 +75,12 @@ export function CharacterPreferenceWindow(props) {
   const { act, data } = useBackend<PreferencesMenuData>();
 
   const [currentPage, setCurrentPage] = useState(Page.Main);
+  const [selectedPowerPathId, setSelectedPowerPathId] =
+    useState<PowerPathId>(defaultPowerPathId);
+  const activePowersThemeColor =
+    currentPage === Page.PowerPath
+      ? powerPathConfig[selectedPowerPathId].themeColor
+      : undefined;
 
   let pageContents;
 
@@ -90,29 +98,29 @@ export function CharacterPreferenceWindow(props) {
     case Page.Languages:
       pageContents = <LanguagesPage />;
       break;
-    case Page.Mortal:
+    case Page.PowerPath:
       pageContents = (
-        <MortalPage handleCloseMortal={() => setCurrentPage(Page.Powers)} />
+        <PowerPathPage
+          handleClosePath={() => setCurrentPage(Page.Powers)}
+          pathId={selectedPowerPathId}
+        />
       );
       break;
-    case Page.Resonant:
+    case Page.SelectedPowers:
       pageContents = (
-        <ResonantPage handleCloseResonant={() => setCurrentPage(Page.Powers)} />
-      );
-      break;
-    case Page.Sorcerous:
-      pageContents = (
-        <SorcerousPage
-          handleCloseSorcerous={() => setCurrentPage(Page.Powers)}
+        <SelectedPowersPage
+          handleClosePage={() => setCurrentPage(Page.Powers)}
         />
       );
       break;
     case Page.Powers:
       pageContents = (
         <PowersPage
-          handleOpenMortal={() => setCurrentPage(Page.Mortal)}
-          handleOpenSorcerous={() => setCurrentPage(Page.Sorcerous)}
-          handleOpenResonant={() => setCurrentPage(Page.Resonant)}
+          handleOpenSelectedPowers={() => setCurrentPage(Page.SelectedPowers)}
+          handleOpenPath={(pathId) => {
+            setSelectedPowerPathId(pathId);
+            setCurrentPage(Page.PowerPath);
+          }}
         />
       );
       break;
@@ -229,7 +237,16 @@ export function CharacterPreferenceWindow(props) {
               currentPage={currentPage}
               page={Page.Powers}
               setPage={setCurrentPage}
-              otherActivePages={[Page.Mortal, Page.Sorcerous, Page.Resonant]}
+              activeStyle={
+                activePowersThemeColor
+                  ? {
+                      backgroundColor: activePowersThemeColor,
+                      borderColor: activePowersThemeColor,
+                      color: 'black',
+                    }
+                  : undefined
+              }
+              otherActivePages={[Page.PowerPath, Page.SelectedPowers]}
             >
               Powers
             </PageButton>

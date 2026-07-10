@@ -2,7 +2,7 @@
 /datum/power/aberrant/web_crafter
 	name = "Web Crafter"
 	desc = "Threads of spidery silk crafted at your leisure. You gain the Web Crafting ability. You can use it to make passive webs in an area (which do not slow you down); or you can use it to make cloth.\
-	\n Creating anything using web crafter makes you hungry, and you cannot use it if you are starving.\
+	\n Creating anything using web crafter causes various amounts of hunger. Web crafter powers are unaffected by anti-magic.\
 	\n Double-tap to quickly create the last item you crafted."
 	mob_trait = TRAIT_WEB_SURFER // lets us walk on webs
 	security_record_text = "Subject can create spider-like silk from their body."
@@ -49,6 +49,7 @@
 		// Craft the item.
 		if(!create_obj(user, last_crafted_entry))
 			return FALSE
+		cost = last_crafted_entry.cost
 		last_menu_tap_time = current_time
 		return TRUE
 	else if(menu) // if you're too slow, activating the action again will just close it if the menu is open
@@ -89,18 +90,31 @@
 	if(!create_obj(user, entry))
 		return FALSE
 	last_crafted_entry = entry
+	cost = entry.cost
 	return TRUE
 
 /datum/action/cooldown/power/aberrant/web_crafter/on_action_success(mob/living/user, atom/target)
-	. = ..()
-	if(!HAS_TRAIT(user, TRAIT_NOHUNGER))
-		user.adjust_nutrition(-last_crafted_entry.hunger_cost)
+	cost = 0
+	if(last_crafted_entry && !HAS_TRAIT(user, TRAIT_NOHUNGER))
+		cost = last_crafted_entry.cost
+	return ..()
 
 /datum/action/cooldown/power/aberrant/web_crafter/can_use(mob/living/user, atom/target)
-	. = ..()
-	if(!.)
+	..()
+	if(!can_be_used_by(user))
 		return FALSE
-	// No using when you're hungry.
+	if(disabled_by_incapacitate && HAS_TRAIT(user, TRAIT_INCAPACITATED))
+		owner.balloon_alert(user, "incapacitated!")
+		return FALSE
+	if(resonant && HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
+		owner.balloon_alert(user, "silenced!")
+		return FALSE
+	if(need_hands_free && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
+		owner.balloon_alert(user, "restrained!")
+		return FALSE
+	if(req_stat < user.stat)
+		owner.balloon_alert(user, "incapacitated!")
+		return FALSE
 	if(!HAS_TRAIT(user, TRAIT_NOHUNGER) && user.nutrition <= NUTRITION_LEVEL_STARVING)
 		owner.balloon_alert(user, "too hungry!")
 		return FALSE
@@ -142,10 +156,6 @@
 
 /// Check before crafting.
 /datum/action/cooldown/power/aberrant/web_crafter/proc/can_craft_entry(mob/living/user, datum/web_craft_entry/entry)
-	// Are we hungy?
-	if(!HAS_TRAIT(user, TRAIT_NOHUNGER) && user.nutrition <= NUTRITION_LEVEL_STARVING)
-		user.balloon_alert(user, "too hungry!")
-		return FALSE
 	// Are we silenced. Yes, shooting strings from your body is resonant; you go ahead and explain how spiderman does it with your fancy psuedo-science..
 	if(HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
 		user.balloon_alert(user, "silenced!")

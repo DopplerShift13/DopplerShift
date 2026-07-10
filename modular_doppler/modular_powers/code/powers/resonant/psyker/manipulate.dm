@@ -13,6 +13,7 @@
 	security_record_text = "Subject can psychically interact with objects from a distance."
 	security_threat = POWER_THREAT_MAJOR
 	value = 2
+	magic_flags = POWER_MAGIC_STANDARD
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
 	action_path = /datum/action/cooldown/power/psyker/manipulate
 	required_powers = list(/datum/power/psyker_power/telekinesis) //given this lets you grab items from a distance this is basically a fluff requirement to explain why you can grab objects from a distance.
@@ -39,6 +40,7 @@
 	target_type = /obj
 	click_to_activate = TRUE
 	unset_after_click = FALSE
+	mental = FALSE
 	target_range = 12
 
 	/// Saves if its a right click so that all click interactions are routed through use_action.

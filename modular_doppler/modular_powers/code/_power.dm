@@ -62,6 +62,14 @@
 	/// If true, the backpack automatically opens on post_add(). Usually set to TRUE when an item is equipped inside the player's backpack.
 	var/open_backpack = FALSE
 
+	/// Icon used inside the powers menu to show this power. If this is left empty, it will default to action_path, and if both are active, this overrides.
+	/// You don't need to set this if your action_path is fine.
+	var/menu_icon
+	/// icon state that matches the icon
+	var/menu_icon_state
+	/// Bitflags which determine what type of magic the power is. This is largely used in the powers menu to convey what anti-magics they may trigger, but is also used by some powers to check if a certain power is a certain type of magic.
+	var/magic_flags = NONE
+
 /datum/power/New()
 	. = ..()
 	for(var/trait in no_process_traits)

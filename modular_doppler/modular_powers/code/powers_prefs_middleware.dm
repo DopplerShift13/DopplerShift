@@ -1,14 +1,7 @@
 
 /**
- * This place is a message... and part of a system of messages... pay attention to it!
- * Sending this message was important to us. We considered ourselves to be a powerful culture.
- * This place is not a place of honor... no highly esteemed deed is commemorated here... nothing valued is here.
- * What is here was dangerous and repulsive to us. This message is a warning about danger.
- * The danger is in a particular location... it increases towards a center... the center of danger is here... of a particular size and shape, and below us.
- * The danger is still present, in your time, as it was in ours.
- * The danger is to the body, and it can kill.
- * The form of the danger is an emanation of energy.
- * The danger is unleashed only if you substantially disturb this place physically. This place is best shunned and left uninhabited.
+ * The curse that once haunted this land is no more.
+ * Handles most TGUI interactions, send largely constant data (except for Augmented, snowflake mechanics.) and handles a few of the powers handoffs.
  */
 
 /datum/preference_middleware/powers
@@ -21,20 +14,26 @@
 /datum/preference_middleware/powers/post_set_preference(mob/user, preference, value)
 	preferences.sanitize_powers()
 
+/datum/preference_middleware/powers/get_constant_data()
+	var/list/data = list()
+	var/list/power_paths = build_empty_power_path_map()
+
+	// Iterates all powers and build the power entries for all of them.
+	for(var/power_name in SSpowers.powers)
+		var/datum/power/power_type = SSpowers.powers[power_name]
+		var/path_key = get_power_path_key(power_type.path)
+		if(!path_key)
+			continue
+
+		power_paths[path_key] += list(build_power_constant_entry(power_type))
+
+	data["power_paths"] = power_paths
+	data["total_power_points"] = MAXIMUM_POWER_POINTS
+	return data
+
 /datum/preference_middleware/powers/get_ui_data(mob/user)
 	var/list/data = list()
-
-	var/list/thaumaturge = list()
-	var/list/enigmatist = list()
-	var/list/theologist = list()
-
-	var/list/psyker = list()
-	var/list/cultivator = list()
-	var/list/aberrant = list()
-
-	var/list/warfighter = list()
-	var/list/expert = list()
-	var/list/augmented = list()
+	var/list/power_state_paths = build_empty_power_path_map()
 
 	var/current_points = 0
 	for(var/power_name in preferences.all_powers)
@@ -67,118 +66,189 @@
 				locked_in = TRUE
 
 		var/state
-		var/word
-		var/color
-		var/powertype
-		var/rootpower = null
-
-		if(power_type.priority == POWER_PRIORITY_ROOT)
-			powertype = "crown"
-		else
-			powertype = ""
-			rootpower = power_type.archetype
-
 		if(has_given_power)
-			word = "Forget"
 			state = "bad"
-			if(locked_in)
-				color = "0.5"
+		else if(locked_in || ((power_type.value + current_points) > MAXIMUM_POWER_POINTS))
+			state = "transparent"
 		else
-			if(locked_in || ((power_type.value + current_points) > MAXIMUM_POWER_POINTS))
-				state = "transparent"
-				word = "N/A"
-				color = "0.5"
-			else
-				state = "good"
-				word = "Learn"
-				color = "1"
-
-		var/augment_info = build_augment_ui_info(power_type, preferences)
-		var/datum/power_constant_data/constant_data = GLOB.all_power_constant_data[power_type]
-		var/list/customization_options = constant_data?.get_customization_data()
-
-		// Gets the powers required per power and adds their names, to display when hovered over.
-		var/list/required_power_types = GLOB.powers_requirements_list[power_type]
-		var/list/required_power_names = list()
-		if(length(required_power_types))
-			for(var/datum/power/required_power_type as anything in required_power_types)
-				var/required_power_name = required_power_type.name
-				// Trims abstract from abstract roots.
-				if(length(required_power_name) >= 9 && lowertext(copytext(required_power_name, 1, 10)) == "abstract ")
-					required_power_name = copytext(required_power_name, 10)
-				required_power_names += required_power_name
-		// Gets special requirements such as allow any and allow subtypes
-		var/required_allow_any = power_type.required_allow_any
-		var/required_allow_subtypes = power_type.required_allow_subtypes
+			state = "good"
 
 		var/final_list = list(list(
-				"description" = power_type.desc,
 				"name" = power_type.name,
-				"cost" = power_type.value,
 				"has_power" = has_given_power,
 				"state" = state,
-				"word" = word,
-				"color" = color,
-				"powertype" = powertype,
-				"rootpower" = rootpower,
-				"required_powers" = required_power_names,
-				"required_allow_any" = required_allow_any,
-				"required_allow_subtypes" = required_allow_subtypes,
-				"augment" = augment_info,
-				"customizable" = constant_data?.is_customizable(),
-				"customization_options" = customization_options,
+				"augment" = build_power_runtime_augment_info(power_type, preferences),
 			))
 
-		switch(power_type.path)
-			if(POWER_PATH_THAUMATURGE)
-				thaumaturge += final_list
-			if(POWER_PATH_ENIGMATIST)
-				enigmatist += final_list
-			if(POWER_PATH_THEOLOGIST)
-				theologist += final_list
-			if(POWER_PATH_PSYKER)
-				psyker += final_list
-			if(POWER_PATH_CULTIVATOR)
-				cultivator += final_list
-			if(POWER_PATH_ABERRANT)
-				aberrant += final_list
-			if(POWER_PATH_WARFIGHTER)
-				warfighter += final_list
-			if(POWER_PATH_EXPERT)
-				expert += final_list
-			if(POWER_PATH_AUGMENTED)
-				augmented += final_list
+		var/path_key = get_power_path_key(power_type.path)
+		if(path_key)
+			power_state_paths[path_key] += final_list
 
-
-	data["total_power_points"] = MAXIMUM_POWER_POINTS
-	data["thaumaturge"] = thaumaturge
-	data["enigmatist"] = enigmatist
-	data["theologist"] = theologist
-	data["psyker"] = psyker
-	data["cultivator"] = cultivator
-	data["aberrant"] = aberrant
-	data["warfighter"] = warfighter
-	data["expert"] = expert
-	data["augmented"] = augmented
+	data["power_state_paths"] = power_state_paths
 	data["power_points"] = current_points
 
 	return data
 
+/// Builds a map of all currently available power paths.
+/datum/preference_middleware/powers/proc/build_empty_power_path_map()
+	return list(
+		"thaumaturge" = list(),
+		"enigmatist" = list(),
+		"theologist" = list(),
+		"psyker" = list(),
+		"cultivator" = list(),
+		"aberrant" = list(),
+		"imbued" = list(),
+		"warfighter" = list(),
+		"expert" = list(),
+		"augmented" = list(),
+		"irregular" = list(),
+	)
+
+/// Gets the relevant key for the power path baesd on the given deifne.
+/datum/preference_middleware/powers/proc/get_power_path_key(power_path)
+	switch(power_path)
+		if(POWER_PATH_THAUMATURGE)
+			return "thaumaturge"
+		if(POWER_PATH_ENIGMATIST)
+			return "enigmatist"
+		if(POWER_PATH_THEOLOGIST)
+			return "theologist"
+		if(POWER_PATH_PSYKER)
+			return "psyker"
+		if(POWER_PATH_CULTIVATOR)
+			return "cultivator"
+		if(POWER_PATH_ABERRANT)
+			return "aberrant"
+		if(POWER_PATH_IMBUED)
+			return "imbued"
+		if(POWER_PATH_WARFIGHTER)
+			return "warfighter"
+		if(POWER_PATH_EXPERT)
+			return "expert"
+		if(POWER_PATH_AUGMENTED)
+			return "augmented"
+		if(POWER_PATH_IRREGULAR)
+			return "irregular"
+	return null
+
+/// Here for now as the sole and only exception. Irregular is the only one that gets to bypass path limit: you need VERY GOOD excuses to allow powers to do so, since it muddies up path choices.
+/// Irregular also has niche-only powers to counteract that.
+/datum/preference_middleware/powers/proc/is_path_limit_exempt(datum/power/power_type)
+	return power_type.path == POWER_PATH_IRREGULAR
+
+/// Builds a constant entry for powers to be referenced at later points.
+/datum/preference_middleware/powers/proc/build_power_constant_entry(datum/power/power_type)
+	var/powertype
+	var/rootpower = null
+
+	if(power_type.priority == POWER_PRIORITY_ROOT)
+		powertype = "crown"
+	else
+		powertype = ""
+		rootpower = power_type.archetype
+
+	var/datum/power_constant_data/constant_data = GLOB.all_power_constant_data[power_type]
+	var/list/customization_options = constant_data?.get_customization_data()
+	var/action_icon = null
+	var/action_icon_state = null
+
+	// Sets the icon to be the menu icon.
+	if(power_type.menu_icon)
+		action_icon = "[power_type.menu_icon]"
+	if(power_type.menu_icon_state)
+		action_icon_state = "[power_type.menu_icon_state]"
+
+	// If there is no menu icon set, falls back to action path icons.
+	if((isnull(action_icon) || isnull(action_icon_state)) && power_type.action_path)
+		var/initial_action_icon = initial(power_type.action_path.button_icon)
+		var/initial_action_icon_state = initial(power_type.action_path.button_icon_state)
+		if(isnull(action_icon) && initial_action_icon)
+			action_icon = "[initial_action_icon]"
+		if(isnull(action_icon_state) && initial_action_icon_state)
+			action_icon_state = "[initial_action_icon_state]"
+
+	// If it is augmented and ther eis no icon, fall back to yoinking the icons from the attached augment.
+	if((isnull(action_icon) || isnull(action_icon_state)) && ispath(power_type, /datum/power/augmented))
+		var/datum/power/augmented/augmented_power_type = power_type
+		var/obj/item/organ/augment_path = initial(augmented_power_type.augment)
+		if(augment_path)
+			var/initial_augment_icon = initial(augment_path.icon)
+			var/initial_augment_icon_state = initial(augment_path.icon_state)
+			if(isnull(action_icon) && initial_augment_icon)
+				action_icon = "[initial_augment_icon]"
+			if(isnull(action_icon_state) && initial_augment_icon_state)
+				action_icon_state = "[initial_augment_icon_state]"
+
+	return list(
+		"description" = power_type.desc,
+		"name" = power_type.name,
+		"cost" = power_type.value,
+		"magic_flags" = build_power_magic_flags(power_type),
+		"powertype" = powertype,
+		"rootpower" = rootpower,
+		"required_powers" = get_required_power_names(power_type),
+		"required_allow_any" = power_type.required_allow_any,
+		"required_allow_subtypes" = power_type.required_allow_subtypes,
+		"action_icon" = action_icon,
+		"action_icon_state" = action_icon_state,
+		"augment" = build_power_constant_augment_info(power_type),
+		"customizable" = constant_data?.is_customizable(),
+		"customization_options" = customization_options,
+	)
+
+/// Builds the list of anti-magic interaction tags the UI should show for a power.
+/datum/preference_middleware/powers/proc/build_power_magic_flags(datum/power/power_type)
+	var/power_magic_flags = initial(power_type.magic_flags)
+	var/list/final_magic_flags = list()
+	if(power_magic_flags & POWER_MAGIC_UNHOLY)
+		final_magic_flags += "unholy"
+	if(power_magic_flags & POWER_MAGIC_MENTAL)
+		final_magic_flags += "mental"
+	if(power_magic_flags & POWER_MAGIC_SCRYING)
+		final_magic_flags += "scrying"
+	if(power_magic_flags & POWER_MAGIC_STANDARD)
+		final_magic_flags += "magical"
+	return final_magic_flags
+
+/// Gets the name of any power that requires another.
+/datum/preference_middleware/powers/proc/get_required_power_names(datum/power/power_type)
+	var/list/required_power_types = GLOB.powers_requirements_list[power_type]
+	var/list/required_power_names = list()
+	if(length(required_power_types))
+		for(var/datum/power/required_power_type as anything in required_power_types)
+			var/required_power_name = required_power_type.name
+			if(length(required_power_name) >= 9 && lowertext(copytext(required_power_name, 1, 10)) == "abstract ")
+				required_power_name = copytext(required_power_name, 10)
+			required_power_names += required_power_name
+	return required_power_names
+
+/// Builds the constant augment info specifically for augments and their ANNOYING ARM SNOWFLAKING.
+/datum/preference_middleware/powers/proc/build_power_constant_augment_info(datum/power/power_type)
+	if(ispath(power_type, /datum/power/augmented))
+		var/datum/power/augmented/power_instance = new power_type
+		var/augment_location = power_instance.get_augment_location_label()
+		var/is_arm_augment = (augment_location == "Arms")
+		qdel(power_instance)
+		return list(
+			"location" = augment_location,
+			"is_arm" = is_arm_augment,
+		)
+	return null
+
 /// Snowflake proc to allow Augments to have their own selectable arm section in the UI.
-/datum/preference_middleware/powers/proc/build_augment_ui_info(
+/datum/preference_middleware/powers/proc/build_power_runtime_augment_info(
 	datum/power/power_type,
 	datum/preferences/preferences
 )
-	// Snowflake code for Augments: expose arm assignment + location.
-	var/augment_location
-	var/is_arm_augment
+	// Snowflake code for Augments: expose only runtime arm assignment state.
 	var/augment_assignment
 	var/arm_left_blocked
 	var/arm_right_blocked
 	if(ispath(power_type, /datum/power/augmented))
 		var/datum/power/augmented/power_instance = new power_type
-		augment_location = power_instance.get_augment_location_label()
-		is_arm_augment = (augment_location == "Arms")
+		var/augment_location = power_instance.get_augment_location_label()
+		var/is_arm_augment = (augment_location == "Arms")
 		qdel(power_instance)
 		if(is_arm_augment)
 			var/augment_left = preferences.read_preference(/datum/preference/choiced/augment_left)
@@ -192,8 +262,6 @@
 			else if(augment_right == power_type.name)
 				augment_assignment = "Right"
 		return list(
-			"location" = augment_location,
-			"is_arm" = is_arm_augment,
 			"assignment" = augment_assignment,
 			"left_blocked" = arm_left_blocked,
 			"right_blocked" = arm_right_blocked,
@@ -223,12 +291,14 @@
 		return FALSE
 
 	// Make sure we don't exceed 2 distinct paths.
-	if(length(preferences.all_powers))
+	if(length(preferences.all_powers) && !is_path_limit_exempt(power_type))
 		var/list/unique_paths = list()
 		// Collect the distinct paths the player already has
 		for(var/power_key in preferences.all_powers)
 			var/datum/power/existing_power = SSpowers.powers[power_key]
 			if(!existing_power)
+				continue
+			if(is_path_limit_exempt(existing_power))
 				continue
 			unique_paths[existing_power.path] = TRUE
 		// If the new power's path isn't already present, it would add a new path
@@ -503,10 +573,15 @@
  * Returns TRUE if selecting power_type would exceed the 2-path limit.
  */
 /datum/preference_middleware/powers/proc/would_exceed_path_limit(datum/power/power_type)
+	if(is_path_limit_exempt(power_type))
+		return FALSE
+
 	var/list/unique_paths = list()
 	for(var/existing_power_name in preferences.all_powers)
 		var/datum/power/existing_power_type = SSpowers.powers[existing_power_name]
 		if(!existing_power_type)
+			continue
+		if(is_path_limit_exempt(existing_power_type))
 			continue
 		unique_paths[existing_power_type.path] = TRUE
 
@@ -516,9 +591,20 @@
 
 /datum/asset/simple/powers
 	assets = list(
-		"gear.png" = 'modular_doppler/modular_powers/icons/ui/powers/gear.png',
-		"heart.png" = 'modular_doppler/modular_powers/icons/ui/powers/heart.png',
-		"seal.png" = 'modular_doppler/modular_powers/icons/ui/powers/seal.png'
+		"thaumaturgeicon.png" = 'modular_doppler/modular_powers/icons/ui/powers/thaumaturgeicon.png',
+		"theologisticon.png" = 'modular_doppler/modular_powers/icons/ui/powers/theologisticon.png',
+		"psykericon.png" = 'modular_doppler/modular_powers/icons/ui/powers/psykericon.png',
+		"cultivatoricon.png" = 'modular_doppler/modular_powers/icons/ui/powers/cultivatoricon.png',
+		"aberranticon.png" = 'modular_doppler/modular_powers/icons/ui/powers/aberranticon.png',
+		"imbuedicon.png" = 'modular_doppler/modular_powers/icons/ui/powers/imbuedicon.png',
+		"warfightericon.png" = 'modular_doppler/modular_powers/icons/ui/powers/warfightericon.png',
+		"experticon.png" = 'modular_doppler/modular_powers/icons/ui/powers/experticon.png',
+		"augmentedicon.png" = 'modular_doppler/modular_powers/icons/ui/powers/augmentedicon.png',
+		"irregularicon.png" = 'modular_doppler/modular_powers/icons/ui/powers/irregularicon.png',
+		"magic_standard_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_standard_icon.png',
+		"magic_mental_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_mental_icon.png',
+		"magic_scrying_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_scrying_icon.png',
+		"magic_unholy_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_unholy_icon.png'
 	)
 
 /datum/preference_middleware/powers/get_ui_assets()

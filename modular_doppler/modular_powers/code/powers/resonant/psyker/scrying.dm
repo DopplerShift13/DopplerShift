@@ -9,6 +9,7 @@
 	Passively builds up stress, with extended use causing escalating amounts of stress. The target sometimes gets preminations to indicate they are watched."
 	security_record_text = "Subject can psychically observe people's locations based on blood samples from extreme distances."
 	value = 10
+	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_MENTAL | POWER_MAGIC_SCRYING
 	action_path = /datum/action/cooldown/power/psyker/scrying
 
 /datum/action/cooldown/power/psyker/scrying

@@ -6,14 +6,15 @@
 	name = "Shapechange"
 	desc = "You can adjust your body to turn into a specific type of animal (chosen in the power).\
 	\n Activating the ability transforms you into the chosen animal. It does not have your name or any other identifying traits, but the number is always the same when you use it (and the security record for this power elaborates on what creature and numbers). \
-	\n Using the ability makes you hungry, and cannot be used while you're starving.\
-	\n If the creature dies or the effect ends, you are reverted to your normal form (prone on the ground), and all damage taken is transfered to your original form (halved if reverting back manually)."
+	\n Using the ability to turn into your shapechange form causes a moderate amount of hunger.\
+	\n If the creature dies or the effect ends (including by being dispelled), you are reverted to your normal form (prone on the ground), and all damage taken is transfered to your original form (halved if reverting back manually)."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
+	magic_flags = POWER_MAGIC_STANDARD
 	species_blacklist = list(/datum/species/android/holosynth) // there are SO MANY BUGS with holosynths I'd rather just NOT.
 
-	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
-	required_allow_any = TRUE
+	required_powers = list(/datum/power/aberrant_root)
+	required_allow_subtypes = TRUE
 	action_path = /datum/action/cooldown/power/aberrant/shapechange
 
 /datum/power/aberrant/shapechange/get_security_record_text()
@@ -59,8 +60,7 @@
 	human_only = FALSE
 	/// Amount of time it takes to transform.
 	use_time = 2 SECONDS
-	/// Nutrition cost when changing into animal form.
-	var/hunger_cost = 50
+	cost = ABERRANT_HUNGER_MODERATE
 	/// Tracks if the current activation performed a shift (not a revert).
 	var/just_shifted = FALSE
 	/// Persistent identifier used for the shapeshifted form.
@@ -108,10 +108,6 @@
 	var/datum/action/cooldown/power/blocking_power = get_blocking_active_power(user)
 	if(blocking_power)
 		owner.balloon_alert(user, "active: [blocking_power.name]")
-		return FALSE
-	// Can't shapeshift while starving unless it is to turn back.
-	if(!user.has_status_effect(/datum/status_effect/shapechange_mob/aberrant) && user.nutrition <= NUTRITION_LEVEL_STARVING)
-		owner.balloon_alert(user, "too hungry!")
 		return FALSE
 	return TRUE
 
@@ -180,9 +176,8 @@
 
 // Subtract hunger on succesful use
 /datum/action/cooldown/power/aberrant/shapechange/on_action_success(mob/living/user, atom/target)
+	cost = just_shifted ? (ABERRANT_HUNGER_MODERATE) : 0
 	. = ..()
-	if(just_shifted)
-		user.adjust_nutrition(-hunger_cost)
 	just_shifted = FALSE
 
 /// Creates the relevant mob for shapeshift.

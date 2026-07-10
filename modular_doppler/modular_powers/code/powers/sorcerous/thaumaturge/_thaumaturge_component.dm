@@ -32,11 +32,27 @@
 /datum/component/thaumaturge/proc/apply_action_magic_flags(add_flags = TRUE)
 	if(!attached_mob || !additional_magic_resistance_flags)
 		return
+	var/additional_power_magic_flags = convert_magic_resistance_flags_to_power_flags(additional_magic_resistance_flags)
 	for(var/datum/action/action as anything in attached_mob.actions)
 		var/datum/action/cooldown/power/thaumaturge/thaumaturge_action = action
 		if(!istype(thaumaturge_action))
 			continue
 		var/base_flags = initial(thaumaturge_action.magic_resistance_types)
 		thaumaturge_action.magic_resistance_types = add_flags ? (base_flags | additional_magic_resistance_flags) : base_flags
+		var/datum/power/origin_power = thaumaturge_action.origin_power
+		if(!origin_power || !additional_power_magic_flags)
+			continue
+		var/base_power_magic_flags = initial(origin_power.magic_flags)
+		origin_power.magic_flags = add_flags ? (base_power_magic_flags | additional_power_magic_flags) : base_power_magic_flags
 
+/// Converts action anti-magic resistance flags into preference-menu power magic tags.
+/datum/component/thaumaturge/proc/convert_magic_resistance_flags_to_power_flags(magic_resistance_flags)
+	var/power_magic_flags = NONE
+	if(magic_resistance_flags & MAGIC_RESISTANCE_HOLY)
+		power_magic_flags |= POWER_MAGIC_UNHOLY
+	if(magic_resistance_flags & MAGIC_RESISTANCE_MIND)
+		power_magic_flags |= POWER_MAGIC_MENTAL
+	if(magic_resistance_flags & MAGIC_RESISTANCE)
+		power_magic_flags |= POWER_MAGIC_STANDARD
+	return power_magic_flags
 
