@@ -16,7 +16,7 @@
 	\nCauses stamina damage equal to half the stress generated!"
 	button_icon = 'icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "singular_shot"
-	cooldown_time = 4 SECONDS
+	cooldown_time = 50
 
 	/// Forced cooldown when the effect is dispelled.
 	var/dispel_cooldown_time = 15 SECONDS
@@ -50,6 +50,10 @@
 		to_chat(user, span_notice("You brace yourself to deflect projectiles."))
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return TRUE
+
+/datum/action/cooldown/power/psyker/deflect/on_action_success(mob/living/user, atom/target)
+	. = ..()
+	no_cooldown_on_use = active_effect ? TRUE : FALSE // quick and dirty way to prevent it from going on cooldown when enabling, given it has an upkeep
 
 /datum/action/cooldown/power/psyker/deflect/proc/force_dispel_cooldown()
 	StartCooldownSelf(dispel_cooldown_time)

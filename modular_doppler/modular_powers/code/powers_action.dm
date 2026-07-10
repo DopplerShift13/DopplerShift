@@ -32,6 +32,8 @@
 	var/target_self = TRUE
 	/// Do we need our hands free?
 	var/need_hands_free = TRUE
+	/// Bypasses the normal specified cooldown when set to TRUE. Useful if you don't want powers to always go on cooldown.
+	var/no_cooldown_on_use
 
 	/// If set, we must wait this long before use_action executes. Cast time basically.
 	var/use_time = 0
@@ -164,7 +166,10 @@
 	if(!try_use(user, target = null))
 		return FALSE
 
-	StartCooldown()
+	// Support for bypassing cooldowns on use.
+	if(!no_cooldown_on_use)
+		StartCooldown()
+
 	return TRUE
 
 /** Intercepts client owner clicks to activate the ability.
