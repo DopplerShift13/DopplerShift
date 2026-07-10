@@ -3,7 +3,7 @@
 */
 /datum/power/aberrant/tailsweep
 	name = "Tail Sweep"
-	desc = "Your tail is a weapon in its own right. When activated, damages all creatures adjacent to you for 20 brute and 30 stamina, and knocks them away 2 spaces, potentially into walls.\
+	desc = "Your tail is a weapon in its own right. When activated, it damages all creatures adjacent to you for 20 brute and 30 stamina, and knocks them away 2 spaces, potentially into walls.\
 	\n Has a short cooldown, consumes hunger and the damage is affected by your opponent's chest armor. Requires a tail or taur body. If you are a large mob (such as with the Oversized quirk), you gain +1 range."
 	security_record_text = "Subject can use their tail to damage and knock back foes in active combat."
 	security_threat = POWER_THREAT_MAJOR
@@ -14,7 +14,7 @@
 
 /datum/action/cooldown/power/aberrant/tailsweep
 	name = "Tail Sweep"
-	desc = "Your tail is a weapon in its own right. When activated, damages all creatures adjacent to you for 20 brute and 30 stamina, and knocks them away 2 spaces, potentially into walls."
+	desc = "Your tail is a weapon in its own right. When activated, it damages all creatures adjacent to you for 20 brute and 30 stamina, and knocks them away 2 spaces, potentially into walls."
 	button_icon = 'icons/mob/actions/actions_xeno.dmi'
 	button_icon_state = "tailsweep"
 	cooldown_time = 6 SECONDS

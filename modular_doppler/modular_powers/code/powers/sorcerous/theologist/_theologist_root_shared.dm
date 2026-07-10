@@ -1,7 +1,7 @@
 /datum/power/theologist_root/shared
 	name = "A Burden Shared"
-	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. The beam requires continous line of sight to function, and ends prematurely if you are knocked down or incapacitated.\
-	\nGenerates Piety if you are transfering damage to yourself. Works on synthetic bodyparts"
+	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. The beam requires continuous line of sight to function, and ends prematurely if you are knocked down or incapacitated.\
+	\nGenerates Piety if you are transferring damage to yourself. Works on synthetic body parts."
 	security_record_text = "Subject can transfer the injuries of a target onto themselves, or visa versa."
 	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/shared
@@ -11,7 +11,7 @@
 /datum/action/cooldown/power/theologist/theologist_root/shared
 	name = "A Burden Shared"
 	desc = "Channels a beam of energy between you and a target, equalizing damage over a period of time, scaling with severity. \
-	The beam requires continous line of sight to function, and ends prematurely if you are knocked down or incapacitated. Generates Piety if you are transfering damage to yourself. Works on synthetic bodyparts"
+	The beam requires continuous line of sight to function, and ends prematurely if you are knocked down or incapacitated. Generates Piety if you are transferring damage to yourself. Works on synthetic body parts."
 	button_icon = 'icons/mob/actions/actions_spells.dmi'
 	button_icon_state = "swap"
 	cooldown_time = 150

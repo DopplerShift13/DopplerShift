@@ -6,8 +6,8 @@
 	name = "Shapechange"
 	desc = "You can adjust your body to turn into a specific type of animal (chosen in the power).\
 	\n Activating the ability transforms you into the chosen animal. It does not have your name or any other identifying traits, but the number is always the same when you use it (and the security record for this power elaborates on what creature and numbers). \
-	\n Using the ability to turn into your shapechange form causes a moderate amount of hunger.\
-	\n If the creature dies or the effect ends (including by being dispelled), you are reverted to your normal form (prone on the ground), and all damage taken is transfered to your original form (halved if reverting back manually)."
+	\n Using the ability makes you hungry, and cannot be used while you're starving.\
+	\n If the creature dies or the effect ends (including by being dispelled), you are reverted to your normal form (prone on the ground), and all damage taken is transferred to your original form (halved if reverting back manually)."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
 	magic_flags = POWER_MAGIC_STANDARD

@@ -1,7 +1,7 @@
 /// Shapechange spider override.
 /datum/power/aberrant/shapechange_spider
 	name = "Shapechange: Spider"
-	desc = "Overrides your chosen Shapechange form with a spider variant. \n Hunters are fast but fragile, guards are slow and sturdy and ambush spiders are very slow, but have strong grabs, hard-hitting attacks and invisiblity in webs."
+	desc = "Overrides your chosen Shapechange form with a spider variant. \n Hunters are fast but fragile, guards are slow and sturdy and ambush spiders are very slow, but have strong grabs, hard-hitting attacks and invisibility in webs."
 	value = 3
 	magic_flags = POWER_MAGIC_STANDARD
 

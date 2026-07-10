@@ -2,7 +2,7 @@
 /datum/power/thaumaturge/prestidigtation
 	name = "Prestidigtation"
 	desc = "Perform a minor feat of magic. Right-click to select between modes, Left-click to execute.\
-	\nAllows you to do various actions like summoning sparks, cleaning objects and flavor food.\
+	\nAllows you to do various actions like summoning sparks, cleaning objects and flavoring food.\
 	\nRequires Affinity 1. Does not scale with Affinity and does not use charges."
 	security_record_text = "Subject can perform minor magical tricks, such as creating sparks and flavoring food."
 	value = 1

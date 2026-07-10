@@ -1,6 +1,6 @@
 /datum/power/aberrant/tripwire_webs
 	name = "Tripwire Webs"
-	desc = "Allows you to place near- invisible tripwires using web crafter.\
+	desc = "Allows you to place near- invisible tripwires using Web Crafter.\
 	\n Any creature that isn't able to safely pass webs will trigger the tripwire when they pass through it, destroying it and warning you of which wire was triggered.\
 	\n Creatures immune to magic or scrying can trigger the webs without notifying you. Extreme distances and non-movement destruction will also not notify you."
 	security_record_text = "Subject can craft tripwires from their spider silk."

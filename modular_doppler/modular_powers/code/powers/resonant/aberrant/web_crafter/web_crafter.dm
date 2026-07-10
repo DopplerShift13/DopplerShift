@@ -2,7 +2,7 @@
 /datum/power/aberrant/web_crafter
 	name = "Web Crafter"
 	desc = "Threads of spidery silk crafted at your leisure. You gain the Web Crafting ability. You can use it to make passive webs in an area (which do not slow you down); or you can use it to make cloth.\
-	\n Creating anything using web crafter causes various amounts of hunger. Web crafter powers are unaffected by anti-magic.\
+	\n Creating anything using Web Crafter makes you hungry, and you cannot use it if you are starving.\
 	\n Double-tap to quickly create the last item you crafted."
 	mob_trait = TRAIT_WEB_SURFER // lets us walk on webs
 	security_record_text = "Subject can create spider-like silk from their body."

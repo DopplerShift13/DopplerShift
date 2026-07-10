@@ -6,7 +6,7 @@
 	name = "Scrying"
 	desc = "Using a sample of a creature's blood, you can see the world through their eyes remotely. Creatures will be vague and hard to distinguish, but their environment will appear clear. \
 	In this state, you use their sight instead of your own; but you cannot target creatures that are immune to magic, scrying; or lack the brain activity required to be detectable (dumb). \
-	Passively builds up stress, with extended use causing escalating amounts of stress. The target sometimes gets preminations to indicate they are watched."
+	Passively builds up stress, with extended use causing escalating amounts of stress. The target sometimes gets premonitions to indicate they are being watched."
 	security_record_text = "Subject can psychically observe people's locations based on blood samples from extreme distances."
 	value = 10
 	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_MENTAL | POWER_MAGIC_SCRYING

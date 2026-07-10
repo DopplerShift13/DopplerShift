@@ -4,7 +4,7 @@
 
 /datum/power/cultivator/vanish_unseen_into_shadow
 	name = "Vanish Unseen into Shadow"
-	desc = "You are untrackable within the shadows. You are immune to resonant scrying and slowdowns while you're stood in darkness or are in alignment."
+	desc = "You are untrackable within the shadows. You are immune to resonant scrying and slowdowns while you're standing in darkness or are in alignment."
 	security_record_text = "Subject is exceedingly fast and immune to resonant-based detection while stood in darkness."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5

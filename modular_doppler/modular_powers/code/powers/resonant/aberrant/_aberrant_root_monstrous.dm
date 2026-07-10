@@ -2,7 +2,7 @@
 /datum/power/aberrant_root/monstrous
 	name = "Monstrous Body"
 	desc = "If it bleeds, you can kill it. Just with you, blood doesn't really matter. You have 125% the normal blood capacity of your species, and regenerate blood that much faster as well.\
-	\n The thresholds for being low on blood are unchanged, meaning you are extra resistent to bloodloss."
+	\n The thresholds for being low on blood are unchanged, meaning you are extra resistant to bloodloss."
 	security_record_text = "Subject's body contains and regenerates more blood."
 	value = 3
 	menu_icon = 'icons/obj/medical/bloodpack.dmi'

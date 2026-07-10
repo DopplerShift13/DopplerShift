@@ -1,7 +1,7 @@
 /datum/power/cultivator/many_stars
 	name = "The Many Stars that Dot the Endless Sky"
-	desc = "An active ability. Activating it sends forth a little star, which stops when it reaches it's destination (or hits an object) passively glowing in an area as a light source for 60 seconds. \
-	ou can have up to 8 of these active. \
+	desc = "An active ability. Activating it sends forth a little star, which stops when it reaches its destination (or hits an object) passively glowing in an area as a light source for 60 seconds. \
+	You can have up to 8 of these active. \
 	While in alignment, you can right click with this ability to explode all active stars that are not in motion dealing 20 burn damage to all creatures in a 3x3 area centered on it. \
 	Exploding the stars consumes Energy per star. No cooldown."
 	security_record_text = "Subject can shoot lights to illuminate an area, which can be detonated while in a heightened state to explode and damage those around it."
