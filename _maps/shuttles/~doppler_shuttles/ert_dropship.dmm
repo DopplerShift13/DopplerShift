@@ -38,13 +38,6 @@
 /area/shuttle/dropship)
 "hb" = (
 /obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = -9;
-	buckling_x = -9;
-	dir = 1
-	},
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = 9;
-	buckling_x = 9;
 	dir = 1
 	},
 /turf/open/floor/iron/colony/texture,
@@ -59,13 +52,6 @@
 "io" = (
 /obj/machinery/light/directional/east,
 /obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = -9;
-	buckling_x = -9;
-	dir = 1
-	},
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = 9;
-	buckling_x = 9;
 	dir = 1
 	},
 /turf/open/floor/iron/colony/texture,
@@ -141,14 +127,7 @@
 /area/shuttle/dropship)
 "qo" = (
 /obj/machinery/light/directional/east,
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = -9;
-	buckling_x = -9
-	},
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = 9;
-	buckling_x = 9
-	},
+/obj/structure/chair/comfy/shuttle/buckle_offsets,
 /turf/open/floor/iron/colony/texture,
 /area/shuttle/dropship)
 "re" = (
@@ -202,14 +181,7 @@
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/dropship)
 "yT" = (
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = -9;
-	buckling_x = -9
-	},
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = 9;
-	buckling_x = 9
-	},
+/obj/structure/chair/comfy/shuttle/buckle_offsets,
 /turf/open/floor/iron/colony/texture,
 /area/shuttle/dropship)
 "yY" = (
@@ -253,14 +225,7 @@
 /area/shuttle/dropship)
 "DB" = (
 /obj/machinery/light/directional/west,
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = -9;
-	buckling_x = -9
-	},
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = 9;
-	buckling_x = 9
-	},
+/obj/structure/chair/comfy/shuttle/buckle_offsets,
 /turf/open/floor/iron/colony/texture,
 /area/shuttle/dropship)
 "Eu" = (
@@ -335,13 +300,6 @@
 "Ns" = (
 /obj/machinery/light/directional/west,
 /obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = -9;
-	buckling_x = -9;
-	dir = 1
-	},
-/obj/structure/chair/comfy/shuttle/buckle_offsets{
-	pixel_x = 9;
-	buckling_x = 9;
 	dir = 1
 	},
 /turf/open/floor/iron/colony/texture,
@@ -365,12 +323,6 @@
 	id = "dropship_rear"
 	},
 /turf/open/floor/plating/nanocarbon,
-/area/shuttle/dropship)
-"OL" = (
-/obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 9
-	},
-/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
 /area/shuttle/dropship)
 "PU" = (
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
@@ -638,7 +590,7 @@ Qs
 Yq
 yY
 yY
-OL
+yY
 yY
 yY
 yY
