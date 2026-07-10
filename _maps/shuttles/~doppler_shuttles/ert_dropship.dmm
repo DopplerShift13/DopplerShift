@@ -13,8 +13,10 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/dropship)
 "da" = (
-/obj/structure/engine_covers/thruster_nozzle,
-/obj/machinery/power/shuttle_engine/propulsion/salvage,
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
 /turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "eG" = (
@@ -34,6 +36,9 @@
 /area/shuttle/dropship)
 "gq" = (
 /obj/machinery/atmos_shield_gen/active,
+/obj/machinery/door/airlock/spacer{
+	id_tag = "starboard_lockdown"
+	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/dropship)
 "hb" = (
@@ -76,11 +81,11 @@
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 5
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "kN" = (
 /obj/structure/shuttle_decoration/extinguisher/directional/south,
-/obj/structure/shuttle_decoration/junction_box/directional/north,
 /turf/closed/wall/mineral/titanium/nodiagonal,
 /area/shuttle/dropship)
 "lq" = (
@@ -113,6 +118,13 @@
 	},
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/dropship)
+"of" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 8
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
 "oF" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 10
@@ -124,6 +136,13 @@
 	dir = 9
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/dropship)
+"pQ" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 4
+	},
+/obj/machinery/light/directional/north,
+/turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "qo" = (
 /obj/machinery/light/directional/east,
@@ -140,11 +159,36 @@
 /obj/machinery/atmos_shield_gen/active{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile{
-	dir = 8
-	},
 /obj/docking_port/mobile/dropship,
+/obj/machinery/door/airlock/spacer{
+	id_tag = "starboard_lockdown"
+	},
 /turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"rL" = (
+/obj/structure/lattice,
+/obj/machinery/light/directional/west,
+/turf/template_noop,
+/area/shuttle/dropship)
+"sD" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/machinery/button/door/directional/south{
+	pixel_x = -5;
+	name = "Port Side Lockdown";
+	id = "port_lockdown";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/button/door/directional/south{
+	pixel_x = 5;
+	name = "Starboard Side Lockdown";
+	id = "starboard_lockdown";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/turf/open/floor/iron/colony/texture,
 /area/shuttle/dropship)
 "wm" = (
 /obj/machinery/exoscanner/shuttle_part/radar_panel/directional/west,
@@ -158,6 +202,7 @@
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
 	dir = 9
 	},
+/obj/machinery/light/floor,
 /turf/template_noop,
 /area/shuttle/dropship)
 "xM" = (
@@ -240,6 +285,7 @@
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
 	dir = 4
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "EV" = (
@@ -249,7 +295,7 @@
 /area/shuttle/dropship)
 "Fi" = (
 /obj/machinery/door/poddoor/shutters{
-	id = "dropship_rear"
+	id = "rear_bay"
 	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/dropship)
@@ -258,9 +304,9 @@
 /turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "GU" = (
-/obj/machinery/button{
-	pixel_y = 21;
-	id = "dropship_rear"
+/obj/machinery/button/door/directional/north{
+	name = "Rear Bay Door Control";
+	id = "rear_bay"
 	},
 /turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
 /area/shuttle/dropship)
@@ -269,6 +315,7 @@
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
 	dir = 5
 	},
+/obj/machinery/light/floor,
 /turf/template_noop,
 /area/shuttle/dropship)
 "JB" = (
@@ -280,7 +327,7 @@
 	dir = 8
 	},
 /obj/machinery/door/poddoor/shutters{
-	id = "dropship_rear"
+	id = "rear_bay"
 	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/dropship)
@@ -295,6 +342,14 @@
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 9
 	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"MJ" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
 /turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "Ns" = (
@@ -320,7 +375,14 @@
 	dir = 4
 	},
 /obj/machinery/door/poddoor/shutters{
-	id = "dropship_rear"
+	id = "rear_bay"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"Pq" = (
+/obj/machinery/atmos_shield_gen/active,
+/obj/machinery/door/airlock/spacer{
+	id_tag = "port_lockdown"
 	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/dropship)
@@ -342,10 +404,15 @@
 /obj/machinery/atmos_shield_gen/active{
 	dir = 1
 	},
-/obj/machinery/door/airlock/multi_tile{
-	dir = 4
+/obj/machinery/door/airlock/spacer{
+	id_tag = "port_lockdown"
 	},
 /turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"Sq" = (
+/obj/structure/lattice,
+/obj/machinery/light/directional/east,
+/turf/template_noop,
 /area/shuttle/dropship)
 "Ss" = (
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
@@ -379,6 +446,11 @@
 	},
 /turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
+"VV" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/obj/machinery/light/floor,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
 "XL" = (
 /turf/open/floor/plating/aluminum,
 /area/shuttle/dropship)
@@ -395,6 +467,7 @@
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
 	dir = 8
 	},
+/obj/machinery/light/floor,
 /turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "Zh" = (
@@ -428,7 +501,7 @@ xM
 xM
 MC
 Ao
-Ao
+MJ
 xM
 xM
 xM
@@ -452,19 +525,19 @@ YQ
 mn
 mn
 yN
-gq
+Pq
 RF
 Eu
 yN
 re
-xM
+Sq
 ak
 EL
 EL
-da
+mm
 xM
 xM
-Gk
+VV
 "}
 (3,1,1) = {"
 xM
@@ -509,14 +582,14 @@ hb
 yT
 Ns
 KU
-ag
+pQ
 fO
 "}
 (5,1,1) = {"
 UL
 Bl
-JB
-jm
+NM
+sD
 kN
 yY
 yT
@@ -561,7 +634,7 @@ xM
 (7,1,1) = {"
 UL
 Bl
-NM
+JB
 jm
 Ae
 yY
@@ -601,7 +674,7 @@ hb
 yT
 io
 KU
-Ao
+of
 oF
 "}
 (9,1,1) = {"
@@ -641,14 +714,14 @@ rm
 TN
 eG
 Ce
-xM
+rL
 hN
 YW
 YW
 yL
 xM
 xM
-Gk
+VV
 "}
 (11,1,1) = {"
 xM
@@ -658,7 +731,7 @@ xM
 xM
 kJ
 ag
-ag
+da
 xM
 xM
 xM
