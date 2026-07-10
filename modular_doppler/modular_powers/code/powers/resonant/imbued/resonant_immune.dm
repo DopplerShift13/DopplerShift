@@ -11,7 +11,7 @@
 	required_powers = list(/datum/power/imbued_root/anomalous)
 
 	menu_icon = 'icons/effects/effects.dmi'
-	menu_icon_state = "shield_old"
+	menu_icon_state = "shield-old"
 
 /datum/power/imbued/counter_resonance/add()
 	ADD_TRAIT(power_holder, TRAIT_ANTIRESONANCE, src)
