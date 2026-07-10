@@ -214,7 +214,7 @@
 	if(owner.z != parent_item.z)
 		return FALSE
 
-	return get_dist(owner, parent_item) <= 2
+	return get_dist(owner, parent_item) <= 1
 
 /// Starts another return hop aimed at the owner's current position instead of the stale original target turf.
 /datum/component/returning_throw_attunement/proc/launch_return_hop(mob/living/owner, obj/item/parent_item, return_speed)
