@@ -28,7 +28,7 @@
 	/// How many return hops attuned items should attempt before giving up.
 	var/return_hop_attempts = 3
 
-/// Registers the held-item watcher and synchronizes attunements to the action's starting state.
+/// Registers the held-item signaler and tracks any held item
 /datum/action/cooldown/power/imbued/returning_throws/Grant(mob/granted_to)
 	. = ..()
 	active = TRUE
@@ -37,13 +37,13 @@
 		refresh_held_items(granted_to)
 	build_all_button_icons(UPDATE_BUTTON_OVERLAY)
 
-/// Unregisters the held-item watcher and deletes every attunement created by this action.
+/// Unregisters signals and untracks held items.
 /datum/action/cooldown/power/imbued/returning_throws/Remove(mob/removed_from)
 	UnregisterSignal(removed_from, COMSIG_MOB_UPDATE_HELD_ITEMS)
 	remove_all_managed_items(removed_from)
 	. = ..()
 
-/// Toggles the action state and synchronizes current item attunements to match.
+/// Toggles between on/off and tracks/untracks held items consequently.
 /datum/action/cooldown/power/imbued/returning_throws/use_action(mob/living/user, atom/target)
 	active = !active
 	if(active)
@@ -54,16 +54,16 @@
 	build_all_button_icons(UPDATE_BUTTON_OVERLAY)
 	return TRUE
 
-/// Reports whether the action should render as active for overlay and button-state purposes.
+/// Override to enable the active_overlay_icon_state to be visible when active (which is normally hoarded by targeted action's default behavior)
 /datum/action/cooldown/power/imbued/returning_throws/is_action_active(atom/movable/screen/movable/action_button/current_button)
 	return active
 
-/// Refreshes attunements whenever the owner's held item list changes.
+/// Refreshes item tracking whenever our held items are changed
 /datum/action/cooldown/power/imbued/returning_throws/proc/on_held_items_updated(mob/living/power_owner)
 	SIGNAL_HANDLER
 	refresh_held_items(power_owner)
 
-/// Iterates the owner's current hand items and ensures each one is attuned.
+/// Iterates the owner's current hand items and ensures each one is tracked
 /datum/action/cooldown/power/imbued/returning_throws/proc/refresh_held_items(mob/living/power_owner)
 	if(!active)
 		return
@@ -78,7 +78,7 @@
 			continue
 		attune_item(power_owner, held_item)
 
-/// Adds or refreshes the returning-throw attunement on a specific held item.
+/// Adds or refreshes the returning-throw component on a specific held item.
 /datum/action/cooldown/power/imbued/returning_throws/proc/attune_item(mob/living/power_owner, obj/item/held_item)
 	if(QDELETED(held_item))
 		return
@@ -109,7 +109,7 @@
 		if(!item_ref?.resolve())
 			managed_item_refs -= item_ref
 
-/// Deletes every attunement that still belongs to the provided owner, or the action owner if omitted.
+/// Deletes every component that still belongs to the provided owner, or the action owner if omitted.
 /datum/action/cooldown/power/imbued/returning_throws/proc/remove_all_managed_items(mob/living/power_owner = owner)
 	for(var/datum/weakref/item_ref as anything in managed_item_refs.Copy())
 		var/obj/item/managed_item = item_ref?.resolve()
@@ -123,7 +123,7 @@
 	managed_item_refs.Cut()
 
 /*
-	Item-side attunement for Returning Throws.
+	Item-side component for Returning Throws.
 	While the owner has an item in hand, it becomes a forced-catch returning throw. Whilst this is similar to boomerang, it is more magical in that it tries to hop and curve back.
 	The attunement stays on the item until another mob claims it.
 */
@@ -146,7 +146,7 @@
 	/// Whether this attunement currently owns the temporary throw visuals.
 	var/created_throw_effect = FALSE
 
-/// Validates the parent item, records which mob owns this attunement, and stores its allowed return-hop count.
+/// Validates the parent item, records which mob owns this component, and stores its allowed return-hop count.
 /datum/component/returning_throw_attunement/Initialize(mob/living/owner, max_return_hops, self_terminate = FALSE)
 	. = ..()
 	if(!isitem(parent))
@@ -236,12 +236,14 @@
 		qdel(src)
 		return
 
+	// We caught it :D
 	if(parent_item.loc == owner)
 		clear_throw_effect()
 		is_returning = FALSE
 		remaining_return_hops = 0
 		return
 
+	// If it lands adjacent to the owner, we attempt to force it into their hands.
 	if(is_within_close_catch_range(owner, parent_item) && force_catch_in_hand(owner, parent_item))
 		clear_throw_effect()
 		is_returning = FALSE
@@ -253,12 +255,14 @@
 		)
 		return
 
+	// We ran out of hops D:
 	if(remaining_return_hops <= 0)
 		clear_throw_effect()
 		is_returning = FALSE
 		return
 
 	remaining_return_hops--
+	// Launches ourselves again
 	if(!launch_return_hop(owner, parent_item, return_speed))
 		clear_throw_effect()
 		is_returning = FALSE
@@ -280,7 +284,7 @@
 
 	return owner.put_in_hand(parent_item, owner.active_hand_index, forced = TRUE, ignore_anim = TRUE)
 
-/// Removes the attunement if the item is picked up by anyone other than its owner.
+/// Removes the component if the item is picked up by anyone other than its owner.
 /datum/component/returning_throw_attunement/proc/on_item_picked_up(obj/item/source, mob/taker)
 	SIGNAL_HANDLER
 	var/mob/living/owner = owner_ref?.resolve()
@@ -295,7 +299,7 @@
 	if(self_terminate && taker != owner)
 		qdel(src)
 
-/// Removes the attunement if the item is equipped by anyone other than its owner.
+/// Removes the component if the item is equipped by anyone other than its owner.
 /datum/component/returning_throw_attunement/proc/on_item_equipped(obj/item/source, mob/equipper, slot)
 	SIGNAL_HANDLER
 	var/mob/living/owner = owner_ref?.resolve()
@@ -366,15 +370,18 @@
 		qdel(src)
 		return
 
+	// Is it grabbed by someone who is not our owner and is the component set to self termiante?
 	if(!istype(owner))
 		if(self_terminate)
 			qdel(src)
 		return
 
+	// Is it not in our owner's hands yet?
 	if(throwingdatum?.get_thrower() != owner)
 		clear_throw_effect()
 		is_returning = FALSE
 		remaining_return_hops = 0
 		return
 
+	// Tries repeated hop behavior. This is what largely handles the return hopping behavior
 	queue_return_resolution(owner, parent_item, throwingdatum?.speed || parent_item.throw_speed)
