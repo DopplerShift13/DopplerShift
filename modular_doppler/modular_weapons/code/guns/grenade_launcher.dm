@@ -10,6 +10,7 @@
 
 // subtype for standard mining karims so they don't start loaded with an HEDP round
 /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer/safer
+	accepted_magazine_type = /obj/item/ammo_box/magazine/internal/grenadelauncher/tydhouer/safer
 
 /obj/item/ammo_box/magazine/internal/grenadelauncher/tydhouer/safer
 	start_empty = TRUE
