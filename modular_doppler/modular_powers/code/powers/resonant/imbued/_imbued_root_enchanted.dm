@@ -5,7 +5,7 @@
 /datum/power/imbued_root/enchanted
 	name = "Enchanted"
 	desc = "You ambiently seem to interact more positively with magic. So long as you are not silenced, you regenerate action cooldowns faster based on your magical prowress.\
-	\nEvery point invested in a magical power makes your cooldowns go 1% faster; this becomes 2% if the power is in the Imbued path.\
+	\nEvery point invested in a magical power makes your cooldowns go 0.5% faster; this becomes 2% if the power is in the Imbued path.\
 	\nThis only affects magical power actions, plus spell-type actions."
 	security_record_text = "Subject seems to be able to wield existing magical powers more often."
 	security_threat = POWER_THREAT_MAJOR
