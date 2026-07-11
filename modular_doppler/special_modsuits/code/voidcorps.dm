@@ -84,7 +84,6 @@
 		/obj/item/melee,
 		/obj/item/tank/internals,
 		/obj/item/fireaxe,
-		/obj/item/shield,
 	)
 	variants = list(
 		"trooper" = list(
