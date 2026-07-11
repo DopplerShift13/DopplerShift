@@ -13,7 +13,7 @@
 	name = "insertion vehicle console"
 	desc = "A wall-mounted control console that directs the insertion vehicle."
 	shuttleId = "parc_insertion_vehicle"
-	possible_destinations = "parc_insertion_vehicle_custom;whiteship_home;syndicate_nw"
+	possible_destinations = "parc_insertion_vehicle_custom;whiteship_home;ferry_home;monestary_dock;syndicate_nw"
 	req_access = list(ACCESS_CENT_GENERAL)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	icon = 'icons/obj/machines/wallmounts.dmi'
@@ -67,7 +67,7 @@
 	name = "dropship flight console"
 	desc = "A wall-mounted control console that directs the VTOL dropship."
 	shuttleId = "dropship"
-	possible_destinations = "dropship_custom;whiteship_home;syndicate_nw"
+	possible_destinations = "dropship_custom;whiteship_home;ferry_home;monestary_dock;syndicate_nw"
 	req_access = list(ACCESS_CENT_GENERAL)
 	resistance_flags = INDESTRUCTIBLE | LAVA_PROOF | FIRE_PROOF | ACID_PROOF
 	var/allow_silicons = FALSE
