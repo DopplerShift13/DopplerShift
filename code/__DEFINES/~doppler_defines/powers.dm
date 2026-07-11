@@ -10,7 +10,7 @@
 #define POWER_PRIORITY_BASIC "Basic"
 #define POWER_PRIORITY_ADVANCED "Advanced"
 
-/// Designatiosn whne referring to arcehtypes.
+/// Designations whne referring to arcehtypes.
 #define POWER_ARCHETYPE_SORCEROUS "Sorcerous"
 #define POWER_ARCHETYPE_RESONANT "Resonant"
 #define POWER_ARCHETYPE_MORTAL "Mortal"
@@ -311,13 +311,12 @@
  * All defines related to the aberrant powers.
  */
 
-/// The value that the below numbers scale off ofm, because hunger is a little arbitrary. The reason why is as followed:
-/// Starving is 150, Hungry is 250, Fed is 350, Well Fed is 450 Full is 550 and Fat is 600. So our effective 'range' we want to consider is 150-550. So that is a 400 gap.
-/// However, with the balance of the game, 250 sucks ass anyway, and 500 is a large variance since most people will cap food out naturally at 450.
-/// So we're settling for 200 for now.
-#define ABERRANT_HUNGER_COST_BASE 200
+/// The value that the below numbers scale off of, because hunger is a little arbitrary. The reason why is as follows:
+/// Starving is 150, Hungry is 250, Fed is 350, Well Fed is 450 Full is 550 and Fat is 600. Fat is a negative soft-cap (you can go above 600) and starving is effectively 0 for our power.
+/// So our effective 'range' we want to consider is 150-550 (Starving-Full). We calculate this delta and that is effectively the 0%-100% range of our power's 'resource'
+#define ABERRANT_HUNGER_COST_BASE (NUTRITION_LEVEL_FULL - NUTRITION_LEVEL_STARVING)
 
-// Huner costs
+// Hunger costs
 #define ABERRANT_HUNGER_TRIVIAL (ABERRANT_HUNGER_COST_BASE / 100)
 #define ABERRANT_HUNGER_MINOR (ABERRANT_HUNGER_COST_BASE / 10)
 #define ABERRANT_HUNGER_MODERATE (ABERRANT_HUNGER_COST_BASE / 5)
@@ -328,6 +327,10 @@
  * RESONANT: IMBUED
  * All defines related to the imbued powers.
  */
+
+/// Fired by /datum/power/imbued_root/enchanted to collect additive percent bonuses to cooldown recovery.
+/// Args: (list/recovery_bonus_percents)
+#define COMSIG_IMBUED_ENCHANTED_RECOVERY_MODIFIERS "imbued_enchanted_recovery_modifiers"
 
 // Trait that lets you use the riftwalker mechanic.
 #define TRAIT_IMBUED_RIFTWALKER "riftwalker"

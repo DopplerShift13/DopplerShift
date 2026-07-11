@@ -51,7 +51,7 @@
 	return FALSE
 
 /datum/action/cooldown/power/aberrant/cocoon/on_action_success(mob/living/user, atom/target)
-	cost = last_cocoon_was_mob ? (ABERRANT_HUNGER_MODERATE) : (ABERRANT_HUNGER_MINOR * 0.75)
+	cost = last_cocoon_was_mob ? (ABERRANT_HUNGER_MINOR) : (ABERRANT_HUNGER_TRIVIAL * 5)
 	return ..()
 
 // Both cast time and visual effects are resolved in this.

@@ -1,6 +1,6 @@
 /*
 	Alcohol is mana! Basically lets you upscale your cooldowns greatly by consuming alcohol.
-	Effects are handled on Enchanted's side.
+	Effects are transfered using a signaler.
 */
 /datum/power/imbued/alcohol_is_mana
 	name = "Alcohol is Mana"
@@ -15,14 +15,29 @@
 	menu_icon = 'icons/obj/drinks/mixed_drinks.dmi'
 	menu_icon_state = "wizz_fizz"
 
-/datum/power/imbued/alcohol_is_mana/post_add()
+	/// How much drunkenness contributes to Enchanted's bonus recovery percentage.
+	var/alcohol_to_recovery_percent = 5
+	/// The cap on how much bonus recovery percentage Alcohol is Mana! can contribute.
+	var/maximum_recovery_percent = 500
+
+/datum/power/imbued/alcohol_is_mana/add(client/client_source)
 	. = ..()
-	var/datum/power/imbued_root/enchanted/enchanted = power_holder.get_power(/datum/power/imbued_root/enchanted)
-	if(enchanted)
-		enchanted.alcohol_is_mana = TRUE
+	RegisterSignal(power_holder, COMSIG_IMBUED_ENCHANTED_RECOVERY_MODIFIERS, PROC_REF(add_enchanted_recovery_modifier))
 
 /datum/power/imbued/alcohol_is_mana/remove()
 	. = ..()
-	var/datum/power/imbued_root/enchanted/enchanted = power_holder.get_power(/datum/power/imbued_root/enchanted)
-	if(enchanted)
-		enchanted.alcohol_is_mana = FALSE
+	UnregisterSignal(power_holder, COMSIG_IMBUED_ENCHANTED_RECOVERY_MODIFIERS)
+
+/// Sends a signal to Enchanted to modify the given amount based on your durnkenness.
+/datum/power/imbued/alcohol_is_mana/proc/add_enchanted_recovery_modifier(mob/living/source, list/recovery_bonus_percents)
+	SIGNAL_HANDLER
+
+	if(!istype(source))
+		return NONE
+
+	var/drunk_amount = source.get_drunk_amount()
+	if(drunk_amount <= 0)
+		return NONE
+
+	recovery_bonus_percents += min(drunk_amount * alcohol_to_recovery_percent, maximum_recovery_percent)
+	return NONE

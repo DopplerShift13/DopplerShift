@@ -23,7 +23,7 @@
 	var/range = 1
 	/// Throw distance
 	var/throw_dist = 2
-	cost = ABERRANT_HUNGER_MINOR / 2
+	cost = ABERRANT_HUNGER_TRIVIAL * 2.5
 	/// How much brute damage it deals
 	var/damage = 20
 	/// How much stam damage it deals

@@ -18,7 +18,7 @@
 	active = FALSE
 
 	cooldown_time = 50
-	cost = ABERRANT_HUNGER_MINOR
+	cost = ABERRANT_HUNGER_TRIVIAL * 5
 	/// Whether the current activation extended the blade and should spend hunger.
 	var/extended_blade = FALSE
 

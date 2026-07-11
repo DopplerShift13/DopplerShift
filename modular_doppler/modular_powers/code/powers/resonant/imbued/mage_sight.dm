@@ -1,6 +1,6 @@
 /datum/power/imbued/mage_sight
 	name = "Mage Sight"
-	desc = "You can see the magic in the air around people with a bit of intense focus. When activated, you see a cyan aura around any creature currently near you that has magical powers, or capable of casting spell-type actions. This persists for 6 seconds.\
+	desc = "You can see the magic in the air around people with a bit of intense focus. When activated, you see a cyan aura around any creature currently near you that has magical powers, or is capable of casting spell-type actions. This persists for 6 seconds.\
 	\nIf you both share a path and the target has at least one magical power in that path, you will see orange-colored aura on them instead, verifying that you both share at least one path. If the target is immune to resonant scrying or magic, you won't detect anything.\
 	\nHas a 30 second cooldown."
 	security_record_text = "Subject can identify other magic-using individuals."
@@ -12,7 +12,7 @@
 
 /datum/action/cooldown/power/imbued/mage_sight
 	name = "Mage Sight"
-	desc = "When activated, you see a cyan aura around any creature currently near you that has magical powers, or capable of casting spell-type actions. This persists for 6 seconds.\
+	desc = "When activated, you see a cyan aura around any creature currently near you that has magical powers, or is capable of casting spell-type actions. This persists for 6 seconds.\
 	\nIf you both share a path and the target has at least one magical power in that path, you will see orange-colored aura on them instead, verifying that you both share at least one path. If the target is immune to resonant scrying or magic, you won't detect anything."
 	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "blip"
@@ -72,7 +72,7 @@
 /datum/action/cooldown/power/imbued/mage_sight/proc/apply_caster_visuals(mob/living/carbon/human/user)
 	cached_left_eye_color = user.eye_color_left
 	cached_right_eye_color = user.eye_color_right
-	user.set_eye_color("#ff8c32", "#00ffff")
+	user.set_eye_color(POWER_COLOR_IMBUED, COLOR_CYAN)
 	user.update_body()
 
 /// Restores the caster's original eye colors after the effect ends.
@@ -124,10 +124,10 @@
 			shares_magical_path = TRUE
 
 	if(has_magical_power)
-		return shares_magical_path ? "#ff8c32" : "#00ffff"
+		return shares_magical_path ? POWER_COLOR_IMBUED : COLOR_CYAN
 
 	if(has_spell_type_action(target_mob))
-		return "#00ffff"
+		return COLOR_CYAN
 
 	return null
 
@@ -163,6 +163,6 @@
 
 /datum/client_colour/mage_sight_flash
 	priority = CLIENT_COLOR_IMPORTANT_PRIORITY
-	color = COLOR_ORANGE
+	color = POWER_COLOR_IMBUED
 	fade_in = 0.125 SECONDS
 	fade_out = 0.125 SECONDS

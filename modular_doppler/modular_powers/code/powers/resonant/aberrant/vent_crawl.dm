@@ -51,7 +51,7 @@
 		return
 
 	// Hunger cost!
-	power_holder.adjust_nutrition(-(ABERRANT_HUNGER_TRIVIAL * seconds_per_tick))
+	power_holder.adjust_nutrition(-((ABERRANT_HUNGER_TRIVIAL * 0.5) * seconds_per_tick))
 
 	// Check if they are wearing a back slot, helmet slot or suit slot. Hands are fine.
 	if(has_restricted_gear(power_holder))

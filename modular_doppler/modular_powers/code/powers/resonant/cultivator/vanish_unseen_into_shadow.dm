@@ -12,7 +12,7 @@
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
 
 	menu_icon = 'icons/effects/effects.dmi'
-	menu_icon_state = "void_conduit" // running out of darkness sprites to steal
+	menu_icon_state = "void_conduit"
 
 	/// Cached alignment action for gating effects.
 	var/datum/action/cooldown/power/cultivator/alignment/shadow_walker/shadow_walker_alignment

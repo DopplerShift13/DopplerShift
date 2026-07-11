@@ -19,8 +19,8 @@
 	var/healing = 1
 	/// the ratio at which we convert.
 	var/conversion_rate = 0.90
-	/// How much healing is required to consume 1 satiety.
-	var/hunger_per_healing = 2
+	/// How much hunger we generate for every 1 point of healing.
+	var/hunger_per_healing = ABERRANT_HUNGER_TRIVIAL * 0.5
 
 /datum/power/aberrant/miasmic_conversion/process(seconds_per_tick)
 	var/heal_amt = healing * seconds_per_tick
@@ -50,4 +50,4 @@
 		// Inverts for tox-healing spcies
 		healed = HAS_TRAIT(power_holder, TRAIT_TOXINLOVER) ? -healed : healed
 		power_holder.adjustToxLoss(healed * conversion_rate)
-		power_holder.adjust_nutrition(-(healed / hunger_per_healing))
+		power_holder.adjust_nutrition(-(healed * hunger_per_healing))

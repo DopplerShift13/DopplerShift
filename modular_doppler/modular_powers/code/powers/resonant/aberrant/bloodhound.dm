@@ -18,7 +18,7 @@
 	click_to_activate = TRUE
 	target_range = 1
 
-	cost = ABERRANT_HUNGER_MINOR
+	cost = ABERRANT_HUNGER_TRIVIAL * 5
 	/// How long you can keep a mob's scent.
 	var/scent_duration = 2 MINUTES
 

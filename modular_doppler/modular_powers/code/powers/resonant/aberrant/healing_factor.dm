@@ -15,8 +15,8 @@
 
 	/// how much we heal per second
 	var/healing = 0.2
-	/// How much healing is required to consume 1 satiety.
-	var/hunger_per_healing = 2
+	/// How much hunger we generate for every 1 point of healing.
+	var/hunger_per_healing = ABERRANT_HUNGER_TRIVIAL * 0.5
 
 /datum/power/aberrant/healing_factor/process(seconds_per_tick)
 	// Does not work if you're in crit
@@ -34,7 +34,7 @@
 		var/updated_bodypart_state = bodypart.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC)
 		var/damage_healed = max(0, damage_before - bodypart.get_damage())
 		if(damage_healed > 0)
-			mob.adjust_nutrition(-(damage_healed / hunger_per_healing))
+			mob.adjust_nutrition(-(damage_healed * hunger_per_healing))
 		if(updated_bodypart_state)
 			mob.update_damage_overlays()
 		break
