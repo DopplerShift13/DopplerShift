@@ -21,7 +21,7 @@
 	/// Flat deciseconds removed from qualifying cooldowns per second before power-based scaling.
 	var/CDR_base = 0
 	/// Additional deciseconds removed per point of non-Imbued magical power value.
-	var/CDR_per_magic_value = 0.1
+	var/CDR_per_magic_value = 0.05
 	/// Additional deciseconds removed per point of Imbued magical power value.
 	var/CDR_per_imbued_magic_value = 0.2
 	/// Cached base cooldown recovery per second from the holder's current powers.
