@@ -164,7 +164,6 @@
 		/obj/item/gun/ballistic/automatic/pistol/kieran/suppressed/mindshield_pin = 1,
 		/obj/item/knife/combat = 1,
 		/obj/item/melee/baton/doppler_security/loaded = 1,
-		/obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled = 1,
 	)
 
 /datum/outfit/centcom/ert/voidcorps/breacher
@@ -307,7 +306,7 @@
 	suit = /obj/item/clothing/suit/armor/bulletproof
 
 /datum/outfit/shocktrooper/leader/light
-	name = "Shocktrooper Leader (Light Armor)"
+	name = "Shocktrooper Team Leader (Light Armor)"
 
 	suit = /obj/item/clothing/suit/armor/bulletproof
 
