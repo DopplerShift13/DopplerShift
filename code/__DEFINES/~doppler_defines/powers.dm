@@ -341,8 +341,6 @@
 /// Hunger cost conversion for Aberrant stomach. Charging stomachs have a much more simplistic range so we have to work with what we have got.
 #define ABERRANT_ANDROID_HUNGER_COST_BASE (CHARGING_STOMACH_CHARGE_FULL - CHARGING_STOMACH_CHARGE_LOW)
 
-/// Hunger cost conversion for Android stomach
-
 /**
  * RESONANT: IMBUED
  * All defines related to the imbued powers.
