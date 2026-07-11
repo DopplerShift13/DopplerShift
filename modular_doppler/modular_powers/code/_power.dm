@@ -109,6 +109,7 @@
 
 	power_holder = new_holder
 	power_holder.powers += src
+	SEND_SIGNAL(power_holder, COMSIG_MOB_POWER_ADDED, src)
 	// If we weren't passed a client source try to use a present one
 	client_source ||= power_holder.client
 
@@ -148,6 +149,7 @@
 		UnregisterSignal(power_holder, process_update_signals)
 
 	power_holder.powers -= src
+	SEND_SIGNAL(power_holder, COMSIG_MOB_POWER_REMOVED, src)
 
 	if(mob_trait && !QDELETED(power_holder))
 		REMOVE_TRAIT(power_holder, mob_trait, POWER_TRAIT)

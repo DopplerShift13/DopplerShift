@@ -47,6 +47,16 @@
 #define POWER_MAGIC_UNHOLY (1<<2)
 #define POWER_MAGIC_SCRYING (1<<3)
 
+// Signals for power actions and power-holder power mutations.
+/// Sent right before a power action resolves through use_action: (mob/living/user, atom/target)
+#define COMSIG_POWER_ACTION_USED "power_action_used"
+/// Sent when a power action successfully resolves (use_action returned TRUE): (mob/living/user, atom/target)
+#define COMSIG_POWER_ACTION_SUCCESS "power_action_success"
+/// Sent when a power is added to a mob's power list: (datum/power/added_power)
+#define COMSIG_MOB_POWER_ADDED "mob_power_added"
+/// Sent when a power is removed from a mob's power list: (datum/power/removed_power)
+#define COMSIG_MOB_POWER_REMOVED "mob_power_removed"
+
 /// Any traits granted by powers.
 #define POWER_TRAIT "power_trait"
 
@@ -147,6 +157,8 @@
 #define THAUMATURGE_HEMOMANCY_MAX_AFFINITY 6
 // How much blood cost scales from prep_cost (and UI display) for hemomancy.
 #define THAUMATURGE_HEMOMANCY_BLOOD_COST_MULTIPLIER 4
+/// Sent by thaumaturge get_affinity for external affinity riders: (datum/action/cooldown/power/thaumaturge/action)
+#define COMSIG_THAUMATURGE_AFFINITY_QUERY "thaumaturge_affinity_query"
 
 /**
  * SORCEROUS: ENIGMATIST
