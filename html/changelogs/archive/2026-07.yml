@@ -43,3 +43,6 @@
   - admin: 'ported ctrl+click spawning as aghost from skyrat
 
       :cl:'
+2026-07-11:
+  FoundInJune:
+  - spellcheck: fixed a few typos, etc
