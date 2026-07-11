@@ -95,30 +95,9 @@
 
 /datum/action/cooldown/power/aberrant/web_crafter/on_action_success(mob/living/user, atom/target)
 	cost = 0
-	if(last_crafted_entry && !HAS_TRAIT(user, TRAIT_NOHUNGER))
+	if(last_crafted_entry)
 		cost = last_crafted_entry.cost
 	return ..()
-
-/datum/action/cooldown/power/aberrant/web_crafter/can_use(mob/living/user, atom/target)
-	..()
-	if(!can_be_used_by(user))
-		return FALSE
-	if(disabled_by_incapacitate && HAS_TRAIT(user, TRAIT_INCAPACITATED))
-		owner.balloon_alert(user, "incapacitated!")
-		return FALSE
-	if(resonant && HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
-		owner.balloon_alert(user, "silenced!")
-		return FALSE
-	if(need_hands_free && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
-		owner.balloon_alert(user, "restrained!")
-		return FALSE
-	if(req_stat < user.stat)
-		owner.balloon_alert(user, "incapacitated!")
-		return FALSE
-	if(!HAS_TRAIT(user, TRAIT_NOHUNGER) && user.nutrition <= NUTRITION_LEVEL_STARVING)
-		owner.balloon_alert(user, "too hungry!")
-		return FALSE
-	return TRUE
 
 /// Populates the list of web entries
 /datum/action/cooldown/power/aberrant/web_crafter/proc/get_web_craft_entries()

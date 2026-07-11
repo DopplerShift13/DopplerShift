@@ -5,7 +5,7 @@
 	\n Creatures immune to magic or scrying can trigger the webs without notifying you. Extreme distances and non-movement destruction will also not notify you."
 	security_record_text = "Subject can craft tripwires from their spider silk."
 	value = 3
-	magic_flags = POWER_MAGIC_SCRYING // yes this is non-magical but is scrying based. deal with it.
+	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_SCRYING
 
 	required_powers = list(/datum/power/aberrant/web_crafter)
 
@@ -49,6 +49,16 @@
 	if(maker)
 		maker_ref = WEAKREF(maker)
 	pick_icon_state()
+	RegisterSignal(src, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
+
+/obj/structure/spider/tripwire_web/Destroy(force)
+	. = ..()
+	UnregisterSignal(src, COMSIG_ATOM_DISPEL)
+
+/// Removes the tripwire web silently. You may never have known it was there~
+/obj/structure/spider/tripwire_web/proc/on_dispel(src, atom/dispeller)
+	SIGNAL_HANDLER
+	qdel(src)
 
 /** So we don't actually have the old web sprites; a lot of web sprites are DENSE and noticeable. So we take the navigation lines and place one randomly on the tile. Boom, tripwire.
  * We filter out the ones that start with a 0 because they're dead-ends
