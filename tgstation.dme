@@ -7573,6 +7573,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\cocoon.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\darkvision.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\healing_factor.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\aberrant\inexorable.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\miasmic_conversion.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\aberrant\shapechange_spider.dm"

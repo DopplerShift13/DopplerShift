@@ -1,8 +1,8 @@
 /datum/power/psyker_power/deflect
 	name = "Deflect"
-	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has an incredibly high upkeep, every projectile deflected \
+	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has a high upkeep, every projectile deflected \
 	causes stress equal to the projectile's damage + 10 , and ends prematurely if you suffer a catastrophic stress event.\
-	\nCauses stamina damage equal to half the stress generated!"
+	\nCauses stamina damage equal to a third of of the stress generated!"
 	security_record_text = "Subject can deflect projectiles away from themselves and towards new targets."
 	security_threat = POWER_THREAT_MAJOR
 	value = 8
@@ -11,9 +11,9 @@
 
 /datum/action/cooldown/power/psyker/deflect
 	name = "Deflect"
-	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has an incredibly high upkeep, every projectile deflected \
+	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has a high upkeep, every projectile deflected \
 	causes stress equal to the projectile's damage + 10, and ends prematurely if you suffer a catastrophic stress event.\
-	\nCauses stamina damage equal to half the stress generated!"
+	\nCauses stamina damage equal to a third of the stress generated!"
 	button_icon = 'icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "singular_shot"
 	cooldown_time = 50
@@ -21,11 +21,13 @@
 	/// Forced cooldown when the effect is dispelled.
 	var/dispel_cooldown_time = 15 SECONDS
 	/// Per-second upkeep while active.
-	var/stress_per_second = 10
+	var/stress_per_second = 5
 	/// Flat stress added on top of projectile damage when we successfully try to deflect it.
 	var/projectile_stress_bonus = 10
-	/// How much stress is also dealt as stamina damage? Multaplicative number.
-	var/stress_as_stam_damage = 0.5
+	/// How much stress is also dealt as stamina damage? Multiplicative number.
+	var/stress_as_stam_damage = 0.33
+	/// If our power is able to deflect magic
+	var/can_deflect_magic = FALSE
 	/// The status effect on the caster.
 	var/datum/status_effect/power/deflect/active_effect
 
@@ -72,6 +74,10 @@
 	var/projectile_stress_bonus
 	/// How much stress is also dealt as stamina damage? Multaplicative number
 	var/stress_as_stam_damage
+	/// If we can deflect magic
+	var/can_deflect_magic
+	/// If our power stops working when we're incapacitated.
+	var/disabled_by_incapacitate
 	/// Reference to the deflect action.
 	var/datum/action/cooldown/power/psyker/deflect/source_action
 	/// Tracks whether removal was caused by a dispel so we can force cooldown exactly once.
@@ -95,6 +101,8 @@
 		stress_per_second = source_action.stress_per_second
 		projectile_stress_bonus = source_action.projectile_stress_bonus
 		stress_as_stam_damage = source_action.stress_as_stam_damage
+		can_deflect_magic = source_action.can_deflect_magic
+		disabled_by_incapacitate = source_action.disabled_by_incapacitate
 
 /// Applies cursor tracking and the overlay bubble.
 /datum/status_effect/power/deflect/on_apply()
@@ -148,7 +156,7 @@
 	if(!source_action?.ValidateOrgan())
 		qdel(src)
 		return NONE
-	if(source.stat != CONSCIOUS || HAS_TRAIT(source, TRAIT_INCAPACITATED))
+	if(disabled_by_incapacitate && (source.stat != CONSCIOUS || HAS_TRAIT(source, TRAIT_INCAPACITATED)))
 		return NONE
 	if(!isturf(source.loc))
 		return NONE
@@ -180,8 +188,8 @@
 		qdel(src)
 		return NONE
 
-	// You do not get to redirect the projectile but you do prevent it from hitting you
-	if(istype(hitting_projectile, /obj/projectile/magic) || istype(hitting_projectile, /obj/projectile/beam/instakill))
+	// If you can't deflect magic, you do not get to redirect the projectile but you do prevent it from hitting you
+	if(!can_deflect_magic && (istype(hitting_projectile, /obj/projectile/magic) || istype(hitting_projectile, /obj/projectile/beam/instakill)))
 		to_chat(source, span_userdanger("Your psychic strength is not strong enough to steer this magic!"))
 		was_dispelled = TRUE
 		qdel(src)
@@ -253,7 +261,7 @@
 		qdel(src)
 		return
 	// ends prematurely if incapacitated
-	if(owner.stat != CONSCIOUS || HAS_TRAIT(owner, TRAIT_INCAPACITATED))
+	if(disabled_by_incapacitate && (owner.stat != CONSCIOUS || HAS_TRAIT(owner, TRAIT_INCAPACITATED)))
 		qdel(src)
 		return
 	source_action.modify_stress(stress_per_second * seconds_between_ticks)
