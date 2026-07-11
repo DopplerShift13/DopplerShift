@@ -56,9 +56,10 @@
 	UnregisterSignal(src, COMSIG_ATOM_DISPEL)
 
 /// Removes the tripwire web silently. You may never have known it was there~
-/obj/structure/spider/tripwire_web/proc/on_dispel(src, atom/dispeller)
+/obj/structure/spider/tripwire_web/proc/on_dispel(datum/source, atom/dispeller)
 	SIGNAL_HANDLER
 	qdel(src)
+	return DISPEL_RESULT_DISPELLED
 
 /** So we don't actually have the old web sprites; a lot of web sprites are DENSE and noticeable. So we take the navigation lines and place one randomly on the tile. Boom, tripwire.
  * We filter out the ones that start with a 0 because they're dead-ends
