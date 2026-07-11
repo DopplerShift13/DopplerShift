@@ -17,6 +17,7 @@
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
 	action_path = /datum/action/cooldown/power/psyker/manipulate
 	required_powers = list(/datum/power/psyker_power/telekinesis) //given this lets you grab items from a distance this is basically a fluff requirement to explain why you can grab objects from a distance.
+	required_allow_subtypes = FALSE
 
 // Normally the golden rule is to let your action handle everything in powers; but in this case we need to actually make it so that we only have TRAIT_NO_UI_DISTANCE while we have a TK'd interface.
 /datum/power/psyker_power/manipulate/process(seconds_per_tick)
