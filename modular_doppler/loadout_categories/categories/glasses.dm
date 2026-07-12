@@ -29,6 +29,10 @@
 	group = "Prescription Glasses"
 	abstract_type = /datum/loadout_item/glasses/prescription
 
+/datum/loadout_item/glasses/prescription/get_item_information()
+	. = ..()
+	.[FA_ICON_GLASSES] = "Corrects nearsightedness!"
+
 /datum/loadout_item/glasses/prescription/regular
 	name = "Prescription Glasses"
 	item_path = /obj/item/clothing/glasses/regular
@@ -112,11 +116,15 @@
 	name = "Aviators (Science)"
 	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science
 
+/datum/loadout_item/glasses/hud/hud_eyepatch
+	name = "HUD Eyepatch (None)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch
+
 /datum/loadout_item/glasses/hud/hud_eyepatch_meson
 	name = "HUD Eyepatch (Meson)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson
 
-/datum/loadout_item/glasses/hud/hud_eyepatch_med
+/datum/loadout_item/glasses/hud/hud_eyepatch_health
 	name = "HUD Eyepatch (Medical)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/med
 
@@ -132,9 +140,67 @@
 	name = "HUD Eyepatch (Science)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/sci
 
+/datum/loadout_item/glasses/hud/hud_blindfold_none
+	name = "HUD Blindfold (None, Fake)"
+	item_path = /obj/item/clothing/glasses/trickblindfold/obsolete
+
+/datum/loadout_item/glasses/hud/hud_blindfold_meson
+	name = "HUD Blindfold (Meson, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
+
+/datum/loadout_item/glasses/hud/hud_blindfold_health
+	name = "HUD Blindfold (Medical, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
+
+/datum/loadout_item/glasses/hud/hud_blindfold_sec
+	name = "HUD Blindfold (Security, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
+
+/datum/loadout_item/glasses/hud/hud_blindfold_diagnostic
+	name = "HUD Blindfold (Diagnostics, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
+
+/datum/loadout_item/glasses/hud/hud_blindfold_sci
+	name = "HUD Blindfold (Science, Fake)"
+	item_path = /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
+
 /datum/loadout_item/glasses/hud/mining_goggles
 	name = "Explorer Goggles (Meson)"
 	item_path = /obj/item/clothing/glasses/mining_meson
+
+/**
+ * PRESCRIPTION HUD HYBRID GLASSES
+ */
+/datum/loadout_item/glasses/hud/prescription
+	abstract_type = /datum/loadout_item/glasses/hud/prescription
+
+/datum/loadout_item/glasses/hud/prescription/get_item_information()
+	. = ..()
+	.[FA_ICON_GLASSES] = "Corrects nearsightedness!"
+
+/datum/loadout_item/glasses/hud/prescription/aviator
+	name = "Aviators (None, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_meson
+	name = "Aviators (Meson, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_health
+	name = "Aviators (Medical, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_security
+	name = "Aviators (Security, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_diagnostic
+	name = "Aviators (Diagnostics, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
+
+/datum/loadout_item/glasses/hud/prescription/aviator_science
+	name = "Aviators (Science, Prescription)"
+	item_path = /obj/item/clothing/glasses/hud/ar/aviator/science/prescription
 
 /**
  * HUD GLASSES (Take in other huds)

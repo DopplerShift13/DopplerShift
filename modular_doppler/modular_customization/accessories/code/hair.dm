@@ -723,6 +723,40 @@
 	name = "Misshapen"
 	icon_state = "hair_misshapen"
 
+/datum/sprite_accessory/hair/modular/slime_blobby
+	name = "Slime (Blobby)"
+	icon_state = "hair_slime_blobby"
+
+/datum/sprite_accessory/hair/modular/slime_fringe_long
+	name = "Slime (Fringe Long)"
+	icon_state = "hair_slime_fringe_long"
+
+/datum/sprite_accessory/hair/modular/slime_jelly
+	name = "Slime (Jelly)"
+	icon_state = "hair_slime_jelly"
+
+/datum/sprite_accessory/hair/modular/slime_ponytail_low
+	name = "Slime (Ponytail Low)"
+	icon_state = "hair_slime_ponytail_low"
+	hair_appendages_inner = list("hair_slime_ponytail_low_a1" = HAIR_APPENDAGE_HANGING_REAR)
+
+/datum/sprite_accessory/hair/modular/slime_ponytail_high
+	name = "Slime (Ponytail High)"
+	icon_state = "hair_slime_ponytail_high"
+	hair_appendages_inner = list("hair_slime_ponytail_high_a1" = HAIR_APPENDAGE_FRONT)
+	hair_appendages_outer = list("hair_slime_ponytail_high_a1o" = HAIR_APPENDAGE_FRONT)
+
+/datum/sprite_accessory/hair/modular/slime_twintails
+	name = "Slimetails"
+	icon_state = "hair_slimetails"
+	hair_appendages_inner = list("hair_slimetails_a1" = HAIR_APPENDAGE_FRONT)
+	hair_appendages_outer = list("hair_slimetails_a1o" = HAIR_APPENDAGE_FRONT)
+
+/datum/sprite_accessory/hair/modular/gorgon
+	name = "Gorgon"
+	icon_state = "hair_gorgon"
+	hair_appendages_inner = list("hair_gorgon_a1" = HAIR_APPENDAGE_FRONT)
+	hair_appendages_outer = list("hair_gorgon_a1o" = HAIR_APPENDAGE_FRONT)
 
 // Facial hair
 

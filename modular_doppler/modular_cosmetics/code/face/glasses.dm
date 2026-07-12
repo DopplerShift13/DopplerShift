@@ -14,6 +14,9 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "eyewrap"
+	inhand_icon_state = null
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	base_icon_state = "eyewrap"
 
 /obj/item/clothing/glasses/eyepatch/white
@@ -21,6 +24,9 @@
 	desc = "This is what happens when a pirate gets a PhD."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	inhand_icon_state = null
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
@@ -34,9 +40,16 @@
 	if(locate(/datum/action/item_action/flip) in actions)
 		. += "Use in hands to wear it over your [icon_state == base_icon_state ? "left" : "right"] eye."
 
-// /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch/examine(mob/user)
-// 	. = ..()
-// 	. += "Use in hands to wear it over your [icon_state == base_icon_state ? "left" : "right"] eye."
+/obj/item/clothing/glasses/hud/security
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Default" = list(
+			RESKIN_ICON_STATE = "securityhud",
+			RESKIN_WORN_ICON_STATE = "securityhud"),
+		"Goggles" = list(
+			RESKIN_ICON_STATE = "thermal",
+			RESKIN_WORN_ICON_STATE = "thermal"
+		))
 
 /obj/item/clothing/glasses/hud/security/sunglasses
 	glass_colour_type = /datum/client_colour/glass_colour/red
@@ -96,7 +109,9 @@
 	)
 	icon_state = "hudpatch"
 	base_icon_state = "hudpatch"
-	inhand_icon_state = "sunhudmed"
+	inhand_icon_state = null
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	uses_advanced_reskins = TRUE
 	actions_types = list(/datum/action/item_action/flip)
 	var/flipped = FALSE
@@ -142,45 +157,24 @@
 
 /obj/item/clothing/glasses/hud/eyepatch/attack_self(mob/user, modifiers)
 	. = ..()
-	icon_state = (icon_state == base_icon_state) ? "[base_icon_state]_flipped" : base_icon_state
+	worn_icon_state = flipped ? "[base_icon_state]_flipped" : base_icon_state
 	user.update_worn_glasses()
 
 /obj/item/clothing/glasses/hud/eyepatch/sec
 	name = "security HUD eyepatch"
 	desc = "Lost your eye beating an innocent clown? Incompatible with cybernetics? Thankfully, modern technology has a replacement. Protects against flashes 50% of the time, none of the time."
-	icon_state = "security_eyepatch"
-	base_icon_state = "security_eyepatch"
+	icon_state = "secpatch"
+	base_icon_state = "secpatch"
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "hudpatch",
-			RESKIN_WORN_ICON_STATE = "hudpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "secfold",
-			RESKIN_WORN_ICON_STATE = "secfold"
-		)
-	)
 /obj/item/clothing/glasses/hud/eyepatch/med
 	name = "medical HUD eyepatch"
-	desc = "As the saying goes, 'Do no harm.' But, maybe harm has befallen you— or your poor eyeball. Fortunately there's a way to continue your oath, and it's thankfully not a strange experimental surgery."
+	desc = "As the saying goes, 'Do no harm.' But, maybe harm has befallen you— or your poor eyeball. Fortunately, there's a way to continue your oath, and it's thankfully not a strange, experimental surgery."
 	icon_state = "medpatch"
 	base_icon_state = "medpatch"
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
-
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "medpatch",
-			RESKIN_WORN_ICON_STATE = "medpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "medfold",
-			RESKIN_WORN_ICON_STATE = "medfold"
-		)
-	)
 
 /obj/item/clothing/glasses/hud/eyepatch/meson
 	name = "mesons HUD eyepatch"
@@ -193,17 +187,6 @@
 	lighting_cutoff = LIGHTING_CUTOFF_MEDIUM
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "mesonpatch",
-			RESKIN_WORN_ICON_STATE = "mesonpatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "mesonfold",
-			RESKIN_WORN_ICON_STATE = "mesonfold"
-		)
-	)
-
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic
 	name = "diagnostic HUD eyepatch"
 	desc = "Lost your eyeball to a rogue borg? Forgot to wear eye protection sawing off a prosthetic? Got bored? Whatever the reason, this bit of tech will help you still repair machines. They'll never need it since they usually do it themselves, but it's the thought that counts."
@@ -212,17 +195,6 @@
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "robopatch",
-			RESKIN_WORN_ICON_STATE = "robopatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "robofold",
-			RESKIN_WORN_ICON_STATE = "robofold"
-		)
-	)
-
 /obj/item/clothing/glasses/hud/eyepatch/sci
 	name = "science HUD eyepatch"
 	desc = "An eyepatch fitted with an R&D scanner HUD. It can scan chemicals, tell you the makeup of certain materials, and even features an internal database that can scan objects for any tech particularly noteworthy."
@@ -230,58 +202,64 @@
 	base_icon_state = "scipatch"
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 
-	unique_reskin = list(
-		"Eyepatch" = list(
-			RESKIN_ICON_STATE = "scipatch",
-			RESKIN_WORN_ICON_STATE = "scipatch"
-		),
-		"Fake Blindfold" = list(
-			RESKIN_ICON_STATE = "scifold",
-			RESKIN_WORN_ICON_STATE = "scifold"
-		)
-	)
-
-
 /// BLINDFOLD HUDS ///
 /obj/item/clothing/glasses/trickblindfold/obsolete
 	name = "obsolete fake blindfold"
-	desc = "An ornate fake blindfold, devoid of any electronics. It's belived to be originally worn by members of a bygone military force that sought to protect humanity."
+	desc = "An ornate, fake blindfold, devoid of any electronics. It's belived to be originally worn by members of a bygone military force that sought to protect humanity."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "obsoletefold"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 	base_icon_state = "obsoletefold"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
-	name = "sec blindfold HUD"
-	desc = "a fake blindfold with a security HUD inside, helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
+	name = "security HUD blindfold"
+	desc = "An ornate, fake blindfold with a security HUD inside. Helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
 	icon_state =  "secfold"
 	base_icon_state =  "secfold"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
-	name = "medical blindfold HUD"
-	desc = "a fake blindfold with a medical HUD inside, great for helping keep a poker face when dealing with patients."
+	name = "medical HUD blindfold"
+	desc = "An ornate, fake blindfold with a medical HUD inside. Great for helping keep a poker face when dealing with patients."
 	icon_state =  "medfold"
 	base_icon_state =  "medfold"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
-	name = "meson blindfold HUD"
-	desc = "A fake blindfold with meson lenses inside. Doesn't shield against welding."
+	name = "meson HUD blindfold"
+	desc = "An ornate, fake blindfold with meson lenses inside. Doesn't shield against welding."
 	icon_state =  "mesonfold"
 	base_icon_state =  "mesonfold"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
-	name = "diagnostic blindfold HUD"
-	desc = "A fake blindfold with a diagnostic HUD inside, excellent for working on androids."
+	name = "diagnostic HUD blindfold"
+	desc = "An ornate, fake blindfold with a diagnostic HUD inside. Excellent for working on androids."
 	icon_state =  "robofold"
 	base_icon_state =  "robofold"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
-	name = "science blindfold HUD"
-	desc = "A fake blindfold with a science HUD inside, provides a way to get used to blindfolds before you eventually end up needing the real thing."
+	name = "science HUD blindfold"
+	desc = "An ornate, fake blindfold with a science HUD inside. Provides a way to get used to blindfolds before you eventually end up needing the real thing."
 	icon_state =  "scifold"
 	base_icon_state =  "scifold"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
 
 /obj/item/clothing/glasses/hud/ar
 	name = "\improper AR glasses"
@@ -289,7 +267,8 @@
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	icon_state = "glasses_regular"
-	desc = "A heads-up display that provides important info in (almost) real time. These don't really seem to work"
+	inhand_icon_state = "glasses"
+	desc = "A heads-up display that provides important info in (almost) real time. These don't really seem to work."
 	actions_types = list(/datum/action/item_action/toggle_mode)
 	glass_colour_type = /datum/client_colour/glass_colour/gray
 	/// Defines sound to be played upon mode switching
@@ -323,6 +302,9 @@
 	clothing_traits = null
 	. = ..()
 	clothing_traits = traits
+	// Reapply corrective traits even when off
+	if(TRAIT_NEARSIGHTED_CORRECTED in traits)
+		ADD_CLOTHING_TRAIT(user, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/proc/toggle_mode(mob/user, voluntary)
 
@@ -348,6 +330,7 @@
 		if(MODE_OFF)
 			if(MODE_OFF_FLASH_PROTECTION in modes)
 				flash_protect = FLASH_PROTECTION_FLASH
+				tint = 1
 				balloon_alert(user, span_notice("[modes_msg[MODE_OFF_FLASH_PROTECTION]]"))
 			else
 				balloon_alert(user, span_notice("[modes_msg[mode]]"))
@@ -424,101 +407,102 @@
 	name = "aviators"
 	desc = "A pair of designer sunglasses with electrochromatic darkening lenses!"
 	icon_state = "aviator"
+	inhand_icon_state = "sunglasses"
 	off_state = "aviator_off"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
-	flash_protect = FLASH_PROTECTION_FLASH
-	modes = list(MODE_OFF, MODE_ON)
+	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF_FLASH_PROTECTION, MODE_ON)
+	modes_msg = list(MODE_OFF_FLASH_PROTECTION = "flash protection enabled", MODE_ON = "flash protection disabled") //a little counterintuitive, but the system was built with the security aviators in mind
 	tint = 0
-
-/obj/item/clothing/glasses/fake_sunglasses/aviator
-	name = "aviators"
-	desc = "A pair of designer sunglasses. Doesn't seem like it'll block flashes."
-	icon_state = "aviator"
-	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
-	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
-	supported_bodyshapes = null
-	bodyshape_icon_files = null
 
 // Security Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/security
 	name = "security HUD aviators"
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting."
 	icon_state = "aviator_sec"
+	inhand_icon_state = "sunhudsec" //Only aviators that don't default to blank sunglasses icon when off
 	off_state = "aviator_sec_flash"
-	flash_protect = FLASH_PROTECTION_NONE
 	clothing_traits = list(TRAIT_SECURITY_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/red
-	modes = list(MODE_OFF_FLASH_PROTECTION, MODE_ON)
-	modes_msg = list(MODE_OFF_FLASH_PROTECTION = "flash protection mode", MODE_ON = "optical matrix enabled")
+	modes_msg = list(MODE_OFF_FLASH_PROTECTION = "flash protection mode", MODE_ON = "optical matrix mode")
 
 // Medical Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/health
 	name = "medical HUD aviators"
 	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their health status. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_med"
-	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF, MODE_ON)
 	clothing_traits = list(TRAIT_MEDICAL_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightblue
+	modes_msg = list(MODE_ON = "optical matrix enabled", MODE_OFF = "optical matrix disabled")
 
 // (Normal) meson scanner Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/meson
 	name = "meson HUD aviators"
 	desc = "A heads-up display used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting conditions. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_meson"
-	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF, MODE_ON)
 	clothing_traits = list(TRAIT_MADNESS_IMMUNE)
 	vision_flags = SEE_TURFS
 	color_cutoffs = list(5, 15, 5)
 	glass_colour_type = /datum/client_colour/glass_colour/lightgreen
+	modes_msg = list(MODE_ON = "optical matrix enabled", MODE_OFF = "optical matrix disabled")
 
 // diagnostic Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/diagnostic
 	name = "diagnostic HUD aviators"
 	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. This HUD has been fitted inside of a pair of sunglasses."
 	icon_state = "aviator_diagnostic"
-	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF, MODE_ON)
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 	glass_colour_type = /datum/client_colour/glass_colour/lightorange
+	modes_msg = list(MODE_ON = "optical matrix enabled", MODE_OFF = "optical matrix disabled")
 
 // Science Aviators
 /obj/item/clothing/glasses/hud/ar/aviator/science
-	name = "science aviators"
+	name = "science HUD aviators"
 	desc = "A pair of tacky purple aviator sunglasses that allow the wearer to recognize various chemical compounds with only a glance."
 	icon_state = "aviator_sci"
-	flash_protect = FLASH_PROTECTION_NONE
+	modes = list(MODE_OFF, MODE_ON)
 	glass_colour_type = /datum/client_colour/glass_colour/purple
 	resistance_flags = ACID_PROOF
 	armor_type = /datum/armor/aviator_science
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
+	modes_msg = list(MODE_ON = "optical matrix enabled", MODE_OFF = "optical matrix disabled")
 
 /datum/armor/aviator_science
 	fire = 80
 	acid = 100
 
+/obj/item/clothing/glasses/hud/ar/aviator/prescription
+	name = "prescription aviators"
+	desc = "A pair of designer sunglasses with electrochromatic darkening lenses that also help correct eye sight! Sweet!"
+	clothing_traits = list(TRAIT_NEARSIGHTED_CORRECTED)
+
 /obj/item/clothing/glasses/hud/ar/aviator/security/prescription
 	name = "prescription security HUD aviators"
-	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. This HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting which. Has lenses that help correct eye sight."
+	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their ID status and security records. The HUD has been fitted inside of a pair of sunglasses with toggleable electrochromatic tinting and lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_SECURITY_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/health/prescription
 	name = "prescription medical HUD aviators"
-	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their health status. This HUD has been fitted inside of a pair of sunglasses which has lenses that help correct eye sight."
+	desc = "A heads-up display that scans the humanoids in view and provides accurate data about their health status. The HUD has been fitted inside of a pair of sunglasses with lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_MEDICAL_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/meson/prescription
 	name = "prescription meson HUD aviators"
-	desc = "A heads-up display used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting conditions. This HUD has been fitted inside of a pair of sunglasses which has lenses that help correct eye sight."
+	desc = "A heads-up display used by engineering and mining staff to see basic structural and terrain layouts through walls, regardless of lighting conditions. The HUD has been fitted inside of a pair of sunglasses with lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_MADNESS_IMMUNE, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/diagnostic/prescription
 	name = "prescription diagnostic HUD aviators"
-	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. This HUD has been fitted inside of a pair of sunglasses which has lenses that help correct eye sight."
+	desc = "A heads-up display capable of analyzing the integrity and status of robotics and exosuits. The HUD has been fitted inside of a pair of sunglasses with lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD, TRAIT_NEARSIGHTED_CORRECTED)
 
 /obj/item/clothing/glasses/hud/ar/aviator/science/prescription
-	name = "prescription science aviators"
-	desc = "A pair of tacky purple aviator sunglasses that allow the wearer to recognize various chemical compounds with only a glance, which has lenses that help correct eye sight."
+	name = "prescription science HUD aviators"
+	desc = "A pair of tacky purple aviator sunglasses that allow the wearer to recognize various chemical compounds with only a glance. The HUD has been fitted inside of a pair of sunglasses with lenses that help correct eye sight."
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER, TRAIT_NEARSIGHTED_CORRECTED)
 
 // Retinal projector
@@ -527,6 +511,9 @@
 	name = "retinal projector"
 	desc = "A headset equipped with a scanning lens and mounted retinal projector. It doesn't provide any eye protection, but it's less obtrusive than a visor."
 	icon_state = "projector"
+	inhand_icon_state = "headset"
+	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	flags_cover = null /// It doesn't actually cover up any parts
@@ -556,81 +543,213 @@
 	clothing_traits = list(TRAIT_DIAGNOSTIC_HUD)
 
 /obj/item/clothing/glasses/hud/ar/projector/science
-	name = "science retinal projector"
+	name = "retinal projector science HUD"
 	icon_state = "projector_sci"
 	clothing_traits = list(TRAIT_REAGENT_SCANNER, TRAIT_RESEARCH_SCANNER)
 
 //Eyepatches//
 /datum/crafting_recipe/secpatch
-	name = "Security Eyepatch HUD"
+	name = "Security HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/sec
-	reqs = list(/obj/item/clothing/glasses/hud/security = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/hud/security = 1,
+		/obj/item/clothing/glasses/eyepatch = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER) //Tools needed and requirements are kept the same as craftable HUD sunglasses//
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/secpatchremoval
-	name = "Security Eyepatch HUD removal"
+	name = "Security HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/sec = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/medpatch
-	name = "Medical Eyepatch HUD"
+	name = "Medical HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/med
-	reqs = list(/obj/item/clothing/glasses/hud/health = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/hud/health = 1,
+		/obj/item/clothing/glasses/eyepatch = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/medpatchremoval
-	name = "Medical Eyepatch HUD removal"
+	name = "Medical HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/med = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/mesonpatch
-	name = "Meson Eyepatch HUD"
+	name = "Meson HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/meson
-	reqs = list(/obj/item/clothing/glasses/meson = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/meson = 1,
+		/obj/item/clothing/glasses/eyepatch = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/mesonpatchremoval
-	name = "Meson Eyepatch HUD removal"
+	name = "Meson HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/meson = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/robopatch
-	name = "Diagnostic Eyepatch HUD"
+	name = "Diagnostic HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/diagnostic
-	reqs = list(/obj/item/clothing/glasses/hud/diagnostic = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/hud/diagnostic = 1,
+		/obj/item/clothing/glasses/eyepatch = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/robopatchremoval
-	name = "Diagnostic Eyepatch HUD removal"
+	name = "Diagnostic HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/diagnostic = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/scipatch
-	name = "Science Eyepatch HUD"
+	name = "Science HUD Eyepatch"
 	result = /obj/item/clothing/glasses/hud/eyepatch/sci
-	reqs = list(/obj/item/clothing/glasses/science = 1, /obj/item/clothing/glasses/eyepatch = 1, /obj/item/stack/cable_coil = 5)
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/science = 1,
+		/obj/item/clothing/glasses/eyepatch = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 
 /datum/crafting_recipe/scipatchremoval
-	name = "Science Eyepatch HUD removal"
+	name = "Science HUD Eyepatch HUD removal"
 	result = /obj/item/clothing/glasses/eyepatch
+	time = 2 SECONDS
 	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/sci = 1)
 	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
-	category = CAT_CLOTHING
+	category = CAT_EQUIPMENT
 //eyepatches end//
+
+//Blindfolds//
+/datum/crafting_recipe/secfold
+	name = "Security HUD Blindfold"
+	result = /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/hud/security = 1,
+		/obj/item/clothing/glasses/trickblindfold/obsolete = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER) //Tools needed and requirements are kept the same as craftable HUD sunglasses//
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/secfoldremoval
+	name = "Security HUD Blindfold HUD removal"
+	result = /obj/item/clothing/glasses/trickblindfold/obsolete
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/sec/blindfold = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/medfold
+	name = "Medical HUD Blindfold"
+	result = /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/hud/health = 1,
+		/obj/item/clothing/glasses/trickblindfold/obsolete = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/medfoldremoval
+	name = "Medical HUD Blindfold HUD removal"
+	result = /obj/item/clothing/glasses/trickblindfold/obsolete
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/med/blindfold = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/mesonfold
+	name = "Meson HUD Blindfold"
+	result = /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/meson = 1,
+		/obj/item/clothing/glasses/trickblindfold/obsolete = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/mesonfoldremoval
+	name = "Meson HUD Blindfold HUD removal"
+	result = /obj/item/clothing/glasses/trickblindfold/obsolete
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/meson/blindfold = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/robofold
+	name = "Diagnostic HUD Blindfold"
+	result = /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/hud/diagnostic = 1,
+		/obj/item/clothing/glasses/trickblindfold/obsolete = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/robofoldremoval
+	name = "Diagnostic HUD Blindfold HUD removal"
+	result = /obj/item/clothing/glasses/trickblindfold/obsolete
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/scifold
+	name = "Science HUD Blindfold"
+	result = /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
+	time = 2 SECONDS
+	reqs = list(
+		/obj/item/clothing/glasses/science = 1,
+		/obj/item/clothing/glasses/trickblindfold/obsolete = 1,
+		/obj/item/stack/cable_coil = 5,
+	)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+
+/datum/crafting_recipe/scifoldremoval
+	name = "Science HUD Blindfold HUD removal"
+	result = /obj/item/clothing/glasses/trickblindfold/obsolete
+	time = 2 SECONDS
+	reqs = list(/obj/item/clothing/glasses/hud/eyepatch/sci/blindfold = 1)
+	tool_behaviors = list(TOOL_SCREWDRIVER, TOOL_WIRECUTTER)
+	category = CAT_EQUIPMENT
+//blindfold end//
 
 //Regular Glasses
 
@@ -639,6 +758,7 @@
 	desc = "What's your favorite color to see through?"
 	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	icon_state = "/obj/item/clothing/glasses/recolorable"
+	inhand_icon_state = "glasses"
 	post_init_icon_state = "recolorable_glasses"
 	greyscale_colors = "#cfd1d4#D5D5B9"
 	greyscale_config = /datum/greyscale_config/recolorable_glasses
