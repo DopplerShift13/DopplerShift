@@ -5,7 +5,11 @@ import { Box, Button, Section, Stack } from 'tgui-core/components';
 
 import { useBackend } from '../../backend';
 import { mergePowerPathData } from './PowerData';
-import { powerPathConfig, powerPathFamilies } from './PowerPathConfig';
+import {
+  getPowerPathData,
+  getPowerArchetypes,
+  getPowerCatalogData,
+} from './PowerPathBridge';
 import {
   buildPowerTreeNodes,
   flattenPowerTreeNodes,
@@ -13,7 +17,6 @@ import {
   NestedPowerTree,
 } from './PowerPathPage';
 import type { PowerPathId, PreferencesMenuData } from './types';
-import { useServerPrefs } from './useServerPrefs';
 
 type SelectedPowersPageProps = {
   handleClosePage: () => void;
@@ -24,30 +27,31 @@ type SelectedPathSection = {
   selectedCount: number;
 };
 
-const orderedPathIds = powerPathFamilies.flatMap(
-  (familyConfig) => familyConfig.pathIds,
-);
-
 export function SelectedPowersPage(props: SelectedPowersPageProps) {
   const { act, data } = useBackend<PreferencesMenuData>();
-  const serverData = useServerPrefs();
+  const powerCatalogData = getPowerCatalogData();
+  const powerArchetypes = getPowerArchetypes(powerCatalogData);
   const { handleClosePage } = props;
 
-  if (!serverData) {
+  if (!powerCatalogData) {
     return null;
   }
 
   const mergedPowerPaths = mergePowerPathData(
-    serverData.powers.power_paths,
+    powerCatalogData.power_paths,
     data.power_state_paths,
+  );
+  const orderedPathIds = powerArchetypes.flatMap(
+    (archetypeData) => archetypeData.pathIds,
   );
   const manuallyRenderedFeatures =
     data.character_preferences.manually_rendered_features;
   const selectedPathSections: SelectedPathSection[] = orderedPathIds
     .map((pathId) => ({
       pathId,
-      selectedCount: mergedPowerPaths[pathId].filter((power) => power.has_power)
-        .length,
+      selectedCount: (mergedPowerPaths[pathId] || []).filter(
+        (power) => power.has_power,
+      ).length,
     }))
     .filter((pathSection) => pathSection.selectedCount > 0);
   const totalSelectedPowers = selectedPathSections.reduce(
@@ -81,7 +85,7 @@ export function SelectedPowersPage(props: SelectedPowersPageProps) {
                     textAlign: 'center',
                   }}
                 >
-                  {data.power_points}/{serverData.powers.total_power_points}{' '}
+                  {data.power_points}/{powerCatalogData.total_power_points}{' '}
                   Points
                 </Box>
                 <Box
@@ -117,10 +121,13 @@ export function SelectedPowersPage(props: SelectedPowersPageProps) {
                 {selectedPathSections.length ? (
                   <Stack vertical g={1}>
                     {selectedPathSections.map((pathSection) => {
-                      const pathConfig = powerPathConfig[pathSection.pathId];
+                      const pathConfig = getPowerPathData(
+                        powerCatalogData,
+                        pathSection.pathId,
+                      );
                       const selectedPathPowers = mergedPowerPaths[
                         pathSection.pathId
-                      ].filter((power) => power.has_power);
+                      ]?.filter((power) => power.has_power) || [];
                       const { anyRootNodes, rootNodes } =
                         buildPowerTreeNodes(selectedPathPowers);
                       const orderedSelectedPowers = flattenPowerTreeNodes([
@@ -180,10 +187,13 @@ export function SelectedPowersPage(props: SelectedPowersPageProps) {
           <Stack vertical g={2}>
             {selectedPathSections.length ? (
               selectedPathSections.map((pathSection) => {
-                const pathConfig = powerPathConfig[pathSection.pathId];
+                const pathConfig = getPowerPathData(
+                  powerCatalogData,
+                  pathSection.pathId,
+                );
                 const selectedPowers = mergedPowerPaths[
                   pathSection.pathId
-                ].filter((power) => power.has_power);
+                ]?.filter((power) => power.has_power) || [];
                 const { anyRootNodes, rootNodes } =
                   buildPowerTreeNodes(selectedPowers);
                 const themeColor = pathConfig.themeColor;

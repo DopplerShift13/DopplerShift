@@ -15,6 +15,11 @@
 #define POWER_ARCHETYPE_RESONANT "Resonant"
 #define POWER_ARCHETYPE_MORTAL "Mortal"
 
+/// UI/display sort order for power archetypes.
+#define POWER_ARCHETYPE_SORT_SORCEROUS 10
+#define POWER_ARCHETYPE_SORT_RESONANT 20
+#define POWER_ARCHETYPE_SORT_MORTAL 30
+
 /// Designations when referring to paths.
 #define POWER_PATH_THAUMATURGE "Thaumaturge"
 #define POWER_PATH_ENIGMATIST "Enigmatist"
@@ -27,6 +32,12 @@
 #define POWER_PATH_EXPERT "Expert"
 #define POWER_PATH_AUGMENTED "Augmented"
 #define POWER_PATH_IRREGULAR "Irregular"
+
+/// UI/display sort order for power paths within their archetype.
+#define POWER_PATH_SORT_PRIMARY 10
+#define POWER_PATH_SORT_SECONDARY 20
+#define POWER_PATH_SORT_TERTIARY 30
+#define POWER_PATH_SORT_QUATERNARY 40
 
 /// Color association per power. Generally speaking if you want to use colors, use these.
 #define POWER_COLOR_THAUMATURGE "#7266dd"

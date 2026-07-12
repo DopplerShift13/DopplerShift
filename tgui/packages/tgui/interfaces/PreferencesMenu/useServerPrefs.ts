@@ -28,19 +28,10 @@ export const ServerPrefs = createContext<ServerData | undefined>({
   },
   /* DOPPLER EDIT ADDITION START - Powers constant data */
   powers: {
-    power_paths: {
-      thaumaturge: [],
-      enigmatist: [],
-      theologist: [],
-      psyker: [],
-      cultivator: [],
-      aberrant: [],
-      imbued: [],
-      warfighter: [],
-      expert: [],
-      augmented: [],
-      irregular: [],
-    },
+    fallback_power_path_id: 'thaumaturge',
+    power_path_data: {},
+    power_path_archetypes: [],
+    power_paths: {},
     total_power_points: 0,
   },
   /* DOPPLER EDIT ADDITION END */

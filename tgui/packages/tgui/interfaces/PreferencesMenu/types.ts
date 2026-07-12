@@ -95,37 +95,48 @@ export type Quirk = {
   customization_options?: string[];
 };
 
-// DOPPLER EDIT START
+/* DOPPLER EDIT START */
 export type Language = {
   description: string;
   name: string;
   icon: string;
 };
+/// ID of a given power path.
+export type PowerPathId = string;
 
-export type PowerPathId =
-  | 'thaumaturge'
-  | 'enigmatist'
-  | 'theologist'
-  | 'psyker'
-  | 'cultivator'
-  | 'aberrant'
-  | 'imbued'
-  | 'warfighter'
-  | 'expert'
-  | 'augmented'
-  | 'irregular';
+/// The data from a power path's datum, which is defined and communicated from DM.
+export type PowerPathData = {
+  displayName: string;
+  archetypeId: string;
+  iconAssetName?: string;
+  isAvailable: boolean;
+  mechanicsText: string;
+  overviewText: string;
+  pathLimitExempt?: boolean;
+  themeColor: string;
+};
 
+/// archetype data, which are groups of path IDs which are members of that archetype (e.g Sorcerer)
+export type PowerArchetypeData = {
+  id: string;
+  pathIds: PowerPathId[];
+  title: string;
+};
+
+/// Location data for augment powers (where they exist on the body)
 export type PowerAugmentStatic = {
   is_arm?: boolean;
   location?: string | null;
 };
 
+/// The state of an augment, which is used to check dynamically if a bodypart is already taken by another power.
 export type PowerAugmentState = {
   assignment?: string | null;
   left_blocked?: boolean;
   right_blocked?: boolean;
 };
 
+/// Static power data that is sent from DM that is relevant.
 export type PowerStatic = {
   description: string;
   cost: number;
@@ -143,6 +154,7 @@ export type PowerStatic = {
   augment?: PowerAugmentStatic | null;
 };
 
+/// Current status of a power: whether it is selected, the state (if it shows removal, add or is unavailable) and if it is an augment
 export type PowerState = {
   name: string;
   has_power?: boolean;
@@ -155,11 +167,12 @@ export type Power = PowerStatic &
     augment?: (PowerAugmentStatic & PowerAugmentState) | null;
   };
 
-export type PowerPathMap = Record<PowerPathId, Power[]>;
-export type PowerStaticPathMap = Record<PowerPathId, PowerStatic[]>;
-export type PowerStatePathMap = Record<PowerPathId, PowerState[]>;
+export type PowerByPathId = Record<PowerPathId, Power[]>;
+export type PowerStaticByPathId = Record<PowerPathId, PowerStatic[]>;
+export type PowerStateByPathId = Record<PowerPathId, PowerState[]>;
+export type PowerPathDataById = Record<PowerPathId, PowerPathData>;
 
-// DOPPLER EDIT END
+/* DOPPLER EDIT END */
 
 export type QuirkInfo = {
   max_positive_quirks: number;
@@ -264,7 +277,7 @@ export type PreferencesMenuData = {
   total_language_points: number;
 
   power_points: number;
-  power_state_paths: PowerStatePathMap;
+  power_state_paths: PowerStateByPathId;
 
   augment_location?: string | null;
 
@@ -309,7 +322,10 @@ export type ServerData = {
   };
   /* DOPPLER EDIT ADDITION START - Powers constant data */
   powers: {
-    power_paths: PowerStaticPathMap;
+    fallback_power_path_id: PowerPathId;
+    power_path_data: PowerPathDataById;
+    power_path_archetypes: PowerArchetypeData[];
+    power_paths: PowerStaticByPathId;
     total_power_points: number;
   };
   /* DOPPLER EDIT ADDITION END */

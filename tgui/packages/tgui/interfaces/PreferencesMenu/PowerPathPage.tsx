@@ -19,9 +19,8 @@ import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
 import { PreferenceList } from './CharacterPreferences/MainPage';
 import { mergePowerPathData } from './PowerData';
-import { powerPathConfig } from './PowerPathConfig';
+import { getPowerCatalogData, getPowerPathData } from './PowerPathBridge';
 import type { Power, PowerPathId, PreferencesMenuData } from './types';
-import { useServerPrefs } from './useServerPrefs';
 
 type PowerPathPageProps = {
   handleClosePath: () => void;
@@ -637,18 +636,18 @@ export function NestedPowerTree(props: {
 
 export function PowerPathPage(props: PowerPathPageProps) {
   const { act, data } = useBackend<PreferencesMenuData>();
-  const serverData = useServerPrefs();
+  const powerCatalogData = getPowerCatalogData();
   const { handleClosePath, pathId } = props;
-  if (!serverData) {
+  if (!powerCatalogData) {
     return null;
   }
 
   const mergedPowerPaths = mergePowerPathData(
-    serverData.powers.power_paths,
+    powerCatalogData.power_paths,
     data.power_state_paths,
   );
-  const pathConfig = powerPathConfig[pathId];
-  const pathPowers = mergedPowerPaths[pathId];
+  const pathConfig = getPowerPathData(powerCatalogData, pathId);
+  const pathPowers = mergedPowerPaths[pathId] || [];
   const { anyRootNodes, rootNodes } = buildPowerTreeNodes(pathPowers);
   const selectedPowers = flattenPowerTreeNodes([
     ...rootNodes,
@@ -699,7 +698,7 @@ export function PowerPathPage(props: PowerPathPageProps) {
                     textAlign: 'center',
                   }}
                 >
-                  {data.power_points}/{serverData.powers.total_power_points}{' '}
+                  {data.power_points}/{powerCatalogData.total_power_points}{' '}
                   Points
                 </Box>
                 <Box

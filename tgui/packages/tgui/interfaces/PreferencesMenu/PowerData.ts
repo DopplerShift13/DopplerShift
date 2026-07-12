@@ -9,17 +9,17 @@ Augmented is the only slightly special case, because its augment metadata is spl
 
 import type {
   Power,
+  PowerByPathId,
   PowerPathId,
-  PowerPathMap,
-  PowerStatePathMap,
-  PowerStaticPathMap,
+  PowerStateByPathId,
+  PowerStaticByPathId,
 } from './types';
 
 export function mergePowerPathData(
-  powerStaticPaths: PowerStaticPathMap,
-  powerStatePaths: PowerStatePathMap,
-): PowerPathMap {
-  const mergedPowerPaths = {} as PowerPathMap;
+  powerStaticPaths: PowerStaticByPathId,
+  powerStatePaths: PowerStateByPathId,
+): PowerByPathId {
+  const mergedPowerPaths = {} as PowerByPathId;
 
   for (const pathId of Object.keys(powerStaticPaths) as PowerPathId[]) {
     const staticPowers = powerStaticPaths[pathId] || [];

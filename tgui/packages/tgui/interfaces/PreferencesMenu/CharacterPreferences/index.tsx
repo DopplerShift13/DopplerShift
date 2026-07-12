@@ -10,14 +10,15 @@ import { exhaustiveCheck } from 'tgui-core/exhaustive';
 import { PageButton } from '../components/PageButton';
 import { LanguagesPage } from '../LanguagesMenu'; /* DOPPLER EDIT ADDITION */
 import { LorePage } from '../LorePage'; /* DOPPLER EDIT ADDITION */
-import { defaultPowerPathId, powerPathConfig } from '../PowerPathConfig';
+import {
+  getPowerCatalogData,
+  getPowerPathData,
+  useSelectedPowerPath,
+} from '../PowerPathBridge'; /* DOPPLER EDIT ADDITION */
 import { PowerPathPage } from '../PowerPathPage';
 import { PowersPage } from '../PowersMenu'; /* DOPPLER EDIT ADDITION */
 import { SelectedPowersPage } from '../SelectedPowersPage'; /* DOPPLER EDIT ADDITION */
-import type {
-  PowerPathId,
-  PreferencesMenuData,
-} from '../types'; /* DOPPLER EDIT ADDITION */
+import type { PreferencesMenuData } from '../types'; /* DOPPLER EDIT ADDITION */
 import { AntagsPage } from './AntagsPage';
 import { JobsPage } from './JobsPage';
 import { LoadoutPage } from './loadout';
@@ -75,12 +76,18 @@ export function CharacterPreferenceWindow(props) {
   const { act, data } = useBackend<PreferencesMenuData>();
 
   const [currentPage, setCurrentPage] = useState(Page.Main);
-  const [selectedPowerPathId, setSelectedPowerPathId] =
-    useState<PowerPathId>(defaultPowerPathId);
+  /* DOPPLER EDIT START - Powers data */
+  const { selectedPowerPathId, setSelectedPowerPathId } =
+    useSelectedPowerPath();
+  const powerCatalogData = getPowerCatalogData();
+  const powerPathConfig = getPowerPathData(
+    powerCatalogData,
+    selectedPowerPathId,
+  );
+  /* DOPPLER EDIT END */
+
   const activePowersThemeColor =
-    currentPage === Page.PowerPath
-      ? powerPathConfig[selectedPowerPathId].themeColor
-      : undefined;
+    currentPage === Page.PowerPath ? powerPathConfig.themeColor : undefined;
 
   let pageContents;
 

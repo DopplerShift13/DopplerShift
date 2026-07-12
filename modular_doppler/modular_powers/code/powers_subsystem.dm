@@ -190,8 +190,9 @@ PROCESSING_SUBSYSTEM_DEF(powers)
 			LAZYADD(powers_removed, "Power point limit exceeded.")
 			return list()
 
-		// Checks if we have no more than 2 paths. Irregular is explicitly exempt from the 2-path limit.
-		if(power_type.path != POWER_PATH_IRREGULAR && !(power_type.path in unique_paths))
+		// Checks if we have no more than 2 paths, unless the path datum explicitly opts out.
+		var/datum/power_path/path_data = GLOB.power_paths_by_define[power_type.path]
+		if(!path_data?.path_limit_exempt && !(power_type.path in unique_paths))
 			if(length(unique_paths) >= 2)
 				continue // Third distinct path, discard.
 			unique_paths[power_type.path] = TRUE

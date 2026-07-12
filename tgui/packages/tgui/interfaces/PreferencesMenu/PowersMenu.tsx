@@ -7,9 +7,12 @@ import { Box, Button, Section, Stack } from 'tgui-core/components';
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
 import { mergePowerPathData } from './PowerData';
-import { powerPathConfig, powerPathFamilies } from './PowerPathConfig';
+import {
+  getPowerPathData,
+  getPowerArchetypes,
+  getPowerCatalogData,
+} from './PowerPathBridge';
 import type { Power, PowerPathId, PreferencesMenuData } from './types';
-import { useServerPrefs } from './useServerPrefs';
 
 type PowerPageProps = {
   handleOpenSelectedPowers: () => void;
@@ -60,7 +63,7 @@ function PathIconButton(props: PathCategoryEntry) {
       color="transparent"
       disabled={!isClickable}
       onClick={onClick}
-      tooltip={isClickable ? undefined : `${name} is not available yet`}
+      tooltip={isClickable ? undefined : `${name} is not available`}
       tooltipPosition={isClickable ? undefined : 'top'}
       style={{
         alignItems: 'center',
@@ -138,13 +141,14 @@ function PathLandingRow(props: PathLandingEntry) {
 
 export const PowersPage = (props: PowerPageProps) => {
   const { data } = useBackend<PreferencesMenuData>();
-  const serverData = useServerPrefs();
-  if (!serverData) {
+  const powerCatalogData = getPowerCatalogData();
+  const powerArchetypes = getPowerArchetypes(powerCatalogData);
+  if (!powerCatalogData) {
     return null;
   }
 
   const mergedPowerPaths = mergePowerPathData(
-    serverData.powers.power_paths,
+    powerCatalogData.power_paths,
     data.power_state_paths,
   );
 
@@ -152,14 +156,14 @@ export const PowersPage = (props: PowerPageProps) => {
     powers.some((powerEntry) => powerEntry.has_power);
 
   // Landing rows stay data-driven so adding or reordering paths only requires touching shared path config rather than rewriting the layout component.
-  const pathRows: PathLandingEntry[] = powerPathFamilies.map(
-    (familyConfig) => ({
-      categories: familyConfig.pathIds.map((pathId) => {
-        const pathConfig = powerPathConfig[pathId];
+  const pathRows: PathLandingEntry[] = powerArchetypes.map(
+    (archetypeData) => ({
+      categories: archetypeData.pathIds.map((pathId) => {
+        const pathConfig = getPowerPathData(powerCatalogData, pathId);
         return {
           assetName: pathConfig.iconAssetName,
           color: pathConfig.themeColor,
-          isActive: hasAnySelectedPower(mergedPowerPaths[pathId]),
+          isActive: hasAnySelectedPower(mergedPowerPaths[pathId] || []),
           isAvailable: pathConfig.isAvailable,
           name: pathConfig.displayName,
           onClick: pathConfig.isAvailable
@@ -167,7 +171,7 @@ export const PowersPage = (props: PowerPageProps) => {
             : undefined,
         };
       }),
-      name: familyConfig.title,
+      name: archetypeData.title,
     }),
   );
 
@@ -192,7 +196,7 @@ export const PowersPage = (props: PowerPageProps) => {
                   textAlign: 'center',
                 }}
               >
-                {data.power_points}/{serverData.powers.total_power_points}{' '}
+                {data.power_points}/{powerCatalogData.total_power_points}{' '}
                 points spent
               </Box>
             </Stack.Item>

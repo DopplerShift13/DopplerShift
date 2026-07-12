@@ -28,6 +28,9 @@
 		power_paths[path_key] += list(build_power_constant_entry(power_type))
 
 	data["power_paths"] = power_paths
+	data["power_path_data"] = GLOB.power_path_ui_data
+	data["power_path_archetypes"] = GLOB.power_path_archetypes
+	data["fallback_power_path_id"] = GLOB.fallback_power_path_id
 	data["total_power_points"] = MAXIMUM_POWER_POINTS
 	return data
 
@@ -50,12 +53,6 @@
 
 		var/has_given_power = (power_name in preferences.all_powers)
 		var/species_allowed = is_species_appropriate(power_type, mob_species)
-
-		// TODO: GRAY OUT powers you:
-		// Don't have the requirements for.
-		// Have powers building upon.
-		// Have an incompatible power for.
-		// ^ must touch tgui to set a new state/colour for this shit
 
 		var/locked_in = FALSE
 		if(has_given_power)
@@ -91,51 +88,21 @@
 
 /// Builds a map of all currently available power paths.
 /datum/preference_middleware/powers/proc/build_empty_power_path_map()
-	return list(
-		"thaumaturge" = list(),
-		"enigmatist" = list(),
-		"theologist" = list(),
-		"psyker" = list(),
-		"cultivator" = list(),
-		"aberrant" = list(),
-		"imbued" = list(),
-		"warfighter" = list(),
-		"expert" = list(),
-		"augmented" = list(),
-		"irregular" = list(),
-	)
+	var/list/power_path_map = list()
+	for(var/path_key in GLOB.all_power_paths)
+		power_path_map[path_key] = list()
+	return power_path_map
 
-/// Gets the relevant key for the power path baesd on the given deifne.
+/// Gets the relevant key for the power path based on the given define.
 /datum/preference_middleware/powers/proc/get_power_path_key(power_path)
-	switch(power_path)
-		if(POWER_PATH_THAUMATURGE)
-			return "thaumaturge"
-		if(POWER_PATH_ENIGMATIST)
-			return "enigmatist"
-		if(POWER_PATH_THEOLOGIST)
-			return "theologist"
-		if(POWER_PATH_PSYKER)
-			return "psyker"
-		if(POWER_PATH_CULTIVATOR)
-			return "cultivator"
-		if(POWER_PATH_ABERRANT)
-			return "aberrant"
-		if(POWER_PATH_IMBUED)
-			return "imbued"
-		if(POWER_PATH_WARFIGHTER)
-			return "warfighter"
-		if(POWER_PATH_EXPERT)
-			return "expert"
-		if(POWER_PATH_AUGMENTED)
-			return "augmented"
-		if(POWER_PATH_IRREGULAR)
-			return "irregular"
-	return null
+	var/datum/power_path/path_data = GLOB.power_paths_by_define[power_path]
+	return path_data?.path_key
 
 /// Here for now as the sole and only exception. Irregular is the only one that gets to bypass path limit: you need VERY GOOD excuses to allow powers to do so, since it muddies up path choices.
 /// Irregular also has niche-only powers to counteract that.
 /datum/preference_middleware/powers/proc/is_path_limit_exempt(datum/power/power_type)
-	return power_type.path == POWER_PATH_IRREGULAR
+	var/datum/power_path/path_data = GLOB.power_paths_by_define[power_type.path]
+	return path_data?.path_limit_exempt
 
 /// Builds a constant entry for powers to be referenced at later points.
 /datum/preference_middleware/powers/proc/build_power_constant_entry(datum/power/power_type)
@@ -168,7 +135,7 @@
 		if(isnull(action_icon_state) && initial_action_icon_state)
 			action_icon_state = "[initial_action_icon_state]"
 
-	// If it is augmented and ther eis no icon, fall back to yoinking the icons from the attached augment.
+	// If it is augmented and there is no icon, fall back to yoinking the icons from the attached augment.
 	if((isnull(action_icon) || isnull(action_icon_state)) && ispath(power_type, /datum/power/augmented))
 		var/datum/power/augmented/augmented_power_type = power_type
 		var/obj/item/organ/augment_path = initial(augmented_power_type.augment)
@@ -592,6 +559,7 @@
 /datum/asset/simple/powers
 	assets = list(
 		"thaumaturgeicon.png" = 'modular_doppler/modular_powers/icons/ui/powers/thaumaturgeicon.png',
+		"enigmatisticon.png" = 'modular_doppler/modular_powers/icons/ui/powers/enigmatisticon.png',
 		"theologisticon.png" = 'modular_doppler/modular_powers/icons/ui/powers/theologisticon.png',
 		"psykericon.png" = 'modular_doppler/modular_powers/icons/ui/powers/psykericon.png',
 		"cultivatoricon.png" = 'modular_doppler/modular_powers/icons/ui/powers/cultivatoricon.png',
