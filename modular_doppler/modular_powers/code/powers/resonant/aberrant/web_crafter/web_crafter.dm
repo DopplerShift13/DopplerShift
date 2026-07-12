@@ -7,6 +7,7 @@
 	mob_trait = TRAIT_WEB_SURFER // lets us walk on webs
 	security_record_text = "Subject can create spider-like silk from their body."
 	value = 3
+	magic_flags = NONE // non-magical
 
 	required_powers = list(/datum/power/aberrant_root/beastial)
 	action_path = /datum/action/cooldown/power/aberrant/web_crafter

@@ -8,6 +8,7 @@
 	security_record_text = "Subject can use their tail to damage and knock back foes in active combat."
 	security_threat = POWER_THREAT_MAJOR
 	value = 4
+	magic_flags = NONE // non-magical
 
 	required_powers = list(/datum/power/aberrant_root/beastial)
 	action_path = /datum/action/cooldown/power/aberrant/tailsweep

@@ -104,6 +104,6 @@
 /datum/power/imbued_root/enchanted/proc/should_accelerate_action(datum/action/cooldown/cooldown_action)
 	if(istype(cooldown_action, /datum/action/cooldown/power))
 		var/datum/action/cooldown/power/power_action = cooldown_action
-		return power_action.resonant // the resonant trait basically should always be true on any magical action; less depth than digging for the base power's bitflags.
+		return power_action.is_magical()
 
 	return istype(cooldown_action, /datum/action/cooldown/spell)

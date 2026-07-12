@@ -44,13 +44,12 @@
 		var/datum/action/cooldown/power/thaumaturge/thaumaturge_action = action
 		if(!istype(thaumaturge_action))
 			continue
-		var/base_flags = initial(thaumaturge_action.magic_resistance_types)
-		thaumaturge_action.magic_resistance_types = add_flags ? (base_flags | additional_magic_resistance_flags) : base_flags
 		var/datum/power/origin_power = thaumaturge_action.origin_power
 		if(!origin_power || !additional_power_magic_flags)
 			continue
 		var/base_power_magic_flags = initial(origin_power.magic_flags)
 		origin_power.magic_flags = add_flags ? (base_power_magic_flags | additional_power_magic_flags) : base_power_magic_flags
+		thaumaturge_action.sync_magic_resistance_types_from_power()
 
 /// Applies an optional action button background override to owned thaumaturge powers.
 /datum/component/thaumaturge/proc/apply_action_background_override(apply_override = TRUE)
@@ -73,12 +72,11 @@
 
 	if(additional_magic_resistance_flags)
 		var/additional_power_magic_flags = convert_magic_resistance_flags_to_power_flags(additional_magic_resistance_flags)
-		var/base_flags = initial(thaumaturge_action.magic_resistance_types)
-		thaumaturge_action.magic_resistance_types = base_flags | additional_magic_resistance_flags
 		var/datum/power/origin_power = thaumaturge_action.origin_power
 		if(origin_power && additional_power_magic_flags)
 			var/base_power_magic_flags = initial(origin_power.magic_flags)
 			origin_power.magic_flags = base_power_magic_flags | additional_power_magic_flags
+		thaumaturge_action.sync_magic_resistance_types_from_power()
 
 	if(action_background_icon_state_override)
 		thaumaturge_action.background_icon_state = action_background_icon_state_override

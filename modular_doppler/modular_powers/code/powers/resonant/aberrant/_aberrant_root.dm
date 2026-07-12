@@ -6,3 +6,4 @@
 	archetype = POWER_ARCHETYPE_RESONANT
 	path = POWER_PATH_ABERRANT
 	priority = POWER_PRIORITY_BASIC // removing roots after the fact
+	magic_flags = NONE // the roots aren't magical

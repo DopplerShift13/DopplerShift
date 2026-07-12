@@ -6,3 +6,4 @@
 	path = POWER_PATH_ABERRANT
 	priority = POWER_PRIORITY_BASIC
 	abstract_parent_type = /datum/power/aberrant
+	magic_flags = POWER_MAGIC_STANDARD

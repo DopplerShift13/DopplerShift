@@ -105,7 +105,7 @@
 	for(var/mob/living/target in view(user))
 		if(target == user)
 			continue
-		if(mental && !can_affect_mental(target))
+		if(is_mental_effect() && !can_affect_mental(target))
 			continue
 		targets += target
 
@@ -143,7 +143,7 @@
 	for(var/mob/living/target in view(user))
 		if(target == user)
 			continue
-		if(mental && !can_affect_mental(target))
+		if(is_mental_effect() && !can_affect_mental(target))
 			continue
 		targets += target
 

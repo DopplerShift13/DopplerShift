@@ -56,8 +56,15 @@
 		return FALSE
 	return TRUE
 
+/datum/action/cooldown/power/thaumaturge/sync_magic_resistance_types_from_power()
+	. = ..()
+	ValidateThaumaturgeComponent()
+	magic_resistance_types |= thaumaturge_component?.additional_magic_resistance_flags || NONE
+	return magic_resistance_types
+
 /datum/action/cooldown/power/thaumaturge/try_use(mob/living/user, atom/target)
 	ValidateThaumaturgeComponent()
+	sync_magic_resistance_types_from_power()
 	if(!check_if_valid(user))
 		return FALSE
 	if(ishuman(user)) // We're not checking for clothes on cats
@@ -65,8 +72,6 @@
 	if(affinity < required_affinity) // Do we have the minimal required affinity
 		owner.balloon_alert(user, "requires [required_affinity] affinity!")
 		return FALSE
-	// Ensures extra anti-magic flags get properly added retroactively to powers.
-	magic_resistance_types = thaumaturge_component.additional_magic_resistance_flags
 	. = ..()
 
 // The charge deduction is handled on_action_success and thusly gains override_charges as an arg.
@@ -214,4 +219,3 @@
 		var/atom/movable/screen/movable/action_button/action_button_instance = viewers[hud_instance]
 		if(istype(action_button_instance, /atom/movable/screen/movable/action_button))
 			return action_button_instance
-

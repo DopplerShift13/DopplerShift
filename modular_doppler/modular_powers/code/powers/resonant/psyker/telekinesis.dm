@@ -13,6 +13,7 @@
 	security_record_text = "Subject can wield telekinesis to maneuver and fling objects."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
+	magic_flags = POWER_MAGIC_STANDARD
 	required_powers = list(/datum/power/psyker_root)
 	action_path = /datum/action/cooldown/power/psyker/telekinesis
 
@@ -25,8 +26,6 @@
 	target_self = FALSE
 	unset_after_click = FALSE
 	target_range = 255 // this is just for show.
-
-	mental = FALSE // We are lifting them with the mind but it doesn't affect the target's mind
 
 	/// Range of the kinesis grab.
 	var/grab_range = 8
@@ -113,12 +112,12 @@
 
 /datum/action/cooldown/power/psyker/telekinesis/Grant(mob/granted_to)
 	. = ..()
-	if(resonant)
+	if(is_magical())
 		RegisterSignal(granted_to, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 /datum/action/cooldown/power/psyker/telekinesis/Remove(mob/removed_from)
 	. = ..()
-	if(resonant)
+	if(is_magical())
 		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
 /// Calculates the stres cost of vairous interactions.

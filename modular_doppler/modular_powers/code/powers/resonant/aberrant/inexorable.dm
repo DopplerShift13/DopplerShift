@@ -9,6 +9,7 @@
 	value = 5
 	power_flags = POWER_HUMAN_ONLY
 	required_powers = list(/datum/power/aberrant_root/monstrous)
+	magic_flags = NONE // non-magical
 
 	menu_icon = 'icons/mob/actions/actions_changeling.dmi'
 	menu_icon_state = "fake_death"

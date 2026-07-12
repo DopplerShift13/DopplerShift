@@ -9,6 +9,7 @@
 	security_record_text = "Subject can produce enough silk to fully cocoon creatures and objects in webs."
 	security_threat = POWER_THREAT_MAJOR
 	value = 3
+	magic_flags = NONE // non-magical
 
 	required_powers = list(/datum/power/aberrant/web_crafter)
 	action_path = /datum/action/cooldown/power/aberrant/cocoon
@@ -24,7 +25,6 @@
 	target_self = FALSE // why would you
 	click_to_activate = TRUE
 	use_time = 5 SECONDS
-	resonant = FALSE
 
 	// Used to determine the cost
 	var/last_cocoon_was_mob = FALSE

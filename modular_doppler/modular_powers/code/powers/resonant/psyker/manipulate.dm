@@ -41,7 +41,6 @@
 	target_type = /obj
 	click_to_activate = TRUE
 	unset_after_click = FALSE
-	mental = FALSE
 	target_range = 12
 
 	/// Saves if its a right click so that all click interactions are routed through use_action.

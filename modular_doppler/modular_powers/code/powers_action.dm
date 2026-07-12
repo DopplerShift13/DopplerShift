@@ -20,12 +20,10 @@
 	var/req_stat = CONSCIOUS
 	/// If your power has an active state of any type, use this.
 	var/active
-	/// Is this a resonant ability (read: magical)? Determines if this ability stop working if you are silenced and if we check against target magic immunites.
-	var/resonant = TRUE
 	/// Does this ability stop working if you are incapacitated?
 	var/disabled_by_incapacitate = TRUE
 	/// What power is the origin?
-	var/origin_power
+	var/datum/power/origin_power
 	/// Can only humans use this power?
 	var/human_only = TRUE
 	/// Can we target ourselves?
@@ -50,8 +48,39 @@
 	var/aim_assist = TRUE
 	/// Do we check for anti magic on the target when we target them? Basically if your action targets but doesn't do anything directly magical to them immediately (like projectiles), this should be false.
 	var/anti_magic_on_target = TRUE
-	/// Magic resistance flags checked on target during try_use. This should mostly just be holy and mental, since normal magic resistance is checked in can_block_resonance()
-	var/magic_resistance_types
+	/// Extra antimagic types checked on target when the action is used.
+	var/magic_resistance_types = NONE
+
+/datum/action/cooldown/power/New(datum/new_origin_power)
+	if(istype(new_origin_power, /datum/power))
+		origin_power = new_origin_power
+	else
+		origin_power = null
+	sync_magic_resistance_types_from_power()
+	return ..()
+
+/// Whether the action is treated as magical for silence and baseline antimagic checks.
+/datum/action/cooldown/power/proc/is_magical()
+	return !!magic_resistance_types
+
+/// Maps the host power's magic flags into our action's antimagic bitflag.
+/datum/action/cooldown/power/proc/sync_magic_resistance_types_from_power()
+	// If there is no power directly tied to it e.g meditate
+	if(!origin_power)
+		magic_resistance_types = NONE
+		return magic_resistance_types
+
+	var/power_magic_flags = origin_power?.magic_flags || NONE
+	magic_resistance_types = NONE
+
+	if(power_magic_flags & POWER_MAGIC_STANDARD)
+		magic_resistance_types |= MAGIC_RESISTANCE
+	if(power_magic_flags & POWER_MAGIC_MENTAL)
+		magic_resistance_types |= MAGIC_RESISTANCE_MIND
+	if(power_magic_flags & POWER_MAGIC_UNHOLY)
+		magic_resistance_types |= MAGIC_RESISTANCE_HOLY
+
+	return magic_resistance_types
 
 /// Attempts to actively use the action by pathing through validation, antimagic, do_use_time and finally use_action
 /datum/action/cooldown/power/proc/try_use(mob/living/user, atom/target)
@@ -61,11 +90,11 @@
 	// Checking for anti-resonance/anti-magic below which really is a pain.
 	if(anti_magic_on_target && ismob(target) && target != user) // If the spell checks antimagic, and if the target is a mob, and if the target is not us.
 		var/mob/mob_target = target
-		if(resonant && mob_target.can_block_resonance(1)) // Resonance checks are handled by the resonant var.
+		if(is_magical() && mob_target.can_block_resonance(1)) // Resonance checks are handled by the owning power's flags.
 			// I would like to deduct resources on spell fail, but I have no good way of implementing it during the validation layer when most costs happen in the on_action_success layer. TODO for the future chap who wants this.
 			return FALSE
 		// Checks against magic resistances beyond the standard above.
-		if(resonant && magic_resistance_types && mob_target.can_block_magic(magic_resistance_types, charge_cost = 0))
+		if(is_magical() && magic_resistance_types && mob_target.can_block_magic(magic_resistance_types, charge_cost = 0))
 			return FALSE
 	if(!do_use_time(user, target))
 		return FALSE
@@ -87,7 +116,7 @@
 	if(disabled_by_incapacitate && HAS_TRAIT(user, TRAIT_INCAPACITATED))
 		owner.balloon_alert(user, "incapacitated!")
 		return FALSE
-	if(resonant && HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
+	if(is_magical() && HAS_TRAIT(user, TRAIT_RESONANCE_SILENCED))
 		owner.balloon_alert(user, "silenced!")
 		return FALSE
 	if(need_hands_free && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
@@ -324,5 +353,3 @@ Projectile action code down below
 /// Anything that should otherwise happen normally on projectile hit should preferably be handled in /obj/projectile/.../on_hit
 /datum/action/cooldown/power/proc/on_projectile_hit(datum/source, mob/firer, atom/target, angle, hit_limb)
 	return
-
-
