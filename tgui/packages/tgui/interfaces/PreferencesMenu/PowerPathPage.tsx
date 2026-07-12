@@ -202,15 +202,15 @@ function formatRequirementText(power: Power) {
 }
 
 function getPowerButtonIcon(power: Power) {
-  if (Array.isArray(power.powertype)) {
+  if (Array.isArray(power.root_badge_icon)) {
     return (
-      power.powertype.find((iconName): iconName is string =>
+      power.root_badge_icon.find((iconName): iconName is string =>
         Boolean(iconName),
       ) || false
     );
   }
 
-  return power.powertype || false;
+  return power.root_badge_icon || false;
 }
 
 function getPowerTitleColor(power: Power) {

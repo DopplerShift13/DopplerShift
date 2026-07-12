@@ -142,8 +142,8 @@ export type PowerStatic = {
   cost: number;
   magic_flags?: string[];
   name: string;
-  powertype: string | (string | null)[] | null;
-  rootpower: string | null;
+  root_badge_icon: string | (string | null)[] | null;
+  archetype_name: string | null;
   required_powers?: string[];
   required_allow_any?: boolean;
   required_allow_subtypes?: boolean;

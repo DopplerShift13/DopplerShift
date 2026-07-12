@@ -106,14 +106,14 @@
 
 /// Builds a constant entry for powers to be referenced at later points.
 /datum/preference_middleware/powers/proc/build_power_constant_entry(datum/power/power_type)
-	var/powertype
-	var/rootpower = null
+	var/root_badge_icon
+	var/archetype_name = null
 
 	if(power_type.priority == POWER_PRIORITY_ROOT)
-		powertype = "crown"
+		root_badge_icon = "crown"
 	else
-		powertype = ""
-		rootpower = power_type.archetype
+		root_badge_icon = ""
+		archetype_name = power_type.archetype
 
 	var/datum/power_constant_data/constant_data = GLOB.all_power_constant_data[power_type]
 	var/list/customization_options = constant_data?.get_customization_data()
@@ -152,8 +152,8 @@
 		"name" = power_type.name,
 		"cost" = power_type.value,
 		"magic_flags" = build_power_magic_flags(power_type),
-		"powertype" = powertype,
-		"rootpower" = rootpower,
+		"root_badge_icon" = root_badge_icon,
+		"archetype_name" = archetype_name,
 		"required_powers" = get_required_power_names(power_type),
 		"required_allow_any" = power_type.required_allow_any,
 		"required_allow_subtypes" = power_type.required_allow_subtypes,
