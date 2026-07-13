@@ -30,6 +30,8 @@
 	var/target_self = TRUE
 	/// Do we need our hands free?
 	var/need_hands_free = TRUE
+	/// Do we need to be on a turf (not inside something) to use this power?
+	var/needs_to_stand_on_turf = TRUE
 	/// Bypasses the normal specified cooldown when set to TRUE. Useful if you don't want powers to always go on cooldown.
 	var/no_cooldown_on_use
 
@@ -121,6 +123,9 @@
 		return FALSE
 	if(need_hands_free && HAS_TRAIT(user, TRAIT_HANDS_BLOCKED))
 		owner.balloon_alert(user, "restrained!")
+		return FALSE
+	if(needs_to_stand_on_turf && !isturf(user.loc))
+		owner.balloon_alert(user, "need solid ground!")
 		return FALSE
 	if(req_stat < user.stat) // Whilst this seems similiar to trait_incapacitated, it is also used to check if you're dead in the event that disable_by_incapacitate is false. No corpses using powers!
 		owner.balloon_alert(user, "incapacitated!")
