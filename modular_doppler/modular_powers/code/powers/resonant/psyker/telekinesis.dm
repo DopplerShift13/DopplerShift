@@ -30,6 +30,11 @@
 	/// Range of the kinesis grab.
 	var/grab_range = 8
 
+	/// Specific target types we never want telekinesis to manipulate.
+	var/static/list/grab_blacklist = typecacheof(list(
+		/obj/vehicle/sealed/mecha,
+	))
+
 	/// Stat required for us to grab a mob.
 	var/stat_required = DEAD
 
@@ -229,6 +234,8 @@
 	if(!ismovable(target))
 		return FALSE
 	if(iseffect(target))
+		return FALSE
+	if(is_type_in_typecache(target, grab_blacklist))
 		return FALSE
 
 	var/atom/movable/movable_target = target

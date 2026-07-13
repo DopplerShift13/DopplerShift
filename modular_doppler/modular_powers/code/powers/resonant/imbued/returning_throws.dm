@@ -143,8 +143,14 @@
 	var/is_returning = FALSE
 	/// How many guided return hops remain before we leave the item where it landed.
 	var/remaining_return_hops = 0
+	/// Whether this return sequence has already spent its single allowed mob hit.
+	var/return_hit_mob = FALSE
+	/// Whether the next relaunch should be free because the item hit a mob on the return trip.
+	var/pending_free_return_hop = FALSE
 	/// Whether this attunement currently owns the temporary throw visuals.
 	var/created_throw_effect = FALSE
+	/// Whether this component temporarily granted the item PASSMOB for the current return sequence.
+	var/added_passmob = FALSE
 
 /// Validates the parent item, records which mob owns this component, and stores its allowed return-hop count.
 /datum/component/returning_throw_attunement/Initialize(mob/living/owner, max_return_hops, self_terminate = FALSE)
@@ -166,17 +172,19 @@
 	RegisterSignal(parent, COMSIG_ITEM_EQUIPPED, PROC_REF(on_item_equipped))
 	RegisterSignal(parent, COMSIG_MOVABLE_POST_THROW, PROC_REF(on_post_throw))
 	RegisterSignal(parent, COMSIG_MOVABLE_PRE_IMPACT, PROC_REF(on_pre_impact))
+	RegisterSignal(parent, COMSIG_MOVABLE_IMPACT, PROC_REF(on_throw_impact))
 	RegisterSignal(parent, COMSIG_MOVABLE_THROW_LANDED, PROC_REF(on_throw_landed))
 
 /// Unhooks every signal installed by this attunement.
 /datum/component/returning_throw_attunement/UnregisterFromParent()
-	UnregisterSignal(parent, list(COMSIG_ITEM_PICKUP, COMSIG_ITEM_EQUIPPED, COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_PRE_IMPACT, COMSIG_MOVABLE_THROW_LANDED))
+	UnregisterSignal(parent, list(COMSIG_ITEM_PICKUP, COMSIG_ITEM_EQUIPPED, COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_PRE_IMPACT, COMSIG_MOVABLE_IMPACT, COMSIG_MOVABLE_THROW_LANDED))
 
 /// Removes temporary visuals and clears throw state before deletion.
 /datum/component/returning_throw_attunement/Destroy(force)
 	clear_throw_effect()
 	is_returning = FALSE
 	remaining_return_hops = 0
+	reset_return_trip_state()
 	owner_ref = null
 	return ..()
 
@@ -208,6 +216,27 @@
 
 	parent_item.remove_filter(throw_outline_filter_id)
 	created_throw_effect = FALSE
+
+/// Clears per-return state so later throws start clean and temporary mob phasing is removed.
+/datum/component/returning_throw_attunement/proc/reset_return_trip_state()
+	pending_free_return_hop = FALSE
+	return_hit_mob = FALSE
+
+	if(!added_passmob)
+		return
+
+	var/obj/item/parent_item = parent
+	if(!QDELETED(parent_item))
+		parent_item.pass_flags &= ~PASSMOB
+	added_passmob = FALSE
+
+/// Lets the returning item pass through non-target mobs after its single allowed return hit is spent.
+/datum/component/returning_throw_attunement/proc/enable_return_mob_phasing(obj/item/parent_item)
+	if(parent_item.pass_flags & PASSMOB)
+		return
+
+	parent_item.pass_flags |= PASSMOB
+	added_passmob = TRUE
 
 /// Returns TRUE when the owner is close enough to a landed item that we should snap it back into hand.
 /datum/component/returning_throw_attunement/proc/is_within_close_catch_range(mob/living/owner, obj/item/parent_item)
@@ -241,6 +270,7 @@
 		clear_throw_effect()
 		is_returning = FALSE
 		remaining_return_hops = 0
+		reset_return_trip_state()
 		return
 
 	// If it lands adjacent to the owner, we attempt to force it into their hands.
@@ -248,6 +278,7 @@
 		clear_throw_effect()
 		is_returning = FALSE
 		remaining_return_hops = 0
+		reset_return_trip_state()
 		owner.throw_mode_off(THROW_MODE_TOGGLE)
 		owner.visible_message(
 			span_notice("[owner] catches [parent_item] as it whips back around."),
@@ -259,13 +290,20 @@
 	if(remaining_return_hops <= 0)
 		clear_throw_effect()
 		is_returning = FALSE
+		reset_return_trip_state()
 		return
 
-	remaining_return_hops--
+	// Deducts a return-hop unless the free return hop var was set to TRUE
+	if(pending_free_return_hop)
+		pending_free_return_hop = FALSE
+	else
+		remaining_return_hops--
+
 	// Launches ourselves again
 	if(!launch_return_hop(owner, parent_item, return_speed))
 		clear_throw_effect()
 		is_returning = FALSE
+		reset_return_trip_state()
 
 /// Defers the next return decision until after the current throw datum has fully cleaned itself up.
 /datum/component/returning_throw_attunement/proc/queue_return_resolution(mob/living/owner, obj/item/parent_item, return_speed)
@@ -296,6 +334,7 @@
 	clear_throw_effect()
 	is_returning = FALSE
 	remaining_return_hops = 0
+	reset_return_trip_state()
 	if(self_terminate && taker != owner)
 		qdel(src)
 
@@ -311,6 +350,7 @@
 	clear_throw_effect()
 	is_returning = FALSE
 	remaining_return_hops = 0
+	reset_return_trip_state()
 	if(self_terminate && equipper != owner)
 		qdel(src)
 
@@ -342,6 +382,8 @@
 
 	// Sets the remaining return hops to the configured max (inherited from the action or the component)
 	if(!is_returning)
+		reset_return_trip_state()
+	if(!is_returning)
 		remaining_return_hops = max_return_hops
 	ensure_throw_effect()
 
@@ -369,12 +411,41 @@
 		clear_throw_effect()
 		is_returning = FALSE
 		remaining_return_hops = 0
+		reset_return_trip_state()
 		owner.throw_mode_off(THROW_MODE_TOGGLE)
 		owner.visible_message(
 			span_notice("[owner] catches [parent_item] as it whips back around."),
 			span_notice("You catch [parent_item] as it whips back into your hand."),
 		)
 		return COMPONENT_MOVABLE_IMPACT_NEVERMIND
+
+/// After the first return-trip mob hit, grant a free relaunch and phase through further mobs until the item is caught or gives up.
+/datum/component/returning_throw_attunement/proc/on_throw_impact(datum/source, atom/hit_atom, datum/thrownthing/throwingdatum, caught)
+	SIGNAL_HANDLER
+	if(caught || !isliving(hit_atom) || !is_returning)
+		return
+
+	var/mob/living/owner = owner_ref?.resolve()
+	var/obj/item/parent_item = parent
+	if(QDELETED(parent_item))
+		qdel(src)
+		return
+
+	if(!istype(owner))
+		if(self_terminate)
+			qdel(src)
+		return
+
+	var/mob/living/struck_mob = hit_atom
+	if(struck_mob == owner)
+		return
+
+	if(return_hit_mob)
+		return
+
+	return_hit_mob = TRUE
+	pending_free_return_hop = TRUE
+	enable_return_mob_phasing(parent_item)
 
 /// Continues guiding the item back toward its owner after each landing until it is caught or runs out of return hops.
 /datum/component/returning_throw_attunement/proc/on_throw_landed(datum/source, datum/thrownthing/throwingdatum)
@@ -396,6 +467,7 @@
 		clear_throw_effect()
 		is_returning = FALSE
 		remaining_return_hops = 0
+		reset_return_trip_state()
 		return
 
 	// Tries repeated hop behavior. This is what largely handles the return hopping behavior

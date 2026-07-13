@@ -18,3 +18,9 @@
 /datum/power/imbued/riftwalker/post_add(client/client_source)
 	..()
 	GLOB.riftwalker_network.generate_rifts()
+
+	// Refresh existing Riftwalker alternate appearances for this holder. Fixes a bug where sometimes players were spawning in with rifts not visible.
+	for(var/datum/atom_hud/alternate_appearance/rift_hud as anything in GLOB.active_alternate_appearances)
+		if(!istype(rift_hud, /datum/atom_hud/alternate_appearance/basic/riftwalker))
+			continue
+		rift_hud.check_hud(power_holder)
