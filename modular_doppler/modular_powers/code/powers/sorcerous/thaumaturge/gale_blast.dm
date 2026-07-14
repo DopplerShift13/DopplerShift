@@ -45,6 +45,10 @@
 
 	// Tweak as needed.
 	var/knockback_range = 3
+	/// Hidden or special movables that should never be dragged by wind effects.
+	var/static/list/wind_drag_blacklist = typecacheof(list(
+		/atom/movable/mirage_holder, // movable object that creates the illusion. surprised it is an atom/movable.
+	))
 
 // Code for dragging along objects.
 /obj/projectile/resonant/gale_blast/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
@@ -95,7 +99,11 @@
 	if(!movable_instance)
 		return FALSE
 
-	// Core rule: anchored objects do not move
+	// Skips anything in the blacklist.
+	if(is_type_in_typecache(movable_instance, wind_drag_blacklist))
+		return FALSE
+
+	// Anchored objects do not move
 	if(movable_instance.anchored)
 		return FALSE
 
