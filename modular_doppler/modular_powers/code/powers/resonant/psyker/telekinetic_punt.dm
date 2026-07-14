@@ -1,8 +1,4 @@
 #define TK_PUNT_CLICK_OVERLAY "psyker_telekinetic_punt_cursor"
-#define TK_PUNT_CLICK_NONE 0
-#define TK_PUNT_CLICK_LEFT 1
-#define TK_PUNT_CLICK_MIDDLE 2
-
 /*
 	So, power that launches the best nearby object at people. This has a lot of nuance, especially with my insistance on being able to preview which item you will throw.
 	This means we on the fly need to compute the best object, before its thrown, and in a way that does not kill the server's processing.
@@ -25,12 +21,13 @@
 	desc = "Quickly punt a nearby object at the target. Activating the power highlights the nearest, strongest object near the cursor, which will be punted automatically at the target when you click the target.\
 	\nUnanchored structures deal an additional +10 damage and +1 knockback, and this can wall-stun.\
 	\nMiddle-click to lock onto an object, ensuring you will always punt with it."
-	button_icon = 'icons/mob/actions/actions_spells.dmi'
-	button_icon_state = "immrod"
+	button_icon = 'modular_doppler/modular_powers/icons/powers/actions_icons.dmi'
+	button_icon_state = "telekinetic_punt" // not a good spriter so this needs a better sprite at one point
 	click_to_activate = TRUE
 	unset_after_click = FALSE
 	target_range = 15
-	cooldown_time = 5
+	cooldown_time = 15
+	click_cd_override = CLICK_CD_ACTIVATE_ABILITY / 2 // I normally do not change this but it largely has to do with being able to lock with middle-mouse is affected by this. This feels smoother, in a way.
 
 	mental = FALSE // You ain't targeting their mind you're targetting their skull
 
@@ -50,8 +47,8 @@
 	var/structure_bonus_knockback = 0
 	/// Damage thresholds that marks objects as strong enough that we don't need to look further away for better, causing the expanding search area to stop expanding and only use its area for determening the best object.
 	var/strong_object_threshold = 20
-	/// Which mouse click variant we are currently resolving.
-	var/tk_punt_click_type = TK_PUNT_CLICK_NONE
+	/// How much stress we generate upon use?
+	var/stress_cost = PSYKER_STRESS_MINOR * 1.5
 	/// Active preview session while the power is click-armed.
 	var/datum/telekinetic_punt_preview/preview_datum
 
@@ -77,20 +74,13 @@
 /datum/action/cooldown/power/psyker/telekinetic_punt/InterceptClickOn(mob/living/clicker, params, atom/target)
 	var/list/modifiers = params2list(params)
 	if(LAZYACCESS(modifiers, MIDDLE_CLICK))
-		tk_punt_click_type = TK_PUNT_CLICK_MIDDLE
-		target = preview_datum?.cached_punt_target || clicker
-	else
-		tk_punt_click_type = TK_PUNT_CLICK_LEFT
+		handle_middle_click(clicker, target)
+		return TRUE
 	. = ..()
-	if(!.)
-		tk_punt_click_type = TK_PUNT_CLICK_NONE
 	return TRUE
 
-/// Resolves locking or throws the currently chambered object at the clicked target turf.
-/datum/action/cooldown/power/psyker/telekinetic_punt/use_action(mob/living/user, atom/target)
-	var/click_type = tk_punt_click_type
-	tk_punt_click_type = TK_PUNT_CLICK_NONE
-
+/// Handles middle-click target locking separately from the cooldowned punt activation so lock control still works while the action is cooling down.
+/datum/action/cooldown/power/psyker/telekinetic_punt/proc/handle_middle_click(mob/living/user, atom/target)
 	// Datum gets you your targets so if this is happening something's gone wroooong.
 	if(!preview_datum || QDELETED(preview_datum))
 		user.balloon_alert(user, "power fizzles!")
@@ -99,27 +89,34 @@
 	// Finds the turf that you currently are hovering over.
 	var/turf/cursor_turf = preview_datum.get_cursor_turf(target)
 
-	/// MIDDLE CLICK LOGIC (Locking).
-
-	if(click_type == TK_PUNT_CLICK_MIDDLE)
-		// If we are NOT locked onto a specific object and the current object does not pass as valid, we try to find a new valid target to lock o nanyway.
-		if(!preview_datum.lock_chambered_target && !is_valid_punt_candidate(user, preview_datum.cached_punt_target, cursor_turf))
-			preview_datum.refresh_cached_punt_target(cursor_turf)
-		// If we ARE locked onto a specific object...
-		if(preview_datum.lock_chambered_target)
-			/// ... And the object has become invalid, we clear it out.
-			if(!is_valid_punt_candidate(user, preview_datum.cached_punt_target))
-				preview_datum.set_cached_punt_target(null)
-				user.balloon_alert(user, "object invalid!")
-				return FALSE
-		/// If we fail to lock on after the first proc, nothing will happen.
-		else if(!is_valid_punt_candidate(user, preview_datum.cached_punt_target, cursor_turf))
-			user.balloon_alert(user, "nothing chambered!")
+	// If we are NOT locked onto a specific object and the current object does not pass as valid, we try to find a new valid target to lock o nanyway.
+	if(!preview_datum.lock_chambered_target && !is_valid_punt_candidate(user, preview_datum.cached_punt_target, cursor_turf))
+		preview_datum.refresh_cached_punt_target(cursor_turf)
+	// If we ARE locked onto a specific object...
+	if(preview_datum.lock_chambered_target)
+		/// ... And the object has become invalid, we clear it out.
+		if(!is_valid_punt_candidate(user, preview_datum.cached_punt_target))
+			preview_datum.set_cached_punt_target(null)
+			user.balloon_alert(user, "object invalid!")
 			return FALSE
-		/// Toggles the lock on/off
-		preview_datum.toggle_lock()
-		user.balloon_alert(user, preview_datum.lock_chambered_target ? "target locked" : "target unlocked")
+	/// If we fail to lock on after the first proc, nothing will happen.
+	else if(!is_valid_punt_candidate(user, preview_datum.cached_punt_target, cursor_turf))
+		user.balloon_alert(user, "nothing chambered!")
 		return FALSE
+	/// Toggles the lock on/off
+	preview_datum.toggle_lock()
+	user.balloon_alert(user, preview_datum.lock_chambered_target ? "target locked" : "target unlocked")
+	return TRUE
+
+/// Throws the currently chambered object at the clicked target turf.
+/datum/action/cooldown/power/psyker/telekinetic_punt/use_action(mob/living/user, atom/target)
+	// Datum gets you your targets so if this is happening something's gone wroooong.
+	if(!preview_datum || QDELETED(preview_datum))
+		user.balloon_alert(user, "power fizzles!")
+		return FALSE
+
+	// Finds the turf that you currently are hovering over.
+	var/turf/cursor_turf = preview_datum.get_cursor_turf(target)
 
 	/// LEFT CLICK/RIGHT CLICK LOGIC (Punting).
 
@@ -157,15 +154,15 @@
 	preview_datum.clear_after_throw(cursor_turf)
 	apply_punt_throw_effect(user)
 
-	modify_stress(PSYKER_STRESS_MINOR * 1.5) // cost
+	modify_stress(stress_cost) // cost
 	return TRUE
 
 /// Fades and removes the telekinetic outline filter from a thrown object.
 /datum/action/cooldown/power/psyker/telekinetic_punt/proc/fade_filter(atom/movable/punt_target, filter_id)
 	if(!punt_target)
 		return
-	punt_target.transition_filter(filter_id, list("alpha" = 0), 2 SECONDS)
-	addtimer(CALLBACK(punt_target, PROC_REF(remove_filter), filter_id), 2 SECONDS)
+	punt_target.transition_filter(filter_id, list("alpha" = 0), 1.5 SECONDS)
+	addtimer(CALLBACK(punt_target, PROC_REF(remove_filter), filter_id), 1.5 SECONDS)
 
 /// Applies a short-lived psychic sparkle overlay to the psyker after a successful punt.
 /datum/action/cooldown/power/psyker/telekinetic_punt/proc/apply_punt_throw_effect(mob/living/user)
@@ -234,22 +231,24 @@
 		if(item_candidate.item_flags & ABSTRACT)
 			return FALSE
 		return get_punt_damage(item_candidate) >= min_damage_to_punt
-	// It's a structure? Calculate the punt damage.
+	// It's a structure or machine? Calculate the punt damage.
 	if(isstructure(candidate))
+		return get_punt_damage(candidate) >= min_damage_to_punt
+	if(ismachinery(candidate))
 		return get_punt_damage(candidate) >= min_damage_to_punt
 
 	// Whatever you are, we don't want you
 	return FALSE
 
-/// Returns the effective damage value used when ranking puntable items and structures.
+/// Returns the effective damage value used when ranking puntable items and structure-like objects.
 /datum/action/cooldown/power/psyker/telekinetic_punt/proc/get_punt_damage(atom/movable/candidate)
 	// Item specific calculation
 	if(isitem(candidate))
 		var/obj/item/item_candidate = candidate
 		return max(item_candidate.throwforce, item_candidate.force)
-	// Structures default to 20 cause structures normally do 10 + 1 knockback on impact, and we boost that by another 10.
-	// This usually makes them the desired object.
-	if(isstructure(candidate))
+	// Structures and machinery default to 20 cause structures normally do 10 + 1 knockback on impact, and we boost that by another 10.
+	// This usually makes them desireable to punt.
+	if(isstructure(candidate) || ismachinery(candidate))
 		return structure_punt_damage
 	return 0
 
@@ -270,7 +269,7 @@
 /datum/action/cooldown/power/psyker/telekinetic_punt/proc/get_effective_punt_score(base_damage, distance)
 	return max(base_damage * (1 - (0.1 * distance)), 0)
 
-/// Applies additional knockback and manual structure damage when the thrown object impacts something.
+/// Applies additional knockback and manual heavy-object damage when the thrown object impacts something.
 /datum/action/cooldown/power/psyker/telekinetic_punt/proc/on_punt_impact(atom/movable/source, atom/hit_atom, datum/thrownthing/thrownthing, caught)
 	SIGNAL_HANDLER
 	UnregisterSignal(source, COMSIG_MOVABLE_IMPACT)
@@ -284,8 +283,8 @@
 	var/knockback = base_knockback
 	var/damage = get_punt_damage(source)
 
-	// Structures do bonus damage and knockback
-	if(isstructure(source))
+	// Structures and machinery do bonus damage and knockback.
+	if(isstructure(source) || ismachinery(source))
 		damage += structure_bonus_damage
 		knockback += structure_bonus_knockback
 
@@ -439,6 +438,16 @@
 		// Determines if we have found an object that's at or above strong_object_threshold, stopping us from expanding the area.
 		var/found_terminal_candidate = FALSE
 
+		/* scan_x is responsible for the top and bottom sides, scan_y is the left and right sides of the expanding radius.
+		Just to illustrate: a 5x5 square radius will be handled like so, where C is the cursor, X is a turf scanned by scan_x and Y for scan_y, and . indicates no scan (because it already scanned that turf).
+			X X X X X
+			Y . . . Y
+			Y . C . Y
+			Y . . . Y
+			X X X X X
+		*/
+
+		// Scans the top and bottom sides of the radius square
 		for(var/scan_x in (cursor_turf.x - radius) to (cursor_turf.x + radius))
 			var/list/top_edge_result = evaluate_scan_turf(cursor_turf, locate(scan_x, cursor_turf.y + radius, cursor_turf.z), best_target, best_score, best_distance)
 			best_target = top_edge_result["best_target"]
@@ -452,6 +461,7 @@
 				best_distance = bottom_edge_result["best_distance"]
 				found_terminal_candidate = bottom_edge_result["found_terminal_candidate"] || found_terminal_candidate
 
+		// Scans the left and right sides of the radius square
 		for(var/scan_y in (cursor_turf.y - radius + 1) to (cursor_turf.y + radius - 1))
 			var/list/right_edge_result = evaluate_scan_turf(cursor_turf, locate(cursor_turf.x + radius, scan_y, cursor_turf.z), best_target, best_score, best_distance)
 			best_target = right_edge_result["best_target"]
@@ -483,42 +493,67 @@
 
 	var/found_terminal_candidate = FALSE
 
+	/// Scans all obj/item on the turf
 	for(var/obj/item/item_target in scan_turf)
-		var/item_damage = source_action.get_punt_damage(item_target)
-		if(item_damage < source_action.min_damage_to_punt)
-			continue
-		if(!source_action.is_valid_punt_candidate(owner, item_target, cursor_turf))
+		var/list/item_evaluation = evaluate_punt_candidate(item_target, cursor_turf, best_score, best_distance)
+		if(!item_evaluation)
 			continue
 		// Indicates we have found an object that deals at least 20 damage, meaning we already have a good enough canidate and don't need to search further.
-		if(item_damage >= source_action.strong_object_threshold)
-			found_terminal_candidate = TRUE
-		var/item_distance = source_action.get_effective_punt_distance(cursor_turf, item_target)
-		var/item_score = source_action.get_effective_punt_score(item_damage, item_distance)
-		if(item_score > best_score || (item_score == best_score && item_distance < best_distance))
-			best_target = item_target
-			best_score = item_score
-			best_distance = item_distance
+		found_terminal_candidate = item_evaluation["found_terminal_candidate"] || found_terminal_candidate
+		if(!item_evaluation["improved_best_target"])
+			continue
+		best_target = item_target
+		best_score = item_evaluation["best_score"]
+		best_distance = item_evaluation["best_distance"]
 
+	/// Scans all obj/structure on the turf
 	for(var/obj/structure/structure_target in scan_turf)
-		var/structure_damage = source_action.get_punt_damage(structure_target)
-		if(structure_damage < source_action.min_damage_to_punt)
+		var/list/structure_evaluation = evaluate_punt_candidate(structure_target, cursor_turf, best_score, best_distance)
+		if(!structure_evaluation)
 			continue
-		if(!source_action.is_valid_punt_candidate(owner, structure_target, cursor_turf))
+		// Indicates we have found an object that deals at least 20 damage, meaning we already have a good enough canidate and don't need to search further.
+		found_terminal_candidate = structure_evaluation["found_terminal_candidate"] || found_terminal_candidate
+		if(!structure_evaluation["improved_best_target"])
 			continue
-		if(structure_damage >= source_action.strong_object_threshold)
-			found_terminal_candidate = TRUE
-		var/structure_distance = source_action.get_effective_punt_distance(cursor_turf, structure_target)
-		var/structure_score = source_action.get_effective_punt_score(structure_damage, structure_distance)
-		if(structure_score > best_score || (structure_score == best_score && structure_distance < best_distance))
-			best_target = structure_target
-			best_score = structure_score
-			best_distance = structure_distance
+		best_target = structure_target
+		best_score = structure_evaluation["best_score"]
+		best_distance = structure_evaluation["best_distance"]
+
+	/// Scans all obj/machinery on the turf
+	for(var/obj/machinery/machinery_target in scan_turf)
+		var/list/machinery_evaluation = evaluate_punt_candidate(machinery_target, cursor_turf, best_score, best_distance)
+		if(!machinery_evaluation)
+			continue
+		found_terminal_candidate = machinery_evaluation["found_terminal_candidate"] || found_terminal_candidate
+		if(!machinery_evaluation["improved_best_target"])
+			continue
+		best_target = machinery_target
+		best_score = machinery_evaluation["best_score"]
+		best_distance = machinery_evaluation["best_distance"]
 
 	return list(
 		"best_target" = best_target,
 		"best_score" = best_score,
 		"best_distance" = best_distance,
 		"found_terminal_candidate" = found_terminal_candidate,
+	)
+
+/// Scores a single punt candidate against the current best result and reports whether it improves selection or reaches the strong-object stop threshold.
+/datum/telekinetic_punt_preview/proc/evaluate_punt_candidate(atom/movable/candidate, turf/cursor_turf, best_score, best_distance = INFINITY, hovered_turf_only = FALSE)
+	var/candidate_damage = source_action.get_punt_damage(candidate)
+	if(candidate_damage < source_action.min_damage_to_punt)
+		return null
+	if(!source_action.is_valid_punt_candidate(owner, candidate, cursor_turf))
+		return null
+
+	// Gets the distance unless its a comparison against stuff on the hovered stuff.
+	var/candidate_distance = hovered_turf_only ? 0 : source_action.get_effective_punt_distance(cursor_turf, candidate)
+	var/candidate_score = source_action.get_effective_punt_score(candidate_damage, candidate_distance)
+	return list(
+		"best_score" = candidate_score,
+		"best_distance" = candidate_distance,
+		"found_terminal_candidate" = !hovered_turf_only && candidate_damage >= source_action.strong_object_threshold,
+		"improved_best_target" = candidate_score > best_score || (candidate_score == best_score && candidate_distance < best_distance),
 	)
 
 /// Picks the strongest valid target on the exact hovered turf before any wider scan is considered.
@@ -529,29 +564,37 @@
 	var/atom/movable/best_target
 	var/best_score = -1
 
-	// Hovering over tiles with objects will scan those tiles for targets and if there's at least one canidate, it will always use only those canidates.
-	for(var/obj/item/item_target in cursor_turf)
-		var/item_damage = source_action.get_punt_damage(item_target)
-		if(item_damage < source_action.min_damage_to_punt)
-			continue
-		if(!source_action.is_valid_punt_candidate(owner, item_target, cursor_turf))
-			continue
-		var/item_score = source_action.get_effective_punt_score(item_damage, 0)
-		if(item_score > best_score)
-			best_target = item_target
-			best_score = item_score
+	// Hovering over tiles will scan those tiles for targets and if there's at least one canidate, it will always use only those canidates.
 
-	// Hovering over tiles with structures will scan those tiles for targets and if there's at least one canidate, it will always use only those canidates.
+	// Item searching
+	for(var/obj/item/item_target in cursor_turf)
+		var/list/item_evaluation = evaluate_punt_candidate(item_target, cursor_turf, best_score, hovered_turf_only = TRUE)
+		if(!item_evaluation)
+			continue
+		if(!item_evaluation["improved_best_target"])
+			continue
+		best_target = item_target
+		best_score = item_evaluation["best_score"]
+
+	// Structure searching
 	for(var/obj/structure/structure_target in cursor_turf)
-		var/structure_damage = source_action.get_punt_damage(structure_target)
-		if(structure_damage < source_action.min_damage_to_punt)
+		var/list/structure_evaluation = evaluate_punt_candidate(structure_target, cursor_turf, best_score, hovered_turf_only = TRUE)
+		if(!structure_evaluation)
 			continue
-		if(!source_action.is_valid_punt_candidate(owner, structure_target, cursor_turf))
+		if(!structure_evaluation["improved_best_target"])
 			continue
-		var/structure_score = source_action.get_effective_punt_score(structure_damage, 0)
-		if(structure_score > best_score)
-			best_target = structure_target
-			best_score = structure_score
+		best_target = structure_target
+		best_score = structure_evaluation["best_score"]
+
+	// Machinery searching
+	for(var/obj/machinery/machinery_target in cursor_turf)
+		var/list/machinery_evaluation = evaluate_punt_candidate(machinery_target, cursor_turf, best_score, hovered_turf_only = TRUE)
+		if(!machinery_evaluation)
+			continue
+		if(!machinery_evaluation["improved_best_target"])
+			continue
+		best_target = machinery_target
+		best_score = machinery_evaluation["best_score"]
 
 	return best_target
 
@@ -590,6 +633,3 @@
 	set_cached_punt_target(null)
 
 #undef TK_PUNT_CLICK_OVERLAY
-#undef TK_PUNT_CLICK_NONE
-#undef TK_PUNT_CLICK_LEFT
-#undef TK_PUNT_CLICK_MIDDLE

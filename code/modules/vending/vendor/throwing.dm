@@ -44,7 +44,7 @@
 
 ///Crush the mob that the vending machine got thrown at
 /obj/machinery/vending/throw_impact(atom/hit_atom, datum/thrownthing/throwingdatum)
-	if(isliving(hit_atom))
+	if(isliving(hit_atom) && prob(5)) // DOPPLER MODULAR EDIT: Makes vending machines toppling chance-based, because several powers can now throw vending machines at roundstart which is just too strong. Previously: if(isliving(hit_atom))
 		tilt(fatty=hit_atom)
 	return ..()
 
