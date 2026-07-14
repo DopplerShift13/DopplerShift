@@ -203,6 +203,8 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 	affinity = 4
 /obj/item/clothing/suit/wizrobe/tape/fake
 	affinity = 4
+/obj/item/clothing/suit/wizrobe/durathread
+	affinity = 4
 
 // Wizrobe hats (Fakes)
 /obj/item/clothing/head/wizard/fake

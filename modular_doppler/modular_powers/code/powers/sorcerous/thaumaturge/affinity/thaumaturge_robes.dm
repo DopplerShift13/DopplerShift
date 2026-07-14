@@ -11,7 +11,7 @@
 	cold_protection = CHEST|GROIN|ARMS|HANDS|LEGS
 	heat_protection = CHEST|GROIN|ARMS|HANDS|LEGS
 	fishing_modifier = -6 // high vishing
-	affinity = 3
+	affinity = 4
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes_digi.dmi')
@@ -25,7 +25,7 @@
 	icon_state = "hivizhat"
 	armor_type = /datum/armor/none
 	fishing_modifier = -5 // high vishing
-	affinity = 3
+	affinity = 4
 
 // Secrobe; affinity 3 armor. Has the stats of a secjacket and covers the legs, and also has affinity, but also has a slight amount of slowdown.
 /obj/item/clothing/suit/wizrobe/secwiz
@@ -56,4 +56,4 @@
 	armor_type = /datum/armor/none
 	fishing_modifier = -2
 	resistance_flags = FLAMMABLE
-	affinity = 3
+	affinity = 4
