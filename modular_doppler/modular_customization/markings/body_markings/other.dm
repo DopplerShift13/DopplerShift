@@ -319,3 +319,9 @@
 	icon_state = "chestplate"
 	body_zones = CHEST
 	gender_specific = FALSE
+
+/datum/sprite_accessory/body_marking/other/vsghost
+	name = "Virtual Solutions Ghost Parts"
+	icon_state = "ghost"
+	body_zones = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT
+	gender_specific = FALSE

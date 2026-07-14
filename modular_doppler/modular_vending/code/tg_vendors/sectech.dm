@@ -29,6 +29,7 @@
 		/obj/item/book/granter/tactical_gun_tosser = 1,
 	)
 	premium_doppler = list(
+    /obj/item/restraints/handcuffs/antiresonant = 6, // anti powers cuffs
 		/obj/item/gun/ballistic/automatic/schiebenmaschine = 30,
 		/obj/item/gun/ballistic/avispa_stingball_shooter = 5,
 		/obj/item/gun/ballistic/alacran = 5,
