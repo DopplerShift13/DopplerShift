@@ -1,7 +1,9 @@
 /*
-	You can be summoned by speaking a specific keywords.
+	You can be summoned by speaking a specific keyword, in a certain language, with a ton of caveats.
 */
 #define SUMMONABLE_LANGUAGE_ANY "Any"
+
+/// BIG TODO: Once Powers PR2 merges adjust this to Imbued and not Aberrant
 
 /datum/power/aberrant/summonable
 	name = "Summonable"
@@ -26,32 +28,35 @@
 	if(!resolved_language_name)
 		var/datum/preference/choiced/summonable_language/language_preference = GLOB.preference_entries[/datum/preference/choiced/summonable_language]
 		resolved_language_name = language_preference?.create_default_value() || SUMMONABLE_LANGUAGE_ANY
-	if(resolved_language_name == SUMMONABLE_LANGUAGE_ANY)
+	if(resolved_language_name == SUMMONABLE_LANGUAGE_ANY) // if no language
 		return "Subject is summonable via keyword \"[resolved_keyword]\"."
 	return "Subject is summonable via keyword \"[resolved_keyword]\" when spoken in [resolved_language_name]."
 
-// Gets and sets keywords
+// Gets and sets various prefs + the component
 /datum/power/aberrant/summonable/add(client/client_source)
 	if(!power_holder)
 		return ..()
 
+	// Gets the component on the mob
 	var/mob/living/holder = power_holder
 	var/datum/component/summonable/component = holder.GetComponent(/datum/component/summonable)
 	if(!component)
 		component = holder.AddComponent(/datum/component/summonable)
-
 	summon_component = component
 
+	// Gets the keywords from prefs
 	component.keyword = client_source?.prefs?.read_preference(/datum/preference/text/summonable_keyword)
 	if(!component.keyword)
 		var/datum/preference/text/summonable_keyword/preference_entry = GLOB.preference_entries[/datum/preference/text/summonable_keyword]
 		component.keyword = preference_entry?.create_default_value() || "Beetlejuice"
 
+	// Gets the language from prefs
 	component.language_name = client_source?.prefs?.read_preference(/datum/preference/choiced/summonable_language)
 	if(!component.language_name)
 		var/datum/preference/choiced/summonable_language/language_preference = GLOB.preference_entries[/datum/preference/choiced/summonable_language]
 		component.language_name = language_preference?.create_default_value() || SUMMONABLE_LANGUAGE_ANY
 
+	// Gets the color from prefs
 	component.rune_color = client_source?.prefs?.read_preference(/datum/preference/color/summonable_rune_color) || component.rune_color
 	component.update_regex()
 
@@ -80,10 +85,10 @@
 	var/summon_delay = 1 SECONDS
 	/// How long it takes for you to fully float up
 	var/float_time = 3.5 SECONDS
-	/// How long active magboots hold you in place before the summon fizzles.
-	var/magboot_lock_time = 2 SECONDS
-	/// How long the failed magboot spotlight takes to fade out.
-	var/magboot_fade_time = 0.5 SECONDS
+	/// How long a failed summon resistance holds you in place before the summon fizzles.
+	var/resist_lock_time = 2 SECONDS
+	/// How long the failed summon spotlight takes to fade out.
+	var/resist_fade_time = 0.5 SECONDS
 	/// Radius for orbiting runes
 	var/rune_orbit_radius = 30
 	/// Rotation speed for orbiting runes
@@ -108,7 +113,7 @@
 	The beetlejuice component cannot satisfy our wants no more.
 	Because we want language integration, we need to move off of COMSIG_MOB_SAY_SPECIAL and onto COMSIG_MOB_SAY. Paired with how we are full of redundancy in the beetlejuice component, we have now moved summonable to its own standalone component.
 */
-/// Sets up summon tracking and registers speech listeners for all living mobs.
+/// Sets up summon tracking and registers speech listeners for all living mobs. This is how beetlejuice did it, and admittedly there's no easier way to do it.
 /datum/component/summonable/Initialize()
 	if(!ismovable(parent))
 		return COMPONENT_INCOMPATIBLE
@@ -149,7 +154,7 @@
 	if(var_name == NAMEOF(src, keyword) || var_name == NAMEOF(src, case_sensitive))
 		update_regex()
 
-/// Watches spoken messages for the summon keyword and starts the summon once the threshold is met.
+/// Watches spoken messages for the summon keyword and starts the summon once it matches.
 /datum/component/summonable/proc/say_react(mob/speaker, list/say_args)
 	SIGNAL_HANDLER
 
@@ -185,7 +190,7 @@
 	var/atom/movable/summoned = parent
 	if(ismob(summoned))
 		var/mob/living/living_summoned = summoned
-		if(living_summoned.buckled || HAS_TRAIT(living_summoned, TRAIT_RESONANCE_SILENCED))
+		if(HAS_TRAIT(living_summoned, TRAIT_RESONANCE_SILENCED))
 			return
 	// We don't block .loc for the sake of it being funny to be yoinked out of things, but cryopods are too integral to not.
 	if(istype(summoned.loc, /obj/machinery/cryopod))
@@ -200,6 +205,15 @@
 		return
 	active = FALSE
 	addtimer(VARSET_CALLBACK(src, active, TRUE), cooldown)
+	if(isliving(summoned))
+		var/mob/living/living_summoned = summoned
+		if(living_summoned.buckled)
+			handle_resisted_summon(
+				living_summoned,
+				span_warning("[living_summoned] strains against an invisible pull upward, but remains held fast!"),
+				span_warning("An invisible force tries to pull you away into the air, but whatever has you buckled keeps you in place!")
+			)
+			return
 	addtimer(CALLBACK(src, PROC_REF(begin_summon), summoned, target_turf), summon_delay)
 
 /// Gets a valid nearby turf within the mob's area.
@@ -248,7 +262,11 @@
 			return
 		// Magboots prevent summons by just sheer magnetism. YE SCIENCE BITCH-
 		if(has_active_magboots(living_summoned))
-			handle_magboot_lock(living_summoned)
+			handle_resisted_summon(
+				living_summoned,
+				span_warning("[living_summoned] strains against an invisible pull upward, but their magboots hold fast!"),
+				span_warning("An invisible force tries to pull you away into the air, but your magboots lock you in place!")
+			)
 			return
 	summoning = TRUE
 	beaming_up = TRUE
@@ -282,7 +300,7 @@
 		return TRUE
 
 	// magboots for mod modules support
-	var/obj/item/mod/control/worn_modsuit = living_summoned.get_item_by_slot(ITEM_SLOT_OCLOTHING)
+	var/obj/item/mod/control/worn_modsuit = living_summoned.get_item_by_slot(ITEM_SLOT_BACK)
 	if(!istype(worn_modsuit))
 		return FALSE
 	for(var/obj/item/mod/module/magboot/magboot_module as anything in worn_modsuit.modules)
@@ -291,31 +309,30 @@
 
 	return FALSE
 
-/// Active magboots let you resist the summons. It being handed over to this proc means it has already failed and we're just being dramatic now.
-/datum/component/summonable/proc/handle_magboot_lock(mob/living/living_summoned)
+/// Plays the failed-summon fakeout when something holds the target in place.
+/datum/component/summonable/proc/handle_resisted_summon(mob/living/living_summoned, visible_message_text, self_message_text)
 	var/turf/origin_turf = get_turf(living_summoned)
 	if(!origin_turf)
 		return
 
 	var/obj/effect/temp_visual/spotlight/summonable/origin_spotlight = new(origin_turf, rune_color)
 
-	// in my head people are doing the "wacky arm inflatable tube man" effect with their body
 	living_summoned.visible_message(
-		span_warning("[living_summoned] strains against an invisible pull upward, but their magboots hold fast!"),
-		span_warning("An invisible force tries to pull you away into the air, but your magboots lock you in place!")
+		visible_message_text,
+		self_message_text
 	)
 	ADD_TRAIT(living_summoned, TRAIT_IMMOBILIZED, "summonable_apport")
-	living_summoned.Shake(pixelshiftx = 2, pixelshifty = 1, duration = magboot_lock_time, shake_interval = 0.04 SECONDS)
-	addtimer(CALLBACK(src, PROC_REF(finish_magboot_lock), living_summoned, origin_spotlight), magboot_lock_time)
+	living_summoned.Shake(pixelshiftx = 2, pixelshifty = 1, duration = resist_lock_time, shake_interval = 0.04 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_resisted_summon), living_summoned, origin_spotlight), resist_lock_time)
 
-/// Clears the magboot fake-out without ever moving the summoned target.
-/datum/component/summonable/proc/finish_magboot_lock(mob/living/living_summoned, obj/effect/temp_visual/spotlight/summonable/origin_spotlight)
+/// Clears the failed-summon fakeout without ever moving the summoned target.
+/datum/component/summonable/proc/finish_resisted_summon(mob/living/living_summoned, obj/effect/temp_visual/spotlight/summonable/origin_spotlight)
 	if(!QDELETED(living_summoned))
 		REMOVE_TRAIT(living_summoned, TRAIT_IMMOBILIZED, "summonable_apport")
 	if(QDELETED(origin_spotlight))
 		return
-	animate(origin_spotlight, alpha = 0, time = magboot_fade_time)
-	addtimer(CALLBACK(src, PROC_REF(clear_origin_spotlight), origin_spotlight), magboot_fade_time)
+	animate(origin_spotlight, alpha = 0, time = resist_fade_time)
+	addtimer(CALLBACK(src, PROC_REF(clear_origin_spotlight), origin_spotlight), resist_fade_time)
 
 /// Removes the spotlight
 /datum/component/summonable/proc/clear_origin_spotlight(obj/effect/temp_visual/spotlight/summonable/origin_spotlight)
