@@ -1,10 +1,10 @@
 /datum/power/cultivator_root/shadow_walker
 	name = "Shadow Walker Alignment"
 	desc = "You gain Energy through Aura by being in dark rooms and environments. Activating it wraps you in an aura of shadow.\
-	\nYou are entirely unrecognizeable in this state and your punches do extra brute damage.\
+	\nYou are entirely unrecognizable in this state and your punches do extra brute damage.\
 	\nPassively, you have enhanced darkvision, and gain full on night vision while your alignment is activated.\
 	\nYou gain armor IV across your whole body. Has diminishing effects with your worn armor."
-	security_record_text = "Subject can enter a heightened state by observing darkness, granting them resistance to damage, deadlier punches, the abiliy to become unrecognizeable as a dark silhouette and the ability to see perfectly in the dark."
+	security_record_text = "Subject can enter a heightened state by observing darkness, granting them resistance to damage, deadlier punches, the abiliy to become unrecognizable as a dark silhouette and the ability to see perfectly in the dark."
 	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/cultivator/alignment/shadow_walker
 	value = 5
