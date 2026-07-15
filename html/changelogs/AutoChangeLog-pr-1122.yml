@@ -1,0 +1,4 @@
+author: "NewyearnewmeUwu"
+delete-after: True
+changes:
+  - bugfix: "Bitrunners using a personalized avatar alongside the Black Market Smuggler quirk no longer spam sec records."
