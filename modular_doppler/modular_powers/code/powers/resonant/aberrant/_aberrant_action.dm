@@ -29,10 +29,10 @@
 	var/mob/living/carbon/carbon_user = user
 	var/obj/item/organ/stomach/stomach = carbon_user.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(stomach)
-		stomach.adjust_satiety(amount)
+		stomach.spend_hunger(amount)
 		return
 
-	carbon_user.adjust_nutrition(-amount)
+	carbon_user.adjust_nutrition(-(amount * ABERRANT_HUNGER_COST_BASE))
 
 /// Returns TRUE when the user can afford the cost with their current type of stomach
 /datum/action/cooldown/power/aberrant/proc/can_pay_hunger_cost(mob/living/user, amount)
@@ -44,6 +44,6 @@
 	var/mob/living/carbon/carbon_user = user
 	var/obj/item/organ/stomach/stomach = carbon_user.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(stomach)
-		return stomach.can_afford_satiety_cost(amount)
+		return stomach.can_afford_hunger_cost(amount)
 
-	return carbon_user.nutrition > (NUTRITION_LEVEL_STARVING + amount)
+	return carbon_user.nutrition >= (NUTRITION_LEVEL_STARVING + (amount * ABERRANT_HUNGER_COST_BASE))

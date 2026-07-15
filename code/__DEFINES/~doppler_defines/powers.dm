@@ -10,7 +10,7 @@
 #define POWER_PRIORITY_BASIC "Basic"
 #define POWER_PRIORITY_ADVANCED "Advanced"
 
-/// Designations whne referring to arcehtypes.
+/// Designations when referring to archetypes.
 #define POWER_ARCHETYPE_SORCEROUS "Sorcerous"
 #define POWER_ARCHETYPE_RESONANT "Resonant"
 #define POWER_ARCHETYPE_MORTAL "Mortal"
@@ -339,12 +339,12 @@
 /// So our effective 'range' we want to consider is 150-550 (Starving-Full). We calculate this delta and that is effectively the 0%-100% range of our power's 'resource'
 #define ABERRANT_HUNGER_COST_BASE (NUTRITION_LEVEL_FULL - NUTRITION_LEVEL_STARVING)
 
-// Hunger costs
-#define ABERRANT_HUNGER_TRIVIAL (ABERRANT_HUNGER_COST_BASE / 100)
-#define ABERRANT_HUNGER_MINOR (ABERRANT_HUNGER_COST_BASE / 10)
-#define ABERRANT_HUNGER_MODERATE (ABERRANT_HUNGER_COST_BASE / 5)
-#define ABERRANT_HUNGER_MAJOR (ABERRANT_HUNGER_COST_BASE / 2)
-#define ABERRANT_HUNGER_EXTREME (ABERRANT_HUNGER_COST_BASE)
+// Hunger costs, as percentages of a stomach's usable resource range.
+#define ABERRANT_HUNGER_TRIVIAL (1 / 100)
+#define ABERRANT_HUNGER_MINOR (1 / 10)
+#define ABERRANT_HUNGER_MODERATE (1 / 5)
+#define ABERRANT_HUNGER_MAJOR (1 / 2)
+#define ABERRANT_HUNGER_EXTREME (1)
 
 /**
  * RESONANT: IMBUED

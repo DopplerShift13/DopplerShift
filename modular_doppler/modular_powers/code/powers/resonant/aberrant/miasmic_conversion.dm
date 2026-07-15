@@ -51,4 +51,4 @@
 		// Inverts for tox-healing spcies
 		healed = HAS_TRAIT(power_holder, TRAIT_TOXINLOVER) ? -healed : healed
 		power_holder.adjustToxLoss(healed * conversion_rate)
-		power_holder.adjust_nutrition(-(healed * hunger_per_healing))
+		spend_hunger(healed * hunger_per_healing, mob)

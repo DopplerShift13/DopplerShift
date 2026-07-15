@@ -35,7 +35,7 @@
 		var/updated_bodypart_state = bodypart.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC)
 		var/damage_healed = max(0, damage_before - bodypart.get_damage())
 		if(damage_healed > 0)
-			mob.adjust_nutrition(-(damage_healed * hunger_per_healing))
+			spend_hunger(damage_healed * hunger_per_healing, mob)
 		if(updated_bodypart_state)
 			mob.update_damage_overlays()
 		break
