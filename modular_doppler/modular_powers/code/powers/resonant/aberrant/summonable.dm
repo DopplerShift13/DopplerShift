@@ -1,6 +1,8 @@
 /*
 	You can be summoned by speaking a specific keywords.
 */
+#define SUMMONABLE_LANGUAGE_ANY "Any"
+
 /datum/power/aberrant/summonable
 	name = "Summonable"
 	desc = "By speaking a specific name or word, you appear next to the speaker after a short delay. The summoning takes time, you are stunned throughout, is entirely involuntary and can only be stopped by being silenced, buckled, wearing magboots or by being dispelled.\
@@ -11,16 +13,22 @@
 
 	required_powers = list(/datum/power/aberrant_root/anomalous)
 
-	/// Reference to the beetlejuice component
-	var/datum/component/beetlejuice/summonable/summon_component
+	/// Reference to the summonable component
+	var/datum/component/summonable/summon_component
 
 // Lists the word in sec records.
 /datum/power/aberrant/summonable/get_security_record_text()
 	var/resolved_keyword = summon_component?.keyword
+	var/resolved_language_name = summon_component?.language_name
 	if(!resolved_keyword)
 		var/datum/preference/text/summonable_keyword/preference_entry = GLOB.preference_entries[/datum/preference/text/summonable_keyword]
 		resolved_keyword = preference_entry?.create_default_value() || "Beetlejuice"
-	return "Subject is summonable via keyword \"[resolved_keyword]\"."
+	if(!resolved_language_name)
+		var/datum/preference/choiced/summonable_language/language_preference = GLOB.preference_entries[/datum/preference/choiced/summonable_language]
+		resolved_language_name = language_preference?.create_default_value() || SUMMONABLE_LANGUAGE_ANY
+	if(resolved_language_name == SUMMONABLE_LANGUAGE_ANY)
+		return "Subject is summonable via keyword \"[resolved_keyword]\"."
+	return "Subject is summonable via keyword \"[resolved_keyword]\" when spoken in [resolved_language_name]."
 
 // Gets and sets keywords
 /datum/power/aberrant/summonable/add(client/client_source)
@@ -28,9 +36,9 @@
 		return ..()
 
 	var/mob/living/holder = power_holder
-	var/datum/component/beetlejuice/summonable/component = holder.GetComponent(/datum/component/beetlejuice/summonable)
+	var/datum/component/summonable/component = holder.GetComponent(/datum/component/summonable)
 	if(!component)
-		component = holder.AddComponent(/datum/component/beetlejuice/summonable)
+		component = holder.AddComponent(/datum/component/summonable)
 
 	summon_component = component
 
@@ -38,6 +46,11 @@
 	if(!component.keyword)
 		var/datum/preference/text/summonable_keyword/preference_entry = GLOB.preference_entries[/datum/preference/text/summonable_keyword]
 		component.keyword = preference_entry?.create_default_value() || "Beetlejuice"
+
+	component.language_name = client_source?.prefs?.read_preference(/datum/preference/choiced/summonable_language)
+	if(!component.language_name)
+		var/datum/preference/choiced/summonable_language/language_preference = GLOB.preference_entries[/datum/preference/choiced/summonable_language]
+		component.language_name = language_preference?.create_default_value() || SUMMONABLE_LANGUAGE_ANY
 
 	component.rune_color = client_source?.prefs?.read_preference(/datum/preference/color/summonable_rune_color) || component.rune_color
 	component.update_regex()
@@ -49,10 +62,20 @@
 	if(summon_component)
 		QDEL_NULL(summon_component)
 
-// Custom beetlejuice component for Summonable.
-/datum/component/beetlejuice/summonable
-	min_count = 1
-	cooldown = 60 SECONDS // for the love of god don't make this shorter than 10 seconds you will break things.
+// Standalone summonable component.
+/datum/component/summonable
+	/// Keyword used to trigger the summon.
+	var/keyword
+	/// Delay between summons.
+	var/cooldown = 60 SECONDS // for the love of god don't make this shorter than 10 seconds you will break things.
+	/// Whether the summon can currently trigger.
+	var/active = TRUE
+	/// Whether the keyword match is case sensitive.
+	var/case_sensitive = FALSE
+	/// Spoken language name required to trigger the summon, or "Any" for no restriction.
+	var/language_name = SUMMONABLE_LANGUAGE_ANY
+	/// Compiled regex for matching the keyword in speech.
+	var/regex/keyword_regex
 	/// Delay after your name being mentioned before the summoning begins
 	var/summon_delay = 1 SECONDS
 	/// How long it takes for you to fully float up
@@ -81,8 +104,84 @@
 	/// List of currnet active runes orbiting the mob.
 	var/list/obj/effect/summonable_rune_orbiter/current_runes
 
-// Custom apport because frankly put its cooler this way.
-/datum/component/beetlejuice/summonable/apport(atom/target)
+/*
+	The beetlejuice component cannot satisfy our wants no more.
+	Because we want language integration, we need to move off of COMSIG_MOB_SAY_SPECIAL and onto COMSIG_MOB_SAY. Paired with how we are full of redundancy in the beetlejuice component, we have now moved summonable to its own standalone component.
+*/
+/// Sets up summon tracking and registers speech listeners for all living mobs.
+/datum/component/summonable/Initialize()
+	if(!ismovable(parent))
+		return COMPONENT_INCOMPATIBLE
+
+	var/atom/movable/owner = parent
+	keyword = owner.name
+	if(ismob(owner))
+		var/mob/owner_mob = owner
+		keyword = owner_mob.real_name
+	update_regex()
+
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_CREATED, PROC_REF(register_speaker))
+	for(var/mob/living/living_mob as anything in GLOB.mob_living_list)
+		register_speaker(null, living_mob)
+
+/// Cleans up global and per-mob speech listeners.
+/datum/component/summonable/Destroy(force)
+	UnregisterSignal(SSdcs, COMSIG_GLOB_MOB_CREATED)
+	for(var/mob/living/living_mob as anything in GLOB.mob_living_list)
+		UnregisterSignal(living_mob, COMSIG_MOB_SAY)
+	return ..()
+
+/// Hooks newly created living mobs into the summon keyword listener.
+/datum/component/summonable/proc/register_speaker(datum/source, mob/new_mob)
+	SIGNAL_HANDLER
+
+	if(!isliving(new_mob))
+		return
+	RegisterSignal(new_mob, COMSIG_MOB_SAY, PROC_REF(say_react))
+
+/// Rebuilds the keyword regex after config changes.
+/datum/component/summonable/proc/update_regex()
+	keyword_regex = regex("[REGEX_QUOTE(keyword)]", "g[case_sensitive ? "" : "i"]")
+
+/// Keeps the regex synchronized with VV edits to keyword-related vars.
+/datum/component/summonable/vv_edit_var(var_name, var_value)
+	. = ..()
+	if(var_name == NAMEOF(src, keyword) || var_name == NAMEOF(src, case_sensitive))
+		update_regex()
+
+/// Watches spoken messages for the summon keyword and starts the summon once the threshold is met.
+/datum/component/summonable/proc/say_react(mob/speaker, list/say_args)
+	SIGNAL_HANDLER
+
+	if(!speaker || speaker == parent || !active)
+		return
+
+	var/message = say_args[SPEECH_MESSAGE]
+	if(!message)
+		return
+	if(!language_matches_speech(say_args[SPEECH_LANGUAGE]))
+		return
+
+	var/found = keyword_regex.Find(message)
+	if(!found)
+		return
+	keyword_regex.next = 1
+	apport(speaker)
+
+/// Returns TRUE when the spoken language satisfies the summon restriction.
+/datum/component/summonable/proc/language_matches_speech(spoken_language)
+	if(language_name == SUMMONABLE_LANGUAGE_ANY)
+		return TRUE
+	if(!spoken_language)
+		return FALSE
+
+	var/datum/language/required_language = GLOB.language_types_by_name[language_name]
+	if(!required_language)
+		return FALSE
+	return (spoken_language == required_language || ispath(spoken_language, required_language))
+
+/// Proc that validates and then starts the summoning sequence.
+/datum/component/summonable/proc/apport(atom/target)
 	var/atom/movable/summoned = parent
 	if(ismob(summoned))
 		var/mob/living/living_summoned = summoned
@@ -104,7 +203,7 @@
 	addtimer(CALLBACK(src, PROC_REF(begin_summon), summoned, target_turf), summon_delay)
 
 /// Gets a valid nearby turf within the mob's area.
-/datum/component/beetlejuice/summonable/proc/get_adjacent_open_turf(atom/target)
+/datum/component/summonable/proc/get_adjacent_open_turf(atom/target)
 	var/turf/center = get_turf(target)
 	if(!center)
 		return null
@@ -122,7 +221,7 @@
 	return pick(candidates)
 
 /// Keeps Summonable off forbidden z-levels.
-/datum/component/beetlejuice/summonable/proc/can_summon_to_turf(turf/target_turf)
+/datum/component/summonable/proc/can_summon_to_turf(turf/target_turf)
 	if(!target_turf)
 		return FALSE
 	if(is_centcom_level(target_turf.z)) // no more sneaking into centcomm because a medibot said "an apple a day keeps me away"
@@ -130,7 +229,7 @@
 	return TRUE
 
 /// Prevents summoning to locations the summoned can already see.
-/datum/component/beetlejuice/summonable/proc/destination_is_visible_to_summoned(atom/movable/summoned, turf/target_turf)
+/datum/component/summonable/proc/destination_is_visible_to_summoned(atom/movable/summoned, turf/target_turf)
 	if(!ismob(summoned) || !target_turf)
 		return FALSE
 
@@ -138,7 +237,7 @@
 	return (target_turf in view(summoned_mob))
 
 /// Starts the timers and starts manifesting effects.
-/datum/component/beetlejuice/summonable/proc/begin_summon(atom/movable/summoned, turf/target_turf)
+/datum/component/summonable/proc/begin_summon(atom/movable/summoned, turf/target_turf)
 	if(QDELETED(summoned) || QDELETED(target_turf))
 		return
 	if(!can_summon_to_turf(target_turf))
@@ -176,14 +275,24 @@
 	addtimer(CALLBACK(src, PROC_REF(spawn_rune_sequence), summoned, target_turf, runes, 1, old_alpha, old_pixel_y), 0)
 
 /// Returns TRUE if the living mob has active magboots equipped.
-/datum/component/beetlejuice/summonable/proc/has_active_magboots(mob/living/living_summoned)
+/datum/component/summonable/proc/has_active_magboots(mob/living/living_summoned)
 	var/obj/item/clothing/shoes/magboots/equipped_magboots = living_summoned.get_item_by_slot(ITEM_SLOT_FEET)
-	if(!istype(equipped_magboots))
+	// worn magboots
+	if(istype(equipped_magboots) && equipped_magboots.magpulse)
+		return TRUE
+
+	// magboots for mod modules support
+	var/obj/item/mod/control/worn_modsuit = living_summoned.get_item_by_slot(ITEM_SLOT_OCLOTHING)
+	if(!istype(worn_modsuit))
 		return FALSE
-	return equipped_magboots.magpulse
+	for(var/obj/item/mod/module/magboot/magboot_module as anything in worn_modsuit.modules)
+		if(magboot_module.active)
+			return TRUE
+
+	return FALSE
 
 /// Active magboots let you resist the summons. It being handed over to this proc means it has already failed and we're just being dramatic now.
-/datum/component/beetlejuice/summonable/proc/handle_magboot_lock(mob/living/living_summoned)
+/datum/component/summonable/proc/handle_magboot_lock(mob/living/living_summoned)
 	var/turf/origin_turf = get_turf(living_summoned)
 	if(!origin_turf)
 		return
@@ -200,7 +309,7 @@
 	addtimer(CALLBACK(src, PROC_REF(finish_magboot_lock), living_summoned, origin_spotlight), magboot_lock_time)
 
 /// Clears the magboot fake-out without ever moving the summoned target.
-/datum/component/beetlejuice/summonable/proc/finish_magboot_lock(mob/living/living_summoned, obj/effect/temp_visual/spotlight/summonable/origin_spotlight)
+/datum/component/summonable/proc/finish_magboot_lock(mob/living/living_summoned, obj/effect/temp_visual/spotlight/summonable/origin_spotlight)
 	if(!QDELETED(living_summoned))
 		REMOVE_TRAIT(living_summoned, TRAIT_IMMOBILIZED, "summonable_apport")
 	if(QDELETED(origin_spotlight))
@@ -209,11 +318,11 @@
 	addtimer(CALLBACK(src, PROC_REF(clear_origin_spotlight), origin_spotlight), magboot_fade_time)
 
 /// Removes the spotlight
-/datum/component/beetlejuice/summonable/proc/clear_origin_spotlight(obj/effect/temp_visual/spotlight/summonable/origin_spotlight)
+/datum/component/summonable/proc/clear_origin_spotlight(obj/effect/temp_visual/spotlight/summonable/origin_spotlight)
 	QDEL_NULL(origin_spotlight)
 
 /// Creates the cool floaty runes
-/datum/component/beetlejuice/summonable/proc/spawn_rune_sequence(atom/movable/summoned, turf/target_turf, list/obj/effect/summonable_rune_orbiter/runes, rune_index, old_alpha, old_pixel_y)
+/datum/component/summonable/proc/spawn_rune_sequence(atom/movable/summoned, turf/target_turf, list/obj/effect/summonable_rune_orbiter/runes, rune_index, old_alpha, old_pixel_y)
 	if(!summoning)
 		QDEL_LIST(runes)
 		return
@@ -231,7 +340,7 @@
 	addtimer(CALLBACK(src, PROC_REF(spawn_rune_sequence), summoned, target_turf, runes, rune_index + 1, old_alpha, old_pixel_y), rune_spawn_interval)
 
 /// BEGINS THE RAPTURE
-/datum/component/beetlejuice/summonable/proc/begin_arrival(atom/movable/summoned, turf/target_turf, list/obj/effect/summonable_rune_orbiter/runes, old_alpha, old_pixel_y)
+/datum/component/summonable/proc/begin_arrival(atom/movable/summoned, turf/target_turf, list/obj/effect/summonable_rune_orbiter/runes, old_alpha, old_pixel_y)
 	if(!summoning)
 		QDEL_LIST(runes)
 		return
@@ -259,17 +368,17 @@
 	addtimer(CALLBACK(src, PROC_REF(finish_summon), summoned, target_turf, old_alpha, old_pixel_y, spotlight), float_time)
 
 /// Fade and clear the runes.
-/datum/component/beetlejuice/summonable/proc/fade_and_clear_runes(list/obj/effect/summonable_rune_orbiter/runes)
+/datum/component/summonable/proc/fade_and_clear_runes(list/obj/effect/summonable_rune_orbiter/runes)
 	for(var/obj/effect/summonable_rune_orbiter/rune in runes)
 		animate(rune, alpha = 0, time = rune_fade_time)
 	addtimer(CALLBACK(src, PROC_REF(clear_runes), runes), rune_fade_time)
 
 /// Removes all active runes.
-/datum/component/beetlejuice/summonable/proc/clear_runes(list/obj/effect/summonable_rune_orbiter/runes)
+/datum/component/summonable/proc/clear_runes(list/obj/effect/summonable_rune_orbiter/runes)
 	QDEL_LIST(runes)
 
 /// Alright, shows over, he's here now. Time to pack up and go.
-/datum/component/beetlejuice/summonable/proc/finish_summon(atom/movable/summoned, turf/target_turf, old_alpha, old_pixel_y, obj/effect/temp_visual/spotlight/summonable/spotlight)
+/datum/component/summonable/proc/finish_summon(atom/movable/summoned, turf/target_turf, old_alpha, old_pixel_y, obj/effect/temp_visual/spotlight/summonable/spotlight)
 	if(QDELETED(summoned))
 		QDEL_NULL(spotlight)
 		return
@@ -297,7 +406,7 @@
 	addtimer(VARSET_CALLBACK(src, active, TRUE), cooldown)
 
 /// Ends summon at certain stages.
-/datum/component/beetlejuice/summonable/proc/on_dispel(atom/movable/target, atom/dispeller)
+/datum/component/summonable/proc/on_dispel(atom/movable/target, atom/dispeller)
 	SIGNAL_HANDLER
 	// Only cancel if they're currently being beamed up.
 	if(!beaming_up || !summoning)
@@ -317,7 +426,7 @@
 	return DISPEL_RESULT_DISPELLED
 
 /// Ends the summoning right there and now.
-/datum/component/beetlejuice/summonable/proc/cancel_summon(atom/movable/summoned)
+/datum/component/summonable/proc/cancel_summon(atom/movable/summoned)
 	if(summoned)
 		summoned.alpha = initial(summoned.alpha)
 		summoned.pixel_y = initial(summoned.pixel_y)
@@ -379,9 +488,56 @@
 /datum/preference/color/summonable_rune_color/apply_to_human(mob/living/carbon/human/target, value)
 	return
 
+/// Preference options for which language can trigger your summon.
+/datum/preference/choiced/summonable_language
+	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
+	savefile_key = "summonable_language"
+	savefile_identifier = PREFERENCE_CHARACTER
+	should_generate_icons = TRUE
+
+/datum/preference/choiced/summonable_language/create_default_value()
+	return SUMMONABLE_LANGUAGE_ANY
+
+/// Gets an icon for the chosen summonable language.
+/datum/preference/choiced/summonable_language/icon_for(value)
+	if(value == SUMMONABLE_LANGUAGE_ANY)
+		var/datum/universal_icon/any_icon = uni_icon('icons/ui/chat/language.dmi', "unknown")
+		any_icon.scale(32, 32)
+		return any_icon
+
+	var/datum/language/language_type = GLOB.language_types_by_name[value]
+	if(language_type)
+		var/datum/universal_icon/language_icon = uni_icon(language_type.icon, language_type.icon_state)
+		language_icon.scale(32, 32)
+		return language_icon
+
+	var/datum/universal_icon/unknown_icon = uni_icon('icons/ui/chat/language.dmi', "unknown")
+	unknown_icon.scale(32, 32)
+	return unknown_icon
+
+/// Uses the same language pool as the bilingual preference, plus an unrestricted option.
+/datum/preference/choiced/summonable_language/init_possible_values()
+	var/list/values = list()
+
+	if(!GLOB.uncommon_roundstart_languages.len)
+		generate_selectable_species_and_languages()
+
+	values += SUMMONABLE_LANGUAGE_ANY
+	values += /datum/language/uncommon::name
+
+	for(var/datum/language/language_type as anything in GLOB.uncommon_roundstart_languages)
+		if(initial(language_type.name) in values)
+			continue
+		values += initial(language_type.name)
+
+	return values
+
+/datum/preference/choiced/summonable_language/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
 /datum/power_constant_data/summonable
 	associated_typepath = /datum/power/aberrant/summonable
-	customization_options = list(/datum/preference/text/summonable_keyword, /datum/preference/color/summonable_rune_color)
+	customization_options = list(/datum/preference/text/summonable_keyword, /datum/preference/color/summonable_rune_color, /datum/preference/choiced/summonable_language)
 
 // Orbiting rune for Summonable arrival.
 /obj/effect/summonable_rune_orbiter
@@ -413,3 +569,5 @@
 /obj/effect/temp_visual/spotlight/summonable/Initialize(mapload, spotlight_color = COLOR_RED)
 	color = spotlight_color
 	return ..()
+
+#undef SUMMONABLE_LANGUAGE_ANY
