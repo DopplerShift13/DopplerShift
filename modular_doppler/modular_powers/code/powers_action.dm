@@ -343,6 +343,7 @@ Projectile action code down below
 	if(istype(projectile_instance, /obj/projectile/resonant))
 		var/obj/projectile/resonant/resonant_proj = projectile_instance
 		resonant_proj.creating_power = src
+		resonant_proj.snapshot_power_state(src)
 		resonant_proj.antimagic_flags = magic_resistance_types
 
 	// If you want “on hit” logic for your power, hook it here.
