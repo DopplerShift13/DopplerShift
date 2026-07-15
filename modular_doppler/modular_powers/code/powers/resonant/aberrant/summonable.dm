@@ -535,17 +535,30 @@
 /// Uses the same language pool as the bilingual preference, plus an unrestricted option.
 /datum/preference/choiced/summonable_language/init_possible_values()
 	var/list/values = list()
+	var/datum/species/species = GLOB.species_prototypes[/datum/species/human] // we can't read species choice in choiced components since they're generic, so we default to human
+	var/datum/language_holder/lang_holder = null
 
 	if(!GLOB.uncommon_roundstart_languages.len)
 		generate_selectable_species_and_languages()
 
-	values += SUMMONABLE_LANGUAGE_ANY
-	values += /datum/language/uncommon::name
+	if(species)
+		lang_holder = new species.species_language_holder()
 
+	values += SUMMONABLE_LANGUAGE_ANY
+
+	// Iterates all languages, curbing any secret languages.
 	for(var/datum/language/language_type as anything in GLOB.uncommon_roundstart_languages)
+		var/datum/language/language = GLOB.language_datum_instances[language_type]
+		if(language?.secret)
+			continue
+		if(species?.always_customizable && lang_holder && !(language.type in lang_holder.spoken_languages))
+			continue
 		if(initial(language_type.name) in values)
 			continue
 		values += initial(language_type.name)
+
+	if(lang_holder)
+		qdel(lang_holder)
 
 	return values
 
