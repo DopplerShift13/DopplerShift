@@ -6,7 +6,7 @@
 */
 /datum/power/thaumaturge_root/hemomancy
 	name = "Hemomancy"
-	desc = "You cast spells by channeling your blood. All your spells drain your blood when wielding them, usually 4 * the power's allocation cost. \
+	desc = "You cast spells by channeling your blood. All your spells drain your blood when wielding them, usually 4 * the power's allocation cost, instead of using spell charges. \
 	Blood exceeding 110% of your natural blood threshold is consumed at higher rates to boost the affinity of your spells, empowering them to higher levels of Affinity, up to a maximum of 6. This does not trigger on spells that have a chance to refund charges based on affinity. \
 	\nYou cannot gain Affinity from items, you do not benefit from random chance to refund charges on spells, and all your spells are now affected by holy resistance.\
 	\nYou also gain the Channel Blood action. Using it allows you to transfer blood from various sources back to you (and converts the blood-type to yours), and grants Affinity 3 (4 if you're a Hemophage) while the channel is active. Requires an empty hand."
