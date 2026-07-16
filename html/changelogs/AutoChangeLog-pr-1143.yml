@@ -1,0 +1,4 @@
+author: "firebudgy"
+delete-after: True
+changes:
+  - rscadd: "Apate-class ELINT vessel for salvage."
