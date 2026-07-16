@@ -46,3 +46,8 @@
 2026-07-11:
   FoundInJune:
   - spellcheck: fixed a few typos, etc
+2026-07-16:
+  NewyearnewmeUwu:
+  - bugfix: Mad Dog disarm no longer deletes items
+  - bugfix: Bitrunners using a personalized avatar alongside the Black Market Smuggler
+      quirk no longer spam sec records.
