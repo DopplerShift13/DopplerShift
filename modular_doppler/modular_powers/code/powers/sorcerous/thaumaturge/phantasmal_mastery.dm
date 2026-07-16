@@ -10,6 +10,7 @@
 	var/datum/action/cooldown/power/thaumaturge/phantasmal_tool/tool_action = tool_power?.action_path
 	if(tool_action)
 		tool_action.max_charges = 0
+		tool_action.power_refunds = FALSE
 
 /datum/power/thaumaturge/phantasmal_mastery/remove()
 	. = ..()
