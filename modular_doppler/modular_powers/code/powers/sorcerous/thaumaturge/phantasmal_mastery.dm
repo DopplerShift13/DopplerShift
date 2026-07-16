@@ -1,6 +1,6 @@
 /datum/power/thaumaturge/phantasmal_mastery
 	name = "Phantasmal Tool Mastery"
-	desc = "Your experience with the Phantasmal Tool spell allows it to be cast without needing charges, though it now requires Affinity in order 3 to cast."
+	desc = "Your experience with the Phantasmal Tool spell allows it to be cast without needing charges, though it now requires Affinity in order 3 to be cast."
 	value = 3
 	required_powers = list(/datum/power/thaumaturge/phantasmal_tool)
 
