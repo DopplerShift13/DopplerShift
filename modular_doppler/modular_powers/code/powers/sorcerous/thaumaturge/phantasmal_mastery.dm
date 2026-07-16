@@ -1,7 +1,7 @@
 /datum/power/thaumaturge/phantasmal_mastery
-	name = "Phantasmal Mastery"
-	desc = "Your experience with the Phantasmal Tool spell allows you to make use of it as a cantrip."
-	value = 2
+	name = "Phantasmal Tool TMastery"
+	desc = "Your experience with the Phantasmal Tool spell allows its use without needing charges, though it now requires more Affinity to cast."
+	value = 3
 	required_powers = list(/datum/power/thaumaturge/phantasmal_tool)
 
 /datum/power/thaumaturge/phantasmal_mastery/post_add()
@@ -11,6 +11,7 @@
 	if(tool_action)
 		tool_action.max_charges = 0
 		tool_action.power_refunds = FALSE
+		tool_action.required_affinity = 3
 
 /datum/power/thaumaturge/phantasmal_mastery/remove()
 	. = ..()
@@ -18,3 +19,5 @@
 	var/datum/action/cooldown/power/thaumaturge/phantasmal_tool/tool_action = tool_power?.action_path
 	if(tool_action)
 		tool_action.max_charges = THAUMATURGE_MAX_CHARGES_BASE
+		tool_action.power_refunds = TRUE
+		tool_action.required_affinity = 1
