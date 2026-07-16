@@ -10,7 +10,9 @@
 	/// Tracks each power's original security-record visibility so we can restore it on remove.
 	var/list/original_visibility = list()
 
-/datum/power/irregular/hidden_powers/add(client/client_source)
+// Needs to be post_add to ensure its applied to EVERYTHING
+/datum/power/irregular/hidden_powers/post_add(client/client_source)
+	..()
 	apply_hidden_visibility()
 
 /datum/power/irregular/hidden_powers/remove()
