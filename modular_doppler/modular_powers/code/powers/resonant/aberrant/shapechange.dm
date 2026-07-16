@@ -90,6 +90,7 @@
 
 // Special checks because changing mobs like this is apparently quite janky.
 /datum/action/cooldown/power/aberrant/shapechange/can_use(mob/living/user, atom/target)
+	bypass_cost = !ishuman(user)
 	. = ..()
 	if(!.)
 		return FALSE

@@ -5,12 +5,16 @@
 
 	/// How much hunger cost the ability use has
 	var/cost
+	/// Whether this action should skip the hunger validation gate.
+	var/bypass_cost = FALSE
 
 // Block use while starving.
 /datum/action/cooldown/power/aberrant/can_use(mob/living/user, atom/target)
 	. = ..()
 	if(!.)
 		return FALSE
+	if(bypass_cost)
+		return TRUE
 	if(!can_pay_hunger_cost(user, cost))
 		owner.balloon_alert(user, "too hungry!")
 		return FALSE
