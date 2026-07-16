@@ -1,0 +1,19 @@
+/datum/power/thaumaturge/phantasmal_mastery
+	name = "Phantasmal Mastery"
+	desc = "Your experience with the Phantasmal Tool spell allows you to make use of it as a cantrip."
+	value = 2
+	required_powers = list(/datum/power/thaumaturge/phantasmal_tool)
+
+/datum/power/psyker_power/telepathy_area/post_add()
+	. = ..()
+	var/datum/power/thaumaturge/phantasmal_tool/tool_power = power_holder.get_power(/datum/power/thaumaturge/phantasmal_tool)
+	var/datum/action/cooldown/power/thaumaturge/phantasmal_tool/tool_action = tool_power?.action_path
+	if(tool_action)
+		tool_action.max_charges = 0
+
+/datum/power/psyker_power/telepathy_area/remove()
+	. = ..()
+	var/datum/power/thaumaturge/phantasmal_tool/tool_power = power_holder.get_power(/datum/power/thaumaturge/phantasmal_tool)
+	var/datum/action/cooldown/power/thaumaturge/phantasmal_tool/tool_action = tool_power?.action_path
+	if(tool_action)
+		tool_action.max_charges = THAUMATURGE_MAX_CHARGES_BASE
