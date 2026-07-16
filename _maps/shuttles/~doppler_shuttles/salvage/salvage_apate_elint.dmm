@@ -51,9 +51,6 @@
 "dx" = (
 /turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
 /area/shuttle/salvaged_shuttle)
-"dy" = (
-/turf/template_noop,
-/area/shuttle/salvaged_shuttle)
 "dA" = (
 /obj/structure/shuttle_decoration/eva_catwalks/directional/north,
 /obj/structure/railing/eva_handhold/directional/north,
@@ -73,13 +70,6 @@
 /obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
 /area/shuttle/salvaged_shuttle)
-"eN" = (
-/obj/structure/shuttle_decoration/wall_plate/armor/diagonal,
-/obj/structure/shuttle_decoration/wall_plate/silver_foil{
-	dir = 1
-	},
-/turf/closed/wall/mineral/aluminum,
-/area/shuttle/salvaged_shuttle)
 "fr" = (
 /obj/structure/fluff{
 	icon = 'icons/mob/simple/hivebot.dmi';
@@ -96,7 +86,7 @@
 /area/shuttle/salvaged_shuttle)
 "fS" = (
 /obj/structure/shuttle_decoration/radiator/directional/north,
-/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/obj/structure/shuttle_decoration/wall_plate/silver_foil,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
 /area/shuttle/salvaged_shuttle)
 "gh" = (
@@ -116,7 +106,7 @@
 	dir = 1
 	},
 /obj/structure/shuttle_decoration/wall_plate/silver_foil,
-/turf/closed/wall/mineral/nanocarbon/black,
+/turf/closed/wall/mineral/aluminum,
 /area/shuttle/salvaged_shuttle)
 "hd" = (
 /obj/effect/spawner/random/salvage/every_small_tank,
@@ -148,7 +138,7 @@
 /area/shuttle/salvaged_shuttle)
 "iv" = (
 /obj/structure/shuttle_decoration/radiator/directional/north,
-/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/obj/structure/shuttle_decoration/wall_plate/silver_foil,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
 /area/shuttle/salvaged_shuttle)
 "iS" = (
@@ -156,7 +146,7 @@
 /turf/closed/wall/mineral/nanocarbon/secondary_colour,
 /area/shuttle/salvaged_shuttle)
 "jD" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
 	dir = 1
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
@@ -166,13 +156,6 @@
 /obj/structure/shuttle_decoration/wall_plate/silver_foil{
 	dir = 1
 	},
-/turf/closed/wall/mineral/nanocarbon/black,
-/area/shuttle/salvaged_shuttle)
-"kR" = (
-/obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 1
-	},
-/obj/structure/shuttle_decoration/wall_plate/silver_foil,
 /turf/closed/wall/mineral/aluminum,
 /area/shuttle/salvaged_shuttle)
 "kS" = (
@@ -239,12 +222,15 @@
 /turf/open/floor/plating/nanocarbon/exterior/black,
 /area/shuttle/salvaged_shuttle)
 "nr" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/obj/structure/shuttle_decoration/wall_plate/silver_foil,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
 /area/shuttle/salvaged_shuttle)
 "nP" = (
 /obj/structure/shuttle_decoration/junction_box/directional/south,
 /turf/closed/wall/mineral/aluminum,
+/area/shuttle/salvaged_shuttle)
+"nQ" = (
+/turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "oq" = (
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/primary_colour{
@@ -282,13 +268,13 @@
 /area/shuttle/salvaged_shuttle)
 "pp" = (
 /obj/structure/shuttle_decoration/radiator/directional/south,
-/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
 	dir = 1
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
 /area/shuttle/salvaged_shuttle)
 "px" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/obj/structure/shuttle_decoration/wall_plate/silver_foil,
 /turf/closed/wall/mineral/aluminum,
 /area/shuttle/salvaged_shuttle)
 "pz" = (
@@ -363,6 +349,13 @@
 	},
 /obj/effect/decal/cleanable/ash,
 /turf/open/floor/iron/colony/texture/nanocarbon,
+/area/shuttle/salvaged_shuttle)
+"uq" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal,
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "uO" = (
 /obj/effect/spawner/random/salvage/interior_trash_n_debris,
@@ -508,7 +501,11 @@
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/salvaged_shuttle)
 "Cg" = (
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/wall_plate/silver_foil,
+/turf/closed/wall/mineral/nanocarbon/black,
 /area/shuttle/salvaged_shuttle)
 "CA" = (
 /obj/structure/chair/comfy/shuttle{
@@ -527,7 +524,7 @@
 /turf/open/floor/iron/colony/nanocarbon,
 /area/shuttle/salvaged_shuttle)
 "Dl" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
 	dir = 4
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
@@ -540,11 +537,7 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
 /area/shuttle/salvaged_shuttle)
 "Dz" = (
-/obj/structure/fluff/paper/stack{
-	dir = 4
-	},
-/obj/effect/decal/cleanable/ash/large,
-/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
 /area/shuttle/salvaged_shuttle)
 "DE" = (
 /obj/structure/fluff/tram_rail/end{
@@ -790,6 +783,13 @@
 /obj/machinery/telecomms/receiver,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/salvaged_shuttle)
+"PU" = (
+/obj/structure/fluff/paper/stack{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/ash/large,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/salvaged_shuttle)
 "PZ" = (
 /obj/structure/shuttle_decoration/wall_plate/plastamic,
 /obj/machinery/exoscanner/shuttle_part/radio_dish/directional/north,
@@ -809,7 +809,7 @@
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/salvaged_shuttle)
 "QV" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
 	dir = 4
 	},
 /turf/closed/wall/mineral/aluminum,
@@ -854,7 +854,7 @@
 /turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "UL" = (
-/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
 	dir = 8
 	},
 /turf/closed/wall/mineral/aluminum,
@@ -873,7 +873,7 @@
 /area/shuttle/salvaged_shuttle)
 "Ve" = (
 /obj/structure/shuttle_decoration/radiator/directional/south,
-/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
 	dir = 1
 	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
@@ -1104,9 +1104,9 @@ Qn
 (7,1,1) = {"
 Qn
 Qn
-kR
+gI
 xz
-eN
+jQ
 XV
 gE
 JA
@@ -1116,9 +1116,9 @@ Mn
 JA
 dp
 XV
-kR
+gI
 xz
-eN
+jQ
 Qn
 Qn
 "}
@@ -1146,9 +1146,9 @@ Nc
 (9,1,1) = {"
 Qn
 Qn
-gI
+Cg
 Fn
-jQ
+uq
 Qn
 wl
 Ah
@@ -1158,9 +1158,9 @@ YF
 Ah
 uP
 Qn
-gI
+Cg
 Fn
-jQ
+uq
 Qn
 Qn
 "}
@@ -1213,7 +1213,7 @@ Qn
 Qn
 Qn
 CP
-Cg
+Dz
 XH
 tY
 Zb
@@ -1279,7 +1279,7 @@ nr
 VB
 mN
 yE
-Dz
+PU
 px
 Hb
 Hb
@@ -1423,13 +1423,13 @@ Qn
 Qn
 Qn
 TT
-Cg
-Cg
+Dz
+Dz
 tY
 Zb
 tY
-Cg
-Cg
+Dz
+Dz
 bh
 Qn
 Qn
@@ -1444,7 +1444,7 @@ Qn
 Qn
 Qn
 Qn
-dy
+nQ
 ED
 Rq
 dx
@@ -1465,7 +1465,7 @@ Qn
 qF
 tR
 xE
-dy
+nQ
 ED
 oK
 cf
@@ -1483,9 +1483,9 @@ Nc
 Qn
 Qn
 Qn
-kR
+gI
 xz
-eN
+jQ
 XV
 Dt
 Kf
@@ -1493,9 +1493,9 @@ dx
 CA
 Xp
 XV
-kR
+gI
 xz
-eN
+jQ
 Qn
 Qn
 Qn
@@ -1525,9 +1525,9 @@ Qn
 Qn
 Qn
 Qn
-gI
+Cg
 Fn
-jQ
+uq
 Qn
 WC
 wE
@@ -1535,9 +1535,9 @@ Xk
 wE
 WC
 JJ
-gI
+Cg
 Fn
-jQ
+uq
 Qn
 Qn
 Qn
