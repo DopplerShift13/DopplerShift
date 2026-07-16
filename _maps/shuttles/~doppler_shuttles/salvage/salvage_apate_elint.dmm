@@ -26,6 +26,7 @@
 /obj/structure/fluff/tram_rail/end{
 	dir = 4
 	},
+/obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "cf" = (
@@ -77,6 +78,7 @@
 	name = "radio dish component";
 	desc = "Remarkable Port Authority technology. This does... something to make the radio dish work."
 	},
+/obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "fO" = (
@@ -542,6 +544,7 @@
 /obj/structure/fluff/tram_rail/end{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "DM" = (
@@ -659,6 +662,7 @@
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "Ka" = (
@@ -758,6 +762,7 @@
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "Of" = (
@@ -962,6 +967,7 @@
 /obj/structure/fluff/tram_rail{
 	dir = 1
 	},
+/obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 "ZW" = (
@@ -971,6 +977,7 @@
 /obj/structure/fluff/tram_rail/end{
 	dir = 2
 	},
+/obj/structure/lattice,
 /turf/template_noop,
 /area/shuttle/salvaged_shuttle)
 
