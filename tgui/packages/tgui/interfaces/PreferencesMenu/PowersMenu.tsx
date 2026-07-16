@@ -25,6 +25,7 @@ type PathCategoryEntry = {
   isActive: boolean;
   isAvailable: boolean;
   name: string;
+  overviewText: string;
   onClick?: () => void;
 };
 
@@ -45,7 +46,8 @@ const iconButtonSize = '72px';
 const iconImageSize = '64px';
 
 function PathIconButton(props: PathCategoryEntry) {
-  const { assetName, color, isActive, isAvailable, name, onClick } = props;
+  const { assetName, color, isActive, isAvailable, name, onClick, overviewText } =
+    props;
   const isClickable = Boolean(isAvailable && onClick);
   const buttonBackground =
     isActive && color
@@ -57,14 +59,23 @@ function PathIconButton(props: PathCategoryEntry) {
   const insetBorderColor = isActive
     ? activeIconInsetBorderColor
     : inactiveIconInsetBorderColor;
+  const unavailableTooltip = `${name} is not available`;
+  const tooltipContent = (
+    <Box style={{ textAlign: 'center' }}>
+      <Box style={{ fontWeight: 700 }}>{name}</Box>
+      <Box style={{ fontStyle: 'italic' }}>
+        {isClickable ? overviewText : unavailableTooltip}
+      </Box>
+    </Box>
+  );
 
   return (
     <Button
       color="transparent"
       disabled={!isClickable}
       onClick={onClick}
-      tooltip={isClickable ? undefined : `${name} is not available`}
-      tooltipPosition={isClickable ? undefined : 'top'}
+      tooltip={tooltipContent}
+      tooltipPosition="top"
       style={{
         alignItems: 'center',
         background: buttonBackground,
@@ -166,6 +177,7 @@ export const PowersPage = (props: PowerPageProps) => {
           isActive: hasAnySelectedPower(mergedPowerPaths[pathId] || []),
           isAvailable: pathConfig.isAvailable,
           name: pathConfig.displayName,
+          overviewText: pathConfig.overviewText,
           onClick: pathConfig.isAvailable
             ? () => props.handleOpenPath(pathId)
             : undefined,
