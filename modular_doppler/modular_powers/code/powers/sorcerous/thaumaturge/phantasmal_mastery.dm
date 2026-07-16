@@ -15,8 +15,8 @@
 		tool_action.enable()
 		var/atom/movable/ui_element = tool_action.get_atom_moveable()
 		if(ui_element && tool_action.charge_overlay)
-    		ui_element.cut_overlay(tool_action.charge_overlay)
-    		tool_action.charge_overlay = null
+			ui_element.cut_overlay(tool_action.charge_overlay)
+			tool_action.charge_overlay = null
 
 /datum/power/thaumaturge/phantasmal_mastery/remove()
 	. = ..()
@@ -26,3 +26,4 @@
 		tool_action.max_charges = THAUMATURGE_MAX_CHARGES_BASE
 		tool_action.power_refunds = TRUE
 		tool_action.required_affinity = 1
+		tool_action.disable()
