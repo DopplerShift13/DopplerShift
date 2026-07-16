@@ -13,6 +13,10 @@
 		tool_action.power_refunds = FALSE
 		tool_action.required_affinity = 3
 		tool_action.enable()
+		var/atom/movable/ui_element = tool_action.get_atom_moveable()
+		if(ui_element && tool_action.charge_overlay)
+    		ui_element.cut_overlay(tool_action.charge_overlay)
+    		tool_action.charge_overlay = null
 
 /datum/power/thaumaturge/phantasmal_mastery/remove()
 	. = ..()
