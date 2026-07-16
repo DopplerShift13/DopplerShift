@@ -305,7 +305,6 @@
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 9
 	},
-/obj/structure/lattice,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/shuttle/salvaged_shuttle)
 "qU" = (
