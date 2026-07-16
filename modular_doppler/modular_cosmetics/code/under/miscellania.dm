@@ -185,13 +185,14 @@
 	strip_delay = 8 SECONDS
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_HOOF, BODYSHAPE_TAUR_PAW)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TAUR_SNAKE, BODYSHAPE_TAUR_HOOF, BODYSHAPE_TAUR_PAW, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi',
 		BODYSHAPE_TAUR_SNAKE_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_snake.dmi',
 		BODYSHAPE_TAUR_HOOF_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_hoof.dmi',
 		BODYSHAPE_TAUR_PAW_T = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_paw.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
 	)
 	can_adjust = FALSE
 	obj_flags = parent_type::obj_flags | INFINITE_RESKIN
