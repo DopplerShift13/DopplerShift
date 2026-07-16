@@ -17,7 +17,7 @@
 	name = "Apate Electronic Intelligence Vessel"
 	suffix = "apate_elint"
 	ship_class = "Apate Electronic Intelligence Vessel"
-	prior_usage = "██████ monitoring."
+	prior_usage = "Routine deep-space signals analysis."
 	ship_hazards = list(
 		SALVAGE_HAZARD_ELECTRICAL,
 		SALVAGE_HAZARD_FUEL,
