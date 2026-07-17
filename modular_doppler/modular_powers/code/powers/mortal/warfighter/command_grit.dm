@@ -3,7 +3,7 @@
 */
 /datum/power/warfighter/command_grit
 	name = "Command: Grit"
-	desc = "Whilst active, the target ignores pain for 15 seconds, as well as slowdown from damage and stamina loss. Increased effect lenghtens duration."
+	desc = "Whilst active, the target ignores pain for 15 seconds, as well as slowdown from damage and stamina loss. Increased effect lengthens duration."
 	security_record_text = "Subject has an unusual charisma and can motivate others to grit through any pain or injury without slowing down."
 	security_threat = POWER_THREAT_MAJOR // you dont want this guy supporting your takedown target
 	value = 5
@@ -13,7 +13,7 @@
 
 /datum/action/cooldown/power/warfighter/command/grit
 	name = "Command: Grit"
-	desc = "Whilst active, the target ignores pain for 15 seconds, as well as slowdown from damage and stamina loss. Increased effect lenghtens duration."
+	desc = "Whilst active, the target ignores pain for 15 seconds, as well as slowdown from damage and stamina loss. Increased effect lengthens duration."
 
 	cooldown_time = 600
 	button_icon = 'icons/hud/guardian.dmi'

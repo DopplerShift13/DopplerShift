@@ -4,7 +4,7 @@
 	desc = "Allows you to cocoon objects and people after a delay. You can destroy cocoons by interacting with them.\
 	\n Targeting a space without a creature bundles all items on that space up in a container; this has the size and storage capacity of about two backpacks, and can only be opened by destroying it.\
 	\n Targeting a prone creature that you have aggressively grabbed bundles them up. The creature is buckled inside the cocoon and can't interact with the world or escape without struggling. \
-	Creature cocoons can be dragged around with less slow down commpared to normal.\
+	Creature cocoons can be dragged around with less slow down compared to normal.\
 	\n Costs hunger to use, and cannot be used while starving."
 	security_record_text = "Subject can produce enough silk to fully cocoon creatures and objects in webs."
 	security_threat = POWER_THREAT_MAJOR
