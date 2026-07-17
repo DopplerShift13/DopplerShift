@@ -898,6 +898,7 @@
 	icon_state = "trails_2";
 	dir = 6
 	},
+/obj/item/gps/spaceruin,
 /turf/open/floor/iron/colony/texture/nanocarbon,
 /area/ruin/space/has_grav)
 "TP" = (
