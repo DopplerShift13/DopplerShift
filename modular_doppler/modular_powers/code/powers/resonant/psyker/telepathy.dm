@@ -22,6 +22,7 @@
 	target_self = FALSE
 	target_range = 12
 	target_type = /mob/living
+	needs_to_stand_on_turf = FALSE // just better for RP
 
 	/// The message we send to the target.
 	var/message
