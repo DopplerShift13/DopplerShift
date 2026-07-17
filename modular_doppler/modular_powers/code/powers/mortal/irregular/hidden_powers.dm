@@ -13,9 +13,12 @@
 // Needs to be post_add to ensure its applied to EVERYTHING
 /datum/power/irregular/hidden_powers/post_add(client/client_source)
 	..()
+	RegisterSignal(power_holder, COMSIG_MOB_POWER_ADDED, PROC_REF(on_power_added))
 	apply_hidden_visibility()
 
 /datum/power/irregular/hidden_powers/remove()
+	if(power_holder)
+		UnregisterSignal(power_holder, COMSIG_MOB_POWER_ADDED)
 	restore_hidden_visibility()
 
 /// Applies the hidden flag to all powers; in essence hiding them all.
@@ -33,6 +36,23 @@
 			power_instance.include_in_security_records = FALSE
 
 	power_holder.refresh_security_power_records()
+
+/// Applies the not-included in records exception to powers that were added AFTER Hidden Powers.
+/datum/power/irregular/hidden_powers/proc/on_power_added(mob/living/source, datum/power/power_instance)
+	SIGNAL_HANDLER
+
+	if(!power_instance || QDELETED(power_instance))
+		return
+
+	if(!(power_instance in original_visibility))
+		original_visibility[power_instance] = power_instance.include_in_security_records
+
+	if(istype(power_instance, /datum/power/irregular/false_power))
+		power_instance.include_in_security_records = TRUE
+	else
+		power_instance.include_in_security_records = FALSE
+
+	source.refresh_security_power_records()
 
 /// Undoes the visibility changes from hidden powers
 /datum/power/irregular/hidden_powers/proc/restore_hidden_visibility()
