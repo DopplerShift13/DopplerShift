@@ -17,8 +17,8 @@
 		blind_message = span_warning("[firer]'s missile tubes pop open and dispense a large missile that quickly turns and burns towards [target]!"))
 
 /datum/wargame_weapon/missile/cruise/weapon_description()
-	return "A long range cruise missile for engaging large targets. Becomes a controllable ship if the target is beyond short range. \
-		Max target range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A long range cruise missile for engaging large targets. Becomes a controllable ship if the target is beyond short range."
 
 /datum/wargame_weapon/missile/cruise/firing_voiceline(datum/wargame_unit_stats/stats)
 	var/list/lines = list(
@@ -37,8 +37,8 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/ramming/cruise/weapon_description()
-	return "Guide the cruise missile into a target. This is a one way trip. \
-		Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "Guide the cruise missile into a target. This is a one way trip."
 
 /datum/wargame_weapon/ramming/cruise/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer] engages its terminal stage boosters as it dives toward [target] in a spiraling loop!"), \
@@ -61,8 +61,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/swarm_launch.ogg', 40, TRUE)
 
 /datum/wargame_weapon/missile/swarm/weapon_description()
-	return "A swarm of small missiles for intercepting other missiles or strike craft. Becomes a controllable ship if the target is beyond short range. \
-		Max target range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A swarm of small missiles for intercepting other missiles or strike craft. Becomes a controllable ship if the target is beyond short range."
 
 /datum/wargame_weapon/missile/swarm/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer] ejects a bouquet of micro-missiles with a puff of gas, which break off into a swarm towards [target]!"), \
@@ -84,8 +84,8 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/ramming/swarm/weapon_description()
-	return "Guide the swarm missiles into a target. This is a one way trip. \
-		Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "Guide the swarm missiles into a target. This is a one way trip."
 
 /datum/wargame_weapon/ramming/swarm/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer] swarm towards [target], burning in high-gee turns to evade defense!"), \
@@ -109,8 +109,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/missile_launch.ogg', 30, TRUE)
 
 /datum/wargame_weapon/missile/torpedo/weapon_description()
-	return "A beefy torpedo for cracking large ships in two. Becomes a controllable ship if the target is beyond short range. \
-		Max target range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A beefy torpedo for cracking large ships in two. Becomes a controllable ship if the target is beyond short range."
 
 /datum/wargame_weapon/missile/torpedo/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer] dispenses a large torpedo, which slowly spins up and gimbals toward [target]!"), \
@@ -133,8 +133,8 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/ramming/torpedo/weapon_description()
-	return "Guide the torpedo into a target. This is a one way trip. \
-		Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "Guide the torpedo into a target. This is a one way trip."
 
 /datum/wargame_weapon/ramming/torpedo/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer] ejects its cruise stage and ignites an oversized terminal booster, speeding towards [target]!"), \

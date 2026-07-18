@@ -71,6 +71,8 @@
 
 /obj/item/wargame_projector/examine(mob/user)
 	. = ..()
+	if(isnull(linked_base_station?.resolve()))
+		. += span_warning("The projector will need to be linked to a base station before it can be used!")
 	var/datum/wargaming_team/our_team = linked_team?.resolve()
 	if(!isnull(our_team))
 		. += span_notice("This projector is linked to the [our_team.team_name] team!")

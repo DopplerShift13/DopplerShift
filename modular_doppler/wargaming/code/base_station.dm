@@ -291,7 +291,7 @@
 		if(length(team_datum.team_players))
 			number_of_valid_teams++
 	if(number_of_valid_teams <= 1) // This counts teams that actually have players in them
-		balloon_alert(user, "too few teams!")
+		balloon_alert(user, "too few filled teams!")
 		return
 	// Check if we actually want to start the game
 	var/certainty = tgui_alert(user, "Are you certain you wish to start the game?", "Game Starter", list(MY_CHILD_WILL, MY_CHILD_WILL_NOT))

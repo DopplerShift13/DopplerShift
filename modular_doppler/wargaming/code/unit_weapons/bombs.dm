@@ -11,7 +11,8 @@
 	maximum_ammo = 4
 
 /datum/wargame_weapon/rockets/weapon_description()
-	return "A barrage of unguided rockets from a fixed rack or large launcher. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A barrage of unguided rockets from a fixed rack or large launcher."
 
 /datum/wargame_weapon/rockets/weapon_firing_sound(obj/firer)
 	playsound(firer, 'modular_doppler/wargaming/sound/swarm_launch.ogg', 40, TRUE)
@@ -40,7 +41,8 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/bombs/weapon_description()
-	return "A group of unpowered explosive bombs to crack large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A group of unguided explosive bombs to crack large targets."
 
 /datum/wargame_weapon/bombs/weapon_firing_sound(obj/firer)
 	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)

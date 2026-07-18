@@ -61,6 +61,23 @@
 			weaponry_text += "[span_boldnotice("[weapon.weapon_name]")] - [weapon.weapon_description()][!isnull(weapon.maximum_ammo) ? " [weapon.maximum_ammo] shots left" : ""]<br>"
 		. += fieldset_block(span_bold("Weaponry"), weaponry_text, "boxed_message")
 
+/obj/structure/wargame_hologram/examine_more(mob/user)
+	. = ..()
+	var/examine_more_text = ""
+	examine_more_text += "<b>Destruction</b> - Units with more conditions than their maximum conditions value will be \
+		destroyed during the effects phase if these conditions are not repaired.<br>"
+	examine_more_text += span_notice("This unit can sustain a maximum of <b>[unit_stats.conditions_limit]</b> conditions at once.<br>")
+	examine_more_text += "<b>Repair</b> - Units with conditions will repair them by one turn during the effects phase. \
+		Repairs take place before a ship is checked for destruction, meaning a ship that is over its conditions limit \
+		but has a condition that will get repaired during that effects phase may not be destroyed.<br>"
+	examine_more_text += "<b>Armor & Evasion</b> - Units have two values that determine if they will be hit by any given attack. \
+		These values are armor class and evasion modifier. Armor class is a simple value that an attack must roll higher than in \
+		order to hit. Certain weapons are weak against armor, and if the attack roll minus this weakness is lower than the unit's \
+		armor class, then the attack will fail as well. Evasion provides a bonus to a unit's armor class against attacks that can \
+		be evaded. Most attacks can be evaded with exception of beam weapon type attacks.<br>"
+	examine_more_text += span_notice("This unit's armor class is <b>[unit_stats.armor_class]</b>, and it has an evasion modifier of <b>[unit_stats.evasion_modifier]</b>")
+	. += fieldset_block(span_bold("Mechanics"), examine_more_text, "boxed_message")
+
 /obj/structure/wargame_hologram/Destroy()
 	if(projector)
 		LAZYREMOVE(projector.projections, src)

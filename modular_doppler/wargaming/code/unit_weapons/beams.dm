@@ -12,7 +12,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/beam.ogg', 40, TRUE)
 
 /datum/wargame_weapon/anti_ship_beam/weapon_description()
-	return "A high-energy beam for coring large ships with. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A high-energy beam for coring large ships with."
 
 /datum/wargame_weapon/anti_ship_beam/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer]'s spinal beam lens glows before piercing the sky towards [target] with a blinding flash of light!"), \
@@ -39,7 +40,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/beam.ogg', 40, TRUE)
 
 /datum/wargame_weapon/pd_beam/weapon_description()
-	return "Highly focused beams with exceptional hit chance but low damage. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "Highly focused beams with exceptional hit chance but low damage."
 
 /datum/wargame_weapon/pd_beam/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("Gimbaled lenses all along [firer] turn towards [target] and light up the night with a dazzling laser light show!"), \

@@ -12,7 +12,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
 
 /datum/wargame_weapon/mass_driver/weapon_description()
-	return "A large mass driver for launching hardened cores at large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A large mass driver for launching hardened cores at large targets."
 
 /datum/wargame_weapon/mass_driver/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer]'s mass driver ripples the space around it as it charges, piercing a streak across the sky as it fires at [target]!"), \
@@ -42,7 +43,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
 
 /datum/wargame_weapon/large_cannon/weapon_description()
-	return "A large calibre 7 in. cannon for launching shells at large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A large calibre 7 in. cannon for launching shells at large targets."
 
 /datum/wargame_weapon/large_cannon/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer]'s 7\" guns fire at [target], sending a jet of burning plasma out the back of each cannon!"), \
@@ -70,7 +72,8 @@
 	playsound(firer, 'modular_doppler/wargaming/sound/cannon.ogg', 40, TRUE)
 
 /datum/wargame_weapon/medium_cannon/weapon_description()
-	return "A medium calibre 2.5 in. cannon fore launching shells at large targets. Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "A medium calibre 2.5 in. cannon fore launching shells at large targets."
 
 /datum/wargame_weapon/medium_cannon/weapon_firing_message(obj/firer, obj/target)
 	firer.visible_message(span_warning("[firer]'s 2.5\" guns turn to bear on [target], rattling the vessel as they unleash a volley of shells!"), \

@@ -6,8 +6,8 @@
 	action_point_cost = 1
 
 /datum/wargame_weapon/ramming/strike/weapon_description()
-	return "Order the wing to fly into the target in a suicide attack. This is a one-way trip if successful. \
-		Max range of [attack_range] tiles. [action_point_cost] AP to fire."
+	. = ..()
+	return . + "Order the wing to fly into the target in a suicide attack. This is a one-way trip if successful."
 
 
 /datum/wargame_weapon/ramming/strike/firing_voiceline(datum/wargame_unit_stats/stats)
