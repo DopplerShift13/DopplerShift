@@ -51,3 +51,9 @@
   - bugfix: Mad Dog disarm no longer deletes items
   - bugfix: Bitrunners using a personalized avatar alongside the Black Market Smuggler
       quirk no longer spam sec records.
+2026-07-17:
+  PowerfulAtom111:
+  - rscadd: Added new lipstick marking. doesnt have to be lipstick if you dont want
+      it to be
+  firebudgy:
+  - rscadd: Apate-class ELINT vessel for salvage.
