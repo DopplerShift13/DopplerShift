@@ -48,9 +48,7 @@
 /area/ruin/space/has_grav)
 "aT" = (
 /obj/structure/mineral_door/manual_colony_door/shuttle/interior,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "gibbl2"
-	},
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/colony/white/texture/nanocarbon,
 /area/ruin/space/has_grav)
 "cq" = (
@@ -97,21 +95,8 @@
 /obj/effect/turf_decal/trimline/blue/filled/warning{
 	dir = 1
 	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "trails_2"
-	},
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/colony/texture/nanocarbon,
-/area/ruin/space/has_grav)
-"eX" = (
-/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
-/obj/structure/railing/eva_handhold/directional/north,
-/obj/structure/shuttle_decoration/headlight/directional/north,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "splatter1"
-	},
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
-	color = "#7C292A"
-	},
 /area/ruin/space/has_grav)
 "fe" = (
 /obj/structure/shuttle_decoration/landing_engine/directional/north,
@@ -149,9 +134,6 @@
 "hD" = (
 /obj/structure/closet/syndicate,
 /obj/effect/spawner/random/salvage/interior_trash_n_debris,
-/obj/item/ammo_box/magazine/marcielle,
-/obj/item/ammo_box/magazine/marcielle,
-/obj/item/ammo_box/magazine/marcielle,
 /obj/item/ammo_box/magazine/marcielle,
 /obj/item/ammo_box/magazine/marcielle,
 /obj/item/storage/backpack/duffelbag/syndie,
@@ -335,9 +317,6 @@
 /obj/structure/shuttle_decoration/eva_catwalks/directional/north,
 /obj/structure/railing/eva_handhold/directional/north,
 /obj/structure/shuttle_decoration/headlight/directional/north,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "splatter4"
-	},
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
 	color = "#7C292A"
 	},
@@ -357,7 +336,7 @@
 /turf/open/floor/plating/nanocarbon/exterior/black,
 /area/ruin/space/has_grav)
 "to" = (
-/obj/machinery/suit_storage_unit/syndicate,
+/obj/machinery/suit_storage_unit/open,
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav)
 "tG" = (
@@ -406,10 +385,7 @@
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav)
 "yl" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "trails_2";
-	dir = 4
-	},
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/colony/texture/nanocarbon,
 /area/ruin/space/has_grav)
 "yo" = (
@@ -423,13 +399,8 @@
 /turf/template_noop,
 /area/template_noop)
 "yx" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "gibbl2"
-	},
-/obj/effect/decal/cleanable/blood{
-	icon_state = "trails_2";
-	dir = 10
-	},
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
 /area/ruin/space/has_grav)
 "yF" = (
@@ -498,9 +469,6 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/ruin/space/has_grav)
-"Bk" = (
-/turf/template_noop,
-/area/ruin/space)
 "By" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 1
@@ -510,9 +478,7 @@
 /turf/open/floor/plating/nanocarbon/exterior/black,
 /area/ruin/space/has_grav)
 "Ca" = (
-/obj/effect/decal/cleanable/blood{
-	icon_state = "gib5"
-	},
+/obj/effect/decal/cleanable/blood,
 /turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
 /area/ruin/space/has_grav)
 "Cf" = (
@@ -621,10 +587,6 @@
 	},
 /obj/structure/lattice,
 /turf/template_noop,
-/area/ruin/space/has_grav)
-"Gl" = (
-/obj/machinery/suit_storage_unit/nuke_med,
-/turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav)
 "GJ" = (
 /obj/structure/lattice,
@@ -811,10 +773,6 @@
 /obj/effect/spawner/random/salvage/interior_trash_n_debris,
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav)
-"Ot" = (
-/obj/machinery/suit_storage_unit,
-/turf/open/floor/iron/colony/nanocarbon,
-/area/ruin/space/has_grav)
 "Ow" = (
 /obj/structure/lattice,
 /obj/structure/titanium_structure,
@@ -894,10 +852,7 @@
 	pixel_x = -5
 	},
 /obj/effect/spawner/random/salvage/interior_trash_n_debris,
-/obj/effect/decal/cleanable/blood{
-	icon_state = "trails_2";
-	dir = 6
-	},
+/obj/effect/decal/cleanable/blood,
 /obj/item/gps/spaceruin,
 /turf/open/floor/iron/colony/texture/nanocarbon,
 /area/ruin/space/has_grav)
@@ -1418,11 +1373,11 @@ yu
 Gd
 Dx
 tG
-Gl
+to
 Lf
 Nr
 Lf
-Ot
+to
 WU
 Dx
 FJ
@@ -1524,7 +1479,7 @@ yu
 Yv
 Yv
 yu
-eX
+sg
 Nw
 Wo
 Ho
@@ -1604,7 +1559,7 @@ yu
 yu
 yu
 yu
-Bk
+yu
 an
 Wo
 Sd
