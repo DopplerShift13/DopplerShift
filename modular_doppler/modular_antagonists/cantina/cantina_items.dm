@@ -1,5 +1,29 @@
 
 /*
+ * Cantina-Goers' IDs Only for the Regulars and Bartender, Visitors get cham cards.
+ */
+/datum/id_trim/away/cantina
+	access = list(ACCESS_AWAY_MAINTENANCE, ACCESS_SYNDICATE)
+	assignment = "Cantina Regular Pass"
+	
+/datum/id_trim/away/cantina_bartender
+	access = list(ACCESS_AWAY_MAINTENANCE, ACCESS_AWAY_SEC, ACCESS_SYNDICATE)
+	assignment = "Cantina Bartender"
+	big_pointer = TRUE
+	pointer_color = COLOR_SYNDIE_RED
+
+/obj/item/card/id/advanced/black/cantina
+	name = "Cantina identification card"
+	desc = "A black ID card with its production number filed away."
+	trim = /datum/id_trim/away/cantina
+	wildcard_slots = WILDCARD_LIMIT_SYNDICATE
+
+/obj/item/card/id/advanced/black/cantina/bartender
+	name = "Cantina identification card"
+	desc = "A black ID card with the letters 'C&S' engraved into it."
+	trim = /datum/id_trim/away/cantina_bartender
+
+/*
  * Express-only groceries console for the cantina.
  */
 /obj/machinery/computer/order_console/cook/cantina

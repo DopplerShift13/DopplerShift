@@ -101,6 +101,11 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	if(cell_line && (organ_flags & ORGAN_ORGANIC))
 		AddElement(/datum/element/swabable, cell_line, cell_line_amount = rand(cells_minimum, cells_maximum))
 
+	// DOPPLER ADDITION START - Adds Premium augment support to organs.
+	if(premium && !premium_component)
+		premium_component = AddComponent(/datum/component/premium_augment)
+	// DOPPLER ADDITION END
+
 	START_PROCESSING(SSobj, src)
 
 /obj/item/organ/Destroy()
@@ -196,6 +201,10 @@ INITIALIZE_IMMEDIATE(/obj/item/organ)
 	. = ..()
 
 	. += zones_tip()
+	// DOPPLER ADDITION START - Adds Premium augment support to organs.
+	if(premium_component)
+		. += premium_component.get_refurb_examine_lines(src)
+	// DOPPLER ADDITION END
 
 	if(HAS_MIND_TRAIT(user, TRAIT_ENTRAILS_READER) || isobserver(user))
 		if(HAS_TRAIT(src, TRAIT_CLIENT_STARTING_ORGAN))

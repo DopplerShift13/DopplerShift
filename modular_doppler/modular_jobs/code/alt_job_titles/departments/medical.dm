@@ -44,4 +44,10 @@
 		"Trauma Team Responder",
 	)
 
-
+/datum/job/psychologist
+	alt_titles = list(
+		JOB_PSYCHOLOGIST,
+		"Counsellor",
+		"Psychiatrist",
+		"Therapist",
+	)

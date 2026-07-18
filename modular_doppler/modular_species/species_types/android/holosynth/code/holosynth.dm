@@ -78,11 +78,11 @@
 // Lore Box
 /datum/species/android/holosynth/get_species_lore()
 	return list(\
-		"Somewhere between an android and a hologram, these semi-physical autonomous units are extremely vulnerable to heat and electricity \
-		A niche choice more popular among wealthy customers (silicon and uploaded organics alike) - their lack of robustness makes them somewhat inept for physical activity but they are excellent at scouting or clerical work.",
+		"Somewhere between an android and a hologram, these semi-physical autonomous units are extremely vulnerable to heat and electricity. \
+		A niche choice more popular among wealthy customers (silicon and uploaded organics alike), their lack of robustness makes them somewhat inept for physical activity but they are excellent at scouting or clerical work.",
 
-		 "As of late the design of the required holoprojection equipment has shrunk considerably. \
-		 With an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis."
+		 "As of late the design of the required holoprojection equipment has shrunk considerably, \
+		 with an electromagnetic controller suite, hologram projection aparatus, and a ball point writing implement all fitting into the sleek pen chassis."
 	)
 
 //Character creation Perks
@@ -91,8 +91,8 @@
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_SHIELD_ALT,
-		SPECIES_PERK_NAME = "Android Aptitude",
-		SPECIES_PERK_DESC = "As a synthetic lifeform, Androids are immune to many forms of damage humans are susceptible to. \
+		SPECIES_PERK_NAME = "Holosynth Aptitude",
+		SPECIES_PERK_DESC = "As a synthetic lifeform, Holosynths are immune to many forms of damage humans are susceptible to. \
 			Fire, cold, heat, pressure, radiation, and toxins are all ineffective against them. \
 			They also can't overdose on drugs, don't need to breathe or eat, can't catch on fire, and are immune to being pierced.",
 	))
@@ -100,7 +100,7 @@
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_DNA,
 		SPECIES_PERK_NAME = "Not Human After All",
-		SPECIES_PERK_DESC = "There is no humanity behind the eyes of the Android, and as such, they have no DNA to genetically alter.",
+		SPECIES_PERK_DESC = "There is no humanity behind the eyes of the Holosynth, and as such, they have no DNA to genetically alter.",
 	))
 	return perks
 
@@ -110,31 +110,31 @@
 		SPECIES_PERK_TYPE = SPECIES_NEUTRAL_PERK,
 		SPECIES_PERK_ICON = FA_ICON_SHIELD_HEART,
 		SPECIES_PERK_NAME = "Some Components Optional",
-		SPECIES_PERK_DESC = "Androids have very few internal organs. While they can survive without many of them, \
+		SPECIES_PERK_DESC = "Holosynths have very few internal organs. While they can survive without many of them, \
 			they don't have any benefits from them either.",
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_NEGATIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_ROBOT,
 		SPECIES_PERK_NAME = "Synthetic",
-		SPECIES_PERK_DESC = "Being synthetic, Androids are vulnernable to EMPs.",
+		SPECIES_PERK_DESC = "Being synthetic, Holosynths are vulnernable to EMPs.",
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_MAGNIFYING_GLASS,
 		SPECIES_PERK_NAME = "Translucency",
-		SPECIES_PERK_DESC = "Holosynths can pass through glass, though you'll leave any physical items behind",
+		SPECIES_PERK_DESC = "Holosynths can pass through glass, though they'll leave any physical items behind.",
 	))
 	perks += list(list(
 		SPECIES_PERK_TYPE = SPECIES_POSITIVE_PERK,
 		SPECIES_PERK_ICON = FA_ICON_NOTES_MEDICAL,
 		SPECIES_PERK_NAME = "Regenerator",
-		SPECIES_PERK_DESC = "Being made of light, your projector and controller will mend tears in your form and aerogel",
+		SPECIES_PERK_DESC = "Being made of soft-light, a Holosynth's projector and controller will mend tears in their form and aerogel.",
 	))
 	return perks
 
 /datum/species/android/holosynth/get_species_description()
-	return "Holosynths are a subtype of Androids; they're made of soft-light, only semi-solid and dependant on a projection device"
+	return "Holosynths are a subtype of Androids; they're made of soft-light, only semi-solid, and dependant on a projection device."
 
 
 //Preview stuff
@@ -143,6 +143,7 @@
 
 /datum/species/android/holosynth/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
 	turn_off_every_species_feature(human_for_preview)
+	human_for_preview.dna.features[FEATURE_MUTANT_COLOR] = "#7db4e1"
 	human_for_preview.set_haircolor("#CCECFF", update = FALSE)
 	human_for_preview.set_hairstyle("Mia", update = TRUE)
 	human_for_preview.eye_color_left = "#66CCFF"

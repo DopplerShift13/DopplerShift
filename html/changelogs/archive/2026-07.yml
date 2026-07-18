@@ -1,0 +1,59 @@
+2026-07-09:
+  CliffracerX:
+  - qol: ghostroles use your character now!
+  FlufflesTheDog:
+  - bugfix: crafted medibots are more consistently corporeal
+  Kiromaka:
+  - balance: Helbital reaper is now 100x more likely.
+  Melbert:
+  - refactor: Refactored species unique organs slightly, particularly how they are
+      set up at game start. Report any oddities, like invisible tails or wings
+  MortoSasye:
+  - rscadd: Ports hairstyles and facial hair from nova.
+  Paxilmaniac:
+  - bugfix: cleans out tg codeowners from the codeowners file so checks actually pass
+  - rscadd: Adds a preference (true by default) for facing your cursor in combat mode
+  - rscadd: Adds the server icon, subject to later change
+  - rscadd: Adds wargame kits from a long time ago on other servers
+  - rscadd: Adds various sound related emotes
+  Rengan:
+  - bugfix: When you cast examine to the disguised detective, its assignment will
+      now display correctly.
+  SmArtKar:
+  - image: Made the unholy water flask darker
+  - image: Resprited default and mirage grenades
+  grungussuss:
+  - sound: new sounds for cloth items
+  kittysmooch:
+  - balance: 'ruined balance forever by adding flippable tables
+
+      :cl:'
+  - rscadd: added a diverse range of collars to improve pet safety and identifcation
+  - code_imp: 'set up dopplerGAGS so that our modular files won''t cause runtimes
+      :3c
+
+      :cl:'
+  - rscadd: 'you can now speak yangyu :3c
+
+      :cl:'
+  - rscadd: adds a dozen or so jackets
+  - rscadd: 'adds pockets to jackets
+
+      :cl:'
+  - admin: 'ported ctrl+click spawning as aghost from skyrat
+
+      :cl:'
+2026-07-11:
+  FoundInJune:
+  - spellcheck: fixed a few typos, etc
+2026-07-16:
+  NewyearnewmeUwu:
+  - bugfix: Mad Dog disarm no longer deletes items
+  - bugfix: Bitrunners using a personalized avatar alongside the Black Market Smuggler
+      quirk no longer spam sec records.
+2026-07-17:
+  PowerfulAtom111:
+  - rscadd: Added new lipstick marking. doesnt have to be lipstick if you dont want
+      it to be
+  firebudgy:
+  - rscadd: Apate-class ELINT vessel for salvage.

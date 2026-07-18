@@ -18,6 +18,10 @@
 		workplace_accident(hit_atom)
 	return ..()
 
+/obj/structure/hull_plating/handle_deconstruct(disassembled)
+	if(obj_flags & NO_DEBRIS_AFTER_DECONSTRUCTION)
+		return
+
 /// Crushes someone like a vending machine if they are hit by the panel
 /obj/structure/hull_plating/proc/workplace_accident(mob/living/osha_nonworker)
 	var/turf/target_turf = get_turf(osha_nonworker)

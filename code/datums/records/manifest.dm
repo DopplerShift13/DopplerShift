@@ -168,6 +168,9 @@ GLOBAL_DATUM_INIT(manifest, /datum/manifest, new)
 		minor_disabilities_desc = person.get_quirk_string(TRUE, CAT_QUIRK_MINOR_DISABILITY),
 		quirk_notes = person.get_quirk_string(TRUE, CAT_QUIRK_NOTES),
 		// DOPPLER EDIT BEGIN - records & flavor text
+		power_notes = person.get_sec_power_string(CAT_POWER_ALL),
+		power_notes_minor = person.get_sec_power_string(CAT_POWER_MINOR_THREAT, include_empty_text = FALSE),
+		power_notes_major = person.get_sec_power_string(CAT_POWER_MAJOR_THREAT, include_empty_text = FALSE),
 		past_general_records = person_client?.prefs.read_preference(/datum/preference/text/past_general_records),
 		past_medical_records = person_client?.prefs.read_preference(/datum/preference/text/past_medical_records),
 		past_security_records = person_client?.prefs.read_preference(/datum/preference/text/past_security_records),

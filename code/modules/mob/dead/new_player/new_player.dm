@@ -70,12 +70,17 @@
 		ready = PLAYER_NOT_READY
 		return FALSE
 
+/*	DOPPLER EDIT CHANGE START, remove the observe certainty prompt. observing is free
 	var/less_input_message
 	if(SSlag_switch.measures[DISABLE_DEAD_KEYLOOP])
 		less_input_message = " - Notice: Observer freelook is currently disabled."
 	// Don't convert this to tgui please, it's way too important
 	var/this_is_like_playing_right = alert(usr, "Are you sure you wish to observe? You will not be able to play this round![less_input_message]", "Observe", "Yes", "No")
-	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes")
+	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes") */
+	if(QDELETED(src) || !src.client)
+/*	DOPPLER EDIT CHANGE END, old code:
+	var/this_is_like_playing_right = alert(usr, "Are you sure you wish to observe? You will not be able to play this round![less_input_message]", "Observe", "Yes", "No")
+	if(QDELETED(src) || !src.client || this_is_like_playing_right != "Yes") */
 		ready = PLAYER_NOT_READY
 		return FALSE
 
@@ -240,6 +245,9 @@
 		if(job.job_flags & JOB_ASSIGN_QUIRKS)
 			if(CONFIG_GET(flag/roundstart_traits))
 				SSquirks.AssignQuirks(humanc, humanc.client)
+				// DOPPLER EDIT ADDITION BEGIN - Archetype Powers
+				SSpowers.assign_powers(humanc, humanc.client)
+				// DOPPLER EDIT ADDITION END
 		else // clear any personalities the prefs added since our job clearly does not want them
 			humanc.clear_personalities()
 
