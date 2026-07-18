@@ -24,7 +24,7 @@
 /// Returns a string to describe the weapon
 /datum/wargame_weapon/proc/weapon_description()
 	SHOULD_CALL_PARENT(TRUE)
-	return "Roll - [attack_roll], Armor Modifier - [damage_roll_bonus], [evadable ? "", "Not Evadable, "]Range - [attack_range], [action_point_cost] AP<br>"
+	return "Roll - [attack_roll], Armor Modifier - [damage_roll_bonus], [evadable ? "" : "Not Evadable, "]Range - [attack_range], [action_point_cost] AP<br>"
 
 /// Returns a string for a ship to say when firing the weapon
 /datum/wargame_weapon/proc/firing_voiceline(datum/wargame_unit_stats/stats)
