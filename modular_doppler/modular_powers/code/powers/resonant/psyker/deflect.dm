@@ -85,7 +85,9 @@
 	/// Persistent overlay showing the owner is in a deflective stance.
 	var/mutable_appearance/caster_effect
 	/// Fullscreen cursor tracker used to keep a live aiming point while the stance is active.
-	var/atom/movable/screen/fullscreen/cursor_catcher/cursor_tracker
+	var/atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect/cursor_tracker
+	/// Client whose natural mouse signals we are watching while active.
+	var/client/tracked_client
 
 /atom/movable/screen/alert/status_effect/deflect
 	name = "Deflect"
@@ -112,8 +114,12 @@
 	RegisterSignal(owner, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_projectile_prehit))
 	RegisterSignal(owner, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(on_death))
-	cursor_tracker = owner.overlay_fullscreen("psyker_deflect_cursor", /atom/movable/screen/fullscreen/cursor_catcher, 0)
+	cursor_tracker = owner.overlay_fullscreen("psyker_deflect_cursor", /atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect, 0)
 	cursor_tracker?.assign_to_mob(owner)
+	if(owner.client)
+		tracked_client = owner.client
+		RegisterSignal(tracked_client, COMSIG_CLIENT_MOUSEDOWN, PROC_REF(on_client_mousedown))
+		RegisterSignal(tracked_client, COMSIG_CLIENT_MOUSEDRAG, PROC_REF(on_client_mousedrag))
 	if(source_action)
 		source_action.active = TRUE
 		source_action.active_effect = src
@@ -140,6 +146,9 @@
 		if(caster_effect)
 			owner.cut_overlay(caster_effect)
 		caster_effect = null
+	if(tracked_client)
+		UnregisterSignal(tracked_client, list(COMSIG_CLIENT_MOUSEDOWN, COMSIG_CLIENT_MOUSEDRAG))
+		tracked_client = null
 	if(source_action)
 		if(was_dispelled)
 			source_action.force_dispel_cooldown()
@@ -251,9 +260,26 @@
 	to_chat(owner, span_userdanger("Your deflection barrier was dispelled!"))
 	return DISPEL_RESULT_DISPELLED
 
+/// Signal handler for when the mob dies.
 /datum/status_effect/power/deflect/proc/on_death(mob/living/source)
 	SIGNAL_HANDLER
 	qdel(src)
+
+/// Manually passes mouse params to the cursor tracker
+/datum/status_effect/power/deflect/proc/on_client_mousedown(client/source, atom/clicked_atom, atom/clicked_location, control, params)
+	SIGNAL_HANDLER
+	update_cursor_params(source, params)
+
+/// Manually passes mouse params to the cursor tracker
+/datum/status_effect/power/deflect/proc/on_client_mousedrag(client/source, atom/source_object, atom/over_object, atom/source_location, atom/over_location, source_control, over_control, params)
+	SIGNAL_HANDLER
+	update_cursor_params(source, params)
+
+/datum/status_effect/power/deflect/proc/update_cursor_params(client/source, params)
+	if(source != tracked_client || !cursor_tracker)
+		return
+	cursor_tracker.mouse_params = params
+	cursor_tracker.calculate_params()
 
 /// Stress upkeep
 /datum/status_effect/power/deflect/tick(seconds_between_ticks)
@@ -266,3 +292,40 @@
 		return
 	source_action.modify_stress(stress_per_second * seconds_between_ticks)
 	owner.adjustStaminaLoss(max((stress_per_second * seconds_between_ticks) * stress_as_stam_damage), 0)
+
+/// Cursor tracker that also behaves like the normal click-catcher.
+/// The previous implementation, whilst it was more lightweight, had the issue in that it overrode regular click behaviour.
+/// We basically pass cursor movement directly along through signalers.
+/atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect
+	plane = CLICKCATCHER_PLANE
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+
+/// Overrides standard params behaviour so that we get the actual turf we hover over; this doesn't normally work on fullscreen cursor catchers.
+/atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect/calculate_params()
+	if(!owner?.client || !mouse_params)
+		return
+
+	var/list/modifiers = params2list(mouse_params)
+	if(!LAZYACCESS(modifiers, SCREEN_LOC))
+		return ..()
+
+	var/turf/click_turf = parse_caught_click_modifiers(modifiers, get_turf(owner.client.eye), owner.client)
+	if(!click_turf)
+		return
+
+	given_turf = click_turf
+	given_x = text2num(LAZYACCESS(modifiers, ICON_X))
+	given_y = text2num(LAZYACCESS(modifiers, ICON_Y))
+
+/// Restores normal mouseclick functionality when using it, as cursor catchers normally just consume these clicks.
+/atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect/Click(location, control, params)
+	if(usr == owner)
+		mouse_params = params
+		calculate_params()
+
+	var/list/modifiers = params2list(params)
+	var/turf/click_turf = parse_caught_click_modifiers(modifiers, get_turf(usr.client ? usr.client.eye : usr), usr.client)
+	if(click_turf)
+		modifiers["catcher"] = TRUE
+		click_turf.Click(click_turf, control, list2params(modifiers))
+	return TRUE
