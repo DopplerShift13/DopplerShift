@@ -275,6 +275,7 @@
 	SIGNAL_HANDLER
 	update_cursor_params(source, params)
 
+/// Passes mouse parameters to the cursor tracker and then forces it to update.
 /datum/status_effect/power/deflect/proc/update_cursor_params(client/source, params)
 	if(source != tracked_client || !cursor_tracker)
 		return
