@@ -249,7 +249,9 @@
 		return
 	if(melting_down)
 		return
-	Shake(1, 0, hazard_timer, 5 SECONDS)
+	melting_down = TRUE
+	visible_message(span_warning("Warning lights on the shell of [src] start to light up one after another."))
+	Shake(1, 0, hazard_timer, 1 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(start_arcing)), hazard_timer)
 
 /// Tells the reactor to start processing and adds a random chance to fire arcs and make upset sounds
@@ -257,7 +259,7 @@
 	upset = TRUE
 	visible_message(span_warning("The outer shell of [src] starts to creak and groan!"))
 	START_PROCESSING(SSobj, src)
-	Shake(2, 1, explode_hazard_timer, 5 SECONDS)
+	Shake(2, 1, explode_hazard_timer)
 	addtimer(CALLBACK(src, PROC_REF(start_arcing)), explode_hazard_timer)
 
 /// Tells the reactor to start having a random chance to explode when processing
