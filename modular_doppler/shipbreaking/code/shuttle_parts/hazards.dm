@@ -265,7 +265,7 @@
 	visible_message(span_boldwarning("The chrysalid contained within [src] starts to grow through the cracks in the housing!"))
 	very_upset = TRUE
 
-/datum/component/fertile_egg/process(seconds_per_tick)
+/obj/structure/shuttle_decoration/liquid_tank/reactor/process(seconds_per_tick)
 	if(upset)
 		if(prob(1))
 			tesla_zap(source = src, zap_range = 2, power = 1e4, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
