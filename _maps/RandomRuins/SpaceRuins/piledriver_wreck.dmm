@@ -1,8 +1,5 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "al" = (
-/obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 1
-	},
 /obj/structure/shuttle_decoration/eva_catwalks/directional/north,
 /turf/open/floor/plating/nanocarbon/exterior/black,
 /area/ruin/space/has_grav)
@@ -88,7 +85,7 @@
 /area/ruin/space/has_grav)
 "dt" = (
 /obj/structure/shuttle_decoration/rcs/directional/south,
-/obj/machinery/porta_turret/syndicate/energy/ruin,
+/obj/machinery/porta_turret/syndicate/shuttle,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav)
 "eM" = (
@@ -97,6 +94,14 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"eX" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 5;
+	color = "#7C292A"
+	},
+/obj/structure/lattice,
+/turf/template_noop,
 /area/ruin/space/has_grav)
 "fe" = (
 /obj/structure/shuttle_decoration/landing_engine/directional/north,
@@ -336,8 +341,12 @@
 /turf/open/floor/plating/nanocarbon/exterior/black,
 /area/ruin/space/has_grav)
 "to" = (
-/obj/machinery/suit_storage_unit/open,
-/turf/open/floor/iron/colony/nanocarbon,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 6;
+	color = "#7C292A"
+	},
+/obj/structure/lattice,
+/turf/template_noop,
 /area/ruin/space/has_grav)
 "tG" = (
 /obj/structure/shuttle_decoration/wall_plate/plastamic,
@@ -469,6 +478,11 @@
 /obj/structure/lattice,
 /turf/template_noop,
 /area/ruin/space/has_grav)
+"Bk" = (
+/obj/machinery/porta_turret/syndicate/shuttle,
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
 "By" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 1
@@ -587,6 +601,11 @@
 	},
 /obj/structure/lattice,
 /turf/template_noop,
+/area/ruin/space/has_grav)
+"Gl" = (
+/obj/machinery/porta_turret/syndicate/shuttle,
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav)
 "GJ" = (
 /obj/structure/lattice,
@@ -773,6 +792,10 @@
 /obj/effect/spawner/random/salvage/interior_trash_n_debris,
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav)
+"Ot" = (
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
 "Ow" = (
 /obj/structure/lattice,
 /obj/structure/titanium_structure,
@@ -823,12 +846,12 @@
 /area/ruin/space/has_grav)
 "RG" = (
 /obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,
-/obj/machinery/porta_turret/syndicate/energy/ruin,
+/obj/machinery/porta_turret/syndicate/shuttle,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav)
 "RR" = (
 /obj/structure/shuttle_decoration/rcs/directional/north,
-/obj/machinery/porta_turret/syndicate/energy/ruin,
+/obj/machinery/porta_turret/syndicate/shuttle,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav)
 "Sd" = (
@@ -843,7 +866,7 @@
 /area/ruin/space/has_grav)
 "Tj" = (
 /obj/structure/shuttle_decoration/headlight/directional/east,
-/obj/machinery/porta_turret/syndicate/energy/ruin,
+/obj/machinery/porta_turret/syndicate/shuttle,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav)
 "TK" = (
@@ -949,7 +972,7 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav)
 "Xa" = (
-/obj/machinery/porta_turret/syndicate/energy/ruin,
+/obj/machinery/porta_turret/syndicate/shuttle,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/ruin/space/has_grav)
 "XB" = (
@@ -979,7 +1002,6 @@
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav)
 "ZB" = (
-/obj/structure/shuttle_decoration/wall_plate/armor,
 /obj/structure/shuttle_decoration/eva_catwalks/directional/south,
 /turf/open/floor/plating/nanocarbon/exterior/black,
 /area/ruin/space/has_grav)
@@ -1316,8 +1338,8 @@ yu
 yu
 yu
 yu
-aI
-hc
+eX
+Rz
 VB
 yF
 hY
@@ -1325,8 +1347,8 @@ vi
 qa
 nd
 YZ
-oK
-LT
+EV
+to
 yu
 yu
 yu
@@ -1343,8 +1365,8 @@ Yv
 yu
 yu
 yu
-uy
-zd
+yu
+Gl
 Uk
 pS
 MO
@@ -1352,8 +1374,8 @@ HQ
 jD
 pS
 Uk
-zd
-VL
+Bk
+yu
 yu
 yu
 yu
@@ -1370,17 +1392,17 @@ yu
 yu
 yu
 yu
-Gd
+yu
 Dx
 tG
-to
+Ot
 Lf
 Nr
 Lf
-to
+Ot
 WU
 Dx
-FJ
+yu
 yu
 yu
 yu
@@ -1404,7 +1426,7 @@ xv
 Lf
 Nr
 Lf
-to
+Ot
 WU
 ZB
 yu
