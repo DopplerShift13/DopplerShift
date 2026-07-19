@@ -257,6 +257,8 @@
 /// Tells the reactor to start processing and adds a random chance to fire arcs and make upset sounds
 /obj/structure/shuttle_decoration/liquid_tank/reactor/proc/start_arcing()
 	upset = TRUE
+	var/mutable_appearance/lightning_overlay = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning")
+	add_overlay(lightning_overlay)
 	visible_message(span_warning("The outer shell of [src] starts to creak and groan!"))
 	START_PROCESSING(SSobj, src)
 	Shake(2, 1, explode_hazard_timer)
