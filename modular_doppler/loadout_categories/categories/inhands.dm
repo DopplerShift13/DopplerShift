@@ -15,6 +15,10 @@
 	name = "Ace Custom Wheelchair"
 	item_path = /obj/item/wheelchair/ace_custom
 
+/datum/loadout_item/inhand/motorized_wheelchair
+	name = "Motorized Wheelchair"
+	item_path = /obj/item/flatpacked_machine/motorized_wheelchair
+
 /datum/loadout_item/inhand/mechanical_toolbox
 	name = "Mechanical Toolbox"
 	item_path = /obj/item/storage/toolbox/mechanical

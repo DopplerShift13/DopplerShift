@@ -32,3 +32,14 @@
 
 /datum/component/riding/vehicle/wheelchair/hand/ace_custom
 	delay_multiplier = 2	// produces a similar speed to a running spaceman
+
+/*
+*	a flatpacked version of the wheelchair/motorized
+*/
+
+/obj/item/flatpacked_machine/motorized_wheelchair
+	name = "flat-packed motorized wheelchair"
+	desc = /obj/vehicle/ridden/wheelchair/motorized::desc
+	icon = 'modular_doppler/vehicles/icons/motorized_wheelchair_item.dmi'
+	icon_state = "motorized_wheelchair_folded"
+	type_to_deploy = /obj/vehicle/ridden/wheelchair/motorized/improved
