@@ -118,13 +118,6 @@
 	},
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/dropship)
-"of" = (
-/obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 8
-	},
-/obj/machinery/light/directional/north,
-/turf/open/floor/plating/nanocarbon/airless,
-/area/shuttle/dropship)
 "oF" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 10
@@ -136,13 +129,6 @@
 	dir = 9
 	},
 /turf/closed/wall/mineral/titanium/nodiagonal,
-/area/shuttle/dropship)
-"pQ" = (
-/obj/structure/shuttle_decoration/wall_plate/armor{
-	dir = 4
-	},
-/obj/machinery/light/directional/north,
-/turf/open/floor/plating/nanocarbon/airless,
 /area/shuttle/dropship)
 "qo" = (
 /obj/machinery/light/directional/east,
@@ -164,11 +150,6 @@
 	id_tag = "starboard_lockdown"
 	},
 /turf/open/floor/plating/nanocarbon,
-/area/shuttle/dropship)
-"rL" = (
-/obj/structure/lattice,
-/obj/machinery/light/directional/west,
-/turf/template_noop,
 /area/shuttle/dropship)
 "sD" = (
 /obj/structure/chair/comfy/shuttle{
@@ -195,6 +176,7 @@
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
 	dir = 4
 	},
+/obj/structure/shuttle_decoration/headlight/directional/west,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/dropship)
 "wS" = (
@@ -335,7 +317,7 @@
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
 	dir = 1
 	},
-/obj/structure/shuttle_decoration/wall_plate/armor/diagonal,
+/obj/structure/shuttle_decoration/headlight/directional/south,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/dropship)
 "MC" = (
@@ -364,6 +346,7 @@
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
 	dir = 8
 	},
+/obj/structure/shuttle_decoration/headlight/directional/east,
 /turf/closed/wall/mineral/titanium,
 /area/shuttle/dropship)
 "NM" = (
@@ -408,11 +391,6 @@
 	id_tag = "port_lockdown"
 	},
 /turf/open/floor/plating/nanocarbon,
-/area/shuttle/dropship)
-"Sq" = (
-/obj/structure/lattice,
-/obj/machinery/light/directional/east,
-/turf/template_noop,
 /area/shuttle/dropship)
 "Ss" = (
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
@@ -530,7 +508,7 @@ RF
 Eu
 yN
 re
-Sq
+xM
 ak
 EL
 EL
@@ -582,7 +560,7 @@ hb
 yT
 Ns
 KU
-pQ
+ag
 fO
 "}
 (5,1,1) = {"
@@ -674,7 +652,7 @@ hb
 yT
 io
 KU
-of
+Ao
 oF
 "}
 (9,1,1) = {"
@@ -714,7 +692,7 @@ rm
 TN
 eG
 Ce
-rL
+xM
 hN
 YW
 YW
