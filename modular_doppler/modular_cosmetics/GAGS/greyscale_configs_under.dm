@@ -491,3 +491,7 @@
 /datum/greyscale_config/gags_latexsuit/worn/digi
 	name = "Colorable latex bodysuit (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'
+
+/datum/greyscale_config/gags_latexsuit/worn/teshari
+	name = "Colorable latex bodysuit (Worn, Teshari)"
+	icon_file = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'

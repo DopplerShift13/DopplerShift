@@ -226,6 +226,7 @@
 	greyscale_config_worn_bodyshapes = list(
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/gags_latexsuit/worn/digi,
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/gags_latexsuit/worn,
+		BODYSHAPE_TESHARI_T = /datum/greyscale_config/gags_latexsuit/worn/teshari,
 	)
 	greyscale_colors = "#636369#636369"
 	flags_1 = IS_PLAYER_COLORABLE_1
