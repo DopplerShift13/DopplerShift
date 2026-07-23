@@ -5,7 +5,7 @@
 	id = "piledriver_wreck"
 	suffix = "piledriver_wreck.dmm"
 	name = "Space-Ruin Marauder Piledriver-class Wreck"
-	description = "Sometimes, a more aggresive form of action is required. Decisive ramming into boarding is how the Piledriver was meant to operate. \
+	description = "Sometimes, a more aggressive form of action is required. Decisive ramming into boarding is how the Piledriver was meant to operate. \
 		Such crews are often hunted, and directly killed by 4CA Void Corps interceptors before performing their raids."
 
 // New 9LP lore that buoys are always launched in groups of nine, for good luck
