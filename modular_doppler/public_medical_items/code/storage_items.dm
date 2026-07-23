@@ -2,7 +2,7 @@
 /obj/item/storage/pill_bottle/painkiller
 	name = "amollin pill bottle"
 	desc = "It's an airtight container for storing medication. This one is all-white and has labels for containing amollin, a blend of Miner's Salve and Lidocaine."
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	custom_price = PAYCHECK_CREW * 1.5
 	spawn_type = /obj/item/reagent_containers/applicator/pill/amollin
@@ -32,7 +32,7 @@
 /obj/item/storage/pill_bottle/prescription_stimulant
 	name = "alifil pill bottle"
 	desc = "A special miniaturized pill bottle with an insert resembling a revolver cylinder, fitted for the inside of a 'civil defense'-class shell medkit. Holds five alifil pills, and is designed only to accept their proprietary DeForest(tm) shape. A big, bold yellow warning label on the side reads: 'FOLLOW DOSAGE DIRECTIONS'."
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	w_class = WEIGHT_CLASS_TINY // this is fine because we hard limit what can go in this thing
 	spawn_type = /obj/item/reagent_containers/applicator/pill/prescription_stimulant
@@ -49,10 +49,10 @@
 // Pre-packed civil defense medkit, with items to heal low damages inside
 /obj/item/storage/medkit/civil_defense
 	name = "civil defense medical kit"
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "poisoning_kit"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "poisoning_kit"
 	desc = "A small medical kit that can only fit autoinjectors in it, these typically come with supplies to treat low level harm."
 	w_class = WEIGHT_CLASS_SMALL
@@ -136,14 +136,14 @@
 	name = "frontier medical kit"
 	desc = "A handy roll-top waterproof medkit often seen alongside those on the frontier, where medical support is less than optimal. \
 		It has a clip for hooking onto your belt, handy!"
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "frontier"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "frontier"
 	worn_icon_state = "frontier"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
-//	worn_icon_teshari = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
+//	worn_icon_teshari = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	pickup_sound = SFX_CLOTH_PICKUP
 	drop_sound = SFX_CLOTH_DROP
 	slot_flags = ITEM_SLOT_BELT
@@ -166,12 +166,12 @@
 /obj/item/storage/medkit/combat_surgeon
 	name = "combat surgeon medical kit"
 	desc = "A folding kit that is ideally filled with surgical tools and specialized treatment options for many harder-to-treat wounds."
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "surgeon"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "surgeon"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
 	worn_icon_state = "frontier"
 	pickup_sound = SFX_CLOTH_PICKUP
 	drop_sound = SFX_CLOTH_DROP
@@ -198,12 +198,12 @@
 /obj/item/storage/backpack/duffelbag/deforest_medkit
 	name = "satchel medical kit"
 	desc = "A large orange satchel able to hold just about any piece of small medical equipment you could think of, you can even wear it on your back or belt!"
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "satchel"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "satchel"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
 	pickup_sound = SFX_CLOTH_PICKUP
 	drop_sound = SFX_CLOTH_DROP
@@ -294,13 +294,13 @@
 /obj/item/storage/backpack/duffelbag/deforest_surgical
 	name = "first responder surgical kit"
 	desc = "A large bag able to hold all the surgical tools and first response healing equipment you can think of, you can even wear it!"
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "super_surgery"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "super_surgery"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
-//	worn_icon_teshari = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
+//	worn_icon_teshari = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
 	pickup_sound = SFX_CLOTH_PICKUP
 	drop_sound = SFX_CLOTH_DROP

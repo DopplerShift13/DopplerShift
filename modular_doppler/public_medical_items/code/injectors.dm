@@ -2,7 +2,7 @@
 /obj/item/reagent_containers/hypospray/medipen/deforest
 	name = "non-functional Deforest autoinjector"
 	desc = "A Deforest branded autoinjector, though this one seems to be both empty and non-functional."
-	icon = 'modular_doppler/deforest_medical_items/icons/injectors.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/injectors.dmi'
 	icon_state = "default"
 	volume = 25
 	list_reagents = list()

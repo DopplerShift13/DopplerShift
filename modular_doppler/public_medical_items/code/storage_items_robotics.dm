@@ -2,10 +2,10 @@
 /obj/item/storage/medkit/robotic_repair
 	name = "robotic repair equipment kit"
 	desc = "An industrial-strength plastic box filled with supplies for repairing synthetics from critical damage."
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "synth_medkit"
 	inhand_icon_state = "medkit"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
 	worn_icon_state = "frontier"
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
