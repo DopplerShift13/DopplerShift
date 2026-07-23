@@ -14,6 +14,7 @@
 		/datum/reagent/consumable/liquidelectricity/enriched = 2,
 	)
 	mob_react = FALSE
+	reaction_flags = REACTION_INSTANT
 	reaction_tags = REACTION_TAG_EASY | REACTION_TAG_DRUG | REACTION_TAG_ORGAN | REACTION_TAG_DAMAGING
 
 /datum/chemical_reaction/twitch/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
@@ -28,7 +29,7 @@
 	name = "T-WITCH vial"
 	desc = "An almost cartoonish looking glass injector filled with a horribly corrosive green liquid that slowly swirls around. \
 		A heavily regulated substance called T-WITCH that is claimed to make the users of it 'see faster'."
-	icon = 'modular_doppler/the-business/icons/items.dmi'
+	icon = 'modular_doppler/deforest_medical_items/icons/injectors.dmi'
 	base_icon_state = "twitch"
 	icon_state = "twitch"
 	list_reagents = list(
