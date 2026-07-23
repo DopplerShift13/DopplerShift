@@ -334,13 +334,6 @@
 	description = "Only one in five Gorlex Marauder strike forces return from their regular raids into Nanotrasen space. \
 		For the other four... well, their ship doesn't just disappear when their target evacuates."
 
-/datum/map_template/ruin/space/gorlex_piledriver_wreck
-	id = "piledriver_wreck"
-	suffix = "piledriver_wreck.dmm"
-	name = "Space-Ruin Marauder Piledriver-class Wreck"
-	description = "Sometimes, a more aggresive form of action is required. Decisive ramming into boarding is how the Piledriver was meant to operate. \
-		Such crews are often hunted, and directly killed by 4CA Void Corps interceptors before performing their raids."
-
 /datum/map_template/ruin/space/hellfactory
 	id = "hellfactory"
 	suffix = "hellfactory.dmm"
