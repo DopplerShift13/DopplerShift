@@ -1,0 +1,4 @@
+author: "Farce"
+delete-after: True
+changes:
+  - rscadd: "Added a flat-packed motorized wheelchair to the loadout."
