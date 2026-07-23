@@ -1,0 +1,4 @@
+author: "SylvetteSylph"
+delete-after: True
+changes:
+  - bugfix: "We are now using the overwrite HUD for lobby icons."
