@@ -28,6 +28,14 @@
 	desc = "Port Safety issued Security combat boots for combat scenarios or combat situations. All combat, all the time."
 
 
+/obj/item/clothing/head/soft/sec
+	name = "security cap"
+	desc = "It's a robust baseball hat in tasteful red colour, with the black and white roundel of Port Safety emblazoned on it."
+	icon = [new obj icon file] //TODO: add location of new obj icon file
+	worn_icon = [new mob icon file] //TODO: add location of new mob icon file
+	icon_state = "secsoft"
+	soft_type = "sec"
+
 /**
  * MEDALS
  */
