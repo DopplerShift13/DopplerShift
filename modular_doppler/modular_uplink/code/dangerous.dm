@@ -66,3 +66,19 @@
 	item = /obj/item/grenade/gas_crystal/nitrous_oxide_crystal
 	cost = 4
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_item/dangerous/modular_laser_rifle
+	name = "\improper Hyeseong Modular Laser Rifle"
+	desc = "A novel Cybersun weapon with a variety of firemodes and an onboard artificial intelligence package. The license upgrade \
+	cartridge is not included."
+	item = /obj/item/gun/energy/modular_laser_rifle
+	cost = 4
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_item/dangerous/modular_laser_carbine
+	name = "\improper Hoshi Modular Laser Carbine"
+	desc = "A novel Cybersun weapon with a variety of firemodes and an onboard artificial intelligence package, akin to a smaller Hyeseong. \
+	The license upgrade cartridge is not included."
+	item = /obj/item/gun/energy/modular_laser_rifle/carbine
+	cost = 4
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
