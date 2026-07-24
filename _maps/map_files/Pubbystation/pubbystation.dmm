@@ -40114,6 +40114,13 @@
 /obj/structure/cable,
 /turf/open/floor/engine,
 /area/station/science/xenobiology)
+"msC" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "msO" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2{
 	dir = 8
@@ -44882,6 +44889,18 @@
 	},
 /obj/machinery/power/apc/auto_name/directional/north,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/shelf,
+/obj/item/storage/bag/construction{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/storage/bag/construction{
+	pixel_x = 2
+	},
+/obj/item/storage/bag/construction{
+	pixel_x = -1;
+	pixel_y = 7
+	},
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "pWb" = (
@@ -45801,6 +45820,12 @@
 	},
 /turf/open/floor/iron/terracotta/small,
 /area/station/service/kitchen)
+"qyV" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
 "qze" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/machinery/firealarm/directional/south,
@@ -49003,6 +49028,13 @@
 	},
 /turf/open/floor/iron,
 /area/station/cargo/storage)
+"sOd" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "sOm" = (
 /obj/structure/shuttle_decoration/wall_plate/armor{
 	dir = 4
@@ -49806,6 +49838,12 @@
 	dir = 8
 	},
 /area/station/engineering/atmos/hfr_room)
+"tmV" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
 "tmY" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,
@@ -80603,10 +80641,10 @@ abI
 qos
 eTg
 gZu
-aht
-aht
-cdm
-aaa
+qyV
+qyV
+sOd
+qyV
 aaa
 aaa
 aaa
@@ -80860,10 +80898,10 @@ abI
 fLG
 eTg
 eTg
-cdm
-cdm
-cdm
-aaa
+qyV
+qyV
+sOd
+qyV
 aaa
 aaa
 aaa
@@ -81117,10 +81155,10 @@ fEk
 dYG
 eTg
 qnM
-aht
-aht
-cdm
-aaa
+qyV
+qyV
+sOd
+qyV
 aaa
 aaa
 aaa
@@ -81631,10 +81669,10 @@ wwa
 sww
 nYb
 gZu
-aht
-aht
-cdm
-aaa
+tmV
+tmV
+msC
+tmV
 aaa
 aaa
 aaa
@@ -81888,10 +81926,10 @@ abI
 tFr
 nYb
 eTg
-cdm
-cdm
-cdm
-aaa
+tmV
+tmV
+msC
+tmV
 aaa
 aaa
 aaa
@@ -82145,10 +82183,10 @@ abI
 rlk
 nYb
 qnM
-aht
-aht
-cdm
-aaa
+tmV
+tmV
+msC
+tmV
 aaa
 aaa
 aaa

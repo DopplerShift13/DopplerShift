@@ -117,6 +117,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/iron/dark/side,
 /area/station/salvage_bay)
+"jS" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
 "kd" = (
 /obj/structure/girder/reinforced,
 /obj/structure/shuttle_decoration/wall_plate/armor,
@@ -207,6 +213,13 @@
 "rj" = (
 /obj/structure/marker_beacon/yellow,
 /obj/structure/lattice/catwalk,
+/turf/open/space/basic,
+/area/space/nearstation)
+"rV" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 1
+	},
+/obj/structure/lattice,
 /turf/open/space/basic,
 /area/space/nearstation)
 "sw" = (
@@ -491,6 +504,13 @@
 /obj/structure/railing/eva_handhold/directional/west,
 /turf/open/space/basic,
 /area/space/nearstation)
+"MY" = (
+/obj/effect/wind/shipbreaking_collector{
+	dir = 1
+	},
+/obj/structure/lattice,
+/turf/open/space/basic,
+/area/space/nearstation)
 "MZ" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -555,6 +575,18 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/firealarm/directional/north,
 /obj/machinery/light/dim/directional/north,
+/obj/structure/shelf,
+/obj/item/storage/bag/construction{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/storage/bag/construction{
+	pixel_x = 2
+	},
+/obj/item/storage/bag/construction{
+	pixel_x = -1;
+	pixel_y = 7
+	},
 /turf/open/floor/plating,
 /area/station/salvage_bay)
 "PN" = (
@@ -635,6 +667,12 @@
 /obj/effect/mapping_helpers/broken_floor,
 /turf/open/floor/iron/dark,
 /area/station/salvage_bay)
+"UW" = (
+/obj/effect/wind/shipbreaking_collector/scrap{
+	dir = 1
+	},
+/turf/open/space/basic,
+/area/space)
 "Vd" = (
 /obj/machinery/conveyor{
 	dir = 1;
@@ -981,10 +1019,10 @@ Pb
 Vd
 iA
 ul
-yB
-yB
-Ir
-wA
+jS
+jS
+MY
+jS
 wA
 wA
 wA
@@ -1024,10 +1062,10 @@ oW
 GU
 LO
 iA
-Ir
-Ir
-Ir
-wA
+jS
+jS
+MY
+jS
 wA
 wA
 wA
@@ -1067,10 +1105,10 @@ Er
 GU
 YA
 nZ
-yB
-yB
-Ir
-wA
+jS
+jS
+MY
+jS
 wA
 wA
 wA
@@ -1153,10 +1191,10 @@ GU
 vX
 OC
 ul
-yB
-yB
-Ir
-wA
+UW
+UW
+rV
+UW
 wA
 wA
 wA
@@ -1196,10 +1234,10 @@ GU
 tR
 OC
 iA
-Ir
-Ir
-Ir
-wA
+UW
+UW
+rV
+UW
 wA
 wA
 wA
@@ -1239,10 +1277,10 @@ Vd
 iA
 OC
 nZ
-yB
-yB
-Ir
-wA
+UW
+UW
+rV
+UW
 wA
 wA
 wA

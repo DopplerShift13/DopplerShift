@@ -15,6 +15,18 @@
 "ap" = (
 /obj/structure/sign/poster/random/directional/south,
 /obj/effect/decal/cleanable/dirt,
+/obj/structure/shelf,
+/obj/item/storage/bag/construction{
+	pixel_y = -4;
+	pixel_x = -4
+	},
+/obj/item/storage/bag/construction{
+	pixel_x = 2
+	},
+/obj/item/storage/bag/construction{
+	pixel_x = -1;
+	pixel_y = 7
+	},
 /turf/open/floor/iron/smooth,
 /area/station/salvage_bay)
 "ar" = (
@@ -233,6 +245,10 @@
 	},
 /turf/open/floor/plating,
 /area/station/salvage_bay)
+"lw" = (
+/obj/effect/wind/shipbreaking_collector/scrap,
+/turf/open/space/openspace,
+/area/space)
 "ml" = (
 /obj/machinery/computer/salvage_bay_controller{
 	dir = 8
@@ -339,6 +355,7 @@
 "rJ" = (
 /obj/effect/turf_decal/loading_area/red,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/wind/shipbreaking_collector/scrap,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "ss" = (
@@ -499,6 +516,10 @@
 /obj/structure/sign/poster/random/directional/north,
 /turf/open/floor/plating/aluminum,
 /area/station/salvage_bay)
+"CZ" = (
+/obj/effect/wind/shipbreaking_collector,
+/turf/open/space/openspace,
+/area/space)
 "EF" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/teal,
@@ -670,6 +691,7 @@
 "Sf" = (
 /obj/effect/turf_decal/loading_area/white,
 /obj/effect/decal/cleanable/dirt/dust,
+/obj/effect/wind/shipbreaking_collector,
 /turf/open/floor/plating/reinforced/airless,
 /area/space/nearstation)
 "Sr" = (
@@ -1023,7 +1045,7 @@ xU
 xU
 xU
 xU
-Ad
+xU
 xh
 Nq
 Nq
@@ -1061,9 +1083,9 @@ xU
 xU
 xU
 xU
-xU
-xU
-Ad
+CZ
+CZ
+CZ
 Sf
 re
 iM
@@ -1101,9 +1123,9 @@ xU
 xU
 xU
 xU
-xU
-xU
-Ad
+CZ
+CZ
+CZ
 Sf
 HY
 WW
@@ -1143,7 +1165,7 @@ xU
 xU
 xU
 xU
-Ad
+xU
 xh
 Nq
 Kp
@@ -1343,7 +1365,7 @@ xU
 xU
 xU
 xU
-Ad
+xU
 Nc
 Nq
 Nq
@@ -1381,9 +1403,9 @@ xU
 xU
 xU
 xU
-xU
-xU
-Ad
+lw
+lw
+lw
 rJ
 re
 ak
@@ -1421,9 +1443,9 @@ xU
 xU
 xU
 xU
-xU
-xU
-Ad
+lw
+lw
+lw
 rJ
 HY
 ak
@@ -1463,7 +1485,7 @@ xU
 xU
 xU
 xU
-Ad
+xU
 Nc
 Nq
 Nq
