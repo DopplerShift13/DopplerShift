@@ -62,3 +62,12 @@
   - qol: The wargame holograph system, one of our very first features, has finally
       had a massive overhaul. This makes much of the systems in the game automated,
       rather than requiring a third player to simply be the game master.
+2026-07-24:
+  BasilTamaya:
+  - rscadd: Adds the Sword Mag Harness to the Fabricator (Just the Harness)
+  Farce:
+  - rscadd: Added a flat-packed motorized wheelchair to the loadout.
+  SylvetteSylph:
+  - bugfix: We are now using the overwrite HUD for lobby icons.
+  aKromatopzia:
+  - image: added teshari latex bodysuit sprites
