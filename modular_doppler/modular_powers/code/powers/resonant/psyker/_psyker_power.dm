@@ -8,5 +8,6 @@
 	archetype = POWER_ARCHETYPE_RESONANT
 	path = POWER_PATH_PSYKER
 	priority = POWER_PRIORITY_BASIC
+	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_MENTAL
 	required_powers = list(/datum/power/psyker_root)
 	required_allow_subtypes = TRUE

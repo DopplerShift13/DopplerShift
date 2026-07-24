@@ -10,29 +10,64 @@
 #define POWER_PRIORITY_BASIC "Basic"
 #define POWER_PRIORITY_ADVANCED "Advanced"
 
+/// Designations when referring to archetypes.
 #define POWER_ARCHETYPE_SORCEROUS "Sorcerous"
 #define POWER_ARCHETYPE_RESONANT "Resonant"
 #define POWER_ARCHETYPE_MORTAL "Mortal"
 
+/// UI/display sort order for power archetypes.
+#define POWER_ARCHETYPE_SORT_SORCEROUS 10
+#define POWER_ARCHETYPE_SORT_RESONANT 20
+#define POWER_ARCHETYPE_SORT_MORTAL 30
+
+/// Designations when referring to paths.
 #define POWER_PATH_THAUMATURGE "Thaumaturge"
 #define POWER_PATH_ENIGMATIST "Enigmatist"
 #define POWER_PATH_THEOLOGIST "Theologist"
 #define POWER_PATH_PSYKER "Psyker"
 #define POWER_PATH_CULTIVATOR "Cultivator"
 #define POWER_PATH_ABERRANT "Aberrant"
+#define POWER_PATH_IMBUED "Imbued"
 #define POWER_PATH_WARFIGHTER "Warfighter"
 #define POWER_PATH_EXPERT "Expert"
 #define POWER_PATH_AUGMENTED "Augmented"
+#define POWER_PATH_IRREGULAR "Irregular"
 
+/// UI/display sort order for power paths within their archetype.
+#define POWER_PATH_SORT_PRIMARY 10
+#define POWER_PATH_SORT_SECONDARY 20
+#define POWER_PATH_SORT_TERTIARY 30
+#define POWER_PATH_SORT_QUATERNARY 40
+
+/// Color association per power. Generally speaking if you want to use colors, use these.
 #define POWER_COLOR_THAUMATURGE "#7266dd"
-#define POWER_COLOR_ENIGMATIST "#26A300"
-#define POWER_COLOR_THEOLOGIST "#ddd166"
-#define POWER_COLOR_PSYKER "#FF3CC8"
+#define POWER_COLOR_ENIGMATIST "#439c27"
+#define POWER_COLOR_THEOLOGIST "#d1c029"
+#define POWER_COLOR_PSYKER "#b94398"
 #define POWER_COLOR_CULTIVATOR "#66c5dd"
 #define POWER_COLOR_ABERRANT "#4F3A57"
-#define POWER_COLOR_WARFIGHTER "#cc3d3d"
+#define POWER_COLOR_IMBUED "#e9874f"
+#define POWER_COLOR_WARFIGHTER "#ac2222"
 #define POWER_COLOR_EXPERT "#38495C"
-#define POWER_COLOR_AUGMENTED "#7C8287"
+#define POWER_COLOR_AUGMENTED "#6b6652"
+#define POWER_COLOR_IRREGULAR "#cacaca"
+
+/// Bitflags to determine what anti-magic a power interacts with/what type of magic it is.
+#define POWER_MAGIC_STANDARD (1<<0)
+#define POWER_MAGIC_MENTAL (1<<1)
+#define POWER_MAGIC_UNHOLY (1<<2)
+#define POWER_MAGIC_SCRYING (1<<3)
+
+// Signals for power actions and power-holder power mutations.
+/// Sent right before a power action resolves through use_action: (mob/living/user, atom/target)
+#define COMSIG_POWER_ACTION_USED "power_action_used"
+/// Sent when a power action successfully resolves (use_action returned TRUE): (mob/living/user, atom/target)
+#define COMSIG_POWER_ACTION_SUCCESS "power_action_success"
+/// Sent when a power is added to a mob's power list: (datum/power/added_power)
+#define COMSIG_MOB_POWER_ADDED "mob_power_added"
+/// Sent when a power is removed from a mob's power list: (datum/power/removed_power)
+#define COMSIG_MOB_POWER_REMOVED "mob_power_removed"
+
 /// Any traits granted by powers.
 #define POWER_TRAIT "power_trait"
 
@@ -133,6 +168,8 @@
 #define THAUMATURGE_HEMOMANCY_MAX_AFFINITY 6
 // How much blood cost scales from prep_cost (and UI display) for hemomancy.
 #define THAUMATURGE_HEMOMANCY_BLOOD_COST_MULTIPLIER 4
+/// Sent by thaumaturge get_affinity for external affinity riders: (datum/action/cooldown/power/thaumaturge/action)
+#define COMSIG_THAUMATURGE_AFFINITY_QUERY "thaumaturge_affinity_query"
 
 /**
  * SORCEROUS: ENIGMATIST
@@ -297,8 +334,29 @@
  * All defines related to the aberrant powers.
  */
 
+/// The value that the below numbers scale off of, because hunger is a little arbitrary. The reason why is as follows:
+/// Starving is 150, Hungry is 250, Fed is 350, Well Fed is 450 Full is 550 and Fat is 600. Fat is a negative soft-cap (you can go above 600) and starving is effectively 0 for our power.
+/// So our effective 'range' we want to consider is 150-550 (Starving-Full). We calculate this delta and that is effectively the 0%-100% range of our power's 'resource'
+#define ABERRANT_HUNGER_COST_BASE (NUTRITION_LEVEL_FULL - NUTRITION_LEVEL_STARVING)
+
+// Hunger costs, as percentages of a stomach's usable resource range.
+#define ABERRANT_HUNGER_TRIVIAL (1 / 100)
+#define ABERRANT_HUNGER_MINOR (1 / 10)
+#define ABERRANT_HUNGER_MODERATE (1 / 5)
+#define ABERRANT_HUNGER_MAJOR (1 / 2)
+#define ABERRANT_HUNGER_EXTREME (1)
+
+/**
+ * RESONANT: IMBUED
+ * All defines related to the imbued powers.
+ */
+
+/// Fired by /datum/power/imbued_root/enchanted to collect additive percent bonuses to cooldown recovery.
+/// Args: (list/recovery_bonus_percents)
+#define COMSIG_IMBUED_ENCHANTED_RECOVERY_MODIFIERS "imbued_enchanted_recovery_modifiers"
+
 // Trait that lets you use the riftwalker mechanic.
-#define TRAIT_ABERRANT_RIFTWALKER "riftwalker"
+#define TRAIT_IMBUED_RIFTWALKER "riftwalker"
 
 /**MORTAL DEFINES
 * I'm literally just using this to define Breacher Knuckle right now

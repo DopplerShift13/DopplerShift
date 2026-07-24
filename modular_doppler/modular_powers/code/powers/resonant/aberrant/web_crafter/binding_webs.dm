@@ -5,6 +5,7 @@
 	security_record_text = "Subject can craft bolas and restraints from their spider silk."
 	security_threat = POWER_THREAT_MAJOR
 	value = 3
+	magic_flags = NONE // non-magical
 
 	required_powers = list(/datum/power/aberrant/web_crafter)
 

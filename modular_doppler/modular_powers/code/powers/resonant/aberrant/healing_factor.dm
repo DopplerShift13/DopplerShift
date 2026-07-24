@@ -4,17 +4,20 @@
 /datum/power/aberrant/healing_factor
 	name = "Healing Factor"
 	desc = "Your physical injuries heal without assistance. You heal 0.2 damage per second, randomly split between brute and burn damage while not in critical condition. Wounds such as bleeding still require medical treatment.\
-	\nThe more this power heals, the hungrier you become."
+	\nThe more this power heals, the hungrier you become: every 4 health healed amounts to a trivial amount of hunger."
 	security_record_text = "Subject passively regenerates any injuries they sustain."
 	value = 4
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
-
 	required_powers = list(/datum/power/aberrant_root/monstrous)
+	magic_flags = NONE // non-magical
+
+	menu_icon = 'icons/mob/actions/actions_changeling.dmi'
+	menu_icon_state = "fleshmend"
 
 	/// how much we heal per second
 	var/healing = 0.2
-	/// How much healing is required to consume 1 satiety.
-	var/hunger_per_healing = 2
+	/// How much hunger we generate for every 1 point of healing.
+	var/hunger_per_healing = ABERRANT_HUNGER_TRIVIAL * 0.5
 
 /datum/power/aberrant/healing_factor/process(seconds_per_tick)
 	// Does not work if you're in crit
@@ -29,9 +32,10 @@
 	var/mob/living/carbon/mob = power_holder
 	for(var/obj/item/bodypart/bodypart in mob.get_damaged_bodyparts(1, 1, BODYTYPE_ORGANIC))
 		var/damage_before = bodypart.get_damage()
-		if(bodypart.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC)) // make people hungry based on how much we have healed
-			var/damage_healed = max(0, damage_before - bodypart.get_damage())
-			if(damage_healed > 0)
-				mob.adjust_nutrition(-(damage_healed / hunger_per_healing))
+		var/updated_bodypart_state = bodypart.heal_damage(heal_amt, heal_amt, required_bodytype = BODYTYPE_ORGANIC)
+		var/damage_healed = max(0, damage_before - bodypart.get_damage())
+		if(damage_healed > 0)
+			spend_hunger(damage_healed * hunger_per_healing, mob)
+		if(updated_bodypart_state)
 			mob.update_damage_overlays()
 		break

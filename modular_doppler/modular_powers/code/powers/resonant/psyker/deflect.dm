@@ -1,8 +1,8 @@
 /datum/power/psyker_power/deflect
 	name = "Deflect"
-	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has an incredibly high upkeep, every projectile deflected \
+	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has a high upkeep, every projectile deflected \
 	causes stress equal to the projectile's damage + 10 , and ends prematurely if you suffer a catastrophic stress event.\
-	\nCauses stamina damage equal to half the stress generated!"
+	\nCauses stamina damage equal to a third of of the stress generated!"
 	security_record_text = "Subject can deflect projectiles away from themselves and towards new targets."
 	security_threat = POWER_THREAT_MAJOR
 	value = 8
@@ -11,21 +11,23 @@
 
 /datum/action/cooldown/power/psyker/deflect
 	name = "Deflect"
-	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has an incredibly high upkeep, every projectile deflected \
+	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has a high upkeep, every projectile deflected \
 	causes stress equal to the projectile's damage + 10, and ends prematurely if you suffer a catastrophic stress event.\
-	\nCauses stamina damage equal to half the stress generated!"
+	\nCauses stamina damage equal to a third of the stress generated!"
 	button_icon = 'icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "singular_shot"
-	cooldown_time = 4 SECONDS
+	cooldown_time = 50
 
 	/// Forced cooldown when the effect is dispelled.
 	var/dispel_cooldown_time = 15 SECONDS
 	/// Per-second upkeep while active.
-	var/stress_per_second = 10
+	var/stress_per_second = 5
 	/// Flat stress added on top of projectile damage when we successfully try to deflect it.
 	var/projectile_stress_bonus = 10
-	/// How much stress is also dealt as stamina damage? Multaplicative number.
-	var/stress_as_stam_damage = 0.5
+	/// How much stress is also dealt as stamina damage? Multiplicative number.
+	var/stress_as_stam_damage = 0.33
+	/// If our power is able to deflect magic
+	var/can_deflect_magic = FALSE
 	/// The status effect on the caster.
 	var/datum/status_effect/power/deflect/active_effect
 
@@ -51,6 +53,10 @@
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
 	return TRUE
 
+/datum/action/cooldown/power/psyker/deflect/on_action_success(mob/living/user, atom/target)
+	. = ..()
+	no_cooldown_on_use = active_effect ? TRUE : FALSE // quick and dirty way to prevent it from going on cooldown when enabling, given it has an upkeep
+
 /datum/action/cooldown/power/psyker/deflect/proc/force_dispel_cooldown()
 	StartCooldownSelf(dispel_cooldown_time)
 	build_all_button_icons(UPDATE_BUTTON_STATUS)
@@ -68,6 +74,10 @@
 	var/projectile_stress_bonus
 	/// How much stress is also dealt as stamina damage? Multaplicative number
 	var/stress_as_stam_damage
+	/// If we can deflect magic
+	var/can_deflect_magic
+	/// If our power stops working when we're incapacitated.
+	var/disabled_by_incapacitate
 	/// Reference to the deflect action.
 	var/datum/action/cooldown/power/psyker/deflect/source_action
 	/// Tracks whether removal was caused by a dispel so we can force cooldown exactly once.
@@ -75,7 +85,9 @@
 	/// Persistent overlay showing the owner is in a deflective stance.
 	var/mutable_appearance/caster_effect
 	/// Fullscreen cursor tracker used to keep a live aiming point while the stance is active.
-	var/atom/movable/screen/fullscreen/cursor_catcher/cursor_tracker
+	var/atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect/cursor_tracker
+	/// Client whose natural mouse signals we are watching while active.
+	var/client/tracked_client
 
 /atom/movable/screen/alert/status_effect/deflect
 	name = "Deflect"
@@ -91,6 +103,8 @@
 		stress_per_second = source_action.stress_per_second
 		projectile_stress_bonus = source_action.projectile_stress_bonus
 		stress_as_stam_damage = source_action.stress_as_stam_damage
+		can_deflect_magic = source_action.can_deflect_magic
+		disabled_by_incapacitate = source_action.disabled_by_incapacitate
 
 /// Applies cursor tracking and the overlay bubble.
 /datum/status_effect/power/deflect/on_apply()
@@ -100,8 +114,12 @@
 	RegisterSignal(owner, COMSIG_PROJECTILE_PREHIT, PROC_REF(on_projectile_prehit))
 	RegisterSignal(owner, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(on_death))
-	cursor_tracker = owner.overlay_fullscreen("psyker_deflect_cursor", /atom/movable/screen/fullscreen/cursor_catcher, 0)
+	cursor_tracker = owner.overlay_fullscreen("psyker_deflect_cursor", /atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect, 0)
 	cursor_tracker?.assign_to_mob(owner)
+	if(owner.client)
+		tracked_client = owner.client
+		RegisterSignal(tracked_client, COMSIG_CLIENT_MOUSEDOWN, PROC_REF(on_client_mousedown))
+		RegisterSignal(tracked_client, COMSIG_CLIENT_MOUSEDRAG, PROC_REF(on_client_mousedrag))
 	if(source_action)
 		source_action.active = TRUE
 		source_action.active_effect = src
@@ -128,6 +146,9 @@
 		if(caster_effect)
 			owner.cut_overlay(caster_effect)
 		caster_effect = null
+	if(tracked_client)
+		UnregisterSignal(tracked_client, list(COMSIG_CLIENT_MOUSEDOWN, COMSIG_CLIENT_MOUSEDRAG))
+		tracked_client = null
 	if(source_action)
 		if(was_dispelled)
 			source_action.force_dispel_cooldown()
@@ -144,7 +165,7 @@
 	if(!source_action?.ValidateOrgan())
 		qdel(src)
 		return NONE
-	if(source.stat != CONSCIOUS || HAS_TRAIT(source, TRAIT_INCAPACITATED))
+	if(disabled_by_incapacitate && (source.stat != CONSCIOUS || HAS_TRAIT(source, TRAIT_INCAPACITATED)))
 		return NONE
 	if(!isturf(source.loc))
 		return NONE
@@ -176,8 +197,8 @@
 		qdel(src)
 		return NONE
 
-	// You do not get to redirect the projectile but you do prevent it from hitting you
-	if(istype(hitting_projectile, /obj/projectile/magic) || istype(hitting_projectile, /obj/projectile/beam/instakill))
+	// If you can't deflect magic, you do not get to redirect the projectile but you do prevent it from hitting you
+	if(!can_deflect_magic && (istype(hitting_projectile, /obj/projectile/magic) || istype(hitting_projectile, /obj/projectile/beam/instakill)))
 		to_chat(source, span_userdanger("Your psychic strength is not strong enough to steer this magic!"))
 		was_dispelled = TRUE
 		qdel(src)
@@ -239,9 +260,27 @@
 	to_chat(owner, span_userdanger("Your deflection barrier was dispelled!"))
 	return DISPEL_RESULT_DISPELLED
 
+/// Signal handler for when the mob dies.
 /datum/status_effect/power/deflect/proc/on_death(mob/living/source)
 	SIGNAL_HANDLER
 	qdel(src)
+
+/// Manually passes mouse params to the cursor tracker
+/datum/status_effect/power/deflect/proc/on_client_mousedown(client/source, atom/clicked_atom, atom/clicked_location, control, params)
+	SIGNAL_HANDLER
+	update_cursor_params(source, params)
+
+/// Manually passes mouse params to the cursor tracker
+/datum/status_effect/power/deflect/proc/on_client_mousedrag(client/source, atom/source_object, atom/over_object, atom/source_location, atom/over_location, source_control, over_control, params)
+	SIGNAL_HANDLER
+	update_cursor_params(source, params)
+
+/// Passes mouse parameters to the cursor tracker and then forces it to update.
+/datum/status_effect/power/deflect/proc/update_cursor_params(client/source, params)
+	if(source != tracked_client || !cursor_tracker)
+		return
+	cursor_tracker.mouse_params = params
+	cursor_tracker.calculate_params()
 
 /// Stress upkeep
 /datum/status_effect/power/deflect/tick(seconds_between_ticks)
@@ -249,8 +288,45 @@
 		qdel(src)
 		return
 	// ends prematurely if incapacitated
-	if(owner.stat != CONSCIOUS || HAS_TRAIT(owner, TRAIT_INCAPACITATED))
+	if(disabled_by_incapacitate && (owner.stat != CONSCIOUS || HAS_TRAIT(owner, TRAIT_INCAPACITATED)))
 		qdel(src)
 		return
 	source_action.modify_stress(stress_per_second * seconds_between_ticks)
 	owner.adjustStaminaLoss(max((stress_per_second * seconds_between_ticks) * stress_as_stam_damage), 0)
+
+/// Cursor tracker that also behaves like the normal click-catcher.
+/// The previous implementation, whilst it was more lightweight, had the issue in that it overrode regular click behaviour.
+/// We basically pass cursor movement directly along through signalers.
+/atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect
+	plane = CLICKCATCHER_PLANE
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
+
+/// Overrides standard params behaviour so that we get the actual turf we hover over; this doesn't normally work on fullscreen cursor catchers.
+/atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect/calculate_params()
+	if(!owner?.client || !mouse_params)
+		return
+
+	var/list/modifiers = params2list(mouse_params)
+	if(!LAZYACCESS(modifiers, SCREEN_LOC))
+		return ..()
+
+	var/turf/click_turf = parse_caught_click_modifiers(modifiers, get_turf(owner.client.eye), owner.client)
+	if(!click_turf)
+		return
+
+	given_turf = click_turf
+	given_x = text2num(LAZYACCESS(modifiers, ICON_X))
+	given_y = text2num(LAZYACCESS(modifiers, ICON_Y))
+
+/// Restores normal mouseclick functionality when using it, as cursor catchers normally just consume these clicks.
+/atom/movable/screen/fullscreen/cursor_catcher/psyker_deflect/Click(location, control, params)
+	if(usr == owner)
+		mouse_params = params
+		calculate_params()
+
+	var/list/modifiers = params2list(params)
+	var/turf/click_turf = parse_caught_click_modifiers(modifiers, get_turf(usr.client ? usr.client.eye : usr), usr.client)
+	if(click_turf)
+		modifiers["catcher"] = TRUE
+		click_turf.Click(click_turf, control, list2params(modifiers))
+	return TRUE

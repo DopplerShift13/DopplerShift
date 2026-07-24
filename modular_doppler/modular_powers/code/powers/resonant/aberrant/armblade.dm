@@ -6,6 +6,7 @@
 	security_record_text = "Subject can manifest a sharp-edged blade from their arm."
 	security_threat = POWER_THREAT_MAJOR
 	value = 4
+	magic_flags = POWER_MAGIC_STANDARD
 	required_powers = list(/datum/power/aberrant_root/monstrous)
 	action_path = /datum/action/cooldown/power/aberrant/armblade
 
@@ -17,6 +18,9 @@
 	active = FALSE
 
 	cooldown_time = 50
+	cost = ABERRANT_HUNGER_TRIVIAL * 5
+	/// Whether the current activation extended the blade and should spend hunger.
+	var/extended_blade = FALSE
 
 /datum/action/cooldown/power/aberrant/armblade/Grant(mob/granted_to)
 	. = ..()
@@ -27,6 +31,7 @@
 	UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
 /datum/action/cooldown/power/aberrant/armblade/use_action(mob/living/user, atom/target)
+	extended_blade = FALSE
 	if(active)
 		for(var/obj/item/melee/arm_blade/aberrant/blade in user.held_items)
 			user.temporarilyRemoveItemFromInventory(blade, TRUE)
@@ -49,7 +54,13 @@
 
 	playsound(user, 'sound/effects/blob/blobattack.ogg', 30, TRUE)
 	active = TRUE
+	extended_blade = TRUE
 	return TRUE
+
+/datum/action/cooldown/power/aberrant/armblade/on_action_success(mob/living/user, atom/target)
+	cost = extended_blade ? ABERRANT_HUNGER_MINOR : 0
+	. = ..()
+	extended_blade = FALSE
 
 /// When dispelled, arm pops back in.
 /datum/action/cooldown/power/aberrant/armblade/proc/on_dispel(mob/owner, atom/dispeller)

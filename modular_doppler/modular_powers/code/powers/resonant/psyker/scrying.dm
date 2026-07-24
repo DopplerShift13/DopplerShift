@@ -9,6 +9,7 @@
 	Passively builds up stress, with extended use causing escalating amounts of stress. The target sometimes gets premonitions to indicate they are being watched."
 	security_record_text = "Subject can psychically observe people's locations based on blood samples from extreme distances."
 	value = 10
+	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_MENTAL | POWER_MAGIC_SCRYING
 	action_path = /datum/action/cooldown/power/psyker/scrying
 
 /datum/action/cooldown/power/psyker/scrying
@@ -85,12 +86,12 @@
 // Dispel signalers
 /datum/action/cooldown/power/psyker/scrying/Grant(mob/granted_to)
 	. = ..()
-	if(resonant)
+	if(is_magical())
 		RegisterSignal(granted_to, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 /datum/action/cooldown/power/psyker/scrying/Remove(mob/removed_from)
 	. = ..()
-	if(resonant)
+	if(is_magical())
 		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 	end_scrying()
 

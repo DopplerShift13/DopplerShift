@@ -1,21 +1,24 @@
 /*
 	You can be summoned by speaking a specific keywords.
 */
-/datum/power/aberrant/summonable
+/datum/power/imbued/summonable
 	name = "Summonable"
 	desc = "By speaking a specific name or word, you appear next to the speaker after a short delay. The summoning takes time, you are stunned throughout, is entirely involuntary and can only be stopped by being silenced, buckled or dispelled.\
 	\n After being successfully summoned, you are unable to be summoned again for 1 minute. \
 	\n The chosen word is a partial secret; the Security Records on your powers contain the word as well. It cannot contain any special characters, only standard letters and numbers."
 	security_threat = POWER_THREAT_MAJOR
 	value = 7
+	magic_flags = POWER_MAGIC_STANDARD
+	required_powers = list(/datum/power/imbued_root/enchanted)
 
-	required_powers = list(/datum/power/aberrant_root/anomalous)
+	menu_icon = 'icons/effects/eldritch.dmi'
+	menu_icon_state = "realitycrack"
 
 	/// Reference to the beetlejuice component
 	var/datum/component/beetlejuice/summonable/summon_component
 
 // Lists the word in sec records.
-/datum/power/aberrant/summonable/get_security_record_text()
+/datum/power/imbued/summonable/get_security_record_text()
 	var/keyword = summon_component?.keyword
 	if(!keyword)
 		keyword = power_holder?.client?.prefs?.read_preference(/datum/preference/text/summonable_keyword)
@@ -25,7 +28,7 @@
 	return "Subject is summonable via keyword \"[keyword]\"."
 
 // Adds the custom beetlejuice component and sets the beetlejuiec word.
-/datum/power/aberrant/summonable/post_add()
+/datum/power/imbued/summonable/post_add()
 	if(!power_holder)
 		return
 
@@ -47,7 +50,7 @@
 
 	. = ..()
 
-/datum/power/aberrant/summonable/remove()
+/datum/power/imbued/summonable/remove()
 	. = ..()
 	if(summon_component)
 		QDEL_NULL(summon_component)
@@ -319,7 +322,7 @@
 	return
 
 /datum/power_constant_data/summonable
-	associated_typepath = /datum/power/aberrant/summonable
+	associated_typepath = /datum/power/imbued/summonable
 	customization_options = list(/datum/preference/text/summonable_keyword, /datum/preference/color/summonable_rune_color)
 
 // Orbiting rune for Summonable arrival.

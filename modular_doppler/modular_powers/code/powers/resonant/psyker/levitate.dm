@@ -3,6 +3,7 @@
 	desc = "Grants the ability to levitate yourself above surfaces and lets you propel yourself in zero-gravity. Passively causes stress while in use."
 	security_record_text = "Subject can levitate their body regardless of the current gravity."
 	value = 4
+	magic_flags = POWER_MAGIC_STANDARD
 	required_powers = list(/datum/power/psyker_root)
 	action_path = /datum/action/cooldown/power/psyker/levitate
 
@@ -11,8 +12,6 @@
 	desc = "Toggles levitation, causing you to ignore the ground. Also allows for propulsion in zero-gravity. Passively causes stress while in use."
 	button_icon = 'icons/mob/actions/actions_minor_antag.dmi'
 	button_icon_state = "beam_up"
-
-	mental = FALSE
 
 /datum/action/cooldown/power/psyker/levitate/use_action()
 	. = ..()
@@ -50,12 +49,12 @@
 // Dispel function; basically off-switch and possibly comedic faceplant
 /datum/action/cooldown/power/psyker/levitate/Grant(mob/granted_to)
 	. = ..()
-	if(resonant)
+	if(is_magical())
 		RegisterSignal(granted_to, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 /datum/action/cooldown/power/psyker/levitate/Remove(mob/removed_from)
 	. = ..()
-	if(resonant)
+	if(is_magical())
 		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
 /// Ends the effect; makes them splat if they can't catch themselves.

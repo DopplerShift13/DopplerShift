@@ -73,7 +73,7 @@
 	if(!(casted_magic_flags & MAGIC_RESISTANCE_MIND))
 		return NONE
 	antimagic_sources += src
-	var/adjusted_cost = process_quality_cost(max(1, charge_cost))
+	var/adjusted_cost = process_quality_cost(charge_cost)
 	premium_component.adjust_quality(-adjusted_cost)
 	return COMPONENT_MAGIC_BLOCKED
 

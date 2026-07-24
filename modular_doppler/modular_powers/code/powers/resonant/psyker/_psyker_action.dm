@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/psyker
 	name = "abstract psyker power action - ahelp this"
-	background_icon_state = "bg_hive"
-	overlay_icon_state = "bg_hive_border"
+	background_icon_state = "bg_psyker"
+	overlay_icon_state = "bg_psyker_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
 	// We're a psychic we don't need hands.
@@ -9,9 +9,6 @@
 
 	/// The organ that processes most of the Psyker Powers. Mostly all functions here communicate with this.
 	var/obj/item/organ/resonant/psyker/psyker_organ
-
-	/// If the spell (flavorwise) affects the target's mind. So this should be FALSE for things like telekinesis but TRUE for mind reading.
-	var/mental = TRUE
 
 	/// charge cost on antimagic powers. If it has a cooldown and is non-spamable then this should be 1; otherwise keep it as is. 0 means the target isn't made aware they get targeted as well.
 	var/antimagic_charge_cost = 0
@@ -34,6 +31,10 @@
 /datum/action/cooldown/power/psyker/proc/modify_stress(amount, override_cap)
 	psyker_organ.modify_stress(amount, override_cap)
 
+/// Whether this psyker effect should be treated as mind-affecting for target validation.
+/datum/action/cooldown/power/psyker/proc/is_mental_effect()
+	return !!(magic_resistance_types & MAGIC_RESISTANCE_MIND)
+
 // We added checking for organs on try_use, as well as making sure that if we are wearing a tinfoil cap, we can't just wield our psychic powers.
 /datum/action/cooldown/power/psyker/can_use(mob/living/user, mob/living/target)
 	if(!ValidateOrgan())
@@ -42,25 +43,24 @@
 		else
 			owner.balloon_alert(owner, "No paracausal gland!")
 		return FALSE
-	// This checks against mental on the target
-	if(isliving(target) && mental && !can_affect_mental(target, antimagic_charge_cost))
+	// Dumb targets are a psyker-specific exception for mind-affecting effects.
+	if(isliving(target) && is_mental_effect() && HAS_TRAIT(target, TRAIT_DUMB))
 		modify_stress(PSYKER_STRESS_MINOR)
 		owner.balloon_alert(owner, "The target's mind is unreachable!")
 		to_chat(owner, span_boldnotice("The target's mind is unreachable!"))
 		return FALSE
 	. = .. ()
 
-/// Checks if the target can be affected by mental based psyker stuff, since it has its own litle list of unique immunities. Returns TRUE if the target has nothing that affects mental.
+/// Checks if the target can be affected by mental based psyker stuff, since it has its own litle list of unique immunities including TRAIT_DUMB.
+/// Returns TRUE if the target has nothing that affects mental.
 /datum/action/cooldown/power/psyker/proc/can_affect_mental(mob/living/target, charge_cost)
 	if(!charge_cost)
 		charge_cost = antimagic_charge_cost
-	if(target.can_block_magic(MAGIC_RESISTANCE_MIND, charge_cost = charge_cost))
+	if(is_magical() && target.can_block_resonance(charge_cost))
 		return FALSE
-	if(target.can_block_magic(MAGIC_RESISTANCE, charge_cost = charge_cost))
+	if(magic_resistance_types && target.can_block_magic(magic_resistance_types, charge_cost = charge_cost))
 		return FALSE
-	if(target.can_block_resonance(charge_cost))
-		return FALSE
-	if(HAS_TRAIT(target, TRAIT_DUMB)) // this is a feature
+	if((magic_resistance_types & MAGIC_RESISTANCE_MIND) && HAS_TRAIT(target, TRAIT_DUMB)) // this is a feature
 		return FALSE
 	return TRUE
 

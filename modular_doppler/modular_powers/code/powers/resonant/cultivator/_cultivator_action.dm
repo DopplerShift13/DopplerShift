@@ -1,7 +1,7 @@
 /datum/action/cooldown/power/cultivator
 	name = "abstract cultivator power action - ahelp this"
-	background_icon_state = "bg_revenant"
-	overlay_icon_state = "bg_spell_border"
+	background_icon_state = "bg_cultivator"
+	overlay_icon_state = "bg_cultivator_border"
 	button_icon = 'icons/mob/actions/backgrounds.dmi'
 
 	/// The component that talks with cultivator energy. Mostly all functions here communicate with this.

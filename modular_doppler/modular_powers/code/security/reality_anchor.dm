@@ -120,10 +120,10 @@
 /// Delegates the appropriate moodlet to the approrpiate archetype. Sorc archetype hates it, Resonant dislikes it, Mortal don't give a f.
 /datum/status_effect/power/reality_anchor_silenced/proc/get_anchor_moodlet()
 	/// Sorc archetype
-	if(owner.has_power_in_path(POWER_PATH_THAUMATURGE) || owner.has_power_in_path(POWER_PATH_THEOLOGIST))
+	if(owner.has_power_in_archetype(POWER_ARCHETYPE_SORCEROUS))
 		return /datum/mood_event/reality_anchor_silenced/sorcerous
 	/// Resonant archetype
-	if(owner.has_power_in_path(POWER_PATH_PSYKER) || owner.has_power_in_path(POWER_PATH_CULTIVATOR) || owner.has_power_in_path(POWER_PATH_ABERRANT))
+	if(owner.has_power_in_archetype(POWER_ARCHETYPE_RESONANT))
 		return /datum/mood_event/reality_anchor_silenced/resonant
 	/// Mortals
 	return /datum/mood_event/reality_anchor_silenced/mortal

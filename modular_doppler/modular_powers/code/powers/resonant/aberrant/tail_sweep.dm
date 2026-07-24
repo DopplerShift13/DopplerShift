@@ -8,6 +8,7 @@
 	security_record_text = "Subject can use their tail to damage and knock back foes in active combat."
 	security_threat = POWER_THREAT_MAJOR
 	value = 4
+	magic_flags = NONE // non-magical
 
 	required_powers = list(/datum/power/aberrant_root/beastial)
 	action_path = /datum/action/cooldown/power/aberrant/tailsweep
@@ -23,8 +24,7 @@
 	var/range = 1
 	/// Throw distance
 	var/throw_dist = 2
-	/// Hunger cost of the power
-	var/hunger_cost = 10
+	cost = ABERRANT_HUNGER_TRIVIAL * 2.5
 	/// How much brute damage it deals
 	var/damage = 20
 	/// How much stam damage it deals
@@ -33,6 +33,9 @@
 	var/on_hit_vfx = /obj/effect/temp_visual/dir_setting/tailsweep
 
 /datum/action/cooldown/power/aberrant/tailsweep/can_use(mob/living/user, atom/target)
+	. = ..()
+	if(!.)
+		return FALSE
 	if(iscarbon(user)) // we don't check for tails on non-carbons; I figured it should only exist on others for admeme reasons.
 		var/mob/living/carbon/carbon_user = user
 		var/obj/item/organ/tail/tail = carbon_user.get_organ_slot(ORGAN_SLOT_EXTERNAL_TAIL)
@@ -40,10 +43,7 @@
 		if(!tail && !taur_body)
 			owner.balloon_alert(user, "no tail")
 			return FALSE
-	if(user.nutrition <= NUTRITION_LEVEL_STARVING) // can't use while starving
-		owner.balloon_alert(user, "too hungry!")
-		return FALSE
-	. = ..()
+	return TRUE
 
 /datum/action/cooldown/power/aberrant/tailsweep/use_action(mob/living/user, atom/target)
 	playsound(get_turf(user), 'sound/effects/magic/tail_swing.ogg', 80, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
@@ -72,7 +72,3 @@
 		if(throw_target)
 			victim.throw_at(throw_target, throw_dist, 1, thrower = user, force = MOVE_FORCE_STRONG)
 	return TRUE
-
-/datum/action/cooldown/power/aberrant/shapechange/on_action_success(mob/living/user, atom/target)
-	if(iscarbon(user))
-		user.adjust_nutrition(-hunger_cost)

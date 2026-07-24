@@ -2,9 +2,10 @@
 /datum/power/aberrant/bloodhound
 	name = "Bloodhound"
 	desc = "A whiff of someone's blood, and you're right on their tail. Select a source of blood and it will be your currently active scent. You can only have one active source of scent, and it only lasts for a few minutes.\
-	\n Whilst you have someone's blood, you have an indicator of your quarry's direction. Does not work on scrying immune creatures."
+	\n Whilst you have someone's blood, you have an indicator of your quarry's direction. Does not work on scrying and magic immune creatures. Causes a minor amount of hunger on use."
 	security_record_text = "Subject can track down a creature's direction using blood samples."
 	value = 10
+	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_SCRYING
 
 	required_powers = list(/datum/power/aberrant_root/beastial)
 	action_path = /datum/action/cooldown/power/aberrant/bloodhound
@@ -17,8 +18,7 @@
 	click_to_activate = TRUE
 	target_range = 1
 
-	/// How much hunger does tracking someone take?
-	var/hunger_cost = 20
+	cost = ABERRANT_HUNGER_TRIVIAL * 5
 	/// How long you can keep a mob's scent.
 	var/scent_duration = 2 MINUTES
 
@@ -45,7 +45,6 @@
 
 	user.emote("sniff")
 	to_chat(user, span_notice("You catch someone's scent!"))
-	user.adjust_nutrition(hunger_cost)
 	return TRUE
 
 /// Checks if the target can be affected by bloodhound tracking. Basically magic resistance + scrying immunity.

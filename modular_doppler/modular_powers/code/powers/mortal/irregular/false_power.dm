@@ -2,19 +2,22 @@
 	Fill the sec records with a fake power. Or really anything else you want to write down.
 */
 
-/datum/power/expert/false_power
+/datum/power/irregular/false_power
 	name = "False Power"
 	desc = "A bit of misinformation about your capabilities and it's immediately on record. Allows you to add a 'fake' power entry to your Security Records, tailored to your design."
 	value = 1
 
-/datum/power/expert/false_power/add(client/client_source)
+	menu_icon = 'icons/obj/service/bureaucracy.dmi'
+	menu_icon_state = "docs_red"
+
+/datum/power/irregular/false_power/add(client/client_source)
 	apply_false_power_prefs(client_source)
 
-/datum/power/expert/false_power/post_add()
+/datum/power/irregular/false_power/post_add()
 	apply_false_power_prefs(power_holder?.client)
 	. = ..()
 
-/datum/power/expert/false_power/get_security_record_text()
+/datum/power/irregular/false_power/get_security_record_text()
 	var/custom_record = power_holder?.client?.prefs?.read_preference(/datum/preference/text/false_power_entry)
 	if(isnull(custom_record))
 		var/datum/preference/text/false_power_entry/pref_entry = GLOB.preference_entries[/datum/preference/text/false_power_entry]
@@ -30,7 +33,7 @@
 	return custom_record
 
 /// Gets the false powers settings from the user's preference.
-/datum/power/expert/false_power/proc/apply_false_power_prefs(client/client_source)
+/datum/power/irregular/false_power/proc/apply_false_power_prefs(client/client_source)
 	if(!client_source)
 		security_threat = POWER_THREAT_MINOR
 		return
@@ -93,7 +96,7 @@
 	return
 
 /datum/power_constant_data/false_power
-	associated_typepath = /datum/power/expert/false_power
+	associated_typepath = /datum/power/irregular/false_power
 	customization_options = list(
 		/datum/preference/text/false_power_entry,
 		/datum/preference/choiced/false_power_severity

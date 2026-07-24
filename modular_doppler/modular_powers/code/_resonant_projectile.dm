@@ -16,6 +16,10 @@
 	/// The power that made the projectile.
 	var/datum/action/cooldown/power/creating_power
 
+/// Proc called by powers that want to snapshot info/data from the power. Useful for e.g Thaumaturge when you want to store the affinity from when the projectile was fired.
+/obj/projectile/resonant/proc/snapshot_power_state(datum/action/cooldown/power/power)
+	return
+
 // TODO: actually uhh, add resonant anti-magic to this lmao.
 /obj/projectile/resonant/prehit_pierce(atom/target)
 	. = ..()

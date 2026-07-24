@@ -8,8 +8,8 @@
 
 /datum/power/thaumaturge/gale_blast
 	name = "Gale Blast"
-	desc = "Shoots forth a blast of wind. The blast keeps traveling until it hits a solid structure, extinguishing any fires and dragging along any items with it. If it hits a creature, it knocks them back 3 spaces and extinguishes them. \
-	\nRequires Affinity 3. Extra affinity gives a chance to knockback further."
+	desc = "Shoots forth a blast of wind. The blast keeps traveling until it hits a solid structure, extinguishing any fires and dragging along any items with it. If it hits a solid entity, it knocks it back 3 spaces and extinguishes it if it was on fire. \
+	\nRequires Affinity 3. For every 2 excess affinity, your push force increases (letting you push heavier objects), and you gain +1 push distance."
 	security_record_text = "Subject can create and shoot out strong, violent gusts of wind."
 	security_threat = POWER_THREAT_MAJOR
 	value = 3
@@ -20,7 +20,7 @@
 
 /datum/action/cooldown/power/thaumaturge/gale_blast
 	name = "Gale Blast"
-	desc = "Shoots forth a blast of wind. The blast keeps traveling until it hits a solid structure, extinguishing any fires and dragging along any items with it. If it hits a creature, it knocks them back 3 spaces and extinguishes them."
+	desc = "Shoots forth a blast of wind. The blast keeps traveling until it hits a solid structure, extinguishing any fires and dragging along any items with it. If it hits a solid entity, it knocks it back 3 spaces and extinguishes it if it was on fire."
 	button_icon = 'icons/effects/effects.dmi'
 	button_icon_state = "smoke"
 
@@ -43,8 +43,53 @@
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "smoke"
 
-	// Tweak as needed.
+	/// How far we knockback on impact.
 	var/knockback_range = 3
+	/// How much force the traveling wind applies to loose objects it tries to drag along.
+	var/wind_drag_force = MOVE_FORCE_STRONG
+	/// How much force the impact burst applies when throwing a struck target backward.
+	var/knockback_force = MOVE_FORCE_STRONG
+	/// Affinity captured when the projectile was fired. This keeps the projectile behavior consistent no matter what happens to the caster.
+	var/stored_affinity
+	/// Hidden or special movables that should never be dragged by wind effects.
+	var/static/list/wind_drag_blacklist = typecacheof(list(
+		/atom/movable/mirage_holder, // movable object that creates the illusion. surprised it is an atom/movable.
+	))
+	/// Ordered weakest to strongest for affinity-based force scaling.
+	var/static/list/force_tiers = list(
+		MOVE_FORCE_EXTREMELY_WEAK,
+		MOVE_FORCE_VERY_WEAK,
+		MOVE_FORCE_WEAK,
+		MOVE_FORCE_NORMAL,
+		MOVE_FORCE_STRONG,
+		MOVE_FORCE_VERY_STRONG,
+		MOVE_FORCE_EXTREMELY_STRONG,
+		MOVE_FORCE_OVERPOWERING,
+	)
+
+/// Gets the proper push-force for your gale blast
+/obj/projectile/resonant/gale_blast/proc/get_scaled_force(base_force)
+	var/tier_increase = get_affinity_force_tier_increase()
+	var/base_tier_index = force_tiers.Find(base_force)
+
+	if(!base_tier_index)
+		return base_force
+
+	var/scaled_tier_index = min(base_tier_index + tier_increase, force_tiers.len)
+	return force_tiers[scaled_tier_index]
+
+/// Saves off any power state that should not change after the projectile is fired.
+/obj/projectile/resonant/gale_blast/snapshot_power_state(datum/action/cooldown/power/power)
+	var/datum/action/cooldown/power/thaumaturge/thaumaturge_power = power
+	if(isnull(thaumaturge_power?.affinity)) // we default to 3 in case something else fires this
+		stored_affinity = 3
+		return
+	stored_affinity = thaumaturge_power.affinity
+
+/// Does +1 knockback and +1 force tier with every 2 excess affinity.
+/obj/projectile/resonant/gale_blast/proc/get_affinity_force_tier_increase()
+	var/excess_affinity = max(0, stored_affinity - 3)
+	return FLOOR(excess_affinity / 2, 1)
 
 // Code for dragging along objects.
 /obj/projectile/resonant/gale_blast/Moved(atom/old_loc, movement_dir, forced, list/old_locs, momentum_change)
@@ -95,8 +140,18 @@
 	if(!movable_instance)
 		return FALSE
 
-	// Core rule: anchored objects do not move
+	var/effective_wind_drag_force = get_scaled_force(wind_drag_force)
+
+	// Skips anything in the blacklist.
+	if(is_type_in_typecache(movable_instance, wind_drag_blacklist))
+		return FALSE
+
+	// Anchored objects do not move
 	if(movable_instance.anchored)
+		return FALSE
+
+	// Respect the existing move force system so immovable or heavy objects are not wind-dragged for free.
+	if((movable_instance.move_resist == INFINITY) || (effective_wind_drag_force < (movable_instance.move_resist * MOVE_FORCE_PUSH_RATIO)))
 		return FALSE
 
 	// Do not drag living mobs; knockback is handled separately
@@ -148,24 +203,21 @@
 	if(!knockback_dir)
 		return
 
+	// Calculates knockback dist
+	var/knockback_dist = knockback_range
+	var/tier_increase = get_affinity_force_tier_increase()
+	var/effective_knockback_force = get_scaled_force(knockback_force)
+
+	knockback_dist += tier_increase
+
 	var/turf/destination_turf = target_turf
-	for(var/step_count in 1 to 3)
+	for(var/step_count in 1 to knockback_dist)
 		var/turf/next_turf = get_step(destination_turf, knockback_dir)
 		if(!next_turf)
 			break
 		destination_turf = next_turf
 
-	// chance to knockback slightly farther based on affinity.
-	// This is really ugly.
-	var/knockback_dist = knockback_range
-	var/datum/action/cooldown/power/thaumaturge/power = creating_power
-	var/affinity = power.affinity
-	var/extra_knockback_chance = clamp(25 * (affinity - 3), 0, 100) // Caps out at 50 for T5.
-
-	if(prob(extra_knockback_chance))
-		knockback_dist += 1
-
-	movable_target.safe_throw_at(destination_turf, knockback_dist, 2, firer)
+	movable_target.safe_throw_at(destination_turf, knockback_dist, 2, firer, force = effective_knockback_force)
 	playsound(movable_target, 'sound/effects/bamf.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 
 // Extinguishes the target we just hit.

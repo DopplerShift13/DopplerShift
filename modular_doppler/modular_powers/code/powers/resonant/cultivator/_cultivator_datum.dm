@@ -1,0 +1,10 @@
+/datum/power_path/cultivator
+	path_key = "cultivator"
+	power_path = POWER_PATH_CULTIVATOR
+	archetype_type = /datum/power_archetype/resonant
+	path_sort_order = POWER_PATH_SORT_SECONDARY
+	display_name = "Cultivator"
+	icon_asset_name = "cultivatoricon.png"
+	mechanics_text = "Cultivator revolves around a resource they build up called Energy, which is the cost for a variety of their powers. Most prominently it is used to fuel a state called Alignment. Once you enter this heightened state of Alignment, you gain passive effects and heightened damage, turning you into a force to be reckoned with regardless of your current equipment. Many of your powers require Alignment to be active and cost Energy in turn, but have some incredibly powerful effects in turn.\n\nEnergy is build up through two methods; Meditation, and Aura. Meditation can be done at any point, engulfing you in light as you attune with the passive Resonance in the air. This slowly fills your energy, but prevents you from doing anything else. Meanwhile, Aura lets you harvest it passively from an environment with which you align. If your Alignment is Astral Touched, that means your Energy builds from seeing starlight and other space-based phenomena, whilst something such as Flame soul energizes from seeing exposed flames. You can combine these two methods; an Astral-Touched Cultivator energizes quickly while meditating before the stars. Your Energy caps out at 1000, and most Alignments require at least 200 to activate, with a hefty upkeep (you cannot gain Energy while in Alignment).\n\nYou won't be able to enter your heightened state often, but once you do, you will wield great powers. Wisdom is knowing when to wield it."
+	overview_text = "Your body is a temple; one that strengthens from aligning it with resonant energies. By associating with specific phenomena, you gain supernatural powers, allowing you resist blows like a mountain, and strike with your fists as if it were a blade."
+	theme_color = POWER_COLOR_CULTIVATOR
