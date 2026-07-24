@@ -561,3 +561,144 @@
 	greyscale_config = /datum/greyscale_config/technyne_hood/worn
 	greyscale_config_worn = /datum/greyscale_config/technyne_hood/worn
 	greyscale_colors = "#b66029"
+
+// Marsian Fashion
+
+/obj/item/clothing/suit/hooded/doppler/redmars_duster
+	name = "red marsian duster"
+	desc = "Worn by the utilitarian, this is a bit of a throwback design-- somewhere between a duster and a hooded cloak. \
+	Thick and durable canvas is smattered with the occasional abrasion of dust storm and the microscopic craters it creates, \
+	but the material will likely long outlive the wearer."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/redmars_duster"
+	post_init_icon_state =  "redmars_duster"
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/redmars_duster
+	greyscale_config_worn = /datum/greyscale_config/redmars_duster/worn
+	greyscale_colors = "#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	hoodtype = /obj/item/clothing/head/hooded/doppler/redmars_duster_hood
+
+/obj/item/clothing/suit/hooded/doppler/redmars_duster/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/redmars_duster/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+
+/obj/item/clothing/head/hooded/doppler/redmars_duster_hood
+	name = "red marsian duster hood"
+	desc = "The hood of the Red Marsian duster."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/redmars_duster_hood"
+	post_init_icon_state = "redmars_duster_hood"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	hair_mask = /datum/hair_mask/winterhood
+	greyscale_config = /datum/greyscale_config/redmars_duster_hood
+	greyscale_config_worn = /datum/greyscale_config/redmars_duster_hood/worn
+	greyscale_colors = "#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/hooded/doppler/redmars_gown
+	name = "dustwalker gown"
+	desc = "A form-fitting gown sewn with belts, loops, and buckles. It provides bare minimum protection from the dust \
+	storms, usually requiring something underneath if travelling through outskirts. It comes equipped with its very own \
+	metallic cowl and protective lenses whilst granting the wearer a fashionable look when worn casually."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/redmars_gown"
+	post_init_icon_state =  "redmars_gown"
+	cold_protection =  CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/redmars_gown
+	greyscale_config_worn = /datum/greyscale_config/redmars_gown/worn
+	greyscale_colors = "#ffffff#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	hoodtype = /obj/item/clothing/head/hooded/doppler/redmars_gown_hood
+
+/obj/item/clothing/suit/hooded/doppler/redmars_gown/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/redmars_gown/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+
+/obj/item/clothing/head/hooded/doppler/redmars_gown_hood
+	name = "dustwalker gown cowl"
+	desc = "The cowl of the dustwalker gown."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/redmars_gown_hood"
+	post_init_icon_state = "redmars_gown_hood"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	hair_mask = /datum/hair_mask/winterhood
+	greyscale_config = /datum/greyscale_config/redmars_gown_hood
+	greyscale_config_worn = /datum/greyscale_config/redmars_gown_hood/worn
+	greyscale_colors = "#ffffff#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/hooded/doppler/redmars_overalls
+	name = "thermally-insulated work overalls"
+	desc = "A dense network of rubber tubes worm their way through this environment suit, \
+	comfort control machinery underneath adding or removing temperature from the wearer's \
+	overworked body. A retractile hood has been added with cameras on the outside to ensure \
+	the visor can remain thick."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/redmars_overalls"
+	post_init_icon_state =  "redmars_overalls"
+	cold_protection =  CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/redmars_overalls
+	greyscale_config_worn = /datum/greyscale_config/redmars_overalls/worn
+	greyscale_colors = "#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	hoodtype = /obj/item/clothing/head/hooded/doppler/redmars_overalls_helmet
+
+/obj/item/clothing/suit/hooded/doppler/redmars_overalls/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/redmars_overalls/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+
+/obj/item/clothing/head/hooded/doppler/redmars_overalls_helmet
+	name = "thermally-insulated work helmet"
+	desc = "The helmet-like hood of the mechanical overalls."
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/redmars_overalls_helmet"
+	post_init_icon_state = "redmars_overalls_helmet"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	flags_inv = HIDEHAIR|HIDEEARS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	greyscale_config = /datum/greyscale_config/redmars_overalls_helmet
+	greyscale_config_worn = /datum/greyscale_config/redmars_overalls_helmet/worn
+	greyscale_colors = "#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1

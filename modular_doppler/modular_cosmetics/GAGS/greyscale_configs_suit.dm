@@ -196,3 +196,59 @@
 	name = "Fancy Suit (Worn, Teshari)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/suit.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/fancy_labcoat_tesh_worn.json'
+
+// Marsian Fashion
+
+/datum/greyscale_config/redmars_duster
+	name = "Duster (Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmars_duster.json'
+
+/datum/greyscale_config/redmars_duster/worn
+	name = "Duster (Worn, Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/redmars_duster_hood/
+	name = "Duster Hood (Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmars_duster_hood.json'
+
+/datum/greyscale_config/redmars_duster_hood/worn
+	name = "Duster Hood (Worn, Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
+
+/datum/greyscale_config/redmars_gown
+	name = "Dustwalker Gown (Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmars_gown.json'
+
+/datum/greyscale_config/redmars_gown/worn
+	name = "Dustwalker Gown (Worn, Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/redmars_gown_hood
+	name = "Dustwalker Gown Hood (Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmars_gown_hood.json'
+
+/datum/greyscale_config/redmars_gown_hood/worn
+	name = "Dustwalker Gown Hood (Worn, Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
+
+/datum/greyscale_config/redmars_overalls
+	name = "Thermally-Insulated Work Overalls (Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/suit/jacket.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmars_overalls.json'
+
+/datum/greyscale_config/redmars_overalls/worn
+	name = "Thermally-Insulated Work Overalls (Worn, Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/suit/jacket.dmi'
+
+/datum/greyscale_config/redmars_overalls_helmet
+	name = "Thermally-Insulated Work Overalls Helmet (Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/redmars_overalls_helmet.json'
+
+/datum/greyscale_config/redmars_overalls_helmet/worn
+	name = "Thermally-Insulated Work Overalls (Worn, Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'

@@ -1,0 +1,21 @@
+{
+	"shoulder_cloak_redmars": [
+		{
+			"type": "icon_state",
+			"icon_state": "shoulder_cloak_redmars",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "shoulder_cloak_trim_redmars",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "shoulder_cloak_fur_redmars",
+			"blend_mode": "overlay"
+		}
+	]
+}
