@@ -228,6 +228,57 @@
 	light_range = 3
 	light_color = LIGHT_COLOR_PURPLE
 	rupture_range = 14
+	/// How long after unsecuring a reactor until it starts to arc and make sounds
+	var/hazard_timer = 1.5 MINUTES
+	/// How long after a reactor starts to arc will it have a chance to explode
+	var/explode_hazard_timer = 1.5 MINUTES
+	/// If the process for destabilizing has already begun
+	var/melting_down = FALSE
+	/// If, while processing, this reactor can make electric arcs and sounds
+	var/upset = FALSE
+	/// If, while processing, this reactor can decide to explode
+	var/very_upset = FALSE
+
+/obj/structure/shuttle_decoration/liquid_tank/reactor/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/structure/shuttle_decoration/liquid_tank/reactor/default_unfasten_wrench(mob/user, obj/item/wrench, time)
+	. = ..()
+	if(. != SUCCESSFUL_UNFASTEN)
+		return
+	if(melting_down)
+		return
+	melting_down = TRUE
+	visible_message(span_warning("Warning lights on the shell of [src] start to light up one after another."))
+	Shake(1, 0, hazard_timer, 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(start_arcing)), hazard_timer)
+
+/// Tells the reactor to start processing and adds a random chance to fire arcs and make upset sounds
+/obj/structure/shuttle_decoration/liquid_tank/reactor/proc/start_arcing()
+	upset = TRUE
+	var/mutable_appearance/lightning_overlay = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning")
+	add_overlay(lightning_overlay)
+	visible_message(span_warning("The outer shell of [src] starts to creak and groan!"))
+	START_PROCESSING(SSobj, src)
+	Shake(2, 1, explode_hazard_timer)
+	addtimer(CALLBACK(src, PROC_REF(start_arcing)), explode_hazard_timer)
+
+/// Tells the reactor to start having a random chance to explode when processing
+/obj/structure/shuttle_decoration/liquid_tank/reactor/proc/start_exploding()
+	visible_message(span_boldwarning("The chrysalid contained within [src] starts to grow through the cracks in the housing!"))
+	very_upset = TRUE
+
+/obj/structure/shuttle_decoration/liquid_tank/reactor/process(seconds_per_tick)
+	if(upset)
+		if(prob(1))
+			tesla_zap(source = src, zap_range = 2, power = 1e4, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
+		else if(prob(2))
+			radiation_pulse(src, max_range = rupture_range / 2, threshold = RAD_LIGHT_INSULATION, chance = 50)
+		if(prob(5))
+			playsound(src, SFX_SM_DELAM, 40, TRUE)
+	if(very_upset && prob(1))
+		rupture_tank()
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/rupture_tank()
 	playsound(src, 'modular_doppler/shipbreaking/sound/plasma_bomb.ogg', 100, FALSE, 70, 1, pressure_affected = FALSE, ignore_walls = TRUE)
