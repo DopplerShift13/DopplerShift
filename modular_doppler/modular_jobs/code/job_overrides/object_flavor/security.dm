@@ -30,8 +30,8 @@
 /obj/item/clothing/head/soft/sec
 	name = "security cap"
 	desc = "It's a robust baseball hat in tasteful red colour, with the black and white roundel of Port Safety emblazoned on it."
-	icon = "modular_doppler/modular_jobs/icons/mob/clothing/head/hats.dmi"
-	worn_icon = "modular_doppler/modular_jobs/icons/obj/clothing/head/hats.dmi"
+	icon = 'modular_doppler/modular_jobs/icons/mob/clothing/head/hats.dmi'
+	worn_icon = 'modular_doppler/modular_jobs/icons/obj/clothing/head/hats.dmi'
 	icon_state = "secsoft"
 	soft_type = "sec"
 
