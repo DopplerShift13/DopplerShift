@@ -775,13 +775,13 @@ GLOBAL_LIST_INIT(human_heights_to_offsets, list(
 #define BRA_SOCKS_LAYER 29.5
 /// Underwear and undershirt
 #define UNDERWEAR_UNDERSHIRT 29.25
+/// This layer is used for things that shouldn't be over clothes, but should be over mutations
+#define BODY_FRONT_UNDER_CLOTHES_LAYER 29.1
 /// DOPPLER SHIFT ADDITION END
 /// Jumpsuit clothing layer
 #define UNIFORM_LAYER 29
 /// DOPPLER SHIFT ADDITION BEGIN
 #define BANDAGE_LAYER 28.5
-/// This layer is used for things that shouldn't be over clothes, but should be over mutations
-#define BODY_FRONT_UNDER_CLOTHES_LAYER 28.25
 /// DOPPLER SHIFT ADDITION END
 /// ID card layer
 #define ID_LAYER 28
