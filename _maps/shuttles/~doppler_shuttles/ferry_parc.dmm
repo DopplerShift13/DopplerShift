@@ -1,0 +1,423 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/transport)
+"b" = (
+/obj/structure/shuttle_decoration/radiator/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/transport)
+"e" = (
+/obj/structure/closet/crate,
+/obj/item/storage/toolbox/guncase/modular/munin,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/obj/item/storage/belt/military/pouches/sindaryo,
+/turf/open/floor/plating/aluminum,
+/area/shuttle/transport)
+"g" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/shuttle/transport)
+"i" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/machinery/digital_clock/directional/north,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/transport)
+"j" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/structure/engine_covers/thruster_nozzle{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/shuttle/transport)
+"k" = (
+/obj/structure/table/reinforced,
+/obj/item/storage/belt/utility/full/powertools/rcd,
+/obj/item/storage/belt/utility/full/powertools/rcd{
+	pixel_y = 3;
+	pixel_x = 3
+	},
+/obj/item/storage/belt/utility/full/powertools/rcd{
+	pixel_y = 3;
+	pixel_x = -3
+	},
+/obj/item/storage/belt/utility/full/powertools/rcd{
+	pixel_y = 8;
+	pixel_x = 3
+	},
+/obj/item/storage/belt/utility/full/powertools/rcd{
+	pixel_y = 6;
+	pixel_x = -1
+	},
+/turf/open/floor/iron/colony/white/bolts,
+/area/shuttle/transport)
+"m" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/transport)
+"n" = (
+/obj/machinery/door/airlock/spacer,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/transport)
+"o" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 9
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/transport)
+"q" = (
+/obj/structure/shuttle_decoration/aux_engine/directional/east,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/transport)
+"s" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/transport)
+"t" = (
+/obj/structure/chair/comfy/shuttle,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/transport)
+"u" = (
+/obj/structure/table/optable,
+/obj/item/surgical_drapes,
+/obj/machinery/vending/wallmed/directional/north,
+/obj/item/tank/internals/anesthetic,
+/obj/item/clothing/mask/breath/muzzle,
+/turf/open/floor/iron/colony/white/bolts,
+/area/shuttle/transport)
+"w" = (
+/obj/machinery/computer/shuttle/ferry/request{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/transport)
+"x" = (
+/turf/open/floor/iron/colony/nanocarbon,
+/area/shuttle/transport)
+"y" = (
+/obj/structure/shuttle_decoration/radiator/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/transport)
+"z" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"A" = (
+/obj/structure/shelf,
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/obj/item/stack/sheet/iron/fifty{
+	pixel_x = -3;
+	pixel_y = 2
+	},
+/obj/item/stack/sheet/rglass/fifty{
+	pixel_x = -2;
+	pixel_y = -1
+	},
+/obj/item/rcd_ammo/large{
+	pixel_y = -6;
+	pixel_x = 7
+	},
+/obj/item/rcd_ammo/large{
+	pixel_y = -4;
+	pixel_x = 7
+	},
+/obj/item/rcd_ammo/large{
+	pixel_y = -2;
+	pixel_x = 7
+	},
+/obj/item/rcd_ammo/large{
+	pixel_x = 7
+	},
+/obj/item/rcd_ammo/large{
+	pixel_x = 7;
+	pixel_y = 2
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/colony/white/bolts,
+/area/shuttle/transport)
+"B" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/engine_covers/heater_cover{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/shuttle/transport)
+"D" = (
+/obj/structure/shuttle_decoration/ladder/directional/south,
+/obj/structure/shuttle_decoration/junction_box/directional/north,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"E" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/surgery_tray/full,
+/obj/machinery/wall_healer/free/directional/north,
+/obj/item/clothing/mask/surgical{
+	pixel_y = 5
+	},
+/obj/item/clothing/gloves/latex/nitrile{
+	pixel_y = 6
+	},
+/turf/open/floor/iron/colony/white/bolts,
+/area/shuttle/transport)
+"G" = (
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"H" = (
+/obj/structure/shelf,
+/obj/machinery/light/small/directional/east,
+/obj/item/storage/hypospraykit/cmo/combat{
+	pixel_y = 6
+	},
+/obj/item/gun/medbeam{
+	pixel_y = -7
+	},
+/turf/open/floor/plating/aluminum,
+/area/shuttle/transport)
+"J" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"K" = (
+/obj/structure/shuttle_decoration/rcs/directional/south,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"L" = (
+/obj/structure/guncase/wt550{
+	capacity = 5;
+	gun_category = /obj/item/gun/ballistic/automatic/wt550;
+	open = 0
+	},
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
+/obj/item/gun/ballistic/automatic/wt550,
+/turf/open/floor/plating/aluminum,
+/area/shuttle/transport)
+"M" = (
+/obj/structure/closet/secure_closet/engineering_electrical,
+/obj/item/grenade/c4{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/grenade/c4{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/obj/item/grenade/c4{
+	pixel_x = 3;
+	pixel_y = 1
+	},
+/turf/open/floor/iron/colony/white/bolts,
+/area/shuttle/transport)
+"O" = (
+/obj/machinery/light/small/directional/east,
+/obj/structure/shelf,
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_x = -4;
+	pixel_y = -7
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_x = -4;
+	pixel_y = -7
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_y = -7;
+	pixel_x = 1
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_y = -7;
+	pixel_x = 6
+	},
+/obj/item/clothing/suit/armor/vest/combatarmor{
+	pixel_y = -7;
+	pixel_x = 6
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = -4;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = 1;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/obj/item/clothing/head/helmet/pressurehelmet{
+	pixel_x = 6;
+	pixel_y = 4
+	},
+/turf/open/floor/plating/aluminum,
+/area/shuttle/transport)
+"Q" = (
+/obj/structure/shuttle_decoration/rcs/directional/north,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"R" = (
+/obj/docking_port/mobile{
+	dir = 8;
+	shuttle_id = "ferry";
+	name = "ferry shuttle";
+	preferred_direction = 4
+	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/spacer,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/transport)
+"T" = (
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/transport)
+"U" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/transport)
+"V" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/transport)
+"W" = (
+/obj/structure/tank_dispenser/oxygen,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/transport)
+"X" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/transport)
+"Y" = (
+/obj/structure/shelf,
+/obj/item/storage/medkit/brute{
+	pixel_y = -3
+	},
+/obj/item/storage/medkit/fire{
+	pixel_y = 1
+	},
+/obj/item/storage/medkit/advanced{
+	pixel_y = 6
+	},
+/obj/machinery/light/small/directional/west,
+/turf/open/floor/iron/colony/white/bolts,
+/area/shuttle/transport)
+"Z" = (
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/transport)
+
+(1,1,1) = {"
+o
+j
+j
+j
+X
+"}
+(2,1,1) = {"
+V
+B
+B
+B
+s
+"}
+(3,1,1) = {"
+V
+L
+Z
+e
+s
+"}
+(4,1,1) = {"
+b
+O
+Z
+H
+y
+"}
+(5,1,1) = {"
+Q
+G
+n
+G
+K
+"}
+(6,1,1) = {"
+g
+Y
+x
+A
+g
+"}
+(7,1,1) = {"
+J
+u
+x
+M
+z
+"}
+(8,1,1) = {"
+G
+E
+x
+k
+D
+"}
+(9,1,1) = {"
+g
+a
+x
+W
+g
+"}
+(10,1,1) = {"
+Q
+i
+x
+m
+K
+"}
+(11,1,1) = {"
+J
+t
+x
+U
+z
+"}
+(12,1,1) = {"
+g
+T
+x
+w
+g
+"}
+(13,1,1) = {"
+q
+g
+R
+g
+q
+"}

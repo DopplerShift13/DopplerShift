@@ -121,3 +121,12 @@
 	ammo_type = /obj/item/ammo_casing/sportsco3mm
 	caliber = CALIBER_3MMSPORTSCO
 	max_ammo = 25
+
+// alt version of the c20 that starts suppressed
+/obj/item/gun/ballistic/automatic/c20r/suppressed/Initialize(mapload)
+	. = ..()
+	var/obj/item/suppressor/sneakybreeki = new(src)
+	install_suppressor(sneakybreeki)
+
+/obj/item/gun/ballistic/automatic/c20r/suppressed/unrestricted
+	pin = /obj/item/firing_pin

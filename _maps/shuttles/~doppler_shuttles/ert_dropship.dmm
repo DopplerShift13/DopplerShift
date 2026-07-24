@@ -1,0 +1,726 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ag" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"ak" = (
+/obj/structure/shuttle_decoration/radiator/directional/north,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 4
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/dropship)
+"da" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 4
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"eG" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"fO" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 6
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"gq" = (
+/obj/machinery/atmos_shield_gen/active,
+/obj/machinery/door/airlock/spacer{
+	id_tag = "starboard_lockdown"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"hb" = (
+/obj/structure/chair/comfy/shuttle/buckle_offsets{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/dropship)
+"hN" = (
+/obj/structure/shuttle_decoration/radiator/directional/north,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 8
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/shuttle/dropship)
+"io" = (
+/obj/machinery/light/directional/east,
+/obj/structure/chair/comfy/shuttle/buckle_offsets{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/dropship)
+"iO" = (
+/obj/machinery/deployable_turret/hmg,
+/turf/open/floor/plating/aluminum,
+/area/shuttle/dropship)
+"iQ" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 5
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/dropship)
+"jm" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/dropship)
+"kJ" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 5
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"kN" = (
+/obj/structure/shuttle_decoration/extinguisher/directional/south,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/dropship)
+"lq" = (
+/turf/open/floor/iron/colony/bolts,
+/area/shuttle/dropship)
+"mm" = (
+/obj/structure/engine_covers/thruster_nozzle,
+/obj/machinery/power/shuttle_engine/propulsion/salvage,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"mn" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 8
+	},
+/obj/machinery/exoscanner/shuttle_part/sensors_blister/directional/west,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"mR" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"oF" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 10
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"pG" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 9
+	},
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/dropship)
+"qo" = (
+/obj/machinery/light/directional/east,
+/obj/structure/chair/comfy/shuttle/buckle_offsets,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/dropship)
+"re" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 10
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"rm" = (
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/obj/docking_port/mobile/dropship,
+/obj/machinery/door/airlock/spacer{
+	id_tag = "starboard_lockdown"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"sD" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 1
+	},
+/obj/machinery/button/door/directional/south{
+	pixel_x = -5;
+	name = "Port Side Lockdown";
+	id = "port_lockdown";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/obj/machinery/button/door/directional/south{
+	pixel_x = 5;
+	name = "Starboard Side Lockdown";
+	id = "starboard_lockdown";
+	normaldoorcontrol = 1;
+	specialfunctions = 4
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/dropship)
+"wm" = (
+/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/west,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/headlight/directional/west,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"wS" = (
+/obj/structure/lattice,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 9
+	},
+/obj/machinery/light/floor,
+/turf/template_noop,
+/area/shuttle/dropship)
+"xM" = (
+/turf/template_noop,
+/area/template_noop)
+"yL" = (
+/obj/structure/engine_covers/thruster_nozzle,
+/obj/machinery/power/shuttle_engine/propulsion/salvage,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"yN" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"yT" = (
+/obj/structure/chair/comfy/shuttle/buckle_offsets,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/dropship)
+"yY" = (
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/dropship)
+"zp" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"Ae" = (
+/obj/structure/shuttle_decoration/extinguisher/directional/north,
+/obj/structure/shuttle_decoration/junction_box/directional/south,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/dropship)
+"Ao" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"Bl" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/shuttle/dropship)
+"Ce" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 6
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"Dk" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"DB" = (
+/obj/machinery/light/directional/west,
+/obj/structure/chair/comfy/shuttle/buckle_offsets,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/dropship)
+"Eu" = (
+/obj/structure/railing/eva_handhold/directional/west,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"EL" = (
+/obj/machinery/power/shuttle_engine/heater/salvage,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 4
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"EV" = (
+/obj/structure/shuttle_decoration/headlight/directional/north,
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/dropship)
+"Fi" = (
+/obj/machinery/door/poddoor/shutters{
+	id = "rear_bay"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"Gk" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"GU" = (
+/obj/machinery/button/door/directional/north{
+	name = "Rear Bay Door Control";
+	id = "rear_bay"
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/dropship)
+"Hf" = (
+/obj/structure/lattice,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 5
+	},
+/obj/machinery/light/floor,
+/turf/template_noop,
+/area/shuttle/dropship)
+"JB" = (
+/obj/machinery/computer/crew,
+/turf/open/floor/iron/colony,
+/area/shuttle/dropship)
+"KR" = (
+/obj/machinery/atmos_shield_gen/active{
+	dir = 8
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "rear_bay"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"KU" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/headlight/directional/south,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"MC" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 9
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"MJ" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 8
+	},
+/obj/machinery/light/directional/east,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"Ns" = (
+/obj/machinery/light/directional/west,
+/obj/structure/chair/comfy/shuttle/buckle_offsets{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/dropship)
+"NB" = (
+/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/east,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/headlight/directional/east,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"NM" = (
+/obj/machinery/computer/camera_advanced/shuttle_docker/dropship,
+/turf/open/floor/iron/colony,
+/area/shuttle/dropship)
+"Ov" = (
+/obj/machinery/atmos_shield_gen/active{
+	dir = 4
+	},
+/obj/machinery/door/poddoor/shutters{
+	id = "rear_bay"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"Pq" = (
+/obj/machinery/atmos_shield_gen/active,
+/obj/machinery/door/airlock/spacer{
+	id_tag = "port_lockdown"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"PU" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"Qs" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/dropship)
+"RB" = (
+/obj/machinery/computer/shuttle/dropship,
+/turf/open/floor/iron/colony,
+/area/shuttle/dropship)
+"RF" = (
+/obj/machinery/atmos_shield_gen/active{
+	dir = 1
+	},
+/obj/machinery/door/airlock/spacer{
+	id_tag = "port_lockdown"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+"Ss" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 4
+	},
+/obj/machinery/exoscanner/shuttle_part/sensors_blister/directional/east,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"SE" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"TN" = (
+/obj/structure/railing/eva_handhold/directional/east,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"UL" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 1
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"VV" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/obj/machinery/light/floor,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"XL" = (
+/turf/open/floor/plating/aluminum,
+/area/shuttle/dropship)
+"Yq" = (
+/obj/machinery/light/directional/north,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/dropship)
+"YQ" = (
+/obj/structure/shuttle_decoration/aux_engine/directional/north,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/dropship)
+"YW" = (
+/obj/machinery/power/shuttle_engine/heater/salvage,
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 8
+	},
+/obj/machinery/light/floor,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/shuttle/dropship)
+"Zh" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"Zz" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 8
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/dropship)
+"ZD" = (
+/obj/machinery/door/airlock/spacer/glass,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/dropship)
+
+(1,1,1) = {"
+xM
+xM
+xM
+xM
+xM
+MC
+Ao
+MJ
+xM
+xM
+xM
+xM
+xM
+xM
+hN
+YW
+YW
+yL
+xM
+xM
+xM
+"}
+(2,1,1) = {"
+xM
+xM
+xM
+xM
+YQ
+mn
+mn
+yN
+Pq
+RF
+Eu
+yN
+re
+xM
+ak
+EL
+EL
+mm
+xM
+xM
+VV
+"}
+(3,1,1) = {"
+xM
+xM
+xM
+xM
+EV
+yT
+hb
+yT
+lq
+lq
+yT
+hb
+iQ
+wm
+yN
+Zz
+Zz
+Zh
+re
+xM
+Gk
+"}
+(4,1,1) = {"
+wS
+PU
+Bl
+PU
+Qs
+Yq
+yY
+yY
+yY
+yY
+yY
+yY
+yT
+Ns
+yT
+hb
+yT
+Ns
+KU
+ag
+fO
+"}
+(5,1,1) = {"
+UL
+Bl
+NM
+sD
+kN
+yY
+yT
+hb
+qo
+hb
+yT
+yY
+yY
+yY
+yY
+yY
+yY
+yY
+Ov
+xM
+xM
+"}
+(6,1,1) = {"
+UL
+Bl
+RB
+lq
+ZD
+yY
+mR
+mR
+mR
+mR
+mR
+GU
+lq
+XL
+lq
+XL
+lq
+iO
+Fi
+xM
+xM
+"}
+(7,1,1) = {"
+UL
+Bl
+JB
+jm
+Ae
+yY
+yT
+hb
+DB
+hb
+yT
+yY
+yY
+yY
+yY
+yY
+yY
+yY
+KR
+xM
+xM
+"}
+(8,1,1) = {"
+Hf
+Dk
+Bl
+Dk
+Qs
+Yq
+yY
+yY
+yY
+yY
+yY
+yY
+yT
+io
+yT
+hb
+yT
+io
+KU
+Ao
+oF
+"}
+(9,1,1) = {"
+xM
+xM
+xM
+xM
+EV
+yT
+hb
+yT
+lq
+lq
+yT
+hb
+pG
+NB
+eG
+zp
+zp
+SE
+Ce
+xM
+Gk
+"}
+(10,1,1) = {"
+xM
+xM
+xM
+xM
+YQ
+Ss
+Ss
+eG
+gq
+rm
+TN
+eG
+Ce
+xM
+hN
+YW
+YW
+yL
+xM
+xM
+VV
+"}
+(11,1,1) = {"
+xM
+xM
+xM
+xM
+xM
+kJ
+ag
+da
+xM
+xM
+xM
+xM
+xM
+xM
+ak
+EL
+EL
+mm
+xM
+xM
+xM
+"}

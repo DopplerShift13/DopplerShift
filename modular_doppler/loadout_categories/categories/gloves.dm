@@ -158,6 +158,17 @@
 	item_path = /obj/item/clothing/gloves/color/rainbow
 
 /**
+ * ENVIROGLOVES
+ */
+/datum/loadout_item/gloves/envirogloves
+	group = "Envirogloves"
+	abstract_type = /datum/loadout_item/gloves/envirogloves
+
+/datum/loadout_item/gloves/envirogloves/rev2
+	name = "Modernized Phorid Envirogloves (Green)"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/rev2
+
+/**
  * MISCELLANEOUS
  */
 /datum/loadout_item/gloves/misc

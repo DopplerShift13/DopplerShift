@@ -77,3 +77,16 @@
 		friendly fire."
 	icon_state = "karim_mag_minebot"
 	ammo_type = /obj/item/ammo_casing/europan4mm/minebot
+
+/obj/item/ammo_box/magazine/minhir
+	name = "\improper Minhir heavy pulse rifle ammo box"
+	desc = "A high-capacity ammo box for the Minhir heavy pulse rifle, holding a whopping three hundred caseless 4mm rounds. \
+		Rather than an exposed set of links, ammunition is fed through a flexible enclosed tube to prevent dirt from entering the \
+		weapon's mechanism."
+	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon_state = "minhir_box"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	ammo_type = /obj/item/ammo_casing/europan4mm
+	caliber = CALIBER_4MMEUROPAN
+	max_ammo = 300
+	w_class = WEIGHT_CLASS_NORMAL

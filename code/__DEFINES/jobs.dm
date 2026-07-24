@@ -124,6 +124,16 @@
 #define JOB_CENTCOM_PRIVATE_SECURITY "Private Security Force"
 // DOPPLER EDIT ADDITION START
 #define JOB_COMMAND_BODYGUARD "Command Bodyguard"
+#define JOB_PCAT_MANAGER "P-CAT Site Manager"
+#define JOB_PCAT_INSPECTOR "P-CAT Inspector"
+#define JOB_PORTAUTH_COMMANDER "Port Authority Commander"
+#define JOB_ERT_PARC_COMMANDER "Response Corps Commander"
+#define JOB_ERT_PARC_OFFICER "Response Corps Officer"
+#define JOB_ERT_VOID_CORPS_COMMANDER "Void Corps Commander"
+#define JOB_ERT_VOID_CORPS_AUTORIFLE "Void Corps Automatic Rifleman"
+#define JOB_ERT_VOID_CORPS_BREACHER "Void Corps Breacher"
+#define JOB_ERT_VOID_CORPS_COMTECH "Void Corps Combat Technician"
+#define JOB_ERT_VOID_CORPS_CORPSMAN "Void Corps Corpsman"
 // DOPPLER EDIT ADDITION END
 
 //Lost crew
