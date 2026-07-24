@@ -27,7 +27,6 @@
 	name = "jackboots"
 	desc = "Port Safety issued Security combat boots for combat scenarios or combat situations. All combat, all the time."
 
-
 /obj/item/clothing/head/soft/sec
 	name = "security cap"
 	desc = "It's a robust baseball hat in tasteful red colour, with the black and white roundel of Port Safety emblazoned on it."
