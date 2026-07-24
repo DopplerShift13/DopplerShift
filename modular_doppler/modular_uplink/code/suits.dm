@@ -18,7 +18,7 @@
 	desc = "A relatively affordable suit originally issued to Imperial Tiziran forces. The wide availability \
 	of surplus units has led to their broad adoption by irregular Tiziran forces and even criminal enterprise."
 	item = /obj/item/mod/control/pre_equipped/raider
-	cost = 8
+	cost = 10 // direct upgrade from the syndie MOD in both armor and modules
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/suits/jetpack_harness
