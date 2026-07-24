@@ -77,12 +77,14 @@
 		path += target_turf
 
 	// we start dashing!
+	playsound(user, 'sound/effects/magic/repulse.ogg', 30, TRUE)
 	active = TRUE
 	INVOKE_ASYNC(src, PROC_REF(dash_along_path), user, path, alignment_action.alignment_outline_color)
 	return TRUE
 
 /// Moves us along our pre-determined path.
 /datum/action/cooldown/power/cultivator/energy_dash/proc/dash_along_path(mob/living/user, list/path, alignment_color)
+
 	ADD_TRAIT(user, TRAIT_IMMOBILIZED, src) // we don't want em moving.
 	var/steps = 0
 	// for loop that creates afterimages, moves us to the next space and repeats til we're at our destination.
