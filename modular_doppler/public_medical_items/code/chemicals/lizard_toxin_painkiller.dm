@@ -34,6 +34,7 @@
 		var/static/list/color_filter_wonky = list(2,-0.5,-0.5,0, -0.5,2,-0.5,0, -0.5,-0.5,2,0, 0,0,0,1)
 		if(!isnull(game_plane_master_controller.get_filter(ASLANANE_COLOR_FILTER)))
 			return
+		game_plane_master_controller.add_filter(ASLANANE_COLOR_FILTER, 10, color_matrix_filter())
 		game_plane_master_controller.transition_filter(ASLANANE_COLOR_FILTER, 5 SECONDS, color_matrix_filter(color_filter_wonky, FILTER_COLOR_RGB))
 		exposed_mob.playsound_local(exposed_mob, 'sound/effects/singlebeat.ogg', 100, TRUE)
 
