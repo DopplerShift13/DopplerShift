@@ -56,7 +56,6 @@
 	icon = 'modular_doppler/super_glasses/icons/visors.dmi'
 	icon_state = "techweld"
 	worn_icon = 'modular_doppler/super_glasses/icons/worn/visors.dmi'
-	worn_icon_state = "techweld"
 	inhand_icon_state = "welding-g"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
