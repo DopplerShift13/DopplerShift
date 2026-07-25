@@ -31,7 +31,7 @@
 				span_userdanger("[user] is trying to inject something into you!"))
 		if(!do_after(user, CHEM_INTERACT_DELAY(inject_others_time, user), affected_mob))
 			return FALSE
-	if(!reagent.total_volume)
+	if(!reagents.total_volume)
 		return FALSE
 	if(!(ignore_flags || affected_mob.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE)))
 		return FALSE
