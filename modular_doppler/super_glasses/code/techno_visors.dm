@@ -62,3 +62,8 @@
 	bodyshape_icon_files = null
 	glass_colour_type = /datum/client_colour/glass_colour/orange
 	slot_flags = ITEM_SLOT_EYES | ITEM_SLOT_HEAD
+	layer = ABOVE_BODY_FRONT_HEAD_LAYER
+
+/obj/item/clothing/glasses/welding/tech/visor_toggling()
+	. = ..()
+	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
