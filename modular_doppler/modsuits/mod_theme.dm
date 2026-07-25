@@ -42,7 +42,7 @@
 /datum/mod_theme/thaumaturge
 	slot_flags = ITEM_SLOT_BELT
 	name = "thaumaturge"
-	desc = "A novel expression of the Modular Suit. Taking massive inspiration from the earliest Nakamura Engineering designs, Tchotchkean Artificers across multiple Blocs have all had a hand in manufacting this feat of Magi Engineering."
+	desc = "Taking massive inspiration from the earliest Nakamura Engineering designs, Tchotchkean Artificers across multiple Blocs have all had a hand in manufacting this feat of Magi Engineering."
 	extended_desc = "Aesthetically appearing far more akin to ancient suits of armor, these 'T-3 Artifice Modular Outerwear Devices' were a joint combination effort across\
 		multiple Tchotchkean Blocs in an effort to combine the utility of Modular Outerwear Devices with resonant-friendly materials— while also updating them with the penchant for\
 		flaire and comfort that Mages so often desire."
