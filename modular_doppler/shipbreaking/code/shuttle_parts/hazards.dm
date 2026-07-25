@@ -211,7 +211,8 @@
 #define REACTOR_MELTDOWN_SAFE 0
 #define REACTOR_MELTDOWN_STARTED 1
 #define REACTOR_MELTDOWN_UPSET 2
-#define REACTOR_MELTDOWN_VERY_UPSET 2
+#define REACTOR_MELTDOWN_VERY_UPSET 3
+#define REACTOR_MELTDOWN_SHUTTLE_DISARMED 4
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor
 	name = "ethereal bloom reactor"
@@ -251,6 +252,8 @@
 			. += span_warning("The reactor's chrysalid is becoming active and will breach the containment shell if not dealt with soon!")
 		if(REACTOR_MELTDOWN_VERY_UPSET)
 			. += span_boldwarning("The chrysalid inside the reactor has started to grow through cracks in the shell, now would be a good time to run!")
+	if(meltdown_state >= REACTOR_MELTDOWN_STARTED)
+		. += span_notice("Chrysalid containment breach can be prevented by shipping the reactor off through the supply shuttle, or recycling it.")
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/Destroy()
 	STOP_PROCESSING(SSobj, src)
@@ -265,26 +268,35 @@
 	meltdown_state = REACTOR_MELTDOWN_STARTED
 	visible_message(span_warning("Warning lights on the shell of [src] start to light up one after another."))
 	Shake(1, 0, hazard_timer, 1 SECONDS)
+	START_PROCESSING(SSobj, src)
 	addtimer(CALLBACK(src, PROC_REF(start_arcing)), hazard_timer)
 
 /// Tells the reactor to start processing and adds a random chance to fire arcs and make upset sounds
 /obj/structure/shuttle_decoration/liquid_tank/reactor/proc/start_arcing()
+	if(meltdown_state == REACTOR_MELTDOWN_SHUTTLE_DISARMED)
+		return
 	meltdown_state = REACTOR_MELTDOWN_UPSET
 	var/mutable_appearance/lightning_overlay = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning")
 	add_overlay(lightning_overlay)
 	visible_message(span_warning("The outer shell of [src] starts to creak and groan!"))
-	START_PROCESSING(SSobj, src)
 	Shake(2, 1, explode_hazard_timer)
 	addtimer(CALLBACK(src, PROC_REF(start_exploding)), explode_hazard_timer)
 
 /// Tells the reactor to start having a random chance to explode when processing
 /obj/structure/shuttle_decoration/liquid_tank/reactor/proc/start_exploding()
+	if(meltdown_state == REACTOR_MELTDOWN_SHUTTLE_DISARMED)
+		return
 	visible_message(span_boldwarning("The chrysalid contained within [src] starts to grow through the cracks in the housing!"))
 	meltdown_state = REACTOR_MELTDOWN_VERY_UPSET
 	var/mutable_appearance/danger_overlay = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "void_chill_oh_fuck")
 	add_overlay(danger_overlay)
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/process(seconds_per_tick)
+	var/area/current_area = get_area(src)
+	if(istype(current_area, /area/shuttle/supply) && !is_station_level(z))
+		meltdown_state = REACTOR_MELTDOWN_SHUTTLE_DISARMED
+		STOP_PROCESSING(SSobj, src)
+		return
 	if(meltdown_state >= REACTOR_MELTDOWN_UPSET)
 		if(prob(1))
 			tesla_zap(source = src, zap_range = 2, power = 1e4, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
