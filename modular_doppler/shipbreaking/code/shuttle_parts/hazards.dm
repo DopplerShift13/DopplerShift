@@ -305,7 +305,11 @@
 		if(prob(5))
 			playsound(src, SFX_SM_DELAM, 40, TRUE)
 	if((meltdown_state >= REACTOR_MELTDOWN_VERY_UPSET) && prob(1))
-		rupture_tank()
+		visible_message(span_boldwarning("That can't be good."))
+		var/mutable_appearance/about_to_blow = mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE, appearance_flags = RESET_COLOR|KEEP_APART)
+		add_overlay(about_to_blow)
+		playsound(src, 'sound/effects/compressed_air/tank_remove_thunk.ogg', 100, TRUE)
+		addtimer(CALLBACK(src, PROC_REF(rupture_tank)), rand(2 SECONDS, 4 SECONDS))
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/rupture_tank()
 	playsound(src, 'modular_doppler/shipbreaking/sound/plasma_bomb.ogg', 100, FALSE, 70, 1, pressure_affected = FALSE, ignore_walls = TRUE)
