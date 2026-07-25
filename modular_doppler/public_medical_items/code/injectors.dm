@@ -31,23 +31,25 @@
 				span_userdanger("[user] is trying to inject something into you!"))
 		if(!do_after(user, CHEM_INTERACT_DELAY(inject_others_time, user), affected_mob))
 			return FALSE
-	if(reagents.total_volume && (ignore_flags || affected_mob.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE))) // Ignore flag should be checked first or there will be an error message.
-		to_chat(affected_mob, span_warning("You feel a tiny prick!"))
-		to_chat(user, span_notice("You inject [affected_mob] with [src]."))
-		if(!stealthy)
-			playsound(affected_mob, 'sound/items/hypospray.ogg', 50, TRUE)
-		var/fraction = min(amount_per_transfer_from_this/reagents.total_volume, 1)
-		if(affected_mob.reagents)
-			var/trans = 0
-			if(!infinite)
-				trans = reagents.trans_to(affected_mob, amount_per_transfer_from_this, transferred_by = user, methods = INJECT)
-			else
-				reagents.expose(affected_mob, INJECT, fraction)
-				trans = reagents.trans_to(affected_mob, amount_per_transfer_from_this, copy_only = TRUE)
-			to_chat(user, span_notice("[trans] unit\s injected. [reagents.total_volume] unit\s remaining in [src]."))
-			log_combat(user, affected_mob, "injected", src, "([contained])")
-		return TRUE
-	return FALSE
+	if(!reagent.total_volume)
+		return FALSE
+	if(!(ignore_flags || affected_mob.try_inject(user, injection_flags = INJECT_TRY_SHOW_ERROR_MESSAGE)))
+		return FALSE
+	to_chat(affected_mob, span_warning("You feel a tiny prick!"))
+	to_chat(user, span_notice("You inject [affected_mob] with [src]."))
+	if(!stealthy)
+		playsound(affected_mob, 'sound/items/hypospray.ogg', 50, TRUE)
+	var/fraction = min(amount_per_transfer_from_this/reagents.total_volume, 1)
+	if(affected_mob.reagents)
+		var/trans = 0
+		if(!infinite)
+			trans = reagents.trans_to(affected_mob, amount_per_transfer_from_this, transferred_by = user, methods = INJECT)
+		else
+			reagents.expose(affected_mob, INJECT, fraction)
+			trans = reagents.trans_to(affected_mob, amount_per_transfer_from_this, copy_only = TRUE)
+		to_chat(user, span_notice("[trans] unit\s injected. [reagents.total_volume] unit\s remaining in [src]."))
+		log_combat(user, affected_mob, "injected", src, "([contained])")
+	return TRUE
 
 // Filled subtypes start
 
@@ -65,7 +67,7 @@
 
 /obj/item/reagent_containers/hypospray/medipen/doppler/adrenaline
 	name = "adrenaline airhypo"
-	desc = "A single-use adrenaline air needle, to combat toxic shock caused by mixing other chemicals such as T-Witch and DemonEye."
+	desc = "A single-use adrenaline air needle, to combat toxic shock caused by mixing other chemicals such as T-WITCH and DemonEye."
 	base_icon_state = "adrenaline"
 	icon_state = "adrenaline"
 	list_reagents = list(

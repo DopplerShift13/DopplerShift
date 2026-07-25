@@ -26,7 +26,6 @@
 				/obj/item/stack/medical/bandage = 4,
 				/obj/item/reagent_containers/applicator/patch/robotic_patch/synth_repair = 4,
 				/obj/item/stack/medical/gauze/alu_splint = 2,
-				/obj/item/storage/pill_bottle/painkiller = 4,
 				/obj/item/storage/medkit/civil_defense/stocked = 2,
 			),
 		),
@@ -34,6 +33,8 @@
 			"name" = "Chems",
 			"icon" = "syringe",
 			"products" = list(
+				/obj/item/storage/pill_bottle/painkiller = 4,
+				/obj/item/storage/pill_bottle/prescription_stimulant = 4,
 				/obj/item/reagent_containers/hypospray/medipen/doppler/sensory = 3,
 				/obj/item/reagent_containers/hypospray/medipen/doppler/adrenaline = 3,
 				/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 3,
@@ -56,7 +57,7 @@
 	default_price = PAYCHECK_CREW
 	extra_price = PAYCHECK_COMMAND * 4
 	payment_department = NO_FREEBIES
-	onstation_override = 1 // No freebies if this spawns on the interlink
+	onstation_override = 1
 
 /obj/item/vending_refill/medical_everywhere
 	machine_name = "EaC First Aid Station"

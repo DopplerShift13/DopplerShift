@@ -1,7 +1,7 @@
 // TO MAKE: special medicine that you (RESPECTFULLY AQUIRE TIZIRIAN VENOM) to produce
 /datum/reagent/toxin/tiziran
 	name = "Tiziran Cytotoxin"
-	description = "A toxic, though hardly fatal venom produced by some Tizirians. \
+	description = "A toxic, though hardly fatal venom produced by some Tizirans. \
 		Used historically to bring prey to toxic shock for hunting purposes."
 	color = "#fff588" // rgb: 207, 54, 0
 	taste_description = "coppery bitterness"

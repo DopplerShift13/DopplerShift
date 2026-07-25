@@ -25,14 +25,16 @@
 	if(affected_mob.adjustStaminaLoss(2 * REM * seconds_per_tick, updating_stamina = FALSE))
 		return UPDATE_MOB_HEALTH
 
-/datum/reagent/medicine/aslanane/expose_mob(mob/living/exposed_mob, methods=TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
+/datum/reagent/medicine/aslanane/expose_mob(mob/living/exposed_mob, methods = TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)
 	. = ..()
 	if(!iscarbon(exposed_mob) || (exposed_mob.stat == DEAD) || (!exposed_mob.hud_used))
 		return
 	if(methods & INHALE)
 		var/atom/movable/plane_master_controller/game_plane_master_controller = exposed_mob.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
 		var/static/list/color_filter_wonky = list(2,-0.5,-0.5,0, -0.5,2,-0.5,0, -0.5,-0.5,2,0, 0,0,0,1)
-		game_plane_master_controller.add_filter(ASLANANE_COLOR_FILTER, 10, color_matrix_filter(color_filter_wonky, FILTER_COLOR_RGB))
+		if(!isnull(game_plane_master_controller.get_filter(ASLANANE_COLOR_FILTER)))
+			return
+		game_plane_master_controller.transition_filter(ASLANANE_COLOR_FILTER, 5 SECONDS, color_matrix_filter(color_filter_wonky, FILTER_COLOR_RGB))
 		exposed_mob.playsound_local(exposed_mob, 'sound/effects/singlebeat.ogg', 100, TRUE)
 
 /datum/reagent/medicine/aslanane/on_mob_metabolize(mob/living/affected_mob)
