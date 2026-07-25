@@ -58,7 +58,6 @@
 	worn_icon = 'modular_doppler/super_glasses/icons/worn/visors.dmi'
 	worn_icon_state = "techweld"
 	inhand_icon_state = "welding-g"
-	tint = 1
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	glass_colour_type = /datum/client_colour/glass_colour/orange
