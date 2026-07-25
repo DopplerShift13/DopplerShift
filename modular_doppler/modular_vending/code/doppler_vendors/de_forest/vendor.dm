@@ -29,19 +29,17 @@
 			),
 		),
 		list(
-			"name" = "Autoinjectors",
+			"name" = "Chems",
 			"icon" = "syringe",
 			"products" = list(
-				/obj/item/reagent_containers/hypospray/medipen/deforest/occuisate = 3,
+				/obj/item/reagent_containers/hypospray/medipen/deforest/sensory = 3,
 				/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 4,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 4,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 4,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/halobinin = 3,
+				/obj/item/reagent_containers/hypospray/medipen/deforest/regen = 3,
+				/obj/item/reagent_containers/hypospray/medipen/deforest/antidote = 3,
+				/obj/item/reagent_containers/hypospray/medipen/deforest/emergency = 3,
+				/obj/item/inhaler/disposable/protozene = 3,
+				/obj/item/inhaler/disposable/soberup = 3,
+				/obj/item/inhaler/disposable/aslanane = 3,
 				/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 3,
 				/obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder = 3,
 			),
@@ -49,13 +47,8 @@
 	)
 
 	contraband = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synephrine = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol = 2,
 		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye = 2,
+		/obj/item/inhaler/disposable/demoneye = 2,
 	)
 
 	refill_canister = /obj/item/vending_refill/medical_deforest

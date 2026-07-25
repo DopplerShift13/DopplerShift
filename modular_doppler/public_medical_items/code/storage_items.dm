@@ -68,16 +68,17 @@
 		/obj/item/storage/pill_bottle/prescription_stimulant,
 		/obj/item/food/cheese/firm_cheese_slice, //It's not called a cheese kit for nothing.
 		/obj/item/food/cheese/wedge,
+		/obj/item/inhaler,
 	))
 
 /obj/item/storage/medkit/civil_defense/stocked
 
 /obj/item/storage/medkit/civil_defense/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/halobinin = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/emergency = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/regen = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/antidote = 1,
+		/obj/item/inhaler/disposable/protozene = 1,
 	)
 	generate_items_inside(items_inside, src)
 
@@ -90,22 +91,6 @@
 	generate_items_inside(items_inside, src)
 
 /obj/item/storage/medkit/civil_defense/thunderdome
-	/// List of random medpens we can pick from
-	var/list/random_medpen_options = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synephrine,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi,
-	)
 
 /obj/item/storage/medkit/civil_defense/thunderdome/Initialize(mapload)
 	. = ..()
@@ -113,23 +98,7 @@
 
 /obj/item/storage/medkit/civil_defense/thunderdome/PopulateContents()
 	for(var/pens in 1 to 6)
-		var/new_pen = pick(random_medpen_options)
-		new new_pen(src)
-
-// Variant on the civil defense medkit for spacer planetside personnel (or other people suffering from chronic illnesses)
-/obj/item/storage/medkit/civil_defense/comfort
-	name = "civil defense symptom support kit"
-	desc = "A small, pocket-sized kit that can typically only fit autoinjectors in it. This variant on the classic 'cheese' civil defense kit contains supplies to address hindering symptomatic burden associated with common chronic diseases or adaptation syndromes, such as gravity sickness."
-	icon_state = "symptom_kit"
-
-/obj/item/storage/medkit/civil_defense/comfort/stocked
-
-/obj/item/storage/medkit/civil_defense/comfort/stocked/PopulateContents()
-	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 3,
-		/obj/item/storage/pill_bottle/prescription_stimulant = 1,
-	)
-	generate_items_inside(items_inside, src)
+		new /obj/effect/spawner/random/epic_loot/medpens_combat_based_redpilled(src)
 
 // Pre-packed frontier medkit, with supplies to repair most common frontier health issues
 /obj/item/storage/medkit/frontier
@@ -152,8 +121,8 @@
 
 /obj/item/storage/medkit/frontier/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/regen = 1,
 		/obj/item/stack/medical/ointment = 1,
 		/obj/item/stack/medical/bruise_pack = 1,
 		/obj/item/stack/medical/suture/coagulant = 1,
@@ -216,12 +185,10 @@
 
 /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/regen = 2,
+		/obj/item/inhaler/disposable/protozene = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/deforest/emergency = 2,
 		/obj/item/bonesetter = 1,
 		/obj/item/hemostat = 1,
 		/obj/item/cautery = 1,
@@ -288,6 +255,8 @@
 		/obj/item/storage/box/bandages,
 		/obj/item/bodybag,
 		/obj/item/storage/hypospraykit,
+		/obj/item/inhaler,
+		/obj/item/blood_scanner,
 	))
 
 // Big surgical kit that can be worn like a bag, holds 14 normal items (more than what a backpack can do!) but works like a duffelbag
@@ -396,4 +365,6 @@
 		/obj/item/storage/box/bandages,
 		/obj/item/bodybag,
 		/obj/item/storage/hypospraykit,
+		/obj/item/inhaler,
+		/obj/item/blood_scanner,
 	))

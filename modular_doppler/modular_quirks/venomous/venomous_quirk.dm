@@ -35,8 +35,8 @@
 	/// Format: (reagent typepath -> list(amount to inject per bite, cooldown))
 	var/static/list/venomous_bite_choice_specs = list(
 		// Enterprise resource planning? What are you talking about?
-		/datum/reagent/toxin/tizirian = list(7, 180 SECONDS),
-		/datum/reagent/toxin/tizirian/less = list(7, 180 SECONDS),
+		/datum/reagent/toxin/tiziran = list(7, 180 SECONDS),
+		/datum/reagent/toxin/tiziran/less = list(7, 180 SECONDS),
 	)
 
 /datum/preference/choiced/venomous_bite_venom/init_possible_values()
@@ -46,7 +46,7 @@
 	return choices
 
 /datum/preference/choiced/venomous_bite_venom/create_default_value()
-	return "/datum/reagent/toxin/tizirian/less"
+	return "/datum/reagent/toxin/tiziran/less"
 
 /datum/preference/choiced/venomous_bite_venom/compile_constant_data()
 	var/list/data = ..()
