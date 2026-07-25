@@ -288,7 +288,7 @@
 		return
 	message_admins("[ADMIN_LOOKUPFLW(src)] has reached critical meltdown stage and will explode soon")
 	notify_ghosts(
-		"[src] has gone critical and explode at any moment!",
+		"[src] has gone critical and will explode at any moment!",
 		source = src,
 		header = "It's About To Go Critical!",
 		notify_flags = NOTIFY_CATEGORY_NOFLASH,
