@@ -286,6 +286,13 @@
 /obj/structure/shuttle_decoration/liquid_tank/reactor/proc/start_exploding()
 	if(meltdown_state == REACTOR_MELTDOWN_SHUTTLE_DISARMED)
 		return
+	message_admins("[ADMIN_LOOKUPFLW(src)] has reached critical meltdown stage and will explode soon")
+	notify_ghosts(
+		"[src] has gone critical and explode at any moment!",
+		source = src,
+		header = "It's About To Go Critical!",
+		notify_flags = NOTIFY_CATEGORY_NOFLASH,
+	)
 	visible_message(span_boldwarning("The chrysalid contained within [src] starts to grow through the cracks in the housing!"))
 	meltdown_state = REACTOR_MELTDOWN_VERY_UPSET
 	var/mutable_appearance/danger_overlay = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "void_chill_oh_fuck")
@@ -309,6 +316,7 @@
 		var/mutable_appearance/about_to_blow = mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE, appearance_flags = RESET_COLOR|KEEP_APART)
 		add_overlay(about_to_blow)
 		playsound(src, 'sound/effects/compressed_air/tank_remove_thunk.ogg', 100, TRUE)
+		STOP_PROCESSING(SSobj, src)
 		addtimer(CALLBACK(src, PROC_REF(rupture_tank)), rand(2 SECONDS, 4 SECONDS))
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/rupture_tank()
