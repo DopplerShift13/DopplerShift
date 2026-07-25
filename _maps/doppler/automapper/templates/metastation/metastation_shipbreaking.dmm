@@ -578,7 +578,7 @@
 "Fr" = (
 /obj/effect/wind/shipbreaking_collector/scrap,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "FL" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/salvage,
 /obj/effect/decal/cleanable/dirt,
@@ -813,7 +813,7 @@
 "Rh" = (
 /obj/effect/wind/shipbreaking_collector,
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "Rj" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/cyan/hidden/layer5,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,

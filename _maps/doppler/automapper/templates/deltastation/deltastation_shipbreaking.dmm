@@ -122,7 +122,7 @@
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "kd" = (
 /obj/structure/girder/reinforced,
 /obj/structure/shuttle_decoration/wall_plate/armor,
@@ -672,7 +672,7 @@
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "Vd" = (
 /obj/machinery/conveyor{
 	dir = 1;

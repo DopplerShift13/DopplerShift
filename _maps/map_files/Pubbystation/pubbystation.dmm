@@ -45783,7 +45783,7 @@
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "qze" = (
 /obj/effect/turf_decal/sand/plating,
 /obj/machinery/firealarm/directional/south,
@@ -49798,7 +49798,7 @@
 	dir = 1
 	},
 /turf/open/space/basic,
-/area/space)
+/area/space/nearstation)
 "tmY" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating,

@@ -85,7 +85,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "fz" = (
 /obj/structure/railing{
 	dir = 9
@@ -145,10 +145,6 @@
 /obj/effect/turf_decal/sand,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
-"ht" = (
-/obj/structure/lattice/catwalk,
-/turf/open/space/basic,
-/area/space/nearstation)
 "hx" = (
 /obj/structure/table/reinforced,
 /obj/item/radio,
@@ -235,7 +231,7 @@
 	dir = 8
 	},
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "lt" = (
 /obj/structure/lattice/catwalk,
 /turf/open/space/openspace,
@@ -360,10 +356,6 @@
 /obj/machinery/door/firedoor,
 /turf/open/floor/plating,
 /area/station/salvage_bay)
-"sK" = (
-/obj/structure/lattice,
-/turf/open/space/basic,
-/area/space/nearstation)
 "sL" = (
 /obj/machinery/light/dim/directional/north,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
@@ -640,7 +632,6 @@
 	dir = 8
 	},
 /obj/structure/lattice,
-/obj/structure/lattice,
 /turf/open/space/openspace,
 /area/space/nearstation)
 "Gu" = (
@@ -664,11 +655,6 @@
 	},
 /turf/open/misc/asteroid,
 /area/station/salvage_bay)
-"Hm" = (
-/obj/structure/lattice/catwalk,
-/obj/structure/lattice,
-/turf/open/space/openspace,
-/area/space/nearstation)
 "Ij" = (
 /obj/structure/girder/reinforced,
 /obj/effect/decal/cleanable/dirt/dust,
@@ -901,11 +887,6 @@
 	dir = 1
 	},
 /area/station/salvage_bay)
-"TK" = (
-/obj/structure/lattice,
-/obj/structure/lattice,
-/turf/open/space/openspace,
-/area/space/nearstation)
 "TN" = (
 /obj/machinery/camera/autoname/directional/south,
 /turf/open/misc/asteroid,
@@ -973,7 +954,6 @@
 /obj/effect/wind/shipbreaking_collector{
 	dir = 8
 	},
-/obj/structure/lattice,
 /obj/structure/lattice,
 /turf/open/space/openspace,
 /area/space/nearstation)
@@ -2007,7 +1987,7 @@ So
 lr
 lr
 lr
-TK
+Wu
 eS
 eS
 eS
@@ -2019,18 +1999,18 @@ NA
 NA
 NA
 EH
-sK
-sK
-sK
-sK
-sK
-sK
-sK
-sK
-sK
-sK
-sK
-ht
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+Wu
+lt
 WN
 Wu
 So
@@ -2063,15 +2043,15 @@ Sl
 lt
 lt
 lt
-TK
+Wu
 Xd
 Xd
 Xd
-Hm
+lt
 Gs
 Gs
 Gs
-TK
+Wu
 lt
 lt
 WA

@@ -248,7 +248,7 @@
 "lw" = (
 /obj/effect/wind/shipbreaking_collector/scrap,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "ml" = (
 /obj/machinery/computer/salvage_bay_controller{
 	dir = 8
@@ -519,7 +519,7 @@
 "CZ" = (
 /obj/effect/wind/shipbreaking_collector,
 /turf/open/space/openspace,
-/area/space)
+/area/space/nearstation)
 "EF" = (
 /obj/structure/lattice/catwalk,
 /obj/structure/marker_beacon/teal,
