@@ -282,6 +282,10 @@
 	name = "Welding Goggles"
 	item_path = /obj/item/clothing/glasses/welding
 
+/datum/loadout_item/glasses/other/techwelding
+	name = "Anti-Flash Tech Visor"
+	item_path = /obj/item/clothing/glasses/welding/tech
+
 /datum/loadout_item/glasses/other/osisunglasses
 	name = "O.S.I. Sunglasses"
 	item_path = /obj/item/clothing/glasses/osi
