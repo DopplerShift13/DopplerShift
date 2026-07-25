@@ -30,14 +30,14 @@
 		/obj/item/storage/backpack/duffelbag/deforest_surgical/stocked,
 	)
 
-/datum/supply_pack/medical/deforest_vendor_refill
-	name = "DeForest Med-Vend Resupply Crate"
-	crate_name = "\improper DeForest Med-Vend resupply crate"
-	desc = "Contains a restocking canister for DeForest Med-Vendors."
+/datum/supply_pack/medical/eac_first_aid_vendor_refill
+	name = "EaC First Aid Station Resupply Crate"
+	crate_name = "\improper EaC First Aid Station resupply crate"
+	desc = "Contains a restocking canister for EaC first aid stations."
 	access = ACCESS_MEDICAL
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(
-		/obj/item/vending_refill/medical_deforest,
+		/obj/item/vending_refill/medical_everywhere,
 	)
 
 ////

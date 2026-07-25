@@ -1,12 +1,14 @@
 /obj/machinery/vending/deforest_medvend
-	name = "\improper DeForest Med-Vend"
-	desc = "A vending machine providing a selection of medical supplies."
-	icon = 'modular_doppler/modular_vending/icons/de_forest_vendors.dmi'
+	name = "EaC First Aid Station"
+	desc = "A vending machine that dispenses some basic medical supplies, put here by the EAC or \"Everywhere A Clinic\" program to bring \
+		medical care to places where the 4CA cannot, or has yet to, build fully fledged medical facilities. Every libre spent in this machine \
+		goes directly to funding logistics to resupply it for others to use."
+	icon = 'modular_doppler/modular_vending/icons/imported_vendors.dmi'
 	icon_state = "medvend"
 	panel_type = "panel15"
 	light_mask = "medvend-light-mask"
-	light_color = LIGHT_COLOR_LIGHT_CYAN
-	product_slogans = "Medical care at regulation-mandated reasonable prices!;DeForest is not liable for accidents due to supply misuse!"
+	light_color = LIGHT_COLOR_COPPER_OXIDE
+	product_slogans = ""
 	product_categories = list(
 		list(
 			"name" = "First Aid",
@@ -50,14 +52,13 @@
 		/obj/item/reagent_containers/hypospray/medipen/doppler/twitch = 2,
 		/obj/item/inhaler/disposable/demoneye = 2,
 	)
-
-	refill_canister = /obj/item/vending_refill/medical_deforest
+	refill_canister = /obj/item/vending_refill/medical_everywhere
 	allow_custom = TRUE
 	default_price = PAYCHECK_CREW
 	extra_price = PAYCHECK_COMMAND * 4
 	payment_department = NO_FREEBIES
 	onstation_override = 1 // No freebies if this spawns on the interlink
 
-/obj/item/vending_refill/medical_deforest
-	machine_name = "DeForest Med-Vend"
+/obj/item/vending_refill/medical_everywhere
+	machine_name = "EaC First Aid Station"
 	icon_state = "refill_medical"
