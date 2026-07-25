@@ -75,9 +75,9 @@
 
 /obj/item/storage/medkit/civil_defense/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/emergency = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/regen = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 1,
 		/obj/item/inhaler/disposable/protozene = 1,
 	)
 	generate_items_inside(items_inside, src)
@@ -121,8 +121,8 @@
 
 /obj/item/storage/medkit/frontier/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/antidote = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/regen = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 1,
 		/obj/item/stack/medical/ointment = 1,
 		/obj/item/stack/medical/bruise_pack = 1,
 		/obj/item/stack/medical/suture/coagulant = 1,
@@ -185,10 +185,10 @@
 
 /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/regen = 2,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 2,
 		/obj/item/inhaler/disposable/protozene = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/antidote = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/emergency = 2,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 2,
 		/obj/item/bonesetter = 1,
 		/obj/item/hemostat = 1,
 		/obj/item/cautery = 1,

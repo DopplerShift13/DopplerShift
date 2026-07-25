@@ -569,7 +569,7 @@
 
 /datum/loadout_item/pocket_items/drugs/drugs_sandy
 	name = "T-WITCH Vial"
-	item_path = /obj/item/reagent_containers/hypospray/medipen/deforest/twitch
+	item_path = /obj/item/reagent_containers/hypospray/medipen/doppler/twitch
 
 /datum/loadout_item/pocket_items/drugs/drugs_kronkus
 	name = "Kronkus Vine Seeds"

@@ -20,7 +20,7 @@
 /datum/chemical_reaction/twitch/on_reaction(datum/reagents/holder, datum/equilibrium/reaction, created_volume)
 	var/location = get_turf(holder.my_atom)
 	for(var/iteration in 1 to created_volume)
-		var/obj/item/reagent_containers/hypospray/medipen/deforest/twitch/new_injector = new(location)
+		var/obj/item/reagent_containers/hypospray/medipen/doppler/twitch/new_injector = new(location)
 		new_injector.pixel_x = rand(-6, 6)
 		new_injector.pixel_y = rand(-6, 6)
 

@@ -1,20 +1,20 @@
 // Pen basetype where the icon is gotten from
-/obj/item/reagent_containers/hypospray/medipen/deforest
+/obj/item/reagent_containers/hypospray/medipen/doppler
 	name = "non-functional autoinjector"
 	desc = "A medical autoinjector, though this one seems to be both empty and non-functional."
 	icon = 'modular_doppler/public_medical_items/icons/injectors.dmi'
-	icon_state = "default"
+	icon_state = "sensory"
 	volume = 20
 	list_reagents = list()
 	custom_price = PAYCHECK_COMMAND
 	/// If this pen has a timer for injecting others with, just for safety with some of the drugs in these
 	var/inject_others_time = 1.5 SECONDS
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/Initialize(mapload)
+/obj/item/reagent_containers/hypospray/medipen/doppler/Initialize(mapload)
 	. = ..()
 	amount_per_transfer_from_this = volume
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/inject(mob/living/affected_mob, mob/user)
+/obj/item/reagent_containers/hypospray/medipen/doppler/inject(mob/living/affected_mob, mob/user)
 	if(!reagents.total_volume)
 		to_chat(user, span_warning("[src] is empty!"))
 		return FALSE
@@ -51,7 +51,7 @@
 
 // Filled subtypes start
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/sensory
+/obj/item/reagent_containers/hypospray/medipen/doppler/sensory
 	name = "sensory health airhypo"
 	desc = "A single-use air needle filled with (practically) pure inacusiate and oculine for quick repairs to hearing and vision."
 	base_icon_state = "sensory"
@@ -63,7 +63,7 @@
 		/datum/reagent/inverse/oculine = 3,
 	)
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline
+/obj/item/reagent_containers/hypospray/medipen/doppler/adrenaline
 	name = "adrenaline airhypo"
 	desc = "A single-use adrenaline air needle, to combat toxic shock caused by mixing other chemicals such as T-Witch and DemonEye."
 	base_icon_state = "adrenaline"
@@ -74,7 +74,7 @@
 		/datum/reagent/determination = 10,
 	)
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/regen
+/obj/item/reagent_containers/hypospray/medipen/doppler/regen
 	name = "regenerative stimulant airhypo"
 	desc = "A single-use air needle loaded with a mild anesthetic and all purpose restorative."
 	base_icon_state = "regen"
@@ -86,7 +86,7 @@
 	)
 	volume = 25
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/antidote
+/obj/item/reagent_containers/hypospray/medipen/doppler/antidote
 	name = "general antidote airhypo"
 	desc = "A single-use air needle loaded with a general purpose poison antidote. Should not be relied on solely \
 		for poison treatment. See a medical professional after use."
@@ -99,7 +99,7 @@
 	)
 	volume = 25
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/emergency
+/obj/item/reagent_containers/hypospray/medipen/doppler/emergency
 	name = "emergency airhypo"
 	desc = "A single-use air needle loaded with a mix of atropine, epinephrine, and coagulants for stabilizing critical patients."
 	base_icon_state = "emergency"
@@ -110,7 +110,7 @@
 		/datum/reagent/medicine/atropine = 5,
 	)
 
-/obj/item/reagent_containers/hypospray/medipen/deforest/twitch
+/obj/item/reagent_containers/hypospray/medipen/doppler/twitch
 	name = "T-WITCH vial"
 	desc = "An almost cartoonish looking glass injector filled with a horribly corrosive green liquid that slowly swirls around. \
 		A heavily regulated substance called T-WITCH that is claimed to make the users of it 'see faster'."
@@ -127,7 +127,7 @@
 // Stuff for robots (to be remade sometime)
 
 // Medpen for robots that fixes toxin damage and purges synth chems but slows them down for a bit
-/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner
+/obj/item/reagent_containers/hypospray/medipen/doppler/robot_system_cleaner
 	name = "synthetic cleaner autoinjector"
 	desc = "An autoinjector loaded with system cleaner for purging synthetics of reagents."
 	base_icon_state = "robor"
@@ -138,7 +138,7 @@
 	)
 
 // Medpen for robots that fixes brain damage but slows them down for a bit
-/obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder
+/obj/item/reagent_containers/hypospray/medipen/doppler/robot_liquid_solder
 	name = "synthetic smart-solder autoinjector"
 	desc = "An autoinjector loaded with liquid solder to repair synthetic processor core damage."
 	base_icon_state = "robor_brain"

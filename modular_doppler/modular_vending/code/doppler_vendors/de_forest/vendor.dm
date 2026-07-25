@@ -32,22 +32,22 @@
 			"name" = "Chems",
 			"icon" = "syringe",
 			"products" = list(
-				/obj/item/reagent_containers/hypospray/medipen/deforest/sensory = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/regen = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/antidote = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/emergency = 3,
+				/obj/item/reagent_containers/hypospray/medipen/doppler/sensory = 3,
+				/obj/item/reagent_containers/hypospray/medipen/doppler/adrenaline = 3,
+				/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 3,
+				/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 3,
+				/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 3,
 				/obj/item/inhaler/disposable/protozene = 3,
 				/obj/item/inhaler/disposable/soberup = 3,
 				/obj/item/inhaler/disposable/aslanane = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 3,
-				/obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder = 3,
+				/obj/item/reagent_containers/hypospray/medipen/doppler/robot_system_cleaner = 3,
+				/obj/item/reagent_containers/hypospray/medipen/doppler/robot_liquid_solder = 3,
 			),
 		),
 	)
 
 	contraband = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch = 2,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/twitch = 2,
 		/obj/item/inhaler/disposable/demoneye = 2,
 	)
 
