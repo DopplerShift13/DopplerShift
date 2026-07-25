@@ -47,7 +47,6 @@
 			),
 		),
 	)
-
 	contraband = list(
 		/obj/item/reagent_containers/hypospray/medipen/doppler/twitch = 2,
 		/obj/item/inhaler/disposable/demoneye = 2,
