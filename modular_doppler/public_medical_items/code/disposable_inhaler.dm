@@ -44,6 +44,19 @@
 	desc = "Four doses of synthetic aslanane condensed into a handy disposable inhaler format."
 	initial_casister_path = /obj/item/reagent_containers/inhaler_canister/disposable/aslanane
 
+/obj/item/reagent_containers/inhaler_canister/disposable/asthma
+	name = "albuterol canister"
+	icon_state = "albuterol_canister"
+	list_reagents = list(/datum/reagent/medicine/albuterol = 10)
+	amount_per_transfer_from_this = 5
+	volume = 10
+
+/obj/item/inhaler/disposable/asthma
+	name = "disposable albuterol inhaler"
+	desc = "A two-puff inhaler of albuterol made primarily for asthmatics that forgot their normal one at home, or are in desperate \
+		need of a replacement that can't wait."
+	initial_casister_path = /obj/item/reagent_containers/inhaler_canister/disposable/asthma
+
 /obj/item/reagent_containers/inhaler_canister/disposable/demoneye
 	name = "demoneye canister"
 	icon_state = "demoneye_canister"

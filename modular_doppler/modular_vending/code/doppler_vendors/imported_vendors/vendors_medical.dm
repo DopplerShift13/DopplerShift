@@ -43,6 +43,7 @@
 				/obj/item/inhaler/disposable/protozene = 3,
 				/obj/item/inhaler/disposable/soberup = 3,
 				/obj/item/inhaler/disposable/aslanane = 3,
+				/obj/item/inhaler/disposable/asthma = 3,
 				/obj/item/reagent_containers/hypospray/medipen/doppler/robot_system_cleaner = 3,
 				/obj/item/reagent_containers/hypospray/medipen/doppler/robot_liquid_solder = 3,
 			),
