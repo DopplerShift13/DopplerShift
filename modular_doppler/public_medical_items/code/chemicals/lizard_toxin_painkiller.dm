@@ -15,7 +15,7 @@
 	inverse_chem = /datum/reagent/impurity/healing/medicine_failure
 	metabolized_traits = list(TRAIT_ANALGESIA)
 	taste_description = "a metallic tang that turns numb"
-	addiction_types = list(/datum/addiction/medicine = 15)
+	addiction_types = list(/datum/addiction/medicine = 8)
 
 // Taking too much gives you the same effects as being bitten by a tiziran with the toxin used to make it
 /datum/reagent/medicine/aslanane/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
