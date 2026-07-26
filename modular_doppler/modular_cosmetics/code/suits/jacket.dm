@@ -628,7 +628,7 @@
 
 /obj/item/clothing/suit/hooded/doppler/redmars_gown/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
 	. = ..()
-	if(!hood)
+	if(isnull(hood))
 		return
 	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
 	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
@@ -675,7 +675,7 @@
 
 /obj/item/clothing/suit/hooded/doppler/redmars_overalls/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
 	. = ..()
-	if(!hood)
+	if(isnull(hood))
 		return
 	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
 	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
