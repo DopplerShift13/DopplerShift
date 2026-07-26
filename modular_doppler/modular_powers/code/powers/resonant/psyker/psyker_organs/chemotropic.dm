@@ -53,7 +53,7 @@
 			recovery_multiplier = max(recovery_multiplier, ethanol_recovery)
 			continue
 		// Doing drugs gets you full power. Go do drugs, kids.
-		if(istype(reagent, /datum/reagent/drug))
+		if(istype(reagent, /datum/reagent/drug) || reagent.metabolized_traits.Find(TRAIT_ANALGESIA))
 			var/hard_drug_recovery = hard_drugs_multiplier
 			if(owner.has_quirk(/datum/quirk/item_quirk/addict/junkie))
 				hard_drug_recovery *= quirk_multiplier
