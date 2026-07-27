@@ -71,3 +71,17 @@
   - bugfix: We are now using the overwrite HUD for lobby icons.
   aKromatopzia:
   - image: added teshari latex bodysuit sprites
+2026-07-26:
+  FoundInJune:
+  - sound: Adds sound effects to the cultivator alignment Shadow Walker, and gives
+      the dash ability its own sound effect.
+  carda-sometimesknownas-paxilmaniac:
+  - rscadd: adds demo charges and matching remotes to engineering and cargo lathes
+      that only work (by default) on shipbreaking shuttles
+  - rscadd: suction effects that pull unanchored things towards the inlets of the
+      recycler and collector in salvage yards
+  - rscadd: bloom reactors now become unstable when unwrenched, giving a total safe
+      timer of three and a half minutes before things can start going wrong, but have
+      a significantly higher sale value
+  rutek-code:
+  - bugfix: Fixed the anthromorph body markings & its headless variant.
