@@ -1,0 +1,1872 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"al" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"an" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 1;
+	color = "#7C292A"
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/obj/effect/spawner/random/salvage/munitions/only_missiles,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"as" = (
+/obj/structure/shelf,
+/obj/effect/spawner/random/salvage/munitions,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"aD" = (
+/obj/item/toy/nuke,
+/obj/effect/turf_decal/delivery/red,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"aG" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/obj/effect/spawner/random/salvage/munitions,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"aI" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 1;
+	color = "#7C292A"
+	},
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"aS" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"aT" = (
+/obj/structure/mineral_door/manual_colony_door/shuttle/interior,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/colony/white/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"cq" = (
+/obj/effect/spawner/random/salvage/container_or_crate_or_cargo/military,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"cN" = (
+/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/obj/effect/decal/cleanable/blood/splatter/over_window,
+/turf/open/floor/iron/colony/white/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"cS" = (
+/obj/structure/shuttle_access_panel,
+/turf/open/floor/plating/nanocarbon,
+/area/ruin/space/has_grav)
+"da" = (
+/obj/structure/shuttle_decoration/wall_plate/silver_foil,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"dg" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4;
+	pixel_x = -5
+	},
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"dn" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/random/salvage/container_or_crate_or_cargo/medical_or_research,
+/obj/machinery/light/red/directional/east,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"dt" = (
+/obj/structure/shuttle_decoration/rcs/directional/south,
+/obj/machinery/porta_turret/syndicate/shuttle,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"eM" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"eX" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 5;
+	color = "#7C292A"
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"fe" = (
+/obj/structure/shuttle_decoration/landing_engine/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"fz" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	color = "#7C292A"
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/effect/spawner/random/salvage/munitions/only_missiles,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"gQ" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	color = "#7C292A"
+	},
+/obj/structure/titanium_structure,
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"gT" = (
+/obj/effect/spawner/random/salvage/crate_only/civilian_supply,
+/obj/effect/spawner/random/salvage/crate_loot_spawner/food/medium,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"hc" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"hD" = (
+/obj/structure/closet/syndicate,
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/obj/item/ammo_box/magazine/marcielle,
+/obj/item/ammo_box/magazine/marcielle,
+/obj/item/storage/backpack/duffelbag/syndie,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"hY" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/standard,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"iA" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"iF" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 1;
+	color = "#7C292A"
+	},
+/obj/structure/titanium_structure,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"jq" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/random/salvage/container/military,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"jD" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/standard{
+	dir = 5
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"jE" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"kc" = (
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/obj/item/ammo_casing,
+/turf/template_noop,
+/area/template_noop)
+"kr" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"ku" = (
+/obj/machinery/recharge_station,
+/obj/effect/turf_decal/delivery,
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"lk" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/standard{
+	dir = 9
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"lF" = (
+/obj/structure/shuttle_decoration/extinguisher/directional/west,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"mD" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/landing_engine/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"mQ" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/standard{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"nd" = (
+/obj/structure/shelf,
+/obj/item/gun/ballistic/automatic/marcielle/sport,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"nr" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	color = "#7C292A"
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"nw" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 6
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"oK" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/obj/machinery/exoscanner/shuttle_part/radar_panel/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"pe" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 6
+	},
+/turf/closed/wall/mineral/nanocarbon/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"pK" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/plating/aluminum,
+/area/ruin/space/has_grav)
+"pS" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/standard{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"qa" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/standard{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"qx" = (
+/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"qV" = (
+/obj/structure/lattice,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 4;
+	color = "#7C292A"
+	},
+/obj/structure/titanium_structure,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"rB" = (
+/obj/structure/shuttle_decoration/aux_engine/directional/west,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"rC" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/random/salvage/container_or_crate_or_cargo/medical_or_research,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"rD" = (
+/obj/structure/shuttle_decoration/headlight/directional/east,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"rJ" = (
+/obj/structure/shelf,
+/obj/effect/spawner/random/salvage/cargo_machine/military,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"rV" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 9
+	},
+/turf/closed/wall/mineral/nanocarbon/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"sg" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/shuttle_decoration/headlight/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"ss" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/titanium_structure,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"sA" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/landing_engine/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"to" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 6;
+	color = "#7C292A"
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"tG" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/obj/structure/shuttle_decoration/radiator/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"tJ" = (
+/obj/effect/spawner/random/salvage/cargo_machine/scrap,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"tU" = (
+/obj/machinery/computer/old{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"up" = (
+/obj/effect/mob_spawn/corpse/human/syndicatecommando/lessenedgear,
+/turf/template_noop,
+/area/template_noop)
+"uy" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/obj/structure/titanium_structure,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"vi" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/obj/machinery/light/red/directional/south,
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"vp" = (
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"wt" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"xv" = (
+/obj/machinery/suit_storage_unit/industrial/personal_shuttle/heavy,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"yl" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"yo" = (
+/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib6"
+	},
+/turf/open/floor/iron/colony/white/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"yu" = (
+/turf/template_noop,
+/area/template_noop)
+"yx" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"yF" = (
+/obj/structure/closet/sleeping_compartment,
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"zb" = (
+/obj/machinery/computer/old{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/corner{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"zd" = (
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"zm" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"zK" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 10
+	},
+/turf/closed/wall/mineral/nanocarbon/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"zN" = (
+/obj/structure/mineral_door/manual_colony_door/shuttle,
+/turf/open/floor/iron/colony/white/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Ar" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/extinguisher/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"AH" = (
+/obj/structure/barricade/sandbags,
+/obj/effect/turf_decal/stripes/line{
+	dir = 10
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"AT" = (
+/obj/structure/shuttle_decoration/liquid_tank/reactor/super,
+/turf/open/floor/plating/nanocarbon/exterior/standard,
+/area/ruin/space/has_grav)
+"Bh" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"Bi" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 9
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"Bk" = (
+/obj/machinery/porta_turret/syndicate/shuttle,
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"By" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/obj/structure/railing/eva_handhold/directional/north,
+/obj/structure/titanium_structure,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"Ca" = (
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"Cf" = (
+/obj/structure/shuttle_decoration/console/directional/north,
+/obj/structure/shuttle_decoration/extinguisher/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"CB" = (
+/obj/structure/lattice,
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"Dj" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"Dx" = (
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"Dy" = (
+/obj/structure/barricade/sandbags,
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"DJ" = (
+/obj/effect/turf_decal/stripes/line,
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"DK" = (
+/obj/structure/shelf,
+/obj/effect/spawner/random/salvage/munitions,
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"El" = (
+/obj/structure/lattice,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 8;
+	color = "#7C292A"
+	},
+/obj/structure/titanium_structure,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"EI" = (
+/obj/structure/closet/secure_closet/medical1,
+/obj/effect/turf_decal/trimline/blue/filled/warning,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"EV" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"EW" = (
+/obj/structure/shuttle_decoration/rcs/directional/west,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"FH" = (
+/obj/structure/barricade/sandbags,
+/obj/effect/turf_decal/stripes/line{
+	dir = 9
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"FI" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 9
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"FJ" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 6
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"FL" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"Gb" = (
+/obj/machinery/power/shuttle_engine/heater/salvage{
+	dir = 8
+	},
+/obj/structure/engine_covers/heater_cover{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/ruin/space/has_grav)
+"Gd" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 5
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"Gl" = (
+/obj/machinery/porta_turret/syndicate/shuttle,
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"GJ" = (
+/obj/structure/lattice,
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/obj/structure/titanium_structure,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"GP" = (
+/obj/machinery/power/shuttle_engine/propulsion/salvage{
+	dir = 8
+	},
+/obj/structure/engine_covers/thruster_nozzle{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/ruin/space/has_grav)
+"Hd" = (
+/obj/structure/shuttle_decoration/ladder/directional/north,
+/turf/template_noop,
+/area/template_noop)
+"Hl" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/effect/turf_decal/delivery,
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Hn" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	color = "#7C292A"
+	},
+/obj/machinery/exoscanner/shuttle_part/sensors_blister/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"Ho" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/standard{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"HQ" = (
+/obj/structure/mineral_door/manual_colony_door/shuttle/interior,
+/turf/open/floor/iron/colony/white/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Im" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 1;
+	color = "#7C292A"
+	},
+/obj/machinery/exoscanner/shuttle_part/sensors_blister/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"IC" = (
+/obj/structure/shuttle_decoration/console/directional/south,
+/obj/structure/shuttle_decoration/extinguisher/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"Je" = (
+/obj/structure/shuttle_decoration/console/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"Jl" = (
+/obj/structure/shuttle_decoration/landing_engine/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"JF" = (
+/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/open/floor/iron/colony/white/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"JJ" = (
+/obj/structure/window/fulltile/salvage_shuttle,
+/turf/open/floor/plating/nanocarbon,
+/area/ruin/space/has_grav)
+"JM" = (
+/obj/machinery/computer/old{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"JP" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/structure/railing/eva_handhold/directional/south,
+/obj/structure/shuttle_decoration/headlight/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"Km" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 5
+	},
+/turf/closed/wall/mineral/nanocarbon/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"Kn" = (
+/obj/effect/spawner/random/medical/patient_stretcher,
+/obj/machinery/iv_drip{
+	pixel_x = -11;
+	pixel_y = 0
+	},
+/obj/structure/sign/departments/medbay/alt/directional/north,
+/obj/effect/turf_decal/trimline/blue/filled/warning,
+/obj/machinery/light/red/directional/north,
+/obj/effect/mob_spawn/corpse/human/syndicatepilot/lessenedgear,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Lf" = (
+/obj/effect/turf_decal/delivery/red,
+/obj/effect/spawner/random/salvage/munitions,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"LA" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/obj/structure/shuttle_decoration/extinguisher/directional/north,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"LN" = (
+/obj/machinery/computer/old,
+/obj/effect/turf_decal/stripes/corner{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"LT" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	color = "#7C292A"
+	},
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"Mk" = (
+/obj/effect/spawner/random/salvage/cargo_machine/military,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Mr" = (
+/turf/open/floor/plating/aluminum,
+/area/ruin/space/has_grav)
+"MC" = (
+/obj/machinery/computer/old{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"ME" = (
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"MO" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/standard{
+	dir = 6
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"Nr" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"Nu" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Nw" = (
+/obj/structure/shuttle_decoration/junction_box/directional/west,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"NY" = (
+/obj/structure/shuttle_decoration/ladder/directional/south,
+/turf/template_noop,
+/area/template_noop)
+"Oo" = (
+/obj/effect/turf_decal/stripes/corner{
+	dir = 4
+	},
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Ot" = (
+/obj/machinery/suit_storage_unit/open,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Ow" = (
+/obj/structure/lattice,
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/bullbar/directional/east,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"Oy" = (
+/obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
+	dir = 10
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"OY" = (
+/obj/effect/spawner/random/salvage/small_fuel_tanks,
+/turf/open/floor/plating/aluminum,
+/area/ruin/space/has_grav)
+"Ph" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Px" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/random/salvage/container_or_crate_or_cargo/military,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"PO" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 5
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"Rm" = (
+/obj/machinery/computer/old{
+	dir = 8
+	},
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Rz" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"RG" = (
+/obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,
+/obj/machinery/porta_turret/syndicate/shuttle,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"RR" = (
+/obj/structure/shuttle_decoration/rcs/directional/north,
+/obj/machinery/porta_turret/syndicate/shuttle,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"Sd" = (
+/obj/structure/table/reinforced,
+/obj/effect/spawner/random/medical/supplies{
+	pixel_x = 4;
+	pixel_y = 14
+	},
+/obj/item/storage/medkit/emergency,
+/obj/effect/turf_decal/trimline/blue/filled/warning,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Tj" = (
+/obj/structure/shuttle_decoration/headlight/directional/east,
+/obj/machinery/porta_turret/syndicate/shuttle,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"TK" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4;
+	pixel_x = -5
+	},
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/obj/effect/decal/cleanable/blood,
+/obj/item/gps/spaceruin,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"TP" = (
+/obj/effect/turf_decal/stripes/corner,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Uk" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"Us" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/standard{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"UK" = (
+/obj/effect/turf_decal/stripes/line{
+	dir = 8
+	},
+/obj/effect/spawner/random/salvage/crate_only/military,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Vu" = (
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"VB" = (
+/obj/structure/closet/sleeping_compartment,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"VK" = (
+/obj/effect/turf_decal/delivery,
+/obj/effect/spawner/random/salvage/container/military,
+/obj/machinery/light/red/directional/east,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"VL" = (
+/obj/structure/shuttle_decoration/wall_plate/armor,
+/obj/structure/titanium_structure,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"VO" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 8;
+	pixel_x = -4;
+	pixel_y = 1
+	},
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"Wf" = (
+/obj/effect/turf_decal/trimline/blue/filled/warning{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Wo" = (
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour{
+	color = "#7C292A"
+	},
+/area/ruin/space/has_grav)
+"Wp" = (
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/obj/effect/decal/cleanable/blood,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"Wy" = (
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"WG" = (
+/obj/structure/shuttle_decoration/wall_plate/silver_foil{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"WU" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/radiator/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"Xa" = (
+/obj/machinery/porta_turret/syndicate/shuttle,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav)
+"XB" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/red{
+	dir = 1;
+	color = "#7C292A"
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"XR" = (
+/obj/effect/spawner/random/salvage/crate_only/military,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"XV" = (
+/obj/machinery/computer/old{
+	dir = 8
+	},
+/obj/effect/spawner/random/salvage/interior_trash_n_debris,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Yv" = (
+/obj/item/ammo_casing,
+/turf/template_noop,
+/area/template_noop)
+"YZ" = (
+/obj/structure/closet/syndicate/personal,
+/turf/open/floor/iron/colony/nanocarbon,
+/area/ruin/space/has_grav)
+"ZB" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+
+(1,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(2,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+GP
+rB
+GP
+rB
+GP
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(3,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+Bi
+EW
+GP
+Xa
+Gb
+zd
+Gb
+zd
+Gb
+Xa
+GP
+EW
+Oy
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(4,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+uy
+zd
+Gb
+zd
+OY
+cS
+Mr
+cS
+OY
+zd
+Gb
+zd
+VL
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(5,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+uy
+zd
+OY
+cS
+pK
+FI
+WG
+wt
+Mr
+cS
+OY
+zd
+VL
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(6,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+Gd
+zd
+zd
+FL
+cS
+da
+AT
+Wy
+cS
+FL
+zd
+zd
+FJ
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(7,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+By
+zm
+LN
+jE
+PO
+JJ
+nw
+UK
+zb
+Bh
+ss
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(8,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+XB
+LA
+Mk
+cq
+XR
+Nr
+gT
+vp
+tJ
+Ar
+nr
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(9,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+Im
+Rz
+jq
+VK
+Px
+Vu
+rC
+dn
+jq
+EV
+Hn
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(10,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+sA
+zd
+Us
+Us
+mQ
+HQ
+lk
+Ho
+Ho
+zd
+mD
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(11,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+aI
+hc
+yF
+yF
+hY
+qx
+qa
+rJ
+hD
+oK
+LT
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(12,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+XB
+hc
+Nr
+Vu
+HQ
+Vu
+HQ
+Nr
+Vu
+oK
+nr
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(13,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+eX
+Rz
+VB
+yF
+hY
+vi
+qa
+nd
+YZ
+EV
+to
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(14,1,1) = {"
+yu
+yu
+yu
+Yv
+yu
+yu
+yu
+yu
+Gl
+Uk
+pS
+MO
+HQ
+jD
+pS
+Uk
+Bk
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(15,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+Dx
+tG
+Ot
+Lf
+Nr
+Lf
+Ot
+WU
+Dx
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(16,1,1) = {"
+yu
+yu
+Yv
+yu
+Yv
+yu
+yu
+yu
+al
+tG
+xv
+Lf
+Nr
+Lf
+Ot
+WU
+ZB
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(17,1,1) = {"
+yu
+yu
+yu
+yu
+Yv
+yu
+kc
+Yv
+sg
+Wo
+Wo
+Hl
+Nr
+ku
+Wo
+Wo
+JP
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(18,1,1) = {"
+yu
+yu
+yu
+yu
+up
+Yv
+yu
+NY
+cN
+Wp
+yo
+Ca
+yx
+Nr
+zN
+Nr
+JF
+Hd
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(19,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+Yv
+Yv
+yu
+sg
+Nw
+Wo
+Ho
+aT
+Ho
+Wo
+Nw
+JP
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(20,1,1) = {"
+yu
+yu
+yu
+yu
+Yv
+yu
+kc
+yu
+an
+Wo
+EI
+Wf
+yl
+Ph
+Nu
+Je
+fz
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(21,1,1) = {"
+yu
+yu
+yu
+yu
+Yv
+yu
+yu
+yu
+iF
+Wo
+Kn
+eM
+TK
+Ph
+ME
+Wo
+gQ
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(22,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+an
+Wo
+Sd
+Rm
+XV
+MC
+vp
+Je
+fz
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(23,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+RR
+zd
+lF
+JJ
+JJ
+JJ
+HQ
+zd
+dt
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(24,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+fe
+JM
+vp
+as
+aD
+DK
+vp
+JM
+Jl
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(25,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+rV
+zK
+yu
+IC
+VO
+TP
+aG
+aS
+aS
+Oo
+dg
+Cf
+yu
+rV
+zK
+yu
+yu
+yu
+yu
+yu
+"}
+(26,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+Dj
+Wo
+El
+zd
+tU
+DJ
+FH
+Dy
+AH
+iA
+tU
+zd
+El
+Wo
+kr
+yu
+yu
+yu
+yu
+yu
+"}
+(27,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+Dj
+Wo
+qV
+Tj
+zd
+JJ
+JJ
+JJ
+JJ
+JJ
+zd
+RG
+qV
+Wo
+kr
+yu
+yu
+yu
+yu
+yu
+"}
+(28,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+Dj
+kr
+yu
+yu
+rD
+GJ
+CB
+Ow
+CB
+GJ
+rD
+yu
+yu
+Dj
+kr
+yu
+yu
+yu
+yu
+yu
+"}
+(29,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+Km
+pe
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+Km
+pe
+yu
+yu
+yu
+yu
+yu
+"}
+(30,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(31,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}
+(32,1,1) = {"
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+yu
+"}

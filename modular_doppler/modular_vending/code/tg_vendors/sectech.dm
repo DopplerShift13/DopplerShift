@@ -26,6 +26,7 @@
 		/obj/item/storage/box/alacran_dart/piercing = 3,
 	)
 	premium_doppler = list(
+    /obj/item/restraints/handcuffs/antiresonant = 6, // anti powers cuffs
 		/obj/item/gun/ballistic/automatic/schiebenmaschine = 30,
 		/obj/item/gun/ballistic/avispa_stingball_shooter = 5,
 		/obj/item/knife/combat/survival = 3,

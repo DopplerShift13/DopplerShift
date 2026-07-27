@@ -33,7 +33,7 @@
 	can_randomize = FALSE
 
 /proc/generate_genemod_quirk_list()
-	var/list/stuff_we_dont_want = list(/datum/mutation/self_amputation, /datum/mutation/hulk, /datum/mutation/clever, /datum/mutation/blind, /datum/mutation/thermal, /datum/mutation/telepathy, /datum/mutation/void, /datum/mutation/badblink, /datum/mutation/acidflesh)
+	var/list/stuff_we_dont_want = list(/datum/mutation/self_amputation, /datum/mutation/hulk, /datum/mutation/clever, /datum/mutation/blind, /datum/mutation/thermal, /datum/mutation/telepathy, /datum/mutation/telekinesis, /datum/mutation/void, /datum/mutation/badblink, /datum/mutation/acidflesh)
 
 	var/list/genemods = list()
 	for (var/datum/mutation/mut as anything in subtypesof(/datum/mutation))

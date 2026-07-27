@@ -8,7 +8,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "fancy_labcoat_strip_closed_worn",
+			"icon_state": "fancy_labcoat_stripe_closed_worn",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
@@ -22,7 +22,7 @@
 		},
 		{
 			"type": "icon_state",
-			"icon_state": "fancy_labcoat_strip_open_worn",
+			"icon_state": "fancy_labcoat_stripe_open_worn",
 			"blend_mode": "overlay",
 			"color_ids": [2]
 		}
