@@ -655,7 +655,7 @@
 	hair_mask = /datum/hair_mask/doppler/gown_hood
 	greyscale_config = /datum/greyscale_config/redmars_gown_hood
 	greyscale_config_worn = /datum/greyscale_config/redmars_gown_hood/worn
-	greyscale_colors = "#ffffff#ffffff#ffffff"
+	greyscale_colors = "#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/hooded/doppler/redmars_overalls
