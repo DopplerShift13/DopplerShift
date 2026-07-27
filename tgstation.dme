@@ -7171,6 +7171,7 @@
 #include "modular_doppler\modular_cosmetics\code\chest.dm"
 #include "modular_doppler\modular_cosmetics\code\clothing_overrides.dm"
 #include "modular_doppler\modular_cosmetics\code\garment_bag_overrides.dm"
+#include "modular_doppler\modular_cosmetics\code\hair_masks.dm"
 #include "modular_doppler\modular_cosmetics\code\suit_overrides.dm"
 #include "modular_doppler\modular_cosmetics\code\suit_pockets.dm"
 #include "modular_doppler\modular_cosmetics\code\towels.dm"

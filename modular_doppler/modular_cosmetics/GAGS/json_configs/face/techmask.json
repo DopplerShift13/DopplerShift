@@ -1,0 +1,21 @@
+{
+	"techmask": [
+		{
+			"type": "icon_state",
+			"icon_state": "techmask",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "techmask_metal",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "techmask_eyes",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		}
+	]
+}

@@ -604,7 +604,8 @@
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	hair_mask = /datum/hair_mask/winterhood
+	flags_inv = HIDEEARS
+	hair_mask = /datum/hair_mask/doppler/duster_hood
 	greyscale_config = /datum/greyscale_config/redmars_duster_hood
 	greyscale_config_worn = /datum/greyscale_config/redmars_duster_hood/worn
 	greyscale_colors = "#ffffff#ffffff"
@@ -650,7 +651,8 @@
 	body_parts_covered = HEAD
 	cold_protection = HEAD
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
-	hair_mask = /datum/hair_mask/winterhood
+	flags_inv = HIDEEARS
+	hair_mask = /datum/hair_mask/doppler/gown_hood
 	greyscale_config = /datum/greyscale_config/redmars_gown_hood
 	greyscale_config_worn = /datum/greyscale_config/redmars_gown_hood/worn
 	greyscale_colors = "#ffffff#ffffff#ffffff"
