@@ -12,7 +12,7 @@
 /datum/mutation/radioactive/New(datum/mutation/copymut)
 	. = ..()
 	if(!(type in visual_indicators))
-		visual_indicators[type] = list(mutable_appearance('icons/mob/effects/genetics.dmi', "radiation", -MUTATIONS_LAYER))
+		visual_indicators[type] = list(mutable_appearance('modular_doppler/sprite_swaps/icons/empty.dmi', "radiation", -MUTATIONS_LAYER)) // DOPPLER EDIT, removes overlay - old dmi: 'icons/mob/effects/genetics.dmi'
 
 /datum/mutation/radioactive/get_visual_indicator()
 	return visual_indicators[type][1]
