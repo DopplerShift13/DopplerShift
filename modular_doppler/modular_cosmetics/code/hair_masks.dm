@@ -1,5 +1,5 @@
 /datum/hair_mask/doppler
-	icon = "modular_doppler/modular_cosmetics/icons/mob/hair_masks.dmi"
+	icon = 'modular_doppler/modular_cosmetics/icons/mob/hair_masks.dmi'
 
 /datum/hair_mask/doppler/gown_hood
 	icon_state = "hide_gown_hood"
