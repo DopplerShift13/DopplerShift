@@ -118,8 +118,8 @@
 	/// plays the sound to only the target and the user given that it's kind-of obnoxious.
 	var/turf/origin = get_turf(user)
 	var/sound_file = 'sound/items/whistle/whistle.ogg'
-	user.playsound_local(origin, sound_file, 40, TRUE)
-	target.playsound_local(origin, sound_file, 40, TRUE)
+	user.playsound_local(origin, sound_file, 15, TRUE)
+	target.playsound_local(origin, sound_file, 15, TRUE)
 
 	// starts the gcd
 	start_command_gcd(user)
