@@ -12,7 +12,7 @@
 
 /obj/item/clothing/head/hats/tophat/attackby(obj/item/hitby_item, mob/user, list/modifiers, list/attack_modifiers)
 	. = ..()
-	if(istype(hitby_item, /obj/item/gun/magic/wand, /obj/item/spell_focus,))
+	if(istype(hitby_item, /obj/item/gun/magic/wand))
 		abracadabra(hitby_item, user)
 
 /obj/item/clothing/head/hats/tophat/proc/abracadabra(obj/item/hitby_wand, mob/magician)
