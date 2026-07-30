@@ -53,6 +53,7 @@
 	greyscale_config_worn = /datum/greyscale_config/bone/worn
 	greyscale_colors = "#9282ee"
 	slot_flags = ITEM_SLOT_MASK
+	flags_cover = MASKCOVERSMOUTH
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/fidget_toy/chewy/builderbrick

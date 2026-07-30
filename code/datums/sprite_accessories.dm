@@ -2082,6 +2082,10 @@ GLOBAL_LIST_EMPTY(blended_hair_icons_cache)
 	name = "Round + Light"
 	icon_state = "roundlight"
 
+/datum/sprite_accessory/snouts/beaked_lizard
+	name = "Beaked Reptile"
+	icon_state = "beaked"
+
 /datum/sprite_accessory/horns
 	icon = 'icons/mob/human/species/lizard/lizard_misc.dmi'
 	em_block = TRUE

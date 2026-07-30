@@ -1,0 +1,8 @@
+All of the sounds listed are genuinely just generated with tones, waves, or noise with various fun patterns on them.
+autocannon.ogg
+beam.ogg
+cannon.ogg
+missile_launch.ogg
+ship_explode.ogg
+ship_hit.ogg
+swarm_launch.ogg

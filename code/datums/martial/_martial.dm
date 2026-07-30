@@ -102,7 +102,12 @@
 		if(HAS_TRAIT(source, TRAIT_PACIFISM) && !pacifist_style)
 			return NONE
 
-		return harm_act(source, attack_target)
+		// DOPPLER EDIT BEGIN - Sends unarmed hit signaler with martial arts
+		var/harm_result = harm_act(source, attack_target)
+		if(harm_result & COMPONENT_CANCEL_ATTACK_CHAIN)
+			send_unarmed_hit_signal(source, attack_target)
+		return harm_result
+		// DOPPLER EDIT END
 
 	return help_act(source, attack_target)
 

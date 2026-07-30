@@ -193,14 +193,16 @@
 	cost = 3
 	purchasable_from = ~UPLINK_ALL_SYNDIE_OPS
 
-/datum/uplink_item/device_tools/suspiciousphone
+/// DOPPLER EDIT CHANGE START: Comments the CRAB-17 from the uplink. Fuck this thing in particular.
+/* /datum/uplink_item/device_tools/suspiciousphone 
 	name = "Protocol CRAB-17 Phone"
 	desc = "The Protocol CRAB-17 Phone, a phone borrowed from an unknown third party, it can be used to crash the space market, funneling the losses of the crew to your bank account.\
 	The crew can move their funds to a new banking site though, unless they HODL, in which case they deserve it."
 	item = /obj/item/suspiciousphone
 	restricted = TRUE
 	cost = 7
-	limited_stock = 1
+	limited_stock = 1 */ 
+/// DOPPLER EDIT CHANGE END
 
 /datum/uplink_item/device_tools/binary
 	name = "Binary Translator Key"
