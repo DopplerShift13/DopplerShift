@@ -35,7 +35,7 @@
 	ai_controller.set_blackboard_key(BB_STATIONARY_TARGETS, typecacheof(stationary_scary_things))
 
 
-/// Cold resistent and doesn't need to breathe
+/// Cold resistant and doesn't need to breathe
 /mob/living/basic/deer/ice
 	habitable_atmos = null
 	minimum_survivable_temperature = 0

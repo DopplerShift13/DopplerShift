@@ -53,8 +53,11 @@
 /area/shuttle/personally_bought/do_it_yourself_small)
 "rW" = (
 /obj/docking_port/mobile/personally_bought,
-/obj/structure/mineral_door/manual_colony_door/shuttle,
 /obj/structure/fans/tiny,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
+/obj/machinery/door/airlock/spacer,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/do_it_yourself_small)
 "tG" = (
@@ -172,6 +175,11 @@
 /obj/machinery/computer/shuttle/personally_bought,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/do_it_yourself_small)
+"JC" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/structure/mineral_door/manual_colony_door/shuttle,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/personally_bought/do_it_yourself_small)
 "KN" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/effect/landmark/ship_captain_spawner,
@@ -284,7 +292,7 @@ Ur
 zd
 KN
 CU
-Pp
+JC
 CU
 rW
 "}

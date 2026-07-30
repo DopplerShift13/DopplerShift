@@ -5,6 +5,13 @@
 	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
 	icon_state = "sindaryo"
 
+/datum/export/weapon/wt550
+	unit_name = "Sindaryo PDW"
+
+/obj/structure/guncase/wt550
+	name = "Sindaryo PDW gun locker"
+	desc = "A locker that holds Sindaryo PD weapons."
+
 /obj/item/gun/ballistic/automatic/wt550/add_bayonet_point()
 	return
 
@@ -50,7 +57,7 @@
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 3, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 6)
 
 /datum/design/mag_autorifle/ic_mag
-	name = "Sindaryo Rubber Magazine (4.6x30mm Rubber) (Less Lethal)"
+	name = "Sindaryo Rubber Magazine (6mm Rubber) (Less Lethal)"
 	desc = "A 14 round rubber magazine for the Sindaryo PDW."
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT)
 

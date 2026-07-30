@@ -139,22 +139,22 @@
 					runechat_flags = EMOTE_MESSAGE,
 				)
 			else if(is_important)
-				to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
+				to_chat(viewer, span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]")) // DOPPLER EDIT - Coloured chat names - ORIGINAL: to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
 			else if(is_audible && is_visual)
 				viewer.show_message(
-					span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE,
-					span_emote("You see how <b>[user]</b> [msg]"), MSG_VISUAL,
+					span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]"), MSG_AUDIBLE,  // DOPPLER EDIT - Coloured chat names - ORIGINAL: span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE,
+					span_emote("You see how [chat_name_color_prefs_check(user, viewer)][space][msg]"), MSG_VISUAL,  // DOPPLER EDIT - Coloured chat names - ORIGINAL: span_emote("You see how <b>[user]</b> [msg]"), MSG_VISUAL,
 				)
 			else if(is_audible)
-				viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE)
+				viewer.show_message(span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]"), MSG_AUDIBLE)  // DOPPLER EDIT - Coloured chat names - ORIGINAL: viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_AUDIBLE)
 			else if(is_visual)
-				viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_VISUAL)
+				viewer.show_message(span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]"), MSG_VISUAL)  // DOPPLER EDIT - Coloured chat names - ORIGINAL: viewer.show_message(span_emote("<b>[user]</b> [msg]"), MSG_VISUAL)
 		return // Early exit so no dchat message
 
 	// The emote has some important information, and should always be shown to the user
 	else if(is_important)
 		for(var/mob/viewer as anything in viewers(user))
-			to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
+			to_chat(viewer, span_emote("[chat_name_color_prefs_check(user, viewer)][space][msg]")) // DOPPLER EDIT - Coloured chat names - ORIGINAL: to_chat(viewer, span_emote("<b>[user]</b> [msg]"))
 			if(user.runechat_prefs_check(viewer, EMOTE_MESSAGE))
 				viewer.create_chat_message(
 					speaker = user,

@@ -39,6 +39,7 @@
 	return ..()
 
 /datum/species/human/genemod/prepare_human_for_preview(mob/living/carbon/human/human_for_preview)
+	turn_off_every_species_feature(human_for_preview)
 	human_for_preview.dna.ear_type = DOG
 	human_for_preview.dna.features[FEATURE_EARS] = "Fold"
 	human_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#4E3E30"

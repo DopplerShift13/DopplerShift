@@ -209,3 +209,21 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/food_storage, 32)
 	is_editable = TRUE
 
 MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/cold_food_storage, 32)
+
+/obj/structure/sign/semiotic/up
+	name = "floor above label"
+	sign_change_name = "Semiotic Label - Floor Above"
+	desc = "Indicates that there is something important above your head, look up!"
+	icon_state = "up"
+	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/up, 32)
+
+/obj/structure/sign/semiotic/down
+	name = "floor below label"
+	sign_change_name = "Semiotic Label - Floor Below"
+	desc = "Indicates that there is something important below your feet, look down!."
+	icon_state = "down"
+	is_editable = TRUE
+
+MAPPING_DIRECTIONAL_HELPERS(/obj/structure/sign/semiotic/down, 32)

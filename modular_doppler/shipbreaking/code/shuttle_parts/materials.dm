@@ -1,3 +1,9 @@
+GLOBAL_LIST_INIT(aluminum_recipes, list(
+	new/datum/stack_recipe("water cycler", /obj/structure/sink/cycler, 2, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("space toilet", /obj/structure/toilet/space, 1, time = 1 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_FURNITURE), \
+	new/datum/stack_recipe("spacer airlock assembly", /obj/structure/door_assembly/spacer, 4, time = 5 SECONDS, crafting_flags = CRAFT_CHECK_DENSITY | CRAFT_ONE_PER_TURF | CRAFT_ON_SOLID_GROUND, category = CAT_DOORS),
+	))
+
 /obj/item/stack/sheet/aluminum
 	name = "aluminum blocks"
 	singular_name = "aluminum block"
@@ -12,6 +18,10 @@
 	material_type = /datum/material/aluminum
 	merge_type = /obj/item/stack/sheet/aluminum
 	walltype = /turf/closed/wall/mineral/aluminum
+
+/obj/item/stack/sheet/aluminum/get_main_recipes()
+	. = ..()
+	. += GLOB.aluminum_recipes
 
 /datum/material/aluminum
 	name = "aluminum"

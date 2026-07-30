@@ -1075,8 +1075,45 @@
 	icon_state = "robotic_l_leg"
 	limb_id = "robotic"
 
+///
+// Ghost
+///
 
+/obj/item/bodypart/head/robot/android/ghost
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "ghost_head"
+	limb_id = "ghost"
 
+/obj/item/bodypart/chest/robot/android/ghost
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "ghost_chest"
+	limb_id = "ghost"
+
+/obj/item/bodypart/arm/right/robot/android/ghost
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "ghost_r_arm"
+	limb_id = "ghost"
+
+/obj/item/bodypart/arm/left/robot/android/ghost
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "ghost_l_arm"
+	limb_id = "ghost"
+
+/obj/item/bodypart/leg/right/robot/android/ghost
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "ghost_r_leg"
+	limb_id = "ghost"
+
+/obj/item/bodypart/leg/left/robot/android/ghost
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_state = "ghost_l_leg"
+	limb_id = "ghost"
 
 #undef HEAD_MONITOR_FACE
 #undef ANDROID_BODYPARTS_DMI

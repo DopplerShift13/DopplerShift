@@ -89,6 +89,7 @@
 			do_sparks(3, FALSE, target)
 
 /datum/species/android/prepare_human_for_preview(mob/living/carbon/human/robot_for_preview)
+	turn_off_every_species_feature(robot_for_preview)
 	robot_for_preview.dna.ear_type = CYBERNETIC
 	robot_for_preview.dna.features["ears"] = "TV Antennae"
 	robot_for_preview.dna.features[FEATURE_EARS_COLORS][1] = "#333333"

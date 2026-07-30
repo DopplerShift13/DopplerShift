@@ -6,6 +6,24 @@
 
 
 /**
+ * MEDICAL
+ * Psychologist's primary department is now medical.
+ * Its description also demeaned its purpose in roleplay.
+ */
+
+/datum/job/psychologist
+	description = "Help keep people of the frontier together as \
+		everything around them falls apart. Give your \
+		patients someone they can trust. Probably."
+	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
+	paycheck_department = ACCOUNT_MED
+	supervisors = "the Chief Medical Officer and the Head of Personnel"
+	departments_list = list(
+		/datum/job_department/medical,
+		)
+
+
+/**
  * SECURITY
  * There is no Space Law, there is no SOP.
  * The primary point of security is to mediate conflicts.

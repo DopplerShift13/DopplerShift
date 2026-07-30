@@ -32,6 +32,11 @@ export function OrbitSearchBar(props) {
       data.critical,
       data.deadchat_controlled,
       data.dead,
+      /** DOPPLER ADDITIONS START */
+      data.ninelives,
+      data.cantina,
+      data.truth,
+      /** DOPPLER ADDITIONS END */
       data.ghosts,
       data.misc,
       data.npcs,

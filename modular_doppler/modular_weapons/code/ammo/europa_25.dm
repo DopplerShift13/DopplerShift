@@ -12,7 +12,7 @@
 	name = ".25 bullet"
 	icon = 'modular_doppler/modular_weapons/icons/projectiles.dmi'
 	icon_state = "bullet"
-	damage = 35
+	damage = 30
 	wound_bonus = -10
 	exposed_wound_bonus = 10
 	speed = 1.5
@@ -28,14 +28,14 @@
 /obj/projectile/bullet/c25euro/tracer
 	name = ".25 tracer"
 	icon_state = "greentrac"
-	damage = 25
+	damage = 20
 	light_system = OVERLAY_LIGHT
 	light_range = 1
 	light_power = 1.4
 	light_color = LIGHT_COLOR_ELECTRIC_GREEN
 	light_on = FALSE
 	/// How much the damage is multiplied by when we hit a mob with the correct biotype
-	var/biotype_damage_multiplier = 5
+	var/biotype_damage_multiplier = 6
 	/// What biotype we look for
 	var/biotype_we_look_for = MOB_BEAST
 

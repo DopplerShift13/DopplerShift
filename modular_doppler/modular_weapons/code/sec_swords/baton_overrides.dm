@@ -13,4 +13,4 @@
 	baton_type = /obj/item/melee/baton/doppler_security
 
 /datum/supply_pack/security/baton
-	contains = list(/obj/item/melee/baton/doppler_security = 3)
+	contains = list(/obj/item/melee/baton/doppler_security/loaded = 3)

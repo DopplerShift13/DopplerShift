@@ -1,7 +1,7 @@
 /datum/quirk/item_quirk/ration_system
 	name = "Ration Ticket Receiver"
 	desc = "While often spread thin, the 4CA still manages to provide few basic services no matter where you are in the \
-		galaxy. Working with all of its members, and even independent empires such as the Talunan, you can be gauranteed \
+		galaxy. Working with all of its members, and even independent empires such as the Talunan, you can be guaranteed \
 		a meal anywhere in civilized and even uncivilized space. The quality of the food, however, is far from a promise."
 	icon = FA_ICON_DONATE
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_HIDE_FROM_SCAN

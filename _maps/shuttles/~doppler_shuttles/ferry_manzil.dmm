@@ -5,7 +5,8 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
 /area/shuttle/personally_bought/people_mover)
 "ez" = (
-/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/machinery/door/airlock/spacer,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "eF" = (
@@ -74,6 +75,7 @@
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/sink/cycler/directional/west,
 /turf/open/floor/iron/colony/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "wf" = (
@@ -83,12 +85,6 @@
 "wA" = (
 /obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
-/area/shuttle/personally_bought/people_mover)
-"yi" = (
-/obj/structure/shuttle_decoration/wall_plate/plastamic{
-	dir = 4
-	},
-/turf/closed/wall/mineral/aluminum,
 /area/shuttle/personally_bought/people_mover)
 "yR" = (
 /obj/effect/spawner/random/salvage/crate_only/civilian_supply,
@@ -201,9 +197,7 @@
 /area/shuttle/personally_bought/people_mover)
 "HR" = (
 /obj/machinery/digital_clock/directional/north,
-/obj/machinery/light/warm/directional/north,
-/obj/structure/bed/pod,
-/obj/structure/curtain/bounty,
+/obj/structure/closet/sleeping_compartment,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "Im" = (
@@ -250,8 +244,11 @@
 /area/shuttle/personally_bought/people_mover)
 "LH" = (
 /obj/structure/fans/tiny,
-/obj/structure/mineral_door/manual_colony_door/shuttle,
 /obj/docking_port/mobile/personally_bought,
+/obj/machinery/door/airlock/spacer,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "Md" = (
@@ -317,12 +314,16 @@
 /obj/structure/sign/calendar/directional/east,
 /obj/structure/table/reinforced,
 /obj/machinery/coffeemaker,
+/obj/machinery/light/warm/directional/north,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "Ur" = (
 /obj/structure/extinguisher_cabinet/directional/south,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/handrail/colony{
+	dir = 1
+	},
 /turf/open/floor/iron/colony/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "UW" = (
@@ -411,7 +412,7 @@ Fo
 (6,1,1) = {"
 pH
 pS
-yi
+IP
 ms
 Ow
 Em

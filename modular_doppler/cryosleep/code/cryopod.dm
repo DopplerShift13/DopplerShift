@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
 	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 22)
 
 /obj/machinery/computer/cryopod/Initialize(mapload)
 	. = ..()
@@ -353,21 +353,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 	visible_message(span_notice("[src] hums and hisses as it moves [mob_occupant.real_name] into storage."))
 
-	for(var/obj/item/item_content as anything in mob_occupant)
-		if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP))
-			continue
-		if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
-			continue
-		if(control_computer)
-			if(istype(item_content, /obj/item/modular_computer))
-				var/obj/item/modular_computer/computer = item_content
-				for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
-					message_app.invisible = TRUE
-			mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
-			item_content.dropped(mob_occupant)
-			control_computer.frozen_item += item_content
-		else
-			mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
+	if(!HAS_TRAIT_FROM(mob_occupant, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE)) // Don't let changing room users store items
+		for(var/obj/item/item_content as anything in mob_occupant)
+			if(!istype(item_content) || HAS_TRAIT(item_content, TRAIT_NODROP))
+				continue
+			if (issilicon(mob_occupant) && istype(item_content, /obj/item/mmi))
+				continue
+			if(control_computer)
+				if(istype(item_content, /obj/item/modular_computer))
+					var/obj/item/modular_computer/computer = item_content
+					for(var/datum/computer_file/program/messenger/message_app in computer.stored_files)
+						message_app.invisible = TRUE
+				mob_occupant.transferItemToLoc(item_content, control_computer, force = TRUE, silent = TRUE)
+				item_content.dropped(mob_occupant)
+				control_computer.frozen_item += item_content
+			else
+				mob_occupant.transferItemToLoc(item_content, drop_location(), force = TRUE, silent = TRUE)
 
 	GLOB.joined_player_list -= occupant_ckey
 

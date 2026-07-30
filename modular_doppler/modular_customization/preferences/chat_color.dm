@@ -1,3 +1,7 @@
+/atom
+	/// Tells the chat message color system to not override this thing's chat color with the cache
+	var/do_not_override_chat_colors = FALSE
+
 /datum/preference/color/chat_color
 	category = PREFERENCE_CATEGORY_NON_CONTEXTUAL
 	priority = PREFERENCE_PRIORITY_NAME_MODIFICATIONS
