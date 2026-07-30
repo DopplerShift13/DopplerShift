@@ -14,6 +14,9 @@
 	update_appearance(UPDATE_OVERLAYS)
 	light_color = color
 
+/obj/effect/wind/shipbreaking_collector/onShuttleMove()
+	return FALSE
+
 /obj/effect/wind/shipbreaking_collector/update_overlays()
 	. = ..()
 	. += emissive_appearance(icon, icon_state, src)
