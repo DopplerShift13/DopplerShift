@@ -20,7 +20,9 @@
 	var/mob/living/carbon/human/dummy/consistent/scientist = new
 	var/mob/living/carbon/human/dummy/consistent/agent = new
 
+	turn_off_every_species_feature(scientist) // DOPPLER ADDITION - Fixes screenshot tests with features
 	scientist.set_species(/datum/species/abductor)
+	turn_off_every_species_feature(agent) // DOPPLER ADDITION - Fixes screenshot tests with features
 	agent.set_species(/datum/species/abductor)
 
 	var/icon/scientist_icon = render_preview_outfit(/datum/outfit/abductor/scientist, scientist)

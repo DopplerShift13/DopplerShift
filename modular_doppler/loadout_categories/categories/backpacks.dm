@@ -131,10 +131,6 @@
 	group = "Miscellaneous"
 	abstract_type = /datum/loadout_item/backpack/misc
 
-/datum/loadout_item/backpack/misc/modsuit_civilian
-	name = "Civilian Modsuit"
-	item_path = /obj/item/mod/control/pre_equipped/civilian
-
 /datum/loadout_item/backpack/misc/adventurer
 	name = "Adventurer's Bandolier"
 	item_path = /obj/item/storage/backpack/satchel/crusader
@@ -142,3 +138,7 @@
 /datum/loadout_item/backpack/misc/gravity_harness
 	name = "Gravity Harness"
 	item_path = /obj/item/gravity_harness/with_cell
+
+/datum/loadout_item/backpack/misc/invisible
+	name = "Equipment Harness (Compact)"
+	item_path = /obj/item/storage/backpack/invisible

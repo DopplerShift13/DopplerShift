@@ -43,6 +43,8 @@
 		/obj/item/clothing/head/utility/hardhat/dblue = 2,
 		/obj/item/clothing/head/utility/hardhat/welding/dblue = 2,
 		/obj/item/clothing/head/utility/hardhat/red = 2,
+		/obj/item/clothing/suit/wizrobe/viszard = 3, // thaumaturge robes
+		/obj/item/clothing/head/wizard/viszard = 3 // thaumaturge robes
 	)
 
 /obj/machinery/vending/wardrobe/atmos_wardrobe
@@ -133,7 +135,9 @@
 		/obj/item/clothing/head/cowboy/doppler/flat/cowl = 5,
 		/obj/item/clothing/head/cowboy/doppler/cattleman = 5,
 		/obj/item/clothing/head/cowboy/doppler/cattleman/wide = 5,
-		/obj/item/riding_saddle/leather/blue = 3
+		/obj/item/riding_saddle/leather/blue = 3,
+		/obj/item/clothing/suit/wizrobe/secwiz = 3, // thaumaturge robes
+		/obj/item/clothing/head/wizard/secwiz = 3 // thaumaturge robes
 	)
 
 

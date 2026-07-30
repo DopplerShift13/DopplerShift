@@ -59,6 +59,7 @@
 				spawned_player.equipOutfit(dresscode)
 			if(addquirks == "Quirks & Loadout" || addquirks == "Quirks Only")
 				SSquirks.AssignQuirks(player_as_human, user.client)
+				SSpowers.assign_powers(player_as_human, user.client)
 			player_as_human.dna.update_dna_identity()
 		else if(dresscode != "Naked")
 			spawned_player.equipOutfit(dresscode)

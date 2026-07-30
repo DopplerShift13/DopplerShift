@@ -1,7 +1,7 @@
 /datum/species/get_features()
 	var/list/features = ..()
 
-	features += /datum/preference/choiced/taur_type
+	features += /datum/preference/choiced/species_feature/taur_type
 
 	GLOB.features_by_species[type] = features
 
@@ -11,9 +11,9 @@
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
 	. = ..()
 	if(target.dna.features[FEATURE_TAUR] && can_regenerate_mutant_feature(FEATURE_TAUR))
-		if(target.dna.features[FEATURE_TAUR] != /datum/sprite_accessory/taur/none::name && target.dna.features[FEATURE_TAUR] != /datum/sprite_accessory/blank::name)
+		if(target.dna.features[FEATURE_TAUR] != /datum/sprite_accessory/blank::name)
 			var/obj/item/organ/taur_body/body_to_use = /obj/item/organ/taur_body
-			var/datum/sprite_accessory/taur/accessory = SSaccessories.taur_list[target.dna.features[FEATURE_TAUR]]
+			var/datum/sprite_accessory/taur/accessory = SSaccessories.feature_list[FEATURE_TAUR][target.dna.features[FEATURE_TAUR]]
 			if (accessory)
 				body_to_use = accessory.organ_type
 			var/obj/item/organ/replacement  = SSwardrobe.provide_type(body_to_use)
@@ -33,7 +33,7 @@
 
 /datum/preference/toggle/taur/apply_to_human(mob/living/carbon/human/target, value)
 	if(value == FALSE)
-		target.dna.features[FEATURE_TAUR] = /datum/sprite_accessory/taur/none::name
+		target.dna.features[FEATURE_TAUR] = /datum/sprite_accessory/blank::name
 
 /datum/preference/toggle/taur/create_default_value()
 	return FALSE
@@ -45,7 +45,7 @@
 		return FALSE
 	return TRUE
 
-/datum/preference/choiced/taur_type
+/datum/preference/choiced/species_feature/taur_type
 	savefile_key = "feature_taur"
 	main_feature_name = "Taur"
 	savefile_identifier = PREFERENCE_CHARACTER
@@ -53,9 +53,10 @@
 	priority = PREFERENCE_PRIORITY_DEFAULT
 	should_generate_icons = TRUE
 	can_randomize = FALSE
+	feature_key = FEATURE_TAUR
 
-/datum/preference/choiced/taur_type/icon_for(value)
-	var/datum/sprite_accessory/taur/taur_acc = SSaccessories.taur_list[value]
+/datum/preference/choiced/species_feature/taur_type/icon_for(value)
+	var/datum/sprite_accessory/taur/taur_acc = get_accessory_for_value(value)
 	// TO THOSE RESEARCHING THIS CODE LATER! This initial blank sprite is ESSENTIAL. It allows to sprite to generate even if the initial ADJ sprite is broken or nonexistant.
 	var/datum/universal_icon/final_icon = uni_icon('modular_doppler/taurs/icons/taur.dmi', "m_taur_none_ADJ", EAST)
 	var/datum/universal_icon/accessory_icon = uni_icon(taur_acc.icon, "m_taur_[taur_acc.icon_state]_[taur_acc.primary_layer]", EAST)
@@ -80,10 +81,10 @@
 
 	return final_icon
 
-/datum/preference/choiced/taur_type/apply_to_human(mob/living/carbon/human/target, value)
+/datum/preference/choiced/species_feature/taur_type/apply_to_human(mob/living/carbon/human/target, value)
 	target.dna.features[FEATURE_TAUR] = value
 
-/datum/preference/choiced/taur_type/is_accessible(datum/preferences/preferences)
+/datum/preference/choiced/species_feature/taur_type/is_accessible(datum/preferences/preferences)
 	. = ..()
 	if (!.)
 		return FALSE
@@ -96,19 +97,8 @@
 		return TRUE
 	return FALSE
 
-/datum/preference/choiced/taur_type/init_possible_values()
-	return assoc_to_keys_features(SSaccessories.taur_list)
-
-/datum/preference/choiced/taur_type/create_default_value()
+/datum/preference/choiced/species_feature/taur_type/create_default_value()
 	return /datum/sprite_accessory/taur/none::name
-
-/// SSAccessories setup
-/datum/controller/subsystem/accessories
-	var/list/taur_list
-
-/datum/controller/subsystem/accessories/setup_lists()
-	. = ..()
-	taur_list = init_sprite_accessory_subtypes(/datum/sprite_accessory/taur)["default_sprites"]
 
 /datum/bodypart_overlay/mutant/taur_body
 	layers = EXTERNAL_FRONT | EXTERNAL_ADJACENT | EXTERNAL_BEHIND | EXTERNAL_BODY_FRONT_UNDER_CLOTHES
@@ -144,6 +134,3 @@
 				for(var/shape in worn_suit.supported_bodyshapes)
 					if(body.external_bodyshapes & shape)
 						return FALSE
-
-/datum/bodypart_overlay/mutant/taur_body/get_global_feature_list()
-	return SSaccessories.taur_list

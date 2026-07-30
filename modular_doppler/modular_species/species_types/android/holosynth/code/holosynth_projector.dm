@@ -1,5 +1,8 @@
 /// How far a holosynth can stray from their projector pen
 #define HOLOSYNTH_RANGE 9
+#define HOLOSYNTH_MANUAL_HEAL_TIME 10 SECONDS
+#define HOLOSYNTH_MANUAL_HEAL_BRUTE 50
+#define HOLOSYNTH_MANUAL_HEAL_BURN 150
 
 /obj/item/holosynth_pen
 	name = "holosynth projector-magnet combo"
@@ -7,7 +10,10 @@
 	Miraculously, it also doubles as a pen."
 	icon = 'modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi'
 	worn_icon = 'modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi'
+	lefthand_file = 'modular_doppler/modular_species/species_types/android/holosynth/icons/mob/inhands/holosynth_pen_lefthand.dmi'
+	righthand_file = 'modular_doppler/modular_species/species_types/android/holosynth/icons/mob/inhands/holosynth_pen_righthand.dmi'
 	icon_state = "Holopen"
+	inhand_icon_state = "holopen"
 	worn_icon_state = "w_holopen"
 	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_EARS
 	w_class = WEIGHT_CLASS_TINY
@@ -58,6 +64,10 @@
 		limit_to_trait = TRAIT_HOLOSYNTH, \
 		healing_color = BLOOD_COLOR_HOLOGEL, \
 	)
+	if(linked_mob && linked_mob.dna)
+		var/mutable_appearance/pen_color_overlay = mutable_appearance('modular_doppler/modular_species/species_types/android/holosynth/icons/holosynth_pen.dmi', "holopen_overlay")
+		pen_color_overlay.color = linked_mob.dna.features[FEATURE_MUTANT_COLOR]
+		add_overlay(pen_color_overlay)
 
 /obj/item/holosynth_pen/proc/create_transform_component()
 	AddComponent( \
@@ -76,6 +86,7 @@
 	playsound(src, 'sound/items/pen_click.ogg', 30, TRUE, -3)
 	icon_state = initial(icon_state) + (active ? "_writing" : "")
 	worn_icon_state = initial(worn_icon_state) + (active ? "_writing" : "")
+	inhand_icon_state = initial(inhand_icon_state) + (active ? "_writing" : "")
 	update_appearance(UPDATE_ICON)
 
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
@@ -89,12 +100,17 @@
 		new /obj/effect/temp_visual/guardian/phase/out (get_turf(linked_mob))
 		linked_mob.unequip_everything()
 		linked_mob.forceMove(src)
+		linked_mob.add_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), "Pen Prison")
+
 	else	//Otherwise, put the hologram back
-		if(get_dist(linked_mob, src) <= HOLOSYNTH_RANGE)
+		linked_mob.remove_traits(list(TRAIT_INCAPACITATED, TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), "Pen Prison")
+		if(get_dist(saved_loc, src) <= HOLOSYNTH_RANGE)
 			linked_mob.forceMove(saved_loc)
 			new /obj/effect/temp_visual/guardian/phase (get_turf(linked_mob))
 		else
 			balloon_alert(user, "too far!")
+			linked_mob.forceMove(get_turf(src)) //If we're too far, teleport to the pen as a fall back and save the new location
+			new /obj/effect/temp_visual/guardian/phase (get_turf(src))
 			saved_loc_ref = WEAKREF(get_turf(linked_mob))
 
 	return COMPONENT_NO_DEFAULT_MESSAGE
@@ -105,7 +121,7 @@
 	if(linked_mob)
 		linked_mob.apply_status_effect(/datum/status_effect/holosynth_dissolving)
 		linked_mob.visible_message(
-			span_danger("[linked_mob]'s whole body begins to flicker, shudder and fall apart!"),
+			span_danger("[linked_mob]'s whole body begins to flicker, shudder, and fall apart!"),
  			span_userdanger("You feel your projector being destroyed! Your form loses cohesion!")
 		)
 	. = ..()
@@ -153,7 +169,7 @@
 
 	else return NONE
 
-/obj/item/holosynth_pen/examine()
+/obj/item/holosynth_pen/examine(mob/user)
 	. = ..()
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
 
@@ -175,15 +191,43 @@
 	SIGNAL_HANDLER
 
 	var/mob/living/carbon/human/linked_mob = linked_mob_ref?.resolve()
-
 	if(user == linked_mob)
 		balloon_alert(user, "can't modify yourself!")
 		return COMPONENT_BLOCK_TRANSFORM
 
+//Manual Healing
+/obj/item/holosynth_pen/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+
+	if(istype(interacting_with, /mob/living))
+		return manual_heal(interacting_with, user)
+
+/obj/item/holosynth_pen/proc/manual_heal(mob/living/target_mob, mob/living/healer)
+	var/linked_mob = linked_mob_ref?.resolve()
+
+	if(linked_mob == healer) //No Self Healing
+		return ITEM_INTERACT_SKIP_TO_ATTACK
+
+	if(target_mob == linked_mob && healer.combat_mode == FALSE)
+		healer.visible_message("[healer] carefully shines the projector over [linked_mob]'s wounds; whispy bands of soft-light and aerogel delicately float over to replace what was damaged.")
+
+		target_mob.add_filter("holo_heal", 2, list("type" = "outline", "color" = COLOR_HEALING_CYAN, "size" = 1))
+		addtimer(CALLBACK(target_mob, TYPE_PROC_REF(/datum, remove_filter), "holo_heal"), HOLOSYNTH_MANUAL_HEAL_TIME)
+
+		if(!do_after(healer, HOLOSYNTH_MANUAL_HEAL_TIME, target_mob))
+			target_mob.remove_filter("holo_heal")
+			return ITEM_INTERACT_FAILURE
+
+		target_mob.adjustBruteLoss(-1 * HOLOSYNTH_MANUAL_HEAL_BRUTE, updating_health = TRUE)
+		target_mob.adjustFireLoss(-1 * HOLOSYNTH_MANUAL_HEAL_BURN, updating_health = TRUE)
+		return ITEM_INTERACT_SUCCESS
+
+	else
+		return ITEM_INTERACT_SKIP_TO_ATTACK
+
 /// the DEATH effect
 /atom/movable/screen/alert/status_effect/holosynth_death_alert
 	name = "Projector Destroyed"
-	desc = "YOUR FORM COLLAPSES AT THE SEAMS, you are MELTING AWAY!!"
+	desc = "YOUR FORM COLLAPSES AT THE SEAMS! YOU ARE MELTING AWAY!"
 	icon_state = "convulsing"
 
 /datum/status_effect/holosynth_dissolving
@@ -200,3 +244,6 @@
 	owner.gib(DROP_ALL_REMAINS & ~DROP_BODYPARTS) //bright side, your brain's in there. Someone'll use it I'm sure.
 
 #undef HOLOSYNTH_RANGE
+#undef HOLOSYNTH_MANUAL_HEAL_TIME
+#undef HOLOSYNTH_MANUAL_HEAL_BRUTE
+#undef HOLOSYNTH_MANUAL_HEAL_BURN

@@ -106,6 +106,9 @@
 	user.visible_message(span_notice("[user] collapses [src]."), span_notice("You collapse [src]."))
 	var/obj/vehicle/ridden/wheelchair/wheelchair_folded = new foldabletype(get_turf(src))
 	user.put_in_hands(wheelchair_folded)
+	// DOPPLER ADDITION BEGIN - allows wheelchair vehicles to pass their greyscale data to their items
+	wheelchair_folded.set_greyscale(greyscale_colors)
+	// DOPPLER ADDITION END
 	qdel(src)
 
 /// Attaches bell to the wheelchair
@@ -185,6 +188,9 @@
 /obj/item/wheelchair/proc/deploy_wheelchair(mob/user, atom/location)
 	var/obj/vehicle/ridden/wheelchair/wheelchair_unfolded = new unfolded_type(location)
 	wheelchair_unfolded.add_fingerprint(user)
+	// DOPPLER ADDITION BEGIN - allows wheelchair items to pass their greyscale data to their vehicles
+	wheelchair_unfolded.set_greyscale(greyscale_colors)
+	// DOPPLER ADDITION END
 	qdel(src)
 
 ///A reward item for obtaining 5K hardcore random points. Do not use for anything else

@@ -30,7 +30,7 @@
 
 /obj/item/reagent_containers/blood/random/Initialize(mapload, vol)
 	icon_state = "bloodpack"
-	blood_type = pick(BLOOD_TYPE_A_PLUS, BLOOD_TYPE_A_MINUS, BLOOD_TYPE_B_PLUS, BLOOD_TYPE_B_MINUS, BLOOD_TYPE_O_PLUS, BLOOD_TYPE_O_MINUS, BLOOD_TYPE_LIZARD, BLOOD_TYPE_INSECTOID, BLOOD_TYPE_SYNTHETIC) // DOPPLER EDIT, old code: blood_type = pick(BLOOD_TYPE_A_PLUS, BLOOD_TYPE_A_MINUS, BLOOD_TYPE_B_PLUS, BLOOD_TYPE_B_MINUS, BLOOD_TYPE_O_PLUS, BLOOD_TYPE_O_MINUS, BLOOD_TYPE_LIZARD)
+	blood_type = pick(BLOOD_TYPE_A_PLUS, BLOOD_TYPE_A_MINUS, BLOOD_TYPE_B_PLUS, BLOOD_TYPE_B_MINUS, BLOOD_TYPE_O_PLUS, BLOOD_TYPE_O_MINUS, BLOOD_TYPE_LIZARD, BLOOD_TYPE_INSECTOID) // DOPPLER EDIT, old code: blood_type = pick(BLOOD_TYPE_A_PLUS, BLOOD_TYPE_A_MINUS, BLOOD_TYPE_B_PLUS, BLOOD_TYPE_B_MINUS, BLOOD_TYPE_O_PLUS, BLOOD_TYPE_O_MINUS, BLOOD_TYPE_LIZARD)
 	return ..()
 
 /obj/item/reagent_containers/blood/a_plus
@@ -61,8 +61,9 @@
 /obj/item/reagent_containers/blood/insectoid
 	blood_type = BLOOD_TYPE_INSECTOID
 
+// legacy to support older blood containers
 /obj/item/reagent_containers/blood/synthetic
-	blood_type = BLOOD_TYPE_SYNTHETIC
+	blood_type = BLOOD_TYPE_OIL
 
 /obj/item/reagent_containers/blood/sap
 	blood_type = BLOOD_TYPE_SAP

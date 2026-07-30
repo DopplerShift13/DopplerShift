@@ -346,6 +346,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool, 0)
 	TransferComponents(chair_item)
 	chair_item.update_integrity(get_integrity())
 	user.put_in_hands(chair_item)
+	// DOPPLER EDIT ADDITION BEGIN makes a greyscale structure chair pass colors to the item chair
+	chair_item.set_greyscale(greyscale_colors)
+	// DOPPLER EDIT ADDITION END
 	qdel(src)
 
 /obj/structure/chair/user_buckle_mob(mob/living/M, mob/user, check_loc = TRUE)
@@ -446,6 +449,9 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/chair/stool/bar, 0)
 	TransferComponents(chair)
 	chair.setDir(user.dir)
 	chair.update_integrity(get_integrity())
+	// DOPPLER EDIT ADDITION BEGIN - makes chair items pass their greyscale colors on to chair structures
+	chair.set_greyscale(greyscale_colors)
+	// DOPPLER EDIT ADDITION END
 	qdel(src)
 
 /obj/item/chair/proc/smash(mob/living/user)

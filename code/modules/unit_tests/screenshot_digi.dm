@@ -7,6 +7,7 @@
 
 	// screenshot test of just plain digitigrade legs.
 	// doubles as coverage that ashwalkers spawn with digitigrade legs (as they should be forced to do)
+	turn_off_every_species_feature(dummy) // DOPPLER EDIT - Stops the dummy from becoming a taur out of nowhere
 	dummy.set_species(/datum/species/lizard/ashwalker)
 	TEST_ASSERT((dummy.bodyshape & BODYSHAPE_DIGITIGRADE), "Dummy (Ashwalker) should be digitigrade!")
 	finished_icon = icon(finished_icon)

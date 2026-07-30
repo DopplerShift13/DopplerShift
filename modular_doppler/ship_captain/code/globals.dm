@@ -8,8 +8,3 @@ GLOBAL_LIST_INIT(purchasable_ship_hulls, generate_purchasable_ship_hulls())
 		hulls["[path.name]"] = path
 
 	return hulls
-
-GLOBAL_LIST_EMPTY(ship_captain_pairs)
-
-GLOBAL_LIST_EMPTY(ship_code_to_spawn_marker)
-GLOBAL_LIST_EMPTY(ship_id_to_spawn_marker)

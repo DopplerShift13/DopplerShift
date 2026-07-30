@@ -1,0 +1,1064 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aX" = (
+/obj/effect/spawner/random/trash,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"bk" = (
+/obj/effect/decal/cleanable/blood/gibs/limb,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"cY" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/structure/chair/plastic{
+	dir = 4
+	},
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"eE" = (
+/obj/effect/decal/cleanable/blood/splatter/oil,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"fo" = (
+/obj/effect/landmark/deathmatch_player_spawn,
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"fA" = (
+/obj/structure/fluff/manhole/open,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"gS" = (
+/obj/effect/turf_decal/siding,
+/obj/structure/prop_vehicle/cop,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"gV" = (
+/obj/structure/fence,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"hC" = (
+/obj/structure/prop_vehicle/cop,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"ip" = (
+/obj/effect/spawner/random/trash/mess,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"iv" = (
+/obj/structure/fence/end,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"jO" = (
+/turf/open/chasm,
+/area/deathmatch/murderdrome)
+"kI" = (
+/obj/effect/turf_decal/siding,
+/obj/effect/spawner/random/trash/mess,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"ln" = (
+/obj/effect/turf_decal/siding,
+/obj/effect/spawner/random/trash/hobo_squat,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"nO" = (
+/obj/structure/fence/corner,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"nR" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/effect/spawner/random/trash,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"pi" = (
+/obj/structure/fence/cut/medium{
+	dir = 4
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"pv" = (
+/obj/effect/landmark/deathmatch_player_spawn,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"tz" = (
+/obj/effect/landmark/deathmatch_player_spawn,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"tY" = (
+/obj/structure/fence/end{
+	dir = 4
+	},
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"un" = (
+/obj/item/gun/ballistic/automatic/schiebenmaschine,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"ur" = (
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"vF" = (
+/obj/effect/turf_decal/siding,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"vS" = (
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"xj" = (
+/obj/structure/chair/sofa/bench/solo,
+/obj/effect/landmark/deathmatch_player_spawn,
+/obj/effect/light_emitter/fake_outdoors,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"xH" = (
+/obj/structure/prop_vehicle/red,
+/obj/effect/turf_decal/siding,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"xK" = (
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"yq" = (
+/obj/structure/chair/plastic{
+	dir = 1
+	},
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"yI" = (
+/obj/structure/fence{
+	dir = 4
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"yY" = (
+/obj/effect/turf_decal/siding,
+/obj/vehicle/ridden/motorcycle{
+	dir = 1
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"zT" = (
+/obj/structure/fluff/streetlamp/destroyed,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"AR" = (
+/obj/effect/spawner/random/vending/snackvend,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"Bw" = (
+/obj/structure/reagent_dispensers/fueltank/large,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Cm" = (
+/obj/effect/turf_decal/siding{
+	dir = 8
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Cs" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/item/storage/epic_loot_cooler,
+/obj/item/reagent_containers/cup/glass/colocup/lean{
+	pixel_x = -3;
+	pixel_y = 10
+	},
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"Cy" = (
+/obj/vehicle/ridden/motorcycle{
+	dir = 4
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"CE" = (
+/obj/effect/turf_decal/siding,
+/obj/structure/prop_vehicle,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Dm" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/decal/cleanable/blood/gibs/down,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Dv" = (
+/obj/effect/decal/cleanable/blood/gibs/old,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"DP" = (
+/obj/item/trash/vendor_trash/rice_crackers,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"DV" = (
+/obj/effect/spawner/random/trash/bin{
+	pixel_x = -9
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"DZ" = (
+/obj/effect/landmark/deathmatch_player_spawn,
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"Fe" = (
+/obj/structure/lattice,
+/turf/open/chasm,
+/area/deathmatch/murderdrome)
+"Fh" = (
+/obj/structure/fluff/streetlamp,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"FU" = (
+/obj/structure/fence/cut/medium,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"FX" = (
+/obj/effect/decal/cleanable/blood/oil,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Gl" = (
+/obj/effect/spawner/random/structure/shipping_container,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"GA" = (
+/obj/structure/prop_vehicle/red,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Hu" = (
+/obj/effect/turf_decal/siding,
+/obj/item/cigarette/pipe/crackpipe{
+	pixel_x = -5;
+	pixel_y = -4
+	},
+/obj/item/reagent_containers/cup/soda_cans/doppler/kortara{
+	pixel_x = 7;
+	pixel_y = 4
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"HC" = (
+/obj/effect/turf_decal/siding,
+/obj/effect/decal/cleanable/blood/splatter/oil,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"It" = (
+/obj/structure/fence/cut/large{
+	dir = 4
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"IJ" = (
+/obj/structure/prop_vehicle/taxi,
+/obj/effect/turf_decal/siding,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Jz" = (
+/obj/effect/decal/cleanable/blood/innards,
+/obj/effect/decal/cleanable/blood/old,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"KB" = (
+/obj/effect/spawner/random/contraband/landmine,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"LD" = (
+/obj/structure/closet/crate/trashcart/filled,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"MI" = (
+/obj/effect/turf_decal/siding,
+/obj/effect/decal/cleanable/blood/gibs/body,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"MQ" = (
+/obj/structure/mystery_box/tdome,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Nt" = (
+/obj/effect/turf_decal/siding,
+/obj/vehicle/ridden/motorcycle,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"OM" = (
+/obj/structure/fluff/manhole,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"OX" = (
+/obj/effect/turf_decal/siding,
+/obj/vehicle/ridden/motorcycle{
+	dir = 4
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"PB" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/structure/showcase/machinery/tv/broken,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"Qm" = (
+/obj/structure/lattice,
+/obj/structure/fluff/streetlamp/destroyed,
+/turf/open/chasm,
+/area/deathmatch/murderdrome)
+"Qz" = (
+/mob/living/basic/pet/dog/bullterrier,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"Rn" = (
+/obj/effect/decal/cleanable/blood/tracks,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Sc" = (
+/obj/structure/fence/door/opened,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"ST" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"TG" = (
+/obj/item/paper/pamphlet/violent_video_games{
+	pixel_x = -6;
+	pixel_y = 3
+	},
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"Uw" = (
+/obj/structure/flora/bush/sparsegrass/style_random,
+/obj/structure/fence/end{
+	dir = 8
+	},
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"UJ" = (
+/obj/structure/prop_vehicle/pizza_van,
+/obj/effect/turf_decal/siding,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"Wj" = (
+/obj/structure/mystery_box/tdome,
+/turf/open/indestructible/sandy_dirt,
+/area/deathmatch/murderdrome)
+"YF" = (
+/obj/structure/prop_vehicle,
+/obj/effect/turf_decal/siding,
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+"YI" = (
+/obj/structure/lattice,
+/obj/structure/mystery_box/tdome,
+/turf/open/chasm,
+/area/deathmatch/murderdrome)
+"Zx" = (
+/obj/effect/turf_decal/siding{
+	dir = 4
+	},
+/turf/open/indestructible/asphalt,
+/area/deathmatch/murderdrome)
+
+(1,1,1) = {"
+vS
+vS
+vS
+vS
+vS
+vS
+ST
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+vS
+ST
+It
+Qz
+cY
+Cs
+"}
+(2,1,1) = {"
+vS
+pv
+ST
+vS
+vS
+ur
+zT
+ur
+ur
+ur
+ur
+ur
+zT
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+vS
+Uw
+PB
+Wj
+yq
+"}
+(3,1,1) = {"
+vS
+ST
+ST
+nR
+ur
+ST
+ur
+ur
+ur
+tz
+ur
+ur
+ur
+ur
+ur
+KB
+ur
+ur
+ur
+ur
+aX
+ur
+ST
+ST
+TG
+"}
+(4,1,1) = {"
+vS
+ST
+vS
+LD
+nR
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+CE
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ST
+pv
+"}
+(5,1,1) = {"
+ST
+vS
+vS
+ST
+ST
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+OM
+ur
+ur
+ur
+ur
+vS
+ST
+ur
+vS
+"}
+(6,1,1) = {"
+vS
+vS
+vS
+ur
+ur
+ur
+ur
+aX
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ST
+vS
+"}
+(7,1,1) = {"
+vS
+vS
+vS
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+OX
+ur
+IJ
+ur
+ur
+aX
+ur
+ur
+Bw
+ur
+vS
+ur
+ur
+vS
+"}
+(8,1,1) = {"
+vS
+vS
+vS
+ur
+GA
+ur
+ur
+ur
+ur
+ur
+vF
+vF
+vF
+vF
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+vS
+"}
+(9,1,1) = {"
+xK
+DZ
+Zx
+Zx
+ur
+ur
+Fh
+ur
+ur
+ur
+ur
+ur
+Fh
+Jz
+ur
+ur
+jO
+ur
+Fh
+ur
+ur
+ur
+ur
+ur
+ur
+"}
+(10,1,1) = {"
+ur
+Zx
+ur
+Zx
+ur
+Zx
+ur
+Zx
+ur
+Zx
+ur
+Zx
+ur
+Zx
+ur
+Fe
+jO
+jO
+vF
+YF
+ur
+ur
+ur
+ur
+ur
+"}
+(11,1,1) = {"
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+FX
+ur
+ur
+ur
+Fe
+ur
+MQ
+Fe
+Fe
+vF
+vF
+ur
+ur
+ur
+ur
+ur
+"}
+(12,1,1) = {"
+Cm
+Cm
+Cm
+Cm
+Cm
+ur
+vF
+vF
+YF
+ur
+ur
+Fe
+jO
+jO
+Fe
+bk
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+"}
+(13,1,1) = {"
+vS
+vS
+ur
+ur
+ur
+ur
+vF
+yY
+vF
+Dv
+ur
+jO
+jO
+jO
+Fe
+Rn
+fo
+Rn
+Dm
+ip
+ur
+ur
+ur
+ur
+ur
+"}
+(14,1,1) = {"
+vS
+vS
+ur
+ur
+ur
+ur
+ur
+ur
+eE
+ur
+KB
+ur
+Bw
+YI
+Fe
+ur
+vF
+MI
+xH
+ur
+ur
+ur
+aX
+ur
+ur
+"}
+(15,1,1) = {"
+vS
+vS
+ur
+ur
+fA
+ur
+ur
+ur
+ur
+ur
+ur
+Fe
+Fe
+jO
+jO
+ur
+vF
+vF
+vF
+ur
+ur
+ur
+ur
+ur
+ur
+"}
+(16,1,1) = {"
+vS
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+Fe
+Fe
+jO
+Fe
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+"}
+(17,1,1) = {"
+ur
+vS
+tz
+ur
+ur
+ur
+Fh
+ur
+aX
+ur
+ur
+jO
+Qm
+ur
+ur
+ur
+ip
+ur
+Fh
+ur
+ur
+ur
+tz
+ur
+ur
+"}
+(18,1,1) = {"
+vS
+vS
+vS
+ur
+ST
+ur
+vF
+ur
+ur
+vF
+ur
+ur
+ur
+ur
+ur
+vF
+gS
+FX
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+"}
+(19,1,1) = {"
+vS
+vS
+vS
+ST
+vS
+ur
+vF
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+HC
+vF
+eE
+aX
+ur
+ur
+Cy
+vS
+vS
+ur
+"}
+(20,1,1) = {"
+vS
+tY
+ST
+ST
+vS
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+"}
+(21,1,1) = {"
+vS
+It
+DV
+ST
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+hC
+ur
+ur
+ur
+ur
+ur
+vS
+ur
+ur
+Gl
+vS
+ur
+Gl
+ur
+"}
+(22,1,1) = {"
+vS
+Sc
+ST
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ST
+ur
+ur
+ST
+"}
+(23,1,1) = {"
+vS
+pi
+AR
+ur
+vF
+vF
+UJ
+Hu
+DP
+ur
+KB
+ur
+kI
+vF
+CE
+ur
+ur
+ur
+ur
+MQ
+ur
+ur
+ur
+ur
+ST
+"}
+(24,1,1) = {"
+Wj
+yI
+xj
+ST
+yY
+vF
+vF
+ln
+ur
+ur
+ur
+ur
+Nt
+vF
+ur
+ur
+ur
+ur
+ur
+vS
+ur
+ur
+ur
+ST
+vS
+"}
+(25,1,1) = {"
+vS
+yI
+AR
+vS
+ur
+un
+Fh
+ur
+ur
+tz
+ur
+ur
+Fh
+ur
+ur
+ur
+ur
+MQ
+Fh
+ur
+ur
+ST
+ST
+tz
+vS
+"}
+(26,1,1) = {"
+vS
+nO
+FU
+iv
+ur
+gV
+gV
+gV
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+ur
+aX
+ur
+ur
+ur
+ST
+vS
+vS
+vS
+vS
+"}

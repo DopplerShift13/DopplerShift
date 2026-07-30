@@ -46,7 +46,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
 	dir = 4
 	},
-/obj/machinery/suit_storage_unit/tiziran_raiders/red,
+/obj/machinery/suit_storage_unit/tiziran_raiders,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_interceptor)
 "i" = (

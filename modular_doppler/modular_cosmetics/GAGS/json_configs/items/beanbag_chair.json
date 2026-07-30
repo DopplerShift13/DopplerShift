@@ -1,0 +1,10 @@
+{
+	"beanbag": [
+		{
+			"type": "icon_state",
+			"icon_state": "beanbag",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

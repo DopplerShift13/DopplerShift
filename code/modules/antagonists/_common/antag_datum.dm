@@ -470,6 +470,7 @@ GLOBAL_LIST_EMPTY(antagonists)
 /// result of `get_preview_icon` is expected to be the completed version.
 /datum/antagonist/proc/render_preview_outfit(datum/outfit/outfit, mob/living/carbon/human/dummy)
 	dummy = dummy || new /mob/living/carbon/human/dummy/consistent
+	turn_off_every_species_feature(dummy) // DOPPLER ADDITION - Fixes screenshot tests with features
 	dummy.equipOutfit(outfit, visuals_only = TRUE)
 	dummy.wear_suit?.update_greyscale()
 	dummy.set_combat_mode(TRUE)

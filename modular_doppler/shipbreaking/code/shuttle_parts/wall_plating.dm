@@ -40,11 +40,11 @@
 	SIGNAL_HANDLER
 	if(leaving == src)
 		return // Let's not block ourselves.
-	if(!(direction & dir))
+	if(!(direction & dir) && (dir in GLOB.cardinals))
 		return
 	if (!density)
 		return
-	if (leaving.movement_type & (PHASING))
+	if (leaving.movement_type & MOVETYPES_NOT_TOUCHING_GROUND)
 		return
 	if (leaving.move_force >= MOVE_FORCE_EXTREMELY_STRONG)
 		return
@@ -108,14 +108,14 @@
 		shard.color = color
 
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon/primary_colour
-	color = COLOR_AMETHYST
+	color = COLOR_SILVER
 
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon/primary_colour/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SHIP_PRIMARY_COLOUR, TRAIT_GENERIC)
 
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/primary_colour
-	color = COLOR_AMETHYST
+	color = COLOR_SILVER
 
 /obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/primary_colour/Initialize(mapload)
 	. = ..()

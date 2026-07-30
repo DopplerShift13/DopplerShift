@@ -1,15 +1,8 @@
 /datum/component/glass_passer/holosynth/phase_through_glass(mob/living/owner, atom/bumpee)
 	var/mob/living/carbon/ascarbon = owner
 	var/obj/structure/window/wumpee = bumpee
-	var/modified_pass_time = pass_time
 
-	//I want it to take longer if it's a fulltile
-	if(wumpee.fulltile)
-		modified_pass_time = 3 * pass_time
-	else
-		modified_pass_time = pass_time
-
-	if(!do_after(owner, modified_pass_time, bumpee))
+	if(!do_after(owner, pass_time, bumpee))
 		return
 
 	if(ascarbon.handcuffed || ascarbon.legcuffed)

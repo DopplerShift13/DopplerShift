@@ -48,3 +48,11 @@
 	inhand_y_dimension = 32
 	fire_sound = 'modular_doppler/modular_weapons/sounds/shotgun_heavy.ogg'
 	recoil = 0.25
+
+/// special one just for a murderdrome deathmatch loadout. has buckshot instead.
+
+/obj/item/gun/ballistic/shotgun/riot/buckshot
+		accepted_magazine_type = /obj/item/ammo_box/magazine/internal/shot/riot/buckshot
+
+/obj/item/ammo_box/magazine/internal/shot/riot/buckshot
+	ammo_type = /obj/item/ammo_casing/shotgun/buckshot

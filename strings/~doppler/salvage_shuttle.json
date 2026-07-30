@@ -7,6 +7,14 @@
 		"@pick(designation) @pick(name_word)-@pick(name_word) @pick(digit)"
 	],
 
+	"ship_name_no_designation": [
+		"@pick(name_word) @pick(digit)",
+		"@pick(name_word) @pick(name_word)",
+		"@pick(name_word) @pick(name_word) @pick(digit)",
+		"@pick(name_word)-@pick(name_word)",
+		"@pick(name_word)-@pick(name_word) @pick(digit)"
+	],
+
 	"designation": [
 		"4CA",
 		"4CAV",

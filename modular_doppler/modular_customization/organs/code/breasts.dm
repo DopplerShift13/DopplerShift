@@ -47,6 +47,3 @@
 /datum/bodypart_overlay/mutant/breasts/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
 	draw_color = limb.owner?.dna.features[FEATURE_BREASTS_COLORS]
 	return ..()
-
-/datum/bodypart_overlay/mutant/breasts/get_global_feature_list()
-	return SSaccessories.breasts_list
