@@ -85,3 +85,7 @@
       a significantly higher sale value
   rutek-code:
   - bugfix: Fixed the anthromorph body markings & its headless variant.
+2026-07-29:
+  Farce:
+  - qol: Significantly reduces the volume of the whistle that plays upon using the
+      Warfighter power 'Commander' or associated powers.
