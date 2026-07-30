@@ -8,6 +8,7 @@
 	light_range = 1
 	light_power = 2
 	light_on = TRUE
+	anchored = TRUE
 
 /obj/effect/wind/shipbreaking_collector/Initialize(mapload)
 	. = ..()
