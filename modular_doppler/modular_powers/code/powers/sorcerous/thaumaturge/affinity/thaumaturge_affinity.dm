@@ -95,7 +95,7 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 
 // It kinda looks like a wizard robe. Not really, though.
 /obj/item/clothing/suit/costume/judgerobe
-
+	affinity = 2
 /*
 	Tier 3:
 */
