@@ -24,7 +24,7 @@ import {
   type FeatureChoicedServerData,
   FeatureValueInput,
 } from '../preferences/features/base';
-import { Gender, GENDERS } from '../preferences/gender';
+import { GENDERS, Gender } from '../preferences/gender';
 import {
   createSetPreference,
   type PreferencesMenuData,
@@ -622,7 +622,6 @@ export function MainPage(props: MainPageProps) {
                 }
               />
             </Stack.Item>
-			{/* DOPPLER ADDITION START */}
             <Stack.Item position="relative">
               <Dropdown
                 width="100%"

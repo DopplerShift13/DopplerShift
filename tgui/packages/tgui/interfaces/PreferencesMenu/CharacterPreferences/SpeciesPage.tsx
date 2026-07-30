@@ -343,7 +343,7 @@ function SpeciesPageInner(props: SpeciesPageInnerProps) {
                     <CharacterPreview
                       id={data.character_preview_view}
                       height="100%"
-                      width="179px" // DOPPLER SHIFT ADDITION
+                      width="179px" // DOPPLER SHIFT ADDITION - makes canvas fit better
                     />
                   </Stack.Item>
                 </Stack>

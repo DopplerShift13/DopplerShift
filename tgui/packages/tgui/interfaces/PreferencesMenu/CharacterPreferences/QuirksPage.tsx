@@ -11,7 +11,7 @@ import {
   Tooltip,
 } from 'tgui-core/components';
 import { createSearch } from 'tgui-core/string';
-import { CharacterPreview } from '../../common/CharacterPreview'; // DOPPLER EDIT ADDITION
+import { CharacterPreview } from '../../common/CharacterPreview'; // DOPPLER EDIT ADDITION - fetch correct canvas
 
 import {
   type PreferencesMenuData,
@@ -96,7 +96,7 @@ function QuirkDisplay(props: QuirkDisplayProps) {
   const { icon, value, name, description, customizable, failTooltip } = quirk;
 
   const [customizationExpanded, setCustomizationExpanded] = useState(false);
-  const { data } = useBackend<PreferencesMenuData>(); // DOPPLER EDIT ADDITION
+  const { data } = useBackend<PreferencesMenuData>(); // DOPPLER EDIT ADDITION - fetch correct data
 
   const className = 'PreferencesMenu__Quirks__QuirkList__quirk';
 
