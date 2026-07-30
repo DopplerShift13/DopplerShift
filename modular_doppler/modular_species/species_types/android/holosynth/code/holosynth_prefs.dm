@@ -13,7 +13,7 @@
 	target.dna.features[FEATURE_HOLO_COLOR] = rgb(rbg_value[1], rbg_value[2], rbg_value[3], (HOLOSYNTH_OPACITY * 255))
 
 /datum/preference/color/holosynth_color/create_default_value()
-	return sanitize_hexcolor("[pick("7F", "FF")][pick("7F", "FF")][pick("7F", "FF")]")
+	return sanitize_hexcolor("#7db4e1")
 
 /datum/preference/color/holosynth_color/is_accessible(datum/preferences/preferences)
 	. = ..()
