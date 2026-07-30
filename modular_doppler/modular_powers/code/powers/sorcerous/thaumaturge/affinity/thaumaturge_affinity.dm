@@ -63,7 +63,7 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 // Used by magicians, notoriously low-level casters
 /obj/item/clothing/head/hats/tophat
 	affinity = 1
- /obj/item/gun/magic/wand/nothing //Worse than the thaumaturge wand because it's small and it's Nothing
+/obj/item/gun/magic/wand/nothing //Worse than the thaumaturge wand because it's small and it's Nothing
 	affinity = 1
 
 // Wiznerd spectacles give you true sight. If you wear these you need the magic to not get lockershoved
