@@ -207,7 +207,7 @@
 
 /obj/item/clothing/mask/gas/techmask
 	name = "advanced gas mask"
-	desc = "A specialized model of gas mask designed specifically upgraded to filter out incredibly fine particulate. This is less useful than it seems on a space station."
+	desc = "A specialized model of gas mask specifically upgraded to filter out incredibly fine particulate. This is less useful than it seems on a space station."
 	icon = 'icons/map_icons/clothing/mask.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
 	icon_state = "/obj/item/clothing/mask/gas/techmask"
