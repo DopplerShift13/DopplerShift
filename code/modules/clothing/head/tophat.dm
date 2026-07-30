@@ -14,7 +14,7 @@
 	. = ..()
 	if(istype(hitby_item, /obj/item/gun/magic/wand))
 		abracadabra(hitby_item, user)
-	if(istype(hitby_item, obj/item/spell_focus))
+	if(istype(hitby_item, /obj/item/spell_focus))
 		abracadabra(hitby_item, user)
 
 /obj/item/clothing/head/hats/tophat/proc/abracadabra(obj/item/hitby_wand, mob/magician)
