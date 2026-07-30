@@ -3,7 +3,8 @@
 	desc = "A small device capable of administering short bursts of aerosolized chemicals. Cannot be \
 		refilled and must be either disposed of or recycled after use."
 	icon = 'modular_doppler/public_medical_items/icons/inhaler.dmi'
-	icon_state = "inhaler"
+	icon_state = "generic"
+	canister_underlay_y_offset = 0
 
 /obj/item/inhaler/disposable/handle_deconstruct(disassembled)
 	QDEL_NULL(canister)
@@ -14,6 +15,9 @@
 
 /obj/item/inhaler/disposable/try_insert_canister(obj/item/reagent_containers/inhaler_canister/new_canister, mob/living/user, params)
 	return FALSE
+
+/obj/item/inhaler/disposable/update_canister_underlay()
+	return
 
 /obj/item/reagent_containers/inhaler_canister/disposable
 	name = "disposable inhaler canister"
@@ -42,6 +46,7 @@
 /obj/item/inhaler/disposable/aslanane
 	name = "disposable anesthetic inhaler"
 	desc = "Four doses of synthetic aslanane condensed into a handy disposable inhaler format."
+	icon_state = "aslanane"
 	initial_casister_path = /obj/item/reagent_containers/inhaler_canister/disposable/aslanane
 
 /obj/item/reagent_containers/inhaler_canister/disposable/asthma
@@ -55,6 +60,7 @@
 	name = "disposable albuterol inhaler"
 	desc = "A two-puff inhaler of albuterol made primarily for asthmatics that forgot their normal one at home, or are in desperate \
 		need of a replacement that can't wait."
+	icon_state = "albuterol"
 	initial_casister_path = /obj/item/reagent_containers/inhaler_canister/disposable/asthma
 
 /obj/item/reagent_containers/inhaler_canister/disposable/demoneye
@@ -69,6 +75,7 @@
 /obj/item/inhaler/disposable/demoneye
 	name = "single-use DemonEye inhaler"
 	desc = "A single puff of DemonEye to ruin everyone's day, including yours."
+	icon_state = "demoneye"
 	initial_casister_path = /obj/item/reagent_containers/inhaler_canister/disposable/demoneye
 
 /obj/item/reagent_containers/inhaler_canister/disposable/protozene
@@ -84,6 +91,7 @@
 	name = "single-use protozene inhaler"
 	desc = "A single puff of protozene and other stimulants. Made for recovery from heavy augmentation operations, but \
 		you're just going to use it to get high, aren't you?"
+	icon_state = "protozene"
 	initial_casister_path = /obj/item/reagent_containers/inhaler_canister/disposable/protozene
 
 /obj/item/reagent_containers/inhaler_canister/disposable/soberup
@@ -99,4 +107,5 @@
 /obj/item/inhaler/disposable/soberup
 	name = "single-use sober-up inhaler"
 	desc = "A single puff of every alcoholic's worst nightmare, and martian's best friend. Quickly reverses the effects of intoxication due to alcohol."
+	icon_state = "soberup"
 	initial_casister_path = /obj/item/reagent_containers/inhaler_canister/disposable/soberup
