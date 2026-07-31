@@ -7257,6 +7257,7 @@
 #include "modular_doppler\modular_customization\accessories\code\cybernetic_accessories\synth_body_markings.dm"
 #include "modular_doppler\modular_customization\accessories\code\cybernetic_accessories\synth_ears.dm"
 #include "modular_doppler\modular_customization\accessories\code\cybernetic_accessories\synth_horns.dm"
+#include "modular_doppler\modular_customization\accessories\code\cybernetic_accessories\synth_snout.dm"
 #include "modular_doppler\modular_customization\accessories\code\cybernetic_accessories\synth_tail.dm"
 #include "modular_doppler\modular_customization\accessories\code\human_accessories\human_ears.dm"
 #include "modular_doppler\modular_customization\accessories\code\human_accessories\human_horns.dm"

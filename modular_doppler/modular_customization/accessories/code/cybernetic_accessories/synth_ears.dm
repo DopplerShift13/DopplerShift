@@ -36,3 +36,7 @@
 /datum/sprite_accessory/ears_more/cybernetic/cutesy
 	name = "Cutesy"
 	icon_state = "cutesy"
+
+/datum/sprite_accessory/ears_more/cybernetic/protogen
+	name = "Protogen"
+	icon_state = "protogen"
