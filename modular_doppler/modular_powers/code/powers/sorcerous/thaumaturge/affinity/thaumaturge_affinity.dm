@@ -60,9 +60,6 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/clothing/accessory/maidapron
 	affinity = 1
 
- /obj/item/gun/magic/wand/nothing //Worse than the thaumaturge wand because it's small and it's Nothing
-	affinity = 1
-
 // Wiznerd spectacles give you true sight. If you wear these you need the magic to not get lockershoved
 /obj/item/clothing/glasses/regular/jamjar
 	affinity = 1
@@ -96,6 +93,7 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 // It kinda looks like a wizard robe. Not really, though.
 /obj/item/clothing/suit/costume/judgerobe
 	affinity = 2
+
 /*
 	Tier 3:
 */
