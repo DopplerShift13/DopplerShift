@@ -125,6 +125,21 @@
 	greyscale_colors = "#ffcc00#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+//Marsian Fashion
+/obj/item/clothing/neck/cloak/shoulder_cloak_redmars
+	name = "red marsian shoulder cloak"
+	desc = "Normally thrown atop something else, this thick, fur-collared mantle cinches in the front\
+	and provides a strictly aesthetic quality, most often burnished in colors resembling the wearer's\
+	typical environments of Red Mars."
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/cloak/shoulder_cloak_redmars"
+	post_init_icon_state = "shoulder_cloak_redmars"
+	greyscale_config = /datum/greyscale_config/shoulder_cloak_redmars
+	greyscale_config_worn = /datum/greyscale_config/shoulder_cloak_redmars/worn
+	greyscale_colors = "#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+
 ///////////
 //SCARVES//
 ///////////
@@ -160,3 +175,4 @@
 	greyscale_config = /datum/greyscale_config/mantle
 	greyscale_config_worn = /datum/greyscale_config/mantle/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
+

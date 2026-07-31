@@ -67,6 +67,17 @@
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/faceplate_eyes.json'
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face_snout.dmi'
 
+// TECH MASK
+
+/datum/greyscale_config/techmask
+	name = "Tech Mask"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/face.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/techmask.json'
+
+/datum/greyscale_config/techmask/worn
+	name = "Tech Mask (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
+
 // COLORABLE GLASSES
 
 /datum/greyscale_config/recolorable_glasses

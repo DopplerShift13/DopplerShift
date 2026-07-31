@@ -2,10 +2,10 @@
 /obj/item/storage/medkit/robotic_repair
 	name = "robotic repair equipment kit"
 	desc = "An industrial-strength plastic box filled with supplies for repairing synthetics from critical damage."
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "synth_medkit"
 	inhand_icon_state = "medkit"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
 	worn_icon_state = "frontier"
 	drop_sound = 'sound/items/handling/ammobox_drop.ogg'
 	pickup_sound = 'sound/items/handling/ammobox_pickup.ogg'
@@ -22,8 +22,8 @@
 		/obj/item/stack/medical/gauze = 1,
 		/obj/item/reagent_containers/applicator/patch/robotic_patch/synth_repair = 2,
 		/obj/item/stack/medical/gauze/alu_splint = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 1, // Coagulants help electrical damage
+		/obj/item/reagent_containers/hypospray/medipen/doppler/robot_system_cleaner = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 1,
 		/obj/item/healthanalyzer/simple = 1,
 	)
 	generate_items_inside(items_inside,src)
@@ -48,9 +48,9 @@
 		/obj/item/stack/cable_coil/thirty = 1,
 		/obj/item/reagent_containers/applicator/patch/robotic_patch/synth_repair = 4,
 		/obj/item/stack/medical/gauze/alu_splint = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_system_cleaner = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/robot_liquid_solder = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/robot_system_cleaner = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/robot_liquid_solder = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 1,
 		/obj/item/reagent_containers/spray/dinitrogen_plasmide = 1,
 		/obj/item/healthanalyzer/simple = 1,
 	)

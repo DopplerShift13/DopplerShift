@@ -1,0 +1,4 @@
+author: "desertmote"
+delete-after: True
+changes:
+  - bugfix: "Adds back lost customizability to holo synths"

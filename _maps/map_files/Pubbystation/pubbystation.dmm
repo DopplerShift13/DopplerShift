@@ -35666,11 +35666,6 @@
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/dark_blue/opposingcorners,
 /obj/structure/table/reinforced,
-/obj/item/storage/medkit/civil_defense/comfort/stocked,
-/obj/item/storage/medkit/civil_defense/comfort/stocked{
-	pixel_x = 8;
-	pixel_y = 0
-	},
 /turf/open/floor/iron/white,
 /area/station/medical/medbay/lobby)
 "iYH" = (
