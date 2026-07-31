@@ -57,7 +57,7 @@
 
 	game_plane_master_controller.add_filter("demoneye_filter", 10, color_matrix_filter(col_filter_red, FILTER_COLOR_RGB))
 
-	game_plane_master_controller.add_filter("demoneye_blur", 1, list("type" = "angular_blur", "size" = 4))
+	game_plane_master_controller.add_filter("demoneye_blur", 1, list("type" = "angular_blur", "size" = 3))
 
 
 /datum/reagent/drug/demoneye/on_mob_end_metabolize(mob/living/carbon/human/our_guy)
