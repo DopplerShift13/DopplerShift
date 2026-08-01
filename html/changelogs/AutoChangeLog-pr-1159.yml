@@ -1,0 +1,5 @@
+author: "conk444"
+delete-after: True
+changes:
+  - rscadd: "You can now use the thaumaturge spell focuses to pull a rabbit out of a top hat."
+  - rscadd: "Top hats, jamjar glasses, and judge robes now provide affinity for thaumaturges."

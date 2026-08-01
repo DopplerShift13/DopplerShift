@@ -3,7 +3,7 @@
 /obj/structure/holosign/treatment_zone_warning
 	name = "treatment zone indicator"
 	desc = "A massive glowing holosign warning you to keep out of it, there's probably some important stuff happening in there!"
-	icon = 'modular_doppler/deforest_medical_items/icons/telegraph_96x96.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/telegraph_96x96.dmi'
 	icon_state = "treatment_zone"
 	plane = WALL_PLANE
 	pixel_x = -32

@@ -2,7 +2,7 @@
 /obj/item/storage/pill_bottle/painkiller
 	name = "amollin pill bottle"
 	desc = "It's an airtight container for storing medication. This one is all-white and has labels for containing amollin, a blend of Miner's Salve and Lidocaine."
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	custom_price = PAYCHECK_CREW * 1.5
 	spawn_type = /obj/item/reagent_containers/applicator/pill/amollin
@@ -32,7 +32,7 @@
 /obj/item/storage/pill_bottle/prescription_stimulant
 	name = "alifil pill bottle"
 	desc = "A special miniaturized pill bottle with an insert resembling a revolver cylinder, fitted for the inside of a 'civil defense'-class shell medkit. Holds five alifil pills, and is designed only to accept their proprietary DeForest(tm) shape. A big, bold yellow warning label on the side reads: 'FOLLOW DOSAGE DIRECTIONS'."
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "painkiller_bottle"
 	w_class = WEIGHT_CLASS_TINY // this is fine because we hard limit what can go in this thing
 	spawn_type = /obj/item/reagent_containers/applicator/pill/prescription_stimulant
@@ -49,10 +49,10 @@
 // Pre-packed civil defense medkit, with items to heal low damages inside
 /obj/item/storage/medkit/civil_defense
 	name = "civil defense medical kit"
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "poisoning_kit"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "poisoning_kit"
 	desc = "A small medical kit that can only fit autoinjectors in it, these typically come with supplies to treat low level harm."
 	w_class = WEIGHT_CLASS_SMALL
@@ -68,16 +68,17 @@
 		/obj/item/storage/pill_bottle/prescription_stimulant,
 		/obj/item/food/cheese/firm_cheese_slice, //It's not called a cheese kit for nothing.
 		/obj/item/food/cheese/wedge,
+		/obj/item/inhaler,
 	))
 
 /obj/item/storage/medkit/civil_defense/stocked
 
 /obj/item/storage/medkit/civil_defense/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/halobinin = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 1,
+		/obj/item/inhaler/disposable/protozene = 1,
 	)
 	generate_items_inside(items_inside, src)
 
@@ -90,22 +91,6 @@
 	generate_items_inside(items_inside, src)
 
 /obj/item/storage/medkit/civil_defense/thunderdome
-	/// List of random medpens we can pick from
-	var/list/random_medpen_options = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synephrine,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi,
-	)
 
 /obj/item/storage/medkit/civil_defense/thunderdome/Initialize(mapload)
 	. = ..()
@@ -113,37 +98,21 @@
 
 /obj/item/storage/medkit/civil_defense/thunderdome/PopulateContents()
 	for(var/pens in 1 to 6)
-		var/new_pen = pick(random_medpen_options)
-		new new_pen(src)
-
-// Variant on the civil defense medkit for spacer planetside personnel (or other people suffering from chronic illnesses)
-/obj/item/storage/medkit/civil_defense/comfort
-	name = "civil defense symptom support kit"
-	desc = "A small, pocket-sized kit that can typically only fit autoinjectors in it. This variant on the classic 'cheese' civil defense kit contains supplies to address hindering symptomatic burden associated with common chronic diseases or adaptation syndromes, such as gravity sickness."
-	icon_state = "symptom_kit"
-
-/obj/item/storage/medkit/civil_defense/comfort/stocked
-
-/obj/item/storage/medkit/civil_defense/comfort/stocked/PopulateContents()
-	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 3,
-		/obj/item/storage/pill_bottle/prescription_stimulant = 1,
-	)
-	generate_items_inside(items_inside, src)
+		new /obj/effect/spawner/random/epic_loot/medpens_combat_based_redpilled(src)
 
 // Pre-packed frontier medkit, with supplies to repair most common frontier health issues
 /obj/item/storage/medkit/frontier
 	name = "frontier medical kit"
 	desc = "A handy roll-top waterproof medkit often seen alongside those on the frontier, where medical support is less than optimal. \
 		It has a clip for hooking onto your belt, handy!"
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "frontier"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "frontier"
 	worn_icon_state = "frontier"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
-//	worn_icon_teshari = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
+//	worn_icon_teshari = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	pickup_sound = SFX_CLOTH_PICKUP
 	drop_sound = SFX_CLOTH_DROP
 	slot_flags = ITEM_SLOT_BELT
@@ -152,8 +121,8 @@
 
 /obj/item/storage/medkit/frontier/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 1,
 		/obj/item/stack/medical/ointment = 1,
 		/obj/item/stack/medical/bruise_pack = 1,
 		/obj/item/stack/medical/suture/coagulant = 1,
@@ -166,12 +135,12 @@
 /obj/item/storage/medkit/combat_surgeon
 	name = "combat surgeon medical kit"
 	desc = "A folding kit that is ideally filled with surgical tools and specialized treatment options for many harder-to-treat wounds."
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "surgeon"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "surgeon"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
 	worn_icon_state = "frontier"
 	pickup_sound = SFX_CLOTH_PICKUP
 	drop_sound = SFX_CLOTH_DROP
@@ -198,12 +167,12 @@
 /obj/item/storage/backpack/duffelbag/deforest_medkit
 	name = "satchel medical kit"
 	desc = "A large orange satchel able to hold just about any piece of small medical equipment you could think of, you can even wear it on your back or belt!"
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "satchel"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "satchel"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
 	pickup_sound = SFX_CLOTH_PICKUP
 	drop_sound = SFX_CLOTH_DROP
@@ -216,12 +185,10 @@
 
 /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 2,
+		/obj/item/inhaler/disposable/protozene = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 2,
 		/obj/item/bonesetter = 1,
 		/obj/item/hemostat = 1,
 		/obj/item/cautery = 1,
@@ -288,19 +255,21 @@
 		/obj/item/storage/box/bandages,
 		/obj/item/bodybag,
 		/obj/item/storage/hypospraykit,
+		/obj/item/inhaler,
+		/obj/item/blood_scanner,
 	))
 
 // Big surgical kit that can be worn like a bag, holds 14 normal items (more than what a backpack can do!) but works like a duffelbag
 /obj/item/storage/backpack/duffelbag/deforest_surgical
 	name = "first responder surgical kit"
 	desc = "A large bag able to hold all the surgical tools and first response healing equipment you can think of, you can even wear it!"
-	icon = 'modular_doppler/deforest_medical_items/icons/storage.dmi'
+	icon = 'modular_doppler/public_medical_items/icons/storage.dmi'
 	icon_state = "super_surgery"
-	lefthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_lefthand.dmi'
-	righthand_file = 'modular_doppler/deforest_medical_items/icons/inhands/cases_righthand.dmi'
+	lefthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_lefthand.dmi'
+	righthand_file = 'modular_doppler/public_medical_items/icons/inhands/cases_righthand.dmi'
 	inhand_icon_state = "super_surgery"
-	worn_icon = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi'
-//	worn_icon_teshari = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+	worn_icon = 'modular_doppler/public_medical_items/icons/worn/worn.dmi'
+//	worn_icon_teshari = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	equip_sound = 'sound/items/equip/jumpsuit_equip.ogg'
 	pickup_sound = SFX_CLOTH_PICKUP
 	drop_sound = SFX_CLOTH_DROP
@@ -396,4 +365,6 @@
 		/obj/item/storage/box/bandages,
 		/obj/item/bodybag,
 		/obj/item/storage/hypospraykit,
+		/obj/item/inhaler,
+		/obj/item/blood_scanner,
 	))
