@@ -25,7 +25,7 @@
 			"Your skin feels like it's coming off",
 			"Your body feels like it's melting together"
 		))
-		to_chat(owner, span_userdanger("[feedback_text] as the boiling pool burns you!"))
+		to_chat(owner, span_warning("[feedback_text] as the boiling pool burns you!"))
 
 /datum/status_effect/sulfur_burning/get_examine_text()
 	return span_warning("[owner.p_They()] [owner.p_are()] burning in the sulfurous spring!")

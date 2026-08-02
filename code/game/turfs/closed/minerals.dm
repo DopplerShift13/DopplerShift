@@ -53,9 +53,12 @@
 	// So we draw them as if they were on the game plane, and then overlay a copy onto
 	// The wall plane (so emissives/light masks behave)
 	// I am so sorry
-	var/static/mutable_appearance/wall_overlay = mutable_appearance('icons/turf/mining.dmi', "rock", appearance_flags = RESET_TRANSFORM)
-	wall_overlay.plane = MUTATE_PLANE(WALL_PLANE, src)
-	overlays += wall_overlay
+	if(plane != WALL_PLANE) // DOPPLER ADDITION - Modular mineral turfs do not require the overlay
+		// DOPPLER EDIT - Indents these lines for the if(plane != WALL_PLANE) above
+		var/static/mutable_appearance/wall_overlay = mutable_appearance('icons/turf/mining.dmi', "rock", appearance_flags = RESET_TRANSFORM)
+		wall_overlay.plane = MUTATE_PLANE(WALL_PLANE, src)
+		overlays += wall_overlay
+		// DOPPLER EDIT END
 
 // Inlined version of the bump click element. way faster this way, the element's nice but it's too much overhead
 /turf/closed/mineral/Bumped(atom/movable/bumped_atom)

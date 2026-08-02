@@ -18,17 +18,22 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/stairs/ramp, 10)
 
 /obj/structure/stairs/ramp/Initialize(mapload)
 	. = ..()
+	setDir(dir)
 	if((pixel_x == 0) && (pixel_y == 0))
-		set_pixel_shift_on_direction()
+		set_pixel_shift_on_direction(dir)
 
-/obj/structure/stairs/ramp/Destroy()
+/obj/structure/stairs/ramp/handle_deconstruct(disassembled)
 	if(!isnull(build_stack) && stack_amount)
 		new build_stack(drop_location(), stack_amount)
 	return ..()
 
+/obj/structure/stairs/ramp/setDir(newdir)
+	. = ..()
+	set_pixel_shift_on_direction(newdir)
+
 /// Sets the ramp's pixel shifting depending on what dir we're facing
-/obj/structure/stairs/ramp/proc/set_pixel_shift_on_direction()
-	switch(dir)
+/obj/structure/stairs/ramp/proc/set_pixel_shift_on_direction(direction)
+	switch(direction)
 		if(NORTH)
 			pixel_y = directional_pixel_shift
 		if(SOUTH)
@@ -38,10 +43,15 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/stairs/ramp, 10)
 		if(WEST)
 			pixel_x = -directional_pixel_shift
 
+/obj/structure/stairs/ramp/smoothing_allowed(atom/smoothing_with, direction, junction)
+	if(dir != smoothing_with.dir)
+		return NONE
+	return junction
+
 /obj/structure/stairs/ramp/set_smoothed_icon_state(new_junction)
 	smoothing_junction = new_junction
-	var/smooth_left = (smoothing_junction & turn(dir, 90))
-	var/smooth_right = (smoothing_junction & turn(dir, -90))
+	var/smooth_left = (smoothing_junction & turn(dir, -90))
+	var/smooth_right = (smoothing_junction & turn(dir, 90))
 	if(smooth_left && smooth_right)
 		icon_state = "[base_icon_state]_middle"
 	else if (smooth_left)
@@ -54,6 +64,8 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/structure/stairs/ramp, 10)
 /obj/structure/stairs/ramp/concrete
 	name = "eclogiticrete ramp"
 	desc = "A ramp made of eclogiticrete, with a helpful rim along the sides and directional markings for the perspective-impaired."
+	icon_state = "ramp_concrete"
+	base_icon_state = "ramp_concrete"
 	smoothing_groups = SMOOTH_GROUP_CONCRETE_RAMP
 	canSmoothWith = SMOOTH_GROUP_CONCRETE_RAMP
 	build_stack = /obj/item/stack/sheet/crag_concrete

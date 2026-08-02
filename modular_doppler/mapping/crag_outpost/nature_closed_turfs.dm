@@ -11,4 +11,6 @@
 	baseturfs = /turf/open/misc/crag_gravel
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
 	transform = null
+	plane = WALL_PLANE
+	layer = CLOSED_TURF_LAYER
 	turf_type = /turf/open/misc/crag_gravel

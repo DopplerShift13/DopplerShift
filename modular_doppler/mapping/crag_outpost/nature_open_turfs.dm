@@ -115,8 +115,9 @@
 		return
 	var/mob/living/living = movable
 	var/turf/open/water/sulfur_spring/spring = living.loc
-	if((spring?.harmful == src.harmful) && !istype(spring))
-		return
+	if(istype(spring))
+		if((spring?.harmful == src.harmful))
+			return
 	if((!living.has_status_effect(/datum/status_effect/washing_regen/hot_spring) && !living.has_status_effect(/datum/status_effect/sulfur_burning)) || istype(living.loc, /turf/open/water/sulfur_spring))
 		return
 	dip_out(living)
@@ -209,7 +210,7 @@
 	icon_state = "eclogitic-255"
 	base_icon_state = "eclogitic"
 	transform = TRANSLATE_MATRIX(-16, -16)
-	layer = LOW_FLOOR_LAYER
+	layer = LOW_FLOOR_LAYER + 0.1
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_CRAG_GRAVEL
 	canSmoothWith = SMOOTH_GROUP_CRAG_GRAVEL + SMOOTH_GROUP_CRAG_SAND + SMOOTH_GROUP_BACTERIAL_MAT + SMOOTH_GROUP_CLOSED_TURFS
@@ -232,7 +233,7 @@
 	icon_state = "eclogitic_sand-255"
 	base_icon_state = "eclogitic_sand"
 	transform = TRANSLATE_MATRIX(-16, -16)
-	layer = LOW_FLOOR_LAYER + 0.1
+	layer = LOW_FLOOR_LAYER + 0.15
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_CRAG_SAND
 	canSmoothWith = SMOOTH_GROUP_CRAG_SAND + SMOOTH_GROUP_BACTERIAL_MAT + SMOOTH_GROUP_CLOSED_TURFS

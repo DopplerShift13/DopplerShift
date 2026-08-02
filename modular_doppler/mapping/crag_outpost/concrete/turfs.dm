@@ -63,6 +63,7 @@
 	name = "eclogiticrete tiles"
 	icon = 'modular_doppler/mapping/crag_outpost/icons/floor.dmi'
 	icon_state = "tiled_concrete"
+	base_icon_state = "tiled_concrete"
 	floor_tile = /obj/item/stack/tile/crag_concrete
 	rust_resistance = RUST_RESISTANCE_REINFORCED
 
@@ -76,6 +77,8 @@
 /turf/open/floor/iron/crag_concrete/smooth
 	name = "eclogiticrete flooring"
 	icon = 'icons/_smooth_doppler/turfs/open/concrete.dmi'
+	icon_state = "concrete-0"
+	base_icon_state = "concrete"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = SMOOTH_GROUP_CRAG_CONCRETE + SMOOTH_GROUP_OPEN_FLOOR
 	canSmoothWith = SMOOTH_GROUP_CRAG_CONCRETE
