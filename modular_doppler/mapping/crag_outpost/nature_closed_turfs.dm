@@ -10,6 +10,5 @@
 	smoothing_flags = SMOOTH_BITMASK | SMOOTH_BORDER
 	baseturfs = /turf/open/misc/crag_gravel
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	plane = WALL_PLANE
 	transform = null
 	turf_type = /turf/open/misc/crag_gravel
