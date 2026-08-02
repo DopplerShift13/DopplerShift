@@ -3,6 +3,8 @@
 
 /area/lavaland/surface/station
 	name = "Crag Caldera"
+	icon = 'modular_doppler/mapping/crag_outpost/icons/areas.dmi'
+	icon_state = "caldera"
 	outdoors = TRUE
 	area_flags = VALID_TERRITORY | UNIQUE_AREA | FLORA_ALLOWED
 
@@ -17,3 +19,5 @@
 
 /area/lavaland/underground/station
 	name = "Crag Caldera Caves"
+	icon = 'modular_doppler/mapping/crag_outpost/icons/areas.dmi'
+	icon_state = "caldera_caves"

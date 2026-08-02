@@ -27,6 +27,7 @@
 		// DOPPLER EDIT ADDITION START - Stops shipbreakers making infinite resources
 		/obj/item/stack/sheet/aluminum = 2,
 		/obj/item/stack/sheet/nanocarbon = 3,
+		/turf/closed/wall/crag_concrete = 1,
 		// DOPPLER EDIT ADDITION END
 	)
 

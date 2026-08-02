@@ -1,0 +1,2 @@
+output_name = "spring_deep"
+template = "bitmask/diagonal_32x32.toml"

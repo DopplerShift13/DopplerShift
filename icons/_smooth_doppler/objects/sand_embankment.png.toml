@@ -1,0 +1,2 @@
+output_name = "sand_embankment"
+template = "bitmask/diagonal_32x32.toml"

@@ -225,6 +225,23 @@ DEFINE_BITFIELD(smoothing_junction, list(
 
 #define SMOOTH_GROUP_BOULDER_PLATFORM S_OBJ(87) ///obj/structure/lattice/catwalk/boulder
 
+/// DOPPLER ADDITION BEGIN - Modular smoothing groups
+// Floors
+#define SMOOTH_GROUP_SULFUR_SPRING S_OBJ(200)
+#define SMOOTH_GROUP_SULFUR_SPRING_DEEP S_OBJ(201)
+#define SMOOTH_GROUP_BACTERIAL_MAT S_OBJ(202)
+#define SMOOTH_GROUP_CRAG_CONCRETE S_OBJ(203)
+#define SMOOTH_GROUP_CRAG_SAND S_OBJ(204)
+#define SMOOTH_GROUP_CRAG_GRAVEL S_OBJ(205)
+#define SMOOTH_GROUP_SUPERKETONE S_OBJ(206)
+// Walls
+// Objects
+#define SMOOTH_GROUP_DIRT_RAMP S_OBJ(400)
+#define SMOOTH_GROUP_CONCRETE_RAMP S_OBJ(401)
+#define SMOOTH_GROUP_DIRT_EMBANKMENT S_OBJ(402)
+#define SMOOTH_GROUP_CONCRETE_EMBANKMENT S_OBJ(403)
+/// DOPPLER ADDITION END
+
 /// Performs the work to set smoothing_groups and canSmoothWith.
 /// An inlined function used in both turf/Initialize and atom/Initialize.
 #define SETUP_SMOOTHING(...) \
