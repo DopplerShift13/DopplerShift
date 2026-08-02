@@ -1,8 +1,7 @@
 /datum/action/cooldown/power/theologist
 	name = "abstract theologist power action - ahelp this"
-	background_icon_state = "bg_clock"
-	overlay_icon_state = "bg_clock_border"
-	button_icon = 'icons/mob/actions/backgrounds.dmi'
+	background_icon_state = "bg_theologist"
+	overlay_icon_state = "bg_theologist_border"
 
 	/// The component that handles most piety components.
 	var/datum/component/theologist_piety/piety_component

@@ -2,20 +2,22 @@
 	Anomalous root. The anomaly root is largely a ribbon style power, but can be neat at times.
 */
 
-/datum/power/aberrant_root/anomalous
-	name = "Anomalous Origin"
+/datum/power/imbued_root/anomalous
+	name = "Anomalous"
 	desc = "Things just don't add up with you. You can interact with anomalies to close them, as if you were using an anomaly neutralizer."
 	security_record_text = "Subject has unusual properties when interacting with anomalies."
 	value = 1
+	menu_icon = 'icons/effects/effects.dmi'
+	menu_icon_state = "shield2"
 
-/datum/power/aberrant_root/anomalous/add(client/client_source)
+/datum/power/imbued_root/anomalous/add(client/client_source)
 	RegisterSignal(power_holder, COMSIG_LIVING_UNARMED_ATTACK, PROC_REF(on_unarmed_attack))
 
-/datum/power/aberrant_root/anomalous/remove()
+/datum/power/imbued_root/anomalous/remove()
 	UnregisterSignal(power_holder, COMSIG_LIVING_UNARMED_ATTACK)
 
 /// Listener for hitting anomalies.
-/datum/power/aberrant_root/anomalous/proc/on_unarmed_attack(mob/living/source, atom/target, proximity, modifiers)
+/datum/power/imbued_root/anomalous/proc/on_unarmed_attack(mob/living/source, atom/target, proximity, modifiers)
 	SIGNAL_HANDLER
 
 	if(!proximity || !istype(target, /obj/effect/anomaly))

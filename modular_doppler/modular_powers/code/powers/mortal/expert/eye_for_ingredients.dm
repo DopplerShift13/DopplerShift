@@ -8,3 +8,6 @@
 	security_record_text = "Subject has a keen eye for spotting substances inside food, drinks and chemicals."
 	mob_trait = TRAIT_REAGENT_SCANNER
 	value = 3
+
+	menu_icon = 'icons/obj/medical/chemical.dmi'
+	menu_icon_state = "beakergold"

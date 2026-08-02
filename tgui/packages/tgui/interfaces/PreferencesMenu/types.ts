@@ -95,39 +95,84 @@ export type Quirk = {
   customization_options?: string[];
 };
 
-// DOPPLER EDIT START
+/* DOPPLER EDIT START */
 export type Language = {
   description: string;
   name: string;
   icon: string;
 };
+/// ID of a given power path.
+export type PowerPathId = string;
 
-export type Power = {
+/// The data from a power path's datum, which is defined and communicated from DM.
+export type PowerPathData = {
+  displayName: string;
+  archetypeId: string;
+  iconAssetName?: string;
+  isAvailable: boolean;
+  mechanicsText: string;
+  overviewText: string;
+  pathLimitExempt?: boolean;
+  themeColor: string;
+};
+
+/// archetype data, which are groups of path IDs which are members of that archetype (e.g Sorcerer)
+export type PowerArchetypeData = {
+  id: string;
+  pathIds: PowerPathId[];
+  title: string;
+};
+
+/// Location data for augment powers (where they exist on the body)
+export type PowerAugmentStatic = {
+  is_arm?: boolean;
+  location?: string | null;
+};
+
+/// The state of an augment, which is used to check dynamically if a bodypart is already taken by another power.
+export type PowerAugmentState = {
+  assignment?: string | null;
+  left_blocked?: boolean;
+  right_blocked?: boolean;
+};
+
+/// Static power data that is sent from DM that is relevant.
+export type PowerStatic = {
   description: string;
-  name: string;
-  icon: string;
   cost: number;
-  has_power?: boolean;
-  state: string;
-  word: string;
-  color: string;
-  powertype: (string | null)[];
-  rootpower: (string | null)[];
+  magic_flags?: string[];
+  name: string;
+  root_badge_icon: string | (string | null)[] | null;
+  archetype_name: string | null;
   required_powers?: string[];
   required_allow_any?: boolean;
   required_allow_subtypes?: boolean;
+  action_icon?: string | null;
+  action_icon_state?: string | null;
   customizable?: boolean;
   customization_options?: string[];
-  augment?: {
-    location?: string | null;
-    is_arm?: boolean;
-    assignment?: string | null;
-    left_blocked?: boolean;
-    right_blocked?: boolean;
-  } | null;
+  augment?: PowerAugmentStatic | null;
 };
 
-// DOPPLER EDIT END
+/// Current status of a power: whether it is selected, the state (if it shows removal, add or is unavailable) and if it is an augment
+export type PowerState = {
+  name: string;
+  has_power?: boolean;
+  state: string;
+  augment?: PowerAugmentState | null;
+};
+
+export type Power = PowerStatic &
+  PowerState & {
+    augment?: (PowerAugmentStatic & PowerAugmentState) | null;
+  };
+
+export type PowerByPathId = Record<PowerPathId, Power[]>;
+export type PowerStaticByPathId = Record<PowerPathId, PowerStatic[]>;
+export type PowerStateByPathId = Record<PowerPathId, PowerState[]>;
+export type PowerPathDataById = Record<PowerPathId, PowerPathData>;
+
+/* DOPPLER EDIT END */
 
 export type QuirkInfo = {
   max_positive_quirks: number;
@@ -231,17 +276,8 @@ export type PreferencesMenuData = {
   unselected_languages: Language[];
   total_language_points: number;
 
-  total_power_points: number;
-  thaumaturge: Power[];
-  enigmatist: Power[];
-  theologist: Power[];
-  psyker: Power[];
-  cultivator: Power[];
-  aberrant: Power[];
-  warfighter: Power[];
-  expert: Power[];
-  augmented: Power[];
   power_points: number;
+  power_state_paths: PowerStateByPathId;
 
   augment_location?: string | null;
 
@@ -284,6 +320,15 @@ export type ServerData = {
   loadout: {
     loadout_tabs: LoadoutCategory[];
   };
+  /* DOPPLER EDIT ADDITION START - Powers constant data */
+  powers: {
+    fallback_power_path_id: PowerPathId;
+    power_path_data: PowerPathDataById;
+    power_path_archetypes: PowerArchetypeData[];
+    power_paths: PowerStaticByPathId;
+    total_power_points: number;
+  };
+  /* DOPPLER EDIT ADDITION END */
   species: Record<string, Species>;
   [otherKey: string]: unknown;
 };

@@ -5,10 +5,11 @@
 	\n Targeting a space without a creature bundles all items on that space up in a container; this has the size and storage capacity of about two backpacks, and can only be opened by destroying it.\
 	\n Targeting a prone creature that you have aggressively grabbed bundles them up. The creature is buckled inside the cocoon and can't interact with the world or escape without struggling. \
 	Creature cocoons can be dragged around with less slow down compared to normal.\
-	\n Costs hunger to use, and cannot be used while starving."
+	\n Gain a moderate amount of hunger on use, and cannot be used while starving."
 	security_record_text = "Subject can produce enough silk to fully cocoon creatures and objects in webs."
 	security_threat = POWER_THREAT_MAJOR
 	value = 3
+	magic_flags = NONE // non-magical
 
 	required_powers = list(/datum/power/aberrant/web_crafter)
 	action_path = /datum/action/cooldown/power/aberrant/cocoon
@@ -24,22 +25,13 @@
 	target_self = FALSE // why would you
 	click_to_activate = TRUE
 	use_time = 5 SECONDS
+
 	// Used to determine the cost
 	var/last_cocoon_was_mob = FALSE
 
 /datum/action/cooldown/power/aberrant/cocoon/InterceptClickOn(mob/living/clicker, params, atom/target)
 	..()
 	// Always consume the click to avoid normal click interactions.
-	return TRUE
-
-// Block use while starving.
-/datum/action/cooldown/power/aberrant/cocoon/can_use(mob/living/user, atom/target)
-	. = ..()
-	if(!.)
-		return FALSE
-	if(user.nutrition <= NUTRITION_LEVEL_STARVING)
-		owner.balloon_alert(user, "too hungry!")
-		return FALSE
 	return TRUE
 
 /datum/action/cooldown/power/aberrant/cocoon/use_action(mob/living/user, atom/target)
@@ -59,10 +51,8 @@
 	return FALSE
 
 /datum/action/cooldown/power/aberrant/cocoon/on_action_success(mob/living/user, atom/target)
-	if(!user)
-		return
-	user.adjust_nutrition(last_cocoon_was_mob ? -40 : -15)
-	return
+	cost = last_cocoon_was_mob ? (ABERRANT_HUNGER_MINOR) : (ABERRANT_HUNGER_TRIVIAL * 5)
+	return ..()
 
 // Both cast time and visual effects are resolved in this.
 /datum/action/cooldown/power/aberrant/cocoon/do_use_time(mob/living/user, atom/target)
@@ -148,8 +138,6 @@
 /datum/action/cooldown/power/aberrant/cocoon/proc/can_cocoon_mob(mob/living/user, mob/living/target)
 	if(!user || !target)
 		user.balloon_alert(user, "No target!")
-		return FALSE
-	if(!can_use(user, target))
 		return FALSE
 	if(QDELETED(user) || QDELETED(target))
 		user.balloon_alert(user, "No target!")

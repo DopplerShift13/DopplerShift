@@ -9,6 +9,9 @@
 	value = 3
 	required_powers = list(/datum/power/cultivator_root/flame_soul)
 
+	menu_icon = 'icons/effects/effects.dmi'
+	menu_icon_state = "explosion_particle"
+
 	/// how much we BRING THE HEAT on our punches
 	var/bonus_heat = 20
 	/// the flame stacks we apply per punch

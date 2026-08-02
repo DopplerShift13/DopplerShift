@@ -4,3 +4,5 @@
 	desc = "Alleviating the burdens of others is not your duty.\
 	\nGrants you access to Theologist powers without the heavier cost of the other Burden powers, but comes with no other benefits."
 	value = 0
+	menu_icon = 'icons/mob/actions/actions_spells.dmi'
+	menu_icon_state = "ash"

@@ -1,0 +1,33 @@
+2026-08-01:
+  BasilTamaya:
+  - rscadd: Adds the Marsian Cloak, the Marsian Overalls, the Marsian Dusters, and
+      the Marsian Gown
+  - rscadd: Adds new Marsian Seal stickers to the RoboDrobe vendor and the EngiDrobe
+      vendor. Both come with two separate stickers of a dark and light variant.
+  NewyearnewmeUwu:
+  - rscadd: Added Phantasmal Tool Mastery, a 3-point power to make Phantasmal Tool
+      not require preparation in exchange for needing Affinity 3.
+  carda-sometimesknownas-paxilmaniac:
+  - rscadd: Adds disposable inhalers, which cannot have their canister removed or
+      replaced, but usually come loaded with something good
+  - rscadd: Adds aslanane, an anesthetic made with tiziran dendrotoxin
+  - rscdel: Removed some of the really stupid or practically duplicate medpens
+  - qol: Made the names of medpens better reflect what is inside of them
+  - balance: Changes a bunch of the random medpens
+  - balance: Adds painkiller support for the chemotropic gland
+  - bugfix: Reconciles some of the horrible file structure chicanery I made when trying
+      to get around testmerge conflicts forever ago
+  - spellcheck: fixes a few instances of "Tizirian" where it should be "Tiziran"
+  conk444:
+  - rscadd: You can now use the thaumaturge spell focuses to pull a rabbit out of
+      a top hat.
+  - rscadd: Top hats, jamjar glasses, and judge robes now provide affinity for thaumaturges.
+  desertmote:
+  - bugfix: Adds back lost customizability to holo synths
+2026-08-02:
+  NewyearnewmeUwu:
+  - bugfix: Fixed the Wetwork reskins for the NVGs becoming invisible when toggled
+      on and off
+  TheOneAndOnlyCreeperJoe:
+  - balance: The special Erasure delamination now overrides other delamination (not
+      including Resonance Cascades)

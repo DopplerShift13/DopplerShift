@@ -60,6 +60,10 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/clothing/accessory/maidapron
 	affinity = 1
 
+// Wiznerd spectacles give you true sight. If you wear these you need the magic to not get lockershoved
+/obj/item/clothing/glasses/regular/jamjar
+	affinity = 1
+
 /*
 	Tier 2:
 */
@@ -75,6 +79,9 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/staff // the base item is small
 	affinity = 2
 
+/obj/item/gun/magic/wand/nothing //Worse than the thaumaturge wand because it's small
+	affinity = 2
+
 // Nullrods come in a lot of shapes and forms; by default we give it affinity 2 unless it fucks with slots and is clearly magical.
 /obj/item/nullrod
 	affinity = 2
@@ -82,6 +89,11 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 // Animal masks that arent small
 /obj/item/clothing/mask/animal
 	affinity = 2
+
+// It kinda looks like a wizard robe. Not really, though.
+/obj/item/clothing/suit/costume/judgerobe
+	affinity = 2
+
 /*
 	Tier 3:
 */
@@ -89,9 +101,9 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/clothing/head/costume/jester
 	affinity = 3
 
-// Clown Mitre
-/obj/item/clothing/head/chaplain/clownmitre
-	affinity = 4
+// Top Hat
+/obj/item/clothing/head/hats/tophat
+	affinity = 3
 
 // Nun hood
 /obj/item/clothing/head/chaplain/habit_veil
@@ -134,6 +146,10 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 */
 // Fits the criteria for wands but since its lavaland loot it gets a +1
 /obj/item/lava_staff
+	affinity = 4
+
+// Clown Mitre
+/obj/item/clothing/head/chaplain/clownmitre
 	affinity = 4
 
 // Carp suit (magicarp)
@@ -202,6 +218,8 @@ A lot of Affinity asignments are vibe-based depending on looks, visibility and r
 /obj/item/clothing/suit/wizrobe/marisa/fake
 	affinity = 4
 /obj/item/clothing/suit/wizrobe/tape/fake
+	affinity = 4
+/obj/item/clothing/suit/wizrobe/durathread
 	affinity = 4
 
 // Wizrobe hats (Fakes)

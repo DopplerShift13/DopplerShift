@@ -29,6 +29,7 @@
 	click_to_activate = TRUE
 	target_range = 1
 	aim_assist = FALSE // complex targeting
+	unset_after_click = FALSE
 
 	/// Currently selected prestidigitation mode.
 	var/selected_mode = PRESTI_SUMMON_SPARKS

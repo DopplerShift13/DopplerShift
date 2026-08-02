@@ -74,6 +74,20 @@
 	return FALSE
 
 /**
+ * Checks whether the mob has any power in a given archetype.
+ *
+ * Arguments:
+ * * power_archetype - The archetype identifier to check against, e.g. POWER_ARCHETYPE_RESONANT
+ *
+ * Returns TRUE if any owned power matches the archetype, FALSE otherwise.
+ */
+/mob/living/proc/has_power_in_archetype(power_archetype)
+	for(var/datum/power/power in powers)
+		if(power.archetype == power_archetype)
+			return TRUE
+	return FALSE
+
+/**
  * Getter function for a mob's power
  *
  * Arguments:
