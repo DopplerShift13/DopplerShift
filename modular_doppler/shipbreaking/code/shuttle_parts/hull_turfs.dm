@@ -260,3 +260,6 @@
 
 /turf/open/floor/plating/aluminum/airless
 	initial_gas_mix = AIRLESS_ATMOS
+
+/turf/open/floor/plating/aluminum/lavaland
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS

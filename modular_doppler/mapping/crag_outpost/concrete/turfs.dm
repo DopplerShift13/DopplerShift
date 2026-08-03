@@ -67,6 +67,9 @@
 	floor_tile = /obj/item/stack/tile/crag_concrete
 	rust_resistance = RUST_RESISTANCE_REINFORCED
 
+/turf/open/floor/iron/crag_concrete/lavaland
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
+
 /obj/item/stack/tile/crag_concrete/smooth
 	name = "eclogiticrete flooring"
 	singular_name = "eclogiticrete flooring"
@@ -83,3 +86,6 @@
 	smoothing_groups = SMOOTH_GROUP_CRAG_CONCRETE + SMOOTH_GROUP_OPEN_FLOOR
 	canSmoothWith = SMOOTH_GROUP_CRAG_CONCRETE
 	floor_tile = /obj/item/stack/tile/crag_concrete
+
+/turf/open/floor/iron/crag_concrete/smooth/lavaland
+	initial_gas_mix = LAVALAND_DEFAULT_ATMOS

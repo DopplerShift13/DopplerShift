@@ -3,7 +3,7 @@
 	desc = "A solid wall of eclogitic rock, like you find in Crag's calderas and craters, or under the ground beneath the layers of \
 		vocanic rock and pyroclastic debris."
 	icon = 'icons/_smooth_doppler/turfs/closed/eclogitic_rock.dmi'
-	icon_state = "eclogitic_rock"
+	icon_state = "eclogitic_rock-0"
 	base_icon_state = "eclogitic_rock"
 	smoothing_groups = SMOOTH_GROUP_CLOSED_TURFS + SMOOTH_GROUP_MINERAL_WALLS
 	canSmoothWith = SMOOTH_GROUP_MINERAL_WALLS

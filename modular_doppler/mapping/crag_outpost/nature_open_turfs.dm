@@ -201,6 +201,12 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	rust_resistance = RUST_RESISTANCE_ORGANIC
+	pixel_x = MAP_SWITCH(0, -16)
+	pixel_y = MAP_SWITCH(0, -16)
+
+/turf/open/misc/bacteria/Initialize(mapload)
+	. = ..()
+	MakeSlippery(TURF_WET_WATER, INFINITY, 0, INFINITY, TRUE, FALSE)
 
 /turf/open/misc/crag_gravel
 	name = "eclogitic turf"
@@ -224,6 +230,8 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	rust_resistance = RUST_RESISTANCE_REINFORCED
+	pixel_x = MAP_SWITCH(0, -16)
+	pixel_y = MAP_SWITCH(0, -16)
 
 /turf/open/misc/crag_sand
 	name = "eclogitic sand"
@@ -247,6 +255,8 @@
 	heavyfootstep = FOOTSTEP_GENERIC_HEAVY
 	tiled_dirt = FALSE
 	rust_resistance = RUST_RESISTANCE_REINFORCED
+	pixel_x = MAP_SWITCH(0, -16)
+	pixel_y = MAP_SWITCH(0, -16)
 
 /turf/open/misc/crag_sand/Initialize(mapload)
 	. = ..()
