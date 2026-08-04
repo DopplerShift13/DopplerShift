@@ -167,6 +167,10 @@
 	name = "Civilian Modsuit"
 	item_path = /obj/item/mod/control/pre_equipped/civilian
 
+/datum/loadout_item/belts/misc/modsuit_thaumaturge
+	name = "Thaumaturge Modsuit"
+	item_path = /obj/item/mod/control/pre_equipped/thaumaturge
+
 /datum/loadout_item/belts/misc/lantern
 	name = "Lantern"
 	item_path = /obj/item/flashlight/lantern
