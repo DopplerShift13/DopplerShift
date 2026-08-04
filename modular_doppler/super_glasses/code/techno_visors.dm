@@ -49,3 +49,20 @@
 	glass_colour_type = new_color_type
 	if(glass_colour_type)
 		AddElement(/datum/element/wearable_client_colour, glass_colour_type, ITEM_SLOT_EYES, forced = forced_glass_color, comsig_toggle = COMSIG_CLICK_CTRL)
+
+/obj/item/clothing/glasses/welding/tech
+	name = "anti-flash tech visor"
+	desc = "Protects the eyes from bright flashes, as well as having to look your patients in the eyes."
+	icon = 'modular_doppler/super_glasses/icons/visors.dmi'
+	icon_state = "techweld"
+	worn_icon = 'modular_doppler/super_glasses/icons/worn/visors.dmi'
+	inhand_icon_state = "welding-g"
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
+	glass_colour_type = /datum/client_colour/glass_colour/orange
+	slot_flags = ITEM_SLOT_EYES | ITEM_SLOT_HEAD
+	layer = ABOVE_BODY_FRONT_HEAD_LAYER
+
+/obj/item/clothing/glasses/welding/tech/visor_toggling()
+	. = ..()
+	alternate_worn_layer = ABOVE_BODY_FRONT_HEAD_LAYER
