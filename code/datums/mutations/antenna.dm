@@ -36,7 +36,7 @@
 /datum/mutation/antenna/New(datum/mutation/copymut)
 	..()
 	if(!(type in visual_indicators))
-		visual_indicators[type] = list(mutable_appearance('icons/mob/effects/genetics.dmi', "antenna", -FRONT_MUTATIONS_LAYER+1))//-MUTATIONS_LAYER+1
+		visual_indicators[type] = list(mutable_appearance('modular_doppler/sprite_swaps/icons/empty.dmi', "antenna", -FRONT_MUTATIONS_LAYER+1))//-MUTATIONS_LAYER+1
 
 /datum/mutation/antenna/get_visual_indicator()
 	return visual_indicators[type][1]
@@ -178,7 +178,7 @@
 /datum/mutation/mindreader/New(datum/mutation/copymut)
 	..()
 	if(!(type in visual_indicators))
-		visual_indicators[type] = list(mutable_appearance('icons/mob/effects/genetics.dmi', "antenna", -FRONT_MUTATIONS_LAYER+1))
+		visual_indicators[type] = list(mutable_appearance('modular_doppler/sprite_swaps/icons/empty.dmi', "antenna", -FRONT_MUTATIONS_LAYER+1)) // DOPPLER EDIT, removes overlay - old dmi: 'icons/mob/effects/genetics.dmi'
 
 /datum/mutation/mindreader/get_visual_indicator()
 	return visual_indicators[type][1]
