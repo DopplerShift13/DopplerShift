@@ -14,9 +14,6 @@
 	if (!message || !doverb_checks(message))
 		return
 
-	if (!try_speak(message)) // ensure we pass the vibe check (filters, etc)
-		return
-
 	var/name_stub = " (<b>[usr]</b>)"
 	message = usr.apply_message_emphasis(message)
 	message = trim(copytext_char(message, 1, (MAX_MESSAGE_LEN - length(name_stub))))
