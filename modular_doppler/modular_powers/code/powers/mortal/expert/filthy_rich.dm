@@ -10,6 +10,9 @@
 	value = 8
 	required_powers = list(/datum/power/expert/rich)
 
+	menu_icon = 'icons/obj/economy.dmi'
+	menu_icon_state = "spacecash1000_4"
+
 	// we just make it the same as rich but reduced because we are lazy.
 	var/riches = 7500
 

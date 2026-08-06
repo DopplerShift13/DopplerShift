@@ -46,3 +46,46 @@
 2026-07-11:
   FoundInJune:
   - spellcheck: fixed a few typos, etc
+2026-07-16:
+  NewyearnewmeUwu:
+  - bugfix: Mad Dog disarm no longer deletes items
+  - bugfix: Bitrunners using a personalized avatar alongside the Black Market Smuggler
+      quirk no longer spam sec records.
+2026-07-17:
+  PowerfulAtom111:
+  - rscadd: Added new lipstick marking. doesnt have to be lipstick if you dont want
+      it to be
+  firebudgy:
+  - rscadd: Apate-class ELINT vessel for salvage.
+2026-07-19:
+  carda-sometimesknownas-paxilmaniac:
+  - qol: The wargame holograph system, one of our very first features, has finally
+      had a massive overhaul. This makes much of the systems in the game automated,
+      rather than requiring a third player to simply be the game master.
+2026-07-24:
+  BasilTamaya:
+  - rscadd: Adds the Sword Mag Harness to the Fabricator (Just the Harness)
+  Farce:
+  - rscadd: Added a flat-packed motorized wheelchair to the loadout.
+  SylvetteSylph:
+  - bugfix: We are now using the overwrite HUD for lobby icons.
+  aKromatopzia:
+  - image: added teshari latex bodysuit sprites
+2026-07-26:
+  FoundInJune:
+  - sound: Adds sound effects to the cultivator alignment Shadow Walker, and gives
+      the dash ability its own sound effect.
+  carda-sometimesknownas-paxilmaniac:
+  - rscadd: adds demo charges and matching remotes to engineering and cargo lathes
+      that only work (by default) on shipbreaking shuttles
+  - rscadd: suction effects that pull unanchored things towards the inlets of the
+      recycler and collector in salvage yards
+  - rscadd: bloom reactors now become unstable when unwrenched, giving a total safe
+      timer of three and a half minutes before things can start going wrong, but have
+      a significantly higher sale value
+  rutek-code:
+  - bugfix: Fixed the anthromorph body markings & its headless variant.
+2026-07-29:
+  Farce:
+  - qol: Significantly reduces the volume of the whistle that plays upon using the
+      Warfighter power 'Commander' or associated powers.

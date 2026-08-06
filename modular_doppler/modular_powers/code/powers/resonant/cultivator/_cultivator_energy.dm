@@ -1,5 +1,5 @@
 /// Helper to format the text that gets thrown onto the energy hud element.
-#define FORMAT_ENERGY_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='[POWER_COLOR_THEOLOGIST]''>[floor(charges)]</font></div>")
+#define FORMAT_ENERGY_TEXT(charges) MAPTEXT("<div align='center' valign='middle' style='position:relative; top:0px; left:6px'><font color='[POWER_COLOR_CULTIVATOR]'>[floor(charges)]</font></div>")
 
 /datum/component/cultivator_energy
 	dupe_mode = COMPONENT_DUPE_UNIQUE
@@ -42,6 +42,10 @@
 /datum/component/cultivator_energy/Destroy()
 	UnregisterFromParent()
 	STOP_PROCESSING(SSfastprocess, src)
+
+	// Scoots the theologist UI if it exists
+	var/datum/component/theologist_piety/theologist_piety = attached_mob?.GetComponent(/datum/component/theologist_piety)
+	theologist_piety?.update_screen_loc()
 
 	if(!attached_mob)
 		return
@@ -106,6 +110,10 @@
 	var/datum/hud/hud_used = living_holder.hud_used
 	cultivator_ui = new /atom/movable/screen/cultivator_energy(null, hud_used)
 	hud_used.infodisplay += cultivator_ui
+
+	// Scoots the theologist UI if it exists
+	var/datum/component/theologist_piety/theologist_piety = living_holder.GetComponent(/datum/component/theologist_piety)
+	theologist_piety?.update_screen_loc()
 
 	// Set initial text so it isn't blank until first adjust.
 	cultivator_ui.maptext = FORMAT_ENERGY_TEXT(energy)

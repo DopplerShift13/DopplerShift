@@ -8,6 +8,10 @@
 	All other slowdowns such as stamina, items, damage, etc. still apply as normal."
 	security_record_text = "Subject possesses a high degree of strength and is capable of hauling objects without being slowed down."
 	value = 5
+
+	menu_icon = 'icons/obj/storage/crates.dmi'
+	menu_icon_state = "crate" //32x48 sprite may get scrungled
+
 	/// how much xp we start with on average.
 	var/starting_xp_base = SKILL_EXP_JOURNEYMAN
 	/// tracks how much was given for removal later.

@@ -77,6 +77,7 @@
 		path += target_turf
 
 	// we start dashing!
+	playsound(user, 'sound/effects/magic/repulse.ogg', 30, TRUE)
 	active = TRUE
 	INVOKE_ASYNC(src, PROC_REF(dash_along_path), user, path, alignment_action.alignment_outline_color)
 	return TRUE

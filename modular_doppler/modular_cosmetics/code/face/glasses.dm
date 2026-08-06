@@ -76,9 +76,8 @@
 		),
 		"Wetwork" = list(
 			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi',
-			RESKIN_ICON_STATE = "nvg",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
-			RESKIN_WORN_ICON_STATE = "nvg"
+			RESKIN_ICON_STATE = "night",
+			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 		)
 	)
 
@@ -91,9 +90,8 @@
 		),
 		"Wetwork" = list(
 			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi',
-			RESKIN_ICON_STATE = "nvghudsec",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
-			RESKIN_WORN_ICON_STATE = "nvgsechud"
+			RESKIN_ICON_STATE = "securityhudnight",
+			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 		)
 	)
 

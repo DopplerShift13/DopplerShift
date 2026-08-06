@@ -8,6 +8,8 @@
 	security_record_text = "Subject tends to unpredictably and miraculously avoid harm."
 	security_threat = POWER_THREAT_MAJOR
 	value = 4
+	menu_icon = 'icons/effects/effects.dmi'
+	menu_icon_state = "shield-yellow"
 
 	required_powers = list(/datum/power/theologist_root/)
 	required_allow_subtypes = TRUE

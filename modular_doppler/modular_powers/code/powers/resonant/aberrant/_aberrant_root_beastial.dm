@@ -1,11 +1,13 @@
 /datum/power/aberrant_root/beastial
-	name = "Beastial Body"
+	name = "Bestial Body"
 	desc = "You have the traits of an animal; and with it, the appetite of one. In addition to your species normal preferences, you now like the following food based on your choice of Herbivore or Carnivore (including making it non-toxic)\
 	\nHerbivore: Vegetables, Fruit & Nuts. \
 	\nCarnivore: Raw, Gore, Meat, Bugs & Seafood."
 	value = 2
 	/// Saved preference value used for security records snapshotting.
 	var/chosen_diet = "None"
+	menu_icon = 'icons/obj/food/meat.dmi'
+	menu_icon_state = "meat"
 
 /datum/power/aberrant_root/beastial/get_security_record_text()
 	switch(chosen_diet)

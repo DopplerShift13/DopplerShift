@@ -4,6 +4,7 @@
 	security_record_text = "Subject can initiate one-way communication with all visible targets."
 	value = 1
 	required_powers = list(/datum/power/psyker_power/telepathy)
+	required_allow_subtypes = FALSE
 
 /datum/power/psyker_power/telepathy_area/post_add()
 	. = ..()

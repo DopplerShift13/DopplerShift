@@ -53,14 +53,14 @@
 	)
 
 /datum/export/salvage_reactor
-	cost = CARGO_CRATE_VALUE * 5
+	cost = CARGO_CRATE_VALUE * 38
 	unit_name = "salvaged bloom reactor"
 	export_types = list(
 		/obj/structure/shuttle_decoration/liquid_tank/reactor,
 	)
 
 /datum/export/salvage_reactor
-	cost = CARGO_CRATE_VALUE * 7.5
+	cost = CARGO_CRATE_VALUE * 44
 	unit_name = "salvaged large bloom reactor"
 	export_types = list(
 		/obj/structure/shuttle_decoration/liquid_tank/reactor/super,

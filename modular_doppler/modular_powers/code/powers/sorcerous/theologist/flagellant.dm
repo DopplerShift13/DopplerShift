@@ -7,6 +7,8 @@
 	value = 4
 	required_powers = list(/datum/power/theologist_root)
 	required_allow_subtypes = TRUE
+	menu_icon = 'icons/obj/weapons/whip.dmi'
+	menu_icon_state = "whip"
 
 	/// Reference to the holder's piety component.
 	var/datum/component/theologist_piety/piety_component

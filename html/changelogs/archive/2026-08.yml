@@ -1,0 +1,84 @@
+2026-08-01:
+  BasilTamaya:
+  - rscadd: Adds the Marsian Cloak, the Marsian Overalls, the Marsian Dusters, and
+      the Marsian Gown
+  - rscadd: Adds new Marsian Seal stickers to the RoboDrobe vendor and the EngiDrobe
+      vendor. Both come with two separate stickers of a dark and light variant.
+  NewyearnewmeUwu:
+  - rscadd: Added Phantasmal Tool Mastery, a 3-point power to make Phantasmal Tool
+      not require preparation in exchange for needing Affinity 3.
+  carda-sometimesknownas-paxilmaniac:
+  - rscadd: Adds disposable inhalers, which cannot have their canister removed or
+      replaced, but usually come loaded with something good
+  - rscadd: Adds aslanane, an anesthetic made with tiziran dendrotoxin
+  - rscdel: Removed some of the really stupid or practically duplicate medpens
+  - qol: Made the names of medpens better reflect what is inside of them
+  - balance: Changes a bunch of the random medpens
+  - balance: Adds painkiller support for the chemotropic gland
+  - bugfix: Reconciles some of the horrible file structure chicanery I made when trying
+      to get around testmerge conflicts forever ago
+  - spellcheck: fixes a few instances of "Tizirian" where it should be "Tiziran"
+  conk444:
+  - rscadd: You can now use the thaumaturge spell focuses to pull a rabbit out of
+      a top hat.
+  - rscadd: Top hats, jamjar glasses, and judge robes now provide affinity for thaumaturges.
+  desertmote:
+  - bugfix: Adds back lost customizability to holo synths
+2026-08-02:
+  NewyearnewmeUwu:
+  - bugfix: Fixed the Wetwork reskins for the NVGs becoming invisible when toggled
+      on and off
+  TheOneAndOnlyCreeperJoe:
+  - balance: The special Erasure delamination now overrides other delamination (not
+      including Resonance Cascades)
+2026-08-03:
+  TheOneAndOnlyCreeperJoe:
+  - rscadd: New UI for Powers that actually looks robust!
+  - rscadd: Powers now have color defines; in essence consistent color associations.
+      This is reflected in the UI and the action button colors.
+  - rscadd: Added Imbued under Resonant! It is now the home of Anomalous and Enchanted.
+      Flavored around being inherently magical or supernatural, this category has
+      a myriad of ways to interact with existing magic systems and act quirky at the
+      same time.
+  - rscadd: "Added Irregular under Mortal! It is now the home of False- and Hidden\
+      \ Power. The path is meant for nich\xE9 powers that don't justify being secluded\
+      \ to a specific path. Irregular ignores the 2 path restriction"
+  - rscadd: Power names can now be migrated using a new global list without removing
+      everyone's powers.
+  - rscdel: Powers can no longer be used when their user is in inside containers (mechs,
+      closets, etc).
+  - balance: Anomalous has been split away from Aberrant into the new Imbued path.
+  - balance: Deflect has less conservative upkeep and stamina costs.
+  - balance: Inexorable has been moved away from Quirks and into Aberrant (Monstrous).
+      Costs 5 points.
+  - balance: Telekinesis can no longer levitate mechs.
+  - balance: Species with TRAIT_NOHUNGER (Hemophage, Holosynth) also get a 35% slower
+      bleed-out rate with Monstrous Body to offset the fact that they do not regenerate
+      blood.
+  - refactor: Backend middleware was improved for Powers, no longer sending unnecessary
+      amounts of data.
+  - code_imp: Powers now store the type of magic they do which can be exploited by
+      various other powers.
+  - code_imp: Power actions now inherit their antimagic flags from power's magic flags.
+      Can still be overriden per usual.
+  - bugfix: Fixes the mental shielding implant to not consume quality when hit with
+      magic that has 0 charge_cost
+  - bugfix: Fixed a bug where the cultivator UI usurped the theologist UI if it was
+      added after the theologist UI.
+  - bugfix: Reality Anchors now check off of archetype instead of path for moodlets,
+      future-proofing them.
+  - bugfix: Deflect now only goes on cooldown after deactivation, not on activation.
+      Respects the incapacitate var.
+  - bugfix: Prestidigitation is no longer unselected after use.
+  - bugfix: Martial Artist now lists its numerical value.
+  - bugfix: Riftwalker sometimes did not show rifts to a mob until they logged out
+      and back in again.
+  - bugfix: Durathread robes now are properly included in the affinity file and thaumaturgic
+      supplies.
+  - bugfix: Fixes a bug with Manipulate not nesting properly in the UI.
+  - bugfix: Fixes a bug with Hidden Powers not HIDING THE POWERS WTF- (it didn't hide
+      powers that came after the Power was added).
+2026-08-05:
+  TheOneAndOnlyCreeperJoe:
+  - bugfix: Fixes Manipulate not working on modular computers (e.g the identification
+      console).

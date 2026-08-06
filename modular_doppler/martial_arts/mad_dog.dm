@@ -236,11 +236,12 @@
 
 	attacker.do_attack_animation(defender, ATTACK_EFFECT_DISARM)
 	if(defender.stat == CONSCIOUS && !defender.IsParalyzed() && attacker.combat_mode)
-		var/obj/item/disarmed_item = defender.get_active_held_item()
-		if(disarmed_item && defender.temporarilyRemoveItemFromInventory(disarmed_item) && prob(20))
-			attacker.put_in_hands(disarmed_item)
-		else
-			disarmed_item = null
+		var/obj/item/disarmed_item = null
+		var/obj/item/item_to_disarm = defender.get_active_held_item()
+		if(item_to_disarm && prob(20))
+			if(defender.temporarilyRemoveItemFromInventory(item_to_disarm))
+				attacker.put_in_hands(item_to_disarm)
+				disarmed_item = item_to_disarm
 		defender.visible_message(
 			span_danger("[attacker] strikes [defender]'s jaw with their hand[disarmed_item ? ", disarming [defender.p_them()] of [disarmed_item]" : ""]!"),
 			span_userdanger("[attacker] strikes your jaw,[disarmed_item ? " disarming you of [disarmed_item] and" : ""] leaving you disoriented!"),

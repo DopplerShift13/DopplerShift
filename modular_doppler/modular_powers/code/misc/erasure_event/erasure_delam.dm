@@ -8,7 +8,7 @@
 	Hey so did you know that casting a Thaumaturge's Mending fixes the delam to this specific type?
 	This basically causes full-on erasure of the station, systmetically destroying everything (besides mobs) thats adjacent to space until nothing is left.
 	This exlcudes shuttles.
-	This has the lowest priorities of other delams, so you can bypass this by force-delamming into another special type (which may not be strictly better)
+	This is just beneath a resonance cascade delam in terms of priorities.
 
 	For the actual controller thats responsible for erasing the station, see modular_doppler\modular_powers\code\misc\erasure_event\erasure_controller.dm
 */

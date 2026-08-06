@@ -2,8 +2,8 @@
 /datum/web_craft_entry
 	/// Type spawned by this entry
 	var/obj/spawn_type
-	/// Hunger cost to craft
-	var/hunger_cost = 0
+	/// Aberrant hunger cost to craft
+	var/cost = 0
 	/// Time to craft (do_after). 0 for instant.
 	var/craft_time = 0
 	/// Display name for the radial
@@ -40,7 +40,7 @@
 	var/list/info_bits = list()
 	if(desc)
 		info_bits += desc
-	info_bits += "Cost: [hunger_cost] hunger"
+	info_bits += "Cost: [cost] hunger"
 	if(craft_time > 0)
 		info_bits += "Time: [craft_time/10]s"
 	choice.info = jointext(info_bits, "<br>")

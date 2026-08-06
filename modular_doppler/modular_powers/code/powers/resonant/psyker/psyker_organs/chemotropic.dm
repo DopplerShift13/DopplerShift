@@ -9,6 +9,8 @@
 	\nHaving matching negative quirks with the substance (such as the Smoker quirk with Nicotine) increases the stress recovery."
 	security_record_text = "Subject wields psionic abilities and recovers from it through substance consumption."
 	organ_type = /obj/item/organ/resonant/psyker/chemotropic
+	menu_icon = 'modular_doppler/modular_powers/icons/items/organs.dmi'
+	menu_icon_state = "chemotropic"
 
 /obj/item/organ/resonant/psyker/chemotropic
 	name = "chemotropic gland"
@@ -53,7 +55,7 @@
 			recovery_multiplier = max(recovery_multiplier, ethanol_recovery)
 			continue
 		// Doing drugs gets you full power. Go do drugs, kids.
-		if(istype(reagent, /datum/reagent/drug))
+		if(istype(reagent, /datum/reagent/drug) || reagent.metabolized_traits.Find(TRAIT_ANALGESIA))
 			var/hard_drug_recovery = hard_drugs_multiplier
 			if(owner.has_quirk(/datum/quirk/item_quirk/addict/junkie))
 				hard_drug_recovery *= quirk_multiplier

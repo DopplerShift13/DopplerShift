@@ -8,6 +8,7 @@
 	value = 0 // all roots should be free unless they are stronger than the defaults
 	power_flags = POWER_HUMAN_ONLY
 
+	magic_flags = POWER_MAGIC_STANDARD
 	archetype = POWER_ARCHETYPE_RESONANT
 	path = POWER_PATH_PSYKER
 	priority = POWER_PRIORITY_ROOT

@@ -7,6 +7,7 @@
 	resource_display_mode = THAUMATURGE_RESOURCE_DISPLAY_PREP_COST
 	additional_magic_resistance_flags = MAGIC_RESISTANCE_HOLY
 	resource_display_multiplier = THAUMATURGE_HEMOMANCY_BLOOD_COST_MULTIPLIER
+	action_background_icon_state_override = "bg_thaumaturge_hemomancy"
 
 	/// HUD element that shows current blood amount.
 	var/atom/movable/screen/hemophage/blood/thaumaturge/blood_tracker

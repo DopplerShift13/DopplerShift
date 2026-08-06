@@ -22,6 +22,7 @@
 	target_self = FALSE
 	target_range = 12
 	target_type = /mob/living
+	needs_to_stand_on_turf = FALSE // just better for RP
 
 	/// The message we send to the target.
 	var/message
@@ -105,7 +106,7 @@
 	for(var/mob/living/target in view(user))
 		if(target == user)
 			continue
-		if(mental && !can_affect_mental(target))
+		if(is_mental_effect() && !can_affect_mental(target))
 			continue
 		targets += target
 
@@ -143,7 +144,7 @@
 	for(var/mob/living/target in view(user))
 		if(target == user)
 			continue
-		if(mental && !can_affect_mental(target))
+		if(is_mental_effect() && !can_affect_mental(target))
 			continue
 		targets += target
 

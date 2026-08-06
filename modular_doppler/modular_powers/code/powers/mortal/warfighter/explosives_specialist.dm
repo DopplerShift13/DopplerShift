@@ -6,5 +6,7 @@
 	value = 4
 	required_powers = list(/datum/power/warfighter/quick_draw)
 	mob_trait = TRAIT_POWER_EXPLOSIVES_SPECIALIST
+	menu_icon = 'icons/obj/weapons/grenade.dmi'
+	menu_icon_state = "pipebomb-timer"
 
 // See modular_doppler\modular_powers\code\powers\mortal\warfighter\components\grenade_components.dm for how we add the timers

@@ -2,13 +2,19 @@
 /datum/power/aberrant/vent_crawl
 	name = "Vent Crawl"
 	desc = "Your anatomy is capable of fitting in tight spaces. You can crawl into vents if you are not wearing anything in your back slot, helmet slot or suit slot. \
-	\nIf you are undersized, you can crawl in vents while wearing your normal equipment. Does not work on oversized mobs."
+	\nIf you are undersized, you can crawl in vents while wearing your normal equipment.\
+	\nYou are vulnerable to anti-magic while vent-crawling and may become stuck if you are silenced during it! You also gain a trivial amount of hunger every second you spend vent crawling; though you can still vent-crawl regardless of hunger level. Neither the anti-magic nor hunger cost apply to undersized mobs.\
+	\nOversized mobs cannot use this ability."
 	security_record_text = "Subject can crawl through ventilation shafts."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
+	magic_flags = POWER_MAGIC_STANDARD
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
-	required_powers = list(/datum/power/aberrant_root/beastial, /datum/power/aberrant_root/monstrous)
-	required_allow_any = TRUE
+	required_powers = list(/datum/power/aberrant_root)
+	required_allow_subtypes = TRUE
+
+	menu_icon = 'icons/obj/machines/atmospherics/unary_devices.dmi'
+	menu_icon_state = "vent_out" //sus
 
 /datum/power/aberrant/vent_crawl/add(client/client_source)
 	. = ..()
@@ -35,14 +41,17 @@
 	if(HAS_TRAIT(power_holder, TRAIT_VENTCRAWLER_ALWAYS) && !HAS_TRAIT_FROM_ONLY(power_holder, TRAIT_VENTCRAWLER_ALWAYS, src))
 		REMOVE_TRAIT(power_holder, TRAIT_IMMOBILIZED, src)
 		return
-	// Disqualifies for gear check if not ventcrawling
+	// Disqualifies for gear check & hunger if not ventcrawling
 	if(!(power_holder.movement_type & VENTCRAWLING) || !HAS_TRAIT(power_holder, TRAIT_MOVE_VENTCRAWLING))
 		REMOVE_TRAIT(power_holder, TRAIT_IMMOBILIZED, src)
 		return
-	// Disqualifies for gear check if undersized
+	// Disqualifies for gear check & hunger if undersized
 	if(HAS_TRAIT(power_holder, TRAIT_UNDERSIZED))
 		REMOVE_TRAIT(power_holder, TRAIT_IMMOBILIZED, src)
 		return
+
+	// Hunger cost!
+	spend_hunger((ABERRANT_HUNGER_TRIVIAL * 0.5) * seconds_per_tick)
 
 	// Check if they are wearing a back slot, helmet slot or suit slot. Hands are fine.
 	if(has_restricted_gear(power_holder))
@@ -70,11 +79,13 @@
 
 /// Are you TOO FUKKEN BIG? or are you SILENCED?
 /datum/power/aberrant/vent_crawl/proc/can_use_ventcrawl(mob/living/source)
-	if(HAS_TRAIT(source, TRAIT_RESONANCE_SILENCED))
-		source.balloon_alert(source, "Silenced!")
-		return FALSE
 	if(HAS_TRAIT(source, TRAIT_OVERSIZED))
 		source.balloon_alert(source, "You're too big to fit!")
+		return FALSE
+	if(HAS_TRAIT(source, TRAIT_UNDERSIZED)) // undersized bypasses silence
+		return TRUE
+	if(HAS_TRAIT(source, TRAIT_RESONANCE_SILENCED))
+		source.balloon_alert(source, "Silenced!")
 		return FALSE
 	return TRUE
 
