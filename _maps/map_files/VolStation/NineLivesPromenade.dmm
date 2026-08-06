@@ -754,6 +754,12 @@
 /obj/machinery/light/dim/directional/west,
 /turf/open/floor/glass/reinforced,
 /area/space)
+"aSJ" = (
+/obj/structure/chair/office/light{
+	dir = 4
+	},
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "aTh" = (
 /obj/structure/railing/corner{
 	dir = 4
@@ -1096,6 +1102,7 @@
 /obj/item/tether_anchor,
 /obj/structure/railing/eva_handhold/directional/south,
 /obj/structure/railing/eva_handhold/directional/east,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/space/nearstation)
 "bpZ" = (
@@ -1635,6 +1642,7 @@
 /obj/item/tether_anchor,
 /obj/structure/railing/eva_handhold/directional/south,
 /obj/structure/railing/eva_handhold/directional/west,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/west,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
 /area/space/nearstation)
 "bSu" = (
@@ -2801,6 +2809,10 @@
 /obj/structure/cable,
 /turf/open/floor/iron/colony,
 /area/space)
+"dbM" = (
+/obj/structure/marker_beacon/yellow,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/space)
 "dcR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/structure/cable,
@@ -3525,6 +3537,10 @@
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,
 /turf/open/floor/iron/colony/bolts,
 /area/station/command/bridge)
+"dRW" = (
+/obj/structure/table,
+/turf/open/floor/plating,
+/area/station/salvage_bay)
 "dTR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /obj/machinery/light/red/dim/directional/west,
@@ -5143,6 +5159,11 @@
 	dir = 8
 	},
 /area/space)
+"fxD" = (
+/obj/structure/transit_tube/horizontal,
+/obj/structure/window/reinforced/fulltile,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/space)
 "fxF" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -5458,6 +5479,10 @@
 	dir = 1
 	},
 /area/station/security/checkpoint/escape)
+"fJv" = (
+/obj/structure/transit_tube/crossing/horizontal,
+/turf/open/floor/plating/nanocarbon,
+/area/space)
 "fLi" = (
 /turf/open/space/openspace,
 /area/station/medical/pharmacy)
@@ -13444,6 +13469,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/colony,
 /area/space)
+"oxo" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/machinery/door/firedoor,
+/turf/open/floor/iron/colony/texture,
+/area/space)
 "oxw" = (
 /obj/structure/transport/linear/public,
 /turf/open/floor/plating/elevatorshaft,
@@ -13668,6 +13698,10 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/station/hallway/secondary/exit/departure_lounge)
+"oGl" = (
+/obj/structure/transit_tube/crossing/horizontal,
+/turf/open/space/openspace,
+/area/space)
 "oGH" = (
 /obj/structure/railing/corner/end{
 	dir = 8
@@ -18098,12 +18132,11 @@
 /turf/open/floor/iron/colony/texture,
 /area/station/maintenance/fore/greater)
 "tqB" = (
-/obj/machinery/door/firedoor,
-/obj/machinery/door/firedoor,
-/turf/open/floor/iron/colony/texture,
+/obj/structure/transit_tube/horizontal,
+/turf/open/space/openspace,
 /area/space)
 "tqP" = (
-/obj/machinery/atmospherics/pipe/smart/manifold4w/yellow/visible,
+/obj/machinery/door/firedoor,
 /obj/machinery/door/firedoor,
 /turf/open/floor/iron/colony/texture,
 /area/space)
@@ -18904,6 +18937,11 @@
 	},
 /turf/open/floor/iron/smooth_large,
 /area/space)
+"ueT" = (
+/obj/structure/lattice,
+/obj/structure/transit_tube/horizontal,
+/turf/open/space/openspace,
+/area/space/nearstation)
 "ufn" = (
 /obj/structure/table,
 /obj/item/stack/medical/gauze/sterilized{
@@ -19410,6 +19448,11 @@
 /obj/structure/cable,
 /turf/open/floor/iron/colony/texture,
 /area/station/maintenance/aft/greater)
+"uIH" = (
+/obj/structure/transit_tube/horizontal,
+/obj/structure/lattice,
+/turf/open/space/openspace,
+/area/space)
 "uJV" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
 /turf/open/floor/catwalk_floor,
@@ -19606,6 +19649,10 @@
 /obj/structure/lattice,
 /turf/closed/wall,
 /area/station/hallway/primary/central/aft)
+"uWh" = (
+/obj/structure/transit_tube/crossing/horizontal,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/space/nearstation)
 "uWr" = (
 /obj/effect/turf_decal/tile/pine_green/half{
 	dir = 8
@@ -53472,11 +53519,11 @@ iox
 wdY
 upJ
 mNr
-tqB
-xso
-xso
-xso
 tqP
+xso
+xso
+xso
+oxo
 mNr
 mNr
 mNr
@@ -117233,9 +117280,9 @@ wBm
 uky
 uky
 uky
-sTz
+dRW
 hdt
-sTz
+aSJ
 cOo
 xTs
 dfd
@@ -117255,9 +117302,9 @@ rpZ
 rpZ
 rpZ
 rpZ
-rpZ
-rpZ
-rpZ
+vJz
+tqB
+vJz
 rpZ
 rpZ
 rpZ
@@ -117490,8 +117537,8 @@ rfI
 ggW
 ggW
 uky
-sTz
-sTz
+dRW
+dRW
 spd
 hKt
 xTs
@@ -117513,7 +117560,7 @@ csI
 csI
 csI
 csI
-csI
+fJv
 csI
 csI
 csI
@@ -117770,7 +117817,7 @@ jUP
 jUP
 jUP
 jUP
-jUP
+fxD
 jUP
 jUP
 jUP
@@ -118027,7 +118074,7 @@ fNP
 fNP
 fNP
 fNP
-fNP
+fxD
 fNP
 fNP
 fNP
@@ -118284,7 +118331,7 @@ vEM
 rts
 rts
 rts
-rts
+uWh
 rts
 rts
 rts
@@ -118541,7 +118588,7 @@ jUk
 hio
 hio
 hio
-hio
+ueT
 hio
 hio
 hio
@@ -118795,13 +118842,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+tqB
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -119052,13 +119099,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+oGl
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -119309,13 +119356,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+oGl
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -119566,13 +119613,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+tqB
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -119823,16 +119870,16 @@ vJz
 vJz
 vJz
 vJz
+teP
+uYJ
+uYJ
+uIH
+uYJ
+uYJ
 hio
-vJz
-vJz
-vJz
-vJz
-vJz
-hio
-vJz
-vJz
-vJz
+uYJ
+uYJ
+dbM
 vJz
 vJz
 vJz
@@ -120080,13 +120127,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+tqB
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -120337,13 +120384,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+oGl
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -120594,13 +120641,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+oGl
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -120851,13 +120898,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+tqB
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -121108,16 +121155,16 @@ vJz
 vJz
 vJz
 vJz
+teP
+hio
+hio
+ueT
 hio
 hio
 hio
-hio
-hio
-hio
-hio
-vJz
-vJz
-vJz
+uYJ
+uYJ
+dbM
 vJz
 vJz
 vJz
@@ -121365,13 +121412,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+tqB
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -121622,13 +121669,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+oGl
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -121879,13 +121926,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+oGl
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -122136,13 +122183,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+tqB
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -122393,16 +122440,16 @@ vJz
 vJz
 vJz
 vJz
+teP
+uYJ
+uYJ
+uIH
+uYJ
+uYJ
 hio
-vJz
-vJz
-vJz
-vJz
-vJz
-hio
-vJz
-vJz
-vJz
+uYJ
+uYJ
+dbM
 vJz
 vJz
 vJz
@@ -122650,13 +122697,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+tqB
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -122907,13 +122954,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+oGl
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -123164,13 +123211,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+oGl
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -123421,13 +123468,13 @@ vJz
 vJz
 vJz
 vJz
-hio
+teP
+uYJ
 vJz
+tqB
 vJz
-vJz
-vJz
-vJz
-hio
+uYJ
+teP
 vJz
 vJz
 vJz
@@ -123681,7 +123728,7 @@ jUk
 hio
 hio
 hio
-hio
+ueT
 hio
 hio
 hio
@@ -123938,7 +123985,7 @@ rta
 rts
 rts
 rts
-rts
+uWh
 rts
 rts
 rts
@@ -124195,7 +124242,7 @@ fNP
 fNP
 fNP
 fNP
-fNP
+fxD
 fNP
 fNP
 fNP
@@ -124452,7 +124499,7 @@ rpZ
 rpZ
 rpZ
 rpZ
-rpZ
+fxD
 rpZ
 rpZ
 rpZ
@@ -124708,9 +124755,9 @@ vJz
 vJz
 vJz
 vJz
-vJz
-vJz
-vJz
+csI
+fJv
+csI
 vJz
 vJz
 vJz
@@ -126983,7 +127030,7 @@ fNP
 fNP
 fNP
 fNP
-rpZ
+fNP
 rpZ
 rpZ
 vJz
@@ -127241,7 +127288,7 @@ rpZ
 rpZ
 rpZ
 rpZ
-vJz
+rpZ
 vJz
 vJz
 vJz
