@@ -249,9 +249,7 @@
 	name = "\improper RICOCHOT 9000 combat computer autosurgeon"
 	starting_organ = /obj/item/organ/cyberimp/trickshotter
 
-//An implant that injects you with demoneye on demand, acting like a bootleg Berserk OS
-
-/obj/item/organ/cyberimp/berserk_os
+	/obj/item/organ/cyberimp/berserk_os
 	name = "\improper Shellguard Munitions horomone regulator"
 	desc = "A dated combat implant replacing the spine of organics. When activated, it greatly enhances the user's fight-or-flight response, \
 		granting the user a surge of energy that is outputted in the form of increased physical aggression. Due to its nature, it is incompatible with \
@@ -267,21 +265,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/berserk_os/da_bodypart_overlay
-
-/obj/item/organ/cyberimp/berserk_os/proc/play_random_activation_line(list/lines)
-    if(!owner || !length(lines))
-        return
-
-    var/message = pick(lines)
-    owner.say(message)
-
-	var/list/voice_lines = list(
-    "FUCKING KILL!!",
-    "AAAAAAAAGHHH!!",
-    "I'M GONNA RIP OUT YOUR SPINE!!",
-	"YOU'RE SO FUCKING DEAD!!",
-	"I'LL TEAR YOUR FUCKING HEAD OFF!!",
-)
 
 play_random_activation_line(voice_lines)
 
@@ -316,7 +299,7 @@ play_random_activation_line(voice_lines)
 	text_cooldown = TRUE
 	// This makes it so both the regular and overcharge versions of the abilities share a cooldown
 	shared_cooldown = MOB_SHARED_COOLDOWN_3
-	/// Keeps track of how much twitch we inject into people on activation
+	/// Keeps track of how much demoneye we inject into people on activation
 	var/injection_amount = 10
 
 /datum/action/cooldown/berserk_os/proc/play_random_activation_line(list/lines)
@@ -333,7 +316,9 @@ play_random_activation_line(voice_lines)
 
 	owner.log_message("triggered their horomone regulator in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
 
-	human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
+	human_owner.reagents.add_reagent(list(
+		/datum/reagent/drug/demoneye, injection_amount,
+		/datum/reagent/medicine/omnizine, injection_amount))
 	play_random_activation_line(list(
 		"FUCKING KILL!!",
 		"AAAAAAAAGHHH!!",
