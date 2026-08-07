@@ -249,11 +249,10 @@
 	name = "\improper RICOCHOT 9000 combat computer autosurgeon"
 	starting_organ = /obj/item/organ/cyberimp/trickshotter
 
-	/obj/item/organ/cyberimp/berserk_os
+/obj/item/organ/cyberimp/berserk_os
 	name = "\improper Shellguard Munitions horomone regulator"
-	desc = "A dated combat implant replacing the spine of organics. When activated, it greatly enhances the user's fight-or-flight response, \
-		granting the user a surge of energy that is outputted in the form of increased physical aggression. Due to its nature, it is incompatible with \
-		systems that heavily influence the user's nervous system, like the central nervous system rebooter."
+	desc = "Often dubbed as the Qani-Laaca Sensory Implant's younger brother, it greatly alters the user's pain response and physical strength.\
+	Due to its nature, it is incompatible with systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
 	icon_state = "berserkOS"
 	slot = ORGAN_SLOT_BRAIN_CNS
@@ -265,8 +264,6 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/berserk_os/da_bodypart_overlay
-
-play_random_activation_line(voice_lines)
 
 /obj/item/organ/cyberimp/berserk_os/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	da_bodypart_overlay = new()
