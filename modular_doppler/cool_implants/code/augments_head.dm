@@ -268,14 +268,12 @@
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/berserk_os/da_bodypart_overlay
 
-/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
-	if(!owner)
-		return
+/obj/item/organ/cyberimp/sensory_enhancer/proc/vomit_blood()
 	owner.spray_blood(owner.dir, 2)
 	owner.emote("scream")
 	owner.visible_message(
 		span_danger("[owner] suddenly gags out a glob of blood and rears their head back, letting out a delirious scream!"),
-		span_danger("You feel your heart begin to race, your vision shifting as you let out a drug-induced scream. KILL THEM ALL!")
+		span_danger("You feel your heart begin to race, your vision shifting as you let out a drug-induced scream. <b>KILL THEM ALL!</b>")
 	)
 
 /obj/item/organ/cyberimp/berserk_os/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)

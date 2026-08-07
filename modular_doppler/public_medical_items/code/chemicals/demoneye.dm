@@ -28,7 +28,8 @@
 	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 15)
-	metabolized_traits = list(TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_FEARLESS, TRAIT_ANALGESIA)
+	metabolized_traits = list(TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_FEARLESS, TRAIT_ANALGESIA,
+	TRAIT_GRABRESISTANCE, TRAIT_COAGULATING, TRAIT_NOCRITOVERLAY, TRAIT_NOGUNS) //Forces users to use melee when they are on this drug
 	/// How much time has the drug been in them?
 	var/constant_dose_time = 0
 	/// What the original color of the user's left eye is
