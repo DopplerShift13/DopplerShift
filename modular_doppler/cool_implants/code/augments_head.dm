@@ -253,7 +253,7 @@
 
 /obj/item/organ/cyberimp/berserk_os
 	name = "\improper Shellguard Munitions horomone regulator"
-	desc = "A dated implant replacing the spine of organics. When activated, it greatly enhances the user's fight-or-flight response, \
+	desc = "A dated combat implant replacing the spine of organics. When activated, it greatly enhances the user's fight-or-flight response, \
 		granting the user a surge of energy that is outputted in the form of increased physical aggression. Due to its nature, it is incompatible with \
 		systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
@@ -268,13 +268,22 @@
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/berserk_os/da_bodypart_overlay
 
-/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
-	owner.spray_blood(owner.dir, 2)
-	owner.emote("scream")
-	owner.visible_message(
-		span_danger("[owner] suddenly gags out a glob of blood and rears their head back, letting out a delirious scream!"),
-		span_danger("You feel your heart begin to race, your vision shifting as you let out a drug-induced scream. <b>KILL THEM ALL!</b>")
-	)
+/obj/item/organ/cyberimp/berserk_os/proc/play_random_activation_line(list/lines)
+    if(!owner || !length(lines))
+        return
+
+    var/message = pick(lines)
+    owner.say(message)
+
+	var/list/voice_lines = list(
+    "FUCKING KILL!!",
+    "AAAAAAAAGHHH!!",
+    "I'M GONNA RIP OUT YOUR SPINE!!",
+	"YOU'RE SO FUCKING DEAD!!",
+	"I'LL TEAR YOUR FUCKING HEAD OFF!!",
+)
+
+play_random_activation_line(voice_lines)
 
 /obj/item/organ/cyberimp/berserk_os/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	da_bodypart_overlay = new()
@@ -310,6 +319,13 @@
 	/// Keeps track of how much twitch we inject into people on activation
 	var/injection_amount = 10
 
+/datum/action/cooldown/berserk_os/proc/play_random_activation_line(list/lines)
+	if(!owner || !length(lines))
+		return
+
+	var/message = pick(lines)
+	owner.say(message)
+
 /datum/action/cooldown/berserk_os/Activate(atom/target)
 	. = ..()
 
@@ -318,6 +334,14 @@
 	owner.log_message("triggered their horomone regulator in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
 
 	human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
+	play_random_activation_line(list(
+		"FUCKING KILL!!",
+		"AAAAAAAAGHHH!!",
+		"I'M GONNA RIP OUT YOUR SPINE!!",
+		"YOU'RE SO FUCKING DEAD!!",
+		"I'LL TEAR YOUR FUCKING HEAD OFF!!",
+		"YOU'RE DEAD!! |DEAD|... DEEEEAD!!"
+	))
 
 	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
 			span_userdanger("You jolt suddenly as your horomone regulator ejects two empty glass vials rearward, shattering as they land."))
@@ -360,7 +384,7 @@
 	human_owner.Stun(4 SECONDS)
 	human_owner.do_jitter_animation(18 SECONDS)
 	human_owner.blood_volume -= 90
-	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
+	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, say), pick(lines)), 0.5 SECONDS)
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
