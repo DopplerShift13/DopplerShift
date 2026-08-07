@@ -58,6 +58,26 @@
 #define POWER_MAGIC_UNHOLY (1<<2)
 #define POWER_MAGIC_SCRYING (1<<3)
 
+/// Filters for checking whether powers have any magic flags on their base definition.
+/// Only powers with magic flags
+#define POWER_MAGIC_FILTER_MAGICAL (1<<0)
+/// Only powers without magic flags
+#define POWER_MAGIC_FILTER_NONMAGICAL (1<<1)
+/// Number of bits reserved for the broad magical/non-magical filters.
+#define POWER_MAGIC_FILTER_FLAG_SHIFT 2
+/// Converts one or more POWER_MAGIC_* flags into their corresponding filter bits.
+#define POWER_MAGIC_FILTER_FLAGS(magic_flags) ((magic_flags) << POWER_MAGIC_FILTER_FLAG_SHIFT)
+/// Only powers with standard magic.
+#define POWER_MAGIC_FILTER_STANDARD POWER_MAGIC_FILTER_FLAGS(POWER_MAGIC_STANDARD)
+/// Only powers with mental magic.
+#define POWER_MAGIC_FILTER_MENTAL POWER_MAGIC_FILTER_FLAGS(POWER_MAGIC_MENTAL)
+/// Only powers with unholy magic.
+#define POWER_MAGIC_FILTER_UNHOLY POWER_MAGIC_FILTER_FLAGS(POWER_MAGIC_UNHOLY)
+/// Only powers with scrying magic.
+#define POWER_MAGIC_FILTER_SCRYING POWER_MAGIC_FILTER_FLAGS(POWER_MAGIC_SCRYING)
+/// Any current or future power magic filter.
+#define POWER_MAGIC_FILTER_ANY ALL
+
 // Signals for power actions and power-holder power mutations.
 /// Sent right before a power action resolves through use_action: (mob/living/user, atom/target)
 #define COMSIG_POWER_ACTION_USED "power_action_used"
@@ -124,6 +144,11 @@
 
 // Trait that allows a mob to keep UIs open beyond their normal range.
 #define TRAIT_NO_UI_DISTANCE "no_ui_distance"
+
+/// Sent to an object before Psyker Manipulate performs its default interaction: (mob/living/user, right_click)
+#define COMSIG_ATOM_PSYKER_MANIPULATE "atom_psyker_manipulate"
+/// The target handled the Manipulate interaction and no default interaction should follow.
+#define COMPONENT_PSYKER_MANIPULATE_HANDLED (1<<0)
 
 /**
  * SORCEROUS
