@@ -19,7 +19,7 @@
 // Demoneye, a drug that makes you temporarily immune to fear and crit, in exchange for damaging all of your organs and making your veins explode
 /datum/reagent/drug/demoneye
 	name = "DemonEye"
-	description = "A performance enhancing drug originally developed on mars. \
+	description = "A performance enhancing drug originally developed on Mars. \
 		A favorite among gangs and other outlaws on the planet, though overuse can cause terrible addiction and bodily damage."
 	color = "#af00be"
 	taste_description = "industrial shuttle fuel"
