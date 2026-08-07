@@ -293,9 +293,17 @@
 
 // Standard stress threshold value for the Psyker's organ.
 #define PSYKER_STRESS_STANDARD_THRESHOLD 100
+// Standard stress cap for psyker organs.
+#define PSYKER_ORGAN_BASE_THRESHOLD 75
+// Multiplier added to a Psyker organ's stress threshold for each point invested in the Psyker path.
+#define PSYKER_STRESS_THRESHOLD_MULTIPLIER_PER_POINT 0.05
 
 // Standard stress recovery per second before modifiers.
 #define PSYKER_STRESS_RECOVERY 1
+
+/// Fired by a Chemotropic gland to collect extra stress recovery rates.
+/// Args: (obj/item/organ/resonant/psyker/chemotropic/chemotropic_organ, list/recovery_candidates)
+#define COMSIG_PSYKER_CHEMOTROPIC_RECOVERY_CANDIDATES "psyker_chemotropic_recovery_candidates"
 
 // How much meditate recovers.
 #define PSYKER_STRESS_MEDITATION_POWER 10
@@ -321,7 +329,7 @@
 #define PSYKER_EVENT_RARITY_VERYRARE 10
 
 // Standard messages for Psyker Events
-#define PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE "As you strain your psychic powers past the breaking point, you are suddenly hit with a strange sense of clarity; as well as a feeling that something is very wrong."
+#define PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE "You are suddenly hit with a strange sense of clarity, yet also a strange underlying feeling that something is very wrong."
 
 // The trait for Psyker's Levitate power.
 #define TRAIT_PSYKER_LEVITATE_FLIGHT "psyker_levitate_flight"

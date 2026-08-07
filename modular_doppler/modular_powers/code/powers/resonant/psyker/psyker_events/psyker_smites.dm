@@ -18,6 +18,7 @@
 
 	if(!psyker_event.execute(human_target))
 		to_chat(user, span_warning("[name] failed to execute on [human_target]."))
+		message_admins("[ADMIN_LOOKUPFLW(user.mob)] attempted to trigger [name] on [ADMIN_LOOKUPFLW(human_target)], but the Psyker event failed to execute.")
 		qdel(psyker_event)
 		return
 
