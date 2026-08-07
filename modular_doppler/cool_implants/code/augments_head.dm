@@ -366,7 +366,6 @@
 	human_owner.Stun(4 SECONDS)
 	human_owner.do_jitter_animation(18 SECONDS)
 	human_owner.blood_volume -= 90
-	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, say), pick(lines)), 0.5 SECONDS)
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
