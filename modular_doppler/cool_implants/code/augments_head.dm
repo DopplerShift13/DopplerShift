@@ -268,7 +268,7 @@
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/berserk_os/da_bodypart_overlay
 
-/obj/item/organ/cyberimp/sensory_enhancer/proc/vomit_blood()
+/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
 	owner.spray_blood(owner.dir, 2)
 	owner.emote("scream")
 	owner.visible_message(
