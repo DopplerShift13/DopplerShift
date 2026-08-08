@@ -300,7 +300,7 @@
 	shared_cooldown = MOB_SHARED_COOLDOWN_3
 	/// Keeps track of how much demoneye we inject into people on activation
 	var/injection_amount = 10
-	var/secondary_injection_amount = 5
+	var/secondary_injection_amount = 4.25
 
 /datum/action/cooldown/berserk_os/Activate(atom/target)
 	. = ..()
@@ -342,7 +342,7 @@
 		more powerful abilities at cost of your well-being."
 	button_icon_state = "berserkOS_overcharge"
 	injection_amount = 20 //This will kill you.
-	secondary_injection_amount = 10
+	secondary_injection_amount = 8.5
 
 /obj/item/organ/cyberimp/berserk_os/emp_act(severity)
 	. = ..()
