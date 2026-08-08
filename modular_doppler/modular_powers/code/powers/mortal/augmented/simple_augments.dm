@@ -132,7 +132,7 @@ INTERNAL (basically anything that isnt standard slots)
 /datum/power/augmented/berserk_os
 	name = "Shellguard Munitions Hormone Regulator"
 	desc = "The only official hormone regulator implant from Shellguard available on the market.\
-	\n Often dubbed as the Qani-Laaca Sensory Implant's younger sibling, it greatly alters the user's pain response and physical strength using a specially-curated cocktail of stimulants and pain suppressants.\
+	\n Often dubbed as the Qani-Laaca's younger sibling, it greatly alters the user's pain response and physical strength using a specially-curated cocktail of stimulants and pain suppressants.\
 	\n Injects you with a 'safe' dose of drugs on activation. Has an 'overcharge' function that grants you a larger dose at the cost of increased side-effects."
 	security_record_text = "Subject has a Shellguard Munitions Hormone Regulator, prolonging their endurance in combat."
 	security_threat = POWER_THREAT_MAJOR
