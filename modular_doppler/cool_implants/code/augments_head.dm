@@ -298,6 +298,7 @@
 	shared_cooldown = MOB_SHARED_COOLDOWN_3
 	/// Keeps track of how much demoneye we inject into people on activation
 	var/injection_amount = 10
+	var/secondary_injection_amount = 5
 
 /datum/action/cooldown/berserk_os/proc/play_random_activation_line(list/lines)
 	if(!owner || !length(lines))
@@ -305,6 +306,7 @@
 
 	var/message = pick(lines)
 	owner.say(message)
+	owner.emote("scream")
 
 /datum/action/cooldown/berserk_os/Activate(atom/target)
 	. = ..()
@@ -313,17 +315,14 @@
 
 	owner.log_message("triggered their horomone regulator in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
 
-	human_owner.reagents.add_reagent(list(
-		/datum/reagent/drug/demoneye, injection_amount,
-		/datum/reagent/medicine/omnizine, injection_amount))
+	human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
+	human_owner.reagents.add_reagent(/datum/reagent/medicine/omnizine, secondary_injection_amount)
 	play_random_activation_line(list(
-		"FUCKING KILL!!",
-		"AAAAAAAAGHHH!!",
-		"I'M GONNA RIP OUT YOUR SPINE!!",
+		"AAAAAAAAHHHHH!!",
+		"I'M- I'M GONNA |RIP| OUT YOUR SPINE!!",
 		"YOU'RE SO FUCKING DEAD!!",
 		"I'LL TEAR YOUR FUCKING HEAD OFF!!",
-		"YOU'RE DEAD!! |DEAD|... DEEEEAD!!"
-	))
+		"YOU'RE DEAD!! |DEAD|... DEEEEAD!!"))
 
 	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
 			span_userdanger("You jolt suddenly as your horomone regulator ejects two empty glass vials rearward, shattering as they land."))
@@ -353,6 +352,7 @@
 		more powerful abilities at cost of your well-being."
 	button_icon_state = "berserkOS_overcharge"
 	injection_amount = 20 //This will kill you.
+	secondary_injection_amount = 10
 
 /obj/item/organ/cyberimp/berserk_os/emp_act(severity)
 	. = ..()
