@@ -127,7 +127,7 @@
 
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
 
-	if(SPT_PROB(10, seconds_per_tick))
+	if(SPT_PROB(15, seconds_per_tick))
 		hurt_that_mans_organs(our_guy, 5, TRUE)
 
 
