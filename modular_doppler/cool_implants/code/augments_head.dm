@@ -253,7 +253,7 @@
 
 /obj/item/organ/cyberimp/berserk_os
 	name = "\improper Shellguard Munitions hormone regulator"
-	desc = "Often dubbed as the Qani-Laaca Sensory Implant's younger sibling, it greatly alters the user's pain response and physical strength using a specially-curated cocktail of stimulants and pain suppressants.\
+	desc = "Often dubbed as the Qani-Laaca's younger sibling, it greatly alters the user's pain response and physical strength using a specially-curated cocktail of stimulants and pain suppressants.\
 	Due to its nature, it is incompatible with systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
 	icon_state = "berserkOS"
@@ -266,6 +266,14 @@
 	w_class = WEIGHT_CLASS_SMALL
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/berserk_os/da_bodypart_overlay
+
+/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
+	owner.spray_blood(owner.dir, 2)
+	owner.emote("cough")
+	owner.visible_message(
+		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
+		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
+	)
 
 /obj/item/organ/cyberimp/berserk_os/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	da_bodypart_overlay = new()
@@ -356,6 +364,7 @@
 	human_owner.Stun(4 SECONDS)
 	human_owner.do_jitter_animation(18 SECONDS)
 	human_owner.blood_volume -= 90
+	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
