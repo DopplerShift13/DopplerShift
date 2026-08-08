@@ -250,7 +250,7 @@
 	starting_organ = /obj/item/organ/cyberimp/trickshotter
 
 /obj/item/organ/cyberimp/berserk_os
-	name = "\improper Shellguard Munitions horomone regulator"
+	name = "\improper Shellguard Munitions hormone regulator"
 	desc = "Often dubbed as the Qani-Laaca Sensory Implant's younger brother, it greatly alters the user's pain response and physical strength.\
 	Due to its nature, it is incompatible with systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
@@ -278,7 +278,7 @@
 	return ..()
 
 /obj/item/autosurgeon/syndicate/berserk_os
-	name = "\improper Shellguard Munitions horomone regulator autosurgeon"
+	name = "\improper Shellguard Munitions hormone regulator autosurgeon"
 	starting_organ = /obj/item/organ/cyberimp/berserk_os
 
 /datum/bodypart_overlay/simple/berserk_os
@@ -287,8 +287,8 @@
 	layers = EXTERNAL_ADJACENT
 
 /datum/action/cooldown/berserk_os
-	name = "Activate Horomone Regulator"
-	desc = "Activates your horomone regulator and grants you its powers. This will give you a 'safe' dose."
+	name = "Activate Hormone Regulator"
+	desc = "Activates your hormone regulator and grants you its powers. This will give you a 'safe' dose."
 	button_icon = 'modular_doppler/cool_implants/icons/implants.dmi'
 	button_icon_state = "berserkOS"
 	check_flags = AB_CHECK_CONSCIOUS
@@ -313,7 +313,7 @@
 
 	var/mob/living/carbon/human/human_owner = owner
 
-	owner.log_message("triggered their horomone regulator in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
+	owner.log_message("triggered their hormone regulator in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
 
 	human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
 	human_owner.reagents.add_reagent(/datum/reagent/medicine/omnizine, secondary_injection_amount)
@@ -326,30 +326,30 @@
 		"YOU'RE DEAD!! |DEAD|... DEEEEAD!!"))
 
 	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
-			span_userdanger("You jolt suddenly as your horomone regulator ejects two empty glass vials rearward, shattering as they land."))
+			span_userdanger("You jolt suddenly as your hormone regulator ejects two empty glass vials rearward, shattering as they land."))
 	playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
 
-	var/obj/item/telegraph_vial = new /obj/item/horomone_regulator_telegraph(get_turf(owner))
+	var/obj/item/telegraph_vial = new /obj/item/hormone_regulator_telegraph(get_turf(owner))
 	var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
 	telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
 
-/obj/item/horomone_regulator_telegraph
+/obj/item/hormone_regulator_telegraph
 	name = "spent demoneye cartridge"
-	desc = "A small glass vial, usually kept in a large stack inside a Horomone Regulator implant, that is broken open and ejected \
+	desc = "A small glass vial, usually kept in a large stack inside a Hormone Regulator implant, that is broken open and ejected \
 		each time the implant is used. If you're looking at one long enough to think about it this long, you either have fast eyes \
 		or were lucky enough to catch one before it broke."
 	icon = 'icons/obj/medical/drugs.dmi'
 	icon_state = "blastoff_ampoule_empty"
 	w_class = WEIGHT_CLASS_SMALL
 
-/obj/item/horomone_regulator_telegraph/Initialize(mapload)
+/obj/item/hormone_regulator_telegraph/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/can_shatter, /obj/effect/decal/cleanable/glass, 1, SFX_SHATTER)
 	transform = transform.Scale(0.75, 0.75)
 
 /datum/action/cooldown/berserk_os/overcharge
-	name = "Overcharge Horomone Regulator"
-	desc = "Activates your horomone regulator and grants you its powers. This will overdose you on the regulator's effects, giving you \
+	name = "Overcharge Hormone Regulator"
+	desc = "Activates your hormone regulator and grants you its powers. This will overdose you on the regulator's effects, giving you \
 		more powerful abilities at cost of your well-being."
 	button_icon_state = "berserkOS_overcharge"
 	injection_amount = 20 //This will kill you.
