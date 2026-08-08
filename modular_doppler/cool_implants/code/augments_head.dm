@@ -317,6 +317,7 @@
 
 	human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
 	human_owner.reagents.add_reagent(/datum/reagent/medicine/omnizine, secondary_injection_amount)
+	human_owner.reagents.add_reagent(/datum/reagent/medicine/coagulant, secondary_injection_amount)
 	play_random_activation_line(list(
 		"AAAAAAAAHHHHH!!",
 		"I'M- I'M GONNA |RIP| OUT YOUR SPINE!!",
