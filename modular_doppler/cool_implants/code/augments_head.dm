@@ -249,6 +249,8 @@
 	name = "\improper RICOCHOT 9000 combat computer autosurgeon"
 	starting_organ = /obj/item/organ/cyberimp/trickshotter
 
+//literally just the Militech Berserk from Cyberpunk
+
 /obj/item/organ/cyberimp/berserk_os
 	name = "\improper Shellguard Munitions hormone regulator"
 	desc = "Often dubbed as the Qani-Laaca Sensory Implant's younger brother, it greatly alters the user's pain response and physical strength.\
@@ -300,14 +302,6 @@
 	var/injection_amount = 10
 	var/secondary_injection_amount = 5
 
-/datum/action/cooldown/berserk_os/proc/play_random_activation_line(list/lines)
-	if(!owner || !length(lines))
-		return
-
-	var/message = pick(lines)
-	owner.say(message)
-	owner.emote("scream")
-
 /datum/action/cooldown/berserk_os/Activate(atom/target)
 	. = ..()
 
@@ -315,15 +309,10 @@
 
 	owner.log_message("triggered their hormone regulator in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
 
+	owner.emote("scream")
 	human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
 	human_owner.reagents.add_reagent(/datum/reagent/medicine/omnizine, secondary_injection_amount)
 	human_owner.reagents.add_reagent(/datum/reagent/medicine/coagulant, secondary_injection_amount)
-	play_random_activation_line(list(
-		"AAAAAAAAHHHHH!!",
-		"I'M- I'M GONNA |RIP| OUT YOUR SPINE!!",
-		"YOU'RE SO FUCKING DEAD!!",
-		"I'LL TEAR YOUR FUCKING HEAD OFF!!",
-		"YOU'RE DEAD!! |DEAD|... DEEEEAD!!"))
 
 	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
 			span_userdanger("You jolt suddenly as your hormone regulator ejects two empty glass vials rearward, shattering as they land."))
