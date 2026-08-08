@@ -233,7 +233,7 @@
 	projectile.accuracy_falloff = 0
 
 /obj/item/organ/cyberimp/trickshotter/emp_act(severity)
-	. = ..(severity)
+	. = ..()
 	if(!owner || . & EMP_PROTECT_SELF)
 		return
 	var/mob/living/carbon/human/human_owner = owner
