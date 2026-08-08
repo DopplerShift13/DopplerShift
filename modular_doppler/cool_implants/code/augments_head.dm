@@ -253,7 +253,7 @@
 
 /obj/item/organ/cyberimp/berserk_os
 	name = "\improper Shellguard Munitions hormone regulator"
-	desc = "Often dubbed as the Qani-Laaca Sensory Implant's younger brother, it greatly alters the user's pain response and physical strength.\
+	desc = "Often dubbed as the Qani-Laaca Sensory Implant's younger sibling, it greatly alters the user's pain response and physical strength using a specially-curated cocktail of stimulants and pain suppressants.\
 	Due to its nature, it is incompatible with systems that heavily influence the user's nervous system, like the central nervous system rebooter."
 	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
 	icon_state = "berserkOS"
