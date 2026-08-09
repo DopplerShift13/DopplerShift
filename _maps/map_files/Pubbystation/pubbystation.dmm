@@ -18284,6 +18284,7 @@
 	},
 /obj/item/paper_bin,
 /obj/effect/spawner/random/bureaucracy/pen,
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/science)
 "bCL" = (
@@ -18294,6 +18295,7 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
 	dir = 4
 	},
+/obj/structure/cable,
 /turf/open/floor/iron,
 /area/station/security/checkpoint/science)
 "bCM" = (
@@ -19087,8 +19089,9 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "bHk" = (
-/obj/machinery/camera/autoname/directional/west,
-/obj/effect/spawner/random/bananas_or_nothing,
+/obj/machinery/airalarm/directional/west,
+/obj/structure/flora/grass/jungle,
+/obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
 /turf/open/floor/grass,
 /area/station/science/genetics)
 "bHl" = (
@@ -24896,7 +24899,8 @@
 /turf/open/misc/asteroid/airless,
 /area/centcom/asteroid/nearstation/bomb_site)
 "cjB" = (
-/obj/machinery/light/directional/west,
+/obj/machinery/camera/autoname/directional/west,
+/obj/effect/spawner/random/bananas_or_nothing,
 /turf/open/floor/grass,
 /area/station/science/genetics)
 "cjC" = (
@@ -33044,9 +33048,8 @@
 "gRb" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /mob/living/carbon/human/species/monkey,
-/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
-	dir = 4
-	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/sign/poster/official/corporate_perks_vacation/directional/north,
 /turf/open/floor/grass,
 /area/station/science/genetics)
 "gRJ" = (
@@ -39263,12 +39266,6 @@
 /obj/item/radio/intercom/directional/south,
 /turf/open/floor/iron/dark,
 /area/station/security/interrogation)
-"lMS" = (
-/obj/machinery/airalarm/directional/west,
-/obj/structure/flora/grass/jungle,
-/obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
-/turf/open/floor/grass,
-/area/station/science/genetics)
 "lMT" = (
 /obj/machinery/power/tracker,
 /obj/structure/cable,
@@ -43315,8 +43312,9 @@
 "oQi" = (
 /obj/structure/window/reinforced/spawner/directional/east,
 /mob/living/carbon/human/species/monkey,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/structure/sign/poster/official/corporate_perks_vacation/directional/north,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
+	dir = 4
+	},
 /turf/open/floor/grass,
 /area/station/science/genetics)
 "oQn" = (
@@ -45647,6 +45645,10 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
+"qtO" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/grass,
+/area/station/science/genetics)
 "qtR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -48866,10 +48868,6 @@
 	},
 /turf/open/floor/plating,
 /area/station/security/range)
-"sGM" = (
-/mob/living/carbon/human/species/monkey,
-/turf/open/floor/grass,
-/area/station/science/genetics)
 "sHy" = (
 /obj/machinery/camera/directional/north{
 	c_tag = "Holodeck Control";
@@ -49420,6 +49418,10 @@
 /obj/effect/mapping_helpers/airlock/access/any/medical/morgue,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
+"tbX" = (
+/mob/living/carbon/human/species/monkey,
+/turf/open/floor/grass,
+/area/station/science/genetics)
 "tck" = (
 /obj/structure/table,
 /obj/effect/spawner/random/armory/dragnet,
@@ -90073,10 +90075,10 @@ duF
 bxa
 byD
 syQ
-lMS
-sGM
-cjB
 bHk
+tbX
+qtO
+cjB
 jiD
 sZD
 voL
@@ -90330,8 +90332,8 @@ eYV
 eYV
 byE
 syQ
-oQi
 gRb
+oQi
 bHi
 gLS
 jiD
