@@ -18,9 +18,9 @@
 	name = "Feathery III"
 	icon_state = "featheryalt2"
 
-/datum/sprite_accessory/wings_more/dragon_three
-	name = "Dragon III"
-	icon_state = "dragonalt3"
+/datum/sprite_accessory/wings_more/dragon_one
+	name = "Dragon I"
+	icon_state = "dragonalt1"
 
 /datum/sprite_accessory/wings_more/dragon_two
 	name = "Dragon II"
