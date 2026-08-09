@@ -12216,12 +12216,10 @@
 /area/station/commons/lounge)
 "bap" = (
 /obj/machinery/computer/slot_machine,
-/obj/structure/fish_mount/bar/directional/north,
 /turf/open/floor/carpet/purple,
 /area/station/commons/lounge)
 "baq" = (
 /obj/effect/spawner/random/entertainment/arcade,
-/obj/structure/fish_mount/bar/directional/north,
 /turf/open/floor/carpet/purple,
 /area/station/commons/lounge)
 "bar" = (
@@ -16651,6 +16649,10 @@
 /obj/machinery/rnd/production/circuit_imprinter,
 /turf/open/floor/iron/white/small,
 /area/station/science/research)
+"bvD" = (
+/mob/living/carbon/human/species/monkey,
+/turf/open/floor/grass,
+/area/station/science/genetics)
 "bvE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 5
@@ -19089,9 +19091,10 @@
 /turf/open/floor/iron,
 /area/station/hallway/primary/aft)
 "bHk" = (
-/obj/machinery/airalarm/directional/west,
-/obj/structure/flora/grass/jungle,
-/obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
+/obj/structure/window/reinforced/spawner/directional/east,
+/mob/living/carbon/human/species/monkey,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/obj/structure/sign/poster/official/corporate_perks_vacation/directional/north,
 /turf/open/floor/grass,
 /area/station/science/genetics)
 "bHl" = (
@@ -24899,8 +24902,9 @@
 /turf/open/misc/asteroid/airless,
 /area/centcom/asteroid/nearstation/bomb_site)
 "cjB" = (
-/obj/machinery/camera/autoname/directional/west,
-/obj/effect/spawner/random/bananas_or_nothing,
+/obj/machinery/airalarm/directional/west,
+/obj/structure/flora/grass/jungle,
+/obj/structure/sign/poster/contraband/rush_propaganda/directional/north,
 /turf/open/floor/grass,
 /area/station/science/genetics)
 "cjC" = (
@@ -33046,10 +33050,7 @@
 /turf/open/floor/iron/white/smooth_large,
 /area/station/medical/psychology)
 "gRb" = (
-/obj/structure/window/reinforced/spawner/directional/east,
-/mob/living/carbon/human/species/monkey,
-/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
-/obj/structure/sign/poster/official/corporate_perks_vacation/directional/north,
+/obj/machinery/light/directional/west,
 /turf/open/floor/grass,
 /area/station/science/genetics)
 "gRJ" = (
@@ -45645,10 +45646,6 @@
 /obj/effect/turf_decal/delivery,
 /turf/open/floor/iron/white,
 /area/station/science/xenobiology)
-"qtO" = (
-/obj/machinery/light/directional/west,
-/turf/open/floor/grass,
-/area/station/science/genetics)
 "qtR" = (
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -48148,6 +48145,11 @@
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/storage)
+"shC" = (
+/obj/machinery/camera/autoname/directional/west,
+/obj/effect/spawner/random/bananas_or_nothing,
+/turf/open/floor/grass,
+/area/station/science/genetics)
 "shU" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4{
@@ -49418,10 +49420,6 @@
 /obj/effect/mapping_helpers/airlock/access/any/medical/morgue,
 /turf/open/floor/iron/dark,
 /area/station/medical/morgue)
-"tbX" = (
-/mob/living/carbon/human/species/monkey,
-/turf/open/floor/grass,
-/area/station/science/genetics)
 "tck" = (
 /obj/structure/table,
 /obj/effect/spawner/random/armory/dragnet,
@@ -90075,10 +90073,10 @@ duF
 bxa
 byD
 syQ
-bHk
-tbX
-qtO
 cjB
+bvD
+gRb
+shC
 jiD
 sZD
 voL
@@ -90332,7 +90330,7 @@ eYV
 eYV
 byE
 syQ
-gRb
+bHk
 oQi
 bHi
 gLS
