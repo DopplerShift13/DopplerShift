@@ -308,7 +308,7 @@
 	shared_cooldown = MOB_SHARED_COOLDOWN_3
 	/// Keeps track of how much demoneye we inject into people on activation
 	var/injection_amount = 10
-	var/secondary_injection_amount = 4.25
+	var/secondary_injection_amount = 4.5
 
 /datum/action/cooldown/berserk_os/Activate(atom/target)
 	. = ..()
@@ -320,6 +320,7 @@
 	owner.emote("scream")
 	human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
 	human_owner.reagents.add_reagent(/datum/reagent/medicine/omnizine, secondary_injection_amount)
+	human_owner.reagents.add_reagent(/datum/reagent/medicine/determination, secondary_injection_amount)
 	human_owner.reagents.add_reagent(/datum/reagent/medicine/coagulant, secondary_injection_amount)
 
 	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
