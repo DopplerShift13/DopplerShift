@@ -13,6 +13,7 @@
 	security_record_text = "Subject can wield telekinesis to maneuver and fling objects."
 	security_threat = POWER_THREAT_MAJOR
 	value = 5
+	magic_flags = POWER_MAGIC_STANDARD
 	required_powers = list(/datum/power/psyker_root)
 	action_path = /datum/action/cooldown/power/psyker/telekinesis
 
@@ -26,10 +27,13 @@
 	unset_after_click = FALSE
 	target_range = 255 // this is just for show.
 
-	mental = FALSE // We are lifting them with the mind but it doesn't affect the target's mind
-
 	/// Range of the kinesis grab.
 	var/grab_range = 8
+
+	/// Specific target types we never want telekinesis to manipulate.
+	var/static/list/grab_blacklist = typecacheof(list(
+		/obj/vehicle/sealed/mecha,
+	))
 
 	/// Stat required for us to grab a mob.
 	var/stat_required = DEAD
@@ -113,12 +117,12 @@
 
 /datum/action/cooldown/power/psyker/telekinesis/Grant(mob/granted_to)
 	. = ..()
-	if(resonant)
+	if(is_magical())
 		RegisterSignal(granted_to, COMSIG_ATOM_DISPEL, PROC_REF(on_dispel))
 
 /datum/action/cooldown/power/psyker/telekinesis/Remove(mob/removed_from)
 	. = ..()
-	if(resonant)
+	if(is_magical())
 		UnregisterSignal(removed_from, COMSIG_ATOM_DISPEL)
 
 /// Calculates the stres cost of vairous interactions.
@@ -230,6 +234,8 @@
 	if(!ismovable(target))
 		return FALSE
 	if(iseffect(target))
+		return FALSE
+	if(is_type_in_typecache(target, grab_blacklist))
 		return FALSE
 
 	var/atom/movable/movable_target = target

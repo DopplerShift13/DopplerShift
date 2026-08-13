@@ -1,7 +1,8 @@
 
-#define DOPPLER_SAVEFILE_VERSION_MAX 1
+#define DOPPLER_SAVEFILE_VERSION_MAX 2
 
 #define VERSION_NEW_POWERS 1
+#define VERSION_BESTIAL_RENAME 2
 
 #define SHOULD_UPDATE_DOPPLER_DATA(version) (version < DOPPLER_SAVEFILE_VERSION_MAX)
 
@@ -24,6 +25,9 @@
 	// Version for old powers system
 	if(current_version < VERSION_NEW_POWERS)
 		nuke_old_powers(save_data)
+	// Version for the Beastial Body -> Bestial Body spelling fix
+	if(current_version < VERSION_BESTIAL_RENAME)
+		rename_beastial_to_bestial(save_data)
 
 /datum/preferences/proc/save_character_doppler(list/save_data)
 	save_data["languages"] = languages
@@ -34,4 +38,5 @@
 
 #undef DOPPLER_SAVEFILE_VERSION_MAX
 #undef VERSION_NEW_POWERS
+#undef VERSION_BESTIAL_RENAME
 #undef SHOULD_UPDATE_DOPPLER_DATA

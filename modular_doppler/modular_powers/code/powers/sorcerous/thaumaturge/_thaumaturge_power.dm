@@ -6,4 +6,5 @@
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THAUMATURGE
 	priority = POWER_PRIORITY_BASIC
+	magic_flags = POWER_MAGIC_STANDARD
 	abstract_parent_type = /datum/power/thaumaturge

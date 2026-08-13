@@ -3,6 +3,7 @@
 	name = "Shapechange: Spider"
 	desc = "Overrides your chosen Shapechange form with a spider variant. \n Hunters are fast but fragile, guards are slow and sturdy and ambush spiders are very slow, but have strong grabs, hard-hitting attacks and invisibility in webs."
 	value = 3
+	magic_flags = POWER_MAGIC_STANDARD
 
 	required_powers = list(/datum/power/aberrant/shapechange)
 	/// Saved form so we can restore on removal.

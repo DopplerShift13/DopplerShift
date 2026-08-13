@@ -3,10 +3,12 @@
 */
 /datum/power/warfighter/martial_artist
 	name = "Martial Artist"
-	desc = "Trained in specialized combat maneuvers, you know where to best strike your opponents. Your punches deal extra damage."
+	desc = "Trained in specialized combat maneuvers, you know where to best strike your opponents. Your punches deal 5 extra damage on hit!"
 	security_record_text = "Subject is trained in hand-to-hand combat and throws stronger punches."
 	security_threat = POWER_THREAT_MAJOR
 	value = 2
+	menu_icon = 'icons/obj/fluff/gym_equipment.dmi'
+	menu_icon_state = "punchingbag"
 
 	power_flags = POWER_HUMAN_ONLY
 	/// how much EEEEXTRA DEEEAAMEEEEG we do with our punches.

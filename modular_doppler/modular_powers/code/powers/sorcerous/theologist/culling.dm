@@ -8,6 +8,8 @@
 	value = 2
 	required_powers = list(/datum/power/theologist_root)
 	required_allow_subtypes = TRUE
+	menu_icon = 'icons/mob/actions/actions_elites.dmi'
+	menu_icon_state = "bonfire_teleport"
 
 	/// Reference to the owner's piety component
 	var/datum/component/theologist_piety/piety_component

@@ -6,6 +6,9 @@
 	value = 3
 	required_powers = list(/datum/power/cultivator_root/astral_touched)
 
+	menu_icon = 'icons/effects/effects.dmi'
+	menu_icon_state = "ion_trails"
+
 	/// the trailing particles
 	var/datum/effect_system/trail_follow/ion/grav_allowed/flight_trail
 	/// ref to the root power's action

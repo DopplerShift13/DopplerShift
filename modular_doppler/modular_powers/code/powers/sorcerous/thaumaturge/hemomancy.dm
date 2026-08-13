@@ -6,7 +6,7 @@
 */
 /datum/power/thaumaturge_root/hemomancy
 	name = "Hemomancy"
-	desc = "You cast spells by channeling your blood. All your spells drain your blood when wielding them, usually 4 * the power's allocation cost. \
+	desc = "You cast spells by channeling your blood. All your spells drain your blood when wielding them, usually 4 * the power's allocation cost, instead of using spell charges. \
 	Blood exceeding 110% of your natural blood threshold is consumed at higher rates to boost the affinity of your spells, empowering them to higher levels of Affinity, up to a maximum of 6. This does not trigger on spells that have a chance to refund charges based on affinity. \
 	\nYou cannot gain Affinity from items, you do not benefit from random chance to refund charges on spells, and all your spells are now affected by holy resistance.\
 	\nYou also gain the Channel Blood action. Using it allows you to transfer blood from various sources back to you (and converts the blood-type to yours), and grants Affinity 3 (4 if you're a Hemophage) while the channel is active. Requires an empty hand."
@@ -14,6 +14,7 @@
 	action_path = /datum/action/cooldown/power/thaumaturge/channel_blood
 	species_blacklist = list(/datum/species/android, /datum/species/android/holosynth, /datum/species/golem, /datum/species/plasmaman, /datum/species/ethereal, /datum/species/jelly, /datum/species/pod, /datum/species/snail) // You can't do blood magic without blood, duh!
 	value = 5
+	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_UNHOLY
 
 /datum/power/thaumaturge_root/hemomancy/post_add()
 	if(!power_holder) // So it doesn't runtime at init
@@ -36,8 +37,9 @@
 	button_icon_state = "manip"
 	max_charges = null
 	cooldown_time = 15
-
 	prep_cost = 0
+
+	background_icon_state = "bg_thaumaturge_hemomancy"
 
 /datum/action/cooldown/power/thaumaturge/channel_blood/Grant(mob/granted_to)
 	. = ..()

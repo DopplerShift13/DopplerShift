@@ -31,7 +31,13 @@
 		/obj/item/clothing/suit/wizrobe/marisa/fake,
 		/obj/item/clothing/suit/wizrobe/tape/fake,
 		/obj/item/clothing/suit/wizrobe/secwiz,
-		/obj/item/clothing/suit/wizrobe/viszard
+		/obj/item/clothing/suit/wizrobe/viszard,
+		/obj/item/clothing/suit/wizrobe/durathread,
+		/obj/item/clothing/suit/wizrobe/durathread/earth,
+		/obj/item/clothing/suit/wizrobe/durathread/electric,
+		/obj/item/clothing/suit/wizrobe/durathread/fire,
+		/obj/item/clothing/suit/wizrobe/durathread/ice,
+		/obj/item/clothing/suit/wizrobe/durathread/necro,
 	)
 
 	/// There's a small chance that we manage to sneak in real wizard robes, in percentages.

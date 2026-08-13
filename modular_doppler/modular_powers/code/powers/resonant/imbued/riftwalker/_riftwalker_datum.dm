@@ -162,7 +162,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 
 /// Checks if a mob can see the rifts
 /obj/effect/riftwalker_rift/proc/verify_user_can_see(mob/user)
-	return HAS_TRAIT(user, TRAIT_ABERRANT_RIFTWALKER)
+	return HAS_TRAIT(user, TRAIT_IMBUED_RIFTWALKER)
 
 // Teleport logic.
 /obj/effect/riftwalker_rift/attack_hand(mob/living/user, list/modifiers)
@@ -242,7 +242,7 @@ GLOBAL_DATUM_INIT(riftwalker_network, /datum/riftwalker_network_tracker, new)
 /datum/atom_hud/alternate_appearance/basic/riftwalker/mobShouldSee(mob/viewer)
 	if(!isliving(viewer))
 		return FALSE
-	return HAS_TRAIT(viewer, TRAIT_ABERRANT_RIFTWALKER)
+	return HAS_TRAIT(viewer, TRAIT_IMBUED_RIFTWALKER)
 
 #undef RIFTWALKER_MIN_PAIRS
 #undef RIFTWALKER_MAX_PAIRS
