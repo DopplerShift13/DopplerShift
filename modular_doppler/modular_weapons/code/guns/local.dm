@@ -26,6 +26,8 @@
 	actions_types = list()
 	spread = 5
 	recoil = 0.1
+	projectile_speed_multiplier = 1.5
+	projectile_damage_multiplier = 0.75
 	pin = /obj/item/firing_pin/mounted
 	tac_reloads = FALSE
 	ejection_angle_offset = 90
@@ -76,6 +78,7 @@
 	can_suppress = FALSE
 	burst_size = 1
 	fire_delay = 0.35 SECONDS
+	projectile_damage_multiplier = 0.8
 	actions_types = list()
 	spread = 7
 	recoil = 0.4
