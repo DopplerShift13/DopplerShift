@@ -36,30 +36,6 @@
 	. = ..()
 	AddComponent(/datum/component/scope, range_modifier = 1.5)
 
-// Magazines
-
-/obj/item/ammo_box/magazine/marcielle
-	name = "\improper Marcielle magazine (.34)"
-	desc = "A short magazine for the Marcielle rifles, holds five rounds."
-	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
-	icon_state = "marcielle_mag"
-	multiple_sprites = AMMO_BOX_FULL_EMPTY
-	w_class = WEIGHT_CLASS_TINY
-	ammo_type = /obj/item/ammo_casing/c34nb
-	caliber = CALIBER_34NB
-	max_ammo = 5
-
-/obj/item/ammo_box/magazine/marcielle/special
-	name = "\improper Marcielle magazine (.34 Special)"
-	ammo_type = /obj/item/ammo_casing/c34nb/special
-
-/obj/item/ammo_box/magazine/marcielle/squash
-	name = "\improper Marcielle magazine (.34 Squash)"
-	ammo_type = /obj/item/ammo_casing/c34nb/rubber
-
-/obj/item/ammo_box/magazine/marcielle/starts_empty
-	start_empty = TRUE
-
 // RND designs
 
 /datum/design/c38_mag

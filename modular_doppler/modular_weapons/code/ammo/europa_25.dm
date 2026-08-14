@@ -67,3 +67,30 @@
 	emissive_overlay.transform = transform
 	emissive_overlay.alpha = alpha
 	. += emissive_overlay
+
+// Magazines
+
+/obj/item/ammo_box/magazine/mdni
+	name = "\improper ACS translucent magazine (.25)"
+	desc = "A 15 round magazine fitting the Atmospheric Corps Standard for .25 caliber magazine fed weapons, \
+		made of a translucent green plastic iconic to many local Crusoe's Rest manufacturers and, more likely, printing machines."
+	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon_state = "mdnistand"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_SMALL
+	ammo_type = /obj/item/ammo_casing/c25euro
+	caliber = CALIBER_25EUROPA
+	max_ammo = 15
+
+/obj/item/ammo_box/magazine/mdni/starts_empty
+	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/mdni/drum
+	name = "\improper ACS drum (.25)"
+	desc = "A 30 round drum fitting the Atmospheric Corps Standard for .25 caliber magazine fed weapons."
+	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon_state = "mdnidrum"
+	max_ammo = 30
+
+/obj/item/ammo_box/magazine/mdni/drum/starts_empty
+	start_empty = TRUE

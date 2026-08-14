@@ -21,7 +21,8 @@
 	AddComponent(/datum/component/complicated_rotation, ROTATION_IGNORE_ANCHORED, 1 SECONDS, 'sound/items/tools/ratchet.ogg')
 	AddElement(/datum/element/ridable_turret, /datum/component/riding/vehicle/mounted_turret)
 	if(mapload_gun)
-		new mapload_gun(src)
+		stored_gun = new mapload_gun(src)
+		register_gun(stored_gun)
 
 /obj/vehicle/ridden/mounted_turret/examine(mob/user)
 	. = ..()
@@ -138,16 +139,16 @@
 	take_her_down(user)
 
 /obj/vehicle/ridden/mounted_turret/attack_hand(mob/user, list/modifiers)
-	stored_gun.attack_hand(user, modifiers)
+	return stored_gun.attack_hand(user, modifiers)
 
 /obj/vehicle/ridden/mounted_turret/attack_hand_secondary(mob/user, list/modifiers)
-	stored_gun.attack_hand_secondary(user, modifiers)
+	return stored_gun.attack_hand_secondary(user, modifiers)
 
 /obj/vehicle/ridden/mounted_turret/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	stored_gun.item_interaction(user, tool, modifiers)
+	return stored_gun.item_interaction(user, tool, modifiers)
 
 /obj/vehicle/ridden/mounted_turret/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
-	stored_gun.item_interaction_secondary(user, tool, modifiers)
+	return stored_gun.item_interaction_secondary(user, tool, modifiers)
 
 /obj/vehicle/ridden/mounted_turret/buckle_feedback(mob/living/being_buckled, mob/buckler)
 	buckler.visible_message(

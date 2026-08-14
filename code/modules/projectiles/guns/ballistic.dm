@@ -334,7 +334,12 @@
 			if(!QDELETED(casing))
 				SEND_SIGNAL(casing, COMSIG_CASING_EJECTED)
 				var/hitting_ground = TRUE
-				if(ishuman(loc))
+				// DOPPLER ADDITION - Lets mounted guns REALLY throw casings to stop giant piles from forming
+				if(!isnull(ejection_angle_offset) && istype(loc, /obj/vehicle/ridden/mounted_turret))
+					launch_casing(casing, loc)
+					hitting_ground = FALSE // this is handled by the casing getting thrown
+				// DOPPLER ADDITION END
+				else if(ishuman(loc)) // DOPPLER EDIT - Makes above block work correctly - ORIGINAL - if(ishuman(loc))
 					var/mob/living/carbon/human/wielder = loc
 					var/caught_casing = can_catch_casing(casing, wielder, from_firing)
 					switch(caught_casing)

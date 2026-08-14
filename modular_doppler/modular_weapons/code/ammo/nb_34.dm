@@ -51,3 +51,68 @@
 	wound_bonus = -10
 	exposed_wound_bonus = 10
 	speed = 0.9
+
+// Magazines
+
+/obj/item/ammo_box/magazine/yanao
+	name = "\improper yanao belt box (.34)"
+	desc = "A large belt box for the yanao machine gun, holds 50 rounds of .34 NB."
+	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon_state = "yanao_box"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	ammo_type = /obj/item/ammo_casing/c34nb
+	caliber = CALIBER_34NB
+	max_ammo = 50
+	w_class = WEIGHT_CLASS_NORMAL
+
+/obj/item/ammo_box/magazine/yanao/spawns_empty
+	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/yanao/kill_everyone
+	name = "\improper yanao belt box (.34 Special)"
+	ammo_type = /obj/item/ammo_casing/c34nb/special
+
+/obj/item/ammo_box/magazine/marcielle
+	name = "\improper Marcielle magazine (.34)"
+	desc = "A short magazine for the Marcielle rifles, holds five rounds."
+	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon_state = "marcielle_mag"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_TINY
+	ammo_type = /obj/item/ammo_casing/c34nb
+	caliber = CALIBER_34NB
+	max_ammo = 5
+
+/obj/item/ammo_box/magazine/marcielle/special
+	name = "\improper Marcielle magazine (.34 Special)"
+	ammo_type = /obj/item/ammo_casing/c34nb/special
+
+/obj/item/ammo_box/magazine/marcielle/squash
+	name = "\improper Marcielle magazine (.34 Squash)"
+	ammo_type = /obj/item/ammo_casing/c34nb/rubber
+
+/obj/item/ammo_box/magazine/marcielle/starts_empty
+	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/sabine
+	name = "\improper Sabine magazine (.34)"
+	desc = "An eight round magazine for the NW-Sabine carabina, fitted with a special locking mechanism to stop people like you \
+		from trying to put them into a Marcielle. It won't fit. Don't try."
+	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon_state = "marcielle_mag"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_TINY
+	ammo_type = /obj/item/ammo_casing/c34nb
+	caliber = CALIBER_34NB
+	max_ammo = 8
+
+/obj/item/ammo_box/magazine/sabine/starts_empty
+	start_empty = TRUE
+
+/obj/item/ammo_box/magazine/sabine/special
+	name = "\improper Sabine magazine (.34 Special)"
+	ammo_type = /obj/item/ammo_casing/c34nb/special
+
+/obj/item/ammo_box/magazine/sabine/squash
+	name = "\improper Sabine magazine (.34 Squash)"
+	ammo_type = /obj/item/ammo_casing/c34nb/rubber
