@@ -28,12 +28,20 @@
 	recoil = 0.1
 	pin = /obj/item/firing_pin/mounted
 	tac_reloads = FALSE
-	ejection_angle_offset = -90
+	ejection_angle_offset = 90
 
 /obj/item/gun/ballistic/automatic/yanao_tripod/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
+	AddComponent(/datum/component/scope, range_modifier = 1.5)
 	AddComponent(/datum/component/deployable_turret, 3 SECONDS, /obj/vehicle/ridden/mounted_turret, 'sound/items/tools/ratchet.ogg', 'modular_doppler/modular_weapons/icons/obj/mounted.dmi')
+
+/obj/item/gun/ballistic/automatic/yanao_tripod/attack_hand(mob/user, list/modifiers)
+	var/user_interactable = user.is_holding(src) || istype(loc, /obj/vehicle/ridden/mounted_turret)
+	if(!internal_magazine && user_interactable && magazine)
+		eject_magazine(user)
+		return
+	return ..()
 
 /obj/item/gun/ballistic/automatic/yanao_tripod/spawns_empty
 	spawnwithmagazine = FALSE
