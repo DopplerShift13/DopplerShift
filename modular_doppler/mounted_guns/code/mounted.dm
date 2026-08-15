@@ -66,6 +66,7 @@
 	RegisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE, PROC_REF(check_if_in_arc))
 	RegisterSignal(stored_gun, COMSIG_ATOM_UPDATE_ICON, PROC_REF(update_turret_look))
 	name = stored_gun.name
+	desc = stored_gun.desc
 	update_turret_look()
 	update_appearance()
 
@@ -156,6 +157,10 @@
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 		vision_distance = COMBAT_MESSAGE_RANGE,
 	)
+
+/obj/vehicle/ridden/mounted_turret/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
+	. = ..()
+	stored_gun.dropped(buckled_mob)
 
 /obj/vehicle/ridden/mounted_turret/unbuckle_feedback(mob/living/being_unbuckled, mob/unbuckler)
 	if(being_unbuckled == unbuckler)

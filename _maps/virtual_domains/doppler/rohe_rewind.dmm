@@ -11,16 +11,16 @@
 	id = "rohe_the_hounds"
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "bp" = (
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "cO" = (
 /turf/open/floor/iron/crag_concrete,
 /area/virtual_domain/safehouse)
 "dD" = (
 /turf/open/floor/iron/crag_concrete,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "dJ" = (
 /obj/structure/railing{
 	dir = 8
@@ -36,22 +36,38 @@
 /obj/structure/steps/directional/east,
 /turf/open/floor/iron/crag_concrete/smooth,
 /area/virtual_domain/safehouse)
+"fH" = (
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain)
 "gh" = (
 /obj/structure/platform/crag_sand/concrete,
 /turf/open/floor/iron/crag_concrete,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "gw" = (
 /turf/template_noop,
 /area/template_noop)
 "gA" = (
 /turf/closed/wall/mineral/nanocarbon/standard,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"gI" = (
+/obj/structure/fluff/streetlamp/destroyed,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
 "gM" = (
 /obj/effect/turf_decal/stripes/red/corner{
 	dir = 1
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"gP" = (
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
 "gV" = (
 /obj/structure/shuttle_decoration/aux_engine/directional/east,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
@@ -61,7 +77,7 @@
 	dir = 8
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "hb" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/medical_or_research,
 /turf/open/floor/iron/crag_concrete/smooth,
@@ -71,11 +87,15 @@
 	amount = 15
 	},
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "iv" = (
 /obj/item/nanocarbon_shard,
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"iw" = (
+/obj/machinery/light/red/directional/west,
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain)
 "iy" = (
 /obj/structure/shuttle_decoration/eva_catwalks/directional/east,
 /obj/machinery/door/poddoor/shutters/window/indestructible/preopen,
@@ -85,17 +105,34 @@
 /obj/structure/platform/crag_sand,
 /obj/item/stack/ore/crag_sand,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "jm" = (
 /obj/structure/shuttle_decoration/wall_plate/armor/diagonal{
 	dir = 1
 	},
 /turf/closed/wall/mineral/nanocarbon/blue,
 /area/virtual_domain/safehouse)
+"jw" = (
+/obj/structure/shelf,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain)
+"km" = (
+/obj/item/stack/ore/crag_sand,
+/obj/structure/marker_beacon/yellow,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
 "kA" = (
 /obj/item/stack/sheet/mineral/wood/fifty,
+/obj/machinery/light/red/directional/east,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "kL" = (
 /turf/closed/wall/mineral/nanocarbon/blue,
 /area/virtual_domain/safehouse)
@@ -113,15 +150,20 @@
 /obj/structure/barricade/wooden,
 /obj/structure/barricade/wooden/crude,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "mv" = (
 /obj/structure/shuttle_decoration/landing_engine/directional/south,
+/obj/structure/shuttle_decoration/headlight/directional/east,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
 /area/virtual_domain/safehouse)
 "mP" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/military,
 /turf/open/floor/iron/crag_concrete/smooth,
 /area/virtual_domain/safehouse)
+"nz" = (
+/obj/machinery/light/red/directional/east,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
 "os" = (
 /obj/structure/chair/comfy/shuttle{
 	dir = 1
@@ -136,7 +178,12 @@
 	dir = 4
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"oM" = (
+/obj/effect/spawner/random/salvage/container_or_crate_or_cargo/construction,
+/obj/machinery/light/red/directional/east,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
 "pB" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/medical_or_research,
 /turf/open/floor/iron/crag_concrete,
@@ -144,20 +191,23 @@
 "pU" = (
 /obj/item/stack/ore/crag_sand,
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "qb" = (
-/obj/structure/shuttle_decoration/headlight/directional/east,
 /obj/structure/window/fulltile/salvage_shuttle,
 /turf/open/floor/plating/nanocarbon,
 /area/virtual_domain/safehouse)
 "qe" = (
 /obj/structure/barricade/wooden,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "qn" = (
-/obj/item/stack/ore/crag_sand,
+/obj/structure/fluff/streetlamp,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"qx" = (
+/obj/structure/shuttle_decoration/headlight/directional/west,
+/turf/closed/wall/crag_concrete,
+/area/virtual_domain)
 "qZ" = (
 /obj/effect/landmark/bitrunning/cache_goal_turf,
 /turf/open/floor/plating/nanocarbon,
@@ -165,14 +215,20 @@
 "ra" = (
 /obj/item/nanocarbon_shard,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"rc" = (
+/obj/structure/platform/crag_sand/concrete,
+/obj/structure/shuttle_decoration/headlight/directional/west,
+/turf/open/floor/iron/crag_concrete,
+/area/virtual_domain)
 "rn" = (
 /obj/effect/baseturf_helper/virtual_domain,
+/obj/structure/shuttle_decoration/headlight/directional/west,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
 /area/virtual_domain/safehouse)
 "rv" = (
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "se" = (
 /obj/machinery/computer,
 /turf/open/floor/plating/nanocarbon,
@@ -184,26 +240,40 @@
 "sU" = (
 /obj/effect/turf_decal/stripes/red/corner,
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "th" = (
-/obj/structure/flora/grass/jungle/b/style_random,
-/obj/effect/baseturf_helper/virtual_domain,
-/turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/obj/item/trash/flare/copper,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
 "tG" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/medical_or_research,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "uC" = (
 /obj/item/storage/medkit/robotic_repair/preemo/stocked,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "vl" = (
 /obj/effect/turf_decal/stripes/red/line{
 	dir = 1
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"vv" = (
+/obj/structure/shuttle_decoration/headlight/directional/east,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
+/area/virtual_domain/safehouse)
+"vF" = (
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain)
+"wf" = (
+/obj/item/ammo_box/magazine/yanao{
+	pixel_x = 7;
+	pixel_y = -6
+	},
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain)
 "wt" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/military,
 /turf/open/floor/iron/crag_concrete,
@@ -211,16 +281,21 @@
 "wN" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/medical_or_research,
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "wO" = (
 /obj/structure/railing{
 	dir = 4
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
 /area/virtual_domain/safehouse)
+"xR" = (
+/obj/effect/spawner/random/salvage/container_or_crate_or_cargo/military,
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain/safehouse)
 "yo" = (
 /turf/closed/wall/crag_concrete,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "yB" = (
 /obj/structure/shuttle_decoration/wall_plate/plastamic{
 	dir = 1
@@ -233,7 +308,7 @@
 /area/virtual_domain/safehouse)
 "yU" = (
 /turf/closed/indestructible/riveted,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "zn" = (
 /obj/item/binoculars,
 /turf/open/floor/plating/aluminum,
@@ -247,7 +322,20 @@
 	id = "rohe_the_hounds"
 	},
 /turf/open/floor/iron/crag_concrete,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"Ah" = (
+/obj/machinery/light/red/directional/west,
+/turf/open/floor/iron/crag_concrete,
+/area/virtual_domain/safehouse)
+"Ar" = (
+/obj/item/stack/ore/crag_sand,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
+"AE" = (
+/obj/structure/flora/grass/jungle/b/style_random,
+/obj/effect/baseturf_helper/virtual_domain,
+/turf/open/misc/crag_sand/normal_atmos,
+/area/virtual_domain)
 "AM" = (
 /obj/machinery/button/door{
 	name = "release the hounds";
@@ -255,14 +343,14 @@
 	id = "rohe_the_hounds"
 	},
 /turf/closed/wall/crag_concrete,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Bg" = (
 /obj/effect/landmark/bitrunning/curiosity_spawn,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Bh" = (
 /turf/open/floor/plating/nanocarbon,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Bz" = (
 /obj/structure/shelf,
 /obj/item/gun/ballistic/automatic/mdni/range{
@@ -283,17 +371,21 @@
 "CP" = (
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
 /area/virtual_domain/safehouse)
+"De" = (
+/obj/structure/marker_beacon/yellow,
+/turf/open/misc/crag_sand/normal_atmos,
+/area/virtual_domain)
 "Dh" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/construction,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Dl" = (
 /obj/structure/platform/crag_sand,
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Dt" = (
 /turf/closed/indestructible/binary,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Er" = (
 /obj/structure/shelf,
 /obj/item/gun/ballistic/automatic/mdni/cqc{
@@ -321,7 +413,7 @@
 "EV" = (
 /obj/structure/flora/grass/jungle/b/style_random,
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "EY" = (
 /obj/structure/closet/crate/shuttle,
 /obj/item/gun/ballistic/automatic/yanao_tripod,
@@ -331,7 +423,7 @@
 	pixel_y = -6
 	},
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Fn" = (
 /obj/item/binoculars{
 	pixel_y = -7;
@@ -342,11 +434,11 @@
 "Fu" = (
 /obj/effect/landmark/bitrunning/cache_spawn,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Fw" = (
 /obj/structure/titanium_structure,
 /turf/open/floor/plating/nanocarbon,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "FE" = (
 /obj/effect/landmark/bitrunning/hololadder_spawn,
 /turf/open/floor/plating/nanocarbon,
@@ -361,19 +453,39 @@
 /obj/item/ammo_box/magazine/sabine/special,
 /obj/item/ammo_box/magazine/sabine/special,
 /obj/item/ammo_box/magazine/sabine/special,
+/obj/machinery/light/red/directional/west,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Gx" = (
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "GQ" = (
 /obj/structure/platform,
 /turf/open/floor/iron/crag_concrete,
 /area/virtual_domain/safehouse)
+"Hi" = (
+/obj/structure/shelf,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain)
+"IM" = (
+/obj/structure/flora/grass/jungle/b/style_random,
+/obj/structure/marker_beacon/yellow,
+/turf/open/misc/crag_sand/normal_atmos,
+/area/virtual_domain)
 "Ju" = (
 /obj/item/nanocarbon_shard,
 /turf/open/floor/plating/nanocarbon,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"JF" = (
+/obj/machinery/light/red/directional/west,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
 "KL" = (
 /obj/effect/landmark/bitrunning/cache_goal_turf,
 /turf/open/floor/plating/aluminum,
@@ -391,7 +503,7 @@
 /obj/item/ammo_box/magazine/yanao/kill_everyone,
 /obj/item/ammo_box/magazine/yanao/kill_everyone,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "KT" = (
 /obj/structure/shuttle_decoration/radiator/directional/east,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
@@ -401,7 +513,7 @@
 /obj/item/storage/backpack/duffelbag/deforest_medkit/stocked,
 /obj/item/storage/medkit/frontier/stocked,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "LF" = (
 /obj/structure/railing{
 	dir = 8
@@ -410,6 +522,7 @@
 /area/virtual_domain/safehouse)
 "Mr" = (
 /obj/structure/shuttle_decoration/landing_engine/directional/north,
+/obj/structure/shuttle_decoration/headlight/directional/east,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
 /area/virtual_domain/safehouse)
 "Nh" = (
@@ -417,29 +530,37 @@
 	dir = 8
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "NB" = (
 /obj/structure/platform/crag_sand,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "NZ" = (
 /obj/structure/flora/grass/jungle/a/style_random,
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Oe" = (
 /obj/effect/turf_decal/stripes/red/line,
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "OF" = (
 /obj/vehicle/ridden/mounted_turret/yanao_mapping{
 	dir = 8
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "OQ" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/construction,
 /turf/open/floor/plating/nanocarbon,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"OU" = (
+/obj/structure/fluff/streetlamp,
+/turf/open/misc/crag_sand/normal_atmos,
+/area/virtual_domain)
+"Pr" = (
+/obj/structure/shuttle_decoration/headlight/directional/west,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
+/area/virtual_domain/safehouse)
 "PQ" = (
 /obj/structure/shelf,
 /obj/item/gun/ballistic/automatic/sabine_carbine,
@@ -450,13 +571,14 @@
 	pixel_y = -7;
 	pixel_x = 3
 	},
+/obj/machinery/light/red/directional/west,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Qw" = (
 /obj/structure/platform/crag_sand,
 /obj/item/stack/ore/crag_sand,
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "QF" = (
 /obj/structure/closet/crate/shuttle/secured,
 /obj/item/storage/medkit/combat_surgeon/stocked,
@@ -474,37 +596,83 @@
 /obj/item/ammo_box/magazine/sabine,
 /obj/item/ammo_box/magazine/sabine,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "RO" = (
 /turf/open/floor/plating/aluminum,
 /area/virtual_domain/safehouse)
+"Sb" = (
+/obj/structure/marker_beacon/yellow,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
+"SF" = (
+/obj/effect/spawner/random/salvage/container_or_crate_or_cargo/military,
+/obj/machinery/light/red/directional/east,
+/turf/open/floor/iron/crag_concrete,
+/area/virtual_domain/safehouse)
 "SR" = (
 /turf/closed/mineral/crag_caldera,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"Td" = (
+/obj/item/trash/flare/copper,
+/turf/open/misc/crag_sand/normal_atmos,
+/area/virtual_domain)
+"Tw" = (
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 5
+	},
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain)
+"TA" = (
+/obj/structure/shelf,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/obj/item/flashlight/flare/copper,
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain)
 "TF" = (
 /obj/effect/turf_decal/stripes/red/corner{
 	dir = 4
 	},
 /turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "TJ" = (
 /obj/effect/mob_spawn/ghost_role/human/virtual_domain/opposing_force,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "TR" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/military,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Uk" = (
 /turf/closed/wall/crag_concrete,
 /area/virtual_domain/safehouse)
 "Vh" = (
 /turf/open/misc/crag_sand/normal_atmos,
 /area/virtual_domain/safehouse)
+"Vk" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
+/obj/machinery/door/poddoor/shutters/window/indestructible/preopen,
+/obj/item/storage/toolbox/mechanical,
+/obj/item/storage/toolbox/mechanical{
+	pixel_x = 5;
+	pixel_y = -6
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/virtual_domain/safehouse)
+"Vx" = (
+/obj/structure/marker_beacon/yellow,
+/turf/open/misc/crag_gravel/normal_atmos,
+/area/virtual_domain/safehouse)
 "VM" = (
 /obj/item/stack/ore/crag_sand,
 /turf/open/floor/plating/nanocarbon,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Wu" = (
 /obj/structure/shelf,
 /obj/item/gun/ballistic/automatic/mdni{
@@ -521,7 +689,12 @@
 "WE" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/salvage,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
+"WF" = (
+/obj/effect/spawner/random/salvage/container_or_crate_or_cargo/medical_or_research,
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/crag_concrete/smooth,
+/area/virtual_domain/safehouse)
 "Xv" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/military,
 /turf/open/misc/crag_gravel/normal_atmos,
@@ -534,11 +707,11 @@
 /obj/structure/barricade/wooden/crude,
 /obj/structure/barricade/wooden,
 /turf/open/misc/crag_gravel/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Yk" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/construction,
 /turf/open/misc/crag_sand/normal_atmos,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "YA" = (
 /turf/open/misc/crag_gravel/normal_atmos,
 /area/virtual_domain/safehouse)
@@ -546,9 +719,13 @@
 /obj/structure/shuttle_decoration/rcs/directional/south,
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/blue,
 /area/virtual_domain/safehouse)
+"YP" = (
+/obj/structure/marker_beacon/yellow,
+/turf/open/floor/plating/nanocarbon,
+/area/virtual_domain)
 "Zk" = (
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/standard,
-/area/virtual_domain/fullbright)
+/area/virtual_domain)
 "Zo" = (
 /obj/structure/closet/crate/shuttle_hard/secured,
 /obj/item/grenade/c4,
@@ -710,11 +887,11 @@ Dt
 gw
 Dt
 CP
-CP
+vv
 KT
 qb
 KT
-CP
+vv
 kL
 Dt
 gw
@@ -910,19 +1087,19 @@ gw
 gw
 Dt
 Uk
-mP
+xR
 ot
 cO
 jm
 rn
+Vk
 iy
 iy
-iy
-CP
+Pr
 zO
 cO
 ot
-hb
+WF
 Uk
 Dt
 gw
@@ -1183,12 +1360,12 @@ SR
 SR
 SR
 bp
-bp
-qn
+gI
+Ar
 bp
 Uk
 wt
-cO
+Ah
 cO
 sI
 GQ
@@ -1288,7 +1465,7 @@ Fw
 Bh
 pU
 bp
-YA
+Vx
 YA
 YA
 cO
@@ -1320,11 +1497,11 @@ NB
 Bh
 Fw
 Bh
-bp
-qn
+Sb
+Ar
 Uk
 Xv
-wt
+SF
 cO
 pB
 pB
@@ -1354,7 +1531,7 @@ NB
 Qw
 Qw
 Gx
-qn
+Ar
 yo
 Uk
 Uk
@@ -1430,7 +1607,7 @@ Dl
 wN
 Dh
 bp
-bp
+gI
 SR
 SR
 SR
@@ -1460,7 +1637,7 @@ iv
 Gx
 Gx
 Gx
-th
+AE
 Gx
 EV
 Gx
@@ -1498,7 +1675,7 @@ Gx
 Gx
 Gx
 NZ
-Bh
+YP
 Bh
 iP
 NB
@@ -1525,9 +1702,9 @@ Dh
 Bh
 iv
 Gx
+Sb
 bp
-bp
-bp
+qn
 Dh
 bp
 bp
@@ -1634,7 +1811,7 @@ SR
 SR
 SR
 SR
-qn
+km
 iv
 EV
 bp
@@ -1671,7 +1848,7 @@ SR
 NB
 pU
 Gx
-bp
+qn
 bp
 SR
 SR
@@ -1773,7 +1950,7 @@ SR
 bp
 EV
 Gx
-bp
+Sb
 bp
 SR
 SR
@@ -1943,7 +2120,7 @@ Gx
 Gx
 NZ
 Gx
-bp
+Sb
 SR
 SR
 SR
@@ -2032,7 +2209,7 @@ SR
 bp
 bp
 bp
-bp
+qn
 Gx
 EV
 Qw
@@ -2044,7 +2221,7 @@ Dl
 Qw
 Gx
 Gx
-Gx
+OU
 bp
 bp
 SR
@@ -2071,9 +2248,9 @@ Gx
 Gx
 Dl
 Gx
+De
 Gx
-Gx
-EV
+IM
 Gx
 Dl
 Gx
@@ -2103,13 +2280,13 @@ Gx
 Gx
 Gx
 Gx
+De
 Gx
 Gx
 Gx
 Gx
 Gx
-Gx
-Gx
+De
 EV
 Gx
 Gx
@@ -2212,7 +2389,7 @@ Gx
 Gx
 Gx
 Gx
-Gx
+De
 Zk
 Fw
 Fw
@@ -2233,7 +2410,7 @@ SR
 SR
 SR
 bp
-qn
+Ar
 Qw
 Dl
 Dl
@@ -2248,7 +2425,7 @@ NZ
 Gx
 Fw
 Zk
-Bh
+YP
 Ju
 bp
 bp
@@ -2271,14 +2448,14 @@ bp
 Dl
 pU
 Gx
+De
+Gx
+De
 Gx
 Gx
 Gx
 Gx
-Gx
-Gx
-Gx
-Gx
+Td
 Gx
 Bh
 gA
@@ -2302,7 +2479,7 @@ SR
 SR
 bp
 bp
-Gx
+De
 Gx
 NZ
 Gx
@@ -2320,7 +2497,7 @@ Gx
 bp
 bp
 Ju
-Bh
+YP
 Zk
 SR
 SR
@@ -2341,7 +2518,7 @@ EV
 Gx
 Gx
 Gx
-Gx
+Td
 Gx
 Gx
 Gx
@@ -2416,7 +2593,7 @@ Gx
 Gx
 Gx
 Gx
-Gx
+De
 Fw
 Fw
 bp
@@ -2446,17 +2623,17 @@ Gx
 Gx
 Gx
 Gx
-Gx
+Td
 EV
 Gx
 Gx
 Gx
 Fw
-Bh
+YP
 Gx
 bp
 bp
-Bh
+YP
 SR
 SR
 SR
@@ -2471,7 +2648,7 @@ SR
 SR
 SR
 bp
-bp
+th
 bp
 Gx
 Gx
@@ -2625,7 +2802,7 @@ Gx
 Gx
 Gx
 Gx
-bp
+th
 bp
 bp
 SR
@@ -2652,7 +2829,7 @@ dD
 gh
 rv
 OF
-rv
+wf
 gh
 dD
 Gx
@@ -2714,7 +2891,7 @@ dD
 dD
 dD
 dD
-yo
+qx
 yo
 dD
 dD
@@ -2724,7 +2901,7 @@ rv
 dD
 dD
 yo
-yo
+qx
 dD
 dD
 dD
@@ -2744,25 +2921,25 @@ SR
 yo
 yo
 gh
-gh
+rc
 gh
 gh
 gh
 yo
 yo
 yo
-gh
+rc
 dD
 dD
 dD
-gh
+rc
 yo
 yo
 yo
 gh
 gh
 gh
-gh
+rc
 gh
 yo
 yo
@@ -2784,7 +2961,7 @@ rv
 rv
 yo
 yo
-rv
+TA
 rv
 rv
 rv
@@ -2849,7 +3026,7 @@ rv
 rv
 rv
 rv
-rv
+jw
 yo
 rv
 rv
@@ -2861,7 +3038,7 @@ yo
 rv
 rv
 yo
-rv
+Hi
 rv
 rv
 rv
@@ -2880,12 +3057,12 @@ SR
 SR
 yo
 yo
-yo
+qx
 dD
 yo
 yo
 yo
-rv
+fH
 rv
 yo
 sU
@@ -2893,12 +3070,12 @@ ow
 TF
 yo
 rv
-rv
+vF
 yo
 yo
 yo
 dD
-yo
+qx
 yo
 yo
 SR
@@ -2916,7 +3093,7 @@ SR
 SR
 rv
 rv
-rv
+iw
 yo
 yo
 dD
@@ -2930,7 +3107,7 @@ dD
 dD
 yo
 yo
-rv
+iw
 rv
 rv
 SR
@@ -3060,7 +3237,7 @@ bp
 bp
 bp
 bp
-bp
+gP
 bp
 bp
 bp
@@ -3088,7 +3265,7 @@ bp
 bp
 bp
 bp
-bp
+Tw
 bp
 bp
 bp
@@ -3118,22 +3295,22 @@ SR
 SR
 SR
 bp
+nz
 bp
 bp
 bp
-bp
-bp
+nz
 hd
 bp
 bp
-Dh
+oM
 yo
-bp
+nz
 bp
 bp
 kA
 yo
-Dh
+oM
 bp
 bp
 SR
@@ -3194,14 +3371,14 @@ Gw
 yo
 bp
 bp
-bp
+JF
 yo
+JF
 bp
 bp
-bp
-bp
+JF
 yo
-bp
+JF
 bp
 bp
 SR

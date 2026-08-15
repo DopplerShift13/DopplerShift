@@ -17,7 +17,9 @@
 	r_pocket = /obj/item/storage/medkit/civil_defense/stocked
 	suit_store = /obj/item/gun/ballistic/automatic/sabine_carbine
 	backpack_contents = list(
+		/obj/item/trench_tool,
 		/obj/item/storage/medkit/combat_surgeon/stocked,
+		/obj/item/flashlight,
 	)
 	belt_contents = list(
 		/obj/item/ammo_box/magazine/sabine,
@@ -47,5 +49,10 @@
 	l_pocket = /obj/item/knife/combat
 	r_pocket = /obj/item/storage/medkit/civil_defense/stocked
 	suit_store = null
-	backpack_contents = list()
+	backpack_contents = list(
+		/obj/item/trench_tool,
+		/obj/item/flashlight/seclite,
+		/obj/item/flashlight/flare,
+		/obj/item/flashlight/flare,
+	)
 	belt_contents = list()
