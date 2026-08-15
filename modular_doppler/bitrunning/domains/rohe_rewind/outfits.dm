@@ -40,7 +40,7 @@
 	glasses = /obj/item/clothing/glasses/mining_meson/up
 	gloves = /obj/item/clothing/gloves/doppler_cargo/fingerless
 	head = /obj/item/clothing/head/helmet/rohe
-	mask = /obj/item/clothing/mask/gas
+	mask = /obj/item/clothing/mask/gas/breach
 	neck = null
 	shoes = /obj/item/clothing/shoes/workboots/mining
 

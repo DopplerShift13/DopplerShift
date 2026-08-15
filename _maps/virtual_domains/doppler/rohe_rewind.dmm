@@ -186,9 +186,10 @@
 /turf/open/floor/iron/crag_concrete/smooth,
 /area/virtual_domain/fullbright)
 "th" = (
+/obj/structure/flora/grass/jungle/b/style_random,
 /obj/effect/baseturf_helper/virtual_domain,
-/turf/open/floor/iron/crag_concrete/smooth,
-/area/virtual_domain/safehouse)
+/turf/open/misc/crag_sand/normal_atmos,
+/area/virtual_domain/fullbright)
 "tG" = (
 /obj/effect/spawner/random/salvage/container_or_crate_or_cargo/medical_or_research,
 /turf/open/misc/crag_gravel/normal_atmos,
@@ -1015,7 +1016,7 @@ hb
 ot
 ot
 ot
-th
+ot
 ot
 ot
 ot
@@ -1459,7 +1460,7 @@ iv
 Gx
 Gx
 Gx
-EV
+th
 Gx
 EV
 Gx

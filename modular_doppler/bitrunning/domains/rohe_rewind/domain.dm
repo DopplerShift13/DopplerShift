@@ -13,8 +13,6 @@
 	difficulty = BITRUNNER_DIFFICULTY_MEDIUM
 	reward_points = BITRUNNER_REWARD_HIGH
 	spawner_role = "military opposing force"
-	mission_min_candidates = 1
-	mission_max_candidates = 4
 	secondary_loot = list(
 		/obj/item/clothing/head/helmet/rohe = 1,
 		/obj/item/bitrunning_disk/item/sabine = 1,

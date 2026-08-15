@@ -14,7 +14,7 @@
 	RegisterSignal(src, COMSIG_RANGED_ITEM_INTERACTING_WITH_ATOM_SECONDARY, PROC_REF(check_scope_interact))
 
 /obj/item/doppler_turret_offhand/dropped(mob/user)
-	turret.stored_gun.dropped(user)
+	turret?.stored_gun.dropped(user)
 	. = ..()
 
 /obj/item/doppler_turret_offhand/equipped(mob/user, slot)

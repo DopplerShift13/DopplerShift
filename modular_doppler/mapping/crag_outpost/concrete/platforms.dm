@@ -38,8 +38,13 @@
 
 /obj/structure/platform/crag_sand/CanAllowThrough(atom/movable/mover, border_dir)
 	. = ..()
-	if((mover.pass_flags & PASSGRILLE) || isprojectile(mover))
-		return prob(embankment_cover_chance)
+	if(isprojectile(mover))
+		var/obj/projectile/proj = mover
+		if(proj.firer && Adjacent(proj.firer))
+			return TRUE
+		if(!prob(embankment_cover_chance))
+			return TRUE
+		return FALSE
 
 /obj/structure/platform/crag_sand/concrete
 	name = "eclogiticrete embankment"
