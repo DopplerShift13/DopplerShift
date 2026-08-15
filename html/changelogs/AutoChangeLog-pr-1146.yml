@@ -1,5 +1,0 @@
-author: "TheOneAndOnlyCreeperJoe"
-delete-after: True
-changes:
-  - bugfix: "Fixed naga tails rendering on the wrong layer when facing the front, resulting in naga-specific clothing not being visible"
-  - bugfix: "Breasts now update properly when changing your undersuit slot."

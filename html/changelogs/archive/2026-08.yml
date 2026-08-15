@@ -85,3 +85,8 @@
 2026-08-14:
   firebudgy:
   - bugfix: Alternative dragon wings now available, again.
+2026-08-15:
+  TheOneAndOnlyCreeperJoe:
+  - bugfix: Fixed naga tails rendering on the wrong layer when facing the front, resulting
+      in naga-specific clothing not being visible
+  - bugfix: Breasts now update properly when changing your undersuit slot.
