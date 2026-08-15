@@ -36,7 +36,6 @@
 /obj/item/gun/ballistic/automatic/yanao_tripod/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
-	AddComponent(/datum/component/scope, range_modifier = 1.5)
 	AddComponent(/datum/component/deployable_turret, 3 SECONDS, /obj/vehicle/ridden/mounted_turret, 'sound/items/tools/ratchet.ogg', 'modular_doppler/modular_weapons/icons/obj/mounted.dmi')
 
 /obj/item/gun/ballistic/automatic/yanao_tripod/attack_hand(mob/user, list/modifiers)

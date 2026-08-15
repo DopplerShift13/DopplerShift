@@ -15,6 +15,8 @@
 	var/disassembly_sound = 'sound/items/tools/change_jaws.ogg'
 	/// Can this be disassembled easily?
 	var/can_be_removed = TRUE
+	/// What extra view range do we give to mobs that hop on
+	var/view_range = 3
 
 /obj/vehicle/ridden/mounted_turret/Initialize(mapload)
 	. = ..()
@@ -158,8 +160,15 @@
 		vision_distance = COMBAT_MESSAGE_RANGE,
 	)
 
+/obj/vehicle/ridden/mounted_turret/user_buckle_mob(mob/living/buckled_mob, mob/user, check_loc = TRUE)
+	. = ..()
+	if(buckled_mob.client)
+		buckled_mob.client.view_size.setTo(view_range)
+
 /obj/vehicle/ridden/mounted_turret/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
 	. = ..()
+	if(buckled_mob.client)
+		buckled_mob.client.view_size.resetToDefault()
 	stored_gun.dropped(buckled_mob)
 
 /obj/vehicle/ridden/mounted_turret/unbuckle_feedback(mob/living/being_unbuckled, mob/unbuckler)
