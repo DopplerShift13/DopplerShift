@@ -1225,7 +1225,7 @@
 "JQ" = (
 /obj/effect/step_trigger/teleporter/offset{
 	teleport_x_offset = 8;
-	teleport_y_offset = 23
+	teleport_y_offset = 22
 	},
 /obj/effect/light_emitter/thunderdome,
 /turf/open/mirage{
