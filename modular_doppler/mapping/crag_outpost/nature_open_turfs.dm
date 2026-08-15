@@ -35,6 +35,10 @@
 /turf/open/water/superketone/GetTemperature()
 	. = TCMB * 2
 
+/turf/open/water/superketone/normal_atmos
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+	baseturfs = /turf/open/water/superketone/normal_atmos
+
 /turf/open/water/sulfur_spring
 	name = "sulfurous spring"
 	desc = "A boiling pool of sulfurous water. You get a really good feeling this isn't the kind you lounge around in."
@@ -47,7 +51,7 @@
 	planetary_atmos = TRUE
 	gender = PLURAL
 	baseturfs = /turf/open/water/sulfur_spring
-	fishing_datum = /datum/fish_source/sulfur_spring
+	fishing_datum = null
 	/// If this spring is harmful or not
 	var/harmful = TRUE
 	/// What kind of particles does this turf use. Use normal steam particles for the indoors variant
@@ -139,7 +143,7 @@
 /turf/open/water/sulfur_spring/lavaland
 	planetary_atmos = TRUE
 	initial_gas_mix = LAVALAND_DEFAULT_ATMOS
-	baseturfs = /turf/open/water/sulfur_spring
+	baseturfs = /turf/open/water/sulfur_spring/lavaland
 
 /turf/open/water/sulfur_spring/deep
 	name = "deep sulfurous spring"
@@ -176,7 +180,7 @@
 	immerse_overlay = "immerse_deep"
 	smoothing_groups = SMOOTH_GROUP_SULFUR_SPRING_DEEP
 	canSmoothWith = SMOOTH_GROUP_SULFUR_SPRING_DEEP
-	baseturfs = /turf/open/water/sulfur_spring/deep
+	baseturfs = /turf/baseturf_bottom
 
 /turf/open/misc/bacteria
 	name = "bacterial mat"
@@ -208,6 +212,9 @@
 	. = ..()
 	MakeSlippery(TURF_WET_WATER, INFINITY, 0, INFINITY, TRUE, FALSE)
 
+/turf/open/misc/bacteria/normal_atmos
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
+
 /turf/open/misc/crag_gravel
 	name = "eclogitic turf"
 	desc = "Eclogitic rock commonly found in Crag's calderas and craters, as well as under the surface beneath the layers of \
@@ -232,6 +239,9 @@
 	rust_resistance = RUST_RESISTANCE_REINFORCED
 	pixel_x = MAP_SWITCH(0, -16)
 	pixel_y = MAP_SWITCH(0, -16)
+
+/turf/open/misc/crag_gravel/normal_atmos
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS
 
 /turf/open/misc/crag_sand
 	name = "eclogitic sand"
@@ -261,3 +271,6 @@
 /turf/open/misc/crag_sand/Initialize(mapload)
 	. = ..()
 	AddElement(/datum/element/diggable, /obj/item/stack/ore/crag_sand, 2)
+
+/turf/open/misc/crag_sand/normal_atmos
+	initial_gas_mix = OPENTURF_DEFAULT_ATMOS

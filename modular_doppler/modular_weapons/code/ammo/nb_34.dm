@@ -99,7 +99,7 @@
 	desc = "An eight round magazine for the NW-Sabine carabina, fitted with a special locking mechanism to stop people like you \
 		from trying to put them into a Marcielle. It won't fit. Don't try."
 	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
-	icon_state = "marcielle_mag"
+	icon_state = "sabine_mag"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	w_class = WEIGHT_CLASS_TINY
 	ammo_type = /obj/item/ammo_casing/c34nb
