@@ -77,7 +77,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS
 	can_adjust = FALSE
 	resistance_flags = FIRE_PROOF
-	armor_type = /datum/armor/colonist_clothing
+	armor_type = /datum/armor/clothing_under
 
 /obj/item/clothing/under/rohe/evil
 	name = "kaitiaki uniform"
