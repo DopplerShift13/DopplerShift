@@ -1,7 +1,7 @@
 // Tripod machine gun
 /obj/item/gun/ballistic/automatic/yanao_tripod
-	name = "tripod Yanao-I6 machine gun"
-	desc = "Locally produced within Cruesoe's Rest and proudly so from a factory on New Gibraltar, the Yanao is a hefty open bolt machine gun \
+	name = "tripod Yanao-I6 chaingun"
+	desc = "Locally produced within Cruesoe's Rest and proudly so from a factory on New Gibraltar, the Yanao is a hefty open bolt chaingun \
 		that fires from a continuous belt of .34 NB. The kickback caused by such a round, combined with the high fire rate, \
 		make mounting the gun on its tripod a necessity before firing."
 	icon = 'modular_doppler/modular_weapons/icons/obj/guns48x.dmi'
