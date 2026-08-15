@@ -1,0 +1,4 @@
+author: "carda-sometimesknownas-paxilmaniac"
+delete-after: True
+changes:
+  - bugfix: "salvage collector fields will no longer be disrupted on some station designs"
