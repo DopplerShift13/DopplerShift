@@ -605,6 +605,9 @@
 		. += "Criminal status: [wanted_status]"
 	. += "Important Notes: [security_note]"
 	. += "Security record: <a href='byond://?src=[REF(src)];hud=s;view=1;examine_time=[world.time]'>\[View\]</a>"
+	// DOPPLER EDIT ADDITION BEGIN - Adds the ability for sechuds to see powers.
+	. += "<a href='byond://?src=[REF(src)];hud=s;powers=1;examine_time=[world.time]'>\[Show powers\]</a>"
+	// DOPPLER EDIT ADDITION END
 	if(ishuman(user))
 		. += "<a href='byond://?src=[REF(src)];hud=s;add_citation=1;examine_time=[world.time]'>\[Add citation\]</a>\
 			<a href='byond://?src=[REF(src)];hud=s;add_crime=1;examine_time=[world.time]'>\[Add crime\]</a>\

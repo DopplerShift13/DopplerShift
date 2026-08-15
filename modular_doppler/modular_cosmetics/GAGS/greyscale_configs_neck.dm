@@ -102,6 +102,17 @@
 	name = "Tesharian Mantle (Worn, Teshari)"
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/tesharian_mantle_worn_teshari.json'
 
+/datum/greyscale_config/shoulder_cloak_redmars
+	name = "Shoulder Cloak (Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/shoulder_cloak_redmars.json'
+
+/datum/greyscale_config/shoulder_cloak_redmars/worn
+	name = "Shoulder Cloak (Worn, Red Mars)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/shoulder_cloak_redmars_worn.json'
+
+
 ///////////
 //SCARVES//
 ///////////

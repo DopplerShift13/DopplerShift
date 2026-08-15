@@ -120,6 +120,7 @@
 #define FEATURE_FLUFF_COLORS "fluff_colors"
 #define FEATURE_POD_HAIR_COLORS "pod_hair_colors"
 #define FEATURE_SYNTHETIC_CHARGING_METHOD "synthetic_charging_method"
+#define FEATURE_HOLO_COLOR "holo_color"
 // DOPPLER FEATURES END
 
 // Other
@@ -165,6 +166,10 @@
 #define ORGAN_SLOT_TONGUE "tongue"
 #define ORGAN_SLOT_VOICE "vocal_cords"
 #define ORGAN_SLOT_ZOMBIE "zombie_infection"
+
+// DOPPLER ADDITION START - Power-based organs
+#define ORGAN_SLOT_PSYKER "psyker_organ"
+// DOPPLER ADDITION END
 
 /// Organ slot external
 #define ORGAN_SLOT_EXTERNAL_TAIL "tail"
@@ -238,6 +243,7 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_XENO_ACIDGLAND,
 	ORGAN_SLOT_XENO_NEUROTOXINGLAND,
 	ORGAN_SLOT_XENO_EGGSAC,
+	ORGAN_SLOT_PSYKER, // DOPPLER ADDITION: Adds the psyker organ from powers to organ lists.
 ))
 
 // Defines for used in creating "perks" for the species preference pages.

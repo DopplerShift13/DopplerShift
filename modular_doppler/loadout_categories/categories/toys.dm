@@ -85,6 +85,10 @@
 	item_path = /obj/item/instrument/harmonica
 	restricted_roles =  list(JOB_PRISONER)
 
+/datum/loadout_item/toy/wargame_kit
+	name = "Portable Holographic Wargame Kit"
+	item_path = /obj/item/storage/briefcase/secure/wargame_kit
+
 /// Plushie blast
 
 /datum/loadout_item/toy/plush

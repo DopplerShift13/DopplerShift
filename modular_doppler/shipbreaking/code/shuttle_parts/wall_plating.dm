@@ -40,11 +40,11 @@
 	SIGNAL_HANDLER
 	if(leaving == src)
 		return // Let's not block ourselves.
-	if(!(direction & dir))
+	if(!(direction & dir) && (dir in GLOB.cardinals))
 		return
 	if (!density)
 		return
-	if (leaving.movement_type & (PHASING))
+	if (leaving.movement_type & MOVETYPES_NOT_TOUCHING_GROUND)
 		return
 	if (leaving.move_force >= MOVE_FORCE_EXTREMELY_STRONG)
 		return

@@ -20,4 +20,5 @@
 /obj/effect/mob_spawn/ghost_role/human/create(mob/mob_possessor, newname)
 	. = ..()
 	var/mob/living/carbon/human/spawned_mob = .
-	spawned_mob?.dna.species.regenerate_organs(spawned_mob)
+	// Doing a full organ regeneration here wipes organ-based augments that were just granted on spawn by powers.
+	spawned_mob?.dna.species.regenerate_organs(spawned_mob, replace_current = FALSE, visual_only = TRUE)

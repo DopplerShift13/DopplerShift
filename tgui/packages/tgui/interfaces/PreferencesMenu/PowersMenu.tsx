@@ -1,113 +1,258 @@
-import { Box, Button, Image, Section, Stack } from 'tgui-core/components';
+/*
+  Front-end page that shows all the possible powers options, and redirects to PowerPathPage.tsx when displaying any of them.
+*/
+
+import { Box, Button, Section, Stack } from 'tgui-core/components';
 
 import { resolveAsset } from '../../assets';
 import { useBackend } from '../../backend';
-import { PreferencesMenuData } from './types';
-
-export const Powers = (props) => {
-  const { act } = useBackend<PreferencesMenuData>();
-  return (
-    <Stack.Item
-      style={{
-        opacity: props.power.color,
-      }}
-    >
-      <Section title={props.power.name}>
-        {props.power.description}
-        <br />
-        <br />
-        <b>{'Cost: ' + props.power.cost}</b>
-        <br />
-      </Section>
-
-      <Button
-        icon={props.power.powertype}
-        color={props.power.state}
-        tooltip={props.power.rootpower}
-        tooltipPosition="right"
-        onClick={() => {
-          if (props.power.state === 'bad') {
-            act('remove_power', { power_name: props.power.name });
-          } else {
-            act('give_power', { power_name: props.power.name });
-          }
-        }}
-      >
-        {props.power.word} <Box />
-      </Button>
-    </Stack.Item>
-  );
-};
+import { mergePowerPathData } from './PowerData';
+import {
+  getPowerPathData,
+  getPowerArchetypes,
+  getPowerCatalogData,
+} from './PowerPathBridge';
+import type { Power, PowerPathId, PreferencesMenuData } from './types';
 
 type PowerPageProps = {
-  handleOpenMortal: () => void;
-  handleOpenSorcerous: () => void;
-  handleOpenResonant: () => void;
+  handleOpenSelectedPowers: () => void;
+  handleOpenPath: (pathId: PowerPathId) => void;
 };
 
-function Gap(props: { amount: number }) {
-  // 0.2em comes from the padding-bottom in the department listing
-  return <Box height={`calc(${props.amount}px + 0.2em)`} />;
+type PathCategoryEntry = {
+  assetName?: string;
+  color: string;
+  isActive: boolean;
+  isAvailable: boolean;
+  name: string;
+  overviewText: string;
+  onClick?: () => void;
+};
+
+type PathLandingEntry = {
+  categories: PathCategoryEntry[];
+  name: string;
+};
+
+const inactiveIconColor = 'rgba(220, 224, 230, 0.7)';
+const activeIconColor = '#f3f6fb';
+const inactiveIconBorderColor = 'rgba(255, 255, 255, 0.28)';
+const activeIconBorderColor = 'rgba(255, 255, 255, 0.72)';
+const inactiveIconInsetBorderColor = 'rgba(255, 255, 255, 0.04)';
+const activeIconInsetBorderColor = 'rgba(255, 255, 255, 0.18)';
+const defaultIconBackground =
+  'linear-gradient(180deg, rgba(255, 255, 255, 0.08), rgba(255, 255, 255, 0.02))';
+const iconButtonSize = '72px';
+const iconImageSize = '64px';
+
+function PathIconButton(props: PathCategoryEntry) {
+  const { assetName, color, isActive, isAvailable, name, onClick, overviewText } =
+    props;
+  const isClickable = Boolean(isAvailable && onClick);
+  const buttonBackground =
+    isActive && color
+      ? `linear-gradient(180deg, ${color}, ${color})`
+      : defaultIconBackground;
+  const borderColor = isActive
+    ? activeIconBorderColor
+    : inactiveIconBorderColor;
+  const insetBorderColor = isActive
+    ? activeIconInsetBorderColor
+    : inactiveIconInsetBorderColor;
+  const unavailableTooltip = `${name} is not available`;
+  const tooltipContent = (
+    <Box style={{ textAlign: 'center' }}>
+      <Box style={{ fontWeight: 700 }}>{name}</Box>
+      <Box style={{ fontStyle: 'italic' }}>
+        {isClickable ? overviewText : unavailableTooltip}
+      </Box>
+    </Box>
+  );
+
+  return (
+    <Button
+      color="transparent"
+      disabled={!isClickable}
+      onClick={onClick}
+      tooltip={tooltipContent}
+      tooltipPosition="top"
+      style={{
+        alignItems: 'center',
+        background: buttonBackground,
+        border: `1px solid ${borderColor}`,
+        boxShadow: `0 0 0 1px ${insetBorderColor} inset`,
+        color: isClickable ? activeIconColor : inactiveIconColor,
+        cursor: isClickable ? 'pointer' : 'default',
+        display: 'flex',
+        height: iconButtonSize,
+        justifyContent: 'center',
+        minWidth: iconButtonSize,
+        opacity: isClickable ? 1 : 0.5,
+        padding: '0px',
+        width: iconButtonSize,
+      }}
+    >
+      {assetName ? (
+        <Box
+          as="span"
+          style={{
+            // These source icons are authored as white silhouettes so the tile color, not the asset itself, carries the path identity.
+            backgroundImage: `url("${resolveAsset(assetName)}")`,
+            backgroundPosition: 'center',
+            backgroundRepeat: 'no-repeat',
+            backgroundSize: 'contain',
+            display: 'block',
+            filter: 'brightness(0) saturate(100%) invert(100%)',
+            margin: 'auto',
+            opacity: isClickable ? 0.92 : 0.42,
+            height: iconImageSize,
+            width: iconImageSize,
+          }}
+        />
+      ) : (
+        <Box
+          as="span"
+          style={{
+            border: `1px solid ${borderColor}`,
+            display: 'block',
+            height: '1.6rem',
+            opacity: 0.7,
+            width: '1.6rem',
+          }}
+        />
+      )}
+    </Button>
+  );
+}
+
+function PathLandingRow(props: PathLandingEntry) {
+  const { categories, name } = props;
+
+  return (
+    <Section
+      fill
+      title={name}
+      textAlign="center"
+      style={{
+        background:
+          'linear-gradient(180deg, rgba(28, 31, 38, 0.92), rgba(18, 20, 26, 0.95))',
+        border: '1px solid rgba(255, 255, 255, 0.14)',
+      }}
+    >
+      <Stack g={1} justify="center">
+        {categories.map((categoryEntry) => (
+          <Stack.Item key={`${name}-${categoryEntry.name}`}>
+            <PathIconButton {...categoryEntry} />
+          </Stack.Item>
+        ))}
+      </Stack>
+    </Section>
+  );
 }
 
 export const PowersPage = (props: PowerPageProps) => {
   const { data } = useBackend<PreferencesMenuData>();
+  const powerCatalogData = getPowerCatalogData();
+  const powerArchetypes = getPowerArchetypes(powerCatalogData);
+  if (!powerCatalogData) {
+    return null;
+  }
+
+  const mergedPowerPaths = mergePowerPathData(
+    powerCatalogData.power_paths,
+    data.power_state_paths,
+  );
+
+  const hasAnySelectedPower = (powers: Power[]) =>
+    powers.some((powerEntry) => powerEntry.has_power);
+
+  // Landing rows stay data-driven so adding or reordering paths only requires touching shared path config rather than rewriting the layout component.
+  const pathRows: PathLandingEntry[] = powerArchetypes.map(
+    (archetypeData) => ({
+      categories: archetypeData.pathIds.map((pathId) => {
+        const pathConfig = getPowerPathData(powerCatalogData, pathId);
+        return {
+          assetName: pathConfig.iconAssetName,
+          color: pathConfig.themeColor,
+          isActive: hasAnySelectedPower(mergedPowerPaths[pathId] || []),
+          isAvailable: pathConfig.isAvailable,
+          name: pathConfig.displayName,
+          overviewText: pathConfig.overviewText,
+          onClick: pathConfig.isAvailable
+            ? () => props.handleOpenPath(pathId)
+            : undefined,
+        };
+      }),
+      name: archetypeData.title,
+    }),
+  );
+
   return (
-    <Stack vertical>
-      <Gap amount={80} />
-      <Stack align="center" fill justify="center">
-        <Stack.Item align="center" maxWidth="33%">
-          <Stack align="center" vertical>
-            <Image
-              onClick={props.handleOpenSorcerous}
-              src={resolveAsset('seal.png')}
-              align="center"
-              width={20}
-            />
+    <Stack fill justify="center" pt={2}>
+      <Stack.Item grow={0} maxWidth="940px" width="100%">
+        <Section
+          fill
+          style={{
+            background:
+              'linear-gradient(180deg, rgba(16, 18, 24, 0.96), rgba(10, 12, 18, 0.98))',
+            border: '1px solid rgba(255, 255, 255, 0.14)',
+          }}
+        >
+          <Stack vertical g={2}>
+            <Stack.Item>
+              <Box
+                style={{
+                  fontSize: '1.55rem',
+                  fontWeight: 600,
+                  letterSpacing: '0.04em',
+                  textAlign: 'center',
+                }}
+              >
+                {data.power_points}/{powerCatalogData.total_power_points}{' '}
+                points spent
+              </Box>
+            </Stack.Item>
+            <Stack.Item>
+              <Box
+                color="label"
+                style={{
+                  letterSpacing: '0.05em',
+                  textAlign: 'center',
+                  textTransform: 'uppercase',
+                }}
+              >
+                Select a path to view and assign powers
+              </Box>
+            </Stack.Item>
+            <Stack.Item>
+              <Stack justify="center">
+                <Stack.Item>
+                  <Button
+                    color="default"
+                    onClick={props.handleOpenSelectedPowers}
+                    style={{
+                      justifyContent: 'center',
+                      minWidth: '180px',
+                      textAlign: 'center',
+                    }}
+                  >
+                    Show Your Powers
+                  </Button>
+                </Stack.Item>
+              </Stack>
+            </Stack.Item>
+            <Stack.Item>
+              <Stack vertical g={1.5}>
+                {pathRows.map((pathRow) => (
+                  <Stack.Item key={pathRow.name}>
+                    <PathLandingRow {...pathRow} />
+                  </Stack.Item>
+                ))}
+              </Stack>
+            </Stack.Item>
           </Stack>
-          <Section align="center" title="The Sorcerous">
-            In myths and fables, in times even before technology, particularly
-            studious individuals learned how to unseam realities fabric with the
-            song of the Resonance. Now, though the practices have changed and
-            the myths faded, those dedicated, Sorcerous individuals still bend
-            and break Natures will.
-          </Section>
-        </Stack.Item>
-        <Stack.Item align="center" maxWidth="33%">
-          <Stack align="center" vertical>
-            <Image
-              onClick={props.handleOpenResonant}
-              src={resolveAsset('heart.png')}
-              align="center"
-              width={20}
-            />
-          </Stack>
-          <Section align="center" title="The Resonant">
-            Intense focus, and a spoon slowly bends. Deep meditation as the
-            practicioner exhales fog with every breath, even though the room is
-            warm. A baby born on the eclipse. Despite their differences, all
-            these individuals are Resonant, and inherently flaunt Natures
-            assertions.
-          </Section>
-        </Stack.Item>
-        <Stack.Item align="center" maxWidth="33%">
-          <Stack align="center" vertical>
-            <Image
-              onClick={props.handleOpenMortal}
-              src={resolveAsset('gear.png')}
-              align="center"
-              width={20}
-            />
-          </Stack>
-          <Section align="center" title="The Mortal">
-            A man working the night-shift at a dull outpost. Another running
-            through gunfire to save his comrade; later, that woman offering a
-            folded flag to the man who saved her mother. A scientist pushing the
-            edge of his field; a janitor mopping the floors of that same
-            facility.
-          </Section>
-        </Stack.Item>
-      </Stack>
+        </Section>
+      </Stack.Item>
     </Stack>
   );
 };

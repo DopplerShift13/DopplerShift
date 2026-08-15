@@ -13,8 +13,8 @@ import {
 
 import { CharacterPreview } from '../common/CharacterPreview';
 import { EditableText } from '../common/EditableText';
-import { CRIMESTATUS2COLOR, CRIMESTATUS2DESC } from './constants';
 import { CrimeWatcher } from './CrimeWatcher';
+import { CRIMESTATUS2COLOR, CRIMESTATUS2DESC } from './constants';
 import { getSecurityRecord } from './helpers';
 import { RecordPrint } from './RecordPrint';
 import type { SecurityRecordsData } from './types';
@@ -69,6 +69,9 @@ const RecordInfo = (props) => {
     wanted_status,
     voice,
     // DOPPLER EDIT START - records & flavor text
+    power_notes,
+    power_notes_minor,
+    power_notes_major,
     past_general_records,
     past_security_records,
     age_chronological,
@@ -77,6 +80,12 @@ const RecordInfo = (props) => {
 
   const [isValid, setIsValid] = useState(true);
 
+  // DOPPLER ADDITION START - Power sec notes
+  const major_power_notes_array = power_notes_major?.split('<br>') || [];
+  const minor_power_notes_array = power_notes_minor?.split('<br>') || [];
+  const has_power_notes =
+    major_power_notes_array.length > 0 || minor_power_notes_array.length > 0;
+  // DOPPLER ADDITION END
   const hasValidCrimes = !!crimes.find((crime) => !!crime.valid);
 
   return (
@@ -222,6 +231,19 @@ const RecordInfo = (props) => {
               />
             </LabeledList.Item>
             {/* DOPPLER EDIT START - records & flavor text */}
+            <LabeledList.Item label="Powers">
+              {major_power_notes_array.map((power, index) => (
+                <Box bold key={`major-${index}`}>
+                  &#8226; {power}
+                </Box>
+              ))}
+              {minor_power_notes_array.map((power, index) => (
+                <Box key={`minor-${index}`}>&#8226; {power}</Box>
+              ))}
+              {!has_power_notes && (
+                <Box>&#8226; {power_notes || 'No powers declared.'}</Box>
+              )}
+            </LabeledList.Item>
             <LabeledList.Item label="General Records">
               <Box maxWidth="100%" preserveWhitespace>
                 {past_general_records || 'N/A'}
