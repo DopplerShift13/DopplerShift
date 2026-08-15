@@ -90,12 +90,11 @@
 	if(!istype(stored_gun, /obj/item/gun/ballistic))
 		return
 	var/obj/item/gun/ballistic/ballistic = stored_gun
-	if(!ballistic.show_bolt_icon)
-		return
-	if(ballistic.bolt_type == BOLT_TYPE_LOCKING)
-		. += "[gun_state]_bolt[ballistic.bolt_locked ? "_locked" : ""]"
-	if(ballistic.bolt_type == BOLT_TYPE_OPEN && ballistic.bolt_locked)
-		. += "[gun_state]_bolt"
+	if(ballistic.show_bolt_icon)
+		if(ballistic.bolt_type == BOLT_TYPE_LOCKING)
+			. += "[gun_state]_bolt[ballistic.bolt_locked ? "_locked" : ""]"
+		if(ballistic.bolt_type == BOLT_TYPE_OPEN && ballistic.bolt_locked)
+			. += "[gun_state]_bolt"
 	if(ballistic.suppressed && ballistic.can_unsuppress)
 		. += "[gun_state]_suppressor"
 	if(!ballistic.chambered && ballistic.empty_indicator)
