@@ -6766,7 +6766,6 @@
 /area/station/service/chapel/storage)
 "aBT" = (
 /obj/machinery/wall_healer/directional/south,
-/obj/structure/closet/wardrobe/mixed,
 /turf/open/floor/iron/white/corner,
 /area/station/commons/fitness)
 "aBU" = (
@@ -6774,7 +6773,7 @@
 /turf/open/floor/iron/white/corner,
 /area/station/commons/fitness)
 "aBV" = (
-/obj/structure/closet/wardrobe/green,
+/obj/structure/closet/wardrobe/mixed,
 /turf/open/floor/iron/white/corner,
 /area/station/commons/fitness)
 "aBW" = (
