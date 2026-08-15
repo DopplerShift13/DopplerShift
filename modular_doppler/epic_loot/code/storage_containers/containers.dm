@@ -34,12 +34,12 @@
 	))
 
 /obj/item/storage/epic_loot_medpen_case/ert_med_preset/PopulateContents()
-	new /obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline(src)
-	new /obj/item/reagent_containers/hypospray/medipen/deforest/synephrine(src)
-	new /obj/item/reagent_containers/hypospray/medipen/deforest/calopine(src)
-	new /obj/item/reagent_containers/hypospray/medipen/deforest/coagulants(src)
-	new /obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi(src)
-	new /obj/item/reagent_containers/hypospray/medipen/deforest/lipital(src)
+	new /obj/item/reagent_containers/hypospray/medipen/doppler/adrenaline(src)
+	new /obj/item/reagent_containers/hypospray/medipen/doppler/adrenaline(src)
+	new /obj/item/reagent_containers/hypospray/medipen/doppler/emergency(src)
+	new /obj/item/reagent_containers/hypospray/medipen/doppler/emergency(src)
+	new /obj/item/reagent_containers/hypospray/medipen/doppler/regen(src)
+	new /obj/item/reagent_containers/hypospray/medipen/doppler/regen(src)
 
 /obj/item/storage/epic_loot_docs_case
 	name = "documents case"
