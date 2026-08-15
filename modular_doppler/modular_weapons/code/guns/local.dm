@@ -17,6 +17,7 @@
 	special_mags = FALSE
 	mag_display_ammo = TRUE
 	bolt_type = BOLT_TYPE_OPEN
+	show_bolt_icon = FALSE
 	w_class = WEIGHT_CLASS_HUGE // No storing this anywhere
 	weapon_weight = WEAPON_HEAVY
 	accepted_magazine_type = /obj/item/ammo_box/magazine/yanao
