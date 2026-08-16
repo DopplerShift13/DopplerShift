@@ -6769,21 +6769,21 @@
 /turf/open/floor/iron/white/corner,
 /area/station/commons/fitness)
 "aBU" = (
-/obj/structure/closet/wardrobe/mixed,
+/obj/structure/closet/wardrobe/grey,
 /turf/open/floor/iron/white/corner,
 /area/station/commons/fitness)
 "aBV" = (
-/obj/structure/closet/wardrobe/green,
+/obj/structure/closet/wardrobe/mixed,
 /turf/open/floor/iron/white/corner,
 /area/station/commons/fitness)
 "aBW" = (
-/obj/structure/closet/wardrobe/grey,
 /obj/machinery/light/directional/south,
+/obj/structure/closet/wardrobe/black,
+/obj/machinery/firealarm/directional/south,
 /turf/open/floor/iron/white/corner,
 /area/station/commons/fitness)
 "aBX" = (
-/obj/structure/closet/wardrobe/black,
-/obj/machinery/firealarm/directional/south,
+/obj/machinery/vending/autodrobe,
 /turf/open/floor/iron/white/corner,
 /area/station/commons/fitness)
 "aCc" = (
@@ -97992,7 +97992,7 @@ lFK
 pcg
 eWq
 pfF
-aBU
+aBV
 xkF
 aEg
 aGF
@@ -98249,7 +98249,7 @@ ayu
 mKl
 azD
 pfF
-aBV
+aBU
 xkF
 aEg
 ycl

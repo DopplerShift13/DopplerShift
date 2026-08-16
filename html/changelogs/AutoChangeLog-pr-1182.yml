@@ -1,0 +1,4 @@
+author: "Virelai"
+delete-after: True
+changes:
+  - rscadd: "AutoDrobe in Pubbystation."
