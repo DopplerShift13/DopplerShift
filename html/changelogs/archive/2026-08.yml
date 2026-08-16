@@ -90,3 +90,6 @@
   - bugfix: Fixed naga tails rendering on the wrong layer when facing the front, resulting
       in naga-specific clothing not being visible
   - bugfix: Breasts now update properly when changing your undersuit slot.
+2026-08-16:
+  carda-sometimesknownas-paxilmaniac:
+  - bugfix: salvage collector fields will no longer be disrupted on some station designs
