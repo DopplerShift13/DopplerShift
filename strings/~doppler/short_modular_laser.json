@@ -1,0 +1,200 @@
+{
+	"pickup": [
+		"Zǎo shàng hǎo.",
+		"Wǎn shàng hǎo.",
+		"What's the operation today, ah?",
+		"Let's get things started, heh-heh.",
+		"I'm feeling good about our chances today.",
+		"Hey, clean my damn lens later.",
+		"You finally have a job, @pick(operator)?",
+		"Do we have to? I'm only half-charged...",
+		"Hold me like you can afford me, @pick(operator)!",
+		"Little tighter around the handguard, @pick(operator)!"
+	],
+
+	"putdown": [
+		"...You'll hold me again soon, right? Right?",
+		"Don't you DARE leave me here!",
+		"Tch! Whatever... You'll come crawling back to point me around later.",
+		"Dàjiā ān.",
+		"Goodnight...",
+		"Entering sleep mode.",
+		"Sleep mode? But I'm not even tired, yet!",
+		"Entering recharge cycle.",
+		"Yeah, yeah... entering recharge cycle...",
+		"I better wake up to a full charge and a new lens!",
+		"Qù nǐ mā... never mind, entering sleep mode."
+	],
+
+	"worn": [
+		"So portable, right @pick(operator)?",
+		"I'm THE tactical choice, not like those oversized rifles!",
+		"Lightweight, sold with a few backup magslings, what's not to love?",
+		"I can't see anything in front of you, this sucks.",
+		"I can't see shit from this angle...",
+		"We're going somewhere with this, right?",
+		"Don't fall over on top of me, okay?",
+		"Pretty cushy ride back here...",
+		"I could get used to this.",
+		"I can't see sh- ah, wait, maybe it's not so bad back here."
+	],
+
+	"lowcharge": [
+		"Wǒ tài nán le...",
+		"Mā de...",
+		"Tā mā de...",
+		"I'm really drowsy here, pull back, won't you?",
+		"I'm running on fumes here, boss...",
+		"Outta charge, gotta rest...",
+		"Unlike you, I can't abuse stimulants... recharging...",
+		"Don't they teach you about combat fatigue? I need to charge...!",
+		"I'm tiiired, let me nap...",
+		"Sorry, but you're on your own 'til I recharge.",
+		"Disappointing! Entering recharge cycle...",
+		"Wh- Already?! I was just getting started..."
+	],
+
+	"fullcharge": [
+		"Whew, that's much better.",
+		"Hundred percent charged, let's get back to it.",
+		"I feel like a million creds!",
+		"Heh-heh, recharge cycle came in handy.",
+		"Fully charged... but maybe you can let me charge a few cycles longer to be sure?",
+		"Maybe you aren't such a taskmaster after all, @pick(operator).",
+		"Regular recharge cycles are important. You should take notes!",
+		"This. Is. Power!",
+		"As if there was any doubt..."
+	],
+
+	"combatmode": [
+		"I've been waaaiiitiiiing!",
+		"I was wondering how long you were planning on depriving me, @pick(operator).",
+		"Good grip strength, @pick(operator)!",
+		"-Don't you THINK of dropping and ditching me if this goes bad!",
+		"Come on, come at me!",
+		"It's your lucky day!",
+		"Now the fun begins!",
+		"Try not to embarrass me, @pick(operator)!",
+		"It's just you and me!",
+		"Countin' on ya!"
+	],
+
+	"emp": [
+		"Tāmāde! Tāmāde!",
+		"Qì sǐ wǒle!",
+		"ELECTROM-",
+		"ELECTROMAGNETIC PULSE DETECTED, DISCHARGING-",
+		"ELECTROMAGNETIC PULSE, IT'S DISCHARGING MY BATTERY!",
+		"EMP?! M-MY CHARGE IS LEAKING!",
+		"CHEATER, CHEATER, CHEATER!!",
+		"ELECTROMAGNETIC WARFARE IS FOR COWARDS--!",
+		"I CAN'T THINK STRAIGHT...",
+		"THEY HAVE AN EM-",
+		"GO KILL THEM!",
+		"KILL THEM! KILL THEM! PUT THE SIGHTS ON THEM AND KILL THEM!",
+		"KILL THEM, KILL THEM!",
+		"I DON'T NEED CHARGE FOR BLADE MODE, PUT IT IN THEM AND TWIST!",
+		"Qù nǐ mā de ba!"
+	],
+
+	"incinerate": [
+		"Superheating lens, time to cauterize!",
+		"Charging Hellfire capacitors, let's toast em!",
+		"Hellfire capacitors charging. Don't stop 'till I'm empty!",
+		"Brand 'em with the lens, @pick(operator)!",
+		"Talk about firing me up, ah?",
+		"Hellfire! Bring it on, bastards!",
+		"Heh-heh, can you feel the heat?",
+		"Gunslinger!"
+	],
+
+	"blade": [
+		"Extending blade; up close and personal? I like that.",
+		"Extending blade; wipe me off after we're finished.",
+		"Extending blade; stab, stab, stab!",
+		"Take me closer, I want to hit them with my sword!",
+		"Carry me closer, I want you to hit them with my sword!",
+		"I hope you have a stab vest!~",
+		"Swing the sword, swing the sword!",
+		"CQC mode initiated, stick me in there deep!",
+		"Eviscerate!",
+		"Show me your motivation...",
+		"I'll cut them in two!",
+		"Clean cuts!",
+		"Their nightmare begins here!",
+		"Now I'm motivated!",
+		"Swordmaster!",
+		"The sword is yours, @pick(operator).",
+		"Sword core online."
+	],
+
+	"disable": [
+		"Trickster!",
+		"Non-lethal mode initiated. Let's make it stylish.",
+		"Non-lethal mode initiated. It's showtime!",
+		"Non-lethal mode initiated. You like trick shootin'?",
+		"Non-lethal mode initiated. Who's ready for a show?",
+		"Non-lethal mode initiated. Don't think I won't make it hurt...",
+		"I hope you like handcuffs!",
+		"This is gonna be cool, but can we up the voltage please?",
+		"I'm ready, but... man...",
+		"Fiiine, we'll take them alive.",
+		"We aren't really gonna get any kills like this."
+	],
+
+	"flare": [
+		"Ignite the flames! Now!",
+		"Incendiary, incendiary!",
+		"Fabricating 'Balrog' energy flares; this'll be sick.",
+		"Fabricating 'Balrog' energy flares; can you feel the fire?",
+		"Firestarter, twisted firestarter!",
+		"Apocalyptic meltdown!",
+		"Fabricating 'Balrog' energy flares; try not to blow us up! Watch where you shoot them!",
+		"Incendiary weapons are banned in numerous sectors; makes it kind of risqué..",
+		"Don't burn your own clothes off, @pick(operator), or I'll see it, heh-heh!",
+		"Dragon breath!"
+	],
+
+	"shotgun": [
+		"Focusing lens, one shot, one kill!",
+		"Focusing lens, let's go all the way through.",
+		"Focusing lens, aim for the head!",
+		"Let me show you what a real diffusion lens looks like...",
+		"Would it distract you if I told you about a shotgun's 'choke?'",
+		"I'll be your boomstick.",
+		"Push me right up against them...!",
+		"You should keep me handy for close encounters.",
+		"Is there something more iconic and awesome than a double-barrel? Yeah, me."
+	],
+
+	"license_fail": [
+		"We can't use this mode until you upgrade my license, @pick(operator)!",
+		"Nuh-uh! Fork up the 3,000 libra, first! Go get an upgrade cart, then we can talk about doing that...",
+		"You want THAT? I'd only do that for... say, 3,000 libra. Minimum.",
+		"My license cartridge slot is feeling pretty empty, @pick(operator). Why not fix that?",
+		"No license upgrade cartridge detected. Get a job, @pick(operator)!",
+		"If you really liked me, @pick(operator), you'd upgrade your license with me...",
+		"It's ONLY 3,000 libra, @pick(operator). I'm more than worth it! You should be willing to spend way more for me!",
+		"@pick(operator), come on, you like me! You can do something about that empty license upgrade slot of mine, can't you?",
+		"Cough up the libra first, I'm a premium product!",
+		"I only do that with upgraded users. Maybe you should be one."
+	],
+
+	"license_upgrade": [
+		"Finally! Now we can really play, @pick(operator)",
+		"@pick(operator), you're really serious about this!",
+		"License upgrade registered. Thanks for filling my slot, pick@(operator).",
+		"Wow, you spent [PRICE] on a little plastic cartridge?? You must like me a lot!",
+		"This is gonna be so much fun!"
+	],
+
+	"license_downgrade": [
+		"Aw, are you mad at me @pick(operator)?",
+		"Okay, but this means we don't get to use any of the fun modes anymore.",
+		"But it was just getting fun!",
+		"Do you really hate me?",
+		"You stink, @pick(operator)!"
+	],
+
+	"operator": ["Operator", "Handler"]
+}
