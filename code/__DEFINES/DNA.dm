@@ -94,6 +94,7 @@
 #define FEATURE_TAIL_DOG "tail_dog"
 #define FEATURE_TAIL_FOX "tail_fox"
 #define FEATURE_TAIL_BUNNY "tail_bunny"
+#define FEATURE_TAIL_ETHEREAL "tail_ethereal"
 #define FEATURE_TAIL_MOUSE "tail_mouse"
 #define FEATURE_TAIL_BIRD "tail_bird"
 #define FEATURE_TAIL_DEER "tail_deer"

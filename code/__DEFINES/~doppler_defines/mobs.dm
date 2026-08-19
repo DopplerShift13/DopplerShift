@@ -8,6 +8,7 @@
 #define BODYPART_ICON_ROUNDSTARTSLIME 'modular_doppler/modular_species/species_types/slimes/icons/bodyparts.dmi'
 #define BODYPART_ICON_TAUR 'modular_doppler/taurs/icons/taur_invisible_legs.dmi'
 #define BODYPART_ICON_TESHARI 'modular_doppler/modular_species/species_types/teshari/icons/teshari_parts_greyscale.dmi'
+#define BODYPART_ICON_ETHEREAL 'modular_doppler/modular_species/species_types/ethereal/icons/bodyparts/bodyparts.dmi'
 
 #define DIGI_HOOF "Hooved Legs"
 #define DIGI_TALON "Taloned Legs"

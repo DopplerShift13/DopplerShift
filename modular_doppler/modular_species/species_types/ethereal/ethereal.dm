@@ -1,5 +1,6 @@
 /datum/species/ethereal
 	preview_outfit = /datum/outfit/ethereal_preview
+	hair_alpha = 140
 
 /datum/outfit/ethereal_preview
 	name = "Ethereal (Species Preview)"
