@@ -2,7 +2,7 @@
 /**
  * CLOTHING
  */
-
+/*
 /obj/item/clothing/under/rank/security/officer
 	name = "security guard uniform"
 	desc = "A tactical security jumpsuit for officers complete with Port Safety belt buckle. Uniforms like this are standard for most frontier security."
@@ -26,7 +26,7 @@
 /obj/item/clothing/head/helmet/space/plasmaman/security
 	name = "security plasma envirosuit helmet"
 	desc = "A plasmaman containment helmet designed for security guards, protecting them from burning alive, alongside other undesirables."
-
+*/
 
 /**
  * SPECIAL ITEMS

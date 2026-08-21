@@ -38,13 +38,22 @@
 	suit = /obj/item/clothing/suit/jacket/cargo_coat
 
 /datum/outfit/job/hos
+	head = /obj/item/clothing/head/hats/hos/beret/doppler
 	backpack_contents = list(
 		/obj/item/melee/baton/doppler_security/loaded = 1,
 		)
 
+/datum/outfit/job/warden
+	uniform = /obj/item/clothing/under/rank/security/doppler/warden
+
 /datum/outfit/job/security
+	uniform = /obj/item/clothing/under/rank/security/doppler/guard
 	suit_store = null
 	backpack_contents = list(
 		/obj/item/signature_beacon/security_equipment_package = 1,
 		/obj/item/evidencebag = 1,
 	)
+
+/datum/outfit/job/detective
+	uniform = /obj/item/clothing/under/rank/security/doppler/detective
+
