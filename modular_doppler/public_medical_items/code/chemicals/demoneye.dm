@@ -19,7 +19,7 @@
 // Demoneye, a drug that makes you temporarily immune to fear and crit, in exchange for damaging all of your organs and making your veins explode
 /datum/reagent/drug/demoneye
 	name = "DemonEye"
-	description = "A performance enhancing drug originally developed on mars. \
+	description = "A performance enhancing drug originally developed on Mars. \
 		A favorite among gangs and other outlaws on the planet, though overuse can cause terrible addiction and bodily damage."
 	color = "#af00be"
 	taste_description = "industrial shuttle fuel"
@@ -28,7 +28,8 @@
 	overdose_threshold = 15
 	chemical_flags = REAGENT_CAN_BE_SYNTHESIZED
 	addiction_types = list(/datum/addiction/stimulants = 15)
-	metabolized_traits = list(TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_FEARLESS, TRAIT_ANALGESIA)
+	metabolized_traits = list(TRAIT_UNNATURAL_RED_GLOWY_EYES, TRAIT_NOSOFTCRIT, TRAIT_NOHARDCRIT, TRAIT_FEARLESS, TRAIT_ANALGESIA,
+	TRAIT_STUNIMMUNE, TRAIT_GRABRESISTANCE, TRAIT_STRONG_GRABBER, TRAIT_NOCRITOVERLAY, TRAIT_NOGUNS) //Forces users to use melee when they are on this drug
 	/// How much time has the drug been in them?
 	var/constant_dose_time = 0
 	/// What the original color of the user's left eye is
@@ -126,7 +127,7 @@
 
 	our_guy.set_jitter_if_lower(10 SECONDS * REM * seconds_per_tick)
 
-	if(SPT_PROB(10, seconds_per_tick))
+	if(SPT_PROB(20, seconds_per_tick))
 		hurt_that_mans_organs(our_guy, 5, TRUE)
 
 
