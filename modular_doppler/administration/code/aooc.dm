@@ -1,12 +1,5 @@
-GLOBAL_VAR_INIT(AOOC_COLOR, "#de3c8c")
-GLOBAL_VAR_INIT(aooc_allowed, TRUE)	// used with admin verbs to disable aooc - not a config option
-GLOBAL_LIST_EMPTY(ckey_to_aooc_name)
-
-#define AOOC_LISTEN_PLAYER 1
-#define AOOC_LISTEN_ADMIN 2
-
 /client/verb/aooc(msg as text)
-	set name = "AOOC"
+	set name = "OOC: Antag"
 	set category = "OOC"
 
 	if(GLOB.say_disabled)	//This is here to try to identify lag problems
@@ -45,40 +38,30 @@ GLOBAL_LIST_EMPTY(ckey_to_aooc_name)
 		return
 
 	mob.log_talk(raw_msg, LOG_OOC, tag = "AOOC")
-
-	var/keyname = key
-	var/anon = FALSE
-
-	//Anonimity for players and deadminned admins
-	if(!holder || holder.deadmined)
-		if(!GLOB.ckey_to_aooc_name[key])
-			GLOB.ckey_to_aooc_name[key] = "Operator [pick(GLOB.phonetic_alphabet)] [rand(1, 99)]"
-		keyname = GLOB.ckey_to_aooc_name[key]
-		anon = TRUE
-
 	var/list/listeners = list()
 
 	for(var/mind as anything in get_antag_minds(/datum/antagonist))
 		var/datum/mind/antag_mind = mind
 		if(!antag_mind.current || !antag_mind.current.client || isnewplayer(antag_mind.current))
 			continue
-		listeners[antag_mind.current.client] = AOOC_LISTEN_PLAYER
+		listeners[antag_mind.current.client] = LISTEN_PLAYER
 
 	for(var/iterated_player as anything in GLOB.player_list)
 		var/mob/iterated_mob = iterated_player
 		//Admins with muted OOC do not get to listen to AOOC, but normal players do, as it could be admins talking important stuff to them
 		if(iterated_mob.client?.holder && !iterated_mob.client?.holder.deadmined && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)
-			listeners[iterated_mob.client] = AOOC_LISTEN_ADMIN
+			listeners[iterated_mob.client] = LISTEN_ADMIN
+			continue
+		if(isobserver(iterated_mob) && iterated_mob.client?.prefs?.chat_toggles & CHAT_OOC)
+			listeners[iterated_mob.client] = LISTEN_PLAYER
+			continue
 
 	for(var/iterated_listener as anything in listeners)
 		var/client/iterated_client = iterated_listener
 		var/mode = listeners[iterated_listener]
-		var/color = (!anon && CONFIG_GET(flag/allow_admin_ooccolor) && iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color)) ? iterated_client?.prefs?.read_preference(/datum/preference/color/ooc_color) : GLOB.AOOC_COLOR
-		var/name = (mode == AOOC_LISTEN_ADMIN && anon) ? "([key])[keyname]" : keyname
-		to_chat(iterated_client, span_oocplain("<font color='[color]'><b><span class='prefix'>AOOC:</span> <EM>[name]:</EM> <span class='message linkify'>[msg]</span></b></font>"))
-
-#undef AOOC_LISTEN_PLAYER
-#undef AOOC_LISTEN_ADMIN
+		var/name = (mode == LISTEN_ADMIN) ? "([key]) [mob.real_name]" : mob?.real_name
+		to_chat(iterated_client, span_oocplain("<font color='[ooc_channel_color(mob)]'>Private (A): [ooc_channel_emoji(mob)] <EM>[name]</EM> says, <b><span class='message linkify'>[msg]</span></b></font>"))
+		SEND_SOUND(iterated_client, 'modular_doppler/modular_sounds/sound/machines/typewriter_click.ogg')
 
 /proc/toggle_aooc(toggle = null)
 	if(toggle != null) //if we're specifically en/disabling aooc
@@ -102,7 +85,7 @@ GLOBAL_LIST_EMPTY(ckey_to_aooc_name)
 		var/client/iterated_client = iterated_listener
 		to_chat(iterated_client, span_oocplain("<B>The AOOC channel has been globally [GLOB.aooc_allowed ? "enabled" : "disabled"].</B>"))
 
-ADMIN_VERB(toggleaooc, R_ADMIN, "Toggle Antag OOC", "Toggles Antag OOC.", ADMIN_CATEGORY_SERVER)
+ADMIN_VERB(toggle_aooc, R_ADMIN, "Toggle Antag OOC", "Toggles Antag OOC.", ADMIN_CATEGORY_SERVER)
 	toggle_aooc()
 	log_admin("[key_name(usr)] toggled Antagonist OOC.")
 	message_admins("[key_name_admin(usr)] toggled Antagonist OOC.")
