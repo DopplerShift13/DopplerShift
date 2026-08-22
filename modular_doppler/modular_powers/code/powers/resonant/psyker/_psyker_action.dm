@@ -28,8 +28,8 @@
 	return TRUE
 
 /// This doesn't actually add the stress itself; it merely tells the organ to add the stress. Validation is handled on the organ side.
-/datum/action/cooldown/power/psyker/proc/modify_stress(amount, override_cap)
-	psyker_organ.modify_stress(amount, override_cap)
+/datum/action/cooldown/power/psyker/proc/modify_stress(amount)
+	psyker_organ.modify_stress(amount)
 
 /// Whether this psyker effect should be treated as mind-affecting for target validation.
 /datum/action/cooldown/power/psyker/proc/is_mental_effect()
