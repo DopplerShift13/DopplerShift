@@ -7910,6 +7910,7 @@
 #include "modular_doppler\modular_weapons\code\ammo\gibraltar.dm"
 #include "modular_doppler\modular_weapons\code\ammo\naraka_585.dm"
 #include "modular_doppler\modular_weapons\code\ammo\nb_34.dm"
+#include "modular_doppler\modular_weapons\code\ammo\shotgun_12ga.dm"
 #include "modular_doppler\modular_weapons\code\ammo\sportsco_3mm.dm"
 #include "modular_doppler\modular_weapons\code\ammo\stingballs.dm"
 #include "modular_doppler\modular_weapons\code\ammo_stacks\357.dm"
