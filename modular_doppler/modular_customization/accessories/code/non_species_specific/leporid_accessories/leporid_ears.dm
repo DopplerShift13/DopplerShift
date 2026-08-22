@@ -17,7 +17,10 @@
 	icon = 'modular_doppler/modular_customization/accessories/icons/non_species_specific/leporid/leporid_ears_big.dmi'
 	name = "Lop (Big)"
 	icon_state = "rabbit_large"
+	zooms_out_character_preview = FALSE //ok this is a little awkward
+	// because these are the parent of the big subtype but also lop ears so niche case that doesn't need zooming. lol
 
 /datum/sprite_accessory/ears_more/bunny/big/rabbit
 	name = "Bunny (Tall)"
 	icon_state = "bunny_large"
+	zooms_out_character_preview = TRUE

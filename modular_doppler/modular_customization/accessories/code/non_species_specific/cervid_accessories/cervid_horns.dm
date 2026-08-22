@@ -7,6 +7,7 @@
 	icon = 'modular_doppler/modular_customization/accessories/icons/non_species_specific/cervid/cervid_horns_big.dmi'
 	name = "Antlers"
 	icon_state = "antlers"
+	zooms_out_character_preview = TRUE
 
 /datum/sprite_accessory/horns/deer/big/wide
 	name = "Antlers (Wide)"
