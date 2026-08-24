@@ -82,3 +82,31 @@
   TheOneAndOnlyCreeperJoe:
   - bugfix: Fixes Manipulate not working on modular computers (e.g the identification
       console).
+2026-08-14:
+  firebudgy:
+  - bugfix: Alternative dragon wings now available, again.
+2026-08-15:
+  TheOneAndOnlyCreeperJoe:
+  - bugfix: Fixed naga tails rendering on the wrong layer when facing the front, resulting
+      in naga-specific clothing not being visible
+  - bugfix: Breasts now update properly when changing your undersuit slot.
+2026-08-16:
+  carda-sometimesknownas-paxilmaniac:
+  - bugfix: salvage collector fields will no longer be disrupted on some station designs
+2026-08-17:
+  Virelai:
+  - rscadd: AutoDrobe in Pubbystation.
+2026-08-20:
+  DawsonKeyes:
+  - rscadd: Several new ERTs better suited to Doppler Shift's lore
+  - rscadd: A heap of new outfits, all with matching HUD icons and ID trims
+  - rscadd: New loadout items including the Void Corps uniform, Port Authority work
+      outfit, and modern phorid envirosuit
+  - bugfix: Fixes a bug causing revolvers reloaded from shell casing piles to have
+      one more empty chamber than usual
+  NewyearnewmeUwu:
+  - bugfix: Mute characters can now use the 'do' verb.
+  Virelai:
+  - bugfix: Fixed some mirages and step_trigger teleports in the Changing Room.
+  carda-sometimesknownas-paxilmaniac:
+  - rscadd: Adds high tech welding goggles as a visor

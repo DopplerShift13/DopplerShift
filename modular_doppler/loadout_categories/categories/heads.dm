@@ -328,6 +328,17 @@
 	item_path = /obj/item/clothing/head/utility/hardhat/red
 
 /**
+ * ENVIROSUIT HELMETS
+ */
+/datum/loadout_item/head/envirohelm
+	group = "Envirosuit Helmets"
+	abstract_type = /datum/loadout_item/head/envirohelm
+
+/datum/loadout_item/head/envirohelm/rev2
+	name = "Modernized Phorid Envirosuit Helmet (Green)"
+	item_path = /obj/item/clothing/head/helmet/space/plasmaman/rev2
+
+/**
  * HAIR ACCESSORIES
  */
 /datum/loadout_item/head/hair_accessories
