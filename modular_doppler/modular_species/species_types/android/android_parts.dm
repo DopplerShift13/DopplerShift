@@ -54,10 +54,15 @@
 	if(!monitor_state || monitor_state == "none")
 		return .
 
-	var/monitor_type = istype(src, /obj/item/bodypart/head/robot/android/synth_lizard) ? "lizard_em" : "monitor_em"
+	var/emissive_to_pick = "monitor_em"
+	switch(type)
+		if(/obj/item/bodypart/head/robot/android/synth_lizard)
+			emissive_to_pick = "lizard_em"
+		if(/obj/item/bodypart/head/robot/android/protogen)
+			emissive_to_pick = "proto_em"
 
 	var/image/monitor_emissive = image('icons/blanks/32x32.dmi', "nothing", -BODY_LAYER)
-	monitor_emissive.overlays += emissive_appearance('modular_doppler/modular_customization/accessories/icons/cybernetic/synth_screens.dmi', monitor_type, src, alpha = owner.alpha)
+	monitor_emissive.overlays += emissive_appearance('modular_doppler/modular_customization/accessories/icons/cybernetic/synth_screens.dmi', emissive_to_pick, src, alpha = owner.alpha)
 	. += monitor_emissive
 	return .
 
@@ -1114,6 +1119,27 @@
 	icon = ANDROID_BODYPARTS_DMI
 	icon_state = "ghost_l_leg"
 	limb_id = "ghost"
+
+///
+// Protogen
+///
+/obj/item/bodypart/head/robot/android/protogen
+	bodyshape = BODYSHAPE_HUMANOID | BODYSHAPE_SNOUTED
+	should_draw_greyscale = TRUE
+	icon_static = ANDROID_BODYPARTS_DMI
+	icon = ANDROID_BODYPARTS_DMI
+	icon_greyscale = ANDROID_BODYPARTS_DMI
+	icon_state = "protogen_head"
+	limb_id = "protogen"
+	head_flags = HEAD_MONITOR_FACE
+
+/obj/item/bodypart/head/robot/android/protogen/on_adding(mob/living/carbon/new_owner)
+	. = ..()
+	new_owner.AddComponent(/datum/component/monitor_head/protogen)
+
+/obj/item/bodypart/head/robot/android/protogen/on_removal(mob/living/carbon/old_owner)
+	. = ..()
+	qdel(old_owner.GetComponent(/datum/component/monitor_head/protogen))
 
 #undef HEAD_MONITOR_FACE
 #undef ANDROID_BODYPARTS_DMI
