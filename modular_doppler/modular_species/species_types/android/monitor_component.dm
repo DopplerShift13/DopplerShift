@@ -81,13 +81,14 @@ GLOBAL_LIST_INIT(monitor_proto_displays, list(
 	if(!ishuman(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	if(istype(src, /datum/component/monitor_head/lizard))
-		display_action = new /datum/action/innate/monitor_head/lizard
-	if(istype(src, /datum/component/monitor_head/protogen))
-		display_action = new /datum/action/innate/monitor_head/protogen
-	else
-		display_action = new
+	var/action_to_use =  /datum/action/innate/monitor_head
+	switch(type)
+		if(/datum/component/monitor_head/lizard)
+			action_to_use = /datum/action/innate/monitor_head/lizard
+		if(/datum/component/monitor_head/protogen)
+			action_to_use = /datum/action/innate/monitor_head/protogen
 
+	display_action = new action_to_use
 	display_action.Grant(parent)
 
 /datum/component/monitor_head/Destroy(force)
