@@ -209,6 +209,11 @@
 	icon_state = "protogen"
 	body_zones = CHEST
 
+/datum/sprite_accessory/body_marking/other/protogenhead
+	name = "Protogen Head Trim"
+	icon_state = "protogen"
+	body_zones = HEAD
+
 /datum/sprite_accessory/body_marking/other/jackal_fur
 	name = "Jackal Back Fur"
 	icon_state = "jackalfur"
