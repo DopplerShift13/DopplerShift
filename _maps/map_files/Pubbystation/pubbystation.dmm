@@ -16569,7 +16569,8 @@
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/turf_decal/tile/pine_green/fourcorners,
 /obj/machinery/door/airlock/virology/glass{
-	name = "Medbay"
+	name = "Medbay";
+	id_tag = "MedbayFoyer"
 	},
 /obj/effect/landmark/navigate_destination/med,
 /turf/open/floor/iron/white,
@@ -35658,16 +35659,6 @@
 	},
 /turf/open/floor/iron,
 /area/station/hallway/secondary/entry)
-"iXh" = (
-/obj/machinery/door/window/right/directional/north{
-	name = "Medbay Front Desk";
-	req_access = list("medical")
-	},
-/obj/machinery/door/firedoor,
-/obj/effect/turf_decal/tile/dark_blue/opposingcorners,
-/obj/structure/table/reinforced,
-/turf/open/floor/iron/white,
-/area/station/medical/medbay/lobby)
 "iYH" = (
 /obj/machinery/door/airlock/mining/glass{
 	name = "Cargo Bay"
@@ -45565,7 +45556,8 @@
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/turf_decal/tile/pine_green/fourcorners,
 /obj/machinery/door/airlock/virology/glass{
-	name = "Medbay"
+	name = "Medbay";
+	id_tag = "MedbayFoyer"
 	},
 /obj/effect/landmark/navigate_destination/med,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -86234,7 +86226,7 @@ lEs
 gMY
 xIP
 vPE
-iXh
+bpR
 lOw
 xca
 xca
