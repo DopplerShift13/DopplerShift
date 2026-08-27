@@ -6,7 +6,6 @@
 		"Head of Supply",
 		"Logistics Coordinator",
 		"Supply Foreman",
-		"Union Requisitions Officer",
 		"Warehouse Supervisor",
 	)
 
@@ -22,13 +21,11 @@
 		"Courier",
 		"Mail Carrier",
 		"Receiving Clerk",
-		"Union Associate",
 	)
 
 /datum/job/shaft_miner
 	alt_titles = list(
 		JOB_SHAFT_MINER,
-		"Union Miner",
 		"Excavator",
 		"Drill Technician",
 		"Prospector",
@@ -43,6 +40,5 @@
 		"Data Retrieval Specialist",
 		"Netdiver",
 		"Pod Jockey",
-		"Union Bitrunner",
 		"Junior Runner",
 	)
