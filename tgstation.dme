@@ -6840,6 +6840,7 @@
 #include "modular_doppler\_HELPERS\preferences.dm"
 #include "modular_doppler\_savefile_migration\code\_preferences_savefile.dm"
 #include "modular_doppler\_savefile_migration\code\powers_migration.dm"
+#include "modular_doppler\_savefile_migration\code\species_migration.dm"
 #include "modular_doppler\accent_toggle\code\accent_toggle.dm"
 #include "modular_doppler\accessable_storage\accessable_storage.dm"
 #include "modular_doppler\accessable_storage\item.dm"
