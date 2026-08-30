@@ -1,0 +1,5 @@
+author: "desertmote"
+delete-after: True
+changes:
+  - rscadd: "Added a protogen synth head"
+  - image: "added protogen cybernetic ears"
