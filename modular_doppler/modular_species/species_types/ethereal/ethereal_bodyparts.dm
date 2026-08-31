@@ -10,7 +10,7 @@
 /obj/item/bodypart/head/ethereal/lustrous
 	icon_greyscale = BODYPART_ICON_ETHEREAL
 	bodyshape = BODYSHAPE_HUMANOID
-
+head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_DEBRAIN // need to redefine these because the basetype sets flags to NONE
 /obj/item/bodypart/chest/ethereal
 	icon_greyscale = BODYPART_ICON_ETHEREAL
 	bodyshape = BODYSHAPE_HUMANOID
