@@ -2,7 +2,6 @@
 	preview_outfit = /datum/outfit/ethereal_preview
 	mutanteyes = /obj/item/organ/eyes/ethereal
 	hair_alpha = 140
-	head_flags = HEAD_HAIR|HEAD_FACIAL_HAIR|HEAD_EYESPRITES|HEAD_EYECOLOR|HEAD_DEBRAIN // need to redefine these because the basetype sets flags to NONE
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 	)
