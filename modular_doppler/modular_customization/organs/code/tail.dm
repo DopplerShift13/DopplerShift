@@ -180,3 +180,14 @@
 /datum/bodypart_overlay/mutant/tail/alien
 	feature_key = FEATURE_TAIL_ALIEN
 	special_feature_key = FEATURE_TAIL_OTHER
+
+/// Elzuose/Ethereal Tail
+//
+/obj/item/organ/tail/ethereal
+	dna_block = null
+	wag_flags = WAG_ABLE
+	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/ethereal
+
+/datum/bodypart_overlay/mutant/tail/ethereal
+	feature_key = FEATURE_TAIL_ETHEREAL
+	special_feature_key = FEATURE_TAIL_OTHER

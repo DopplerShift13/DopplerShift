@@ -55,7 +55,7 @@
 	. = ..()
 	if(!ishuman(new_ethereal))
 		return
-	default_color = new_ethereal.dna.features[FEATURE_ETHEREAL_COLOR]
+	default_color = new_ethereal.dna.features[FEATURE_MUTANT_COLOR] // DOPPLER EDIT CHANGE - Restores mutant color selection to Ethereals
 	RegisterSignal(new_ethereal, COMSIG_ATOM_EMAG_ACT, PROC_REF(on_emag_act))
 	RegisterSignal(new_ethereal, COMSIG_ATOM_EMP_ACT, PROC_REF(on_emp_act))
 	RegisterSignal(new_ethereal, COMSIG_ATOM_SABOTEUR_ACT, PROC_REF(hit_by_saboteur))
@@ -98,7 +98,7 @@
 		var/healthpercent = max(ethereal.health, 0) / 100
 		if(!emageffect)
 			var/static/list/skin_color = rgb2num("#eda495")
-			var/list/colors = rgb2num(ethereal.dna.features[FEATURE_ETHEREAL_COLOR])
+			var/list/colors = rgb2num(ethereal.dna.features[FEATURE_MUTANT_COLOR]) // DOPPLER EDIT CHANGE - Restores mutant color selection to Ethereals
 			var/list/built_color = list()
 			for(var/i in 1 to 3)
 				built_color += skin_color[i] + ((colors[i] - skin_color[i]) * healthpercent)
