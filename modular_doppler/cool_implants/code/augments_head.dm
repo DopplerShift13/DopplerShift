@@ -363,7 +363,7 @@
 /// Proc that makes you vomit blood when you're EMPed or run out of drugs
 /obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
 	owner.emote("cough")
-	owner.playsound('sound/effects/splat.ogg')
+		playsound(human_owner, 'sound/effects/splat.ogg', 50, TRUE)
 	owner.visible_message(
 		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
 		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
