@@ -348,6 +348,7 @@
 
 /// Proc that makes you vomit blood when you're EMPed or run out of drugs
 /obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
+	var/mob/living/carbon/human/human_owner = owner
 	owner.emote("cough")
 	playsound(human_owner, 'sound/effects/splat.ogg', 50, TRUE)
 	owner.visible_message(
