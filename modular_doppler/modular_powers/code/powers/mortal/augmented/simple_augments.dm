@@ -136,8 +136,6 @@ INTERNAL (basically anything that isnt standard slots)
 	\n Injects you with a 'safe' dose of drugs on activation. Has an 'overcharge' function that grants you a larger dose at the cost of increased side-effects."
 	security_record_text = "Subject has a Shellguard Munitions Hormone Regulator, prolonging their endurance in combat."
 	security_threat = POWER_THREAT_MAJOR
-	power_flags = POWER_HUMAN_ONLY
-	disable_if_prisoner = TRUE
 
 	value = 8 // To account for the buffs I've made to the demoneye drug, and the fact that this is a spinal implant.
 	augment = /obj/item/organ/cyberimp/berserk_os

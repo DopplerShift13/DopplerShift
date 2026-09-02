@@ -267,14 +267,6 @@
 	/// The bodypart overlay datum we should apply to whatever mob we are put into
 	var/datum/bodypart_overlay/simple/berserk_os/da_bodypart_overlay
 
-/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
-	owner.spray_blood(owner.dir, 2)
-	owner.emote("cough")
-	owner.visible_message(
-		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
-		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
-	)
-
 /obj/item/organ/cyberimp/berserk_os/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
 	da_bodypart_overlay = new()
 	limb.add_bodypart_overlay(da_bodypart_overlay)
@@ -308,6 +300,7 @@
 	shared_cooldown = MOB_SHARED_COOLDOWN_3
 	/// Keeps track of how much demoneye we inject into people on activation
 	var/injection_amount = 10
+	/// Keeps track of how much omnizine and coagulant we inject into people
 	var/secondary_injection_amount = 4.5
 
 /datum/action/cooldown/berserk_os/Activate(atom/target)
@@ -363,9 +356,18 @@
 
 	human_owner.Knockdown(6 SECONDS)
 	human_owner.Stun(4 SECONDS)
-	human_owner.do_jitter_animation(18 SECONDS)
+	human_owner.set_jitter_if_lower(18 SECONDS)
 	human_owner.blood_volume -= 90
 	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
+
+/// Proc that makes you vomit blood when you're EMPed or run out of drugs
+/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
+	owner.emote("cough")
+	owner.playsound('sound/effects/splat.ogg')
+	owner.visible_message(
+		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
+		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
+	)
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
