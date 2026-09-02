@@ -346,6 +346,15 @@
 	injection_amount = 20 //This will kill you.
 	secondary_injection_amount = 8.5
 
+/// Proc that makes you vomit blood when you're EMPed or run out of drugs
+/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
+	owner.emote("cough")
+	playsound(human_owner, 'sound/effects/splat.ogg', 50, TRUE)
+	owner.visible_message(
+		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
+		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
+	)
+
 /obj/item/organ/cyberimp/berserk_os/emp_act(severity)
 	. = ..()
 	if(!owner || . & EMP_PROTECT_SELF)
@@ -353,21 +362,11 @@
 	var/mob/living/carbon/human/human_owner = owner
 
 	to_chat(owner, span_warning("Sensory overload! Your body can't handle this much neural input!"))
-
 	human_owner.Knockdown(6 SECONDS)
 	human_owner.Stun(4 SECONDS)
 	human_owner.set_jitter_if_lower(18 SECONDS)
 	human_owner.blood_volume -= 90
 	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
-
-/// Proc that makes you vomit blood when you're EMPed or run out of drugs
-/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
-	owner.emote("cough")
-		playsound(human_owner, 'sound/effects/splat.ogg', 50, TRUE)
-	owner.visible_message(
-		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
-		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
-	)
 
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE
