@@ -569,6 +569,43 @@
 	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
 	return generate_back_icon(chosen_tail, "tail")
 
+// Ethereal
+/datum/preference/choiced/species_feature/ethereal_tail
+	savefile_key = "feature_ethereal_tail"
+	savefile_identifier = PREFERENCE_CHARACTER
+	category = PREFERENCE_CATEGORY_CLOTHING
+	should_generate_icons = TRUE
+	main_feature_name = "Tail"
+	feature_key = FEATURE_TAIL_ETHEREAL
+	priority = PREFERENCE_PRIORITY_SPECIES
+
+/datum/preference/choiced/species_feature/ethereal_tail/species_can_access_mutant_customization(species_typepath)
+	if (ispath(species_typepath, /datum/species/ethereal))
+		return TRUE
+	return ..()
+
+/datum/preference/choiced/species_feature/ethereal_tail/is_accessible(datum/preferences/preferences)
+	. = ..()
+	var/datum/species/species = preferences.read_preference(/datum/preference/choiced/species)
+	if (!species_can_access_mutant_customization(species))
+		return FALSE
+	var/chosen_variation = preferences.read_preference(/datum/preference/choiced/tail_variation)
+	if(chosen_variation == ETHEREAL)
+		return TRUE
+	return FALSE
+
+/datum/preference/choiced/species_feature/ethereal_tail/create_default_value()
+	return /datum/sprite_accessory/blank::name
+
+/datum/preference/choiced/species_feature/ethereal_tail/apply_to_human(mob/living/carbon/human/target, value)
+	if(target.dna.tail_type == ETHEREAL)
+		target.dna.features[FEATURE_TAIL_ETHEREAL] = value
+		target.dna.features[FEATURE_TAIL_OTHER] = value
+
+/datum/preference/choiced/species_feature/ethereal_tail/icon_for(value)
+	var/datum/sprite_accessory/chosen_tail = get_accessory_for_value(value)
+	return generate_back_icon(chosen_tail, "tail")
+
 //	Alien
 /datum/preference/choiced/species_feature/alien_tail
 	savefile_key = "feature_alien_tail"

@@ -8,11 +8,15 @@
 	light_range = 1
 	light_power = 2
 	light_on = TRUE
+	anchored = TRUE
 
 /obj/effect/wind/shipbreaking_collector/Initialize(mapload)
 	. = ..()
 	update_appearance(UPDATE_OVERLAYS)
 	light_color = color
+
+/obj/effect/wind/shipbreaking_collector/onShuttleMove()
+	return FALSE
 
 /obj/effect/wind/shipbreaking_collector/update_overlays()
 	. = ..()
