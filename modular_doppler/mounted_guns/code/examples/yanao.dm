@@ -4,10 +4,10 @@
 	desc = "Locally produced within Cruesoe's Rest and proudly so from a factory on New Gibraltar, the Yanao is a hefty open bolt chaingun \
 		that fires from a continuous belt of .34 NB. The kickback caused by such a round, combined with the high fire rate, \
 		make mounting the gun on its tripod a necessity before firing."
-	icon = 'modular_doppler/modular_weapons/icons/obj/guns48x.dmi'
+	icon = 'modular_doppler/mounted_guns/icons/examples/gun_x48.dmi'
 	icon_state = "yanao"
-	lefthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_lefthand.dmi'
-	righthand_file = 'modular_doppler/modular_weapons/icons/mob/inhands/gun_righthand.dmi'
+	lefthand_file = 'modular_doppler/mounted_guns/icons/examples/inhands_left.dmi'
+	righthand_file = 'modular_doppler/mounted_guns/icons/examples/inhands_right.dmi'
 	inhand_icon_state = "yanao"
 	SET_BASE_PIXEL(-8, 0)
 	fire_sound = 'modular_doppler/modular_weapons/sounds/crash.wav'
@@ -36,7 +36,7 @@
 /obj/item/gun/ballistic/automatic/yanao_tripod/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
-	AddComponent(/datum/component/deployable_turret, 3 SECONDS, /obj/vehicle/ridden/mounted_turret, 'sound/items/tools/ratchet.ogg', 'modular_doppler/modular_weapons/icons/obj/mounted.dmi')
+	AddComponent(/datum/component/deployable_turret, 3 SECONDS, /obj/vehicle/ridden/mounted_turret, 'sound/items/tools/ratchet.ogg', 'modular_doppler/mounted_guns/icons/examples/turrets.dmi')
 
 /obj/item/gun/ballistic/automatic/yanao_tripod/attack_hand(mob/user, list/modifiers)
 	var/user_interactable = user.is_holding(src) || istype(loc, /obj/vehicle/ridden/mounted_turret)
@@ -51,14 +51,14 @@
 /obj/vehicle/ridden/mounted_turret/yanao_mapping
 	name = "tripod yanao but only for mappers"
 	desc = "DO NOT PUT ME IN A DEPLOYABLE TURRET COMPONENT YOU WILL SUMMON A GHOST, AND DIE."
-	icon = 'modular_doppler/modular_weapons/icons/obj/mounted.dmi'
+	icon = 'modular_doppler/mounted_guns/icons/examples/turrets.dmi'
 	icon_state = "yanao"
 	mapload_gun = /obj/item/gun/ballistic/automatic/yanao_tripod
 
 /obj/item/ammo_box/magazine/yanao
 	name = "\improper yanao belt box (.34)"
 	desc = "A large belt box for the yanao machine gun, holds 50 rounds of .34 NB."
-	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon = 'modular_doppler/mounted_guns/icons/examples/objects.dmi'
 	icon_state = "yanao_box"
 	multiple_sprites = AMMO_BOX_FULL_EMPTY
 	ammo_type = /obj/item/ammo_casing/c34nb
