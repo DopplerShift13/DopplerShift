@@ -146,6 +146,8 @@
 	var/lookup_name = name
 	if(ishuman(src))
 		var/mob/living/carbon/human/human_self = src
+		if(human_self.mind.assigned_role.faction != FACTION_STATION)
+			return
 		lookup_name = human_self.real_name
 
 	var/datum/record/crew/target = find_record(lookup_name)
