@@ -5,10 +5,11 @@
 	name = "matter-energy tether spike"
 	desc = "A complex tool developed for moving objects in microgravity environments at significant mass ratios \
 		relative to the user. Such a tool has found use in all manner of orbital professions, from search and rescue to \
-		shipbreaking. It features three primary functions, a manipulator for moving heavy objects, a \"launch\" mode for \
-		imparting force without an equal and opposite reaction on yourself, and a tetherline mode for pulling two objects \
-		together at workspace-safe speeds."
-	// icon_state = "kinesis"
+		shipbreaking. It features two primary functions, a manipulator for moving heavy objects, and a \"launch\" mode for \
+		imparting force without an equal and opposite reaction on yourself."
+	icon = 'icons/obj/weapons/guns/energy.dmi'
+	icon_state = "plasmacutter"
+	inhand_icon_state = "plasmacutter"
 	/// The current operating mode of the tethergun
 	var/operating_mode = TETHERGUN_MODE_MOVE
 	/// Range of the manipulator mode
@@ -24,15 +25,21 @@
 	/// Overlay we add to each grabbed atom.
 	var/mutable_appearance/kinesis_icon
 	/// Our mouse movement catcher
-	var/atom/movable/screen/fullscreen/cursor_catcher/kinesis/kinesis_catcher
+	var/atom/movable/screen/fullscreen/cursor_catcher/kinesis_catcher
 	/// The sounds playing while we grabbed an object
 	var/datum/looping_sound/gravgen/kinesis/soundloop
 	/// The cooldown between us hitting objects with kinesis
 	COOLDOWN_DECLARE(hit_cooldown)
 	/// The length of the cooldown if an atom counts as "heavy"
-	var/heavy_atom_delay = 1.5 SECONDS
+	var/heavy_atom_delay = 1 SECONDS
 	/// The cooldown between moving a grabbed thing between tiles
 	COOLDOWN_DECLARE(atom_move_cooldown)
+	/// The last mob that used this tethergun
+	var/mob/living/last_user
+	/// How long between right click launches do we wait
+	var/rclick_launch_delay = 0.5 SECONDS
+	/// Cooldown for launching things with rclick
+	COOLDOWN_DECLARE(rclick_launch_cooldown)
 
 /obj/item/tethergun/Initialize(mapload)
 	. = ..()
@@ -46,7 +53,6 @@
 	if(!user.is_holding(src) || !user.client)
 		return ITEM_INTERACT_BLOCKING
 	if(grabbed_atom)
-		var/launched_object = grabbed_atom
 		clear_grab(playsound = FALSE)
 		return ITEM_INTERACT_SUCCESS
 	if(!range_check(interacting_with, user))
@@ -59,6 +65,9 @@
 		if(TETHERGUN_MODE_MOVE)
 			grab_atom(interacting_with, user)
 			return ITEM_INTERACT_SUCCESS
+
+/obj/item/tethergun/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
+	return ranged_interact_with_atom(interacting_with, user, modifiers)
 
 /obj/item/tethergun/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!user.is_holding(src) || !user.client)
@@ -76,11 +85,13 @@
 		return ITEM_INTERACT_BLOCKING
 	switch(operating_mode)
 		if(TETHERGUN_MODE_MOVE)
-			launch(interacting_with, user)
-			return ITEM_INTERACT_SUCCESS
+			if(COOLDOWN_FINISHED(src, rclick_launch_cooldown))
+				launch(interacting_with, user)
+				COOLDOWN_START(src, rclick_launch_cooldown, rclick_launch_delay)
+				return ITEM_INTERACT_SUCCESS
 
-/obj/item/tethergun/on_deactivation(mob/activator, display_message = TRUE, deleting = FALSE)
-	clear_grab(playsound = !deleting)
+/obj/item/tethergun/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
+	return ranged_interact_with_atom_secondary(interacting_with, user, modifiers)
 
 /obj/item/tethergun/process(seconds_per_tick)
 	var/mob/living/carbon/user
@@ -89,7 +100,7 @@
 	else
 		clear_grab()
 		return
-	if(user.client || INCAPACITATED_IGNORING(user, INCAPABLE_GRAB))
+	if(!user.client || INCAPACITATED_IGNORING(user, INCAPABLE_GRAB) || user != last_user || !user.is_holding(src))
 		clear_grab()
 		return
 	if(!range_check(grabbed_atom, user))
@@ -110,13 +121,13 @@
 	animate(grabbed_atom, 0.2 SECONDS, pixel_x = grabbed_atom.base_pixel_x + kinesis_catcher.given_x - ICON_SIZE_X/2, pixel_y = grabbed_atom.base_pixel_y + kinesis_catcher.given_y - ICON_SIZE_Y/2)
 	kinesis_beam.redrawing()
 	var/turf/next_turf = get_step_towards(grabbed_atom, kinesis_catcher.given_turf)
-	if(!COOLDOWN_FINISHED(src, atom_move_cooldown))
+	if(COOLDOWN_FINISHED(src, atom_move_cooldown))
 		if(grabbed_atom.Move(next_turf, get_dir(grabbed_atom, next_turf), 8))
-			var/apply_move_cooldown = FALSE
+			var/apply_move_cooldown = TRUE
 			if(isitem(grabbed_atom))
 				var/obj/item/grabbed_item = grabbed_atom
 				if(grabbed_item.w_class <= WEIGHT_CLASS_BULKY)
-					apply_move_cooldown = TRUE
+					apply_move_cooldown = FALSE
 			if(apply_move_cooldown)
 				COOLDOWN_START(src, atom_move_cooldown, heavy_atom_delay)
 			if(isitem(grabbed_atom) && (user in next_turf))
@@ -150,8 +161,9 @@
 			hitting_atom = movable_content
 			break
 	var/obj/item/grabbed_item = grabbed_atom
-	grabbed_item.melee_attack_chain(user, hitting_atom)
-	COOLDOWN_START(src, hit_cooldown, hit_cooldown_time)
+	if(!isnull(hitting_atom))
+		grabbed_item.melee_attack_chain(user, hitting_atom)
+		COOLDOWN_START(src, hit_cooldown, hit_cooldown_time)
 
 /// Checks if the target is something we are actually allowed to grab
 /obj/item/tethergun/proc/can_grab(atom/target)
@@ -178,8 +190,6 @@
 			return FALSE
 	else if(isitem(movable_target))
 		var/obj/item/item_target = movable_target
-		// if(item_target.w_class >= WEIGHT_CLASS_GIGANTIC)
-			// return FALSE
 		if(item_target.item_flags & ABSTRACT)
 			return FALSE
 	return TRUE
@@ -187,6 +197,7 @@
 /// Grabs the target
 /obj/item/tethergun/proc/grab_atom(atom/movable/target, mob/living/carbon/user)
 	grabbed_atom = target
+	last_user = user
 	if(isliving(grabbed_atom))
 		grabbed_atom.add_traits(list(TRAIT_IMMOBILIZED, TRAIT_HANDS_BLOCKED), REF(src))
 		RegisterSignal(grabbed_atom, COMSIG_MOB_STATCHANGE, PROC_REF(on_statchange))
@@ -197,6 +208,7 @@
 	kinesis_icon.overlays += emissive_appearance(icon = 'icons/effects/effects.dmi', icon_state = "kinesis", offset_spokesman = grabbed_atom)
 	grabbed_atom.add_overlay(kinesis_icon)
 	kinesis_beam = user.Beam(grabbed_atom, "kinesis")
+	kinesis_catcher = user.overlay_fullscreen("tethergun", /atom/movable/screen/fullscreen/cursor_catcher, 0)
 	kinesis_catcher.assign_to_mob(user)
 	RegisterSignal(kinesis_catcher, COMSIG_SCREEN_ELEMENT_CLICK, PROC_REF(on_catcher_click))
 	soundloop.start()
@@ -212,6 +224,7 @@
 	STOP_PROCESSING(SSfastprocess, src)
 	UnregisterSignal(grabbed_atom, list(COMSIG_MOB_STATCHANGE, COMSIG_MOVABLE_SET_ANCHORED))
 	kinesis_catcher = null
+	last_user.clear_fullscreen("tethergun")
 	grabbed_atom.cut_overlay(kinesis_icon)
 	QDEL_NULL(kinesis_beam)
 	if(isliving(grabbed_atom))
