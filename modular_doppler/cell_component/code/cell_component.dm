@@ -20,7 +20,9 @@ component_cell_out_of_charge/component_cell_removed proc using loc where necessa
 
 /datum/component/cell
 	/// Our reference to the inserted cell, which will be stored in the parent.
-	var/obj/item/stock_parts/power_store/cell/inserted_cell
+	var/obj/item/stock_parts/power_store/inserted_cell
+	/// The type of power storage, cell or megacell, that this uses
+	var/cell_type = /obj/item/stock_parts/power_store/cell
 	/// The item reference to parent.
 	var/obj/item/equipment
 	/// How much power do we use each process?
@@ -36,40 +38,38 @@ component_cell_out_of_charge/component_cell_removed proc using loc where necessa
 	///Do we have cell overlays to be applied?
 	var/has_cell_overlays
 
-/datum/component/cell/Initialize(cell_override, _on_cell_removed, _power_use_amount, start_with_cell = TRUE, _cell_can_be_removed, _has_cell_overlays = TRUE)
+/datum/component/cell/Initialize(cell_type, spawned_cell, on_cell_removed, power_use_amount, start_with_cell = TRUE, cell_can_be_removed, has_cell_overlays = TRUE)
 	if(QDELETED(parent))
 		qdel(src)
 		return
-
 	if(!isitem(parent)) //Currently only compatable with items.
 		return COMPONENT_INCOMPATIBLE
 
-	equipment = parent //We'd like a simple reference to the atom this component is attached to instead of having to declare it every time we use it.
-
-	if(_on_cell_removed)
-		src.on_cell_removed = _on_cell_removed
-
-	has_cell_overlays = _has_cell_overlays
-
-	if(_power_use_amount)
-		power_use_amount = _power_use_amount
+	equipment = parent
+	if(!isnull(cell_type))
+		if(!istype(spawned_cell, cell_type))
+			CRASH("[parent] attempted to add [src] with a spawned_cell that does not fit with its cell_type!")
+		src.cell_type = cell_type
+	if(on_cell_removed)
+		src.on_cell_removed = on_cell_removed
+	has_cell_overlays = has_cell_overlays
+	if(power_use_amount)
+		power_use_amount = power_use_amount
 	else
 		power_use_amount = equipment.power_use_amount
+	if(cell_can_be_removed)
+		cell_can_be_removed = cell_can_be_removed
 
-	if(_cell_can_be_removed)
-		cell_can_be_removed = _cell_can_be_removed
-
-	//So this is shitcode in its ultimate form. Right now, as far as I can see, this is the only way to handle robot items that would normally use a cell.
-	if(istype(equipment.loc, /obj/item/robot_model)) //Really, I absolutely hate borg code.
+	// Handles if a cell using item is being used by a borg
+	if(istype(equipment.loc, /obj/item/robot_model))
 		inside_robot = TRUE
 	else if(start_with_cell)
-		var/obj/item/stock_parts/power_store/cell/new_cell
-		if(!cell_override)
-			new_cell = new /obj/item/stock_parts/power_store/cell/upgraded()
-		else
-			new_cell = new cell_override()
+		if(isnull(spawned_cell))
+			CRASH("[parent] attempted to add [src] with start_with_cell as TRUE, but with no spawned_cell set!")
+		var/obj/item/stock_parts/power_store/new_cell
+		new_cell = new spawned_cell()
 		inserted_cell = new_cell
-		new_cell.forceMove(parent) //We use the parents location so things like EMP's can interact with the cell.
+		new_cell.forceMove(parent)
 	handle_cell_overlays()
 	return ..()
 
@@ -180,7 +180,7 @@ component_cell_out_of_charge/component_cell_removed proc using loc where necessa
 	if(inside_robot) //More robot shitcode, if we allowed them to remove the cell, it would cause the universe to implode.
 		return
 
-	if(!istype(inserting_item, /obj/item/stock_parts/power_store/cell))
+	if(!istype(inserting_item, cell_type))
 		return
 
 	if(inserted_cell) //No quickswap compatibility
