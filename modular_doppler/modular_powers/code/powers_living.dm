@@ -64,13 +64,19 @@
  *
  * Arguments:
  * * power_path - The path identifier to check against, e.g. POWER_PATH_THAUMATURGE
+ * * magic_filter - Bitfield describing which broad categories or specific base magic flags to match. See defines for specific options.
  *
  * Returns TRUE if any owned power matches the path, FALSE otherwise.
  */
-/mob/living/proc/has_power_in_path(power_path)
+/mob/living/proc/has_power_in_path(power_path, magic_filter = POWER_MAGIC_FILTER_ANY)
 	for(var/datum/power/power in powers)
-		if(power.path == power_path)
-			return TRUE
+		if(power.path != power_path)
+			continue
+		var/base_magic_flags = initial(power.magic_flags)
+		var/power_magic_filter = base_magic_flags ? (POWER_MAGIC_FILTER_MAGICAL | POWER_MAGIC_FILTER_FLAGS(base_magic_flags)) : POWER_MAGIC_FILTER_NONMAGICAL
+		if(!(magic_filter & power_magic_filter))
+			continue
+		return TRUE
 	return FALSE
 
 /**
@@ -78,13 +84,19 @@
  *
  * Arguments:
  * * power_archetype - The archetype identifier to check against, e.g. POWER_ARCHETYPE_RESONANT
+ * * magic_filter - Bitfield describing which broad categories or specific base magic flags to match. See defines for specific options.
  *
  * Returns TRUE if any owned power matches the archetype, FALSE otherwise.
  */
-/mob/living/proc/has_power_in_archetype(power_archetype)
+/mob/living/proc/has_power_in_archetype(power_archetype, magic_filter = POWER_MAGIC_FILTER_ANY)
 	for(var/datum/power/power in powers)
-		if(power.archetype == power_archetype)
-			return TRUE
+		if(power.archetype != power_archetype)
+			continue
+		var/base_magic_flags = initial(power.magic_flags)
+		var/power_magic_filter = base_magic_flags ? (POWER_MAGIC_FILTER_MAGICAL | POWER_MAGIC_FILTER_FLAGS(base_magic_flags)) : POWER_MAGIC_FILTER_NONMAGICAL
+		if(!(magic_filter & power_magic_filter))
+			continue
+		return TRUE
 	return FALSE
 
 /**
