@@ -45,6 +45,14 @@
 	bodyshape_icon_files = list(BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes_digi.dmi')
 
+/obj/item/clothing/suit/wizrobe/secwiz/vizard
+	name = "\improper Port Safety Thaumaturgist robe"
+	desc = "Artificial protein fibres extruded from mechanical spinarettes and fired across projectile looms into a silk facisimile. \
+	The resulting textile is comfortable in a climate controlled environment and nowhere else, but it brimms with resonant frequencies \
+	by the standards of mass produced garments."
+	icon_state = "secvizard_obj"
+	worn_icon_state = "secvizard"
+
 // Secrobe; affinity 3 head, no bonus perks besides not being flammable.
 /obj/item/clothing/head/wizard/secwiz
 	name = "security thaumaturge hat"

@@ -100,25 +100,6 @@
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "zipper")
 
-/obj/item/clothing/suit/jacket/doppler/departmental_jacket/sec
-	name = "blue security department jacket"
-	desc = "A basic style of jacket cut just so to ensure that the plate carrier beneath it doesn't imprint \
-	on the shell, and to readily accomodate a holstered weapon."
-	icon_state = "sec_dep_jacket"
-	armor_type = /datum/armor/jacket_armor
-	pocket_storage_type = /datum/storage/pockets/jacket/jumbo
-
-/obj/item/clothing/suit/jacket/doppler/departmental_jacket/sec/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/toggle_icon, "zipper")
-	allowed = GLOB.security_vest_allowed
-
-/obj/item/clothing/suit/jacket/doppler/departmental_jacket/sec/red
-	name = "red security department jacket"
-	desc = "A basic style of jacket cut just so to ensure that the plate carrier beneath it doesn't imprint \
-	on the shell, and to readily accomodate a holstered weapon."
-	icon_state = "sec_dep_jacket_old"
-
 /obj/item/clothing/suit/jacket/doppler/sec_medic
 	name = "security medic jacket"
 	desc = "A tight synthetic knit protects the wearer from errant needlestabs, though the sleeves are often rolled \

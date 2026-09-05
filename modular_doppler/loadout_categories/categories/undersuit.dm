@@ -147,6 +147,18 @@
 	name = "Cargo Rugged Uniform"
 	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/rough
 
+/datum/loadout_item/undersuit/pants/ps_uniform
+	name = "Port Safety Uniform (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/guard
+
+/datum/loadout_item/undersuit/pants/ps_colorblock_uniform
+	name = "Port Safety Colorblocked Uniform (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/guard_alt
+
+/datum/loadout_item/undersuit/pants/ps_det_uniform
+	name = "Port Safety Investigative Uniform (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/detective
+
 /datum/loadout_item/undersuit/pants/combat
 	name = "Combat Uniform"
 	item_path = /obj/item/clothing/under/syndicate/combat
@@ -336,6 +348,18 @@
 /datum/loadout_item/undersuit/skirt/cargo_tech_rough_skirt
 	name = "Cargo Rugged Skirt Uniform"
 	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/rough_skirt
+
+/datum/loadout_item/undersuit/skirt/ps_utility_skirt
+	name = "Port Safety Utility Skirt (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/skirt
+
+/datum/loadout_item/undersuit/skirt/ps_colorblock_skirt
+	name = "Port Safety Colorblocked Skirt (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/skirt_alt
+
+/datum/loadout_item/undersuit/skirt/ps_det_skirt
+	name = "Port Safety Investigative Skirt (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/detective/skirt
 
 /**
  * DRESSES

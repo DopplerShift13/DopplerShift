@@ -649,12 +649,15 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
 	)*/
 
+
+//disabled because we use custom security clothing too
+/*
 /obj/item/clothing/under/rank/security
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/security.dmi',
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
-	)
+	)*/
 
 /obj/item/clothing/under/rank/rnd
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)

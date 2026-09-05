@@ -84,6 +84,10 @@
 	name = "Trenchcoat"
 	item_path = /obj/item/clothing/suit/toggle/jacket/det_trench
 
+/datum/loadout_item/suit/coat/vintage_detective
+	name = "Vintage Coat (Security)"
+	item_path = /obj/item/clothing/suit/jacket/officer/doppler/det_trench
+
 /datum/loadout_item/suit/coat/frontier
 	name = "Trenchcoat (Frontier)"
 	item_path = /obj/item/clothing/suit/jacket/frontier_colonist
@@ -322,10 +326,6 @@
 	name = "Department Jacket (Cargo)"
 	item_path = /obj/item/clothing/suit/jacket/doppler/departmental_jacket/supply
 
-/datum/loadout_item/suit/jacket/sec_dep_jacket_red
-	name = "Department Jacket (Security)"
-	item_path = /obj/item/clothing/suit/jacket/doppler/departmental_jacket/sec/red
-
 /datum/loadout_item/suit/jacket/peacekeeper_jacket
 	name = "Peacekeeper Jacket (Security)"
 	item_path = /obj/item/clothing/suit/jacket/doppler/peacekeeper_jacket
@@ -333,6 +333,18 @@
 /datum/loadout_item/suit/jacket/peacekeeper_jacket_badged
 	name = "Peacekeeper Jacket (Security, Badged)"
 	item_path = /obj/item/clothing/suit/jacket/doppler/peacekeeper_jacket/badged
+
+/datum/loadout_item/suit/jacket/ps_a1
+	name = "Port Safety A1 Uniform Jacket (Security)"
+	item_path = /obj/item/clothing/suit/jacket/officer/doppler/ps_a1
+
+/datum/loadout_item/suit/jacket/ps_a4
+	name = "Port Safety A4 Uniform Jacket (Security)"
+	item_path = /obj/item/clothing/suit/jacket/officer/doppler/ps_a4
+
+/datum/loadout_item/suit/jacket/ps_b2
+	name = "Port Safety B2 Uniform Jacket (Security)"
+	item_path = /obj/item/clothing/suit/jacket/officer/doppler/ps_b2
 
 /datum/loadout_item/suit/jacket/redmars_duster
 	name = "Duster (Red Mars)"

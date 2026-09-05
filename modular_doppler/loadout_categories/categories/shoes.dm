@@ -51,7 +51,7 @@
 	item_path = /obj/item/clothing/shoes/jackboots/recolorable
 
 /datum/loadout_item/shoes/boots/jackboots_sec
-	name = "Jackboots (Security)"
+	name = "Port Safety A-95 Boots (Security)"
 	item_path = /obj/item/clothing/shoes/jackboots/sec
 
 /datum/loadout_item/shoes/boots/colonial_boots
@@ -168,6 +168,14 @@
 /datum/loadout_item/shoes/other/sandals_grill
 	name = "Sandals (Grilling)"
 	item_path = /obj/item/clothing/shoes/cookflops
+
+/datum/loadout_item/shoes/other/ps_pt_shoes
+	name = "Port Safety PT Shoes (Security)"
+	item_path = /obj/item/clothing/shoes/utilishoes
+
+/datum/loadout_item/shoes/other/port_safety_kicks
+	name = "Port Safety x NG Outfitters Collab Kicks (Security)"
+	item_path = /obj/item/clothing/shoes/port_safety_kicks
 
 /**
  * ENVIROSUIT BOOTS
