@@ -46777,7 +46777,8 @@
 /obj/machinery/button/door/directional/east{
 	pixel_y = 6;
 	name = "Medbay Doors Control";
-	id = "MedbayFoyer"
+	id = "MedbayFoyer";
+	normaldoorcontrol = 1
 	},
 /turf/open/floor/iron/white,
 /area/station/medical/paramedic)
