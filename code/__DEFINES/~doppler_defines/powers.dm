@@ -125,6 +125,9 @@
 // Trait that allows a mob to keep UIs open beyond their normal range.
 #define TRAIT_NO_UI_DISTANCE "no_ui_distance"
 
+/// Set when an effect has claimed responsibility for an attack's off-hand follow-up.
+#define OFFHAND_ATTACK_CLAIMED "offhand_attack_claimed"
+
 /**
  * SORCEROUS
  * All defines related to the sorcerous archetype.
@@ -353,6 +356,16 @@
 #define ABERRANT_HUNGER_MODERATE (1 / 5)
 #define ABERRANT_HUNGER_MAJOR (1 / 2)
 #define ABERRANT_HUNGER_EXTREME (1)
+
+/// Fired before a raking claw calculates its attack force.
+/// Arguments: (obj/item/raking_claw/claw, mob/living/target, list/attack_modifiers)
+#define COMSIG_RAKING_CLAW_MODIFY_ATTACK "raking_claw_modify_attack"
+/// Fired after a raking claw applies damage to a living target.
+/// Arguments: (obj/item/raking_claw/claw, mob/living/target, damage_dealt, unmitigated_damage, obj/item/bodypart/hit_bodypart)
+#define COMSIG_RAKING_CLAW_AFTER_DAMAGE "raking_claw_after_damage"
+/// Fired after a raking claw finishes butchering a living mob.
+/// Arguments: (obj/item/raking_claw/claw, mob/living/target)
+#define COMSIG_RAKING_CLAW_BUTCHERED "raking_claw_butchered"
 
 /**
  * RESONANT: IMBUED

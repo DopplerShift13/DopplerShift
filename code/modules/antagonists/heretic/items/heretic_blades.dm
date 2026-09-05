@@ -51,6 +51,14 @@
 		human_user.AdjustParalyzed(5 SECONDS)
 		return TRUE
 
+	// DOPPLER EDIT ADDITION START - Adds a handler for dual-wield attacks so that they respect the dual-wield restriction.
+	// This is here because putting it with blade_lore.dm causes it to miss the timing of the attack sequence and is the most "modular" solution I could come up with.
+	// Plus blade heretic can dual wield using any heretic blade, not just their own.
+	var/datum/antagonist/heretic/heretic_datum = IS_HERETIC(user)
+	if(istype(user.get_inactive_held_item(), /obj/item/melee/sickly_blade) && heretic_datum?.get_knowledge(/datum/heretic_knowledge/blade_upgrade/blade))
+		attack_modifiers[OFFHAND_ATTACK_CLAIMED] = TRUE
+
+	// DOPPLER EDIT ADDITION END
 	return .
 
 /obj/item/melee/sickly_blade/attack_self(mob/user)
