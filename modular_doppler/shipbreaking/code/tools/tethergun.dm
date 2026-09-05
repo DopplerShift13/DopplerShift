@@ -25,7 +25,7 @@
 	/// The current operating mode of the tethergun
 	var/operating_mode = TETHERGUN_MODE_MOVE
 	/// Range of the manipulator mode
-	var/grab_range = 8
+	var/grab_range = 9
 	/// Time between us hitting objects with manipulator mode
 	var/hit_cooldown_time = 1 SECONDS
 	/// Stat required for us to grab a mob
@@ -61,8 +61,25 @@
 	QDEL_NULL(soundloop)
 	return ..()
 
+/obj/item/tethergun/add_item_context(
+	obj/item/source,
+	list/context,
+	atom/target,
+)
+	if(!can_grab(target))
+		return NONE
+
+	switch(operating_mode)
+		if(TETHERGUN_MODE_MOVE)
+			context[SCREENTIP_CONTEXT_LMB] = "Grab"
+			context[SCREENTIP_CONTEXT_RMB] = "Launch"
+
+	return CONTEXTUAL_SCREENTIP_SET
+
 /obj/item/tethergun/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!user.is_holding(src) || !user.client)
+		return ITEM_INTERACT_BLOCKING
+	if(isturf(interacting_with))
 		return ITEM_INTERACT_BLOCKING
 	if(grabbed_atom)
 		clear_grab(playsound = FALSE)
@@ -83,6 +100,8 @@
 
 /obj/item/tethergun/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
 	if(!user.is_holding(src) || !user.client)
+		return ITEM_INTERACT_BLOCKING
+	if(isturf(interacting_with))
 		return ITEM_INTERACT_BLOCKING
 	if(grabbed_atom)
 		var/launched_object = grabbed_atom
@@ -106,8 +125,8 @@
 	return ranged_interact_with_atom_secondary(interacting_with, user, modifiers)
 
 /obj/item/tethergun/process(seconds_per_tick)
-	var/mob/living/carbon/user
-	if(iscarbon(loc))
+	var/mob/user
+	if(ismob(loc))
 		user = loc
 	else
 		clear_grab()
@@ -207,7 +226,7 @@
 	return TRUE
 
 /// Grabs the target
-/obj/item/tethergun/proc/grab_atom(atom/movable/target, mob/living/carbon/user)
+/obj/item/tethergun/proc/grab_atom(atom/movable/target, mob/living/user)
 	grabbed_atom = target
 	last_user = user
 	if(isliving(grabbed_atom))
@@ -216,10 +235,10 @@
 	ADD_TRAIT(grabbed_atom, TRAIT_NO_FLOATING_ANIM, REF(src))
 	RegisterSignal(grabbed_atom, COMSIG_MOVABLE_SET_ANCHORED, PROC_REF(on_setanchored))
 	playsound(grabbed_atom, 'sound/items/weapons/contractor_baton/contractorbatonhit.ogg', 75, TRUE)
-	kinesis_icon = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "kinesis", layer = grabbed_atom.layer - 0.1, appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART)
-	kinesis_icon.overlays += emissive_appearance(icon = 'icons/effects/effects.dmi', icon_state = "kinesis", offset_spokesman = grabbed_atom)
+	kinesis_icon = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning", layer = grabbed_atom.layer - 0.1, appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART)
+	kinesis_icon.overlays += emissive_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning", offset_spokesman = grabbed_atom)
 	grabbed_atom.add_overlay(kinesis_icon)
-	kinesis_beam = user.Beam(grabbed_atom, "kinesis")
+	kinesis_beam = user.Beam(grabbed_atom, "lightning[rand(1,12)]")
 	kinesis_catcher = user.overlay_fullscreen("tethergun", /atom/movable/screen/fullscreen/cursor_catcher, 0)
 	kinesis_catcher.assign_to_mob(user)
 	RegisterSignal(kinesis_catcher, COMSIG_SCREEN_ELEMENT_CLICK, PROC_REF(on_catcher_click))
@@ -256,13 +275,6 @@
 	if(!can_see(user, target, grab_range))
 		return FALSE
 	return TRUE
-
-/// Catches a right click from the user to release the grab
-/obj/item/tethergun/proc/on_catcher_click(atom/source, location, control, params, user)
-	SIGNAL_HANDLER
-	var/list/modifiers = params2list(params)
-	if(LAZYACCESS(modifiers, RIGHT_CLICK))
-		clear_grab()
 
 /// Checks a currently grabbed mob to see if they still fulfill requirements to be held by the tethergun
 /obj/item/tethergun/proc/on_statchange(mob/grabbed_mob, new_stat)
