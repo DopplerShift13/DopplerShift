@@ -29,7 +29,7 @@
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO
 
 /datum/design/tethergun
-	name = "Matter-Energy Tether Spike"
+	name = "Matter-Energy Tetherspike"
 	id = "tethergun"
 	build_type = PROTOLATHE | AWAY_LATHE | COLONY_FABRICATOR
 	materials = list(
@@ -45,10 +45,28 @@
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_ENGINEERING | DEPARTMENT_BITFLAG_CARGO
 
+/datum/design/borg_upgrade_engineering_tetherspike
+	name = "Engineering Tetherspike"
+	id = "borg_upgrade_engineering_tetherspike"
+	build_type = MECHFAB
+	build_path = /obj/item/borg/upgrade/tethergun
+	materials = list(
+		/datum/material/nanocarbon = SHEET_MATERIAL_AMOUNT * 3,
+		/datum/material/iron = SHEET_MATERIAL_AMOUNT * 9,
+		/datum/material/glass = SHEET_MATERIAL_AMOUNT * 2.5,
+		/datum/material/plasma = HALF_SHEET_MATERIAL_AMOUNT,
+		/datum/material/titanium = HALF_SHEET_MATERIAL_AMOUNT,
+	)
+	construction_time = 12 SECONDS
+	category = list(
+		RND_CATEGORY_MECHFAB_CYBORG_MODULES + RND_SUBCATEGORY_MECHFAB_CYBORG_MODULES_ENGINEERING
+	)
+
 /datum/techweb_node/plasma_mining/New()
 	design_ids |= list(
 		"demo_remote",
 		"demo_charge",
 		"tethergun",
+		"borg_upgrade_engineering_tetherspike",
 	)
 	return ..()

@@ -3,7 +3,7 @@
 
 // Someone on tg should really make kinesis a component or something instead of having to copy and paste all of it everywhere
 /obj/item/tethergun
-	name = "matter-energy tether spike"
+	name = "matter-energy tetherspike"
 	desc = "A complex tool developed for moving objects in microgravity environments at significant mass ratios \
 		relative to the user. Such a tool has found use in all manner of orbital professions, from search and rescue to \
 		shipbreaking. It features two primary functions, a manipulator for moving heavy objects, and a \"launch\" mode for \
@@ -300,3 +300,14 @@
 		hit_atom.take_damage(damage, BRUTE, MELEE)
 	if(damage_self && source.uses_integrity)
 		source.take_damage(source.max_integrity/5, BRUTE, MELEE)
+
+// Borgs
+
+/obj/item/borg/upgrade/tethergun
+	name = "engineering tetherspike module"
+	desc = "An engineering cyborg module granting them use of a matter-energy tetherspike."
+	icon_state = "module_engineer"
+	require_model = TRUE
+	model_type = list(/obj/item/robot_model/engineering, /obj/item/robot_model/saboteur)
+	model_flags = BORG_MODEL_ENGINEERING
+	items_to_add = list(/obj/item/tethergun)
