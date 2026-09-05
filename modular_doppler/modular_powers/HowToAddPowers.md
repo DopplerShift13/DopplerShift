@@ -82,7 +82,7 @@ Check /datum/power for important variables. The most common ones you’ll use ar
 
 action_path particularly deserves a unique mention. If you have an activate-able ability that warrants its own button, you want to make an action datum and define the full type-path of the action inside here. Usually, you have the power- and action datums in the same file for ease of access. More on action datums is elaborated in the [Action Datum section](#anchor-4).
 
-_power_flags_ is another useful tool, specifically allowing you to pass POWER_PROCESSES as an argument to make the power start processing, performing the process() function every tick.
+_power_flags_ is another useful tool, specifically allowing you to pass POWER*PROCESSES as an argument to make the power start processing, performing the process() function every tick. POWER_HEALING can also be passed into \_power_flags* to mark powers which use or provide global power healing modifiers. This also displays the healing flag in the powers UI so players know the power interacts with healing modifiers (which you still have to add by hand using snapshot*healing_multiplier() and then using the \_healing_multiplier* var)
 
 There are several sub-types of variables to do with power prerequisites.
 

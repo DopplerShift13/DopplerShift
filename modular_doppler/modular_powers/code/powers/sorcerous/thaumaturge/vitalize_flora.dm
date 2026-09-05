@@ -7,6 +7,7 @@
 	\nRequires Affinity 1. Affinity gives a chance to not consume charges."
 	security_record_text = "Subject can magically heal and grow plantlife around it."
 	value = 2
+	power_flags = POWER_HUMAN_ONLY | POWER_HEALING
 
 	action_path = /datum/action/cooldown/power/thaumaturge/vitalize_flora
 	required_powers = list(/datum/power/thaumaturge_root)
@@ -87,7 +88,8 @@
 			if(area_mob.health >= area_mob.maxHealth)
 				continue
 			// heals plant creatures
-			area_mob.heal_ordered_damage(mob_heal_amount, list(BRUTE, BURN, TOX))
+			var/modified_mob_heal_amount = mob_heal_amount * snapshot_healing_multiplier(area_mob)
+			area_mob.heal_ordered_damage(modified_mob_heal_amount, list(BRUTE, BURN, TOX))
 			// so there's these cute turtles that can grow plants on themselves and clearly we should be able to grow that too.
 			if(istype(area_mob, /mob/living/basic/turtle))
 				var/mob/living/basic/turtle/plant_turtle = area_mob

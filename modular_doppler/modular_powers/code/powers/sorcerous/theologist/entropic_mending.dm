@@ -5,18 +5,20 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 /datum/power/theologist/entropic_mending
 	name = "Entropic Mending"
 	desc = "Entropy's a long road, a few steps further along it will do you more good than harm. Spend 5 Piety to touch another humanoid and attempt to restore its lingering wounds. \
-	Moderate wounds will be healed automatically; all other wounds have a random chance to heal depending on severity. \
+	Moderate wounds will be healed automatically; all other wounds have a random chance to heal depending on severity. Bonuses to healing with this power increase this chance with diminishing returns (100% healing bonus effectively doublles this chance). \
 	Invoking this power will cause temporary, lingering entropic effects on the target; such as increased metabolism, hunger and blood replenishment, at triple pace."
 	security_record_text = "Subject can accelerate a target's bodily functions (e.g metabolism) to be thrice as fast, and mend lingering wounds."
 	action_path = /datum/action/cooldown/power/theologist/entropic_mending
-	value = 4
+	value = 5
+	power_flags = POWER_HUMAN_ONLY | POWER_HEALING
 
-	required_powers = list(/datum/power/theologist_root/twisted)
+	required_powers = list(/datum/power/theologist_root)
+	required_allow_subtypes = TRUE
 
 /datum/action/cooldown/power/theologist/entropic_mending
 	name = "Entropic Mending"
-	desc = "Entropy's a long road, a few steps further along it will do one more good than harm. Spend 5 Piety to touch another humanoid and attempt to restore it's lingering wounds. \
-	Moderate wounds will be healed automatically; all other wounds have a random chance to heal depending on severity. \
+	desc = "Entropy's a long road, a few steps further along it will do you more good than harm. Spend 5 Piety to touch another humanoid and attempt to restore its lingering wounds. \
+	Moderate wounds will be healed automatically; all other wounds have a random chance to heal depending on severity. Bonuses to healing with this power increase this chance with diminishing returns. \
 	Invoking this power will cause temporary, lingering entropic effects on the target; such as increased metabolism, hunger and blood replenishment, at triple pace."
 	button_icon = 'icons/mob/actions/actions_cult.dmi'
 	button_icon_state = "manip"
@@ -25,7 +27,6 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	target_type = /mob/living/carbon/human
 	click_to_activate = TRUE
 	target_self = FALSE
-	unset_after_click = TRUE
 	cost = 5
 
 	/// Current instance of the status effect
@@ -35,6 +36,7 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	to_chat(owner, span_boldnotice("You begin to mend [target.get_visible_name()]"))
 	if(active_effect)
 		qdel(active_effect)
+	snapshot_healing_multiplier(target)
 	active_effect = target.apply_status_effect(/datum/status_effect/power/entropic_mending, src)
 	active = TRUE
 	return TRUE
@@ -68,6 +70,10 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 	var/metabolic_boost = 3
 	/// How much we speed up hunger gain with
 	var/hunger_rate = 3
+	/// Base chance to heal a severe wound before applying healing modifiers.
+	var/severe_wound_heal_chance = 66
+	/// Base chance to heal a critical wound before applying healing modifiers.
+	var/critical_wound_heal_chance = 33
 	//// Tracks if we've modified the physiology of the owner
 	VAR_PRIVATE/physiology_modified = FALSE
 	/// Tracks how many wounds were healed by this.
@@ -77,7 +83,8 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 /atom/movable/screen/alert/status_effect/entropic_mending
 	name = "Entropic Mending"
 	desc = "Your body's internal functions seem to be accelerated, for better or worse."
-	icon_state = "arrow8" // Placeholder
+	icon = 'icons/obj/toys/hourglass.dmi'
+	icon_state = "hourglass_4"
 
 // So given it is 'part of the effect', we actually handle the wound removal on here.
 /datum/status_effect/power/entropic_mending/on_apply()
@@ -90,13 +97,13 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 				handle_wound_heal_success(entropic_mending.owner, victim, wound)
 				wounds_treated++
 			if(WOUND_SEVERITY_SEVERE)
-				if(prob(60))
+				if(prob(get_modified_wound_heal_chance(severe_wound_heal_chance)))
 					handle_wound_heal_success(entropic_mending.owner, victim, wound)
 					wounds_treated++
 				else
 					to_chat(entropic_mending.owner, span_warning("The restorative energies fail to treat the [wound.name]!"))
 			if(WOUND_SEVERITY_CRITICAL)
-				if(prob(30))
+				if(prob(get_modified_wound_heal_chance(critical_wound_heal_chance)))
 					handle_wound_heal_success(entropic_mending.owner, victim, wound)
 					wounds_treated++
 				else
@@ -117,6 +124,13 @@ Entropic Mending removes wounds (sometimes) and speeds up the target's metabolis
 		physiology_modified = TRUE
 
 	return TRUE
+
+/// Applies healing modifiers to the remaining failure chance, producing diminishing returns as the multiplier increases.
+/datum/status_effect/power/entropic_mending/proc/get_modified_wound_heal_chance(base_heal_chance)
+	if(entropic_mending.healing_multiplier <= 0)
+		return 0
+	var/base_failure_chance = 100 - base_heal_chance
+	return clamp(100 - (base_failure_chance / entropic_mending.healing_multiplier), 0, 100)
 
 /// Just there to quickly handle wound-healing + return values.
 /datum/status_effect/power/entropic_mending/proc/handle_wound_heal_success(caster, mob/living/victim, datum/wound/wound)

@@ -6,3 +6,7 @@
 	value = 0
 	menu_icon = 'icons/mob/actions/actions_spells.dmi'
 	menu_icon_state = "ash"
+
+	// removes magical and healing flags cause you are literally just a guy
+	power_flags = NONE
+	magic_flags = NONE

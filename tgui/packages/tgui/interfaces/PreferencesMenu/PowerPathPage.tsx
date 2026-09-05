@@ -40,6 +40,13 @@ export type PowerBuckets = {
 const availablePowerTextColor = 'white';
 const unavailablePowerTextColor = 'rgba(255, 255, 255, 0.52)';
 const powerTitleIconGutterWidth = '32px';
+const powerIndicatorOrder = ['healing'] as const;
+const powerIndicatorConfig = {
+  healing: {
+    assetName: 'flag_healing_icon.png',
+    tooltip: 'This power uses or provides power healing modifiers.',
+  },
+} as const;
 const powerMagicIndicatorOrder = [
   'unholy',
   'mental',
@@ -242,6 +249,11 @@ function getOrderedPowerMagicFlags(power: Power) {
   );
 }
 
+function getOrderedPowerFlags(power: Power) {
+  const powerFlags = new Set(power.power_flags || []);
+  return powerIndicatorOrder.filter((powerFlag) => powerFlags.has(powerFlag));
+}
+
 function InlineCollapsibleTitle(props: {
   children: ReactNode;
   color?: string;
@@ -374,6 +386,28 @@ function PowerControls(props: {
           const indicatorConfig = powerMagicIndicatorConfig[magicFlag];
           return (
             <Stack.Item key={`${power.name}-${magicFlag}`}>
+              <Tooltip content={indicatorConfig.tooltip} position="top">
+                <Box
+                  style={{
+                    alignItems: 'center',
+                    backgroundImage: `url("${resolveAsset(indicatorConfig.assetName)}")`,
+                    backgroundPosition: 'center',
+                    backgroundRepeat: 'no-repeat',
+                    backgroundSize: 'contain',
+                    display: 'inline-flex',
+                    height: '16px',
+                    justifyContent: 'center',
+                    width: '16px',
+                  }}
+                />
+              </Tooltip>
+            </Stack.Item>
+          );
+        })}
+        {getOrderedPowerFlags(power).map((powerFlag) => {
+          const indicatorConfig = powerIndicatorConfig[powerFlag];
+          return (
+            <Stack.Item key={`${power.name}-${powerFlag}`}>
               <Tooltip content={indicatorConfig.tooltip} position="top">
                 <Box
                   style={{

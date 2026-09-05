@@ -67,6 +67,10 @@
 #define COMSIG_MOB_POWER_ADDED "mob_power_added"
 /// Sent when a power is removed from a mob's power list: (datum/power/removed_power)
 #define COMSIG_MOB_POWER_REMOVED "mob_power_removed"
+/// Fired when a healing power collects modifiers for a snapshotted mob-healing calculation.
+/// Additive modifiers are summed onto 1 first. Multiplicative bonuses are converted into factors, compounded together, then applied to the additive result as one factor.
+/// Args: (atom/healing_target, list/additive_healing_modifiers, list/multiplicative_healing_modifiers)
+#define COMSIG_POWER_HEALING_MODIFIERS "power_healing_modifiers"
 
 /// Any traits granted by powers.
 #define POWER_TRAIT "power_trait"
@@ -77,6 +81,8 @@
 #define POWER_PROCESSES (1<<1)
 /// This power is has a visual aspect in that it changes how the player looks. Used in generating dummies.
 #define POWER_CHANGES_APPEARANCE (1<<2)
+/// This power either has healing mechanics which scale with power healing modifiers or provides those modifiers.
+#define POWER_HEALING (1<<3)
 
 /// Security record categories for powers.
 #define CAT_POWER_ALL 0
@@ -224,6 +230,10 @@
 
 // Trait made as to prevent duplicate smites.
 #define TRAIT_HAS_SMITING_STRIKE "has_smiting_strike"
+
+/// Fired by modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_root_twisted.dm to collect modifiers to damage conversion rates.
+/// Args: (list/twisted_conversion_modifiers)
+#define COMSIG_THEOLOGIST_TWISTED_CONVERSION_MODIFIERS "theologist_twisted_conversion_modifiers"
 
 // Standard Theologian costs
 #define THEOLOGIST_PIETY_TRIVIAL (THEOLOGIST_PIETY_MAX / 100)
