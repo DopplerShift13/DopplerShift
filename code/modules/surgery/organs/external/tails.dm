@@ -71,9 +71,17 @@
 	if(!tail_spine_key)
 		return
 
+	/* DOPPLER ADDITION START - Fixes tail spines throwing runtimes when spawning humanoid mobs/corpses with tails
+	 * The tail spines overlay is dependent on the owner's DNA, which may not be set yet.
+	 * If the owner doesn't have a valid DNA, don't insert the tail spines overlay.*/
+	var/obj/item/organ/spines/owner_spines = bodypart.owner.get_organ_slot(ORGAN_SLOT_EXTERNAL_SPINES)
+	var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] || bodypart.owner.dna.species.mutant_organs[owner_spines?.type]
+	if(!feature_name || feature_name == SPRITE_ACCESSORY_NONE)
+		return
+	/* DOPPLER ADDITION END */
 	tail_spines_overlay = new
 	tail_spines_overlay.tail_spine_key = tail_spine_key
-	var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
+	//DOPPLER REMOVAL: var/feature_name = bodypart.owner.dna.features[FEATURE_SPINES] //tail spines don't live in DNA, but share feature names with regular spines
 	tail_spines_overlay.set_appearance_from_name(feature_name)
 	bodypart.add_bodypart_overlay(tail_spines_overlay)
 

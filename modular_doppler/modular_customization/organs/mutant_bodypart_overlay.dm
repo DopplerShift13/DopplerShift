@@ -132,5 +132,14 @@
 /datum/bodypart_overlay/mutant/proc/get_feature_key_for_overlay()
 	return sprite_datum?.key || feature_key
 
+/// Returns the DNA feature which controls whether an organ type's overlay is present.
+/proc/get_bodypart_overlay_dna_feature_key_from_type(obj/item/organ/organ_type)
+	if(isnull(organ_type))
+		return null
+	var/datum/bodypart_overlay/mutant/overlay_type = initial(organ_type.bodypart_overlay)
+	if(isnull(overlay_type))
+		return null
+	return initial(overlay_type.special_feature_key) || initial(overlay_type.feature_key)
+
 #undef MAX_MATRIXED_COLORS
 #undef ALPHA_OPAQUE

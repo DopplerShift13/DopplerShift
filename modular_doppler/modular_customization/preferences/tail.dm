@@ -1,31 +1,52 @@
 /datum/dna
 	///	This variable is read by the regenerate_organs() proc to know what organ subtype to give
-	var/tail_type = NO_VARIATION
+	/// Null until a tail choice is applied, NO_VARIATION for an explicit opt-out, or a tail category to generate.
+	var/tail_type
 
 /datum/species/regenerate_organs(mob/living/carbon/target, datum/species/old_species, replace_current = TRUE, list/excluded_zones, visual_only = FALSE, replace_missing = TRUE)
-	. = ..()
 	if(target == null)
-		return
+		return ..()
+
+	// The normal organ code will not add a tail while its DNA feature is set to "None".
+	// Read which feature the species' tail overlay uses directly from its type, then set that feature to the species default before calling the normal organ code below.
+	// Without this, generic mobs without player preferences will not get a tail when their species should.
+	var/use_species_default_tail = FALSE
+	if(isnull(target.dna.tail_type)) // always false when the target has prefs
+		var/obj/item/organ/species_tail_type = get_mutant_organ_type_for_slot(ORGAN_SLOT_EXTERNAL_TAIL)
+		if(species_tail_type) // always false when a species doesn't normally have a tail
+			var/default_tail_appearance = mutant_organs[species_tail_type]
+			var/tail_feature_key = get_bodypart_overlay_dna_feature_key_from_type(species_tail_type)
+			if(tail_feature_key && default_tail_appearance)
+				target.dna.features[tail_feature_key] = default_tail_appearance
+				use_species_default_tail = TRUE
+
+	. = ..()
+	// The parent has now handled the species' usual tail. The customization branches below are only for player-prefs tail choices, including an explicit preference to have no tail.
+	if(use_species_default_tail)
+		return .
+
 	if(!ishuman(target))
 		return
 
-	if(can_regenerate_mutant_feature(FEATURE_TAIL_LIZARD) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
+	// Because we both have None & Null as possible values we check target.dna.features twice. First for null, then afterwards for "None"
+	// can_regenerate_mutant_feature() is used to prevent giving mutant parts to species on GLOB.species_blacklist_no_mutant
+	if(target.dna.features[FEATURE_TAIL_LIZARD] && can_regenerate_mutant_feature(FEATURE_TAIL_LIZARD) && target.dna.features[FEATURE_TAIL_LIZARD] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/lizard)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(can_regenerate_mutant_feature(FEATURE_TAIL_CAT) && target.dna.features[FEATURE_TAIL_CAT] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL_CAT] && can_regenerate_mutant_feature(FEATURE_TAIL_CAT) && target.dna.features[FEATURE_TAIL_CAT] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/cat)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(can_regenerate_mutant_feature(FEATURE_TAIL_MONKEY) && target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL_MONKEY] && can_regenerate_mutant_feature(FEATURE_TAIL_MONKEY) && target.dna.features[FEATURE_TAIL_MONKEY] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/monkey)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if(can_regenerate_mutant_feature(FEATURE_TAIL_FISH) && target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/blank::name)
+	else if(target.dna.features[FEATURE_TAIL_FISH] && can_regenerate_mutant_feature(FEATURE_TAIL_FISH) && target.dna.features[FEATURE_TAIL_FISH] != /datum/sprite_accessory/blank::name)
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(/obj/item/organ/tail/fish)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		return .
-	else if((can_regenerate_mutant_feature(FEATURE_TAIL_OTHER) && target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type != NO_VARIATION))
+	else if((target.dna.features[FEATURE_TAIL_OTHER] && can_regenerate_mutant_feature(FEATURE_TAIL_OTHER) && target.dna.features[FEATURE_TAIL_OTHER] != /datum/sprite_accessory/blank::name) && (target.dna.tail_type && target.dna.tail_type != NO_VARIATION))
 		var/obj/item/organ/organ_path = text2path("/obj/item/organ/tail/[target.dna.tail_type]")
 		var/obj/item/organ/replacement = SSwardrobe.provide_type(organ_path)
 		replacement.Insert(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
@@ -752,8 +773,9 @@
 	feature_key_sprite = "tail"
 
 /datum/bodypart_overlay/mutant/tail/color_images(list/image/overlays, layer, obj/item/bodypart/limb)
-	if((sprite_datum.color_src == USE_ONE_COLOR) && length(limb.owner?.dna.features[FEATURE_TAIL_COLORS]))
-		draw_color = limb.owner?.dna.features[FEATURE_TAIL_COLORS][1]
-	else
-		draw_color = limb.owner?.dna.features[FEATURE_TAIL_COLORS]
+	var/list/tail_colors = limb.owner?.dna.features[FEATURE_TAIL_COLORS]
+	// Preference colors override the tail's inherited limb color. Generic mobs do not have this
+	// preference data, so retaining draw_color makes their native tail match their mutant color.
+	if(length(tail_colors))
+		draw_color = sprite_datum.color_src == USE_ONE_COLOR ? tail_colors[1] : tail_colors
 	return ..()
