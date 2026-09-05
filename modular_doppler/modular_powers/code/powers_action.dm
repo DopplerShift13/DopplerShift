@@ -191,6 +191,20 @@
  * Trigger() -> PreActivate(owner) -> Activate(owner) -> try_use(user, target)
  * Click-activated powers DO NOT route through this; they use InterceptClickOn below.
  */
+/// We add a special override so we can always unset click abilities even if they're on cooldown
+/datum/action/cooldown/power/Trigger(mob/clicker, trigger_flags, atom/target)
+	if(click_to_activate && !target)
+		var/mob/user = clicker || owner
+		if(!user)
+			return FALSE
+
+		var/datum/action/cooldown/already_set = user.click_intercept
+		if(already_set == src)
+			// Powers should always be able to be toggled off again, even while their cooldown is running.
+			return unset_click_ability(user, refund_cooldown = TRUE)
+
+	return ..()
+
 /datum/action/cooldown/power/Activate(atom/target)
 	var/mob/living/user = owner
 	if(!user)
