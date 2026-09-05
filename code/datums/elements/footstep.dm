@@ -86,8 +86,8 @@
 			playsound(turf, sound, 15 * volume, falloff_distance = 1, vary = sound_vary)
 		return
 
-	if(iscarbon(source) && source.move_intent == MOVE_INTENT_WALK)
-		return // stealth
+	//if(iscarbon(source) && source.move_intent == MOVE_INTENT_WALK) // DOPPLER EDIT REMOVAL
+	//	return // stealth DOPPLER EDIT REMOVAL
 
 	steps_for_living[source] += 1
 	var/steps = steps_for_living[source]
