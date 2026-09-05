@@ -1,15 +1,27 @@
 #define TETHERGUN_MODE_MOVE "manipulate"
 #define TETHERGUN_MODE_TETHER "tether"
 
+// Someone on tg should really make kinesis a component or something instead of having to copy and paste all of it everywhere
 /obj/item/tethergun
 	name = "matter-energy tether spike"
 	desc = "A complex tool developed for moving objects in microgravity environments at significant mass ratios \
 		relative to the user. Such a tool has found use in all manner of orbital professions, from search and rescue to \
 		shipbreaking. It features two primary functions, a manipulator for moving heavy objects, and a \"launch\" mode for \
 		imparting force without an equal and opposite reaction on yourself."
-	icon = 'icons/obj/weapons/guns/energy.dmi'
-	icon_state = "plasmacutter"
-	inhand_icon_state = "plasmacutter"
+	icon = 'modular_doppler/shipbreaking/icons/tools.dmi'
+	icon_state = "tethergun"
+	lefthand_file = 'modular_doppler/shipbreaking/icons/mob/lefthand.dmi'
+	righthand_file = 'modular_doppler/shipbreaking/icons/mob/righthand.dmi'
+	inhand_icon_state = "tethergun"
+	worn_icon = 'modular_doppler/shipbreaking/icons/mob/worn.dmi'
+	worn_icon_state = "tethergun"
+	w_class = WEIGHT_CLASS_NORMAL
+	resistance_flags = FIRE_PROOF
+	item_flags = NOBLUDGEON
+	drop_sound = 'sound/items/handling/tools/rcd_drop.ogg'
+	pickup_sound = 'sound/items/handling/tools/rcd_pickup.ogg'
+	sound_vary = TRUE
+	slot_flags = ITEM_SLOT_BELT
 	/// The current operating mode of the tethergun
 	var/operating_mode = TETHERGUN_MODE_MOVE
 	/// Range of the manipulator mode
