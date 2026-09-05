@@ -18,3 +18,11 @@
 	item = /obj/item/reagent_containers/hypospray/medipen/survival/luxury
 	cost = 1 // takes ages to use in-pressure because of the release, so it's cheap
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_item/device_tools/modular_laser_upgrade
+	name = "\improper Cybersun Intermodal License Upgrade cartridge"
+	desc = "A small cartridge that fits the expansion port on the Hyeseung and Hoshi modular laser platforms. \
+	Installation is necessary to access certain upgraded firing modes."
+	item = /obj/item/modular_laser_upgrade
+	cost = 2
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)

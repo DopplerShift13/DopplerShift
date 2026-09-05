@@ -5,17 +5,16 @@
 
 	selection_base_type = /datum/signature_equipment/security_equipment_package
 
-/datum/signature_equipment/security_equipment_package/gunnery_kit
-	name = "Gunnery Kit"
-	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
-	icon_state = "avispa"
-	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_gunnery_package
+/datum/signature_equipment/security_equipment_package/hoshi
+	name = "Hoshi Kit"
+	icon_item_type = /obj/item/gun/energy/modular_laser_rifle/carbine
+	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/security_hoshi_package
 
-/datum/signature_equipment/security_equipment_package/support_kit
-	name = "Support Kit"
-	icon = 'modular_doppler/modular_weapons/icons/obj/gunsets.dmi'
-	icon_state = "security_support_package"
-	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/sportsco_large_case/security_support_package
+/datum/signature_equipment/security_equipment_package/hyeseong_kit
+	name = "Hyeseong Kit"
+	icon_item_type = /obj/item/gun/energy/modular_laser_rifle
+	icon_state = "hyeseong_disabler"
+	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/security_hyeseong_package
 
 /datum/signature_equipment/security_equipment_package/jitte_belt
 	name = "Jitte Belt"
