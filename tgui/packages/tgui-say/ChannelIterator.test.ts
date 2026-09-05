@@ -16,6 +16,7 @@ describe('ChannelIterator', () => {
     // DOPPLER EDIT ADDITION START
     expect(channelIterator.next()).toBe('Whis');
     expect(channelIterator.next()).toBe('LOOC');
+    expect(channelIterator.next()).toBe('Backstage');
     expect(channelIterator.next()).toBe('Do');
     expect(channelIterator.next()).toBe('IRC');
     // DOPPLER EDIT ADDITION END
