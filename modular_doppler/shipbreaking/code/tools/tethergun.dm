@@ -241,7 +241,6 @@
 	kinesis_beam = user.Beam(grabbed_atom, "lightning[rand(1,12)]")
 	kinesis_catcher = user.overlay_fullscreen("tethergun", /atom/movable/screen/fullscreen/cursor_catcher, 0)
 	kinesis_catcher.assign_to_mob(user)
-	RegisterSignal(kinesis_catcher, COMSIG_SCREEN_ELEMENT_CLICK, PROC_REF(on_catcher_click))
 	soundloop.start()
 	START_PROCESSING(SSfastprocess, src)
 
