@@ -2,6 +2,7 @@
 /obj/item/crowbar/power/paramedic
 	blacklisted_access = list(
 		ACCESS_COMMAND,
+		ACCESS_BRIG,
 		ACCESS_AI_UPLOAD,
 		ACCESS_CAPTAIN,
 		ACCESS_HOP,
