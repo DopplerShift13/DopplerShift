@@ -16,6 +16,9 @@
 	random_sensor = FALSE
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 
+/obj/item/clothing/under/frontier_colonist/sensors_off //for cantina spawns . they shouldnt be leaked immediately
+	sensor_mode = SENSOR_OFF
+
 /obj/item/clothing/under/frontier_colonist/casual
 	name = "frontier casualwear"
 	desc = "A comfortable jumpsuit with patches of velcro for attaching tablets and tools, and strengthened joints to mitigate wear."

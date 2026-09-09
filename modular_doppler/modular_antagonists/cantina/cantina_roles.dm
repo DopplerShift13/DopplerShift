@@ -21,7 +21,7 @@
 
 /datum/outfit/cantina_regular
 	name = "Cantina Regular"
-	uniform = /obj/item/clothing/under/frontier_colonist
+	uniform = /obj/item/clothing/under/frontier_colonist/sensors_off
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/industrial/frontier_colonist
@@ -40,7 +40,7 @@
 
 /datum/outfit/cantina_bartender
 	name = "Cantina Bartender"
-	uniform = /obj/item/clothing/under/frontier_colonist
+	uniform = /obj/item/clothing/under/frontier_colonist/sensors_off
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	gloves = /obj/item/clothing/gloves/combat
 	back = /obj/item/storage/backpack/industrial/frontier_colonist
@@ -57,7 +57,7 @@
 
 /datum/outfit/cantina_guest
 	name = "Cantina Visitor"
-	uniform = /obj/item/clothing/under/costume/buttondown/slacks
+	uniform = /obj/item/clothing/under/costume/buttondown/slacks/sensors_off
 	shoes = /obj/item/clothing/shoes/laceup
 	back = /obj/item/storage/backpack/industrial/frontier_colonist
 	l_pocket = /obj/item/modular_computer/pda/chameleon
