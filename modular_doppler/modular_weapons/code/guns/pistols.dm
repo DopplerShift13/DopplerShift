@@ -47,3 +47,52 @@
 // syndicate pin desert eagle; because sometimes u gotta blow a dude's head smoove off
 /obj/item/gun/ballistic/automatic/pistol/deagle/syndicate_pin
 	pin = /obj/item/firing_pin/implant/pindicate
+
+// the défenseur; a new gibraltar made service pistol partially designed for civilian and port safety usage.
+/obj/item/gun/ballistic/automatic/pistol/defenseur
+	name = "\improper Défenseur 2520"
+	desc = "Défenseur Modele 2520, a handgun chambered in the regional New Gibraltar 6mm cartridge. It was \
+		designed by a first-generation New Gibraltar gunsmith, and the first gun uniquely designed for the \
+		planet. It also features a high-visiblity polymer frame."
+	icon = 'modular_doppler/modular_weapons/icons/obj/guns32x.dmi'
+	icon_state = "defenseur"
+	rack_sound = 'modular_doppler/modular_weapons/sounds/pistol_rack.wav'
+	fire_sound = 'modular_doppler/modular_weapons/sounds/pistol_light.wav'
+	pickup_sound = 'modular_doppler/modular_weapons/sounds/drop_lightgun.wav'
+	drop_sound = 'modular_doppler/modular_weapons/sounds/drop_lightgun.wav'
+	fire_sound_volume = 50
+	bolt_wording = "slide"
+	w_class = WEIGHT_CLASS_SMALL
+	accepted_magazine_type = /obj/item/ammo_box/magazine/defenseur
+	can_suppress = FALSE
+	fire_delay = 0.25 SECONDS
+	recoil = 0.25
+
+/obj/item/gun/ballistic/automatic/pistol/defenseur/give_manufacturer_examine()
+	AddElement(/datum/element/manufacturer_examine, COMPANY_PORT_AUTHORITY)
+
+/obj/item/gun/ballistic/automatic/pistol/defenseur/starts_empty
+	spawnwithmagazine = FALSE
+
+// defenseur magazines
+/obj/item/ammo_box/magazine/defenseur
+	name = "\improper Défenseur magazine (6mm)"
+	desc = "A short magazine for the Défenseur handgun, holds eight rounds."
+	icon = 'modular_doppler/modular_weapons/icons/obj/casings.dmi'
+	icon_state = "defenseur_mag"
+	multiple_sprites = AMMO_BOX_FULL_EMPTY
+	w_class = WEIGHT_CLASS_TINY
+	ammo_type = /obj/item/ammo_casing/c6ng
+	caliber = CALIBER_6MMGIBRALTAR
+	max_ammo = 8
+
+/obj/item/ammo_box/magazine/defenseur/special
+	name = "\improper Défenseur magazine (6mm Ultrasport)"
+	ammo_type = /obj/item/ammo_casing/c6ng/match
+
+/obj/item/ammo_box/magazine/defenseur/rubber
+	name = "\improper Défenseur magazine (6mm Rubber)"
+	ammo_type = /obj/item/ammo_casing/c6ng/rubber
+
+/obj/item/ammo_box/magazine/defenseur/starts_empty
+	start_empty = TRUE
