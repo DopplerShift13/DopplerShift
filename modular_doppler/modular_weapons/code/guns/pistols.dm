@@ -66,7 +66,6 @@
 	accepted_magazine_type = /obj/item/ammo_box/magazine/defenseur
 	can_suppress = FALSE
 	fire_delay = 0.25 SECONDS
-	recoil = 0.25
 
 /obj/item/gun/ballistic/automatic/pistol/defenseur/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_PORT_AUTHORITY)
