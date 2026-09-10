@@ -145,3 +145,13 @@
 	contains = list(
 		/obj/item/gun/ballistic/rifle/osako,
 	)
+
+/datum/supply_pack/goody/defenseur
+	name = "Défenseur Modele 2520 Single-Pack"
+	desc = "Fresh from the factory, perfect for Cruesoe's Port Safety volunteers to spend money on."
+	cost = PAYCHECK_CREW * 15
+	access = ACCESS_WEAPONS
+	access_view = null
+	contains = list(
+		/obj/item/gun/ballistic/automatic/pistol/defenseur,
+	)
