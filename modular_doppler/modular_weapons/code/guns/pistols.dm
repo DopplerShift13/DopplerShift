@@ -85,7 +85,7 @@
 	caliber = CALIBER_6MMGIBRALTAR
 	max_ammo = 8
 
-/obj/item/ammo_box/magazine/defenseur/special
+/obj/item/ammo_box/magazine/defenseur/match
 	name = "\improper Défenseur magazine (6mm Ultrasport)"
 	ammo_type = /obj/item/ammo_casing/c6ng/match
 
@@ -95,3 +95,19 @@
 
 /obj/item/ammo_box/magazine/defenseur/starts_empty
 	start_empty = TRUE
+
+// R&D Designs
+/datum/design/defenseur_mag
+	name = "Magazine (6mm) (Lethal)"
+	desc = "An 8 round magazine for the Défenseur 2520."
+	build_path = /obj/item/ammo_box/magazine/defenseur
+
+/datum/design/defenseur_mag_match
+	name = "Magazine (6mm Ultrasport) (Lethal)"
+	desc = "An 8 round matchgrade magazine for the Défenseur 2520."
+	build_path = /obj/item/ammo_box/magazine/defenseur/match
+
+/datum/design/defenseur_mag_rubber
+	name = "Magazine (6mm Rubber) (Less Lethal)"
+	desc = "An 8 round rubber magazine designed for the Défenseur 2520."
+	build_path = /obj/item/ammo_box/magazine/defenseur/rubber
