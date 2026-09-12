@@ -104,7 +104,7 @@
 
 /datum/design/defenseur_mag_match
 	name = "Magazine (6mm Ultrasport) (Lethal)"
-	desc = "An 8 round matchgrade magazine for the Défenseur 2520."
+	desc = "An 8 round match grade magazine for the Défenseur 2520."
 	build_path = /obj/item/ammo_box/magazine/defenseur/match
 
 /datum/design/defenseur_mag_rubber
