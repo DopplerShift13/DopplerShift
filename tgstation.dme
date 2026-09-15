@@ -6883,6 +6883,7 @@
 #include "modular_doppler\changing_room\code\areas\centcom.dm"
 #include "modular_doppler\changing_room\code\elements\dust_on_catatonia.dm"
 #include "modular_doppler\changing_room\code\elements\dust_on_leave_area.dm"
+#include "modular_doppler\character_preview_background\code\character_preview_background.dm"
 #include "modular_doppler\chatroom_soul\code\chatroom_keybinding.dm"
 #include "modular_doppler\chatroom_soul\code\irc_checks.dm"
 #include "modular_doppler\chatroom_soul\code\irc_verbs.dm"
