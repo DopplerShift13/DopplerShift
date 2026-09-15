@@ -4,6 +4,7 @@
 #define SODA_FIZZINESS_SHAKE 5
 
 /obj/item/reagent_containers/cup/soda_cans/doppler
+	abstract_type = /obj/item/reagent_containers/cup/soda_cans/doppler
 	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
 	icon_state = null
 
