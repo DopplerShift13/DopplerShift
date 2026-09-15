@@ -100,17 +100,25 @@
 /datum/design/mag_defenseur
 	name = "Magazine (6mm) (Lethal)"
 	desc = "An 8 round magazine for the Défenseur 2520."
+	id = "defenseur_mag"
 	build_path = /obj/item/ammo_box/magazine/defenseur
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 1)
+	build_type = PROTOLATHE | AWAY_LATHE
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
 
-/datum/design/mag_defenseur_match
+/datum/design/mag_defenseur/match
 	name = "Magazine (6mm Ultrasport) (Lethal)"
 	desc = "An 8 round match grade magazine for the Défenseur 2520."
+	id = "defenseur_mag_match"
 	build_path = /obj/item/ammo_box/magazine/defenseur/match
 	materials = list(/datum/material/iron = SHEET_MATERIAL_AMOUNT * 2, /datum/material/silver = SMALL_MATERIAL_AMOUNT * 3)
 
-/datum/design/mag_defenseur_rubber
+/datum/design/mag_defenseur/rubber
 	name = "Magazine (6mm Rubber) (Less Lethal)"
 	desc = "An 8 round rubber magazine designed for the Défenseur 2520."
+	id = "defenseur_mag_rubber"
 	build_path = /obj/item/ammo_box/magazine/defenseur/rubber
 	materials = list(/datum/material/iron =HALF_SHEET_MATERIAL_AMOUNT, /datum/material/glass =HALF_SHEET_MATERIAL_AMOUNT)
