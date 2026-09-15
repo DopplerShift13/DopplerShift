@@ -19,6 +19,7 @@
 	\nRequires Affinity 1 to cast. Affinity gives a chance to not consume charges on cast."
 	security_record_text = "Subject can mend damaged objects with a touch."
 	value = 2
+	power_flags = POWER_HUMAN_ONLY | POWER_HEALING
 
 	action_path = /datum/action/cooldown/power/thaumaturge/mending
 	required_powers = list(/datum/power/thaumaturge_root)
@@ -59,6 +60,7 @@
 	/// Heals silicons or bots
 	if(istype(target, /mob/living/silicon) || istype(target, /mob/living/basic/bot) || istype(target, /mob/living/simple_animal/bot))
 		var/mob/living/target_living = target
+		snapshot_healing_multiplier(target_living)
 		if(!repair_synthetic_mob(target_living))
 			user.balloon_alert(user, "target is not damaged!")
 			return FALSE
@@ -144,6 +146,7 @@
 	var/mob/living/carbon/target_carbon = resolve_target_bodypart_owner(user, target)
 	if(target_carbon)
 		var/obj/item/bodypart/target_bodypart = target_carbon.get_bodypart(check_zone(user.zone_selected))
+		snapshot_healing_multiplier(target_carbon)
 		if(!repair_synthetic_bodypart(target_carbon, target_bodypart))
 			user.balloon_alert(user, "target is not damaged!")
 			return FALSE
@@ -365,7 +368,7 @@
 	if(!target_carbon || !IS_ROBOTIC_LIMB(target_bodypart))
 		return FALSE
 
-	var/amount_to_repair = get_mending_amount(target_bodypart.max_damage)
+	var/amount_to_repair = get_mending_amount(target_bodypart.max_damage) * healing_multiplier
 	return target_carbon.heal_bodypart_damage(
 		brute = amount_to_repair,
 		burn = amount_to_repair,
@@ -381,7 +384,7 @@
 	if(total_damage <= 0)
 		return FALSE
 
-	var/amount_to_repair = get_mending_amount(target_living.maxHealth)
+	var/amount_to_repair = get_mending_amount(target_living.maxHealth) * healing_multiplier
 	var/brute_to_repair = 0
 	var/burn_to_repair = 0
 

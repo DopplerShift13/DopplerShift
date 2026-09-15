@@ -5,6 +5,9 @@
 		"c585naraka",
 		"c25euro",
 		"61stingball",
+		"defenseur_mag",
+		"defenseur_mag_match",
+		"defenseur_mag_rubber",
 	)
 	return ..()
 

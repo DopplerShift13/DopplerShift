@@ -1,0 +1,5 @@
+author: "kittysmooch"
+delete-after: True
+changes:
+  - rscadd: "Port Safety has acquired a range of new clothing, accessories, and armor."
+  - rscdel: "Port Safety has discontinued unwanted loaners from surplus stockpiles."

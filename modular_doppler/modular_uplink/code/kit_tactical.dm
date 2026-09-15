@@ -5,6 +5,16 @@
 /datum/uplink_item/tackit
 	category = /datum/uplink_category/tactical_kits
 
+/datum/uplink_item/tackit/shocktrooper
+	name = "Shocktrooper Equipment"
+	desc = "High-speed ballistic armor paired with a suppressed Kieran pistol and energy sword, thermal goggles, and \
+		spare magazines and medical airhypos alongside a full set of high-quality tactical clothing, including a heavy \
+		rucksack for lugging around extra tools and supplies. Perfect for the aspiring infiltrator looking to cover every \
+		possible engagement range."
+	item = /obj/item/storage/box/syndicate/bundle/shocktrooper
+	cost = 20
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
+
 /datum/uplink_item/tackit/recon
 	name = "Recon Equipment"
 	desc = "Featuring x-ray goggles, a briefcase launchpad, binoculars, grenades, a MODsuit, a portable EMP device, \

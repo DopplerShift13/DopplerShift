@@ -36,3 +36,15 @@
 /obj/item/storage/belt/mining/primitive
 	icon = 'icons/obj/clothing/belts.dmi'
 	worn_icon = 'icons/mob/clothing/belt.dmi'
+
+// overrides the tg webbing for a new sprite
+
+/obj/item/storage/belt/security/webbing
+	name = "\improper Port Safety modular storage harness"
+	desc = "A set of pouches suspended from a shoulder harness and stabilized with a hip belt. \
+	The pouches are attached and fastened shut with a type of microhook velcro that is remarkably \
+	silent when ripped apart."
+	icon = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security_obj.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security.dmi'
+	icon_state = "webbing"
+	worn_icon_state = "webbing"

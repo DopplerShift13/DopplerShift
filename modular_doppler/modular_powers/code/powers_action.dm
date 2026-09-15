@@ -24,6 +24,8 @@
 	var/disabled_by_incapacitate = TRUE
 	/// What power is the origin?
 	var/datum/power/origin_power
+	/// Healing multiplier collected and snapshotted when a healing power heals a mob.
+	var/healing_multiplier = 1
 	/// Can only humans use this power?
 	var/human_only = TRUE
 	/// Can we target ourselves?
@@ -83,6 +85,28 @@
 		magic_resistance_types |= MAGIC_RESISTANCE_HOLY
 
 	return magic_resistance_types
+
+/// Snapshots additive and multiplicative healing modifiers for this power's current mob-healing calculation.
+/datum/action/cooldown/power/proc/snapshot_healing_multiplier(atom/healing_target)
+	healing_multiplier = 1
+	if(!(origin_power?.power_flags & POWER_HEALING) || !owner)
+		return healing_multiplier
+
+	var/list/additive_healing_modifiers = list()
+	var/list/multiplicative_healing_modifiers = list()
+	SEND_SIGNAL(owner, COMSIG_POWER_HEALING_MODIFIERS, healing_target, additive_healing_modifiers, multiplicative_healing_modifiers)
+
+	for(var/additive_healing_modifier in additive_healing_modifiers)
+		healing_multiplier += additive_healing_modifier
+
+	// Compound all multiplicative bonus factors together, then apply the combined factor to the additive result in one batch.
+	var/combined_multiplicative_factor = 1
+	for(var/multiplicative_healing_modifier in multiplicative_healing_modifiers)
+		combined_multiplicative_factor *= (1 + multiplicative_healing_modifier)
+	healing_multiplier *= combined_multiplicative_factor
+
+	healing_multiplier = max(0, healing_multiplier)
+	return healing_multiplier
 
 /// Attempts to actively use the action by pathing through validation, antimagic, do_use_time and finally use_action
 /datum/action/cooldown/power/proc/try_use(mob/living/user, atom/target)
@@ -191,6 +215,20 @@
  * Trigger() -> PreActivate(owner) -> Activate(owner) -> try_use(user, target)
  * Click-activated powers DO NOT route through this; they use InterceptClickOn below.
  */
+/// We add a special override so we can always unset click abilities even if they're on cooldown
+/datum/action/cooldown/power/Trigger(mob/clicker, trigger_flags, atom/target)
+	if(click_to_activate && !target)
+		var/mob/user = clicker || owner
+		if(!user)
+			return FALSE
+
+		var/datum/action/cooldown/already_set = user.click_intercept
+		if(already_set == src)
+			// Powers should always be able to be toggled off again, even while their cooldown is running.
+			return unset_click_ability(user, refund_cooldown = TRUE)
+
+	return ..()
+
 /datum/action/cooldown/power/Activate(atom/target)
 	var/mob/living/user = owner
 	if(!user)

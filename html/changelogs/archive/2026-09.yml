@@ -38,3 +38,6 @@
       again
   - balance: The Curfew & Sundown has received an audit and has less free equipment
       available
+2026-09-15:
+  firebudgy:
+  - rscadd: New security cap sprite.

@@ -1,0 +1,9 @@
+author: "TheOneAndOnlyCreeperJoe"
+delete-after: True
+changes:
+  - rscadd: "Miniature reality anchors now are significantly more miserable to be around as a magical person."
+  - rscadd: "Miniature reality anchors now are machines, have power-draw and can be EMP'd."
+  - balance: "Miniature reality anchors have had their moodlet debuff doubled."
+  - balance: "Miniature reality anchors will now give you a bad time if you interact with it remotely using TK or Manipulate"
+  - bugfix: "Miniature reality anchors no longer cause runtimes when attempting to dispel ghosts."
+  - code_imp: "Manipulate now has signalers that allow it to have custom interactions when interacting with objects."

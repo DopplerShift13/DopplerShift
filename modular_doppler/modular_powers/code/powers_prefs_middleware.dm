@@ -151,6 +151,7 @@
 		"description" = power_type.desc,
 		"name" = power_type.name,
 		"cost" = power_type.value,
+		"power_flags" = build_power_flags(power_type),
 		"magic_flags" = build_power_magic_flags(power_type),
 		"root_badge_icon" = root_badge_icon,
 		"archetype_name" = archetype_name,
@@ -163,6 +164,14 @@
 		"customizable" = constant_data?.is_customizable(),
 		"customization_options" = customization_options,
 	)
+
+/// Builds the list of general power mechanic tags the UI should show for a power.
+/datum/preference_middleware/powers/proc/build_power_flags(datum/power/power_type)
+	var/power_flags = initial(power_type.power_flags)
+	var/list/final_power_flags = list()
+	if(power_flags & POWER_HEALING)
+		final_power_flags += "healing"
+	return final_power_flags
 
 /// Builds the list of anti-magic interaction tags the UI should show for a power.
 /datum/preference_middleware/powers/proc/build_power_magic_flags(datum/power/power_type)
@@ -572,7 +581,8 @@
 		"magic_standard_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_standard_icon.png',
 		"magic_mental_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_mental_icon.png',
 		"magic_scrying_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_scrying_icon.png',
-		"magic_unholy_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_unholy_icon.png'
+		"magic_unholy_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/magic_unholy_icon.png',
+		"flag_healing_icon.png" = 'modular_doppler/modular_powers/icons/ui/powers/flag_healing_icon.png'
 	)
 
 /datum/preference_middleware/powers/get_ui_assets()

@@ -1,0 +1,9 @@
+author: "TheOneAndOnlyCreeperJoe"
+delete-after: True
+changes:
+  - rscadd: "Summonable now supports languages; you can make it so you are only summoned in specific languages. Best have kept up with those Spanish lessons."
+  - rscadd: "Summonable now goes on cooldown if it resists a summon through magboots or buckles, and has a funny animation."
+  - balance: "Summonable can now be blocked by active magboots."
+  - bugfix: "You can no longer sneak into Centcomm by using Riftwalker and setting your summons to something the shuttle Medibot says."
+  - bugfix: "You can no longer be summoned out of Crypods"
+  - refactor: "Summonable no longer uses the Beetlejuice component"

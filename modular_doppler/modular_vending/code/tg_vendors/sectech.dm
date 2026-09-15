@@ -24,6 +24,8 @@
 		/obj/item/ammo_casing/alacran_dart/rootbeer = 3,
 		/obj/item/storage/box/alacran_dart = 3,
 		/obj/item/storage/box/alacran_dart/piercing = 3,
+		/obj/item/clothing/head/helmet/sec_visorless = 5,
+
 	)
 	premium_doppler = list(
     /obj/item/restraints/handcuffs/antiresonant = 6, // anti powers cuffs

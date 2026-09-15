@@ -1,0 +1,4 @@
+author: "carda-sometimesknownas-paxilmaniac"
+delete-after: True
+changes:
+  - bugfix: "you can now interact with cryopods without needing to pass ISADVANCEDTOOLUSER"

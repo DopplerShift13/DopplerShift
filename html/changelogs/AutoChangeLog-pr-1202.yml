@@ -1,0 +1,5 @@
+author: "carda-sometimesknownas-paxilmaniac"
+delete-after: True
+changes:
+  - rscadd: "map jsons can now edit the outfit of a job"
+  - code_imp: "the \"modular_mapping\" folder has been replaced with just \"mapping\""

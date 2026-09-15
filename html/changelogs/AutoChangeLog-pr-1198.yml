@@ -1,0 +1,6 @@
+author: "carda-sometimesknownas-paxilmaniac"
+delete-after: True
+changes:
+  - rscadd: "Adds the Yanao tripod machinegun as a better example to represent what the mounted weapons system is capable of"
+  - qol: "Weaponry can now eject casings in a direction rather than directly under the shooter, if desired"
+  - bugfix: "Fixes multiple bugs with mounted guns"

@@ -82,7 +82,7 @@ Check /datum/power for important variables. The most common ones you’ll use ar
 
 action_path particularly deserves a unique mention. If you have an activate-able ability that warrants its own button, you want to make an action datum and define the full type-path of the action inside here. Usually, you have the power- and action datums in the same file for ease of access. More on action datums is elaborated in the [Action Datum section](#anchor-4).
 
-_power_flags_ is another useful tool, specifically allowing you to pass POWER_PROCESSES as an argument to make the power start processing, performing the process() function every tick.
+_power_flags_ is another useful tool, specifically allowing you to pass POWER*PROCESSES as an argument to make the power start processing, performing the process() function every tick. POWER_HEALING can also be passed into \_power_flags* to mark powers which use or provide global power healing modifiers. This also displays the healing flag in the powers UI so players know the power interacts with healing modifiers (which you still have to add by hand using snapshot*healing_multiplier() and then using the \_healing_multiplier* var)
 
 There are several sub-types of variables to do with power prerequisites.
 
@@ -312,6 +312,10 @@ There’s a few generic helper functions you can call for various purposes, to d
 
 - has_power_in_path() returns TRUE if the mob has any power that belongs to the specified power path, for example if you want to know if someone has any thaumaturgic powers.
   - This accepts the POWER_PATH_X defines, so it’d look something like POWER_PATH_THAUMATURGE.
+
+- has_magical_power_in_path() and has_magical_power_in_archetype() only match powers whose power definition has magic flags. Their optional `magic_flags` argument accepts `POWER_MAGIC_X` flags and defaults to any magic flag.
+
+- has_nonmagical_power_in_path() and has_nonmagical_power_in_archetype() only match powers whose power definition has no magic flags.
 
 - get_power() returns a specific instance of a power on a mob if they have it. It takes a power’s typepath as its argument.
 
