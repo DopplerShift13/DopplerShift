@@ -226,3 +226,17 @@
 		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/lunar_japanese/tg/worn,
 		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/lunar_japanese/tg/worn/digi,
 	)
+
+/obj/item/clothing/under/dress/doppler/bias_dress
+	name = "bias-cut designer dress"
+	desc = "Lush woven artsilk spills about in lavish drapes. The cut runs this garment's warp and weft on their sides, \
+	making it body conscious and yardage intensive at the same time. This kind of excess is popular in the Core Worlds, \
+	where price has ceased to ration anything."
+	icon = 'icons/map_icons/clothing/under/dress.dmi'
+	icon_state = "/obj/item/clothing/under/dress/doppler/coreoid_dress"
+	post_init_icon_state = "bias_dress"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	greyscale_colors = "#382e24"
+	greyscale_config = /datum/greyscale_config/bias_dress
+	greyscale_config_worn = /datum/greyscale_config/bias_dress/worn
+	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON

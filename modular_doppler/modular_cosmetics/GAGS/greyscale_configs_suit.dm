@@ -168,6 +168,15 @@
 	name = "Technyne Hood (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
 
+/datum/greyscale_config/duelist_jacket
+	name = "Duelist Jacket"
+	icon_file = 'modular_doppler/species_clothes/icons/tajara/gear.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/duelist_jacket.json'
+
+/datum/greyscale_config/duelist_jacket/worn
+	name = "Duelist Jacket (Worn)"
+	icon_file = 'modular_doppler/species_clothes/icons/tajara/gear_worn.dmi'
+
 // Apron
 
 /datum/greyscale_config/apron

@@ -143,6 +143,7 @@
 		/obj/item/clothing/suit/toggle/labcoat/lalunevest = 3,
 		/obj/item/clothing/gloves/lalune_long = 3,
 		/obj/item/clothing/suit/jacket/doppler/bad_for_school = 3,
+		/obj/item/clothing/under/dress/doppler/bias_dress = 1,
 		/obj/item/clothing/shoes/geowpn = 3,
 		/obj/item/clothing/suit/jacket/doppler/technyne_sweatshirt = 3,
 		/obj/item/clothing/suit/hooded/doppler/technyne_overlay_hoodie = 3,

@@ -1,0 +1,22 @@
+{
+	"duelist_jacket": [
+		{
+			"type": "icon_state",
+			"icon_state": "duelist_jacket",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "duelist_buttons",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "duelist_patch",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	]
+}

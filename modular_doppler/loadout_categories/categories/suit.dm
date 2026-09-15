@@ -306,6 +306,10 @@
 	name = "Bad for School Jacket"
 	item_path = /obj/item/clothing/suit/jacket/doppler/bad_for_school
 
+/datum/loadout_item/suit/jacket/duelist_jacket
+	name = "Duelist Jacket (Tajaran)"
+	item_path = /obj/item/clothing/suit/duelist_jacket
+
 /datum/loadout_item/suit/jacket/departmental_jacket
 	name = "Work Jacket"
 	item_path = /obj/item/clothing/suit/jacket/doppler/departmental_jacket

@@ -116,6 +116,19 @@
 	inhand_icon_state = null
 	supported_bodyshapes = null
 
+/obj/item/clothing/suit/duelist_jacket
+	name = "duelist's jacket"
+	desc = "Densely woven aramid cut to a regal fit. Puffed sleeves and a gusseted underarm promote mobility for deep work with a \
+	blade. A badge on the shoulder denotes the fighter's cohorts."
+	icon = 'icons/map_icons/clothing/suit/_suit.dmi'
+	icon_state = "/obj/item/clothing/suit/tajaran_fencing_jacket"
+	post_init_icon_state = "duelist_jacket"
+	greyscale_config = /datum/greyscale_config/duelist_jacket
+	greyscale_config_worn = /datum/greyscale_config/duelist_jacket/worn
+	greyscale_colors = "#414453#f0bd84#f0bd84"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	armor_type = /datum/armor/colonist_armor
+
 /obj/item/clothing/neck/vulp_cloak
 	name = "vatcloak"
 	desc = "A gold-fastened white mini cloak often worn by the most skilled of a group of Vulpkanin, which most typically \

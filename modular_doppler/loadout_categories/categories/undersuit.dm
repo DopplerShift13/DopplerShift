@@ -416,6 +416,10 @@
 	name = "Tailored Dress (Hearthkin)"
 	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tailored_dress
 
+/datum/loadout_item/undersuit/dress/bias_cut_dress
+	name = "Bias-cut Designer Dress"
+	item_path = /obj/item/clothing/under/dress/doppler/bias_dress
+
 /**
  * FULLBODY
  */
@@ -532,3 +536,7 @@
 /datum/loadout_item/undersuit/misc/primitive_genemod_body_wraps
 	name = "Hearthkin Body Wraps"
 	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_body_wraps
+
+/datum/loadout_item/undersuit/misc/nautical_shirt
+	name = "Nautical Shirt"
+	item_path = /obj/item/clothing/under/nautical_shirt

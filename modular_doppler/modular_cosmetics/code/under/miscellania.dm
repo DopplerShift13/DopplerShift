@@ -252,3 +252,52 @@
 	)
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
 	can_adjust = FALSE
+
+/obj/item/clothing/under/nautical_shortset
+	name = "nautical shortset"
+	desc = "A breezy nautical ensemble set in a sun-repelling fabric. A bit saccharine and twee, it's often bought \
+	on someone's behalf."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/nautical_shortset"
+	post_init_icon_state = "nautical_shortset"
+	greyscale_config = /datum/greyscale_config/nautical_shortset
+	greyscale_config_worn = /datum/greyscale_config/nautical_shortset/worn
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/nautical_shortset/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/nautical_shortset/worn/digi,
+	)
+	greyscale_colors = "#ebebeb#4a518d#942737#4a518d"
+	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/under/nautical_shirt
+	name = "nautical shirt"
+	desc = "A broadcloth shirt with an old nautical motif. Once a practical garment for sailing, it's more of a novelty \
+	for most wearers these days."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/nautical_shirt"
+	post_init_icon_state = "nautical_shirt"
+	greyscale_config = /datum/greyscale_config/nautical_shirt
+	greyscale_config_worn = /datum/greyscale_config/nautical_shirt/worn
+	greyscale_colors = "#ebebeb#4a518d#942737"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	slot_flags = ITEM_SLOT_ICLOTHING | ITEM_SLOT_OCLOTHING	// to pair with shirts, skirts, etc
+	body_parts_covered = CHEST|ARMS
+
+/obj/item/clothing/under/nautical_shorts
+	name = "nautical shorts"
+	desc = "Short and very crispy pressed, these have something of a prep vibe to them."
+	icon = 'icons/map_icons/clothing/under/_under.dmi'
+	icon_state = "/obj/item/clothing/under/nautical_shorts"
+	post_init_icon_state = "nautical_shorts"
+	greyscale_config = /datum/greyscale_config/nautical_shorts
+	greyscale_config_worn = /datum/greyscale_config/nautical_shorts/worn
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/nautical_shorts/worn,
+		BODYSHAPE_DIGITIGRADE_T = /datum/greyscale_config/nautical_shorts/worn/digi,
+	)
+	greyscale_colors = "#4a518d"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	can_adjust = FALSE
+	body_parts_covered = GROIN|LEGS
