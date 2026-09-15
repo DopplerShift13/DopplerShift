@@ -54701,6 +54701,15 @@
 "icj" = (
 /turf/closed/wall,
 /area/station/medical/paramedic)
+"icm" = (
+/obj/machinery/door/firedoor,
+/obj/effect/turf_decal/tile/blue/fourcorners,
+/obj/machinery/door/airlock/medical/glass{
+	id_tag = "MedbayFoyerDown";
+	name = "Medbay"
+	},
+/turf/open/floor/iron/white,
+/area/station/medical/medbay/central)
 "icp" = (
 /obj/effect/turf_decal/siding/wood{
 	dir = 4
@@ -63391,7 +63400,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/door/airlock/medical/glass{
-	id_tag = "MedbayFoyer";
+	id_tag = "MedbayFoyerUp";
 	name = "Medbay"
 	},
 /turf/open/floor/iron/white,
@@ -121287,7 +121296,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/door/airlock/medical/glass{
-	id_tag = "MedbayFoyer";
+	id_tag = "MedbayFoyerUp";
 	name = "Medbay"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
@@ -161142,7 +161151,7 @@
 /obj/machinery/door/firedoor,
 /obj/effect/turf_decal/tile/blue/fourcorners,
 /obj/machinery/door/airlock/medical/glass{
-	id_tag = "MedbayFoyer";
+	id_tag = "MedbayFoyerDown";
 	name = "Medbay"
 	},
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -257483,7 +257492,7 @@ mCb
 qMH
 rOK
 aHR
-jty
+icm
 vVs
 aRE
 aln

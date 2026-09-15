@@ -16600,7 +16600,8 @@
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/turf_decal/tile/pine_green/fourcorners,
 /obj/machinery/door/airlock/virology/glass{
-	name = "Medbay"
+	name = "Medbay";
+	id_tag = "MedbayFoyer"
 	},
 /obj/effect/landmark/navigate_destination/med,
 /turf/open/floor/iron/white,
@@ -45554,7 +45555,8 @@
 /obj/effect/mapping_helpers/airlock/access/any/medical/general,
 /obj/effect/turf_decal/tile/pine_green/fourcorners,
 /obj/machinery/door/airlock/virology/glass{
-	name = "Medbay"
+	name = "Medbay";
+	id_tag = "MedbayFoyer"
 	},
 /obj/effect/landmark/navigate_destination/med,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
