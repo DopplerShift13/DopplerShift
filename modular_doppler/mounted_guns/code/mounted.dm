@@ -15,13 +15,16 @@
 	var/disassembly_sound = 'sound/items/tools/change_jaws.ogg'
 	/// Can this be disassembled easily?
 	var/can_be_removed = TRUE
+	/// What extra view range do we give to mobs that hop on
+	var/view_range = 3
 
 /obj/vehicle/ridden/mounted_turret/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/complicated_rotation, ROTATION_IGNORE_ANCHORED, 1 SECONDS, 'sound/items/tools/ratchet.ogg')
 	AddElement(/datum/element/ridable_turret, /datum/component/riding/vehicle/mounted_turret)
 	if(mapload_gun)
-		new mapload_gun(src)
+		stored_gun = new mapload_gun(src)
+		register_gun(stored_gun)
 
 /obj/vehicle/ridden/mounted_turret/examine(mob/user)
 	. = ..()
@@ -65,6 +68,7 @@
 	RegisterSignal(stored_gun, COMSIG_GUN_TRY_FIRE, PROC_REF(check_if_in_arc))
 	RegisterSignal(stored_gun, COMSIG_ATOM_UPDATE_ICON, PROC_REF(update_turret_look))
 	name = stored_gun.name
+	desc = stored_gun.desc
 	update_turret_look()
 	update_appearance()
 
@@ -89,12 +93,11 @@
 	if(!istype(stored_gun, /obj/item/gun/ballistic))
 		return
 	var/obj/item/gun/ballistic/ballistic = stored_gun
-	if(!ballistic.show_bolt_icon)
-		return
-	if(ballistic.bolt_type == BOLT_TYPE_LOCKING)
-		. += "[gun_state]_bolt[ballistic.bolt_locked ? "_locked" : ""]"
-	if(ballistic.bolt_type == BOLT_TYPE_OPEN && ballistic.bolt_locked)
-		. += "[gun_state]_bolt"
+	if(ballistic.show_bolt_icon)
+		if(ballistic.bolt_type == BOLT_TYPE_LOCKING)
+			. += "[gun_state]_bolt[ballistic.bolt_locked ? "_locked" : ""]"
+		if(ballistic.bolt_type == BOLT_TYPE_OPEN && ballistic.bolt_locked)
+			. += "[gun_state]_bolt"
 	if(ballistic.suppressed && ballistic.can_unsuppress)
 		. += "[gun_state]_suppressor"
 	if(!ballistic.chambered && ballistic.empty_indicator)
@@ -138,16 +141,16 @@
 	take_her_down(user)
 
 /obj/vehicle/ridden/mounted_turret/attack_hand(mob/user, list/modifiers)
-	stored_gun.attack_hand(user, modifiers)
+	return stored_gun.attack_hand(user, modifiers)
 
 /obj/vehicle/ridden/mounted_turret/attack_hand_secondary(mob/user, list/modifiers)
-	stored_gun.attack_hand_secondary(user, modifiers)
+	return stored_gun.attack_hand_secondary(user, modifiers)
 
 /obj/vehicle/ridden/mounted_turret/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	stored_gun.item_interaction(user, tool, modifiers)
+	return stored_gun.item_interaction(user, tool, modifiers)
 
 /obj/vehicle/ridden/mounted_turret/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
-	stored_gun.item_interaction_secondary(user, tool, modifiers)
+	return stored_gun.item_interaction_secondary(user, tool, modifiers)
 
 /obj/vehicle/ridden/mounted_turret/buckle_feedback(mob/living/being_buckled, mob/buckler)
 	buckler.visible_message(
@@ -156,6 +159,17 @@
 		visible_message_flags = ALWAYS_SHOW_SELF_MESSAGE,
 		vision_distance = COMBAT_MESSAGE_RANGE,
 	)
+
+/obj/vehicle/ridden/mounted_turret/user_buckle_mob(mob/living/buckled_mob, mob/user, check_loc = TRUE)
+	. = ..()
+	if(buckled_mob.client)
+		buckled_mob.client.view_size.setTo(view_range)
+
+/obj/vehicle/ridden/mounted_turret/unbuckle_mob(mob/living/buckled_mob, force, can_fall)
+	. = ..()
+	if(buckled_mob.client)
+		buckled_mob.client.view_size.resetToDefault()
+	stored_gun.dropped(buckled_mob)
 
 /obj/vehicle/ridden/mounted_turret/unbuckle_feedback(mob/living/being_unbuckled, mob/unbuckler)
 	if(being_unbuckled == unbuckler)

@@ -14,7 +14,7 @@
 	RegisterSignal(src, COMSIG_RANGED_ITEM_INTERACTING_WITH_ATOM_SECONDARY, PROC_REF(check_scope_interact))
 
 /obj/item/doppler_turret_offhand/dropped(mob/user)
-	turret.stored_gun.dropped(user)
+	turret?.stored_gun.dropped(user)
 	. = ..()
 
 /obj/item/doppler_turret_offhand/equipped(mob/user, slot)
@@ -32,46 +32,46 @@
 	return ..()
 
 /obj/item/doppler_turret_offhand/attack_self(mob/user, modifiers)
-	turret.stored_gun.attack_self(user, modifiers)
+	return turret.stored_gun.attack_self(user, modifiers)
 
 /obj/item/doppler_turret_offhand/attack_self_secondary(mob/user, modifiers)
-	turret.stored_gun.attack_self_secondary(user, modifiers)
+	return turret.stored_gun.attack_self_secondary(user, modifiers)
 
 /obj/item/doppler_turret_offhand/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
-	turret.stored_gun.item_interaction(user, tool, modifiers)
+	return turret.stored_gun.item_interaction(user, tool, modifiers)
 
 /obj/item/doppler_turret_offhand/item_interaction_secondary(mob/living/user, obj/item/tool, list/modifiers)
-	turret.stored_gun.item_interaction_secondary(user, tool, modifiers)
+	return turret.stored_gun.item_interaction_secondary(user, tool, modifiers)
 
 /obj/item/doppler_turret_offhand/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	turret.stored_gun.interact_with_atom(interacting_with, user, modifiers)
+	return turret.stored_gun.interact_with_atom(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	turret.stored_gun.interact_with_atom_secondary(interacting_with, user, modifiers)
+	return turret.stored_gun.interact_with_atom_secondary(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	turret.stored_gun.ranged_interact_with_atom(interacting_with, user, modifiers)
+	return turret.stored_gun.ranged_interact_with_atom(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	turret.stored_gun.ranged_interact_with_atom_secondary(interacting_with, user, modifiers)
+	return turret.stored_gun.ranged_interact_with_atom_secondary(interacting_with, user, modifiers)
 
 /obj/item/doppler_turret_offhand/attack_hand(mob/user, list/modifiers)
-	turret.stored_gun.attack_hand(user, modifiers)
+	return turret.stored_gun.attack_hand(user, modifiers)
 
 /obj/item/doppler_turret_offhand/attack_hand_secondary(mob/user, list/modifiers)
-	turret.stored_gun.attack_hand_secondary(user, modifiers)
+	return turret.stored_gun.attack_hand_secondary(user, modifiers)
 
 /obj/item/doppler_turret_offhand/click_alt(mob/user)
-	turret.stored_gun.click_alt(user)
+	return turret.stored_gun.click_alt(user)
 
 /obj/item/doppler_turret_offhand/click_alt_secondary(mob/user)
-	turret.stored_gun.click_alt_secondary(user)
+	return turret.stored_gun.click_alt_secondary(user)
 
 /obj/item/doppler_turret_offhand/item_ctrl_click(mob/user)
-	turret.stored_gun.item_ctrl_click(user)
+	return turret.stored_gun.item_ctrl_click(user)
 
 /obj/item/doppler_turret_offhand/click_ctrl_shift(mob/user)
-	turret.stored_gun.click_ctrl_shift(user)
+	return turret.stored_gun.click_ctrl_shift(user)
 
 /// Checks with our gun if the scope interaction needs to happen
 /obj/item/doppler_turret_offhand/proc/check_scope_interact(datum/source, mob/user, atom/target, list/modifiers)

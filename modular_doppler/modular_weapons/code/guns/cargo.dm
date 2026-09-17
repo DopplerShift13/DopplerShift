@@ -88,6 +88,25 @@
 	)
 	crate_name = "schießenmaschine crate"
 
+/datum/supply_pack/security/armory/modular_laser_upgrade
+	name = "Cybersun Intermodal License Upgrade cartridge multi-pack"
+	desc = "A three pack of license upgrade cartridges, compatible with the Hoshi and Hyeseong modular laser \
+	weapon systems. Authentic Cybersun software is guaranteed."
+	cost = CARGO_CRATE_VALUE * 50
+	contains = list(
+		/obj/item/modular_laser_upgrade = 3,
+	)
+	crate_name = "ILU cartridge create"
+
+/datum/supply_pack/security/armory/escarabajo
+	name = "\improper PA-3S Escarabajo riot shield"
+	desc = "A single pack plastitanium riot shield."
+	cost = CARGO_CRATE_VALUE * 10
+	contains = list(
+		/obj/item/shield/escarabajo,
+	)
+	crate_name = "PA-3S riot shield crate"
+
 /datum/supply_pack/goody/dumdum38
 	special = TRUE
 
@@ -144,4 +163,14 @@
 	access_view = null
 	contains = list(
 		/obj/item/gun/ballistic/rifle/osako,
+	)
+
+/datum/supply_pack/goody/defenseur
+	name = "Défenseur Modele 2520 Single-Pack"
+	desc = "Fresh from the factory, perfect for Cruesoe's Port Safety volunteers to spend money on."
+	cost = PAYCHECK_CREW * 15
+	access = ACCESS_WEAPONS
+	access_view = null
+	contains = list(
+		/obj/item/gun/ballistic/automatic/pistol/defenseur,
 	)

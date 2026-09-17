@@ -33,3 +33,7 @@
 	icon_state = "cargo_fingerless"
 	worn_icon_state = "cargo_fingerless"
 	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH)
+
+/obj/item/clothing/gloves/doppler_cargo/fingerless/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/adjust_fishing_difficulty, -4)

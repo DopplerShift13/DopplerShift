@@ -15,8 +15,8 @@
 
 /datum/job/detective
 	alt_titles = list(
-		JOB_DETECTIVE,
-		"Investigator",
+		JOB_INVESTIGATOR,
+		"Detective",
 		"Forensic Scientist",
 		"Forensic Technician",
 	)

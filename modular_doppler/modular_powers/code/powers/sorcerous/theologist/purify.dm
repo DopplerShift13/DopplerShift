@@ -8,27 +8,32 @@
 
 /datum/power/theologist/purify
 	name = "Purify"
-	desc = "Cleanses impurity from objects and creatures in melee range. The chosen target is immediately dispelled and purified of all poisons. \
+	desc = "Cleanses impurity from objects and creatures in melee range. The chosen target is immediately dispelled and purified of all poisons. Heals 20 toxins damage. \
 	Converts objects into their holy equivalents (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
 	security_record_text = "Subject can end magical effects on a target, nullify poisons and transmute objects into their holy variants with a touch."
 	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/purify
 	value = 5
+	power_flags = POWER_HUMAN_ONLY | POWER_HEALING
 
-	required_powers = list(/datum/power/theologist_root/shared)
+	required_powers = list(/datum/power/theologist_root)
+	required_allow_subtypes = TRUE
 
 /datum/action/cooldown/power/theologist/purify
 	name = "Purify"
 	desc = "Cleanses impurity from objects and creatures in melee range. The chosen target is immediately dispelled and purified of all poisons. \
-	Converts objects into their holy equivalents (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
+	Heals 20 toxins damage. Converts objects into their holy equivalents (e.g water into holy water). Has varying piety costs, but usually defaults to 5."
 	button_icon = 'icons/obj/mining_zones/artefacts.dmi'
 	button_icon_state = "purified_soulstone"
 	cooldown_time = 60
+	cost = 5
 
 	target_range = 1
 	click_to_activate = TRUE
 	/// Accumulated piety cost for this use.
 	var/pending_piety_cost = 0
+	/// Base toxin damage healed from living targets before healing modifiers.
+	var/toxin_healing = 20
 
 /datum/action/cooldown/power/theologist/purify/InterceptClickOn(mob/living/clicker, params, atom/target)
 	. = ..()
@@ -55,6 +60,13 @@
 		if(removed > 0)
 			success = TRUE
 
+	// Heal toxin damage only on living targets. Other purification effects do not scale with healing modifiers.
+	if(isliving(target))
+		var/mob/living/living_target = target
+		var/modified_toxin_healing = toxin_healing * snapshot_healing_multiplier(living_target)
+		if(living_target.adjustToxLoss(-modified_toxin_healing, forced = TRUE)) // we don't purge their entire bloodstream so we don't damage them either.
+			success = TRUE
+
 	// Holy-equivalent conversions.
 	if(convert_objects(user, target))
 		success = TRUE
@@ -62,7 +74,7 @@
 		success = TRUE
 
 	if(success)
-		pending_piety_cost = max(pending_piety_cost, THEOLOGIST_PIETY_MINOR)
+		pending_piety_cost = max(pending_piety_cost, cost)
 		playsound(user, 'sound/effects/magic/magic_block_holy.ogg', 50, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	else
 		user.balloon_alert(user, "nothing to be purified!")
@@ -79,7 +91,7 @@
 	return TRUE
 
 /datum/action/cooldown/power/theologist/purify/on_action_success(mob/living/user, atom/target)
-	. = ..()
+	// Purify tracks and deducts its complete variable cost itself, so do not apply the base action's cost a second time.
 	if(pending_piety_cost > 0)
 		adjust_piety(-pending_piety_cost)
 	pending_piety_cost = 0

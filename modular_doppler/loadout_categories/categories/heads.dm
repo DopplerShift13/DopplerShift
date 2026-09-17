@@ -55,11 +55,27 @@
 
 /datum/loadout_item/head/hats/sec_beret
 	name = "Beret (Security)"
-	item_path = /obj/item/clothing/head/beret/sec
+	item_path = /obj/item/clothing/head/hats/sec_beret_doppler
 
-/datum/loadout_item/head/hats/sec_beret_navy
-	name = "Beret (Security, Blue)"
-	item_path = /obj/item/clothing/head/beret/sec/navyofficer
+/datum/loadout_item/head/hats/sec_beret_alt
+	name = "Beret (Security, Alt)"
+	item_path = /obj/item/clothing/head/hats/sec_beret_doppler/alt
+
+/datum/loadout_item/hats/sec_cattleman
+	name = "Port Safety Cattleman Hat"
+	item_path = /obj/item/clothing/head/hats/sec_cattleman
+
+/datum/loadout_item/hats/sec_cattleman
+	name = "Port Safety Rawhide Hat"
+	item_path = /obj/item/clothing/head/hats/sec_cattleman/plain
+
+/datum/loadout_item/head/hats/warden_hat
+	name = "Dispatch Officer's Havelock (Security)"
+	item_path = /obj/item/clothing/head/hats/warden/red
+
+/datum/loadout_item/head/hats/warden_hat_alt
+	name = "Dispatch Officer's Peaked Cap (Security)"
+	item_path = /obj/item/clothing/head/hats/warden/drill
 
 /datum/loadout_item/head/hats/beret_badge
 	name = "Beret (Colorable, Badge)"

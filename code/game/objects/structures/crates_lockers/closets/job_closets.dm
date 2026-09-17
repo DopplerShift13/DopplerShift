@@ -118,6 +118,7 @@
 	name = "security wardrobe"
 	icon_door = "sec_wardrobe"
 
+/* DOPPLER EDIT BEGIN - comments this PopulateContents() out so we can replace it in a modular file (modular_doppler\objects_and_structures\code\security_closet.dm) without calling the proc twice.
 /obj/structure/closet/wardrobe/red/PopulateContents()
 	var/static/items_inside = list(
 		/obj/item/clothing/suit/hooded/wintercoat/security = 1,
@@ -133,6 +134,7 @@
 		/obj/item/clothing/mask/bandana/red = 2)
 	generate_items_inside(items_inside,src)
 	return
+	DOPPLER EDIT END*/
 
 /obj/structure/closet/wardrobe/cargotech
 	name = "cargo wardrobe"

@@ -7,7 +7,7 @@
 	\nYou passively recover stress, which can be boosted by using the Meditate power while holding still."
 	security_record_text = "Subject wields psionic abilities."
 	organ_type = /obj/item/organ/resonant/psyker/paracausal
-	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_MENTAL
+	magic_flags = POWER_MAGIC_STANDARD
 
 	menu_icon = 'modular_doppler/modular_powers/icons/items/organs.dmi'
 	menu_icon_state = "paracausal"
@@ -19,6 +19,7 @@
 	icon = 'modular_doppler/modular_powers/icons/items/organs.dmi'
 	icon_state = "paracausal"
 	recovery_per_second = PSYKER_STRESS_RECOVERY
+	coping_method = "meditate"
 	matching_root_type = /datum/power/psyker_root/paracausal
 
 	/// Meditation action owned by this organ.

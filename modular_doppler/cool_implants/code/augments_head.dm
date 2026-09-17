@@ -249,5 +249,125 @@
 	name = "\improper RICOCHOT 9000 combat computer autosurgeon"
 	starting_organ = /obj/item/organ/cyberimp/trickshotter
 
+//literally just the Militech Berserk from Cyberpunk
+
+/obj/item/organ/cyberimp/berserk_os
+	name = "\improper Shellguard Munitions hormone regulator"
+	desc = "Often dubbed as the Qani-Laaca's younger sibling, it greatly alters the user's pain response and physical strength using a specially-curated cocktail of stimulants and pain suppressants.\
+	Due to its nature, it is incompatible with systems that heavily influence the user's nervous system, like the central nervous system rebooter."
+	icon = 'modular_doppler/cool_implants/icons/implants.dmi'
+	icon_state = "berserkOS"
+	slot = ORGAN_SLOT_BRAIN_CNS
+	zone = BODY_ZONE_HEAD
+	actions_types = list(
+		/datum/action/cooldown/berserk_os,
+		/datum/action/cooldown/berserk_os/overcharge,
+	)
+	w_class = WEIGHT_CLASS_SMALL
+	/// The bodypart overlay datum we should apply to whatever mob we are put into
+	var/datum/bodypart_overlay/simple/berserk_os/da_bodypart_overlay
+
+/obj/item/organ/cyberimp/berserk_os/on_bodypart_insert(obj/item/bodypart/limb, movement_flags)
+	da_bodypart_overlay = new()
+	limb.add_bodypart_overlay(da_bodypart_overlay)
+	owner.update_body_parts()
+	return ..()
+
+/obj/item/organ/cyberimp/berserk_os/on_bodypart_remove(obj/item/bodypart/limb, movement_flags)
+	limb.remove_bodypart_overlay(da_bodypart_overlay)
+	QDEL_NULL(da_bodypart_overlay)
+	owner?.update_body_parts()
+	return ..()
+
+/obj/item/autosurgeon/syndicate/berserk_os
+	name = "\improper Shellguard Munitions hormone regulator autosurgeon"
+	starting_organ = /obj/item/organ/cyberimp/berserk_os
+
+/datum/bodypart_overlay/simple/berserk_os
+	icon = 'modular_doppler/cool_implants/icons/implants_onmob.dmi'
+	icon_state = "berserkOS"
+	layers = EXTERNAL_ADJACENT
+
+/datum/action/cooldown/berserk_os
+	name = "Activate Hormone Regulator"
+	desc = "Activates your hormone regulator and grants you its powers. This will give you a 'safe' dose."
+	button_icon = 'modular_doppler/cool_implants/icons/implants.dmi'
+	button_icon_state = "berserkOS"
+	check_flags = AB_CHECK_CONSCIOUS
+	cooldown_time = 5 MINUTES
+	text_cooldown = TRUE
+	// This makes it so both the regular and overcharge versions of the abilities share a cooldown
+	shared_cooldown = MOB_SHARED_COOLDOWN_3
+	/// Keeps track of how much demoneye we inject into people on activation
+	var/injection_amount = 10
+	/// Keeps track of how much omnizine and coagulant we inject into people
+	var/secondary_injection_amount = 4.5
+
+/datum/action/cooldown/berserk_os/Activate(atom/target)
+	. = ..()
+
+	var/mob/living/carbon/human/human_owner = owner
+
+	owner.log_message("triggered their hormone regulator in [(injection_amount > 10) ? "overdose" : "normal"] mode", LOG_ATTACK)
+
+	owner.emote("scream")
+	human_owner.reagents.add_reagent(/datum/reagent/drug/demoneye, injection_amount)
+	human_owner.reagents.add_reagent(/datum/reagent/determination, secondary_injection_amount)
+	human_owner.reagents.add_reagent(/datum/reagent/medicine/omnizine, secondary_injection_amount)
+	human_owner.reagents.add_reagent(/datum/reagent/medicine/coagulant, secondary_injection_amount)
+
+	owner.visible_message(span_danger("[owner.name] jolts suddenly as two small glass vials are fired from ports in the implant on their spine, shattering as they land."), \
+			span_userdanger("You jolt suddenly as your hormone regulator ejects two empty glass vials rearward, shattering as they land."))
+	playsound(human_owner, 'sound/items/hypospray.ogg', 50, TRUE)
+
+	var/obj/item/telegraph_vial = new /obj/item/hormone_regulator_telegraph(get_turf(owner))
+	var/turf/turf_we_throw_at = get_step(owner, REVERSE_DIR(owner.dir))
+	telegraph_vial.throw_at(turf_we_throw_at, 1, 3, gentle = FALSE, quickstart = TRUE)
+
+/obj/item/hormone_regulator_telegraph
+	name = "spent demoneye cartridge"
+	desc = "A small glass vial, usually kept in a large stack inside a Hormone Regulator implant, that is broken open and ejected \
+		each time the implant is used. If you're looking at one long enough to think about it this long, you either have fast eyes \
+		or were lucky enough to catch one before it broke."
+	icon = 'icons/obj/medical/drugs.dmi'
+	icon_state = "blastoff_ampoule_empty"
+	w_class = WEIGHT_CLASS_SMALL
+
+/obj/item/hormone_regulator_telegraph/Initialize(mapload)
+	. = ..()
+	AddElement(/datum/element/can_shatter, /obj/effect/decal/cleanable/glass, 1, SFX_SHATTER)
+	transform = transform.Scale(0.75, 0.75)
+
+/datum/action/cooldown/berserk_os/overcharge
+	name = "Overcharge Hormone Regulator"
+	desc = "Activates your hormone regulator and grants you its powers. This will overdose you on the regulator's effects, giving you \
+		more powerful abilities at cost of your well-being."
+	button_icon_state = "berserkOS_overcharge"
+	injection_amount = 20 //This will kill you.
+	secondary_injection_amount = 8.5
+
+/// Proc that makes you vomit blood when you're EMPed or run out of drugs
+/obj/item/organ/cyberimp/berserk_os/proc/vomit_blood()
+	var/mob/living/carbon/human/human_owner = owner
+	owner.emote("cough")
+	playsound(human_owner, 'sound/effects/splat.ogg', 50, TRUE)
+	owner.visible_message(
+		span_danger("[owner] suddenly coughs up a mouthful of blood, clutching at their chest!"),
+		span_danger("You feel your chest seize up, a worrying amount of blood flying out of your mouth as you cough uncontrollably.")
+	)
+
+/obj/item/organ/cyberimp/berserk_os/emp_act(severity)
+	. = ..()
+	if(!owner || . & EMP_PROTECT_SELF)
+		return
+	var/mob/living/carbon/human/human_owner = owner
+
+	to_chat(owner, span_warning("Sensory overload! Your body can't handle this much neural input!"))
+	human_owner.Knockdown(6 SECONDS)
+	human_owner.Stun(4 SECONDS)
+	human_owner.set_jitter_if_lower(18 SECONDS)
+	human_owner.blood_volume -= 90
+	addtimer(CALLBACK(src, PROC_REF(vomit_blood)), 3 SECONDS)
+
 #undef HACKERMAN_DECK_TEMPERATURE_INCREASE
 #undef HACKERMAN_DECK_EMP_TEMPERATURE_INCREASE

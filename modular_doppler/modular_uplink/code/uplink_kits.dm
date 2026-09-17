@@ -287,3 +287,48 @@
 	new /obj/item/ammo_box/magazine/m10mm(src)
 	new /obj/item/card/emag/doorjack(src) // 3 TC
 	new /obj/item/knife/combat(src) //comparable to the e-dagger, 2 TC
+
+/obj/item/storage/box/syndicate/bundle/tizzyraider
+
+/obj/item/storage/box/syndicate/bundle/tizzyraider/PopulateContents()
+	new /obj/item/clothing/under/lizard_kilt(src)
+	new /obj/item/clothing/suit/armor/lizard(src) // You can get this stuff in the loadout it's just here for posterity
+	new /obj/item/storage/backpack/lizard(src)
+	new /obj/item/clothing/glasses/lizard_hud(src)
+	new /obj/item/clothing/gloves/lizard_gloves(src)
+	new /obj/item/clothing/head/helmet/lizard(src)
+	new /obj/item/clothing/shoes/lizard_shins(src)
+	new /obj/item/clothing/mask/snout_balaclava(src)
+	new /obj/item/mod/control/pre_equipped/raider(src) // 10 TC
+	new /obj/item/tank/jetpack/oxygen/harness(src) // 1 TC
+	new /obj/item/melee/tizirian_sword/megachoppa(src) // 4 TC
+	new /obj/item/gun/ballistic/bolt_thrower(src) // 10 TC (maybe more, but who cares)
+	new /obj/item/ammo_box/magazine/ammo_stack/bolt_slug/full(src) // 1 TC
+	new /obj/item/ammo_box/magazine/ammo_stack/bolt_shot/full(src) // <1 TC
+
+/obj/item/storage/box/syndicate/bundle/shocktrooper
+
+/obj/item/storage/box/syndicate/bundle/shocktrooper/PopulateContents()
+	new /obj/item/clothing/under/syndicate/combat/shocktrooper(src) // priceless larp
+	new /obj/item/clothing/suit/armor/bulletproof(src) // 1 TC?
+	new /obj/item/clothing/head/helmet/alt/visorless(src) // 1 TC?
+	new /obj/item/clothing/gloves/combat(src)
+	new /obj/item/clothing/shoes/combat(src)
+	new /obj/item/clothing/mask/neck_gaiter(src)
+	new /obj/item/clothing/glasses/thermal/shocktrooper(src) // 4 TC
+	new /obj/item/storage/epic_loot_org_pouch/ert_ammo_preset(src) // four sindaryo mags, 2-3 TC?
+	new /obj/item/storage/epic_loot_medpen_case/ert_med_preset(src) // six medical airhypos
+	new /obj/item/storage/backpack/rucksack(src) // >2 TC, direct upgrade from a syndie duffel
+	new /obj/item/gun/ballistic/automatic/pistol/kieran/suppressed/syndicate_pin(src) // 7 + 1 TC, comes w/ suppressor
+	new /obj/item/melee/energy/sword/saber(src) // 6 TC
+
+/obj/item/storage/box/syndicate/bundle/juggernaut
+
+/obj/item/storage/box/syndicate/bundle/juggernaut/PopulateContents()
+	new /obj/item/clothing/suit/armor/heavy_ballistic // >10 TC
+	new /obj/item/clothing/head/helmet/alt/visorless(src) // 1 TC?
+	new /obj/item/clothing/mask/gas/sechailer/swat(src)
+	new /obj/item/minigunpack(src) // 6 TC
+	new /obj/item/storage/epic_loot_medpen_case/ert_med_preset(src) // six medical airhypos
+	new /obj/item/autosurgeon/syndicate/shell_launcher(src)
+	new /obj/item/autosurgeon/syndicate/berserk_os(src) // walking tank power fantasy

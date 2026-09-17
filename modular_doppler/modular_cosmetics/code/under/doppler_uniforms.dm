@@ -55,12 +55,6 @@
 	icon_state = "doppler_perf"
 	worn_icon_state = "doppler_perf"
 
-/obj/item/clothing/under/misc/doppler_uniform/security
-	name = "doppler security uniform"
-	desc = "A cozy standard uniform from Doppler Shift-series stations."
-	icon_state = "doppler_sec"
-	worn_icon_state = "doppler_sec"
-
 /// Custom uniform for assistants/from drobes
 /obj/item/clothing/under/misc/doppler_uniform/standard
 	name = "doppler uniform"

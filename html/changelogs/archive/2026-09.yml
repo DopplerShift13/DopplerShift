@@ -5,3 +5,90 @@
   TheOneAndOnlyCreeperJoe:
   - balance: Rich & Filthy Rich are now Irregular powers and can be picked with any
       Path.
+2026-09-05:
+  ApplePlastic:
+  - rscadd: Added the SGM Hormone Regulator into the Augmented skill-tree
+  - balance: slightly reworks demoneye into a melee-improving combat chem
+  KittenColony:
+  - rscadd: Added new sprites for the shotgun shells
+2026-09-06:
+  PowerfulAtom111:
+  - balance: set health, stam, and blood volume back to TG normal
+  TheOneAndOnlyCreeperJoe:
+  - rscadd: Psyker Stress now communicates what stage of stress you are while below
+      the stress threshold.
+  - rscadd: Androids now have 2 unique stress events that explicitly target them.
+      Suffer.
+  - rscadd: Psykers now have a chance to have their head explode. No, I won't elaborate.
+  - rscadd: Chemotropic gland now has an upgrade that lets you de-stress from caffeine
+      consumption. Sponsored by Monster Energy.
+  - balance: Psyker Stress Threshold now starts at 75 (prev 100), but that threshold
+      increases by 5% per point put into Psyker. The more Psyker you are, the better
+      you Psyker.
+  - code_imp: Chemotropic gland can now be fed arbitrary numbers by other powers,
+      allowing others to easily add custom chemicals that it can process.
+  - bugfix: Androids are no longer affected by Psyker events that can't affect them
+      (such as cardiac arrest).
+  - bugfix: Chemotropic no longer works with chemicals that aren't being naturally
+      processed (such as androids with meth)
+  - bugfix: Chemotropic not being able to experience a catastrophic stress event while
+      recovering stress.
+  dawsonkeyes:
+  - balance: Cantina Regulars & Bartenders have a default 20 telecrystals to spend
+      again
+  - balance: The Curfew & Sundown has received an audit and has less free equipment
+      available
+2026-09-15:
+  firebudgy:
+  - rscadd: New security cap sprite.
+2026-09-16:
+  444explorer:
+  - qol: Cantina-issued clothing has their sensors off by default now.
+  KittenColony:
+  - rscadd: "The D\xE9fenseur Modele 2520, a home-grown pistol has been approved for\
+      \ use by Port Safety"
+  TheOneAndOnlyCreeperJoe:
+  - rscadd: Miniature reality anchors now are significantly more miserable to be around
+      as a magical person.
+  - rscadd: Miniature reality anchors now are machines, have power-draw and can be
+      EMP'd.
+  - balance: Miniature reality anchors have had their moodlet debuff doubled.
+  - balance: Miniature reality anchors will now give you a bad time if you interact
+      with it remotely using TK or Manipulate
+  - bugfix: Miniature reality anchors no longer cause runtimes when attempting to
+      dispel ghosts.
+  - code_imp: Manipulate now has signalers that allow it to have custom interactions
+      when interacting with objects.
+  - rscadd: Summonable now supports languages; you can make it so you are only summoned
+      in specific languages. Best have kept up with those Spanish lessons.
+  - rscadd: Summonable now goes on cooldown if it resists a summon through magboots
+      or buckles, and has a funny animation.
+  - balance: Summonable can now be blocked by active magboots.
+  - bugfix: You can no longer sneak into Centcomm by using Riftwalker and setting
+      your summons to something the shuttle Medibot says.
+  - bugfix: You can no longer be summoned out of Crypods
+  - refactor: Summonable no longer uses the Beetlejuice component
+  TheOneAndOnlyCreeperJoe, Spookywastaken:
+  - rscadd: New Raking Claws power! Create two claws with a build-in dual wield mechanic
+      that encourages going into a frenzy!
+  - rscadd: Two new upgrades for Raking Claws. Maiming, which makes you really good
+      at wounding and dismembering targets; and Life-Leecing, which heals you on-hit
+      whilst at maximum bloodlust and lets you gain health from butchering mobs. These
+      require Bestial Body and Monstrous Body respectively.
+  carda-sometimesknownas-paxilmaniac:
+  - rscadd: map jsons can now edit the outfit of a job
+  - code_imp: the "modular_mapping" folder has been replaced with just "mapping"
+  - rscadd: Adds the Yanao tripod machinegun as a better example to represent what
+      the mounted weapons system is capable of
+  - qol: Weaponry can now eject casings in a direction rather than directly under
+      the shooter, if desired
+  - bugfix: Fixes multiple bugs with mounted guns
+  - bugfix: you can now interact with cryopods without needing to pass ISADVANCEDTOOLUSER
+  dawsonkeyes:
+  - rscadd: Three new traitor uplink kits
+  - balance: Cheaper Doppler-specific melee weapons in the uplink
+  kittysmooch:
+  - rscadd: Port Safety has acquired a range of new clothing, accessories, and armor.
+  - rscdel: Port Safety has discontinued unwanted loaners from surplus stockpiles.
+  - rscadd: 'Cybersun present: the hoshi and hyeseong modular laser platforms, in
+      conjunction with Port Safety Materiel Requisitions.'

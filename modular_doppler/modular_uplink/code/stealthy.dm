@@ -4,7 +4,8 @@
 		but gain untold hand-to-hand combat prowess, immunity to being in critical condition, and generally become rather difficult to kill."
 	item = /obj/item/book/granter/martial/mad_dog
 	progression_minimum = 30 MINUTES
-	cost = 13 // offers decent hand to hand combos and resistance to one stun while in combat but you can still get shot & can't use guns
+	population_minimum = TRAITOR_POPULATION_LOWPOP // same as scarp
+	cost = 12 // offers decent hand to hand combos and resistance to one stun while in combat but you can still get shot & can't use guns
 	surplus = 0
 	purchasable_from = UPLINK_TRAITORS | UPLINK_SPY
 

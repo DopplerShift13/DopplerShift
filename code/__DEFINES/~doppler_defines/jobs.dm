@@ -8,5 +8,6 @@
 #define JOB_SECURITY_GUARD_ENGINEERING "Security Guard (Engineering)"
 #define JOB_SECURITY_GUARD_SCIENCE "Security Guard (Science)"
 #define JOB_SECURITY_GUARD_SUPPLY "Security Guard (Cargo)"
+#define JOB_INVESTIGATOR "Investigator"
 
 #define JOB_SOPHONT_RESOURCES_AGENT "Sophont Resources Agent"

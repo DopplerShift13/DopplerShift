@@ -67,6 +67,10 @@
 #define COMSIG_MOB_POWER_ADDED "mob_power_added"
 /// Sent when a power is removed from a mob's power list: (datum/power/removed_power)
 #define COMSIG_MOB_POWER_REMOVED "mob_power_removed"
+/// Fired when a healing power collects modifiers for a snapshotted mob-healing calculation.
+/// Additive modifiers are summed onto 1 first. Multiplicative bonuses are converted into factors, compounded together, then applied to the additive result as one factor.
+/// Args: (atom/healing_target, list/additive_healing_modifiers, list/multiplicative_healing_modifiers)
+#define COMSIG_POWER_HEALING_MODIFIERS "power_healing_modifiers"
 
 /// Any traits granted by powers.
 #define POWER_TRAIT "power_trait"
@@ -77,6 +81,8 @@
 #define POWER_PROCESSES (1<<1)
 /// This power is has a visual aspect in that it changes how the player looks. Used in generating dummies.
 #define POWER_CHANGES_APPEARANCE (1<<2)
+/// This power either has healing mechanics which scale with power healing modifiers or provides those modifiers.
+#define POWER_HEALING (1<<3)
 
 /// Security record categories for powers.
 #define CAT_POWER_ALL 0
@@ -124,6 +130,14 @@
 
 // Trait that allows a mob to keep UIs open beyond their normal range.
 #define TRAIT_NO_UI_DISTANCE "no_ui_distance"
+
+/// Sent to an object before Psyker Manipulate performs its default interaction: (mob/living/user, right_click)
+#define COMSIG_ATOM_PSYKER_MANIPULATE "atom_psyker_manipulate"
+/// The target handled the Manipulate interaction and no default interaction should follow.
+#define COMPONENT_PSYKER_MANIPULATE_HANDLED (1<<0)
+
+/// Set when an effect has claimed responsibility for an attack's off-hand follow-up.
+#define OFFHAND_ATTACK_CLAIMED "offhand_attack_claimed"
 
 /**
  * SORCEROUS
@@ -225,6 +239,10 @@
 // Trait made as to prevent duplicate smites.
 #define TRAIT_HAS_SMITING_STRIKE "has_smiting_strike"
 
+/// Fired by modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_root_twisted.dm to collect modifiers to damage conversion rates.
+/// Args: (list/twisted_conversion_modifiers)
+#define COMSIG_THEOLOGIST_TWISTED_CONVERSION_MODIFIERS "theologist_twisted_conversion_modifiers"
+
 // Standard Theologian costs
 #define THEOLOGIST_PIETY_TRIVIAL (THEOLOGIST_PIETY_MAX / 100)
 #define THEOLOGIST_PIETY_MINOR (THEOLOGIST_PIETY_MAX / 10)
@@ -293,9 +311,17 @@
 
 // Standard stress threshold value for the Psyker's organ.
 #define PSYKER_STRESS_STANDARD_THRESHOLD 100
+// Standard stress cap for psyker organs.
+#define PSYKER_ORGAN_BASE_THRESHOLD 75
+// Multiplier added to a Psyker organ's stress threshold for each point invested in the Psyker path.
+#define PSYKER_STRESS_THRESHOLD_MULTIPLIER_PER_POINT 0.05
 
 // Standard stress recovery per second before modifiers.
 #define PSYKER_STRESS_RECOVERY 1
+
+/// Fired by a Chemotropic gland to collect extra stress recovery rates.
+/// Args: (obj/item/organ/resonant/psyker/chemotropic/chemotropic_organ, list/recovery_candidates)
+#define COMSIG_PSYKER_CHEMOTROPIC_RECOVERY_CANDIDATES "psyker_chemotropic_recovery_candidates"
 
 // How much meditate recovers.
 #define PSYKER_STRESS_MEDITATION_POWER 10
@@ -321,7 +347,7 @@
 #define PSYKER_EVENT_RARITY_VERYRARE 10
 
 // Standard messages for Psyker Events
-#define PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE "As you strain your psychic powers past the breaking point, you are suddenly hit with a strange sense of clarity; as well as a feeling that something is very wrong."
+#define PSYKER_EVENT_CATASTROPHIC_STANDARD_MESSAGE "You are suddenly hit with a strange sense of clarity, yet also a strange underlying feeling that something is very wrong."
 
 // The trait for Psyker's Levitate power.
 #define TRAIT_PSYKER_LEVITATE_FLIGHT "psyker_levitate_flight"
@@ -345,6 +371,16 @@
 #define ABERRANT_HUNGER_MODERATE (1 / 5)
 #define ABERRANT_HUNGER_MAJOR (1 / 2)
 #define ABERRANT_HUNGER_EXTREME (1)
+
+/// Fired before a raking claw calculates its attack force.
+/// Arguments: (obj/item/raking_claw/claw, mob/living/target, list/attack_modifiers)
+#define COMSIG_RAKING_CLAW_MODIFY_ATTACK "raking_claw_modify_attack"
+/// Fired after a raking claw applies damage to a living target.
+/// Arguments: (obj/item/raking_claw/claw, mob/living/target, damage_dealt, unmitigated_damage, obj/item/bodypart/hit_bodypart)
+#define COMSIG_RAKING_CLAW_AFTER_DAMAGE "raking_claw_after_damage"
+/// Fired after a raking claw finishes butchering a living mob.
+/// Arguments: (obj/item/raking_claw/claw, mob/living/target)
+#define COMSIG_RAKING_CLAW_BUTCHERED "raking_claw_butchered"
 
 /**
  * RESONANT: IMBUED

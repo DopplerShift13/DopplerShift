@@ -4,6 +4,7 @@
 	Present this to the developers for the next hint in your quest. Because you're not actually meant to have this."
 	abstract_parent_type = /datum/power/theologist_root
 
+	power_flags = POWER_HUMAN_ONLY | POWER_HEALING
 	magic_flags = POWER_MAGIC_STANDARD
 	archetype = POWER_ARCHETYPE_SORCEROUS
 	path = POWER_PATH_THEOLOGIST

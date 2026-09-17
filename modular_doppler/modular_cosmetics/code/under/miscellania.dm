@@ -252,3 +252,7 @@
 	)
 	female_sprite_flags = FEMALE_UNIFORM_NO_BREASTS
 	can_adjust = FALSE
+
+/obj/item/clothing/under/costume/buttondown/slacks/sensors_off // for cantina guests so they dont get revealed by random sensors
+	sensor_mode = SENSOR_OFF
+	random_sensor = FALSE

@@ -284,7 +284,6 @@
 /obj/item/organ/cyberimp/arm/strongarm{
 	pixel_y = -2
 	},
-/obj/item/organ/cyberimp/chest/spine/atlas,
 /obj/item/organ/cyberimp/arm/toolkit/razor_claws{
 	pixel_y = 4
 	},
@@ -437,17 +436,11 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "gi" = (
 /obj/structure/shelf,
-/obj/item/crowbar/power/syndicate{
-	pixel_y = -4
-	},
-/obj/item/crowbar/power/syndicate,
-/obj/item/screwdriver/power{
-	pixel_y = 4
-	},
-/obj/item/screwdriver/power,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/effect/turf_decal/bot,
+/obj/item/crowbar/red,
+/obj/item/screwdriver/power,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "gp" = (
@@ -598,8 +591,15 @@
 	pixel_x = 1;
 	pixel_y = -1
 	},
-/obj/item/multitool,
 /obj/effect/decal/cleanable/cobweb,
+/obj/item/storage/toolbox/mechanical{
+	has_latches = 0;
+	latches = "quad_latch";
+	name = "evil fucked up toolbox";
+	desc = "Why in the world does it have four latches?";
+	pixel_y = -8;
+	pixel_x = 4
+	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "iy" = (
@@ -609,13 +609,20 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "iD" = (
 /obj/structure/table/reinforced,
-/obj/item/storage/toolbox/mechanical{
-	has_latches = 0;
-	latches = "quad_latch";
-	name = "evil fucked up toolbox";
-	desc = "Why in the world does it have four latches?";
+/obj/item/wrench/combat{
 	pixel_y = 17;
-	pixel_x = -2
+	pixel_x = -8
+	},
+/obj/item/wrench/combat{
+	pixel_y = 10;
+	pixel_x = -11
+	},
+/obj/item/multitool{
+	pixel_y = 8;
+	pixel_x = 8
+	},
+/obj/item/multitool{
+	pixel_y = 9
 	},
 /obj/item/storage/belt/utility,
 /obj/item/storage/belt/utility{
@@ -869,6 +876,7 @@
 /obj/effect/turf_decal/bot,
 /obj/effect/decal/cleanable/blood/oil,
 /obj/structure/frame/machine/secured,
+/obj/item/circuitboard/machine/ore_silo,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "np" = (
@@ -1655,7 +1663,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/storage/medkit/surgery_syndie{
-	pixel_y = 6
+	pixel_y = 7
 	},
 /obj/item/lazarus_injector,
 /obj/item/defibrillator/compact/combat/loaded,
@@ -2485,13 +2493,10 @@
 	pixel_x = -4;
 	pixel_y = -5
 	},
-/obj/item/organ/cyberimp/arm/toolkit/gun/laser,
-/obj/item/organ/cyberimp/arm/toolkit/gun/laser{
-	pixel_y = -6
-	},
 /obj/item/organ/cyberimp/arm/toolkit/toolset,
 /obj/structure/shelf,
 /obj/effect/turf_decal/bot,
+/obj/item/organ/cyberimp/chest/spine,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "JX" = (
@@ -2540,6 +2545,12 @@
 	pixel_x = -3;
 	pixel_y = -10
 	},
+/obj/item/storage/belt/holster{
+	pixel_x = 2
+	},
+/obj/item/storage/belt/holster{
+	pixel_y = -6
+	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "KO" = (
@@ -2563,7 +2574,6 @@
 	pixel_y = -6
 	},
 /obj/structure/closet/crate/secure/syndicate/mi13,
-/obj/item/minigunpack,
 /obj/effect/turf_decal/bot,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
@@ -2577,15 +2587,14 @@
 	pixel_x = 8;
 	pixel_y = 13
 	},
-/obj/item/storage/medkit/tactical/premium{
-	pixel_x = 1;
-	pixel_y = -6
+/obj/effect/turf_decal/bot,
+/obj/item/storage/medkit/tactical{
+	pixel_y = -7
 	},
 /obj/item/gun/medbeam{
 	pixel_y = 1;
 	pixel_x = -1
 	},
-/obj/effect/turf_decal/bot,
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "LS" = (
@@ -2767,10 +2776,9 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "OB" = (
 /obj/effect/decal/cleanable/dirt/dust,
-/obj/item/storage/box/syndie_kit/cowboy{
+/obj/item/storage/box/syndie_kit/cutouts{
 	pixel_x = -4
 	},
-/obj/item/storage/box/syndie_kit/cutouts,
 /obj/item/storage/box/syndie_kit/combat_baking{
 	pixel_x = 4
 	},
@@ -2779,11 +2787,8 @@
 	pixel_x = -4
 	},
 /obj/item/storage/box/syndie_kit/throwing_weapons{
-	pixel_y = 12
-	},
-/obj/item/storage/box/syndie_kit/rebarxbowsyndie{
-	pixel_x = 4;
-	pixel_y = 12
+	pixel_y = 12;
+	pixel_x = 4
 	},
 /obj/structure/shelf,
 /obj/machinery/light/red/directional/south,
@@ -2859,12 +2864,7 @@
 /obj/item/inducer/syndicate{
 	pixel_y = 9
 	},
-/obj/item/chameleon{
-	pixel_y = -7;
-	pixel_x = 4
-	},
 /obj/item/jammer{
-	pixel_x = -5;
 	pixel_y = -3
 	},
 /turf/open/floor/iron/colony/nanocarbon,
@@ -2980,13 +2980,6 @@
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Qs" = (
 /obj/effect/turf_decal/bot,
-/obj/item/stack/sheet/iron/fifty{
-	pixel_y = 10
-	},
-/obj/item/stack/sheet/glass/fifty{
-	pixel_y = 6;
-	pixel_x = 3
-	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "Qz" = (
@@ -3074,18 +3067,14 @@
 /obj/structure/shelf,
 /obj/item/storage/box/syndie_kit/chameleon{
 	pixel_y = -3;
-	pixel_x = 7
-	},
-/obj/item/storage/backpack/duffelbag/syndie/c4{
-	pixel_y = 10;
-	pixel_x = -5
-	},
-/obj/item/storage/backpack/duffelbag/syndie/surgery{
-	pixel_y = 6
+	pixel_x = 4
 	},
 /obj/item/storage/box/syndie_kit/chameleon{
-	pixel_y = -11;
-	pixel_x = 3
+	pixel_x = -4;
+	pixel_y = -3
+	},
+/obj/item/storage/backpack/duffelbag/syndie/surgery{
+	pixel_y = 7
 	},
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
@@ -3171,24 +3160,20 @@
 /turf/open/floor/plating/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "SE" = (
-/obj/structure/shelf,
-/obj/item/storage/belt/holster{
-	pixel_x = 2
-	},
-/obj/item/storage/belt/holster{
-	pixel_y = -6
-	},
-/obj/item/wrench/combat{
-	pixel_y = 10;
-	pixel_x = -7
-	},
-/obj/item/multitool/ai_detect{
-	pixel_x = 7
-	},
-/obj/item/suppressor{
-	pixel_y = -6
-	},
-/obj/item/wrench/combat,
+/obj/structure/closet/crate/cargo,
+/obj/item/stack/sheet/iron/fifty,
+/obj/item/stack/sheet/glass/fifty,
+/obj/item/stack/sheet/cloth/ten,
+/obj/item/stack/sheet/leather/five,
+/obj/item/stack/sheet/mineral/gold/fifty,
+/obj/item/stack/sheet/mineral/plasma/fifty,
+/obj/item/stack/sheet/mineral/titanium/fifty,
+/obj/item/stack/sheet/mineral/uranium/fifty,
+/obj/item/stack/sheet/mineral/wood/fifty,
+/obj/item/stack/sheet/mineral/silver/fifty,
+/obj/item/stack/sheet/mineral/diamond/fifty,
+/obj/item/stack/sheet/mineral/bananium/five,
+/obj/item/stack/sheet/bluespace_crystal/fifty,
 /turf/open/floor/iron/colony/nanocarbon,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "SF" = (
@@ -3254,38 +3239,37 @@
 "Tz" = (
 /obj/effect/decal/cleanable/dirt/dust,
 /obj/item/clothing/suit/armor/vest/alt{
-	pixel_y = -14;
+	pixel_y = -9;
 	pixel_x = 8
 	},
 /obj/item/clothing/head/helmet{
-	pixel_y = -5;
+	pixel_y = 1;
 	pixel_x = 7
 	},
 /obj/structure/shelf,
 /obj/item/suppressor{
-	pixel_y = 10
-	},
-/obj/item/jammer{
-	pixel_x = -5;
-	pixel_y = 1
+	pixel_y = 13
 	},
 /obj/item/clothing/head/helmet{
-	pixel_y = -5;
+	pixel_y = 1;
 	pixel_x = -1
 	},
 /obj/item/clothing/head/helmet{
-	pixel_y = -5;
+	pixel_y = 1;
 	pixel_x = -9
 	},
 /obj/item/clothing/suit/armor/vest/alt{
-	pixel_y = -14
+	pixel_y = -9
 	},
 /obj/item/clothing/suit/armor/vest/alt{
-	pixel_y = -14;
+	pixel_y = -9;
 	pixel_x = -8
 	},
 /obj/effect/turf_decal/bot,
 /obj/machinery/light/red/directional/north,
+/obj/item/suppressor{
+	pixel_y = 11
+	},
 /turf/open/floor/iron/colony/texture,
 /area/ruin/space/has_grav/powered/undisclosed_location)
 "TB" = (

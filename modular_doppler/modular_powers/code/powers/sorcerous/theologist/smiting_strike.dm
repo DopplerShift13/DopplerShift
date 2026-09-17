@@ -7,7 +7,8 @@
 	action_path = /datum/action/cooldown/power/theologist/smiting_strike
 	value = 4
 
-	required_powers = list(/datum/power/theologist_root/revered)
+	required_powers = list(/datum/power/theologist_root)
+	required_allow_subtypes = TRUE
 
 /datum/action/cooldown/power/theologist/smiting_strike
 	name = "Smiting Strike"

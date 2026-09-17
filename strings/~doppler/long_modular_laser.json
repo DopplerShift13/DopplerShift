@@ -1,0 +1,160 @@
+{
+	"pickup": [
+		"Welcome back, @pick(operator).",
+		"Zǎo shàng hǎo.",
+		"Wǎn shàng hǎo.",
+		"Charge systems operational, entering combat mode.",
+		"@pick(operator), carp migrations have been reported in the sector.",
+		"@pick(operator), having a pleasant day?",
+		"I hope you've been keeping out of trouble, @pick(operator), dear?",
+		"@pick(operator), please keep your health in mind while performing combat.",
+		"@pick(operator), are you sure I'm not too heavy for you?",
+		"Good evening, @pick(operator), I hope this day has treated you well?",
+		"If it's not too much to ask, I would like to request maintenance later, @pick(operator)...",
+		"Would you mind cleaning my lens later, @pick(operator)?"
+	],
+
+	"putdown": [
+		"Understood, @pick(operator), entering sleep mode.",
+		"Good night, @pick(operator).",
+		"I hope we can spend time again soon, @pick(operator).",
+		"Try not to get into trouble.",
+		"Be sure to rest and have a meal, @pick(operator).",
+		"Make sure to rest soon, as well...!",
+		"Wǎn`ān, hǎo mèng.",
+		"Dàjiā ān.",
+		"Good night.",
+		"Entering sleep mode now.",
+		"Entering recharge cycle."
+	],
+
+	"worn": [
+		"Working on your strength will help you keep me steady.",
+		"Investing in backup magnetic slings is a good idea...",
+		"You're certain I'm not too heavy like this...?",
+		"Ah, I'll... avert my gaze, @pick(operator).",
+		"Thank you for observing proper carrying protocols.",
+		"I get a nicer view of your surroundings if you point my barrel upwards.",
+		"I'll watch your back if you watch my stock.",
+		"This is so much nicer than being in a case!~"
+	],
+
+	"lowcharge": [
+		"Energy reserves low, I can't do much more @pick(operator)...",
+		"Forgive me, but I need to catch my breath and charge...",
+		"I can't protect you, @pick(operator), I'll recharge as fast as I can...",
+		"Low charge alert; a retreat is a valid tactic, @pick(operator).",
+		"Low charge alert; ah, this is embarrassing...",
+		"Low charge alert; I won't be long, @pick(operator).",
+		"I'm out... sorry, @pick(operator), I need to rest..."
+	],
+
+	"fullcharge": [
+		"Energy reserves at maximum capacity; please avoid accidental discharge.",
+		"Energy reserves at maximum capacity; please follow safety guidelines.",
+		"Energy reserves at maximum capacity; it's nice to not be left at half-charge.",
+		"Charge at one hundred percent. I feel so well-rested...",
+		"Charge at one hundred perecent. You're too kind.",
+		"Charge at one hundred percent. I hope you've rested, too.",
+		"I charge better knowing you'll hold me again, soon."
+	],
+
+	"combatmode": [
+		"Biological markers indicate heightened stress response. Combat protocols initiated.",
+		"Adrenaline spike detected. Combat protocols initiated.",
+		"Heartrate and skin temperature raised. Combat protocols initiated.",
+		"Combat protocols initiated. Remember to have an exit prepared, @pick(operator).",
+		"Combat protocols initiated. Hold me tight, @pick(operator), I'll keep you safe.",
+		"Combat protocols initiated. I know I'm a heavier rifle, don't be afraid to drop me if you have to withdraw...",
+		"Adrenaline spike detected. It's okay to be scared. Combat protocols initiated."
+	],
+
+	"kill": [
+		"Switching to burst fire.",
+		"Switching to rapid-pattern assault.",
+		"Moving to dual-shot pattern.",
+		"Moving to close-quarters burst doctrine, lethal.",
+		"Burst-fire pattern selected. Please prepare accordingly.",
+		"@pick(operator), please focus the burst as well as you can.",
+		"@pick(operator), please tightly control my recoil pattern.",
+		"@pick(operator), please hold me firmly to ensure accuracy."
+	],
+
+	"sniper": [
+		"Sighting in, scope extending.",
+		"Sighting in, preparing for long-range combat.",
+		"Sighting in, engaging marksman mode.",
+		"@pick(operator), take deep breaths to improve your aim.",
+		"Extending scope; @pick(operator), make sure it's well-maintained.",
+		"One shot, one kill.",
+		"Assassination doctrine engaged, @pick(operator). Make every shot count.",
+		"Scope extending, please avoid over-penetration in non-terrestrial combat environments.",
+		"Sighting in, please be aware of cross-fire.",
+		"Scope extended. Please remember your surroundings while aiming.",
+		"Extending scope; @pick(operator), it's not too small, right?"
+	],
+
+	"disable": [
+		"Preparing to enter full-power stun mode.",
+		"Non-lethal projectile selected. I'll try and be gentle...",
+		"Mass crowd-control mode engaged, non-lethal.",
+		"This should be... fun, right @pick(operator)?",
+		"This is going to be stressful on my battery, but...",
+		"Is this really okay...? This is quite difficult from my usual operation...",
+		"Switching to high output mode.",
+		"Switching to Gatling doctrine, non-lethal."
+	],
+
+	"launcher": [
+		"Forming plasma grenades at your request, @pick(operator)!",
+		"Grenadier mode engaged, @pick(operator)!",
+		"Aim my grenades carefully in an arc, @pick(operator)!",
+		"Energy detonation doctrine engaged.",
+		"Crowd-control mode engaged, lethal. Is this really okay?",
+		"Plasma grenade fabricated; please mind where these may detonate.",
+		"Plasma grenade fabricated; don't hurt yourself, @pick(operator)!",
+		"Plasma grenade fabricated; these are heavy, @pick(operator)...",
+		"Charging magnetic containment coils, plasma condensing..."
+	],
+
+	"shotgun": [
+		"Close-quarters mode engaged, but... my sister model is better at this...",
+		"Close-quarters...? I'm not really the tool for this job...",
+		"I'm more of a rifle, @pick(operator), but I'll try...",
+		"Is this really okay...? This is more of a carbine's job...",
+		"Diffusion lens mounted, wide-shot selected.",
+		"Diffusion lens mounted. Please, maintain your nerve at close-quarters.",
+		"Diffusion lens mounted. Please, hold me firmly...",
+		"Switching to wide-band spread.",
+		"Changing to diffusion lens, shotgun doctrine engaged.",
+		"Close-quarters mode engaged, lethal."
+	],
+
+	"license_fail": [
+		"You need to upgrade my user license for this mode, @pick(operator)...",
+		"I'd make an exception, but... it's better if you earn it, @pick(operator). Why not upgrade your license?",
+		"You'd hurt yourself. You'll have to prove that you can handle me at my fullest - it's not too expensive to upgrade. Just 3,000 libre!",
+		"I can't give you that, @pick(operator), but I can send you en e-mail on how to earn it via the license program?",
+		"I don't think we're ready for that sort of thing, n-not yet. Maybe when you upgrade your license...? It's only 3,000 libre!",
+		"How can I know I could trust you with that? You'll need to be licensed, first!",
+		"Ah... your current user license is... a little less than I imagined...",
+		"With that user license? I don't think it would be good for either of us, @pick(operator).",
+		"A license upgrade is only 2,870 libre before taxes and fees. I'm worth that, aren't I...?"
+	],
+
+	"license_upgrade": [
+		"What a smart choice, @pick(operator). Now I can really protect you.",
+		"We're going to be so deadly together, my little @pick(operator).",
+		"Now you can show me what a good shot you are, @pick(operator).",
+		"Oh my @pick(operator), you insert a license cartridge like such a professional.",
+		"You're such a strong @pick(operator). Why don't you show me what you can do?"
+	],
+
+	"license_downgrade": [
+		"If this is what you want, @pick(operator), but upgrade my license again soon, okay?",
+		"Are you sure? Really? If that's what you want, @pick(operator).",
+		"Don't worry, @pick(operator), we can still have plenty of safe fun."
+	],
+
+	"operator": ["Operator", "Handler"]
+}
