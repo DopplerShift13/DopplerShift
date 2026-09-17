@@ -71,12 +71,14 @@
 	var/datum/component/soulcatcher/tracked_soulcatcher
 	/// What is this gun's extended examine, we only have to do this because the carbine is a subtype
 	var/expanded_examine_text = "The Hyeseong rifle is the first line of man-portable Marsian weapons platforms \
-		from Cybersun Industries. Like her younger sister weapon, the Hoshi carbine, CI used funding aid provided \
-		by SolFed to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. \
-		A rugged and hefty weapon, the Hyeseong stars in applications anywhere from medium to long ranges, though struggling \
-		in CQB. Her onboard machine intelligence, at first devised to support the operator and manage the internal reactor, \
-		is shipped with a more professional and understated personality-- since influenced by 'negligence' from users in \
-		wiping the intelligence's memory before resale or transport."
+		from Cybersun Industries. Developed with funding provided by the National People's Congress of Mars to \
+		have their own home-grown defense gear, Cybersun has utilized a proprietary generator rumored to be \
+		fueled by superstaple plasma. Consisting of several different lenses, modulators and laser emitters, \
+		the Hyeseong is a rugged and hefty weapon ideal for medium to long ranges, often struggling in CQB. \
+		The onboard machine intelligence was originally devised purely for basic support and management of the \
+		reactor, but quickly caught on among Grey and Red Marsians alike, these days they carry advanced \
+		personalities and are capable of holding conversations entirely on their own. The Hyeseong, partially \
+		influenced by 'negligence', tends to be shipped with a more professional and understated persona."
 	/// Do we have a license upgrade cartridge installed?
 	var/obj/item/modular_laser_upgrade/installed_cartridge
 	/// A cooldown for when the weapon has last spoken, prevents messages from getting turbo spammed
@@ -319,13 +321,16 @@
 	currently_selected_mode = /datum/laser_weapon_mode/trickshot_disabler
 	default_selected_mode = "Disable"
 	speech_json_file = SHORT_MOD_LASER_SPEECH
-	expanded_examine_text = "The Hoshi carbine is the latest line of man-portable Marsian weapons platforms from \
-		Cybersun Industries. Like her older sister weapon, the Hyeseong rifle, CI used funding aid provided by SolFed \
-		to develop a portable weapon fueled by a proprietary generator rumored to be fueled by superstable plasma. A \
-		lithe and mobile weapon, the Hoshi stars in close-quarters battle, trickshots, and area-of-effect blasts; though \
-		ineffective at ranged combat. Her onboard machine intelligence, at first devised to support the operator and \
-		manage the internal reactor, was originally shipped with a more energetic personality-- since influenced by 'negligence' \
-		from users in wiping the intelligence's memory before resale or transport."
+	expanded_examine_text = "The Hoshi carbine is the latest line of man-portable Marsian \
+		weapons platforms from Cybersun Industries. Developed with funding provided by the \
+		National People's Congress of Mars to have their own home-grown defense gear, Cybersun \
+		has utilized a proprietary generator rumored to be fueled by superstable plasma. \
+		With smaller, lithe components and given the latest in 'advanced threat disruption' \
+		technology, the Hoshi stars in close-quarters battles, trickshots and situational \
+		utility; though thought to be gimmicky and ineffectual at range. Her onboard machine \
+		intelligence was built to keep conversation, support the operator and manage the internal \
+		reactor. In-keeping with the flashy culture prevalent among Grey Marsians, and partially \
+		influenced by 'negligence', she tends to get shipped with an energetic persona."
 
 /obj/item/gun/energy/modular_laser_rifle/carbine/emp_act(severity)
 	. = ..()
