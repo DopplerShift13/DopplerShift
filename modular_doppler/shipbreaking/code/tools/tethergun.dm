@@ -51,8 +51,6 @@
 	var/mob/living/last_user
 	/// The cooldown between us hitting objects with kinesis
 	COOLDOWN_DECLARE(hit_cooldown)
-	/// The cooldown between moving a grabbed thing between tiles
-	COOLDOWN_DECLARE(atom_move_cooldown)
 	/// Cooldown for launching things with rclick
 	COOLDOWN_DECLARE(rclick_launch_cooldown)
 	/// Cooldown after picking something up to prevent that one really annoying bug
@@ -114,7 +112,7 @@
 	if(!range_check(interacting_with, user))
 		balloon_alert(user, "too far!")
 		return ITEM_INTERACT_BLOCKING
-	if(isturf(interacting_with))
+	if(isturf(interacting_with) && !isspaceturf(interacting_with)) // cant launch ourselves off of space
 		if(COOLDOWN_FINISHED(src, rclick_launch_cooldown))
 			launch_user(interacting_with, user)
 			COOLDOWN_START(src, rclick_launch_cooldown, RCLICK_LAUNCH_DELAY)
@@ -164,21 +162,13 @@
 	animate(grabbed_atom, 0.2 SECONDS, pixel_x = grabbed_atom.base_pixel_x + kinesis_catcher.given_x - ICON_SIZE_X/2, pixel_y = grabbed_atom.base_pixel_y + kinesis_catcher.given_y - ICON_SIZE_Y/2)
 	kinesis_beam.redrawing()
 	var/turf/next_turf = get_step_towards(grabbed_atom, kinesis_catcher.given_turf)
-	if(COOLDOWN_FINISHED(src, atom_move_cooldown))
-		if(grabbed_atom.Move(next_turf, get_dir(grabbed_atom, next_turf), 8))
-			var/apply_move_cooldown = TRUE
-			if(isitem(grabbed_atom))
-				var/obj/item/grabbed_item = grabbed_atom
-				if(grabbed_item.w_class <= WEIGHT_CLASS_BULKY)
-					apply_move_cooldown = FALSE
-			if(apply_move_cooldown)
-				COOLDOWN_START(src, atom_move_cooldown, HEAVY_ATOM_DELAY)
-			if(isitem(grabbed_atom) && (user in next_turf))
-				var/obj/item/grabbed_item = grabbed_atom
-				clear_grab()
-				grabbed_item.pickup(user)
-				user.put_in_hands(grabbed_item)
-			return
+	if(grabbed_atom.Move(next_turf, get_dir(grabbed_atom, next_turf), 8))
+		if(isitem(grabbed_atom) && (user in next_turf))
+			var/obj/item/grabbed_item = grabbed_atom
+			clear_grab()
+			grabbed_item.pickup(user)
+			user.put_in_hands(grabbed_item)
+		return
 	var/pixel_x_change = 0
 	var/pixel_y_change = 0
 	var/direction = get_dir(grabbed_atom, next_turf)
