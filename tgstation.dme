@@ -7627,6 +7627,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\resonant_immune.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\returning_throws.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\summonable.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\imbued\walking_anchor.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\riftwalker\_riftwalker_datum.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\riftwalker\riftwalker.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\psyker\_psyker_action.dm"
