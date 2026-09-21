@@ -21,8 +21,8 @@
 	power_flags = POWER_PROCESSES
 	required_powers = list(/datum/power/imbued/counter_resonance)
 
-	menu_icon = 'modular_doppler/modular_powers/icons/items/reality_anchor.dmi'
-	menu_icon_state = "reality_anchor"
+	menu_icon = 'icons/effects/effects.dmi'
+	menu_icon_state = "shield-grey"
 
 	/// Pulse interval, twice as fast than a portable anchor
 	var/pulse_interval = 3 SECONDS
