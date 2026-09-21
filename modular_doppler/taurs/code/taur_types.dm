@@ -110,3 +110,7 @@
 /datum/sprite_accessory/taur/biglegs/stanced/peg
 	name = "Big Legs, Stanced Pegs"
 	icon_state = "biglegs_peg_stanced"
+
+/datum/sprite_accessory/taur/robohorse
+	name = "Robotic Horse"
+	icon_state = "robohorse"
