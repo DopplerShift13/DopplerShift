@@ -2,11 +2,9 @@
 #define TETHERGUN_MODE_TETHER "tether"
 
 /// Delay between picking an item up and the first time it moves
-#define PICKUP_COOLDOWN_LENGTH 1 SECONDS
+#define PICKUP_COOLDOWN_LENGTH 0.25 SECONDS
 /// Delay between a held item hitting other things to prevent spam
 #define HIT_COOLDOWN_TIME 1 SECONDS
-/// The length of the cooldown if an atom counts as "heavy"
-#define HEAVY_ATOM_DELAY 1 SECONDS
 /// How long between right click launches do we wait
 #define RCLICK_LAUNCH_DELAY 0.5 SECONDS
 
@@ -31,6 +29,7 @@
 	pickup_sound = 'sound/items/handling/tools/rcd_pickup.ogg'
 	sound_vary = TRUE
 	slot_flags = ITEM_SLOT_BELT
+	toolspeed = 0.75
 	/// The current operating mode of the tethergun
 	var/operating_mode = TETHERGUN_MODE_MOVE
 	/// Range of the manipulator mode
@@ -49,6 +48,8 @@
 	var/datum/looping_sound/gravgen/kinesis/soundloop
 	/// The last mob that used this tethergun
 	var/mob/living/last_user
+	/// Is the tethergun busy? Stops beam mishaps when unwrenching things
+	var/busy = FALSE
 	/// The cooldown between us hitting objects with kinesis
 	COOLDOWN_DECLARE(hit_cooldown)
 	/// Cooldown for launching things with rclick
@@ -60,6 +61,18 @@
 	. = ..()
 	soundloop = new(src)
 
+/obj/item/tethergun/examine(mob/user)
+	. = ..()
+	if(operating_mode == TETHERGUN_MODE_MOVE)
+		. += span_notice("<b>On unanchored objects:</b>")
+		. += span_notice("<b>Left-Click</b> will pick them up and put them down.")
+		. += span_notice("<b>Right-Click</b> will launch them.")
+		. += span_notice("<b>On anchored objects:</b>")
+		. += span_notice("<b>Left or Right-Click</b> in <b>Combat Mode</b> will unwrench objects.")
+		. += span_notice("<b>On turfs:</b>")
+		. += span_notice("<b>Right-Click</b> will launch yourself the opposite direction if done on anything except space.")
+	return .
+
 /obj/item/tethergun/Destroy()
 	QDEL_NULL(soundloop)
 	return ..()
@@ -69,18 +82,24 @@
 		context[SCREENTIP_CONTEXT_RMB] = "Launch Yourself"
 		return CONTEXTUAL_SCREENTIP_SET
 
-	if(!can_grab(target))
+	if(!can_grab(target, TRUE))
 		return NONE
+
+	var/atom/movable/movable_target = target
 
 	switch(operating_mode)
 		if(TETHERGUN_MODE_MOVE)
-			context[SCREENTIP_CONTEXT_LMB] = "Grab"
-			context[SCREENTIP_CONTEXT_RMB] = "Launch"
+			if(movable_target.anchored)
+				context[SCREENTIP_CONTEXT_LMB] = "Wrench"
+				context[SCREENTIP_CONTEXT_RMB] = "Wrench"
+			else
+				context[SCREENTIP_CONTEXT_LMB] = "Grab"
+				context[SCREENTIP_CONTEXT_RMB] = "Launch"
 
 	return CONTEXTUAL_SCREENTIP_SET
 
-/obj/item/tethergun/ranged_interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!user.is_holding(src) || !user.client)
+/obj/item/tethergun/ranged_interact_with_atom(atom/movable/interacting_with, mob/living/user, list/modifiers)
+	if(!user.is_holding(src) || !user.client || busy)
 		return ITEM_INTERACT_BLOCKING
 	if(isturf(interacting_with))
 		return ITEM_INTERACT_BLOCKING
@@ -90,9 +109,20 @@
 	if(!range_check(interacting_with, user))
 		balloon_alert(user, "too far!")
 		return ITEM_INTERACT_BLOCKING
-	if(!can_grab(interacting_with))
+	if(!can_grab(interacting_with, user.combat_mode))
 		balloon_alert(user, "can't grab!")
-		return user.combat_mode ? ITEM_INTERACT_BLOCKING : null // otherwise you cant put it on tables or whatever
+		return user.combat_mode ? ITEM_INTERACT_BLOCKING : null
+	if(interacting_with.anchored)
+		busy = TRUE
+		kinesis_icon = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning", layer = interacting_with.layer - 0.1, appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART)
+		kinesis_icon.overlays += emissive_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning", offset_spokesman = interacting_with)
+		interacting_with.add_overlay(kinesis_icon)
+		kinesis_beam = user.Beam(interacting_with, "lightning[rand(1,12)]")
+		interacting_with.wrench_act(user, src)
+		interacting_with.cut_overlay(kinesis_icon)
+		QDEL_NULL(kinesis_beam)
+		busy = FALSE
+		return ITEM_INTERACT_SUCCESS
 	switch(operating_mode)
 		if(TETHERGUN_MODE_MOVE)
 			grab_atom(interacting_with, user)
@@ -101,8 +131,8 @@
 /obj/item/tethergun/interact_with_atom(atom/interacting_with, mob/living/user, list/modifiers)
 	return ranged_interact_with_atom(interacting_with, user, modifiers)
 
-/obj/item/tethergun/ranged_interact_with_atom_secondary(atom/interacting_with, mob/living/user, list/modifiers)
-	if(!user.is_holding(src) || !user.client)
+/obj/item/tethergun/ranged_interact_with_atom_secondary(atom/movable/interacting_with, mob/living/user, list/modifiers)
+	if(!user.is_holding(src) || !user.client || busy)
 		return ITEM_INTERACT_BLOCKING
 	if(grabbed_atom)
 		var/launched_object = grabbed_atom
@@ -119,9 +149,20 @@
 			return ITEM_INTERACT_SUCCESS
 		else
 			return ITEM_INTERACT_BLOCKING
-	if(!can_grab(interacting_with))
+	if(!can_grab(interacting_with, user.combat_mode))
 		balloon_alert(user, "can't grab!")
-		return user.combat_mode ? ITEM_INTERACT_BLOCKING : null // otherwise you cant put it on tables or whatever
+		return user.combat_mode ? ITEM_INTERACT_BLOCKING : null
+	if(interacting_with.anchored)
+		busy = TRUE
+		kinesis_icon = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning", layer = interacting_with.layer - 0.1, appearance_flags = RESET_ALPHA|RESET_COLOR|RESET_TRANSFORM|KEEP_APART)
+		kinesis_icon.overlays += emissive_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning", offset_spokesman = interacting_with)
+		interacting_with.add_overlay(kinesis_icon)
+		kinesis_beam = user.Beam(interacting_with, "lightning[rand(1,12)]")
+		interacting_with.wrench_act_secondary(user, src)
+		interacting_with.cut_overlay(kinesis_icon)
+		QDEL_NULL(kinesis_beam)
+		busy = FALSE
+		return ITEM_INTERACT_SUCCESS
 	switch(operating_mode)
 		if(TETHERGUN_MODE_MOVE)
 			if(COOLDOWN_FINISHED(src, rclick_launch_cooldown))
@@ -199,7 +240,7 @@
 		COOLDOWN_START(src, hit_cooldown, HIT_COOLDOWN_TIME)
 
 /// Checks if the target is something we are actually allowed to grab
-/obj/item/tethergun/proc/can_grab(atom/target)
+/obj/item/tethergun/proc/can_grab(atom/target, allow_anchored = FALSE)
 	if(loc == target)
 		return FALSE
 	if(!ismovable(target))
@@ -207,11 +248,11 @@
 	if(iseffect(target))
 		return FALSE
 	var/atom/movable/movable_target = target
-	if(movable_target.anchored)
+	if(movable_target.anchored && !allow_anchored)
 		return FALSE
 	if(movable_target.throwing)
 		return FALSE
-	if(movable_target.move_resist >= MOVE_FORCE_OVERPOWERING)
+	if((movable_target.move_resist >= MOVE_FORCE_OVERPOWERING) && !movable_target.anchored)
 		return FALSE
 	if(ismob(movable_target))
 		if(!isliving(movable_target))
@@ -341,5 +382,4 @@
 #undef TETHERGUN_MODE_TETHER
 #undef PICKUP_COOLDOWN_LENGTH
 #undef HIT_COOLDOWN_TIME
-#undef HEAVY_ATOM_DELAY
 #undef RCLICK_LAUNCH_DELAY
