@@ -6,18 +6,16 @@
 - Pulse and cooldown
 - Visual indicator for magical people
 - Examine line
-- ID name on status effect
-- hide pulse and visuals from mortals
-
+- hide pulse and visuals from mortals?
 */
 
 /datum/power/imbued/walking_anchor
 	name = "Ontologically Immutable"
-	desc = "While others are unmoved by resonance, you actively repel it. Everyone adjacent to you is silenced as if being next to a portable reality anchor, \
-	anyone with resonant or sorcerous powers will feel horrible and will probably want to stay as far away from you as possible. It's lonely."
+	desc = "While others are unmoved by resonance, you actively repel it. Everyone adjacent to you is silenced as if being next to a reality anchor, \
+	anyone with resonant or sorcerous powers will feel incredibly horrible and will probably want to stay as far away from you as possible. It's lonely."
 	security_record_text = "Subject generates an area of localised reality enforcement."
 	security_threat = POWER_THREAT_MAJOR
-	value = 7 // anti-resonance already costs a lot, this also has the
+	value = 7 // anti-resonance already costs a lot. this gives some small change for expert powers
 	power_flags = POWER_PROCESSES
 	required_powers = list(/datum/power/imbued/counter_resonance)
 
@@ -52,4 +50,4 @@
 	duration = 3 SECONDS
 
 /atom/movable/screen/alert/status_effect/reality_anchor_silenced/walking_anchor
-	desc = "Resonant powers are being surpressed by someone nearby..."
+	desc = "Resonant powers are being surpressed by somebody nearby..."
