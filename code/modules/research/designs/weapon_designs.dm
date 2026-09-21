@@ -517,7 +517,9 @@
 		Able to be fired from conventional ballistic shotguns with minimal rifling degradation. Also leaves most targets covered \
 		in grotesque burns."
 	id = "lasershell"
-	build_type = PROTOLATHE | AWAY_LATHE
+	// DOPPLER EDIT CHANGE START - removes this design from player accessibility
+	build_type = null //was: build_type = PROTOLATHE | AWAY_LATHE
+	// DOPPLER EDIT CHANGE END
 	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3, /datum/material/glass = SMALL_MATERIAL_AMOUNT * 2, /datum/material/gold = SMALL_MATERIAL_AMOUNT * 2)
 	build_path = /obj/item/ammo_casing/shotgun/scatterlaser
 	category = list(
