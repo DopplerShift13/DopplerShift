@@ -11,9 +11,9 @@
 
 /datum/power/imbued/walking_anchor
 	name = "Ontologically Immutable"
-	desc = "While others are unmoved by resonance, you actively repel it. Everyone adjacent to you is silenced as if being next to a reality anchor, \
-	anyone with resonant or sorcerous powers will feel incredibly horrible and will probably want to stay as far away from you as possible. It's lonely."
-	security_record_text = "Subject generates an area of localised reality enforcement."
+	desc = "While others are unmoved by resonance, you actively repel it. People adjacent to you are silenced as if next to a reality anchor. \
+	This includes dispelling objects, lowering moods and generally being extremely unpleasent. Highly advanced magics can still break through \
+	and those effected will be able to tell what you are. It's lonely like this."
 	security_threat = POWER_THREAT_MAJOR
 	value = 7 // anti-resonance already costs a lot. this gives some small change for expert powers
 	power_flags = POWER_PROCESSES
@@ -28,9 +28,6 @@
 	var/next_pulse_time = 0
 	// range of the silence, if we ever wanted to change it
 	var/silence_range = 1
-
-	/// Ripple filter while active.
-	var/ripple_filter_id = "reality_anchor_ripple"
 
 /datum/power/imbued/walking_anchor/process(seconds_per_tick)
 	if(world.time < next_pulse_time)
