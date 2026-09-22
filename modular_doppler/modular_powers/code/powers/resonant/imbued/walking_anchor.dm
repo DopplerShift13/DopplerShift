@@ -29,10 +29,16 @@
 	// range of the silence, if we ever wanted to change it
 	var/silence_range = 1
 
+	/// Ripple filter while active.
+	var/ripple_filter_id = "reality_anchor_ripple"
+
 /datum/power/imbued/walking_anchor/process(seconds_per_tick)
 	if(world.time < next_pulse_time)
 		return
+	pulse()
 	next_pulse_time = world.time + pulse_interval
+
+/datum/power/imbued/walking_anchor/proc/pulse()
 	var/mob/living/carbon/mob = power_holder
 	for(var/atom/movable/target in range(silence_range, mob))
 		if(isliving(target))
