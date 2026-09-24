@@ -73,7 +73,7 @@
 	var/expanded_examine_text = "The Hyeseong rifle is the first line of man-portable Marsian weapons platforms \
 		from Cybersun Industries. Developed with funding provided by the National People's Congress of Mars to \
 		have their own home-grown defense gear, Cybersun has utilized a proprietary generator rumored to be \
-		fueled by superstaple plasma. Consisting of several different lenses, modulators and laser emitters, \
+		fueled by superstable plasma. Consisting of several different lenses, modulators and laser emitters, \
 		the Hyeseong is a rugged and hefty weapon ideal for medium to long ranges, often struggling in CQB. \
 		The onboard machine intelligence was originally devised purely for basic support and management of the \
 		reactor, but quickly caught on among Grey and Red Marsians alike, these days they carry advanced \
