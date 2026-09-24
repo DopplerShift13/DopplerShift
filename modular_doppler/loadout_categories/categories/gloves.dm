@@ -189,7 +189,7 @@
 
 /datum/loadout_item/gloves/misc/security_fingerless
 	name = "Fingerless Gloves (Security)"
-	item_path = /obj/item/clothing/gloves/color/black/security
+	item_path = /obj/item/clothing/gloves/fingerless/doppler_security
 
 /datum/loadout_item/gloves/misc/lalune_gloves
 	name = "Elbow Gloves"
