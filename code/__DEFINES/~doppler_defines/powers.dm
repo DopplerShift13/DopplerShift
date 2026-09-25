@@ -10,6 +10,13 @@
 #define POWER_PRIORITY_BASIC "Basic"
 #define POWER_PRIORITY_ADVANCED "Advanced"
 
+/// Sources used when recording which preference-selected powers were granted to a mob.
+#define POWER_SOURCE_ROUNDSTART "roundstart"
+#define POWER_SOURCE_LATEJOIN "latejoin"
+#define POWER_SOURCE_GHOST_ROLE "ghost_role"
+#define POWER_SOURCE_ADMIN "admin"
+#define POWER_SOURCE_OTHER "other"
+
 /// Designations when referring to archetypes.
 #define POWER_ARCHETYPE_SORCEROUS "Sorcerous"
 #define POWER_ARCHETYPE_RESONANT "Resonant"
