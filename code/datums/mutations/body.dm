@@ -222,11 +222,11 @@
 				owner.emote("twitch")
 			if(2 to 3)
 				owner.say("[prob(50) ? ";" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
-			*/ // DOPPLER EDIT CHANGE - Make tourettes less offensive 
+			*/ // DOPPLER EDIT CHANGE - Make tourettes less offensive
 			if(1 to 2)
 				owner.emote("[prob(50) ? "twitch" : "twitch_s"]")
 			if(3)
-				owner.say("[prob(50) ? "#" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name) 
+				owner.say("[prob(50) ? "#" : ""][pick("SHIT", "PISS", "FUCK", "CUNT", "COCKSUCKER", "MOTHERFUCKER", "TITS")]", forced=name)
 			// DOPPLER EDIT END
 		var/w_offset =  rand(-2, 2)
 		var/z_offset = rand(-1, 1)
@@ -565,6 +565,10 @@
 	. = ..()
 	if(.)
 		return TRUE
+	// DOPPLER ADDITION BEGIN - Fixes headless giving head when it shouldn't (when the mob is already deleted).
+	if(QDELETED(owner))
+		return TRUE
+	// DOPPLER ADDITION END
 
 	UnregisterSignal(owner, COMSIG_ATTEMPT_CARBON_ATTACH_LIMB)
 	var/successful = owner.regenerate_limb(BODY_ZONE_HEAD)
