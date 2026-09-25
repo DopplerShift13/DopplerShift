@@ -6963,6 +6963,7 @@
 #include "modular_doppler\deathmatch\deathmatch_loadouts.dm"
 #include "modular_doppler\deathmatch\deathmatch_maps.dm"
 #include "modular_doppler\deathmatch\deathmatch_structures.dm"
+#include "modular_doppler\dice_verb\dice_verb.dm"
 #include "modular_doppler\disable_suicide\config_entries.dm"
 #include "modular_doppler\donation_box\donation_box.dm"
 #include "modular_doppler\donation_box\loadout.dm"
