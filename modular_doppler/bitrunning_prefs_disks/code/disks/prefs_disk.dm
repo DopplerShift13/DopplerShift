@@ -25,6 +25,14 @@
 	. = ..()
 	register_context()
 
+/obj/item/bitrunning_disk/preferences/load_onto_avatar(mob/living/carbon/human/neo, mob/living/carbon/human/avatar, external_load_flags)
+	// Checks if an Ethereal is loaded and if so takes away their ability to crystalize.
+	// This prevents a bug with Ethereals breaking the normal revive sequence and thus causing you to be trapped in the simulation.
+	var/datum/species/avatar_species = chosen_preference?.read_preference(/datum/preference/choiced/species)
+	if(ispath(avatar_species, /datum/species/ethereal))
+		ADD_TRAIT(avatar, TRAIT_CANNOT_CRYSTALIZE, REF(src))
+	return NONE
+
 /obj/item/bitrunning_disk/preferences/examine(mob/user)
 	. = ..()
 	if(isnull(chosen_preference))
