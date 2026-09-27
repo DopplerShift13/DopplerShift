@@ -7428,6 +7428,7 @@
 #include "modular_doppler\modular_items\code\hairbrush.dm"
 #include "modular_doppler\modular_items\code\invisible_gear.dm"
 #include "modular_doppler\modular_items\code\pda_reskins.dm"
+#include "modular_doppler\modular_items\code\recoveryjaws.dm"
 #include "modular_doppler\modular_items\code\shelf.dm"
 #include "modular_doppler\modular_items\code\signature_beacon.dm"
 #include "modular_doppler\modular_items\code\stickers.dm"

@@ -92,3 +92,27 @@
   - rscdel: Port Safety has discontinued unwanted loaners from surplus stockpiles.
   - rscadd: 'Cybersun present: the hoshi and hyeseong modular laser platforms, in
       conjunction with Port Safety Materiel Requisitions.'
+2026-09-21:
+  Pink-MB:
+  - rscadd: Added gender selection to Ethereals
+  firebudgy:
+  - balance: Jaws of Recovery can now open security airlocks, as well as being added
+      to the medical equipment strap's item list.
+  kittysmooch:
+  - rscadd: New garments are available at local retail.
+2026-09-27:
+  444explorer:
+  - bugfix: Fingerless Gloves (Security) are now actually available in the loadout.
+  - bugfix: Fixed and clarified the access requirements on guns in the 'Goodies' tab
+      of the supply console.
+  - bugfix: The Modular Lasser Rifle & Carbine now have lore accurate examines
+  TheOneAndOnlyCreeperJoe:
+  - bugfix: The Mend Psychic Organ operation now works on androids, the sounds are
+      more distinct (so you don't think you just fed someone mutagen) and the Mortician
+      now gets their mechanical bonuses to the surgery.
+  - bugfix: Fixes Ethereal bitrunning avatars getting permanently stuck inside the
+      bitrunning domain upon death.
+  - rscdel: Ethereal bitrunning avatars no longer inherit Ethereal's ability to regenerate
+      and revive.
+  - code_imp: H.A.R.S should no longer cause pipeline failures because of Genemodded
+      giving it to the dummy.

@@ -1,0 +1,54 @@
+{
+	"nautical_shortset": [
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_shirt",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_detail",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_bow",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_shorts",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	],
+	"nautical_shortset_d": [
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_shirt_d",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_detail_d",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_bow_d",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_shorts_d",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	]
+}

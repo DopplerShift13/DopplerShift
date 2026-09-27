@@ -5,6 +5,7 @@
 	inherent_traits = list(
 		TRAIT_MUTANT_COLORS,
 	)
+	sexes = TRUE
 
 /datum/outfit/ethereal_preview
 	name = "Ethereal (Species Preview)"

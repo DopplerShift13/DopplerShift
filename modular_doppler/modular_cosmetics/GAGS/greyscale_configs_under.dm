@@ -174,6 +174,15 @@
 	name = "Keyhole Sweater Dress (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/dresses.dmi'
 
+/datum/greyscale_config/bias_dress
+	name = "Bias-cut Designer Dress"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/dresses.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/bias_cut_dress.json'
+
+/datum/greyscale_config/bias_dress/worn
+	name = "Bias-cut Designer Dress"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/dresses.dmi'
+
 
 /// LUNAR JAPANESE SECTION
 
@@ -495,3 +504,38 @@
 /datum/greyscale_config/gags_latexsuit/worn/teshari
 	name = "Colorable latex bodysuit (Worn, Teshari)"
 	icon_file = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
+
+/datum/greyscale_config/nautical_shortset
+	name = "Nautical Shortset"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/nautical_shortset.json'
+
+/datum/greyscale_config/nautical_shortset/worn
+	name = "Nautical Shortset (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/nautical_shortset/worn/digi
+	name = "Nautical Shortset (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'
+
+/datum/greyscale_config/nautical_shirt
+	name = "Nautical Shirt"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/nautical_shirt.json'
+
+/datum/greyscale_config/nautical_shirt/worn
+	name = "Nautical Shirt (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/nautical_shorts
+	name = "Nautical Shorts"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/obj/under/miscellania.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/nautical_shorts.json'
+
+/datum/greyscale_config/nautical_shorts/worn
+	name = "Nautical Shorts (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania.dmi'
+
+/datum/greyscale_config/nautical_shorts/worn/digi
+	name = "Nautical Shorts (Worn, Digi)"
+	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'

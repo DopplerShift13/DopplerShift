@@ -130,7 +130,7 @@
 	desc = "The power of the New Gibraltar 6mm, with none of the regulations behind the submachineguns that use it!"
 	cost = PAYCHECK_CREW * 14
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/revolver/c38/detective
 	)
@@ -140,7 +140,7 @@
 	desc = "Sometimes you just need a little more gun, contains one Matragano PS 2."
 	cost = PAYCHECK_COMMAND * 9
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/shotgun/riot,
 	)
@@ -150,7 +150,7 @@
 	desc = "A reliable weapon for when you plan on crashing in the middle of nowhere."
 	cost = PAYCHECK_COMMAND * 9
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/rifle/crash,
 	)
@@ -160,7 +160,7 @@
 	desc = "Old reliable, though never as overkill as those old Sakhno rifles they keep trying to pawn on us."
 	cost = PAYCHECK_COMMAND * 9
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/rifle/osako,
 	)
@@ -170,7 +170,37 @@
 	desc = "Fresh from the factory, perfect for Cruesoe's Port Safety volunteers to spend money on."
 	cost = PAYCHECK_CREW * 15
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/automatic/pistol/defenseur,
 	)
+
+// supply packs for weapons that havent been overhauled by doppler, but are here for typo fixes/access restrictions/whatever
+
+/datum/supply_pack/goody/disabler_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/energy_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/laser_single
+	desc = "Contains one laser gun, the lethal workhouse of corporate security everywhere." // we arent NT, so it feels weird to mention it
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/carbine_single
+	name = "Laser Carbine Single-Pack"
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/smg_single
+	name = "Disabler SMG Single-Pack"
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/hell_single
+	desc = "Contains one hellfire laser gun degradation kit, an old pattern of laser gun infamous for its ability to horribly disfigure targets with burns. Technically violates several 4CA regulations, but they aren't here to see." // space geneva convention -> 4ca regulation + its lax this far out away from the core worlds
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/thermal_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/double_barrel
+	access = ACCESS_WEAPONS
