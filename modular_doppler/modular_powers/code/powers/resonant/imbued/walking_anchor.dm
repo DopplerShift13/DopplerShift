@@ -1,19 +1,11 @@
 // Takes most of your points, however you silence everyone adjacent to you. Because this crater's peoples moods and is unpleasent to look at, expect to be hated.
-// if you want to see the silence effect, see: modular_doppler\modular_powers\code\security\reality_anchor.dm
-
-/* TODO LIST
-
-- Pulse and cooldown
-- Visual indicator for magical people
-- Examine line
-- hide pulse and visuals from mortals?
-*/
+// a lot of this is borrowed from portable anchors. see: modular_doppler\modular_powers\code\security\reality_anchor.dm
 
 /datum/power/imbued/walking_anchor
 	name = "Ontologically Immutable"
 	desc = "While others are unmoved by resonance, you actively repel it. People adjacent to you are silenced as if next to a reality anchor. \
 	This includes dispelling objects, lowering moods and generally being extremely unpleasent. Highly advanced magics can still break through \
-	and those effected will be able to tell what you are. It's lonely like this."
+	and magic users can see the pulses. It's lonely like this."
 	security_threat = POWER_THREAT_MAJOR
 	value = 7 // anti-resonance already costs a lot. this gives some small change for expert powers
 	power_flags = POWER_PROCESSES
@@ -49,6 +41,7 @@
 		else if(isobj(target))
 			target.dispel(src)
 
+// status effect subtypes
 /datum/status_effect/power/reality_anchor_silenced/walking_anchor
 	alert_type = /atom/movable/screen/alert/status_effect/reality_anchor_silenced/walking_anchor
 	show_duration = TRUE
@@ -57,6 +50,7 @@
 /atom/movable/screen/alert/status_effect/reality_anchor_silenced/walking_anchor
 	desc = "Resonant powers are being surpressed by somebody nearby..."
 
+//visuals for the pulse. we hide these from the power holder so they dont have to see it all round, and from non-magic users to add some funny confusion
 /obj/effect/temp_visual/circle_wave/reality_anchor/walking_anchor
 	max_alpha = 10
 	amount_to_scale = 1
