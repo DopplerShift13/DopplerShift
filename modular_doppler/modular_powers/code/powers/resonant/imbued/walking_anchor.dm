@@ -30,16 +30,16 @@
 /datum/power/imbued/walking_anchor/proc/pulse()
 	var/mob/living/carbon/mob = power_holder
 	var/turf/center = get_turf(power_holder)
-	var/obj/effect/temp_visual/circle_wave/reality_anchor/walking_anchor/pulse_fx = new(center)
+	new/obj/effect/temp_visual/circle_wave/reality_anchor/walking_anchor(center)
 	for(var/atom/movable/target in range(pulse_range, mob))
 		if(isliving(target))
 			var/mob/living/living_target = target
 			// Being immune to resonance or a heretic prevents the application of the silence effect. We also grant the power holder immunity so they don't buzz blue constantly.
 			if(living_target != mob && !living_target.can_block_resonance() && !living_target.mind?.has_antag_datum(/datum/antagonist/heretic))
 				living_target.apply_status_effect(/datum/status_effect/power/reality_anchor_silenced/walking_anchor)
-			living_target.dispel(src, DISPEL_CASCADE_CARRIED)
+			living_target.dispel(power_holder, DISPEL_CASCADE_CARRIED)
 		else if(isobj(target))
-			target.dispel(src)
+			target.dispel(power_holder)
 
 // status effect subtypes
 /datum/status_effect/power/reality_anchor_silenced/walking_anchor
