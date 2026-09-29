@@ -18,7 +18,7 @@
 	var/pulse_interval = 3 SECONDS
 	/// Time until the next pulse
 	var/next_pulse_time = 0
-	// range of the silence, if we ever wanted to change it
+	/// range of the silence, if we ever wanted to change it
 	var/pulse_range = 1
 
 /datum/power/imbued/walking_anchor/process(seconds_per_tick)
