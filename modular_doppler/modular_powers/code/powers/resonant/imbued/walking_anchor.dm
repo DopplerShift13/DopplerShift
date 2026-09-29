@@ -54,3 +54,18 @@
 
 /atom/movable/screen/alert/status_effect/reality_anchor_silenced/walking_anchor
 	desc = "Resonant powers are being surpressed by somebody nearby..."
+
+/obj/effect/temp_visual/circle_wave/reality_anchor/walking_anchor
+	max_alpha = 10
+	amount_to_scale = 2
+
+/obj/effect/temp_visual/circle_wave/reality_anchor/walking_anchor/Initialize()
+	. = ..()
+	var/image/effect_image = image(icon = icon, loc = src, icon_state = null)
+	effect_image.override = TRUE
+	add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/walking_anchor, "walking_anchor", effect_image)
+
+/datum/atom_hud/alternate_appearance/basic/walking_anchor/mobShouldSee(mob/living/viewer)
+	if(!isliving(viewer))
+		return FALSE
+	return (!viewer.has_magical_power_in_archetype(POWER_ARCHETYPE_SORCEROUS)) & (!viewer.has_magical_power_in_archetype(POWER_ARCHETYPE_RESONANT))
