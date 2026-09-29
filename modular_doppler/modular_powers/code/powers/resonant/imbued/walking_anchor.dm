@@ -27,7 +27,7 @@
 	/// Time until the next pulse
 	var/next_pulse_time = 0
 	// range of the silence, if we ever wanted to change it
-	var/silence_range = 1
+	var/pulse_range = 1
 
 /datum/power/imbued/walking_anchor/process(seconds_per_tick)
 	if(world.time < next_pulse_time)
@@ -37,7 +37,9 @@
 
 /datum/power/imbued/walking_anchor/proc/pulse()
 	var/mob/living/carbon/mob = power_holder
-	for(var/atom/movable/target in range(silence_range, mob))
+	var/turf/center = get_turf(power_holder)
+	var/obj/effect/temp_visual/circle_wave/reality_anchor/walking_anchor/pulse_fx = new(center)
+	for(var/atom/movable/target in range(pulse_range, mob))
 		if(isliving(target))
 			var/mob/living/living_target = target
 			// Being immune to resonance or a heretic prevents the application of the silence effect. We also grant the power holder immunity so they don't buzz blue constantly.
@@ -57,7 +59,7 @@
 
 /obj/effect/temp_visual/circle_wave/reality_anchor/walking_anchor
 	max_alpha = 10
-	amount_to_scale = 2
+	amount_to_scale = 1
 
 /obj/effect/temp_visual/circle_wave/reality_anchor/walking_anchor/Initialize()
 	. = ..()
