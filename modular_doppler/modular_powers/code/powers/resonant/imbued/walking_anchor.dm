@@ -45,7 +45,7 @@
 /datum/status_effect/power/reality_anchor_silenced/walking_anchor
 	alert_type = /atom/movable/screen/alert/status_effect/reality_anchor_silenced/walking_anchor
 	show_duration = TRUE
-	duration = 3 SECONDS
+	duration = 4 SECONDS
 
 /atom/movable/screen/alert/status_effect/reality_anchor_silenced/walking_anchor
 	desc = "Resonant powers are being surpressed by somebody nearby..."
@@ -64,4 +64,4 @@
 /datum/atom_hud/alternate_appearance/basic/walking_anchor/mobShouldSee(mob/living/viewer)
 	if(!isliving(viewer))
 		return FALSE
-	return (!viewer.has_magical_power_in_archetype(POWER_ARCHETYPE_SORCEROUS)) & (!viewer.has_magical_power_in_archetype(POWER_ARCHETYPE_RESONANT))
+	return (!viewer.has_magical_power_in_archetype(POWER_ARCHETYPE_SORCEROUS)) & (!viewer.has_magical_power_in_archetype(POWER_ARCHETYPE_RESONANT)) & (!viewer.mind?.has_antag_datum(/datum/antagonist/heretic))
