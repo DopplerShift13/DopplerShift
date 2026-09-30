@@ -133,7 +133,7 @@
 
 /// Scans over neo's contents for bitrunning tech disks. Loads the items or abilities onto the avatar.
 /obj/machinery/quantum_server/proc/stock_gear(mob/living/carbon/human/avatar, mob/living/carbon/human/neo, datum/lazy_template/virtual_domain/generated_domain)
-	var/domain_forbids_flags = generated_domain.external_load_flags
+	var/domain_forbids_flags = generated_domain.domain_flags
 
 	//DOPPLER EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - Track if we've used multiple avatar preference disks, for avoiding overrides and displaying the failure message.
 	var/duplicate_prefs = FALSE
