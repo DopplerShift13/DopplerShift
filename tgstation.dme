@@ -7857,6 +7857,7 @@
 #include "modular_doppler\modular_species\species_types\lizardpeople\lizardpeople.dm"
 #include "modular_doppler\modular_species\species_types\monkey\monkeys.dm"
 #include "modular_doppler\modular_species\species_types\mothmen\mothmen.dm"
+#include "modular_doppler\modular_species\species_types\mothmen\pheromones.dm"
 #include "modular_doppler\modular_species\species_types\plasmamen\plasmamen.dm"
 #include "modular_doppler\modular_species\species_types\primitive_genemod\primitive_genemod.dm"
 #include "modular_doppler\modular_species\species_types\ramatae\ramatan.dm"
