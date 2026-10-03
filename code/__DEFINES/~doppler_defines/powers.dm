@@ -423,6 +423,21 @@
 // Trait for the Explosives Specialist power
 #define TRAIT_POWER_EXPLOSIVES_SPECIALIST "power_explosives_specialist"
 
+/// Collects additional independent block chances for an active Focused Block.
+/// Args: (datum/status_effect/power/focused_block/focused_block_status, list/block_chance_bonuses)
+#define COMSIG_POWERS_FOCUSED_BLOCK_BONUS_BLOCK "powers_focused_block_bonus_block"
+/// Collects defensive armor penetration for an active Focused Block.
+/// Args: (datum/status_effect/power/focused_block/focused_block_status, list/block_armour_penetration_bonuses)
+#define COMSIG_POWERS_FOCUSED_BLOCK_BONUS_ARMOUR_PENETRATION "powers_focused_block_bonus_armour_penetration"
+/// Queries whether an active Focused Block should decay during its current tick.
+/// Args: (datum/status_effect/power/focused_block/focused_block_status)
+#define COMSIG_POWERS_FOCUSED_BLOCK_SHOULD_DECAY "powers_focused_block_should_decay"
+/// Fired when Focused Block itself successfully blocks an attack.
+/// Args: (datum/status_effect/power/focused_block/focused_block_status, current_block_chance)
+#define COMSIG_POWERS_FOCUSED_BLOCK_SUCCESSFUL_BLOCK "powers_focused_block_successful_block"
+/// Prevents Focused Block's decay for its current tick.
+#define COMPONENT_POWERS_FOCUSED_BLOCK_DONT_DECAY (1<<0)
+
 // Martial Art define for Tchotchke Style
 #define MARTIALART_TCHOTCHKE_STYLE "tchotchke style"
 
