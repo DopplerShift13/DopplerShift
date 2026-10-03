@@ -29,7 +29,7 @@
 
 // Secrobe; affinity 3 armor. Has the stats of a secjacket and covers the legs, and also has affinity, but also has a slight amount of slowdown.
 /obj/item/clothing/suit/wizrobe/secwiz
-	name = "security thaumaturge robe"
+	name = "\improper Port Safety Thaumaturgist's black robe"
 	desc = "The garments of a security-contracted Thaumaturge. The robes have been reinforced and provide a high amount of protection across a large degree of the body, at the cost of being bulkier to move in. The proportion of armor to robe has been fine-tuned for the most optimal results; it seems that armored wizards aren't particularly popular in the worldly zeitgeist, reducing the impact of armor on robes."
 	icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
 	worn_icon = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes.dmi'
@@ -46,7 +46,7 @@
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/modular_powers/icons/items/thaumaturge_robes_digi.dmi')
 
 /obj/item/clothing/suit/wizrobe/secwiz/vizard
-	name = "\improper Port Safety Thaumaturgist robe"
+	name = "\improper Port Safety Thaumaturgist's red robe"
 	desc = "Artificial protein fibres extruded from mechanical spinarettes and fired across projectile looms into a silk facisimile. \
 	The resulting textile is comfortable in a climate controlled environment and nowhere else, but it brimms with resonant frequencies \
 	by the standards of mass produced garments."

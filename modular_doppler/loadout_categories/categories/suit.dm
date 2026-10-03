@@ -192,6 +192,35 @@
 /datum/loadout_item/suit/coat/primitive_genemod_coat
 	name = "Hearthkin Fur Coat"
 	item_path = /obj/item/clothing/suit/jacket/primitive_genemod_coat
+
+/*
+* ROBES
+*/
+
+/datum/loadout_item/suit/robe
+	group = "Robes"
+	abstract_type = /datum/loadout_item/suit/robe
+
+/datum/loadout_item/suit/robe/red_sec_thaumaturge
+	name = "Port Safety Thaumaturgist's Red Robe"
+	item_path = /obj/item/clothing/suit/wizrobe/secwiz/vizard
+	restricted_roles = list(
+		JOB_HEAD_OF_SECURITY,
+		JOB_WARDEN,
+		JOB_DETECTIVE,
+		JOB_SECURITY_OFFICER,
+	)
+
+/datum/loadout_item/suit/robe/black_sec_thaumaturge
+	name = "Port Safety Thaumaturgist's Black Robe"
+	item_path = /obj/item/clothing/suit/wizrobe/secwiz
+	restricted_roles = list(
+		JOB_HEAD_OF_SECURITY,
+		JOB_WARDEN,
+		JOB_DETECTIVE,
+		JOB_SECURITY_OFFICER,
+	)
+
 /**
  * SUIT JACKETS
  */
