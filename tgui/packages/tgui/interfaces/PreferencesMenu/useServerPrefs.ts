@@ -36,6 +36,11 @@ export const ServerPrefs = createContext<ServerData | undefined>({
   },
   /* DOPPLER EDIT ADDITION END */
   species: {},
+  // DOPPLER EDIT ADDITION START - Background Selection
+  background_state: {
+    choices: [],
+  },
+  // DOPPLER EDIT ADDITION END
 });
 
 export function useServerPrefs() {
