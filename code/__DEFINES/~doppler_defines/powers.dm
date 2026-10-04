@@ -304,7 +304,9 @@
 // Cultivator alignment activion/deactivation signals
 #define COMSIG_CULTIVATOR_ALIGNMENT_ENABLED "cultivator_alignment_enabled"
 #define COMSIG_CULTIVATOR_ALIGNMENT_DISABLED "cultivator_alignment_disabled"
-/// Sent before an alignment calculates the armor it must add. The mutable armor ratings list is passed as the third argument.
+
+/// Fired before Cultivator alignment armor calc. Used to pass along additional armor increases/decreases to the base value.
+/// Args: (datum/action/cooldown/power/cultivator/alignment/alignment_action, list/target_armor_values)
 #define COMSIG_CULTIVATOR_MODIFY_ALIGNMENT_ARMOR "cultivator_modify_alignment_armor"
 
 // The trait for Astral Touched's flight upgrades (using AddElementTrait)
