@@ -7700,6 +7700,7 @@
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\sanguine_absorption.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\spell_preparation.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\vitalize_flora.dm"
+#include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\wind_wall.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\affinity\thaumaturge_affinity.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\affinity\thaumaturge_robes.dm"
 #include "modular_doppler\modular_powers\code\powers\sorcerous\thaumaturge\affinity\thaumaturge_spell_focus.dm"
