@@ -142,6 +142,7 @@
 		/obj/item/clothing/head/hats/sec_cattleman/plain = 5,
 		/obj/item/riding_saddle/leather/blue = 3,
 		/obj/item/clothing/suit/wizrobe/secwiz = 3, // thaumaturge robes
+		/obj/item/clothing/suit/wizrobe/secwiz/vizard = 3,
 		/obj/item/clothing/head/wizard/secwiz = 3, // thaumaturge robes
 		/obj/item/clothing/shoes/utilishoes = 3,
 		/obj/item/clothing/shoes/port_safety_kicks = 3,

@@ -1,0 +1,5 @@
+2026-10-03:
+  TheOneAndOnlyCreeperJoe:
+  - rscadd: There's now an LOOC roll dice verb. Defaults to 1d20, allows input for
+      other dice-sizes. Behaves as LOOC does, but looks slightly different to verify
+      its authenticity.

@@ -1,0 +1,4 @@
+author: "kittysmooch"
+delete-after: True
+changes:
+  - bugfix: "all security undersuits are rollable\n:cl:"
