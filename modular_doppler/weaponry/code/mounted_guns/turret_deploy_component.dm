@@ -10,7 +10,7 @@
 	/// The icon file that the turret should be looking through for sprites
 	var/turret_icon
 
-/datum/component/deployable_turret/Initialize(deploy_time = 5 SECONDS, thing_to_be_deployed, deployment_sound, turret_icon = 'modular_doppler/mounted_guns/icons/drive.dmi')
+/datum/component/deployable_turret/Initialize(deploy_time = 5 SECONDS, thing_to_be_deployed, deployment_sound, turret_icon = 'modular_doppler/weaponry/icons/obj/drive.dmi')
 	. = ..()
 	if(!isgun(parent))
 		return COMPONENT_INCOMPATIBLE

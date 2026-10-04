@@ -1,7 +1,7 @@
 /obj/vehicle/ridden/mounted_turret
 	name = "mounted gun basetype"
 	desc = "If you see this then bad things are happening."
-	icon = 'modular_doppler/mounted_guns/icons/drive.dmi'
+	icon = 'modular_doppler/weaponry/icons/obj/drive.dmi'
 	icon_state = "turret_oops"
 	anchored = TRUE
 	canmove = FALSE

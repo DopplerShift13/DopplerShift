@@ -8,7 +8,7 @@
 	name = ".980 Tydhouer HEDP"
 	desc = "A large grenade shell that will detonate at a range \
 		given to it by the gun that fires it. HEDP explodes."
-	icon = 'modular_doppler/cool_implants/icons/casings.dmi'
+	icon = 'modular_doppler/weaponry/icons/projectiles.dmi'
 	icon_state = "tyd_hedp"
 	caliber = CALIBER_980TYDHOUER
 	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c980grenade
@@ -23,7 +23,7 @@
 
 /obj/projectile/bullet/c980grenade
 	name = ".980 grenade"
-	icon = 'modular_doppler/cool_implants/icons/projectiles.dmi'
+	icon = 'modular_doppler/weaponry/icons/projectiles.dmi'
 	icon_state = "bigshot"
 	damage = 20
 	stamina = 30
@@ -43,7 +43,7 @@
 
 /// Generic proc that is called when the projectile should 'detonate', being either on impact or when the range runs out
 /obj/projectile/bullet/c980grenade/proc/fuse_activation(atom/target)
-	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, 5)
+	playsound(src, 'modular_doppler/weaponry/sounds/grenade_burst.ogg', 50, TRUE, 5)
 	explosion(target, heavy_impact_range = 1, light_impact_range = 3, flash_range = 2, adminlog = FALSE, explosion_cause = src)
 
 /obj/item/ammo_box/magazine/ammo_stack/c980grenade
@@ -74,7 +74,7 @@
 	projectile_piercing = PASSMOB|PASSGRILLE|PASSCLOSEDTURF|PASSMACHINE|PASSSTRUCTURE|PASSDOORS|PASSFLAPS|PASSVEHICLE|PASSWINDOW
 
 /obj/projectile/bullet/c980grenade/aphe/fuse_activation(atom/target)
-	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, 5)
+	playsound(src, 'modular_doppler/weaponry/sounds/grenade_burst.ogg', 50, TRUE, 5)
 	explosion(target, light_impact_range = 2, flash_range = 2, adminlog = FALSE, explosion_cause = src)
 
 /obj/projectile/bullet/c980grenade/aphe/on_hit(atom/target, blocked = FALSE, pierce_hit)
@@ -97,7 +97,7 @@
 /obj/projectile/bullet/c980grenade/thermobaric
 
 /obj/projectile/bullet/c980grenade/thermobaric/fuse_activation(atom/target)
-	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, 5)
+	playsound(src, 'modular_doppler/weaponry/sounds/grenade_burst.ogg', 50, TRUE, 5)
 	explosion(target, heavy_impact_range = 1, flame_range = 1, flash_range = 2, adminlog = FALSE, explosion_cause = src)
 
 /obj/item/ammo_box/magazine/ammo_stack/c980grenade/prefilled/thermobaric
@@ -116,7 +116,7 @@
 
 /obj/projectile/bullet/tydhouer_flechette
 	name = "flechette"
-	icon = 'modular_doppler/cool_implants/icons/projectiles.dmi'
+	icon = 'modular_doppler/weaponry/icons/projectiles.dmi'
 	icon_state = "shortbullet"
 	damage = 5
 	armour_penetration = 10
@@ -137,7 +137,7 @@
 
 /obj/projectile/bullet/tydhouer_sabot
 	name = ".980 sabot"
-	icon = 'modular_doppler/cool_implants/icons/projectiles.dmi'
+	icon = 'modular_doppler/weaponry/icons/projectiles.dmi'
 	damage = 20
 	armour_penetration = 40
 	damage_falloff_tile = -2
@@ -160,7 +160,7 @@
 /obj/projectile/bullet/c980grenade/smoke
 
 /obj/projectile/bullet/c980grenade/smoke/fuse_activation(atom/target)
-	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, 5)
+	playsound(src, 'modular_doppler/weaponry/sounds/grenade_burst.ogg', 50, TRUE, 5)
 	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
 	var/datum/effect_system/fluid_spread/smoke/bad/smoke = new
 	smoke.set_up(GRENADE_SMOKE_RANGE, holder = src, location = src)
@@ -181,7 +181,7 @@
 /obj/projectile/bullet/c980grenade/ecm
 
 /obj/projectile/bullet/c980grenade/ecm/fuse_activation(atom/target)
-	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, 5)
+	playsound(src, 'modular_doppler/weaponry/sounds/grenade_burst.ogg', 50, TRUE, 5)
 	playsound(src, 'sound/effects/smoke.ogg', 50, TRUE, -3)
 	var/datum/effect_system/fluid_spread/smoke/ecm/smoke = new
 	smoke.set_up(GRENADE_ECM_RANGE, holder = src, location = src)
@@ -192,7 +192,7 @@
 
 /obj/effect/particle_effect/fluid/smoke/ecm
 	name = "ECM chaff"
-	icon = 'modular_doppler/cool_implants/icons/projectiles.dmi'
+	icon = 'modular_doppler/weaponry/icons/projectiles.dmi'
 	icon_state = "ecm_holder"
 	opacity = FALSE
 	lifetime = 20 SECONDS
@@ -255,7 +255,7 @@
 /obj/projectile/bullet/c980grenade/shrapnel/fuse_activation(atom/target)
 	var/obj/item/grenade/shrapnel_maker = new grenade_to_spawn(get_turf(target))
 	shrapnel_maker.detonate()
-	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'modular_doppler/weaponry/sounds/grenade_burst.ogg', 50, TRUE, -3)
 	qdel(shrapnel_maker)
 
 /obj/item/grenade/c980payload
@@ -270,7 +270,7 @@
 	shrapnel_type = /obj/projectile/bullet/shrapnel
 
 /obj/projectile/bullet/shrapnel/short_range
-	icon = 'modular_doppler/cool_implants/icons/projectiles.dmi'
+	icon = 'modular_doppler/weaponry/icons/projectiles.dmi'
 	icon_state = "shortbullet"
 	range = 2
 

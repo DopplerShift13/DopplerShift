@@ -79,7 +79,7 @@
 /obj/projectile/beam/cybersun_laser/granata/proc/fuse_activation(atom/target)
 	var/obj/item/grenade/shrapnel_maker = new casing_to_spawn(get_turf(target))
 	shrapnel_maker.detonate()
-	playsound(src, 'modular_doppler/cool_implants/sound/kiboko/grenade_burst.ogg', 50, TRUE, -3)
+	playsound(src, 'modular_doppler/weaponry/sounds/grenade_burst.ogg', 50, TRUE, -3)
 	qdel(shrapnel_maker)
 
 /obj/projectile/beam/cybersun_laser/granata_shrapnel

@@ -1,7 +1,7 @@
 // Passes practically every action done with and to this item to a gun contained within a linked turret structure
 /obj/item/doppler_turret_offhand
 	name = "gun controls"
-	icon = 'modular_doppler/mounted_guns/icons/drive.dmi'
+	icon = 'modular_doppler/weaponry/icons/obj/drive.dmi'
 	icon_state = "drive"
 	w_class = WEIGHT_CLASS_HUGE
 	item_flags = ABSTRACT | DROPDEL | NOBLUDGEON
