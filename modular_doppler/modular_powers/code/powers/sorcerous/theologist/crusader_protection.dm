@@ -10,7 +10,7 @@
 	security_record_text = "Subject miraculously avoids nearly all harm from firearms, but is unable to use firearms."
 	security_threat = POWER_THREAT_MAJOR
 	mob_trait = TRAIT_NOGUNS
-	value = 0
+	value = 1
 
 	required_powers = list(/datum/power/theologist/divine_protection)
 

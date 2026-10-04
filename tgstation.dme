@@ -7611,6 +7611,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\_cultivator_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\astraltouched_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\energy_dash.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\cultivator\felled_not_by_cowards_means.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\flamesoul_root.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\fly_like_a_shooting_star.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\cultivator\from_friction_comes_flame.dm"

@@ -166,8 +166,10 @@
 		target_armor = get_armor_by_type(target_armor)
 
 	var/list/add_values = list()
+	var/list/target_armor_values = target_armor.get_rating_list()
+	SEND_SIGNAL(human_user, COMSIG_CULTIVATOR_MODIFY_ALIGNMENT_ARMOR, src, target_armor_values)
 	for(var/armor_type in ARMOR_LIST_ALL())
-		var/target_total = target_armor.get_rating(armor_type)
+		var/target_total = target_armor_values[armor_type]
 		var/needed = calc_needed_internal_armor(human_user, armor_type, target_total)
 		if(needed > 0)
 			add_values[armor_type] = needed
