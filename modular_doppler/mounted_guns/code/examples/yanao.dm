@@ -10,7 +10,7 @@
 	righthand_file = 'modular_doppler/mounted_guns/icons/examples/inhands_right.dmi'
 	inhand_icon_state = "yanao"
 	SET_BASE_PIXEL(-8, 0)
-	fire_sound = 'modular_doppler/modular_weapons/sounds/crash.wav'
+	fire_sound = 'modular_doppler/weaponry/sounds/crash.wav'
 	rack_sound = 'sound/items/weapons/gun/l6/l6_rack.ogg'
 	load_sound = 'sound/items/weapons/gun/l6/l6_door.ogg'
 	load_empty_sound = 'sound/items/weapons/gun/l6/l6_door.ogg'
