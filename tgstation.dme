@@ -8227,7 +8227,7 @@
 #include "modular_doppler\weaponry\code\ranged\handgun\revolvers.dm"
 #include "modular_doppler\weaponry\code\ranged\launcher\grenade_launcher.dm"
 #include "modular_doppler\weaponry\code\ranged\mounted\naval_gun.dm"
-#include "modular_doppler\weaponry\code\ranged\mounted\yanao.dm"
+#include "modular_doppler\weaponry\code\ranged\mounted\yandao.dm"
 #include "modular_doppler\weaponry\code\ranged\rapid\pulse_rifle.dm"
 #include "modular_doppler\weaponry\code\ranged\rapid\smg.dm"
 #include "modular_doppler\weaponry\code\ranged\rifle\crankin_my.dm"
