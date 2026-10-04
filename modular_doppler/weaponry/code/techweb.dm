@@ -19,7 +19,6 @@
 /datum/design/lasershell
 	build_type = null
 
-
 // removes this design from any player accessible lathe in favor of a modularly added shield gauntlet
 /datum/design/tele_shield
 	build_type = null
