@@ -4,7 +4,7 @@
 /datum/power/cultivator/felled_not_by_cowards_means
 	name = "Felled Not By Coward's Means"
 	desc = "Your alignment makes you particularly resilient against projectiles. You gain +2 to bullet, energy and laser armour granted by your alignment. \
-	\nYou also negate any projectile-damage that would put you in critical health: this damage is instead dealt to your energy (without any damage modifiers). \
+	\nYou also negate any projectile-damage that would put you in critical health: this damage is instead dealt to your energy (without any damage modifiers) at 1.5x the rate. \
 	\nYou cannot use firearms in alignment."
 	security_record_text = "Subject is extra resistant in alignment to firearms, but cannot wield them in that state."
 	security_threat = POWER_THREAT_MAJOR
@@ -20,7 +20,7 @@
 	/// Additional armor rating supplied to active alignment targets against projectile damage. One armor tier equals 10 rating.
 	var/projectile_armor_bonus = 20
 	/// Energy drained when an otherwise critical projectile is negated, per point of its base damage.
-	var/projectile_block_energy_multiplier = 1
+	var/projectile_block_energy_multiplier = 1.5
 
 /datum/power/cultivator/felled_not_by_cowards_means/add(client/client_source)
 	. = ..()
