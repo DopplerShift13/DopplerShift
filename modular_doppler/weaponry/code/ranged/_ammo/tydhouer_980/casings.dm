@@ -8,7 +8,7 @@
 	name = ".980 Tydhouer HEDP"
 	desc = "A large grenade shell that will detonate at a range \
 		given to it by the gun that fires it. HEDP explodes."
-	icon = 'modular_doppler/weaponry/icons/projectiles.dmi'
+	icon = 'modular_doppler/weaponry/icons/obj/casings.dmi'
 	icon_state = "tyd_hedp"
 	caliber = CALIBER_980TYDHOUER
 	ammo_stack_type = /obj/item/ammo_box/magazine/ammo_stack/c980grenade
