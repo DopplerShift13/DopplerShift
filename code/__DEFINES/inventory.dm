@@ -259,7 +259,6 @@ GLOBAL_LIST_INIT(detective_vest_allowed, list(
 	/obj/item/storage/belt/holster/nukie,
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
-	/obj/item/gun/energy/laser/scatter/shotty/compact,
 	/obj/item/storage/belt/secsword, // DOPPLER EDIT ADDITION
 ))
 
@@ -278,7 +277,6 @@ GLOBAL_LIST_INIT(security_vest_allowed, list(
 	/obj/item/storage/belt/holster/nukie,
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
-	/obj/item/gun/energy/laser/scatter/shotty/compact,
 	/obj/item/pen/red/security,
 	/obj/item/storage/belt/secsword, // DOPPLER EDIT ADDITION
 ))
@@ -293,7 +291,6 @@ GLOBAL_LIST_INIT(security_wintercoat_allowed, list(
 	/obj/item/storage/belt/holster/nukie,
 	/obj/item/storage/belt/holster/energy,
 	/obj/item/gun/ballistic/shotgun/automatic/combat/compact,
-	/obj/item/gun/energy/laser/scatter/shotty/compact,
 	/obj/item/storage/belt/secsword, // DOPPLER EDIT ADDITION
 ))
 
