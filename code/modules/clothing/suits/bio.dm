@@ -43,6 +43,9 @@
 	strip_delay = 7 SECONDS
 	equip_delay_other = 7 SECONDS
 	resistance_flags = ACID_PROOF
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK
+	bodyshapes_with_variations = BODYSHAPE_DIGITIGRADE|BODYSHAPE_CERULEAN
+	cerulean_flipper_palette = "#eeeeee"
 
 /obj/item/clothing/suit/bio_suit/Initialize(mapload)
 	. = ..()
@@ -137,6 +140,7 @@
 	inhand_icon_state = "bio_suit"
 	strip_delay = 4 SECONDS
 	equip_delay_other = 2 SECONDS
+	supports_variations_flags = NONE
 
 /obj/item/clothing/suit/bio_suit/plaguedoctorsuit/Initialize(mapload)
 	. = ..()

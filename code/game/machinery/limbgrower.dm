@@ -21,10 +21,21 @@
 	var/datum/design/being_built
 	/// Our internal techweb for limbgrower designs.
 	var/datum/techweb/autounlocking/stored_research
+	/// Designs imported from technology disks that we can print.
+	var/list/imported_designs
 	/// All the categories of organs we can print.
-	var/list/categories = list(SPECIES_HUMAN, SPECIES_LIZARD, SPECIES_MOTH, SPECIES_PLASMAMAN, SPECIES_ETHEREAL, RND_CATEGORY_LIMBS_OTHER, RND_CATEGORY_LIMBS_DIGITIGRADE)
 	///Designs imported from technology disks that we can print.
 	var/list/imported_designs = list()
+	var/list/categories = list(
+		SPECIES_HUMAN,
+		SPECIES_LIZARD,
+		SPECIES_MOTH,
+		SPECIES_PLASMAMAN,
+		SPECIES_ETHEREAL,
+		SPECIES_CERULEAN,
+		RND_CATEGORY_LIMBS_OTHER,
+		RND_CATEGORY_LIMBS_DIGITIGRADE,
+	)
 
 /obj/machinery/limbgrower/Initialize(mapload)
 	create_reagents(100, OPENCONTAINER)
