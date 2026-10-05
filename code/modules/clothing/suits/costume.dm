@@ -602,7 +602,7 @@
 	worn_icon = 'icons/mob/clothing/suits/armor.dmi'
 	inhand_icon_state = null
 	armor_type = /datum/armor/suit_coordinator
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = NONE
 
 /datum/armor/suit_coordinator
 	melee = 25

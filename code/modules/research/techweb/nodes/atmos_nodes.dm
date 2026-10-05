@@ -34,7 +34,7 @@
 		"pump",
 		"emergency_oxygen",
 		"emergency_oxygen_engi",
-		/datum/design/cerulean_vaporizer,
+		"vaporizer",
 		"power_turbine_console",
 		"turbine_part_compressor",
 		"turbine_part_rotor",

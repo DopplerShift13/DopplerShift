@@ -663,15 +663,12 @@ There are several things that need to be remembered:
 
 	return icon(female_clothing_icon)
 
-/// Modifies a sprite to conform to custom body shapes
-/obj/item/proc/get_bodyshape_icon(icon/base_icon, key, greyscale_colors, bodyshape)
-	ASSERT(istext(key), "get_bodyshape_icon: no key passed")
-	if(bodyshape & BODYSHAPE_CERULEAN)
-		if((bodyshapes_with_variations & BODYSHAPE_CERULEAN) || (supports_variations_flags & (CERULEAN_MASKING)))
-			return generate_cerulean_icons(base_icon, key, greyscale_colors, bodyshape)
-	if((bodyshape & BODYSHAPE_DIGITIGRADE) && (supports_variations_flags & CLOTHING_DIGITIGRADE_MASK))
-		if(isnull(greyscale_colors) || length(SSgreyscale.ParseColorString(greyscale_colors)) > 1)
-			greyscale_colors = get_general_color(base_icon)
+/// Modifies a sprite to conform to digitigrade body shapes
+/proc/wear_digi_version(icon/base_icon, obj/item/item, key, greyscale_colors)
+	ASSERT(istype(item), "wear_digi_version: no item passed")
+	ASSERT(istext(key), "wear_digi_version: no key passed")
+	if(isnull(greyscale_colors) || length(SSgreyscale.ParseColorString(greyscale_colors)) > 1)
+		greyscale_colors = item.get_general_color(base_icon)
 
 	var/index = "[key]-[item.type]-[greyscale_colors]"
 	var/static/list/digitigrade_clothing_cache = list()
@@ -910,6 +907,10 @@ generate/load female uniform sprites matching all previously decided variables
 			key = "[t_state]-[file2use]-[female_uniform]",
 			greyscale_colors = greyscale_colors,
 		)
+	if(!isinhands && humie.bodyshape & BODYSHAPE_CERULEAN)
+		if((supports_variations_flags & CLOTHING_CERULEAN) || (supports_variations_flags & (CERULEAN_MASKING)))
+			return generate_cerulean_icons(building_icon || icon(file2use, t_state), "[t_state]-[file2use]-[female_uniform]", greyscale_colors, humie.bodyshape)
+
 	/// DOPPLER EDIT ADDITION BEGIN - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0
 	if (!isinhands && istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR) // This could should never run on inhands

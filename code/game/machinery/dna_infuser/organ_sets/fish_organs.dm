@@ -444,7 +444,7 @@
 	desc = "Interestingly, a fish-tongue isn't much unlike the humanoid variety."
 	say_mod = "blubs"
 	organ_traits = list(TRAIT_CARPOTOXIN_IMMUNE)
-	liked_foodtypes = MEAT | EGG | SEAFOOD
+	liked_foodtypes = MEAT | SEAFOOD
 	foodtype_flags = RAW | SEAFOOD | GORE
 	languages_native = list(/datum/language/carptongue)
 

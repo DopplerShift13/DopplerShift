@@ -114,9 +114,6 @@
 
 /datum/species/human/cerulean/on_species_gain(mob/living/carbon/human/cerulean, datum/species/old_species, pref_load, regenerate_icons)
 	. = ..()
-	var/obj/item/bodypart/chest/cerulean_chest = cerulean.get_bodypart()
-	if(cerulean_chest)
-		cerulean_chest.wing_types = list(/obj/item/organ/wings/dragon)
 	if (cerulean.has_gravity())
 		cerulean.set_resting(TRUE, silent = TRUE, instant = TRUE)
 	//apply a free wet stack to prevent the choking screen alert to appear for a second on mob creation
@@ -143,9 +140,6 @@
 		qdel_on_fail = FALSE,
 		indirect_action = TRUE,
 	)
-
-/datum/species/human/cerulean/get_breath_type()
-	return GAS_WATER_VAPOR //overwrite this proc because safe_water_min is on a lungs subtype. remind me to revive #91453
 
 /// The inverse multiplyer indicating how much blood compared to default_blood_volume() needs to exist for a clean detachment surgery
 #define CLEAN_CUT_MULT 0.5
@@ -212,7 +206,7 @@
 /obj/item/organ/tail/fish/cerulean/proc/splatter_check(mob/living/carbon/owner)
 	if(isnull(owner))
 		return FALSE
-	return (owner.blood_volume && !HAS_TRAIT(owner, TRAIT_NOBLOOD) && owner.blood_volume >= (owner.default_blood_volume * CLEAN_CUT_MULT))
+	return (owner.blood_volume && !HAS_TRAIT(owner, TRAIT_NOBLOOD) && owner.blood_volume >= (BLOOD_VOLUME_NORMAL * CLEAN_CUT_MULT))
 
 /// if legs are present remove them silently if special = true, not so silently else
 /obj/item/organ/tail/fish/cerulean/proc/get_your_sealegs(mob/living/carbon/owner, special)
@@ -224,10 +218,7 @@
 
 /// the bodypart overlay for cerulean fish tails!
 /datum/bodypart_overlay/mutant/tail/fish/cerulean
-	layers = list(
-		EXTERNAL_ADJACENT = BODY_ADJ_LAYER,
-		EXTERNAL_BEHIND = BODY_BEHIND_LAYER,
-	)
+	layers = EXTERNAL_ADJACENT|EXTERNAL_BEHIND
 	/// which datums are blocked in get_global_feature_list
 	var/list/locked_sprite_datums = list(
 		/datum/sprite_accessory/tails/fish/cerulean/skeleton,
@@ -253,37 +244,6 @@
 		if(accessory_datum.type in locked_sprite_datums)
 			feature_list -= accessory
 	return feature_list
-
-/*
- * same as parent, but with a pretty skeleton texture
- */
-/obj/item/organ/tail/fish/cerulean/abyss
-	name = "translucent oversized fish tail"
-	desc = "A hugely sized and scaled fish tail, it is partially translucent and shows the skeleton inside."
-	bodypart_overlay = /datum/bodypart_overlay/mutant/tail/fish/cerulean/abyss
-
-/// apply an emissive for the skeleton
-/datum/bodypart_overlay/mutant/tail/fish/cerulean/abyss/get_overlay(obj/item/bodypart/limb, layer_index, layer_real)
-	var/list/created_overlays = ..()
-	created_overlays += mutable_appearance(sprite_datum.icon, "abyss_skeleton", offset_spokesman = limb, alpha = 105, layer = layer_real)
-	created_overlays += emissive_appearance(sprite_datum.icon, "abyss_skeleton", offset_spokesman = limb, alpha = 35, layer = layer_real)
-	return created_overlays
-
-/// now the texture
-/datum/bodypart_overlay/mutant/tail/fish/cerulean/abyss/added_to_limb(obj/item/bodypart/limb)
-	limb.add_bodypart_texture(/datum/bodypart_texture/cerulean_abyss, FALSE)
-
-/datum/bodypart_overlay/mutant/tail/fish/cerulean/abyss/removed_from_limb(obj/item/bodypart/limb)
-	limb.remove_bodypart_texture(/datum/bodypart_texture/cerulean_abyss, FALSE)
-
-/// apply the bodypart texture (mask) to the limb and its visual organ aka fish tail
-/datum/bodypart_texture/cerulean_abyss/modify_bodypart_appearance(image/appearance)
-	var/icon/new_appearance = new(appearance.icon)
-	new_appearance.Blend(icon(/datum/sprite_accessory/tails/fish/cerulean::icon, "abyss_mask"), ICON_SUBTRACT)
-	appearance.icon = new_appearance
-
-/datum/bodypart_texture/cerulean_abyss/can_texture_bodypart(obj/item/bodypart/bodypart_owner)
-	return TRUE
 
 /*
  * same as parent, but for skeletons

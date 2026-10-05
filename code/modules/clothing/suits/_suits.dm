@@ -17,7 +17,7 @@
 	slot_flags = ITEM_SLOT_OCLOTHING
 	var/blood_overlay_type = "suit"
 	limb_integrity = 0 // disabled for most exo-suits
-	bodyshapes_with_variations = BODYSHAPE_CERULEAN
+	supports_variations_flags = CLOTHING_CERULEAN
 	/// what color will be given to the flippers of fem physique ceruleans? FLIPPERS autogenerates
 	var/cerulean_flipper_palette = NO_FLIPPERS
 

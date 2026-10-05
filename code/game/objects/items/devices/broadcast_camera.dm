@@ -126,8 +126,3 @@
 
 /obj/item/broadcast_camera/proc/set_microphone_state()
 	internal_radio.set_broadcasting(active_microphone)
-
-/obj/item/broadcast_camera/siren_pirates
-	name = "Livestreaming Camera"
-	broadcast_name = "Siren Shimai!"
-	camera_networks = list(CAMERA_NETWORK_PIRATE)

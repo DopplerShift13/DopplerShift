@@ -13,7 +13,7 @@
 		)
 	body_parts_covered = CHEST|GROIN|ARMS
 	cold_protection = CHEST|GROIN|ARMS
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = NONE
 	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
 	species_exception = list(/datum/species/golem)
 
@@ -94,8 +94,7 @@
 	greyscale_config_worn = /datum/greyscale_config/jacket_oversized/worn
 	greyscale_colors = "#414344"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	bodyshapes_with_variations = BODYSHAPE_CERULEAN
-	supports_variations_flags = CLOTHING_CERULEAN_MASK_INBETWEEN
+	supports_variations_flags = CLOTHING_CERULEAN_MASK_INBETWEEN|CLOTHING_CERULEAN
 
 /obj/item/clothing/suit/jacket/fancy
 	name = "fancy fur coat"

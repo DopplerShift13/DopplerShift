@@ -177,10 +177,12 @@ DEFINE_BITFIELD(no_equip_flags, list(
 #define CLOTHING_DIGITIGRADE_MASK (1<<3)
 /// All variation flags which render "correctly" on a digitigrade leg setup
 #define DIGITIGRADE_VARIATIONS (CLOTHING_DIGITIGRADE_VARIATION|CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON|CLOTHING_DIGITIGRADE_MASK)
+/// TEMP DOPPLER DEFINE: enables cerulean clothing rendering
+#define CLOTHING_CERULEAN (1<<4)
 /// The clothing flag which cuts away the legs
-#define CLOTHING_CERULEAN_MASK_LEGS (1<<3)
+#define CLOTHING_CERULEAN_MASK_LEGS (1<<5)
 ///The clothing flag which cuts pixels between the legs
-#define CLOTHING_CERULEAN_MASK_INBETWEEN (1<<4)
+#define CLOTHING_CERULEAN_MASK_INBETWEEN (1<<6)
 /// All variation flags which can render on cerulean bodyshapes
 #define CERULEAN_MASKING (CLOTHING_CERULEAN_MASK_LEGS|CLOTHING_CERULEAN_MASK_INBETWEEN)
 

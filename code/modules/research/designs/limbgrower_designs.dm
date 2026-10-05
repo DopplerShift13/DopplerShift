@@ -328,4 +328,5 @@
 /datum/design/limb_disk/cerulean
 	name = "Cerulean Organ Design Disk"
 	desc = "Contains designs for fish organs for the limbgrower - Fish liver, lungs, stomach and large tail."
+	id = "limbdesign_cerulean"
 	build_path = /obj/item/disk/design_disk/limbs/cerulean

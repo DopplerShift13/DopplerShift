@@ -8,7 +8,7 @@
 	alt_covers_chest = TRUE
 	icon = 'icons/obj/clothing/under/syndicate.dmi'
 	worn_icon = 'icons/mob/clothing/under/syndicate.dmi'
-	bodyshapes_with_variations = BODYSHAPE_CERULEAN
+	supports_variations_flags = CLOTHING_CERULEAN
 
 /datum/armor/clothing_under/syndicate
 	melee = 10
@@ -67,7 +67,7 @@
 	has_sensor = HAS_SENSORS
 	armor_type = /datum/armor/clothing_under/syndicate_tacticool
 	stubborn_stains = TRUE
-	bodyshapes_with_variations = BODYSHAPE_DIGITIGRADE|BODYSHAPE_CERULEAN
+	supports_variations_flags = CLOTHING_DIGITIGRADE_MASK|CLOTHING_CERULEAN
 
 /datum/armor/clothing_under/syndicate_tacticool
 	fire = 50
@@ -124,7 +124,6 @@
 	inhand_icon_state = "bl_suit"
 	can_adjust = FALSE
 	supports_variations_flags = NONE
-	bodyshapes_with_variations = NONE
 
 /obj/item/clothing/under/syndicate/floortilecamo
 	name = "floortile camouflage fatigues"

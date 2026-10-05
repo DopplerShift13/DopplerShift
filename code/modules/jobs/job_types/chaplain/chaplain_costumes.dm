@@ -4,7 +4,7 @@
 	allowed = null
 	icon = 'icons/obj/clothing/suits/chaplain.dmi'
 	worn_icon = 'icons/mob/clothing/suits/chaplain.dmi'
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = NONE
 
 /obj/item/clothing/suit/chaplainsuit/Initialize(mapload)
 	. = ..()
@@ -91,7 +91,7 @@
 	inhand_icon_state = "monkfrock"
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	hoodtype = /obj/item/clothing/head/hooded/monkhabit
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = NONE
 
 /obj/item/clothing/head/hooded/monkhabit
 	name = "monk's hood"
@@ -259,7 +259,7 @@
 	body_parts_covered = CHEST|GROIN|LEGS|ARMS
 	allowed = null
 	hoodtype = /obj/item/clothing/head/hooded/chaplain_hood
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = NONE
 
 /obj/item/clothing/suit/hooded/chaplain_hoodie/Initialize(mapload)
 	. = ..()

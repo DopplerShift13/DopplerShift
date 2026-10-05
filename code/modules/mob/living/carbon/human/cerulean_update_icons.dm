@@ -22,7 +22,7 @@
 	if(istype(modsuit_item))
 		cerulean_clothing_icon = modsuit_item.handle_cerulean_modsuit(base_icon, key, greyscale_colors, physique)
 	// go to work
-	else if(bodyshapes_with_variations & BODYSHAPE_CERULEAN)
+	else if(supports_variations_flags & CLOTHING_CERULEAN)
 		// if we have to mask
 		if(supports_variations_flags & CERULEAN_MASKING)
 			// we are just cutting the pant

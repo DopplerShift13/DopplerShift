@@ -63,7 +63,6 @@
 	for(var/zone in ephemeral_limbs)
 		ephemeral_limbs[zone] = (user.get_bodypart(zone) && !istype(real_tail, /obj/item/organ/tail/fish/cerulean)) ? user.get_bodypart(zone) : gift_leg(user, zone)
 		user.dna.species.bodypart_overrides[zone] = ephemeral_limbs[zone].type
-	update_healthdoll(user)
 
 /// restore our original appearance and organs/limbs. delete the fake spooky bits
 /obj/item/clothing/neck/necklace/pearl/proc/restore_owner(mob/living/carbon/human/user)
@@ -88,7 +87,6 @@
 	clear_mood_events(user)
 	user.dna.species.bodypart_overrides = GLOB.species_prototypes[user.dna.species.type].bodypart_overrides.Copy()
 	user.regenerate_icons()
-	update_healthdoll(user)
 
 /// if cerulean, or the character has one of their tails, gift a new set of legs. bcuz it wouldnt make sense to have this item useless on ceruleans
 /obj/item/clothing/neck/necklace/pearl/proc/gift_leg(mob/living/carbon/human/user, zone)
@@ -126,8 +124,6 @@
 	var/obj/item/bodypart/chest/tail_holder = user.get_bodypart(BODY_ZONE_CHEST)
 	if(!ephemeral_tail.owner || tail_holder != ephemeral_tail.owner.get_bodypart(BODY_ZONE_CHEST))
 		return
-	if((user.wear_suit?.bodyshapes_with_variations & BODYSHAPE_CERULEAN) || (user.wear_suit?.supports_variations_flags & CERULEAN_MASKING))
-		tail_holder?.remove_bodypart_texture(/datum/bodypart_texture/mesh)
 
 /// swap our stuff when we become dry
 /obj/item/clothing/neck/necklace/pearl/proc/on_dry(mob/living/carbon/human/user)
@@ -184,20 +180,11 @@
 	for(var/mood_event in tail_moods)
 		user.clear_mood_event(mood_event)
 
-/// so you can see your legs damage
-/obj/item/clothing/neck/necklace/pearl/proc/update_healthdoll(mob/user)
-	var/atom/movable/screen/healthdoll/doll = user.hud_used?.screen_objects[HUD_MOB_HEALTHDOLL]
-	doll?.update_body_zones()
-	doll?.update_appearance()
-
 /// removes the wibbly filter
 /obj/item/clothing/neck/necklace/pearl/proc/remove_wibbly(mob/user)
 	if(isnull(user))
 		return
 	remove_wibbly_filters(user)
-
-/obj/item/clothing/neck/necklace/pearl/abyss
-	tail_type = /obj/item/organ/tail/fish/cerulean/abyss
 
 /obj/item/clothing/neck/necklace/pearl/skeleton
 	tail_type = /obj/item/organ/tail/fish/cerulean/skeletal

@@ -36,7 +36,7 @@
 	strip_delay = 3 SECONDS
 	equip_delay_other = 4 SECONDS
 	var/hit_reflect_chance = 50
-	bodyshapes_with_variations = NONE
+	supports_variations_flags = NONE
 
 /obj/item/clothing/suit/hooded/ablative/Initialize(mapload)
 	. = ..()
