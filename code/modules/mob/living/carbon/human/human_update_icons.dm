@@ -907,9 +907,9 @@ generate/load female uniform sprites matching all previously decided variables
 			key = "[t_state]-[file2use]-[female_uniform]",
 			greyscale_colors = greyscale_colors,
 		)
-	if(!isinhands && humie.bodyshape & BODYSHAPE_CERULEAN)
+	if(!isinhands && istype(wearer) && wearer.bodyshape & BODYSHAPE_CERULEAN)
 		if((supports_variations_flags & CLOTHING_CERULEAN) || (supports_variations_flags & (CERULEAN_MASKING)))
-			return generate_cerulean_icons(building_icon || icon(file2use, t_state), "[t_state]-[file2use]-[female_uniform]", greyscale_colors, humie.bodyshape)
+			return generate_cerulean_icons(building_icon || icon(file2use, t_state), "[t_state]-[file2use]-[female_uniform]", greyscale_colors, wearer.bodyshape)
 
 	/// DOPPLER EDIT ADDITION BEGIN - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0

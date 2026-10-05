@@ -103,7 +103,7 @@
 
 /datum/species/human/cerulean/get_features()
 	var/list/features = ..()
-	LAZYOR(features, /datum/preference/toggle/cerulean_frills::savefile_key)
+//	LAZYOR(features, /datum/preference/toggle/cerulean_frills::savefile_key)
 	LAZYOR(features, /datum/preference/color/fish_tail_color::savefile_key)
 	return features
 
@@ -219,6 +219,7 @@
 /// the bodypart overlay for cerulean fish tails!
 /datum/bodypart_overlay/mutant/tail/fish/cerulean
 	layers = EXTERNAL_ADJACENT|EXTERNAL_BEHIND
+	special_feature_key = NONE // TEMP DOPPLER EDIT
 	/// which datums are blocked in get_global_feature_list
 	var/list/locked_sprite_datums = list(
 		/datum/sprite_accessory/tails/fish/cerulean/skeleton,
