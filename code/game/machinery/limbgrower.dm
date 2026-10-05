@@ -20,7 +20,7 @@
 	/// The design we're printing currently.
 	var/datum/design/being_built
 	/// Our internal techweb for limbgrower designs.
-	var/datum/techweb/autounlocking/stored_research.
+	var/datum/techweb/autounlocking/stored_research
 	///Designs imported from technology disks that we can print.
 	var/list/imported_designs = list()
 	/// All the categories of organs we can print
