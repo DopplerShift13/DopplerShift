@@ -133,6 +133,13 @@
 	grind_results = list(/datum/reagent/aluminium = 10)
 	custom_materials = list(/datum/material/iron=SMALL_MATERIAL_AMOUNT*2)
 
+/obj/item/trash/can/Initialize(mapload)
+	. = ..()
+	if(mapload)
+		return
+	pixel_x = rand(-4,4)
+	pixel_y = rand(-4,4)
+
 /obj/item/trash/can/food
 	icon = 'icons/obj/food/canned.dmi'
 	icon_state = "peachcan_empty"
@@ -148,11 +155,6 @@
 /obj/item/trash/can/food/beans
 	name = "tin of beans"
 	icon_state = "beans_empty"
-
-/obj/item/trash/can/Initialize(mapload)
-	. = ..()
-	pixel_x = rand(-4,4)
-	pixel_y = rand(-4,4)
 
 /obj/item/trash/peanuts
 	name = "\improper Gallery peanuts packet"
