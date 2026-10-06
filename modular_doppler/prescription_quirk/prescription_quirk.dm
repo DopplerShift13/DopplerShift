@@ -20,7 +20,7 @@
 	if(human_holder.mind.assigned_role.faction != FACTION_STATION)
 		return
 	var/obj/machinery/announcement_system/aas = get_announcement_system(source = src)
-	if (aas)
+	if (aas && !HAS_TRAIT_FROM(quirk_holder, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE))
 		aas.broadcast(medical_record_text, list(RADIO_CHANNEL_MEDICAL))
 
 /datum/quirk/item_quirk/prescription/add_unique(client/client_source)
