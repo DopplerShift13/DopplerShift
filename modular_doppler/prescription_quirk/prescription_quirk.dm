@@ -17,10 +17,13 @@
 
 /datum/quirk/item_quirk/prescription/post_add()
 	var/mob/living/carbon/human/human_holder = quirk_holder
+	// no telling medstaff if you're a changing room sleeper
+	if(HAS_TRAIT_FROM(quirk_holder, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE))
+		return
 	if(human_holder.mind.assigned_role.faction != FACTION_STATION)
 		return
 	var/obj/machinery/announcement_system/aas = get_announcement_system(source = src)
-	if (aas && !HAS_TRAIT_FROM(quirk_holder, TRAIT_FREE_GHOST, TRAIT_GHOSTROLE))
+	if (aas)
 		aas.broadcast(medical_record_text, list(RADIO_CHANNEL_MEDICAL))
 
 /datum/quirk/item_quirk/prescription/add_unique(client/client_source)
