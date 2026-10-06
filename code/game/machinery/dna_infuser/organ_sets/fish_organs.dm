@@ -90,7 +90,7 @@
 	if (new_value >= FISH_INFUSION_ALL_ORGANS)
 		if (!color_active)
 			for(var/obj/item/bodypart/limb as anything in carbon_owner.bodyparts)
-				if(limb.bodytype & BODYTYPE_ROBOTIC)
+				if(limb.bodytype & BODYTYPE_ROBOTIC /*TEMP DOPPLER ADD START*/ || !iscerulean(carbon_owner) /*TEMP DOPPLER ADD END*/)
 					continue
 				limb.add_color_override(carbon_owner.dna.features[FEATURE_TAIL_FISH_COLOR], LIMB_COLOR_FISH_INFUSION)
 			color_active = TRUE
@@ -107,6 +107,10 @@
 	. = ..()
 	if (!color_active || !iscarbon(owner) || (limb.bodytype & BODYTYPE_ROBOTIC))
 		return
+	// TEMP DOPPLER ADD START
+	if(!iscerulean(owner))
+		return
+	// TEMPT DOPPLER ADD END
 	var/mob/living/carbon/carbon_owner = owner
 	limb.add_color_override(carbon_owner.dna.features[FEATURE_TAIL_FISH_COLOR], LIMB_COLOR_FISH_INFUSION)
 
@@ -277,6 +281,10 @@
 	color_source = ORGAN_COLOR_OVERRIDE
 
 /datum/bodypart_overlay/mutant/tail/fish/on_mob_insert(obj/item/organ/parent, mob/living/carbon/receiver)
+	//TEMP DOPPLER EDIT START
+	if(imprint_on_next_insertion && receiver.dna.tail_type == FISH)
+		return ..()
+	//TEMP DOPPLER EDIT END
 	if(imprint_on_next_insertion || !(receiver.dna.features[feature_key] in get_global_feature_list()))
 		receiver.dna.features[feature_key] = get_random_appearance().name
 		receiver.dna.update_uf_block(/datum/dna_block/feature/accessory/tail_fish)
