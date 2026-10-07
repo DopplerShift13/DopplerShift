@@ -72,6 +72,12 @@
 	if(over_radio && prob(RADIO_IGNORE_CHANCE))
 		return
 
+	// DOPPLER EDIT ADDITION START - parrots listen for verbal commands
+	var/mob/living/basic/parrot/what_big_ears_you_have = parent
+	if(!over_radio && istype(what_big_ears_you_have))
+		what_big_ears_you_have.check_command(message, speaker)
+	// DOPPLER EDIT ADDITION END
+
 	var/number_of_excess_strings = LAZYLEN(speech_buffer) - MAX_SPEECH_BUFFER_SIZE
 	if(number_of_excess_strings > 0) // only remove if we're overfull
 		for(var/i in 1 to number_of_excess_strings)
