@@ -10,6 +10,9 @@
 //// The trait for undersized quirk
 #define TRAIT_UNDERSIZED "undersized"
 
+//// The trait for the Anathema quirk and any anathema species/powers
+#define TRAIT_ANATHEMA "anathema"
+
 //// The trait for Holosynths
 #define TRAIT_HOLOSYNTH "holosynthetic"
 
