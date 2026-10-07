@@ -7468,6 +7468,7 @@
 #include "modular_doppler\modular_jobs\code\job_overrides\object_flavor\security.dm"
 #include "modular_doppler\modular_jobs\code\job_overrides\object_flavor\security_officer.dm"
 #include "modular_doppler\modular_jobs\code\job_overrides\object_flavor\warden.dm"
+#include "modular_doppler\modular_jobs\code\roustabout\roustabout.dm"
 #include "modular_doppler\modular_medical\code\carbon_update_icons.dm"
 #include "modular_doppler\modular_medical\code\medkit.dm"
 #include "modular_doppler\modular_medical\code\yo_doc_im_bleedin_here.dm"

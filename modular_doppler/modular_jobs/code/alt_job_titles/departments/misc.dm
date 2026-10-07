@@ -36,9 +36,18 @@
 		"Off-Duty Crew",
 		"Off-Duty Staff",
 		"Colonist",
-		"Contractor",
 		"Visitor",
 		"Guest",
+	)
+
+/datum/job/roustabout
+	alt_titles = list(
+		JOB_ROUSTABOUT,
+		"Stevedore",
+		"Deckhand",
+		"Contractor",
+		"Roughneck",
+		"Laborer",
 	)
 
 /datum/job/ai
