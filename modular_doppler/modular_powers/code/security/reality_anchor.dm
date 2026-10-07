@@ -247,7 +247,7 @@
 
 /datum/status_effect/power/reality_anchor_silenced/tick(seconds_between_ticks)
 	if(HAS_TRAIT(owner, TRAIT_ANATHEMA))
-		owner.apply_damage(2.5, BURN) // 25 burn damage per application of the effect
+		owner.apply_damage(5, BURN) // 40 to 50 burn damage per application of the effect
 	if(mental_effects_blocked || owner_archetype == POWER_ARCHETYPE_MORTAL) // normies and the mentally shielded don't hear the heartbeat
 		return
 	owner.playsound_local(owner, 'sound/effects/health/slowbeat.ogg', 40, FALSE, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
