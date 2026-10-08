@@ -296,6 +296,7 @@
 		// DOPPLER EDIT BEGIN
 		/datum/job/bridge_assistant = /obj/item/organ/cyberimp/arm/toolkit/paperwork,
 		/datum/job/command_bodyguard = /obj/item/organ/eyes/robotic/shield,
+		/datum/job/roustabout = /obj/item/organ/liver/cybernetic/tier2, // only the finest of after hours alcoholics
 		// DOPPLER EDIT END
 	)
 

@@ -22,3 +22,17 @@
 /datum/area_spawn/command_bodyguard
 	target_areas = list(/area/station/command/bridge)
 	desired_atom = /obj/effect/landmark/start/command_bodyguard
+
+/datum/area_spawn/roustabout
+	target_areas = list(
+		/area/station/commons/cafeteria,
+		/area/station/commons/dorms,
+		/area/station/commons/locker,
+		/area/station/commons/lounge,
+		/area/station/commons/storage,
+		/area/station/commons/fitness,
+		/area/station/service/cafeteria,
+		/area/station/service/bar/atrium,
+	)
+	amount_to_spawn = 10
+	desired_atom = /obj/effect/landmark/start/roustabout
