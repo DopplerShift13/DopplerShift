@@ -75,8 +75,14 @@
 /obj/item/modular_computer/pda/rugged/roustabout
 	name = "industrial PDA"
 	greyscale_colors = "#ece1cd#ece1cd"
-	//inserted_item = /obj/item/pen/red/security
-	starting_programs = list()
+	inserted_item = /obj/item/pen/fourcolor
+	starting_programs = list(
+		/datum/computer_file/program/bounty_board,
+		/datum/computer_file/program/restock_tracker,
+		/datum/computer_file/program/alarm_monitor,
+		/datum/computer_file/program/atmosscan,
+		/datum/computer_file/program/skill_tracker,
+	)
 
 /datum/id_trim/job/roustabout
 	assignment = JOB_ROUSTABOUT
