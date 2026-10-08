@@ -1,7 +1,7 @@
 /// Grants Piety based on getting smacked.
 /datum/power/theologist/flagellant
 	name = "Flagellant Piety"
-	desc = "You suffer so others may live. You gain Piety from being hurt by creatures. The damage taken must be caused by a creature and must be blockable; \
+	desc = "You suffer so others may live. You gain Piety when being damaged by creatures (at the same coefficient as healing powers). The damage taken must be caused by a creature and must be blockable; \
 	so indirect methods of damaging you such as throwing explosives or using area-of-effect magics will not grant piety.\
 	\nThe Piety gained is based on the pre-mitigation damage (block, armor etc). Damage that comes from self-flagellation is based on the actual damage taken."
 	security_record_text = "Subject fuels their powers by being hurt by others."
