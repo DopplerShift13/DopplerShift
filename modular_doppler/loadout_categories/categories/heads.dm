@@ -354,6 +354,14 @@
 	name = "Modernized Phorid Envirosuit Helmet (Green)"
 	item_path = /obj/item/clothing/head/helmet/space/plasmaman/rev2
 
+/datum/loadout_item/head/helmets/secoff_helmet_visorless
+	name = "PS Type 98b Helmet"
+	item_path = /obj/item/clothing/head/helmet/sec_visorless
+
+/datum/loadout_item/head/helmets/secoff_helmet
+	name = "PS Type 98c Helmet"
+	item_path = /obj/item/clothing/head/helmet/sec
+
 /**
  * HAIR ACCESSORIES
  */
