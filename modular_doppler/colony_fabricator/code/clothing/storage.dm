@@ -30,9 +30,9 @@
 	desc = "A large duffelbag for whatever gear couldn't fit in a regular back. Made by locals, for locals, \
 		and beloved by any hard-working or adventure type you can find."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
-	icon_state = "messenger"
+	icon_state = "duffel"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
-	worn_icon_state = "messenger"
+	worn_icon_state = "duffel"
 
 // Belts
 
