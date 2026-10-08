@@ -6,6 +6,7 @@
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "boots"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
+	inhand_icon_state = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
 	bodyshape_icon_files = list(

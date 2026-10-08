@@ -4,6 +4,7 @@
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	icon_state = "headlamp"
+	inhand_icon_state = null
 	body_parts_covered = NONE
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
@@ -25,6 +26,7 @@
 		through coloured pins on their otherwise similar uniforms."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "cap"
+	inhand_icon_state = null
 	soft_type = "cap"
 	soft_suffix = null
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
@@ -55,6 +57,7 @@
 	icon_state = "tanker"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "tanker"
+	inhand_icon_state = null
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
@@ -80,6 +83,7 @@
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	icon_state = "/obj/item/clothing/head/frontier_headscarf"
+	inhand_icon_state = null
 	post_init_icon_state = "colony_headscarf"
 	greyscale_colors = "#62846e#62846e#444444"
 	greyscale_config = /datum/greyscale_config/colony_headscarf

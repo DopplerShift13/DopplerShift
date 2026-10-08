@@ -7,6 +7,7 @@
 	icon_state = "backpack"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "backpack"
+	inhand_icon_state = null
 
 /obj/item/storage/backpack/satchel/eng/frontier_colonist
 	name = "\improper NG-Tek work rated satchel"
@@ -15,6 +16,7 @@
 	icon_state = "satchel"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "satchel"
+	inhand_icon_state = null
 
 /obj/item/storage/backpack/messenger/eng/frontier_colonist
 	name = "\improper NG-Tek messenger bag"
@@ -24,6 +26,7 @@
 	icon_state = "messenger"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "messenger"
+	inhand_icon_state = null
 
 /obj/item/storage/backpack/duffelbag/engineering/frontier_colonist
 	name = "\improper CROutfitters duffelbag"
@@ -33,6 +36,7 @@
 	icon_state = "duffel"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "duffel"
+	inhand_icon_state = null
 
 // Belts
 
@@ -49,6 +53,7 @@
 	)
 	worn_icon_state = "harness"
 	inhand_icon_state = null
+	content_overlays = FALSE
 
 /obj/item/storage/belt/utility/frontier_colonist/Initialize(mapload)
 	. = ..()

@@ -7,6 +7,7 @@
 	icon_state = "gloves"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "gloves"
+	inhand_icon_state = null
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
