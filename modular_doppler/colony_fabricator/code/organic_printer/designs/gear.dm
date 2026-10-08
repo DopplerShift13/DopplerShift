@@ -1,5 +1,5 @@
 /datum/design/organic_printer/chest_rig
-	name = "Chest Rig"
+	name = "Hip Sachet"
 	id = "frontier_chest_rig"
 	materials = list(/datum/material/biomass = 15)
 	build_path = /obj/item/storage/belt/utility/frontier_colonist
@@ -30,12 +30,19 @@
 	name = "Satchel"
 	id = "frontier_satchel"
 	materials = list(/datum/material/biomass = 15)
-	build_path = /obj/item/storage/backpack/industrial/frontier_colonist/satchel
+	build_path = /obj/item/storage/backpack/satchel/eng/frontier_colonist
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_GEAR)
 
 /datum/design/organic_printer/messenger
 	name = "Messenger Bag"
 	id = "frontier_messenger"
 	materials = list(/datum/material/biomass = 15)
-	build_path = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
+	build_path = /obj/item/storage/backpack/messenger/eng/frontier_colonist
+	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_GEAR)
+
+/datum/design/organic_printer/messenger
+	name = "Duffelbag"
+	id = "frontier_duffel"
+	materials = list(/datum/material/biomass = 15)
+	build_path = /obj/item/storage/backpack/duffelbag/engineering/frontier_colonist
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_GEAR)

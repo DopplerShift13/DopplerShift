@@ -1,59 +1,59 @@
-/obj/item/clothing/suit/jacket/frontier_colonist
-	name = "frontier trenchcoat"
-	desc = "A knee-length coat with a water-resistant exterior and relatively comfortable interior. \
-		In between? Just enough protective material to stop the odd sharp thing getting through, \
-		though don't expect miracles."
+/obj/item/clothing/suit/toggle/jacket/frontier_colonist
+	name = "\improper Ispanlita jacket"
+	desc = "Taking its name from the city that spawned its creation, insulating jackets were deemed not to be a necessity in the limited \
+		databanks of the original colony ships, and thus were a later invention by local developers once the discovery of the Truth \
+		climate cycle was made along with the need to inhabit colder areas of the system. Comes with reflective stripes to ensure \
+		the wearer can still be identified in harsh weather."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "jacket"
+	base_icon_state = "jacket"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
-	worn_icon_state = "jacket"
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	slot_flags = ITEM_SLOT_OCLOTHING|ITEM_SLOT_NECK
 	armor_type = /datum/armor/colonist_clothing
 	resistance_flags = NONE
 	allowed = list()
 	pocket_storage_type = /datum/storage/pockets/jacket/jumbo
+	toggle_noun = "zipper"
+	/// If this suit item has emissives or not
+	var/has_emissives = TRUE
 
-/obj/item/clothing/suit/jacket/frontier_colonist/Initialize(mapload)
+/obj/item/clothing/suit/toggle/jacket/frontier_colonist/worn_overlays(mutable_appearance/standing, isinhands, icon_file)
+	. = ..()
+	if(!isinhands && has_emissives) // This uses base icon state because of the toggling aspect
+		. += emissive_appearance(icon_file, "[base_icon_state]-emissive", src, alpha = src.alpha)
+
+/obj/item/clothing/suit/toggle/jacket/frontier_colonist/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.colonist_suit_allowed
 
-/obj/item/clothing/suit/jacket/frontier_colonist/short
-	name = "frontier jacket"
-	desc = "A short coat with a water-resistant exterior and relatively comfortable interior. \
-		In between? Just enough protective material to stop the odd sharp thing getting through, \
-		though don't expect miracles."
-	icon_state = "jacket_short"
-	worn_icon_state = "jacket_short"
+/obj/item/clothing/suit/toggle/jacket/frontier_colonist/worker
+	name = "\improper Ispanlita worker's jacket"
+	icon_state = "jacket_work"
+	base_icon_state = "jacket_work"
 	pocket_storage_type = /datum/storage/pockets/jacket
 
-/obj/item/clothing/suit/jacket/frontier_colonist/medical
-	name = "frontier medical jacket"
-	desc = "A short coat with a water-resistant exterior and relatively comfortable interior. \
-		In between? Just enough protective material to stop the odd sharp thing getting through, \
-		though don't expect miracles. This one is colored a bright red and covered in white \
-		stripes to denote that someone wearing it might be able to provide medical assistance."
+/obj/item/clothing/suit/toggle/jacket/frontier_colonist/medical
+	name = "\improper Ispanlita medic's jacket"
 	icon_state = "jacket_med"
-	worn_icon_state = "jacket_med"
+	base_icon_state = "jacket_med"
 	pocket_storage_type = /datum/storage/pockets/jacket
 
 /obj/item/clothing/suit/frontier_colonist_flak
-	name = "frontier flak jacket"
-	desc = "A simple flak jacket with an exterior of water-resistant material. \
-		Jackets like these are often found on first wave colonists that want some armor \
-		due to the fact they can be made easily within a colony core type machine."
+	name = "thermoset breastplate"
+	desc = "A pair of thick thermoset plastic panels made to be worn under a jacket or vest to protect the wearer. \
+		These see use most commonly in salvage and contruction workers on New Gibraltar, but are common in most work roles \
+		requiring extra protection against anything outside of a gunshot."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "flak"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "flak"
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	body_parts_covered = CHEST
 	cold_protection = CHEST|GROIN
@@ -68,14 +68,8 @@
 	. = ..()
 	allowed = GLOB.colonist_suit_allowed
 
-/obj/item/clothing/suit/jacket/frontier_colonist/casual
-	name = "frontier casual raincloak"
+/obj/item/clothing/suit/toggle/jacket/frontier_colonist/casual
+	name = "\improper NG-Tek casual raincloak"
 	desc = "A lightweight raincloak with a reflective stripe around the chest for wear when not doing heavy work."
 	icon_state = "raincloak"
-	worn_icon_state = "raincloak"
-	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
-	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
-	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
-	)
+	has_emissives = FALSE

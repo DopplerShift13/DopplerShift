@@ -1,15 +1,15 @@
 /obj/item/clothing/gloves/frontier_colonist
-	name = "frontier gloves"
-	desc = "A sturdy pair of black gloves that'll keep your precious fingers protected from the outside world. \
-		They go a bit higher up the arm than most gloves should, and you aren't quite sure why."
+	name = "\improper NG-Tek handigloves"
+	desc = "The latest in a long series of designs for rapidly manufactured working gloves shipped with all \
+		frontier clothing manufacturers. Long black gloves that reach nearly up to the elbow, only partially \
+		insulated due to the thin material around the digits, a compromise made for an all-purpose pair of gloves."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "gloves"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "gloves"
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	greyscale_colors = "#3a373e"
 	siemens_coefficient = 0.25 // Doesn't insulate you entirely, but makes you a little more resistant

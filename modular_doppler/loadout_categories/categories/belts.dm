@@ -111,7 +111,7 @@
 	item_path = /obj/item/storage/belt/military/pouches
 
 /datum/loadout_item/belts/upper/frontier_colonist
-	name = "Chest Rig (Frontier)"
+	name = "Belt-Mounted Hip Satchet"
 	item_path = /obj/item/storage/belt/utility/frontier_colonist
 
 /**

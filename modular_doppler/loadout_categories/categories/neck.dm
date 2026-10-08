@@ -30,8 +30,8 @@
 	abstract_type = /datum/loadout_item/neck/cape
 
 /datum/loadout_item/neck/cape/colonial_cloak
-	name = "Frontier Raincloak"
-	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/casual
+	name = "NG-Tek Casual Raincloak"
+	item_path = /obj/item/clothing/suit/toggle/jacket/frontier_colonist/casual
 
 /datum/loadout_item/neck/cape/robe_cape
 	name = "Cape (Robe)"
