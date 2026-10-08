@@ -42,7 +42,7 @@
 	var/mob/living/attack_source = get_attack_source_mob(hit_by)
 	if(!attack_source)
 		return
-	if(attack_source == power_holder) // normally we don't path through here but if you somehow hit yourself with a ricocheted projectile, you shouldn't get piety. only shame.
+	if(attack_source == power_holder) // normally we don't path through here but if you somehow hit yourself with a ricocheted projectile, you shouldn't get piety twice. only shame.
 		return
 	award_piety(damage)
 
