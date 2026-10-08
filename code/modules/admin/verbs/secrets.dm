@@ -1,7 +1,7 @@
 GLOBAL_DATUM(everyone_an_antag, /datum/everyone_is_an_antag_controller)
 
 ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before with this handy dandy semi-misc stuff menu.", ADMIN_CATEGORY_GAME)
-	var/datum/secrets_menu/tgui = new(user)
+	var/datum/secrets_menu/doppler/tgui = new(user) // DOPPLER EDIT ADDITION - Modular Secrets Panel
 	tgui.ui_interact(user.mob)
 	BLACKBOX_LOG_ADMIN_VERB("Secrets Panel")
 
@@ -145,28 +145,6 @@ ADMIN_VERB(secrets, R_NONE, "Secrets", "Abuse harder than you ever have before w
 			thunderdome_template.should_place_on_top = FALSE
 			var/turf/thunderdome_corner = locate(thunderdome.x - 3, thunderdome.y - 1, 1) // have to do a little bit of coord manipulation to get it in the right spot
 			thunderdome_template.load(thunderdome_corner)
-
-// DOPPLER EDIT ADDITION START - Rest Changing Room Button
-		if("changingroomreset")
-			var/delete_mobs = tgui_alert(usr, "Clear all mobs?", "Changing Room Reset", list("Yes", "No", "Cancel"))
-			if(!delete_mobs || delete_mobs == "Cancel")
-				return
-
-			log_admin("[key_name(holder)] reset the changing room to default with delete_mobs marked as [delete_mobs].")
-			message_admins(span_adminnotice("[key_name_admin(holder)] reset the changing room to default with delete_mobs marked as [delete_mobs]."))
-
-			var/area/changingroom = GLOB.areas_by_type[/area/centcom/changing_room]
-			if(delete_mobs == "Yes")
-				for(var/mob/living/mob in changingroom)
-					qdel(mob)
-			for(var/obj/obj in changingroom)
-				qdel(obj)
-
-			var/datum/map_template/changing_room_template = new /datum/map_template/changing_room() // we load our own template because the changing room's dmm is outside of SSmapping's template folder
-			changing_room_template.should_place_on_top = FALSE
-			var/turf/changing_room_corner = locate(changingroom.x - 17, changingroom.y, 1)
-			changing_room_template.load(changing_room_corner)
-// DOPPLER EDIT ADDITION END
 
 		if("set_name")
 			var/new_name = input(holder, "Please input a new name for the station.", "What?", "") as text|null

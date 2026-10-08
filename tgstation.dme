@@ -6851,6 +6851,7 @@
 #include "modular_doppler\administration\code\aooc.dm"
 #include "modular_doppler\administration\code\extra_vv.dm"
 #include "modular_doppler\administration\code\preferences.dm"
+#include "modular_doppler\administration\code\secrets.dm"
 #include "modular_doppler\administration\code\sooc.dm"
 #include "modular_doppler\administration\code\whitelisting.dm"
 #include "modular_doppler\advanced_reskin\code\advanced_reskin.dm"
