@@ -45,8 +45,8 @@
 	gloves = /obj/item/clothing/gloves/frontier_colonist
 	backpack = /obj/item/storage/backpack/industrial/frontier_colonist
 	satchel = /obj/item/storage/backpack/satchel/eng/frontier_colonist
-	duffelbag = /obj/item/storage/backpack/messenger/eng/frontier_colonist
-	messenger = /obj/item/storage/backpack/duffelbag/engineering/frontier_colonist
+	messenger = /obj/item/storage/backpack/messenger/eng/frontier_colonist
+	duffelbag = /obj/item/storage/backpack/duffelbag/engineering/frontier_colonist
 	backpack_contents = list(
 		/obj/item/clothing/mask/gas/atmos/frontier_colonist,
 	)

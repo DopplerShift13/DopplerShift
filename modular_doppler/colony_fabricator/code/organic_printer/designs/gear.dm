@@ -40,7 +40,7 @@
 	build_path = /obj/item/storage/backpack/messenger/eng/frontier_colonist
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_GEAR)
 
-/datum/design/organic_printer/messenger
+/datum/design/organic_printer/duffelbag
 	name = "Duffelbag"
 	id = "frontier_duffel"
 	materials = list(/datum/material/biomass = 15)
