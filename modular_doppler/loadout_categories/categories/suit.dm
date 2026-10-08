@@ -539,6 +539,10 @@
 	name = "Tizirian Breastplate"
 	item_path = /obj/item/clothing/suit/armor/lizard
 
+/datum/loadout_item/suit/armor/thermoset
+	name = "Thermoset Breastplate"
+	item_path = /obj/item/clothing/suit/frontier_colonist_flak
+
 /**
  * MISCELLANEOUS
  */
