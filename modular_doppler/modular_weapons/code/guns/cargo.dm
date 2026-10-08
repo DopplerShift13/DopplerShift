@@ -1,5 +1,5 @@
 /datum/supply_pack/imports/wt550
-	name = "Sindaryo PDW Crate"
+	name = "Smuggled Sindaryo PDW Crate"
 	desc = "(*!&@#I know a guy, over on New Gibraltar. He has mountains of these things, I don't know why. \
 		Maybe he's a collector or something. It's not important, what is, is that he's willing to part with \
 		a few if you have the right kind of compensation.!#@*$"
@@ -12,7 +12,7 @@
 	crate_type = /obj/structure/closet/crate/secure/syndicate/gorlex/weapons/bustedlock
 
 /datum/supply_pack/imports/wt550ammo
-	name = "Sindaryo Ammo Crate"
+	name = "Smuggled Sindaryo Ammo Crate"
 	desc = "(*!&@#We never found where he even got all of these, I never think it wise to ask anyway. \
 		I'm not going to start pushing the guy with a mountain of clone guns on where he got them all.!#@*$"
 	hidden = FALSE
@@ -88,6 +88,25 @@
 	)
 	crate_name = "schießenmaschine crate"
 
+/datum/supply_pack/security/armory/modular_laser_upgrade
+	name = "Cybersun Intermodal License Upgrade cartridge multi-pack"
+	desc = "A three pack of license upgrade cartridges, compatible with the Hoshi and Hyeseong modular laser \
+	weapon systems. Authentic Cybersun software is guaranteed."
+	cost = CARGO_CRATE_VALUE * 50
+	contains = list(
+		/obj/item/modular_laser_upgrade = 3,
+	)
+	crate_name = "ILU cartridge create"
+
+/datum/supply_pack/security/armory/escarabajo
+	name = "\improper PA-3S Escarabajo riot shield"
+	desc = "A single pack plastitanium riot shield."
+	cost = CARGO_CRATE_VALUE * 10
+	contains = list(
+		/obj/item/shield/escarabajo,
+	)
+	crate_name = "PA-3S riot shield crate"
+
 /datum/supply_pack/goody/dumdum38
 	special = TRUE
 
@@ -111,7 +130,7 @@
 	desc = "The power of the New Gibraltar 6mm, with none of the regulations behind the submachineguns that use it!"
 	cost = PAYCHECK_CREW * 14
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/revolver/c38/detective
 	)
@@ -121,7 +140,7 @@
 	desc = "Sometimes you just need a little more gun, contains one Matragano PS 2."
 	cost = PAYCHECK_COMMAND * 9
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/shotgun/riot,
 	)
@@ -131,7 +150,7 @@
 	desc = "A reliable weapon for when you plan on crashing in the middle of nowhere."
 	cost = PAYCHECK_COMMAND * 9
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/rifle/crash,
 	)
@@ -141,7 +160,47 @@
 	desc = "Old reliable, though never as overkill as those old Sakhno rifles they keep trying to pawn on us."
 	cost = PAYCHECK_COMMAND * 9
 	access = ACCESS_WEAPONS
-	access_view = null
+	access_view = ACCESS_WEAPONS
 	contains = list(
 		/obj/item/gun/ballistic/rifle/osako,
 	)
+
+/datum/supply_pack/goody/defenseur
+	name = "Défenseur Modele 2520 Single-Pack"
+	desc = "Fresh from the factory, perfect for Cruesoe's Port Safety volunteers to spend money on."
+	cost = PAYCHECK_CREW * 15
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+	contains = list(
+		/obj/item/gun/ballistic/automatic/pistol/defenseur,
+	)
+
+// supply packs for weapons that havent been overhauled by doppler, but are here for typo fixes/access restrictions/whatever
+
+/datum/supply_pack/goody/disabler_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/energy_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/laser_single
+	desc = "Contains one laser gun, the lethal workhouse of corporate security everywhere." // we arent NT, so it feels weird to mention it
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/carbine_single
+	name = "Laser Carbine Single-Pack"
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/smg_single
+	name = "Disabler SMG Single-Pack"
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/hell_single
+	desc = "Contains one hellfire laser gun degradation kit, an old pattern of laser gun infamous for its ability to horribly disfigure targets with burns. Technically violates several 4CA regulations, but they aren't here to see." // space geneva convention -> 4ca regulation + its lax this far out away from the core worlds
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/thermal_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/double_barrel
+	access = ACCESS_WEAPONS

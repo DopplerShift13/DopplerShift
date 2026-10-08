@@ -125,4 +125,8 @@
 /mob/living/carbon/human/shared_living_ui_distance(atom/movable/src_object, viewcheck = TRUE, allow_tk = TRUE)
 	if(allow_tk && dna.check_mutation(/datum/mutation/telekinesis) && tkMaxRangeCheck(src, src_object))
 		return UI_INTERACTIVE
+	// DOPPLER ADDITION BEGIN - Support for powers to interact with objects from range with LoS
+	if(HAS_TRAIT(src, TRAIT_NO_UI_DISTANCE) && (src_object in view(src)))
+		return UI_INTERACTIVE
+	// DOPPLER ADDITION END - Support for powers to interact with objects from range with LoS
 	return ..()

@@ -1,0 +1,256 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"b" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/turf/open/floor/iron/colony/white,
+/area/shuttle/transport)
+"e" = (
+/obj/structure/shuttle_decoration/landing_engine/directional/south,
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/shuttle/transport)
+"g" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/turf/open/floor/plating,
+/area/shuttle/transport)
+"i" = (
+/obj/effect/spawner/structure/window/reinforced/shuttle,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
+/turf/open/floor/plating,
+/area/shuttle/transport)
+"j" = (
+/obj/machinery/power/shuttle_engine/propulsion{
+	dir = 8
+	},
+/obj/structure/engine_covers/thruster_nozzle{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/shuttle/transport)
+"k" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 8
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/transport)
+"m" = (
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/shuttle/transport)
+"o" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 9
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/transport)
+"q" = (
+/obj/structure/shuttle_decoration/aux_engine/directional/east,
+/turf/closed/wall/mineral/titanium/nodiagonal,
+/area/shuttle/transport)
+"s" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/colony/white,
+/area/shuttle/transport)
+"t" = (
+/obj/machinery/light/directional/north,
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/transport)
+"u" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/transport)
+"w" = (
+/obj/machinery/computer/shuttle/ferry/request{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/transport)
+"z" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"B" = (
+/obj/machinery/power/shuttle_engine/heater{
+	dir = 8
+	},
+/obj/structure/engine_covers/heater_cover{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/shuttle/transport)
+"D" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/colony/white,
+/area/shuttle/transport)
+"G" = (
+/obj/structure/shuttle_decoration/landing_engine/directional/north,
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/shuttle/transport)
+"J" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/titanium,
+/area/shuttle/transport)
+"K" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/south,
+/turf/open/floor/iron/colony/white,
+/area/shuttle/transport)
+"M" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/white/bolts,
+/area/shuttle/transport)
+"Q" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/colony/white,
+/area/shuttle/transport)
+"R" = (
+/obj/docking_port/mobile{
+	dir = 8;
+	shuttle_id = "ferry";
+	name = "ferry shuttle";
+	preferred_direction = 4
+	},
+/obj/structure/fans/tiny,
+/obj/machinery/door/airlock/spacer,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
+/turf/open/floor/plating/nanocarbon,
+/area/shuttle/transport)
+"T" = (
+/obj/structure/chair/comfy/shuttle,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/transport)
+"U" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/colony/texture,
+/area/shuttle/transport)
+"V" = (
+/obj/structure/chair/comfy/shuttle{
+	dir = 4
+	},
+/obj/structure/window/reinforced/plasma/spawner/directional/north,
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/colony/white,
+/area/shuttle/transport)
+"X" = (
+/obj/structure/shuttle_decoration/wall_plate/armor{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/shuttle/transport)
+"Z" = (
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/shuttle/transport)
+
+(1,1,1) = {"
+o
+j
+k
+j
+X
+"}
+(2,1,1) = {"
+G
+B
+m
+B
+e
+"}
+(3,1,1) = {"
+V
+M
+u
+M
+s
+"}
+(4,1,1) = {"
+b
+M
+Z
+M
+K
+"}
+(5,1,1) = {"
+b
+M
+Z
+M
+K
+"}
+(6,1,1) = {"
+b
+M
+Z
+M
+K
+"}
+(7,1,1) = {"
+b
+M
+Z
+M
+K
+"}
+(8,1,1) = {"
+b
+M
+Z
+M
+K
+"}
+(9,1,1) = {"
+b
+M
+Z
+M
+K
+"}
+(10,1,1) = {"
+Q
+M
+Z
+M
+D
+"}
+(11,1,1) = {"
+J
+t
+Z
+U
+z
+"}
+(12,1,1) = {"
+g
+T
+Z
+w
+g
+"}
+(13,1,1) = {"
+q
+i
+R
+i
+q
+"}

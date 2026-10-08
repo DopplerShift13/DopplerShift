@@ -1,5 +1,6 @@
 #define MONITOR_HEAD (1<<0)
 #define MONITOR_HEAD_LIZARD (1<<1)
+#define MONITOR_HEAD_PROTOGEN (1<<2)
 
 GLOBAL_LIST_INIT(monitor_displays, list(
 	"Disabled" = "none",
@@ -52,6 +53,11 @@ GLOBAL_LIST_INIT(monitor_lizard_displays, list(
 	"Exclaim" = "liz_exclaim",
 	))
 
+GLOBAL_LIST_INIT(monitor_proto_displays, list(
+	"Disabled" = "none",
+	"Eyes" = "proto_eyes",
+	))
+
 // the overlay
 /datum/bodypart_overlay/simple/monitor_head
 	icon = 'modular_doppler/modular_customization/accessories/icons/cybernetic/synth_screens.dmi'
@@ -68,16 +74,21 @@ GLOBAL_LIST_INIT(monitor_lizard_displays, list(
 
 /datum/component/monitor_head/lizard
 
+/datum/component/monitor_head/protogen
+
 /datum/component/monitor_head/Initialize(...)
 	. = ..()
 	if(!ishuman(parent))
 		return COMPONENT_INCOMPATIBLE
 
-	if(istype(src, /datum/component/monitor_head/lizard))
-		display_action = new /datum/action/innate/monitor_head/lizard
-	else
-		display_action = new
+	var/action_to_use =  /datum/action/innate/monitor_head
+	switch(type)
+		if(/datum/component/monitor_head/lizard)
+			action_to_use = /datum/action/innate/monitor_head/lizard
+		if(/datum/component/monitor_head/protogen)
+			action_to_use = /datum/action/innate/monitor_head/protogen
 
+	display_action = new action_to_use
 	display_action.Grant(parent)
 
 /datum/component/monitor_head/Destroy(force)
@@ -107,7 +118,14 @@ GLOBAL_LIST_INIT(monitor_lizard_displays, list(
 
 /datum/action/innate/monitor_head/Activate()
 	var/mob/living/carbon/human/wearer = owner
-	var/new_display = tgui_input_list(usr, "Choose your character's screen:", "Monitor Display", head_type & MONITOR_HEAD ? GLOB.monitor_displays : GLOB.monitor_lizard_displays)
+	var/list_to_pick_from = GLOB.monitor_displays
+	switch(head_type)
+		if(MONITOR_HEAD_LIZARD)
+			list_to_pick_from = GLOB.monitor_lizard_displays
+		if(MONITOR_HEAD_PROTOGEN)
+			list_to_pick_from = GLOB.monitor_proto_displays
+
+	var/new_display = tgui_input_list(usr, "Choose your character's screen:", "Monitor Display", list_to_pick_from)
 	if(!new_display)
 		return
 
@@ -118,7 +136,7 @@ GLOBAL_LIST_INIT(monitor_lizard_displays, list(
 	if(!display_overlay)
 		create_screen(wearer)
 
-	change_screen(wearer, "[head_type & MONITOR_HEAD ? GLOB.monitor_displays[new_display] : GLOB.monitor_lizard_displays[new_display]]", new_color)
+	change_screen(wearer, "[list_to_pick_from[new_display]]", new_color)
 
 /datum/action/innate/monitor_head/proc/check_emote(mob/living/carbon/wearer, datum/emote/emote)
 	SIGNAL_HANDLER
@@ -148,6 +166,10 @@ GLOBAL_LIST_INIT(monitor_lizard_displays, list(
 				change_screen(wearer, "liz_exclaim")
 			if("question")
 				change_screen(wearer, "liz_question")
+
+	if(head_type & MONITOR_HEAD_PROTOGEN)
+		return //no emotes yet
+
 	// this timer is 5 seconds just like the emote overlays, so they are synchronized
 	addtimer(CALLBACK(src, PROC_REF(change_screen), wearer, old_screen), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE)
 
@@ -174,6 +196,9 @@ GLOBAL_LIST_INIT(monitor_lizard_displays, list(
 				change_screen(wearer, "none")
 			if(DEAD)
 				change_screen(wearer, "none")
+
+	if(head_type & MONITOR_HEAD_PROTOGEN)
+		return //no emotes yet
 
 /datum/action/innate/monitor_head/proc/create_screen(mob/living/carbon/wearer)
 	var/obj/item/bodypart/head/monitor_head = wearer.get_bodypart(BODY_ZONE_HEAD)
@@ -213,6 +238,9 @@ GLOBAL_LIST_INIT(monitor_lizard_displays, list(
 /datum/action/innate/monitor_head/lizard
 	head_type = MONITOR_HEAD_LIZARD
 
+/datum/action/innate/monitor_head/protogen
+	head_type = MONITOR_HEAD_PROTOGEN
 
 #undef MONITOR_HEAD
 #undef MONITOR_HEAD_LIZARD
+#undef MONITOR_HEAD_PROTOGEN

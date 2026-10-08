@@ -199,7 +199,8 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,
 /area/shuttle/personally_bought/people_mover)
 "BK" = (
-/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/machinery/door/airlock/spacer,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "Db" = (
@@ -320,8 +321,11 @@
 /area/shuttle/personally_bought/people_mover)
 "QF" = (
 /obj/structure/fans/tiny,
-/obj/structure/mineral_door/manual_colony_door/shuttle,
 /obj/docking_port/mobile/personally_bought,
+/obj/machinery/door/airlock/spacer,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "RY" = (

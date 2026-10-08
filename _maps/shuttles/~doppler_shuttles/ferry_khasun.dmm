@@ -1,11 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ae" = (
-/obj/structure/shuttle_decoration/console/directional/south,
-/obj/structure/shuttle_decoration/wall_plate/nanocarbon/primary_colour{
-	dir = 1
-	},
-/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
-/area/shuttle/personally_bought/private_liner)
 "am" = (
 /obj/effect/spawner/random/engineering/atmospherics_portable,
 /turf/open/floor/plating/aluminum,
@@ -30,9 +23,7 @@
 /turf/open/floor/plating/aluminum,
 /area/shuttle/personally_bought/private_liner)
 "bU" = (
-/obj/structure/bed/pod,
-/obj/structure/curtain/bounty,
-/obj/machinery/light/warm/directional/north,
+/obj/structure/closet/sleeping_compartment,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "cG" = (
@@ -55,13 +46,6 @@
 "dc" = (
 /obj/structure/window/fulltile/salvage_shuttle,
 /obj/machinery/door/poddoor/preopen/personal_shuttle_windows,
-/turf/open/floor/plating/nanocarbon,
-/area/shuttle/personally_bought/private_liner)
-"dP" = (
-/obj/structure/bed/pod{
-	dir = 1
-	},
-/obj/structure/curtain/bounty,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "ea" = (
@@ -88,6 +72,12 @@
 "fG" = (
 /obj/machinery/suit_storage_unit/industrial/personal_shuttle,
 /turf/open/floor/plating/aluminum,
+/area/shuttle/personally_bought/private_liner)
+"hm" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
+/obj/structure/mineral_door/manual_colony_door/shuttle,
+/turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "hy" = (
 /obj/machinery/recharge_station,
@@ -167,7 +157,8 @@
 /turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,
 /area/shuttle/personally_bought/private_liner)
 "qV" = (
-/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/machinery/door/airlock/spacer,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "rS" = (
@@ -253,8 +244,7 @@
 /area/shuttle/personally_bought/private_liner)
 "xc" = (
 /obj/machinery/button/door/personal_shuttle_windows/directional/south,
-/obj/effect/spawner/random/salvage/crate_only/civilian_supply,
-/obj/machinery/light/warm/directional/south,
+/obj/structure/closet/sleeping_compartment,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "yv" = (
@@ -374,10 +364,8 @@
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "Jw" = (
-/obj/structure/toilet{
-	dir = 4
-	},
-/obj/structure/sink/kitchen/directional/west,
+/obj/structure/toilet/space,
+/obj/structure/sink/cycler/directional/east,
 /turf/open/floor/iron/colony/white/texture/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "JA" = (
@@ -391,13 +379,11 @@
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "JH" = (
-/obj/structure/bed/pod{
-	dir = 1
-	},
-/obj/structure/curtain/bounty,
 /obj/structure/railing{
 	dir = 1
 	},
+/obj/effect/spawner/random/salvage/crate_only/civilian_supply,
+/obj/machinery/light/warm/directional/west,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "Kc" = (
@@ -441,6 +427,7 @@
 	dir = 1
 	},
 /obj/structure/extinguisher_cabinet/directional/east,
+/obj/machinery/light/warm/directional/east,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "LV" = (
@@ -536,8 +523,11 @@
 /turf/open/floor/plating/aluminum,
 /area/shuttle/personally_bought/private_liner)
 "RQ" = (
-/obj/structure/mineral_door/manual_colony_door/shuttle,
 /obj/docking_port/mobile/personally_bought,
+/obj/machinery/door/airlock/spacer,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/private_liner)
 "RS" = (
@@ -702,13 +692,13 @@ KG
 ul
 nC
 JH
-dP
+fh
 wX
 "}
 (11,1,1) = {"
 KF
 KF
-ae
+MM
 bU
 Py
 Qy
@@ -735,7 +725,7 @@ KG
 KG
 tZ
 Xf
-fh
+bU
 dc
 "}
 (14,1,1) = {"
@@ -788,7 +778,7 @@ KF
 cP
 KG
 KG
-FD
+hm
 KG
 KG
 wI

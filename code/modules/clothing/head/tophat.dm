@@ -14,6 +14,10 @@
 	. = ..()
 	if(istype(hitby_item, /obj/item/gun/magic/wand))
 		abracadabra(hitby_item, user)
+	// DOPPLER EDIT ADDITION START - thaumaturge's spell focus can now be used to pull rabbit out of hat
+	if(istype(hitby_item, /obj/item/spell_focus))
+		abracadabra(hitby_item, user)
+	// DOPPLER EDIT ADDITION END
 
 /obj/item/clothing/head/hats/tophat/proc/abracadabra(obj/item/hitby_wand, mob/magician)
 	if(!COOLDOWN_FINISHED(src, rabbit_cooldown))

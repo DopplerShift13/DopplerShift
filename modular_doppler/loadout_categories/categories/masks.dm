@@ -76,6 +76,14 @@
 	name = "Composite Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/mantis
 
+/datum/loadout_item/mask/gas/techmask
+	name = "Advanced Gas Mask"
+	item_path = /obj/item/clothing/mask/gas/techmask
+
+/datum/loadout_item/mask/gas/skullmask
+	name = "Horned Skull Mask"
+	item_path = /obj/item/clothing/mask/gas/skullmask
+
 /**
  * OTHER MASKS
  */

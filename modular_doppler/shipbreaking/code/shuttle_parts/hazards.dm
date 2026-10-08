@@ -208,6 +208,12 @@
 	explosion(src, heavy_impact_range = 0, light_impact_range = 0, flame_range = rupture_range, flash_range = rupture_range * 3, smoke = TRUE)
 	Destroy()
 
+#define REACTOR_MELTDOWN_SAFE 0
+#define REACTOR_MELTDOWN_STARTED 1
+#define REACTOR_MELTDOWN_UPSET 2
+#define REACTOR_MELTDOWN_VERY_UPSET 3
+#define REACTOR_MELTDOWN_SHUTTLE_DISARMED 4
+
 /obj/structure/shuttle_decoration/liquid_tank/reactor
 	name = "ethereal bloom reactor"
 	desc = "Superceded by modern ship reactor designs, this older type of generator can be most accurately described as \
@@ -228,6 +234,90 @@
 	light_range = 3
 	light_color = LIGHT_COLOR_PURPLE
 	rupture_range = 14
+	/// How long after unsecuring a reactor until it starts to arc and make sounds
+	var/hazard_timer = 1.5 MINUTES
+	/// How long after a reactor starts to arc will it have a chance to explode
+	var/explode_hazard_timer = 1.5 MINUTES
+	/// Tracks which state of meltdown the reactor is in
+	var/meltdown_state = REACTOR_MELTDOWN_SAFE
+
+/obj/structure/shuttle_decoration/liquid_tank/reactor/examine(mob/user)
+	. = ..()
+	switch(meltdown_state)
+		if(REACTOR_MELTDOWN_SAFE)
+			. += span_notice("The reactor is connected to cooling systems and safe. It may become unstable if disconnected from its housing.")
+		if(REACTOR_MELTDOWN_STARTED)
+			. += span_warning("The reactor is running on backup power and will become unstable if not dealt with.")
+		if(REACTOR_MELTDOWN_UPSET)
+			. += span_warning("The reactor's chrysalid is becoming active and will breach the containment shell if not dealt with soon!")
+		if(REACTOR_MELTDOWN_VERY_UPSET)
+			. += span_boldwarning("The chrysalid inside the reactor has started to grow through cracks in the shell, now would be a good time to run!")
+	if(meltdown_state >= REACTOR_MELTDOWN_STARTED)
+		. += span_notice("Chrysalid containment breach can be prevented by shipping the reactor off through the supply shuttle, or recycling it.")
+
+/obj/structure/shuttle_decoration/liquid_tank/reactor/Destroy()
+	STOP_PROCESSING(SSobj, src)
+	return ..()
+
+/obj/structure/shuttle_decoration/liquid_tank/reactor/default_unfasten_wrench(mob/user, obj/item/wrench, time)
+	. = ..()
+	if(. != SUCCESSFUL_UNFASTEN)
+		return
+	if(meltdown_state > REACTOR_MELTDOWN_SAFE)
+		return
+	meltdown_state = REACTOR_MELTDOWN_STARTED
+	visible_message(span_warning("Warning lights on the shell of [src] start to light up one after another."))
+	Shake(1, 0, hazard_timer, 1 SECONDS)
+	START_PROCESSING(SSobj, src)
+	addtimer(CALLBACK(src, PROC_REF(start_arcing)), hazard_timer)
+
+/// Tells the reactor to start processing and adds a random chance to fire arcs and make upset sounds
+/obj/structure/shuttle_decoration/liquid_tank/reactor/proc/start_arcing()
+	if(meltdown_state == REACTOR_MELTDOWN_SHUTTLE_DISARMED)
+		return
+	meltdown_state = REACTOR_MELTDOWN_UPSET
+	var/mutable_appearance/lightning_overlay = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "lightning")
+	add_overlay(lightning_overlay)
+	visible_message(span_warning("The outer shell of [src] starts to creak and groan!"))
+	Shake(2, 1, explode_hazard_timer)
+	addtimer(CALLBACK(src, PROC_REF(start_exploding)), explode_hazard_timer)
+
+/// Tells the reactor to start having a random chance to explode when processing
+/obj/structure/shuttle_decoration/liquid_tank/reactor/proc/start_exploding()
+	if(meltdown_state == REACTOR_MELTDOWN_SHUTTLE_DISARMED)
+		return
+	message_admins("[ADMIN_LOOKUPFLW(src)] has reached critical meltdown stage and will explode soon")
+	notify_ghosts(
+		"[src] has gone critical and will explode at any moment!",
+		source = src,
+		header = "It's About To Go Critical!",
+		notify_flags = NOTIFY_CATEGORY_NOFLASH,
+	)
+	visible_message(span_boldwarning("The chrysalid contained within [src] starts to grow through the cracks in the housing!"))
+	meltdown_state = REACTOR_MELTDOWN_VERY_UPSET
+	var/mutable_appearance/danger_overlay = mutable_appearance(icon = 'icons/effects/effects.dmi', icon_state = "void_chill_oh_fuck")
+	add_overlay(danger_overlay)
+
+/obj/structure/shuttle_decoration/liquid_tank/reactor/process(seconds_per_tick)
+	var/area/current_area = get_area(src)
+	if(istype(current_area, /area/shuttle/supply) && !is_station_level(z))
+		meltdown_state = REACTOR_MELTDOWN_SHUTTLE_DISARMED
+		STOP_PROCESSING(SSobj, src)
+		return
+	if(meltdown_state >= REACTOR_MELTDOWN_UPSET)
+		if(prob(1))
+			tesla_zap(source = src, zap_range = 2, power = 1e4, cutoff = 1e3, zap_flags = ZAP_MOB_DAMAGE | ZAP_OBJ_DAMAGE | ZAP_MOB_STUN | ZAP_LOW_POWER_GEN | ZAP_ALLOW_DUPLICATES)
+		else if(prob(2))
+			radiation_pulse(src, max_range = rupture_range / 2, threshold = RAD_LIGHT_INSULATION, chance = 50)
+		if(prob(5))
+			playsound(src, SFX_SM_DELAM, 40, TRUE)
+	if((meltdown_state >= REACTOR_MELTDOWN_VERY_UPSET) && prob(1))
+		visible_message(span_boldwarning("That can't be good."))
+		var/mutable_appearance/about_to_blow = mutable_appearance('icons/effects/welding_effect.dmi', "welding_sparks", GASFIRE_LAYER, src, ABOVE_LIGHTING_PLANE, appearance_flags = RESET_COLOR|KEEP_APART)
+		add_overlay(about_to_blow)
+		playsound(src, 'sound/effects/compressed_air/tank_remove_thunk.ogg', 100, TRUE)
+		STOP_PROCESSING(SSobj, src)
+		addtimer(CALLBACK(src, PROC_REF(rupture_tank)), rand(2 SECONDS, 4 SECONDS))
 
 /obj/structure/shuttle_decoration/liquid_tank/reactor/rupture_tank()
 	playsound(src, 'modular_doppler/shipbreaking/sound/plasma_bomb.ogg', 100, FALSE, 70, 1, pressure_affected = FALSE, ignore_walls = TRUE)
@@ -261,3 +351,8 @@
 	goonchem_vortex(get_turf(src), FALSE, 13)
 	explosion(src, heavy_impact_range = 5, light_impact_range = 10, flame_range = 15, flash_range = 34, silent = TRUE, smoke = TRUE)
 	Destroy()
+
+#undef REACTOR_MELTDOWN_SAFE
+#undef REACTOR_MELTDOWN_STARTED
+#undef REACTOR_MELTDOWN_UPSET
+#undef REACTOR_MELTDOWN_VERY_UPSET

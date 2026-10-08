@@ -134,6 +134,7 @@ SUBSYSTEM_DEF(accessories) // just 'accessories' for brevity
 	feature_list[FEATURE_TAIL_HUMANOID] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/humanoid)
 	feature_list[FEATURE_TAIL_ALIEN] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/alien)
 	feature_list[FEATURE_TAIL_TESHARI] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/teshari)
+	feature_list[FEATURE_TAIL_ETHEREAL] = INIT_OPTIONAL_ACCESSORY(/datum/sprite_accessory/tails/ethereal)
 	// DOPPLER ADDITION END
 
 /// This proc just initializes all /datum/sprite_accessory/hair_gradient into an list indexed by gradient-style name

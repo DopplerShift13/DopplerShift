@@ -1,0 +1,10 @@
+/datum/power_path/thaumaturge
+	path_key = "thaumaturge"
+	power_path = POWER_PATH_THAUMATURGE
+	archetype_type = /datum/power_archetype/sorcerous
+	path_sort_order = POWER_PATH_SORT_PRIMARY
+	display_name = "Thaumaturge"
+	icon_asset_name = "thaumaturgeicon.png"
+	mechanics_text =  "Thaumaturgy has two core components; Spell Preparation, and Affinity.\n\nTo start off, your spells are limited not by cooldowns, but by charges. Every point you put in the Thaumaturge power grants you 2 points of Mana. This is used by your Spell Preparation power, which allows you to allocate your Mana to spells to charge them. The cost to gain the Power is the same as to prepare the Charges. Once you set your spells, that are the amount of charges you have. Once you run out of charges, you can't use that power again until you sleep for a certain duration. Not just any sleep will do; you need a catalyst on you to shape your dreams called an Arcane Focus. You start the round with it, and you'd best keep it safe, as without it you won't ever be able to restore your spells.\n\nFurthermore, you have Affinity to both scale and use your powers. Your Arcane Focus has a value called Affinity, which determines the potency of your spells. Some spells require a certain amount of affinity to wield; and you gain it by holding the affinity item. Exceeding the required affinity usually grants additional bonuses with spells, such as higher damage (elaborated per spell). Affinity also exists on other items and clothes; dressing like a Wizard with a wizard costume will grant you Affinity as well. Affinity does not stack; you take the highest source. You can examine items to see how much Affinity they have, if any. Usually anything you'd see on a druid, wizard, bard or other magically inclined person in folklore will grant you Affinity."
+	overview_text = "Mages, wizards & sages. The most classical depiction of magic in folklore and history is based on perception, and people's believe that a person with a pointy-hat can cast a spell. To be a Thaumaturge, you have to act like a Thaumaturge."
+	theme_color = POWER_COLOR_THAUMATURGE

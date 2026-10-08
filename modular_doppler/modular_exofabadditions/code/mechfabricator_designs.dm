@@ -1,0 +1,13 @@
+//Modules
+
+/datum/design/module/mod_melee_harness
+	name = "Sword Magnetic Harness Module"
+	id = "mod_melee_harness"
+	materials = list(
+		/datum/material/iron =HALF_SHEET_MATERIAL_AMOUNT * 1.5,
+		/datum/material/silver =SMALL_MATERIAL_AMOUNT*5,
+	)
+	build_path = /obj/item/mod/module/magnetic_harness/melee
+	category = list(
+		RND_CATEGORY_MODSUIT_MODULES + RND_SUBCATEGORY_MODSUIT_MODULES_SECURITY
+	)

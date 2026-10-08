@@ -403,10 +403,6 @@
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
 /turf/open/floor/iron/dark,
 /area/shuttle/personally_bought/tiziran_corvette)
-"uV" = (
-/obj/machinery/suit_storage_unit/tiziran_raiders,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/tiziran_corvette)
 "uW" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2{
 	dir = 1
@@ -815,10 +811,6 @@
 /obj/structure/girder/reinforced,
 /turf/open/floor/plating,
 /area/shuttle/personally_bought/tiziran_corvette)
-"TS" = (
-/obj/machinery/suit_storage_unit/tiziran_raiders,
-/turf/open/floor/plating,
-/area/shuttle/personally_bought/tiziran_corvette)
 "UY" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,
@@ -969,7 +961,7 @@ zV
 vS
 rH
 rH
-uV
+hi
 lh
 nl
 nl
@@ -992,7 +984,7 @@ AW
 bD
 Rm
 hi
-TS
+hi
 lh
 nl
 xT

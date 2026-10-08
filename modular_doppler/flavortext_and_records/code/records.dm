@@ -12,6 +12,13 @@
 	/// Self-written exploitables/vulnerable information intended for antagonists to make use of.
 	var/exploitable_records
 
+	///Crew facing power notes
+	var/power_notes
+	/// Power notes that don't impact security's ability to do their job e.g being able to speak 15 languages
+	var/power_notes_minor
+	/// Power notes that do impact security's ability to do their job e.g being able to shoot laserbeams
+	var/power_notes_major
+
 /// PREFERENCES
 
 /datum/preference/numeric/age

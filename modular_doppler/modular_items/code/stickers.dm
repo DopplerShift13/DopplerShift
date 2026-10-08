@@ -1,4 +1,3 @@
-
 ///a parent doppler sticker item so we can populate a doppie sticker pack easily
 /obj/item/sticker/doppler
 	abstract_type = /obj/item/sticker/doppler
@@ -117,3 +116,34 @@
 		"rhinestone_green",
 	)
 	spawned_sticker_basetype = /obj/item/sticker/rhinestone
+
+/// parent for marsian stickers in general for posterity sake, if gray stickers are released then /obj/item/sticker/mars/gray would be used
+/obj/item/sticker/mars
+	abstract_type = /obj/item/sticker/mars
+	icon = 'modular_doppler/modular_items/icons/stickers.dmi'
+
+/obj/item/sticker/mars/red/redmars_dark_seal
+	name = "red mars dark seal"
+	icon_state = "redmars_dark_seal"
+	desc = "An eccentric seal with some strong adhesive on the back, often used as a manufacturer's seal on machinery \
+	and work products to evidence completion or personal skill in their creation. This one comes in a nice set of darker \
+	tones. It's remarkably similar to a sticker."
+
+/obj/item/sticker/mars/red/redmars_light_seal
+	name = "red mars light seal"
+	icon_state = "redmars_light_seal"
+	desc = "A peculiar seal with some strong adhesive on the back, often used as a manufacturer's seal on machinery \
+	and work products to evidence completion or personal skill in their creation. This one comes in a readable set of \
+	lighter tones. It's remarkably similar to a sticker."
+
+//box for the red marsian seals
+/obj/item/storage/box/stickers/redmars_seals
+	name = "box of red marsian seals"
+	desc = "A box containing several seals that represent different manufacturers of Red Mars. While familiar to most \
+	Marsians, these seals are rarely utilized outside of the planet beyond specific specialists and professionals that \
+	take particular pride in their work."
+
+/obj/item/storage/box/stickers/redmars_seals/PopulateContents()
+	for(var/i in 1 to 4)
+		new /obj/item/sticker/mars/red/redmars_dark_seal(src)
+		new /obj/item/sticker/mars/red/redmars_light_seal(src)

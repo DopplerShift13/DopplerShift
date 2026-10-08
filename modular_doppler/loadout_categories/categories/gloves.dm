@@ -158,6 +158,17 @@
 	item_path = /obj/item/clothing/gloves/color/rainbow
 
 /**
+ * ENVIROGLOVES
+ */
+/datum/loadout_item/gloves/envirogloves
+	group = "Envirogloves"
+	abstract_type = /datum/loadout_item/gloves/envirogloves
+
+/datum/loadout_item/gloves/envirogloves/rev2
+	name = "Modernized Phorid Envirogloves (Green)"
+	item_path = /obj/item/clothing/gloves/color/plasmaman/rev2
+
+/**
  * MISCELLANEOUS
  */
 /datum/loadout_item/gloves/misc
@@ -175,6 +186,10 @@
 /datum/loadout_item/gloves/misc/cargo_fingerless
 	name = "Fingerless Gloves (Cargo)"
 	item_path = /obj/item/clothing/gloves/doppler_cargo/fingerless
+
+/datum/loadout_item/gloves/misc/security_fingerless
+	name = "Fingerless Gloves (Security)"
+	item_path = /obj/item/clothing/gloves/fingerless/doppler_security
 
 /datum/loadout_item/gloves/misc/lalune_gloves
 	name = "Elbow Gloves"

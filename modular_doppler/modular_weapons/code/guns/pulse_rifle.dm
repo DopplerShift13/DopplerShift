@@ -25,6 +25,9 @@
 	spread = 5
 	recoil = 0.1
 	pin = /obj/item/firing_pin/explorer/mining
+	/// Unloaded .980 underbarrel grenade launcher fired by right clicking
+	var/underbarrel_type = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer/safer
+	var/obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/underbarrel
 	/// List of the possible firing sounds
 	var/list/firing_sound_list = list(
 		'sound/items/weapons/gun/smartgun/smartgun_shoot_1.ogg',
@@ -35,6 +38,12 @@
 /obj/item/gun/ballistic/automatic/karim/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatic_fire, fire_delay)
+	if(underbarrel_type)
+		underbarrel = new underbarrel_type(src)
+
+/obj/item/gun/ballistic/automatic/karim/Destroy()
+	QDEL_NULL(underbarrel)
+	return ..()
 
 /obj/item/gun/ballistic/automatic/karim/give_manufacturer_examine()
 	AddElement(/datum/element/manufacturer_examine, COMPANY_XHIHAO)
@@ -45,6 +54,30 @@
 
 /obj/item/gun/ballistic/automatic/karim/emag_act(mob/user, obj/item/card/emag/emag_card)
 	pin.emag_act(user, emag_card) // So emagging the gun emags the pin
+	return ..()
+
+/obj/item/gun/ballistic/automatic/karim/try_fire_gun(atom/target, mob/living/user, params)
+	if(underbarrel)
+		if(LAZYACCESS(params2list(params), RIGHT_CLICK))
+			return underbarrel.try_fire_gun(target, user, params)
+	return ..()
+
+/obj/item/gun/ballistic/automatic/karim/item_interaction(mob/living/user, obj/item/tool, list/modifiers)
+	if(underbarrel)
+		if(isammocasing(tool))
+			var/obj/item/ammo_casing/boolet = tool
+			if(boolet.caliber != underbarrel.magazine.caliber)
+				return ITEM_INTERACT_BLOCKING
+			return underbarrel.item_interaction(user, boolet, modifiers)
+		if(istype(tool, /obj/item/ammo_box/magazine/ammo_stack))
+			var/obj/item/ammo_box/magazine/ammo_stack/stack = tool
+			var/obj/item/casing = stack.get_round(TRUE)
+			if(!istype(casing, /obj/item/ammo_casing))
+				return ITEM_INTERACT_BLOCKING
+			var/obj/item/ammo_casing/boolet = casing
+			if(boolet.caliber != underbarrel.magazine.caliber)
+				return ITEM_INTERACT_BLOCKING
+			return underbarrel.item_interaction(user, boolet, modifiers)
 	return ..()
 
 /obj/item/gun/ballistic/automatic/karim/no_mag
@@ -71,6 +104,97 @@
 /datum/orderable_item/accelerator/pulse_ammo_minebot
 	purchase_path = /obj/item/ammo_box/magazine/karim/minebot
 	cost_per_order = 40
+
+// Larp variants of the pulse rifle for the Void Corps; including a longer cool version and a machinegun version
+
+/obj/item/gun/ballistic/automatic/karim/voidcorps
+	name = "\improper Karim/EVC Pulse Rifle"
+	desc = "A compact rifle with high magazine capacity and fire-rate. A novel design that replaces many common firearm \
+		components with electrified alternatives, allowing a much smaller size for the firepower it provides. \
+		This specific variant is purpose-built for extra-vehicular combat, with a heavier barrel and upgraded receiver."
+	icon = 'modular_doppler/modular_weapons/icons/obj/guns48x.dmi'
+	icon_state = "karim_evc"
+	worn_icon_state = "karim_evc"
+	inhand_icon_state = "karim_evc"
+	SET_BASE_PIXEL(-2, 0)
+	pin = /obj/item/firing_pin/implant/mindshield
+	/// Evil ass loaded grenade launcher variant
+	underbarrel_type = /obj/item/gun/ballistic/revolver/grenadelauncher/underbarrel/tydhouer
+
+/obj/item/gun/ballistic/automatic/karim/voidcorps/unrestricted
+	pin = /obj/item/firing_pin
+
+/obj/item/gun/ballistic/automatic/karim/minhir
+	name = "\improper Minhir Heavy Pulse Rifle"
+	desc = "A compact machinegun with a staggeringly massive ammunition capacity and a blisteringly high rate of fire \
+		designed to capitalize on the efficiency of an electronic firing action. Though weighty, it remains surprisingly \
+		compact and easy to carry in comparison to more antiquated squad automatic weapons."
+	icon = 'modular_doppler/modular_weapons/icons/obj/guns48x.dmi'
+	icon_state = "minhir"
+	worn_icon_state = "minhir"
+	inhand_icon_state = "minhir"
+	SET_BASE_PIXEL(-2, 0)
+	fire_delay = 0.14 SECONDS
+	bolt_type = BOLT_TYPE_OPEN
+	show_bolt_icon = FALSE
+	tac_reloads = FALSE
+	slot_flags = ITEM_SLOT_BACK
+	accepted_magazine_type = /obj/item/ammo_box/magazine/minhir
+	pin = /obj/item/firing_pin/implant/mindshield
+	underbarrel_type = null
+	/// Whether or not the feed cover is open on the gun
+	var/cover_open = FALSE
+
+/obj/item/gun/ballistic/automatic/karim/minhir/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_GUN_TRY_FIRE, PROC_REF(check_cover_block))
+
+// Autofire never reaches try_fire_gun, so to block gunfire with the feed cover still raised, we need our own proc registered with COMSIG_GUN_TRY_FIRE
+/obj/item/gun/ballistic/automatic/karim/minhir/proc/check_cover_block(mob/living/user, atom/target, adj, params)
+    if(cover_open)
+        balloon_alert(user, "open the cover!")
+        return COMPONENT_CANCEL_GUN_FIRE
+
+/obj/item/gun/ballistic/automatic/karim/minhir/examine(mob/user)
+	. = ..()
+	. += "<b>alt + click</b> to [cover_open ? "close" : "open"] the dust cover."
+	if(cover_open && magazine)
+		. += span_notice("It seems like you could use an <b>empty hand</b> to remove the magazine.")
+
+/obj/item/gun/ballistic/automatic/karim/minhir/click_alt(mob/user)
+	cover_open = !cover_open
+	balloon_alert(user, "cover [cover_open ? "opened" : "closed"]")
+	playsound(src, 'sound/items/weapons/gun/l6/l6_door.ogg', 60, TRUE)
+	update_appearance()
+	return CLICK_ACTION_SUCCESS
+
+/obj/item/gun/ballistic/automatic/karim/minhir/update_overlays()
+	. = ..()
+	. += "minhir_door_[cover_open ? "open" : "closed"]"
+
+/obj/item/gun/ballistic/automatic/karim/minhir/attack_hand(mob/user, list/modifiers)
+	if (!user.is_holding(src))
+		..()
+		return
+	if (!cover_open)
+		balloon_alert(user, "open the cover!")
+		return
+	..()
+
+/obj/item/gun/ballistic/automatic/karim/minhir/insert_magazine(mob/user, obj/item/ammo_box/magazine/AM, display_message = TRUE)
+    if(!cover_open)
+        balloon_alert(user, "open the cover!")
+        return FALSE
+    return ..()
+
+/obj/item/gun/ballistic/automatic/karim/minhir/eject_magazine(mob/user, display_message = TRUE, obj/item/ammo_box/magazine/tac_load = null)
+    if(!cover_open)
+        balloon_alert(user, "open the cover!")
+        return FALSE
+    return ..()
+
+/obj/item/gun/ballistic/automatic/karim/minhir/unrestricted
+	pin = /obj/item/firing_pin
 
 /obj/item/firing_pin/explorer/mining
 	name = "mining firing pin"

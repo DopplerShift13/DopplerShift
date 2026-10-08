@@ -44,5 +44,14 @@
 				continue
 			mannequin.add_quirk(quirk_type, parent)
 
+	// Apply visual powers too. Same logic applies.
+	if(SSpowers?.initialized)
+		mannequin.cleanse_power_datums()
+		for(var/power_name as anything in all_powers)
+			var/datum/power/power_type = SSpowers.powers[power_name]
+			if(!(initial(power_type.power_flags) & POWER_CHANGES_APPEARANCE))
+				continue
+			mannequin.add_archetype_power(power_type, parent)
+
 	mannequin.update_body()
 	return mannequin.appearance

@@ -63,7 +63,7 @@
 	head = /obj/item/clothing/head/costume/pirate/bandana
 	suit = /obj/item/clothing/suit/armor/vest
 	glasses = /obj/item/clothing/glasses/cold
-	l_pocket = /obj/item/reagent_containers/hypospray/medipen/deforest/demoneye
+	l_pocket = /obj/item/inhaler/disposable/demoneye
 	implants_to_add = list(
 		/obj/item/organ/cyberimp/arm/strongarm,
 		/obj/item/organ/cyberimp/arm/strongarm,

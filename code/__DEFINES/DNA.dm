@@ -94,6 +94,7 @@
 #define FEATURE_TAIL_DOG "tail_dog"
 #define FEATURE_TAIL_FOX "tail_fox"
 #define FEATURE_TAIL_BUNNY "tail_bunny"
+#define FEATURE_TAIL_ETHEREAL "tail_ethereal" // DOPPLER ADDITION
 #define FEATURE_TAIL_MOUSE "tail_mouse"
 #define FEATURE_TAIL_BIRD "tail_bird"
 #define FEATURE_TAIL_DEER "tail_deer"
@@ -120,11 +121,12 @@
 #define FEATURE_FLUFF_COLORS "fluff_colors"
 #define FEATURE_POD_HAIR_COLORS "pod_hair_colors"
 #define FEATURE_SYNTHETIC_CHARGING_METHOD "synthetic_charging_method"
+#define FEATURE_HOLO_COLOR "holo_color"
 // DOPPLER FEATURES END
 
 // Other
 #define FEATURE_WINGS "wings"
-#define FEATURE_WINGS_OPEN "[FEATURE_WINGS]_open"
+#define FEATURE_WINGS_OPEN "[FEATURE_WINGS]open"
 #define FEATURE_TAIL_MONKEY "tail_monkey"
 #define FEATURE_TAIL_XENO "tail_xeno"
 #define FEATURE_TAILSPINES "tailspines" // Different from regular spines, these appear on tails
@@ -165,6 +167,10 @@
 #define ORGAN_SLOT_TONGUE "tongue"
 #define ORGAN_SLOT_VOICE "vocal_cords"
 #define ORGAN_SLOT_ZOMBIE "zombie_infection"
+
+// DOPPLER ADDITION START - Power-based organs
+#define ORGAN_SLOT_PSYKER "psyker_organ"
+// DOPPLER ADDITION END
 
 /// Organ slot external
 #define ORGAN_SLOT_EXTERNAL_TAIL "tail"
@@ -238,6 +244,7 @@ GLOBAL_LIST_INIT(organ_process_order, list(
 	ORGAN_SLOT_XENO_ACIDGLAND,
 	ORGAN_SLOT_XENO_NEUROTOXINGLAND,
 	ORGAN_SLOT_XENO_EGGSAC,
+	ORGAN_SLOT_PSYKER, // DOPPLER ADDITION: Adds the psyker organ from powers to organ lists.
 ))
 
 // Defines for used in creating "perks" for the species preference pages.

@@ -2,6 +2,7 @@
 //	The string has to much the type name of the organ they represent, i.e. /obj/item/organ/tail/dog
 #define NO_VARIATION "none"
 #define ALIEN "alien"
+#define ETHEREAL "ethereal"
 #define BIRD "bird"
 #define BUG "bug"
 #define BUNNY "bunny"
@@ -24,6 +25,7 @@
 ///	This list gets read by the dropdown pref when a player chooses what type of sprite accessory to access
 GLOBAL_LIST_INIT(mutant_variations, list(
 	ALIEN,
+	ETHEREAL,
 	BIRD,
 	BUG,
 	BUNNY,

@@ -41,7 +41,7 @@ GLOBAL_LIST_EMPTY(valid_cryopods)
 	/// The channel to be broadcast on, valid values are the values of any of the "RADIO_CHANNEL_" defines.
 	var/announcement_channel = null // RADIO_CHANNEL_COMMON doesn't work here.
 
-MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
+MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 22)
 
 /obj/machinery/computer/cryopod/Initialize(mapload)
 	. = ..()
@@ -148,7 +148,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
-	interaction_flags_mouse_drop = NEED_DEXTERITY
 
 	var/open_icon_state = "cryopod-open"
 	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player
@@ -236,6 +235,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 32)
 
 /obj/machinery/cryopod/process()
 	if(!occupant)
+		// Something clogged the machine with something and we're just going to clean it out and force it open. (This is mostly for changing room sleepers ashing.)
+		if(contents && !state_open)
+			contents = null
+			open_machine()
 		return
 
 	var/mob/living/mob_occupant = occupant

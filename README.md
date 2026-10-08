@@ -1,5 +1,5 @@
 <p align="center">
-	<img src="https://github.com/user-attachments/assets/3e399ff0-3040-4feb-a02d-c74489b779d7">
+	<img width="500" height="150" alt="doppler_banner_shadow" src="https://github.com/user-attachments/assets/19afba8f-724e-4949-8712-0483459fd716" />
 </p>
 
 ## Doppler Shift, a [Science Fantasy](https://en.wikipedia.org/wiki/Science_fantasy) fork of [/tg/station](https://github.com/tgstation/tgstation) for SS13 
@@ -10,7 +10,7 @@
 |---------------------------|------------------------------------------------|
 | Website                   | [https://dopplershift13.com](https://dopplershift13.com)          |
 | Discord										| [discord.gg/doppler](discord.gg/doppler)			|
-| Wiki                      | [https://wiki.dopplershift13.com/wiki/Main_Page](https://wiki.dopplershift13.com/wiki/Main_Page)   |
+| Wiki                      | [https://wiki.dopplershift13.com/](https://wiki.dopplershift13.com/)   |
 
 
 This is the codebase forked from the [/tg/station](https://github.com/tgstation/tgstation) flavoured fork of SpaceStation 13.

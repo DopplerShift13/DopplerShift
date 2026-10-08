@@ -128,6 +128,8 @@
 		/obj/item/trench_tool,
 		// Virology
 		/obj/item/storage/bag/bio,
+		// Paramedic
+		/obj/item/crowbar/power
 	)
 
 // Science

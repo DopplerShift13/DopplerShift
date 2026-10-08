@@ -147,9 +147,29 @@
 	name = "Cargo Rugged Uniform"
 	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/rough
 
+/datum/loadout_item/undersuit/pants/ps_uniform
+	name = "Port Safety Uniform (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/guard
+
+/datum/loadout_item/undersuit/pants/ps_colorblock_uniform
+	name = "Port Safety Colorblocked Uniform (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/guard_alt
+
+/datum/loadout_item/undersuit/pants/ps_det_uniform
+	name = "Port Safety Investigative Uniform (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/detective
+
+/datum/loadout_item/undersuit/pants/ps_speedsuit
+	name = "Port Safety Lopro Speedsuit"
+	item_path = /obj/item/clothing/under/rank/security/doppler/speedsuit
+
 /datum/loadout_item/undersuit/pants/combat
 	name = "Combat Uniform"
 	item_path = /obj/item/clothing/under/syndicate/combat
+
+/datum/loadout_item/undersuit/pants/eva
+	name = "Exoatmospheric Combat Uniform"
+	item_path = /obj/item/clothing/under/syndicate/combat/eva
 
 /datum/loadout_item/undersuit/pants/turtleneck
 	name = "Tactical Turtleneck"
@@ -242,6 +262,10 @@
 	name = "Jean Shorts (Shortest)"
 	item_path = /obj/item/clothing/under/shorts/shorter/jeans/shortest
 
+/datum/loadout_item/undersuit/short/portauth_intern
+	name = "Port Authority Work Uniform"
+	item_path = /obj/item/clothing/under/rank/centcom/portauthority/work
+
 /**
  * SKIRTS
  */
@@ -329,6 +353,18 @@
 	name = "Cargo Rugged Skirt Uniform"
 	item_path = /obj/item/clothing/under/rank/doppler_cargo/tech/rough_skirt
 
+/datum/loadout_item/undersuit/skirt/ps_utility_skirt
+	name = "Port Safety Utility Skirt (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/skirt
+
+/datum/loadout_item/undersuit/skirt/ps_colorblock_skirt
+	name = "Port Safety Colorblocked Skirt (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/skirt_alt
+
+/datum/loadout_item/undersuit/skirt/ps_det_skirt
+	name = "Port Safety Investigative Skirt (Security)"
+	item_path = /obj/item/clothing/under/rank/security/doppler/detective/skirt
+
 /**
  * DRESSES
  */
@@ -408,6 +444,10 @@
 	name = "Tailored Dress (Hearthkin)"
 	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tailored_dress
 
+/datum/loadout_item/undersuit/dress/bias_cut_dress
+	name = "Bias-cut Designer Dress"
+	item_path = /obj/item/clothing/under/dress/doppler/bias_dress
+
 /**
  * FULLBODY
  */
@@ -474,6 +514,18 @@
 /datum/loadout_item/undersuit/fullbody/primitive_genemod_tunic
 	name = "Hearthkin Tunic"
 	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tunic
+
+/**
+ * ENVIROSUITS
+ */
+/datum/loadout_item/undersuit/envirosuit
+	group = "Envirosuits"
+	abstract_type = /datum/loadout_item/undersuit/envirosuit
+
+/datum/loadout_item/undersuit/envirosuit/rev2
+	name = "Modernized Phorid Envirosuit (Green)"
+	item_path = /obj/item/clothing/under/plasmaman/rev2
+
 /**
  * MISCELLANEOUS
  */
@@ -512,3 +564,7 @@
 /datum/loadout_item/undersuit/misc/primitive_genemod_body_wraps
 	name = "Hearthkin Body Wraps"
 	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_body_wraps
+
+/datum/loadout_item/undersuit/misc/nautical_shirt
+	name = "Nautical Shirt"
+	item_path = /obj/item/clothing/under/nautical_shirt

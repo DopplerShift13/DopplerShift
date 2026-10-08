@@ -1,0 +1,535 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/effect/turf_decal/arrows/white{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/holofloor/plating,
+/area/template_noop)
+"c" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/holofloor/stairs,
+/area/template_noop)
+"d" = (
+/obj/effect/turf_decal/tile/neutral/half,
+/obj/structure/chair/sofa/bench/right,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"e" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/warning,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"f" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/structure/railing,
+/obj/effect/turf_decal/trimline/yellow/warning,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"g" = (
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 1
+	},
+/obj/structure/table,
+/obj/item/wargame_base_station{
+	pixel_y = 12;
+	pixel_x = 2
+	},
+/obj/item/wargame_projector/ships/green{
+	pixel_x = -8
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"h" = (
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 1
+	},
+/obj/structure/table,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"k" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/structure/reagent_dispensers/water_cooler/punch_cooler,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"l" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/holofloor/stairs{
+	dir = 1
+	},
+/area/template_noop)
+"m" = (
+/obj/effect/turf_decal/trimline/yellow/corner,
+/turf/open/floor/holofloor{
+	icon_state = "smooth_large";
+	base_icon_state = "smooth_large"
+	},
+/area/template_noop)
+"n" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/chair/sofa/bench/left,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"o" = (
+/obj/structure/railing{
+	dir = 4
+	},
+/turf/open/floor/holofloor/stairs,
+/area/template_noop)
+"p" = (
+/obj/effect/turf_decal/tile/neutral/half,
+/obj/effect/turf_decal/trimline/yellow/warning{
+	dir = 1
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"q" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 4
+	},
+/obj/structure/table,
+/obj/item/clothing/head/tajaran_hat{
+	pixel_y = 8;
+	pixel_x = -4
+	},
+/obj/item/clothing/head/lizard_hat/white{
+	pixel_x = -5
+	},
+/obj/item/wargame_projector/terrain{
+	pixel_y = 13;
+	pixel_x = 14
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"r" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted{
+	dir = 1
+	},
+/obj/item/kirbyplants/random/fullysynthetic,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"t" = (
+/obj/structure/railing{
+	dir = 8
+	},
+/turf/open/floor/holofloor/stairs{
+	dir = 1
+	},
+/area/template_noop)
+"u" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 8
+	},
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/warning{
+	dir = 1
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"v" = (
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 8
+	},
+/turf/open/floor/holofloor{
+	icon_state = "smooth_large";
+	base_icon_state = "smooth_large"
+	},
+/area/template_noop)
+"w" = (
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 1
+	},
+/turf/open/floor/holofloor{
+	icon_state = "smooth_large";
+	base_icon_state = "smooth_large"
+	},
+/area/template_noop)
+"x" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/warning{
+	dir = 1
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"y" = (
+/obj/effect/turf_decal/tile/neutral/half,
+/obj/structure/railing{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/warning{
+	dir = 1
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"z" = (
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 1
+	},
+/obj/effect/turf_decal/trimline/yellow/warning,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"B" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/structure/railing,
+/obj/effect/turf_decal/trimline/yellow/warning,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"C" = (
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 1
+	},
+/obj/structure/chair/sofa/bench/solo{
+	dir = 4;
+	pixel_y = 4
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"D" = (
+/obj/effect/turf_decal/tile/neutral{
+	dir = 1
+	},
+/obj/structure/chair/sofa/bench/solo{
+	dir = 8;
+	pixel_y = 4
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"F" = (
+/turf/open/indestructible/wargame,
+/area/template_noop)
+"I" = (
+/obj/effect/turf_decal/arrows/white{
+	dir = 1
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/turf/open/floor/holofloor/plating,
+/area/template_noop)
+"J" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/holofloor/plating,
+/area/template_noop)
+"L" = (
+/obj/effect/turf_decal/tile/neutral/half,
+/obj/structure/chair/sofa/bench,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"M" = (
+/obj/effect/turf_decal/tile/neutral/half,
+/obj/structure/chair/sofa/bench/left,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"O" = (
+/obj/effect/turf_decal/arrows/white,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/turf/open/floor/holofloor/plating,
+/area/template_noop)
+"P" = (
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 1
+	},
+/obj/structure/railing,
+/obj/effect/turf_decal/trimline/yellow/warning,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"Q" = (
+/obj/item/kirbyplants/random/fullysynthetic,
+/turf/open/floor/holofloor{
+	icon_state = "smooth_large";
+	base_icon_state = "smooth_large"
+	},
+/area/template_noop)
+"R" = (
+/obj/effect/turf_decal/tile/neutral/half{
+	dir = 1
+	},
+/obj/structure/shelf,
+/obj/item/wargame_projector/ships/red{
+	pixel_x = 9;
+	pixel_y = 4
+	},
+/obj/item/wargame_projector/ships{
+	pixel_y = 12
+	},
+/obj/item/wargame_projector/ships/yellow{
+	pixel_y = -1
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth_half";
+	icon_state = "smooth_half";
+	dir = 4
+	},
+/area/template_noop)
+"S" = (
+/obj/effect/turf_decal/tile/neutral,
+/obj/structure/chair/sofa/bench/right,
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+"V" = (
+/obj/effect/turf_decal/arrows/white,
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/turf/open/floor/holofloor/plating,
+/area/template_noop)
+"W" = (
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 4
+	},
+/obj/effect/turf_decal/stripes/white/line{
+	dir = 8
+	},
+/turf/open/floor/holofloor/plating,
+/area/template_noop)
+"X" = (
+/obj/effect/turf_decal/trimline/yellow/corner{
+	dir = 4
+	},
+/turf/open/floor/holofloor{
+	icon_state = "smooth_large";
+	base_icon_state = "smooth_large"
+	},
+/area/template_noop)
+"Y" = (
+/obj/effect/turf_decal/tile/neutral/half/contrasted,
+/obj/effect/turf_decal/trimline/yellow/warning{
+	dir = 1
+	},
+/turf/open/floor/holofloor{
+	base_icon_state = "smooth";
+	icon_state = "smooth";
+	dir = 1
+	},
+/area/template_noop)
+
+(1,1,1) = {"
+Q
+m
+o
+I
+W
+W
+V
+l
+X
+Q
+"}
+(2,1,1) = {"
+S
+f
+F
+F
+F
+F
+F
+F
+x
+q
+"}
+(3,1,1) = {"
+L
+P
+F
+F
+F
+F
+F
+F
+y
+g
+"}
+(4,1,1) = {"
+M
+z
+F
+F
+F
+F
+F
+F
+p
+R
+"}
+(5,1,1) = {"
+k
+e
+F
+F
+F
+F
+F
+F
+Y
+r
+"}
+(6,1,1) = {"
+d
+z
+F
+F
+F
+F
+F
+F
+p
+C
+"}
+(7,1,1) = {"
+L
+P
+F
+F
+F
+F
+F
+F
+y
+h
+"}
+(8,1,1) = {"
+n
+B
+F
+F
+F
+F
+F
+F
+u
+D
+"}
+(9,1,1) = {"
+Q
+v
+c
+a
+J
+J
+O
+t
+w
+Q
+"}

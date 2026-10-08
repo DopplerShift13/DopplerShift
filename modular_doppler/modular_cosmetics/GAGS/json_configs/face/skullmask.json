@@ -1,0 +1,27 @@
+{
+	"skullmask": [
+		{
+			"type": "icon_state",
+			"icon_state": "skullmask",
+			"blend_mode": "overlay"
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "skullmask_bone",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "skullmask_eyes",
+			"blend_mode": "overlay",
+			"color_ids": [ 2 ]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "skullmask_horns",
+			"blend_mode": "overlay",
+			"color_ids": [ 3 ]
+		}
+	]
+}

@@ -121,6 +121,7 @@
 	incompatible_modules = list(
 		/obj/item/mod/module/insignia,
 		/obj/item/mod/module/insignia/raider,
+		/obj/item/mod/module/insignia/void,
 	)
 	overlay_icon_file = 'modular_doppler/special_modsuits/icons/modules_onmob.dmi'
 	/// List of random insignia colours to pick from

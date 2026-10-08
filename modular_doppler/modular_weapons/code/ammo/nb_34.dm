@@ -15,6 +15,7 @@
 	spread = 3
 	wound_bonus = -10
 	exposed_wound_bonus = 10
+	damage_falloff_tile = -0.4
 
 /obj/item/ammo_casing/c34nb/special
 	name = ".34 NB special casing"

@@ -1,3 +1,6 @@
+/datum/id_trim/job/psychologist
+	department_color = COLOR_MEDICAL_BLUE
+	subdepartment_color = COLOR_SERVICE_LIME
 
 /datum/id_trim/job/head_of_security
 	assignment = JOB_CHIEF_GUARD

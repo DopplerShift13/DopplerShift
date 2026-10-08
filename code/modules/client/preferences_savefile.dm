@@ -13,7 +13,7 @@
 /// You do not need to raise this if you are adding new values that have sane defaults.
 /// Only raise this value when changing the meaning/format/name/layout of an existing value
 /// where you would want the updater procs below to run
-#define SAVEFILE_VERSION_MAX 50
+#define SAVEFILE_VERSION_MAX 51
 
 #define IS_DATA_OBSOLETE(version) (version == SAVE_DATA_OBSOLETE)
 #define SHOULD_UPDATE_DATA(version) (version >= SAVE_DATA_NO_ERROR && version < SAVEFILE_VERSION_MAX)
@@ -162,6 +162,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 			quirk_to_migrate = "Spiritual",
 			new_typepath = /datum/personality/spiritual,
 		)
+	if(current_version < 51)
+		migrate_felinid_feature_keys(save_data)
 
 /// checks through keybindings for outdated unbound keys and updates them
 /datum/preferences/proc/check_keybindings()
@@ -381,24 +383,16 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	languages = save_languages
 	alt_job_titles = save_data?["alt_job_titles"]
 
-	var/list/save_powers = SANITIZE_LIST(save_data?["powers"])
-
-	for(var/power in save_powers)
-		var/value = save_powers[power]
-		save_powers -= power
-
-		if(istext(value))
-			value = _text2path(value)
-
-		save_powers[power] = value
-
-	powers = save_powers
+	all_powers = save_data?["all_powers"]
 	// DOPPLER SHIFT ADDITION END
 
 	//try to fix any outdated data if necessary
 	//preference updating will handle saving the updated data for us.
 	if(SHOULD_UPDATE_DATA(data_validity_integer))
 		update_character(data_validity_integer, save_data)
+	// DOPPLER EDIT ADDITION BEGIN - Modular Character Savefile Migration
+	check_doppler_character_savefile(save_data)
+	// DOPPLER EDIT ADDITION END
 
 	//Sanitize
 	randomise = SANITIZE_LIST(randomise)
@@ -406,8 +400,8 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 	all_quirks = SANITIZE_LIST(all_quirks)
 	// DOPPLER SHIFT ADDITION BEGIN
 	languages = SANITIZE_LIST(languages)
+	all_powers = SANITIZE_LIST(all_powers)
 	alt_job_titles = SANITIZE_LIST(alt_job_titles)
-	powers = SANITIZE_LIST(powers)
 	// DOPPLER SHIFT ADDITION END
 
 	//Validate job prefs
@@ -462,9 +456,7 @@ SAVEFILE UPDATING/VERSIONING - 'Simplified', or rather, more coder-friendly ~Car
 
 	//Quirks
 	save_data["all_quirks"] = all_quirks
-	save_data["languages"] = languages // DOPPLER SHIFT ADDITION - we might want to migrate this
-	save_data["alt_job_titles"] = alt_job_titles // DOPPLER SHIFT ADDITION: alt job titles
-	save_data["powers"] = powers // dopplor powerz :3c
+	save_character_doppler(save_data) // DOPPLER ADDITION - Modular Savefile
 
 	return TRUE
 

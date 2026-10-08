@@ -272,8 +272,11 @@
 /area/shuttle/personally_bought/people_mover)
 "LH" = (
 /obj/structure/fans/tiny,
-/obj/structure/mineral_door/manual_colony_door/shuttle,
 /obj/docking_port/mobile/personally_bought,
+/obj/machinery/door/airlock/spacer,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper{
+	dir = 1
+	},
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "LJ" = (
@@ -298,7 +301,8 @@
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "Pp" = (
-/obj/structure/mineral_door/manual_colony_door/shuttle,
+/obj/machinery/door/airlock/spacer,
+/obj/effect/mapping_helpers/airlock/cyclelink_helper,
 /turf/open/floor/plating/nanocarbon,
 /area/shuttle/personally_bought/people_mover)
 "PX" = (

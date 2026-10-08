@@ -649,12 +649,15 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
 	)*/
 
+
+//disabled because we use custom security clothing too
+/*
 /obj/item/clothing/under/rank/security
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'icons/mob/clothing/under/security.dmi',
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
-	)
+	)*/
 
 /obj/item/clothing/under/rank/rnd
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
@@ -763,43 +766,43 @@
 /obj/item/storage/medkit/robotic_repair
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/public_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	)
 
 /obj/item/storage/medkit/frontier
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/public_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	)
 
 /obj/item/storage/medkit/combat_surgeon
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/public_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	)
 
 /obj/item/storage/backpack/duffelbag/deforest_medkit
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/public_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	)
 
 /obj/item/storage/backpack/duffelbag/deforest_surgical
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/public_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	)
 
 /obj/item/storage/backpack/duffelbag/deforest_paramedic
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
-		BODYSHAPE_HUMANOID_T = 'modular_doppler/deforest_medical_items/icons/worn/worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/deforest_medical_items/icons/worn/worn_teshari.dmi'
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/public_medical_items/icons/worn/worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/public_medical_items/icons/worn/worn_teshari.dmi'
 	)
 
 // accessories

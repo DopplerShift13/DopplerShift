@@ -239,7 +239,6 @@
 	icon_state = "random_medkit"
 	loot = list(
 		/obj/item/storage/medkit/civil_defense/stocked = 2,
-		/obj/item/storage/medkit/civil_defense/comfort/stocked = 2,
 		/obj/item/storage/medkit/civil_defense/the_big_cheese = 1,
 		/obj/item/storage/medkit/frontier/stocked = 2,
 		/obj/item/storage/medkit/combat_surgeon/stocked = 2,
@@ -256,18 +255,14 @@
 	name = "random autoinjectors"
 	icon_state = "random_medpen_spawner"
 	loot = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/occuisate = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 3,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 3,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/meridine = 3,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synephrine = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 3,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/psifinil = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/halobinin = 2,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/sensory = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/adrenaline = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 1,
+		/obj/item/inhaler/disposable/protozene = 1,
+		/obj/item/inhaler/disposable/soberup = 1,
+		/obj/item/inhaler/disposable/aslanane = 1,
 	)
 
 // Random medpens for fighting other people
@@ -276,19 +271,15 @@
 	name = "random combat autoinjectors"
 	icon_state = "random_medpen_advanced"
 	loot = list(
-		/obj/item/reagent_containers/hypospray/medipen/deforest/adrenaline = 3,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/morpital = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lipital = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synephrine = 3,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/calopine = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/coagulants = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/krotozine = 3,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/lepoturi = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/twitch = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/demoneye = 1,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/aranepaine = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/pentibinin = 2,
-		/obj/item/reagent_containers/hypospray/medipen/deforest/synalvipitol = 2,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/sensory = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/adrenaline = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/regen = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/antidote = 1,
+		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 1,
+		/obj/item/inhaler/disposable/soberup = 1,
+		/obj/item/inhaler/disposable/protozene = 1,
+		/obj/item/inhaler/disposable/aslanane = 1,
+		/obj/item/inhaler/disposable/demoneye = 1,
 	)
 
 // Tool and supply spawners
