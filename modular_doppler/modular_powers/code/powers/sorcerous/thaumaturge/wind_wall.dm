@@ -8,6 +8,8 @@
 */
 #define THAUMATURGE_WIND_WALL_CURSOR "thaumaturge_wind_wall_cursor"
 
+GLOBAL_VAR(wind_wall_sound_controller)
+
 /datum/power/thaumaturge/wind_wall
 	name = "Wall of Wind"
 	desc = "Creates a turbulent wall of wind at a point that you can see. This stops any and all projectiles or thrown objects from passing through, slows down anyone trying to pass through, and prevent atmos from passing through any affected spaces.\
@@ -83,15 +85,13 @@
 			return FALSE
 	var/wall_duration = base_duration + (max(affinity - required_affinity, 0) * duration_affinity_bonus)
 	var/segments_created = 0
-	var/datum/wind_wall_sound_controller/sound_controller = new
 	for(var/turf/wall_turf as anything in wall_turfs)
 		if(!can_place_wall_on(wall_turf))
 			continue
-		new /obj/effect/thaumaturge_wind_wall(wall_turf, wall_duration, sound_controller)
+		new /obj/effect/thaumaturge_wind_wall(wall_turf, wall_duration)
 		segments_created++
 
 	if(!segments_created)
-		qdel(sound_controller)
 		user.balloon_alert(user, "no room for a wall!")
 		return FALSE
 	user.visible_message(span_warning("[user] conjures a roaring wall of wind!"))
@@ -140,33 +140,33 @@
 	resistance_flags = FIRE_PROOF | FREEZE_PROOF
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-	/// Raw sound damage per second. Standard ears apply their 0.125 multiplier, resulting in 1 ear damage per second.
-	var/ear_damage = 8
+	/// Raw sound damage per second. Ear damage multiplies are weird, so this roughly compounds to 0.5 per second.
+	var/ear_damage = 15
 	/// Temporary deafness added to an unprotected occupant each processing tick.
 	var/deafen_duration = 2 SECONDS
 	/// Wind projectiles that are allowed to pass through the barrier.
 	var/static/list/wind_projectile_whitelist = typecacheof(list(
 		/obj/projectile/resonant/gale_blast,
 	))
-	/// Shared controller that supplies one contextual ambience loop for this entire wall.
-	var/datum/wind_wall_sound_controller/sound_controller
-
 /// Sets-up the sound-controller so we don't get our ears blasted.
-/obj/effect/thaumaturge_wind_wall/Initialize(mapload, wall_duration, datum/wind_wall_sound_controller/new_sound_controller)
+/obj/effect/thaumaturge_wind_wall/Initialize(mapload, wall_duration)
 	. = ..()
 	air_update_turf(TRUE, TRUE)
 	var/static/list/loc_connections = list(COMSIG_ATOM_EXITED = PROC_REF(on_turf_exited))
 	AddElement(/datum/element/connect_loc, loc_connections)
-	sound_controller = new_sound_controller
-	sound_controller?.add_segment(src)
+	var/datum/wind_wall_sound_controller/sound_controller = GLOB.wind_wall_sound_controller
+	if(!sound_controller)
+		sound_controller = new
+		GLOB.wind_wall_sound_controller = sound_controller
+	sound_controller.add_segment(src)
 	START_PROCESSING(SSfastprocess, src)
 	if(wall_duration)
 		addtimer(CALLBACK(src, TYPE_PROC_REF(/obj/effect/thaumaturge_wind_wall, expire)), wall_duration)
 
 /obj/effect/thaumaturge_wind_wall/Destroy()
 	STOP_PROCESSING(SSfastprocess, src)
+	var/datum/wind_wall_sound_controller/sound_controller = GLOB.wind_wall_sound_controller
 	sound_controller?.remove_segment(src)
-	sound_controller = null
 	for(var/atom/movable/contained_atom as anything in loc)
 		if(!isliving(contained_atom))
 			continue
@@ -253,7 +253,7 @@
 	return BULLET_ACT_BLOCK
 
 /datum/movespeed_modifier/thaumaturge_wind_wall
-	multiplicative_slowdown = 0.2
+	multiplicative_slowdown = 1
 
 /atom/movable/screen/fullscreen/cursor_catcher/wind_wall
 
@@ -336,25 +336,11 @@
 	preview_images.Cut()
 
 
-/*
-	Welcome to sound management hell. Because this is a static emplacement with multiple segments, and conditional looping sounds, there are several datums that handle this. PArticularly:
-	- wind_wall_sound_controller is the central controller that handles the audio for all segments that are part of one wall
-	- wind_wall_listener_sound is assigned to a specific listener and handles the audiotrack they specifically hear
-*/
-
-/// Datum that handles the sound system for wind wall.
-/// Each listener receives an outside or inside loop, never duplicate loops from all five segments.
+/// Shared audio controller. The nearest segment wins, so listeners receive only one wind-wall loop.
 /datum/wind_wall_sound_controller
-	/// How far from any wall segment the outside wind sound can be heard.
 	var/sound_range = 4
-	/// The segments currently maintained by this controller.
 	var/list/segments = list()
-	/// Associative list of listener mobs and their dedicated wind-wall audio state.
 	var/list/tracked_listeners = list()
-
-/datum/wind_wall_sound_controller/New()
-	. = ..()
-	START_PROCESSING(SSfastprocess, src)
 
 /datum/wind_wall_sound_controller/Destroy()
 	STOP_PROCESSING(SSfastprocess, src)
@@ -362,23 +348,22 @@
 	segments.Cut()
 	return ..()
 
-/// Adds segments to the existing sound controller.
 /datum/wind_wall_sound_controller/proc/add_segment(obj/effect/thaumaturge_wind_wall/new_segment)
-	if(new_segment)
-		segments += new_segment
+	if(!new_segment)
+		return
+	segments += new_segment
+	if(length(segments) == 1)
+		START_PROCESSING(SSfastprocess, src)
 
-/// Removes a segment when its destroyed.
 /datum/wind_wall_sound_controller/proc/remove_segment(obj/effect/thaumaturge_wind_wall/old_segment)
 	segments -= old_segment
 	if(!length(segments))
-		qdel(src)
+		STOP_PROCESSING(SSfastprocess, src)
+		QDEL_LIST_ASSOC_VAL(tracked_listeners)
 
-/// Plays the looping sound to any would-be listeners.
 /datum/wind_wall_sound_controller/process()
-	/// Each listener's distance from its nearest segment. Every segment contributes to this.
 	var/list/nearby_distances = list()
 	var/list/inside_mobs = list()
-	// Gets everyone in range of segments and records their nearest segment.
 	for(var/obj/effect/thaumaturge_wind_wall/wall_segment as anything in segments)
 		if(QDELETED(wall_segment))
 			segments -= wall_segment
@@ -396,166 +381,85 @@
 			if(listener.loc == wall_segment.loc)
 				inside_mobs[listener] = TRUE
 
-	// No segments? begone
 	if(!length(segments))
-		qdel(src)
+		STOP_PROCESSING(SSfastprocess, src)
+		QDEL_LIST_ASSOC_VAL(tracked_listeners)
 		return
 
-	// Removes mobs that move away from the sound-system.
 	for(var/mob/living/tracked_listener as anything in tracked_listeners)
-		var/datum/wind_wall_listener_sound/listener_sound = tracked_listeners[tracked_listener]
-		if(QDELETED(listener_sound))
-			tracked_listeners -= tracked_listener
-			continue
 		if(isnull(nearby_distances[tracked_listener]))
-			listener_sound.update_location(FALSE, FALSE)
+			QDEL_NULL(tracked_listeners[tracked_listener])
+			tracked_listeners -= tracked_listener
 
-	/// Updates each nearby listener's outside/inside audio state.
 	for(var/mob/living/nearby_listener as anything in nearby_distances)
 		var/datum/wind_wall_listener_sound/listener_sound = tracked_listeners[nearby_listener]
-		if(QDELETED(listener_sound))
-			listener_sound = null
 		if(!listener_sound)
 			listener_sound = new(nearby_listener)
 			tracked_listeners[nearby_listener] = listener_sound
-		listener_sound.update_location(TRUE, !!inside_mobs[nearby_listener], nearby_distances[nearby_listener], sound_range)
+		var/sound_kind = inside_mobs[nearby_listener] ? "inside" : "outside"
+		listener_sound.update_sound(sound_kind, get_sound_volume(sound_kind, nearby_distances[nearby_listener]))
 
-/// Per-listener wind-wall audio. Direct channels avoid overlap with unrelated sounds.
+/datum/wind_wall_sound_controller/proc/get_sound_volume(sound_kind, segment_distance)
+	if(sound_kind == "inside")
+		return 80
+	return 40 * (sound_range - segment_distance + 1) / (sound_range + 1)
+
+/// One looping channel for one listener. Track swaps and range exits stop immediately.
 /datum/wind_wall_listener_sound
 	var/mob/living/listener
-	/// Tracks the dedicated channel for each wind loop.
-	var/list/sound_channels = list()
-	/// Tracks fade timers so re-entering an area can cancel the outgoing fade.
-	var/list/fade_timers = list()
-	/// Tracks the current fade step per loop.
-	var/list/fade_steps = list()
-	/// The volume each loop had before an exit transition began.
-	var/list/target_volumes = list()
-	/// The volume currently applied to each channel, avoiding redundant client sound updates.
-	var/list/current_volumes = list()
-	/// Fraction of the remaining distance-volume change applied per fast-process tick.
-	var/distance_volume_smoothing = 0.5
-	/// Ten half-decisecond steps retain the intended 0.5-second transition while reducing audible volume jumps.
-	var/fade_step_count = 10
-	var/fade_step_delay = 0.5
-	var/list/sound_files = list(
-		"outside" = 'modular_doppler/modular_powers/sounds/windwall/wind_wall.ogg',
-		"inside" = 'modular_doppler/modular_powers/sounds/windwall/wind_wall_inside.ogg',
-	)
-	var/list/sound_volumes = list(
-		"outside" = 40,
-		"inside" = 80,
-	)
-	/// The quietest volume retained on the edge of the outside sound range before its exit fade begins.
-	var/minimum_outside_volume = 10
+	var/sound_channel
+	var/current_sound_kind
+	var/current_volume
+	var/current_sound_file
+	var/loop_timer
+	var/outside_loop_length = 15.67 SECONDS
+	var/inside_loop_length = 30.02 SECONDS
 
 /datum/wind_wall_listener_sound/New(mob/living/new_listener)
 	. = ..()
 	listener = new_listener
 
 /datum/wind_wall_listener_sound/Destroy()
-	for(var/sound_kind as anything in fade_timers)
-		var/fade_timer = fade_timers[sound_kind]
-		if(fade_timer)
-			deltimer(fade_timer)
-	for(var/sound_kind as anything in sound_channels)
-		stop_sound(sound_kind)
-	fade_timers.Cut()
-	fade_steps.Cut()
-	target_volumes.Cut()
-	current_volumes.Cut()
-	sound_channels.Cut()
+	stop_sound()
 	listener = null
 	return ..()
 
-/// Switches between the outside loop and the conditional inside loop.
-/datum/wind_wall_listener_sound/proc/update_location(is_nearby, is_inside, nearest_segment_distance, maximum_sound_distance)
+/datum/wind_wall_listener_sound/proc/update_sound(sound_kind, target_volume)
 	if(!listener?.client)
 		qdel(src)
 		return
-	if(is_inside)
-		start_sound("inside", sound_volumes["inside"])
-		fade_sound("outside")
+	if(current_sound_kind != sound_kind)
+		stop_sound()
+		sound_channel = SSsounds.reserve_sound_channel_datumless()
+		current_sound_kind = sound_kind
+		current_volume = target_volume
+		current_sound_file = sound_kind == "inside" ? 'modular_doppler/modular_powers/sounds/windwall/wind_wall_inside.ogg' : 'modular_doppler/modular_powers/sounds/windwall/wind_wall.ogg'
+		replay_sound()
+		var/loop_length = sound_kind == "inside" ? inside_loop_length : outside_loop_length
+		loop_timer = addtimer(CALLBACK(src, PROC_REF(replay_sound)), loop_length, TIMER_CLIENT_TIME | TIMER_STOPPABLE | TIMER_LOOP, SSsound_loops)
 		return
-	if(is_nearby)
-		start_sound("outside", get_outside_volume(nearest_segment_distance, maximum_sound_distance))
-		fade_sound("inside")
+	if(current_volume == target_volume)
 		return
-	fade_sound("outside")
-	fade_sound("inside")
+	listener.set_sound_channel_volume(sound_channel, target_volume)
+	current_volume = target_volume
 
-/// Starts a loop, or restores it immediately if it was in the process of fading out.
-/datum/wind_wall_listener_sound/proc/start_sound(sound_kind, target_volume)
-	var/fade_timer = fade_timers[sound_kind]
-	if(fade_timer)
-		deltimer(fade_timer)
-		fade_timers[sound_kind] = null
-	target_volumes[sound_kind] = target_volume
-	var/sound_channel = sound_channels[sound_kind]
-	if(sound_channel)
-		if(current_volumes[sound_kind] == target_volume)
-			return
-		var/current_volume = current_volumes[sound_kind]
-		var/next_volume = current_volume + ((target_volume - current_volume) * distance_volume_smoothing)
-		if(abs(target_volume - next_volume) < 1)
-			next_volume = target_volume
-		listener.set_sound_channel_volume(sound_channel, next_volume)
-		current_volumes[sound_kind] = next_volume
+/// Restarts the current file on its reserved channel when its known duration elapses.
+/datum/wind_wall_listener_sound/proc/replay_sound()
+	if(!listener?.client || !sound_channel || !current_sound_file)
 		return
-	sound_channel = SSsounds.reserve_sound_channel_datumless()
-	sound_channels[sound_kind] = sound_channel
-	current_volumes[sound_kind] = target_volume
-	SEND_SOUND(listener, sound(sound_files[sound_kind], repeat = TRUE, channel = sound_channel, volume = target_volume))
+	SEND_SOUND(listener, sound(current_sound_file, channel = sound_channel, volume = current_volume))
 
-/// Returns the outside-loop volume for a listener's nearest wall segment.
-/datum/wind_wall_listener_sound/proc/get_outside_volume(nearest_segment_distance, maximum_sound_distance)
-	// Preserve quiet audio at the edge for the exit fade, with a gentler curve across the short four-tile range.
-	var/distance_fraction = nearest_segment_distance / maximum_sound_distance
-	var/volume_fraction = sqrt(max(1 - distance_fraction, 0))
-	return minimum_outside_volume + ((sound_volumes["outside"] - minimum_outside_volume) * volume_fraction)
-
-/// Gradually fades a loop over 0.5 seconds before releasing its sound channel.
-/datum/wind_wall_listener_sound/proc/fade_sound(sound_kind)
-	if(!sound_channels[sound_kind] || fade_timers[sound_kind])
-		return
-	fade_steps[sound_kind] = 0
-	fade_timers[sound_kind] = addtimer(CALLBACK(src, PROC_REF(reduce_sound_volume), sound_kind), fade_step_delay, TIMER_STOPPABLE)
-
-/// Lowers a loop's volume by one fade step and schedules the next step if required.
-/datum/wind_wall_listener_sound/proc/reduce_sound_volume(sound_kind)
-	// This callback has consumed its timer; keeping its ID causes later deltimer() calls to runtime.
-	fade_timers[sound_kind] = null
-	var/sound_channel = sound_channels[sound_kind]
-	if(!sound_channel || !listener)
-		return
-	var/fade_step = fade_steps[sound_kind] + 1
-	fade_steps[sound_kind] = fade_step
-	var/current_volume = target_volumes[sound_kind] * max(fade_step_count - fade_step, 0) / fade_step_count
-	listener.set_sound_channel_volume(sound_channel, current_volume)
-	current_volumes[sound_kind] = current_volume
-	if(fade_step >= fade_step_count)
-		fade_timers[sound_kind] = null
-		stop_sound(sound_kind)
-		if(!has_active_sounds())
-			qdel(src)
-		return
-	fade_timers[sound_kind] = addtimer(CALLBACK(src, PROC_REF(reduce_sound_volume), sound_kind), fade_step_delay, TIMER_STOPPABLE)
-
-/// Stops a loop immediately and releases its reserved sound channel.
-/datum/wind_wall_listener_sound/proc/stop_sound(sound_kind)
-	var/sound_channel = sound_channels[sound_kind]
+/datum/wind_wall_listener_sound/proc/stop_sound()
+	if(loop_timer)
+		deltimer(loop_timer, SSsound_loops)
+		loop_timer = null
 	if(!sound_channel || !listener)
 		return
 	listener.stop_sound_channel(sound_channel)
 	SSsounds.free_sound_channel(sound_channel)
-	sound_channels[sound_kind] = null
-	current_volumes[sound_kind] = null
-
-/// Returns whether this listener still has either wind loop active.
-/datum/wind_wall_listener_sound/proc/has_active_sounds()
-	for(var/sound_kind as anything in sound_channels)
-		if(sound_channels[sound_kind])
-			return TRUE
-	return FALSE
+	sound_channel = null
+	current_sound_kind = null
+	current_volume = null
+	current_sound_file = null
 
 #undef THAUMATURGE_WIND_WALL_CURSOR
