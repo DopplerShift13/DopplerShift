@@ -6882,6 +6882,7 @@
 #include "modular_doppler\cell_component\code\cell_component.dm"
 #include "modular_doppler\chamtoggle\code\datums\mutations\chameleon.dm"
 #include "modular_doppler\changing_room\code\changing_room_spawners.dm"
+#include "modular_doppler\changing_room\code\map_template.dm"
 #include "modular_doppler\changing_room\code\modular_computer.dm"
 #include "modular_doppler\changing_room\code\areas\centcom.dm"
 #include "modular_doppler\changing_room\code\elements\dust_on_catatonia.dm"
