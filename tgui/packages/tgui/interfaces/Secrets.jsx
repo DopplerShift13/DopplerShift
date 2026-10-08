@@ -262,13 +262,13 @@ const HelpfulTab = (props) => {
             />
           </Stack.Item>
           <Stack.Item>
-            <Button
-              icon="sync-alt"
-              lineHeight={lineHeightNormal}
+            <NoticeBox
+              mb={-0.5}
               width={buttonWidthNormal}
-              content="Reset Changing Room"
-              onClick={() => act('changingroomreset')}
-            />
+              height={lineHeightNormal}
+            >
+              Your admin button here, coder!
+            </NoticeBox>
           </Stack.Item>
         </Stack>
       </Stack.Item>
