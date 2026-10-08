@@ -8,9 +8,10 @@
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "gloves"
 	inhand_icon_state = null
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
 	)
 	greyscale_colors = "#3a373e"
 	siemens_coefficient = 0.25 // Doesn't insulate you entirely, but makes you a little more resistant

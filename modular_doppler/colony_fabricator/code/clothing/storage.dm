@@ -8,6 +8,11 @@
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "backpack"
 	inhand_icon_state = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
+	)
 
 /obj/item/storage/backpack/satchel/eng/frontier_colonist
 	name = "\improper NG-Tek work rated satchel"
@@ -17,6 +22,11 @@
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "satchel"
 	inhand_icon_state = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
+	)
 
 /obj/item/storage/backpack/messenger/eng/frontier_colonist
 	name = "\improper NG-Tek messenger bag"
@@ -27,6 +37,11 @@
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "messenger"
 	inhand_icon_state = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
+	)
 
 /obj/item/storage/backpack/duffelbag/engineering/frontier_colonist
 	name = "\improper CROutfitters duffelbag"
@@ -37,6 +52,11 @@
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "duffel"
 	inhand_icon_state = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
+	)
 
 // Belts
 
@@ -47,9 +67,10 @@
 	icon_state = "harness"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
 	)
 	worn_icon_state = "harness"
 	inhand_icon_state = null

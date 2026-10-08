@@ -9,9 +9,10 @@
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "radio"
 	inhand_icon_state = null
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
 	)
 	alternate_worn_layer = FACEMASK_LAYER + 0.5
 	flags_cover = EARS_COVERED

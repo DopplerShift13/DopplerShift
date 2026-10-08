@@ -8,10 +8,11 @@
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	inhand_icon_state = null
 	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE)
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_DIGITIGRADE, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
 		BODYSHAPE_DIGITIGRADE_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_digi.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
 	)
 	worn_icon_state = "boots"
 	armor_type = /datum/armor/colonist_clothing
