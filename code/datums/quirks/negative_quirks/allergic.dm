@@ -23,6 +23,15 @@
 		/datum/reagent/medicine/sansufentanyl,
 		/datum/reagent/medicine/salglu_solution,
 		/datum/reagent/medicine/albuterol,
+		/datum/reagent/medicine/system_cleaner,
+		/datum/reagent/medicine/liquid_solder,
+		/datum/reagent/medicine/nanite_slurry,
+		/datum/reagent/medicine/coagulant/seraka_extract,
+		/datum/reagent/medicine/coagulant/banana_peel,
+		/datum/reagent/medicine/changelingadrenaline,
+		/datum/reagent/medicine/syndicate_nanites,
+		/datum/reagent/medicine/regen_jelly,
+		/datum/reagent/medicine/insulin, // If you are allergic to insulin something terrible has happened to you.
 		)
 	var/allergy_string
 
@@ -37,6 +46,7 @@
 	allergy_string = allergy_chem_names.Join(", ")
 	name = "Extreme [allergy_string] Allergies"
 	medical_record_text = "Patient's immune system responds violently to [allergy_string]"
+	RegisterSignal(quirk_holder, COMSIG_MOB_REAGENT_TICK, PROC_REF(block_metab))
 
 /datum/quirk/item_quirk/allergic/add_unique(client/client_source)
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -44,8 +54,6 @@
 
 	give_item_to_holder(dogtag, list(LOCATION_BACKPACK, LOCATION_HANDS), flavour_text = "Make sure medical staff can see this...", notify_player = TRUE)
 
-/datum/quirk/item_quirk/allergic/add()
-	RegisterSignal(quirk_holder, COMSIG_MOB_REAGENT_TICK, PROC_REF(block_metab))
 
 /datum/quirk/item_quirk/allergic/remove()
 	UnregisterSignal(quirk_holder, COMSIG_MOB_REAGENT_TICK)
