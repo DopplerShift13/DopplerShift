@@ -7561,6 +7561,8 @@
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\_warfighter_action.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\_warfighter_datum.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\_warfighter_power.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\warfighter\block_fortress.dm"
+#include "modular_doppler\modular_powers\code\powers\mortal\warfighter\block_parry.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\command_assault.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\command_grit.dm"
 #include "modular_doppler\modular_powers\code\powers\mortal\warfighter\command_recover.dm"
