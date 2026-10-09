@@ -1,0 +1,10 @@
+{
+	"flowing_cape": [
+		{
+			"type": "icon_state",
+			"icon_state": "flowing_cape",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

@@ -158,6 +158,17 @@
 	item_path = /obj/item/clothing/gloves/color/rainbow
 
 /**
+ * SLEEVES
+ */
+/datum/loadout_item/gloves/sleeves
+	group = "Sleeves"
+	abstract_type = /datum/loadout_item/gloves/sleeves
+
+/datum/loadout_item/gloves/sleeves/curtainsleeves
+	name = "Curtain Sleeves"
+	item_path = /obj/item/clothing/gloves/curtainsleeves
+
+/**
  * ENVIROGLOVES
  */
 /datum/loadout_item/gloves/envirogloves
@@ -202,3 +213,11 @@
 /datum/loadout_item/gloves/misc/primitive_genemod_armwraps
 	name = "Hearthkin Armwraps"
 	item_path = /obj/item/clothing/gloves/fingerless/primitive_genemod_armwraps
+
+/datum/loadout_item/gloves/misc/arm_warmers
+	name = "Arm Warmers"
+	item_path = /obj/item/clothing/gloves/arm_warmers
+
+/datum/loadout_item/gloves/misc/suede_gloves
+	name = "Suede Gloves"
+	item_path = /obj/item/clothing/gloves/suede_gloves

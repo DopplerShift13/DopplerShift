@@ -61,6 +61,15 @@
 	name = "Capelet (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
 
+/datum/greyscale_config/flowing_cape
+	name = "Flowing Cape"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/flowing_cape.json'
+
+/datum/greyscale_config/flowing_cape/worn
+	name = "Flowing Cape (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+
 /datum/greyscale_config/half_cape
 	name = "Half Cape"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
@@ -102,6 +111,16 @@
 	name = "Tesharian Mantle (Worn, Teshari)"
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/tesharian_mantle_worn_teshari.json'
 
+/datum/greyscale_config/posh_mantle
+	name = "Posh Mantle"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/posh_mantle.json'
+
+/datum/greyscale_config/posh_mantle/worn
+	name = "Posh Mantle (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/posh_mantle_worn.json'
+
 /datum/greyscale_config/shoulder_cloak_redmars
 	name = "Shoulder Cloak (Red Mars)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
@@ -124,6 +143,15 @@
 
 /datum/greyscale_config/face_scarf/worn
 	name = "Face Scarf (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+
+/datum/greyscale_config/blanket_shawl
+	name = "Blanket Shawl"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/blanket_shawl.json'
+
+/datum/greyscale_config/blanket_shawl/worn
+	name = "Blanket Shawl (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
 
 
