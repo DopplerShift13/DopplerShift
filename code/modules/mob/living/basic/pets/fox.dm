@@ -50,6 +50,7 @@
 
 /mob/living/basic/pet/fox/Initialize(mapload)
 	. = ..()
+	ADD_TRAIT(src, TRAIT_VENTCRAWLER_ALWAYS, INNATE_TRAIT) //DOPPLER EDIT - Fox ventcrawl
 	AddComponent(/datum/component/obeys_commands, pet_commands)
 	AddElement(/datum/element/cultist_pet)
 	AddElement(/datum/element/wears_collar)
