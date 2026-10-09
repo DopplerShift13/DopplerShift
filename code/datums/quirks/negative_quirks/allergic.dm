@@ -32,6 +32,7 @@
 		/datum/reagent/medicine/syndicate_nanites,
 		/datum/reagent/medicine/regen_jelly,
 		/datum/reagent/medicine/insulin, // If you are allergic to insulin something terrible has happened to you.
+		/datum/reagent/medicine/strange_reagent,
 		)
 	var/allergy_string
 
