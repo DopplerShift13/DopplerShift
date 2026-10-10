@@ -1,43 +1,68 @@
 // Backpacks
 
 /obj/item/storage/backpack/industrial/frontier_colonist
-	name = "frontier backpack"
-	desc = "A rugged backpack often used by settlers and explorers. Holds all of your equipment and then some."
+	name = "\improper CROutfitters trekpack"
+	desc = "A locally produced backpack self-described as being fit for all manners of exploration and work."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "backpack"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
+	worn_icon_state = "backpack"
+	inhand_icon_state = null
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
 	)
-	supports_variations_flags = CLOTHING_DIGITIGRADE_VARIATION_NO_NEW_ICON
-	worn_icon_state = "backpack"
-	inhand_icon_state = "backpack"
 
-/obj/item/storage/backpack/industrial/frontier_colonist/Initialize(mapload)
-	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
-
-/obj/item/storage/backpack/industrial/frontier_colonist/satchel
-	name = "frontier satchel"
-	desc = "A rugged satchel often used by settlers and explorers. Holds less of your equipment than a backpack will."
+/obj/item/storage/backpack/satchel/eng/frontier_colonist
+	name = "\improper NG-Tek work rated satchel"
+	desc = "A ready-for-work satchel made locally in-system for the everyday laborer."
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "satchel"
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "satchel"
+	inhand_icon_state = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
+	)
 
-/obj/item/storage/backpack/industrial/frontier_colonist/messenger
-	name = "frontier messenger bag"
-	desc = "A rugged messenger bag often used by settlers and explorers. Holds less of your equipment than a backpack will."
+/obj/item/storage/backpack/messenger/eng/frontier_colonist
+	name = "\improper NG-Tek messenger bag"
+	desc = "A favourite among the brave postal workers of Crusoe's Rest, who use tough bags just like this one to deliver \
+		junk mail to your precise location no matter where you live."
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "messenger"
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "messenger"
+	inhand_icon_state = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
+	)
+
+/obj/item/storage/backpack/duffelbag/engineering/frontier_colonist
+	name = "\improper CROutfitters duffelbag"
+	desc = "A large duffelbag for whatever gear couldn't fit in a regular back. Made by locals, for locals, \
+		and beloved by any hard-working or adventure type you can find."
+	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
+	icon_state = "duffel"
+	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
+	worn_icon_state = "duffel"
+	inhand_icon_state = null
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
+	bodyshape_icon_files = list(
+		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
+	)
 
 // Belts
 
 /obj/item/storage/belt/utility/frontier_colonist
-	name = "frontier chest rig"
-	desc = "A versatile chest rig with pockets to store really whatever you could think of within. \
-		That is, if whatever you could think of is within the realms of a utility belt. Fashion like this \
-		comes at a price you know!"
+	name = "belt-mounted hip satchet"
+	desc = "A hip mounted bag typically found storing tools for quick access in lieu of a bulkier toolbelt or satchel."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "harness"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
@@ -45,14 +70,14 @@
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
 	)
 	worn_icon_state = "harness"
 	inhand_icon_state = null
+	content_overlays = FALSE
 
 /obj/item/storage/belt/utility/frontier_colonist/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/manufacturer_examine, COMPANY_KAHRAMAN)
 	atom_storage.max_slots = 6
 	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
 	// Can hold whatever a toolbelt can + some mining equipment for convenience

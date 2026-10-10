@@ -53,7 +53,7 @@
 	item_path = /obj/item/clothing/gloves/doppler_mining
 
 /datum/loadout_item/gloves/work/frontier_gloves
-	name = "Frontier Gloves"
+	name = "NG-Tek Handigloves"
 	item_path = /obj/item/clothing/gloves/frontier_colonist
 
 /datum/loadout_item/gloves/work/cargo

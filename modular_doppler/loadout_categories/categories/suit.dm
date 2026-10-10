@@ -88,10 +88,6 @@
 	name = "Vintage Coat (Security)"
 	item_path = /obj/item/clothing/suit/jacket/officer/doppler/det_trench
 
-/datum/loadout_item/suit/coat/frontier
-	name = "Trenchcoat (Frontier)"
-	item_path = /obj/item/clothing/suit/jacket/frontier_colonist
-
 /datum/loadout_item/suit/coat/qm_jacket
 	name = "Quartermaster's Overcoat"
 	item_path = /obj/item/clothing/suit/jacket/quartermaster
@@ -275,13 +271,17 @@
 	name = "Explorer Jacket (Cargo, Mining)"
 	item_path = /obj/item/clothing/suit/armor/vest/miningjacket
 
-/datum/loadout_item/suit/jacket/frontier_short
-	name = "Frontier Jacket"
-	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/short
+/datum/loadout_item/suit/jacket/frontier
+	name = "Ispanlita Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/frontier_colonist
+
+/datum/loadout_item/suit/jacket/frontier_worker
+	name = "Ispanlita Worker's Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/frontier_colonist/worker
 
 /datum/loadout_item/suit/jacket/frontier_med
-	name = "Frontier Jacket (Medical)"
-	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/medical
+	name = "Ispanlita Medic's Jacket"
+	item_path = /obj/item/clothing/suit/toggle/jacket/frontier_colonist/medical
 
 /datum/loadout_item/suit/jacket/kim_possible
 	name = "Aerostatic Bomber Jacket"
@@ -538,6 +538,10 @@
 /datum/loadout_item/suit/armor/tizirian_breast
 	name = "Tizirian Breastplate"
 	item_path = /obj/item/clothing/suit/armor/lizard
+
+/datum/loadout_item/suit/armor/thermoset
+	name = "Thermoset Breastplate"
+	item_path = /obj/item/clothing/suit/frontier_colonist_flak
 
 /**
  * MISCELLANEOUS

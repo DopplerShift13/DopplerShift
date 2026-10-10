@@ -65,7 +65,7 @@
 	item_path = /obj/item/clothing/mask/gas/explorer
 
 /datum/loadout_item/mask/gas/frontier
-	name = "Frontier Gas Mask"
+	name = "NG-Tek Atmosphere/Diving Mask"
 	item_path = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 
 /datum/loadout_item/mask/gas/gas_cooler
