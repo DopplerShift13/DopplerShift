@@ -539,6 +539,14 @@
 	name = "Tizirian Breastplate"
 	item_path = /obj/item/clothing/suit/armor/lizard
 
+/datum/loadout_item/suit/armor/generic_armor
+	name = "Armor Vest"
+	item_path = /obj/item/clothing/suit/armor/vest
+
+/datum/loadout_item/suit/armor/secoff_armor
+	name = "PS Type 98c Body Armor"
+	item_path = /obj/item/clothing/suit/armor/vest/alt/sec
+
 /**
  * MISCELLANEOUS
  */
