@@ -252,6 +252,7 @@ export type PreferencesMenuData = {
       species: string;
       loadout_list: LoadoutList;
       job_clothes: BooleanLike;
+      background_state: string; // DOPPLER EDIT ADDITION: Swappable character editor backgrounds
     };
 
     randomization: Record<string, RandomSetting>;
@@ -331,5 +332,6 @@ export type ServerData = {
   };
   /* DOPPLER EDIT ADDITION END */
   species: Record<string, Species>;
+  background_state: { choices: string[] }; // DOPPLER SHIFT ADDITION - icon state for the char edit canvas
   [otherKey: string]: unknown;
 };
