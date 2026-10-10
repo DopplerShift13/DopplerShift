@@ -332,6 +332,7 @@
 	body_zones = HEAD
 
 /datum/sprite_accessory/body_marking/other/constellation
-    name = "Constellation"
-    icon_state = "constellation"
-    body_zones = HEAD | CHEST | ARM_LEFT | ARM_RIGHT | LEG_RIGHT | LEG_LEFT | HAND_RIGHT | HAND_LEFT
+	name = "Constellation"
+	icon_state = "constellation"
+	body_zones = HEAD | CHEST | ARM_LEFT | HAND_LEFT | ARM_RIGHT | HAND_RIGHT | LEG_RIGHT | LEG_LEFT
+	gender_specific = FALSE
