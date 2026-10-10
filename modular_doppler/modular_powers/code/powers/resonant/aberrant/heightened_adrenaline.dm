@@ -7,7 +7,8 @@
 	name = "Heightened Adrenaline"
 	desc = "Physical damage barely keeps you down: only stopping power does. For every point of brute or burn damage you gain, gain a stacking buff called Adrenaline. You also gain Adrenaline when receiving a wound, proportional to severity.\
 	\nWhilst you have at least 5 stacks of Adrenaline: you become immmune to damage slowdown, you build up Determination in your system, and you remain standing when entering soft crit whilst it is active.\
-	\nYou lose a stack of Adrenaline every 0.25 seconds. You cannot gain Adrenaline after you go down in critical condition, or are otherwise unconscious."
+	\nYou lose a stack of Adrenaline every 0.25 seconds. You cannot gain Adrenaline after you go down in critical condition, or are otherwise unconscious. \
+	You also become discoordinated when it comes to your manual dexterity whilst active, preventing you from interacting with many objects, including firearms, whilst you have 5 or more stacks."
 	security_record_text = "Subject experiences extreme bursts of adrenaline when exposed to high physical trauma in a short span of time."
 	value = 4
 	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
@@ -130,12 +131,12 @@
 	active = should_be_active
 	if(active)
 		owner.add_movespeed_mod_immunities(id, /datum/movespeed_modifier/damage_slowdown)
-		owner.add_traits(list(TRAIT_NOSOFTCRIT), TRAIT_STATUS_EFFECT(id))
+		owner.add_traits(list(TRAIT_NOSOFTCRIT, TRAIT_NOGUNS, TRAIT_DISCOORDINATED_TOOL_USER), TRAIT_STATUS_EFFECT(id))
 		active_alert = owner.throw_alert(id, /atom/movable/screen/alert/status_effect/heightened_adrenaline)
 		active_alert.attached_effect = src
 		return
 	owner.remove_movespeed_mod_immunities(id, /datum/movespeed_modifier/damage_slowdown)
-	owner.remove_traits(list(TRAIT_NOSOFTCRIT), TRAIT_STATUS_EFFECT(id))
+	owner.remove_traits(list(TRAIT_NOSOFTCRIT, TRAIT_NOGUNS, TRAIT_DISCOORDINATED_TOOL_USER), TRAIT_STATUS_EFFECT(id))
 	owner.clear_alert(id)
 	active_alert = null
 
