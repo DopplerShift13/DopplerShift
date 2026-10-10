@@ -11,6 +11,8 @@
 	security_threat = POWER_THREAT_MAJOR
 	mob_trait = TRAIT_NOGUNS
 	value = 1
+	menu_icon = 'icons/obj/weapons/sword.dmi'
+	menu_icon_state = "shortsword"
 
 	required_powers = list(/datum/power/theologist/divine_protection)
 
