@@ -1,5 +1,0 @@
-author: "Goat"
-delete-after: True
-changes:
-  - bugfix: "the sleepers in the changing room shouldn't get clogged anymore"
-  - bugfix: "medbay doesn't get told anymore about your perscription if you spawn in the changing room"
