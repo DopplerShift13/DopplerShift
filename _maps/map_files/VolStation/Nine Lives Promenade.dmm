@@ -98,7 +98,7 @@
 "es" = (
 /obj/structure/cable,
 /obj/machinery/door/poddoor/preopen{
-	id = "bridge_blast";
+	id = "bridgeblast";
 	name = "Bridge Blast Door"
 	},
 /obj/effect/spawner/structure/window/reinforced,
