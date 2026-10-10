@@ -1,0 +1,10 @@
+{
+	"nautical_shorts": [
+		{
+			"type": "icon_state",
+			"icon_state": "nautical_shorts",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

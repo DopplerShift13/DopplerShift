@@ -49,7 +49,7 @@
 	// Set us as 'suspected' on HUDs at roundstart and leave a note about our dark and mysterious past. No permits for us! If we're human.
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
-		if(HAS_TRAIT(human_holder, TRAIT_BITRUNNER_AVATAR))
+		if(human_holder.mind.assigned_role.faction != FACTION_STATION)
 			return
 		var/datum/record/crew/our_record = find_record(human_holder.name)
 		if (our_record)
@@ -59,7 +59,7 @@
 /datum/quirk/item_quirk/underworld_connections/remove()
 	if (ishuman(quirk_holder))
 		var/mob/living/carbon/human/human_holder = quirk_holder
-		if(HAS_TRAIT(human_holder, TRAIT_BITRUNNER_AVATAR))
+		if(human_holder.mind.assigned_role.faction != FACTION_STATION)
 			return
 		var/datum/record/crew/our_record = find_record(human_holder.name)
 		if (isnull(our_record))

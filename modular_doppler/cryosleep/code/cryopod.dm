@@ -148,7 +148,6 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 22)
 	density = TRUE
 	anchored = TRUE
 	state_open = TRUE
-	interaction_flags_mouse_drop = NEED_DEXTERITY
 
 	var/open_icon_state = "cryopod-open"
 	/// Whether the cryopod respects the minimum time someone has to be disconnected before they can be put into cryo by another player
@@ -236,6 +235,10 @@ MAPPING_DIRECTIONAL_HELPERS(/obj/machinery/computer/cryopod, 22)
 
 /obj/machinery/cryopod/process()
 	if(!occupant)
+		// Something clogged the machine with something and we're just going to clean it out and force it open. (This is mostly for changing room sleepers ashing.)
+		if(contents && !state_open)
+			contents = null
+			open_machine()
 		return
 
 	var/mob/living/mob_occupant = occupant

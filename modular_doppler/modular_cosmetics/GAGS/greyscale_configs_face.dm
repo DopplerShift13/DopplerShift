@@ -78,6 +78,17 @@
 	name = "Tech Mask (Worn)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi'
 
+// SKULL MASK
+
+/datum/greyscale_config/skullmask
+	name = "Skull Mask"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/face.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/face/skullmask.json'
+
+/datum/greyscale_config/skullmask/worn
+	name = "Skull Mask (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face_32x64.dmi'
+
 // COLORABLE GLASSES
 
 /datum/greyscale_config/recolorable_glasses

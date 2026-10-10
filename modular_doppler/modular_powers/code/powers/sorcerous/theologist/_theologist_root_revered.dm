@@ -1,8 +1,9 @@
 
 /datum/power/theologist_root/revered
 	name = "A Burden Revered"
-	desc = "Nullifies pain and slowly heals the targeted creature's burn and brute damage over a prolonged period of time. This may be yourself. \
-	\nGrants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. Does not work on synthetic bodyparts."
+	desc = "Nullifies pain and slowly heals the targeted creature's brute and burn damage over a prolonged period of time. This may be yourself. \
+	\nGrants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. Does not work on synthetic bodyparts.\
+	\nModifiers to healing amount increase the maximum healing of this power as well as the healing rate."
 	security_record_text = "Subject can magically mend their own wounds and the wounds of others slowly over a long duration."
 	security_threat = POWER_THREAT_MAJOR
 	action_path = /datum/action/cooldown/power/theologist/theologist_root/revered
@@ -11,10 +12,10 @@
 
 /datum/action/cooldown/power/theologist/theologist_root/revered
 	name = "A Burden Revered"
-	desc = "Nullifies pain and slowly heals the targeted creature's burn and brute damage over a prolonged period of time. This may be yourself. \
+	desc = "Nullifies pain and slowly heals the targeted creature's brute and burn damage over a prolonged period of time. This may be yourself. \
 	Grants piety based on healing done, ends prematurely if the target reaches full health or if it is cast again. Does not work on synthetic bodyparts."
 	button_icon = 'modular_doppler/modular_powers/icons/powers/actions_icons.dmi'
-	button_icon_state = "burden_revered" // I need something better
+	button_icon_state = "burden_revered"
 	cooldown_time = 50
 	target_range = 1
 	target_type = /mob/living
@@ -28,15 +29,20 @@
 	var/healing_self = FALSE
 	/// The maximum amount we will heal.
 	var/healing_max = THEOLOGIST_ROOT_HEALING
-	/// The amount we heal per tick
+	/// The amount we heal per second
 	var/healing_amount = 1
 
 /datum/action/cooldown/power/theologist/theologist_root/revered/use_action(mob/living/user, mob/living/target)
 	if(active_effect)
 		qdel(active_effect)
 	active_effect = target.apply_status_effect(/datum/status_effect/power/burden_revered, src)
+	if(!active_effect)
+		return FALSE
+	// Snapshot after applying the status so Doctor's Craft can detect Burden Revered's analgesia.
+	snapshot_healing_multiplier(target)
+	active_effect.refresh_healing_values()
 	active = TRUE
-	if(active_effect && target == owner)
+	if(target == owner)
 		healing_self = TRUE
 	playsound(target, 'sound/effects/magic/staff_healing.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
 	to_chat(target, span_notice("[user] lays [user.p_their()] hand on you, and your wounds start to heal!"))
@@ -87,9 +93,13 @@
 /datum/status_effect/power/burden_revered/on_creation(mob/living/new_owner,	datum/action/cooldown/power/theologist/theologist_root/revered/passed_power)
 	. = ..()
 	burden_power = passed_power
-	if(burden_power) // inherit the healing from the power, for potential future upgrades / varedits.
-		healing_max = burden_power.healing_max
-		base_healing_amount = burden_power.healing_amount
+
+/// Refreshes the status effect's healing budget after the power snapshots its modifiers.
+/datum/status_effect/power/burden_revered/proc/refresh_healing_values()
+	if(!burden_power)
+		return
+	healing_max = burden_power.healing_max * burden_power.healing_multiplier
+	base_healing_amount = burden_power.healing_amount * burden_power.healing_multiplier
 
 
 // You might wonder why we run Destroy as well as on_remove. The issue is that on_remove can trigger on qdel, which invalidates burden_power, which prevents us from efficiently passing on the piety back to the owner.
@@ -116,7 +126,6 @@
 
 // This is where the heal budgeting happens.
 /datum/status_effect/power/burden_revered/tick(seconds_between_ticks)
-	var/healing_amount = (base_healing_amount * seconds_between_ticks)
 	new /obj/effect/temp_visual/heal(get_turf(owner), "#ddd166")
 
 	// Expire if we've reached the max.
@@ -124,25 +133,33 @@
 		expire()
 		return
 
-	// Limb-based healing: only organic bodyparts.
-	if(!istype(owner, /mob/living/carbon))
+	var/healing_amount = min(base_healing_amount * seconds_between_ticks, healing_max - healing_done)
+	// Use the proc to delegate the healing.
+	var/actual_healing = heal_damage(healing_amount)
+	if(actual_healing <= 0) // we healed nothing? must be nothing left to heal.
 		expire()
 		return
+	healing_done += actual_healing // tick up the healing.
 
-	var/mob/living/carbon/mob = owner
-	var/healed_any = FALSE
-	// gets random bodypart, heals it, bam.
-	for(var/obj/item/bodypart/bodypart in mob.get_damaged_bodyparts(1, 1, BODYTYPE_ORGANIC))
-		bodypart.heal_damage(healing_amount, healing_amount, required_bodytype = BODYTYPE_ORGANIC)
-		mob.update_damage_overlays()
-		healing_done += healing_amount
-		healed_any = TRUE
-		break
+/// Tries to heal the damage between brute and burn
+/datum/status_effect/power/burden_revered/proc/heal_damage(healing_amount)
+	if(!owner || healing_amount <= 0)
+		return 0
 
-	// Expire if there's nothing left to heal.
-	if(!healed_any)
-		expire()
-		return
+	// Gets and sets how much brute and burn damage there is to heal.
+	var/brute_damage = owner.getBruteLoss()
+	var/burn_damage = owner.getFireLoss()
+
+	// Basically heal the full-amount unless there's both damage-types, in which case we split the heal.
+	var/healing_per_type = brute_damage > 0 && burn_damage > 0 ? healing_amount * 0.5 : healing_amount
+	var/brute_to_heal = min(healing_per_type, brute_damage)
+	var/burn_to_heal = min(healing_per_type, burn_damage)
+
+	if(brute_to_heal <= 0 && burn_to_heal <= 0)
+		return 0
+
+	// do the actual healing.
+	return owner.heal_overall_damage(brute = brute_to_heal, burn = burn_to_heal, required_bodytype = BODYTYPE_ORGANIC)
 
 /// QDEL destroys burden_power so we can handle this b4 destroy. Passes piety back.
 /datum/status_effect/power/burden_revered/proc/expire()

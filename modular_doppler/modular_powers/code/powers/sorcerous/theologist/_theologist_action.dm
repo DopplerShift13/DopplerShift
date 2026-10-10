@@ -49,9 +49,3 @@
 	if(cost)
 		adjust_piety(-cost)
 	return
-
-/// Applies tox changes whilst respecting toxinlover as a trait
-/datum/action/cooldown/power/theologist/proc/adjust_tox_noinvert(mob/living/target, amount, updating_health = TRUE, required_biotype = ALL)
-	if(HAS_TRAIT(target, TRAIT_TOXINLOVER))
-		amount = -amount
-	return target.adjustToxLoss(amount, updating_health = updating_health, forced = FALSE, required_biotype = required_biotype)

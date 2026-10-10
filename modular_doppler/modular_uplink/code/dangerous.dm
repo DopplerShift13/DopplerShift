@@ -3,7 +3,7 @@
 	desc = "A sheath carrying a rare Tajaran vibroblade. The oscillation allows the tip to bite through many \
 	substances by the weapon's own weight alone."
 	item = /obj/item/storage/belt/tajaran_sheath/vibro
-	cost = 6
+	cost = 6 // esword sidegrade
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/dangerous/bolt_thrower
@@ -29,40 +29,63 @@
 	to achieve such a lengthy blade. Exotic amendments to its constituent alloys allow for keener edge and help alleviate a rare \
 	phenomena where clashed blades in near vacuum can contact weld to one another."
 	item = /obj/item/melee/tizirian_sword/megachoppa
-	cost = 6
+	cost = 4 // weaker than an esword & can't be hidden at all
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/dangerous/saber
 	name = "Saber"
 	desc = "Forged by the artisan clans of the Uz'ka, it's a medium-sized, one-handed weapon that can cut through lightly armored or unarmored foes with utter ease. A staple for every member when going through their rites."
 	item = /obj/item/claymore/cutlass
-	cost = 4
+	cost = 6 // identical to an esword but cool looking
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/dangerous/baseball
 	name = "Ablative Bat"
 	desc = "Specially forged by the highest ranking artisan clans, this bat was given to some of the Zar'Khet to act as vanguards. Used to dispel laser fire more commonly used in hostile lands, it gave a sense of courage and pride to those in the ranks."
 	item = /obj/item/melee/baseball_bat/ablative
-	cost = 6
+	cost = 4 // weaker than an esword but makes you laser immune which is really funny
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_item/dangerous/minigun
+	name = "Laser Minigun Backpack"
+	desc = "A hefty power-pack that comes with a linked laser minigun capable of outputting a terrifying volley of firepower in full-auto. The power-pack must be worn on your back to be utilized properly, and the minigun may need time to cool after overheating."
+	item = /obj/item/minigunpack
+	cost = 6 // can't exactly hide it and it has some clear downsides
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/dangerous/shrink_ray
 	name = "Shrink Ray"
 	desc = "This is a piece of frightening Grey tech that enhances the magnetic pull of atoms in a localized space to temporarily make an object shrink. Great for break-ins, or cutting a foe down to size. "
 	item = /obj/item/gun/energy/shrink_ray/thinktank
-	cost = 18 // free instant passage through walls & makes an opponent drop literally all of their stuff when hit
+	cost = 15 // free instant passage through walls & makes an opponent drop literally all of their stuff when hit
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/dangerous/spikeroach_nade
 	name = "Spike Synthroach Greande"
 	desc = "Synthroaches are the remnants of old bio-synth weapons. A few survived the end of their war and the clean-up efforts, and evolved into pests that are ubiquitous on most ships. This grenade is full of 'spikeroaches', synth-roaches that were once fearsome self-detonating drones and are now...still self-detonating drones."
 	item = /obj/item/grenade/spawnergrenade/spikeroach
-	cost = 6
+	cost = 5
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
 
 /datum/uplink_item/dangerous/n20_rock
 	name = "Knockout Rock"
 	desc = "Harvested from anomaly-rich asteroid belts, these rocks are crystallized and unstable clumps N20 gas. Crag Jumpers export them, but they double as weapons against their oxygen breathing foes in tight quarters, releasing deadly gas."
 	item = /obj/item/grenade/gas_crystal/nitrous_oxide_crystal
+	cost = 4
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_item/dangerous/modular_laser_rifle
+	name = "\improper Hyeseong Modular Laser Rifle"
+	desc = "A novel Cybersun weapon with a variety of firemodes and an onboard artificial intelligence package. The license upgrade \
+	cartridge is not included."
+	item = /obj/item/gun/energy/modular_laser_rifle
+	cost = 4
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)
+
+/datum/uplink_item/dangerous/modular_laser_carbine
+	name = "\improper Hoshi Modular Laser Carbine"
+	desc = "A novel Cybersun weapon with a variety of firemodes and an onboard artificial intelligence package, akin to a smaller Hyeseong. \
+	The license upgrade cartridge is not included."
+	item = /obj/item/gun/energy/modular_laser_rifle/carbine
 	cost = 4
 	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS)

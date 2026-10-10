@@ -22,7 +22,7 @@
 /datum/psyker_event/mild
 	abstract_type = /datum/psyker_event/mild
 
-/// Severe are the very clear warning to stop. These should be obvious and detrimental, with a clear goal of making it so that you stop and meditate or face the consequences.
+/// Severe are the very clear warning to stop. These should be obvious and detrimental, with a clear goal of making it so that you recover or face the consequences.
 /datum/psyker_event/severe
 	abstract_type = /datum/psyker_event/severe
 

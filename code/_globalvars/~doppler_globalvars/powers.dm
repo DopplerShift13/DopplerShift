@@ -42,3 +42,11 @@ GLOBAL_LIST_INIT(bioluminescence_sizes, list(
 	"Medium" = 3,
 	"Large" = 4,
 ))
+
+/// Sprite variants available to the Raking Claws power.
+GLOBAL_LIST_INIT(raking_claw_arm_styles, list(
+	"Tiger" = 1,
+	"Bear" = 2,
+	"Wolf" = 3,
+	"Wendigo" = 4,
+))

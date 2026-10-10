@@ -9,6 +9,7 @@
 	\nRequires Affinity 3. Additional affinity increases the healing ratio by 0.5 per affinity"
 	security_record_text = "Subject can draw blood from varying sources (including humanoids) and transmute it into universal blood, potentially healing the target."
 	value = 4
+	power_flags = POWER_HUMAN_ONLY | POWER_HEALING
 
 	action_path = /datum/action/cooldown/power/thaumaturge/sanguine_absorption
 	required_powers = list(/datum/power/thaumaturge_root/hemomancy)
@@ -164,16 +165,18 @@
 
 			// Based on the total damage, we heal based on the excess blood compared to the normal blood volume.
 			if(total_damage > 0)
-				var/heal_capacity = excess_blood * ratio // max we can heal
-				var/heal_amount = min(heal_capacity, total_damage) // how much we will heal total
-				var/heal_brute = total_damage ? (heal_amount * (total_brute / total_damage)) : 0 // we try to heal all brute damage first
-				var/heal_burn = heal_amount - heal_brute // then we heal burn damage
-				var/actual_healed = target_carbon.heal_overall_damage(brute = heal_brute, burn = heal_burn, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
-				// update the blood in the target based on the healing used.
-				if(actual_healed > 0)
-					var/blood_used = min(excess_blood, actual_healed / ratio)
-					target_carbon.blood_volume = max(target_carbon.blood_volume - blood_used, BLOOD_VOLUME_NORMAL)
-					target_carbon.updatehealth()
+				var/modified_healing_ratio = ratio * snapshot_healing_multiplier(target_carbon)
+				if(modified_healing_ratio > 0)
+					var/heal_capacity = excess_blood * modified_healing_ratio // max we can heal
+					var/heal_amount = min(heal_capacity, total_damage) // how much we will heal total
+					var/heal_brute = total_damage ? (heal_amount * (total_brute / total_damage)) : 0 // we try to heal all brute damage first
+					var/heal_burn = heal_amount - heal_brute // then we heal burn damage
+					var/actual_healed = target_carbon.heal_overall_damage(brute = heal_brute, burn = heal_burn, updating_health = FALSE, required_bodytype = BODYTYPE_ORGANIC)
+					// update the blood in the target based on the healing used.
+					if(actual_healed > 0)
+						var/blood_used = min(excess_blood, actual_healed / modified_healing_ratio)
+						target_carbon.blood_volume = max(target_carbon.blood_volume - blood_used, BLOOD_VOLUME_NORMAL)
+						target_carbon.updatehealth()
 	target.visible_message(span_notice("Blood flows into [target]'s body, reinvigorating them!"), span_notice("You feel energized as the blood mends your body!"))
 	playsound(target, 'sound/effects/splat.ogg', 50, TRUE, SHORT_RANGE_SOUND_EXTRARANGE)
 	return TRUE

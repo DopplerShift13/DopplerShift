@@ -5,12 +5,11 @@
 /datum/surgery/psyker_organ_repair
 	name = "Mend Psychic Organ"
 	desc = "Attempts to restore functionality to a damaged or destroyed Psyker's organ. Requires 5u of unstable mutagen."
-	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB
+	surgery_flags = SURGERY_REQUIRE_RESTING | SURGERY_REQUIRE_LIMB | SURGERY_REQUIRES_REAL_LIMB | SURGERY_MORBID_CURIOSITY
 	organ_to_manipulate = ORGAN_SLOT_PSYKER
+	requires_bodypart_type = NONE
 
-	possible_locs = list(
-		BODY_ZONE_CHEST
-	)
+	possible_locs = list(BODY_ZONE_CHEST)
 	steps = list(
 		/datum/surgery_step/incise,
 		/datum/surgery_step/retract_skin,
@@ -38,9 +37,9 @@
 		/obj/item/reagent_containers = 100,
 	)
 	time = 6.4 SECONDS
-	preop_sound = 'sound/items/handling/surgery/hemostat1.ogg'
-	success_sound = 'sound/items/drink.ogg'
-	failure_sound = 'sound/items/drink.ogg'
+	preop_sound = 'sound/effects/chemistry/catalyst.ogg'
+	success_sound = 'sound/effects/chemistry/saturnx_fade.ogg'
+	failure_sound = 'sound/effects/chemistry/saturnx_fade.ogg'
 	surgery_effects_mood = TRUE
 
 /datum/surgery_step/apply_unstable_mutagen_to_psyker_organ/tool_check(mob/user, obj/item/tool)

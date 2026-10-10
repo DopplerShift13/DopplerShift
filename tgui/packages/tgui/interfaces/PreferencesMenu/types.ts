@@ -140,6 +140,7 @@ export type PowerAugmentState = {
 export type PowerStatic = {
   description: string;
   cost: number;
+  power_flags?: string[];
   magic_flags?: string[];
   name: string;
   root_badge_icon: string | (string | null)[] | null;

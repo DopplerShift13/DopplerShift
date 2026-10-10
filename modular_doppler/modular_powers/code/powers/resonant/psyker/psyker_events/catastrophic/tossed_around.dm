@@ -37,7 +37,7 @@
 	var/expecting_impact = FALSE
 
 /datum/psyker_event/catastrophic/tossed_around/execute(mob/living/carbon/human/psyker)
-	to_chat(psyker, span_userdanger("Your Resonant powers send you hurling through the air!"))
+	to_chat(psyker, span_userdanger("An unseen force sends you hurling through the air!"))
 	RegisterSignal(psyker, COMSIG_MOVABLE_IMPACT, PROC_REF(on_toss_impact))
 	impact_owner = psyker
 	addtimer(CALLBACK(src, PROC_REF(_toss_tick), psyker, 0), 1 SECONDS)

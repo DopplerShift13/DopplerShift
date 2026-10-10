@@ -7,7 +7,7 @@
 	if(!psyker.can_bleed())
 		return FALSE
 	head.adjustBleedStacks(5)
-	psyker.visible_message(span_notice("[psyker] gets a nosebleed."), span_danger("Overusing your powers has given you a nosebleed!"))
+	psyker.visible_message(span_notice("[psyker] gets a nosebleed."), span_danger("You start having a nosebleed."))
 	return TRUE
 
 // Adds the backlash option as a smite for admin

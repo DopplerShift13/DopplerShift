@@ -5,6 +5,24 @@
 /datum/uplink_item/speckit
 	category = /datum/uplink_category/special_kits
 
+/datum/uplink_item/speckit/tizzyraider
+	name = "Tiziran Raider Suite"
+	desc = "A bolt-thrower, raider MODsuit, Tiziran greatsword, and spare ammunition, alongside a jet harness, set \
+		of clothing, and extraneous equipment suitable for any aspiring raider looking to pillage unwitting cargo haulers \
+		and the occasional homesteader."
+	item = /obj/item/storage/box/syndicate/bundle/tizzyraider
+	cost = 20
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
+
+/datum/uplink_item/speckit/juggernaut
+	name = "Juggernaut Care Package"
+	desc = "The heaviest suit of armor sophont hands could possibly make alongside a laser minigun backpack, various medical \
+		airhypos, a shell launch system, and a hormone regulator, purpose-built to keep the user standing no matter the damage \
+		that they might physically take."
+	item = /obj/item/storage/box/syndicate/bundle/juggernaut
+	cost = 20
+	purchasable_from = ~(UPLINK_ALL_SYNDIE_OPS | UPLINK_SPY)
+
 /datum/uplink_item/speckit/bond
 	name = "Secret Agent Gear"
 	desc = "A handgun & ammo, agent ID card, chameleon suit, stimulant pen, freedom implant, EMP flashlight, brick of \

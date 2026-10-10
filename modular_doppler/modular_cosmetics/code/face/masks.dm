@@ -224,3 +224,18 @@
 	. = ..()
 	if(!isinhands)
 		. += emissive_appearance('modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi', "techmask-emissive", src, alpha = src.alpha, effect_type = EMISSIVE_BLOOM)
+
+/obj/item/clothing/mask/gas/skullmask
+	name = "horned skull mask"
+	desc = "A mask sculpted from the bone of a long-dead animal, adorned with massive jutting antlers and offering a menacing visage."
+	icon = 'icons/map_icons/clothing/mask.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/face_32x64.dmi'
+	icon_state = "/obj/item/clothing/mask/gas/skullmask"
+	post_init_icon_state = "skullmask"
+	tint = 0
+	greyscale_config = /datum/greyscale_config/skullmask
+	greyscale_config_worn = /datum/greyscale_config/skullmask/worn
+	greyscale_colors = "#dad7b8#6d6a70#5e362f"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	supported_bodyshapes = null
+	bodyshape_icon_files = null

@@ -16,6 +16,9 @@
 	icon = FA_ICON_PRESCRIPTION_BOTTLE_MEDICAL
 
 /datum/quirk/item_quirk/prescription/post_add()
+	var/mob/living/carbon/human/human_holder = quirk_holder
+	if(human_holder.mind.assigned_role.faction != FACTION_STATION)
+		return
 	var/obj/machinery/announcement_system/aas = get_announcement_system(source = src)
 	if (aas)
 		aas.broadcast(medical_record_text, list(RADIO_CHANNEL_MEDICAL))
