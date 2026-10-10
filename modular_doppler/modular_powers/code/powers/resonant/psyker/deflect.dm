@@ -1,8 +1,8 @@
 /datum/power/psyker_power/deflect
 	name = "Deflect"
 	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has a high upkeep, every projectile deflected \
-	causes stress equal to the projectile's damage + 10 , and ends prematurely if you suffer a catastrophic stress event.\
-	\nCauses stamina damage equal to a third of of the stress generated!"
+	causes stress equal to the projectile's damage + 5, and ends prematurely if you suffer a catastrophic stress event.\
+	\nCauses stamina damage equal to a 20% of of the stress generated!"
 	security_record_text = "Subject can deflect projectiles away from themselves and towards new targets."
 	security_threat = POWER_THREAT_MAJOR
 	value = 8
@@ -12,8 +12,8 @@
 /datum/action/cooldown/power/psyker/deflect
 	name = "Deflect"
 	desc = "Deflects projectiles that strike you, flinging them away from you and preventing harm. These projectiles are then flung towards your current cursor position. Has a high upkeep, every projectile deflected \
-	causes stress equal to the projectile's damage + 10, and ends prematurely if you suffer a catastrophic stress event.\
-	\nCauses stamina damage equal to a third of the stress generated!"
+	causes stress equal to the projectile's damage + 5, and ends prematurely if you suffer a catastrophic stress event.\
+	\nCauses stamina damage equal to 20% of the stress generated!"
 	button_icon = 'icons/mob/actions/actions_elites.dmi'
 	button_icon_state = "singular_shot"
 	cooldown_time = 50
@@ -23,9 +23,9 @@
 	/// Per-second upkeep while active.
 	var/stress_per_second = 5
 	/// Flat stress added on top of projectile damage when we successfully try to deflect it.
-	var/projectile_stress_bonus = 0
+	var/projectile_stress_bonus = 5
 	/// How much stress is also dealt as stamina damage? Multiplicative number.
-	var/stress_as_stam_damage = 0
+	var/stress_as_stam_damage = 0.20
 	/// If our power is able to deflect magic
 	var/can_deflect_magic = FALSE
 	/// The status effect on the caster.
