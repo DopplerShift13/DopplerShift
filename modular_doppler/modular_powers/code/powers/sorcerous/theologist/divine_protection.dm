@@ -4,7 +4,8 @@
 
 /datum/power/theologist/divine_protection
 	name = "Divine Protection"
-	desc = "You gain a block chance (separate from all other block chance) equal to half your piety; reduce Piety by 5 when this triggers."
+	desc = "You gain a block chance (separate from all other block chance) equal to half your piety; lose Piety based on damage blocked.\
+	\nDivine Protection can never have a higher block chance than 66%, and is unaffected by armour penetration."
 	security_record_text = "Subject tends to unpredictably and miraculously avoid harm."
 	security_threat = POWER_THREAT_MAJOR
 	value = 4
@@ -13,12 +14,14 @@
 
 	required_powers = list(/datum/power/theologist_root/)
 	required_allow_subtypes = TRUE
-	/// World time (in deciseconds) when piety drain last triggered
-	var/last_piety_drain = 0
+	/// Piety spent for each point of damage blocked.
+	var/piety_per_damage = THEOLOGIST_PIETY_HEALING_COEFFICIENT * 1.5
 	/// World time (in deciseconds) when block effect last triggered
 	var/last_block_effect = 0
 	/// The ratio of piety to block.
 	var/piety_ratio = 0.5
+	/// The highest final block chance Divine Protection can grant.
+	var/max_block_chance = 66
 
 /datum/power/theologist/divine_protection/add()
 	RegisterSignal(power_holder, COMSIG_LIVING_CHECK_BLOCK, PROC_REF(check_block))
@@ -37,12 +40,23 @@
 	if(blocking_user.stat != CONSCIOUS || HAS_TRAIT(blocking_user, TRAIT_INCAPACITATED))
 		return NONE
 
+	// can't benefit if you're silenced.
+	if(HAS_TRAIT(blocking_user, TRAIT_RESONANCE_SILENCED))
+		return NONE
+
 	var/datum/component/theologist_piety/piety_component = blocking_user.GetComponent(/datum/component/theologist_piety)
 	if(!piety_component)
 		return NONE
 
+	// Collect additive block chance modifiers before applying Divine Protection's global cap.
 	var/block_chance = clamp(round(piety_component.piety * piety_ratio), 0, 100)
-	if(block_chance <= 0 || !prob(block_chance))
+	var/list/block_chance_modifiers = list()
+	SEND_SIGNAL(power_holder, COMSIG_THEOLOGIST_DIVINE_PROTECTION_MODIFIERS, hitby, damage, attack_text, attack_type, armour_penetration, damage_type, block_chance_modifiers)
+	for(var/block_chance_modifier in block_chance_modifiers)
+		block_chance += block_chance_modifier
+	block_chance = clamp(block_chance, 0, max_block_chance)
+
+	if(!prob(block_chance))
 		return NONE
 
 	// only a nat20 will save you now
@@ -51,10 +65,8 @@
 		return NONE
 
 	block_effect(blocking_user, attack_text, hitby, attack_type)
-	// We only allow piety loss once per 0.4 seconds so you don't get your piety nuked by a shotgun.
-	if(world.time >= last_piety_drain + 4)
-		piety_component.adjust_piety(-THEOLOGIST_PIETY_MINOR)
-		last_piety_drain = world.time
+	if(isnum(damage) && damage > 0)
+		piety_component.adjust_piety(-(damage * piety_per_damage))
 	return SUCCESSFUL_BLOCK
 
 /// Special effects + feedback for the block.
