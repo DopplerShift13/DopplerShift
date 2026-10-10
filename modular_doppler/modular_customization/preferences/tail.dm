@@ -35,7 +35,9 @@
 	if(istype(old_part))
 		old_part.Remove(target, special = TRUE, movement_flags = DELETE_IF_REPLACED)
 		old_part.moveToNullspace()
-
+	if(iscerulean(target))
+		var/obj/item/organ/tail/fish/cerulean/cerulean_tail = SSwardrobe.provide_type(target.dna.species.mutant_organs[1])
+		cerulean_tail.Insert(target, TRUE, DELETE_IF_REPLACED)
 
 /// Dropdown to select which tail you'll be rocking
 //	This is my third attempt at writing this, which means it has to be good
@@ -756,4 +758,19 @@
 		draw_color = limb.owner?.dna.features[FEATURE_TAIL_COLORS][1]
 	else
 		draw_color = limb.owner?.dna.features[FEATURE_TAIL_COLORS]
+	if(istype(src, /datum/bodypart_overlay/mutant/tail/fish/cerulean))
+		draw_color = limb.owner?.dna.features[FEATURE_TAIL_FISH_COLOR]
 	return ..()
+
+/datum/bodypart_overlay/mutant/tail/fish/cerulean/get_images(image_layer, obj/item/bodypart/limb)
+	var/returned_images = list()
+	var/mob/living/carbon/human/cerulean = limb?.owner
+	var/gender = (cerulean?.physique == FEMALE) ? "f" : "m"
+	overlay_indexes_to_color = list()
+	var/index = 1
+	var/mob/living/carbon/human/owner = limb?.owner
+	last_built_icon_states = list()
+	var/mutable_appearance/image_to_return = get_singular_image(build_icon_state(gender, image_layer, MUTANT_ACCESSORY_NO_AFFIX), image_layer, owner)
+	returned_images += image_to_return
+	overlay_indexes_to_color += index
+	return returned_images

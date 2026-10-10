@@ -80,8 +80,7 @@
 //
 /obj/item/organ/tongue/fish
 	name = "fish tongue"
-	desc = "A fleshy muscle mostly used for gnashing."
-	say_mod = "gnashes"
+	organ_traits = list(TRAIT_SPEAKS_CLEARLY, TRAIT_CARPOTOXIN_IMMUNE)
 
 /// Frog tongue
 //

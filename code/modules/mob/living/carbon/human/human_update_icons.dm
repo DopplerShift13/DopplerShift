@@ -682,18 +682,6 @@ There are several things that need to be remembered:
 
 	return icon(resulting_icon)
 
-/// Modifies a sprite to replace the legs with a new version
-/proc/replace_icon_legs(icon/base_icon, icon/new_legs)
-	var/static/icon/leg_mask
-	if(!leg_mask)
-		leg_mask = icon('icons/mob/clothing/under/masking_helpers.dmi', "digi_leg_mask")
-
-	// cuts the legs off
-	base_icon.Blend(leg_mask, ICON_SUBTRACT)
-	// staples the new legs on
-	base_icon.Blend(new_legs, ICON_OVERLAY)
-	return base_icon
-
 /**
  * Generates a digitigrade version of this item's worn icon
  *
@@ -919,6 +907,10 @@ generate/load female uniform sprites matching all previously decided variables
 			key = "[t_state]-[file2use]-[female_uniform]",
 			greyscale_colors = greyscale_colors,
 		)
+	if(!isinhands && istype(wearer) && wearer.bodyshape & BODYSHAPE_CERULEAN)
+		if((supports_variations_flags & CLOTHING_CERULEAN) || (supports_variations_flags & (CERULEAN_MASKING)))
+			return generate_cerulean_icons(building_icon || icon(file2use, t_state), "[t_state]-[file2use]-[female_uniform]", greyscale_colors, wearer.bodyshape)
+
 	/// DOPPLER EDIT ADDITION BEGIN - Taur-friendly uniforms and suits
 	var/shift_pixel_x = 0
 	if (!isinhands && istype(wearer) && wearer.bodyshape & BODYSHAPE_TAUR) // This could should never run on inhands

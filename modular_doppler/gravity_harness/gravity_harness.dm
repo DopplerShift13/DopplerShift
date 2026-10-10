@@ -15,6 +15,7 @@
 	icon_state = "gravityharness-off"
 	worn_icon_state = "gravityharness-off"
 	actions_types = list(/datum/action/item_action/toggle_mode)
+	supports_variations_flags = CLOTHING_CERULEAN|CLOTHING_CERULEAN_MASK_LEGS
 	w_class = WEIGHT_CLASS_HUGE
 	/// The current operating mode
 	var/mode = MODE_GRAVOFF

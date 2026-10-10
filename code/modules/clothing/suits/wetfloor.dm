@@ -12,6 +12,7 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
 	body_parts_covered = CHEST|GROIN
+	supports_variations_flags = NONE
 	attack_verb_continuous = list("warns", "cautions", "smashes")
 	attack_verb_simple = list("warn", "caution", "smash")
 	pickup_sound = 'sound/items/handling/materials/plastic_pick_up.ogg'

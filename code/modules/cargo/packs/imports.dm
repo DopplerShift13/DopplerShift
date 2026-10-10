@@ -365,3 +365,11 @@
 		/obj/item/stack/ore/bluespace_crystal/artificial = 2,
 		/obj/item/stock_parts/subspace/ansible,
 	)
+
+/datum/supply_pack/imports/hydro_vaporizers
+	name = "Hydro-Vaporizers"
+	desc = "Cerulean vaporizer devices, for all your liquid respiration needs."
+	cost = CARGO_CRATE_VALUE * 5
+	contains = list(/obj/item/vaporizer = 3)
+	crate_name = "hydro-vaporizer crate"
+	crate_type = /obj/structure/closet/crate/internals //it is technically o2
