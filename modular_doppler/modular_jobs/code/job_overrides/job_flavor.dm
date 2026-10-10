@@ -81,3 +81,14 @@
 
 /datum/job/cyborg
 	description = "Assist the crew, follow your laws, coordinate with the AI."
+
+
+/**
+ * DEPARTMENTLESS
+ * This is part of the re-lore for Off-Duty Crew.
+ * Assistants aren't assisting anymore, now that Roustabouts are in.
+ */
+
+/datum/job/assistant
+	description = "Spend your time relaxing off-duty. Get your bearings in space. \
+	Complain about how scary the world is, and do nothing to fix it."

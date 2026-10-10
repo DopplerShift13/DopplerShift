@@ -40,3 +40,6 @@
 		", Negotiator",
 	)
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
+
+/datum/id_trim/job/assistant
+	assignment = JOB_OFF_DUTY
