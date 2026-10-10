@@ -1,0 +1,10 @@
+{
+	"suede_gloves": [
+		{
+			"type": "icon_state",
+			"icon_state": "suede_gloves",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

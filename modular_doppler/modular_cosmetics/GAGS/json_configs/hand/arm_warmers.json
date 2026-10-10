@@ -1,0 +1,10 @@
+{
+	"arm_warmers": [
+		{
+			"type": "icon_state",
+			"icon_state": "arm_warmers",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

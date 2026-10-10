@@ -1,0 +1,10 @@
+{
+	"blanket_shawl": [
+		{
+			"type": "icon_state",
+			"icon_state": "blanket_shawl",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}
