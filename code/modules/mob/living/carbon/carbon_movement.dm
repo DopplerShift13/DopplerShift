@@ -19,6 +19,11 @@
 		hunger_loss *= 2
 	adjust_nutrition(-1 * hunger_loss)
 
+	// DOPPLER EDIT CHANGE START
+	if(move_intent == MOVE_INTENT_RUN && !(movement_type & FLYING) && (mobility_flags & (MOBILITY_MOVE|MOBILITY_STAND)) && !pulledby)
+		drain_sprint()
+	// DOPPLER EDIT CHANGE END
+
 /mob/living/carbon/set_usable_legs(new_value)
 	. = ..()
 	if(isnull(.))
