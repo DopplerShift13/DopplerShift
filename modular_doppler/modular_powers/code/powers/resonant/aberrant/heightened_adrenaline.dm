@@ -95,6 +95,7 @@
 	. = ..()
 	if(!.)
 		return
+	RegisterSignal(owner, COMSIG_LIVING_DEATH, PROC_REF(on_owner_death))
 	adjust_stacks(stacks_to_add)
 
 /datum/status_effect/heightened_adrenaline/refresh(effect, stacks_to_add, stack_drain_interval, minimum_stacks, determination_per_tick)
@@ -112,7 +113,14 @@
 	adjust_stacks(-1)
 
 /datum/status_effect/heightened_adrenaline/on_remove()
+	UnregisterSignal(owner, COMSIG_LIVING_DEATH)
 	set_active(FALSE)
+
+/// Terminates Adrenaline immediately when its owner dies.
+/datum/status_effect/heightened_adrenaline/proc/on_owner_death(datum/source)
+	SIGNAL_HANDLER
+
+	qdel(src)
 
 /// Adjusts the stack total, deleting the effect once it has lost of all of its stacks.
 /datum/status_effect/heightened_adrenaline/proc/adjust_stacks(amount)
