@@ -140,7 +140,7 @@
 	// basically mimmicks crit healthloss
 	var/damage_to_apply = current_unshared_damage * seconds_per_tick
 	current_unshared_damage += source_power.unshared_critical_damage_growth * seconds_per_tick
-	owner.adjustOxyLoss(damage_to_apply, forced = TRUE)
+	owner.adjust_oxy_loss(damage_to_apply, forced = TRUE)
 
 /datum/status_effect/power/martyrs_sacrifice/on_remove()
 	UnregisterSignal(owner, COMSIG_LIVING_DEATH)
