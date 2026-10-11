@@ -5,7 +5,7 @@
 	ship_name_pool = "tiziran_ships"
 
 	threat_title = "Submit or Die!"
-	threat_content = "Your warriors are weak and your masters are far from here. Surrender %PAYOFF credits to %SHIPNAME, or we will take what is ours!"
+	threat_content = "Your warriors are weak and your masters are far from here. Surrender %PAYOFF [MONEY_NAME] to %SHIPNAME, or we will take what is ours!"
 	arrival_announcement = "Your warriors are weak and your masters are far from here. Surrender or suffer!"
 	possible_answers = list("We accept your gracious parlay.","Stick your head in a nacelle!")
 
