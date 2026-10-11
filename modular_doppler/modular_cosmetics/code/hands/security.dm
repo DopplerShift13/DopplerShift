@@ -26,3 +26,15 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security_obj.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security.dmi'
 	icon_state = "warden_gloves"
+
+
+//translation gloves for mutes that need radio and secglove performance/swag
+
+/obj/item/clothing/gloves/fingerless/doppler_security/radio
+	name = "security translation gloves"
+	desc = "A cleverly modified fork of the controversial fingerless gloves adopted by Port Safety, these \
+	half-fingered archer-style gloves allow for sign language users to 'speak' over radio by capturing \
+	the necessary motions from the leading three fingers on each hand. As these only cover a few fingers, \
+	they are almost worthless in forensics work."
+	icon_state = "fingerish_sec_radio"
+	clothing_traits = list(TRAIT_FAST_CUFFING, TRAIT_CAN_SIGN_ON_COMMS)

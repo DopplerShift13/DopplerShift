@@ -134,6 +134,7 @@
 		/obj/item/clothing/suit/jacket/officer/doppler/ps_b2 = 5,
 		/obj/item/clothing/suit/toggle/labcoat/high_vis = 5,
 		/obj/item/clothing/gloves/fingerless/doppler_security = 5,
+		/obj/item/clothing/gloves/fingerless/doppler_security/radio = 5,
 		/obj/item/clothing/head/hats/sec_beret_doppler = 5,
 		/obj/item/clothing/head/hats/sec_beret_doppler/alt = 5,
 		/obj/item/clothing/head/cap_colonysec = 5,

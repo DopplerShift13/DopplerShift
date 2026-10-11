@@ -191,6 +191,10 @@
 	name = "Fingerless Gloves (Security)"
 	item_path = /obj/item/clothing/gloves/fingerless/doppler_security
 
+/datum/loadout_item/gloves/misc/security_fingerless_translation
+	name = "Translation Gloves (Security)"
+	item_path = /obj/item/clothing/gloves/fingerless/doppler_security/radio
+
 /datum/loadout_item/gloves/misc/lalune_gloves
 	name = "Elbow Gloves"
 	item_path = /obj/item/clothing/gloves/lalune_long
