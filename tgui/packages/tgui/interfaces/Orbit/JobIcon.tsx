@@ -14,7 +14,7 @@ type IconSettings = {
 };
 
 const normalIcon: IconSettings = {
-  dmi: 'modular_doppler/overwrites/huds/hud.dmi', // DOPPLER EDIT - Use the modular hud icon file - ORIGINAL: dmi: 'icons/mob/huds/hud.dmi',
+  dmi: 'icons/mob/huds/hud.dmi',
   transform: 'scale(2.3) translateX(9px) translateY(1px)',
 };
 
