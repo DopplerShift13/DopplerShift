@@ -8,10 +8,11 @@ export const allergy_selection: FeatureChoiced = {
 };
 
 export const allergy_super_lethal: FeatureToggle = {
-  name: 'Increase Lethaility',
+  name: 'Increase Lethality',
   description:
-    "Checking this box makes the alllergy do organ damage and extra \
-    toxin damage otherwise, the allergy 'only' gives histamines. \
+    "Checking this box makes the alllergy have a chance to do organ damage \
+    alongside extra toxin damage and histamines (You will die very fast.)\
+    otherwise, the allergy 'only' gives histamines. \
     (You will still die.)",
   component: CheckboxInput,
 };
