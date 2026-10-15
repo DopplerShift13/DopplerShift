@@ -36,7 +36,7 @@ GLOBAL_LIST_INIT(possible_chemical_allergies, list(
 	"Naloxone" = /datum/reagent/medicine/naloxone,
 	"Helbital" = /datum/reagent/medicine/c2/helbital,
 	"Libital" = /datum/reagent/medicine/c2/libital,
-	"Probital" /datum/reagent/medicine/c2/probital,
+	"Probital" = /datum/reagent/medicine/c2/probital,
 	"Lenturi" = /datum/reagent/medicine/c2/lenturi,
 	"Airui" = /datum/reagent/medicine/c2/aiuri,
 	"Hercuri" = /datum/reagent/medicine/c2/hercuri,
