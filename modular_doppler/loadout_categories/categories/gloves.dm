@@ -192,8 +192,30 @@
 	item_path = /obj/item/clothing/gloves/fingerless/doppler_security
 
 /datum/loadout_item/gloves/misc/security_fingerless_translation
-	name = "Translation Gloves (Security)"
+	name = "Fingerless Translation Gloves (Security)"
 	item_path = /obj/item/clothing/gloves/fingerless/doppler_security/radio
+
+/datum/loadout_item/gloves/misc/security_translation
+	name = "Full Translation Gloves (Security)"
+	item_path = /obj/item/clothing/gloves/security_radio
+
+/datum/loadout_item/gloves/misc/cargo_fingerless_translation
+	name = "Fingerless Translation Gloves (Cargo)"
+	item_path = /obj/item/clothing/gloves/doppler_cargo/fingerless/radio
+
+/datum/loadout_item/gloves/misc/cargo_translation
+	name = "Leather Translation Gloves (Cargo)"
+	item_path = /obj/item/clothing/gloves/doppler_cargo/radio
+
+/datum/loadout_item/gloves/misc/medical_translation
+	name = "Nitrile Translation Gloves (Medical)"
+	item_path = /obj/item/clothing/gloves/latex/nitrile/radio
+	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHEMIST, JOB_PARAMEDIC, JOB_CORONER, JOB_CHIEF_MEDICAL_OFFICER)
+
+/datum/loadout_item/gloves/misc/engineering_translation
+	name = "Insulated Translation Gloves (Engineering)"
+	item_path = /obj/item/clothing/gloves/color/yellow/radio
+	restricted_roles = list(JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_CHIEF_ENGINEER)
 
 /datum/loadout_item/gloves/misc/lalune_gloves
 	name = "Elbow Gloves"
