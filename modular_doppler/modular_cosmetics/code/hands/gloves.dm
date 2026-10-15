@@ -72,6 +72,7 @@
 	desc = "Soft nubuck gloves with modified fingertips. These gloves allow for sign language users to \
 	'speak' over radio by capturing the necessary motions from the leading three fingers on each hand."
 	icon_state = "fingerish_cargo_radio"
+	worn_icon_state = "fingerish_cargo_radio"
 	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH, TRAIT_CAN_SIGN_ON_COMMS)
 
 /obj/item/clothing/gloves/doppler_cargo/radio
@@ -80,7 +81,8 @@
 	name = "leather cargo translation gloves"
 	desc = "Robust, comfortable leather gloves with modified fingertips that allow for sign language users \
 	to 'speak' over radio by capturing their hand motions."
-	icon_state = "leather_cargo_radio"
+	icon_state = "cargo_radio"
+	worn_icon_state = "cargo_radio"
 	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH, TRAIT_CAN_SIGN_ON_COMMS)
 
 /obj/item/clothing/gloves/latex/nitrile/radio
