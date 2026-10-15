@@ -1,4 +1,4 @@
-// Do Not Do Things Like This I Hate Myself.
+// Do Not Do Things Like This This Sucks Ass.
 GLOBAL_LIST_INIT(possible_chemical_allergies, list(
 	"Lidocaine" = /datum/reagent/medicine/lidocaine,
 	"Synaptizine" = /datum/reagent/medicine/synaptizine,
@@ -34,4 +34,17 @@ GLOBAL_LIST_INIT(possible_chemical_allergies, list(
 	"Sanguirite" = /datum/reagent/medicine/coagulant,
 	"Ondansetron" = /datum/reagent/medicine/ondansetron,
 	"Naloxone" = /datum/reagent/medicine/naloxone,
+	"Helbital" = /datum/reagent/medicine/c2/helbital,
+	"Libital" = /datum/reagent/medicine/c2/libital,
+	"Probital" /datum/reagent/medicine/c2/probital,
+	"Lenturi" = /datum/reagent/medicine/c2/lenturi,
+	"Airui" = /datum/reagent/medicine/c2/aiuri,
+	"Hercuri" = /datum/reagent/medicine/c2/hercuri,
+	"Convermol" = /datum/reagent/medicine/c2/convermol,
+	"Tirimol" = /datum/reagent/medicine/c2/tirimol,
+	"Seiver" = /datum/reagent/medicine/c2/seiver,
+	"Multiver" = /datum/reagent/medicine/c2/multiver,
+	"Syriniver" = /datum/reagent/medicine/c2/syriniver,
+	"Synthflesh" = /datum/reagent/medicine/c2/synthflesh,
+	"Penthrite" = /datum/reagent/medicine/c2/penthrite,
 ))
