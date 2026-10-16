@@ -10,7 +10,7 @@
 |---------------------------|------------------------------------------------|
 | Website                   | [https://dopplershift13.com](https://dopplershift13.com)          |
 | Discord										| [discord.gg/doppler](discord.gg/doppler)			|
-| Wiki                      | [https://wiki.dopplershift13.com/wiki/Main_Page](https://wiki.dopplershift13.com/wiki/Main_Page)   |
+| Wiki                      | [https://wiki.dopplershift13.com/](https://wiki.dopplershift13.com/)   |
 
 
 This is the codebase forked from the [/tg/station](https://github.com/tgstation/tgstation) flavoured fork of SpaceStation 13.

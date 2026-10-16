@@ -132,7 +132,7 @@
 			else
 				spawned_human.equipOutfit(outfit)
 			SSquirks.AssignQuirks(spawned_human, spawned_human.client)
-			SSpowers.assign_powers(spawned_human, spawned_human.client) // DOPPLER EDIT ADDITION - Assign mobs their powers
+			SSpowers.assign_powers(spawned_human, spawned_human.client, POWER_SOURCE_GHOST_ROLE) // DOPPLER EDIT ADDITION - Assign mobs their powers
 		else
 			spawned_human.equipOutfit(outfit)
 	else if(allow_prefs && spawned_mob.client)
@@ -141,7 +141,7 @@
 		if(allow_loadout)
 			spawned_human.equip_outfit_and_loadout(new /datum/outfit(), spawned_human.client?.prefs)
 		SSquirks.AssignQuirks(spawned_human, spawned_human.client)
-		SSpowers.assign_powers(spawned_human, spawned_human.client) // DOPPLER EDIT ADDITION - Assign mobs their powers
+		SSpowers.assign_powers(spawned_human, spawned_human.client, POWER_SOURCE_GHOST_ROLE) // DOPPLER EDIT ADDITION - Assign mobs their powers
 		/// DOPPLER SHIFT ADDITION END
 
 ///these mob spawn subtypes do not trigger until attacked by a ghost.

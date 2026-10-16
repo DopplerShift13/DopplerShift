@@ -1,0 +1,49 @@
+2026-10-03:
+  TheOneAndOnlyCreeperJoe:
+  - rscadd: There's now an LOOC roll dice verb. Defaults to 1d20, allows input for
+      other dice-sizes. Behaves as LOOC does, but looks slightly different to verify
+      its authenticity.
+2026-10-05:
+  desertmote:
+  - image: Updates protogen head according to feedback
+  kittysmooch:
+  - bugfix: 'all security undersuits are rollable
+
+      :cl:'
+  - rscdel: Local ordinances have banned the production of laser scatter shells.
+  - balance: 'platillo gauntlets are suddenly too big for trigger guards
+
+      :cl:'
+2026-10-06:
+  444explorer:
+  - rscadd: Added a 7 point upgrade to Counter-Resonance Anomaly; Ontologically Immutable,
+      which silences everyone adjacent to you!
+  TheOneAndOnlyCreeperJoe:
+  - rscdel: Genemodded no longer lists any positive mutations, nor Stoner/Fiery Sweat
+  - qol: Genemodded sorts mutations alphabetically now
+  - bugfix: Genemodded has had several mutations removed that were causing CI/CD issues.
+  - server: The blackbox now more in-depth tracks players spawning in with powers,
+      alongside some side statistics such as species and assignment.
+  - rscadd: Riftwalker now has variant-rifts with unique spawning behavior, e.g you
+      can now find them in maintenance and more commonly around teleportation-structures!
+  - rscadd: Science can now print rift goggles, which let them see riftwalker rifts
+      and use equipment on it (though not go through rifts).
+  - balance: Riftwalker no longer is affected by dispelling and anti-magic. Instead,
+      it is disabled as anomalies are. Just like anomalies, it can drop a bluespace
+      anomaly core (chance-based).
+  - balance: Riftwalker spawns 2 extra pairs of rifts per round to offset the new
+      diversity.
+  - image: Riftwalker has new sprites!
+  - sound: Adds a new sound to one of the rarer rift variants.
+  carda-sometimesknownas-paxilmaniac:
+  - rscadd: Adds the tetherspike, a handheld tool for moving heavy objects around
+      safely.
+  dawsonkeyes:
+  - rscadd: Recolorable horned skull mask loadout item
+  kannthus:
+  - qol: adds dopplers own headshot URL
+2026-10-08:
+  Goat:
+  - bugfix: the sleepers in the changing room shouldn't get clogged anymore
+  - bugfix: medbay doesn't get told anymore about your perscription if you spawn in
+      the changing room

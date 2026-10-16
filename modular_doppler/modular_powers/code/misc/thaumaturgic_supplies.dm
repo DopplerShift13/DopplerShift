@@ -32,6 +32,7 @@
 		/obj/item/clothing/suit/wizrobe/tape/fake,
 		/obj/item/clothing/suit/wizrobe/secwiz,
 		/obj/item/clothing/suit/wizrobe/viszard,
+		/obj/item/clothing/suit/wizrobe/secwiz/vizard,
 		/obj/item/clothing/suit/wizrobe/durathread,
 		/obj/item/clothing/suit/wizrobe/durathread/earth,
 		/obj/item/clothing/suit/wizrobe/durathread/electric,

@@ -21,6 +21,8 @@ component_cell_out_of_charge/component_cell_removed proc using loc where necessa
 /datum/component/cell
 	/// Our reference to the inserted cell, which will be stored in the parent.
 	var/obj/item/stock_parts/power_store/cell/inserted_cell
+	/// The type of power storage, cell or megacell, that this uses
+	var/cell_type = /obj/item/stock_parts/power_store/cell
 	/// The item reference to parent.
 	var/obj/item/equipment
 	/// How much power do we use each process?
@@ -55,7 +57,6 @@ component_cell_out_of_charge/component_cell_removed proc using loc where necessa
 		power_use_amount = _power_use_amount
 	else
 		power_use_amount = equipment.power_use_amount
-
 	if(_cell_can_be_removed)
 		cell_can_be_removed = _cell_can_be_removed
 

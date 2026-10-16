@@ -26,6 +26,7 @@
 	max_integrity = 75
 	integrity_failure = 0.6 // higher than usual to ensure it can be repaired sooner
 	repairable_by = /obj/item/stack/sheet/mineral/titanium
+	clothing_traits = list(TRAIT_CHUNKYFINGERS)
 	var/break_sound = 'sound/effects/bang.ogg'
 
 ///nullifies block_chance if a shield is held

@@ -1,5 +1,5 @@
 import {
-  Feature,
+  type Feature,
   FeatureNumberInput,
   FeatureShortTextInput,
   FeatureTextInput,
@@ -29,7 +29,7 @@ export const flavor_extended_desc: Feature<string> = {
 export const headshot_url: Feature<string> = {
   name: 'Headshot image (URL)',
   description:
-    "A https link to a hosted image of your character's headshot. Must be: no larger than 250x250px (you can use larger images, but they will be scaled down, and probably poorly above 500px), a jpg/png/jpeg file, and hosted on either Gyazo (i.gyazo.com), Byondhome (files.byondhome.com), Imgbox (images2.imgbox.com) or Catbox (files.catbox.moe). Transparent backgrounds are highly recommended (but only supported on .png files).",
+    "A https link to a hosted image of your character's headshot. Must be: no larger than 250x250px (you can use larger images, but they will be scaled down, and probably poorly above 500px), a jpg/png/jpeg file, and hosted on either Dopplers own system via #headshots (headshots.dopplershift13.com), Gyazo (i.gyazo.com), Byondhome (files.byondhome.com), Imgbox (images2.imgbox.com) or Catbox (files.catbox.moe). Transparent backgrounds are highly recommended (but only supported on .png files).",
   component: FeatureShortTextInput,
 };
 
@@ -78,7 +78,7 @@ export const silicon_model_desc: Feature<string> = {
 export const silicon_headshot_url: Feature<string> = {
   name: 'Silicon headshot image (URL)',
   description:
-    "A https link to a hosted image of your SILICON character's headshot, typically either a specific cyborg shell, or something representing their face or engram if an AI-core. Must be: no larger than 250x250px (you can use larger images, but they will be scaled down, and probably poorly above 500px), a jpg/png/jpeg file, and hosted on either Gyazo (i.gyazo.com), Byondhome (files.byondhome.com), Imgbox (images2.imgbox.com) or Catbox (files.catbox.moe). Transparent backgrounds are highly recommended (but only supported on .png files).",
+    "A https link to a hosted image of your SILICON character's headshot, typically either a specific cyborg shell, or something representing their face or engram if an AI-core. Must be: no larger than 250x250px (you can use larger images, but they will be scaled down, and probably poorly above 500px), a jpg/png/jpeg file, and hosted on either Dopplers own system via #headshots (headshots.dopplershift13.com), Gyazo (i.gyazo.com), Byondhome (files.byondhome.com), Imgbox (images2.imgbox.com) or Catbox (files.catbox.moe). Transparent backgrounds are highly recommended (but only supported on .png files).",
   component: FeatureShortTextInput,
 };
 
