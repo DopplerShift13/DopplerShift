@@ -119,7 +119,7 @@
 	)
 
 /obj/item/clothing/glasses/hud/eyepatch
-	name = "HUD eyepatch"
+	name = "\improper HUD eyepatch"
 	desc = "A simple HUD designed to interface with optical nerves of a lost eye. This one seems busted."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
