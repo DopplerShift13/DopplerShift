@@ -123,6 +123,7 @@
 	desc = "A simple HUD designed to interface with optical nerves of a lost eye. This one seems busted."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	gender = NEUTER
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
@@ -276,7 +277,6 @@
 /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
 	name = "security HUD blindfold"
 	desc = "An ornate, fake blindfold with a security HUD inside. Helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
-	gender = NEUTER
 	icon_state =  "secfold"
 	base_icon_state =  "secfold"
 	inhand_icon_state = "blindfold"
@@ -286,7 +286,6 @@
 /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
 	name = "medical HUD blindfold"
 	desc = "An ornate, fake blindfold with a medical HUD inside. Great for helping keep a poker face when dealing with patients."
-	gender = NEUTER
 	icon_state =  "medfold"
 	base_icon_state =  "medfold"
 	inhand_icon_state = "blindfold"
@@ -296,7 +295,6 @@
 /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
 	name = "meson HUD blindfold"
 	desc = "An ornate, fake blindfold with meson lenses inside. Doesn't shield against welding."
-	gender = NEUTER
 	icon_state =  "mesonfold"
 	base_icon_state =  "mesonfold"
 	inhand_icon_state = "blindfold"
@@ -306,7 +304,6 @@
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
 	name = "diagnostic HUD blindfold"
 	desc = "An ornate, fake blindfold with a diagnostic HUD inside. Excellent for working on androids."
-	gender = NEUTER
 	icon_state =  "robofold"
 	base_icon_state =  "robofold"
 	inhand_icon_state = "blindfold"
@@ -316,7 +313,6 @@
 /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
 	name = "science HUD blindfold"
 	desc = "An ornate, fake blindfold with a science HUD inside. Provides a way to get used to blindfolds before you eventually end up needing the real thing."
-	gender = NEUTER
 	icon_state =  "scifold"
 	base_icon_state =  "scifold"
 	inhand_icon_state = "blindfold"
@@ -712,6 +708,7 @@
 //eyepatches end//
 
 //Blindfolds//
+//technically, we don't need this anymore; i'll wait for PR review before acting on this
 /datum/crafting_recipe/secfold
 	name = "Security HUD Blindfold"
 	result = /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
