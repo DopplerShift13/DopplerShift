@@ -225,8 +225,12 @@
 
 /// BLINDFOLD HUDS ///
 /obj/item/clothing/glasses/trickblindfold/obsolete
-	name = "obsolete fake blindfold"
-	desc = "An ornate, fake blindfold, devoid of any electronics. It's belived to be originally worn by members of a bygone military force that sought to protect humanity."
+	name = "tech blindfold"
+	desc = "An ornate, fake blindfold that merely veils the vision. It's believed to have originally \
+	been worn by members of a bygone military force that sought to protect humanity. This one is special; \
+	it possesses a suite of sleek integrations that allow it to alter the user's perception in various \
+	useful ways. Unfortunately, you need to supply the eyewear that it would copy the software from."
+	gender = NEUTER
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "obsoletefold"
@@ -236,10 +240,43 @@
 	base_icon_state = "obsoletefold"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
+	obj_flags = INFINITE_RESKIN
+	uses_advanced_reskins = TRUE
+	unique_reskin = list(
+		"Classic Black" = list(
+			RESKIN_ICON_STATE = "obsoletefold",
+			RESKIN_WORN_ICON_STATE = "obsoletefold",
+		),
+		"Definably Red" = list(
+			RESKIN_ICON_STATE = "secfold",
+			RESKIN_WORN_ICON_STATE = "secfold",
+		),
+		"Kind of Bluish" = list(
+			RESKIN_ICON_STATE = "medfold",
+			RESKIN_WORN_ICON_STATE = "medfold",
+		),
+		"Rather Greenish" = list(
+			RESKIN_ICON_STATE = "mesonfold",
+			RESKIN_WORN_ICON_STATE = "mesonfold",
+		),
+		"Legally Orange" = list(
+			RESKIN_ICON_STATE = "robofold",
+			RESKIN_WORN_ICON_STATE = "robofold",
+		),
+		"Quite Purple" = list(
+			RESKIN_ICON_STATE = "scifold",
+			RESKIN_WORN_ICON_STATE = "scifold",
+		),
+	)
+
+/obj/item/clothing/glasses/trickblindfold/obsolete/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/glasses_stats_thief)
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
 	name = "security HUD blindfold"
 	desc = "An ornate, fake blindfold with a security HUD inside. Helps you look like blind justice. This won't provide the same protection that you'd get from sunglasses."
+	gender = NEUTER
 	icon_state =  "secfold"
 	base_icon_state =  "secfold"
 	inhand_icon_state = "blindfold"
@@ -249,6 +286,7 @@
 /obj/item/clothing/glasses/hud/eyepatch/med/blindfold
 	name = "medical HUD blindfold"
 	desc = "An ornate, fake blindfold with a medical HUD inside. Great for helping keep a poker face when dealing with patients."
+	gender = NEUTER
 	icon_state =  "medfold"
 	base_icon_state =  "medfold"
 	inhand_icon_state = "blindfold"
@@ -258,6 +296,7 @@
 /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
 	name = "meson HUD blindfold"
 	desc = "An ornate, fake blindfold with meson lenses inside. Doesn't shield against welding."
+	gender = NEUTER
 	icon_state =  "mesonfold"
 	base_icon_state =  "mesonfold"
 	inhand_icon_state = "blindfold"
@@ -267,6 +306,7 @@
 /obj/item/clothing/glasses/hud/eyepatch/diagnostic/blindfold
 	name = "diagnostic HUD blindfold"
 	desc = "An ornate, fake blindfold with a diagnostic HUD inside. Excellent for working on androids."
+	gender = NEUTER
 	icon_state =  "robofold"
 	base_icon_state =  "robofold"
 	inhand_icon_state = "blindfold"
@@ -276,6 +316,7 @@
 /obj/item/clothing/glasses/hud/eyepatch/sci/blindfold
 	name = "science HUD blindfold"
 	desc = "An ornate, fake blindfold with a science HUD inside. Provides a way to get used to blindfolds before you eventually end up needing the real thing."
+	gender = NEUTER
 	icon_state =  "scifold"
 	base_icon_state =  "scifold"
 	inhand_icon_state = "blindfold"
