@@ -4,7 +4,7 @@
 	\nIf you both share a path and the target has at least one magical power in that path, you will see orange-colored aura on them instead, verifying that you both share at least one path. If the target is immune to resonant scrying or magic, you won't detect anything.\
 	\nHas a 30 second cooldown."
 	security_record_text = "Subject can identify other magic-using individuals."
-	value = 2
+	value = 1
 	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_SCRYING
 
 	required_powers = list(/datum/power/imbued_root/enchanted)
