@@ -226,11 +226,8 @@
 
 /// BLINDFOLD HUDS ///
 /obj/item/clothing/glasses/trickblindfold/obsolete
-	name = "tech blindfold"
-	desc = "An ornate, fake blindfold that merely veils the vision. It's believed to have originally \
-	been worn by members of a bygone military force that sought to protect humanity. This one is special; \
-	it possesses a suite of sleek integrations that allow it to alter the user's perception in various \
-	useful ways. Unfortunately, you need to supply the eyewear that it would copy the software from."
+	name = "obsolete fake blindfold"
+	desc = "An ornate, fake blindfold, devoid of any electronics. It's belived to be originally worn by members of a bygone military force that sought to protect humanity."
 	gender = NEUTER
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
@@ -241,38 +238,6 @@
 	base_icon_state = "obsoletefold"
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
-	obj_flags = INFINITE_RESKIN
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Classic Black" = list(
-			RESKIN_ICON_STATE = "obsoletefold",
-			RESKIN_WORN_ICON_STATE = "obsoletefold",
-		),
-		"Definably Red" = list(
-			RESKIN_ICON_STATE = "secfold",
-			RESKIN_WORN_ICON_STATE = "secfold",
-		),
-		"Kind of Bluish" = list(
-			RESKIN_ICON_STATE = "medfold",
-			RESKIN_WORN_ICON_STATE = "medfold",
-		),
-		"Rather Greenish" = list(
-			RESKIN_ICON_STATE = "mesonfold",
-			RESKIN_WORN_ICON_STATE = "mesonfold",
-		),
-		"Legally Orange" = list(
-			RESKIN_ICON_STATE = "robofold",
-			RESKIN_WORN_ICON_STATE = "robofold",
-		),
-		"Quite Purple" = list(
-			RESKIN_ICON_STATE = "scifold",
-			RESKIN_WORN_ICON_STATE = "scifold",
-		),
-	)
-
-/obj/item/clothing/glasses/trickblindfold/obsolete/Initialize(mapload)
-	. = ..()
-	AddComponent(/datum/component/glasses_stats_thief)
 
 /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold
 	name = "security HUD blindfold"
@@ -318,6 +283,25 @@
 	inhand_icon_state = "blindfold"
 	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
+
+/obj/item/clothing/glasses/trickblindfold/hudveil
+	name = "veil HUD"
+	desc = "A fake blindfold that merely veils the vision. This one is special, \
+	possessing a suite of sleek integrations that allow it to alter the user's perception in various \
+	useful ways. Unfortunately, you need to supply the eyewear that it would copy the software from."
+	gender = NEUTER
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	icon_state = "hudveil"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
+
+/obj/item/clothing/glasses/trickblindfold/hudveil/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/glasses_stats_thief)
 
 /obj/item/clothing/glasses/hud/ar
 	name = "\improper AR glasses"
@@ -708,7 +692,6 @@
 //eyepatches end//
 
 //Blindfolds//
-//technically, we don't need this anymore; i'll wait for PR review before acting on this
 /datum/crafting_recipe/secfold
 	name = "Security HUD Blindfold"
 	result = /obj/item/clothing/glasses/hud/eyepatch/sec/blindfold

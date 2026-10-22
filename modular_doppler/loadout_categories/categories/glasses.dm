@@ -140,6 +140,10 @@
 	name = "HUD Eyepatch (Science)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/sci
 
+/datum/loadout_item/glasses/hud/hud_blindfold_none
+	name = "HUD Blindfold (None, Fake)"
+	item_path = /obj/item/clothing/glasses/trickblindfold/obsolete
+
 /datum/loadout_item/glasses/hud/hud_blindfold_meson
 	name = "HUD Blindfold (Meson, Fake)"
 	item_path = /obj/item/clothing/glasses/hud/eyepatch/meson/blindfold
@@ -209,8 +213,8 @@
 	.[FA_ICON_LINK] = "Takes in properties of other glasses!"
 
 /datum/loadout_item/glasses/hud/stealing/blindfold
-	name = "HUD Blindfold (Fake)"
-	item_path = /obj/item/clothing/glasses/trickblindfold/obsolete
+	name = "Veiling Fake Blindfold HUD"
+	item_path = /obj/item/clothing/glasses/trickblindfold/hudveil
 
 /datum/loadout_item/glasses/hud/stealing/techno_visor
 	name = "Techno-Visor"
