@@ -20,6 +20,9 @@
 
 	return "Chemical Allergy" in preferences.all_quirks
 
+/datum/preference/choiced/allergy_quirk/apply_to_human(mob/living/carbon/human/target, value)
+	return
+
 /datum/preference/toggle/allergy_super_lethal
 	category = PREFERENCE_CATEGORY_MANUALLY_RENDERED
 	savefile_key = "allergy_super_lethal"
@@ -31,3 +34,6 @@
 		return FALSE
 
 	return "Chemical Allergy" in preferences.all_quirks
+
+/datum/preference/toggle/allergy_super_lethal/apply_to_human(mob/living/carbon/human/target, value)
+	return
