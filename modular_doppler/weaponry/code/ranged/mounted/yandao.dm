@@ -1,6 +1,6 @@
 // Tripod machine gun
 /obj/item/gun/ballistic/automatic/yandao_tripod
-	name = "tripod yandao-I6 chaingun"
+	name = "tripod Yandao-I6 chaingun"
 	desc = "Locally produced within Cruesoe's Rest and proudly so from a factory on New Gibraltar, the yandao is a hefty open bolt chaingun \
 		that fires from a continuous belt of .34 NB. The kickback caused by such a round, combined with the high fire rate, \
 		make mounting the gun on its tripod a necessity before firing."
@@ -49,14 +49,14 @@
 	spawnwithmagazine = FALSE
 
 /obj/vehicle/ridden/mounted_turret/yandao_mapping
-	name = "tripod yandao but only for mappers"
+	name = "tripod Yandao but only for mappers"
 	desc = "DO NOT PUT ME IN A DEPLOYABLE TURRET COMPONENT YOU WILL SUMMON A GHOST, AND DIE."
 	icon = 'modular_doppler/weaponry/icons/obj/turrets.dmi'
 	icon_state = "yandao"
 	mapload_gun = /obj/item/gun/ballistic/automatic/yandao_tripod
 
 /obj/item/ammo_box/magazine/yandao
-	name = "\improper yandao belt box (.34)"
+	name = "\improper Yandao belt box (.34)"
 	desc = "A large belt box for the yandao machine gun, holds 50 rounds of .34 NB."
 	icon = 'modular_doppler/weaponry/icons/obj/casings.dmi'
 	icon_state = "yandao_box"
@@ -70,5 +70,5 @@
 	start_empty = TRUE
 
 /obj/item/ammo_box/magazine/yandao/kill_everyone
-	name = "\improper yandao belt box (.34 Special)"
+	name = "\improper Yandao belt box (.34 Special)"
 	ammo_type = /obj/item/ammo_casing/c34nb/special
