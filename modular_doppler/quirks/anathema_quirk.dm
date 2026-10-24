@@ -15,7 +15,6 @@
 /// Silencing effects (reality anchor, ontologically immutable) boil whoever carries this. Attach through AddElementTrait(TRAIT_ANATHEMA, your source here, /datum/element/anathema)
 /datum/element/anathema
 	element_flags = ELEMENT_DETACH_ON_HOST_DESTROY
-	var/mood_category = "anathema_everything_is_fucked"
 
 /datum/element/anathema/Attach(datum/target)
 	. = ..()
@@ -33,7 +32,7 @@
 		COMSIG_LIVING_ANCHOR_SILENCE_MENTAL_APPLIED,
 		COMSIG_LIVING_ANCHOR_SILENCE_MENTAL_CLEARED,
 	))
-	source.clear_mood_event(mood_category)
+	source.clear_mood_event(src)
 	return ..()
 
 /datum/element/anathema/proc/anchor_warning(mob/living/source)
@@ -47,7 +46,7 @@
 /datum/element/anathema/proc/add_mental_effects(mob/living/source, datum/status_effect/power/reality_anchor_silenced/effect)
 	SIGNAL_HANDLER
 	// Adds another moodlet on top of any existing ones
-	source.add_mood_event(mood_category, /datum/mood_event/anathema_boiling)
+	source.add_mood_event(src, /datum/mood_event/anathema_boiling)
 	// Replaces the base static overlay
 	source.overlay_fullscreen("reality_anchor_static", /atom/movable/screen/fullscreen/reality_anchor_static/anathema)
 	// Replaces the base anchor blur
@@ -55,7 +54,7 @@
 
 /datum/element/anathema/proc/clear_mental_effects(mob/living/source)
 	SIGNAL_HANDLER
-	source.clear_mood_event(mood_category) // We only clear the mood event, because the static and screen blur are handled by the status effect itself
+	source.clear_mood_event(src) // We only clear the mood event, because the static and screen blur are handled by the status effect itself
 
 /datum/mood_event/anathema_boiling
 	description = "IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS"
