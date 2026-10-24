@@ -206,8 +206,7 @@
 		to_chat(owner, span_warning("Your mental resistance shields you from the excruciating effects of having your powers suppressed!"))
 	else
 		send_initial_message()
-		if(owner_archetype != POWER_ARCHETYPE_MORTAL) // non-mortals hear a grating sound
-			owner.playsound_local(owner, 'sound/effects/curse/curse5.ogg', 50, FALSE) // specifically this one because it sounds like a scream.
+		owner.playsound_local(owner, 'sound/effects/curse/curse5.ogg', 50, FALSE) // non-mortals hear a grating sound
 	ADD_TRAIT(owner, TRAIT_RESONANCE_SILENCED, TRAIT_STATUS_EFFECT(id))
 	if(!mental_effects_blocked)
 		apply_mental_effects()
@@ -237,6 +236,7 @@
 	if(screen_effect_type)
 		owner.overlay_fullscreen("reality_anchor_static", screen_effect_type)
 	apply_anchor_blur()
+	SEND_SIGNAL(owner, COMSIG_LIVING_ANCHOR_SILENCE_MENTAL_APPLIED, src)
 
 /// Clears the mood, visual, and audio effects that mental antimagic can block.
 /datum/status_effect/power/reality_anchor_silenced/proc/clear_mental_effects()
@@ -244,18 +244,17 @@
 	owner.clear_fullscreen("reality_anchor_static")
 	owner.stop_sound_channel(CHANNEL_HEARTBEAT)
 	clear_anchor_blur()
+	SEND_SIGNAL(owner, COMSIG_LIVING_ANCHOR_SILENCE_MENTAL_CLEARED, src)
 
 /datum/status_effect/power/reality_anchor_silenced/tick(seconds_between_ticks)
-	if(HAS_TRAIT(owner, TRAIT_ANATHEMA))
-		owner.apply_damage(5, BURN) // 40 to 50 burn damage per application of the effect
+	SEND_SIGNAL(owner, COMSIG_LIVING_ANCHOR_SILENCE_TICK, seconds_between_ticks)
 	if(mental_effects_blocked || owner_archetype == POWER_ARCHETYPE_MORTAL) // normies and the mentally shielded don't hear the heartbeat
 		return
 	owner.playsound_local(owner, 'sound/effects/health/slowbeat.ogg', 40, FALSE, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
 
 /// Warns the owner when the anchor's silence is first applied.
 /datum/status_effect/power/reality_anchor_silenced/proc/send_initial_message()
-	if(HAS_TRAIT(owner, TRAIT_ANATHEMA))
-		to_chat(owner, span_userdanger("Your body boils away as your biology is suppressed!"))
+	SEND_SIGNAL(owner, COMSIG_LIVING_ANCHOR_SILENCE_WARNING)
 	if(owner_archetype == POWER_ARCHETYPE_SORCEROUS)
 		to_chat(owner, span_userdanger("You sense your powers being suppressed, and you are wracked with an excruciating pain spreading throughout your entire body! MAKE IT STOP!"))
 		return
@@ -274,8 +273,6 @@
 
 /// Delegates the appropriate moodlet to the appropriate archetype.
 /datum/status_effect/power/reality_anchor_silenced/proc/get_anchor_moodlet()
-	if(HAS_TRAIT(owner, TRAIT_ANATHEMA))
-		return /datum/mood_event/reality_anchor_silenced/anathema
 	if(owner_archetype == POWER_ARCHETYPE_SORCEROUS)
 		return /datum/mood_event/reality_anchor_silenced/sorcerous
 	if(owner_archetype == POWER_ARCHETYPE_RESONANT)
@@ -288,13 +285,11 @@
 		return /atom/movable/screen/fullscreen/reality_anchor_static/sorcerous
 	if(owner_archetype == POWER_ARCHETYPE_RESONANT)
 		return /atom/movable/screen/fullscreen/reality_anchor_static/resonant
-	if(HAS_TRAIT(owner, TRAIT_ANATHEMA))
-		return /atom/movable/screen/fullscreen/reality_anchor_static/anathema_minimum
 	return null
 
 /// Applies a constant radial blur to the owner's rendered game plane.
-/datum/status_effect/power/reality_anchor_silenced/proc/apply_anchor_blur()
-	var/blur_size = get_anchor_blur_size()
+/datum/status_effect/power/reality_anchor_silenced/proc/apply_anchor_blur(blur_size)
+	blur_size = get_anchor_blur_size()
 	if(!blur_size || !owner.hud_used)
 		return
 	blur_plane_master_controller = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
@@ -314,8 +309,6 @@
 		return 0.02
 	if(owner_archetype == POWER_ARCHETYPE_RESONANT)
 		return 0.01
-	if(HAS_TRAIT(owner, TRAIT_ANATHEMA))
-		return 0.01
 	return 0
 
 /atom/movable/screen/fullscreen/reality_anchor_static
@@ -330,9 +323,6 @@
 /atom/movable/screen/fullscreen/reality_anchor_static/resonant
 	alpha = 70
 
-/atom/movable/screen/fullscreen/reality_anchor_static/anathema_minimum
-	alpha = 50
-
 /atom/movable/screen/alert/status_effect/reality_anchor_silenced
 	name = "Silenced"
 	desc = "Resonant powers are suppressed around the reality anchor!"
@@ -342,11 +332,6 @@
 /datum/mood_event/reality_anchor_silenced
 	description = "I feel like something's different in the air."
 	mood_change = 0
-
-/datum/mood_event/reality_anchor_silenced/anathema
-	description = "IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS IT BURNS"
-	mood_change = -25
-	special_screen_obj = "mood_despair"
 
 /datum/mood_event/reality_anchor_silenced/sorcerous
 	description = "MY WHOLE BODY WRITHES WITHOUT THE MAGIC THAT SUSTAINS IT, LIKE IT IS DROWNING IN A BLEACHED MORASS OF MUNDANITY!"
