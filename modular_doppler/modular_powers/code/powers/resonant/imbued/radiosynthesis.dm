@@ -35,9 +35,9 @@
 				return
 
 	// Heal toxins if we didn't heal any other damage, but never remove the last point (keeps irradiation).
-	var/tox_loss = power_holder.getToxLoss()
+	var/tox_loss = power_holder.get_tox_loss()
 	if(tox_loss > 1 && heal_amt < tox_loss) // We don't want to heal all of a person's radiation, just as to preserve their radioactiv
 		var/tox_heal = min(heal_amt, tox_loss - 1)
 		// Invert for toxins-healing sepcies
 		tox_heal = HAS_TRAIT(power_holder, TRAIT_TOXINLOVER) ? -tox_heal : tox_heal
-		power_holder.adjustToxLoss(-tox_heal)
+		power_holder.adjust_tox_loss(-tox_heal)

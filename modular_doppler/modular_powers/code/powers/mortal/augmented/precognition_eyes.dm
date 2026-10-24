@@ -149,7 +149,7 @@
 	// If the projectile deals more damage, we use that for stamina cost instead of dodge_stamloss.
 	if(proj)
 		base_cost = max(base_cost, proj.damage)
-	source.adjustStaminaLoss(round(base_cost * (1 / max(efficiency, 0.01))))
+	source.adjust_stamina_loss(round(base_cost * (1 / max(efficiency, 0.01))))
 	premium_component?.adjust_quality(-AUGMENTED_PREMIUM_QUALITY_MINOR)
 	source.visible_message(span_warning("[source] dodges the [proj] with little effort!"), span_danger("You automatically dodge the [proj]!"))
 

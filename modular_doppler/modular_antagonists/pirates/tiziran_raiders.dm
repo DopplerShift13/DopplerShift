@@ -5,7 +5,7 @@
 	ship_name_pool = "tiziran_ships"
 
 	threat_title = "Submit or Die!"
-	threat_content = "Your warriors are weak and your masters are far from here. Surrender %PAYOFF credits to %SHIPNAME, or we will take what is ours!"
+	threat_content = "Your warriors are weak and your masters are far from here. Surrender %PAYOFF libre to %SHIPNAME, or we will take what is ours!"
 	arrival_announcement = "Your warriors are weak and your masters are far from here. Surrender or suffer!"
 	possible_answers = list("We accept your gracious parlay.","Stick your head in a nacelle!")
 
@@ -69,4 +69,4 @@
 /obj/machinery/suit_storage_unit/tiziran_raiders
 	mask_type = /obj/item/clothing/mask/snout_balaclava
 	mod_type = /obj/item/mod/control/pre_equipped/raider
-	storage_type = /obj/item/tank/jetpack/oxygen/harness
+	storage_type = /obj/item/tank/jetpack/harness

@@ -378,8 +378,8 @@
 
 /// Shared healing for inorganic mobs that use normal brute and burn damage tracks.
 /datum/action/cooldown/power/thaumaturge/mending/proc/repair_synthetic_mob(mob/living/target_living)
-	var/brute_damage = target_living.getBruteLoss()
-	var/burn_damage = target_living.getFireLoss()
+	var/brute_damage = target_living.get_brute_loss()
+	var/burn_damage = target_living.get_fire_loss()
 	var/total_damage = brute_damage + burn_damage
 	if(total_damage <= 0)
 		return FALSE

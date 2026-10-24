@@ -23,7 +23,7 @@
 	if(current_cycle > 10)
 		affected_mob.set_eye_blur_if_lower(6 SECONDS * REM * seconds_per_tick)
 		affected_mob.adjust_confusion(1 SECONDS * REM * normalise_creation_purity() * seconds_per_tick)
-	if(affected_mob.adjustStaminaLoss(2 * REM * seconds_per_tick, updating_stamina = FALSE))
+	if(affected_mob.adjust_stamina_loss(2 * REM * seconds_per_tick, updating_stamina = FALSE))
 		return UPDATE_MOB_HEALTH
 
 /datum/reagent/medicine/aslanane/expose_mob(mob/living/exposed_mob, methods = TOUCH, reac_volume, show_message = TRUE, touch_protection = 0)

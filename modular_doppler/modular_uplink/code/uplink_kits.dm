@@ -266,7 +266,7 @@
 	new /obj/item/clothing/head/helmet/marine/pmc(src)
 	new /obj/item/clothing/mask/gas/sechailer(src)
 	new /obj/item/clothing/glasses/night(src) // 3~ TC
-	new /obj/item/clothing/gloves/krav_maga/combatglovesplus(src) //5TC
+	new /obj/item/clothing/gloves/kaza_ruk/combatglovesplus(src) //5TC
 	new /obj/item/clothing/shoes/jackboots(src)
 	new /obj/item/storage/belt/military/assault/fisher(src) //items in this belt easily costs 18 TC
 
@@ -300,7 +300,7 @@
 	new /obj/item/clothing/shoes/lizard_shins(src)
 	new /obj/item/clothing/mask/snout_balaclava(src)
 	new /obj/item/mod/control/pre_equipped/raider(src) // 10 TC
-	new /obj/item/tank/jetpack/oxygen/harness(src) // 1 TC
+	new /obj/item/tank/jetpack/harness(src) // 1 TC
 	new /obj/item/melee/tizirian_sword/megachoppa(src) // 4 TC
 	new /obj/item/gun/ballistic/bolt_thrower(src) // 10 TC (maybe more, but who cares)
 	new /obj/item/ammo_box/magazine/ammo_stack/bolt_slug/full(src) // 1 TC

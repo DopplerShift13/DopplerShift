@@ -147,7 +147,7 @@
 	do
 		target.Shake(pixelshiftx = 1, pixelshifty = 0, duration = 10)
 		if(do_after(owner, 10, target = target) && person_blend_conditions(user, target))
-			target.adjustBruteLoss(grab_blend_brute)
+			target.adjust_brute_loss(grab_blend_brute)
 			// Carbon mobs can receive wounds.
 			if(iscarbon(target))
 				var/mob/living/carbon/thatpoorguy = target

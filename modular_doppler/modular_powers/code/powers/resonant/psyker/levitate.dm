@@ -75,7 +75,7 @@
 		else
 			to_chat(owner, span_userdanger("You drop to the ground!"))
 			playsound(owner, 'sound/effects/desecration/desecration-02.ogg', 75, TRUE, SHORT_RANGE_SOUND_EXTRARANGE) // Research (vibes) shows desecration-02 is the best "hit the ground"-type splat; so we're using it instead of a random desecration.
-			victim.adjustBruteLoss(5)
+			victim.adjust_brute_loss(5)
 			victim.Knockdown(3 SECONDS)
 		return DISPEL_RESULT_DISPELLED
 

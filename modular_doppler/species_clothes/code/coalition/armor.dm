@@ -39,17 +39,21 @@
 	flags_cover = EARS_COVERED
 	flags_inv = null
 	hair_mask = /datum/hair_mask/standard_hat_middle
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "skirmisher",
-			RESKIN_WORN_ICON_STATE = "skirmisher"
-		),
-		"Vatborn" = list(
-			RESKIN_ICON_STATE = "skirmisher_white",
-			RESKIN_WORN_ICON_STATE = "skirmisher_white"
-		)
-	)
+
+/obj/item/clothing/head/helmet/vulp/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/vulphelmet)
+
+/datum/atom_skin/vulphelmet
+	abstract_type = /datum/atom_skin/vulphelmet
+
+/datum/atom_skin/vulphelmet/regular
+	preview_name = "Regular"
+	new_icon_state = "skirmisher"
+
+/datum/atom_skin/vulphelmet/vatborn
+	preview_name = "Vatborn"
+	new_icon_state = "skirmisher_white"
 
 // armor vest
 

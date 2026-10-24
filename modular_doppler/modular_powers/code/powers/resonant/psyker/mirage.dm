@@ -165,7 +165,7 @@
 	for(var/mob/living/living_mob in range(range_limit, src))
 		if(living_mob == src || QDELETED(living_mob)) // no self taunting
 			continue
-		if(istype(living_mob, /mob/living/simple_animal/hostile/illusion) || istype(living_mob, /mob/living/basic/resonant_mirage)) // no taunting other illusions
+		if(istype(living_mob, /mob/living/basic/resonant_mirage)) // no taunting other illusions
 			continue
 		if(living_mob.mind) // no sentient taunting
 			continue
