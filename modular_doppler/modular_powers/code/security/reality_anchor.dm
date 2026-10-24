@@ -206,7 +206,8 @@
 		to_chat(owner, span_warning("Your mental resistance shields you from the excruciating effects of having your powers suppressed!"))
 	else
 		send_initial_message()
-		owner.playsound_local(owner, 'sound/effects/curse/curse5.ogg', 50, FALSE) // non-mortals hear a grating sound
+		if(owner_archetype != POWER_ARCHETYPE_MORTAL) // non-mortals hear a grating sound
+			owner.playsound_local(owner, 'sound/effects/curse/curse5.ogg', 50, FALSE) // specifically this one because it sounds like a scream.
 	ADD_TRAIT(owner, TRAIT_RESONANCE_SILENCED, TRAIT_STATUS_EFFECT(id))
 	if(!mental_effects_blocked)
 		apply_mental_effects()
