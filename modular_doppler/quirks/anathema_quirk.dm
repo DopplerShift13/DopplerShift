@@ -38,6 +38,9 @@
 /datum/element/anathema/proc/anchor_warning(mob/living/source)
 	SIGNAL_HANDLER
 	to_chat(source, span_userdanger("Your body boils away as your biology is suppressed!"))
+	// Plays the same silencing sound effect that sorcerers and resonants hear but for mortals, who normally wouldn't hear it
+	if(!source.has_magical_power_in_archetype(POWER_ARCHETYPE_SORCEROUS) && !source.has_magical_power_in_archetype(POWER_ARCHETYPE_RESONANT))
+		source.playsound_local(source, 'sound/effects/curse/curse5.ogg', 50, FALSE)
 
 /datum/element/anathema/proc/anchor_tick(mob/living/source, seconds_between_ticks)
 	SIGNAL_HANDLER
@@ -49,7 +52,7 @@
 	source.add_mood_event(src, /datum/mood_event/anathema_boiling)
 	// Replaces the base static overlay
 	source.overlay_fullscreen("reality_anchor_static", /atom/movable/screen/fullscreen/reality_anchor_static/anathema)
-	// Replaces the base anchor blur
+	// This uses the status effect's apply_anchor_blur proc, and replaces the base blur effect if you would receive any
 	effect.apply_anchor_blur(0.04)
 
 /datum/element/anathema/proc/clear_mental_effects(mob/living/source)

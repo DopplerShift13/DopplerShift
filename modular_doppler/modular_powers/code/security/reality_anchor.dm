@@ -290,7 +290,7 @@
 
 /// Applies a constant radial blur to the owner's rendered game plane.
 /datum/status_effect/power/reality_anchor_silenced/proc/apply_anchor_blur(blur_size)
-	blur_size = get_anchor_blur_size()
+	blur_size ||= get_anchor_blur_size() // Only uses get_anchor_blur_size if nothing is passed through blur_size when calling the proc
 	if(!blur_size || !owner.hud_used)
 		return
 	blur_plane_master_controller = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
