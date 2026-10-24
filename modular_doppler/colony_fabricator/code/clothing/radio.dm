@@ -1,7 +1,7 @@
 /obj/item/radio/headset/headset_frontier_colonist
 	name = "superband talker set"
 	desc = "A bulky set of headphones and appropriately large microphone piece that are used in areas without developed \
-		communications infrastructure. These are often seen directly wired into larger communications sets work on the back \
+		communications infrastructure. These are often seen directly wired into larger communications sets worn on the back \
 		or over the shoulder. Due to the construction of the ear cups and internal amplification, others standing next to \
 		the wearer of these headsets may be able to hear their communications."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'

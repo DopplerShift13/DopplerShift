@@ -21,7 +21,7 @@
 	icon_state = "satchel"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "satchel"
-	inhand_icon_state = null
+	inhand_icon_state = "satchel-norm"
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
@@ -75,13 +75,16 @@
 	worn_icon_state = "harness"
 	inhand_icon_state = null
 	content_overlays = FALSE
+	storage_type = /datum/storage/frontier_belt
 
-/obj/item/storage/belt/utility/frontier_colonist/Initialize(mapload)
+/datum/storage/frontier_belt
+	max_slots = 6
+	max_specific_storage = WEIGHT_CLASS_NORMAL
+	screen_max_columns = 3
+
+/datum/storage/frontier_belt/New(atom/parent, max_slots, max_specific_storage, max_total_storage, rustle_sound, remove_rustle_sound)
 	. = ..()
-	atom_storage.max_slots = 6
-	atom_storage.max_specific_storage = WEIGHT_CLASS_NORMAL
-	// Can hold whatever a toolbelt can + some mining equipment for convenience
-	atom_storage.set_holdable(list(
+	set_holdable(list(
 		/obj/item/airlock_painter,
 		/obj/item/analyzer,
 		/obj/item/assembly/signaler,

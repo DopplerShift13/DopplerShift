@@ -166,11 +166,11 @@
 
 /datum/loadout_item/head/caps/frontier_cap
 	name = "Jungle Workmen's Cap"
-	item_path = /obj/item/clothing/head/soft/frontier_colonist
+	item_path = /obj/item/clothing/head/frontier_colonist
 
 /datum/loadout_item/head/caps/frontier_med
 	name = "Jungle Medic's Cap"
-	item_path = /obj/item/clothing/head/soft/frontier_colonist/medic
+	item_path = /obj/item/clothing/head/frontier_colonist/medic
 
 /datum/loadout_item/head/caps/security_cap
 	name = "Security Cap"

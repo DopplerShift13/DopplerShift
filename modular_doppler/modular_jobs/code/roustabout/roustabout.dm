@@ -38,7 +38,7 @@
 
 	neck = null
 	uniform = /obj/item/clothing/under/frontier_colonist
-	head = /obj/item/clothing/head/soft/frontier_colonist
+	head = /obj/item/clothing/head/frontier_colonist
 	shoes = /obj/item/clothing/shoes/jackboots/frontier_colonist
 	suit = /obj/item/clothing/suit/toggle/jacket/frontier_colonist/worker
 	ears = /obj/item/radio/headset/headset_frontier_colonist
@@ -66,7 +66,7 @@
 
 /datum/outfit/job/roustabout/pre_equip(mob/living/carbon/human/H, visuals_only)
 	var/random_hat = pick(
-		/obj/item/clothing/head/soft/frontier_colonist,
+		/obj/item/clothing/head/frontier_colonist,
 		/obj/item/clothing/head/frontier_colonist_helmet,
 		/obj/item/clothing/head/frontier_colonist_helmet/hardhat,
 	)
@@ -82,6 +82,44 @@
 		/datum/computer_file/program/alarm_monitor,
 		/datum/computer_file/program/atmosscan,
 		/datum/computer_file/program/skill_tracker,
+	)
+
+/obj/item/storage/box/survival/engineer/roustabout
+
+/obj/item/storage/box/survival/engineer/roustabout/PopulateContents()
+	..() // we want the regular items too.
+	new /obj/effect/spawner/random/entertainment/roustabout_survival_box_items(src)
+
+/obj/effect/spawner/random/entertainment/roustabout_survival_box_items
+	name = "roustabout survival box item spawner x2"
+	icon_state = "wallet"
+	spawn_loot_count = 2
+	spawn_loot_double = TRUE
+	loot = list(
+		/obj/effect/spawner/random/entertainment/cigarette_pack,
+		/obj/effect/spawner/random/entertainment/lighter,
+		/obj/effect/spawner/random/entertainment/roustabout_box_tools,
+		/obj/item/paper/paperslip/ration_ticket,
+		/obj/effect/spawner/random/food_or_drink/snack,
+		/obj/effect/spawner/random/medical/minor_healing,
+		/obj/effect/spawner/random/medical/injector,
+	)
+
+/obj/effect/spawner/random/entertainment/roustabout_box_tools
+	name = "roustabout box tools spawner"
+	icon_state = "wallet"
+	spawn_loot_count = 1
+	loot = list(
+		/obj/item/crowbar/red/caravan,
+		/obj/item/screwdriver/nuke, // We need very specifically a micro flathead screwdriver with rubberized grip who carries that kinda thing?
+		/obj/item/screwdriver/caravan,
+		/obj/item/wrench/caravan,
+		/obj/item/wrench/combat,
+		/obj/item/wirecutters/caravan,
+		/obj/item/multitool/circuit,
+		/obj/item/pen/survival,
+		/obj/item/pen/screwdriver,
+		/obj/item/spess_knife,
 	)
 
 /datum/id_trim/job/roustabout

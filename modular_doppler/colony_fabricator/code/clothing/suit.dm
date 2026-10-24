@@ -44,6 +44,13 @@
 	base_icon_state = "jacket_med"
 	pocket_storage_type = /datum/storage/pockets/jacket
 
+/obj/item/clothing/suit/toggle/jacket/frontier_colonist/casual
+	name = "\improper NG-Tek casual raincloak"
+	desc = "A lightweight raincloak with a reflective stripe around the chest for wear when not doing heavy work."
+	icon_state = "raincloak"
+	has_emissives = FALSE
+	supported_bodyshapes = list(BODYSHAPE_HUMANOID)
+
 /obj/item/clothing/suit/frontier_colonist_flak
 	name = "thermoset breastplate"
 	desc = "A pair of thick thermoset plastic panels made to be worn under a jacket or vest to protect the wearer. \
@@ -71,10 +78,3 @@
 /obj/item/clothing/suit/frontier_colonist_flak/Initialize(mapload)
 	. = ..()
 	allowed = GLOB.colonist_suit_allowed
-
-/obj/item/clothing/suit/toggle/jacket/frontier_colonist/casual
-	name = "\improper NG-Tek casual raincloak"
-	desc = "A lightweight raincloak with a reflective stripe around the chest for wear when not doing heavy work."
-	icon_state = "raincloak"
-	has_emissives = FALSE
-	supported_bodyshapes = list(BODYSHAPE_HUMANOID)

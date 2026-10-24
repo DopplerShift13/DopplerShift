@@ -35,14 +35,14 @@
 
 /datum/design/organic_printer/jacket
 	name = "Ispanlita Jacket"
-	id = "frontier_trenchcoat"
+	id = "frontier_jacket"
 	materials = list(/datum/material/biomass = 10)
 	build_path = /obj/item/clothing/suit/toggle/jacket/frontier_colonist
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
 
 /datum/design/organic_printer/jacket_worker
 	name = "Ispanlita Worker's Jacket"
-	id = "frontier_jacket"
+	id = "frontier_worker_jacket"
 	materials = list(/datum/material/biomass = 10)
 	build_path = /obj/item/clothing/suit/toggle/jacket/frontier_colonist/worker
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
@@ -56,7 +56,7 @@
 
 /datum/design/organic_printer/jacket_casual
 	name = "Raincloak"
-	id = "frontier_jacket_casual"
+	id = "frontier_casual_jacket"
 	materials = list(/datum/material/biomass = 10)
 	build_path = /obj/item/clothing/suit/toggle/jacket/frontier_colonist/casual
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
@@ -89,18 +89,18 @@
 	build_path = /obj/item/clothing/head/frontier_headscarf
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
 
-/datum/design/organic_printer/ballcap
+/datum/design/organic_printer/cap
 	name = "Jungle Workmen's Cap"
-	id = "frontier_ballcap"
+	id = "frontier_cap"
 	materials = list(/datum/material/biomass = 5)
-	build_path = /obj/item/clothing/head/soft/frontier_colonist
+	build_path = /obj/item/clothing/head/frontier_colonist
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
 
-/datum/design/organic_printer/ballcap_medical
+/datum/design/organic_printer/cap_medical
 	name = "Jungle Medic's Cap"
 	id = "frontier_medical_cap"
 	materials = list(/datum/material/biomass = 5)
-	build_path = /obj/item/clothing/head/soft/frontier_colonist/medic
+	build_path = /obj/item/clothing/head/frontier_colonist/medic
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_CLOTHES)
 
 /datum/design/organic_printer/colony_mask

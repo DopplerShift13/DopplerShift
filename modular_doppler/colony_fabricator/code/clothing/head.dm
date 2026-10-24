@@ -19,7 +19,7 @@
 		light_overlay = "light", \
 	)
 
-/obj/item/clothing/head/soft/frontier_colonist
+/obj/item/clothing/head/frontier_colonist
 	name = "jungle workmen's cap"
 	desc = "A heavily starched cap with a brim and short ear flaps typical in the New Gibraltar jungle style. \
 		An orange pin is stuck through the front, a callback to colony roughneck tradition of delineating job roles \
@@ -27,8 +27,6 @@
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "cap"
 	inhand_icon_state = null
-	soft_type = "cap"
-	soft_suffix = null
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
@@ -38,16 +36,14 @@
 	worn_icon_state = "cap"
 	hair_mask = /datum/hair_mask/standard_hat_middle
 
-/obj/item/clothing/head/soft/frontier_colonist/flip(mob/user)
-	return // nah mate
-
-/obj/item/clothing/head/soft/frontier_colonist/medic
+/obj/item/clothing/head/frontier_colonist/medic
 	name = "jungle medic's cap"
 	desc = "A heavily starched cap with a brim and short ear flaps typical in the New Gibraltar jungle style. \
 		A turquoise pin is stuck through the front, a callback to colony roughneck tradition of delineating job roles \
-		through coloured pins on their otherwise similar uniforms."
+		through coloured pins on their otherwise similar uniforms. Thanks to the fact that a normal medical green would \
+		be completely unrecognizable in the densely jungle environment of New Gibraltar, the bright turquoise color was \
+		chosen instead for the pins."
 	icon_state = "cap_medical"
-	soft_type = "cap_medical"
 	worn_icon_state = "cap_medical"
 
 /obj/item/clothing/head/frontier_colonist_helmet
@@ -64,6 +60,7 @@
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
 		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
 	)
+	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 	armor_type = /datum/armor/colonist_armor
 	resistance_flags = NONE
 	flags_inv = 0
@@ -78,6 +75,9 @@
 	icon_state = "hardhat"
 	worn_icon_state = "hardhat"
 	resistance_flags = FIRE_PROOF
+	pickup_sound = SFX_HARD_HAT_PICKUP
+	drop_sound = SFX_HARD_HAT_DROP
+	equip_sound = SFX_HARD_HAT_EQUIP
 
 /obj/item/clothing/head/frontier_headscarf
 	name = "frontier headscarf"
