@@ -4,7 +4,7 @@
 	desc = "A whiff of someone's blood, and you're right on their tail. Select a source of blood and it will be your currently active scent. You can only have one active source of scent, and it only lasts for a few minutes.\
 	\n Whilst you have someone's blood, you have an indicator of your quarry's direction. Does not work on scrying and magic immune creatures. Causes a minor amount of hunger on use."
 	security_record_text = "Subject can track down a creature's direction using blood samples."
-	value = 10
+	value = 5
 	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_SCRYING
 
 	required_powers = list(/datum/power/aberrant_root/beastial)
