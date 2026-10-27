@@ -19,7 +19,7 @@
 
 	give_item_to_holder(target_tag, list(LOCATION_LPOCKET, LOCATION_RPOCKET, LOCATION_BACKPACK,	LOCATION_HANDS))
 	give_item_to_holder(
-		/obj/item/clothing/accessory/vaporizer,
+		/obj/item/vaporizer,
 		list(
 			LOCATION_LPOCKET,
 			LOCATION_RPOCKET,
