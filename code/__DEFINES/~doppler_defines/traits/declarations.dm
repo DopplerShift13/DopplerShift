@@ -1,19 +1,19 @@
 /// The trait that determines if someone has the system shock quirk.
 #define TRAIT_SYSTEM_SHOCK "trait_system_shock"
-
 /// The trait given to people with bad vibes.
 #define TRAIT_BAD_VIBES "trait_bad_vibes"
-
 /// The trait corresponding with the oversized quirk.
 #define TRAIT_OVERSIZED "oversized"
-
-//// The trait for undersized quirk
+/// The trait for undersized quirk
 #define TRAIT_UNDERSIZED "undersized"
 
 //// The trait for the Anathema quirk and any anathema species/powers
 #define TRAIT_ANATHEMA "anathema"
 
-//// The trait for Holosynths
+/// The owner of this trait can use a mounted gun freely in hand without needing to deploy it
+#define TRAIT_MOUNTED_GUN_FREESTYLE "mounted_gun_freestyle"
+
+/// The trait for Holosynths
 #define TRAIT_HOLOSYNTH "holosynthetic"
 
 /// Carp infusion: allows preferential metabolism & production of carpotoxin
@@ -22,10 +22,10 @@
 /// chamskin toggle - lets yo ufucking toggle shit shut up
 #define TRAIT_CHAMELEON_SKIN "chameleon_skin"
 
-// makes it so held items float by their head
+/// makes it so held items float by their head
 #define TRAIT_FLOATING_HELD "held_items_float"
 
-// Can ghost and return freely with this trait
+/// Can ghost and return freely with this trait
 #define TRAIT_FREE_GHOST "free_ghost"
 
 /// Do non-items still get recycled for their custom materials
