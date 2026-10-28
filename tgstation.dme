@@ -8226,6 +8226,7 @@
 #include "modular_doppler\weaponry\code\ranged\_ammo\stingballs\casings.dm"
 #include "modular_doppler\weaponry\code\ranged\_ammo\tydhouer_980\casings.dm"
 #include "modular_doppler\weaponry\code\ranged\energy\coherent_beam_cutter.dm"
+#include "modular_doppler\weaponry\code\ranged\energy\spawners.dm"
 #include "modular_doppler\weaponry\code\ranged\energy\cybersun_lasers\laser_guns.dm"
 #include "modular_doppler\weaponry\code\ranged\energy\cybersun_lasers\mode_datums.dm"
 #include "modular_doppler\weaponry\code\ranged\handgun\pistols.dm"
