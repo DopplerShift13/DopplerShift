@@ -8,7 +8,7 @@
 	In this state, you use their sight instead of your own; but you cannot target creatures that are immune to magic, scrying; or lack the brain activity required to be detectable (dumb). \
 	Passively builds up stress, with extended use causing escalating amounts of stress. The target sometimes gets premonitions to indicate they are being watched."
 	security_record_text = "Subject can psychically observe people's locations based on blood samples from extreme distances."
-	value = 10
+	value = 5
 	magic_flags = POWER_MAGIC_STANDARD | POWER_MAGIC_MENTAL | POWER_MAGIC_SCRYING
 	action_path = /datum/action/cooldown/power/psyker/scrying
 
