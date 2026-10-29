@@ -98,6 +98,16 @@
 	)
 	crate_name = "ILU cartridge crate"
 
+/datum/supply_pack/security/armory/modular_laser_multipack
+	name = "Cybersun Intermodal License Upgrade multipack"
+	desc = "A triple-pack of license upgrade cartridges, compatible with the Hoshi and Hyeseong modular laser \
+	weapon systems. Authentic Cybersun software is guaranteed."
+	cost = CARGO_CRATE_VALUE * 50
+	contains = list(
+		/obj/item/modular_laser_upgrade = 3,
+	)
+	crate_name = "ILU cartridge crate"
+
 /datum/supply_pack/security/armory/escarabajo
 	name = "\improper PA-3S Escarabajo riot shield"
 	desc = "A single pack plastitanium riot shield."
