@@ -7152,6 +7152,7 @@
 #include "modular_doppler\mapping\code\turfs\indestructibles.dm"
 #include "modular_doppler\martial_arts\granters.dm"
 #include "modular_doppler\martial_arts\mad_dog.dm"
+#include "modular_doppler\martial_arts\martial_cooldowns.dm"
 #include "modular_doppler\mining\equipment\trophies_misc.dm"
 #include "modular_doppler\modsuits\anomalock_edits.dm"
 #include "modular_doppler\modsuits\kinesis.dm"
