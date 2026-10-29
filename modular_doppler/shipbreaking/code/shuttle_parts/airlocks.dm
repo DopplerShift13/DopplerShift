@@ -1,3 +1,6 @@
+/// How much difference in turf pressure between sides of the door to make the cut off panel go flying when cut apart
+#define PRESSURE_DIFF_TO_EXPLODE 50
+
 /obj/structure/mineral_door/manual_colony_door/shuttle
 	name = "manual exterior airlock"
 	desc = "A manually operated airlock for the exteriors of ships, sized just enough to crawl through in zero gravity."
@@ -17,6 +20,11 @@
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
+/obj/structure/mineral_door/manual_colony_door/shuttle/examine(mob/user)
+	. = ..()
+	. += span_notice("Access ports such as these are known for flying off the frame when cut open by a tool while holding back a considerable pressure difference.")
+	return .
+
 /obj/structure/mineral_door/manual_colony_door/shuttle/welder_act(mob/living/user, obj/item/tool) //override if the door is supposed to be flammable.
 	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return ITEM_INTERACT_FAILURE
@@ -25,6 +33,36 @@
 		return ITEM_INTERACT_BLOCKING
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/mineral_door/manual_colony_door/shuttle/atom_deconstruct(disassembled = TRUE)
+	if(!disassembled)
+		return
+	var/atmos_pressure_difference = 0
+	var/rupture_direction = null
+	var/list/adjacent_turfs = get_adjacent_open_turfs(src)
+	for(var/turf/open/adjacent_turf as anything in adjacent_turfs)
+		var/turf/open/opposite_turf = get_step(src, get_dir(adjacent_turf, src))
+		if(!istype(opposite_turf))
+			continue
+		adjacent_turfs -= opposite_turf // stops us from double checking turfs
+		var/adjacent_pressure = adjacent_turf.air.return_pressure()
+		var/opposite_pressure = opposite_turf.air.return_pressure()
+		var/temporary_pressure_difference = abs(adjacent_pressure - opposite_pressure)
+		atmos_pressure_difference = max(temporary_pressure_difference, atmos_pressure_difference)
+		if(adjacent_pressure > opposite_pressure)
+			rupture_direction = get_dir(adjacent_turf, opposite_turf)
+		else
+			rupture_direction = get_dir(opposite_turf, adjacent_turf)
+	if((atmos_pressure_difference >= PRESSURE_DIFF_TO_EXPLODE) && !isnull(rupture_direction))
+		src.visible_message(span_boldwarning("[src]'s panels fly clean off the frame with the pressure it holds back!"), \
+			blind_message= span_boldwarning("You hear a violent metal ripping sound!"))
+		var/obj/door_panel = new disassembled_type(get_turf(src))
+		var/atom/throw_target = get_edge_target_turf(door_panel, rupture_direction)
+		playsound(src, 'sound/machines/hiss.ogg', 50, FALSE, FALSE)
+		door_panel.throw_at(throw_target, 6, 8)
+		return
+	else
+		new disassembled_type(get_turf(src))
 
 /// Overridden because only welders should be unsecuring the door, we don't deconstruct like normal
 /obj/structure/mineral_door/manual_colony_door/shuttle/wrench_act(mob/living/user, obj/item/tool)
@@ -160,3 +198,5 @@
 	glass_type = /obj/machinery/door/airlock/spacer/glass
 	material_type = /obj/item/stack/sheet/aluminum
 	nomineral = TRUE
+
+#undef PRESSURE_DIFF_TO_EXPLODE
