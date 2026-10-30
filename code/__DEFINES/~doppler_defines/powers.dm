@@ -132,6 +132,20 @@
 // Bitflags for how dispel should behave
 #define DISPEL_CASCADE_CARRIED (1<<0)
 
+// Signals for reality anchor silence effects on mobs
+/// Sent when the initial warning message for being silenced happens (send_initial_message); does not send if antimagic stops the message.
+/// Args: (mob/living/owner)
+#define COMSIG_LIVING_ANCHOR_SILENCE_WARNING "living_anchor_silence_warning"
+/// Sent every time the silence effect ticks (~once a second)
+/// Args: (mob/living/owner, seconds_between_ticks)
+#define COMSIG_LIVING_ANCHOR_SILENCE_TICK "living_anchor_silence_tick"
+/// Sent when the silence status effect applies visual screen and mob mental effects (apply_mental_effects); does not send if antimagic stops the effects.
+/// Args: (mob/living/owner, datum/status_effect/power/reality_anchor_silenced/effect)
+#define COMSIG_LIVING_ANCHOR_SILENCE_MENTAL_APPLIED "living_anchor_silence_mental_applied"
+/// Sent after the moodlet/overlay/blur incurred by the status effect are cleared.
+/// Args: (mob/living/owner, datum/status_effect/power/reality_anchor_silenced/effect)
+#define COMSIG_LIVING_ANCHOR_SILENCE_MENTAL_CLEARED "living_anchor_silence_mental_cleared"
+
 // Trait defining that someone can interact remotely with objects. Used by Manipulate and is overall used to bypass range checks on can_interact
 #define TRAIT_REMOTE_INTERACT "remote_interact"
 
