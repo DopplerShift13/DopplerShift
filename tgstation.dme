@@ -7627,6 +7627,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\_imbued_root_anomalous.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\_imbued_root_enchanted.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\alcohol_is_mana.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\imbued\insulation.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\mage_sight.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\ontologically_immutable.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\radiosynthesis.dm"
