@@ -106,8 +106,15 @@ INITIALIZE_IMMEDIATE(/mob/living/carbon/human/dummy)
 
 /// Takes in an accessory list and returns the first entry from that list, ensuring that we dont return SPRITE_ACCESSORY_NONE in the process.
 /proc/get_consistent_feature_entry(list/accessory_feature_list)
+	/* // DOPPLER EDIT START
 	var/consistent_entry = (accessory_feature_list- SPRITE_ACCESSORY_NONE)[1]
 	ASSERT(!isnull(consistent_entry))
+	*/ // ORIGINAL CODE ABOVE
+	var/consistent_entry = SPRITE_ACCESSORY_NONE
+	if(SPRITE_ACCESSORY_NONE in accessory_feature_list)
+		return consistent_entry
+	consistent_entry = accessory_feature_list[1]
+	// DOPPLER EDIT END
 	return consistent_entry
 
 /proc/create_consistent_human_dna(mob/living/carbon/human/target)
