@@ -8129,6 +8129,7 @@
 #include "modular_doppler\telepathy_qol\telepathy_action.dm"
 #include "modular_doppler\telepathy_qol\telepathy_reply_emote.dm"
 #include "modular_doppler\temporary_flavor_text\temp_flavor_text.dm"
+#include "modular_doppler\tile_attacks\tile_attacks.dm"
 #include "modular_doppler\time_clock\code\console.dm"
 #include "modular_doppler\time_clock\code\console_tgui.dm"
 #include "modular_doppler\time_clock\code\mind.dm"
