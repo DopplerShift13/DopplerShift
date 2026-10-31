@@ -246,6 +246,10 @@
 // Trait made as to prevent duplicate smites.
 #define TRAIT_HAS_SMITING_STRIKE "has_smiting_strike"
 
+/// Fired by modular_doppler\modular_powers\code\powers\sorcerous\theologist\divine_protection.dm to collect applicable block chance modifiers.
+/// Args: (atom/movable/hitby, damage, attack_text, attack_type, armour_penetration, damage_type, list/block_chance_modifiers)
+#define COMSIG_THEOLOGIST_DIVINE_PROTECTION_MODIFIERS "theologist_divine_protection_modifiers"
+
 /// Fired by modular_doppler\modular_powers\code\powers\sorcerous\theologist\_theologist_root_twisted.dm to collect modifiers to damage conversion rates.
 /// Args: (list/twisted_conversion_modifiers)
 #define COMSIG_THEOLOGIST_TWISTED_CONVERSION_MODIFIERS "theologist_twisted_conversion_modifiers"
@@ -307,6 +311,10 @@
 // Cultivator alignment activion/deactivation signals
 #define COMSIG_CULTIVATOR_ALIGNMENT_ENABLED "cultivator_alignment_enabled"
 #define COMSIG_CULTIVATOR_ALIGNMENT_DISABLED "cultivator_alignment_disabled"
+
+/// Fired before Cultivator alignment armor calc. Used to pass along additional armor increases/decreases to the base value.
+/// Args: (datum/action/cooldown/power/cultivator/alignment/alignment_action, list/target_armor_values)
+#define COMSIG_CULTIVATOR_MODIFY_ALIGNMENT_ARMOR "cultivator_modify_alignment_armor"
 
 // The trait for Astral Touched's flight upgrades (using AddElementTrait)
 #define TRAIT_ASTRAL_TOUCHED_FLIGHT "astral_touched_flight"
