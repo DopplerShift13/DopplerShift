@@ -9,7 +9,7 @@
 				/obj/item/clothing/mask/plastic_fangs = 5,
 				/obj/item/clothing/mask/phanic_mask = 5,
 				/obj/item/clothing/under/phanic_costume = 5,
-				/obj/item/storage/bag/phantom_costume = 5,
+				/obj/item/storage/bag/garment/phantom_costume = 5,
 				/obj/item/clothing/shoes/frankenstompers = 5,
 				/obj/item/clothing/head/monster_headpiece = 5,
 			),
