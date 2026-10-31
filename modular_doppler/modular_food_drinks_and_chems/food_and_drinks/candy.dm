@@ -196,35 +196,61 @@
 
 /obj/item/food/doppler_candy/milk_balls
 	name = "box of malted milk balls"
-	desc = ""
+	desc = "A halcyon candy recipe for a bygone era. It's hard to tell if these taste like an ersatz nostalgia for an age that wasn't \
+	lived through, or if they just taste kinda dusty."
 	icon_state = "milk_balls"
 	food_reagents = list(
 		/datum/reagent/consumable/milk = 3,
 		/datum/reagent/consumable/sugar = 3,
 		/datum/reagent/consumable/coco = 2,
 	)
+	tastes = list("chocolate" = 1, "staleness" = 1)
 
 // service candy, chocolate and fruit
 
 /obj/item/food/doppler_candy/orange_leather
 	name = "\improper Outrageous Orange fruit snack"
-	desc = ""
+	desc = "Peeled oranges pulped and dried into a little sheet of tart sweetness. It's difficult to say if this still constitutes a \
+	healthy serving of fruit."
 	icon_state = "orange_leather"
 	food_reagents = list(
 		/datum/reagent/consumable/sugar = 3,
 		/datum/reagent/consumable/orangejuice = 2,
 	)
+	tastes = list("orange" = 1)
 
 /obj/item/food/doppler_candy/sour_melon_leather
 	name = "\improper Sour Melon fruit snack"
-	desc = ""
+	desc = "They actually use the entire watermelon when they make these. The rind is ground into juice ingredients for health conscious \
+	consumers, and the red flesh inside is ground into this delicious sour candy."
 	icon_state = "sour_melon_leather"
 	food_reagents = list(
 		/datum/reagent/consumable/sour_sugar = 3,
 		/datum/reagent/consumable/watermelonjuice = 2,
 	)
+	tastes = list("watermelon" = 1, "sour candy" = 1)
 
-/obj/item/food/doppler_candy/mizzie_mast
+/obj/item/food/chocolatebar/mizzie_mast
 	name = "\improper Mizzie Mast promotional chocolate bar"
-	desc = ""
+	desc = "The vagaries of culture and commerce mean that, sometimes, the promotional items for a new pop idol reach the local system before \
+	the singles do."
+	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/candy.dmi'
 	icon_state = "mizzie_mast"
+
+// science candy, which is centered around gimmicks
+
+/obj/item/food/doppler_candy/sour_squeezer
+	name = "\improper Super Sour Squeezer"
+	desc = "Candy rendered into its purest form of sour syrup and bright red dye, wrapped in soft plastic, with a label slapped on top. Just \
+	squeeze and slurp."
+	icon_state = "sour_squeezer"
+	food_reagents = list(
+		/datum/reagent/consumable/sour_sugar = 5,
+	)
+	tastes = list("syrupy sweetness" = 1, "sour candy" = 1)
+
+/obj/item/food/doppler_candy/sour_squeezer/Initialize(mapload)
+	. = ..()
+	icon_state = pick("sour_squeezer", "sour_squeezer2")
+
+// command candy, which is obviously extremely bourgeoisie

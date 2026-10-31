@@ -139,13 +139,13 @@
 	bowl_structure = /obj/structure/candy_dish/medical
 
 /obj/structure/candy_dish/cargo
-	name = "productive and punctual candy dish"
-	desc = ""
+	name = "productively punctual candy dish"
+	desc = "The injection molded plastic sports an alluring shellac finish. It almost looks like candy too."
 	icon_state = "cargo"
 	// rock candy, jawbreakers, premium box candy
 	candy_list = list(
 		/obj/item/food/doppler_candy/jawbreaker = 20, // higher values to make the jumbo jabreaker a rarer pull
-		/obj/item/food/doppler_candy/jawbreaker = 1,
+		/obj/item/food/doppler_candy/jawbreaker/jumbo = 1,
 		/obj/item/food/doppler_candy/sour_brat_kits = 20,
 		/obj/item/food/doppler_candy/milk_balls = 10,
 		/obj/item/food/chococoin = 7,
@@ -158,14 +158,15 @@
 	bowl_item = /obj/item/candy_dish/cargo
 
 /obj/item/candy_dish/cargo
-	name = "productive and punctual candy dish"
-	desc = ""
+	name = "productively punctual candy dish"
+	desc = "The injection molded plastic sports an alluring shellac finish. It almost looks like candy too."
 	icon_state = "cargo"
 	bowl_structure = /obj/structure/candy_dish/cargo
 
 /obj/structure/candy_dish/service
-	name = ""
-	desc = ""
+	name = "candy dish of personnel provision"
+	desc = "Local office rumor holds that an image of a corgi lies at the bottom of this dish, but the endless churn of stipend \
+	snacks ensures that its veracity remains uncertain."
 	icon_state = "service"
 	// chocolates, fruity candy, tiny liquor bottles
 	candy_list = list(
@@ -173,6 +174,7 @@
 		/obj/item/reagent_containers/cup/glass/bottle/amaretto/tiny = 5,
 		/obj/item/food/doppler_candy/orange_leather = 5,
 		/obj/item/food/doppler_candy/sour_melon_leather = 5,
+		/obj/item/food/chocolatebar/mizzie_mast = 5,
 		/obj/item/food/candiedapple = 3,
 		/obj/item/food/chocolatebar = 3,
 		/obj/item/food/chocoorange = 3,
@@ -181,21 +183,55 @@
 	bowl_item = /obj/item/candy_dish/service
 
 /obj/item/candy_dish/service
-	name = ""
-	desc = ""
+	name = "candy dish of personnel provision"
+	desc = "Local office rumor holds that an image of a corgi lies at the bottom of this dish, but the endless churn of stipend \
+	snacks ensures that its veracity remains uncertain."
 	icon_state = "service"
 	bowl_structure = /obj/structure/candy_dish/service
 
 /obj/structure/candy_dish/science
-	name = ""
-	desc = ""
+	name = "pioneering polymer candy dish"
+	desc = "The fraction of a libre worth of plastic this is made out of is the result of a multi-trillion Libre research effort to \
+	develop durable nonpetroleum plastics without sacrificing pigment vibrancy. In another five years it'll be all over the local \
+	toy aisle, and in another fifty they might finally figure out if it's safe to exist next to."
 	icon_state = "science"
 	candy_list = list(
+		/obj/item/food/doppler_candy/sour_squeezer = 5,
+		/obj/item/food/candy/bronx = 1,	// good luck!
+		/obj/item/food/cornchips/green = 1,
+		/obj/item/food/sticko/random = 5,
+		/obj/item/food/bubblegum/happiness = 5,
+		/obj/item/food/spiderlollipop = 1,
 	)
 	bowl_item = /obj/item/candy_dish/science
 
 /obj/item/candy_dish/science
-	name = ""
-	desc = ""
+	name = "pioneering polymer candy dish"
+	desc = "The fraction of a libre worth of plastic this is made out of is the result of a multi-trillion Libre research effort to \
+	develop durable nonpetroleum plastics without sacrificing pigment vibrancy. In another five years it'll be all over the local \
+	toy aisle, and in another fifty they might finally figure out if it's safe to exist next to."
 	icon_state = "science"
 	bowl_structure = /obj/structure/candy_dish/service
+
+/obj/structure/candy_dish/command
+	name = "perfidiously professionalized candy dish"
+	desc = "Somehow this simple bowl exudes a commanding aura. One almost feels as if it would narc them out for taking too many \
+	pieces, but it's just a bowl, isn't it?"
+	icon_state = "command"
+	candy_list = list(
+		/obj/item/food/bonbon = 5,
+		/obj/item/food/bonbon/caramel_truffle = 5,
+		/obj/item/food/bonbon/chocolate_truffle = 5,
+		/obj/item/food/bonbon/peanut_truffle = 5,
+		/obj/item/food/sticko/random = 5,
+		/obj/item/food/candiedapple = 5,
+		/obj/item/food/candy_corn = 5,
+	)
+	bowl_item = /obj/item/candy_dish/command
+
+/obj/item/candy_dish/command
+	name = "perfidiously professionalized candy dish"
+	desc = "Somehow this simple bowl exudes a commanding aura. One almost feels as if it would narc them out for taking too many \
+	pieces, but it's just a bowl, isn't it?"
+	icon_state = "command"
+	bowl_structure = /obj/structure/candy_dish/command

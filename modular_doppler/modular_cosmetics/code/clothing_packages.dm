@@ -5,10 +5,12 @@
 
 /obj/item/storage/bag/phantom_costume
 	name = "\improper Phantom the Weasel costume pack"
-	desc = ""
+	desc = "This thin plastic film cannot hold me!"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/clothing_packs.dmi'
 	icon_state = "phantom_costume"
 	storage_type = /datum/storage/bag/garment
+	inhand_icon_state = null
+	worn_icon_state = null
 
 /obj/item/storage/bag/phantom_costume/PopulateContents()
 	. = ..()

@@ -7262,6 +7262,7 @@
 #include "modular_doppler\modular_cosmetics\GAGS\greyscale_configs_under.dm"
 #include "modular_doppler\modular_cosmetics\GAGS\greyscale_configs_weapons.dm"
 #include "modular_doppler\modular_crafting\code\ammo_recipes.dm"
+#include "modular_doppler\modular_crafting\code\candy_dish_recipes.dm"
 #include "modular_doppler\modular_crafting\code\crafting_extended.dm"
 #include "modular_doppler\modular_crafting\code\crafting_items.dm"
 #include "modular_doppler\modular_crafting\code\crafting_melee.dm"
