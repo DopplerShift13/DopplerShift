@@ -515,6 +515,10 @@
 	name = "Hearthkin Tunic"
 	item_path = /obj/item/clothing/under/dress/skirt/primitive_genemod_tunic
 
+/datum/loadout_item/undersuit/fullbody/phanic_costume
+	name = "Dubious Phanic Costume"
+	item_path = /obj/item/clothing/under/phanic_costume
+
 /**
  * ENVIROSUITS
  */

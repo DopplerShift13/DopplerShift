@@ -112,3 +112,18 @@
 		playsound(src, SFX_VISOR_UP, 20, TRUE, -1)
 		balloon_alert(user, "mouth covered")
 	return CLICK_ACTION_SUCCESS
+
+/obj/item/clothing/head/monster_headpiece	// frankenstein is actually public domain but this is funnier
+	name = "monstrous headpiece"
+	desc = "A head prosthesis of pungent rubber and imitation hair."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/costume.dmi'
+	icon_state = "monster_head"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/costume.dmi'
+
+/obj/item/clothing/head/phantom_head
+	name = "exquisite Phantom the Weasel head"
+	desc = "The sturdy foam fabrication. The plush textile-fur covering. The specific, game-accurate proportions. \
+	God, it even has a built in case fan."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/costume.dmi'
+	icon_state = "phantom_head"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/costume.dmi'

@@ -33,7 +33,12 @@
 	of 'Nuke Fuel' sour candies. Rumored to have given a kid on Mars stomach ulcers, but only because he ate seventeen in one day."
 	icon_state = "nuke_fuel"
 	trash_type = /obj/item/trash/vendor_trash/nuke_fuel
-	food_reagents = list(/datum/reagent/consumable/nutriment = 1, /datum/reagent/consumable/nutriment/vitamin = 1, /datum/reagent/consumable/pickle = 2)
+	food_reagents = list(
+		/datum/reagent/consumable/nutriment = 1,
+		/datum/reagent/consumable/nutriment/vitamin = 1,
+		/datum/reagent/consumable/pickle = 2,
+		/datum/reagent/consumable/sour_sugar = 5,
+		)
 	tastes = list("cucumber" = 1, "battery acid" = 1, "sour brine" = 1)
 	foodtypes = VEGETABLES | SUGAR
 	custom_price = PAYCHECK_LOWER

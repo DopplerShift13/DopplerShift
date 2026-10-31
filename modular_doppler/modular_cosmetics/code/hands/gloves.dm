@@ -43,6 +43,15 @@
 	resistance_flags = FIRE_PROOF
 	clothing_traits = list(TRAIT_QUICK_CARRY)
 
+
+/obj/item/clothing/gloves/phantom_gloves
+	name = "exquisite Phantom the Weasel gloves"
+	desc = "Densely foam padded cosplay gloves. Strikingly character accurate and aggressively hostile to the activities of daily living."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/hands/gloves.dmi'
+	icon_state = "phantom_gloves"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/hands/gloves.dmi'
+	clothing_traits = list(TRAIT_CHUNKYFINGERS)
+
 /obj/item/clothing/gloves/arm_warmers
 	name = "arm warmers"
 	icon = 'icons/map_icons/clothing/_clothing.dmi'

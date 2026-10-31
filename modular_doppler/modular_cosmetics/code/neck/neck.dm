@@ -166,6 +166,13 @@
 	greyscale_colors = "#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/neck/cloak/vampiric_cloak
+	name = "black velvet cape"
+	desc = "A once-expensive antique cape with a heavy smell of stale cigarettes. The velvet retains a plush, rich texture even as the pile has begun to collapse with time."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/neck/capes.dmi'
+	icon_state = "vampire_cape"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/neck/capes.dmi'
+
 
 ///////////
 //SCARVES//

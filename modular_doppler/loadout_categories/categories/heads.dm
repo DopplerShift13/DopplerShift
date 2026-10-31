@@ -539,6 +539,10 @@
 	name = "Natural Wig"
 	item_path = /obj/item/clothing/head/wig/natural
 
+/datum/loadout_item/head/costume/monster_headpiece
+	name = "Monstrous Headpiece"
+	item_path = /obj/item/clothing/head/monster_headpiece
+
 /**
  * MISCELLANEOUS
  */

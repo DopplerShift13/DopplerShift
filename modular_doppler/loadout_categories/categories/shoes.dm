@@ -114,6 +114,10 @@
 	name = "Ice Hiking Boots (Hearthkin)"
 	item_path = /obj/item/clothing/shoes/winterboots/ice_boots/primitive_genemod_boots
 
+/datum/loadout_item/shoes/boots/frankenstompers
+	name = "D3M0N1k Frankenstompers"
+	item_path = /obj/item/clothing/shoes/frankenstompers
+
 /**
  * OTHER SHOES
  */
