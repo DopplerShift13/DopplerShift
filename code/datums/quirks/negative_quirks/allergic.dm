@@ -60,8 +60,8 @@
 /* // DOPPLER EDIT REMOVAL - Removes duplicate proc
 /datum/quirk/item_quirk/allergic/add()
 	RegisterSignal(quirk_holder, COMSIG_MOB_REAGENT_TICK, PROC_REF(block_metab))
-
-*/ // DOPPLER EDIT REMOVAL END
+// DOPPLER EDIT REMOVAL END
+*/
 
 /datum/quirk/item_quirk/allergic/remove()
 	UnregisterSignal(quirk_holder, COMSIG_MOB_REAGENT_TICK)
