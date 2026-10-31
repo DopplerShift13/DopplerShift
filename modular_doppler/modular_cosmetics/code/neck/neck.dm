@@ -60,23 +60,38 @@
 
 /obj/item/clothing/neck/capelet
 	name = "capelet"
+	desc = "A lightweight garment to keep warm in. How quaint."
 	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/capelet"
 	post_init_icon_state = "capelet"
 	w_class = WEIGHT_CLASS_TINY
 	custom_price = PAYCHECK_CREW
-	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	greyscale_colors = "#6496be"
 	greyscale_config = /datum/greyscale_config/capelet
 	greyscale_config_worn = /datum/greyscale_config/capelet/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/neck/flowing_cape
+	name = "flowing cape"
+	desc = "A very drapey and dramatic cape- the kind that flows majestically in the wind. How regal!"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/flowing_cape"
+	post_init_icon_state = "flowing_cape"
+	custom_price = PAYCHECK_CREW
+	greyscale_colors = "#1a1d35"
+	greyscale_config = /datum/greyscale_config/flowing_cape
+	greyscale_config_worn = /datum/greyscale_config/flowing_cape/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
+
 /obj/item/clothing/neck/half_cape
 	name = "half cape"
+	desc = "For the ambitious adventurors who want to look cool just by existing."
 	icon = 'icons/map_icons/clothing/neck.dmi'
 	icon_state = "/obj/item/clothing/neck/half_cape"
 	post_init_icon_state = "half_cape"
 	custom_price = PAYCHECK_CREW
-	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	greyscale_colors = "#360c0c"
 	greyscale_config = /datum/greyscale_config/half_cape
 	greyscale_config_worn = /datum/greyscale_config/half_cape/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -88,7 +103,7 @@
 	icon_state = "/obj/item/clothing/neck/patterned_poncho"
 	post_init_icon_state = "patterned_poncho"
 	custom_price = PAYCHECK_CREW
-	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	greyscale_colors = "#beb966"
 	greyscale_config = /datum/greyscale_config/patterned_poncho
 	greyscale_config_worn = /datum/greyscale_config/patterned_poncho/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -100,7 +115,7 @@
 	icon_state = "/obj/item/clothing/neck/basic_poncho"
 	post_init_icon_state = "basic_poncho"
 	custom_price = PAYCHECK_CREW
-	greyscale_colors = COLOR_VERY_LIGHT_GRAY
+	greyscale_colors = "#beb966"
 	greyscale_config = /datum/greyscale_config/basic_poncho
 	greyscale_config_worn = /datum/greyscale_config/basic_poncho/worn
 	flags_1 = IS_PLAYER_COLORABLE_1
@@ -124,6 +139,18 @@
 	greyscale_config_worn = /datum/greyscale_config/tesharian_mantle/worn
 	greyscale_colors = "#ffcc00#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/neck/posh_mantle
+	name = "posh mantle"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/posh_mantle"
+	post_init_icon_state = "posh_mantle"
+	custom_price = PAYCHECK_CREW
+	greyscale_colors = "#700f0c#b89a4a"
+	greyscale_config = /datum/greyscale_config/posh_mantle
+	greyscale_config_worn = /datum/greyscale_config/posh_mantle/worn
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
 
 //Marsian Fashion
 /obj/item/clothing/neck/cloak/shoulder_cloak_redmars
@@ -159,6 +186,21 @@
 /obj/item/clothing/neck/face_scarf/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/toggle_icon, "scarf")
+
+/obj/item/clothing/neck/blanket_shawl
+	name = "blanket shawl"
+	desc = "A reliable article of clothing that keeps you warm, without weighing you down too much."
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/blanket_shawl"
+	post_init_icon_state = "blanket_shawl"
+	greyscale_config = /datum/greyscale_config/blanket_shawl
+	greyscale_config_worn = /datum/greyscale_config/blanket_shawl/worn
+	greyscale_colors = "#34472e"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST|ARMS
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
 
 ///////////////
 //MISCELLANIA//

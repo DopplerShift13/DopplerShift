@@ -63,7 +63,7 @@
 	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist/casual/greyscale
 
 /datum/loadout_item/shoes/boots/frontier_boots
-	name = "Heavy Boots"
+	name = "CESC Shin-Plate Workboots"
 	item_path = /obj/item/clothing/shoes/jackboots/frontier_colonist
 
 /datum/loadout_item/shoes/boots/aerostatic

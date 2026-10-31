@@ -33,7 +33,7 @@
 	item_path = /obj/item/storage/backpack/industrial/custom
 
 /datum/loadout_item/backpack/back/frontier_backpack
-	name = "Frontier Backpack"
+	name = "CROutfitters Trekpack"
 	item_path = /obj/item/storage/backpack/industrial/frontier_colonist
 
 /**
@@ -52,8 +52,8 @@
 	item_path = /obj/item/storage/backpack/satchel/eng/custom
 
 /datum/loadout_item/backpack/satchel/frontier_satchel
-	name = "Frontier Satchel"
-	item_path = /obj/item/storage/backpack/industrial/frontier_colonist/satchel
+	name = "NG-Tek Work Rated Satchel"
+	item_path = /obj/item/storage/backpack/satchel/eng/frontier_colonist
 
 /**
  * DUFFEL BAGS
@@ -69,6 +69,10 @@
 /datum/loadout_item/backpack/duffel_bag/industrial_duffel
 	name = "Custom Industrial Duffelbag"
 	item_path = /obj/item/storage/backpack/duffelbag/engineering/custom
+
+/datum/loadout_item/backpack/duffel_bag/frontier
+	name = "CROutfitters Duffelbag"
+	item_path = /obj/item/storage/backpack/duffelbag/engineering/frontier_colonist
 
 /**
  * MESSENGER BAGS
@@ -86,8 +90,8 @@
 	item_path = /obj/item/storage/backpack/messenger/eng/custom
 
 /datum/loadout_item/backpack/messenger_bag/frontier_messenger
-	name = "Frontier Messenger Bag"
-	item_path = /obj/item/storage/backpack/industrial/frontier_colonist/messenger
+	name = "NG-Tek Messenger Bag"
+	item_path = /obj/item/storage/backpack/messenger/eng/frontier_colonist
 
 /**
  * KITBAGS/TAILBAGS

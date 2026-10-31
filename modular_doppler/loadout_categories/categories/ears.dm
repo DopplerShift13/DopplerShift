@@ -28,5 +28,5 @@
 	item_path = /obj/item/clothing/ears/earmuffs
 
 /datum/loadout_item/ears/frontier
-	name = "Frontier Radio"
+	name = "Superband Talker Set"
 	item_path = /obj/item/radio/headset/headset_frontier_colonist
