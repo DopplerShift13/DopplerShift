@@ -129,7 +129,7 @@ BROTHER_OBJECTIVES_AMOUNT 2
 ## implants from being most antagonists.
 PROTECT_ROLES_FROM_ANTAGONIST
 
-## Uncomment to prohibit assistants from becoming most antagonists.
+## Uncomment to prohibit off-duty crew from becoming most antagonists.
 #PROTECT_ASSISTANT_FROM_ANTAGONIST
 
 ## How human authority should be distributed. Can be set to four options (Make sure that what you type is exact!):
@@ -212,7 +212,7 @@ MINIMAL_ACCESS_THRESHOLD 20
 ## This option is ignored if MINIMAL_ACCESS_THRESHOLD is used.
 #JOBS_HAVE_MINIMAL_ACCESS
 
-## Uncomment to give assistants maint access.
+## Uncomment to give off-duty crew maint access.
 #ASSISTANTS_HAVE_MAINT_ACCESS
 
 ## Uncoment to give security maint access. Note that if you deactivate JOBS_HAVE_MINIMAL_ACCESS security already gets maint from that.
@@ -424,7 +424,7 @@ MORGUE_CADAVER_OTHER_SPECIES_PROBABILITY 50
 #MORGUE_CADAVER_OVERRIDE_SPECIES lizard
 
 
-##Overflow job. Default is assistant.
+##Overflow job. Default is off-duty crew.
 ## NOTE: This will overwrite anything you put in jobconfig.toml!
 OVERFLOW_JOB Assistant
 
@@ -432,7 +432,7 @@ OVERFLOW_JOB Assistant
 ## NOTE: This will overwrite anything you put in jobconfig.toml!
 OVERFLOW_CAP -1
 
-## Uncomment to bring back old grey suit assistants instead of the now default rainbow colored assistants.
+## Uncomment to bring back old grey suit off-duty crew instead of the now default rainbow colored off-duty crew.
 #GREY_ASSISTANTS
 
 ##Limit Spell Choices##
