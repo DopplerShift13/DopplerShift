@@ -2044,6 +2044,7 @@
 #include "code\datums\skills\fishing.dm"
 #include "code\datums\skills\gaming.dm"
 #include "code\datums\skills\mining.dm"
+#include "code\datums\sprite_accessories\hair.dm"
 #include "code\datums\station_traits\_station_trait.dm"
 #include "code\datums\station_traits\admin_panel.dm"
 #include "code\datums\station_traits\job_traits.dm"
