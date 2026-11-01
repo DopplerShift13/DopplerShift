@@ -46,8 +46,8 @@
 		else
 			rupture_direction = get_dir(opposite_turf, adjacent_turf)
 	if((atmos_pressure_difference >= PRESSURE_DIFF_TO_EXPLODE) && !isnull(rupture_direction))
-		src.visible_message(span_boldwarning("[src] bursts from the pressure difference it was holding back!"), \
-			blind_message= span_boldwarning("You hear a violent shattering sound!"))
+		visible_message(span_boldwarning("[src] bursts from the pressure difference it was holding back!"), \
+			blind_message = span_boldwarning("You hear a violent shattering sound!"))
 		playsound(src, 'sound/machines/hiss.ogg', 50, FALSE, FALSE)
 		shards_nuke(rupture_direction)
 		var/list/turfs_to_either_side = list() // Here we break adjacent walls to make pressure blasts seem more devastating
