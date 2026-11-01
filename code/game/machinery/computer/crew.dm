@@ -172,6 +172,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
 		JOB_ASSISTANT = 999,
+		JOB_OFF_DUTY = 999 // DOPPLER EDIT ADDITION - Assistants No Longer Assist
 	)
 
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
