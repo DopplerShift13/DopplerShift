@@ -19,7 +19,7 @@
 
 /datum/loadout_item/accessory/vaporizer
 	name = "Hydro-Vaporizer"
-	item_path = /obj/item/clothing/accessory/vaporizer //Needing the item for breathing already puts it in your inventory, but people might want it for other stuff
+	item_path = /obj/item/vaporizer //Needing the item for breathing already puts it in your inventory, but people might want it for other stuff
 
 /datum/loadout_item/accessory/deaf_pin
 	name = "Deaf Personnel Pin"

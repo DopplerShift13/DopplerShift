@@ -1,4 +1,4 @@
-/datum/mod_theme/entombed
+/datum/mod_theme/standard/entombed
 	name = "fused"
 	desc = "Circumstances have rendered this protective suit into someone's second skin. Literally."
 	extended_desc = "Some great aspect of someone's past has permanently bound them to this device, for better or worse."
@@ -96,7 +96,7 @@
 // MOD CONTROL UNIT
 
 /obj/item/mod/control/pre_equipped/entombed
-	theme = /datum/mod_theme/entombed
+	theme = /datum/mod_theme/standard/entombed
 	applied_cell = /obj/item/stock_parts/power_store/cell/high
 
 // CUSTOM BEHAVIOR
