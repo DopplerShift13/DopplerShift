@@ -11,9 +11,13 @@
 	quirk_flags = QUIRK_HUMAN_ONLY|QUIRK_PROCESSES
 	mail_goodies = list(/obj/item/reagent_containers/hypospray/medipen) // epinephrine medipen stops allergic reactions
 	no_process_traits = list(TRAIT_STASIS)
+	/// The allergy that has been chosen.
 	var/allergy
+	/// Name of our chemical for display in analyzers/records
 	var/allergy_chem_name
+	/// Will our allergy do extra damage?
 	var/superlethal = FALSE
+
 
 /datum/quirk/item_quirk/allergy_quirk/add(client/client_source)
 	var/requested_allergy = client_source?.prefs.read_preference(/datum/preference/choiced/allergy_quirk)
@@ -38,6 +42,7 @@
 	quirk_holder.add_mob_memory(/datum/memory/key/quirk_allergy, allergy_chem_name)
 	to_chat(quirk_holder, span_boldnotice("You are allergic to [allergy_chem_name], make sure not to consume any of these!"))
 
+/// Allergy handling. Checks for allergy and epinephrine (unless they happen to be allergic to epinephrine)
 /datum/quirk/item_quirk/allergy_quirk/proc/block_metab(mob/living/carbon/source, datum/reagent/chem, seconds_per_tick, times_fired)
 	SIGNAL_HANDLER
 

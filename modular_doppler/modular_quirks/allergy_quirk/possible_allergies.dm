@@ -1,5 +1,6 @@
-// Do Not Do Things Like This This Sucks Ass.
+/// List of chemicals that are a valid selection for the allergy quirk.
 GLOBAL_LIST_INIT(possible_chemical_allergies, list(
+	// If you are going to add more be sure to keep it in alphabetical order. All chemicals are valid to add if you want something that's not a subtype of /medicine
 	"Airui" = /datum/reagent/medicine/c2/aiuri,
 	"Albuterol" = /datum/reagent/medicine/albuterol,
 	"Ammoniated Mercury" = /datum/reagent/medicine/ammoniated_mercury,

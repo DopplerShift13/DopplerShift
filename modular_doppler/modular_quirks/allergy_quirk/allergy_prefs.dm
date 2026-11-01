@@ -12,7 +12,7 @@
 	return assoc_to_keys(GLOB.possible_chemical_allergies)
 
 /datum/preference/choiced/allergy_quirk/create_default_value()
-	return "Psicodine"
+	return "Aiuri"
 
 /datum/preference/choiced/allergy_quirk/is_accessible(datum/preferences/preferences)
 	if (!..())
