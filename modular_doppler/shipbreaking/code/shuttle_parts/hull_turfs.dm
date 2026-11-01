@@ -1,6 +1,3 @@
-/// How much difference in turf pressure between sides of a wall will make it and adjacent walls explode when welded
-#define PRESSURE_DIFF_TO_EXPLODE 50
-
 /turf/closed/wall/mineral/nanocarbon
 	name = "nanocarbon hull"
 	desc = "A durable nanocarbon-metal alloy hull used commonly in high endurance ships."
@@ -29,39 +26,28 @@
 	return .
 
 /turf/closed/wall/mineral/nanocarbon/break_wall()
-	var/atmos_pressure_difference = 0
-	var/rupture_direction = null
-	var/list/adjacent_turfs = get_adjacent_open_turfs(src)
-	for(var/turf/open/adjacent_turf as anything in adjacent_turfs)
-		var/turf/open/opposite_turf = get_step(src, get_dir(adjacent_turf, src))
-		if(!istype(opposite_turf))
-			continue
-		adjacent_turfs -= opposite_turf // stops us from double checking turfs
-		var/adjacent_pressure = adjacent_turf.air.return_pressure()
-		var/opposite_pressure = opposite_turf.air.return_pressure()
-		var/temporary_pressure_difference = abs(adjacent_pressure - opposite_pressure)
-		atmos_pressure_difference = max(temporary_pressure_difference, atmos_pressure_difference)
-		if(adjacent_pressure > opposite_pressure)
-			rupture_direction = get_dir(adjacent_turf, opposite_turf)
-		else
-			rupture_direction = get_dir(opposite_turf, adjacent_turf)
-	if((atmos_pressure_difference >= PRESSURE_DIFF_TO_EXPLODE) && !isnull(rupture_direction))
-		visible_message(span_boldwarning("[src] bursts from the pressure difference it was holding back!"), \
-			blind_message = span_boldwarning("You hear a violent shattering sound!"))
-		playsound(src, 'sound/machines/hiss.ogg', 50, FALSE, FALSE)
-		shards_nuke(rupture_direction)
-		var/list/turfs_to_either_side = list() // Here we break adjacent walls to make pressure blasts seem more devastating
-		turfs_to_either_side += get_step(src, turn(rupture_direction, 90))
-		turfs_to_either_side += get_step(src, turn(rupture_direction, -90))
-		for(var/turf/closed/wall/nearby_wall as anything in turfs_to_either_side)
-			if(!istype(nearby_wall))
-				continue
-			nearby_wall.dismantle_wall(TRUE, FALSE)
+	var/rupture_direction = check_pressure_rupture_direction()
+	if(rupture_direction)
+		pressure_shatter(rupture_direction)
 		return
 	var/obj/new_plating = new /obj/structure/hull_plating/nanocarbon(src)
 	new_plating.color = color
 	if(girder_type)
 		return new girder_type(src)
+
+/// Breaks the wall and adjacent walls, throwing shards in rupture_direction
+/turf/closed/wall/mineral/nanocarbon/proc/pressure_shatter(rupture_direction)
+	visible_message(span_boldwarning("[src] bursts from the pressure difference it was holding back!"), \
+		blind_message = span_boldwarning("You hear a violent shattering sound!"))
+	playsound(src, 'sound/machines/hiss.ogg', 50, FALSE, FALSE)
+	shards_nuke(rupture_direction)
+	var/list/turfs_to_either_side = list() // Here we break adjacent walls to make pressure blasts seem more devastating
+	turfs_to_either_side += get_step(src, turn(rupture_direction, 90))
+	turfs_to_either_side += get_step(src, turn(rupture_direction, -90))
+	for(var/turf/closed/wall/nearby_wall as anything in turfs_to_either_side)
+		if(!istype(nearby_wall))
+			continue
+		nearby_wall.dismantle_wall(TRUE, FALSE)
 
 /turf/closed/wall/mineral/nanocarbon/devastate_wall()
 	shards_nuke()
@@ -301,5 +287,3 @@
 
 /turf/open/floor/plating/aluminum/airless
 	initial_gas_mix = AIRLESS_ATMOS
-
-#undef PRESSURE_DIFF_TO_EXPLODE
