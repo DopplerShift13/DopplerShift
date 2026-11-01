@@ -168,3 +168,11 @@
 /datum/loadout_item/mask/costume/kitsune
 	name = "Kitsune Mask"
 	item_path = /obj/item/clothing/mask/kitsune
+
+/datum/loadout_item/mask/costume/phanic
+	name = "Dubious Phanic Mask"
+	item_path = /obj/item/clothing/mask/phanic_mask
+
+/datum/loadout_item/mask/costume/plastic_fangs
+	name = "Plastic Fangs"
+	item_path = /obj/item/clothing/mask/plastic_fangs

@@ -59,3 +59,7 @@
 /datum/loadout_item/inhand/saddlebags
 	name = "Saddlebags"
 	item_path = /obj/item/storage/backpack/saddlebags
+
+/datum/loadout_item/inhand/phantom_costume	// these garment bags might make more sense in a new loadout category but probably when we have more than one singular example of it
+	name = "Phanic Costume"
+	item_path = /obj/item/storage/bag/phantom_costume

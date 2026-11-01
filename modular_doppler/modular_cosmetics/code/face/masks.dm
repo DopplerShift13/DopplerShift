@@ -224,7 +224,7 @@
 	. = ..()
 	if(!isinhands)
 		. += emissive_appearance('modular_doppler/modular_cosmetics/GAGS/icons/mob/face.dmi', "techmask-emissive", src, alpha = src.alpha, effect_type = EMISSIVE_BLOOM)
-
+    
 /obj/item/clothing/mask/gas/skullmask
 	name = "horned skull mask"
 	desc = "A mask sculpted from the bone of a long-dead animal, adorned with massive jutting antlers and offering a menacing visage."
@@ -239,3 +239,18 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
+
+/obj/item/clothing/mask/plastic_fangs
+	name = "plastic fangs"
+	desc = "Cheap injection molded prostheses bearing a frightening pair of fangs."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/masks.dmi'
+	icon_state = "plastic_fangs"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/masks.dmi'
+
+/obj/item/clothing/mask/phanic_mask
+	name = "dubious Phanic the Weasel mask"
+	desc = "A crude facisimile of the classic gaming character Phanic rendered in thin foam and costume spandex. The \
+	complete lack of structure causes it to distort across the wearer's head."
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/costume.dmi'
+	icon_state = "phanic_mask"
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/costume.dmi'

@@ -80,5 +80,19 @@
 	list_reagents = list(/datum/reagent/consumable/ethanol/synthanol = 30)
 	custom_price = PAYCHECK_CREW
 
+//tiny liquor bottles
+
+/obj/item/reagent_containers/cup/glass/bottle/whiskey/tiny
+	name = "Uncle Git's shooter"
+	desc = "The classic commodity whiskey drunk across the galaxy in a convient, pocket size format."
+	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
+	icon_state = "tiny_whiskey"
+
+/obj/item/reagent_containers/cup/glass/bottle/amaretto/tiny
+	name = "Luini Amaretto shooter"
+	desc = "A promotional sample from an upmarket label. The tiny stopper uncorks with a mighty squeak."
+	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
+	icon_state = "tiny_disaronno"
+
 #undef SODA_FIZZINESS_THROWN
 #undef SODA_FIZZINESS_SHAKE
