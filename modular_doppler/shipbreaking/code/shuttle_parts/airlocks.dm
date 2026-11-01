@@ -54,8 +54,8 @@
 		else
 			rupture_direction = get_dir(opposite_turf, adjacent_turf)
 	if((atmos_pressure_difference >= PRESSURE_DIFF_TO_EXPLODE) && !isnull(rupture_direction))
-		src.visible_message(span_boldwarning("[src]'s panels fly clean off the frame with the pressure it holds back!"), \
-			blind_message= span_boldwarning("You hear a violent metal ripping sound!"))
+		visible_message(span_boldwarning("[src]'s panels fly clean off the frame with the pressure it holds back!"), \
+			blind_message = span_boldwarning("You hear a violent metal ripping sound!"))
 		var/obj/door_panel = new disassembled_type(get_turf(src))
 		var/atom/throw_target = get_edge_target_turf(door_panel, rupture_direction)
 		playsound(src, 'sound/machines/hiss.ogg', 50, FALSE, FALSE)
