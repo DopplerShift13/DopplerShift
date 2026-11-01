@@ -18,10 +18,12 @@
 
 /datum/power/expert/strider/post_add()
 	..()
+	ADD_TRAIT(power_holder, TRAIT_MOUNTED_GUN_FREESTYLE, REF(src))
 	power_holder.add_movespeed_mod_immunities(src, /datum/movespeed_modifier/equipment_speedmod)
 	power_holder.mind?.adjust_experience(/datum/skill/athletics, starting_xp_base)
 
 /datum/power/expert/strider/remove()
+	REMOVE_TRAIT(power_holder, TRAIT_MOUNTED_GUN_FREESTYLE, REF(src))
 	power_holder.remove_movespeed_mod_immunities(src, (/datum/movespeed_modifier/equipment_speedmod))
 	power_holder.mind?.adjust_experience(/datum/skill/athletics, -starting_xp_base)
 

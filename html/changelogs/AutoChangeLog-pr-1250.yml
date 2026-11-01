@@ -1,0 +1,6 @@
+author: "beeperoil"
+delete-after: True
+changes:
+  - rscadd: "Added 3 recolorable neck items and 3 recolorable hands items"
+  - rscadd: "Updated the previews for some neck items"
+  - rscadd: "Updated the capelet's sprite"
