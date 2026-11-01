@@ -1,5 +1,3 @@
-#define MODULAR_EMOJI_SET 'modular_doppler/modular_emoji/emoji.dmi'
-
 /datum/asset/spritesheet_batched/chat/create_spritesheets()
 	. = ..()
 	insert_all_icons("emoji", MODULAR_EMOJI_SET)
