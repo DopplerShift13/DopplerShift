@@ -1,3 +1,4 @@
+/// Lifted from code\datums\quirks\negative_quirks\allergic.dm
 /datum/quirk/item_quirk/allergy_quirk
 	name = "Chemical Allergy"
 	desc = "You've got an allergy to a specific chemical."
