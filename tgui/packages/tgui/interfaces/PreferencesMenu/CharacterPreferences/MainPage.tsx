@@ -24,7 +24,7 @@ import {
   type FeatureChoicedServerData,
   FeatureValueInput,
 } from '../preferences/features/base';
-import { Gender, GENDERS } from '../preferences/gender';
+import { GENDERS, Gender } from '../preferences/gender';
 import {
   createSetPreference,
   type PreferencesMenuData,
@@ -618,6 +618,18 @@ export function MainPage(props: MainPageProps) {
                 onSelected={(value) =>
                   act('update_preview', {
                     updated_preview: value,
+                  })
+                }
+              />
+            </Stack.Item>
+            <Stack.Item position="relative">
+              <Dropdown
+                width="100%"
+                selected={data.character_preferences.misc.background_state}
+                options={serverData?.background_state.choices || []}
+                onSelected={(value) =>
+                  act('update_background', {
+                    new_background: value,
                   })
                 }
               />
