@@ -110,13 +110,13 @@
 
 /obj/item/storage/toolbox/guncase/modular/security_hoshi_package/PopulateContents()
 	new /obj/item/gun/energy/modular_laser_rifle/carbine(src)
-	new /obj/item/storage/belt/security/webbing/full(src)
+	new /obj/item/storage/belt/secsword/full(src)
 
 // Hyeseong package for security loadouts
 
 /obj/item/storage/toolbox/guncase/modular/security_hyeseong_package/PopulateContents()
 	new /obj/item/gun/energy/modular_laser_rifle(src)
-	new /obj/item/storage/belt/security/webbing/full(src)
+	new /obj/item/storage/belt/secsword/full(src)
 
 // for lord humongous in the murderdrome
 
