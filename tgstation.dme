@@ -8122,6 +8122,7 @@
 #include "modular_doppler\taurs\code\taur_mechanics\human.dm"
 #include "modular_doppler\taurs\code\taur_mechanics\item.dm"
 #include "modular_doppler\taurs\code\taur_mechanics\mod.dm"
+#include "modular_doppler\taurs\code\taur_mechanics\no_slip.dm"
 #include "modular_doppler\taurs\code\taur_mechanics\saddle_component.dm"
 #include "modular_doppler\taurs\code\taur_mechanics\saddles.dm"
 #include "modular_doppler\taurs\code\taur_mechanics\serpentine_taur.dm"
