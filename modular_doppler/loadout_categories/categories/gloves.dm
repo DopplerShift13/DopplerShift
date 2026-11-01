@@ -212,11 +212,6 @@
 	item_path = /obj/item/clothing/gloves/latex/nitrile/radio
 	restricted_roles = list(JOB_MEDICAL_DOCTOR, JOB_CHEMIST, JOB_PARAMEDIC, JOB_CORONER, JOB_CHIEF_MEDICAL_OFFICER)
 
-/datum/loadout_item/gloves/misc/engineering_translation
-	name = "Insulated Translation Gloves (Engineering)"
-	item_path = /obj/item/clothing/gloves/color/yellow/radio
-	restricted_roles = list(JOB_STATION_ENGINEER, JOB_ATMOSPHERIC_TECHNICIAN, JOB_CHIEF_ENGINEER)
-
 /datum/loadout_item/gloves/misc/lalune_gloves
 	name = "Elbow Gloves"
 	item_path = /obj/item/clothing/gloves/lalune_long
