@@ -496,7 +496,7 @@
 	item_path = /obj/item/clothing/under/color/jumpskirt/rainbow
 
 /datum/loadout_item/undersuit/fullbody/frontier
-	name = "Frontier Jumpsuit"
+	name = "Frontier Worksuit"
 	item_path = /obj/item/clothing/under/frontier_colonist
 
 /datum/loadout_item/undersuit/fullbody/frontier_casual

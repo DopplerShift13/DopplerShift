@@ -49,6 +49,7 @@
 	var/obj/item/organ/stomach/charging/potential_charger = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(istype(potential_charger))
 		potential_charger.become_oversized()
+	ADD_TRAIT(human_holder, TRAIT_MOUNTED_GUN_FREESTYLE, REF(src))
 
 /datum/quirk/oversized/remove()
 	var/mob/living/carbon/human/human_holder = quirk_holder
@@ -105,6 +106,7 @@
 	var/obj/item/organ/stomach/charging/potential_charger = human_holder.get_organ_slot(ORGAN_SLOT_STOMACH)
 	if(istype(potential_charger))
 		potential_charger.remove_oversized()
+	REMOVE_TRAIT(human_holder, TRAIT_MOUNTED_GUN_FREESTYLE, REF(src))
 
 /datum/quirk/oversized/proc/on_gain_limb(datum/source, obj/item/bodypart/gained, special)
 	SIGNAL_HANDLER
