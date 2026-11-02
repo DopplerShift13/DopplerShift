@@ -6970,6 +6970,7 @@
 #include "modular_doppler\donation_box\donation_box.dm"
 #include "modular_doppler\donation_box\loadout.dm"
 #include "modular_doppler\doppler_command_uniforms\hop\overrides.dm"
+#include "modular_doppler\emotes\code\emote_overrides.dm"
 #include "modular_doppler\emotes\code\emotes.dm"
 #include "modular_doppler\emotes\code\hologram.dm"
 #include "modular_doppler\emotes\code\added_emotes\animal_sounds.dm"
