@@ -20,20 +20,47 @@
 	/// How many shards of nanocarbon the wall will make when exploded, maximum
 	var/number_of_shards = 6
 
+/turf/closed/wall/mineral/nanocarbon/examine(mob/user)
+	. = ..()
+	. += span_notice("Nanocarbon hulls are known for shattering violently when damaged by a cutting tool with a large pressure difference between sides.")
+	return .
+
 /turf/closed/wall/mineral/nanocarbon/break_wall()
+	var/rupture_direction = check_pressure_rupture_direction()
+	if(rupture_direction)
+		pressure_shatter(rupture_direction)
+		return
 	var/obj/new_plating = new /obj/structure/hull_plating/nanocarbon(src)
 	new_plating.color = color
 	if(girder_type)
 		return new girder_type(src)
 
+/// Breaks the wall and adjacent walls, throwing shards in rupture_direction
+/turf/closed/wall/mineral/nanocarbon/proc/pressure_shatter(rupture_direction)
+	visible_message(span_boldwarning("[src] bursts from the pressure difference it was holding back!"), \
+		blind_message = span_boldwarning("You hear a violent shattering sound!"))
+	playsound(src, 'sound/machines/hiss.ogg', 50, FALSE, FALSE)
+	shards_nuke(rupture_direction)
+	var/list/turfs_to_either_side = list() // Here we break adjacent walls to make pressure blasts seem more devastating
+	turfs_to_either_side += get_step(src, turn(rupture_direction, 90))
+	turfs_to_either_side += get_step(src, turn(rupture_direction, -90))
+	for(var/turf/closed/wall/nearby_wall as anything in turfs_to_either_side)
+		if(!istype(nearby_wall))
+			continue
+		nearby_wall.dismantle_wall(TRUE, FALSE)
+
 /turf/closed/wall/mineral/nanocarbon/devastate_wall()
+	shards_nuke()
+
+/// Spawns a bunch of shards and throws them everywhere, sometimes making a girder
+/turf/closed/wall/mineral/nanocarbon/proc/shards_nuke(direction)
 	var/random_shards = rand(2, number_of_shards)
 	for(var/iteration in 1 to random_shards)
 		var/obj/item/shard = new /obj/item/nanocarbon_shard(src)
 		shard.pixel_x = rand(-6, 6)
 		shard.pixel_y = rand(-6, 6)
 		shard.color = color
-		var/atom/throw_target = get_edge_target_turf(shard, pick(GLOB.alldirs))
+		var/atom/throw_target = get_edge_target_turf(shard, isnull(direction) ? pick(GLOB.alldirs) : direction)
 		shard.throw_at(throw_target, 6, 6)
 	if(girder_type && prob(40))
 		new girder_type(src)
