@@ -74,7 +74,7 @@
 
 	var/mob/living/villain
 	for(var/mob/living/candidate in clicked_turf)
-		if(candidate == source)
+		if(candidate == source || candidate == source.buckled) /// don't hit the mob we're riding on. niche case but important. poor raptors...!
 			continue
 		if(candidate.alpha < 40 || candidate.mouse_opacity == MOUSE_OPACITY_TRANSPARENT) ///this should stop ppl from clicking invisible ppl
 			continue
