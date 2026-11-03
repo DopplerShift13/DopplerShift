@@ -1,9 +1,9 @@
 import {
   CheckboxInput,
-  Feature,
-  FeatureChoiced,
+  type Feature,
+  type FeatureChoiced,
   FeatureShortTextInput,
-  FeatureToggle,
+  type FeatureToggle,
 } from '../base';
 import { FeatureDropdownInput } from '../dropdowns';
 
@@ -13,12 +13,16 @@ export const entombed_skin: FeatureChoiced = {
 };
 
 export const entombed_mod_name: Feature<string> = {
-  name: 'MODsuit Control Unit Name',
+  name: 'MODsuit Name',
+  description:
+    'This only affects the control unit. The extended parts are instead affected only affected by the prefix.',
   component: FeatureShortTextInput,
 };
 
 export const entombed_mod_desc: Feature<string> = {
-  name: 'MODsuit Control Unit Description',
+  name: 'MODsuit Description',
+  description:
+    'This only affects the control unit. The extended parts are instead affected only affected by the prefix.',
   component: FeatureShortTextInput,
 };
 
@@ -30,7 +34,7 @@ export const entombed_mod_prefix: Feature<string> = {
 };
 
 export const entombed_deploy_lock: FeatureToggle = {
-  name: 'MODsuit Stays Deployed (Soft DNR)',
+  name: 'MODsuit Stays Deployed',
   description:
     'Prevents anyone from retracting any of your MODsuit, except your helmet. Even you. WARNING: this may make you extremely difficult to revive, and can be considered a soft DNR. Choose wisely.',
   component: CheckboxInput,
