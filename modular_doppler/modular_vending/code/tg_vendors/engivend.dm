@@ -4,6 +4,3 @@
 		/obj/item/forcefield_projector = 4,
 		/obj/item/storage/bag/construction = 2,
 	)
-	premium_doppler = list(
-		/obj/item/clothing/gloves/color/yellow/radio = 1,
-	)
