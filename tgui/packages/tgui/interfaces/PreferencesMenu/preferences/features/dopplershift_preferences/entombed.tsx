@@ -15,14 +15,14 @@ export const entombed_skin: FeatureChoiced = {
 export const entombed_mod_name: Feature<string> = {
   name: 'MODsuit Name',
   description:
-    'This only affects the control unit. The extended parts are instead affected only affected by the prefix.',
+    'This only affects the control unit. The extended parts are instead affected only by the prefix.',
   component: FeatureShortTextInput,
 };
 
 export const entombed_mod_desc: Feature<string> = {
   name: 'MODsuit Description',
   description:
-    'This only affects the control unit. The extended parts are instead affected only affected by the prefix.',
+    'This only affects the control unit. The extended parts are instead affected only by the prefix.',
   component: FeatureShortTextInput,
 };
 
