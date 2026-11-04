@@ -1,7 +1,6 @@
 /// Becuase it turns out sunglasses don't actually have any commonality, as even flash protection is not a guarantee.
 /// Going to swallow the bullet now and give everything sugnlasses.
-/// There's probably a better location to put this?
-/// TODO: Move this to the doppler items folder.
+
 /obj/item/clothing/glasses/sunglasses/Initialize(mapload)
 	. = ..()
 	attach_clothing_traits(TRAIT_WEARING_SUNGLASSES)
