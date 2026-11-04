@@ -213,7 +213,7 @@
 	.[FA_ICON_LINK] = "Takes in properties of other glasses!"
 
 /datum/loadout_item/glasses/hud/stealing/blindfold
-	name = "Veiling Fake Blindfold HUD"
+	name = "Veil HUD (Fake Blindfold)"
 	item_path = /obj/item/clothing/glasses/trickblindfold/hudveil
 
 /datum/loadout_item/glasses/hud/stealing/techno_visor
