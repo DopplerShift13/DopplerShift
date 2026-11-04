@@ -119,10 +119,11 @@
 	)
 
 /obj/item/clothing/glasses/hud/eyepatch
-	name = "HUD eyepatch"
+	name = "\improper HUD eyepatch"
 	desc = "A simple HUD designed to interface with optical nerves of a lost eye. This one seems busted."
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	gender = NEUTER
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
@@ -227,6 +228,7 @@
 /obj/item/clothing/glasses/trickblindfold/obsolete
 	name = "obsolete fake blindfold"
 	desc = "An ornate, fake blindfold, devoid of any electronics. It's belived to be originally worn by members of a bygone military force that sought to protect humanity."
+	gender = NEUTER
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 	icon_state = "obsoletefold"
@@ -281,6 +283,25 @@
 	inhand_icon_state = "blindfold"
 	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
+
+/obj/item/clothing/glasses/trickblindfold/hudveil
+	name = "veil HUD"
+	desc = "A fake blindfold that merely veils the vision. This one is special, \
+	possessing a suite of sleek integrations that allow it to alter the user's perception in various \
+	useful ways. Unfortunately, you need to supply the eyewear that it would copy the software from."
+	gender = NEUTER
+	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+	icon_state = "hudveil"
+	inhand_icon_state = "blindfold"
+	lefthand_file = 'icons/mob/inhands/clothing/glasses_lefthand.dmi'
+	righthand_file = 'icons/mob/inhands/clothing/glasses_righthand.dmi'
+	supported_bodyshapes = null
+	bodyshape_icon_files = null
+
+/obj/item/clothing/glasses/trickblindfold/hudveil/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/glasses_stats_thief)
 
 /obj/item/clothing/glasses/hud/ar
 	name = "\improper AR glasses"
