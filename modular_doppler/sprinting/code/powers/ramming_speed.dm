@@ -29,8 +29,6 @@
 	var/stamina_damage_multiplier = 3
 	/// The duration of the target's jitter and momentum gain penalty.
 	var/debuff_duration = 5 SECONDS
-	/// The base percent chance for a rammed vending machine to tip over.
-	var/vending_tumble_chance = 33
 
 /datum/power/warfighter/ramming_speed/post_add() // skills don't always give xp when spawning unless its post_add()
 	. = ..()
@@ -112,9 +110,19 @@
 	structure_target.take_damage(structural_damage, BRUTE, MELEE)
 
 	// BEHOLD, THE CONSEQUENCES OF YOUR ACTIONS.
-	if(istype(structure_target, /obj/machinery/vending) && prob(vending_tumble_chance * (momentum_at_impact * 0.01)))
+	if(istype(structure_target, /obj/machinery/vending))
 		var/obj/machinery/vending/vendor = structure_target
-		vendor.tilt(charger)
+		switch(rand(1, 100))
+			if(1 to 5)
+				vendor.freebie(3)
+			if(6 to 15)
+				vendor.freebie(2)
+			if(16 to 33)
+				vendor.freebie(1)
+			if(34 to 66)
+				pass()
+			if(67 to 100) // 67
+				vendor.tilt(charger)
 
 	sprinting_component.adjust_momentum(-sprinting_component.momentum)
 
