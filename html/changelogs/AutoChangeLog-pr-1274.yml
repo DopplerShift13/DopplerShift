@@ -1,0 +1,4 @@
+author: "carda-sometimesknownas-paxilmaniac"
+delete-after: True
+changes:
+  - rscadd: "oversized and strider can now use the yandao without deploying it beforehand"

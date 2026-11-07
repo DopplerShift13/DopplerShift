@@ -17,6 +17,11 @@
 	)
 	AddElement(/datum/element/contextual_screentip_tools, tool_behaviors)
 
+/obj/structure/mineral_door/manual_colony_door/shuttle/examine(mob/user)
+	. = ..()
+	. += span_notice("Access ports such as these are known for flying off the frame when cut open by a tool while holding back a considerable pressure difference.")
+	return .
+
 /obj/structure/mineral_door/manual_colony_door/shuttle/welder_act(mob/living/user, obj/item/tool) //override if the door is supposed to be flammable.
 	if(!tool.get_temperature() >= FIRE_MINIMUM_TEMPERATURE_TO_EXIST)
 		return ITEM_INTERACT_FAILURE
@@ -25,6 +30,24 @@
 		return ITEM_INTERACT_BLOCKING
 	deconstruct(TRUE)
 	return ITEM_INTERACT_SUCCESS
+
+/obj/structure/mineral_door/manual_colony_door/shuttle/atom_deconstruct(disassembled = TRUE)
+	if(!disassembled)
+		return
+	var/rupture_direction = check_pressure_rupture_direction()
+	if(rupture_direction)
+		explode_door(rupture_direction)
+		return
+	new disassembled_type(get_turf(src))
+
+/// Spawns a new disassembled_type and throws it in rupture_direction
+/obj/structure/mineral_door/manual_colony_door/shuttle/proc/explode_door(rupture_direction)
+	visible_message(span_boldwarning("[src]'s panels fly clean off the frame with the pressure it holds back!"), \
+		blind_message = span_boldwarning("You hear a violent metal ripping sound!"))
+	var/obj/door_panel = new disassembled_type(get_turf(src))
+	var/atom/throw_target = get_edge_target_turf(door_panel, rupture_direction)
+	playsound(src, 'sound/machines/hiss.ogg', 50, FALSE, FALSE)
+	door_panel.throw_at(throw_target, 6, 8)
 
 /// Overridden because only welders should be unsecuring the door, we don't deconstruct like normal
 /obj/structure/mineral_door/manual_colony_door/shuttle/wrench_act(mob/living/user, obj/item/tool)
