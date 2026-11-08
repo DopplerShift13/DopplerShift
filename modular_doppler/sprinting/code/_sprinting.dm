@@ -70,6 +70,10 @@
 	var/athletics_experience_per_second = 2
 	/// The fraction by which each athletics level above None reduces energy drain.
 	var/athletics_energy_drain_reduction_per_level = SPRINT_ATHLETICS_ENERGY_DRAIN_REDUCTION_PER_LEVEL
+
+	/// How much hunger affects energy drian
+	var/hunger_energy_drain_penalty_per_level = SPRINT_HUNGER_ENERGY_DRAIN_PENALTY_PER_LEVEL
+
 	/// The energy display on the owner's HUD.
 	var/atom/movable/screen/sprint_energy/energy_display
 	/// The momentum display on the owner's HUD.
@@ -194,16 +198,7 @@
 	var/moved_this_tick = tiles_moved > 0
 	if(moved_this_tick)
 		consecutive_stalled_ticks = 0
-		// Gets and applies the base athletics reduction
-		var/athletics_level = sprint_owner.mind?.get_skill_level(/datum/skill/athletics) || SKILL_LEVEL_NONE
-		var/athletics_drain_reduction = clamp((athletics_level - SKILL_LEVEL_NONE) * athletics_energy_drain_reduction_per_level, 0, 1)
-
-		// Gets how much energy we should drain.
-		// Basically the flat drain per second + every tile moved * seconds_per_tick * athletics level modifier
-		var/energy_drain = (energy_drain_per_second + (energy_drain_per_tile * tiles_moved)) * seconds_per_tick * (1 - athletics_drain_reduction)
-		var/list/energy_drain_modifiers = list()
-		SEND_SIGNAL(sprint_owner, COMSIG_SPRINTING_ENERGY_DRAIN, energy_drain, energy_drain_modifiers)
-		energy_drain = apply_percentage_modifiers(energy_drain, energy_drain_modifiers)
+		var/energy_drain = calculate_sprint_energy_cost(seconds_per_tick)
 		adjust_energy(-energy_drain, null, TRUE)
 		sprint_owner.adjust_nutrition(-(hunger_loss * tiles_moved))
 		sprint_owner.mind?.adjust_experience(/datum/skill/athletics, athletics_experience_per_second * seconds_per_tick) // Gain experience for going on a jog
@@ -219,12 +214,51 @@
 
 	tiles_moved = 0
 
+/// Calculates sprinting's intrinsic energy cost, then applies its external cost modifiers.
+/datum/component/sprinting/proc/calculate_sprint_energy_cost(seconds_per_tick)
+	var/list/base_cost_modifiers = list()
+	var/root_energy_cost = (energy_drain_per_second + (energy_drain_per_tile * tiles_moved)) * seconds_per_tick
+
+	/// Base costs which are calculated multiplicatively with eachother
+	/// Athletics bonus per athletics skill level beyond none
+	var/athletics_level = sprint_owner.mind?.get_skill_level(/datum/skill/athletics) || SKILL_LEVEL_NONE
+	var/athletics_drain_reduction = clamp((athletics_level - SKILL_LEVEL_NONE) * athletics_energy_drain_reduction_per_level, 0, 1)
+	base_cost_modifiers += -(athletics_drain_reduction * 100)
+
+	// Hunger penalty for every level under fed.
+	if(!HAS_TRAIT(sprint_owner, TRAIT_NOHUNGER))
+		var/hunger_drain_penalty = 0
+		var/fullness = sprint_owner.get_fullness(only_consumable = TRUE)
+		switch(fullness)
+			if(-INFINITY to NUTRITION_LEVEL_STARVING)
+				hunger_drain_penalty += hunger_energy_drain_penalty_per_level * 3
+			if(NUTRITION_LEVEL_STARVING to NUTRITION_LEVEL_VERY_HUNGRY)
+				hunger_drain_penalty += hunger_energy_drain_penalty_per_level * 2
+			if(NUTRITION_LEVEL_VERY_HUNGRY to NUTRITION_LEVEL_HUNGRY)
+				hunger_drain_penalty += hunger_energy_drain_penalty_per_level
+		base_cost_modifiers += hunger_drain_penalty
+
+	/// Apply the total
+	root_energy_cost = apply_percentage_modifiers(root_energy_cost, base_cost_modifiers)
+
+	/// Other modifiers which are multiplicatively stacking.
+	var/list/energy_drain_modifiers = list()
+	SEND_SIGNAL(sprint_owner, COMSIG_SPRINTING_ENERGY_DRAIN, root_energy_cost, energy_drain_modifiers)
+	return apply_percentage_modifiers(root_energy_cost, energy_drain_modifiers)
+
 /// Drains stamina as a consequence of sprinting and forces the owner to walk when too little stamina remains.
 /datum/component/sprinting/proc/drain_stamina(amount)
 	if(amount <= 0)
 		return
 
 	sprint_owner.adjustStaminaLoss(amount)
+
+	// Spites asthmatics by giving them a chance to get an asthma attack when using stamina to sprint.
+	var/datum/quirk/item_quirk/asthma/asthma_quirk = locate(/datum/quirk/item_quirk/asthma) in sprint_owner.quirks
+	var/asthma_attack_chance = amount * 0.03
+	if(sprint_owner.client && asthma_quirk && isnull(asthma_quirk.current_attack) && prob(asthma_attack_chance))
+		asthma_quirk.do_asthma_attack()
+
 	// Checks if we still have enough stam to keep sprinting.
 	var/remaining_stamina = sprint_owner.max_stamina - sprint_owner.getStaminaLoss()
 	if(remaining_stamina > sprint_owner.max_stamina * minimum_stamina_fraction || sprint_owner.move_intent != MOVE_INTENT_RUN)
@@ -381,6 +415,7 @@
 	sprint_owner.update_stamina_hud()
 	energy_display = new(null, owner_hud)
 	momentum_display = new(null, owner_hud)
+	RegisterSignal(energy_display, COMSIG_SCREEN_ELEMENT_CLICK, PROC_REF(on_energy_display_click))
 	energy_display.update_energy(energy, max_energy)
 	momentum_display.update_momentum(momentum, max_momentum)
 	update_hud_visibility()
@@ -417,13 +452,29 @@
 	QDEL_NULL(energy_display)
 	QDEL_NULL(momentum_display)
 
+/// Prints a description of sprinting mechanics for the owner of the energy display.
+/datum/component/sprinting/proc/on_energy_display_click(atom/movable/screen/sprint_energy/source, location, control, params, mob/user)
+	SIGNAL_HANDLER
+
+	if(source != energy_display || user != sprint_owner)
+		return
+
+	to_chat(user, boxed_message(span_notice("\
+	<b>Sprinting</b><br>You default to walk speed. When entering run, you enter a state called sprinting, which causes you to build up speed as you continue moving in a straight line. \
+	This is called momentum, which is denoted by the bar on the right side of the stamina bar: this lowers to certain thresholds whenever you turn while running, causing your speed to diminish depending on how sharp the angle was. \
+	At maximum momentum, you sprint faster than normal run speed. Taking stamina damage massively reduces your momentum.<br>\
+	<b>Energy</b><br>Sprinting costs stamina, but this is buffered by a resource called energy, which is denoted as a green outline around your stamina bar. Sprinting will gradually chew \
+	through this resource, until eventually running out, at which point you will use stamina instead. Energy recharges after 4 seconds of not spending any energy, so long as you are not missing any stamina. \
+	Stamina healing and damage also affects your energy, at two times the rate. The rate at which you consume energy is influenced by your athletics level, your hunger and any special abilities you may have.<br>\
+	Certain powers allow you to modify how you interact with sprinting.")))
+
 /// Displays energy under the standard stamina HUD, appearing as an outline.
 /atom/movable/screen/sprint_energy
 	icon = 'modular_doppler/sprinting/icons/ui.dmi'
 	icon_state = "sprint_energy"
 	screen_loc = ui_stamina
-	layer = OBJ_LAYER - 0.1
-	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	layer = OBJ_LAYER + 0.1
+	mouse_opacity = MOUSE_OPACITY_OPAQUE
 
 /// Updates the red energy UI icon to gradually turn red relative to energy levels.
 /atom/movable/screen/sprint_energy/proc/update_energy(current_energy, maximum_energy)

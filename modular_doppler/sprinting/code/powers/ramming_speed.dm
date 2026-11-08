@@ -110,6 +110,7 @@
 	structure_target.take_damage(structural_damage, BRUTE, MELEE)
 
 	// BEHOLD, THE CONSEQUENCES OF YOUR ACTIONS.
+	// Smacking into a vending machine has a chance of tipping it.
 	if(istype(structure_target, /obj/machinery/vending))
 		var/obj/machinery/vending/vendor = structure_target
 		switch(rand(1, 100))

@@ -8,6 +8,8 @@
 #define SPRINT_ENERGY_PER_STAMINA_DAMAGE 2
 /// The fraction by which each athletics level above None reduces sprint energy drain.
 #define SPRINT_ATHLETICS_ENERGY_DRAIN_REDUCTION_PER_LEVEL 0.05
+/// The fraction by which each hunger level under Fed increases run cost
+#define SPRINT_HUNGER_ENERGY_DRAIN_PENALTY_PER_LEVEL 0.15
 /// The run slowdown at zero momentum, based on the configured walk and run delays.
 #define SPRINT_RUN_PENALTY (CONFIG_GET(number/movedelay/walk_delay) - CONFIG_GET(number/movedelay/run_delay))
 /// The run-speed bonus granted at full momentum.
