@@ -233,7 +233,7 @@
 	making it body conscious and yardage intensive at the same time. This kind of excess is popular in the Core Worlds, \
 	where price has ceased to ration anything."
 	icon = 'icons/map_icons/clothing/under/dress.dmi'
-	icon_state = "/obj/item/clothing/under/dress/doppler/coreoid_dress"
+	icon_state = "/obj/item/clothing/under/dress/doppler/bias_dress"
 	post_init_icon_state = "bias_dress"
 	flags_1 = IS_PLAYER_COLORABLE_1
 	greyscale_colors = "#382e24"
