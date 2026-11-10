@@ -41,7 +41,7 @@
 				/obj/item/clothing/neck/fashion_collar/cross = 5,
 				/obj/item/clothing/neck/fashion_collar/holo = 5,
 				/obj/item/clothing/neck/fashion_collar/spike = 5,
-				/obj/item/clothing/gloves/curtainsleeves = 5,
+				/obj/item/clothing/gloves/curtain_sleeves = 5,
 				/obj/item/clothing/gloves/arm_warmers = 5,
 				/obj/item/clothing/gloves/suede_gloves = 5,
 			),
