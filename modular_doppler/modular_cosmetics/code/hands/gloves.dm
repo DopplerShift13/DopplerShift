@@ -74,7 +74,7 @@
 	desc = "A cleverly modified fork of the controversial fingerless gloves adopted by Port Safety, these \
 	half-fingered archer-style gloves allow for sign language users to 'speak' over radio by capturing \
 	the necessary motions from the leading three fingers on each hand. As these only cover a few fingers, \
-	they are almost worthless in forensics work."
+	they are almost worthless in forensics work. "
 	icon_state = "fingerish_sec_radio"
 	clothing_traits = list(TRAIT_FINGERPRINT_PASSTHROUGH, TRAIT_FAST_CUFFING, TRAIT_CAN_SIGN_ON_COMMS)
 
