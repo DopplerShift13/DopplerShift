@@ -10,14 +10,14 @@
 /config/ @kannthus
 
 # Maintainers
-/modular_doppler/ @00-Steven @carda-sometimesknownas-paxilmaniac @dawsonkeyes @desertmote @TheOneAndOnlyCreeperJoe
-/code/ @00-Steven @carda-sometimesknownas-paxilmaniac @dawsonkeyes @desertmote @TheOneAndOnlyCreeperJoe
+/modular_doppler/ @00-Steven @carda-sometimesknownas-paxilmaniac @desertmote @TheOneAndOnlyCreeperJoe
+/code/ @00-Steven @carda-sometimesknownas-paxilmaniac @desertmote @TheOneAndOnlyCreeperJoe
 # /sound/
 # /strings/
 
 # Maptainers
-/_maps/ @dawsonkeyes @kannthus
+/_maps/ @kannthus
 
 # Spritetainers (real)
-# /icons/
+/icons/ @carda-sometimesknownas-paxilmaniac
 

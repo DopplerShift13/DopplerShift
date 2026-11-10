@@ -1,4 +1,4 @@
-/obj/item/clothing/gloves/curtainsleeves
+/obj/item/clothing/gloves/curtain_sleeves
 	name = "curtain sleeves"
 	icon = 'icons/map_icons/clothing/_clothing.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/hands/gloves.dmi'
