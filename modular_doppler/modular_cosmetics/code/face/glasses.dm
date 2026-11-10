@@ -288,7 +288,7 @@
 	name = "veil HUD"
 	desc = "A fake blindfold that merely veils the vision. This one is special, \
 	possessing a suite of sleek integrations that allow it to alter the user's perception in various \
-	useful ways. Unfortunately, you need to supply the eyewear that it would copy the software from."
+	useful ways. Unfortunately, you need to supply the eyewear that it would copy the software from. "
 	gender = NEUTER
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
