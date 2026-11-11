@@ -39,7 +39,7 @@
 	)
 	antimagic_effect = mutable_appearance('icons/effects/effects.dmi', "shield-old", MOB_SHIELD_LAYER)
 	antimagic_color = LIGHT_COLOR_DARK_BLUE
-	playsound(src, 'sound/effects/magic/magic_block.ogg', 50, TRUE)
+	playsound(src, 'sound/effects/magic.ogg', 20, TRUE)
 
 	mob_light(range = 2, power = 2, color = antimagic_color, duration = 5 SECONDS)
 	add_overlay(antimagic_effect)
