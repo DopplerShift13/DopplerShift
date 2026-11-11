@@ -11,6 +11,19 @@
 	winset(user, null, "command=[user.tgui_say_create_open_command(LOOC_CHANNEL)]")
 	return TRUE
 
+/datum/keybinding/client/communication/backstage
+	hotkey_keys = list("ShiftO")
+	name = BACKSTAGE_CHANNEL
+	full_name = "Backstage OOC (SAOOC)"
+	keybind_signal = COMSIG_KB_CLIENT_BACKSTAGE_DOWN
+
+/datum/keybinding/client/communication/backstage/down(client/user)
+	. = ..()
+	if(.)
+		return
+	winset(user, null, "command=[user.tgui_say_create_open_command(BACKSTAGE_CHANNEL)]")
+	return TRUE
+
 /datum/keybinding/client/communication/whisper
 	hotkey_keys = list("CtrlT")
 	name = WHIS_CHANNEL
