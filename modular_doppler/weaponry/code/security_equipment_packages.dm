@@ -16,11 +16,6 @@
 	icon_state = "hyeseong_disabler"
 	spawned_item_type = /obj/item/storage/toolbox/guncase/modular/security_hyeseong_package
 
-/datum/signature_equipment/security_equipment_package/jitte_belt
-	name = "Jitte Belt"
-	icon_item_type = /obj/item/storage/belt/secsword/full
-	spawned_item_type = /obj/item/storage/belt/secsword/full
-
 /obj/item/storage/belt/security/webbing/full/PopulateContents()
 	. = ..()
 	new /obj/item/restraints/handcuffs(src)
