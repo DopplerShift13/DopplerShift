@@ -22,3 +22,13 @@
 	moth_for_preview.set_hairstyle("Cotton (Alt)", update = TRUE)
 	regenerate_organs(moth_for_preview)
 	moth_for_preview.update_body(is_creating = TRUE)
+
+/datum/species/moth/on_species_gain(mob/living/carbon/human/human_who_gained_species, datum/species/old_species, pref_load, regenerate_icons)
+	. = ..()
+	human_who_gained_species.AddComponent(/datum/component/pheromone_user)
+
+/datum/species/moth/on_species_loss(mob/living/carbon/human/C, datum/species/new_species, pref_load)
+	. = ..()
+	var/comp = C.GetComponent(/datum/component/pheromone_user)
+	qdel(comp)
+
