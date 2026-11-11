@@ -7,6 +7,9 @@
 /// The trait for undersized quirk
 #define TRAIT_UNDERSIZED "undersized"
 
+//// The trait for the Anathema quirk and any anathema species/powers
+#define TRAIT_ANATHEMA "anathema"
+
 /// The owner of this trait can use a mounted gun freely in hand without needing to deploy it
 #define TRAIT_MOUNTED_GUN_FREESTYLE "mounted_gun_freestyle"
 

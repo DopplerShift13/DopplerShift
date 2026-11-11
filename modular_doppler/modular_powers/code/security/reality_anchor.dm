@@ -237,6 +237,7 @@
 	if(screen_effect_type)
 		owner.overlay_fullscreen("reality_anchor_static", screen_effect_type)
 	apply_anchor_blur()
+	SEND_SIGNAL(owner, COMSIG_LIVING_ANCHOR_SILENCE_MENTAL_APPLIED, src)
 
 /// Clears the mood, visual, and audio effects that mental antimagic can block.
 /datum/status_effect/power/reality_anchor_silenced/proc/clear_mental_effects()
@@ -244,14 +245,17 @@
 	owner.clear_fullscreen("reality_anchor_static")
 	owner.stop_sound_channel(CHANNEL_HEARTBEAT)
 	clear_anchor_blur()
+	SEND_SIGNAL(owner, COMSIG_LIVING_ANCHOR_SILENCE_MENTAL_CLEARED, src)
 
 /datum/status_effect/power/reality_anchor_silenced/tick(seconds_between_ticks)
+	SEND_SIGNAL(owner, COMSIG_LIVING_ANCHOR_SILENCE_TICK, seconds_between_ticks)
 	if(mental_effects_blocked || owner_archetype == POWER_ARCHETYPE_MORTAL) // normies and the mentally shielded don't hear the heartbeat
 		return
 	owner.playsound_local(owner, 'sound/effects/health/slowbeat.ogg', 40, FALSE, channel = CHANNEL_HEARTBEAT, use_reverb = FALSE)
 
 /// Warns the owner when the anchor's silence is first applied.
 /datum/status_effect/power/reality_anchor_silenced/proc/send_initial_message()
+	SEND_SIGNAL(owner, COMSIG_LIVING_ANCHOR_SILENCE_WARNING)
 	if(owner_archetype == POWER_ARCHETYPE_SORCEROUS)
 		to_chat(owner, span_userdanger("You sense your powers being suppressed, and you are wracked with an excruciating pain spreading throughout your entire body! MAKE IT STOP!"))
 		return
@@ -285,8 +289,8 @@
 	return null
 
 /// Applies a constant radial blur to the owner's rendered game plane.
-/datum/status_effect/power/reality_anchor_silenced/proc/apply_anchor_blur()
-	var/blur_size = get_anchor_blur_size()
+/datum/status_effect/power/reality_anchor_silenced/proc/apply_anchor_blur(blur_size)
+	blur_size ||= get_anchor_blur_size() // Only uses get_anchor_blur_size if nothing is passed through blur_size when calling the proc
 	if(!blur_size || !owner.hud_used)
 		return
 	blur_plane_master_controller = owner.hud_used.plane_master_controllers[PLANE_MASTERS_GAME]
