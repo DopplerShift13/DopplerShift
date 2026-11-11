@@ -36,6 +36,7 @@
 	icon_state = "shadekin_large"
 	dimension_x = 64
 	center = TRUE
+	zooms_out_character_preview = TRUE
 
 /datum/sprite_accessory/tails/lizard/big/shadekin_long
 	name = "Shadekin (Big)(Long)"
