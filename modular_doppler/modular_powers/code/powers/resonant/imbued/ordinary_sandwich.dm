@@ -109,7 +109,6 @@
 			LAZYADD(warned_eaters, REF(living_eater))
 
 	RegisterSignal(living_eater, COMSIG_LIVING_GET_PERCEIVED_FOOD_QUALITY, PROC_REF(add_tastiness))
-	addtimer(CALLBACK(src, PROC_REF(clear_tastiness_handler), living_eater), 0)
 
 /// Adds this sandwich's quality to the tastiness calc.
 /obj/item/food/sandwich/cheese/grilled/ordinary/proc/add_tastiness(mob/living/eater, datum/component/edible/edible, list/extra_quality)
@@ -118,9 +117,5 @@
 	if(edible.parent != src)
 		return
 
-	UnregisterSignal(eater, COMSIG_LIVING_GET_PERCEIVED_FOOD_QUALITY)
 	extra_quality += get_tastiness(eater)
-
-/// Removes the tastiness handler after taking a bite.
-/obj/item/food/sandwich/cheese/grilled/ordinary/proc/clear_tastiness_handler(mob/living/eater)
 	UnregisterSignal(eater, COMSIG_LIVING_GET_PERCEIVED_FOOD_QUALITY)
