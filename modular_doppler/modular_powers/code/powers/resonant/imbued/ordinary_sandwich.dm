@@ -24,7 +24,7 @@
 /// Watches nearby freezers for successful opening. Yeah, this is the LAZIEST way to do it, but there's genuinely no way to signal into random locker openings that's any better and I am not adding a signaler JUST FOR THIS.
 /datum/power/imbued/ordinary_sandwich/process(seconds_per_tick)
 	var/list/visible_freezers = list()
-	for(var/obj/structure/closet/secure_closet/freezer/freezer as anything in view(power_holder))
+	for(var/obj/structure/closet/secure_closet/freezer/freezer in view(power_holder))
 		visible_freezers += freezer
 		if(freezer in watched_freezers)
 			continue
