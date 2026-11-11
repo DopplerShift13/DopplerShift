@@ -10,49 +10,29 @@
 	\nYou can only find an ordinary grilled cheese sandwich once every 3 minutes."
 	security_record_text = "Subject seems to always find a grilled cheese sandwich in fridges, regardless of their previous contents."
 	value = 1
-	power_flags = POWER_HUMAN_ONLY | POWER_PROCESSES
+	power_flags = POWER_HUMAN_ONLY
 	required_powers = list(/datum/power/imbued_root/anomalous)
 
 	menu_icon = 'icons/obj/food/burgerbread.dmi'
 	menu_icon_state = "toastedsandwich"
 
-	/// Freezers which are currently watched for being opened by the power holder.
-	var/list/watched_freezers = list()
 	/// Limits how often the power can create a sandwich.
 	COOLDOWN_DECLARE(sandwich_cooldown)
 
-/// Watches nearby freezers for successful opening. Yeah, this is the LAZIEST way to do it, but there's genuinely no way to signal into random locker openings that's any better and I am not adding a signaler JUST FOR THIS.
-/datum/power/imbued/ordinary_sandwich/process(seconds_per_tick)
-	var/list/visible_freezers = list()
-	for(var/obj/structure/closet/secure_closet/freezer/freezer in view(power_holder))
-		visible_freezers += freezer
-		if(freezer in watched_freezers)
-			continue
-		RegisterSignal(freezer, COMSIG_CLOSET_POST_OPEN, PROC_REF(on_freezer_opened))
-		watched_freezers += freezer
+/// Creates an ordinary grilled cheese sandwich when opening a freezer.
+/// Still don't like this override just for this power but it was better than the view() check
+/obj/structure/closet/secure_closet/freezer/after_open(mob/living/user, force)
+	. = ..()
 
-	for(var/obj/structure/closet/secure_closet/freezer/freezer as anything in watched_freezers.Copy())
-		if(freezer in visible_freezers)
-			continue
-		UnregisterSignal(freezer, COMSIG_CLOSET_POST_OPEN)
-		watched_freezers -= freezer
-
-/// Stops watching every freezer tracked by this power.
-/datum/power/imbued/ordinary_sandwich/remove()
-	for(var/obj/structure/closet/secure_closet/freezer/freezer as anything in watched_freezers)
-		UnregisterSignal(freezer, COMSIG_CLOSET_POST_OPEN)
-	watched_freezers.Cut()
-	return ..()
-
-/// Creates a sandwich after the power holder successfully opens a watched freezer.
-/datum/power/imbued/ordinary_sandwich/proc/on_freezer_opened(obj/structure/closet/secure_closet/freezer/freezer, mob/living/user, force)
-	SIGNAL_HANDLER
-
-	if(user != power_holder || !COOLDOWN_FINISHED(src, sandwich_cooldown))
+	if(!user)
 		return
 
-	new /obj/item/food/sandwich/cheese/grilled/ordinary(freezer.drop_location())
-	COOLDOWN_START(src, sandwich_cooldown, 3 MINUTES)
+	var/datum/power/imbued/ordinary_sandwich/sandwich_power = user.get_power(/datum/power/imbued/ordinary_sandwich)
+	if(!sandwich_power || !COOLDOWN_FINISHED(sandwich_power, sandwich_cooldown))
+		return
+
+	new /obj/item/food/sandwich/cheese/grilled/ordinary(drop_location())
+	COOLDOWN_START(sandwich_power, sandwich_cooldown, 3 MINUTES)
 
 /// The special ordinary grilled cheese sandwich.
 /obj/item/food/sandwich/cheese/grilled/ordinary
