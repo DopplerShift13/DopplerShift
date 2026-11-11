@@ -19,6 +19,8 @@
 			rupture_direction = get_dir(adjacent_turf, opposite_turf)
 		else
 			rupture_direction = get_dir(opposite_turf, adjacent_turf)
+	if(atmos_pressure_difference < PRESSURE_DIFF_TO_EXPLODE)
+		return null
 	return rupture_direction
 
 #undef PRESSURE_DIFF_TO_EXPLODE
