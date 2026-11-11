@@ -1,5 +1,5 @@
 /// How much difference in turf pressure between sides of an object will make it explode when disassembled
-#define PRESSURE_DIFF_TO_EXPLODE 50
+#define PRESSURE_DIFF_TO_EXPLODE 90
 
 /// Checks between all sides of an object, returning a dir to explode in if a high enough pressure difference is detected
 /atom/proc/check_pressure_rupture_direction()
