@@ -36,6 +36,9 @@
 	icon_state = "segmentedtail"
 	color_src = USE_MATRIXED_COLORS
 
+/datum/sprite_accessory/tails/fish/cerulean
+	icon = 'modular_doppler/modular_customization/accessories/icons/aquatic/cerulean_tails.dmi'
+
 /datum/sprite_accessory/tails/fish/big // big .dmi starts here
 	name = "Sea Slug"
 	icon = 'modular_doppler/modular_customization/accessories/icons/aquatic/aquatic_tail_big.dmi'
