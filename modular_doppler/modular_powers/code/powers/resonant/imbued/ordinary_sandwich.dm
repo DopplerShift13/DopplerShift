@@ -57,13 +57,19 @@
 	switch(power_points)
 		if(0)
 			return FOOD_QUALITY_TOP
-		if(1 to 5)
+		if(MAXIMUM_POWER_POINTS * 0.01 to MAXIMUM_POWER_POINTS * 0.14) // 1-2
+			return FOOD_QUALITY_AMAZING
+		if(MAXIMUM_POWER_POINTS * 0.15 to MAXIMUM_POWER_POINTS * 0.29) // 3-4-5
 			return FOOD_QUALITY_FANTASTIC
-		if(6 to 10)
+		if(MAXIMUM_POWER_POINTS * 0.3 to MAXIMUM_POWER_POINTS * 0.44) // 6-7-8
+			return FOOD_QUALITY_VERYGOOD
+		if(MAXIMUM_POWER_POINTS * 0.45 to MAXIMUM_POWER_POINTS * 0.59) // 9-10-11
 			return FOOD_QUALITY_GOOD
-		if(11 to 19)
+		if(MAXIMUM_POWER_POINTS * 0.6 to MAXIMUM_POWER_POINTS * 0.84) // 12-13-14-15-16
+			return FOOD_QUALITY_NICE
+		if(MAXIMUM_POWER_POINTS * 0.85 to MAXIMUM_POWER_POINTS - 1) // 17-18-19
 			return FOOD_QUALITY_NORMAL
-		if(20 to INFINITY)
+		if(MAXIMUM_POWER_POINTS to INFINITY) // 20+
 			return 0
 
 /// Applies the sandwich's power-dependent mood effects and one-time taste messages.
