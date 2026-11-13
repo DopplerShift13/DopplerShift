@@ -88,12 +88,12 @@
 /datum/power/imbued/action_movie_syndrome/proc/on_owner_projectile_prehit(obj/projectile/hitting_projectile, atom/potential_target)
 	SIGNAL_HANDLER
 
-	if(!power_holder || !isliving(potential_target))
+	if(isnull(power_holder) || !isliving(potential_target))
 		return NONE
 	var/mob/living/hit_user = potential_target
-	if(try_redirect_projectile(hit_user, hitting_projectile, power_holder))
-		return PROJECTILE_INTERRUPT_HIT
-	return NONE
+	if(!try_redirect_projectile(hit_user, hitting_projectile, power_holder))
+		return NONE
+	return PROJECTILE_INTERRUPT_HIT
 
 /// Redirects a non-point-blank firearm projectile to an adjacent, valid target.
 /datum/power/imbued/action_movie_syndrome/proc/try_redirect_projectile(mob/living/redirecting_user, obj/projectile/hitting_projectile, mob/living/responsible_user = redirecting_user)
@@ -139,7 +139,7 @@
 
 /// Returns whether a living mob can redirect projectiles through Action Movie Syndrome.
 /datum/power/imbued/action_movie_syndrome/proc/can_redirect_projectiles(mob/living/redirecting_user)
-	return redirecting_user && redirecting_user.stat < UNCONSCIOUS && redirecting_user.body_position != LYING_DOWN
+	return redirecting_user && (redirecting_user.stat < UNCONSCIOUS) && (redirecting_user.body_position != LYING_DOWN)
 
 // Returns TRUE or FALSE depending on if the user is wearing sunglasses and has them visible.
 /datum/power/imbued/action_movie_syndrome/proc/are_we_cool(mob/living/redirecting_user)
@@ -151,7 +151,7 @@
 
 /// Point-blank gunfire immediately impacts its direct target, and therefore cannot be redirected.
 /datum/power/imbued/action_movie_syndrome/proc/is_point_blank_firearm_attack(mob/living/blocking_user, obj/projectile/hitting_projectile)
-	return isgun(hitting_projectile.fired_from) && hitting_projectile.original == blocking_user && get_dist(hitting_projectile.firer, blocking_user) <= 1
+	return isgun(hitting_projectile.fired_from) && (hitting_projectile.original == blocking_user) && (get_dist(hitting_projectile.firer, blocking_user) <= 1)
 
 /// Finds valid projectile victims on surrounding tiles.
 /datum/power/imbued/action_movie_syndrome/proc/get_valid_targets(mob/living/blocking_user, obj/projectile/hitting_projectile)
@@ -167,18 +167,18 @@
 		if(isliving(potential_target))
 			var/mob/living/living_target = potential_target
 			// Anyone that isn't dead, prone, can be hurt, and isn't a plot essential character (aka has the same power).
-			if(living_target.stat >= UNCONSCIOUS || living_target.body_position == LYING_DOWN || HAS_TRAIT(living_target, TRAIT_GODMODE) || living_target.get_power(/datum/power/imbued/action_movie_syndrome))
+			if((living_target.stat >= UNCONSCIOUS) || (living_target.body_position == LYING_DOWN) || HAS_TRAIT(living_target, TRAIT_GODMODE) || living_target.get_power(/datum/power/imbued/action_movie_syndrome))
 				continue
 			valid_targets += living_target
 			continue
-		if(potential_target.uses_integrity && potential_target.get_integrity() > 0 && !(potential_target.resistance_flags & INDESTRUCTIBLE))
+		if(potential_target.uses_integrity && (potential_target.get_integrity() > 0) && !(potential_target.resistance_flags & INDESTRUCTIBLE))
 			valid_targets += potential_target
 	return valid_targets
 
 /// Adds fake bullet dents to nearby walls surrounding the deflection.
 /datum/power/imbued/action_movie_syndrome/proc/add_nearby_wall_dents(mob/living/blocking_user)
 	var/turf/center_turf = get_turf(blocking_user)
-	if(!center_turf)
+	if(isnull(center_turf))
 		return
 	for(var/turf/closed/wall/nearby_wall in RANGE_TURFS(1, center_turf))
 		nearby_wall.add_dent(WALL_DENT_SHOT)

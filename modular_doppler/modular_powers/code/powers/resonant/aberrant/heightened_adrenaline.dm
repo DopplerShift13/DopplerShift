@@ -6,7 +6,7 @@
 /datum/power/aberrant/heightened_adrenaline
 	name = "Heightened Adrenaline"
 	desc = "Physical damage barely keeps you down: only stopping power does. For every point of brute or burn damage you gain, gain a stacking buff called Adrenaline. You also gain Adrenaline when receiving a wound, proportional to severity.\
-	\nWhilst you have at least 5 stacks of Adrenaline: you become immmune to damage slowdown, you build up Determination in your system, and you remain standing when entering soft crit whilst it is active.\
+	\nWhilst you have at least 5 stacks of Adrenaline: you become immune to damage slowdown, you build up Determination in your system, and you remain standing when entering soft crit whilst it is active.\
 	\nYou lose a stack of Adrenaline every 0.25 seconds. You cannot gain Adrenaline after you go down in critical condition, or are otherwise unconscious. \
 	You also become discoordinated when it comes to your manual dexterity whilst active, preventing you from interacting with many objects, including most firearms, whilst you have 5 or more stacks."
 	security_record_text = "Subject experiences extreme bursts of adrenaline when exposed to high physical trauma in a short span of time."

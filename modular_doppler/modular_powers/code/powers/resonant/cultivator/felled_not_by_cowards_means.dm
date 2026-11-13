@@ -3,7 +3,7 @@
 */
 /datum/power/cultivator/felled_not_by_cowards_means
 	name = "Felled Not By Coward's Means"
-	desc = "Your alignment makes you particularly resilient against projectiles. You gain +2 to bullet, energy and laser armour granted by your alignment. \
+	desc = "Your alignment makes you particularly resilient against projectiles. You gain +2 to bullet, energy, and laser armor granted by your alignment. \
 	\nYou also negate any projectile-damage that would put you in critical health: this damage is instead dealt to your energy (without any damage modifiers) at 1.5x the rate. \
 	\nYou cannot use firearms in alignment."
 	security_record_text = "Subject is extra resistant in alignment to firearms, but cannot wield them in that state."
@@ -24,7 +24,7 @@
 
 /datum/power/cultivator/felled_not_by_cowards_means/add(client/client_source)
 	. = ..()
-	if(!power_holder)
+	if(isnull(power_holder))
 		return
 	RegisterSignal(power_holder, COMSIG_CULTIVATOR_MODIFY_ALIGNMENT_ARMOR, PROC_REF(modify_alignment_armor))
 	RegisterSignal(power_holder, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(block_critical_projectile))
