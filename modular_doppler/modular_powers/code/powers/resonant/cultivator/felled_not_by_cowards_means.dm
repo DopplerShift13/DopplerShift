@@ -21,6 +21,8 @@
 	var/projectile_armor_bonus = 20
 	/// Energy drained when an otherwise critical projectile is negated, per point of its base damage.
 	var/projectile_block_energy_multiplier = 1.5
+	/// The holder's alignment action, used to check its active state and consume its Energy.
+	var/datum/action/cooldown/power/cultivator/alignment/alignment_power
 
 /datum/power/cultivator/felled_not_by_cowards_means/add(client/client_source)
 	. = ..()
@@ -28,11 +30,16 @@
 		return
 	RegisterSignal(power_holder, COMSIG_CULTIVATOR_MODIFY_ALIGNMENT_ARMOR, PROC_REF(modify_alignment_armor))
 	RegisterSignal(power_holder, COMSIG_ATOM_PRE_BULLET_ACT, PROC_REF(block_critical_projectile))
+	RegisterSignals(power_holder, list(COMSIG_MOB_POWER_ADDED, COMSIG_MOB_POWER_REMOVED), PROC_REF(on_power_list_changed))
+
+/datum/power/cultivator/felled_not_by_cowards_means/post_add()
+	. = ..()
+	cache_alignment_power()
 	refresh_alignment_armor()
 
 /datum/power/cultivator/felled_not_by_cowards_means/remove()
 	if(power_holder)
-		UnregisterSignal(power_holder, list(COMSIG_CULTIVATOR_MODIFY_ALIGNMENT_ARMOR, COMSIG_ATOM_PRE_BULLET_ACT))
+		UnregisterSignal(power_holder, list(COMSIG_CULTIVATOR_MODIFY_ALIGNMENT_ARMOR, COMSIG_ATOM_PRE_BULLET_ACT, COMSIG_MOB_POWER_ADDED, COMSIG_MOB_POWER_REMOVED))
 		refresh_alignment_armor()
 	. = ..()
 
@@ -49,9 +56,7 @@
 	SIGNAL_HANDLER
 	if(!isnum(projectile_hit.damage) || projectile_hit.damage <= 0)
 		return NONE
-
-	var/datum/action/cooldown/power/cultivator/alignment/active_alignment = get_active_alignment()
-	if(!active_alignment)
+	if(!alignment_power?.active)
 		return NONE
 	if(projectile_hit.damage_type == STAMINA)
 		return NONE
@@ -59,16 +64,9 @@
 	if(projectile_hit.damage < blocking_user.health)
 		return NONE
 
-	active_alignment.adjust_energy(-(projectile_hit.damage * projectile_block_energy_multiplier))
-	play_critical_projectile_block_effect(blocking_user, projectile_hit, active_alignment)
+	alignment_power.adjust_energy(-(projectile_hit.damage * projectile_block_energy_multiplier))
+	play_critical_projectile_block_effect(blocking_user, projectile_hit, alignment_power)
 	return COMPONENT_BULLET_BLOCKED
-
-/// Returns the currently active alignment, if any.
-/datum/power/cultivator/felled_not_by_cowards_means/proc/get_active_alignment()
-	for(var/datum/action/cooldown/power/cultivator/alignment/alignment_action in power_holder.actions)
-		if(alignment_action.active)
-			return alignment_action
-	return null
 
 /// Displays feedback when the critical projectile hit is negated.
 /datum/power/cultivator/felled_not_by_cowards_means/proc/play_critical_projectile_block_effect(mob/living/blocking_user, obj/projectile/projectile_hit, datum/action/cooldown/power/cultivator/alignment/active_alignment)
@@ -83,8 +81,22 @@
 	blocking_user.flick_overlay_view(phase_overlay, 1 SECONDS)
 	playsound(blocking_user, 'sound/effects/parry.ogg', 50, TRUE)
 
-/// Applies a changed power selection immediately when an alignment is already active.
+/// Updates the alignment armor on a mob.
 /datum/power/cultivator/felled_not_by_cowards_means/proc/refresh_alignment_armor()
+	if(alignment_power?.active)
+		alignment_power.recompute_alignment_armor(power_holder)
+
+/// Checks if something happened to root powers, and if so re-check which alignment we're registered to.
+/datum/power/cultivator/felled_not_by_cowards_means/proc/on_power_list_changed(mob/living/source, datum/power/changed_power)
+	SIGNAL_HANDLER
+	if(!istype(changed_power, /datum/power/cultivator_root))
+		return
+	cache_alignment_power()
+	refresh_alignment_armor()
+
+/// Stores the cultivator root belonging to the power holder by just grabbing the first one we find.
+/datum/power/cultivator/felled_not_by_cowards_means/proc/cache_alignment_power()
+	alignment_power = null
 	for(var/datum/action/cooldown/power/cultivator/alignment/alignment_action in power_holder.actions)
-		if(alignment_action.active)
-			alignment_action.recompute_alignment_armor(power_holder)
+		alignment_power = alignment_action
+		return

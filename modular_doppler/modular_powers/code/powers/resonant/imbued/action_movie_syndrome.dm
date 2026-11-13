@@ -120,12 +120,12 @@
 		living_target.log_message("was hit by a [projectile_name] redirected by [responsible_user]'s Action Movie Syndrome.", LOG_VICTIM)
 	responsible_user.log_message("redirected a [projectile_name] into [redirect_target] with Action Movie Syndrome.", LOG_ATTACK)
 
-
+	var/is_tanky_structure = is_type_in_typecache(redirect_target, tanky_structure_types)
 	// In typical movie fashion, everything breaks way too damn quickly for all the cool dramatic particles and such.
-	if(isstructure(redirect_target) || is_type_in_typecache(redirect_target, tanky_structure_types))
+	if(isstructure(redirect_target) || is_tanky_structure)
 		hitting_projectile.damage *= structure_damage_mult
 	// Doors and vending machines are exceptionally tanky, so they take even more dramatic damage.
-	if(is_type_in_typecache(redirect_target, tanky_structure_types))
+	if(is_tanky_structure)
 		hitting_projectile.damage *= tanky_structure_damage_mult
 	redirect_target.projectile_hit(hitting_projectile, hitting_projectile.def_zone)
 
@@ -157,7 +157,7 @@
 /datum/power/imbued/action_movie_syndrome/proc/get_valid_targets(mob/living/blocking_user, obj/projectile/hitting_projectile)
 	var/list/valid_targets = list()
 	for(var/atom/movable/potential_target as anything in orange(1, blocking_user))
-		if(get_dist(blocking_user, potential_target) != 1)
+		if(get_dist(blocking_user, potential_target) > 1)
 			continue
 		if(is_type_in_typecache(potential_target, no_redirect_blacklist))
 			continue

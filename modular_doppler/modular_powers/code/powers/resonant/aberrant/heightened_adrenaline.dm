@@ -7,7 +7,7 @@
 	name = "Heightened Adrenaline"
 	desc = "Physical damage barely keeps you down: only stopping power does. For every point of brute or burn damage you gain, gain a stacking buff called Adrenaline. You also gain Adrenaline when receiving a wound, proportional to severity.\
 	\nWhilst you have at least 5 stacks of Adrenaline: you become immune to damage slowdown, you build up Determination in your system, and you remain standing when entering soft crit whilst it is active.\
-	\nYou lose a stack of Adrenaline every 0.25 seconds. You cannot gain Adrenaline after you go down in critical condition, or are otherwise unconscious. \
+	\nYou lose a stack of Adrenaline every 0.25 seconds. You cannot gain Adrenaline after you enter critical condition, or are otherwise unconscious. \
 	You also become discoordinated when it comes to your manual dexterity whilst active, preventing you from interacting with many objects, including most firearms, whilst you have 5 or more stacks."
 	security_record_text = "Subject experiences extreme bursts of adrenaline when exposed to high physical trauma in a short span of time."
 	value = 4
@@ -27,31 +27,29 @@
 
 /datum/power/aberrant/heightened_adrenaline/post_add(client/client_source)
 	. = ..()
-	RegisterSignals(power_holder, list(COMSIG_MOB_AFTER_APPLY_DAMAGE, COMSIG_CARBON_GAIN_WOUND), PROC_REF(gain_adrenaline))
+	RegisterSignal(power_holder, COMSIG_MOB_AFTER_APPLY_DAMAGE, PROC_REF(gain_adrenaline_from_damage))
+	RegisterSignal(power_holder, COMSIG_CARBON_GAIN_WOUND, PROC_REF(gain_adrenaline_from_wound))
 
 /datum/power/aberrant/heightened_adrenaline/remove()
 	UnregisterSignal(power_holder, list(COMSIG_MOB_AFTER_APPLY_DAMAGE, COMSIG_CARBON_GAIN_WOUND))
 	power_holder?.remove_status_effect(/datum/status_effect/heightened_adrenaline)
 	return ..()
 
-/// Gains Adrenaline from brute or burn damage, as well as when a wound is triggered, giving the same amount as it would've given Determination.
-/datum/power/aberrant/heightened_adrenaline/proc/gain_adrenaline(datum/source, amount, damage_type)
+/// Gains Adrenaline of brute or burn damage.
+/datum/power/aberrant/heightened_adrenaline/proc/gain_adrenaline_from_damage(datum/source, amount, damage_type)
 	SIGNAL_HANDLER
 
-	if(power_holder.stat != CONSCIOUS)
+	if(source != power_holder || !(damage_type in list(BRUTE, BURN)) || amount < 0)
+		return
+	gain_adrenaline(amount)
+
+/// Gains Adrenaline based on the Determination value of a newly gained wound.
+/datum/power/aberrant/heightened_adrenaline/proc/gain_adrenaline_from_wound(datum/source, datum/wound/gained_wound)
+	SIGNAL_HANDLER
+
+	if(source != power_holder)
 		return
 
-	// Raw damage has an amount so we pass it along.
-	if(source == power_holder && (damage_type in list(BRUTE, BURN)) && amount > 0)
-		power_holder.apply_status_effect(/datum/status_effect/heightened_adrenaline, amount, stack_drain_interval, minimum_stacks, determination_per_tick)
-		return
-
-	// Check if its a wound.
-	if(source != power_holder || !istype(amount, /datum/wound))
-		return
-
-	// Give adrenaline equal to the amount of determination we gain.
-	var/datum/wound/gained_wound = amount
 	var/adrenaline_to_add
 	switch(gained_wound.severity)
 		if(WOUND_SEVERITY_MODERATE)
@@ -63,7 +61,13 @@
 		if(WOUND_SEVERITY_LOSS)
 			adrenaline_to_add = WOUND_DETERMINATION_LOSS
 	if(adrenaline_to_add)
-		power_holder.apply_status_effect(/datum/status_effect/heightened_adrenaline, adrenaline_to_add, stack_drain_interval, minimum_stacks, determination_per_tick)
+		gain_adrenaline(adrenaline_to_add)
+
+/// Applies the status effect and adds adrenaline stacks.
+/datum/power/aberrant/heightened_adrenaline/proc/gain_adrenaline(amount)
+	if(power_holder.stat != CONSCIOUS)
+		return
+	power_holder.apply_status_effect(/datum/status_effect/heightened_adrenaline, amount, stack_drain_interval, minimum_stacks, determination_per_tick)
 
 /// A rapidly fading resistance to damage-based slowdown and soft-crit. Only effective at 5 stacks, so micro-damage doesn't proc it.
 /datum/status_effect/heightened_adrenaline

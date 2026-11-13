@@ -3,5 +3,5 @@
 	/// Forces mob_can_equip to return FALSE.
 	#define COMPONENT_ITEM_CANT_EQUIP (1<<10) // high to avoid flag conflict
 
-/// Trait for when you're wearing sunglasses, used by Action Movie Syndrome
+/// Trait to indicate the mob is wearing sunglasses (based on aesthetics).
 #define TRAIT_WEARING_SUNGLASSES "sunglasses"
