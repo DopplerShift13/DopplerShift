@@ -19,7 +19,7 @@
 
 // overrides warden gloves
 
-/obj/item/clothing/gloves/krav_maga/sec
+/obj/item/clothing/gloves/kaza_ruk/sec
 	name = "wrestling gloves"
 	desc = "Close fit and comfortable gloves with armored knuckles and contoured grip panels. It's genuinely a \
 	great pair of wrestling gloves in spite of the tacky skull emblem on the straps."

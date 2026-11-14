@@ -358,7 +358,7 @@ GLOBAL_LIST_INIT(riftwalker_rift_type_weights, list(
 		carbon_user.vomit(MOB_VOMIT_BLOOD | MOB_VOMIT_MESSAGE | MOB_VOMIT_HARM | MOB_VOMIT_FORCE, lost_nutrition = 0)
 		carbon_user.blood_volume = max(carbon_user.blood_volume - 20, 0)
 	// Deal up to 100 brute damage to the body.
-	user.adjustBruteLoss(rand(0, 100))
+	user.adjust_brute_loss(rand(0, 100))
 	// Deal up to 200 damage randomly spread across organs
 	var/list/obj/item/organ/chest_organs = list()
 	for(var/obj/item/organ/organ as anything in carbon_user.organs)

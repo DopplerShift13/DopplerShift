@@ -288,10 +288,10 @@
 
 	// Transfer damage from the shifted body back to the caster.
 	var/damage_mult = manual_revert ? 0.5 : 1
-	var/brute = owner.getBruteLoss() * damage_mult
-	var/burn = owner.getFireLoss() * damage_mult
-	var/tox = owner.getToxLoss() * damage_mult
-	var/oxy = owner.getOxyLoss() * damage_mult
+	var/brute = owner.get_brute_loss() * damage_mult
+	var/burn = owner.get_fire_loss() * damage_mult
+	var/tox = owner.get_tox_loss() * damage_mult
+	var/oxy = owner.get_oxy_loss() * damage_mult
 	if(brute)
 		caster_mob.apply_damage(brute, BRUTE, forced = TRUE)
 	if(burn)

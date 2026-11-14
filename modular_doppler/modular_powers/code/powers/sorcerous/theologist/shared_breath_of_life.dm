@@ -41,8 +41,8 @@
 
 	// Oxy heal + Piety gain
 	set_shared_target(target)
-	var/oxyloss = shared_target.getOxyLoss()
-	shared_target.adjustOxyLoss(-oxyloss)
+	var/oxyloss = shared_target.get_oxy_loss()
+	shared_target.adjust_oxy_loss(-oxyloss)
 	var/datum/component/theologist_piety/piety_component = power_holder.GetComponent(/datum/component/theologist_piety)
 	if(!piety_component)
 		return FALSE

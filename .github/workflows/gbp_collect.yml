@@ -19,7 +19,7 @@
 #          echo "ACTIONS_ENABLED=$SECRET_EXISTS" >> $GITHUB_OUTPUT
 #      - name: Checkout
 #        if: steps.value_holder.outputs.ACTIONS_ENABLED
-#        uses: actions/checkout@v5
+#        uses: actions/checkout@v6
 #      - name: Setup git
 #        if: steps.value_holder.outputs.ACTIONS_ENABLED
 #        run: |
@@ -27,12 +27,12 @@
 #          git config --global user.email "41898282+github-actions[bot]@users.noreply.github.com"
 #      - name: Checkout alternate branch
 #        if: steps.value_holder.outputs.ACTIONS_ENABLED
-#        uses: actions/checkout@v5
+#        uses: actions/checkout@v6
 #        with:
 #          ref: "gbp-balances" # The branch name
 #          path: gbp-balances
-      # This is to ensure we keep the gbp.toml from master
-      # without having to update our separate branch.
+#      # This is to ensure we keep the gbp.toml from master
+#      # without having to update our separate branch.
 #      - name: Copy configuration
 #        if: steps.value_holder.outputs.ACTIONS_ENABLED
 #        run: cp ./.github/gbp.toml ./gbp-balances/.github/gbp.toml

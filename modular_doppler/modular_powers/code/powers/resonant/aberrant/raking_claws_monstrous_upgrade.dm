@@ -57,7 +57,7 @@
 /// Transformed arms deliberately remain eligible even when prosthetic.
 /datum/power/aberrant/raking_claws_monstrous_upgrade/proc/heal_bloodlust_brute(mob/living/claw_user, healing_amount)
 	if(!iscarbon(claw_user))
-		claw_user.adjustBruteLoss(-healing_amount)
+		claw_user.adjust_brute_loss(-healing_amount)
 		return
 
 	var/mob/living/carbon/carbon_user = claw_user

@@ -10,38 +10,39 @@
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	worn_icon_state = "black"
-	obj_flags = UNIQUE_RENAME | INFINITE_RESKIN
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Tactical Black" = list(
-			RESKIN_ICON_STATE = "black",
-			RESKIN_WORN_ICON_STATE = "black",
-		),
-		"Shiny Steel" = list(
-			RESKIN_ICON_STATE = "shiny",
-			RESKIN_WORN_ICON_STATE = "shiny",
-		),
-		"Polished Copper" = list(
-			RESKIN_ICON_STATE = "copper",
-			RESKIN_WORN_ICON_STATE = "copper",
-		),
-		"Display Green" = list(
-			RESKIN_ICON_STATE = "green",
-			RESKIN_WORN_ICON_STATE = "green",
-		),
-		"Vintage Computer" = list(
-			RESKIN_ICON_STATE = "vintage",
-			RESKIN_WORN_ICON_STATE = "vintage",
-		),
-		"Violent Red" = list(
-			RESKIN_ICON_STATE = "violent",
-			RESKIN_WORN_ICON_STATE = "violent",
-		),
-	)
+	obj_flags = UNIQUE_RENAME
 
 /obj/item/clothing/glasses/techno_visor/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/glasses_stats_thief)
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/tech_visor, TRUE)
+
+/datum/atom_skin/tech_visor
+	abstract_type = /datum/atom_skin/tech_visor
+
+/datum/atom_skin/tech_visor/black
+	preview_name = "Tactical Black"
+	new_icon_state = "black"
+
+/datum/atom_skin/tech_visor/shiny
+	preview_name = "Shiny Steel"
+	new_icon_state = "shiny"
+
+/datum/atom_skin/tech_visor/copper
+	preview_name = "Polished Copper"
+	new_icon_state = "copper"
+
+/datum/atom_skin/tech_visor/green
+	preview_name = "Display Green"
+	new_icon_state = "green"
+
+/datum/atom_skin/tech_visor/vintage
+	preview_name = "Vintage Computer"
+	new_icon_state = "vintage"
+
+/datum/atom_skin/tech_visor/violent
+	preview_name = "Violent Red"
+	new_icon_state = "violent"
 
 /obj/item/clothing/glasses/techno_visor/change_glass_color(new_color_type)
 	if(glass_colour_type)

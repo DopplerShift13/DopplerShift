@@ -94,7 +94,7 @@
 	defender.throw_at(throw_target, 2, 14, attacker, spin = FALSE, gentle = TRUE)
 	defender.apply_damage(15, attacker.get_attack_type())
 	if(defender.body_position == LYING_DOWN && !defender.IsUnconscious())
-		defender.adjustStaminaLoss(15)
+		defender.adjust_stamina_loss(15)
 	log_combat(attacker, defender, "center kicked (Mad Dog)")
 	return TRUE
 
@@ -129,7 +129,7 @@
 	)
 	to_chat(attacker, span_danger("You strike [defender]'s abdomen, neck and back consecutively!"))
 	playsound(defender, 'sound/items/weapons/cqchit2.ogg', 50, TRUE, -1)
-	defender.adjustStaminaLoss(50)
+	defender.adjust_stamina_loss(50)
 	defender.apply_damage(25, attacker.get_attack_type())
 	return TRUE
 

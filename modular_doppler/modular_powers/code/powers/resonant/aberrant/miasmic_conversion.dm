@@ -32,7 +32,7 @@
 	// Inverts for tox-healing spcies
 	passive_heal_sum = HAS_TRAIT(power_holder, TRAIT_TOXINLOVER) ? -passive_heal_sum : passive_heal_sum
 	// Always heal a small amount of toxins.
-	power_holder.adjustToxLoss(-passive_heal_sum)
+	power_holder.adjust_tox_loss(-passive_heal_sum)
 
 	// Gets all limbs and picks a random one.
 	var/mob/living/carbon/mob = power_holder
@@ -50,5 +50,5 @@
 	if(healed > 0) // Reapply the damage as tox.
 		// Inverts for tox-healing spcies
 		healed = HAS_TRAIT(power_holder, TRAIT_TOXINLOVER) ? -healed : healed
-		power_holder.adjustToxLoss(healed * conversion_rate)
+		power_holder.adjust_tox_loss(healed * conversion_rate)
 		spend_hunger(healed * hunger_per_healing, mob)

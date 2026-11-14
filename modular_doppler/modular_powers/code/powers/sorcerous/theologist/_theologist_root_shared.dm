@@ -246,10 +246,10 @@
 /// Gets the damage of the affected creature.
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/get_damage_snapshot(mob/living/carbon/subject)
 	return list(
-		"brute" = subject.getBruteLoss(),
-		"burn"  = subject.getFireLoss(),
-		"tox"   = subject.getToxLoss(),
-		"oxy"   = subject.getOxyLoss(),
+		"brute" = subject.get_brute_loss(),
+		"burn"  = subject.get_fire_loss(),
+		"tox"   = subject.get_tox_loss(),
+		"oxy"   = subject.get_oxy_loss(),
 	)
 
 /// Actually calls the proper health adjustments
@@ -258,20 +258,20 @@
 	var/amount = get_transfer_amount(damage_difference)
 	switch(damage_type)
 		if("brute")
-			giver.adjustBruteLoss(-amount)
-			taker.adjustBruteLoss(amount)
+			giver.adjust_brute_loss(-amount)
+			taker.adjust_brute_loss(amount)
 
 		if("burn")
-			giver.adjustFireLoss(-amount)
-			taker.adjustFireLoss(amount)
+			giver.adjust_fire_loss(-amount)
+			taker.adjust_fire_loss(amount)
 
 		if("tox")
-			giver.adjustToxLoss(-amount, forced = TRUE)
-			taker.adjustToxLoss(amount, forced = TRUE)
+			giver.adjust_tox_loss(-amount, forced = TRUE)
+			taker.adjust_tox_loss(amount, forced = TRUE)
 
 		if("oxy")
-			giver.adjustOxyLoss(-amount)
-			taker.adjustOxyLoss(amount)
+			giver.adjust_oxy_loss(-amount)
+			taker.adjust_oxy_loss(amount)
 
 	adjust_transfer_piety(giver, taker, amount)
 
@@ -295,10 +295,10 @@
 	if(iscarbon(giver))
 		amount_healed = giver.heal_ordered_damage(amount, list(BRUTE, BURN, TOX, OXY))
 	else
-		amount_healed = giver.adjustBruteLoss(-amount, forced = TRUE) // Non-carbons basically only have brute.
+		amount_healed = giver.adjust_brute_loss(-amount, forced = TRUE) // Non-carbons basically only have brute.
 	if(amount_healed <= 0)
 		return
-	taker.adjustBruteLoss(amount_healed, forced = !iscarbon(taker))
+	taker.adjust_brute_loss(amount_healed, forced = !iscarbon(taker))
 	adjust_transfer_piety(giver, taker, amount_healed)
 
 /// Calculates one transfer tick. Draw-all mode always operates at full strength instead of scaling with the damage gap.

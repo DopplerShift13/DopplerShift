@@ -5,19 +5,23 @@
 	desc = "A web of pockets hung across your chest for storing various murder implements."
 	icon_state = "militarywebbing2"
 	worn_icon_state = "militarywebbing2"
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "militarywebbing2",
-			RESKIN_WORN_ICON_STATE = "militarywebbing2"
-		),
-		"Evil" = list(
-			RESKIN_ICON_STATE = "evilwebbing",
-			RESKIN_WORN_ICON_STATE = "evilwebbing"
-		)
-	)
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
+
+/obj/item/storage/belt/military/pouches/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/webbing)
+
+/datum/atom_skin/webbing
+	abstract_type = /datum/atom_skin/webbing
+
+/datum/atom_skin/webbing/regular
+	preview_name = "Regular"
+	new_icon_state = "militarywebbing2"
+
+/datum/atom_skin/webbing/evil
+	preview_name = "Evil"
+	new_icon_state = "evilwebbing"
 
 /datum/storage/heavy_ammo_belt
 	max_slots = 3
@@ -36,16 +40,21 @@
 	icon_state = "gunnerwebbing"
 	worn_icon_state = "gunnerwebbing"
 	storage_type = /datum/storage/heavy_ammo_belt
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "gunnerwebbing",
-			RESKIN_WORN_ICON_STATE = "gunnerwebbing"
-		),
-		"Evil" = list(
-			RESKIN_ICON_STATE = "evilgunner",
-			RESKIN_WORN_ICON_STATE = "evilgunner"
-		)
-	)
+
+/obj/item/storage/belt/military/pouches/heavy_ammo/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/heavy_ammo_pouches)
+
+/datum/atom_skin/heavy_ammo_pouches
+	abstract_type = /datum/atom_skin/heavy_ammo_pouches
+
+/datum/atom_skin/heavy_ammo_pouches/regular
+	preview_name = "Regular"
+	new_icon_state = "gunnerwebbing"
+
+/datum/atom_skin/heavy_ammo_pouches/evil
+	preview_name = "Evil"
+	new_icon_state = "evilgunner"
 
 //preloaded variant for a security loadout package
 /obj/item/storage/belt/military/pouches/security_gunner_package
@@ -82,7 +91,6 @@
 /obj/item/storage/belt/military/pouches/shocktrooper
 	icon_state = "evilwebbing"
 	worn_icon_state = "evilwebbing"
-	uses_advanced_reskins = FALSE
 
 /obj/item/storage/belt/military/pouches/shocktrooper/PopulateContents()
 	for(var/i in 1 to 7)

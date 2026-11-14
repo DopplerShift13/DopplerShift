@@ -265,14 +265,6 @@
 	/// A lazylist used for applying fantasy values, contains the actual modification applied to a variable.
 	var/list/fantasy_modifications = null
 
-	/// Has the item been reskinned?
-	var/current_skin
-	/// List of options to reskin.
-	var/list/unique_reskin
-	/// If reskins change base icon state as well
-	var/unique_reskin_changes_base_icon_state = FALSE
-	/// If reskins change inhands as well
-	var/unique_reskin_changes_inhand = FALSE
 	/// Do we apply a click cooldown when resisting this object if it is restraining them?
 	var/resist_cooldown = CLICK_CD_BREAKOUT
 
@@ -308,9 +300,6 @@
 
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_NEW_ITEM, src)
 
-	setup_reskinning()
-
-
 /obj/item/Destroy(force)
 	// This var exists as a weird proxy "owner" ref
 	// It's used in a few places. Stop using it, and optimially replace all uses please
@@ -324,19 +313,6 @@
 		remove_item_action(action)
 
 	return ..()
-
-
-/obj/item/add_context(atom/source, list/context, obj/item/held_item, mob/user)
-	. = ..()
-
-	if(!unique_reskin)
-		return
-
-	if(current_skin && !(obj_flags & INFINITE_RESKIN))
-		return
-
-	context[SCREENTIP_CONTEXT_ALT_LMB] = "Reskin"
-	return CONTEXTUAL_SCREENTIP_SET
 
 /obj/item/click_ctrl(mob/user)
 	SHOULD_NOT_OVERRIDE(TRUE)
@@ -492,8 +468,6 @@
 	else if (siemens_coefficient <= 0.5)
 		.["partially insulated"] = "It is made from a poor insulator that will dampen (but not fully block) electric shocks passing through it."
 
-	if(LAZYLEN(unique_reskin) && !current_skin)
-		.["reskinnable"] = "This item is able to be reskinned! Alt-Click to do so!"
 
 	// DOPPLER EDIT ADDITION START: Thaumaturges can examine items for affinity stat
 	if(affinity)
@@ -1264,9 +1238,13 @@
 			if("operative")
 				outline_color = COLOR_THEME_OPERATIVE
 			if("clockwork")
-				outline_color = COLOR_THEME_CLOCKWORK //if you want free gbp go fix the fact that clockwork's tooltip css is glass'
+				outline_color = COLOR_THEME_CLOCKWORK
 			if("glass")
 				outline_color = COLOR_THEME_GLASS
+			if("trasen-knox")
+				outline_color = COLOR_THEME_TRASENKNOX
+			if("detective")
+				outline_color = COLOR_THEME_DETECTIVE
 			else //this should never happen, hopefully
 				outline_color = COLOR_WHITE
 	if(color)
@@ -2145,3 +2123,11 @@
 		target_limb = victim.get_bodypart(target_limb) || victim.bodyparts[1]
 
 	return get_embed()?.embed_into(victim, target_limb)
+
+/// Checks if user can insert a valid container into the chemistry machine.
+/obj/item/proc/can_insert_container(mob/living/user, obj/machinery/chem_machine)
+	return is_chem_container() && chem_machine.can_interact(user) && user.can_perform_action(chem_machine, ALLOW_SILICON_REACH | FORBID_TELEKINESIS_REACH)
+
+/// Checks if this container is valid for use with chemistry machinery.
+/obj/item/proc/is_chem_container()
+	return FALSE

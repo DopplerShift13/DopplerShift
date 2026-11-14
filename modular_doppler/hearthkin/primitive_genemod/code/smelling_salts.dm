@@ -58,7 +58,7 @@
 		to_chat(user, span_boldwarning("[fail_reason]"))
 		return
 
-	carbon_target.adjustOxyLoss(amount = 60, updating_health = TRUE)
+	carbon_target.adjust_oxy_loss(amount = 60, updating_health = TRUE)
 	playsound(src, 'modular_doppler/emotes/sound/female_sniff.ogg', 50, FALSE)
 	carbon_target.set_heartattack(FALSE)
 

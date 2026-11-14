@@ -21,7 +21,8 @@
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
 	AddComponent(/datum/component/simple_rotation, ROTATION_NEEDS_ROOM)
-	find_and_hang_on_wall()
+	if(mapload)
+		find_and_mount_on_atom()
 	register_context()
 
 /obj/structure/shuttle_decoration/shuttleRotate(rotation, params)
@@ -66,7 +67,7 @@
 		return ITEM_INTERACT_BLOCKING
 	set_anchored(!anchored)
 	if(anchored)
-		find_and_hang_on_wall()
+		find_and_mount_on_atom()
 		if(resets_pixelshifting)
 			SET_BASE_PIXEL(initial(base_pixel_x), initial(base_pixel_y))
 	else if(resets_pixelshifting)

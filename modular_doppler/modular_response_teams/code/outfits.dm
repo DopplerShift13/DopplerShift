@@ -253,7 +253,7 @@
 	name = "Shocktrooper Team Leader"
 
 	l_pocket = /obj/item/storage/epic_loot_org_pouch/ert_ammo_preset_deagle
-	gloves = /obj/item/clothing/gloves/krav_maga/combatglovesplus
+	gloves = /obj/item/clothing/gloves/kaza_ruk/combatglovesplus
 
 	backpack_contents = list(
 		/obj/item/storage/medkit/tactical_lite = 1,
