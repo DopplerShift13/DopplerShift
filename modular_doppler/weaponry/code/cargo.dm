@@ -1,0 +1,216 @@
+/datum/supply_pack/imports/wt550
+	name = "Smuggled Sindaryo PDW Crate"
+	desc = "(*!&@#I know a guy, over on New Gibraltar. He has mountains of these things, I don't know why. \
+		Maybe he's a collector or something. It's not important, what is, is that he's willing to part with \
+		a few if you have the right kind of compensation.!#@*$"
+	hidden = FALSE
+	cost = CARGO_CRATE_VALUE * 7
+	contains = list(
+		/obj/item/gun/ballistic/automatic/wt550 = 2,
+		/obj/item/ammo_box/magazine/wt550m9 = 2,
+	)
+	crate_type = /obj/structure/closet/crate/secure/syndicate/gorlex/weapons/bustedlock
+
+/datum/supply_pack/imports/wt550ammo
+	name = "Smuggled Sindaryo Ammo Crate"
+	desc = "(*!&@#We never found where he even got all of these, I never think it wise to ask anyway. \
+		I'm not going to start pushing the guy with a mountain of clone guns on where he got them all.!#@*$"
+	hidden = FALSE
+	cost = CARGO_CRATE_VALUE * 4
+	contains = list(
+		/obj/item/ammo_box/magazine/wt550m9 = 2,
+		/obj/item/ammo_box/magazine/wt550m9/wtap = 2,
+		/obj/item/ammo_box/magazine/wt550m9/wtic = 2,
+	)
+	crate_name = "emergency crate"
+	crate_type = /obj/structure/closet/crate/secure/syndicate/gorlex/weapons/bustedlock
+
+/datum/supply_pack/security/armory/battle_rifle
+	name = "Faline Saint-Marcielle Modele 2490 Crate"
+	desc = "The finest in long arm technology, reliable and in a caliber that isn't locked behind a SINGLE DRM paywall."
+	cost = CARGO_CRATE_VALUE * 50
+	contains = list(
+		/obj/item/gun/ballistic/automatic/marcielle = 2,
+		/obj/item/gun/ballistic/automatic/marcielle/sport = 1,
+		/obj/item/ammo_box/magazine/marcielle = 4,
+	)
+	crate_name = "battle rifle crate"
+
+/datum/supply_pack/security/armory/br_mag
+	name = "Saint-Marcielle Magazine Crate"
+	desc = "Six .34 magazines, able to be used in the Saint-Marcielle rifles."
+	cost = CARGO_CRATE_VALUE * 7
+	contains = list(
+		/obj/item/ammo_box/magazine/marcielle = 2,
+		/obj/item/ammo_box/magazine/marcielle/special = 2,
+		/obj/item/ammo_box/magazine/marcielle/squash =2,
+	)
+	crate_name = ".34 magazine crate"
+
+/datum/supply_pack/security/armory/ballistic
+	name = "Combat Shotguns Crate"
+	desc = "For when the enemy absolutely needs to be replaced with lead. \
+		Contains three Matragano Modello 20 combat shotguns to fill this spot."
+	cost = CARGO_CRATE_VALUE * 17.5
+	contains = list(
+		/obj/item/gun/ballistic/shotgun/automatic/combat = 3,
+		/obj/item/storage/belt/bandolier = 3,
+	)
+	crate_name = "combat shotguns crate"
+
+/datum/supply_pack/security/armory/riot_shotguns
+	name = "Riot Shotguns Crate"
+	desc = "For when the enemy needs just a little lead. \
+		Contains three Matragano PS 2 shotguns to fill this spot."
+	cost = CARGO_CRATE_VALUE * 12
+	contains = list(
+		/obj/item/gun/ballistic/shotgun/riot = 3,
+		/obj/item/storage/belt/bandolier = 3,
+	)
+	crate_name = "riot shotguns crate"
+
+/datum/supply_pack/security/armory/lesbiab_rifle
+	name = "Tian-Diyu Double-Rifle Crate"
+	desc = "Sometimes, you just want something gone. Like just no more."
+	cost = CARGO_CRATE_VALUE * 10
+	contains = list(
+		/obj/item/gun/ballistic/marsian_super_rifle = 2,
+	)
+	crate_name = "high power rifle crate"
+
+/datum/supply_pack/security/armory/schiebenmaschine
+	name = "Schießenmaschine Multi-Pack"
+	desc = "Cutting edge personal defense weapon platforms at affordable prices. Three per pack. Intended for sale to \
+	Port Authority certified security contractors."
+	cost = CARGO_CRATE_VALUE * 3
+	contains = list(
+		/obj/item/gun/ballistic/automatic/schiebenmaschine = 3,
+	)
+	crate_name = "schießenmaschine crate"
+
+/datum/supply_pack/security/armory/modular_laser_upgrade
+	name = "Cybersun Intermodal License Upgrade cartridge"
+	desc = "A single pack of a license upgrade cartridge, compatible with the Hoshi and Hyeseong modular laser \
+	weapon systems. Authentic Cybersun software is guaranteed."
+	cost = CARGO_CRATE_VALUE * 15
+	contains = list(
+		/obj/item/modular_laser_upgrade = 1,
+	)
+	crate_name = "ILU cartridge crate"
+
+/datum/supply_pack/security/armory/modular_laser_multipack
+	name = "Cybersun Intermodal License Upgrade multipack"
+	desc = "A triple-pack of license upgrade cartridges, compatible with the Hoshi and Hyeseong modular laser \
+	weapon systems. Authentic Cybersun software is guaranteed."
+	cost = CARGO_CRATE_VALUE * 50
+	contains = list(
+		/obj/item/modular_laser_upgrade = 3,
+	)
+	crate_name = "ILU cartridge crate"
+
+/datum/supply_pack/security/armory/escarabajo
+	name = "\improper PA-3S Escarabajo riot shield"
+	desc = "A single pack plastitanium riot shield."
+	cost = CARGO_CRATE_VALUE * 10
+	contains = list(
+		/obj/item/shield/escarabajo,
+	)
+	crate_name = "PA-3S riot shield crate"
+
+/datum/supply_pack/goody/dumdum38
+	special = TRUE
+
+/datum/supply_pack/goody/match38
+	special = TRUE
+
+/datum/supply_pack/goody/rubber
+	special = TRUE
+
+/datum/supply_pack/goody/dumdum38br
+	special = TRUE
+
+/datum/supply_pack/goody/match38br
+	special = TRUE
+
+/datum/supply_pack/goody/rubber
+	special = TRUE
+
+/datum/supply_pack/goody/mars_single
+	name = "Javiro Detective Special Single-Pack"
+	desc = "The power of the New Gibraltar 6mm, with none of the regulations behind the submachineguns that use it!"
+	cost = PAYCHECK_CREW * 14
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+	contains = list(
+		/obj/item/gun/ballistic/revolver/c38/detective
+	)
+
+/datum/supply_pack/goody/ballistic_single
+	name = "Riot Shotgun Single-Pack"
+	desc = "Sometimes you just need a little more gun, contains one Matragano PS 2."
+	cost = PAYCHECK_COMMAND * 9
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+	contains = list(
+		/obj/item/gun/ballistic/shotgun/riot,
+	)
+
+/datum/supply_pack/goody/crash_rifle
+	name = "Crash Rifle Single-Pack"
+	desc = "A reliable weapon for when you plan on crashing in the middle of nowhere."
+	cost = PAYCHECK_COMMAND * 9
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+	contains = list(
+		/obj/item/gun/ballistic/rifle/crash,
+	)
+
+/datum/supply_pack/goody/osako_rifle
+	name = "Osako Rifle Single-Pack"
+	desc = "Old reliable, though never as overkill as those old Sakhno rifles they keep trying to pawn on us."
+	cost = PAYCHECK_COMMAND * 9
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+	contains = list(
+		/obj/item/gun/ballistic/rifle/osako,
+	)
+
+/datum/supply_pack/goody/defenseur
+	name = "Défenseur Modele 2520 Single-Pack"
+	desc = "Fresh from the factory, perfect for Cruesoe's Port Safety volunteers to spend money on."
+	cost = PAYCHECK_CREW * 15
+	access = ACCESS_WEAPONS
+	access_view = ACCESS_WEAPONS
+	contains = list(
+		/obj/item/gun/ballistic/automatic/pistol/defenseur,
+	)
+
+// supply packs for weapons that havent been overhauled by doppler, but are here for typo fixes/access restrictions/whatever
+
+/datum/supply_pack/goody/disabler_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/energy_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/laser_single
+	desc = "Contains one laser gun, the lethal workhouse of corporate security everywhere." // we arent NT, so it feels weird to mention it
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/carbine_single
+	name = "Laser Carbine Single-Pack"
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/smg_single
+	name = "Disabler SMG Single-Pack"
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/hell_single
+	desc = "Contains one hellfire laser gun degradation kit, an old pattern of laser gun infamous for its ability to horribly disfigure targets with burns. Technically violates several 4CA regulations, but they aren't here to see." // space geneva convention -> 4ca regulation + its lax this far out away from the core worlds
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/thermal_single
+	access = ACCESS_WEAPONS
+
+/datum/supply_pack/goody/double_barrel
+	access = ACCESS_WEAPONS

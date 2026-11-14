@@ -1,0 +1,4 @@
+author: "Goat"
+delete-after: True
+changes:
+  - balance: "miners can no longer order money directly from the point vendor"

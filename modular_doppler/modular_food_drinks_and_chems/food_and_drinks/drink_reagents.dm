@@ -115,3 +115,17 @@
 	need_mob_update = affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART, 1 * REM * seconds_per_tick, required_organ_flag = affected_organ_flags)
 	if(need_mob_update)
 		return UPDATE_MOB_HEALTH
+
+/datum/reagent/consumable/liz_fizz
+	name = "Liz Fizz"
+	description = "Triple citrus layered with some ice and cream."
+	color = "#D8FF59"
+	quality = DRINK_NICE
+	taste_description = "brain freezing sourness"
+
+/datum/glass_style/drinking_glass/liz_fizz
+	required_drink_type = /datum/reagent/consumable/liz_fizz
+	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
+	icon_state = "liz_fizz"
+	name = "glass of liz fizz"
+	desc = "Looks like a citrus sherbet seperated in layers? Why would anyone want that is beyond you."

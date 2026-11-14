@@ -1,0 +1,10 @@
+{
+	"curtain_sleeves": [
+		{
+			"type": "icon_state",
+			"icon_state": "curtain_sleeves",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}
