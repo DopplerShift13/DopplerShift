@@ -452,6 +452,7 @@
 /obj/effect/turf_decal/siding/dark{
 	dir = 6
 	},
+/obj/item/gps/spaceruin,
 /turf/open/floor/iron/colony/texture/nanocarbon,
 /area/ruin/space/has_grav)
 "oR" = (
