@@ -171,21 +171,6 @@
 	name = "glass of sin's delight"
 	desc = "You can smell the seven sins rolling off the top of the glass."
 
-/datum/reagent/consumable/ethanol/liz_fizz
-	name = "Liz Fizz"
-	description = "Triple citrus layered with some ice and cream."
-	boozepwr = 0
-	color = "#D8FF59"
-	quality = DRINK_NICE
-	taste_description = "brain freezing sourness"
-
-/datum/glass_style/drinking_glass/liz_fizz
-	required_drink_type = /datum/reagent/consumable/ethanol/liz_fizz
-	icon = 'modular_doppler/modular_food_drinks_and_chems/icons/drinks.dmi'
-	icon_state = "liz_fizz"
-	name = "glass of liz fizz"
-	desc = "Looks like a citrus sherbet seperated in layers? Why would anyone want that is beyond you."
-
 /datum/reagent/consumable/ethanol/miami_vice
 	name = "Miami Vice"
 	description = "A drink layering Pina Colada and Strawberry Daiquiri"

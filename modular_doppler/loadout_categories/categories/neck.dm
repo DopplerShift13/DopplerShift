@@ -30,8 +30,8 @@
 	abstract_type = /datum/loadout_item/neck/cape
 
 /datum/loadout_item/neck/cape/colonial_cloak
-	name = "Frontier Raincloak"
-	item_path = /obj/item/clothing/suit/jacket/frontier_colonist/casual
+	name = "NG-Tek Casual Raincloak"
+	item_path = /obj/item/clothing/suit/toggle/jacket/frontier_colonist/casual
 
 /datum/loadout_item/neck/cape/robe_cape
 	name = "Cape (Robe)"
@@ -56,6 +56,10 @@
 /datum/loadout_item/neck/cape/capelet
 	name = "Capelet"
 	item_path = /obj/item/clothing/neck/capelet
+
+/datum/loadout_item/neck/cape/flowing_cape
+	name = "Cape (Flowing)"
+	item_path = /obj/item/clothing/neck/flowing_cape
 
 /datum/loadout_item/neck/cape/half_cape
 	name = "Cape (Half)"
@@ -101,6 +105,10 @@
 	name = "Mantle (Teshari)"
 	item_path = /obj/item/clothing/neck/tesharian_mantle
 
+/datum/loadout_item/neck/cape/posh_mantle
+	name = "Posh Mantle"
+	item_path = /obj/item/clothing/neck/posh_mantle
+
 /datum/loadout_item/neck/cape/shoulder_cloak_redmars
 	name = "Shoulder Cloak (Red Mars)"
 	item_path = /obj/item/clothing/neck/cloak/shoulder_cloak_redmars
@@ -139,6 +147,10 @@
 /datum/loadout_item/neck/scarf/greyscale_larger
 	name = "Scarf (Larger, Colorable)"
 	item_path = /obj/item/clothing/neck/infinity_scarf
+
+/datum/loadout_item/neck/scarf/blanket_shawl
+	name = "Blanket Shawl"
+	item_path = /obj/item/clothing/neck/blanket_shawl
 
 /**
  * COLLARS

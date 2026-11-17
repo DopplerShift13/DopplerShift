@@ -1,0 +1,4 @@
+author: "Goat"
+delete-after: True
+changes:
+  - qol: "you can now toggle doctor's sight (the theologist power)"
