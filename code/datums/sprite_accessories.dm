@@ -47,6 +47,10 @@
 	/// Determines if this is considered "sane" for the purpose of [/proc/randomize_human_normie]
 	/// Basically this is to blacklist the extremely wacky stuff from being picked in random human generation.
 	var/natural_spawn = TRUE
+	// DOPPLER SHIFT ADDITION START
+	/// If set TRUE, equipping this sprite accessory to your character will zoom out the character preview box. ONLY WORKS ON TAIL/HORNS/EARS
+	var/zooms_out_character_preview = FALSE
+	// DOPPLER SHIFT ADDITION END
 
 /datum/sprite_accessory/blank
 	name = SPRITE_ACCESSORY_NONE
