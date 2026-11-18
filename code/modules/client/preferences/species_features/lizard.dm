@@ -105,6 +105,10 @@
 	else if(value == DIGI_BUG)
 		correct_legs[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/digitigrade/insectoid
 		correct_legs[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/digitigrade/insectoid
+
+	else if(value == DIGI_ETHEREAL)
+		correct_legs[BODY_ZONE_R_LEG] = /obj/item/bodypart/leg/right/digitigrade/ethereal
+		correct_legs[BODY_ZONE_L_LEG] = /obj/item/bodypart/leg/left/digitigrade/ethereal
 	// DOPPLER ADDITION END
 
 	for(var/obj/item/bodypart/old_part as anything in target.bodyparts)
