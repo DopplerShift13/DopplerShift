@@ -188,7 +188,7 @@
 		stress_cost = 100 + projectile_stress_bonus
 	var/catastrophic_threshold = psyker_organ.stress_threshold * 2
 	source_action.modify_stress(stress_cost)
-	source.adjustStaminaLoss(max(stress_cost * stress_as_stam_damage), 0)
+	source.adjust_stamina_loss(max(stress_cost * stress_as_stam_damage), 0)
 
 	// If you try to deflect while overcapped, it just won't work.
 	if(psyker_organ.stress >= catastrophic_threshold)
@@ -292,7 +292,7 @@
 		qdel(src)
 		return
 	source_action.modify_stress(stress_per_second * seconds_between_ticks)
-	owner.adjustStaminaLoss(max((stress_per_second * seconds_between_ticks) * stress_as_stam_damage), 0)
+	owner.adjust_stamina_loss(max((stress_per_second * seconds_between_ticks) * stress_as_stam_damage), 0)
 
 /// Cursor tracker that also behaves like the normal click-catcher.
 /// The previous implementation, whilst it was more lightweight, had the issue in that it overrode regular click behaviour.

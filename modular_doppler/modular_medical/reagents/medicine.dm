@@ -46,7 +46,7 @@
 
 /datum/reagent/medicine/lidocaine/overdose_process(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART,3 * REM * seconds_per_tick, 80)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART,3 * REM * seconds_per_tick, 80)
 
 /datum/reagent/inverse/lidocaine
 	name = "Lidopaine"
@@ -59,8 +59,8 @@
 /datum/reagent/inverse/lidocaine/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	. = ..()
 	to_chat(affected_mob, span_userdanger("Your body aches with unimaginable pain!"))
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_HEART,3 * REM * seconds_per_tick, 85)
-	affected_mob.adjustStaminaLoss(5 * REM * seconds_per_tick, 0)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_HEART,3 * REM * seconds_per_tick, 85)
+	affected_mob.adjust_stamina_loss(5 * REM * seconds_per_tick, 0)
 	if(prob(30))
 		INVOKE_ASYNC(affected_mob, TYPE_PROC_REF(/mob, emote), "scream")
 
@@ -87,7 +87,7 @@
 	process_flags = REAGENT_SYNTHETIC
 
 /datum/reagent/medicine/system_cleaner/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
-	affected_mob.adjustToxLoss(-2 * REM * seconds_per_tick, 0)
+	affected_mob.adjust_tox_loss(-2 * REM * seconds_per_tick, 0)
 	affected_mob.adjust_disgust(-5 * REM * seconds_per_tick)
 	var/remove_amount = 1 * REM * seconds_per_tick;
 	for(var/thing in affected_mob.reagents.reagent_list)
@@ -111,7 +111,7 @@
 	process_flags = REAGENT_SYNTHETIC
 
 /datum/reagent/medicine/liquid_solder/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick)
-	affected_mob.adjustOrganLoss(ORGAN_SLOT_BRAIN, -3 * REM * seconds_per_tick)
+	affected_mob.adjust_organ_loss(ORGAN_SLOT_BRAIN, -3 * REM * seconds_per_tick)
 	if(prob(10))
 		affected_mob.cure_trauma_type(resilience = TRAUMA_RESILIENCE_BASIC)
 	return ..()

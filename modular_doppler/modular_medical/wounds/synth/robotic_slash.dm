@@ -34,8 +34,10 @@
 	wound_flags = (ACCEPTS_GAUZE|CAN_BE_GRASPED|SPLINT_OVERLAY)
 
 	treatable_tools = list(TOOL_WIRECUTTER, TOOL_RETRACTOR)
-	treatable_by = list(/obj/item/stack/medical/suture)
-	treatable_by_grabbed = list(/obj/item/stack/cable_coil)
+	treatable_by = list(
+		/obj/item/stack/medical/suture,
+		/obj/item/stack/cable_coil,
+	)
 
 	default_scar_file = METAL_SCAR_FILE
 

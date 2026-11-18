@@ -40,17 +40,6 @@
 	if(locate(/datum/action/item_action/flip) in actions)
 		. += "Use in hands to wear it over your [icon_state == base_icon_state ? "left" : "right"] eye."
 
-/obj/item/clothing/glasses/hud/security
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Default" = list(
-			RESKIN_ICON_STATE = "securityhud",
-			RESKIN_WORN_ICON_STATE = "securityhud"),
-		"Goggles" = list(
-			RESKIN_ICON_STATE = "thermal",
-			RESKIN_WORN_ICON_STATE = "thermal"
-		))
-
 /obj/item/clothing/glasses/hud/security/sunglasses
 	name = "\improper Port Safety standard issue sunglasses"
 	desc = "These are a relatively recent replacement to the much maligned 'Birth Control Goggles' that previously served as standard \
@@ -60,27 +49,29 @@
 	icon_state = "glasses"
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security.dmi'
 	glass_colour_type = /datum/client_colour/glass_colour/red
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security_obj.dmi',
-			RESKIN_ICON_STATE = "glasses",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security.dmi',
-			RESKIN_WORN_ICON_STATE = "glasses"
-		),
-		"Redular" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security_obj.dmi',
-			RESKIN_ICON_STATE = "glasses_red",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security.dmi',
-			RESKIN_WORN_ICON_STATE = "glasses_red"
-		),
-		"Viper" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi',
-			RESKIN_ICON_STATE = "viperhudsec",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi',
-			RESKIN_WORN_ICON_STATE = "viperhudsec"
-		)
-	)
+
+/obj/item/clothing/glasses/hud/security/sunglasses/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/sec_sunglasses)
+
+/datum/atom_skin/doppler/sec_sunglasses
+	abstract_type = /datum/atom_skin/doppler/sec_sunglasses
+
+/datum/atom_skin/doppler/sec_sunglasses/regular
+	preview_name = "Regular"
+	new_icon_state = "sunhudsec"
+
+/datum/atom_skin/doppler/sec_sunglasses/viper
+	preview_name = "Redular"
+	new_icon_state = "glasses_red"
+	new_icon = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security_obj.dmi'
+	new_worn_file = 'modular_doppler/modular_cosmetics/icons/security_resprite/doppler_security.dmi'
+
+/datum/atom_skin/doppler/sec_sunglasses/viper
+	preview_name = "Viper"
+	new_icon_state = "viperhudsec"
+	new_icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
+	new_worn_file = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
 
 /obj/item/clothing/glasses/hud/security/sunglasses/eyepatch
 	icon = 'icons/obj/clothing/glasses.dmi'
@@ -90,33 +81,48 @@
 	icon = 'icons/obj/clothing/glasses.dmi'
 	worn_icon ='icons/mob/clothing/eyes.dmi'
 
-/obj/item/clothing/glasses/night
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "glasses",
-			RESKIN_WORN_ICON_STATE = "night"
-		),
-		"Wetwork" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi',
-			RESKIN_ICON_STATE = "night",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
-		)
-	)
+// nvg
 
-/obj/item/clothing/glasses/hud/security/night
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "securityhudnight",
-			RESKIN_WORN_ICON_STATE = "securityhudnight"
-		),
-		"Wetwork" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi',
-			RESKIN_ICON_STATE = "securityhudnight",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
-		)
-	)
+/obj/item/clothing/glasses/night/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/nvg)
+
+/datum/atom_skin/doppler/nvg
+	abstract_type = /datum/atom_skin/doppler/nvg
+
+/datum/atom_skin/doppler/nvg/regular
+	preview_name = "Regular"
+	new_icon_state = "glasses"
+	new_worn_icon_state = "night"
+
+/datum/atom_skin/doppler/nvg/larp
+	preview_name = "Wetwork"
+	new_icon_state = "nvg"
+	new_icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
+	new_worn_file = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+
+// sechud nvg
+
+
+/obj/item/clothing/glasses/hud/security/night/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/nvg_sec)
+
+/datum/atom_skin/doppler/nvg_sec
+	abstract_type = /datum/atom_skin/doppler/nvg
+
+/datum/atom_skin/doppler/nvg_sec/regular
+	preview_name = "Regular"
+	new_icon_state = "securityhudnight"
+
+/datum/atom_skin/doppler/nvg_sec/larp
+	preview_name = "Wetwork"
+	new_icon_state = "nvghudsec"
+	new_icon = 'modular_doppler/modular_cosmetics/icons/obj/face/glasses.dmi'
+	new_worn_icon_state = "nvgsechud"
+	new_worn_file = 'modular_doppler/modular_cosmetics/icons/mob/face/glasses.dmi'
+
+// eyepatches
 
 /obj/item/clothing/glasses/hud/eyepatch
 	name = "HUD eyepatch"
@@ -133,7 +139,6 @@
 	inhand_icon_state = null
 	lefthand_file = 'icons/mob/inhands/items_lefthand.dmi'
 	righthand_file = 'icons/mob/inhands/items_righthand.dmi'
-	uses_advanced_reskins = TRUE
 	actions_types = list(/datum/action/item_action/flip)
 	var/flipped = FALSE
 

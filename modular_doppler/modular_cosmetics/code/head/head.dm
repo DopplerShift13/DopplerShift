@@ -37,21 +37,23 @@
 	icon_state = "cap_colonysec"
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/sec_hats.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/sec_hats.dmi'
-	uses_advanced_reskins = TRUE
-	unique_reskin = list(
-		"Regular" = list(
-			RESKIN_ICON_STATE = "cap_colonysec",
-			RESKIN_WORN_ICON_STATE = "cap_colonysec"
-		),
-		"Alternate" = list(
-			RESKIN_ICON = 'modular_doppler/modular_cosmetics/icons/obj/head/sec_hats.dmi',
-			RESKIN_ICON_STATE = "cap_colonysecalt",
-			RESKIN_WORN_ICON = 'modular_doppler/modular_cosmetics/icons/mob/head/sec_hats.dmi',
-			RESKIN_WORN_ICON_STATE = "cap_colonysecalt"
-		)
-	)
 	armor_type = /datum/armor/head_helmet
 	strip_delay = 60
+
+/obj/item/clothing/head/cap_colonysec/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/cap_colonysec)
+
+/datum/atom_skin/doppler/cap_colonysec
+	abstract_type = /datum/atom_skin/doppler/cap_colonysec
+
+/datum/atom_skin/doppler/cap_colonysec/regular
+	preview_name = "Regular"
+	new_icon_state = "cap_colonysec"
+
+/datum/atom_skin/doppler/cap_colonysec/Alternate
+	preview_name = "Alternate"
+	new_icon_state = "cap_colonysecalt"
 
 /obj/item/clothing/head/costume/mailman/colorable_mailcap
 	name = "mailcap"

@@ -34,6 +34,6 @@
 		)
 
 /datum/quirk/item_quirk/brainproblems/process(seconds_per_tick)
-	quirk_holder.adjustOrganLoss(ORGAN_SLOT_BRAIN, BRAIN_TUMOR_DAMAGE_COEFF * seconds_per_tick)
+	quirk_holder.adjust_organ_loss(ORGAN_SLOT_BRAIN, BRAIN_TUMOR_DAMAGE_COEFF * seconds_per_tick)
 
 #undef BRAIN_TUMOR_DAMAGE_COEFF

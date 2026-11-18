@@ -195,13 +195,6 @@
 		BODYSHAPE_TESHARI_T = 'modular_doppler/modular_species/species_types/teshari/icons/clothing/uniform.dmi'
 	)
 	can_adjust = FALSE
-	obj_flags = parent_type::obj_flags | INFINITE_RESKIN
-	unique_reskin = list(
-						"Masculine" = "latexsuit_j",
-						"Feminine" = "latexsuit_d_j",
-						"Masculine Half-suit" = "halflatexsuit_j",
-						"Feminine Half-suit" = "halflatexsuit_d_j",
-						)
 
 //This makes the player have to sit through a 6 Second do_after when taking off the latex suit
 /obj/item/clothing/under/latexsuit/can_mob_unequip(mob/user)
@@ -214,6 +207,29 @@
     if(!do_after(user, 6 SECONDS, target = src))
         return FALSE
     return TRUE
+
+/obj/item/clothing/under/latexsuit/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/reskinable_item, /datum/atom_skin/doppler/latexsuit, TRUE)
+
+/datum/atom_skin/doppler/latexsuit
+	abstract_type = /datum/atom_skin/doppler/latexsuit
+
+/datum/atom_skin/doppler/latexsuit/masc
+	preview_name = "Masculine"
+	new_icon_state = "latexsuit_j"
+
+/datum/atom_skin/doppler/latexsuit/fem
+	preview_name = "Feminine"
+	new_icon_state = "latexsuit_d_j"
+
+/datum/atom_skin/doppler/latexsuit/masc_half
+	preview_name = "Masculine Half-suit"
+	new_icon_state = "halflatexsuit_j"
+
+/datum/atom_skin/doppler/latexsuit/fem_half
+	preview_name = "Feminine Half-suit"
+	new_icon_state = "halflatexsuit_d_j"
 
 /obj/item/clothing/under/latexsuit/gags_latexsuit
 	desc = "A form-fitting bodysuit made of a multichromatic latex polymer. Ages ago, it would've been a pain in the ass \
@@ -230,12 +246,6 @@
 	)
 	greyscale_colors = "#636369#636369"
 	flags_1 = IS_PLAYER_COLORABLE_1
-	unique_reskin = list(
-						"Masculine" = "gags_latexsuit",
-						"Feminine" = "gags_latexsuit_d",
-						"Masculine Half-suit" = "gags_halflatexsuit",
-						"Feminine Half-suit" = "gags_halflatexsuit_d",
-						)
 
 /obj/item/clothing/under/nevada_uniform
 	name = "\improper Nevada Beverage Co. uniform"
@@ -301,7 +311,7 @@
 	flags_1 = IS_PLAYER_COLORABLE_1
 	can_adjust = FALSE
 	body_parts_covered = GROIN|LEGS
-  
+
 /obj/item/clothing/under/costume/buttondown/slacks/sensors_off // for cantina guests so they dont get revealed by random sensors
 	sensor_mode = SENSOR_OFF
 	random_sensor = FALSE

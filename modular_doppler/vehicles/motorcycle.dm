@@ -178,9 +178,9 @@
 		return
 
 	var/mob/living/rider = buckled_mobs[1]
-	rider.adjustStaminaLoss(50 / selected_gear)
+	rider.adjust_stamina_loss(50 / selected_gear)
 	playsound(src, 'sound/effects/bang.ogg', 40, TRUE)
-	if(!iscarbon(rider) || rider.getStaminaLoss() >= 100 || iscarbon(bumped_thing))
+	if(!iscarbon(rider) || rider.get_stamina_loss() >= 100 || iscarbon(bumped_thing))
 		var/atom/throw_target = get_edge_target_turf(rider, pick(GLOB.cardinals))
 		unbuckle_mob(rider)
 		if(istype(bumped_thing, /obj/machinery/disposal/bin))
@@ -196,11 +196,11 @@
 		var/head_slot = rider.get_item_by_slot(ITEM_SLOT_HEAD)
 		if(!head_slot || !(istype(head_slot,/obj/item/clothing/head/helmet) || istype(head_slot,/obj/item/clothing/head/utility/hardhat)))
 			if(selected_gear == SECOND_GEAR)
-				rider.adjustOrganLoss(ORGAN_SLOT_BRAIN, 5)
+				rider.adjust_organ_loss(ORGAN_SLOT_BRAIN, 5)
 				rider.apply_damage(10 / selected_gear)
 				rider.updatehealth()
 			if(selected_gear == THIRD_GEAR)
-				rider.adjustOrganLoss(ORGAN_SLOT_BRAIN, 15)
+				rider.adjust_organ_loss(ORGAN_SLOT_BRAIN, 15)
 				rider.apply_damage(20 / selected_gear)
 				rider.updatehealth()
 		visible_message(span_danger("[src] crashes into [bumped_thing], sending [rider] flying!"))

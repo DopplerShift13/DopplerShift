@@ -45,11 +45,6 @@
 	name = "Binoculars"
 	item_path = /obj/item/binoculars
 
-/datum/loadout_item/pocket_items/equipment/ahabs_spear
-	name = "Ahab's Spear Retool Kit"
-	item_path = /obj/item/crusher_trophy/retool_kit/ahab
-	restricted_roles = list(JOB_SHAFT_MINER)
-
 /datum/loadout_item/pocket_items/equipment/crusher_retool_kit
 	name = "Crusher Retool Kit"
 	item_path = /obj/item/crusher_trophy/retool_kit

@@ -64,7 +64,7 @@
 	if(isliving(target))
 		var/mob/living/living_target = target
 		var/modified_toxin_healing = toxin_healing * snapshot_healing_multiplier(living_target)
-		if(living_target.adjustToxLoss(-modified_toxin_healing, forced = TRUE)) // we don't purge their entire bloodstream so we don't damage them either.
+		if(living_target.adjust_tox_loss(-modified_toxin_healing, forced = TRUE)) // we don't purge their entire bloodstream so we don't damage them either.
 			success = TRUE
 
 	// Holy-equivalent conversions.

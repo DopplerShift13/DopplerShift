@@ -137,10 +137,10 @@
 		current_conversion_damage_type = locked_effect.damage_type
 		return current_conversion_damage_type
 	// Gets and sets basically all relevant damage-types
-	var/brute_damage = target.getBruteLoss()
-	var/burn_damage = target.getFireLoss()
-	var/tox_damage = target.getToxLoss()
-	var/highest_damage = max(brute_damage, burn_damage, tox_damage, target.getOxyLoss())
+	var/brute_damage = target.get_brute_loss()
+	var/burn_damage = target.get_fire_loss()
+	var/tox_damage = target.get_tox_loss()
+	var/highest_damage = max(brute_damage, burn_damage, tox_damage, target.get_oxy_loss())
 	var/list/damage_choices = list()
 	// Iterates through all damage types besides oxyloss and takes the non-highest damage-types available as our target.
 	if(brute_damage < highest_damage)
@@ -172,14 +172,14 @@
 			break
 		switch(damage_type)
 			if("brute")
-				healed_amount += target.adjustBruteLoss(-min(healing_remaining, target.getBruteLoss()))
+				healed_amount += target.adjust_brute_loss(-min(healing_remaining, target.get_brute_loss()))
 			if("burn")
-				healed_amount += target.adjustFireLoss(-min(healing_remaining, target.getFireLoss()))
+				healed_amount += target.adjust_fire_loss(-min(healing_remaining, target.get_fire_loss()))
 			if("tox")
-				healed_amount += target.adjustToxLoss(-min(healing_remaining, target.getToxLoss()), forced = TRUE)
+				healed_amount += target.adjust_tox_loss(-min(healing_remaining, target.get_tox_loss()), forced = TRUE)
 			// Oxygen loss can be healed, but can never be selected as the random conversion type.
 			if("oxy")
-				healed_amount += target.adjustOxyLoss(-min(healing_remaining, target.getOxyLoss()))
+				healed_amount += target.adjust_oxy_loss(-min(healing_remaining, target.get_oxy_loss()))
 	healing_done += healed_amount
 	return healed_amount
 
@@ -200,14 +200,14 @@
 		return
 	switch(damage_type)
 		if("brute")
-			target.adjustBruteLoss(damage_amount)
+			target.adjust_brute_loss(damage_amount)
 		if("burn")
-			target.adjustFireLoss(damage_amount)
+			target.adjust_fire_loss(damage_amount)
 		if("tox")
-			target.adjustToxLoss(damage_amount, forced = TRUE) // sorry slimes no free real estate 4u
+			target.adjust_tox_loss(damage_amount, forced = TRUE) // sorry slimes no free real estate 4u
 		// this doesn't happen unless its forced.
 		if("oxy")
-			target.adjustOxyLoss(damage_amount)
+			target.adjust_oxy_loss(damage_amount)
 	healing_done = max(0, healing_done - damage_amount)
 
 /// Status effect that locks out burden twisted.

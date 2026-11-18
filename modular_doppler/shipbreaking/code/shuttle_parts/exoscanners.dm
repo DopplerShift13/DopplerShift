@@ -8,7 +8,8 @@
 /obj/machinery/exoscanner/shuttle_part/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_RECYCLE_LIKE_ITEM, TRAIT_GENERIC)
-	find_and_hang_on_wall()
+	if(mapload)
+		find_and_mount_on_atom()
 
 /obj/machinery/exoscanner/shuttle_part/wrench_act(mob/living/user, obj/item/tool)
 	. = ..()
