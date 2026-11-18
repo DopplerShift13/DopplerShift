@@ -33,12 +33,11 @@
 		return
 	// Return early for a different message for only finding one wire.
 	if(wires_revealed == 1)
-		var/output = "<font color='[found_wires[0]]>[found_wires[0]]</font>"
-		to_chat(user, span_nicegreen("You deduce that the [output] wire would detonate the bomb. Best not to touch that one."))
+		to_chat(user, span_nicegreen("You deduce that the <font color=[found_wires[1]]>[found_wires[1]]</font> wire would detonate the bomb. Best not to touch that one."))
 		return
 	var/list/combined_wires = list()
 	for(var/b in found_wires)
-		if(b != (found_wires.len - 1))
+		if(found_wires.Find(b) != (found_wires.len))
 			combined_wires += ("<font color='[b]'>[b]</font>")
 		else
 			combined_wires += ("and <font color='[b]'>[b]</font>")
