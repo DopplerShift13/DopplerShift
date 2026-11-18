@@ -1,0 +1,16 @@
+{
+	"posh_mantle": [
+		{
+			"type": "icon_state",
+			"icon_state": "posh_mantle",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "posh_mantle_buttons",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		}
+	]
+}

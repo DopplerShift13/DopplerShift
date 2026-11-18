@@ -155,7 +155,9 @@
 /obj/effect/mapping_helpers/airlock/cyclelink_helper{
 	dir = 4
 	},
-/obj/docking_port/mobile/personally_bought,
+/obj/docking_port/mobile/personally_bought{
+	dir = 4
+	},
 /obj/machinery/door/airlock/spacer,
 /turf/open/floor/iron/dark/smooth_large,
 /area/shuttle/personally_bought/endurance_salvage)

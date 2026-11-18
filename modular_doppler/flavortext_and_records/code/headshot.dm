@@ -4,7 +4,7 @@
 	savefile_key = "headshot_url"
 	maximum_value_length = MAX_MESSAGE_LEN
 	var/list/stored_link = list()
-	var/static/link_regex = regex("i.gyazo.com|files.byondhome.com|images2.imgbox.com|files.catbox.moe")
+	var/static/link_regex = regex("headshots.dopplershift13.com|i.gyazo.com|files.byondhome.com|images2.imgbox.com|files.catbox.moe")
 	var/static/list/valid_extensions = list("jpg", "png", "jpeg")
 
 /datum/preference/text/headshot/apply_to_human(mob/living/carbon/human/target, value)
@@ -32,7 +32,7 @@
 
 	find_index = findtext(value, link_regex)
 	if(find_index != 9)
-		to_chat(usr, span_warning("The image must be hosted on one of the following sites: 'Gyazo (i.gyazo.com), Byond (files.byondhome.com), Imgbox (images2.imgbox.com) or Catbox (files.catbox.moe)'"))
+		to_chat(usr, span_warning("It is recommended you use the #headshots channel for a headshots.dopplershift link, or you may host on one of the following sites: 'Gyazo (i.gyazo.com), Byond (files.byondhome.com), Imgbox (images2.imgbox.com) or Catbox (files.catbox.moe)'"))
 		return
 
 	return TRUE

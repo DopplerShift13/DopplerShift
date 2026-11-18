@@ -88,7 +88,7 @@
 		if(A.IsReachableBy(src, W?.reach))
 			W.melee_attack_chain(src, A, modifiers)
 			return
-		else if(isturf(A) || isturf(A.loc))
+		else if(isturf(A) || isturf(A.loc) || istype(A, /atom/movable/screen/fullscreen/cursor_catcher)) // DOPPLER EDIT - Stupid fix for cyborg tetherguns not letting you put things down - ORIGINAL: else if(isturf(A) || isturf(A.loc))
 			A.base_ranged_item_interaction(src, W, modifiers)
 
 //Give cyborgs hotkey clicks without breaking existing uses of hotkey clicks

@@ -65,7 +65,7 @@
 	item_path = /obj/item/clothing/mask/gas/explorer
 
 /datum/loadout_item/mask/gas/frontier
-	name = "Frontier Gas Mask"
+	name = "NG-Tek Atmosphere/Diving Mask"
 	item_path = /obj/item/clothing/mask/gas/atmos/frontier_colonist
 
 /datum/loadout_item/mask/gas/gas_cooler
@@ -79,6 +79,10 @@
 /datum/loadout_item/mask/gas/techmask
 	name = "Advanced Gas Mask"
 	item_path = /obj/item/clothing/mask/gas/techmask
+
+/datum/loadout_item/mask/gas/skullmask
+	name = "Horned Skull Mask"
+	item_path = /obj/item/clothing/mask/gas/skullmask
 
 /**
  * OTHER MASKS

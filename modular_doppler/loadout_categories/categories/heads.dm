@@ -165,12 +165,12 @@
 	abstract_type = /datum/loadout_item/head/caps
 
 /datum/loadout_item/head/caps/frontier_cap
-	name = "Frontier Cap"
-	item_path = /obj/item/clothing/head/soft/frontier_colonist
+	name = "Jungle Workmen's Cap"
+	item_path = /obj/item/clothing/head/frontier_colonist
 
 /datum/loadout_item/head/caps/frontier_med
-	name = "Frontier Medical Cap"
-	item_path = /obj/item/clothing/head/soft/frontier_colonist/medic
+	name = "Jungle Medic's Cap"
+	item_path = /obj/item/clothing/head/frontier_colonist/medic
 
 /datum/loadout_item/head/caps/security_cap
 	name = "Security Cap"
@@ -280,8 +280,12 @@
 	abstract_type = /datum/loadout_item/head/helmets
 
 /datum/loadout_item/head/helmets/soft_helmet
-	name = "Soft Helmet"
+	name = "NG-Tek Padded Helmet"
 	item_path = /obj/item/clothing/head/frontier_colonist_helmet
+
+/datum/loadout_item/head/helmets/frontier_hardhat
+	name = "Thermoset Hardhat"
+	item_path = /obj/item/clothing/head/frontier_colonist_helmet/hardhat
 
 /datum/loadout_item/head/helmets/vulp_skirmisher
 	name = "Skirmisher Helmet (Vulpkanin)"

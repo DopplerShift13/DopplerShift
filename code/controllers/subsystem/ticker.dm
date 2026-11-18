@@ -557,7 +557,7 @@ SUBSYSTEM_DEF(ticker)
 						new_player_mob.client.prefs.hardcore_random_setup(new_player_living)
 					SSquirks.AssignQuirks(new_player_living, new_player_mob.client)
 					// DOPPLER EDIT ADDITION BEGIN - Archetype Powers
-					SSpowers.assign_powers(new_player_living, new_player_mob.client)
+					SSpowers.assign_powers(new_player_living, new_player_mob.client, POWER_SOURCE_ROUNDSTART)
 					// DOPPLER EDIT ADDITION END
 			else // clear any personalities the prefs added since our job clearly does not want them
 				new_player_living.clear_personalities()

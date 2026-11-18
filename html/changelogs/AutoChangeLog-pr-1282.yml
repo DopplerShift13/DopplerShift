@@ -1,0 +1,4 @@
+author: "carda-sometimesknownas-paxilmaniac"
+delete-after: True
+changes:
+  - rscadd: "nanocarbon walls and manual airlocks will now fail spectacularly if welded apart with a pressure difference greater or equal to 50 psi between sides of the wall"
