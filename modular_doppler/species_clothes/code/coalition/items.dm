@@ -105,6 +105,7 @@
 	inhand_icon_state = null
 	w_class = WEIGHT_CLASS_BULKY
 	obj_flags = UNIQUE_RENAME
+	slot_flags = ITEM_SLOT_BELT | ITEM_SLOT_BACK
 	interaction_flags_click = parent_type::interaction_flags_click | NEED_DEXTERITY | NEED_HANDS
 	storage_type = /datum/storage/tajaran_sheath
 
