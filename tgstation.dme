@@ -7631,6 +7631,7 @@
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\insulation.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\mage_sight.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\ontologically_immutable.dm"
+#include "modular_doppler\modular_powers\code\powers\resonant\imbued\ordinary_sandwich.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\radiosynthesis.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\resonant_immune.dm"
 #include "modular_doppler\modular_powers\code\powers\resonant\imbued\returning_throws.dm"
