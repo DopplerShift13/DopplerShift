@@ -32,6 +32,24 @@
 	icon_greyscale = BODYPART_ICON_ETHEREAL
 	bodyshape = BODYSHAPE_HUMANOID
 
+// Digi Limbs
+
+/obj/item/bodypart/leg/left/digitigrade/ethereal
+	icon_greyscale = 'modular_doppler/modular_species/species_types/ethereal/icons/bodyparts/bodyparts.dmi'
+
+/obj/item/bodypart/leg/left/digitigrade/ethereal/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+	. = ..()
+	if(limb_id == SPECIES_LIZARD)
+		limb_id = SPECIES_ETHEREAL
+
+/obj/item/bodypart/leg/right/digitigrade/ethereal
+	icon_greyscale = 'modular_doppler/modular_species/species_types/ethereal/icons/bodyparts/bodyparts.dmi'
+
+/obj/item/bodypart/leg/left/digitigrade/ethereal/update_limb(dropping_limb = FALSE, is_creating = FALSE)
+	. = ..()
+	if(limb_id == SPECIES_LIZARD)
+		limb_id = SPECIES_ETHEREAL
+
 // Arm Overlays aka. The Spiky Bits
 
 /datum/bodypart_overlay/simple/ethereal_arm

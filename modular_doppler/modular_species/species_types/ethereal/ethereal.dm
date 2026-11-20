@@ -7,6 +7,13 @@
 	)
 	sexes = TRUE
 
+	digitigrade_customization = DIGITIGRADE_OPTIONAL
+	digi_leg_overrides = list(
+		BODY_ZONE_L_LEG = /obj/item/bodypart/leg/left/digitigrade/ethereal,
+		BODY_ZONE_R_LEG = /obj/item/bodypart/leg/right/digitigrade/ethereal,
+	)
+
+
 /datum/outfit/ethereal_preview
 	name = "Ethereal (Species Preview)"
 	uniform = /obj/item/clothing/under/frontier_colonist
