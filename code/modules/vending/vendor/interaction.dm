@@ -191,7 +191,7 @@
  * freebies - number of free items to vend
  */
 /obj/machinery/vending/proc/freebie(freebies)
-	PRIVATE_PROC(TRUE)
+	//PRIVATE_PROC(TRUE) // DOPPLER EDIT REMOVAL - AND NOTHING OF VALUE WAS LOST (opens the proc up for external calls e.g powers that want to smack vending machines).
 
 	visible_message(span_notice("[src] yields [freebies > 1 ? "several free goodies" : "a free goody"][credits_contained > 0 ? " and some credits" : ""]!"))
 
