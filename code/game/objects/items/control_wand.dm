@@ -138,8 +138,12 @@
 		Someone appears to have tampered with the identifier."
 	department = "security"
 	region_access = REGION_SECURITY
-	owner_trim = /datum/id_trim/job/head_of_security
-	our_domain = list(	/area/station/security	)
+	// DOPPLER EDIT - Access Audit
+	// owner_trim = /datum/id_trim/job/head_of_security
+	owner_trim = /datum/id_trim/job/warden
+	our_domain = list(
+		/area/station/security,
+	)
 
 /obj/item/door_remote/quartermaster
 	name = "cargo door remote"
