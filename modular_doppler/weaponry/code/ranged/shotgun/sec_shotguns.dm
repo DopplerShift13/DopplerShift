@@ -56,3 +56,27 @@
 
 /obj/item/ammo_box/magazine/internal/shot/riot/buckshot
 	ammo_type = /obj/item/ammo_casing/shotgun/buckshot
+
+// shotgun slugs and buckshot
+
+/datum/design/standard_slug
+	name = "Shotgun Slug (Lethal)"
+	id = "standard_slug"
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3)
+	build_path = /obj/item/ammo_casing/shotgun
+	build_type = PROTOLATHE | AWAY_LATHE
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY
+
+/datum/design/buckshot_shell
+	name = "Buckshot Shell (Lethal)"
+	id = "buckshot"
+	materials = list(/datum/material/iron = SMALL_MATERIAL_AMOUNT * 3)
+	build_path = /obj/item/ammo_casing/shotgun/buckshot
+	build_type = PROTOLATHE | AWAY_LATHE
+	category = list(
+		RND_CATEGORY_WEAPONS + RND_SUBCATEGORY_WEAPONS_AMMO
+	)
+	departmental_flags = DEPARTMENT_BITFLAG_SECURITY

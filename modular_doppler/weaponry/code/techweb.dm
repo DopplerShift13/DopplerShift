@@ -6,6 +6,8 @@
 		"defenseur_mag",
 		"defenseur_mag_match",
 		"defenseur_mag_rubber",
+		"standard_slug",
+		"buckshot",
 	)
 	return ..()
 
