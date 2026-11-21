@@ -1,0 +1,31 @@
+2026-11-20:
+  444explorer:
+  - rscadd: Added a new Imbued Power, Insulation.
+  Goat:
+  - qol: you can now toggle doctor's sight (the theologist power)
+  - balance: miners can no longer order money directly from the point vendor
+  Laticauda:
+  - balance: All scrying abilities have been made cheaper.
+  PowerfulAtom111:
+  - rscadd: Adds new set of markings, called "Constellation." It makes a constellation
+      on the character's body, and it twinkles like stars.
+  TheArbiber, Memesnorfer:
+  - rscadd: Ethereal Digitigrade Support
+  TheOneAndOnlyCreeperJoe:
+  - bugfix: Fixes Hemomancy repeatedly refreshing the hud, causing white screen flickering.
+  beeperoil:
+  - rscadd: Added 3 recolorable neck items and 3 recolorable hands items
+  - rscadd: Updated the previews for some neck items
+  - rscadd: Updated the capelet's sprite
+  carda-sometimesknownas-paxilmaniac:
+  - rscadd: oversized and strider can now use the yandao without deploying it beforehand
+  - rscadd: Adds a new job role in the Roustabout, a position similar to assistant
+      that delineates between joining as someone willing to work they just don't have
+      a specific job, and being a bum or off duty.
+  - rscadd: nanocarbon walls and manual airlocks will now fail spectacularly if welded
+      apart with a pressure difference greater or equal to 50 psi between sides of
+      the wall
+  dawsonkeyes:
+  - bugfix: juggernaut kit actually has juggernaut armor
+  tiramisuapimancer:
+  - balance: foxes can ventcrawl

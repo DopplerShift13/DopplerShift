@@ -164,9 +164,9 @@
 	group = "Sleeves"
 	abstract_type = /datum/loadout_item/gloves/sleeves
 
-/datum/loadout_item/gloves/sleeves/curtainsleeves
+/datum/loadout_item/gloves/sleeves/curtain_sleeves
 	name = "Curtain Sleeves"
-	item_path = /obj/item/clothing/gloves/curtainsleeves
+	item_path = /obj/item/clothing/gloves/curtain_sleeves
 
 /**
  * ENVIROGLOVES

@@ -108,7 +108,7 @@
 		)
 
 /datum/chemical_reaction/drink/liz_fizz
-	results = list(/datum/reagent/consumable/ethanol/liz_fizz = 5)
+	results = list(/datum/reagent/consumable/liz_fizz = 5)
 	required_reagents = list(
 		/datum/reagent/consumable/triple_citrus = 3,
 		/datum/reagent/consumable/ice = 1,
