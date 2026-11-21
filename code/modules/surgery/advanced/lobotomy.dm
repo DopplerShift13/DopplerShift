@@ -35,7 +35,7 @@
 	return TRUE
 
 /datum/surgery_step/lobotomize
-	name = "perform lobotomy (scalpel)"
+	name = "perform invasive neurological tissue repair (scalpel)" // DOPPLER SHIFT EDIT, Lobotomy Rename. ORIGINAL: "perform lobotomy (scalpel)"
 	implements = list(
 		TOOL_SCALPEL = 85,
 		/obj/item/melee/energy/sword = 55,
@@ -70,8 +70,8 @@
 	display_results(
 		user,
 		target,
-		span_notice("You begin to perform a lobotomy on [target]'s brain..."),
-		span_notice("[user] begins to perform a lobotomy on [target]'s brain."),
+		span_notice("You begin to perform an invasive repair on [target]'s brain..."), // DOPPLER SHIFT EDIT, Lobotomy Rename. ORIGINAL: "You begin to perform a lobotomy on [target]'s brain..."
+		span_notice("[user] begins to perform an invasive repair on [target]'s brain."), // DOPPLER SHIFT EDIT, Lobotomy Rename. ORIGINAL:"[user] begins to perform a lobotomy on [target]'s brain."
 		span_notice("[user] begins to perform surgery on [target]'s brain."),
 	)
 	display_pain(target, "Your head pounds with unimaginable pain!")
@@ -80,8 +80,8 @@
 	display_results(
 		user,
 		target,
-		span_notice("You succeed in lobotomizing [target]."),
-		span_notice("[user] successfully lobotomizes [target]!"),
+		span_notice("You succeed in invasively repairing [target]'s brain."), // DOPPLER SHIFT EDIT, Lobotomy Rename. ORIGINAL: "You succeed in lobotomizing [target]."
+		span_notice("[user] invasively repairs [target]'s brain!"), // DOPPLER SHIFT EDIT, Lobotomy Rename. ORIGINAL: "[user] successfully lobotomizes [target]!"
 		span_notice("[user] completes the surgery on [target]'s brain."),
 	)
 	display_pain(target, "Your head goes totally numb for a moment, the pain is overwhelming!")
@@ -109,7 +109,7 @@
 			user,
 			target,
 			span_warning("You remove the wrong part, causing more damage!"),
-			span_notice("[user] successfully lobotomizes [target]!"),
+			span_notice("[user] invasively repairs [target]'s brain!"), // DOPPLER SHIFT EDIT, Lobotomy Rename. ORIGINAL:"[user] successfully lobotomizes [target]!"
 			span_notice("[user] completes the surgery on [target]'s brain."),
 		)
 		display_pain(target, "The pain in your head only seems to get worse!")

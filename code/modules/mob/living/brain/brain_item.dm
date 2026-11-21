@@ -267,7 +267,7 @@
 			if(TRAUMA_RESILIENCE_SURGERY)
 				trauma_desc = conditional_tooltip("Severe ", "Repair via brain surgery.", add_tooltips)
 			if(TRAUMA_RESILIENCE_LOBOTOMY)
-				trauma_desc = conditional_tooltip("Deep-rooted ", "Repair via Lobotomy.", add_tooltips)
+				trauma_desc = conditional_tooltip("Deep-rooted ", "Repair via Invasive Neurological Tissue Repair.", add_tooltips) // DOPPLER SHIFT EDIT, Renaming Lobotomy. ORIGINAL: "Deep-rooted ", "Repair via Lobotomy.", add_tooltips
 			if(TRAUMA_RESILIENCE_WOUND)
 				trauma_desc = conditional_tooltip("Fracture-derived ", "Repair via treatment of wounds afflicting the head.", add_tooltips)
 			if(TRAUMA_RESILIENCE_ETHEREAL) //DOPPLER ADDITION
