@@ -4,6 +4,7 @@
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	icon_state = "headlamp"
+	inhand_icon_state = null
 	body_parts_covered = NONE
 	custom_materials = list(
 		/datum/material/iron = HALF_SHEET_MATERIAL_AMOUNT,
@@ -18,44 +19,65 @@
 		light_overlay = "light", \
 	)
 
-/obj/item/clothing/head/soft/frontier_colonist
-	name = "frontier cap"
-	desc = "It's a robust baseball hat in a rugged green color."
+/obj/item/clothing/head/frontier_colonist
+	name = "jungle workmen's cap"
+	desc = "A heavily starched cap with a brim and short ear flaps typical in the New Gibraltar jungle style. \
+		An orange pin is stuck through the front, a callback to colony roughneck tradition of delineating job roles \
+		through coloured pins on their otherwise similar uniforms."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "cap"
-	soft_type = "cap"
-	soft_suffix = null
+	inhand_icon_state = null
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
 	)
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "cap"
+	hair_mask = /datum/hair_mask/standard_hat_middle
 
-/obj/item/clothing/head/soft/frontier_colonist/medic
-	name = "frontier medical cap"
-	desc = "It's a robust baseball hat in a stylish red color. Has a white diamond to denote that its wearer might be able to provide medical assistance."
+/obj/item/clothing/head/frontier_colonist/medic
+	name = "jungle medic's cap"
+	desc = "A heavily starched cap with a brim and short ear flaps typical in the New Gibraltar jungle style. \
+		A turquoise pin is stuck through the front, a callback to colony roughneck tradition of delineating job roles \
+		through coloured pins on their otherwise similar uniforms. Thanks to the fact that a normal medical green would \
+		be completely unrecognizable in the densely jungle environment of New Gibraltar, the bright turquoise color was \
+		chosen instead for the pins."
 	icon_state = "cap_medical"
-	soft_type = "cap_medical"
 	worn_icon_state = "cap_medical"
 
 /obj/item/clothing/head/frontier_colonist_helmet
-	name = "frontier soft helmet"
-	desc = "A unusual piece of headwear somewhere between a proper helmet and a normal cap."
+	name = "\improper NG-Tek padded helmet"
+	desc = "A soft helmet with thick padded ridges along the top, meant for the hard working maintenance workers on New Gibraltar \
+		who often have to work in confined colony infrastructure."
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	icon_state = "tanker"
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	worn_icon_state = "tanker"
+	inhand_icon_state = null
 	supported_bodyshapes = list(BODYSHAPE_HUMANOID, BODYSHAPE_TESHARI)
 	bodyshape_icon_files = list(
 		BODYSHAPE_HUMANOID_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi',
-		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi'
+		BODYSHAPE_TESHARI_T = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn_teshari.dmi',
 	)
+	clothing_traits = list(TRAIT_HEAD_INJURY_BLOCKED)
 	armor_type = /datum/armor/colonist_armor
 	resistance_flags = NONE
 	flags_inv = 0
-	clothing_flags = SNUG_FIT | STACKABLE_HELMET_EXEMPT
+	clothing_flags = SNUG_FIT
+	hair_mask = /datum/hair_mask/standard_hat_middle
+
+/obj/item/clothing/head/frontier_colonist_helmet/hardhat
+	name = "thermoset hardhat"
+	desc = "A bowl-shaped hardhat made of modern thermoset organic plastics, meaning that it will not deform due to heat once manufactured. \
+		Due to the precious nature of most hardened metals, and ease of production of modern thermoset plastics, the translucent orange \
+		material has taken over much of industrial protection wear."
+	icon_state = "hardhat"
+	worn_icon_state = "hardhat"
+	resistance_flags = FIRE_PROOF
+	pickup_sound = SFX_HARD_HAT_PICKUP
+	drop_sound = SFX_HARD_HAT_DROP
+	equip_sound = SFX_HARD_HAT_EQUIP
 
 /obj/item/clothing/head/frontier_headscarf
 	name = "frontier headscarf"
@@ -63,6 +85,7 @@
 	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	icon_state = "/obj/item/clothing/head/frontier_headscarf"
+	inhand_icon_state = null
 	post_init_icon_state = "colony_headscarf"
 	greyscale_colors = "#62846e#62846e#444444"
 	greyscale_config = /datum/greyscale_config/colony_headscarf
