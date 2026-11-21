@@ -129,7 +129,7 @@ BROTHER_OBJECTIVES_AMOUNT 2
 ## implants from being most antagonists.
 PROTECT_ROLES_FROM_ANTAGONIST
 
-## Uncomment to prohibit assistants from becoming most antagonists.
+## Uncomment to prohibit off-duty crew from becoming most antagonists.
 #PROTECT_ASSISTANT_FROM_ANTAGONIST
 
 ## How human authority should be distributed. Can be set to four options (Make sure that what you type is exact!):
