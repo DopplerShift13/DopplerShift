@@ -85,7 +85,7 @@
 
 /**
  * DEPARTMENTLESS
- * This is part of the re-lore for Off-Duty Crew.
+ * This is part of the re-lore for Passenger.
  * Assistants aren't assisting anymore, now that Roustabouts are in.
  */
 

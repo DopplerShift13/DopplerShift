@@ -30,6 +30,9 @@
 /datum/id_trim/job/security_officer/science
 	assignment = JOB_SECURITY_GUARD_SCIENCE
 
+/datum/id_trim/job/detective
+	assignment = JOB_INVESTIGATOR
+
 
 /datum/id_trim/job/lawyer
 	assignment = JOB_SOPHONT_RESOURCES_AGENT
@@ -42,4 +45,4 @@
 	honorific_positions = HONORIFIC_POSITION_LAST_FULL | HONORIFIC_POSITION_NONE
 
 /datum/id_trim/job/assistant
-	assignment = JOB_OFF_DUTY
+	assignment = JOB_PASSENGER

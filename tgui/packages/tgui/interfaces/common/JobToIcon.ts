@@ -57,7 +57,7 @@ export const JOB2ICON = {
   'Pun Pun': 'paw',
   Warden: 'handcuffs',
   // DOPPLER EDIT START
-  'Off-Duty Crew': 'bell-slash',
+  'Passenger': 'bell-slash',
   'Chief Guard': 'user-shield',
   'Command Bodyguard': 'user-tie',
   'Security Guard (Cargo)': 'shield-halved',
@@ -66,6 +66,7 @@ export const JOB2ICON = {
   'Security Guard (Science)': 'shield-halved',
   'Security Guard': 'shield-halved',
   Dispatcher: 'phone',
+  Investigator: 'search',
   'Sophont Resources Agent': 'file-signature',
   Roustabout: 'hammer',
   // DOPPLER EDIT END

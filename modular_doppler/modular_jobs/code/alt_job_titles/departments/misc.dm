@@ -25,10 +25,11 @@
 
 /datum/job/assistant
 	alt_titles = list(
-		JOB_OFF_DUTY,
+		JOB_PASSENGER,
+		"Off-Duty Crew",
+		"Visitor",
 		"Colonist",
 		"Civilian",
-		"Visitor",
 		"Freelancer",
 		"Businessperson",
 		"Artist",
