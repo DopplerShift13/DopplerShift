@@ -13,6 +13,7 @@
 #define DIGI_HOOF "Hooved Legs"
 #define DIGI_TALON "Taloned Legs"
 #define DIGI_BUG "Insectoid Legs"
+#define DIGI_ETHEREAL "Ethereal Legs"
 
 GLOBAL_LIST_INIT(digi_leg_types, list(
 	NORMAL_LEGS,
@@ -20,4 +21,5 @@ GLOBAL_LIST_INIT(digi_leg_types, list(
 //	DIGI_HOOF,
 //	DIGI_TALON,
 	DIGI_BUG,
+	DIGI_ETHEREAL,
 ))

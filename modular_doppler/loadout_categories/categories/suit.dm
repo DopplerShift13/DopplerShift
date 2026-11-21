@@ -341,7 +341,7 @@
 
 /datum/loadout_item/suit/jacket/duelist_jacket
 	name = "Duelist Jacket (Tajaran)"
-	item_path = /obj/item/clothing/suit/duelist_jacket
+	item_path = /obj/item/clothing/suit/jacket/duelist_jacket
 
 /datum/loadout_item/suit/jacket/departmental_jacket
 	name = "Work Jacket"
