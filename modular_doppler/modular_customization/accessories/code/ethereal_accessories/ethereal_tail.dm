@@ -13,3 +13,15 @@
 /datum/sprite_accessory/tails/ethereal/stubby
 	name = "Stubby"
 	icon_state = "ethereal_stubby"
+
+/datum/sprite_accessory/tails/ethereal/pine
+	name = "Pine"
+	icon_state = "ethereal_pine"
+
+/datum/sprite_accessory/tails/ethereal/medium
+	name = "Medium"
+	icon_state = "ethereal_medium"
+
+/datum/sprite_accessory/tails/ethereal/curled
+	name = "Curled"
+	icon_state = "ethereal_curled"
