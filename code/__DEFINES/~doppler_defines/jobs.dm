@@ -12,4 +12,4 @@
 
 #define JOB_SOPHONT_RESOURCES_AGENT "Sophont Resources Agent"
 
-#define JOB_OFF_DUTY "Off-Duty Crew"
+#define JOB_PASSENGER "Passenger"
