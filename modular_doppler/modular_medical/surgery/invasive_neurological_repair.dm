@@ -1,5 +1,5 @@
 /datum/surgery/advanced/lobotomy/mechanic
-	name = "Wetware OS Destructive Defragmentation"
+	name = "OS Destructive Defragmentation"
 	possible_locs = list(BODY_ZONE_CHEST)
 
 /datum/surgery/advanced/lobotomy
