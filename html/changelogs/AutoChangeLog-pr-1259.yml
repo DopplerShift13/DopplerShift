@@ -1,4 +1,0 @@
-author: "TheOneAndOnlyCreeperJoe"
-delete-after: True
-changes:
-  - bugfix: "Fixes Hemomancy repeatedly refreshing the hud, causing white screen flickering."
