@@ -212,7 +212,7 @@ MINIMAL_ACCESS_THRESHOLD 20
 ## This option is ignored if MINIMAL_ACCESS_THRESHOLD is used.
 #JOBS_HAVE_MINIMAL_ACCESS
 
-## Uncomment to give off-duty crew maint access.
+## Uncomment to give assistants maint access.
 #ASSISTANTS_HAVE_MAINT_ACCESS
 
 ## Uncoment to give security maint access. Note that if you deactivate JOBS_HAVE_MINIMAL_ACCESS security already gets maint from that.
@@ -424,7 +424,7 @@ MORGUE_CADAVER_OTHER_SPECIES_PROBABILITY 50
 #MORGUE_CADAVER_OVERRIDE_SPECIES lizard
 
 
-##Overflow job. Default is off-duty crew.
+##Overflow job. Default is assistant.
 ## NOTE: This will overwrite anything you put in jobconfig.toml!
 OVERFLOW_JOB Assistant
 
@@ -432,7 +432,7 @@ OVERFLOW_JOB Assistant
 ## NOTE: This will overwrite anything you put in jobconfig.toml!
 OVERFLOW_CAP -1
 
-## Uncomment to bring back old grey suit off-duty crew instead of the now default rainbow colored off-duty crew.
+## Uncomment to bring back old grey suit assistants instead of the now default rainbow colored assistants.
 #GREY_ASSISTANTS
 
 ##Limit Spell Choices##

@@ -11,7 +11,7 @@
  */
 
 /obj/item/modular_computer/pda/assistant
-	name = "off-duty crew PDA"
+	name = "passenger PDA"
 
 
 /**

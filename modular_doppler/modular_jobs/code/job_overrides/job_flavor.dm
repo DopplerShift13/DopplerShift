@@ -90,5 +90,5 @@
  */
 
 /datum/job/assistant
-	description = "Spend your time relaxing off-duty. Get your bearings in space. \
+	description = "Board the Nine Lives Promenade without any work to do. \
 	Complain about how scary the world is, and do nothing to fix it."
