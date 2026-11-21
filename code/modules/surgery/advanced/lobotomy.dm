@@ -1,5 +1,5 @@
 /datum/surgery/advanced/lobotomy
-	name = "Invasive Neurological Repair" // DOPPLER SHIFT EDIT, Renaming Lobotomy. ORIGINAL: "Lobotomy"
+	name = "Lobotomy"
 	desc = "An invasive surgical procedure which guarantees removal of almost all brain traumas, but might cause another permanent trauma in return."
 	surgery_flags = SURGERY_MORBID_CURIOSITY
 	possible_locs = list(BODY_ZONE_HEAD)
@@ -35,7 +35,7 @@
 	return TRUE
 
 /datum/surgery_step/lobotomize
-	name = "perform invasive repair (scalpel)" // DOPPLER SHIFT EDIT, Renaming Lobotomy. ORIGINAL: "perform lobotomy (scalpel)"
+	name = "perform lobotomy (scalpel)"
 	implements = list(
 		TOOL_SCALPEL = 85,
 		/obj/item/melee/energy/sword = 55,
