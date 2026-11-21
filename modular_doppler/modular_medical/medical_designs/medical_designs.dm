@@ -87,6 +87,3 @@
 		RND_CATEGORY_CYBERNETICS + RND_SUBCATEGORY_CYBERNETICS_IMPLANTS_TOOLS,
 	)
 	departmental_flags = DEPARTMENT_BITFLAG_MEDICAL | DEPARTMENT_BITFLAG_SECURITY
-
-/datum/design/surgery/lobotomy
-	name = "Invasive Neurological Tissue Repair"
