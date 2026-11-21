@@ -66,5 +66,6 @@ export const JOB2ICON = {
   'Security Guard': 'shield-halved',
   Dispatcher: 'phone',
   'Sophont Resources Agent': 'file-signature',
+  Roustabout: 'hammer',
   // DOPPLER EDIT END
 } as const;

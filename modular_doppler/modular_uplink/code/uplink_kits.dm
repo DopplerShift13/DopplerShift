@@ -325,7 +325,7 @@
 /obj/item/storage/box/syndicate/bundle/juggernaut
 
 /obj/item/storage/box/syndicate/bundle/juggernaut/PopulateContents()
-	new /obj/item/clothing/suit/armor/heavy_ballistic // >10 TC
+	new /obj/item/clothing/suit/armor/heavy_ballistic(src) // >10 TC
 	new /obj/item/clothing/head/helmet/alt/visorless(src) // 1 TC?
 	new /obj/item/clothing/mask/gas/sechailer/swat(src)
 	new /obj/item/minigunpack(src) // 6 TC
