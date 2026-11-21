@@ -21,7 +21,7 @@
 
 /obj/item/toy/figure/assistant
 	name = "\improper Colonist action figure"
-	toysay = "Oh my stars, the space elevator's got a line going AGAIN!"
+	toysay = "Oh, tempest, the space elevator's got a line going AGAIN!"
 
 /obj/item/sticker/assistant
 	name = "gas mask sticker"
