@@ -64,7 +64,6 @@
 //Security
 #define JOB_WARDEN "Warden"
 #define JOB_DETECTIVE "Detective"
-JOB_INVESTIGATOR = 17, // DOPPLER EDIT ADDITION - Security Lore Rework
 #define JOB_SECURITY_OFFICER "Security Officer"
 #define JOB_SECURITY_OFFICER_MEDICAL "Security Officer (Medical)"
 #define JOB_SECURITY_OFFICER_ENGINEERING "Security Officer (Engineering)"
