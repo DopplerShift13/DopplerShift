@@ -4,8 +4,8 @@
 
 /datum/power/expert/strider
 	name = "Strider"
-	desc = "Your strength is herculean. You ignore all slowdowns from held & worn items. \
-	You also start out at Master proficiency athletics."
+	desc = "Your strength is herculean. You ignore all slowdowns from held & worn items.\
+	\nYou also gain 1000 Athletics experience, equivelant to Master when combined with Heavy Lifter's bonus."
 	security_record_text = "Subject has an incredibly strong physique and carry heavy equipment without issue."
 	value = 6
 	required_powers = list(/datum/power/expert/heavy_lifter)
