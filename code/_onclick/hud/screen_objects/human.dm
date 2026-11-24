@@ -16,6 +16,13 @@
 			var/mob/M = usr.client.eye
 			targetmob = M
 
+	// DOPPLER EDIT ADDITION START - Right click functionality for mutant part toggling
+	if(LAZYACCESS(params2list(params), RIGHT_CLICK))
+		var/mob/living/carbon/human/H = targetmob
+		H.mutant_part_visibility(re_do = TRUE)
+		return
+	// DOPPLER EDIT ADDITION END
+
 	if(usr.hud_used.inventory_shown && targetmob.hud_used)
 		usr.hud_used.inventory_shown = FALSE
 		usr.client.screen -= targetmob.hud_used.screen_groups[HUD_GROUP_TOGGLEABLE_INVENTORY]

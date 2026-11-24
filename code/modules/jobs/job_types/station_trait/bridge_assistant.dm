@@ -1,4 +1,4 @@
-/*
+/* DOPPLER EDIT CHANGE - Commented out and moved to modular files, for some reason
 /datum/job/bridge_assistant
 	title = JOB_BRIDGE_ASSISTANT
 	description = "Watch over the Bridge, command its consoles, and spend your days brewing coffee for higher-ups."
