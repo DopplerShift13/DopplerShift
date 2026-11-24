@@ -53,7 +53,7 @@
 /datum/map_template/shuttle/personal_buyable/ferries/luxury_courier
 	name = "TRS Majestic"
 	description = "A comfortably quaint shuttle for a literal prince. \
-		An Post-Shattering design made by Parigari paws, luxury over everything else. \
+		An Post-Shattering design made by Parigari paws, it puts luxury over everything else. \
 		Servants not included."
 	credit_cost = CARGO_CRATE_VALUE * 24
 	suffix = "tajaran"

@@ -27,6 +27,7 @@
 "jU" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/structure/cable,/obj/effect/turf_decal/siding/dark,/obj/effect/turf_decal/siding/dark{dir = 1},/turf/open/floor/iron/dark,/area/shuttle/personally_bought/luxury_courier)
 "kb" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/structure/cable,/obj/structure/extinguisher_cabinet/directional/south,/turf/open/floor/iron/dark/textured_large,/area/shuttle/personally_bought/luxury_courier)
 "kj" = (/obj/structure/shuttle_decoration/wall_plate/nanocarbon/secondary_colour,/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,/area/shuttle/personally_bought/luxury_courier)
+"kl" = (/obj/structure/shuttle_decoration/extinguisher/directional/north,/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,/area/shuttle/personally_bought/luxury_courier)
 "kA" = (/obj/effect/turf_decal/siding/wood{dir = 1},/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/effect/turf_decal/siding/wood,/turf/open/floor/wood/large,/area/shuttle/personally_bought/luxury_courier)
 "kE" = (/obj/structure/closet/firecloset/shuttle/tools,/turf/open/floor/plating/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
 "lB" = (/obj/structure/window/bronze/fulltile,/obj/machinery/door/poddoor/preopen/personal_shuttle_windows,/obj/structure/shuttle_decoration/headlight/directional/south,/turf/open/floor/plating/nanocarbon/exterior/black,/area/shuttle/personally_bought/luxury_courier)
@@ -53,10 +54,10 @@
 "tx" = (/obj/machinery/recharge_station,/obj/machinery/light/warm/directional/west,/turf/open/floor/iron/dark/textured_large,/area/shuttle/personally_bought/luxury_courier)
 "tE" = (/obj/structure/lattice,/turf/template_noop,/area/shuttle/personally_bought/luxury_courier)
 "uN" = (/obj/machinery/atmospherics/components/unary/portables_connector/visible/layer2{dir = 4},/obj/machinery/portable_atmospherics/canister,/turf/open/floor/plating/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
-"va" = (/obj/structure/shuttle_decoration/wall_plate/nanocarbon/primary_colour{dir = 1},/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,/area/shuttle/personally_bought/luxury_courier)
+"va" = (/obj/structure/shuttle_decoration/wall_plate/nanocarbon/secondary_colour{dir = 1},/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,/area/shuttle/personally_bought/luxury_courier)
 "vl" = (/obj/structure/table/reinforced,/obj/machinery/chem_dispenser/drinks/fullupgrade{dir = 4; pixel_y = 3},/turf/open/floor/wood,/area/shuttle/personally_bought/luxury_courier)
-"wk" = (/obj/structure/lattice{base_icon_state = "lattice1"},/obj/structure/minecart_rail{dir = 8},/turf/template_noop,/area/shuttle/personally_bought/luxury_courier)
-"wX" = (/obj/effect/turf_decal/siding/yellow/end{dir = 4},/obj/machinery/light/warm/directional/east,/obj/effect/turf_decal/tile/dark/diagonal_edge{alpha = 200},/obj/effect/turf_decal/tile/neutral/diagonal_centre{alpha = 200},/turf/open/floor/iron/white/diagonal,/area/shuttle/personally_bought/luxury_courier)
+"wk" = (/obj/structure/lattice{base_icon_state = "lattice1"},/obj/structure/minecart_rail{dir = 8},/obj/structure/light_construct/small/directional/east{color = "#FF3232"; light_color = "#ff1100"},/turf/template_noop,/area/shuttle/personally_bought/luxury_courier)
+"wX" = (/obj/effect/turf_decal/siding/yellow/end{dir = 4},/obj/machinery/light/warm/directional/east,/obj/effect/turf_decal/tile/dark/diagonal_edge{alpha = 200},/obj/effect/turf_decal/tile/neutral/diagonal_centre{alpha = 200},/obj/machinery/computer/security/telescreen/entertainment/directional/east,/turf/open/floor/iron/white/diagonal,/area/shuttle/personally_bought/luxury_courier)
 "xl" = (/obj/structure/mineral_door/manual_colony_door/shuttle/interior,/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/structure/cable,/obj/machinery/power/apc/auto_name/directional/south,/obj/effect/mapping_helpers/apc/unlocked,/obj/effect/mapping_helpers/apc/cell_10k,/turf/open/floor/iron/colony/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
 "yf" = (/obj/structure/table/reinforced,/obj/machinery/microwave,/obj/machinery/light/warm/directional/north,/turf/open/floor/iron/white/small,/area/shuttle/personally_bought/luxury_courier)
 "yH" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/machinery/door/airlock/wood/glass,/turf/open/floor/iron/colony/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
@@ -87,7 +88,7 @@
 "JZ" = (/obj/structure/shuttle_decoration/wall_plate/nanocarbon/red{dir = 1},/turf/closed/wall/mineral/nanocarbon/nodiagonal/red,/area/shuttle/personally_bought/luxury_courier)
 "KE" = (/obj/effect/turf_decal/siding/yellow{dir = 1},/obj/structure/railing/corner{dir = 8},/obj/effect/turf_decal/tile/dark/diagonal_edge{alpha = 200},/obj/effect/turf_decal/tile/neutral/diagonal_centre{alpha = 200},/obj/effect/turf_decal/siding/yellow,/turf/open/floor/iron/white/diagonal,/area/shuttle/personally_bought/luxury_courier)
 "KN" = (/obj/machinery/door/airlock/wood,/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/turf/open/floor/iron/colony/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
-"Lq" = (/obj/machinery/exoscanner/shuttle_part/radio_dish/directional/east,/turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,/area/shuttle/personally_bought/luxury_courier)
+"Lq" = (/obj/structure/shuttle_decoration/ladder/directional/east,/turf/closed/wall/mineral/nanocarbon/nodiagonal/secondary_colour,/area/shuttle/personally_bought/luxury_courier)
 "Lz" = (/obj/machinery/door/poddoor/preopen/personal_shuttle_windows,/obj/structure/window/bronze/fulltile,/turf/open/floor/plating/nanocarbon/exterior/black,/area/shuttle/personally_bought/luxury_courier)
 "LT" = (/turf/closed/wall/mineral/nanocarbon/nodiagonal/red,/area/shuttle/personally_bought/luxury_courier)
 "Mc" = (/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,/area/shuttle/personally_bought/luxury_courier)
@@ -110,14 +111,14 @@
 "Qx" = (/obj/machinery/door/poddoor/preopen/personal_shuttle_windows,/obj/structure/window/bronze/fulltile,/obj/structure/shuttle_decoration/eva_catwalks/directional/north,/turf/open/floor/plating/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
 "QQ" = (/obj/effect/turf_decal/siding{dir = 9},/obj/machinery/shower/directional/south,/obj/structure/window/reinforced/spawner/directional/east,/obj/structure/curtain,/obj/effect/turf_decal/trimline/yellow/end,/obj/structure/fluff/shower_drain,/obj/machinery/door/window/left/directional/south,/obj/structure/window/reinforced/spawner/directional/west,/turf/open/floor/iron/white/textured_large,/area/shuttle/personally_bought/luxury_courier)
 "RH" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/structure/cable,/turf/open/floor/plating/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
-"RJ" = (/obj/effect/turf_decal/siding/wood{dir = 1},/obj/effect/turf_decal/siding/wood/corner{dir = 8},/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/turf/open/floor/wood/large,/area/shuttle/personally_bought/luxury_courier)
+"RJ" = (/obj/effect/turf_decal/siding/wood{dir = 1},/obj/effect/turf_decal/siding/wood/corner{dir = 8},/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/machinery/newscaster/directional/north,/turf/open/floor/wood/large,/area/shuttle/personally_bought/luxury_courier)
 "RX" = (/obj/structure/mineral_door/manual_colony_door/shuttle/interior,/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/structure/cable,/turf/open/floor/iron/colony/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
 "Sc" = (/obj/structure/chair/comfy/shuttle{dir = 4},/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/turf/open/floor/iron/dark/textured_large,/area/shuttle/personally_bought/luxury_courier)
-"Sr" = (/obj/effect/turf_decal/siding/wood{dir = 5},/turf/open/floor/wood/large,/area/shuttle/personally_bought/luxury_courier)
+"Sr" = (/obj/effect/turf_decal/siding/wood{dir = 5},/obj/item/radio/intercom/directional/north,/turf/open/floor/wood/large,/area/shuttle/personally_bought/luxury_courier)
 "SB" = (/obj/machinery/holopad,/turf/open/floor/iron/dark/textured_large,/area/shuttle/personally_bought/luxury_courier)
 "SN" = (/obj/effect/turf_decal/siding/wood{dir = 1},/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/turf/open/floor/wood/large,/area/shuttle/personally_bought/luxury_courier)
-"TE" = (/obj/structure/shuttle_decoration/extinguisher/directional/north,/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,/area/shuttle/personally_bought/luxury_courier)
-"TF" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,/obj/structure/closet/crate,/turf/open/floor/iron/dark/textured_large,/area/shuttle/personally_bought/luxury_courier)
+"TE" = (/obj/structure/closet/sleeping_compartment,/obj/structure/sign/poster/official/do_not_question/directional/west,/turf/open/floor/iron/dark/textured_large,/area/shuttle/personally_bought/luxury_courier)
+"TF" = (/obj/machinery/atmospherics/components/unary/vent_scrubber/on/layer2,/obj/structure/closet/crate,/obj/structure/sign/poster/official/obey/directional/east,/turf/open/floor/iron/dark/textured_large,/area/shuttle/personally_bought/luxury_courier)
 "TS" = (/obj/structure/shuttle_decoration/wall_plate/nanocarbon/secondary_colour{dir = 6},/turf/closed/wall/mineral/nanocarbon/nodiagonal/primary_colour,/area/shuttle/personally_bought/luxury_courier)
 "TV" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/structure/cable,/obj/effect/turf_decal/siding/dark{dir = 9},/obj/effect/turf_decal/siding/dark/corner,/turf/open/floor/iron/dark,/area/shuttle/personally_bought/luxury_courier)
 "TY" = (/obj/structure/fluff/tram_rail{dir = 1},/obj/structure/fluff/tram_rail,/obj/machinery/exoscanner/shuttle_part/sensors_blister/directional,/obj/structure/railing/eva_handhold/directional/south,/obj/structure/lattice,/obj/structure/minecart_rail{dir = 8},/turf/template_noop,/area/shuttle/personally_bought/luxury_courier)
@@ -133,12 +134,12 @@
 "Yr" = (/obj/effect/turf_decal/siding/wood{dir = 1},/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/structure/secure_safe/directional/north,/obj/machinery/light/very_dim/directional/north,/turf/open/floor/wood/large,/area/shuttle/personally_bought/luxury_courier)
 "Zb" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/machinery/door/airlock/wood,/turf/open/floor/iron/colony/nanocarbon,/area/shuttle/personally_bought/luxury_courier)
 "Zt" = (/obj/machinery/atmospherics/pipe/smart/manifold4w/scrubbers/hidden/layer2,/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,/obj/structure/cable,/turf/open/floor/iron/dark/textured_large,/area/shuttle/personally_bought/luxury_courier)
-"Zv" = (/obj/structure/lattice{base_icon_state = "lattice1"; opacity = -100},/obj/structure/minecart_rail{dir = 8},/turf/template_noop,/area/shuttle/personally_bought/luxury_courier)
+"Zv" = (/obj/structure/lattice{base_icon_state = "lattice1"; opacity = -100},/obj/structure/minecart_rail{dir = 8},/obj/structure/light_construct/small/directional/east{color = "#FF3232"; light_color = "#ff1100"},/turf/template_noop,/area/shuttle/personally_bought/luxury_courier)
 
 (1,1,1) = {"
 FaavaWhTwkFaMMMcvaMchzvaMcMcvagsFaFaFaFaFaFaFa
-FaFaFatEFaMcMcTFiEyfowiEmgQQMcMcMcTEfYfYMcsOFa
-FaFaGMQxQxMcDCekiEhldMiEFBpTiEXNXNiEsyPcMcUoUo
+FaFaFatEFaMcMcTFiEyfowiEmgQQMcMcMcklfYfYMcsOFa
+FaFaGMQxQxMcTEekiEhldMiEFBpTiEXNXNiEsyPcMcUoUo
 FmJZHPkEzdiEDCEyiEiEyHiEWvNPiEtxjniElGEqGbdTfY
 pZnIgkzTOniEiEKNJYngOMiEckiEiEXNoIiEScSBVapkfY
 FmHPLTPHdUiEvlTVGJjUnGiWjUOWRXkbZtRXZtdenVNmfY
