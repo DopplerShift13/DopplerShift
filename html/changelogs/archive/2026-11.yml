@@ -29,3 +29,7 @@
   - bugfix: juggernaut kit actually has juggernaut armor
   tiramisuapimancer:
   - balance: foxes can ventcrawl
+2026-11-23:
+  bearrrrrrrr:
+  - rscadd: modular tile combat clickies - while on harm intent w/ combat indicator
+      up you will attack whoever is on the tile you click
