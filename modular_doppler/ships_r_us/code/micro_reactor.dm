@@ -88,3 +88,6 @@
 	. = ..()
 	if(in_range(user, src) || isobserver(user))
 		. += "It is[!active?"n't":""] running."
+
+/obj/machinery/power/micro_reactor/luxury
+	var/datum/looping_sound/generator/luxury

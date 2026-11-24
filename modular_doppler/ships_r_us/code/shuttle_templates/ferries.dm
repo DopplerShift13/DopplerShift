@@ -49,3 +49,19 @@
 
 /area/shuttle/personally_bought/private_liner
 	name = "CAS Khasun"
+
+/datum/map_template/shuttle/personal_buyable/ferries/luxury_courier
+	name = "TRS Majestic"
+	description = "A comfortably quaint shuttle for a literal prince. \
+		An Post-Shattering design made by Parigari paws, luxury over everything else. \
+		Servants not included."
+	credit_cost = CARGO_CRATE_VALUE * 24
+	suffix = "tajaran"
+	width = 23
+	height = 11
+	personal_shuttle_size = PERSONAL_SHIP_MEDIUM
+
+/area/shuttle/personally_bought/luxury_courier
+	name = "TRS Majestic"
+	ambient_buzz = 'modular_doppler/ships_r_us/sound/amb_ship_luxury.ogg'
+	// Some audiomixing I did since the default buzz does NOT fit this ship. Copyright free room noise from soundfx. Copyright free and human-made background music from Ethereal 88.
