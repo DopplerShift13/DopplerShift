@@ -374,7 +374,7 @@
 	attempt_teleport(user = user, triggered_by_emp = FALSE)
 	return TRUE
 
-/obj/item/syndicate_teleporter/process(seconds_per_tick, times_fired)
+/obj/item/syndicate_teleporter/process(seconds_per_tick)
 	if(SPT_PROB(10, seconds_per_tick) && charges < max_charges)
 		charges++
 		if(ishuman(loc))
@@ -519,7 +519,7 @@
 
 ///Bleed and make blood splatters at tele start and end points
 /obj/item/syndicate_teleporter/proc/make_bloods(turf/old_location, turf/new_location, mob/living/user)
-	if(!user.can_bleed(BLOOD_COVER_TURFS) != BLEED_SPLATTER)
+	if(user.can_bleed(BLOOD_COVER_TURFS) != BLEED_SPLATTER)
 		return FALSE
 	user.add_splatter_floor(old_location)
 	user.add_splatter_floor(new_location)

@@ -7,7 +7,7 @@
 
 /obj/structure/closet/gmcloset/PopulateContents()
 	..()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/head/hats/tophat = 2,
 		/obj/item/radio/headset/headset_srv = 2,
 		/obj/item/clothing/under/costume/buttondown/slacks/service = 2,
@@ -30,7 +30,7 @@
 
 /obj/structure/closet/chefcloset/PopulateContents()
 	..()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/under/suit/waiter = 2,
 		/obj/item/radio/headset/headset_srv = 2,
 		/obj/item/clothing/accessory/waistcoat = 2,
@@ -120,7 +120,7 @@
 
 /* DOPPLER EDIT BEGIN - comments this PopulateContents() out so we can replace it in a modular file (modular_doppler\objects_and_structures\code\security_closet.dm) without calling the proc twice.
 /obj/structure/closet/wardrobe/red/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/suit/hooded/wintercoat/security = 1,
 		/obj/item/storage/backpack/security = 1,
 		/obj/item/storage/backpack/satchel/sec = 1,
@@ -141,7 +141,7 @@
 	icon_door = "cargo_wardrobe"
 
 /obj/structure/closet/wardrobe/cargotech/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/suit/hooded/wintercoat/cargo = 1,
 		/obj/item/clothing/under/rank/cargo/tech = 3,
 		/obj/item/clothing/shoes/sneakers/black = 3,
@@ -155,7 +155,7 @@
 	icon_door = "atmos_wardrobe"
 
 /obj/structure/closet/wardrobe/atmospherics_yellow/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/accessory/pocketprotector = 1,
 		/obj/item/storage/backpack/duffelbag/engineering = 1,
 		/obj/item/storage/backpack/satchel/eng = 1,
@@ -173,7 +173,7 @@
 	icon_door = "engi_wardrobe"
 
 /obj/structure/closet/wardrobe/engineering_yellow/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/accessory/pocketprotector = 1,
 		/obj/item/storage/backpack/duffelbag/engineering = 1,
 		/obj/item/storage/backpack/industrial = 1,
@@ -192,7 +192,7 @@
 	icon_door = "med_wardrobe"
 
 /obj/structure/closet/wardrobe/white/medical/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/accessory/pocketprotector = 1,
 		/obj/item/storage/backpack/duffelbag/med = 1,
 		/obj/item/storage/backpack/medic = 1,
@@ -215,7 +215,7 @@
 	icon_door = "robo_wardrobe"
 
 /obj/structure/closet/wardrobe/robotics_black/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/glasses/hud/diagnostic = 2,
 		/obj/item/clothing/under/rank/rnd/roboticist = 2,
 		/obj/item/clothing/suit/toggle/labcoat = 2,
@@ -235,7 +235,7 @@
 	icon_door = "chem_wardrobe"
 
 /obj/structure/closet/wardrobe/chemistry_white/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/under/rank/medical/chemist = 2,
 		/obj/item/clothing/shoes/sneakers/white = 2,
 		/obj/item/clothing/suit/toggle/labcoat/chemist = 2,
@@ -253,7 +253,7 @@
 	icon_door = "gen_wardrobe"
 
 /obj/structure/closet/wardrobe/genetics_white/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/under/rank/rnd/geneticist = 2,
 		/obj/item/clothing/shoes/sneakers/white = 2,
 		/obj/item/clothing/suit/toggle/labcoat/genetics = 2,
@@ -270,7 +270,7 @@
 	icon_door = "viro_wardrobe"
 
 /obj/structure/closet/wardrobe/virology_white/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/under/rank/medical/virologist = 2,
 		/obj/item/clothing/shoes/sneakers/white = 2,
 		/obj/item/clothing/suit/toggle/labcoat/virologist = 2,
@@ -287,7 +287,7 @@
 	icon_door = "sci_wardrobe"
 
 /obj/structure/closet/wardrobe/science_white/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/clothing/accessory/pocketprotector = 1,
 		/obj/item/storage/backpack/science = 2,
 		/obj/item/storage/backpack/satchel/science = 2,
@@ -306,7 +306,7 @@
 	icon_door = "botany_wardrobe"
 
 /obj/structure/closet/wardrobe/botanist/PopulateContents()
-	var/static/items_inside = list(
+	var/list/items_inside = list(
 		/obj/item/storage/backpack/botany = 2,
 		/obj/item/storage/backpack/satchel/hyd = 2,
 		/obj/item/storage/backpack/messenger/hyd = 2,

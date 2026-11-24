@@ -149,12 +149,11 @@ GLOBAL_LIST_INIT(freqtospan, list(
 	//Radio freq/name display
 	var/freqpart = radio_freq ? "\[[get_radio_name(radio_freq, radio_freq_name)]\] " : ""
 	//Speaker name
-	var/namepart = speaker.get_message_voice(visible_name)
+	var/namepart = message_mods[MODE_SPEAKER_NAME_OVERRIDE] || speaker.get_message_voice(visible_name)
 	// DOPPLER ADDITION START - Coloured chat names
 	if(!radio_freq)
 		namepart = chat_name_color_prefs_check(speaker, src, namepart)
 	// DOPPLER ADDITION END
-
 	//End name span.
 	var/endspanpart = "</span>"
 
@@ -360,7 +359,7 @@ INITIALIZE_IMMEDIATE(/atom/movable/virtualspeaker)
 	radio = _radio
 	source = M
 	if(istype(M))
-		name = radio.anonymize ? "Unknown" : M.get_voice(add_id_name = TRUE)
+		name = radio?.anonymize ? "Unknown" : M.get_voice(add_id_name = TRUE)
 		verb_say = M.get_default_say_verb()
 		verb_ask = M.verb_ask
 		verb_exclaim = M.verb_exclaim
