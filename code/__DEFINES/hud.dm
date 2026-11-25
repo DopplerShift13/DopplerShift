@@ -119,6 +119,7 @@
 #define HUD_GHOST_TELEPORT "ghost_teleport"
 #define HUD_GHOST_PAI "ghost_pai"
 #define HUD_GHOST_MINIGAMES "ghost_minigames"
+#define HUD_GHOST_SOULCATCHER "ghost_soulcatcher" // DOPPLER EDIT ADDITION
 #define HUD_GHOST_DNR "ghost_dnr"
 #define HUD_GHOST_SETTINGS "ghost_settings"
 #define HUD_KEY_GHOST_HUDBOX(slot) "ghost_hudbox:[slot]"

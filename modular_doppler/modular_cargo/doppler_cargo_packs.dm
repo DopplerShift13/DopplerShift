@@ -28,7 +28,7 @@
 	name = "Imported Tajaran Duelist Sword"
 	desc = "Fresh off the finest Coalition smithies. Possibly folded thousands of times. Great hand \
 	protection. Vibrational enhancement features not included."
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 	cost = CARGO_CRATE_VALUE * 3
 	contains = list(
 	/obj/item/storage/belt/tajaran_sheath

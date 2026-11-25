@@ -20,7 +20,7 @@
 	new /obj/item/clothing/under/chameleon(src) // 2 tc since it's not the full set
 	new /obj/item/clothing/mask/chameleon(src) // Goes with above
 	new /obj/item/clothing/shoes/chameleon/noslip(src) // 2 tc
-	new /obj/item/computer_disk/syndicate/camera_app(src) // 1 tc
+	new /obj/item/disk/computer/syndicate/camera_app(src) // 1 tc
 	new /obj/item/multitool/ai_detect(src) // 1 tc
 	new /obj/item/encryptionkey/syndicate(src) // 2 tc
 	new /obj/item/reagent_containers/syringe/mulligan(src) // 4 tc
@@ -58,9 +58,9 @@
 
 /obj/item/storage/box/syndicate/bundle/sabotage/PopulateContents()
 	new /obj/item/storage/backpack/duffelbag/syndie/sabotage(src) // 5 tc for 3 c4 and 2 x4
-	new /obj/item/computer_disk/syndicate/camera_app(src) // 1 tc
+	new /obj/item/disk/computer/syndicate/camera_app(src) // 1 tc
 	new /obj/item/sbeacondrop/powersink(src) // 11 tc
-	new /obj/item/computer_disk/virus/detomatix(src) // 6 tc
+	new /obj/item/disk/computer/virus/detomatix(src) // 6 tc
 	new /obj/item/storage/toolbox/syndicate(src) // 1 tc
 	new /obj/item/pizzabox/bomb(src) // 6 tc
 	new /obj/item/storage/box/syndie_kit/emp(src) // 2 tc
@@ -108,7 +108,7 @@
 	new /obj/item/ai_module/toy_ai(src) // ~6 tc
 	new /obj/item/multitool/ai_detect(src) // 1 tc
 	new /obj/item/storage/toolbox/syndicate(src) // 1 tc
-	new /obj/item/computer_disk/syndicate/camera_app(src) // 1 tc
+	new /obj/item/disk/computer/syndicate/camera_app(src) // 1 tc
 	new /obj/item/clothing/glasses/thermal/syndi(src) // 4 tc
 	new /obj/item/card/id/advanced/chameleon(src) // 2 tc
 

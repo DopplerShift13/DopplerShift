@@ -15,7 +15,6 @@
 	description = "Help keep people of the frontier together as \
 		everything around them falls apart. Give your \
 		patients someone they can trust. Probably."
-	department_head = list(JOB_CHIEF_MEDICAL_OFFICER)
 	paycheck_department = ACCOUNT_MED
 	supervisors = "the Chief Medical Officer and the Head of Personnel"
 	departments_list = list(

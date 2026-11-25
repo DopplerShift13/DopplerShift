@@ -110,7 +110,7 @@
 /obj/item/storage/photo_album/hos
 	name = "photo album (Chief Guard)"
 
-/obj/item/computer_disk/command/hos
+/obj/item/disk/computer/command/hos
 	name = "chief guard data disk"
 	desc = "Removable disk used to download essential CG tablet apps."
 

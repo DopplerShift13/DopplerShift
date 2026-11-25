@@ -44,7 +44,7 @@
 		/obj/item/stack/medical/aloe = 2,
 		/obj/item/stack/medical/ointment/red_sun = 1,
 		/obj/item/stack/medical/bruise_pack = 1,
-		/obj/item/stack/medical/gauze/sterilized = 1,
+		/obj/item/stack/medical/wrap/gauze/sterilized = 1,
 	)
 
 // Pocket da money
@@ -84,8 +84,8 @@
 	icon_state = "random_med_stack"
 	loot = list(
 		/obj/item/stack/medical/bruise_pack = 3,
-		/obj/item/stack/medical/gauze = 3,
-		/obj/item/stack/medical/gauze/sterilized = 2,
+		/obj/item/stack/medical/wrap/gauze = 3,
+		/obj/item/stack/medical/wrap/gauze/sterilized = 2,
 		/obj/item/stack/medical/suture/coagulant = 2,
 		/obj/item/stack/medical/suture/bloody = 1,
 		/obj/item/stack/medical/ointment = 3,
@@ -96,9 +96,9 @@
 		/obj/item/stack/medical/bone_gel = 1,
 		/obj/item/stack/medical/bandage/makeshift = 3,
 		/obj/item/stack/medical/bandage = 2,
-		/obj/item/stack/sticky_tape/surgical = 2,
+		/obj/item/stack/medical/wrap/sticky_tape/surgical = 2,
 		/obj/item/reagent_containers/blood/random = 1,
-		/obj/item/stack/medical/gauze/alu_splint = 2,
+		/obj/item/stack/medical/wrap/gauze/alu_splint = 2,
 		// Pill bottles
 		/obj/item/storage/pill_bottle/iron = 2,
 		/obj/item/storage/pill_bottle/potassiodide = 2,
@@ -121,7 +121,7 @@
 	name = "random advanced medical item"
 	icon_state = "random_med_stack_adv"
 	loot = list(
-		/obj/item/stack/medical/gauze/sterilized = 2,
+		/obj/item/stack/medical/wrap/gauze/sterilized = 2,
 		/obj/item/stack/medical/suture = 3,
 		/obj/item/stack/medical/suture/coagulant = 3,
 		/obj/item/stack/medical/suture/bloody = 2,
@@ -133,9 +133,9 @@
 		/obj/item/stack/medical/aloe = 2,
 		/obj/item/stack/medical/bone_gel = 2,
 		/obj/item/stack/medical/bandage = 2,
-		/obj/item/stack/sticky_tape/surgical = 2,
+		/obj/item/stack/medical/wrap/sticky_tape/surgical = 2,
 		/obj/item/stack/medical/poultice = 1,
-		/obj/item/stack/medical/gauze/alu_splint = 2,
+		/obj/item/stack/medical/wrap/gauze/alu_splint = 2,
 		/obj/item/reagent_containers/blood/random = 2,
 		// Medigels
 		/obj/item/reagent_containers/medigel/libital = 2,
@@ -386,8 +386,8 @@
 		/obj/item/storage/belt/utility = 2,
 		/obj/item/clothing/shoes/magboots = 2,
 		// Tapes
-		/obj/item/stack/sticky_tape = 2,
-		/obj/item/stack/sticky_tape/super = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 2,
+		/obj/item/stack/medical/wrap/sticky_tape/super = 1,
 		// Cells
 		/obj/item/stock_parts/power_store/cell/upgraded = 1,
 		/obj/item/stock_parts/power_store/cell/crap = 2,
@@ -452,9 +452,9 @@
 		/obj/item/epic_loot/corpo_folder = 2,
 		/obj/item/epic_loot/slim_diary = 2,
 		/obj/item/epic_loot/diary = 2,
-		/obj/item/computer_disk/maintenance = 2,
-		/obj/item/computer_disk/black_market = 1,
-		/obj/item/computer_disk/virus = 1,
+		/obj/item/disk/computer/maintenance = 2,
+		/obj/item/disk/computer/black_market = 1,
+		/obj/item/disk/computer/virus = 1,
 		/obj/item/clipboard = 2,
 		/obj/item/pen/fountain/captain = 1,
 		/obj/item/pen/fountain = 2,
@@ -502,8 +502,8 @@
 		/obj/item/epic_loot/ssd = 2,
 		/obj/item/epic_loot/hdd = 2,
 		/obj/item/epic_loot/military_flash = 2,
-		/obj/item/computer_disk/maintenance = 2,
-		/obj/item/computer_disk/black_market = 1,
+		/obj/item/disk/computer/maintenance = 2,
+		/obj/item/disk/computer/black_market = 1,
 		/obj/item/epic_loot/plasma_explosive = 1,
 		/obj/item/epic_loot/grenade_fuze = 3,
 		/obj/item/epic_loot/signal_amp = 3,

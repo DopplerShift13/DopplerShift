@@ -473,15 +473,17 @@ GLOBAL_LIST_EMPTY(crematoriums)
 	locked = TRUE
 	update_appearance()
 
-		for(var/mob/living/M in conts)
-			if(M.incorporeal_move) //can't cook revenants!
-				continue
-			if (M.stat != DEAD)
-				M.painful_scream() // DOPPLER EDIT: check for painkilling before screaming
-			if(user)
-				log_combat(user, M, "cremated")
-			else
-				M.log_message("was cremated", LOG_ATTACK)
+	for(var/mob/living/victim in conts)
+		if(victim.incorporeal_move) //can't cook revenants!
+			continue
+
+		if (victim.stat != DEAD)
+			victim.emote("scream")
+
+		if(user)
+			log_combat(user, victim, "cremated")
+		else
+			victim.log_message("was cremated", LOG_ATTACK)
 
 		if(user.stat != DEAD)
 			user.investigate_log("has died from being cremated.", INVESTIGATE_DEATHS)

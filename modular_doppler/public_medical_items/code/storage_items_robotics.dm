@@ -19,9 +19,9 @@
 
 /obj/item/storage/medkit/robotic_repair/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/stack/medical/gauze = 1,
+		/obj/item/stack/medical/wrap/gauze = 1,
 		/obj/item/reagent_containers/applicator/patch/robotic_patch/synth_repair = 2,
-		/obj/item/stack/medical/gauze/alu_splint = 1,
+		/obj/item/stack/medical/wrap/gauze/alu_splint = 1,
 		/obj/item/reagent_containers/hypospray/medipen/doppler/robot_system_cleaner = 1,
 		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 1,
 		/obj/item/healthanalyzer/simple = 1,
@@ -44,10 +44,10 @@
 
 /obj/item/storage/medkit/robotic_repair/preemo/stocked/PopulateContents()
 	var/static/items_inside = list(
-		/obj/item/stack/medical/gauze/twelve = 1,
+		/obj/item/stack/medical/wrap/gauze/twelve = 1,
 		/obj/item/stack/cable_coil/thirty = 1,
 		/obj/item/reagent_containers/applicator/patch/robotic_patch/synth_repair = 4,
-		/obj/item/stack/medical/gauze/alu_splint = 1,
+		/obj/item/stack/medical/wrap/gauze/alu_splint = 1,
 		/obj/item/reagent_containers/hypospray/medipen/doppler/robot_system_cleaner = 1,
 		/obj/item/reagent_containers/hypospray/medipen/doppler/robot_liquid_solder = 1,
 		/obj/item/reagent_containers/hypospray/medipen/doppler/emergency = 1,

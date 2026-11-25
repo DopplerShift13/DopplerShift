@@ -1,5 +1,5 @@
 
-/datum/crusher_skin/ahabs_harpoon
+/datum/atom_skin/crusher_skin/ahabs_harpoon
 	name = "Ahab's harpoon"
 	retool_icon = 'modular_doppler/modular_crusher_ahabs_spear/icons/ahabs_spear.dmi'
 	retool_icon_state = "crusher_ahab"

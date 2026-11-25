@@ -166,7 +166,7 @@
 		target_armor = get_armor_by_type(target_armor)
 
 	var/list/add_values = list()
-	for(var/armor_type in ARMOR_LIST_ALL())
+	for(var/armor_type in ARMOR_LIST_ALL)
 		var/target_total = target_armor.get_rating(armor_type)
 		var/needed = calc_needed_internal_armor(human_user, armor_type, target_total)
 		if(needed > 0)

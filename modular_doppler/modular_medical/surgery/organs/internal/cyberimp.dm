@@ -154,7 +154,7 @@
 	desc = "A high-grade sharpening stone made of specialized alloys, meant to sharpen razor-claws. Unfortunately, this particular one has by far seen better days."
 	cost = CARGO_CRATE_VALUE * 4 //800 credits
 	contains = list(/obj/item/scratching_stone)
-	contraband = TRUE
+	order_flags = ORDER_CONTRABAND
 
 /obj/item/organ/cyberimp/arm/toolkit/mining_drill
 	name = "\improper Dalba Masterworks 'Burrower' Integrated Drill"

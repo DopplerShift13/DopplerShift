@@ -30,7 +30,7 @@
 	name = "Gauze"
 	id = "colony_gauze"
 	materials = list(/datum/material/biomass = 25)
-	build_path = /obj/item/stack/medical/gauze
+	build_path = /obj/item/stack/medical/wrap/gauze
 	category = list(RND_CATEGORY_INITIAL, ORGANICS_PRINTER_MEDICAL)
 
 /datum/design/organic_printer/multiver

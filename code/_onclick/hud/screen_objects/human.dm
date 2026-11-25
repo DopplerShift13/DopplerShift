@@ -8,7 +8,7 @@
 	mouse_over_pointer = MOUSE_HAND_POINTER
 	screen_loc = ui_inventory
 
-/atom/movable/screen/human/toggle/Click()
+/atom/movable/screen/human/toggle/Click(location, control, params)
 	var/mob/targetmob = usr
 
 	if(isobserver(usr))

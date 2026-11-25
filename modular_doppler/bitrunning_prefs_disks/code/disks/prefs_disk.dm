@@ -7,7 +7,7 @@
  * - ability blocks block the application of character prefs.
  * - item blocks block the application of character loadout.
  */
-/obj/item/bitrunning_disk/preferences
+/obj/item/disk/bitrunning/preferences
 	name = "bitrunning program: personalized avatar"
 	desc = "A disk containing source code. It can be used to override your bit avatar's standard appearance. Further avatar disks will be ignored."
 
@@ -21,11 +21,11 @@
 	/// Mock client we use for forwarding to quirk assignment (beware, evil hacks).
 	var/datum/prefs_disk_client_interface/mock_client
 
-/obj/item/bitrunning_disk/preferences/Initialize(mapload)
+/obj/item/disk/bitrunning/preferences/Initialize(mapload)
 	. = ..()
 	register_context()
 
-/obj/item/bitrunning_disk/preferences/load_onto_avatar(mob/living/carbon/human/neo, mob/living/carbon/human/avatar, external_load_flags)
+/obj/item/disk/bitrunning/preferences/load_onto_avatar(mob/living/carbon/human/neo, mob/living/carbon/human/avatar, external_load_flags)
 	// Checks if an Ethereal is loaded and if so takes away their ability to crystalize.
 	// This prevents a bug with Ethereals breaking the normal revive sequence and thus causing you to be trapped in the simulation.
 	var/datum/species/avatar_species = chosen_preference?.read_preference(/datum/preference/choiced/species)
@@ -33,7 +33,7 @@
 		ADD_TRAIT(avatar, TRAIT_CANNOT_CRYSTALIZE, REF(src))
 	return NONE
 
-/obj/item/bitrunning_disk/preferences/examine(mob/user)
+/obj/item/disk/bitrunning/preferences/examine(mob/user)
 	. = ..()
 	if(isnull(chosen_preference))
 		return
@@ -41,7 +41,7 @@
 	. += span_info("Loadout application is currently [include_loadout ? "enabled" : "disabled"].")
 	. += span_notice("Ctrl-click to toggle loadout application.")
 
-/obj/item/bitrunning_disk/preferences/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
+/obj/item/disk/bitrunning/preferences/add_context(atom/source, list/context, obj/item/held_item, mob/living/user)
 	var/result = NONE
 	if(isnull(chosen_preference) && (held_item == src))
 		context[SCREENTIP_CONTEXT_LMB] = "Select avatar"
@@ -52,12 +52,12 @@
 
 	return result
 
-/obj/item/bitrunning_disk/preferences/Destroy()
+/obj/item/disk/bitrunning/preferences/Destroy()
 	QDEL_NULL(chosen_preference)
 	QDEL_NULL(mock_client)
 	return ..()
 
-/obj/item/bitrunning_disk/preferences/attack_self(mob/user, modifiers)
+/obj/item/disk/bitrunning/preferences/attack_self(mob/user, modifiers)
 	. = ..()
 
 	if(isnull(user.client) || chosen_preference)
@@ -85,7 +85,7 @@
 	balloon_alert(user, "avatar set!")
 	playsound(user, 'sound/items/click.ogg', 50, TRUE)
 
-/obj/item/bitrunning_disk/preferences/item_ctrl_click(mob/user)
+/obj/item/disk/bitrunning/preferences/item_ctrl_click(mob/user)
 	if(isturf(src.loc)) // If on a turf, we skip to dragging
 		return NONE
 	if(isnull(chosen_preference))
@@ -105,7 +105,7 @@
  */
 /datum/orderable_item/bitrunning_tech/prefs_disk
 	cost_per_order = 1000
-	purchase_path = /obj/item/bitrunning_disk/preferences
+	purchase_path = /obj/item/disk/bitrunning/preferences
 	desc = "This disk contains a program that lets you load in custom bit avatars."
 
 /**

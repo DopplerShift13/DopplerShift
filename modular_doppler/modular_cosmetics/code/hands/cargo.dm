@@ -36,4 +36,4 @@
 
 /obj/item/clothing/gloves/doppler_cargo/fingerless/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
+	AddElement(/datum/element/adjust_fishing_difficulty, -4, ITEM_SLOT_GLOVES)

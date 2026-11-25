@@ -84,10 +84,10 @@
 /datum/reagent/toxin/carpotoxin/on_mob_life(mob/living/carbon/affected_mob, seconds_per_tick, times_fired)
 	if (HAS_TRAIT(affected_mob, TRAIT_CARP_GOODTOX))
 		var/need_mob_update
-		need_mob_update += affected_mob.adjustToxLoss(-INFUSED_CARP_TOX_HEALING * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
-		need_mob_update += affected_mob.adjustOxyLoss(-(INFUSED_CARP_TOX_HEALING * 4) * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type) // give oxyloss a bump here because it's our equivalent to epinephrine for oxyloss, see lungs
-		need_mob_update += affected_mob.adjustBruteLoss(-INFUSED_CARP_TOX_HEALING * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
-		need_mob_update += affected_mob.adjustFireLoss(-INFUSED_CARP_TOX_HEALING * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += affected_mob.adjust_tox_loss(-INFUSED_CARP_TOX_HEALING * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype)
+		need_mob_update += affected_mob.adjust_oxy_loss(-(INFUSED_CARP_TOX_HEALING * 4) * REM * seconds_per_tick, updating_health = FALSE, required_biotype = affected_biotype, required_respiration_type = affected_respiration_type) // give oxyloss a bump here because it's our equivalent to epinephrine for oxyloss, see lungs
+		need_mob_update += affected_mob.adjust_brute_loss(-INFUSED_CARP_TOX_HEALING * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
+		need_mob_update += affected_mob.adjust_fire_loss(-INFUSED_CARP_TOX_HEALING * REM * seconds_per_tick, updating_health = FALSE, required_bodytype = affected_bodytype)
 		if (need_mob_update)
 			if (prob(1))
 				affected_mob.visible_message(span_info("[affected_mob]'s wounds steadily close over and knit together."), span_info("Your wounds continue to steadily close over and knit together."))

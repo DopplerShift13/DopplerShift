@@ -142,7 +142,7 @@
 		/datum/material/gold = SMALL_MATERIAL_AMOUNT * 2,
 	)
 
-/obj/item/computer_disk/all_of_them
+/obj/item/disk/computer/all_of_them
 	max_capacity = 128
 	starting_programs = list(
 		/datum/computer_file/program/arcade/eazy, // 6 GQ
@@ -181,7 +181,7 @@
 		"For Whom The Bell Tolls",
 	)
 
-/obj/item/computer_disk/all_of_them/Initialize(mapload)
+/obj/item/disk/computer/all_of_them/Initialize(mapload)
 	. = ..()
 	desc = "Removable disk used to store data, with a paper label adhered to the side. \
 		This one has '[pick(hackerman_bits)]' ominously written on it."

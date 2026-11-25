@@ -160,9 +160,9 @@
 		to_chat(neo, span_warning("At least one of your external data sources has been blocked from fully loading. Check domain restrictions."))
 
 	//DOPPLER EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - Handles our avatar preference disks, if present.
-	for(var/obj/item/bitrunning_disk/disk in neo.get_contents())
-		if(istype(disk, /obj/item/bitrunning_disk/preferences))
-			var/obj/item/bitrunning_disk/preferences/prefs_disk = disk
+	for(var/obj/item/disk/bitrunning/disk in neo.get_contents())
+		if(istype(disk, /obj/item/disk/bitrunning/preferences))
+			var/obj/item/disk/bitrunning/preferences/prefs_disk = disk
 			var/datum/preferences/avatar_preference = prefs_disk.chosen_preference
 
 			if(isnull(avatar_preference) || duplicate_prefs)
