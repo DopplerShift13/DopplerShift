@@ -47,6 +47,7 @@
 	body_parts_covered = CHEST|GROIN|ARMS
 	female_sprite_flags = FEMALE_UNIFORM_TOP_ONLY
 	alternate_worn_layer = UNDER_SUIT_LAYER
+	supports_variations_flags = NONE
 
 /obj/item/clothing/under/costume/seifuku/red
 	icon_state = "/obj/item/clothing/under/costume/seifuku/red"
