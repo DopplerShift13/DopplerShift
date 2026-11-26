@@ -246,10 +246,10 @@
 /// Gets the damage of the affected creature.
 /datum/action/cooldown/power/theologist/theologist_root/shared/proc/get_damage_snapshot(mob/living/carbon/subject)
 	return list(
-		"brute" = subject.getBruteLoss(),
-		"burn"  = subject.getFireLoss(),
-		"tox"   = subject.getToxLoss(),
-		"oxy"   = subject.getOxyLoss(),
+		"brute" = subject.get_brute_loss(),
+		"burn"  = subject.get_fire_loss(),
+		"tox"   = subject.get_tox_loss(),
+		"oxy"   = subject.get_oxy_loss(),
 	)
 
 /// Actually calls the proper health adjustments

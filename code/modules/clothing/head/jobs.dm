@@ -54,7 +54,7 @@
 	return locate(/mob/living/basic) in mousey_holder.contents
 
 /// Relays emotes emoted by your boss to the hat wearer for full immersion
-/obj/item/clothing/head/utility/chefhat/proc/on_mouse_emote(mob/living/source, key, emote_message, type_override)
+/obj/item/clothing/head/utility/chefhat/proc/on_mouse_emote(mob/living/source, key, emote_message, type_override, intentional, datum/emote/emote)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/wearer = loc
 	if(!wearer || INCAPACITATED_IGNORING(wearer, INCAPABLE_RESTRAINTS))
@@ -187,7 +187,6 @@
 	/// Cooldown for retrieving precious candy corn with rmb
 	COOLDOWN_DECLARE(candy_cooldown)
 
-
 /datum/armor/fedora_det_hat
 	melee = 25
 	bullet = 5
@@ -238,6 +237,12 @@
 
 /obj/item/clothing/head/fedora/det_hat/minor
 	flask_path = /obj/item/reagent_containers/cup/glass/flask/det/minor
+
+/obj/item/clothing/head/fedora/det_hat/noir
+	name = "detective's noir fedora"
+	desc = "There's only one man who can recklessly discharge a firearm into a crowded street while trying to stop a criminal, \
+		and he's likely wearing this hat."
+	icon_state = /obj/item/clothing/head/fedora::icon_state
 
 ///Detectives Fedora, but like Inspector Gadget. Not a subtype to not inherit candy corn stuff
 /obj/item/clothing/head/fedora/inspector_hat
@@ -444,6 +449,7 @@
 	worn_icon = 'icons/mob/large-worn-icons/64x64/head.dmi'
 	worn_x_dimension = 64
 	worn_y_dimension = 64
+	custom_materials = list(/datum/material/alloy/plasteel = SHEET_MATERIAL_AMOUNT * 2, /datum/material/gold = SHEET_MATERIAL_AMOUNT * 2)
 
 /obj/item/clothing/head/hats/hos/beret
 	name = "head of security's beret"
@@ -646,7 +652,7 @@
 
 /obj/item/clothing/head/utility/surgerycap/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -3) //FISH DOCTOR?!
+	AddElement(/datum/element/adjust_fishing_difficulty, -3) //FISH DOCTOR?!
 
 /obj/item/clothing/head/utility/surgerycap/attack_self(mob/user)
 	. = ..()
@@ -695,7 +701,7 @@
 
 /obj/item/clothing/head/utility/head_mirror/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -3) //FISH DOCTOR?!
+	AddElement(/datum/element/adjust_fishing_difficulty, -3) //FISH DOCTOR?!
 
 /obj/item/clothing/head/utility/head_mirror/examine(mob/user)
 	. = ..()
@@ -712,7 +718,7 @@
 	. = ..()
 	UnregisterSignal(user, COMSIG_MOB_EXAMINING_MORE)
 
-/obj/item/clothing/head/utility/head_mirror/proc/examining(mob/living/examiner, atom/examining, list/examine_list)
+/obj/item/clothing/head/utility/head_mirror/proc/examining(mob/living/examiner, atom/examining, list/examine_list, list/examine_overrides)
 	SIGNAL_HANDLER
 	if(!ishuman(examining) || examining == examiner || examiner.is_blind() || !examiner.Adjacent(examining))
 		return

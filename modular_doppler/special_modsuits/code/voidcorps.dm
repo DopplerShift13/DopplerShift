@@ -64,9 +64,9 @@
 	slowdown_deployed = 0.5
 	complexity_max = DEFAULT_MAX_COMPLEXITY + 10 // 25
 	activation_step_time = MOD_ACTIVATION_STEP_TIME * 2
+	hearing_protection = EAR_PROTECTION_FULL
 	inbuilt_modules = list(
 		/obj/item/mod/module/storage/large_capacity,
-		/obj/item/mod/module/hearing_protection,
 		/obj/item/mod/module/welding/no_overlay,
 		/obj/item/mod/module/shove_blocker/locked,
 		/obj/item/mod/module/shock_absorber,
@@ -130,7 +130,7 @@
 	desc = "An upgraded set of maneuvering thrusters designed to operate efficiently in the vacuum of space. Although powerful \
 		and purpose-built, the inertial dampeners within suffer from a poor stopping distance once the wearer is in motion."
 	drift_force = 4 NEWTONS
-	stabilizer_force = 1 NEWTONS
+	stabilize = TRUE
 	removable = FALSE
 
 /obj/item/mod/module/insignia/void

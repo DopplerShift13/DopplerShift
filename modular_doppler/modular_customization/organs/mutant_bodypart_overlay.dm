@@ -84,29 +84,6 @@
 				overlay.alpha = alpha
 
 /**
- * Helper to generate the icon_state for the bodypart_overlay we're trying to draw.
- *
- * Arguments:
- * * gender - The gender of the limb. Can be "f" or "m".
- * * image_layer - The layer on which the icon will be drawn.
- * * color_layer - The color_layer of this icon_state, if any. Should be either "primary", "secondary", "tertiary" or `null`.
- * Defaults to `null`.
- * * feature_key_suffix - A string that will be directly appended to the result
- * of `get_feature_key_for_overlay()`. Defaults to `null`.
- */
-/datum/bodypart_overlay/mutant/proc/build_icon_state(gender, image_layer, color_layer = null, feature_key_suffix = null)
-	var/list/icon_state_builder = list()
-	icon_state_builder += sprite_datum.gender_specific ? gender : "m" //Male is default because sprite accessories are so ancient they predate the concept of not hardcoding gender
-	icon_state_builder += get_feature_key_for_overlay() + feature_key_suffix
-	icon_state_builder += get_base_icon_state()
-	icon_state_builder += mutant_bodyparts_layertext(image_layer)
-	if(color_layer != MUTANT_ACCESSORY_NO_AFFIX)
-		icon_state_builder += color_layer
-	var/built_icon_state = icon_state_builder.Join("_")
-	LAZYADD(last_built_icon_states, built_icon_state)
-	return built_icon_state
-
-/**
  * Helper to generate one individual image for a multi-image overlay.
  * Very similar to get_image(), just a little simplified.
  *

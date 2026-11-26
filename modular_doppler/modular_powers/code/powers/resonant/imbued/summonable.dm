@@ -438,7 +438,7 @@
 		else
 			failed_summon.visible_message(span_warning("[failed_summon] suddenly reappears and falls face-first onto the ground!"), span_userdanger("You suddenly fall face-first onto the ground!"))
 			playsound(failed_summon, 'sound/effects/desecration/desecration-02.ogg', 75, TRUE, MEDIUM_RANGE_SOUND_EXTRARANGE)
-			failed_summon.adjustBruteLoss(5)
+			failed_summon.adjust_brute_loss(5)
 			failed_summon.Knockdown(3 SECONDS)
 	return DISPEL_RESULT_DISPELLED
 

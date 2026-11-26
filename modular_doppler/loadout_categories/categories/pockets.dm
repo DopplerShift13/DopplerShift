@@ -159,7 +159,7 @@
 
 /datum/loadout_item/pocket_items/tech/super_disk
 	name = "Bootleg Computer Programs Disk"
-	item_path = /obj/item/computer_disk/all_of_them
+	item_path = /obj/item/disk/computer/all_of_them
 
 /datum/loadout_item/pocket_items/tech/holodisk
 	name = "Holodisk"

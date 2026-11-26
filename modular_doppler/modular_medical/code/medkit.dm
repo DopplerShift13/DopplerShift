@@ -2,7 +2,7 @@
 	if(empty)
 		return
 	var/static/items_inside = list(
-		/obj/item/stack/medical/gauze = 1,
+		/obj/item/stack/medical/wrap/gauze = 1,
 		/obj/item/stack/medical/bruise_pack = 1,
 		/obj/item/storage/box/bandages = 1,
 		/obj/item/stack/medical/mesh = 1,
@@ -17,7 +17,7 @@
 		return
 	var/static/items_inside = list(
 		/obj/item/healthanalyzer/simple = 1,
-		/obj/item/stack/medical/gauze = 1,
+		/obj/item/stack/medical/wrap/gauze = 1,
 		/obj/item/storage/box/bandages = 1,
 		/obj/item/stack/medical/ointment = 1,
 		/obj/item/reagent_containers/hypospray/medipen/ekit = 2,
@@ -46,7 +46,7 @@
 	new /obj/item/reagent_containers/spray/hercuri/chilled(src) // Highly effective (specifically coded to be) against burn wounds
 	new /obj/item/reagent_containers/spray/dinitrogen_plasmide(src) // same
 	// Generic medical items
-	new /obj/item/stack/medical/gauze/twelve(src)
+	new /obj/item/stack/medical/wrap/gauze/twelve(src)
 	new /obj/item/healthanalyzer(src)
 	new /obj/item/healthanalyzer/simple(src) // Buffs wound treatment and gives details of wounds it scans
 	// "Ghetto" tools, things you shouldnt ideally use but you might have to
@@ -71,7 +71,7 @@
 	var/static/list/exception_cache = typecacheof(list(
 		// Mainly just stacks, with the exception of pill bottles and sprays
 		/obj/item/stack/cable_coil,
-		/obj/item/stack/medical/gauze,
+		/obj/item/stack/medical/wrap/gauze,
 		/obj/item/reagent_containers/spray,
 		/obj/item/stack/medical/bone_gel,
 		/obj/item/rcd_ammo,
@@ -81,7 +81,7 @@
 	var/static/list/can_hold_list = list(
 		// Stacks
 		/obj/item/stack/cable_coil,
-		/obj/item/stack/medical/gauze,
+		/obj/item/stack/medical/wrap/gauze,
 		/obj/item/stack/medical/bone_gel,
 		// Reagent containers, for synth medicine
 		/obj/item/reagent_containers/spray,
@@ -141,7 +141,7 @@
 	new /obj/item/reagent_containers/spray/hercuri/chilled(src) // Highly effective (specifically coded to be) against burn wounds
 	new /obj/item/reagent_containers/spray/dinitrogen_plasmide(src) // same
 	// Generic medical items
-	new /obj/item/stack/medical/gauze/twelve(src)
+	new /obj/item/stack/medical/wrap/gauze/twelve(src)
 	new /obj/item/healthanalyzer(src)
 	new /obj/item/healthanalyzer/simple(src) // Buffs wound treatment and gives details of wounds it scans
 	// "Ghetto" tools, things you shouldnt ideally use but you might have to
@@ -187,7 +187,7 @@
 	new /obj/item/storage/pill_bottle/liquid_solder(src) // Heals brain damage
 	new /obj/item/storage/pill_bottle/system_cleaner(src) // Heals toxin damage and purges chems
 	// Generic medical items
-	new /obj/item/stack/medical/gauze/twelve(src)
+	new /obj/item/stack/medical/wrap/gauze/twelve(src)
 	new /obj/item/healthanalyzer/advanced(src) // advanced, not a normal analyzer
 	new /obj/item/healthanalyzer/simple(src) // Buffs wound treatment and gives details of wounds it scans
 	// "Ghetto" tools, things you shouldn't ideally use but you might have to

@@ -19,7 +19,7 @@
 	reqs = list(
 		/obj/item/epic_loot/plasma_explosive = 1,
 		/obj/item/epic_loot/grenade_fuze = 1,
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 	)
 	tool_behaviors = list(
 		TOOL_SCREWDRIVER,
@@ -33,7 +33,7 @@
 	reqs = list(
 		/obj/item/epic_loot/water_filter = 1,
 		/obj/item/epic_loot/cold_weld = 1,
-		/obj/item/stack/sticky_tape = 1,
+		/obj/item/stack/medical/wrap/sticky_tape = 1,
 	)
 	tool_behaviors = list(
 		TOOL_SCREWDRIVER,

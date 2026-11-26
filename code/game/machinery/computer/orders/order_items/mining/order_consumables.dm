@@ -42,6 +42,10 @@
 	purchase_path = /obj/item/storage/box/minertracker
 	cost_per_order = 600
 
+/datum/orderable_item/consumables/deathrattle_implants
+	purchase_path = /obj/item/storage/box/minerdeathrattle
+	cost_per_order = 900
+
 // DOPPLER EDIT REMOVAL - This order isn't really good for the economy.
 /*
 /datum/orderable_item/consumables/space_cash

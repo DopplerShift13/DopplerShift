@@ -143,7 +143,7 @@
 
 /obj/item/clothing/under/shortalls/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/adjust_fishing_difficulty, -4)
+	AddElement(/datum/element/adjust_fishing_difficulty, -4)
 
 /obj/item/clothing/under/dress/skirt/medium
 	name = "medium skirt"

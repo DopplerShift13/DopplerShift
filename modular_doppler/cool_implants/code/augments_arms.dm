@@ -4,13 +4,25 @@
 	name = "wrist surgical processor"
 	desc = "A complex wrist computer that allows you to process advanced surgeries without assistance of a bulkier computer."
 	loaded_surgeries = list(
-		/datum/surgery/healing/brute/upgraded/femto,
-		/datum/surgery/healing/burn/upgraded/femto,
-		/datum/surgery/healing/combo/upgraded/femto,
-		/datum/surgery/advanced/wing_reconstruction,
-		/datum/surgery/advanced/experimental_dissection,
-		/datum/surgery/advanced/lobotomy,
-		/datum/surgery/advanced/lobotomy/mechanic,
+		/datum/surgery_operation/basic/tend_wounds/combo/upgraded/master,
+		/datum/surgery_operation/limb/bioware/cortex_folding,
+		/datum/surgery_operation/limb/bioware/cortex_folding/mechanic,
+		/datum/surgery_operation/limb/bioware/cortex_imprint,
+		/datum/surgery_operation/limb/bioware/cortex_imprint/mechanic,
+		/datum/surgery_operation/limb/bioware/ligament_hook,
+		/datum/surgery_operation/limb/bioware/ligament_hook/mechanic,
+		/datum/surgery_operation/limb/bioware/ligament_reinforcement,
+		/datum/surgery_operation/limb/bioware/ligament_reinforcement/mechanic,
+		/datum/surgery_operation/limb/bioware/muscled_veins,
+		/datum/surgery_operation/limb/bioware/muscled_veins/mechanic,
+		/datum/surgery_operation/limb/bioware/nerve_grounding,
+		/datum/surgery_operation/limb/bioware/nerve_grounding/mechanic,
+		/datum/surgery_operation/limb/bioware/nerve_splicing,
+		/datum/surgery_operation/limb/bioware/nerve_splicing/mechanic,
+		/datum/surgery_operation/limb/bioware/vein_threading,
+		/datum/surgery_operation/limb/bioware/vein_threading/mechanic,
+		/datum/surgery_operation/organ/pacify,
+		/datum/surgery_operation/organ/pacify/mechanic,
 	)
 
 /obj/item/organ/cyberimp/arm/toolkit/arm_surgery_computer

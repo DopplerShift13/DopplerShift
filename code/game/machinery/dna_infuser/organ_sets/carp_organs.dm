@@ -90,7 +90,7 @@
 	head.unarmed_sharpness = initial(head.unarmed_sharpness)
 
 // DOPPLER REMOVAL START: carp infusion changes (don't cough up random carp teeth)
-/*/obj/item/organ/tongue/carp/on_life(seconds_per_tick, times_fired)
+/*/obj/item/organ/tongue/carp/on_life(seconds_per_tick)
 	. = ..()
 	if(owner.stat != CONSCIOUS || !prob(0.1))
 		return
@@ -121,6 +121,7 @@
 	greyscale_config = /datum/greyscale_config/mutant_organ
 	greyscale_colors = CARP_COLORS
 	can_smoothen_out = FALSE
+	shade_color = "blue"
 
 	///Timer counting down. When finished, the owner gets a bad moodlet.
 	var/cooldown_timer

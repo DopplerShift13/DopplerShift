@@ -135,7 +135,7 @@
 	worn_icon = 'modular_doppler/hearthkin/primitive_genemod/icons/clothing_greyscale.dmi'
 	icon_state = "/obj/item/clothing/shoes/winterboots/ice_boots/primitive_genemod_boots"
 	post_init_icon_state = "boots"
-	supports_variations_flags = CLOTHING_NO_VARIATION
+	supports_variations_flags = NONE
 	supported_bodyshapes = null
 	bodyshape_icon_files = null
 	greyscale_config = /datum/greyscale_config/primitive_genemod_boots

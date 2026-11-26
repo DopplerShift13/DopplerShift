@@ -106,7 +106,7 @@
 //		/obj/item/reagent_containers/spray/dinitrogen_plasmide = 2,
 		/obj/item/clothing/gloves/color/black = 2, // fire resistant, allows the robo to painlessly mold metal. also it's down here because it's a treatment item
 		/obj/item/bonesetter = 2, // for dislocations
-		/obj/item/stack/medical/gauze = 4, // for ALL wounds
+		/obj/item/stack/medical/wrap/gauze = 4, // for ALL wounds
 		/obj/item/healthanalyzer/simple = 2,
 		/obj/item/storage/backpack/custom = 2,
 		/obj/item/storage/backpack/satchel/custom = 2,

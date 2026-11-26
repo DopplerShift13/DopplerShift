@@ -147,8 +147,8 @@
 		return 0
 
 	// Gets and sets how much brute and burn damage there is to heal.
-	var/brute_damage = owner.getBruteLoss()
-	var/burn_damage = owner.getFireLoss()
+	var/brute_damage = owner.get_brute_loss()
+	var/burn_damage = owner.get_fire_loss()
 
 	// Basically heal the full-amount unless there's both damage-types, in which case we split the heal.
 	var/healing_per_type = brute_damage > 0 && burn_damage > 0 ? healing_amount * 0.5 : healing_amount

@@ -194,9 +194,9 @@
 	playsound(target, 'sound/effects/magic/magic_block_holy.ogg', 75, TRUE)
 	//If the mob is in the unholy mob typecache, they take more damage from smite.
 	if(is_type_in_typecache(target, GLOB.unholy_mobs))
-		target.adjustFireLoss(smite_damage + unholy_smite_bonus)
+		target.adjust_fire_loss(smite_damage + unholy_smite_bonus)
 	else
-		target.adjustFireLoss(smite_damage)
+		target.adjust_fire_loss(smite_damage)
 	to_chat(target, span_userdanger("You are knocked back by a burning, resonant energy!"))
 	return TRUE
 

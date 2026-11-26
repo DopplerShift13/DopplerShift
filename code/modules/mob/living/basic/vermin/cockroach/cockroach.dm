@@ -111,6 +111,7 @@
 		for(var/mob/living/mob_in_turf in messy_turf)
 			mob_in_turf.visible_message(span_danger("[mob_in_turf] is splattered with blood!"), span_userdanger("You're splattered with blood!"))
 			mob_in_turf.add_blood_DNA(list("Non-human DNA" = random_human_blood_type()))
+			mob_in_turf.add_mood_event("splattered_with_blood", /datum/mood_event/splattered_with_blood)
 			playsound(mob_in_turf, 'sound/effects/splat.ogg', 50, TRUE, extrarange = SILENCED_SOUND_EXTRARANGE)
 	return ..()
 
@@ -163,7 +164,7 @@
 			empulse(src, 1, 3)
 
 	living_target.visible_message(span_danger("[living_target] steps onto [cockroach]'s back-plate!"), span_userdanger("You step onto [cockroach]'s back-plate!"))
-	src.adjustBruteLoss(10) //need to do this to ensure it dies
+	src.adjust_brute_loss(10) //need to do this to ensure it dies
 	return TRUE //NONMODULAR DOPPLER EDIT END
 
 
@@ -255,4 +256,3 @@
 	maxHealth = 2
 	minion_path = null
 	gold_core_spawnable = NO_SPAWN
-

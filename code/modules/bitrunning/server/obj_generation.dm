@@ -79,7 +79,7 @@
 
 	var/obj/item/card/id/outfit_id = avatar.wear_id
 	if(outfit_id)
-		outfit_id.registered_account = new()
+		outfit_id.set_account(new /datum/bank_account)
 		outfit_id.registered_account.replaceable = FALSE
 
 		SSid_access.apply_trim_to_card(outfit_id, /datum/id_trim/bit_avatar)
@@ -133,7 +133,7 @@
 
 /// Scans over neo's contents for bitrunning tech disks. Loads the items or abilities onto the avatar.
 /obj/machinery/quantum_server/proc/stock_gear(mob/living/carbon/human/avatar, mob/living/carbon/human/neo, datum/lazy_template/virtual_domain/generated_domain)
-	var/domain_forbids_flags = generated_domain.external_load_flags
+	var/domain_forbids_flags = generated_domain.domain_flags
 
 	//DOPPLER EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - Track if we've used multiple avatar preference disks, for avoiding overrides and displaying the failure message.
 	var/duplicate_prefs = FALSE
@@ -160,9 +160,9 @@
 		to_chat(neo, span_warning("At least one of your external data sources has been blocked from fully loading. Check domain restrictions."))
 
 	//DOPPLER EDIT ADDITION BEGIN - BITRUNNING_PREFS_DISKS - Handles our avatar preference disks, if present.
-	for(var/obj/item/bitrunning_disk/disk in neo.get_contents())
-		if(istype(disk, /obj/item/bitrunning_disk/preferences))
-			var/obj/item/bitrunning_disk/preferences/prefs_disk = disk
+	for(var/obj/item/disk/bitrunning/disk in neo.get_contents())
+		if(istype(disk, /obj/item/disk/bitrunning/preferences))
+			var/obj/item/disk/bitrunning/preferences/prefs_disk = disk
 			var/datum/preferences/avatar_preference = prefs_disk.chosen_preference
 
 			if(isnull(avatar_preference) || duplicate_prefs)

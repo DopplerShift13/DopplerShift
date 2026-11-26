@@ -9,7 +9,7 @@
 	access = ACCESS_BIT_DEN
 	access_view = ACCESS_BIT_DEN
 	contains = list(
-		/obj/item/bitrunning_disk/preferences,
+		/obj/item/disk/bitrunning/preferences,
 		/obj/item/storage/cans/sixgamerdrink,
 		/obj/item/folder/gamer,
 		/obj/item/towel,

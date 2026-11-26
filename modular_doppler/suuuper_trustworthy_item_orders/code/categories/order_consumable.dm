@@ -38,7 +38,7 @@
 
 /datum/orderable_item/grey_market_consumables/glowstick
 	name = "Sticky Tape"
-	purchase_path = /obj/item/stack/sticky_tape
+	purchase_path = /obj/item/stack/medical/wrap/sticky_tape
 	cost_per_order = 20
 
 /datum/orderable_item/grey_market_consumables/toner

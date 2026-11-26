@@ -1,7 +1,7 @@
 <p align="center">
 	<img width="500" height="150" alt="doppler_banner_shadow" src="https://github.com/user-attachments/assets/19afba8f-724e-4949-8712-0483459fd716" />
 </p>
-
+i love upstream but i would never ever merge a parity PR
 ## Doppler Shift, a [Science Fantasy](https://en.wikipedia.org/wiki/Science_fantasy) fork of [/tg/station](https://github.com/tgstation/tgstation) for SS13 
 
 [![resentment](.github/images/badges/built-with-resentment.svg)](.github/images/comics/131-bug-free.png) [![technical debt](.github/images/badges/contains-technical-debt.svg)](.github/images/comics/106-tech-debt-modified.png) [![forinfinityandbyond](.github/images/badges/made-in-byond.gif)](https://www.reddit.com/r/SS13/comments/5oplxp/what_is_the_main_problem_with_byond_as_an_engine/dclbu1a)

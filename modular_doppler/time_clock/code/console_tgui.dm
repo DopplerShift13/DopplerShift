@@ -84,7 +84,7 @@
 
 /obj/machinery/time_clock/ui_data(mob/user)
 	var/data = list()
-	data["current_time"] = station_time_timestamp()
+	data["current_time"] = round_timestamp()
 
 	if(inserted_id)
 		data["insert_id_cooldown"] = id_cooldown_check()

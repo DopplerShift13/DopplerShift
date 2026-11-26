@@ -34,7 +34,7 @@
 	///Cooldown timer between pings.
 	COOLDOWN_DECLARE(ping_cooldown)
 
-/datum/computer_file/program/chatclient/on_install(datum/computer_file/source, obj/item/modular_computer/computer_installing)
+/datum/computer_file/program/chatclient/on_install(datum/computer_file/source, obj/item/modular_computer/computer_installing, mob/user)
 	. = ..()
 	if(!username)
 		username = "DefaultUser[rand(100, 999)]"
@@ -79,7 +79,7 @@
 			// DOPPLER ADDITION BEGIN: notification on NTNRC messages
 			var/list/datum/computer_file/program/chatclient/clients_to_ping = list()
 			clients_to_ping += channel.active_clients
-			var/pretty_message = "\[[station_time_timestamp(format = "hh:mm")]\] <i>\[[LOWER_TEXT(channel.title)]\]</i> <b>[username]</b>: [message]"
+			var/pretty_message = "\[[round_timestamp(format = "hh:mm")]\] <i>\[[LOWER_TEXT(channel.title)]\]</i> <b>[username]</b>: [message]"
 			for (var/datum/computer_file/program/chatclient/chatter in clients_to_ping)
 				if (chatter.computer)
 					chatter.computer.alert_call(src, pretty_message, sound = 'modular_doppler/chatroom_soul/sound/irc_chat_alert.ogg', internal = TRUE)

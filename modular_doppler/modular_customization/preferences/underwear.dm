@@ -6,14 +6,14 @@
 
 /datum/controller/subsystem/accessories/setup_lists()
 	. = ..()
-	var/bra_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/bra)
+	var/bra_lists = init_sprite_accessory_subtypes(/datum/sprite_accessory/clothing/bra)
 	bra_list = bra_lists["default_sprites"]
 	bra_m = bra_lists["male_sprites"]
 	bra_f = bra_lists["female_sprites"]
 
 /datum/outfit
 	/// Underwear and bras are separated
-	var/datum/sprite_accessory/bra = null
+	var/datum/sprite_accessory/clothing/bra = null
 
 /datum/preference/choiced/socks/compile_constant_data()
 	var/list/data = ..()
@@ -102,5 +102,5 @@
 
 /datum/preference/choiced/bra/create_informed_default_value(datum/preferences/preferences)
 	if(preferences.read_preference(/datum/preference/choiced/gender) == FEMALE)
-		return /datum/sprite_accessory/bra/sports_bra::name
-	return /datum/sprite_accessory/bra/nude::name
+		return /datum/sprite_accessory/clothing/bra/sports_bra::name
+	return /datum/sprite_accessory/clothing/bra/nude::name
