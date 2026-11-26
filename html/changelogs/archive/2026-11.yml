@@ -33,3 +33,11 @@
   bearrrrrrrr:
   - rscadd: modular tile combat clickies - while on harm intent w/ combat indicator
       up you will attack whoever is on the tile you click
+2026-11-26:
+  TheOneAndOnlyCreeperJoe:
+  - rscadd: Two new upgrades to Focused Block. One focused on perfect-timed parries,
+      the other on holding your ground.
+  - balance: Focused Block now lasts 4 seconds (up from 1.5) and gives a flat 90%
+      block chance that decays over its duration.
+  - balance: Focused Block no longer has prerequisites, only costs 4 (previously 6)
+      and now has a cooldown of 10 seconds (down from 12)
