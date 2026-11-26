@@ -1,0 +1,6 @@
+author: "TheOneAndOnlyCreeperJoe"
+delete-after: True
+changes:
+  - rscadd: "Two new upgrades to Focused Block. One focused on perfect-timed parries, the other on holding your ground."
+  - balance: "Focused Block now lasts 4 seconds (up from 1.5) and gives a flat 90% block chance that decays over its duration."
+  - balance: "Focused Block no longer has prerequisites, only costs 4 (previously 6) and now has a cooldown of 10 seconds (down from 12)"
