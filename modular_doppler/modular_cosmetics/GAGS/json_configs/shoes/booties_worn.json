@@ -1,0 +1,10 @@
+{
+	"booties": [
+		{
+			"type": "icon_state",
+			"icon_state": "booties",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}
