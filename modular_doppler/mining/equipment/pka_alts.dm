@@ -1,4 +1,4 @@
-//pka alts, ported from bubberstation. includes some lore rewrites in the desc and a couple of balance changes (only 10 damage on the pistol?!)
+//pka alts, ported from bubberstation, originally from monke. includes some lore rewrites in the desc and a couple of balance changes (only 10 damage on the pistol?!)
 //the shockwave is inaccessible because it seems incredibly unfun unless you load it up with a very specific modset, and also very unfun to play vs
 
 //Proto-Kinetic Accelerators
@@ -12,7 +12,6 @@
 	base_icon_state = "kineticrailgun"
 	inhand_icon_state = "kineticgun"
 	w_class = WEIGHT_CLASS_HUGE
-	pin = /obj/item/firing_pin/explorer/mining
 	recharge_time = 3 SECONDS
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/railgun)
 	item_flags = NONE
@@ -99,7 +98,6 @@
 	icon_state = "kineticglauncher"
 	base_icon_state = "kineticglauncher"
 	inhand_icon_state = "kineticgun"
-	pin = /obj/item/firing_pin/explorer/mining
 	recharge_time = 2 SECONDS
 	ammo_type = list(/obj/item/ammo_casing/energy/kinetic/m79)
 	item_flags = NONE
