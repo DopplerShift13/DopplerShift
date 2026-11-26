@@ -166,6 +166,22 @@
 	greyscale_colors = "#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
 
+/obj/item/clothing/neck/cloak/collared_mantle
+	name = "collared mantle"
+	icon = 'icons/map_icons/clothing/neck.dmi'
+	icon_state = "/obj/item/clothing/neck/collared_mantle"
+	post_init_icon_state = "collared_mantle"
+	greyscale_config = /datum/greyscale_config/collared_mantle
+	greyscale_config_worn = /datum/greyscale_config/collared_mantle/worn
+	greyscale_colors = "#ffffff#ffffff#ffffff#ffffff"
+	flags_1 = IS_PLAYER_COLORABLE_1
+	body_parts_covered = CHEST/ARMS
+	cold_protection = CHEST|ARMS
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+
+/obj/item/clothing/neck/cloak/collared_mantle/Initialize(mapload)
+	. = ..()
+	AddComponent(/datum/component/toggle_icon, "buttons")
 
 ///////////
 //SCARVES//

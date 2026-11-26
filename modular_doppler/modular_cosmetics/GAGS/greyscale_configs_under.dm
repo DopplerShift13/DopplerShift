@@ -539,3 +539,13 @@
 /datum/greyscale_config/nautical_shorts/worn/digi
 	name = "Nautical Shorts (Worn, Digi)"
 	icon_file = 'modular_doppler/modular_cosmetics/icons/mob/under/miscellania_digi.dmi'
+
+/datum/greyscale_config/sheep_bodysuit
+	name = "Sheep Bodysuit"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/under.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/sheep_bodysuit.json'
+
+/datum/greyscale_config/sheep_bodysuit/worn
+	name = "Sheep Bodysuit (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/under.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/under/sheep_bodysuit.json'

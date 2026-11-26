@@ -189,7 +189,7 @@
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/suit.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/apron_worn.json'
 
-// Fancy labcoat
+// Labcoats
 
 /datum/greyscale_config/fancy_labcoat
 	name = "Fancy Suit"
@@ -205,6 +205,16 @@
 	name = "Fancy Suit (Worn, Teshari)"
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/suit.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/fancy_labcoat_tesh_worn.json'
+
+/datum/greyscale_config/recolorable_labcoat
+	name = "Labcoat (Recolorable)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/suit.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/recolorable_labcoat.json'
+
+/datum/greyscale_config/recolorable_labcoat/worn
+	name = "Labcoat (Worn, Recolorable)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/suit.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/suit/recolorable_labcoat_worn.json'
 
 // Marsian Fashion
 

@@ -113,6 +113,10 @@
 	name = "Shoulder Cloak (Red Mars)"
 	item_path = /obj/item/clothing/neck/cloak/shoulder_cloak_redmars
 
+/datum/loadout_item/neck/cape/collared_mantle
+	name = "Collared Mantle"
+	item_path = /obj/item/clothing/neck/cloak/collared_mantle
+
 /**
  * SCARVES
  */

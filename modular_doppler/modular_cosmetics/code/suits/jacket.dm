@@ -633,3 +633,48 @@
 	greyscale_config_worn = /datum/greyscale_config/redmars_overalls_helmet/worn
 	greyscale_colors = "#ffffff#ffffff"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/suit/hooded/doppler/sheep_bodysuit
+	name = "sheep bodysuit"
+	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/under.dmi'
+	icon_state = "/obj/item/clothing/suit/hooded/doppler/sheep_bodysuit"
+	post_init_icon_state = "sheep_bodysuit"
+	greyscale_config = /datum/greyscale_config/sheep_bodysuit
+	greyscale_config_worn = /datum/greyscale_config/sheep_bodysuit/worn
+	greyscale_colors = "#ffffff"
+	cold_protection = CHEST|GROIN
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags_1 = IS_PLAYER_COLORABLE_1
+	pocket_storage_type = null
+	hoodtype = /obj/item/clothing/head/hooded/sheep_hood
+
+/obj/item/clothing/suit/hooded/doppler/sheep_bodysuit/set_greyscale(list/colors, new_config, new_worn_config, new_inhand_left, new_inhand_right)
+	. = ..()
+	if(!hood)
+		return
+	var/list/hoodie_colors = SSgreyscale.ParseColorString(greyscale_colors)
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+	hood.update_slot_icon()
+
+/obj/item/clothing/suit/hooded/doppler/sheep_bodysuit/on_hood_created(obj/item/clothing/head/hooded/hood)
+	. = ..()
+	var/list/hoodie_colors = (SSgreyscale.ParseColorString(greyscale_colors))
+	var/list/new_hoodie_colors = hoodie_colors.Copy(1)
+	hood.set_greyscale(new_hoodie_colors)
+
+/obj/item/clothing/head/hooded/sheep_hood
+	name = "sheep bodysuit hood"
+	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
+	icon_state = "/obj/item/clothing/head/hooded/sheep_hood"
+	post_init_icon_state = "sheep_hood"
+	body_parts_covered = HEAD
+	cold_protection = HEAD
+	min_cold_protection_temperature = FIRE_SUIT_MIN_TEMP_PROTECT
+	flags_1 = IS_PLAYER_COLORABLE_1
+	flags_inv = HIDEEARS
+	hair_mask = /datum/hair_mask/winterhood
+	armor_type = /datum/armor/hooded_winterhood
+	greyscale_config = /datum/greyscale_config/sheep_hood
+	greyscale_config_worn = /datum/greyscale_config/sheep_hood/worn
+	greyscale_colors = "#ffffff"

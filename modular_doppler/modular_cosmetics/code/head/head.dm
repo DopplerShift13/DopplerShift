@@ -31,6 +31,18 @@
 	icon = 'modular_doppler/modular_cosmetics/icons/obj/head/hoods.dmi'
 	worn_icon = 'modular_doppler/modular_cosmetics/icons/mob/head/hoods.dmi'
 
+/obj/item/clothing/head/hooded/sheep_hood
+	name = "sheep bodysuit hood"
+	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
+	icon_state = "sheep_hood"
+	greyscale_config = /datum/greyscale_config/sheep_hood
+	greyscale_config_worn = /datum/greyscale_config/sheep_hood/worn
+	greyscale_colors = "#ffffff"
+	body_parts_covered = HEAD
+	flags_inv = HIDEEARS
+	flags_1 = IS_PLAYER_COLORABLE_1
+
 /obj/item/clothing/head/cap_colonysec
 	name = "security colonial cap"
 	desc = "The day security raided your department was the most important day of your life. But for me? It was tuesday."
