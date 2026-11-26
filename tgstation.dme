@@ -7936,6 +7936,7 @@
 #include "modular_doppler\ntnrc_for_all\code\ss_modular_computers_edits.dm"
 #include "modular_doppler\ntnrc_for_all\code\username_prefs.dm"
 #include "modular_doppler\obj_flags_doppler\code\objs.dm"
+#include "modular_doppler\objects_and_structures\code\flags.dm"
 #include "modular_doppler\objects_and_structures\code\flora.dm"
 #include "modular_doppler\objects_and_structures\code\icemoon_tiles.dm"
 #include "modular_doppler\objects_and_structures\code\mannequin.dm"
