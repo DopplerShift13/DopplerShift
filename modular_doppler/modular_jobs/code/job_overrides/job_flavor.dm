@@ -81,3 +81,14 @@
 
 /datum/job/cyborg
 	description = "Assist the crew, follow your laws, coordinate with the AI."
+
+
+/**
+ * DEPARTMENTLESS
+ * This is part of the re-lore for Passenger.
+ * Assistants aren't assisting anymore, now that Roustabouts are in.
+ */
+
+/datum/job/assistant
+	description = "Board the Nine Lives Promenade without any work obligations. \
+	Complain about how scary the world is, and do nothing to fix it."

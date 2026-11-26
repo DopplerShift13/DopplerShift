@@ -25,19 +25,16 @@
 
 /datum/job/assistant
 	alt_titles = list(
-		JOB_ASSISTANT,
-		"Artist",
-		"Businessperson",
-		"Civilian",
-		"Entertainer",
-		"Freelancer",
-		"Tourist",
-		"Trader",
+		JOB_PASSENGER,
 		"Off-Duty Crew",
-		"Off-Duty Staff",
-		"Colonist",
 		"Visitor",
-		"Guest",
+		"Colonist",
+		"Civilian",
+		"Freelancer",
+		"Businessperson",
+		"Artist",
+		"Trader",
+		"Entertainer",
 	)
 
 /datum/job/roustabout

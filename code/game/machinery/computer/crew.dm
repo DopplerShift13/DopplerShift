@@ -117,6 +117,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 		JOB_SECURITY_OFFICER_SUPPLY = 16,
 		JOB_SECURITY_GUARD_SUPPLY = 16, // DOPPLER EDIT ADDITION - Security Lore Rework
 		JOB_DETECTIVE = 17,
+		JOB_INVESTIGATOR = 17, // DOPPLER EDIT ADDITION - Security Lore Rework
 		// 20-29: Medbay
 		JOB_CHIEF_MEDICAL_OFFICER = 20,
 		JOB_CHEMIST = 21,
@@ -172,6 +173,7 @@ GLOBAL_DATUM_INIT(crewmonitor, /datum/crewmonitor, new)
 
 		// ANYTHING ELSE = UNKNOWN_JOB_ID, Unknowns/custom jobs will appear after civilians, and before assistants
 		JOB_ASSISTANT = 999,
+		JOB_PASSENGER = 999 // DOPPLER EDIT ADDITION - Assistants No Longer Assist
 	)
 
 /datum/crewmonitor/ui_interact(mob/user, datum/tgui/ui)
