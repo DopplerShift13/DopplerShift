@@ -1,0 +1,10 @@
+{
+	"sheep_hood": [
+		{
+			"type": "icon_state",
+			"icon_state": "sheep_hood",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

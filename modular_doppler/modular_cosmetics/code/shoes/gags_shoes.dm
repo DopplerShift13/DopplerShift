@@ -97,3 +97,17 @@
 	)
 	greyscale_colors = "#e8dccf#292929#cfdbe8"
 	flags_1 = IS_PLAYER_COLORABLE_1
+
+/obj/item/clothing/shoes/booties
+	name = "booties"
+	icon = 'icons/map_icons/clothing/shoes.dmi'
+	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/shoes.dmi'
+	icon_state = "/obj/item/clothing/shoes/booties"
+	post_init_icon_state = "booties"
+	greyscale_colors = "#2b2b2b"
+	greyscale_config = /datum/greyscale_config/booties
+	greyscale_config_worn = /datum/greyscale_config/booties/worn
+	greyscale_config_worn_bodyshapes = list(
+		BODYSHAPE_HUMANOID_T = /datum/greyscale_config/booties/worn,
+	)
+	flags_1 = IS_PLAYER_COLORABLE_1

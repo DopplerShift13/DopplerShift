@@ -1,0 +1,18 @@
+{
+	"recolorable_labcoat": [
+		{
+			"type": "icon_state",
+			"icon_state": "recolorable_labcoat",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	],
+	"recolorable_labcoat_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "recolorable_labcoat_t",
+			"blend_mode": "overlay",
+			"color_ids": [ 1 ]
+		}
+	]
+}

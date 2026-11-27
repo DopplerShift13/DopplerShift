@@ -758,6 +758,23 @@
 	hair_appendages_inner = list("hair_gorgon_a1" = HAIR_APPENDAGE_FRONT)
 	hair_appendages_outer = list("hair_gorgon_a1o" = HAIR_APPENDAGE_FRONT)
 
+/datum/sprite_accessory/hair/modular/tussled_short
+	name = "Tussled Short"
+	icon_state = "hair_tussled_short"
+
+/datum/sprite_accessory/hair/modular/frayed_short
+	name = "Frayed Short"
+	icon_state = "hair_frayed_short"
+
+/datum/sprite_accessory/hair/modular/curly_updo
+	name = "Curly Updo"
+	icon_state = "hair_curly_updo"
+
+/datum/sprite_accessory/hair/modular/longer_curly_updo
+	name = "Longer Curly Updo"
+	icon_state = "hair_longer_curly_updo"
+
+
 // Facial hair
 
 /datum/sprite_accessory/facial_hair/modular

@@ -21,6 +21,16 @@
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/hood_worn.json'
 
+/datum/greyscale_config/sheep_hood
+	name = "Sheep Hood"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/head.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/sheep_hood.json'
+
+/datum/greyscale_config/sheep_hood/worn
+	name = "Sheep Hood (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/head.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/head/sheep_hood_worn.json'
+
 
 //BOWS
 /datum/greyscale_config/large_bow

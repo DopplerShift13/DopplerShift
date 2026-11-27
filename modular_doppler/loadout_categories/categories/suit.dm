@@ -457,6 +457,10 @@
 	name = "High-neck Labcoat (Science)"
 	item_path = /obj/item/clothing/suit/toggle/labcoat/fancy/scientist
 
+/datum/loadout_item/suit/lab/recolorable_labcoat
+	name = "Labcoat (Colorable)"
+	item_path = /obj/item/clothing/suit/toggle/labcoat/recolorable_labcoat
+
 /**
  * TOPS
  */
@@ -585,3 +589,7 @@
 /datum/loadout_item/suit/misc/redmars_overalls
 	name = "Thermally-Insulated Work Overalls (Red Mars)"
 	item_path = /obj/item/clothing/suit/hooded/doppler/redmars_overalls
+
+/datum/loadout_item/suit/misc/sheep_bodysuit
+	name = "Sheep Bodysuit (Colorable)"
+	item_path = /obj/item/clothing/suit/hooded/doppler/sheep_bodysuit

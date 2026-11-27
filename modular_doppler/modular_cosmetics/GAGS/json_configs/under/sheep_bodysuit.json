@@ -1,0 +1,18 @@
+{
+	"sheep_bodysuit": [
+		{
+			"type": "icon_state",
+			"icon_state": "sheep_bodysuit",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	],
+	"sheep_bodysuit_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "sheep_bodysuit_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		}
+	]
+}

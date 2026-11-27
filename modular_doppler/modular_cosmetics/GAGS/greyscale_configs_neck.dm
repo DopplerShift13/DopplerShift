@@ -131,6 +131,15 @@
 	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
 	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/shoulder_cloak_redmars_worn.json'
 
+/datum/greyscale_config/collared_mantle
+	name = "Collared Mantle"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/collared_mantle.json'
+
+/datum/greyscale_config/collared_mantle/worn
+	name = "Collared Mantle (Worn)"
+	icon_file = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/neck.dmi'
+	json_config = 'modular_doppler/modular_cosmetics/GAGS/json_configs/neck/collared_mantle_worn.json'
 
 ///////////
 //SCARVES//

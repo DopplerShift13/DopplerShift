@@ -1,0 +1,36 @@
+{
+	"collared_mantle": [
+		{
+			"type": "icon_state",
+			"icon_state": "collared_mantle_outer",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "collared_mantle_buttons",
+			"blend_mode": "overlay",
+			"color_ids": [2]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "collared_mantle_patches",
+			"blend_mode": "overlay",
+			"color_ids": [3]
+		}
+	],
+	"collared_mantle_t": [
+		{
+			"type": "icon_state",
+			"icon_state": "collared_mantle_outer_t",
+			"blend_mode": "overlay",
+			"color_ids": [1]
+		},
+		{
+			"type": "icon_state",
+			"icon_state": "collared_mantle_inner_t",
+			"blend_mode": "overlay",
+			"color_ids": [4]
+		}
+	]
+}
