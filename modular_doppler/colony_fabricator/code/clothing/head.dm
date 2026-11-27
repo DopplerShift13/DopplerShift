@@ -82,7 +82,7 @@
 /obj/item/clothing/head/frontier_headscarf
 	name = "frontier headscarf"
 	desc = "A casual wrapping of fabric to keep the sunlight off your head, or just for style."
-	icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing.dmi'
+	icon = 'icons/map_icons/clothing/head/_head.dmi'
 	worn_icon = 'modular_doppler/colony_fabricator/icons/clothes/clothing_worn.dmi'
 	icon_state = "/obj/item/clothing/head/frontier_headscarf"
 	inhand_icon_state = null
