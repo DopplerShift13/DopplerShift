@@ -45,6 +45,9 @@
 	end_sound = 'sound/machines/generator/generator_end.ogg'
 	volume = 40
 
+/datum/looping_sound/generator/luxury
+	extra_range = -14
+
 /datum/looping_sound/deep_fryer
 	start_sound = 'sound/machines/fryer/deep_fryer_immerse.ogg' //my immersions
 	start_length = 1 SECONDS
