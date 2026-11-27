@@ -8,6 +8,13 @@
 	description = "Sometimes, a more aggressive form of action is required. Decisive ramming into boarding is how the Piledriver was meant to operate. \
 		Such crews are often hunted, and directly killed by 4CA Void Corps interceptors before performing their raids."
 
+/datum/map_template/ruin/space/doppler/tunnelrock
+	id = "tunnelrock"
+	suffix = "tunnelrock.dmm"
+	name = "Tunnelrock Mining Installation"
+	description = "A mining installation built into a hollowed-out asteroid, serving as one part of a long chain of installations for resource manufacturing. \
+		Comms have been dark ever since Anchorbreak, but nobody's been able to check up on them. Perhaps you should."
+
 // New 9LP lore that buoys are always launched in groups of nine, for good luck
 
 /datum/map_template/ruin/space/doppler/anchor_buoy

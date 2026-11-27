@@ -1,0 +1,3545 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aj" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"ak" = (
+/obj/structure/window/fulltile/salvage_shuttle,
+/obj/machinery/door/poddoor/shutters/window{
+	id = "minewindows"
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/open/floor/plating/nanocarbon,
+/area/ruin/space/has_grav)
+"al" = (
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"am" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"ao" = (
+/obj/item/ammo_casing,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"av" = (
+/obj/structure/fluff/clockwork/clockgolem_remains,
+/turf/open/floor/bronze/filled,
+/area/ruin/space/has_grav)
+"aQ" = (
+/obj/structure/shuttle_decoration/headlight/directional/north,
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"ba" = (
+/obj/effect/decal/cleanable/blood/gibs/core,
+/obj/effect/decal/cleanable/blood/gibs{
+	icon_state = "gib3"
+	},
+/obj/effect/decal/cleanable/blood/gibs{
+	icon_state = "gib6"
+	},
+/obj/item/chair/greyscale{
+	pixel_x = -1;
+	pixel_y = 14
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"be" = (
+/turf/closed/mineral/random,
+/turf/template_noop,
+/area/ruin/space)
+"bj" = (
+/obj/structure/stone_tile/block,
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"bH" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 6
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space)
+"bO" = (
+/obj/machinery/conveyor/auto{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"bW" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 5
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space)
+"cI" = (
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav)
+"dh" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav)
+"dn" = (
+/obj/structure/stone_tile/slab,
+/turf/open/floor/stone,
+/area/ruin/space/has_grav)
+"dr" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 4
+	},
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"dE" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"dI" = (
+/obj/machinery/door/airlock/spacer/glass,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"dK" = (
+/obj/structure/stone_tile/block{
+	dir = 1
+	},
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"dP" = (
+/obj/structure/fluff/clockwork/clockgolem_remains,
+/obj/structure/stone_tile/block,
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"er" = (
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"eB" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav/powered)
+"eO" = (
+/obj/item/ammo_casing,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"eX" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 5
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav/powered)
+"fh" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 5
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/has_grav/powered)
+"fl" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"fo" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"fG" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"fU" = (
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"fV" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 9
+	},
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/ruin/space/has_grav/powered)
+"gd" = (
+/obj/structure/platform/cult,
+/obj/structure/spawner/ice_moon/demonic_portal{
+	pixel_x = 0;
+	pixel_y = 19;
+	layer = 2.91
+	},
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"ge" = (
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/storage/box/spaceman_ration/plants/lizard,
+/obj/item/storage/box/spaceman_ration/plants/lizard,
+/obj/item/storage/box/spaceman_ration/plants/mothic,
+/obj/item/storage/box/spaceman_ration/plants/mothic,
+/obj/effect/turf_decal/siding/dark,
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"gQ" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"gZ" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 10
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space)
+"ho" = (
+/turf/open/misc/asteroid/basalt/airless,
+/area/ruin/space)
+"hu" = (
+/obj/structure/fluff/tram_rail/anchor,
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/colony/texture/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"hx" = (
+/obj/item/chair/greyscale{
+	pixel_x = 11;
+	pixel_y = 16
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"hE" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/stairs/airless,
+/area/ruin/space/has_grav)
+"hS" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/obj/structure/cable/multilayer/multiz,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"ia" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black,
+/obj/structure/titanium_structure,
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav/powered)
+"iH" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"iT" = (
+/obj/effect/decal/cleanable/blood/gibs,
+/obj/effect/decal/cleanable/blood/gibs{
+	icon_state = "gib5"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"iZ" = (
+/obj/machinery/vending/snack,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"jd" = (
+/obj/item/gun/ballistic/automatic/karim/unrestricted/no_mag{
+	pixel_x = -3;
+	pixel_y = 11
+	},
+/obj/item/ammo_box/magazine/karim/spawns_empty{
+	pixel_x = -16;
+	pixel_y = -6
+	},
+/obj/effect/mob_spawn/corpse/human/miner/mod,
+/obj/item/ammo_casing,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter4"
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor6"
+	},
+/obj/item/ammo_casing,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"je" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 8
+	},
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"jn" = (
+/obj/machinery/mineral/ore_redemption/offstation,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav)
+"jr" = (
+/obj/structure/window/fulltile/salvage_shuttle,
+/obj/machinery/door/poddoor/shutters/window{
+	id = "minewindows"
+	},
+/turf/open/floor/plating/nanocarbon,
+/area/ruin/space/has_grav)
+"jy" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"jB" = (
+/obj/effect/spawner/structure/flipped_table{
+	dir = 8
+	},
+/obj/effect/mob_spawn/corpse/human/miner/explorer,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor7"
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"jK" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"jU" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"jZ" = (
+/turf/closed/mineral/strong/red{
+	baseturfs = /turf/open/misc/asteroid/airless
+	},
+/area/ruin/space)
+"kl" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 1
+	},
+/obj/structure/titanium_structure,
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav/powered)
+"kp" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"kS" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4{
+	dir = 8
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"kU" = (
+/obj/structure/tank_dispenser/oxygen,
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"lc" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"lB" = (
+/turf/closed/wall/tomb,
+/area/ruin/space)
+"lQ" = (
+/obj/effect/decal/cleanable/blood{
+	icon_state = "gib1"
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"lW" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/yellow,
+/turf/open/floor/plating/nanocarbon/exterior/yellow,
+/area/ruin/space/has_grav/powered)
+"lZ" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"mx" = (
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"mK" = (
+/obj/machinery/power/smes/full,
+/obj/structure/cable,
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav)
+"mR" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 4
+	},
+/obj/structure/fluff/tram_rail/end{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/west,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"nu" = (
+/obj/structure/stone_tile/block,
+/obj/structure/wall_torch/spawns_lit/directional/east,
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"nx" = (
+/turf/open/floor/bronze/filled,
+/area/ruin/space/has_grav)
+"nG" = (
+/obj/structure/stone_tile/slab,
+/obj/effect/mob_spawn/corpse/human/damaged,
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"nX" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 6
+	},
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"oh" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/structure/maintenance_loot_structure/large_crate/engineering/airdrop,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"ow" = (
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"oy" = (
+/obj/structure/closet/crate/bin{
+	pixel_x = 0;
+	pixel_y = 12
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/item/gps/spaceruin,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"oR" = (
+/obj/structure/maintenance_loot_structure/large_crate/engineering/airdrop,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"pq" = (
+/obj/structure/toilet/greyscale{
+	dir = 8;
+	pixel_x = 3;
+	pixel_y = 7
+	},
+/obj/structure/fluff/shower_drain,
+/obj/structure/curtain,
+/obj/machinery/shower/directional/north,
+/obj/machinery/light/small/dim/directional/east,
+/turf/open/floor/plastic,
+/area/ruin/space/has_grav)
+"pB" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 4
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"qf" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"qi" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 1
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"qo" = (
+/obj/structure/sink/cycler/directional/north,
+/turf/open/floor/plastic,
+/area/ruin/space/has_grav)
+"qw" = (
+/obj/machinery/computer/order_console/mining,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"qI" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 1
+	},
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/ruin/space/has_grav/powered)
+"qT" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav/powered)
+"ra" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 6
+	},
+/obj/structure/lattice,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space)
+"rf" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"rh" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"rk" = (
+/obj/structure/window/fulltile/salvage_shuttle,
+/obj/machinery/door/poddoor/shutters/window{
+	id = "minewindows"
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/south,
+/turf/open/floor/plating/nanocarbon,
+/area/ruin/space/has_grav)
+"rR" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"su" = (
+/obj/machinery/portable_atmospherics/canister/oxygen,
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"sx" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"sI" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/closed/mineral/random,
+/area/ruin/space)
+"tb" = (
+/turf/closed/wall/tomb,
+/area/ruin/space/has_grav)
+"tn" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"tz" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav/powered)
+"tL" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"tS" = (
+/obj/machinery/door/airlock/spacer,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"ub" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/machinery/conveyor_switch{
+	pixel_x = 0;
+	pixel_y = 22
+	},
+/turf/open/floor/plating,
+/area/ruin/space/has_grav)
+"uk" = (
+/obj/structure/shelf,
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"va" = (
+/obj/structure/shuttle_access_panel,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/layer_manifold/general/hidden,
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav)
+"vm" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/effect/spawner/random/salvage/crate_or_cargo/salvage,
+/obj/structure/cable,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"vC" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 8
+	},
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav/powered)
+"vJ" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 6
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"wH" = (
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/ammo_casing,
+/obj/item/storage/box/spaceman_ration/meats,
+/obj/item/storage/box/spaceman_ration/meats/lizard,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"wV" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 1
+	},
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"xm" = (
+/obj/machinery/light/red/directional/west,
+/turf/template_noop,
+/area/template_noop)
+"ym" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/stairs/airless,
+/area/ruin/space/has_grav)
+"yM" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 10
+	},
+/obj/structure/lattice,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space)
+"yS" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 9
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space)
+"yY" = (
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"zk" = (
+/obj/item/ammo_box/magazine/karim{
+	pixel_x = 1;
+	pixel_y = 6
+	},
+/obj/item/ammo_box/magazine/karim{
+	pixel_x = 6;
+	pixel_y = -2
+	},
+/obj/item/ammo_box/magazine/karim{
+	pixel_x = 9;
+	pixel_y = 6
+	},
+/obj/item/ammo_box/magazine/karim{
+	pixel_x = -3;
+	pixel_y = 0
+	},
+/obj/structure/cable,
+/obj/structure/table/reinforced,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"zu" = (
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"zw" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 6
+	},
+/obj/structure/lattice,
+/turf/template_noop,
+/area/ruin/space/has_grav/powered)
+"zA" = (
+/obj/machinery/light/directional/west,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"zJ" = (
+/obj/structure/fluff/tram_rail,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/west,
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/colony/texture/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"zK" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav)
+"zQ" = (
+/obj/machinery/atmospherics/components/tank/air,
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav)
+"zV" = (
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"zW" = (
+/turf/closed/mineral/random,
+/area/ruin/space)
+"zX" = (
+/obj/effect/spawner/structure/flipped_table{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Aa" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"Aj" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
+/obj/structure/cable,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"At" = (
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"AK" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 1
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav/powered)
+"AP" = (
+/obj/structure/platform/iron,
+/obj/item/coin/adamantine,
+/obj/item/coin/adamantine{
+	pixel_x = -6;
+	pixel_y = 2
+	},
+/obj/item/coin/adamantine{
+	pixel_x = 6;
+	pixel_y = 0
+	},
+/obj/item/coin/adamantine{
+	pixel_x = 3;
+	pixel_y = 9
+	},
+/obj/item/coin/adamantine{
+	pixel_x = -4;
+	pixel_y = 5
+	},
+/turf/open/floor/stone,
+/area/ruin/space/has_grav)
+"AV" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 9
+	},
+/obj/structure/lattice,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space)
+"Bc" = (
+/obj/item/gun/energy/plasmacutter/adv{
+	pixel_x = -22;
+	pixel_y = -16
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Bi" = (
+/turf/template_noop,
+/area/template_noop)
+"Bj" = (
+/obj/structure/cable,
+/obj/machinery/power/rtg/advanced,
+/obj/machinery/power/terminal,
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav)
+"Bw" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"BC" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black,
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav/powered)
+"Cq" = (
+/obj/machinery/door/airlock/external/glass,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"CE" = (
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 1
+	},
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"CI" = (
+/obj/structure/fluff/tram_rail{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/west,
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/iron/colony/texture/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"CY" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"Dg" = (
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/turf/open/floor/plating/nanocarbon/airless,
+/area/ruin/space)
+"Dy" = (
+/obj/structure/shelf,
+/obj/effect/turf_decal/siding/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"DJ" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 6
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"DM" = (
+/obj/structure/necropolis_gate,
+/obj/structure/necropolis_arch,
+/obj/structure/fans/tiny/invisible,
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"DV" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 9
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"Ed" = (
+/obj/structure/stone_tile/block,
+/obj/structure/wall_torch/spawns_lit/directional/west,
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"Ey" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"EO" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 9
+	},
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/ruin/space/has_grav/powered)
+"ES" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"EV" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/yellow{
+	dir = 4
+	},
+/turf/open/floor/plating/nanocarbon/exterior/yellow,
+/area/ruin/space)
+"EZ" = (
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
+/obj/structure/railing/eva_handhold/directional/east,
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"Fb" = (
+/obj/structure/closet/sleeping_compartment,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Fc" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 10
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"Fd" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Fg" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Fq" = (
+/obj/structure/chair/pew/left{
+	dir = 1
+	},
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"Fw" = (
+/obj/structure/fluff/tram_rail/end,
+/turf/template_noop,
+/area/ruin/space/has_grav/powered)
+"FI" = (
+/obj/structure/fluff/tram_rail,
+/turf/open/floor/iron/colony/texture/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"Gc" = (
+/obj/structure/stone_tile/block{
+	dir = 1
+	},
+/obj/structure/wall_torch/spawns_lit/directional/north,
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"Gk" = (
+/obj/machinery/door/airlock/external/glass,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"Gt" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 8
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"GG" = (
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"GL" = (
+/obj/machinery/vending/cigarette,
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"GZ" = (
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/item/chair/greyscale{
+	pixel_x = -5;
+	pixel_y = 16
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Ha" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/yellow,
+/obj/structure/titanium_structure,
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/yellow,
+/area/ruin/space/has_grav/powered)
+"Hn" = (
+/obj/machinery/conveyor/auto/inverted{
+	dir = 5
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"HA" = (
+/obj/effect/decal/cleanable/blood/gibs/down,
+/obj/effect/decal/cleanable/blood/gibs{
+	icon_state = "gibbearcore"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/mob/living/basic/fleshblob,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"HJ" = (
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space/has_grav)
+"HZ" = (
+/obj/effect/turf_decal/siding/wideplating/dark/corner,
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"Im" = (
+/obj/item/ammo_casing,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "trails_2";
+	dir = 8
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor5"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"Io" = (
+/obj/machinery/suit_storage_unit/industrial/loader,
+/obj/machinery/light/directional/north,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Is" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/yellow{
+	dir = 1
+	},
+/turf/open/floor/plating/nanocarbon/exterior/yellow,
+/area/ruin/space/has_grav/powered)
+"Iz" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/anchor,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"IA" = (
+/obj/effect/mob_spawn/corpse/human/minesite/overseer,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "trails_2";
+	dir = 6
+	},
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor2"
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"IO" = (
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "splatter1"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/mob/living/basic/flesh_spider,
+/obj/machinery/light/directional/east,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"IP" = (
+/obj/machinery/conveyor/auto,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"IX" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"Jp" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 8
+	},
+/obj/structure/shuttle_decoration/wall_plate/gold_foil{
+	dir = 4
+	},
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"JB" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"JD" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/components/binary/volume_pump/on,
+/turf/open/floor/plating/airless,
+/area/ruin/space/has_grav)
+"JF" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Kg" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav)
+"KJ" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"KL" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/structure/maintenance_loot_structure/large_crate/military,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"KZ" = (
+/obj/structure/shuttle_decoration/wall_plate/gold_foil,
+/turf/closed/wall/prefab_plastic,
+/area/ruin/space/has_grav)
+"Lb" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 8
+	},
+/obj/structure/cable/multilayer/multiz,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/ruin/space)
+"Ln" = (
+/obj/machinery/conveyor/auto{
+	dir = 8
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"LH" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/plasticflaps/colony,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/template_noop,
+/area/ruin/space/has_grav)
+"LK" = (
+/obj/machinery/suit_storage_unit/industrial,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"LS" = (
+/obj/structure/platform/cult,
+/obj/item/resurrection_crystal{
+	pixel_x = 0;
+	pixel_y = 15
+	},
+/turf/open/floor/stone,
+/area/ruin/space/has_grav)
+"LU" = (
+/obj/structure/platform/iron,
+/obj/item/coin/adamantine{
+	pixel_x = 2;
+	pixel_y = -1
+	},
+/obj/item/coin/adamantine{
+	pixel_x = -6;
+	pixel_y = -1
+	},
+/obj/item/coin/adamantine{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/obj/item/coin/adamantine{
+	pixel_x = 5;
+	pixel_y = 5
+	},
+/turf/open/floor/stone,
+/area/ruin/space/has_grav)
+"Ma" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav)
+"Me" = (
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/item/chair/greyscale{
+	pixel_x = 8;
+	pixel_y = 8
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"MH" = (
+/obj/structure/fluff/tram_rail/anchor,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
+/obj/machinery/light/red/directional/south,
+/turf/open/floor/iron/colony/texture/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"MM" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 5
+	},
+/obj/structure/lattice,
+/turf/open/misc/asteroid/airless,
+/area/ruin/space)
+"Ni" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 1
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/powered)
+"Nj" = (
+/obj/structure/titanium_structure,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"Nq" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/obj/structure/cable/multilayer/multiz,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"Nz" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 10
+	},
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/ruin/space/has_grav/powered)
+"NP" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 10
+	},
+/turf/closed/wall/mineral/nanocarbon/black,
+/area/ruin/space/has_grav/powered)
+"NT" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/yellow{
+	dir = 1
+	},
+/obj/structure/titanium_structure,
+/obj/structure/railing/eva_handhold/directional/north,
+/turf/open/floor/plating/nanocarbon/exterior/yellow,
+/area/ruin/space/has_grav/powered)
+"Om" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 4
+	},
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav/powered)
+"OO" = (
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/structure/table/reinforced,
+/obj/structure/cable,
+/obj/item/storage/fancy/coffee_cart_rack{
+	pixel_x = 8;
+	pixel_y = 3
+	},
+/obj/item/storage/fancy/coffee_condi_display{
+	pixel_x = -4;
+	pixel_y = 6
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"OU" = (
+/obj/structure/stone_tile/slab,
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"Pk" = (
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/yellow{
+	dir = 4
+	},
+/obj/structure/railing/eva_handhold/directional/east,
+/turf/open/floor/plating/nanocarbon/exterior/yellow,
+/area/ruin/space)
+"Pp" = (
+/obj/structure/chair/pew/right{
+	dir = 1
+	},
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"PM" = (
+/obj/structure/maintenance_loot_structure/large_crate/engineering/airdrop,
+/turf/closed/mineral/random,
+/area/ruin/space)
+"Qq" = (
+/obj/machinery/conveyor/auto{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"QE" = (
+/obj/machinery/conveyor/auto/inverted{
+	dir = 9
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"QK" = (
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/effect/turf_decal/siding/dark,
+/obj/machinery/light/directional/south,
+/obj/machinery/button/door/directional/south{
+	name = "Windows";
+	id = "minewindows"
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Re" = (
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/open/floor/plating/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"Rg" = (
+/obj/structure/platform/iron,
+/obj/effect/decal/cleanable/ash/large{
+	layer = 3;
+	pixel_x = 0;
+	pixel_y = 6
+	},
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"RD" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"RZ" = (
+/turf/open/misc/ashplanet{
+	planetary_atmos = 0
+	},
+/area/ruin/space)
+"Sa" = (
+/obj/item/ammo_casing,
+/obj/structure/closet/crate/cardboard/mothic,
+/obj/item/storage/box/mothic_rations,
+/obj/item/storage/box/mothic_rations,
+/obj/item/storage/box/spaceman_ration/plants/alternate,
+/obj/item/storage/box/spaceman_ration/plants,
+/obj/effect/turf_decal/siding/dark,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Sf" = (
+/obj/structure/titanium_structure,
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 4
+	},
+/obj/structure/railing/eva_handhold/directional/east,
+/turf/open/floor/plating/nanocarbon/exterior/black,
+/area/ruin/space)
+"Sx" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/iron/colony/texture/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"SU" = (
+/obj/machinery/power/apc/auto_name/directional/north,
+/obj/effect/mapping_helpers/apc/unlocked,
+/obj/structure/cable,
+/turf/open/floor/plating,
+/area/ruin/space/has_grav)
+"Tr" = (
+/obj/item/ammo_box/magazine/karim/spawns_empty,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"Uc" = (
+/turf/open/misc/asteroid/airless,
+/area/ruin/space/has_grav/powered)
+"Up" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 6
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space/has_grav/powered)
+"UB" = (
+/obj/effect/spawner/structure/flipped_table{
+	dir = 8
+	},
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"Vc" = (
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"Vi" = (
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Vo" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/structure/fluff/tram_rail/anchor,
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"Vz" = (
+/obj/item/kirbyplants/synthetic,
+/obj/effect/turf_decal/siding/dark{
+	dir = 6
+	},
+/obj/machinery/light/directional/south,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"VO" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic{
+	dir = 10
+	},
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"VQ" = (
+/obj/machinery/conveyor/auto,
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space)
+"VS" = (
+/obj/structure/shelf,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Wb" = (
+/obj/structure/shuttle_decoration/wall_plate/plastamic,
+/turf/closed/wall/mineral/aluminum,
+/area/ruin/space/has_grav)
+"Wv" = (
+/obj/structure/platform/iron,
+/obj/item/reagent_containers/cup/glass/bottle{
+	pixel_x = -4;
+	pixel_y = 12
+	},
+/obj/item/nullrod/tribal_knife{
+	pixel_x = 6;
+	pixel_y = 6
+	},
+/turf/open/floor/cult,
+/area/ruin/space/has_grav)
+"WA" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/obj/machinery/airalarm/directional/north,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"WO" = (
+/obj/structure/fluff/tram_rail/anchor{
+	dir = 1
+	},
+/obj/structure/shuttle_decoration/eva_catwalks/directional/east,
+/obj/machinery/light/red/directional/north,
+/turf/open/floor/iron/colony/texture/nanocarbon/airless,
+/area/ruin/space/has_grav/powered)
+"WQ" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/black{
+	dir = 4
+	},
+/turf/closed/wall/mineral/nanocarbon/nodiagonal/black,
+/area/ruin/space)
+"WR" = (
+/obj/effect/decal/cleanable/blood/gibs{
+	icon_state = "gib3"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 8
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"WZ" = (
+/obj/machinery/atmospherics/components/unary/vent_pump/on/layer4,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon/airless,
+/area/ruin/space/has_grav)
+"Xi" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 1
+	},
+/obj/effect/spawner/random/salvage/crate_or_cargo/salvage,
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Xl" = (
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"Xy" = (
+/obj/structure/shuttle_decoration/wall_plate/nanocarbon/diagonal/yellow,
+/obj/structure/titanium_structure,
+/obj/structure/railing/eva_handhold/directional/south,
+/turf/open/floor/plating/nanocarbon/exterior/yellow,
+/area/ruin/space)
+"XR" = (
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 9
+	},
+/obj/machinery/light/directional/west,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"XY" = (
+/obj/effect/turf_decal/siding/wideplating/dark{
+	dir = 5
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon/airless,
+/area/ruin/space)
+"Yf" = (
+/obj/structure/fluff/tram_rail/end{
+	dir = 2
+	},
+/obj/structure/fluff/tram_rail/end{
+	dir = 1
+	},
+/turf/template_noop,
+/area/ruin/space/has_grav/powered)
+"Yo" = (
+/obj/effect/mob_spawn/corpse/human/miner/explorer,
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/effect/decal/cleanable/blood,
+/obj/effect/spawner/structure/flipped_table{
+	dir = 8
+	},
+/obj/item/gun/energy/plasmacutter/adv{
+	pixel_x = 15;
+	pixel_y = 6
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/iron/colony/texture/nanocarbon,
+/area/ruin/space/has_grav)
+"YQ" = (
+/obj/structure/cable,
+/obj/structure/table/reinforced,
+/obj/machinery/coffeemaker{
+	pixel_x = -2;
+	pixel_y = 9
+	},
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/obj/effect/turf_decal/siding/dark{
+	dir = 1
+	},
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"Zb" = (
+/obj/structure/window/green_glass_pane,
+/turf/closed/wall/tomb,
+/area/ruin/space/has_grav)
+"Zr" = (
+/obj/item/ammo_casing,
+/obj/item/ammo_casing,
+/obj/effect/decal/cleanable/blood{
+	icon_state = "floor7"
+	},
+/obj/effect/turf_decal/siding/dark{
+	dir = 4
+	},
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+"Zs" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/smart/manifold4w/supply/hidden/layer4,
+/mob/living/basic/fleshblob,
+/turf/open/floor/catwalk_floor/colony_fabricator/nanocarbon,
+/area/ruin/space/has_grav)
+"ZS" = (
+/turf/open/misc/asteroid/airless,
+/area/ruin/space)
+"ZW" = (
+/obj/effect/turf_decal/siding/wideplating/dark,
+/mob/living/simple_animal/hostile/ooze/gelatinous,
+/turf/open/floor/iron/colony/bolts/nanocarbon,
+/area/ruin/space/has_grav)
+
+(1,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(2,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(3,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(4,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(5,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(6,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(7,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+yS
+Lb
+Dg
+Lb
+Dg
+Lb
+Dg
+Lb
+gZ
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(8,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+bW
+WQ
+Pk
+EV
+Sf
+EV
+Pk
+WQ
+bH
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(9,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+Vc
+DV
+Vc
+Gt
+Vc
+Gt
+Vc
+Gt
+Vc
+Fc
+zW
+zW
+zW
+zW
+PM
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+"}
+(10,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+yY
+dr
+dr
+KZ
+yM
+Vc
+Hn
+IP
+IP
+IP
+IP
+IP
+VQ
+QE
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+"}
+(11,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+KZ
+Bj
+mK
+fl
+Xy
+gQ
+bO
+HZ
+Vc
+lc
+Vc
+lc
+Vc
+Qq
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(12,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+ho
+ho
+ho
+ho
+zW
+zW
+zW
+KZ
+cI
+JD
+va
+lZ
+IX
+bO
+Vc
+ZS
+ZS
+AV
+qf
+aQ
+LH
+yY
+yY
+yY
+yY
+yY
+yY
+yY
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+"}
+(13,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+ho
+ho
+ho
+lB
+lB
+lB
+ho
+zW
+zW
+KZ
+zQ
+cI
+fl
+Xy
+gQ
+Ln
+rR
+ZS
+ZS
+CE
+Nj
+yY
+dh
+ub
+Xi
+fU
+aj
+KL
+oR
+yY
+yY
+zW
+Bi
+Bi
+Bi
+Bi
+"}
+(14,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+ho
+ho
+lB
+RZ
+RZ
+RZ
+RZ
+ho
+ho
+zW
+yY
+je
+Jp
+nX
+ra
+Vc
+Ln
+Vc
+Vc
+Vc
+qi
+ow
+yY
+dh
+Ma
+tn
+KJ
+ZW
+JF
+Vi
+oR
+yY
+zW
+zW
+Bi
+Bi
+Bi
+"}
+(15,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+ho
+ho
+lB
+RZ
+RZ
+RZ
+ho
+ho
+ho
+zW
+zW
+zW
+dE
+ZS
+ZS
+XY
+lc
+DJ
+ZS
+ZS
+CE
+Nj
+yY
+jn
+Kg
+vm
+KJ
+JB
+JF
+Vi
+qw
+yY
+zW
+zW
+Bi
+Bi
+Bi
+"}
+(16,1,1) = {"
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+ho
+ho
+ho
+ho
+ho
+ho
+ho
+zW
+zW
+zW
+zW
+zu
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+MM
+Ey
+aQ
+SU
+zK
+Fg
+KJ
+CY
+oh
+oR
+yY
+yY
+zW
+zW
+Bi
+Bi
+Bi
+"}
+(17,1,1) = {"
+Bi
+Bi
+Bi
+zW
+zW
+zW
+tb
+Zb
+Zb
+tb
+tb
+tb
+Zb
+Zb
+tb
+zW
+zW
+zW
+dE
+ZS
+ZS
+ZS
+ZS
+jZ
+jZ
+ZS
+ZS
+fo
+yY
+yY
+yY
+iH
+dI
+pB
+yY
+yY
+yY
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+"}
+(18,1,1) = {"
+Bi
+Bi
+Bi
+zW
+zW
+tb
+tb
+Gc
+al
+Ed
+Fq
+Ed
+Fq
+bj
+tb
+tb
+zW
+zW
+be
+ZS
+ZS
+ZS
+jZ
+jZ
+jZ
+ZS
+ZS
+jU
+At
+WZ
+rh
+XR
+KJ
+jK
+su
+yY
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(19,1,1) = {"
+Bi
+Bi
+Bi
+zW
+zW
+Zb
+LU
+dK
+Wv
+bj
+Pp
+bj
+Pp
+bj
+av
+tb
+ym
+ym
+ym
+ym
+ZS
+ZS
+ZS
+ZS
+jZ
+ZS
+ZS
+jU
+At
+At
+Cq
+sx
+KJ
+Xl
+kU
+yY
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(20,1,1) = {"
+Bi
+Bi
+Bi
+zW
+zW
+Zb
+LS
+dK
+gd
+nG
+OU
+OU
+OU
+OU
+dn
+DM
+hE
+hE
+hE
+ZS
+ZS
+jZ
+jZ
+ZS
+ZS
+ZS
+ZS
+fo
+yY
+yY
+yY
+iH
+dI
+pB
+yY
+yY
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(21,1,1) = {"
+Bi
+Bi
+Bi
+zW
+zW
+Zb
+AP
+dK
+Rg
+bj
+Fq
+bj
+Fq
+dP
+nx
+tb
+hE
+hE
+sI
+ZS
+ZS
+jZ
+jZ
+jZ
+ZS
+ZS
+ZS
+ES
+aQ
+iT
+WR
+ba
+HA
+fG
+hx
+yY
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(22,1,1) = {"
+Bi
+Bi
+Bi
+zW
+zW
+tb
+tb
+Gc
+al
+nu
+Pp
+nu
+Pp
+bj
+tb
+tb
+zW
+zW
+zW
+ZS
+ZS
+ZS
+jZ
+ZS
+ZS
+ZS
+ZS
+wV
+yY
+WA
+lQ
+jB
+UB
+zX
+Sa
+yY
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(23,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+tb
+Zb
+Zb
+tb
+tb
+tb
+Zb
+Zb
+tb
+zW
+zW
+zW
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+HJ
+yY
+Yo
+zX
+Bc
+Tr
+jd
+QK
+kp
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(24,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+ho
+ho
+ho
+ho
+ho
+ho
+ho
+zW
+zW
+zW
+dE
+ZS
+ZS
+ZS
+ZS
+ZS
+jZ
+jZ
+ZS
+ZS
+ES
+aQ
+Me
+IO
+Zr
+Im
+ao
+eO
+rk
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(25,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+ho
+ho
+lB
+ho
+RZ
+ho
+ho
+ho
+zW
+zW
+zu
+ZS
+ZS
+ZS
+ZS
+jZ
+jZ
+jZ
+ZS
+ZS
+fo
+yY
+iH
+iH
+VO
+IA
+zV
+wH
+rk
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(26,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+lB
+RZ
+RZ
+RZ
+RZ
+lB
+ho
+ho
+zW
+zW
+dE
+ZS
+ZS
+ZS
+ZS
+ZS
+jZ
+ZS
+ZS
+ZS
+ak
+Fb
+zA
+Fb
+jr
+zk
+GZ
+mx
+rk
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(27,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+lB
+RZ
+RZ
+RZ
+RZ
+lB
+ho
+ho
+zW
+zW
+zW
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ZS
+ak
+Fb
+GG
+Fb
+jr
+OO
+Vi
+ge
+kp
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(28,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+ho
+RZ
+lB
+ho
+ho
+ho
+zW
+zW
+zW
+zW
+zW
+EO
+NP
+Om
+Uc
+vC
+fV
+Nz
+yY
+yY
+iH
+tS
+iH
+vJ
+YQ
+Vi
+mx
+yY
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(29,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+ho
+ho
+ho
+ho
+ho
+ho
+zW
+zW
+zW
+zW
+eB
+BC
+CI
+mR
+zJ
+qI
+qT
+yY
+qo
+tS
+KJ
+KJ
+dI
+KJ
+fU
+fU
+yY
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+"}
+(30,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+ho
+ho
+ho
+ho
+ho
+zW
+zW
+zW
+zW
+hS
+tz
+rf
+Bw
+FI
+AK
+Nq
+yY
+pq
+Wb
+KJ
+Vz
+Aa
+iZ
+GL
+oy
+yY
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+"}
+(31,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+hS
+tz
+rf
+Bw
+FI
+AK
+Nq
+yY
+yY
+jy
+dI
+iH
+yY
+yY
+yY
+yY
+yY
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(32,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+er
+Ha
+Sx
+Iz
+hu
+NT
+Re
+yY
+LK
+am
+Zs
+Dy
+yY
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(33,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+hS
+lW
+rf
+Bw
+FI
+Is
+Nq
+yY
+Io
+RD
+KJ
+VS
+yY
+zW
+zW
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(34,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+zW
+hS
+tz
+rf
+Bw
+FI
+AK
+Nq
+yY
+LK
+Fd
+KJ
+uk
+yY
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(35,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+er
+ia
+Sx
+Iz
+hu
+kl
+Re
+yY
+yY
+yY
+Gk
+yY
+yY
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(36,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+zW
+hS
+lW
+rf
+Bw
+FI
+Is
+Nq
+zW
+zW
+yY
+tL
+yY
+zW
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(37,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+zW
+zW
+hS
+lW
+rf
+Bw
+FI
+Is
+Nq
+zW
+zW
+yY
+kS
+yY
+zW
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(38,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+zW
+er
+ia
+WO
+Vo
+MH
+kl
+Re
+zW
+zW
+EZ
+Aj
+EZ
+zW
+zW
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(39,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+zW
+zW
+eX
+zw
+Ni
+Yf
+Fw
+fh
+Up
+zW
+Bi
+xm
+Bi
+xm
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(40,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(41,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(42,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
+(43,1,1) = {"
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+Bi
+"}
