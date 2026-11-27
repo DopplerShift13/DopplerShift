@@ -31,15 +31,18 @@
 	desc = "Someone has taken to the task of cutting the top few buttons off this labcoat. It's particularly slutty in just the way you'd expect."
 	icon_state = "labcoat_opentop"
 
+
 /obj/item/clothing/suit/toggle/labcoat/recolorable_labcoat
 	name = "recolorable labcoat"
 	desc = "A suit that protects against minor chemical spills. This one is not greener than you'd typically expect."
 	icon = 'modular_doppler/modular_cosmetics/GAGS/icons/obj/suit.dmi'
-	icon_state = "recolorable_labcoat"
-	worn_icon = 'modular_doppler/modular_cosmetics/GAGS/icons/mob/suit.dmi'
+	icon_state = "/obj/item/clothing/suit/toggle/labcoat/fancy"
+	post_init_icon_state = "recolorable_labcoat"
+	abstract_type = /obj/item/clothing/suit/toggle/labcoat/recolorable_labcoat
 	greyscale_config = /datum/greyscale_config/recolorable_labcoat
 	greyscale_config_worn = /datum/greyscale_config/recolorable_labcoat/worn
 	greyscale_colors = "#ffffff"
+	body_parts_covered = CHEST|GROIN|ARMS|LEGS
 	flags_1 = IS_PLAYER_COLORABLE_1
 
 /obj/item/clothing/suit/toggle/labcoat/high_vis
