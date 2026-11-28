@@ -1,2 +1,3 @@
 bolt_thrower.ogg - lentikula, "Sci-Fi Weapon Shots SFX", CC0 license
 particle_cannon.ogg - lentikula, "Sci-Fi Weapon Shots SFX", CC0 license
+typewriter_click.ogg - https://freesound.org/people/BMacZero/sounds/160678/, CC0 license
